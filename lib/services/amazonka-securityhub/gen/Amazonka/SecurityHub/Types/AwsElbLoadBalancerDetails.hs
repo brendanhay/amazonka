@@ -47,8 +47,8 @@ data AwsElbLoadBalancerDetails = AwsElbLoadBalancerDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | The DNS name of the load balancer.
     dnsName :: Prelude.Maybe Prelude.Text,
@@ -107,8 +107,8 @@ data AwsElbLoadBalancerDetails = AwsElbLoadBalancerDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'dnsName', 'awsElbLoadBalancerDetails_dnsName' - The DNS name of the load balancer.
 --
@@ -187,8 +187,8 @@ awsElbLoadBalancerDetails_canonicalHostedZoneNameID = Lens.lens (\AwsElbLoadBala
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsElbLoadBalancerDetails_createdTime :: Lens.Lens' AwsElbLoadBalancerDetails (Prelude.Maybe Prelude.Text)
 awsElbLoadBalancerDetails_createdTime = Lens.lens (\AwsElbLoadBalancerDetails' {createdTime} -> createdTime) (\s@AwsElbLoadBalancerDetails' {} a -> s {createdTime = a} :: AwsElbLoadBalancerDetails)
 
@@ -256,10 +256,12 @@ instance Data.FromJSON AwsElbLoadBalancerDetails where
       "AwsElbLoadBalancerDetails"
       ( \x ->
           AwsElbLoadBalancerDetails'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "BackendServerDescriptions"
+            Prelude.<*> ( x
+                            Data..:? "BackendServerDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CanonicalHostedZoneName")
@@ -268,7 +270,8 @@ instance Data.FromJSON AwsElbLoadBalancerDetails where
             Prelude.<*> (x Data..:? "DnsName")
             Prelude.<*> (x Data..:? "HealthCheck")
             Prelude.<*> (x Data..:? "Instances" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ListenerDescriptions"
+            Prelude.<*> ( x
+                            Data..:? "ListenerDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LoadBalancerAttributes")
@@ -283,7 +286,8 @@ instance Data.FromJSON AwsElbLoadBalancerDetails where
 
 instance Prelude.Hashable AwsElbLoadBalancerDetails where
   hashWithSalt _salt AwsElbLoadBalancerDetails' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backendServerDescriptions
       `Prelude.hashWithSalt` canonicalHostedZoneName
       `Prelude.hashWithSalt` canonicalHostedZoneNameID

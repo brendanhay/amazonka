@@ -29,7 +29,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEksClusterResourcesVpcConfigDetails' smart constructor.
 data AwsEksClusterResourcesVpcConfigDetails = AwsEksClusterResourcesVpcConfigDetails'
-  { -- | The security groups that are associated with the cross-account elastic
+  { -- | Indicates whether the Amazon EKS public API server endpoint is turned
+    -- on. If the Amazon EKS public API server endpoint is turned off, your
+    -- cluster\'s Kubernetes API server can only receive requests that
+    -- originate from within the cluster VPC.
+    endpointPublicAccess :: Prelude.Maybe Prelude.Bool,
+    -- | The security groups that are associated with the cross-account elastic
     -- network interfaces that are used to allow communication between your
     -- nodes and the Amazon EKS control plane.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
@@ -46,6 +51,11 @@ data AwsEksClusterResourcesVpcConfigDetails = AwsEksClusterResourcesVpcConfigDet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpointPublicAccess', 'awsEksClusterResourcesVpcConfigDetails_endpointPublicAccess' - Indicates whether the Amazon EKS public API server endpoint is turned
+-- on. If the Amazon EKS public API server endpoint is turned off, your
+-- cluster\'s Kubernetes API server can only receive requests that
+-- originate from within the cluster VPC.
+--
 -- 'securityGroupIds', 'awsEksClusterResourcesVpcConfigDetails_securityGroupIds' - The security groups that are associated with the cross-account elastic
 -- network interfaces that are used to allow communication between your
 -- nodes and the Amazon EKS control plane.
@@ -55,10 +65,18 @@ newAwsEksClusterResourcesVpcConfigDetails ::
   AwsEksClusterResourcesVpcConfigDetails
 newAwsEksClusterResourcesVpcConfigDetails =
   AwsEksClusterResourcesVpcConfigDetails'
-    { securityGroupIds =
+    { endpointPublicAccess =
         Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
       subnetIds = Prelude.Nothing
     }
+
+-- | Indicates whether the Amazon EKS public API server endpoint is turned
+-- on. If the Amazon EKS public API server endpoint is turned off, your
+-- cluster\'s Kubernetes API server can only receive requests that
+-- originate from within the cluster VPC.
+awsEksClusterResourcesVpcConfigDetails_endpointPublicAccess :: Lens.Lens' AwsEksClusterResourcesVpcConfigDetails (Prelude.Maybe Prelude.Bool)
+awsEksClusterResourcesVpcConfigDetails_endpointPublicAccess = Lens.lens (\AwsEksClusterResourcesVpcConfigDetails' {endpointPublicAccess} -> endpointPublicAccess) (\s@AwsEksClusterResourcesVpcConfigDetails' {} a -> s {endpointPublicAccess = a} :: AwsEksClusterResourcesVpcConfigDetails)
 
 -- | The security groups that are associated with the cross-account elastic
 -- network interfaces that are used to allow communication between your
@@ -79,7 +97,9 @@ instance
       "AwsEksClusterResourcesVpcConfigDetails"
       ( \x ->
           AwsEksClusterResourcesVpcConfigDetails'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> (x Data..:? "EndpointPublicAccess")
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
@@ -92,7 +112,9 @@ instance
   hashWithSalt
     _salt
     AwsEksClusterResourcesVpcConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` securityGroupIds
+      _salt
+        `Prelude.hashWithSalt` endpointPublicAccess
+        `Prelude.hashWithSalt` securityGroupIds
         `Prelude.hashWithSalt` subnetIds
 
 instance
@@ -100,7 +122,8 @@ instance
     AwsEksClusterResourcesVpcConfigDetails
   where
   rnf AwsEksClusterResourcesVpcConfigDetails' {..} =
-    Prelude.rnf securityGroupIds
+    Prelude.rnf endpointPublicAccess
+      `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf subnetIds
 
 instance
@@ -110,7 +133,9 @@ instance
   toJSON AwsEksClusterResourcesVpcConfigDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("SecurityGroupIds" Data..=)
+          [ ("EndpointPublicAccess" Data..=)
+              Prelude.<$> endpointPublicAccess,
+            ("SecurityGroupIds" Data..=)
               Prelude.<$> securityGroupIds,
             ("SubnetIds" Data..=) Prelude.<$> subnetIds
           ]

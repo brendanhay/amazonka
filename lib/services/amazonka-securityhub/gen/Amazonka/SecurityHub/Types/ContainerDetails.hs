@@ -39,8 +39,8 @@ data ContainerDetails = ContainerDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     launchedAt :: Prelude.Maybe Prelude.Text,
     -- | The name of the container related to a finding.
     name :: Prelude.Maybe Prelude.Text,
@@ -70,8 +70,8 @@ data ContainerDetails = ContainerDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'name', 'containerDetails_name' - The name of the container related to a finding.
 --
@@ -109,8 +109,8 @@ containerDetails_imageName = Lens.lens (\ContainerDetails' {imageName} -> imageN
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 containerDetails_launchedAt :: Lens.Lens' ContainerDetails (Prelude.Maybe Prelude.Text)
 containerDetails_launchedAt = Lens.lens (\ContainerDetails' {launchedAt} -> launchedAt) (\s@ContainerDetails' {} a -> s {launchedAt = a} :: ContainerDetails)
 
@@ -144,7 +144,8 @@ instance Data.FromJSON ContainerDetails where
 
 instance Prelude.Hashable ContainerDetails where
   hashWithSalt _salt ContainerDetails' {..} =
-    _salt `Prelude.hashWithSalt` containerRuntime
+    _salt
+      `Prelude.hashWithSalt` containerRuntime
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` imageName
       `Prelude.hashWithSalt` launchedAt

@@ -88,7 +88,8 @@ instance
     AwsRedshiftClusterClusterNode
   where
   hashWithSalt _salt AwsRedshiftClusterClusterNode' {..} =
-    _salt `Prelude.hashWithSalt` nodeRole
+    _salt
+      `Prelude.hashWithSalt` nodeRole
       `Prelude.hashWithSalt` privateIpAddress
       `Prelude.hashWithSalt` publicIpAddress
 

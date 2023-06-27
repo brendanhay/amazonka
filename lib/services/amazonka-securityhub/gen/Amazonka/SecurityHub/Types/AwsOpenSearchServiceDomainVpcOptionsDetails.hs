@@ -79,10 +79,11 @@ instance
       "AwsOpenSearchServiceDomainVpcOptionsDetails"
       ( \x ->
           AwsOpenSearchServiceDomainVpcOptionsDetails'
-            Prelude.<$> ( x Data..:? "SecurityGroupIds"
+            Prelude.<$> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
       )
 
 instance
@@ -92,7 +93,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainVpcOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` securityGroupIds
+      _salt
+        `Prelude.hashWithSalt` securityGroupIds
         `Prelude.hashWithSalt` subnetIds
 
 instance

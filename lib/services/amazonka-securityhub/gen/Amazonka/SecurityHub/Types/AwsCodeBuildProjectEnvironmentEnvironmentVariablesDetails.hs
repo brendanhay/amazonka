@@ -84,8 +84,9 @@ instance
       "AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails"
       ( \x ->
           AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
-              Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -95,7 +96,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` value
 

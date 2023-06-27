@@ -40,8 +40,8 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified domain name (FQDN), such as www.example.com, that is
     -- secured by the certificate.
@@ -70,8 +70,8 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     importedAt :: Prelude.Maybe Prelude.Text,
     -- | The list of ARNs for the Amazon Web Services resources that use the
     -- certificate.
@@ -81,8 +81,8 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     issuedAt :: Prelude.Maybe Prelude.Text,
     -- | The name of the certificate authority that issued and signed the
     -- certificate.
@@ -98,15 +98,15 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     notAfter :: Prelude.Maybe Prelude.Text,
     -- | The time before which the certificate is not valid.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     notBefore :: Prelude.Maybe Prelude.Text,
     -- | Provides a value that specifies whether to add the certificate to a
     -- transparency log.
@@ -163,8 +163,8 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'domainName', 'awsCertificateManagerCertificateDetails_domainName' - The fully qualified domain name (FQDN), such as www.example.com, that is
 -- secured by the certificate.
@@ -193,8 +193,8 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'inUseBy', 'awsCertificateManagerCertificateDetails_inUseBy' - The list of ARNs for the Amazon Web Services resources that use the
 -- certificate.
@@ -204,8 +204,8 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'issuer', 'awsCertificateManagerCertificateDetails_issuer' - The name of the certificate authority that issued and signed the
 -- certificate.
@@ -221,15 +221,15 @@ data AwsCertificateManagerCertificateDetails = AwsCertificateManagerCertificateD
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'notBefore', 'awsCertificateManagerCertificateDetails_notBefore' - The time before which the certificate is not valid.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'options', 'awsCertificateManagerCertificateDetails_options' - Provides a value that specifies whether to add the certificate to a
 -- transparency log.
@@ -311,8 +311,8 @@ awsCertificateManagerCertificateDetails_certificateAuthorityArn = Lens.lens (\Aw
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsCertificateManagerCertificateDetails_createdAt :: Lens.Lens' AwsCertificateManagerCertificateDetails (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateDetails_createdAt = Lens.lens (\AwsCertificateManagerCertificateDetails' {createdAt} -> createdAt) (\s@AwsCertificateManagerCertificateDetails' {} a -> s {createdAt = a} :: AwsCertificateManagerCertificateDetails)
 
@@ -351,8 +351,8 @@ awsCertificateManagerCertificateDetails_failureReason = Lens.lens (\AwsCertifica
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsCertificateManagerCertificateDetails_importedAt :: Lens.Lens' AwsCertificateManagerCertificateDetails (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateDetails_importedAt = Lens.lens (\AwsCertificateManagerCertificateDetails' {importedAt} -> importedAt) (\s@AwsCertificateManagerCertificateDetails' {} a -> s {importedAt = a} :: AwsCertificateManagerCertificateDetails)
 
@@ -366,8 +366,8 @@ awsCertificateManagerCertificateDetails_inUseBy = Lens.lens (\AwsCertificateMana
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsCertificateManagerCertificateDetails_issuedAt :: Lens.Lens' AwsCertificateManagerCertificateDetails (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateDetails_issuedAt = Lens.lens (\AwsCertificateManagerCertificateDetails' {issuedAt} -> issuedAt) (\s@AwsCertificateManagerCertificateDetails' {} a -> s {issuedAt = a} :: AwsCertificateManagerCertificateDetails)
 
@@ -391,8 +391,8 @@ awsCertificateManagerCertificateDetails_keyUsages = Lens.lens (\AwsCertificateMa
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsCertificateManagerCertificateDetails_notAfter :: Lens.Lens' AwsCertificateManagerCertificateDetails (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateDetails_notAfter = Lens.lens (\AwsCertificateManagerCertificateDetails' {notAfter} -> notAfter) (\s@AwsCertificateManagerCertificateDetails' {} a -> s {notAfter = a} :: AwsCertificateManagerCertificateDetails)
 
@@ -400,8 +400,8 @@ awsCertificateManagerCertificateDetails_notAfter = Lens.lens (\AwsCertificateMan
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsCertificateManagerCertificateDetails_notBefore :: Lens.Lens' AwsCertificateManagerCertificateDetails (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateDetails_notBefore = Lens.lens (\AwsCertificateManagerCertificateDetails' {notBefore} -> notBefore) (\s@AwsCertificateManagerCertificateDetails' {} a -> s {notBefore = a} :: AwsCertificateManagerCertificateDetails)
 
@@ -472,10 +472,12 @@ instance
             Prelude.<$> (x Data..:? "CertificateAuthorityArn")
             Prelude.<*> (x Data..:? "CreatedAt")
             Prelude.<*> (x Data..:? "DomainName")
-            Prelude.<*> ( x Data..:? "DomainValidationOptions"
+            Prelude.<*> ( x
+                            Data..:? "DomainValidationOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ExtendedKeyUsages"
+            Prelude.<*> ( x
+                            Data..:? "ExtendedKeyUsages"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FailureReason")
@@ -494,7 +496,8 @@ instance
             Prelude.<*> (x Data..:? "SignatureAlgorithm")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "Subject")
-            Prelude.<*> ( x Data..:? "SubjectAlternativeNames"
+            Prelude.<*> ( x
+                            Data..:? "SubjectAlternativeNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Type")

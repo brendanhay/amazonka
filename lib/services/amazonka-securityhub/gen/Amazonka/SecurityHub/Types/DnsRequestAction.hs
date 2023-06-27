@@ -85,7 +85,8 @@ instance Data.FromJSON DnsRequestAction where
 
 instance Prelude.Hashable DnsRequestAction where
   hashWithSalt _salt DnsRequestAction' {..} =
-    _salt `Prelude.hashWithSalt` blocked
+    _salt
+      `Prelude.hashWithSalt` blocked
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` protocol
 

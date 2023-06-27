@@ -150,11 +150,11 @@ instance
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails'
             Prelude.<$> (x Data..:? "OnDemandAllocationStrategy")
-              Prelude.<*> (x Data..:? "OnDemandBaseCapacity")
-              Prelude.<*> (x Data..:? "OnDemandPercentageAboveBaseCapacity")
-              Prelude.<*> (x Data..:? "SpotAllocationStrategy")
-              Prelude.<*> (x Data..:? "SpotInstancePools")
-              Prelude.<*> (x Data..:? "SpotMaxPrice")
+            Prelude.<*> (x Data..:? "OnDemandBaseCapacity")
+            Prelude.<*> (x Data..:? "OnDemandPercentageAboveBaseCapacity")
+            Prelude.<*> (x Data..:? "SpotAllocationStrategy")
+            Prelude.<*> (x Data..:? "SpotInstancePools")
+            Prelude.<*> (x Data..:? "SpotMaxPrice")
       )
 
 instance

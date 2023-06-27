@@ -212,7 +212,8 @@ instance Data.FromJSON AwsCloudFormationStackDetails where
             Prelude.<*> (x Data..:? "DriftInformation")
             Prelude.<*> (x Data..:? "EnableTerminationProtection")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> ( x Data..:? "NotificationArns"
+            Prelude.<*> ( x
+                            Data..:? "NotificationArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Outputs" Data..!= Prelude.mempty)
@@ -229,7 +230,8 @@ instance
     AwsCloudFormationStackDetails
   where
   hashWithSalt _salt AwsCloudFormationStackDetails' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disableRollback

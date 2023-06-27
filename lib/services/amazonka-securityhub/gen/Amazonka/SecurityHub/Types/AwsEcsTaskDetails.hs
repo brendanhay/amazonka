@@ -164,7 +164,8 @@ instance Data.FromJSON AwsEcsTaskDetails where
 
 instance Prelude.Hashable AwsEcsTaskDetails where
   hashWithSalt _salt AwsEcsTaskDetails' {..} =
-    _salt `Prelude.hashWithSalt` clusterArn
+    _salt
+      `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` group'

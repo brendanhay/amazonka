@@ -174,13 +174,13 @@ instance
       ( \x ->
           AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails'
             Prelude.<$> (x Data..:? "AutomatedUpdateDate")
-              Prelude.<*> (x Data..:? "Cancellable")
-              Prelude.<*> (x Data..:? "CurrentVersion")
-              Prelude.<*> (x Data..:? "Description")
-              Prelude.<*> (x Data..:? "NewVersion")
-              Prelude.<*> (x Data..:? "OptionalDeployment")
-              Prelude.<*> (x Data..:? "UpdateAvailable")
-              Prelude.<*> (x Data..:? "UpdateStatus")
+            Prelude.<*> (x Data..:? "Cancellable")
+            Prelude.<*> (x Data..:? "CurrentVersion")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "NewVersion")
+            Prelude.<*> (x Data..:? "OptionalDeployment")
+            Prelude.<*> (x Data..:? "UpdateAvailable")
+            Prelude.<*> (x Data..:? "UpdateStatus")
       )
 
 instance
@@ -190,7 +190,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` automatedUpdateDate
+      _salt
+        `Prelude.hashWithSalt` automatedUpdateDate
         `Prelude.hashWithSalt` cancellable
         `Prelude.hashWithSalt` currentVersion
         `Prelude.hashWithSalt` description

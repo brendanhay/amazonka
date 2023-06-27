@@ -45,6 +45,16 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     -- | The name of the findings provider (company) that owns the solution
     -- (product) that generates findings.
     companyName :: Prelude.Maybe [StringFilter],
+    -- | The unique identifier of a standard in which a control is enabled. This
+    -- field consists of the resource portion of the Amazon Resource Name (ARN)
+    -- returned for a standard in the
+    -- <https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html DescribeStandards>
+    -- API response.
+    complianceAssociatedStandardsId :: Prelude.Maybe [StringFilter],
+    -- | The unique identifier of a control across standards. Values for this
+    -- field typically consist of an Amazon Web Service and a number, such as
+    -- APIGateway.5.
+    complianceSecurityControlId :: Prelude.Maybe [StringFilter],
     -- | Exclusive to findings that are generated as the result of a check run
     -- against a specific rule in a supported standard, such as CIS Amazon Web
     -- Services Foundations. Contains security standard-related finding
@@ -57,8 +67,13 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     -- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
     -- zero percent confidence and 100 means 100 percent confidence.
     confidence :: Prelude.Maybe [NumberFilter],
-    -- | An ISO8601-formatted timestamp that indicates when the security-findings
+    -- | An ISO8601-formatted timestamp that indicates when the security findings
     -- provider captured the potential security issue that a finding captured.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     createdAt :: Prelude.Maybe [DateFilter],
     -- | The level of importance assigned to the resources associated with the
     -- finding.
@@ -98,12 +113,17 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     -- Valid namespace values are: Software and Configuration Checks | TTPs |
     -- Effects | Unusual Behaviors | Sensitive Data Identifications
     findingProviderFieldsTypes :: Prelude.Maybe [StringFilter],
-    -- | An ISO8601-formatted timestamp that indicates when the security-findings
+    -- | An ISO8601-formatted timestamp that indicates when the security findings
     -- provider first observed the potential security issue that a finding
     -- captured.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     firstObservedAt :: Prelude.Maybe [DateFilter],
     -- | The identifier for the solution-specific component (a discrete unit of
-    -- logic) that generated a finding. In various security-findings
+    -- logic) that generated a finding. In various security findings
     -- providers\' solutions, this generator can be called a rule, a check, a
     -- detector, a plugin, etc.
     generatorId :: Prelude.Maybe [StringFilter],
@@ -111,9 +131,14 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     id :: Prelude.Maybe [StringFilter],
     -- | A keyword for a finding.
     keyword :: Prelude.Maybe [KeywordFilter],
-    -- | An ISO8601-formatted timestamp that indicates when the security-findings
+    -- | An ISO8601-formatted timestamp that indicates when the security findings
     -- provider most recently observed the potential security issue that a
     -- finding captured.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     lastObservedAt :: Prelude.Maybe [DateFilter],
     -- | The name of the malware that was observed.
     malwareName :: Prelude.Maybe [StringFilter],
@@ -154,23 +179,34 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     noteUpdatedAt :: Prelude.Maybe [DateFilter],
     -- | The principal that created a note.
     noteUpdatedBy :: Prelude.Maybe [StringFilter],
-    -- | The date\/time that the process was launched.
+    -- | A timestamp that identifies when the process was launched.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     processLaunchedAt :: Prelude.Maybe [DateFilter],
     -- | The name of the process.
     processName :: Prelude.Maybe [StringFilter],
-    -- | The parent process ID.
+    -- | The parent process ID. This field accepts positive integers between @O@
+    -- and @2147483647@.
     processParentPid :: Prelude.Maybe [NumberFilter],
     -- | The path to the process executable.
     processPath :: Prelude.Maybe [StringFilter],
     -- | The process ID.
     processPid :: Prelude.Maybe [NumberFilter],
-    -- | The date\/time that the process was terminated.
+    -- | A timestamp that identifies when the process was terminated.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     processTerminatedAt :: Prelude.Maybe [DateFilter],
     -- | The ARN generated by Security Hub that uniquely identifies a third-party
     -- company (security findings provider) after this provider\'s product
     -- (solution that generates findings) is registered with Security Hub.
     productArn :: Prelude.Maybe [StringFilter],
-    -- | A data type where security-findings providers can include additional
+    -- | A data type where security findings providers can include additional
     -- solution-specific details that aren\'t part of the defined
     -- @AwsSecurityFinding@ format.
     productFields :: Prelude.Maybe [MapFilter],
@@ -222,7 +258,12 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     resourceContainerImageId :: Prelude.Maybe [StringFilter],
     -- | The name of the image related to a finding.
     resourceContainerImageName :: Prelude.Maybe [StringFilter],
-    -- | The date\/time that the container was started.
+    -- | A timestamp that identifies when the container was started.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     resourceContainerLaunchedAt :: Prelude.Maybe [DateFilter],
     -- | The name of the container related to a finding.
     resourceContainerName :: Prelude.Maybe [StringFilter],
@@ -249,16 +290,16 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     severityLabel :: Prelude.Maybe [StringFilter],
     -- | The normalized severity of a finding.
     severityNormalized :: Prelude.Maybe [NumberFilter],
-    -- | The native severity as defined by the security-findings provider\'s
+    -- | The native severity as defined by the security findings provider\'s
     -- solution that generated the finding.
     severityProduct :: Prelude.Maybe [NumberFilter],
-    -- | A URL that links to a page about the current finding in the
-    -- security-findings provider\'s solution.
+    -- | A URL that links to a page about the current finding in the security
+    -- findings provider\'s solution.
     sourceUrl :: Prelude.Maybe [StringFilter],
     -- | The category of a threat intelligence indicator.
     threatIntelIndicatorCategory :: Prelude.Maybe [StringFilter],
-    -- | The date\/time of the last observation of a threat intelligence
-    -- indicator.
+    -- | A timestamp that identifies the last observation of a threat
+    -- intelligence indicator.
     threatIntelIndicatorLastObservedAt :: Prelude.Maybe [DateFilter],
     -- | The source of the threat intelligence.
     threatIntelIndicatorSource :: Prelude.Maybe [StringFilter],
@@ -273,8 +314,13 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
     -- | A finding type in the format of @namespace\/category\/classifier@ that
     -- classifies a finding.
     type' :: Prelude.Maybe [StringFilter],
-    -- | An ISO8601-formatted timestamp that indicates when the security-findings
+    -- | An ISO8601-formatted timestamp that indicates when the security findings
     -- provider last updated the finding record.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     updatedAt :: Prelude.Maybe [DateFilter],
     -- | A list of name\/value string pairs associated with the finding. These
     -- are custom, user-defined fields added to a finding.
@@ -348,6 +394,16 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 -- 'companyName', 'awsSecurityFindingFilters_companyName' - The name of the findings provider (company) that owns the solution
 -- (product) that generates findings.
 --
+-- 'complianceAssociatedStandardsId', 'awsSecurityFindingFilters_complianceAssociatedStandardsId' - The unique identifier of a standard in which a control is enabled. This
+-- field consists of the resource portion of the Amazon Resource Name (ARN)
+-- returned for a standard in the
+-- <https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html DescribeStandards>
+-- API response.
+--
+-- 'complianceSecurityControlId', 'awsSecurityFindingFilters_complianceSecurityControlId' - The unique identifier of a control across standards. Values for this
+-- field typically consist of an Amazon Web Service and a number, such as
+-- APIGateway.5.
+--
 -- 'complianceStatus', 'awsSecurityFindingFilters_complianceStatus' - Exclusive to findings that are generated as the result of a check run
 -- against a specific rule in a supported standard, such as CIS Amazon Web
 -- Services Foundations. Contains security standard-related finding
@@ -360,8 +416,13 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 -- Confidence is scored on a 0-100 basis using a ratio scale, where 0 means
 -- zero percent confidence and 100 means 100 percent confidence.
 --
--- 'createdAt', 'awsSecurityFindingFilters_createdAt' - An ISO8601-formatted timestamp that indicates when the security-findings
+-- 'createdAt', 'awsSecurityFindingFilters_createdAt' - An ISO8601-formatted timestamp that indicates when the security findings
 -- provider captured the potential security issue that a finding captured.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 --
 -- 'criticality', 'awsSecurityFindingFilters_criticality' - The level of importance assigned to the resources associated with the
 -- finding.
@@ -401,12 +462,17 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 -- Valid namespace values are: Software and Configuration Checks | TTPs |
 -- Effects | Unusual Behaviors | Sensitive Data Identifications
 --
--- 'firstObservedAt', 'awsSecurityFindingFilters_firstObservedAt' - An ISO8601-formatted timestamp that indicates when the security-findings
+-- 'firstObservedAt', 'awsSecurityFindingFilters_firstObservedAt' - An ISO8601-formatted timestamp that indicates when the security findings
 -- provider first observed the potential security issue that a finding
 -- captured.
 --
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
+--
 -- 'generatorId', 'awsSecurityFindingFilters_generatorId' - The identifier for the solution-specific component (a discrete unit of
--- logic) that generated a finding. In various security-findings
+-- logic) that generated a finding. In various security findings
 -- providers\' solutions, this generator can be called a rule, a check, a
 -- detector, a plugin, etc.
 --
@@ -414,9 +480,14 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 --
 -- 'keyword', 'awsSecurityFindingFilters_keyword' - A keyword for a finding.
 --
--- 'lastObservedAt', 'awsSecurityFindingFilters_lastObservedAt' - An ISO8601-formatted timestamp that indicates when the security-findings
+-- 'lastObservedAt', 'awsSecurityFindingFilters_lastObservedAt' - An ISO8601-formatted timestamp that indicates when the security findings
 -- provider most recently observed the potential security issue that a
 -- finding captured.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 --
 -- 'malwareName', 'awsSecurityFindingFilters_malwareName' - The name of the malware that was observed.
 --
@@ -457,23 +528,34 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 --
 -- 'noteUpdatedBy', 'awsSecurityFindingFilters_noteUpdatedBy' - The principal that created a note.
 --
--- 'processLaunchedAt', 'awsSecurityFindingFilters_processLaunchedAt' - The date\/time that the process was launched.
+-- 'processLaunchedAt', 'awsSecurityFindingFilters_processLaunchedAt' - A timestamp that identifies when the process was launched.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 --
 -- 'processName', 'awsSecurityFindingFilters_processName' - The name of the process.
 --
--- 'processParentPid', 'awsSecurityFindingFilters_processParentPid' - The parent process ID.
+-- 'processParentPid', 'awsSecurityFindingFilters_processParentPid' - The parent process ID. This field accepts positive integers between @O@
+-- and @2147483647@.
 --
 -- 'processPath', 'awsSecurityFindingFilters_processPath' - The path to the process executable.
 --
 -- 'processPid', 'awsSecurityFindingFilters_processPid' - The process ID.
 --
--- 'processTerminatedAt', 'awsSecurityFindingFilters_processTerminatedAt' - The date\/time that the process was terminated.
+-- 'processTerminatedAt', 'awsSecurityFindingFilters_processTerminatedAt' - A timestamp that identifies when the process was terminated.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 --
 -- 'productArn', 'awsSecurityFindingFilters_productArn' - The ARN generated by Security Hub that uniquely identifies a third-party
 -- company (security findings provider) after this provider\'s product
 -- (solution that generates findings) is registered with Security Hub.
 --
--- 'productFields', 'awsSecurityFindingFilters_productFields' - A data type where security-findings providers can include additional
+-- 'productFields', 'awsSecurityFindingFilters_productFields' - A data type where security findings providers can include additional
 -- solution-specific details that aren\'t part of the defined
 -- @AwsSecurityFinding@ format.
 --
@@ -525,7 +607,12 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 --
 -- 'resourceContainerImageName', 'awsSecurityFindingFilters_resourceContainerImageName' - The name of the image related to a finding.
 --
--- 'resourceContainerLaunchedAt', 'awsSecurityFindingFilters_resourceContainerLaunchedAt' - The date\/time that the container was started.
+-- 'resourceContainerLaunchedAt', 'awsSecurityFindingFilters_resourceContainerLaunchedAt' - A timestamp that identifies when the container was started.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 --
 -- 'resourceContainerName', 'awsSecurityFindingFilters_resourceContainerName' - The name of the container related to a finding.
 --
@@ -552,16 +639,16 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 --
 -- 'severityNormalized', 'awsSecurityFindingFilters_severityNormalized' - The normalized severity of a finding.
 --
--- 'severityProduct', 'awsSecurityFindingFilters_severityProduct' - The native severity as defined by the security-findings provider\'s
+-- 'severityProduct', 'awsSecurityFindingFilters_severityProduct' - The native severity as defined by the security findings provider\'s
 -- solution that generated the finding.
 --
--- 'sourceUrl', 'awsSecurityFindingFilters_sourceUrl' - A URL that links to a page about the current finding in the
--- security-findings provider\'s solution.
+-- 'sourceUrl', 'awsSecurityFindingFilters_sourceUrl' - A URL that links to a page about the current finding in the security
+-- findings provider\'s solution.
 --
 -- 'threatIntelIndicatorCategory', 'awsSecurityFindingFilters_threatIntelIndicatorCategory' - The category of a threat intelligence indicator.
 --
--- 'threatIntelIndicatorLastObservedAt', 'awsSecurityFindingFilters_threatIntelIndicatorLastObservedAt' - The date\/time of the last observation of a threat intelligence
--- indicator.
+-- 'threatIntelIndicatorLastObservedAt', 'awsSecurityFindingFilters_threatIntelIndicatorLastObservedAt' - A timestamp that identifies the last observation of a threat
+-- intelligence indicator.
 --
 -- 'threatIntelIndicatorSource', 'awsSecurityFindingFilters_threatIntelIndicatorSource' - The source of the threat intelligence.
 --
@@ -576,8 +663,13 @@ data AwsSecurityFindingFilters = AwsSecurityFindingFilters'
 -- 'type'', 'awsSecurityFindingFilters_type' - A finding type in the format of @namespace\/category\/classifier@ that
 -- classifies a finding.
 --
--- 'updatedAt', 'awsSecurityFindingFilters_updatedAt' - An ISO8601-formatted timestamp that indicates when the security-findings
+-- 'updatedAt', 'awsSecurityFindingFilters_updatedAt' - An ISO8601-formatted timestamp that indicates when the security findings
 -- provider last updated the finding record.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 --
 -- 'userDefinedFields', 'awsSecurityFindingFilters_userDefinedFields' - A list of name\/value string pairs associated with the finding. These
 -- are custom, user-defined fields added to a finding.
@@ -641,6 +733,9 @@ newAwsSecurityFindingFilters =
     { awsAccountId =
         Prelude.Nothing,
       companyName = Prelude.Nothing,
+      complianceAssociatedStandardsId =
+        Prelude.Nothing,
+      complianceSecurityControlId = Prelude.Nothing,
       complianceStatus = Prelude.Nothing,
       confidence = Prelude.Nothing,
       createdAt = Prelude.Nothing,
@@ -759,6 +854,20 @@ awsSecurityFindingFilters_awsAccountId = Lens.lens (\AwsSecurityFindingFilters' 
 awsSecurityFindingFilters_companyName :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_companyName = Lens.lens (\AwsSecurityFindingFilters' {companyName} -> companyName) (\s@AwsSecurityFindingFilters' {} a -> s {companyName = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
+-- | The unique identifier of a standard in which a control is enabled. This
+-- field consists of the resource portion of the Amazon Resource Name (ARN)
+-- returned for a standard in the
+-- <https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html DescribeStandards>
+-- API response.
+awsSecurityFindingFilters_complianceAssociatedStandardsId :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
+awsSecurityFindingFilters_complianceAssociatedStandardsId = Lens.lens (\AwsSecurityFindingFilters' {complianceAssociatedStandardsId} -> complianceAssociatedStandardsId) (\s@AwsSecurityFindingFilters' {} a -> s {complianceAssociatedStandardsId = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
+
+-- | The unique identifier of a control across standards. Values for this
+-- field typically consist of an Amazon Web Service and a number, such as
+-- APIGateway.5.
+awsSecurityFindingFilters_complianceSecurityControlId :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
+awsSecurityFindingFilters_complianceSecurityControlId = Lens.lens (\AwsSecurityFindingFilters' {complianceSecurityControlId} -> complianceSecurityControlId) (\s@AwsSecurityFindingFilters' {} a -> s {complianceSecurityControlId = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
+
 -- | Exclusive to findings that are generated as the result of a check run
 -- against a specific rule in a supported standard, such as CIS Amazon Web
 -- Services Foundations. Contains security standard-related finding
@@ -775,8 +884,13 @@ awsSecurityFindingFilters_complianceStatus = Lens.lens (\AwsSecurityFindingFilte
 awsSecurityFindingFilters_confidence :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [NumberFilter])
 awsSecurityFindingFilters_confidence = Lens.lens (\AwsSecurityFindingFilters' {confidence} -> confidence) (\s@AwsSecurityFindingFilters' {} a -> s {confidence = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | An ISO8601-formatted timestamp that indicates when the security-findings
+-- | An ISO8601-formatted timestamp that indicates when the security findings
 -- provider captured the potential security issue that a finding captured.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsSecurityFindingFilters_createdAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_createdAt = Lens.lens (\AwsSecurityFindingFilters' {createdAt} -> createdAt) (\s@AwsSecurityFindingFilters' {} a -> s {createdAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -836,14 +950,19 @@ awsSecurityFindingFilters_findingProviderFieldsSeverityOriginal = Lens.lens (\Aw
 awsSecurityFindingFilters_findingProviderFieldsTypes :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_findingProviderFieldsTypes = Lens.lens (\AwsSecurityFindingFilters' {findingProviderFieldsTypes} -> findingProviderFieldsTypes) (\s@AwsSecurityFindingFilters' {} a -> s {findingProviderFieldsTypes = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | An ISO8601-formatted timestamp that indicates when the security-findings
+-- | An ISO8601-formatted timestamp that indicates when the security findings
 -- provider first observed the potential security issue that a finding
 -- captured.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsSecurityFindingFilters_firstObservedAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_firstObservedAt = Lens.lens (\AwsSecurityFindingFilters' {firstObservedAt} -> firstObservedAt) (\s@AwsSecurityFindingFilters' {} a -> s {firstObservedAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the solution-specific component (a discrete unit of
--- logic) that generated a finding. In various security-findings
+-- logic) that generated a finding. In various security findings
 -- providers\' solutions, this generator can be called a rule, a check, a
 -- detector, a plugin, etc.
 awsSecurityFindingFilters_generatorId :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
@@ -857,9 +976,14 @@ awsSecurityFindingFilters_id = Lens.lens (\AwsSecurityFindingFilters' {id} -> id
 awsSecurityFindingFilters_keyword :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [KeywordFilter])
 awsSecurityFindingFilters_keyword = Lens.lens (\AwsSecurityFindingFilters' {keyword} -> keyword) (\s@AwsSecurityFindingFilters' {} a -> s {keyword = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | An ISO8601-formatted timestamp that indicates when the security-findings
+-- | An ISO8601-formatted timestamp that indicates when the security findings
 -- provider most recently observed the potential security issue that a
 -- finding captured.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsSecurityFindingFilters_lastObservedAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_lastObservedAt = Lens.lens (\AwsSecurityFindingFilters' {lastObservedAt} -> lastObservedAt) (\s@AwsSecurityFindingFilters' {} a -> s {lastObservedAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -938,7 +1062,12 @@ awsSecurityFindingFilters_noteUpdatedAt = Lens.lens (\AwsSecurityFindingFilters'
 awsSecurityFindingFilters_noteUpdatedBy :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_noteUpdatedBy = Lens.lens (\AwsSecurityFindingFilters' {noteUpdatedBy} -> noteUpdatedBy) (\s@AwsSecurityFindingFilters' {} a -> s {noteUpdatedBy = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | The date\/time that the process was launched.
+-- | A timestamp that identifies when the process was launched.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsSecurityFindingFilters_processLaunchedAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_processLaunchedAt = Lens.lens (\AwsSecurityFindingFilters' {processLaunchedAt} -> processLaunchedAt) (\s@AwsSecurityFindingFilters' {} a -> s {processLaunchedAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -946,7 +1075,8 @@ awsSecurityFindingFilters_processLaunchedAt = Lens.lens (\AwsSecurityFindingFilt
 awsSecurityFindingFilters_processName :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_processName = Lens.lens (\AwsSecurityFindingFilters' {processName} -> processName) (\s@AwsSecurityFindingFilters' {} a -> s {processName = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | The parent process ID.
+-- | The parent process ID. This field accepts positive integers between @O@
+-- and @2147483647@.
 awsSecurityFindingFilters_processParentPid :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [NumberFilter])
 awsSecurityFindingFilters_processParentPid = Lens.lens (\AwsSecurityFindingFilters' {processParentPid} -> processParentPid) (\s@AwsSecurityFindingFilters' {} a -> s {processParentPid = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -958,7 +1088,12 @@ awsSecurityFindingFilters_processPath = Lens.lens (\AwsSecurityFindingFilters' {
 awsSecurityFindingFilters_processPid :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [NumberFilter])
 awsSecurityFindingFilters_processPid = Lens.lens (\AwsSecurityFindingFilters' {processPid} -> processPid) (\s@AwsSecurityFindingFilters' {} a -> s {processPid = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | The date\/time that the process was terminated.
+-- | A timestamp that identifies when the process was terminated.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsSecurityFindingFilters_processTerminatedAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_processTerminatedAt = Lens.lens (\AwsSecurityFindingFilters' {processTerminatedAt} -> processTerminatedAt) (\s@AwsSecurityFindingFilters' {} a -> s {processTerminatedAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -968,7 +1103,7 @@ awsSecurityFindingFilters_processTerminatedAt = Lens.lens (\AwsSecurityFindingFi
 awsSecurityFindingFilters_productArn :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_productArn = Lens.lens (\AwsSecurityFindingFilters' {productArn} -> productArn) (\s@AwsSecurityFindingFilters' {} a -> s {productArn = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | A data type where security-findings providers can include additional
+-- | A data type where security findings providers can include additional
 -- solution-specific details that aren\'t part of the defined
 -- @AwsSecurityFinding@ format.
 awsSecurityFindingFilters_productFields :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [MapFilter])
@@ -1070,7 +1205,12 @@ awsSecurityFindingFilters_resourceContainerImageId = Lens.lens (\AwsSecurityFind
 awsSecurityFindingFilters_resourceContainerImageName :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_resourceContainerImageName = Lens.lens (\AwsSecurityFindingFilters' {resourceContainerImageName} -> resourceContainerImageName) (\s@AwsSecurityFindingFilters' {} a -> s {resourceContainerImageName = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | The date\/time that the container was started.
+-- | A timestamp that identifies when the container was started.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsSecurityFindingFilters_resourceContainerLaunchedAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_resourceContainerLaunchedAt = Lens.lens (\AwsSecurityFindingFilters' {resourceContainerLaunchedAt} -> resourceContainerLaunchedAt) (\s@AwsSecurityFindingFilters' {} a -> s {resourceContainerLaunchedAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -1119,13 +1259,13 @@ awsSecurityFindingFilters_severityLabel = Lens.lens (\AwsSecurityFindingFilters'
 awsSecurityFindingFilters_severityNormalized :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [NumberFilter])
 awsSecurityFindingFilters_severityNormalized = Lens.lens (\AwsSecurityFindingFilters' {severityNormalized} -> severityNormalized) (\s@AwsSecurityFindingFilters' {} a -> s {severityNormalized = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | The native severity as defined by the security-findings provider\'s
+-- | The native severity as defined by the security findings provider\'s
 -- solution that generated the finding.
 awsSecurityFindingFilters_severityProduct :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [NumberFilter])
 awsSecurityFindingFilters_severityProduct = Lens.lens (\AwsSecurityFindingFilters' {severityProduct} -> severityProduct) (\s@AwsSecurityFindingFilters' {} a -> s {severityProduct = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | A URL that links to a page about the current finding in the
--- security-findings provider\'s solution.
+-- | A URL that links to a page about the current finding in the security
+-- findings provider\'s solution.
 awsSecurityFindingFilters_sourceUrl :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_sourceUrl = Lens.lens (\AwsSecurityFindingFilters' {sourceUrl} -> sourceUrl) (\s@AwsSecurityFindingFilters' {} a -> s {sourceUrl = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -1133,8 +1273,8 @@ awsSecurityFindingFilters_sourceUrl = Lens.lens (\AwsSecurityFindingFilters' {so
 awsSecurityFindingFilters_threatIntelIndicatorCategory :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_threatIntelIndicatorCategory = Lens.lens (\AwsSecurityFindingFilters' {threatIntelIndicatorCategory} -> threatIntelIndicatorCategory) (\s@AwsSecurityFindingFilters' {} a -> s {threatIntelIndicatorCategory = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | The date\/time of the last observation of a threat intelligence
--- indicator.
+-- | A timestamp that identifies the last observation of a threat
+-- intelligence indicator.
 awsSecurityFindingFilters_threatIntelIndicatorLastObservedAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_threatIntelIndicatorLastObservedAt = Lens.lens (\AwsSecurityFindingFilters' {threatIntelIndicatorLastObservedAt} -> threatIntelIndicatorLastObservedAt) (\s@AwsSecurityFindingFilters' {} a -> s {threatIntelIndicatorLastObservedAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -1163,8 +1303,13 @@ awsSecurityFindingFilters_title = Lens.lens (\AwsSecurityFindingFilters' {title}
 awsSecurityFindingFilters_type :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [StringFilter])
 awsSecurityFindingFilters_type = Lens.lens (\AwsSecurityFindingFilters' {type'} -> type') (\s@AwsSecurityFindingFilters' {} a -> s {type' = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
--- | An ISO8601-formatted timestamp that indicates when the security-findings
+-- | An ISO8601-formatted timestamp that indicates when the security findings
 -- provider last updated the finding record.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsSecurityFindingFilters_updatedAt :: Lens.Lens' AwsSecurityFindingFilters (Prelude.Maybe [DateFilter])
 awsSecurityFindingFilters_updatedAt = Lens.lens (\AwsSecurityFindingFilters' {updatedAt} -> updatedAt) (\s@AwsSecurityFindingFilters' {} a -> s {updatedAt = a} :: AwsSecurityFindingFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -1240,36 +1385,52 @@ instance Data.FromJSON AwsSecurityFindingFilters where
           AwsSecurityFindingFilters'
             Prelude.<$> (x Data..:? "AwsAccountId" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CompanyName" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ComplianceStatus"
+            Prelude.<*> ( x
+                            Data..:? "ComplianceAssociatedStandardsId"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ComplianceSecurityControlId"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ComplianceStatus"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Confidence" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CreatedAt" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Criticality" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Description" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsConfidence"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsConfidence"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsCriticality"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsCriticality"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsRelatedFindingsId"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsRelatedFindingsId"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
                             Data..:? "FindingProviderFieldsRelatedFindingsProductArn"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsSeverityLabel"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsSeverityLabel"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsSeverityOriginal"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsSeverityOriginal"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FindingProviderFieldsTypes"
+            Prelude.<*> ( x
+                            Data..:? "FindingProviderFieldsTypes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FirstObservedAt"
+            Prelude.<*> ( x
+                            Data..:? "FirstObservedAt"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GeneratorId" Data..!= Prelude.mempty)
@@ -1280,134 +1441,172 @@ instance Data.FromJSON AwsSecurityFindingFilters where
             Prelude.<*> (x Data..:? "MalwarePath" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "MalwareState" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "MalwareType" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "NetworkDestinationDomain"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationDomain"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDestinationIpV4"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationIpV4"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDestinationIpV6"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationIpV6"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDestinationPort"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDestinationPort"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkDirection"
+            Prelude.<*> ( x
+                            Data..:? "NetworkDirection"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkProtocol"
+            Prelude.<*> ( x
+                            Data..:? "NetworkProtocol"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceDomain"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceDomain"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceIpV4"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceIpV4"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceIpV6"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceIpV6"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourceMac"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourceMac"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "NetworkSourcePort"
+            Prelude.<*> ( x
+                            Data..:? "NetworkSourcePort"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "NoteText" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "NoteUpdatedAt" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "NoteUpdatedBy" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ProcessLaunchedAt"
+            Prelude.<*> ( x
+                            Data..:? "ProcessLaunchedAt"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProcessName" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ProcessParentPid"
+            Prelude.<*> ( x
+                            Data..:? "ProcessParentPid"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProcessPath" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ProcessPid" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ProcessTerminatedAt"
+            Prelude.<*> ( x
+                            Data..:? "ProcessTerminatedAt"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProductArn" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ProductFields" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ProductName" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "RecommendationText"
+            Prelude.<*> ( x
+                            Data..:? "RecommendationText"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RecordState" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Region" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "RelatedFindingsId"
+            Prelude.<*> ( x
+                            Data..:? "RelatedFindingsId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "RelatedFindingsProductArn"
+            Prelude.<*> ( x
+                            Data..:? "RelatedFindingsProductArn"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
                             Data..:? "ResourceAwsEc2InstanceIamInstanceProfileArn"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceImageId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceImageId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceIpV4Addresses"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceIpV4Addresses"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceIpV6Addresses"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceIpV6Addresses"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceKeyName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceKeyName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceLaunchedAt"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceLaunchedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceSubnetId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceSubnetId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceType"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceType"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsEc2InstanceVpcId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsEc2InstanceVpcId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyCreatedAt"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyCreatedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyPrincipalName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyPrincipalName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyStatus"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyStatus"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamAccessKeyUserName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamAccessKeyUserName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsIamUserUserName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsIamUserUserName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsS3BucketOwnerId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsS3BucketOwnerId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceAwsS3BucketOwnerName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAwsS3BucketOwnerName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerImageId"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerImageId"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerImageName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerImageName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerLaunchedAt"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerLaunchedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceContainerName"
+            Prelude.<*> ( x
+                            Data..:? "ResourceContainerName"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ResourceDetailsOther"
+            Prelude.<*> ( x
+                            Data..:? "ResourceDetailsOther"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ResourceId" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ResourcePartition"
+            Prelude.<*> ( x
+                            Data..:? "ResourcePartition"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ResourceRegion" Data..!= Prelude.mempty)
@@ -1415,50 +1614,64 @@ instance Data.FromJSON AwsSecurityFindingFilters where
             Prelude.<*> (x Data..:? "ResourceType" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Sample" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "SeverityLabel" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "SeverityNormalized"
+            Prelude.<*> ( x
+                            Data..:? "SeverityNormalized"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SeverityProduct"
+            Prelude.<*> ( x
+                            Data..:? "SeverityProduct"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SourceUrl" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorCategory"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorCategory"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorLastObservedAt"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorLastObservedAt"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorSource"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorSource"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorSourceUrl"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorSourceUrl"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorType"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorType"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicatorValue"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicatorValue"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Title" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Type" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "UpdatedAt" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "UserDefinedFields"
+            Prelude.<*> ( x
+                            Data..:? "UserDefinedFields"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "VerificationState"
+            Prelude.<*> ( x
+                            Data..:? "VerificationState"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "WorkflowState" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "WorkflowStatus"
+            Prelude.<*> ( x
+                            Data..:? "WorkflowStatus"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsSecurityFindingFilters where
   hashWithSalt _salt AwsSecurityFindingFilters' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` companyName
+      `Prelude.hashWithSalt` complianceAssociatedStandardsId
+      `Prelude.hashWithSalt` complianceSecurityControlId
       `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` createdAt
@@ -1557,6 +1770,8 @@ instance Prelude.NFData AwsSecurityFindingFilters where
   rnf AwsSecurityFindingFilters' {..} =
     Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf companyName
+      `Prelude.seq` Prelude.rnf complianceAssociatedStandardsId
+      `Prelude.seq` Prelude.rnf complianceSecurityControlId
       `Prelude.seq` Prelude.rnf complianceStatus
       `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf createdAt
@@ -1564,10 +1779,12 @@ instance Prelude.NFData AwsSecurityFindingFilters where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf findingProviderFieldsConfidence
       `Prelude.seq` Prelude.rnf findingProviderFieldsCriticality
-      `Prelude.seq` Prelude.rnf findingProviderFieldsRelatedFindingsId
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsRelatedFindingsId
       `Prelude.seq` Prelude.rnf
         findingProviderFieldsRelatedFindingsProductArn
-      `Prelude.seq` Prelude.rnf findingProviderFieldsSeverityLabel
+      `Prelude.seq` Prelude.rnf
+        findingProviderFieldsSeverityLabel
       `Prelude.seq` Prelude.rnf
         findingProviderFieldsSeverityOriginal
       `Prelude.seq` Prelude.rnf findingProviderFieldsTypes
@@ -1578,8 +1795,10 @@ instance Prelude.NFData AwsSecurityFindingFilters where
       `Prelude.seq` Prelude.rnf lastObservedAt
       `Prelude.seq` Prelude.rnf malwareName
       `Prelude.seq` Prelude.rnf malwarePath
-      `Prelude.seq` Prelude.rnf malwareState
-      `Prelude.seq` Prelude.rnf malwareType
+      `Prelude.seq` Prelude.rnf
+        malwareState
+      `Prelude.seq` Prelude.rnf
+        malwareType
       `Prelude.seq` Prelude.rnf
         networkDestinationDomain
       `Prelude.seq` Prelude.rnf
@@ -1731,6 +1950,10 @@ instance Data.ToJSON AwsSecurityFindingFilters where
       ( Prelude.catMaybes
           [ ("AwsAccountId" Data..=) Prelude.<$> awsAccountId,
             ("CompanyName" Data..=) Prelude.<$> companyName,
+            ("ComplianceAssociatedStandardsId" Data..=)
+              Prelude.<$> complianceAssociatedStandardsId,
+            ("ComplianceSecurityControlId" Data..=)
+              Prelude.<$> complianceSecurityControlId,
             ("ComplianceStatus" Data..=)
               Prelude.<$> complianceStatus,
             ("Confidence" Data..=) Prelude.<$> confidence,

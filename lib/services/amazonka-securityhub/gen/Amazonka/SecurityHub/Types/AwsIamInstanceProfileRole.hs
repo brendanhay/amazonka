@@ -36,8 +36,8 @@ data AwsIamInstanceProfileRole = AwsIamInstanceProfileRole'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
     -- | The path to the role.
     path :: Prelude.Maybe Prelude.Text,
@@ -64,8 +64,8 @@ data AwsIamInstanceProfileRole = AwsIamInstanceProfileRole'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'path', 'awsIamInstanceProfileRole_path' - The path to the role.
 --
@@ -96,8 +96,8 @@ awsIamInstanceProfileRole_assumeRolePolicyDocument = Lens.lens (\AwsIamInstanceP
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamInstanceProfileRole_createDate :: Lens.Lens' AwsIamInstanceProfileRole (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfileRole_createDate = Lens.lens (\AwsIamInstanceProfileRole' {createDate} -> createDate) (\s@AwsIamInstanceProfileRole' {} a -> s {createDate = a} :: AwsIamInstanceProfileRole)
 
@@ -129,7 +129,8 @@ instance Data.FromJSON AwsIamInstanceProfileRole where
 
 instance Prelude.Hashable AwsIamInstanceProfileRole where
   hashWithSalt _salt AwsIamInstanceProfileRole' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` assumeRolePolicyDocument
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` path

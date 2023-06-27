@@ -123,7 +123,8 @@ instance Data.FromJSON Standard where
 
 instance Prelude.Hashable Standard where
   hashWithSalt _salt Standard' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enabledByDefault
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` standardsArn

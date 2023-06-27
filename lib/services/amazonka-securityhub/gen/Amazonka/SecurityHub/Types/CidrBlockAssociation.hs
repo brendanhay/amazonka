@@ -85,7 +85,8 @@ instance Data.FromJSON CidrBlockAssociation where
 
 instance Prelude.Hashable CidrBlockAssociation where
   hashWithSalt _salt CidrBlockAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` cidrBlockState
 

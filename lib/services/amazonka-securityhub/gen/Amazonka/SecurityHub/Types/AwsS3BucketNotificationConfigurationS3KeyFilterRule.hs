@@ -77,7 +77,8 @@ instance
       "AwsS3BucketNotificationConfigurationS3KeyFilterRule"
       ( \x ->
           AwsS3BucketNotificationConfigurationS3KeyFilterRule'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -87,7 +88,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketNotificationConfigurationS3KeyFilterRule' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` value
 
 instance

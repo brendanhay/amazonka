@@ -63,9 +63,20 @@ noteUpdate_text = Lens.lens (\NoteUpdate' {text} -> text) (\s@NoteUpdate' {} a -
 noteUpdate_updatedBy :: Lens.Lens' NoteUpdate Prelude.Text
 noteUpdate_updatedBy = Lens.lens (\NoteUpdate' {updatedBy} -> updatedBy) (\s@NoteUpdate' {} a -> s {updatedBy = a} :: NoteUpdate)
 
+instance Data.FromJSON NoteUpdate where
+  parseJSON =
+    Data.withObject
+      "NoteUpdate"
+      ( \x ->
+          NoteUpdate'
+            Prelude.<$> (x Data..: "Text")
+            Prelude.<*> (x Data..: "UpdatedBy")
+      )
+
 instance Prelude.Hashable NoteUpdate where
   hashWithSalt _salt NoteUpdate' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` updatedBy
 
 instance Prelude.NFData NoteUpdate where

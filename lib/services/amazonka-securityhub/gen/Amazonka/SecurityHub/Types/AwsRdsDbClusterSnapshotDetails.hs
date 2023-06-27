@@ -38,8 +38,8 @@ data AwsRdsDbClusterSnapshotDetails = AwsRdsDbClusterSnapshotDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     clusterCreateTime :: Prelude.Maybe Prelude.Text,
     -- | The DB cluster identifier.
     dbClusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -69,8 +69,8 @@ data AwsRdsDbClusterSnapshotDetails = AwsRdsDbClusterSnapshotDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     snapshotCreateTime :: Prelude.Maybe Prelude.Text,
     -- | The type of DB cluster snapshot.
     snapshotType :: Prelude.Maybe Prelude.Text,
@@ -101,8 +101,8 @@ data AwsRdsDbClusterSnapshotDetails = AwsRdsDbClusterSnapshotDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'dbClusterIdentifier', 'awsRdsDbClusterSnapshotDetails_dbClusterIdentifier' - The DB cluster identifier.
 --
@@ -132,8 +132,8 @@ data AwsRdsDbClusterSnapshotDetails = AwsRdsDbClusterSnapshotDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'snapshotType', 'awsRdsDbClusterSnapshotDetails_snapshotType' - The type of DB cluster snapshot.
 --
@@ -183,8 +183,8 @@ awsRdsDbClusterSnapshotDetails_availabilityZones = Lens.lens (\AwsRdsDbClusterSn
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRdsDbClusterSnapshotDetails_clusterCreateTime :: Lens.Lens' AwsRdsDbClusterSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterSnapshotDetails_clusterCreateTime = Lens.lens (\AwsRdsDbClusterSnapshotDetails' {clusterCreateTime} -> clusterCreateTime) (\s@AwsRdsDbClusterSnapshotDetails' {} a -> s {clusterCreateTime = a} :: AwsRdsDbClusterSnapshotDetails)
 
@@ -236,8 +236,8 @@ awsRdsDbClusterSnapshotDetails_port = Lens.lens (\AwsRdsDbClusterSnapshotDetails
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRdsDbClusterSnapshotDetails_snapshotCreateTime :: Lens.Lens' AwsRdsDbClusterSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterSnapshotDetails_snapshotCreateTime = Lens.lens (\AwsRdsDbClusterSnapshotDetails' {snapshotCreateTime} -> snapshotCreateTime) (\s@AwsRdsDbClusterSnapshotDetails' {} a -> s {snapshotCreateTime = a} :: AwsRdsDbClusterSnapshotDetails)
 
@@ -264,7 +264,8 @@ instance Data.FromJSON AwsRdsDbClusterSnapshotDetails where
       ( \x ->
           AwsRdsDbClusterSnapshotDetails'
             Prelude.<$> (x Data..:? "AllocatedStorage")
-            Prelude.<*> ( x Data..:? "AvailabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClusterCreateTime")
@@ -292,7 +293,8 @@ instance
   hashWithSalt
     _salt
     AwsRdsDbClusterSnapshotDetails' {..} =
-      _salt `Prelude.hashWithSalt` allocatedStorage
+      _salt
+        `Prelude.hashWithSalt` allocatedStorage
         `Prelude.hashWithSalt` availabilityZones
         `Prelude.hashWithSalt` clusterCreateTime
         `Prelude.hashWithSalt` dbClusterIdentifier

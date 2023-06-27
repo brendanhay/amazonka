@@ -45,8 +45,8 @@ data AwsApiGatewayRestApiDetails = AwsApiGatewayRestApiDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdDate :: Prelude.Maybe Prelude.Text,
     -- | A description of the REST API.
     description :: Prelude.Maybe Prelude.Text,
@@ -90,8 +90,8 @@ data AwsApiGatewayRestApiDetails = AwsApiGatewayRestApiDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'description', 'awsApiGatewayRestApiDetails_description' - A description of the REST API.
 --
@@ -143,8 +143,8 @@ awsApiGatewayRestApiDetails_binaryMediaTypes = Lens.lens (\AwsApiGatewayRestApiD
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsApiGatewayRestApiDetails_createdDate :: Lens.Lens' AwsApiGatewayRestApiDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayRestApiDetails_createdDate = Lens.lens (\AwsApiGatewayRestApiDetails' {createdDate} -> createdDate) (\s@AwsApiGatewayRestApiDetails' {} a -> s {createdDate = a} :: AwsApiGatewayRestApiDetails)
 
@@ -183,7 +183,8 @@ instance Data.FromJSON AwsApiGatewayRestApiDetails where
       ( \x ->
           AwsApiGatewayRestApiDetails'
             Prelude.<$> (x Data..:? "ApiKeySource")
-            Prelude.<*> ( x Data..:? "BinaryMediaTypes"
+            Prelude.<*> ( x
+                            Data..:? "BinaryMediaTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedDate")
@@ -197,7 +198,8 @@ instance Data.FromJSON AwsApiGatewayRestApiDetails where
 
 instance Prelude.Hashable AwsApiGatewayRestApiDetails where
   hashWithSalt _salt AwsApiGatewayRestApiDetails' {..} =
-    _salt `Prelude.hashWithSalt` apiKeySource
+    _salt
+      `Prelude.hashWithSalt` apiKeySource
       `Prelude.hashWithSalt` binaryMediaTypes
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` description

@@ -74,7 +74,7 @@ instance
       ( \x ->
           AwsElbLoadBalancerBackendServerDescription'
             Prelude.<$> (x Data..:? "InstancePort")
-              Prelude.<*> (x Data..:? "PolicyNames" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "PolicyNames" Data..!= Prelude.mempty)
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerBackendServerDescription' {..} =
-      _salt `Prelude.hashWithSalt` instancePort
+      _salt
+        `Prelude.hashWithSalt` instancePort
         `Prelude.hashWithSalt` policyNames
 
 instance

@@ -83,7 +83,8 @@ instance Data.FromJSON StandardsManagedBy where
 
 instance Prelude.Hashable StandardsManagedBy where
   hashWithSalt _salt StandardsManagedBy' {..} =
-    _salt `Prelude.hashWithSalt` company
+    _salt
+      `Prelude.hashWithSalt` company
       `Prelude.hashWithSalt` product
 
 instance Prelude.NFData StandardsManagedBy where

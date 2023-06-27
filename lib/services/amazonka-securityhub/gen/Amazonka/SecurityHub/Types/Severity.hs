@@ -28,7 +28,7 @@ import Amazonka.SecurityHub.Types.SeverityLabel
 -- | The severity of the finding.
 --
 -- The finding provider can provide the initial severity. The finding
--- provider can only update the severity if it has not been updated using
+-- provider can only update the severity if it hasn\'t been updated using
 -- @BatchUpdateFindings@.
 --
 -- The finding must have either @Label@ or @Normalized@ populated. If only
@@ -230,7 +230,8 @@ instance Data.FromJSON Severity where
 
 instance Prelude.Hashable Severity where
   hashWithSalt _salt Severity' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` normalized
       `Prelude.hashWithSalt` original
       `Prelude.hashWithSalt` product

@@ -38,8 +38,8 @@ data AwsLambdaLayerVersionDetails = AwsLambdaLayerVersionDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdDate :: Prelude.Maybe Prelude.Text,
     -- | The version number.
     version :: Prelude.Maybe Prelude.Integer
@@ -64,8 +64,8 @@ data AwsLambdaLayerVersionDetails = AwsLambdaLayerVersionDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'version', 'awsLambdaLayerVersionDetails_version' - The version number.
 newAwsLambdaLayerVersionDetails ::
@@ -90,8 +90,8 @@ awsLambdaLayerVersionDetails_compatibleRuntimes = Lens.lens (\AwsLambdaLayerVers
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsLambdaLayerVersionDetails_createdDate :: Lens.Lens' AwsLambdaLayerVersionDetails (Prelude.Maybe Prelude.Text)
 awsLambdaLayerVersionDetails_createdDate = Lens.lens (\AwsLambdaLayerVersionDetails' {createdDate} -> createdDate) (\s@AwsLambdaLayerVersionDetails' {} a -> s {createdDate = a} :: AwsLambdaLayerVersionDetails)
 
@@ -105,7 +105,8 @@ instance Data.FromJSON AwsLambdaLayerVersionDetails where
       "AwsLambdaLayerVersionDetails"
       ( \x ->
           AwsLambdaLayerVersionDetails'
-            Prelude.<$> ( x Data..:? "CompatibleRuntimes"
+            Prelude.<$> ( x
+                            Data..:? "CompatibleRuntimes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedDate")
@@ -117,7 +118,8 @@ instance
     AwsLambdaLayerVersionDetails
   where
   hashWithSalt _salt AwsLambdaLayerVersionDetails' {..} =
-    _salt `Prelude.hashWithSalt` compatibleRuntimes
+    _salt
+      `Prelude.hashWithSalt` compatibleRuntimes
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` version
 

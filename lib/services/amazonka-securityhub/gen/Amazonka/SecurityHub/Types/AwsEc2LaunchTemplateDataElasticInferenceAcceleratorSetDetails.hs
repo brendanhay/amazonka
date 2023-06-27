@@ -73,7 +73,8 @@ instance
       "AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails"
       ( \x ->
           AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails'
-            Prelude.<$> (x Data..:? "Count") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Count")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -83,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails' {..} =
-      _salt `Prelude.hashWithSalt` count
+      _salt
+        `Prelude.hashWithSalt` count
         `Prelude.hashWithSalt` type'
 
 instance

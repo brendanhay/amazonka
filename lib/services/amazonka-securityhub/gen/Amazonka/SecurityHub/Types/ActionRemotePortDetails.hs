@@ -75,7 +75,8 @@ instance Data.FromJSON ActionRemotePortDetails where
 
 instance Prelude.Hashable ActionRemotePortDetails where
   hashWithSalt _salt ActionRemotePortDetails' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` portName
 
 instance Prelude.NFData ActionRemotePortDetails where

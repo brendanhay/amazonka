@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpnConnectionRoutesDetails' {..} =
-      _salt `Prelude.hashWithSalt` destinationCidrBlock
+      _salt
+        `Prelude.hashWithSalt` destinationCidrBlock
         `Prelude.hashWithSalt` state
 
 instance

@@ -87,11 +87,13 @@ instance
       "AwsBackupBackupPlanBackupPlanDetails"
       ( \x ->
           AwsBackupBackupPlanBackupPlanDetails'
-            Prelude.<$> ( x Data..:? "AdvancedBackupSettings"
+            Prelude.<$> ( x
+                            Data..:? "AdvancedBackupSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BackupPlanName")
-            Prelude.<*> ( x Data..:? "BackupPlanRule"
+            Prelude.<*> ( x
+                            Data..:? "BackupPlanRule"
                             Data..!= Prelude.mempty
                         )
       )
@@ -103,7 +105,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupBackupPlanBackupPlanDetails' {..} =
-      _salt `Prelude.hashWithSalt` advancedBackupSettings
+      _salt
+        `Prelude.hashWithSalt` advancedBackupSettings
         `Prelude.hashWithSalt` backupPlanName
         `Prelude.hashWithSalt` backupPlanRule
 

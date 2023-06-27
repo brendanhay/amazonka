@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerListenerDescription' {..} =
-      _salt `Prelude.hashWithSalt` listener
+      _salt
+        `Prelude.hashWithSalt` listener
         `Prelude.hashWithSalt` policyNames
 
 instance

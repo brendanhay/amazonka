@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateInsight where
 
 instance Prelude.Hashable UpdateInsight where
   hashWithSalt _salt UpdateInsight' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` groupByAttribute
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` insightArn

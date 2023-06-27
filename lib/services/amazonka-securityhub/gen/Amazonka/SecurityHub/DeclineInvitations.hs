@@ -22,8 +22,11 @@
 --
 -- Declines invitations to become a member account.
 --
--- This operation is only used by accounts that are not part of an
--- organization. Organization accounts do not receive invitations.
+-- A prospective member account uses this operation to decline an
+-- invitation to become a member.
+--
+-- This operation is only called by member accounts that aren\'t part of an
+-- organization. Organization accounts don\'t receive invitations.
 module Amazonka.SecurityHub.DeclineInvitations
   ( -- * Creating a Request
     DeclineInvitations (..),
@@ -52,8 +55,8 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDeclineInvitations' smart constructor.
 data DeclineInvitations = DeclineInvitations'
-  { -- | The list of account IDs for the accounts from which to decline the
-    -- invitations to Security Hub.
+  { -- | The list of prospective member account IDs for which to decline an
+    -- invitation.
     accountIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,15 +69,15 @@ data DeclineInvitations = DeclineInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIds', 'declineInvitations_accountIds' - The list of account IDs for the accounts from which to decline the
--- invitations to Security Hub.
+-- 'accountIds', 'declineInvitations_accountIds' - The list of prospective member account IDs for which to decline an
+-- invitation.
 newDeclineInvitations ::
   DeclineInvitations
 newDeclineInvitations =
   DeclineInvitations' {accountIds = Prelude.mempty}
 
--- | The list of account IDs for the accounts from which to decline the
--- invitations to Security Hub.
+-- | The list of prospective member account IDs for which to decline an
+-- invitation.
 declineInvitations_accountIds :: Lens.Lens' DeclineInvitations [Prelude.Text]
 declineInvitations_accountIds = Lens.lens (\DeclineInvitations' {accountIds} -> accountIds) (\s@DeclineInvitations' {} a -> s {accountIds = a} :: DeclineInvitations) Prelude.. Lens.coerced
 
@@ -88,7 +91,8 @@ instance Core.AWSRequest DeclineInvitations where
     Response.receiveJSON
       ( \s h x ->
           DeclineInvitationsResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> ( x
+                            Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

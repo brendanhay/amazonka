@@ -178,7 +178,8 @@ instance Data.FromJSON AwsEc2EipDetails where
 
 instance Prelude.Hashable AwsEc2EipDetails where
   hashWithSalt _salt AwsEc2EipDetails' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` instanceId

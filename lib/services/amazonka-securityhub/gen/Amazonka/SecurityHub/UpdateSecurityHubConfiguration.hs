@@ -28,6 +28,7 @@ module Amazonka.SecurityHub.UpdateSecurityHubConfiguration
 
     -- * Request Lenses
     updateSecurityHubConfiguration_autoEnableControls,
+    updateSecurityHubConfiguration_controlFindingGenerator,
 
     -- * Destructuring the Response
     UpdateSecurityHubConfigurationResponse (..),
@@ -54,7 +55,19 @@ data UpdateSecurityHubConfiguration = UpdateSecurityHubConfiguration'
     -- By default, this is set to @true@, and new controls are enabled
     -- automatically. To not automatically enable new controls, set this to
     -- @false@.
-    autoEnableControls :: Prelude.Maybe Prelude.Bool
+    autoEnableControls :: Prelude.Maybe Prelude.Bool,
+    -- | Updates whether the calling account has consolidated control findings
+    -- turned on. If the value for this field is set to @SECURITY_CONTROL@,
+    -- Security Hub generates a single finding for a control check even when
+    -- the check applies to multiple enabled standards.
+    --
+    -- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+    -- generates separate findings for a control check when the check applies
+    -- to multiple enabled standards.
+    --
+    -- For accounts that are part of an organization, this value can only be
+    -- updated in the administrator account.
+    controlFindingGenerator :: Prelude.Maybe ControlFindingGenerator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,12 +85,25 @@ data UpdateSecurityHubConfiguration = UpdateSecurityHubConfiguration'
 -- By default, this is set to @true@, and new controls are enabled
 -- automatically. To not automatically enable new controls, set this to
 -- @false@.
+--
+-- 'controlFindingGenerator', 'updateSecurityHubConfiguration_controlFindingGenerator' - Updates whether the calling account has consolidated control findings
+-- turned on. If the value for this field is set to @SECURITY_CONTROL@,
+-- Security Hub generates a single finding for a control check even when
+-- the check applies to multiple enabled standards.
+--
+-- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+-- generates separate findings for a control check when the check applies
+-- to multiple enabled standards.
+--
+-- For accounts that are part of an organization, this value can only be
+-- updated in the administrator account.
 newUpdateSecurityHubConfiguration ::
   UpdateSecurityHubConfiguration
 newUpdateSecurityHubConfiguration =
   UpdateSecurityHubConfiguration'
     { autoEnableControls =
-        Prelude.Nothing
+        Prelude.Nothing,
+      controlFindingGenerator = Prelude.Nothing
     }
 
 -- | Whether to automatically enable new controls when they are added to
@@ -88,6 +114,20 @@ newUpdateSecurityHubConfiguration =
 -- @false@.
 updateSecurityHubConfiguration_autoEnableControls :: Lens.Lens' UpdateSecurityHubConfiguration (Prelude.Maybe Prelude.Bool)
 updateSecurityHubConfiguration_autoEnableControls = Lens.lens (\UpdateSecurityHubConfiguration' {autoEnableControls} -> autoEnableControls) (\s@UpdateSecurityHubConfiguration' {} a -> s {autoEnableControls = a} :: UpdateSecurityHubConfiguration)
+
+-- | Updates whether the calling account has consolidated control findings
+-- turned on. If the value for this field is set to @SECURITY_CONTROL@,
+-- Security Hub generates a single finding for a control check even when
+-- the check applies to multiple enabled standards.
+--
+-- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+-- generates separate findings for a control check when the check applies
+-- to multiple enabled standards.
+--
+-- For accounts that are part of an organization, this value can only be
+-- updated in the administrator account.
+updateSecurityHubConfiguration_controlFindingGenerator :: Lens.Lens' UpdateSecurityHubConfiguration (Prelude.Maybe ControlFindingGenerator)
+updateSecurityHubConfiguration_controlFindingGenerator = Lens.lens (\UpdateSecurityHubConfiguration' {controlFindingGenerator} -> controlFindingGenerator) (\s@UpdateSecurityHubConfiguration' {} a -> s {controlFindingGenerator = a} :: UpdateSecurityHubConfiguration)
 
 instance
   Core.AWSRequest
@@ -112,7 +152,9 @@ instance
   hashWithSalt
     _salt
     UpdateSecurityHubConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` autoEnableControls
+      _salt
+        `Prelude.hashWithSalt` autoEnableControls
+        `Prelude.hashWithSalt` controlFindingGenerator
 
 instance
   Prelude.NFData
@@ -120,6 +162,7 @@ instance
   where
   rnf UpdateSecurityHubConfiguration' {..} =
     Prelude.rnf autoEnableControls
+      `Prelude.seq` Prelude.rnf controlFindingGenerator
 
 instance
   Data.ToHeaders
@@ -140,7 +183,9 @@ instance Data.ToJSON UpdateSecurityHubConfiguration where
     Data.object
       ( Prelude.catMaybes
           [ ("AutoEnableControls" Data..=)
-              Prelude.<$> autoEnableControls
+              Prelude.<$> autoEnableControls,
+            ("ControlFindingGenerator" Data..=)
+              Prelude.<$> controlFindingGenerator
           ]
       )
 

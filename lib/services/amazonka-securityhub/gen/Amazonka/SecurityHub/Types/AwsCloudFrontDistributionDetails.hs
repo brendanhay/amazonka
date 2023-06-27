@@ -51,8 +51,8 @@ data AwsCloudFrontDistributionDetails = AwsCloudFrontDistributionDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastModifiedTime :: Prelude.Maybe Prelude.Text,
     -- | A complex type that controls whether access logs are written for the
     -- distribution.
@@ -98,8 +98,8 @@ data AwsCloudFrontDistributionDetails = AwsCloudFrontDistributionDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'logging', 'awsCloudFrontDistributionDetails_logging' - A complex type that controls whether access logs are written for the
 -- distribution.
@@ -162,8 +162,8 @@ awsCloudFrontDistributionDetails_eTag = Lens.lens (\AwsCloudFrontDistributionDet
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsCloudFrontDistributionDetails_lastModifiedTime :: Lens.Lens' AwsCloudFrontDistributionDetails (Prelude.Maybe Prelude.Text)
 awsCloudFrontDistributionDetails_lastModifiedTime = Lens.lens (\AwsCloudFrontDistributionDetails' {lastModifiedTime} -> lastModifiedTime) (\s@AwsCloudFrontDistributionDetails' {} a -> s {lastModifiedTime = a} :: AwsCloudFrontDistributionDetails)
 
@@ -225,7 +225,8 @@ instance
   hashWithSalt
     _salt
     AwsCloudFrontDistributionDetails' {..} =
-      _salt `Prelude.hashWithSalt` cacheBehaviors
+      _salt
+        `Prelude.hashWithSalt` cacheBehaviors
         `Prelude.hashWithSalt` defaultCacheBehavior
         `Prelude.hashWithSalt` defaultRootObject
         `Prelude.hashWithSalt` domainName

@@ -31,7 +31,8 @@ import Amazonka.SecurityHub.Types.AwsCorsConfiguration
 data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
   { -- | The URI of the API.
     --
-    -- Uses the format @ \<api-id>.execute-api.\<region>.amazonaws.com@
+    -- Uses the format
+    -- @ @/@\<api-id>@/@.execute-api.@/@\<region>@/@.amazonaws.com@
     --
     -- The stage name is typically appended to the URI to form a complete path
     -- to a deployed API stage.
@@ -47,8 +48,8 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdDate :: Prelude.Maybe Prelude.Text,
     -- | A description of the API.
     description :: Prelude.Maybe Prelude.Text,
@@ -80,7 +81,8 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
 --
 -- 'apiEndpoint', 'awsApiGatewayV2ApiDetails_apiEndpoint' - The URI of the API.
 --
--- Uses the format @ \<api-id>.execute-api.\<region>.amazonaws.com@
+-- Uses the format
+-- @ @/@\<api-id>@/@.execute-api.@/@\<region>@/@.amazonaws.com@
 --
 -- The stage name is typically appended to the URI to form a complete path
 -- to a deployed API stage.
@@ -96,8 +98,8 @@ data AwsApiGatewayV2ApiDetails = AwsApiGatewayV2ApiDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'description', 'awsApiGatewayV2ApiDetails_description' - A description of the API.
 --
@@ -134,7 +136,8 @@ newAwsApiGatewayV2ApiDetails =
 
 -- | The URI of the API.
 --
--- Uses the format @ \<api-id>.execute-api.\<region>.amazonaws.com@
+-- Uses the format
+-- @ @/@\<api-id>@/@.execute-api.@/@\<region>@/@.amazonaws.com@
 --
 -- The stage name is typically appended to the URI to form a complete path
 -- to a deployed API stage.
@@ -158,8 +161,8 @@ awsApiGatewayV2ApiDetails_corsConfiguration = Lens.lens (\AwsApiGatewayV2ApiDeta
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsApiGatewayV2ApiDetails_createdDate :: Lens.Lens' AwsApiGatewayV2ApiDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayV2ApiDetails_createdDate = Lens.lens (\AwsApiGatewayV2ApiDetails' {createdDate} -> createdDate) (\s@AwsApiGatewayV2ApiDetails' {} a -> s {createdDate = a} :: AwsApiGatewayV2ApiDetails)
 
@@ -210,7 +213,8 @@ instance Data.FromJSON AwsApiGatewayV2ApiDetails where
 
 instance Prelude.Hashable AwsApiGatewayV2ApiDetails where
   hashWithSalt _salt AwsApiGatewayV2ApiDetails' {..} =
-    _salt `Prelude.hashWithSalt` apiEndpoint
+    _salt
+      `Prelude.hashWithSalt` apiEndpoint
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` apiKeySelectionExpression
       `Prelude.hashWithSalt` corsConfiguration

@@ -57,8 +57,8 @@ data AwsLambdaFunctionDetails = AwsLambdaFunctionDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastModified :: Prelude.Maybe Prelude.Text,
     -- | The function\'s layers.
     layers :: Prelude.Maybe [AwsLambdaFunctionLayer],
@@ -119,8 +119,8 @@ data AwsLambdaFunctionDetails = AwsLambdaFunctionDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'layers', 'awsLambdaFunctionDetails_layers' - The function\'s layers.
 --
@@ -212,8 +212,8 @@ awsLambdaFunctionDetails_kmsKeyArn = Lens.lens (\AwsLambdaFunctionDetails' {kmsK
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsLambdaFunctionDetails_lastModified :: Lens.Lens' AwsLambdaFunctionDetails (Prelude.Maybe Prelude.Text)
 awsLambdaFunctionDetails_lastModified = Lens.lens (\AwsLambdaFunctionDetails' {lastModified} -> lastModified) (\s@AwsLambdaFunctionDetails' {} a -> s {lastModified = a} :: AwsLambdaFunctionDetails)
 
@@ -294,7 +294,8 @@ instance Data.FromJSON AwsLambdaFunctionDetails where
 
 instance Prelude.Hashable AwsLambdaFunctionDetails where
   hashWithSalt _salt AwsLambdaFunctionDetails' {..} =
-    _salt `Prelude.hashWithSalt` architectures
+    _salt
+      `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` codeSha256
       `Prelude.hashWithSalt` deadLetterConfig

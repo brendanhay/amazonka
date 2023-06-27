@@ -91,7 +91,8 @@ instance Data.FromJSON RuleGroupDetails where
 
 instance Prelude.Hashable RuleGroupDetails where
   hashWithSalt _salt RuleGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` ruleVariables
+    _salt
+      `Prelude.hashWithSalt` ruleVariables
       `Prelude.hashWithSalt` rulesSource
 
 instance Prelude.NFData RuleGroupDetails where

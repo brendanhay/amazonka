@@ -224,7 +224,8 @@ instance
             Prelude.<*> (x Data..:? "ClusterConfig")
             Prelude.<*> (x Data..:? "DomainEndpoint")
             Prelude.<*> (x Data..:? "DomainEndpointOptions")
-            Prelude.<*> ( x Data..:? "DomainEndpoints"
+            Prelude.<*> ( x
+                            Data..:? "DomainEndpoints"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DomainName")
@@ -244,7 +245,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainDetails' {..} =
-      _salt `Prelude.hashWithSalt` accessPolicies
+      _salt
+        `Prelude.hashWithSalt` accessPolicies
         `Prelude.hashWithSalt` advancedSecurityOptions
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` clusterConfig

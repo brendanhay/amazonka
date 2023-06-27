@@ -346,7 +346,8 @@ instance Data.FromJSON AwsCloudWatchAlarmDetails where
             Prelude.<*> (x Data..:? "EvaluateLowSampleCountPercentile")
             Prelude.<*> (x Data..:? "EvaluationPeriods")
             Prelude.<*> (x Data..:? "ExtendedStatistic")
-            Prelude.<*> ( x Data..:? "InsufficientDataActions"
+            Prelude.<*> ( x
+                            Data..:? "InsufficientDataActions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MetricName")
@@ -362,7 +363,8 @@ instance Data.FromJSON AwsCloudWatchAlarmDetails where
 
 instance Prelude.Hashable AwsCloudWatchAlarmDetails where
   hashWithSalt _salt AwsCloudWatchAlarmDetails' {..} =
-    _salt `Prelude.hashWithSalt` actionsEnabled
+    _salt
+      `Prelude.hashWithSalt` actionsEnabled
       `Prelude.hashWithSalt` alarmActions
       `Prelude.hashWithSalt` alarmArn
       `Prelude.hashWithSalt` alarmConfigurationUpdatedTimestamp

@@ -99,7 +99,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails'
             Prelude.<$> (x Data..:? "Options" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` options
+      _salt
+        `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` type'
 
 instance

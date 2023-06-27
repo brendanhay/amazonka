@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableAttributeDefinition' {..} =
-      _salt `Prelude.hashWithSalt` attributeName
+      _salt
+        `Prelude.hashWithSalt` attributeName
         `Prelude.hashWithSalt` attributeType
 
 instance

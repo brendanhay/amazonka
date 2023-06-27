@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerConnectionDraining' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` timeout
 
 instance

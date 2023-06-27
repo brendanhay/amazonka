@@ -23,8 +23,12 @@
 -- Deletes invitations received by the Amazon Web Services account to
 -- become a member account.
 --
--- This operation is only used by accounts that are not part of an
--- organization. Organization accounts do not receive invitations.
+-- A Security Hub administrator account can use this operation to delete
+-- invitations sent to one or more member accounts.
+--
+-- This operation is only used to delete invitations that are sent to
+-- member accounts that aren\'t part of an organization. Organization
+-- accounts don\'t receive invitations.
 module Amazonka.SecurityHub.DeleteInvitations
   ( -- * Creating a Request
     DeleteInvitations (..),
@@ -53,7 +57,8 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDeleteInvitations' smart constructor.
 data DeleteInvitations = DeleteInvitations'
-  { -- | The list of the account IDs that sent the invitations to delete.
+  { -- | The list of member account IDs that received the invitations you want to
+    -- delete.
     accountIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,13 +71,15 @@ data DeleteInvitations = DeleteInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIds', 'deleteInvitations_accountIds' - The list of the account IDs that sent the invitations to delete.
+-- 'accountIds', 'deleteInvitations_accountIds' - The list of member account IDs that received the invitations you want to
+-- delete.
 newDeleteInvitations ::
   DeleteInvitations
 newDeleteInvitations =
   DeleteInvitations' {accountIds = Prelude.mempty}
 
--- | The list of the account IDs that sent the invitations to delete.
+-- | The list of member account IDs that received the invitations you want to
+-- delete.
 deleteInvitations_accountIds :: Lens.Lens' DeleteInvitations [Prelude.Text]
 deleteInvitations_accountIds = Lens.lens (\DeleteInvitations' {accountIds} -> accountIds) (\s@DeleteInvitations' {} a -> s {accountIds = a} :: DeleteInvitations) Prelude.. Lens.coerced
 
@@ -86,7 +93,8 @@ instance Core.AWSRequest DeleteInvitations where
     Response.receiveJSON
       ( \s h x ->
           DeleteInvitationsResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> ( x
+                            Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

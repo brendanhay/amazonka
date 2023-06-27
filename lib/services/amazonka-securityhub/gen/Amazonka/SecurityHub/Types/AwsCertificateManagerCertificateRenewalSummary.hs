@@ -55,8 +55,8 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     updatedAt :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,8 +94,8 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 newAwsCertificateManagerCertificateRenewalSummary ::
   AwsCertificateManagerCertificateRenewalSummary
 newAwsCertificateManagerCertificateRenewalSummary =
@@ -140,8 +140,8 @@ awsCertificateManagerCertificateRenewalSummary_renewalStatusReason = Lens.lens (
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsCertificateManagerCertificateRenewalSummary_updatedAt :: Lens.Lens' AwsCertificateManagerCertificateRenewalSummary (Prelude.Maybe Prelude.Text)
 awsCertificateManagerCertificateRenewalSummary_updatedAt = Lens.lens (\AwsCertificateManagerCertificateRenewalSummary' {updatedAt} -> updatedAt) (\s@AwsCertificateManagerCertificateRenewalSummary' {} a -> s {updatedAt = a} :: AwsCertificateManagerCertificateRenewalSummary)
 
@@ -154,12 +154,13 @@ instance
       "AwsCertificateManagerCertificateRenewalSummary"
       ( \x ->
           AwsCertificateManagerCertificateRenewalSummary'
-            Prelude.<$> ( x Data..:? "DomainValidationOptions"
+            Prelude.<$> ( x
+                            Data..:? "DomainValidationOptions"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "RenewalStatus")
-              Prelude.<*> (x Data..:? "RenewalStatusReason")
-              Prelude.<*> (x Data..:? "UpdatedAt")
+            Prelude.<*> (x Data..:? "RenewalStatus")
+            Prelude.<*> (x Data..:? "RenewalStatusReason")
+            Prelude.<*> (x Data..:? "UpdatedAt")
       )
 
 instance

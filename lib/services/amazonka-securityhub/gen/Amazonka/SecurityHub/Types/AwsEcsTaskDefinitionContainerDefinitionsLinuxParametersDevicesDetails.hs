@@ -90,8 +90,8 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails'
             Prelude.<$> (x Data..:? "ContainerPath")
-              Prelude.<*> (x Data..:? "HostPath")
-              Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "HostPath")
+            Prelude.<*> (x Data..:? "Permissions" Data..!= Prelude.mempty)
       )
 
 instance
@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerPath
+      _salt
+        `Prelude.hashWithSalt` containerPath
         `Prelude.hashWithSalt` hostPath
         `Prelude.hashWithSalt` permissions
 

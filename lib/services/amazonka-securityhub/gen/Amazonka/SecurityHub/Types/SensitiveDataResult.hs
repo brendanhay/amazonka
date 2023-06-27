@@ -92,7 +92,8 @@ instance Data.FromJSON SensitiveDataResult where
 
 instance Prelude.Hashable SensitiveDataResult where
   hashWithSalt _salt SensitiveDataResult' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` detections
       `Prelude.hashWithSalt` totalCount
 

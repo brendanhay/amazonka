@@ -125,7 +125,8 @@ instance Data.FromJSON AwsEc2VolumeAttachment where
 
 instance Prelude.Hashable AwsEc2VolumeAttachment where
   hashWithSalt _salt AwsEc2VolumeAttachment' {..} =
-    _salt `Prelude.hashWithSalt` attachTime
+    _salt
+      `Prelude.hashWithSalt` attachTime
       `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` status

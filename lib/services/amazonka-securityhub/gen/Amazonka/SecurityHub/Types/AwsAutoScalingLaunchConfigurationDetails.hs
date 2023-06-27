@@ -46,8 +46,8 @@ data AwsAutoScalingLaunchConfigurationDetails = AwsAutoScalingLaunchConfiguratio
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | Whether the launch configuration is optimized for Amazon EBS I\/O.
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
@@ -109,8 +109,8 @@ data AwsAutoScalingLaunchConfigurationDetails = AwsAutoScalingLaunchConfiguratio
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'ebsOptimized', 'awsAutoScalingLaunchConfigurationDetails_ebsOptimized' - Whether the launch configuration is optimized for Amazon EBS I\/O.
 --
@@ -201,8 +201,8 @@ awsAutoScalingLaunchConfigurationDetails_classicLinkVpcSecurityGroups = Lens.len
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsAutoScalingLaunchConfigurationDetails_createdTime :: Lens.Lens' AwsAutoScalingLaunchConfigurationDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingLaunchConfigurationDetails_createdTime = Lens.lens (\AwsAutoScalingLaunchConfigurationDetails' {createdTime} -> createdTime) (\s@AwsAutoScalingLaunchConfigurationDetails' {} a -> s {createdTime = a} :: AwsAutoScalingLaunchConfigurationDetails)
 
@@ -278,11 +278,13 @@ instance
       ( \x ->
           AwsAutoScalingLaunchConfigurationDetails'
             Prelude.<$> (x Data..:? "AssociatePublicIpAddress")
-            Prelude.<*> ( x Data..:? "BlockDeviceMappings"
+            Prelude.<*> ( x
+                            Data..:? "BlockDeviceMappings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClassicLinkVpcId")
-            Prelude.<*> ( x Data..:? "ClassicLinkVpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "ClassicLinkVpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreatedTime")

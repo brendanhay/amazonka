@@ -40,8 +40,8 @@ data AwsElbv2LoadBalancerDetails = AwsElbv2LoadBalancerDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | The public DNS name of the load balancer.
     dNSName :: Prelude.Maybe Prelude.Text,
@@ -81,8 +81,8 @@ data AwsElbv2LoadBalancerDetails = AwsElbv2LoadBalancerDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'dNSName', 'awsElbv2LoadBalancerDetails_dNSName' - The public DNS name of the load balancer.
 --
@@ -132,8 +132,8 @@ awsElbv2LoadBalancerDetails_canonicalHostedZoneId = Lens.lens (\AwsElbv2LoadBala
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsElbv2LoadBalancerDetails_createdTime :: Lens.Lens' AwsElbv2LoadBalancerDetails (Prelude.Maybe Prelude.Text)
 awsElbv2LoadBalancerDetails_createdTime = Lens.lens (\AwsElbv2LoadBalancerDetails' {createdTime} -> createdTime) (\s@AwsElbv2LoadBalancerDetails' {} a -> s {createdTime = a} :: AwsElbv2LoadBalancerDetails)
 
@@ -177,14 +177,16 @@ instance Data.FromJSON AwsElbv2LoadBalancerDetails where
       "AwsElbv2LoadBalancerDetails"
       ( \x ->
           AwsElbv2LoadBalancerDetails'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CanonicalHostedZoneId")
             Prelude.<*> (x Data..:? "CreatedTime")
             Prelude.<*> (x Data..:? "DNSName")
             Prelude.<*> (x Data..:? "IpAddressType")
-            Prelude.<*> ( x Data..:? "LoadBalancerAttributes"
+            Prelude.<*> ( x
+                            Data..:? "LoadBalancerAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Scheme")
@@ -196,7 +198,8 @@ instance Data.FromJSON AwsElbv2LoadBalancerDetails where
 
 instance Prelude.Hashable AwsElbv2LoadBalancerDetails where
   hashWithSalt _salt AwsElbv2LoadBalancerDetails' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` canonicalHostedZoneId
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dNSName

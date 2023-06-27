@@ -32,8 +32,8 @@ data AwsIamPolicyVersion = AwsIamPolicyVersion'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
     -- | Whether the version is the default version.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
@@ -54,8 +54,8 @@ data AwsIamPolicyVersion = AwsIamPolicyVersion'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'isDefaultVersion', 'awsIamPolicyVersion_isDefaultVersion' - Whether the version is the default version.
 --
@@ -73,8 +73,8 @@ newAwsIamPolicyVersion =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamPolicyVersion_createDate :: Lens.Lens' AwsIamPolicyVersion (Prelude.Maybe Prelude.Text)
 awsIamPolicyVersion_createDate = Lens.lens (\AwsIamPolicyVersion' {createDate} -> createDate) (\s@AwsIamPolicyVersion' {} a -> s {createDate = a} :: AwsIamPolicyVersion)
 
@@ -99,7 +99,8 @@ instance Data.FromJSON AwsIamPolicyVersion where
 
 instance Prelude.Hashable AwsIamPolicyVersion where
   hashWithSalt _salt AwsIamPolicyVersion' {..} =
-    _salt `Prelude.hashWithSalt` createDate
+    _salt
+      `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` isDefaultVersion
       `Prelude.hashWithSalt` versionId
 

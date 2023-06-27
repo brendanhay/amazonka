@@ -122,7 +122,8 @@ instance Core.AWSRequest CreateActionTarget where
 
 instance Prelude.Hashable CreateActionTarget where
   hashWithSalt _salt CreateActionTarget' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 
@@ -163,7 +164,7 @@ instance Data.ToQuery CreateActionTarget where
 data CreateActionTargetResponse = CreateActionTargetResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The ARN for the custom action target.
+    -- | The Amazon Resource Name (ARN) for the custom action target.
     actionTargetArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -178,7 +179,7 @@ data CreateActionTargetResponse = CreateActionTargetResponse'
 --
 -- 'httpStatus', 'createActionTargetResponse_httpStatus' - The response's http status code.
 --
--- 'actionTargetArn', 'createActionTargetResponse_actionTargetArn' - The ARN for the custom action target.
+-- 'actionTargetArn', 'createActionTargetResponse_actionTargetArn' - The Amazon Resource Name (ARN) for the custom action target.
 newCreateActionTargetResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -198,7 +199,7 @@ newCreateActionTargetResponse
 createActionTargetResponse_httpStatus :: Lens.Lens' CreateActionTargetResponse Prelude.Int
 createActionTargetResponse_httpStatus = Lens.lens (\CreateActionTargetResponse' {httpStatus} -> httpStatus) (\s@CreateActionTargetResponse' {} a -> s {httpStatus = a} :: CreateActionTargetResponse)
 
--- | The ARN for the custom action target.
+-- | The Amazon Resource Name (ARN) for the custom action target.
 createActionTargetResponse_actionTargetArn :: Lens.Lens' CreateActionTargetResponse Prelude.Text
 createActionTargetResponse_actionTargetArn = Lens.lens (\CreateActionTargetResponse' {actionTargetArn} -> actionTargetArn) (\s@CreateActionTargetResponse' {} a -> s {actionTargetArn = a} :: CreateActionTargetResponse)
 

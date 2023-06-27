@@ -33,8 +33,8 @@ data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3Bucke
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     date :: Prelude.Maybe Prelude.Text,
     -- | The number of days after which to transition the object to the specified
     -- storage class. If you provide @Days@, you cannot provide @Date@.
@@ -68,8 +68,8 @@ data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3Bucke
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'days', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days' - The number of days after which to transition the object to the specified
 -- storage class. If you provide @Days@, you cannot provide @Date@.
@@ -103,8 +103,8 @@ newAwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_date :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_date = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {date} -> date) (\s@AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {} a -> s {date = a} :: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails)
 
@@ -137,8 +137,9 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails'
-            Prelude.<$> (x Data..:? "Date") Prelude.<*> (x Data..:? "Days")
-              Prelude.<*> (x Data..:? "StorageClass")
+            Prelude.<$> (x Data..:? "Date")
+            Prelude.<*> (x Data..:? "Days")
+            Prelude.<*> (x Data..:? "StorageClass")
       )
 
 instance
@@ -148,7 +149,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` date
+      _salt
+        `Prelude.hashWithSalt` date
         `Prelude.hashWithSalt` days
         `Prelude.hashWithSalt` storageClass
 

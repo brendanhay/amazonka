@@ -82,7 +82,8 @@ instance Data.FromJSON InsightResultValue where
 
 instance Prelude.Hashable InsightResultValue where
   hashWithSalt _salt InsightResultValue' {..} =
-    _salt `Prelude.hashWithSalt` groupByAttributeValue
+    _salt
+      `Prelude.hashWithSalt` groupByAttributeValue
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData InsightResultValue where

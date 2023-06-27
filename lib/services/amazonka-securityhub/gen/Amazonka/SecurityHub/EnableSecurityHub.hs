@@ -28,16 +28,16 @@
 -- with Security Hub.
 --
 -- When you use the @EnableSecurityHub@ operation to enable Security Hub,
--- you also automatically enable the following standards.
+-- you also automatically enable the following standards:
 --
--- -   CIS Amazon Web Services Foundations
+-- -   Center for Internet Security (CIS) Amazon Web Services Foundations
+--     Benchmark v1.2.0
 --
 -- -   Amazon Web Services Foundational Security Best Practices
 --
--- You do not enable the Payment Card Industry Data Security Standard (PCI
--- DSS) standard.
+-- Other standards are not automatically enabled.
 --
--- To not enable the automatically enabled standards, set
+-- To opt out of automatically enabled standards, set
 -- @EnableDefaultStandards@ to @false@.
 --
 -- After you enable Security Hub, to enable a standard, use the
@@ -53,6 +53,7 @@ module Amazonka.SecurityHub.EnableSecurityHub
     newEnableSecurityHub,
 
     -- * Request Lenses
+    enableSecurityHub_controlFindingGenerator,
     enableSecurityHub_enableDefaultStandards,
     enableSecurityHub_tags,
 
@@ -75,7 +76,22 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newEnableSecurityHub' smart constructor.
 data EnableSecurityHub = EnableSecurityHub'
-  { -- | Whether to enable the security standards that Security Hub has
+  { -- | This field, used when enabling Security Hub, specifies whether the
+    -- calling account has consolidated control findings turned on. If the
+    -- value for this field is set to @SECURITY_CONTROL@, Security Hub
+    -- generates a single finding for a control check even when the check
+    -- applies to multiple enabled standards.
+    --
+    -- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+    -- generates separate findings for a control check when the check applies
+    -- to multiple enabled standards.
+    --
+    -- The value for this field in a member account matches the value in the
+    -- administrator account. For accounts that aren\'t part of an
+    -- organization, the default value of this field is @SECURITY_CONTROL@ if
+    -- you enabled Security Hub on or after February 23, 2023.
+    controlFindingGenerator :: Prelude.Maybe ControlFindingGenerator,
+    -- | Whether to enable the security standards that Security Hub has
     -- designated as automatically enabled. If you do not provide a value for
     -- @EnableDefaultStandards@, it is set to @true@. To not enable the
     -- automatically enabled standards, set @EnableDefaultStandards@ to
@@ -94,6 +110,21 @@ data EnableSecurityHub = EnableSecurityHub'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'controlFindingGenerator', 'enableSecurityHub_controlFindingGenerator' - This field, used when enabling Security Hub, specifies whether the
+-- calling account has consolidated control findings turned on. If the
+-- value for this field is set to @SECURITY_CONTROL@, Security Hub
+-- generates a single finding for a control check even when the check
+-- applies to multiple enabled standards.
+--
+-- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+-- generates separate findings for a control check when the check applies
+-- to multiple enabled standards.
+--
+-- The value for this field in a member account matches the value in the
+-- administrator account. For accounts that aren\'t part of an
+-- organization, the default value of this field is @SECURITY_CONTROL@ if
+-- you enabled Security Hub on or after February 23, 2023.
+--
 -- 'enableDefaultStandards', 'enableSecurityHub_enableDefaultStandards' - Whether to enable the security standards that Security Hub has
 -- designated as automatically enabled. If you do not provide a value for
 -- @EnableDefaultStandards@, it is set to @true@. To not enable the
@@ -105,10 +136,28 @@ newEnableSecurityHub ::
   EnableSecurityHub
 newEnableSecurityHub =
   EnableSecurityHub'
-    { enableDefaultStandards =
+    { controlFindingGenerator =
         Prelude.Nothing,
+      enableDefaultStandards = Prelude.Nothing,
       tags = Prelude.Nothing
     }
+
+-- | This field, used when enabling Security Hub, specifies whether the
+-- calling account has consolidated control findings turned on. If the
+-- value for this field is set to @SECURITY_CONTROL@, Security Hub
+-- generates a single finding for a control check even when the check
+-- applies to multiple enabled standards.
+--
+-- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+-- generates separate findings for a control check when the check applies
+-- to multiple enabled standards.
+--
+-- The value for this field in a member account matches the value in the
+-- administrator account. For accounts that aren\'t part of an
+-- organization, the default value of this field is @SECURITY_CONTROL@ if
+-- you enabled Security Hub on or after February 23, 2023.
+enableSecurityHub_controlFindingGenerator :: Lens.Lens' EnableSecurityHub (Prelude.Maybe ControlFindingGenerator)
+enableSecurityHub_controlFindingGenerator = Lens.lens (\EnableSecurityHub' {controlFindingGenerator} -> controlFindingGenerator) (\s@EnableSecurityHub' {} a -> s {controlFindingGenerator = a} :: EnableSecurityHub)
 
 -- | Whether to enable the security standards that Security Hub has
 -- designated as automatically enabled. If you do not provide a value for
@@ -137,12 +186,15 @@ instance Core.AWSRequest EnableSecurityHub where
 
 instance Prelude.Hashable EnableSecurityHub where
   hashWithSalt _salt EnableSecurityHub' {..} =
-    _salt `Prelude.hashWithSalt` enableDefaultStandards
+    _salt
+      `Prelude.hashWithSalt` controlFindingGenerator
+      `Prelude.hashWithSalt` enableDefaultStandards
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData EnableSecurityHub where
   rnf EnableSecurityHub' {..} =
-    Prelude.rnf enableDefaultStandards
+    Prelude.rnf controlFindingGenerator
+      `Prelude.seq` Prelude.rnf enableDefaultStandards
       `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders EnableSecurityHub where
@@ -160,7 +212,9 @@ instance Data.ToJSON EnableSecurityHub where
   toJSON EnableSecurityHub' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EnableDefaultStandards" Data..=)
+          [ ("ControlFindingGenerator" Data..=)
+              Prelude.<$> controlFindingGenerator,
+            ("EnableDefaultStandards" Data..=)
               Prelude.<$> enableDefaultStandards,
             ("Tags" Data..=) Prelude.<$> tags
           ]

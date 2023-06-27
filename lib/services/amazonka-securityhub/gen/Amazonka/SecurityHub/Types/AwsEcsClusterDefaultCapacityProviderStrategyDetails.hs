@@ -89,8 +89,8 @@ instance
       ( \x ->
           AwsEcsClusterDefaultCapacityProviderStrategyDetails'
             Prelude.<$> (x Data..:? "Base")
-              Prelude.<*> (x Data..:? "CapacityProvider")
-              Prelude.<*> (x Data..:? "Weight")
+            Prelude.<*> (x Data..:? "CapacityProvider")
+            Prelude.<*> (x Data..:? "Weight")
       )
 
 instance
@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsClusterDefaultCapacityProviderStrategyDetails' {..} =
-      _salt `Prelude.hashWithSalt` base
+      _salt
+        `Prelude.hashWithSalt` base
         `Prelude.hashWithSalt` capacityProvider
         `Prelude.hashWithSalt` weight
 

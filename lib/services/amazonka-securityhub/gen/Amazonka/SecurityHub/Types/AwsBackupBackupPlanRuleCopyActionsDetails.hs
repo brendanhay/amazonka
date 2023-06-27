@@ -99,7 +99,7 @@ instance
       ( \x ->
           AwsBackupBackupPlanRuleCopyActionsDetails'
             Prelude.<$> (x Data..:? "DestinationBackupVaultArn")
-              Prelude.<*> (x Data..:? "Lifecycle")
+            Prelude.<*> (x Data..:? "Lifecycle")
       )
 
 instance

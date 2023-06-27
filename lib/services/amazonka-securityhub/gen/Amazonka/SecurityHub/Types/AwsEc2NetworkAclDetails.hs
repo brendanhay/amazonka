@@ -120,7 +120,8 @@ instance Data.FromJSON AwsEc2NetworkAclDetails where
 
 instance Prelude.Hashable AwsEc2NetworkAclDetails where
   hashWithSalt _salt AwsEc2NetworkAclDetails' {..} =
-    _salt `Prelude.hashWithSalt` associations
+    _salt
+      `Prelude.hashWithSalt` associations
       `Prelude.hashWithSalt` entries
       `Prelude.hashWithSalt` isDefault
       `Prelude.hashWithSalt` networkAclId

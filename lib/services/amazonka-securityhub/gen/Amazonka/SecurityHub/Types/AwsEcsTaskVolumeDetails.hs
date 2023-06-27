@@ -82,12 +82,14 @@ instance Data.FromJSON AwsEcsTaskVolumeDetails where
       "AwsEcsTaskVolumeDetails"
       ( \x ->
           AwsEcsTaskVolumeDetails'
-            Prelude.<$> (x Data..:? "Host") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Host")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable AwsEcsTaskVolumeDetails where
   hashWithSalt _salt AwsEcsTaskVolumeDetails' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AwsEcsTaskVolumeDetails where

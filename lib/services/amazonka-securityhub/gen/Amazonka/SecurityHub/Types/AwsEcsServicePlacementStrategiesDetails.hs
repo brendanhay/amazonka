@@ -136,7 +136,8 @@ instance
       "AwsEcsServicePlacementStrategiesDetails"
       ( \x ->
           AwsEcsServicePlacementStrategiesDetails'
-            Prelude.<$> (x Data..:? "Field") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Field")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -146,7 +147,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsServicePlacementStrategiesDetails' {..} =
-      _salt `Prelude.hashWithSalt` field
+      _salt
+        `Prelude.hashWithSalt` field
         `Prelude.hashWithSalt` type'
 
 instance

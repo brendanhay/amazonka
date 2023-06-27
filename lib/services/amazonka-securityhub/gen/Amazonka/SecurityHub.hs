@@ -19,16 +19,15 @@
 -- integrated third-party products and helps you analyze security trends in
 -- your environment to identify the highest priority security issues. For
 -- more information about Security Hub, see the
--- <https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html Security HubUser Guide>
--- .
+-- <https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html Security HubUser Guide>.
 --
 -- When you use operations in the Security Hub API, the requests are
 -- executed only in the Amazon Web Services Region that is currently active
 -- or in the specific Amazon Web Services Region that you specify in your
 -- request. Any configuration or settings change that results from the
 -- operation is applied only to that Region. To make the same change in
--- other Regions, execute the same command for each Region to apply the
--- change to.
+-- other Regions, run the same command for each Region in which you want to
+-- apply the change.
 --
 -- For example, if your Region is set to @us-west-2@, when you use
 -- @CreateMembers@ to add a member account to Security Hub, the association
@@ -39,7 +38,7 @@
 -- The following throttling limits apply to using Security Hub API
 -- operations.
 --
--- -   @BatchEnableStandards@ - @RateLimit@ of 1 request per second,
+-- -   @BatchEnableStandards@ - @RateLimit@ of 1 request per second.
 --     @BurstLimit@ of 1 request per second.
 --
 -- -   @GetFindings@ - @RateLimit@ of 3 requests per second. @BurstLimit@
@@ -51,7 +50,7 @@
 -- -   @BatchUpdateFindings@ - @RateLimit@ of 10 requests per second.
 --     @BurstLimit@ of 30 requests per second.
 --
--- -   @UpdateStandardsControl@ - @RateLimit@ of 1 request per second,
+-- -   @UpdateStandardsControl@ - @RateLimit@ of 1 request per second.
 --     @BurstLimit@ of 5 requests per second.
 --
 -- -   All other operations - @RateLimit@ of 10 requests per second.
@@ -96,6 +95,12 @@ module Amazonka.SecurityHub
     AcceptAdministratorInvitationResponse (AcceptAdministratorInvitationResponse'),
     newAcceptAdministratorInvitationResponse,
 
+    -- ** BatchDeleteAutomationRules
+    BatchDeleteAutomationRules (BatchDeleteAutomationRules'),
+    newBatchDeleteAutomationRules,
+    BatchDeleteAutomationRulesResponse (BatchDeleteAutomationRulesResponse'),
+    newBatchDeleteAutomationRulesResponse,
+
     -- ** BatchDisableStandards
     BatchDisableStandards (BatchDisableStandards'),
     newBatchDisableStandards,
@@ -108,11 +113,35 @@ module Amazonka.SecurityHub
     BatchEnableStandardsResponse (BatchEnableStandardsResponse'),
     newBatchEnableStandardsResponse,
 
+    -- ** BatchGetAutomationRules
+    BatchGetAutomationRules (BatchGetAutomationRules'),
+    newBatchGetAutomationRules,
+    BatchGetAutomationRulesResponse (BatchGetAutomationRulesResponse'),
+    newBatchGetAutomationRulesResponse,
+
+    -- ** BatchGetSecurityControls
+    BatchGetSecurityControls (BatchGetSecurityControls'),
+    newBatchGetSecurityControls,
+    BatchGetSecurityControlsResponse (BatchGetSecurityControlsResponse'),
+    newBatchGetSecurityControlsResponse,
+
+    -- ** BatchGetStandardsControlAssociations
+    BatchGetStandardsControlAssociations (BatchGetStandardsControlAssociations'),
+    newBatchGetStandardsControlAssociations,
+    BatchGetStandardsControlAssociationsResponse (BatchGetStandardsControlAssociationsResponse'),
+    newBatchGetStandardsControlAssociationsResponse,
+
     -- ** BatchImportFindings
     BatchImportFindings (BatchImportFindings'),
     newBatchImportFindings,
     BatchImportFindingsResponse (BatchImportFindingsResponse'),
     newBatchImportFindingsResponse,
+
+    -- ** BatchUpdateAutomationRules
+    BatchUpdateAutomationRules (BatchUpdateAutomationRules'),
+    newBatchUpdateAutomationRules,
+    BatchUpdateAutomationRulesResponse (BatchUpdateAutomationRulesResponse'),
+    newBatchUpdateAutomationRulesResponse,
 
     -- ** BatchUpdateFindings
     BatchUpdateFindings (BatchUpdateFindings'),
@@ -120,11 +149,23 @@ module Amazonka.SecurityHub
     BatchUpdateFindingsResponse (BatchUpdateFindingsResponse'),
     newBatchUpdateFindingsResponse,
 
+    -- ** BatchUpdateStandardsControlAssociations
+    BatchUpdateStandardsControlAssociations (BatchUpdateStandardsControlAssociations'),
+    newBatchUpdateStandardsControlAssociations,
+    BatchUpdateStandardsControlAssociationsResponse (BatchUpdateStandardsControlAssociationsResponse'),
+    newBatchUpdateStandardsControlAssociationsResponse,
+
     -- ** CreateActionTarget
     CreateActionTarget (CreateActionTarget'),
     newCreateActionTarget,
     CreateActionTargetResponse (CreateActionTargetResponse'),
     newCreateActionTargetResponse,
+
+    -- ** CreateAutomationRule
+    CreateAutomationRule (CreateAutomationRule'),
+    newCreateAutomationRule,
+    CreateAutomationRuleResponse (CreateAutomationRuleResponse'),
+    newCreateAutomationRuleResponse,
 
     -- ** CreateFindingAggregator
     CreateFindingAggregator (CreateFindingAggregator'),
@@ -282,6 +323,12 @@ module Amazonka.SecurityHub
     GetFindingAggregatorResponse (GetFindingAggregatorResponse'),
     newGetFindingAggregatorResponse,
 
+    -- ** GetFindingHistory (Paginated)
+    GetFindingHistory (GetFindingHistory'),
+    newGetFindingHistory,
+    GetFindingHistoryResponse (GetFindingHistoryResponse'),
+    newGetFindingHistoryResponse,
+
     -- ** GetFindings (Paginated)
     GetFindings (GetFindings'),
     newGetFindings,
@@ -318,6 +365,12 @@ module Amazonka.SecurityHub
     InviteMembersResponse (InviteMembersResponse'),
     newInviteMembersResponse,
 
+    -- ** ListAutomationRules
+    ListAutomationRules (ListAutomationRules'),
+    newListAutomationRules,
+    ListAutomationRulesResponse (ListAutomationRulesResponse'),
+    newListAutomationRulesResponse,
+
     -- ** ListEnabledProductsForImport (Paginated)
     ListEnabledProductsForImport (ListEnabledProductsForImport'),
     newListEnabledProductsForImport,
@@ -347,6 +400,18 @@ module Amazonka.SecurityHub
     newListOrganizationAdminAccounts,
     ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
     newListOrganizationAdminAccountsResponse,
+
+    -- ** ListSecurityControlDefinitions (Paginated)
+    ListSecurityControlDefinitions (ListSecurityControlDefinitions'),
+    newListSecurityControlDefinitions,
+    ListSecurityControlDefinitionsResponse (ListSecurityControlDefinitionsResponse'),
+    newListSecurityControlDefinitionsResponse,
+
+    -- ** ListStandardsControlAssociations (Paginated)
+    ListStandardsControlAssociations (ListStandardsControlAssociations'),
+    newListStandardsControlAssociations,
+    ListStandardsControlAssociationsResponse (ListStandardsControlAssociationsResponse'),
+    newListStandardsControlAssociationsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -413,8 +478,14 @@ module Amazonka.SecurityHub
     -- ** AdminStatus
     AdminStatus (..),
 
+    -- ** AssociationStatus
+    AssociationStatus (..),
+
     -- ** AutoEnableStandards
     AutoEnableStandards (..),
+
+    -- ** AutomationRulesActionType
+    AutomationRulesActionType (..),
 
     -- ** AwsIamAccessKeyStatus
     AwsIamAccessKeyStatus (..),
@@ -425,11 +496,17 @@ module Amazonka.SecurityHub
     -- ** ComplianceStatus
     ComplianceStatus (..),
 
+    -- ** ControlFindingGenerator
+    ControlFindingGenerator (..),
+
     -- ** ControlStatus
     ControlStatus (..),
 
     -- ** DateRangeUnit
     DateRangeUnit (..),
+
+    -- ** FindingHistoryUpdateSourceType
+    FindingHistoryUpdateSourceType (..),
 
     -- ** IntegrationType
     IntegrationType (..),
@@ -451,6 +528,12 @@ module Amazonka.SecurityHub
 
     -- ** RecordState
     RecordState (..),
+
+    -- ** RegionAvailabilityStatus
+    RegionAvailabilityStatus (..),
+
+    -- ** RuleStatus
+    RuleStatus (..),
 
     -- ** SeverityLabel
     SeverityLabel (..),
@@ -475,6 +558,9 @@ module Amazonka.SecurityHub
 
     -- ** ThreatIntelIndicatorType
     ThreatIntelIndicatorType (..),
+
+    -- ** UnprocessedErrorCode
+    UnprocessedErrorCode (..),
 
     -- ** VerificationState
     VerificationState (..),
@@ -524,9 +610,69 @@ module Amazonka.SecurityHub
     AdminAccount (AdminAccount'),
     newAdminAccount,
 
+    -- ** AssociatedStandard
+    AssociatedStandard (AssociatedStandard'),
+    newAssociatedStandard,
+
+    -- ** AssociationSetDetails
+    AssociationSetDetails (AssociationSetDetails'),
+    newAssociationSetDetails,
+
+    -- ** AssociationStateDetails
+    AssociationStateDetails (AssociationStateDetails'),
+    newAssociationStateDetails,
+
+    -- ** AutomationRulesAction
+    AutomationRulesAction (AutomationRulesAction'),
+    newAutomationRulesAction,
+
+    -- ** AutomationRulesConfig
+    AutomationRulesConfig (AutomationRulesConfig'),
+    newAutomationRulesConfig,
+
+    -- ** AutomationRulesFindingFieldsUpdate
+    AutomationRulesFindingFieldsUpdate (AutomationRulesFindingFieldsUpdate'),
+    newAutomationRulesFindingFieldsUpdate,
+
+    -- ** AutomationRulesFindingFilters
+    AutomationRulesFindingFilters (AutomationRulesFindingFilters'),
+    newAutomationRulesFindingFilters,
+
+    -- ** AutomationRulesMetadata
+    AutomationRulesMetadata (AutomationRulesMetadata'),
+    newAutomationRulesMetadata,
+
     -- ** AvailabilityZone
     AvailabilityZone (AvailabilityZone'),
     newAvailabilityZone,
+
+    -- ** AwsAmazonMqBrokerDetails
+    AwsAmazonMqBrokerDetails (AwsAmazonMqBrokerDetails'),
+    newAwsAmazonMqBrokerDetails,
+
+    -- ** AwsAmazonMqBrokerEncryptionOptionsDetails
+    AwsAmazonMqBrokerEncryptionOptionsDetails (AwsAmazonMqBrokerEncryptionOptionsDetails'),
+    newAwsAmazonMqBrokerEncryptionOptionsDetails,
+
+    -- ** AwsAmazonMqBrokerLdapServerMetadataDetails
+    AwsAmazonMqBrokerLdapServerMetadataDetails (AwsAmazonMqBrokerLdapServerMetadataDetails'),
+    newAwsAmazonMqBrokerLdapServerMetadataDetails,
+
+    -- ** AwsAmazonMqBrokerLogsDetails
+    AwsAmazonMqBrokerLogsDetails (AwsAmazonMqBrokerLogsDetails'),
+    newAwsAmazonMqBrokerLogsDetails,
+
+    -- ** AwsAmazonMqBrokerLogsPendingDetails
+    AwsAmazonMqBrokerLogsPendingDetails (AwsAmazonMqBrokerLogsPendingDetails'),
+    newAwsAmazonMqBrokerLogsPendingDetails,
+
+    -- ** AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails
+    AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails (AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails'),
+    newAwsAmazonMqBrokerMaintenanceWindowStartTimeDetails,
+
+    -- ** AwsAmazonMqBrokerUsersDetails
+    AwsAmazonMqBrokerUsersDetails (AwsAmazonMqBrokerUsersDetails'),
+    newAwsAmazonMqBrokerUsersDetails,
 
     -- ** AwsApiCallAction
     AwsApiCallAction (AwsApiCallAction'),
@@ -571,6 +717,30 @@ module Amazonka.SecurityHub
     -- ** AwsApiGatewayV2StageDetails
     AwsApiGatewayV2StageDetails (AwsApiGatewayV2StageDetails'),
     newAwsApiGatewayV2StageDetails,
+
+    -- ** AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails
+    AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails (AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails'),
+    newAwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails,
+
+    -- ** AwsAppSyncGraphQlApiDetails
+    AwsAppSyncGraphQlApiDetails (AwsAppSyncGraphQlApiDetails'),
+    newAwsAppSyncGraphQlApiDetails,
+
+    -- ** AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails
+    AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails (AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails'),
+    newAwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails,
+
+    -- ** AwsAppSyncGraphQlApiLogConfigDetails
+    AwsAppSyncGraphQlApiLogConfigDetails (AwsAppSyncGraphQlApiLogConfigDetails'),
+    newAwsAppSyncGraphQlApiLogConfigDetails,
+
+    -- ** AwsAppSyncGraphQlApiOpenIdConnectConfigDetails
+    AwsAppSyncGraphQlApiOpenIdConnectConfigDetails (AwsAppSyncGraphQlApiOpenIdConnectConfigDetails'),
+    newAwsAppSyncGraphQlApiOpenIdConnectConfigDetails,
+
+    -- ** AwsAppSyncGraphQlApiUserPoolConfigDetails
+    AwsAppSyncGraphQlApiUserPoolConfigDetails (AwsAppSyncGraphQlApiUserPoolConfigDetails'),
+    newAwsAppSyncGraphQlApiUserPoolConfigDetails,
 
     -- ** AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
     AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails (AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails'),
@@ -896,6 +1066,10 @@ module Amazonka.SecurityHub
     AwsEc2InstanceMetadataOptions (AwsEc2InstanceMetadataOptions'),
     newAwsEc2InstanceMetadataOptions,
 
+    -- ** AwsEc2InstanceMonitoringDetails
+    AwsEc2InstanceMonitoringDetails (AwsEc2InstanceMonitoringDetails'),
+    newAwsEc2InstanceMonitoringDetails,
+
     -- ** AwsEc2InstanceNetworkInterfacesDetails
     AwsEc2InstanceNetworkInterfacesDetails (AwsEc2InstanceNetworkInterfacesDetails'),
     newAwsEc2InstanceNetworkInterfacesDetails,
@@ -1071,6 +1245,10 @@ module Amazonka.SecurityHub
     -- ** AwsEc2NetworkInterfaceSecurityGroup
     AwsEc2NetworkInterfaceSecurityGroup (AwsEc2NetworkInterfaceSecurityGroup'),
     newAwsEc2NetworkInterfaceSecurityGroup,
+
+    -- ** AwsEc2RouteTableDetails
+    AwsEc2RouteTableDetails (AwsEc2RouteTableDetails'),
+    newAwsEc2RouteTableDetails,
 
     -- ** AwsEc2SecurityGroupDetails
     AwsEc2SecurityGroupDetails (AwsEc2SecurityGroupDetails'),
@@ -1540,6 +1718,58 @@ module Amazonka.SecurityHub
     AwsElbv2LoadBalancerDetails (AwsElbv2LoadBalancerDetails'),
     newAwsElbv2LoadBalancerDetails,
 
+    -- ** AwsEventSchemasRegistryDetails
+    AwsEventSchemasRegistryDetails (AwsEventSchemasRegistryDetails'),
+    newAwsEventSchemasRegistryDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesCloudTrailDetails
+    AwsGuardDutyDetectorDataSourcesCloudTrailDetails (AwsGuardDutyDetectorDataSourcesCloudTrailDetails'),
+    newAwsGuardDutyDetectorDataSourcesCloudTrailDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesDetails
+    AwsGuardDutyDetectorDataSourcesDetails (AwsGuardDutyDetectorDataSourcesDetails'),
+    newAwsGuardDutyDetectorDataSourcesDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesDnsLogsDetails
+    AwsGuardDutyDetectorDataSourcesDnsLogsDetails (AwsGuardDutyDetectorDataSourcesDnsLogsDetails'),
+    newAwsGuardDutyDetectorDataSourcesDnsLogsDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesFlowLogsDetails
+    AwsGuardDutyDetectorDataSourcesFlowLogsDetails (AwsGuardDutyDetectorDataSourcesFlowLogsDetails'),
+    newAwsGuardDutyDetectorDataSourcesFlowLogsDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails
+    AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails (AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails'),
+    newAwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesKubernetesDetails
+    AwsGuardDutyDetectorDataSourcesKubernetesDetails (AwsGuardDutyDetectorDataSourcesKubernetesDetails'),
+    newAwsGuardDutyDetectorDataSourcesKubernetesDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails
+    AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails (AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails'),
+    newAwsGuardDutyDetectorDataSourcesMalwareProtectionDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails
+    AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails (AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails'),
+    newAwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails
+    AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails (AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails'),
+    newAwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails,
+
+    -- ** AwsGuardDutyDetectorDataSourcesS3LogsDetails
+    AwsGuardDutyDetectorDataSourcesS3LogsDetails (AwsGuardDutyDetectorDataSourcesS3LogsDetails'),
+    newAwsGuardDutyDetectorDataSourcesS3LogsDetails,
+
+    -- ** AwsGuardDutyDetectorDetails
+    AwsGuardDutyDetectorDetails (AwsGuardDutyDetectorDetails'),
+    newAwsGuardDutyDetectorDetails,
+
+    -- ** AwsGuardDutyDetectorFeaturesDetails
+    AwsGuardDutyDetectorFeaturesDetails (AwsGuardDutyDetectorFeaturesDetails'),
+    newAwsGuardDutyDetectorFeaturesDetails,
+
     -- ** AwsIamAccessKeyDetails
     AwsIamAccessKeyDetails (AwsIamAccessKeyDetails'),
     newAwsIamAccessKeyDetails,
@@ -1956,6 +2186,18 @@ module Amazonka.SecurityHub
     AwsS3BucketNotificationConfigurationS3KeyFilterRule (AwsS3BucketNotificationConfigurationS3KeyFilterRule'),
     newAwsS3BucketNotificationConfigurationS3KeyFilterRule,
 
+    -- ** AwsS3BucketObjectLockConfiguration
+    AwsS3BucketObjectLockConfiguration (AwsS3BucketObjectLockConfiguration'),
+    newAwsS3BucketObjectLockConfiguration,
+
+    -- ** AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails
+    AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails (AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails'),
+    newAwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails,
+
+    -- ** AwsS3BucketObjectLockConfigurationRuleDetails
+    AwsS3BucketObjectLockConfigurationRuleDetails (AwsS3BucketObjectLockConfigurationRuleDetails'),
+    newAwsS3BucketObjectLockConfigurationRuleDetails,
+
     -- ** AwsS3BucketServerSideEncryptionByDefault
     AwsS3BucketServerSideEncryptionByDefault (AwsS3BucketServerSideEncryptionByDefault'),
     newAwsS3BucketServerSideEncryptionByDefault,
@@ -2043,6 +2285,26 @@ module Amazonka.SecurityHub
     -- ** AwsSsmPatchComplianceDetails
     AwsSsmPatchComplianceDetails (AwsSsmPatchComplianceDetails'),
     newAwsSsmPatchComplianceDetails,
+
+    -- ** AwsStepFunctionStateMachineDetails
+    AwsStepFunctionStateMachineDetails (AwsStepFunctionStateMachineDetails'),
+    newAwsStepFunctionStateMachineDetails,
+
+    -- ** AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
+    AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails (AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails'),
+    newAwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails,
+
+    -- ** AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails
+    AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails (AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails'),
+    newAwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
+
+    -- ** AwsStepFunctionStateMachineLoggingConfigurationDetails
+    AwsStepFunctionStateMachineLoggingConfigurationDetails (AwsStepFunctionStateMachineLoggingConfigurationDetails'),
+    newAwsStepFunctionStateMachineLoggingConfigurationDetails,
+
+    -- ** AwsStepFunctionStateMachineTracingConfigurationDetails
+    AwsStepFunctionStateMachineTracingConfigurationDetails (AwsStepFunctionStateMachineTracingConfigurationDetails'),
+    newAwsStepFunctionStateMachineTracingConfigurationDetails,
 
     -- ** AwsWafRateBasedRuleDetails
     AwsWafRateBasedRuleDetails (AwsWafRateBasedRuleDetails'),
@@ -2264,6 +2526,18 @@ module Amazonka.SecurityHub
     FindingAggregator (FindingAggregator'),
     newFindingAggregator,
 
+    -- ** FindingHistoryRecord
+    FindingHistoryRecord (FindingHistoryRecord'),
+    newFindingHistoryRecord,
+
+    -- ** FindingHistoryUpdate
+    FindingHistoryUpdate (FindingHistoryUpdate'),
+    newFindingHistoryUpdate,
+
+    -- ** FindingHistoryUpdateSource
+    FindingHistoryUpdateSource (FindingHistoryUpdateSource'),
+    newFindingHistoryUpdateSource,
+
     -- ** FindingProviderFields
     FindingProviderFields (FindingProviderFields'),
     newFindingProviderFields,
@@ -2416,6 +2690,10 @@ module Amazonka.SecurityHub
     Product (Product'),
     newProduct,
 
+    -- ** PropagatingVgwSetDetails
+    PropagatingVgwSetDetails (PropagatingVgwSetDetails'),
+    newPropagatingVgwSetDetails,
+
     -- ** Range
     Range (Range'),
     newRange,
@@ -2447,6 +2725,10 @@ module Amazonka.SecurityHub
     -- ** Result
     Result (Result'),
     newResult,
+
+    -- ** RouteSetDetails
+    RouteSetDetails (RouteSetDetails'),
+    newRouteSetDetails,
 
     -- ** RuleGroupDetails
     RuleGroupDetails (RuleGroupDetails'),
@@ -2524,6 +2806,14 @@ module Amazonka.SecurityHub
     RuleGroupVariablesPortSetsDetails (RuleGroupVariablesPortSetsDetails'),
     newRuleGroupVariablesPortSetsDetails,
 
+    -- ** SecurityControl
+    SecurityControl (SecurityControl'),
+    newSecurityControl,
+
+    -- ** SecurityControlDefinition
+    SecurityControlDefinition (SecurityControlDefinition'),
+    newSecurityControlDefinition,
+
     -- ** SensitiveDataDetections
     SensitiveDataDetections (SensitiveDataDetections'),
     newSensitiveDataDetections,
@@ -2555,6 +2845,22 @@ module Amazonka.SecurityHub
     -- ** StandardsControl
     StandardsControl (StandardsControl'),
     newStandardsControl,
+
+    -- ** StandardsControlAssociationDetail
+    StandardsControlAssociationDetail (StandardsControlAssociationDetail'),
+    newStandardsControlAssociationDetail,
+
+    -- ** StandardsControlAssociationId
+    StandardsControlAssociationId (StandardsControlAssociationId'),
+    newStandardsControlAssociationId,
+
+    -- ** StandardsControlAssociationSummary
+    StandardsControlAssociationSummary (StandardsControlAssociationSummary'),
+    newStandardsControlAssociationSummary,
+
+    -- ** StandardsControlAssociationUpdate
+    StandardsControlAssociationUpdate (StandardsControlAssociationUpdate'),
+    newStandardsControlAssociationUpdate,
 
     -- ** StandardsManagedBy
     StandardsManagedBy (StandardsManagedBy'),
@@ -2599,6 +2905,26 @@ module Amazonka.SecurityHub
     -- ** ThreatIntelIndicator
     ThreatIntelIndicator (ThreatIntelIndicator'),
     newThreatIntelIndicator,
+
+    -- ** UnprocessedAutomationRule
+    UnprocessedAutomationRule (UnprocessedAutomationRule'),
+    newUnprocessedAutomationRule,
+
+    -- ** UnprocessedSecurityControl
+    UnprocessedSecurityControl (UnprocessedSecurityControl'),
+    newUnprocessedSecurityControl,
+
+    -- ** UnprocessedStandardsControlAssociation
+    UnprocessedStandardsControlAssociation (UnprocessedStandardsControlAssociation'),
+    newUnprocessedStandardsControlAssociation,
+
+    -- ** UnprocessedStandardsControlAssociationUpdate
+    UnprocessedStandardsControlAssociationUpdate (UnprocessedStandardsControlAssociationUpdate'),
+    newUnprocessedStandardsControlAssociationUpdate,
+
+    -- ** UpdateAutomationRulesRequestItem
+    UpdateAutomationRulesRequestItem (UpdateAutomationRulesRequestItem'),
+    newUpdateAutomationRulesRequestItem,
 
     -- ** VolumeMount
     VolumeMount (VolumeMount'),
@@ -2647,11 +2973,18 @@ module Amazonka.SecurityHub
 where
 
 import Amazonka.SecurityHub.AcceptAdministratorInvitation
+import Amazonka.SecurityHub.BatchDeleteAutomationRules
 import Amazonka.SecurityHub.BatchDisableStandards
 import Amazonka.SecurityHub.BatchEnableStandards
+import Amazonka.SecurityHub.BatchGetAutomationRules
+import Amazonka.SecurityHub.BatchGetSecurityControls
+import Amazonka.SecurityHub.BatchGetStandardsControlAssociations
 import Amazonka.SecurityHub.BatchImportFindings
+import Amazonka.SecurityHub.BatchUpdateAutomationRules
 import Amazonka.SecurityHub.BatchUpdateFindings
+import Amazonka.SecurityHub.BatchUpdateStandardsControlAssociations
 import Amazonka.SecurityHub.CreateActionTarget
+import Amazonka.SecurityHub.CreateAutomationRule
 import Amazonka.SecurityHub.CreateFindingAggregator
 import Amazonka.SecurityHub.CreateInsight
 import Amazonka.SecurityHub.CreateMembers
@@ -2678,6 +3011,7 @@ import Amazonka.SecurityHub.EnableSecurityHub
 import Amazonka.SecurityHub.GetAdministratorAccount
 import Amazonka.SecurityHub.GetEnabledStandards
 import Amazonka.SecurityHub.GetFindingAggregator
+import Amazonka.SecurityHub.GetFindingHistory
 import Amazonka.SecurityHub.GetFindings
 import Amazonka.SecurityHub.GetInsightResults
 import Amazonka.SecurityHub.GetInsights
@@ -2685,11 +3019,14 @@ import Amazonka.SecurityHub.GetInvitationsCount
 import Amazonka.SecurityHub.GetMembers
 import Amazonka.SecurityHub.InviteMembers
 import Amazonka.SecurityHub.Lens
+import Amazonka.SecurityHub.ListAutomationRules
 import Amazonka.SecurityHub.ListEnabledProductsForImport
 import Amazonka.SecurityHub.ListFindingAggregators
 import Amazonka.SecurityHub.ListInvitations
 import Amazonka.SecurityHub.ListMembers
 import Amazonka.SecurityHub.ListOrganizationAdminAccounts
+import Amazonka.SecurityHub.ListSecurityControlDefinitions
+import Amazonka.SecurityHub.ListStandardsControlAssociations
 import Amazonka.SecurityHub.ListTagsForResource
 import Amazonka.SecurityHub.TagResource
 import Amazonka.SecurityHub.Types

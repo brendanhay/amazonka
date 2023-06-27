@@ -31,9 +31,19 @@ import Amazonka.SecurityHub.Types.DateRange
 data DateFilter = DateFilter'
   { -- | A date range for the date filter.
     dateRange :: Prelude.Maybe DateRange,
-    -- | An end date for the date filter.
+    -- | A timestamp that provides the end date for the date filter.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     end :: Prelude.Maybe Prelude.Text,
-    -- | A start date for the date filter.
+    -- | A timestamp that provides the start date for the date filter.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     start :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +58,19 @@ data DateFilter = DateFilter'
 --
 -- 'dateRange', 'dateFilter_dateRange' - A date range for the date filter.
 --
--- 'end', 'dateFilter_end' - An end date for the date filter.
+-- 'end', 'dateFilter_end' - A timestamp that provides the end date for the date filter.
 --
--- 'start', 'dateFilter_start' - A start date for the date filter.
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
+--
+-- 'start', 'dateFilter_start' - A timestamp that provides the start date for the date filter.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 newDateFilter ::
   DateFilter
 newDateFilter =
@@ -64,11 +84,21 @@ newDateFilter =
 dateFilter_dateRange :: Lens.Lens' DateFilter (Prelude.Maybe DateRange)
 dateFilter_dateRange = Lens.lens (\DateFilter' {dateRange} -> dateRange) (\s@DateFilter' {} a -> s {dateRange = a} :: DateFilter)
 
--- | An end date for the date filter.
+-- | A timestamp that provides the end date for the date filter.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 dateFilter_end :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.Text)
 dateFilter_end = Lens.lens (\DateFilter' {end} -> end) (\s@DateFilter' {} a -> s {end = a} :: DateFilter)
 
--- | A start date for the date filter.
+-- | A timestamp that provides the start date for the date filter.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 dateFilter_start :: Lens.Lens' DateFilter (Prelude.Maybe Prelude.Text)
 dateFilter_start = Lens.lens (\DateFilter' {start} -> start) (\s@DateFilter' {} a -> s {start = a} :: DateFilter)
 
@@ -85,7 +115,8 @@ instance Data.FromJSON DateFilter where
 
 instance Prelude.Hashable DateFilter where
   hashWithSalt _salt DateFilter' {..} =
-    _salt `Prelude.hashWithSalt` dateRange
+    _salt
+      `Prelude.hashWithSalt` dateRange
       `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
 

@@ -115,10 +115,10 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails'
             Prelude.<$> (x Data..:? "AuthorizationConfig")
-              Prelude.<*> (x Data..:? "FilesystemId")
-              Prelude.<*> (x Data..:? "RootDirectory")
-              Prelude.<*> (x Data..:? "TransitEncryption")
-              Prelude.<*> (x Data..:? "TransitEncryptionPort")
+            Prelude.<*> (x Data..:? "FilesystemId")
+            Prelude.<*> (x Data..:? "RootDirectory")
+            Prelude.<*> (x Data..:? "TransitEncryption")
+            Prelude.<*> (x Data..:? "TransitEncryptionPort")
       )
 
 instance
@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails' {..} =
-      _salt `Prelude.hashWithSalt` authorizationConfig
+      _salt
+        `Prelude.hashWithSalt` authorizationConfig
         `Prelude.hashWithSalt` filesystemId
         `Prelude.hashWithSalt` rootDirectory
         `Prelude.hashWithSalt` transitEncryption

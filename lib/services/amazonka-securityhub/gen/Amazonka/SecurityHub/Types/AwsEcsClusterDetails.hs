@@ -169,16 +169,19 @@ instance Data.FromJSON AwsEcsClusterDetails where
       ( \x ->
           AwsEcsClusterDetails'
             Prelude.<$> (x Data..:? "ActiveServicesCount")
-            Prelude.<*> ( x Data..:? "CapacityProviders"
+            Prelude.<*> ( x
+                            Data..:? "CapacityProviders"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClusterArn")
             Prelude.<*> (x Data..:? "ClusterName")
-            Prelude.<*> ( x Data..:? "ClusterSettings"
+            Prelude.<*> ( x
+                            Data..:? "ClusterSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Configuration")
-            Prelude.<*> ( x Data..:? "DefaultCapacityProviderStrategy"
+            Prelude.<*> ( x
+                            Data..:? "DefaultCapacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RegisteredContainerInstancesCount")
@@ -188,7 +191,8 @@ instance Data.FromJSON AwsEcsClusterDetails where
 
 instance Prelude.Hashable AwsEcsClusterDetails where
   hashWithSalt _salt AwsEcsClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` activeServicesCount
+    _salt
+      `Prelude.hashWithSalt` activeServicesCount
       `Prelude.hashWithSalt` capacityProviders
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` clusterName

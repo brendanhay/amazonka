@@ -48,27 +48,27 @@ data Member = Member'
     --
     -- The status can have one of the following values:
     --
-    -- -   @CREATED@ - Indicates that the administrator account added the
+    -- -   @Created@ - Indicates that the administrator account added the
     --     member account, but has not yet invited the member account.
     --
-    -- -   @INVITED@ - Indicates that the administrator account invited the
+    -- -   @Invited@ - Indicates that the administrator account invited the
     --     member account. The member account has not yet responded to the
     --     invitation.
     --
-    -- -   @ENABLED@ - Indicates that the member account is currently active.
+    -- -   @Enabled@ - Indicates that the member account is currently active.
     --     For manually invited member accounts, indicates that the member
     --     account accepted the invitation.
     --
-    -- -   @REMOVED@ - Indicates that the administrator account disassociated
+    -- -   @Removed@ - Indicates that the administrator account disassociated
     --     the member account.
     --
-    -- -   @RESIGNED@ - Indicates that the member account disassociated
+    -- -   @Resigned@ - Indicates that the member account disassociated
     --     themselves from the administrator account.
     --
-    -- -   @DELETED@ - Indicates that the administrator account deleted the
+    -- -   @Deleted@ - Indicates that the administrator account deleted the
     --     member account.
     --
-    -- -   @ACCOUNT_SUSPENDED@ - Indicates that an organization account was
+    -- -   @AccountSuspended@ - Indicates that an organization account was
     --     suspended from Amazon Web Services at the same time that the
     --     administrator account tried to enable the organization account as a
     --     member account.
@@ -106,27 +106,27 @@ data Member = Member'
 --
 -- The status can have one of the following values:
 --
--- -   @CREATED@ - Indicates that the administrator account added the
+-- -   @Created@ - Indicates that the administrator account added the
 --     member account, but has not yet invited the member account.
 --
--- -   @INVITED@ - Indicates that the administrator account invited the
+-- -   @Invited@ - Indicates that the administrator account invited the
 --     member account. The member account has not yet responded to the
 --     invitation.
 --
--- -   @ENABLED@ - Indicates that the member account is currently active.
+-- -   @Enabled@ - Indicates that the member account is currently active.
 --     For manually invited member accounts, indicates that the member
 --     account accepted the invitation.
 --
--- -   @REMOVED@ - Indicates that the administrator account disassociated
+-- -   @Removed@ - Indicates that the administrator account disassociated
 --     the member account.
 --
--- -   @RESIGNED@ - Indicates that the member account disassociated
+-- -   @Resigned@ - Indicates that the member account disassociated
 --     themselves from the administrator account.
 --
--- -   @DELETED@ - Indicates that the administrator account deleted the
+-- -   @Deleted@ - Indicates that the administrator account deleted the
 --     member account.
 --
--- -   @ACCOUNT_SUSPENDED@ - Indicates that an organization account was
+-- -   @AccountSuspended@ - Indicates that an organization account was
 --     suspended from Amazon Web Services at the same time that the
 --     administrator account tried to enable the organization account as a
 --     member account.
@@ -175,27 +175,27 @@ member_masterId = Lens.lens (\Member' {masterId} -> masterId) (\s@Member' {} a -
 --
 -- The status can have one of the following values:
 --
--- -   @CREATED@ - Indicates that the administrator account added the
+-- -   @Created@ - Indicates that the administrator account added the
 --     member account, but has not yet invited the member account.
 --
--- -   @INVITED@ - Indicates that the administrator account invited the
+-- -   @Invited@ - Indicates that the administrator account invited the
 --     member account. The member account has not yet responded to the
 --     invitation.
 --
--- -   @ENABLED@ - Indicates that the member account is currently active.
+-- -   @Enabled@ - Indicates that the member account is currently active.
 --     For manually invited member accounts, indicates that the member
 --     account accepted the invitation.
 --
--- -   @REMOVED@ - Indicates that the administrator account disassociated
+-- -   @Removed@ - Indicates that the administrator account disassociated
 --     the member account.
 --
--- -   @RESIGNED@ - Indicates that the member account disassociated
+-- -   @Resigned@ - Indicates that the member account disassociated
 --     themselves from the administrator account.
 --
--- -   @DELETED@ - Indicates that the administrator account deleted the
+-- -   @Deleted@ - Indicates that the administrator account deleted the
 --     member account.
 --
--- -   @ACCOUNT_SUSPENDED@ - Indicates that an organization account was
+-- -   @AccountSuspended@ - Indicates that an organization account was
 --     suspended from Amazon Web Services at the same time that the
 --     administrator account tried to enable the organization account as a
 --     member account.
@@ -223,7 +223,8 @@ instance Data.FromJSON Member where
 
 instance Prelude.Hashable Member where
   hashWithSalt _salt Member' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` administratorId
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` invitedAt

@@ -148,7 +148,8 @@ instance
   hashWithSalt
     _salt
     AwsWafRateBasedRuleMatchPredicate' {..} =
-      _salt `Prelude.hashWithSalt` dataId
+      _salt
+        `Prelude.hashWithSalt` dataId
         `Prelude.hashWithSalt` negated
         `Prelude.hashWithSalt` type'
 

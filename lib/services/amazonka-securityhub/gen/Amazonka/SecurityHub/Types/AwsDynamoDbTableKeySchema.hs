@@ -79,7 +79,8 @@ instance Data.FromJSON AwsDynamoDbTableKeySchema where
 
 instance Prelude.Hashable AwsDynamoDbTableKeySchema where
   hashWithSalt _salt AwsDynamoDbTableKeySchema' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` keyType
 
 instance Prelude.NFData AwsDynamoDbTableKeySchema where

@@ -200,7 +200,8 @@ instance Core.AWSRequest CreateFindingAggregator where
 
 instance Prelude.Hashable CreateFindingAggregator where
   hashWithSalt _salt CreateFindingAggregator' {..} =
-    _salt `Prelude.hashWithSalt` regions
+    _salt
+      `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` regionLinkingMode
 
 instance Prelude.NFData CreateFindingAggregator where

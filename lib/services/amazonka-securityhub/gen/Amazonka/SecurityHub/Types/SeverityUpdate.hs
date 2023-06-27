@@ -150,9 +150,21 @@ severityUpdate_normalized = Lens.lens (\SeverityUpdate' {normalized} -> normaliz
 severityUpdate_product :: Lens.Lens' SeverityUpdate (Prelude.Maybe Prelude.Double)
 severityUpdate_product = Lens.lens (\SeverityUpdate' {product} -> product) (\s@SeverityUpdate' {} a -> s {product = a} :: SeverityUpdate)
 
+instance Data.FromJSON SeverityUpdate where
+  parseJSON =
+    Data.withObject
+      "SeverityUpdate"
+      ( \x ->
+          SeverityUpdate'
+            Prelude.<$> (x Data..:? "Label")
+            Prelude.<*> (x Data..:? "Normalized")
+            Prelude.<*> (x Data..:? "Product")
+      )
+
 instance Prelude.Hashable SeverityUpdate where
   hashWithSalt _salt SeverityUpdate' {..} =
-    _salt `Prelude.hashWithSalt` label
+    _salt
+      `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` normalized
       `Prelude.hashWithSalt` product
 

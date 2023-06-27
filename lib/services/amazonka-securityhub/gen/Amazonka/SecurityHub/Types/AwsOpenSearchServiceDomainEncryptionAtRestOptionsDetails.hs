@@ -75,7 +75,7 @@ instance
       ( \x ->
           AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails'
             Prelude.<$> (x Data..:? "Enabled")
-              Prelude.<*> (x Data..:? "KmsKeyId")
+            Prelude.<*> (x Data..:? "KmsKeyId")
       )
 
 instance
@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` kmsKeyId
 
 instance

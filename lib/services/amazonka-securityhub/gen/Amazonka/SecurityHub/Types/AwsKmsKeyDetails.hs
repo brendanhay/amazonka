@@ -35,8 +35,8 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     creationDate :: Prelude.Maybe Prelude.Double,
     -- | A description of the KMS key.
     description :: Prelude.Maybe Prelude.Text,
@@ -88,8 +88,8 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'description', 'awsKmsKeyDetails_description' - A description of the KMS key.
 --
@@ -145,8 +145,8 @@ awsKmsKeyDetails_aWSAccountId = Lens.lens (\AwsKmsKeyDetails' {aWSAccountId} -> 
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsKmsKeyDetails_creationDate :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Double)
 awsKmsKeyDetails_creationDate = Lens.lens (\AwsKmsKeyDetails' {creationDate} -> creationDate) (\s@AwsKmsKeyDetails' {} a -> s {creationDate = a} :: AwsKmsKeyDetails)
 
@@ -212,7 +212,8 @@ instance Data.FromJSON AwsKmsKeyDetails where
 
 instance Prelude.Hashable AwsKmsKeyDetails where
   hashWithSalt _salt AwsKmsKeyDetails' {..} =
-    _salt `Prelude.hashWithSalt` aWSAccountId
+    _salt
+      `Prelude.hashWithSalt` aWSAccountId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` keyId

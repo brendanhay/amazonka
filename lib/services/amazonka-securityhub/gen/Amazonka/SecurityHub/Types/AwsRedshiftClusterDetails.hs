@@ -68,8 +68,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     clusterCreateTime :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the cluster.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -129,8 +129,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     expectedNextSnapshotScheduleTime :: Prelude.Maybe Prelude.Text,
     -- | The status of the next expected snapshot.
     --
@@ -165,8 +165,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     nextMaintenanceWindowStartTime :: Prelude.Maybe Prelude.Text,
     -- | The node type for the nodes in the cluster.
     nodeType :: Prelude.Maybe Prelude.Text,
@@ -179,7 +179,7 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
     -- | The weekly time range, in Universal Coordinated Time (UTC), during which
     -- system maintenance can occur.
     --
-    -- Format: @ \<day>:HH:MM-\<day>:HH:MM@
+    -- Format: @ @/@\<day>@/@:HH:MM-@/@\<day>@/@:HH:MM@
     --
     -- For the day values, use @mon@ | @tue@ | @wed@ | @thu@ | @fri@ | @sat@ |
     -- @sun@
@@ -242,8 +242,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'clusterIdentifier', 'awsRedshiftClusterDetails_clusterIdentifier' - The unique identifier of the cluster.
 --
@@ -303,8 +303,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'expectedNextSnapshotScheduleTimeStatus', 'awsRedshiftClusterDetails_expectedNextSnapshotScheduleTimeStatus' - The status of the next expected snapshot.
 --
@@ -339,8 +339,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'nodeType', 'awsRedshiftClusterDetails_nodeType' - The node type for the nodes in the cluster.
 --
@@ -353,7 +353,7 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
 -- 'preferredMaintenanceWindow', 'awsRedshiftClusterDetails_preferredMaintenanceWindow' - The weekly time range, in Universal Coordinated Time (UTC), during which
 -- system maintenance can occur.
 --
--- Format: @ \<day>:HH:MM-\<day>:HH:MM@
+-- Format: @ @/@\<day>@/@:HH:MM-@/@\<day>@/@:HH:MM@
 --
 -- For the day values, use @mon@ | @tue@ | @wed@ | @thu@ | @fri@ | @sat@ |
 -- @sun@
@@ -467,8 +467,8 @@ awsRedshiftClusterDetails_clusterAvailabilityStatus = Lens.lens (\AwsRedshiftClu
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRedshiftClusterDetails_clusterCreateTime :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterDetails_clusterCreateTime = Lens.lens (\AwsRedshiftClusterDetails' {clusterCreateTime} -> clusterCreateTime) (\s@AwsRedshiftClusterDetails' {} a -> s {clusterCreateTime = a} :: AwsRedshiftClusterDetails)
 
@@ -564,8 +564,8 @@ awsRedshiftClusterDetails_enhancedVpcRouting = Lens.lens (\AwsRedshiftClusterDet
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRedshiftClusterDetails_expectedNextSnapshotScheduleTime :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterDetails_expectedNextSnapshotScheduleTime = Lens.lens (\AwsRedshiftClusterDetails' {expectedNextSnapshotScheduleTime} -> expectedNextSnapshotScheduleTime) (\s@AwsRedshiftClusterDetails' {} a -> s {expectedNextSnapshotScheduleTime = a} :: AwsRedshiftClusterDetails)
 
@@ -618,8 +618,8 @@ awsRedshiftClusterDetails_masterUsername = Lens.lens (\AwsRedshiftClusterDetails
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRedshiftClusterDetails_nextMaintenanceWindowStartTime :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterDetails_nextMaintenanceWindowStartTime = Lens.lens (\AwsRedshiftClusterDetails' {nextMaintenanceWindowStartTime} -> nextMaintenanceWindowStartTime) (\s@AwsRedshiftClusterDetails' {} a -> s {nextMaintenanceWindowStartTime = a} :: AwsRedshiftClusterDetails)
 
@@ -642,7 +642,7 @@ awsRedshiftClusterDetails_pendingModifiedValues = Lens.lens (\AwsRedshiftCluster
 -- | The weekly time range, in Universal Coordinated Time (UTC), during which
 -- system maintenance can occur.
 --
--- Format: @ \<day>:HH:MM-\<day>:HH:MM@
+-- Format: @ @/@\<day>@/@:HH:MM-@/@\<day>@/@:HH:MM@
 --
 -- For the day values, use @mon@ | @tue@ | @wed@ | @thu@ | @fri@ | @sat@ |
 -- @sun@
@@ -697,12 +697,14 @@ instance Data.FromJSON AwsRedshiftClusterDetails where
             Prelude.<*> (x Data..:? "ClusterCreateTime")
             Prelude.<*> (x Data..:? "ClusterIdentifier")
             Prelude.<*> (x Data..:? "ClusterNodes" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ClusterParameterGroups"
+            Prelude.<*> ( x
+                            Data..:? "ClusterParameterGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClusterPublicKey")
             Prelude.<*> (x Data..:? "ClusterRevisionNumber")
-            Prelude.<*> ( x Data..:? "ClusterSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "ClusterSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ClusterSnapshotCopyStatus")
@@ -710,7 +712,8 @@ instance Data.FromJSON AwsRedshiftClusterDetails where
             Prelude.<*> (x Data..:? "ClusterSubnetGroupName")
             Prelude.<*> (x Data..:? "ClusterVersion")
             Prelude.<*> (x Data..:? "DBName")
-            Prelude.<*> ( x Data..:? "DeferredMaintenanceWindows"
+            Prelude.<*> ( x
+                            Data..:? "DeferredMaintenanceWindows"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ElasticIpStatus")
@@ -739,14 +742,16 @@ instance Data.FromJSON AwsRedshiftClusterDetails where
             Prelude.<*> (x Data..:? "SnapshotScheduleIdentifier")
             Prelude.<*> (x Data..:? "SnapshotScheduleState")
             Prelude.<*> (x Data..:? "VpcId")
-            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "VpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsRedshiftClusterDetails where
   hashWithSalt _salt AwsRedshiftClusterDetails' {..} =
-    _salt `Prelude.hashWithSalt` allowVersionUpgrade
+    _salt
+      `Prelude.hashWithSalt` allowVersionUpgrade
       `Prelude.hashWithSalt` automatedSnapshotRetentionPeriod
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` clusterAvailabilityStatus

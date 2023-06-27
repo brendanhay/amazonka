@@ -73,7 +73,8 @@ instance
       "AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails"
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -83,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails' {..} =
-      _salt `Prelude.hashWithSalt` key
+      _salt
+        `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` value
 
 instance

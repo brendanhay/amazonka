@@ -36,15 +36,15 @@ data AwsRedshiftClusterLoggingStatus = AwsRedshiftClusterLoggingStatus'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastFailureTime :: Prelude.Maybe Prelude.Text,
     -- | The last time that logs were delivered successfully.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastSuccessfulDeliveryTime :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether logging is enabled.
     loggingEnabled :: Prelude.Maybe Prelude.Bool,
@@ -69,15 +69,15 @@ data AwsRedshiftClusterLoggingStatus = AwsRedshiftClusterLoggingStatus'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'lastSuccessfulDeliveryTime', 'awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime' - The last time that logs were delivered successfully.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'loggingEnabled', 'awsRedshiftClusterLoggingStatus_loggingEnabled' - Indicates whether logging is enabled.
 --
@@ -108,8 +108,8 @@ awsRedshiftClusterLoggingStatus_lastFailureMessage = Lens.lens (\AwsRedshiftClus
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRedshiftClusterLoggingStatus_lastFailureTime :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterLoggingStatus_lastFailureTime = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastFailureTime} -> lastFailureTime) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastFailureTime = a} :: AwsRedshiftClusterLoggingStatus)
 
@@ -117,8 +117,8 @@ awsRedshiftClusterLoggingStatus_lastFailureTime = Lens.lens (\AwsRedshiftCluster
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime :: Lens.Lens' AwsRedshiftClusterLoggingStatus (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterLoggingStatus_lastSuccessfulDeliveryTime = Lens.lens (\AwsRedshiftClusterLoggingStatus' {lastSuccessfulDeliveryTime} -> lastSuccessfulDeliveryTime) (\s@AwsRedshiftClusterLoggingStatus' {} a -> s {lastSuccessfulDeliveryTime = a} :: AwsRedshiftClusterLoggingStatus)
 
@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterLoggingStatus' {..} =
-      _salt `Prelude.hashWithSalt` bucketName
+      _salt
+        `Prelude.hashWithSalt` bucketName
         `Prelude.hashWithSalt` lastFailureMessage
         `Prelude.hashWithSalt` lastFailureTime
         `Prelude.hashWithSalt` lastSuccessfulDeliveryTime

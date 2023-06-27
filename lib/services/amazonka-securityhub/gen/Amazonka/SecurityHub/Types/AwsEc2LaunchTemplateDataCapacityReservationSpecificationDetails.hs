@@ -88,7 +88,7 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails'
             Prelude.<$> (x Data..:? "CapacityReservationPreference")
-              Prelude.<*> (x Data..:? "CapacityReservationTarget")
+            Prelude.<*> (x Data..:? "CapacityReservationTarget")
       )
 
 instance

@@ -160,7 +160,8 @@ instance Data.FromJSON AwsWafv2RuleGroupDetails where
 
 instance Prelude.Hashable AwsWafv2RuleGroupDetails where
   hashWithSalt _salt AwsWafv2RuleGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` capacity
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

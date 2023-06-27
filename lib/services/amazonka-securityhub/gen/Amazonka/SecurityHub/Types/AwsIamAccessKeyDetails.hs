@@ -38,8 +38,8 @@ data AwsIamAccessKeyDetails = AwsIamAccessKeyDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The ID of the principal associated with an access key.
     principalId :: Prelude.Maybe Prelude.Text,
@@ -76,8 +76,8 @@ data AwsIamAccessKeyDetails = AwsIamAccessKeyDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'principalId', 'awsIamAccessKeyDetails_principalId' - The ID of the principal associated with an access key.
 --
@@ -122,8 +122,8 @@ awsIamAccessKeyDetails_accountId = Lens.lens (\AwsIamAccessKeyDetails' {accountI
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamAccessKeyDetails_createdAt :: Lens.Lens' AwsIamAccessKeyDetails (Prelude.Maybe Prelude.Text)
 awsIamAccessKeyDetails_createdAt = Lens.lens (\AwsIamAccessKeyDetails' {createdAt} -> createdAt) (\s@AwsIamAccessKeyDetails' {} a -> s {createdAt = a} :: AwsIamAccessKeyDetails)
 
@@ -174,7 +174,8 @@ instance Data.FromJSON AwsIamAccessKeyDetails where
 
 instance Prelude.Hashable AwsIamAccessKeyDetails where
   hashWithSalt _salt AwsIamAccessKeyDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` principalId

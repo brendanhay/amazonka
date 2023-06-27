@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     AwsKinesisStreamStreamEncryptionDetails' {..} =
-      _salt `Prelude.hashWithSalt` encryptionType
+      _salt
+        `Prelude.hashWithSalt` encryptionType
         `Prelude.hashWithSalt` keyId
 
 instance

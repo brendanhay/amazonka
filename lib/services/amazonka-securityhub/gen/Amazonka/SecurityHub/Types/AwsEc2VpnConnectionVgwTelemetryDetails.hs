@@ -36,8 +36,8 @@ data AwsEc2VpnConnectionVgwTelemetryDetails = AwsEc2VpnConnectionVgwTelemetryDet
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastStatusChange :: Prelude.Maybe Prelude.Text,
     -- | The Internet-routable IP address of the virtual private gateway\'s
     -- outside interface.
@@ -65,8 +65,8 @@ data AwsEc2VpnConnectionVgwTelemetryDetails = AwsEc2VpnConnectionVgwTelemetryDet
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'outsideIpAddress', 'awsEc2VpnConnectionVgwTelemetryDetails_outsideIpAddress' - The Internet-routable IP address of the virtual private gateway\'s
 -- outside interface.
@@ -99,8 +99,8 @@ awsEc2VpnConnectionVgwTelemetryDetails_certificateArn = Lens.lens (\AwsEc2VpnCon
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsEc2VpnConnectionVgwTelemetryDetails_lastStatusChange :: Lens.Lens' AwsEc2VpnConnectionVgwTelemetryDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpnConnectionVgwTelemetryDetails_lastStatusChange = Lens.lens (\AwsEc2VpnConnectionVgwTelemetryDetails' {lastStatusChange} -> lastStatusChange) (\s@AwsEc2VpnConnectionVgwTelemetryDetails' {} a -> s {lastStatusChange = a} :: AwsEc2VpnConnectionVgwTelemetryDetails)
 
@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpnConnectionVgwTelemetryDetails' {..} =
-      _salt `Prelude.hashWithSalt` acceptedRouteCount
+      _salt
+        `Prelude.hashWithSalt` acceptedRouteCount
         `Prelude.hashWithSalt` certificateArn
         `Prelude.hashWithSalt` lastStatusChange
         `Prelude.hashWithSalt` outsideIpAddress

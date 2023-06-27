@@ -138,8 +138,8 @@ instance
       ( \x ->
           AwsWafRegionalRateBasedRuleMatchPredicate'
             Prelude.<$> (x Data..:? "DataId")
-              Prelude.<*> (x Data..:? "Negated")
-              Prelude.<*> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Negated")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalRateBasedRuleMatchPredicate' {..} =
-      _salt `Prelude.hashWithSalt` dataId
+      _salt
+        `Prelude.hashWithSalt` dataId
         `Prelude.hashWithSalt` negated
         `Prelude.hashWithSalt` type'
 

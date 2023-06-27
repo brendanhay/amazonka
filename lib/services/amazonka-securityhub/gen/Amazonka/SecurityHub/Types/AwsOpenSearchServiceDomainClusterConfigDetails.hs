@@ -201,15 +201,15 @@ instance
       ( \x ->
           AwsOpenSearchServiceDomainClusterConfigDetails'
             Prelude.<$> (x Data..:? "DedicatedMasterCount")
-              Prelude.<*> (x Data..:? "DedicatedMasterEnabled")
-              Prelude.<*> (x Data..:? "DedicatedMasterType")
-              Prelude.<*> (x Data..:? "InstanceCount")
-              Prelude.<*> (x Data..:? "InstanceType")
-              Prelude.<*> (x Data..:? "WarmCount")
-              Prelude.<*> (x Data..:? "WarmEnabled")
-              Prelude.<*> (x Data..:? "WarmType")
-              Prelude.<*> (x Data..:? "ZoneAwarenessConfig")
-              Prelude.<*> (x Data..:? "ZoneAwarenessEnabled")
+            Prelude.<*> (x Data..:? "DedicatedMasterEnabled")
+            Prelude.<*> (x Data..:? "DedicatedMasterType")
+            Prelude.<*> (x Data..:? "InstanceCount")
+            Prelude.<*> (x Data..:? "InstanceType")
+            Prelude.<*> (x Data..:? "WarmCount")
+            Prelude.<*> (x Data..:? "WarmEnabled")
+            Prelude.<*> (x Data..:? "WarmType")
+            Prelude.<*> (x Data..:? "ZoneAwarenessConfig")
+            Prelude.<*> (x Data..:? "ZoneAwarenessEnabled")
       )
 
 instance
@@ -219,7 +219,8 @@ instance
   hashWithSalt
     _salt
     AwsOpenSearchServiceDomainClusterConfigDetails' {..} =
-      _salt `Prelude.hashWithSalt` dedicatedMasterCount
+      _salt
+        `Prelude.hashWithSalt` dedicatedMasterCount
         `Prelude.hashWithSalt` dedicatedMasterEnabled
         `Prelude.hashWithSalt` dedicatedMasterType
         `Prelude.hashWithSalt` instanceCount

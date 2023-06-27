@@ -28,6 +28,7 @@ import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketVersioningConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration
+import Amazonka.SecurityHub.Types.AwsS3BucketObjectLockConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketWebsiteConfiguration
 
@@ -51,9 +52,12 @@ data AwsS3BucketDetails = AwsS3BucketDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdAt :: Prelude.Maybe Prelude.Text,
+    -- | Specifies which rule Amazon S3 applies by default to every new object
+    -- placed in the specified bucket.
+    objectLockConfiguration :: Prelude.Maybe AwsS3BucketObjectLockConfiguration,
     -- | The Amazon Web Services account identifier of the account that owns the
     -- S3 bucket.
     ownerAccountId :: Prelude.Maybe Prelude.Text,
@@ -93,8 +97,11 @@ data AwsS3BucketDetails = AwsS3BucketDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
+--
+-- 'objectLockConfiguration', 'awsS3BucketDetails_objectLockConfiguration' - Specifies which rule Amazon S3 applies by default to every new object
+-- placed in the specified bucket.
 --
 -- 'ownerAccountId', 'awsS3BucketDetails_ownerAccountId' - The Amazon Web Services account identifier of the account that owns the
 -- S3 bucket.
@@ -119,6 +126,7 @@ newAwsS3BucketDetails =
       bucketVersioningConfiguration = Prelude.Nothing,
       bucketWebsiteConfiguration = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      objectLockConfiguration = Prelude.Nothing,
       ownerAccountId = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       ownerName = Prelude.Nothing,
@@ -154,10 +162,15 @@ awsS3BucketDetails_bucketWebsiteConfiguration = Lens.lens (\AwsS3BucketDetails' 
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsS3BucketDetails_createdAt :: Lens.Lens' AwsS3BucketDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketDetails_createdAt = Lens.lens (\AwsS3BucketDetails' {createdAt} -> createdAt) (\s@AwsS3BucketDetails' {} a -> s {createdAt = a} :: AwsS3BucketDetails)
+
+-- | Specifies which rule Amazon S3 applies by default to every new object
+-- placed in the specified bucket.
+awsS3BucketDetails_objectLockConfiguration :: Lens.Lens' AwsS3BucketDetails (Prelude.Maybe AwsS3BucketObjectLockConfiguration)
+awsS3BucketDetails_objectLockConfiguration = Lens.lens (\AwsS3BucketDetails' {objectLockConfiguration} -> objectLockConfiguration) (\s@AwsS3BucketDetails' {} a -> s {objectLockConfiguration = a} :: AwsS3BucketDetails)
 
 -- | The Amazon Web Services account identifier of the account that owns the
 -- S3 bucket.
@@ -194,6 +207,7 @@ instance Data.FromJSON AwsS3BucketDetails where
             Prelude.<*> (x Data..:? "BucketVersioningConfiguration")
             Prelude.<*> (x Data..:? "BucketWebsiteConfiguration")
             Prelude.<*> (x Data..:? "CreatedAt")
+            Prelude.<*> (x Data..:? "ObjectLockConfiguration")
             Prelude.<*> (x Data..:? "OwnerAccountId")
             Prelude.<*> (x Data..:? "OwnerId")
             Prelude.<*> (x Data..:? "OwnerName")
@@ -203,13 +217,15 @@ instance Data.FromJSON AwsS3BucketDetails where
 
 instance Prelude.Hashable AwsS3BucketDetails where
   hashWithSalt _salt AwsS3BucketDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessControlList
+    _salt
+      `Prelude.hashWithSalt` accessControlList
       `Prelude.hashWithSalt` bucketLifecycleConfiguration
       `Prelude.hashWithSalt` bucketLoggingConfiguration
       `Prelude.hashWithSalt` bucketNotificationConfiguration
       `Prelude.hashWithSalt` bucketVersioningConfiguration
       `Prelude.hashWithSalt` bucketWebsiteConfiguration
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` objectLockConfiguration
       `Prelude.hashWithSalt` ownerAccountId
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` ownerName
@@ -225,11 +241,13 @@ instance Prelude.NFData AwsS3BucketDetails where
       `Prelude.seq` Prelude.rnf bucketVersioningConfiguration
       `Prelude.seq` Prelude.rnf bucketWebsiteConfiguration
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf objectLockConfiguration
       `Prelude.seq` Prelude.rnf ownerAccountId
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf ownerName
       `Prelude.seq` Prelude.rnf publicAccessBlockConfiguration
-      `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
+      `Prelude.seq` Prelude.rnf
+        serverSideEncryptionConfiguration
 
 instance Data.ToJSON AwsS3BucketDetails where
   toJSON AwsS3BucketDetails' {..} =
@@ -248,6 +266,8 @@ instance Data.ToJSON AwsS3BucketDetails where
             ("BucketWebsiteConfiguration" Data..=)
               Prelude.<$> bucketWebsiteConfiguration,
             ("CreatedAt" Data..=) Prelude.<$> createdAt,
+            ("ObjectLockConfiguration" Data..=)
+              Prelude.<$> objectLockConfiguration,
             ("OwnerAccountId" Data..=)
               Prelude.<$> ownerAccountId,
             ("OwnerId" Data..=) Prelude.<$> ownerId,

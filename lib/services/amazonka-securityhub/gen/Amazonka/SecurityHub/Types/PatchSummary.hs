@@ -54,15 +54,15 @@ data PatchSummary = PatchSummary'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     operationEndTime :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the operation started.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     operationStartTime :: Prelude.Maybe Prelude.Text,
     -- | The reboot option specified for the instance.
     rebootOption :: Prelude.Maybe Prelude.Text,
@@ -105,15 +105,15 @@ data PatchSummary = PatchSummary'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'operationStartTime', 'patchSummary_operationStartTime' - Indicates when the operation started.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'rebootOption', 'patchSummary_rebootOption' - The reboot option specified for the instance.
 --
@@ -177,8 +177,8 @@ patchSummary_operation = Lens.lens (\PatchSummary' {operation} -> operation) (\s
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 patchSummary_operationEndTime :: Lens.Lens' PatchSummary (Prelude.Maybe Prelude.Text)
 patchSummary_operationEndTime = Lens.lens (\PatchSummary' {operationEndTime} -> operationEndTime) (\s@PatchSummary' {} a -> s {operationEndTime = a} :: PatchSummary)
 
@@ -186,8 +186,8 @@ patchSummary_operationEndTime = Lens.lens (\PatchSummary' {operationEndTime} -> 
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 patchSummary_operationStartTime :: Lens.Lens' PatchSummary (Prelude.Maybe Prelude.Text)
 patchSummary_operationStartTime = Lens.lens (\PatchSummary' {operationStartTime} -> operationStartTime) (\s@PatchSummary' {} a -> s {operationStartTime = a} :: PatchSummary)
 
@@ -221,7 +221,8 @@ instance Data.FromJSON PatchSummary where
 
 instance Prelude.Hashable PatchSummary where
   hashWithSalt _salt PatchSummary' {..} =
-    _salt `Prelude.hashWithSalt` failedCount
+    _salt
+      `Prelude.hashWithSalt` failedCount
       `Prelude.hashWithSalt` installedCount
       `Prelude.hashWithSalt` installedOtherCount
       `Prelude.hashWithSalt` installedPendingReboot

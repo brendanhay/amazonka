@@ -23,10 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayRestApiDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayStageDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2ApiDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2StageDetails
+import Amazonka.SecurityHub.Types.AwsAppSyncGraphQlApiDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationDetails
 import Amazonka.SecurityHub.Types.AwsBackupBackupPlanDetails
@@ -44,6 +46,7 @@ import Amazonka.SecurityHub.Types.AwsEc2InstanceDetails
 import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceDetails
+import Amazonka.SecurityHub.Types.AwsEc2RouteTableDetails
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupDetails
 import Amazonka.SecurityHub.Types.AwsEc2SubnetDetails
 import Amazonka.SecurityHub.Types.AwsEc2TransitGatewayDetails
@@ -65,6 +68,8 @@ import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails
 import Amazonka.SecurityHub.Types.AwsElasticsearchDomainDetails
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerDetails
 import Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerDetails
+import Amazonka.SecurityHub.Types.AwsEventSchemasRegistryDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDetails
 import Amazonka.SecurityHub.Types.AwsIamAccessKeyDetails
 import Amazonka.SecurityHub.Types.AwsIamGroupDetails
 import Amazonka.SecurityHub.Types.AwsIamPolicyDetails
@@ -93,6 +98,7 @@ import Amazonka.SecurityHub.Types.AwsSecretsManagerSecretDetails
 import Amazonka.SecurityHub.Types.AwsSnsTopicDetails
 import Amazonka.SecurityHub.Types.AwsSqsQueueDetails
 import Amazonka.SecurityHub.Types.AwsSsmPatchComplianceDetails
+import Amazonka.SecurityHub.Types.AwsStepFunctionStateMachineDetails
 import Amazonka.SecurityHub.Types.AwsWafRateBasedRuleDetails
 import Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails
 import Amazonka.SecurityHub.Types.AwsWafRegionalRuleDetails
@@ -121,7 +127,12 @@ import Amazonka.SecurityHub.Types.ContainerDetails
 --
 -- /See:/ 'newResourceDetails' smart constructor.
 data ResourceDetails = ResourceDetails'
-  { -- | Provides information about a REST API in version 1 of Amazon API
+  { -- | Provides details about AppSync message broker. A message broker allows
+    -- software applications and components to communicate using various
+    -- programming languages, operating systems, and formal messaging
+    -- protocols.
+    awsAmazonMqBroker :: Prelude.Maybe AwsAmazonMqBrokerDetails,
+    -- | Provides information about a REST API in version 1 of Amazon API
     -- Gateway.
     awsApiGatewayRestApi :: Prelude.Maybe AwsApiGatewayRestApiDetails,
     -- | Provides information about a version 1 Amazon API Gateway stage.
@@ -130,6 +141,10 @@ data ResourceDetails = ResourceDetails'
     awsApiGatewayV2Api :: Prelude.Maybe AwsApiGatewayV2ApiDetails,
     -- | Provides information about a version 2 stage for Amazon API Gateway.
     awsApiGatewayV2Stage :: Prelude.Maybe AwsApiGatewayV2StageDetails,
+    -- | Provides details about an AppSync Graph QL API, which lets you query
+    -- multiple databases, microservices, and APIs from a single GraphQL
+    -- endpoint.
+    awsAppSyncGraphQlApi :: Prelude.Maybe AwsAppSyncGraphQlApiDetails,
     -- | Details for an autoscaling group.
     awsAutoScalingAutoScalingGroup :: Prelude.Maybe AwsAutoScalingAutoScalingGroupDetails,
     -- | Provides details about a launch configuration.
@@ -166,6 +181,10 @@ data ResourceDetails = ResourceDetails'
     awsEc2NetworkAcl :: Prelude.Maybe AwsEc2NetworkAclDetails,
     -- | Details for an EC2 network interface.
     awsEc2NetworkInterface :: Prelude.Maybe AwsEc2NetworkInterfaceDetails,
+    -- | Provides details about a route table. A route table contains a set of
+    -- rules, called routes, that determine where to direct network traffic
+    -- from your subnet or gateway.
+    awsEc2RouteTable :: Prelude.Maybe AwsEc2RouteTableDetails,
     -- | Details for an EC2 security group.
     awsEc2SecurityGroup :: Prelude.Maybe AwsEc2SecurityGroupDetails,
     -- | Details about a subnet in Amazon EC2.
@@ -216,6 +235,14 @@ data ResourceDetails = ResourceDetails'
     awsElbLoadBalancer :: Prelude.Maybe AwsElbLoadBalancerDetails,
     -- | Details about a load balancer.
     awsElbv2LoadBalancer :: Prelude.Maybe AwsElbv2LoadBalancerDetails,
+    -- | A schema defines the structure of events that are sent to Amazon
+    -- EventBridge. Schema registries are containers for schemas. They collect
+    -- and organize schemas so that your schemas are in logical groups.
+    awsEventSchemasRegistry :: Prelude.Maybe AwsEventSchemasRegistryDetails,
+    -- | Provides details about an Amazon GuardDuty detector. A detector is an
+    -- object that represents the GuardDuty service. A detector is required for
+    -- GuardDuty to become operational.
+    awsGuardDutyDetector :: Prelude.Maybe AwsGuardDutyDetectorDetails,
     -- | Details about an IAM access key related to a finding.
     awsIamAccessKey :: Prelude.Maybe AwsIamAccessKeyDetails,
     -- | Contains details about an IAM group.
@@ -273,6 +300,9 @@ data ResourceDetails = ResourceDetails'
     -- | Provides information about the state of a patch on an instance based on
     -- the patch baseline that was used to patch the instance.
     awsSsmPatchCompliance :: Prelude.Maybe AwsSsmPatchComplianceDetails,
+    -- | Provides details about an Step Functions state machine, which is a
+    -- workflow consisting of a series of event-driven steps.
+    awsStepFunctionStateMachine :: Prelude.Maybe AwsStepFunctionStateMachineDetails,
     -- | Details about a rate-based rule for global resources.
     awsWafRateBasedRule :: Prelude.Maybe AwsWafRateBasedRuleDetails,
     -- | Details about a rate-based rule for Regional resources.
@@ -318,6 +348,11 @@ data ResourceDetails = ResourceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'awsAmazonMqBroker', 'resourceDetails_awsAmazonMqBroker' - Provides details about AppSync message broker. A message broker allows
+-- software applications and components to communicate using various
+-- programming languages, operating systems, and formal messaging
+-- protocols.
+--
 -- 'awsApiGatewayRestApi', 'resourceDetails_awsApiGatewayRestApi' - Provides information about a REST API in version 1 of Amazon API
 -- Gateway.
 --
@@ -326,6 +361,10 @@ data ResourceDetails = ResourceDetails'
 -- 'awsApiGatewayV2Api', 'resourceDetails_awsApiGatewayV2Api' - Provides information about a version 2 API in Amazon API Gateway.
 --
 -- 'awsApiGatewayV2Stage', 'resourceDetails_awsApiGatewayV2Stage' - Provides information about a version 2 stage for Amazon API Gateway.
+--
+-- 'awsAppSyncGraphQlApi', 'resourceDetails_awsAppSyncGraphQlApi' - Provides details about an AppSync Graph QL API, which lets you query
+-- multiple databases, microservices, and APIs from a single GraphQL
+-- endpoint.
 --
 -- 'awsAutoScalingAutoScalingGroup', 'resourceDetails_awsAutoScalingAutoScalingGroup' - Details for an autoscaling group.
 --
@@ -363,6 +402,10 @@ data ResourceDetails = ResourceDetails'
 -- 'awsEc2NetworkAcl', 'resourceDetails_awsEc2NetworkAcl' - Details about an EC2 network access control list (ACL).
 --
 -- 'awsEc2NetworkInterface', 'resourceDetails_awsEc2NetworkInterface' - Details for an EC2 network interface.
+--
+-- 'awsEc2RouteTable', 'resourceDetails_awsEc2RouteTable' - Provides details about a route table. A route table contains a set of
+-- rules, called routes, that determine where to direct network traffic
+-- from your subnet or gateway.
 --
 -- 'awsEc2SecurityGroup', 'resourceDetails_awsEc2SecurityGroup' - Details for an EC2 security group.
 --
@@ -413,6 +456,14 @@ data ResourceDetails = ResourceDetails'
 -- 'awsElbLoadBalancer', 'resourceDetails_awsElbLoadBalancer' - Contains details about a Classic Load Balancer.
 --
 -- 'awsElbv2LoadBalancer', 'resourceDetails_awsElbv2LoadBalancer' - Details about a load balancer.
+--
+-- 'awsEventSchemasRegistry', 'resourceDetails_awsEventSchemasRegistry' - A schema defines the structure of events that are sent to Amazon
+-- EventBridge. Schema registries are containers for schemas. They collect
+-- and organize schemas so that your schemas are in logical groups.
+--
+-- 'awsGuardDutyDetector', 'resourceDetails_awsGuardDutyDetector' - Provides details about an Amazon GuardDuty detector. A detector is an
+-- object that represents the GuardDuty service. A detector is required for
+-- GuardDuty to become operational.
 --
 -- 'awsIamAccessKey', 'resourceDetails_awsIamAccessKey' - Details about an IAM access key related to a finding.
 --
@@ -472,6 +523,9 @@ data ResourceDetails = ResourceDetails'
 -- 'awsSsmPatchCompliance', 'resourceDetails_awsSsmPatchCompliance' - Provides information about the state of a patch on an instance based on
 -- the patch baseline that was used to patch the instance.
 --
+-- 'awsStepFunctionStateMachine', 'resourceDetails_awsStepFunctionStateMachine' - Provides details about an Step Functions state machine, which is a
+-- workflow consisting of a series of event-driven steps.
+--
 -- 'awsWafRateBasedRule', 'resourceDetails_awsWafRateBasedRule' - Details about a rate-based rule for global resources.
 --
 -- 'awsWafRegionalRateBasedRule', 'resourceDetails_awsWafRegionalRateBasedRule' - Details about a rate-based rule for Regional resources.
@@ -511,11 +565,13 @@ newResourceDetails ::
   ResourceDetails
 newResourceDetails =
   ResourceDetails'
-    { awsApiGatewayRestApi =
+    { awsAmazonMqBroker =
         Prelude.Nothing,
+      awsApiGatewayRestApi = Prelude.Nothing,
       awsApiGatewayStage = Prelude.Nothing,
       awsApiGatewayV2Api = Prelude.Nothing,
       awsApiGatewayV2Stage = Prelude.Nothing,
+      awsAppSyncGraphQlApi = Prelude.Nothing,
       awsAutoScalingAutoScalingGroup = Prelude.Nothing,
       awsAutoScalingLaunchConfiguration = Prelude.Nothing,
       awsBackupBackupPlan = Prelude.Nothing,
@@ -533,6 +589,7 @@ newResourceDetails =
       awsEc2LaunchTemplate = Prelude.Nothing,
       awsEc2NetworkAcl = Prelude.Nothing,
       awsEc2NetworkInterface = Prelude.Nothing,
+      awsEc2RouteTable = Prelude.Nothing,
       awsEc2SecurityGroup = Prelude.Nothing,
       awsEc2Subnet = Prelude.Nothing,
       awsEc2TransitGateway = Prelude.Nothing,
@@ -554,6 +611,8 @@ newResourceDetails =
       awsElasticsearchDomain = Prelude.Nothing,
       awsElbLoadBalancer = Prelude.Nothing,
       awsElbv2LoadBalancer = Prelude.Nothing,
+      awsEventSchemasRegistry = Prelude.Nothing,
+      awsGuardDutyDetector = Prelude.Nothing,
       awsIamAccessKey = Prelude.Nothing,
       awsIamGroup = Prelude.Nothing,
       awsIamPolicy = Prelude.Nothing,
@@ -582,6 +641,7 @@ newResourceDetails =
       awsSnsTopic = Prelude.Nothing,
       awsSqsQueue = Prelude.Nothing,
       awsSsmPatchCompliance = Prelude.Nothing,
+      awsStepFunctionStateMachine = Prelude.Nothing,
       awsWafRateBasedRule = Prelude.Nothing,
       awsWafRegionalRateBasedRule = Prelude.Nothing,
       awsWafRegionalRule = Prelude.Nothing,
@@ -596,6 +656,13 @@ newResourceDetails =
       container = Prelude.Nothing,
       other = Prelude.Nothing
     }
+
+-- | Provides details about AppSync message broker. A message broker allows
+-- software applications and components to communicate using various
+-- programming languages, operating systems, and formal messaging
+-- protocols.
+resourceDetails_awsAmazonMqBroker :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsAmazonMqBrokerDetails)
+resourceDetails_awsAmazonMqBroker = Lens.lens (\ResourceDetails' {awsAmazonMqBroker} -> awsAmazonMqBroker) (\s@ResourceDetails' {} a -> s {awsAmazonMqBroker = a} :: ResourceDetails)
 
 -- | Provides information about a REST API in version 1 of Amazon API
 -- Gateway.
@@ -613,6 +680,12 @@ resourceDetails_awsApiGatewayV2Api = Lens.lens (\ResourceDetails' {awsApiGateway
 -- | Provides information about a version 2 stage for Amazon API Gateway.
 resourceDetails_awsApiGatewayV2Stage :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsApiGatewayV2StageDetails)
 resourceDetails_awsApiGatewayV2Stage = Lens.lens (\ResourceDetails' {awsApiGatewayV2Stage} -> awsApiGatewayV2Stage) (\s@ResourceDetails' {} a -> s {awsApiGatewayV2Stage = a} :: ResourceDetails)
+
+-- | Provides details about an AppSync Graph QL API, which lets you query
+-- multiple databases, microservices, and APIs from a single GraphQL
+-- endpoint.
+resourceDetails_awsAppSyncGraphQlApi :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsAppSyncGraphQlApiDetails)
+resourceDetails_awsAppSyncGraphQlApi = Lens.lens (\ResourceDetails' {awsAppSyncGraphQlApi} -> awsAppSyncGraphQlApi) (\s@ResourceDetails' {} a -> s {awsAppSyncGraphQlApi = a} :: ResourceDetails)
 
 -- | Details for an autoscaling group.
 resourceDetails_awsAutoScalingAutoScalingGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsAutoScalingAutoScalingGroupDetails)
@@ -684,6 +757,12 @@ resourceDetails_awsEc2NetworkAcl = Lens.lens (\ResourceDetails' {awsEc2NetworkAc
 -- | Details for an EC2 network interface.
 resourceDetails_awsEc2NetworkInterface :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2NetworkInterfaceDetails)
 resourceDetails_awsEc2NetworkInterface = Lens.lens (\ResourceDetails' {awsEc2NetworkInterface} -> awsEc2NetworkInterface) (\s@ResourceDetails' {} a -> s {awsEc2NetworkInterface = a} :: ResourceDetails)
+
+-- | Provides details about a route table. A route table contains a set of
+-- rules, called routes, that determine where to direct network traffic
+-- from your subnet or gateway.
+resourceDetails_awsEc2RouteTable :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2RouteTableDetails)
+resourceDetails_awsEc2RouteTable = Lens.lens (\ResourceDetails' {awsEc2RouteTable} -> awsEc2RouteTable) (\s@ResourceDetails' {} a -> s {awsEc2RouteTable = a} :: ResourceDetails)
 
 -- | Details for an EC2 security group.
 resourceDetails_awsEc2SecurityGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2SecurityGroupDetails)
@@ -776,6 +855,18 @@ resourceDetails_awsElbLoadBalancer = Lens.lens (\ResourceDetails' {awsElbLoadBal
 -- | Details about a load balancer.
 resourceDetails_awsElbv2LoadBalancer :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsElbv2LoadBalancerDetails)
 resourceDetails_awsElbv2LoadBalancer = Lens.lens (\ResourceDetails' {awsElbv2LoadBalancer} -> awsElbv2LoadBalancer) (\s@ResourceDetails' {} a -> s {awsElbv2LoadBalancer = a} :: ResourceDetails)
+
+-- | A schema defines the structure of events that are sent to Amazon
+-- EventBridge. Schema registries are containers for schemas. They collect
+-- and organize schemas so that your schemas are in logical groups.
+resourceDetails_awsEventSchemasRegistry :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEventSchemasRegistryDetails)
+resourceDetails_awsEventSchemasRegistry = Lens.lens (\ResourceDetails' {awsEventSchemasRegistry} -> awsEventSchemasRegistry) (\s@ResourceDetails' {} a -> s {awsEventSchemasRegistry = a} :: ResourceDetails)
+
+-- | Provides details about an Amazon GuardDuty detector. A detector is an
+-- object that represents the GuardDuty service. A detector is required for
+-- GuardDuty to become operational.
+resourceDetails_awsGuardDutyDetector :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsGuardDutyDetectorDetails)
+resourceDetails_awsGuardDutyDetector = Lens.lens (\ResourceDetails' {awsGuardDutyDetector} -> awsGuardDutyDetector) (\s@ResourceDetails' {} a -> s {awsGuardDutyDetector = a} :: ResourceDetails)
 
 -- | Details about an IAM access key related to a finding.
 resourceDetails_awsIamAccessKey :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsIamAccessKeyDetails)
@@ -891,6 +982,11 @@ resourceDetails_awsSqsQueue = Lens.lens (\ResourceDetails' {awsSqsQueue} -> awsS
 resourceDetails_awsSsmPatchCompliance :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsSsmPatchComplianceDetails)
 resourceDetails_awsSsmPatchCompliance = Lens.lens (\ResourceDetails' {awsSsmPatchCompliance} -> awsSsmPatchCompliance) (\s@ResourceDetails' {} a -> s {awsSsmPatchCompliance = a} :: ResourceDetails)
 
+-- | Provides details about an Step Functions state machine, which is a
+-- workflow consisting of a series of event-driven steps.
+resourceDetails_awsStepFunctionStateMachine :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsStepFunctionStateMachineDetails)
+resourceDetails_awsStepFunctionStateMachine = Lens.lens (\ResourceDetails' {awsStepFunctionStateMachine} -> awsStepFunctionStateMachine) (\s@ResourceDetails' {} a -> s {awsStepFunctionStateMachine = a} :: ResourceDetails)
+
 -- | Details about a rate-based rule for global resources.
 resourceDetails_awsWafRateBasedRule :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRateBasedRuleDetails)
 resourceDetails_awsWafRateBasedRule = Lens.lens (\ResourceDetails' {awsWafRateBasedRule} -> awsWafRateBasedRule) (\s@ResourceDetails' {} a -> s {awsWafRateBasedRule = a} :: ResourceDetails)
@@ -959,10 +1055,12 @@ instance Data.FromJSON ResourceDetails where
       "ResourceDetails"
       ( \x ->
           ResourceDetails'
-            Prelude.<$> (x Data..:? "AwsApiGatewayRestApi")
+            Prelude.<$> (x Data..:? "AwsAmazonMqBroker")
+            Prelude.<*> (x Data..:? "AwsApiGatewayRestApi")
             Prelude.<*> (x Data..:? "AwsApiGatewayStage")
             Prelude.<*> (x Data..:? "AwsApiGatewayV2Api")
             Prelude.<*> (x Data..:? "AwsApiGatewayV2Stage")
+            Prelude.<*> (x Data..:? "AwsAppSyncGraphQlApi")
             Prelude.<*> (x Data..:? "AwsAutoScalingAutoScalingGroup")
             Prelude.<*> (x Data..:? "AwsAutoScalingLaunchConfiguration")
             Prelude.<*> (x Data..:? "AwsBackupBackupPlan")
@@ -980,6 +1078,7 @@ instance Data.FromJSON ResourceDetails where
             Prelude.<*> (x Data..:? "AwsEc2LaunchTemplate")
             Prelude.<*> (x Data..:? "AwsEc2NetworkAcl")
             Prelude.<*> (x Data..:? "AwsEc2NetworkInterface")
+            Prelude.<*> (x Data..:? "AwsEc2RouteTable")
             Prelude.<*> (x Data..:? "AwsEc2SecurityGroup")
             Prelude.<*> (x Data..:? "AwsEc2Subnet")
             Prelude.<*> (x Data..:? "AwsEc2TransitGateway")
@@ -1001,6 +1100,8 @@ instance Data.FromJSON ResourceDetails where
             Prelude.<*> (x Data..:? "AwsElasticsearchDomain")
             Prelude.<*> (x Data..:? "AwsElbLoadBalancer")
             Prelude.<*> (x Data..:? "AwsElbv2LoadBalancer")
+            Prelude.<*> (x Data..:? "AwsEventSchemasRegistry")
+            Prelude.<*> (x Data..:? "AwsGuardDutyDetector")
             Prelude.<*> (x Data..:? "AwsIamAccessKey")
             Prelude.<*> (x Data..:? "AwsIamGroup")
             Prelude.<*> (x Data..:? "AwsIamPolicy")
@@ -1029,6 +1130,7 @@ instance Data.FromJSON ResourceDetails where
             Prelude.<*> (x Data..:? "AwsSnsTopic")
             Prelude.<*> (x Data..:? "AwsSqsQueue")
             Prelude.<*> (x Data..:? "AwsSsmPatchCompliance")
+            Prelude.<*> (x Data..:? "AwsStepFunctionStateMachine")
             Prelude.<*> (x Data..:? "AwsWafRateBasedRule")
             Prelude.<*> (x Data..:? "AwsWafRegionalRateBasedRule")
             Prelude.<*> (x Data..:? "AwsWafRegionalRule")
@@ -1046,10 +1148,13 @@ instance Data.FromJSON ResourceDetails where
 
 instance Prelude.Hashable ResourceDetails where
   hashWithSalt _salt ResourceDetails' {..} =
-    _salt `Prelude.hashWithSalt` awsApiGatewayRestApi
+    _salt
+      `Prelude.hashWithSalt` awsAmazonMqBroker
+      `Prelude.hashWithSalt` awsApiGatewayRestApi
       `Prelude.hashWithSalt` awsApiGatewayStage
       `Prelude.hashWithSalt` awsApiGatewayV2Api
       `Prelude.hashWithSalt` awsApiGatewayV2Stage
+      `Prelude.hashWithSalt` awsAppSyncGraphQlApi
       `Prelude.hashWithSalt` awsAutoScalingAutoScalingGroup
       `Prelude.hashWithSalt` awsAutoScalingLaunchConfiguration
       `Prelude.hashWithSalt` awsBackupBackupPlan
@@ -1067,6 +1172,7 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsEc2LaunchTemplate
       `Prelude.hashWithSalt` awsEc2NetworkAcl
       `Prelude.hashWithSalt` awsEc2NetworkInterface
+      `Prelude.hashWithSalt` awsEc2RouteTable
       `Prelude.hashWithSalt` awsEc2SecurityGroup
       `Prelude.hashWithSalt` awsEc2Subnet
       `Prelude.hashWithSalt` awsEc2TransitGateway
@@ -1088,6 +1194,8 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsElasticsearchDomain
       `Prelude.hashWithSalt` awsElbLoadBalancer
       `Prelude.hashWithSalt` awsElbv2LoadBalancer
+      `Prelude.hashWithSalt` awsEventSchemasRegistry
+      `Prelude.hashWithSalt` awsGuardDutyDetector
       `Prelude.hashWithSalt` awsIamAccessKey
       `Prelude.hashWithSalt` awsIamGroup
       `Prelude.hashWithSalt` awsIamPolicy
@@ -1116,6 +1224,7 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsSnsTopic
       `Prelude.hashWithSalt` awsSqsQueue
       `Prelude.hashWithSalt` awsSsmPatchCompliance
+      `Prelude.hashWithSalt` awsStepFunctionStateMachine
       `Prelude.hashWithSalt` awsWafRateBasedRule
       `Prelude.hashWithSalt` awsWafRegionalRateBasedRule
       `Prelude.hashWithSalt` awsWafRegionalRule
@@ -1132,10 +1241,12 @@ instance Prelude.Hashable ResourceDetails where
 
 instance Prelude.NFData ResourceDetails where
   rnf ResourceDetails' {..} =
-    Prelude.rnf awsApiGatewayRestApi
+    Prelude.rnf awsAmazonMqBroker
+      `Prelude.seq` Prelude.rnf awsApiGatewayRestApi
       `Prelude.seq` Prelude.rnf awsApiGatewayStage
       `Prelude.seq` Prelude.rnf awsApiGatewayV2Api
       `Prelude.seq` Prelude.rnf awsApiGatewayV2Stage
+      `Prelude.seq` Prelude.rnf awsAppSyncGraphQlApi
       `Prelude.seq` Prelude.rnf awsAutoScalingAutoScalingGroup
       `Prelude.seq` Prelude.rnf awsAutoScalingLaunchConfiguration
       `Prelude.seq` Prelude.rnf awsBackupBackupPlan
@@ -1150,13 +1261,18 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf awsDynamoDbTable
       `Prelude.seq` Prelude.rnf awsEc2Eip
       `Prelude.seq` Prelude.rnf awsEc2Instance
-      `Prelude.seq` Prelude.rnf awsEc2LaunchTemplate
-      `Prelude.seq` Prelude.rnf awsEc2NetworkAcl
+      `Prelude.seq` Prelude.rnf
+        awsEc2LaunchTemplate
+      `Prelude.seq` Prelude.rnf
+        awsEc2NetworkAcl
       `Prelude.seq` Prelude.rnf
         awsEc2NetworkInterface
       `Prelude.seq` Prelude.rnf
+        awsEc2RouteTable
+      `Prelude.seq` Prelude.rnf
         awsEc2SecurityGroup
-      `Prelude.seq` Prelude.rnf awsEc2Subnet
+      `Prelude.seq` Prelude.rnf
+        awsEc2Subnet
       `Prelude.seq` Prelude.rnf
         awsEc2TransitGateway
       `Prelude.seq` Prelude.rnf
@@ -1195,6 +1311,10 @@ instance Prelude.NFData ResourceDetails where
         awsElbLoadBalancer
       `Prelude.seq` Prelude.rnf
         awsElbv2LoadBalancer
+      `Prelude.seq` Prelude.rnf
+        awsEventSchemasRegistry
+      `Prelude.seq` Prelude.rnf
+        awsGuardDutyDetector
       `Prelude.seq` Prelude.rnf
         awsIamAccessKey
       `Prelude.seq` Prelude.rnf
@@ -1252,6 +1372,8 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf
         awsSsmPatchCompliance
       `Prelude.seq` Prelude.rnf
+        awsStepFunctionStateMachine
+      `Prelude.seq` Prelude.rnf
         awsWafRateBasedRule
       `Prelude.seq` Prelude.rnf
         awsWafRegionalRateBasedRule
@@ -1282,7 +1404,9 @@ instance Data.ToJSON ResourceDetails where
   toJSON ResourceDetails' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AwsApiGatewayRestApi" Data..=)
+          [ ("AwsAmazonMqBroker" Data..=)
+              Prelude.<$> awsAmazonMqBroker,
+            ("AwsApiGatewayRestApi" Data..=)
               Prelude.<$> awsApiGatewayRestApi,
             ("AwsApiGatewayStage" Data..=)
               Prelude.<$> awsApiGatewayStage,
@@ -1290,6 +1414,8 @@ instance Data.ToJSON ResourceDetails where
               Prelude.<$> awsApiGatewayV2Api,
             ("AwsApiGatewayV2Stage" Data..=)
               Prelude.<$> awsApiGatewayV2Stage,
+            ("AwsAppSyncGraphQlApi" Data..=)
+              Prelude.<$> awsAppSyncGraphQlApi,
             ("AwsAutoScalingAutoScalingGroup" Data..=)
               Prelude.<$> awsAutoScalingAutoScalingGroup,
             ("AwsAutoScalingLaunchConfiguration" Data..=)
@@ -1323,6 +1449,8 @@ instance Data.ToJSON ResourceDetails where
               Prelude.<$> awsEc2NetworkAcl,
             ("AwsEc2NetworkInterface" Data..=)
               Prelude.<$> awsEc2NetworkInterface,
+            ("AwsEc2RouteTable" Data..=)
+              Prelude.<$> awsEc2RouteTable,
             ("AwsEc2SecurityGroup" Data..=)
               Prelude.<$> awsEc2SecurityGroup,
             ("AwsEc2Subnet" Data..=) Prelude.<$> awsEc2Subnet,
@@ -1358,6 +1486,10 @@ instance Data.ToJSON ResourceDetails where
               Prelude.<$> awsElbLoadBalancer,
             ("AwsElbv2LoadBalancer" Data..=)
               Prelude.<$> awsElbv2LoadBalancer,
+            ("AwsEventSchemasRegistry" Data..=)
+              Prelude.<$> awsEventSchemasRegistry,
+            ("AwsGuardDutyDetector" Data..=)
+              Prelude.<$> awsGuardDutyDetector,
             ("AwsIamAccessKey" Data..=)
               Prelude.<$> awsIamAccessKey,
             ("AwsIamGroup" Data..=) Prelude.<$> awsIamGroup,
@@ -1405,6 +1537,8 @@ instance Data.ToJSON ResourceDetails where
             ("AwsSqsQueue" Data..=) Prelude.<$> awsSqsQueue,
             ("AwsSsmPatchCompliance" Data..=)
               Prelude.<$> awsSsmPatchCompliance,
+            ("AwsStepFunctionStateMachine" Data..=)
+              Prelude.<$> awsStepFunctionStateMachine,
             ("AwsWafRateBasedRule" Data..=)
               Prelude.<$> awsWafRateBasedRule,
             ("AwsWafRegionalRateBasedRule" Data..=)

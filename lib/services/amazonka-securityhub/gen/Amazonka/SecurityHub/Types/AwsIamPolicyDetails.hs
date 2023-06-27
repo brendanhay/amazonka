@@ -35,8 +35,8 @@ data AwsIamPolicyDetails = AwsIamPolicyDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the default version of the policy.
     defaultVersionId :: Prelude.Maybe Prelude.Text,
@@ -59,8 +59,8 @@ data AwsIamPolicyDetails = AwsIamPolicyDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     updateDate :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,8 +79,8 @@ data AwsIamPolicyDetails = AwsIamPolicyDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'defaultVersionId', 'awsIamPolicyDetails_defaultVersionId' - The identifier of the default version of the policy.
 --
@@ -103,8 +103,8 @@ data AwsIamPolicyDetails = AwsIamPolicyDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 newAwsIamPolicyDetails ::
   AwsIamPolicyDetails
 newAwsIamPolicyDetails =
@@ -131,8 +131,8 @@ awsIamPolicyDetails_attachmentCount = Lens.lens (\AwsIamPolicyDetails' {attachme
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamPolicyDetails_createDate :: Lens.Lens' AwsIamPolicyDetails (Prelude.Maybe Prelude.Text)
 awsIamPolicyDetails_createDate = Lens.lens (\AwsIamPolicyDetails' {createDate} -> createDate) (\s@AwsIamPolicyDetails' {} a -> s {createDate = a} :: AwsIamPolicyDetails)
 
@@ -173,8 +173,8 @@ awsIamPolicyDetails_policyVersionList = Lens.lens (\AwsIamPolicyDetails' {policy
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamPolicyDetails_updateDate :: Lens.Lens' AwsIamPolicyDetails (Prelude.Maybe Prelude.Text)
 awsIamPolicyDetails_updateDate = Lens.lens (\AwsIamPolicyDetails' {updateDate} -> updateDate) (\s@AwsIamPolicyDetails' {} a -> s {updateDate = a} :: AwsIamPolicyDetails)
 
@@ -193,7 +193,8 @@ instance Data.FromJSON AwsIamPolicyDetails where
             Prelude.<*> (x Data..:? "PermissionsBoundaryUsageCount")
             Prelude.<*> (x Data..:? "PolicyId")
             Prelude.<*> (x Data..:? "PolicyName")
-            Prelude.<*> ( x Data..:? "PolicyVersionList"
+            Prelude.<*> ( x
+                            Data..:? "PolicyVersionList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "UpdateDate")
@@ -201,7 +202,8 @@ instance Data.FromJSON AwsIamPolicyDetails where
 
 instance Prelude.Hashable AwsIamPolicyDetails where
   hashWithSalt _salt AwsIamPolicyDetails' {..} =
-    _salt `Prelude.hashWithSalt` attachmentCount
+    _salt
+      `Prelude.hashWithSalt` attachmentCount
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` defaultVersionId
       `Prelude.hashWithSalt` description

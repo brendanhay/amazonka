@@ -266,7 +266,8 @@ instance
             Prelude.<*> (x Data..:? "EndpointUrl")
             Prelude.<*> (x Data..:? "EnvironmentArn")
             Prelude.<*> (x Data..:? "EnvironmentId")
-            Prelude.<*> ( x Data..:? "EnvironmentLinks"
+            Prelude.<*> ( x
+                            Data..:? "EnvironmentLinks"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EnvironmentName")
@@ -285,7 +286,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticBeanstalkEnvironmentDetails' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` cname
         `Prelude.hashWithSalt` dateCreated
         `Prelude.hashWithSalt` dateUpdated

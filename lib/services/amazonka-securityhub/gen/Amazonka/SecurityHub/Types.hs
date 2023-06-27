@@ -29,8 +29,14 @@ module Amazonka.SecurityHub.Types
     -- * AdminStatus
     AdminStatus (..),
 
+    -- * AssociationStatus
+    AssociationStatus (..),
+
     -- * AutoEnableStandards
     AutoEnableStandards (..),
+
+    -- * AutomationRulesActionType
+    AutomationRulesActionType (..),
 
     -- * AwsIamAccessKeyStatus
     AwsIamAccessKeyStatus (..),
@@ -41,11 +47,17 @@ module Amazonka.SecurityHub.Types
     -- * ComplianceStatus
     ComplianceStatus (..),
 
+    -- * ControlFindingGenerator
+    ControlFindingGenerator (..),
+
     -- * ControlStatus
     ControlStatus (..),
 
     -- * DateRangeUnit
     DateRangeUnit (..),
+
+    -- * FindingHistoryUpdateSourceType
+    FindingHistoryUpdateSourceType (..),
 
     -- * IntegrationType
     IntegrationType (..),
@@ -67,6 +79,12 @@ module Amazonka.SecurityHub.Types
 
     -- * RecordState
     RecordState (..),
+
+    -- * RegionAvailabilityStatus
+    RegionAvailabilityStatus (..),
+
+    -- * RuleStatus
+    RuleStatus (..),
 
     -- * SeverityLabel
     SeverityLabel (..),
@@ -91,6 +109,9 @@ module Amazonka.SecurityHub.Types
 
     -- * ThreatIntelIndicatorType
     ThreatIntelIndicatorType (..),
+
+    -- * UnprocessedErrorCode
+    UnprocessedErrorCode (..),
 
     -- * VerificationState
     VerificationState (..),
@@ -164,11 +185,188 @@ module Amazonka.SecurityHub.Types
     adminAccount_accountId,
     adminAccount_status,
 
+    -- * AssociatedStandard
+    AssociatedStandard (..),
+    newAssociatedStandard,
+    associatedStandard_standardsId,
+
+    -- * AssociationSetDetails
+    AssociationSetDetails (..),
+    newAssociationSetDetails,
+    associationSetDetails_associationState,
+    associationSetDetails_gatewayId,
+    associationSetDetails_main,
+    associationSetDetails_routeTableAssociationId,
+    associationSetDetails_routeTableId,
+    associationSetDetails_subnetId,
+
+    -- * AssociationStateDetails
+    AssociationStateDetails (..),
+    newAssociationStateDetails,
+    associationStateDetails_state,
+    associationStateDetails_statusMessage,
+
+    -- * AutomationRulesAction
+    AutomationRulesAction (..),
+    newAutomationRulesAction,
+    automationRulesAction_findingFieldsUpdate,
+    automationRulesAction_type,
+
+    -- * AutomationRulesConfig
+    AutomationRulesConfig (..),
+    newAutomationRulesConfig,
+    automationRulesConfig_actions,
+    automationRulesConfig_createdAt,
+    automationRulesConfig_createdBy,
+    automationRulesConfig_criteria,
+    automationRulesConfig_description,
+    automationRulesConfig_isTerminal,
+    automationRulesConfig_ruleArn,
+    automationRulesConfig_ruleName,
+    automationRulesConfig_ruleOrder,
+    automationRulesConfig_ruleStatus,
+    automationRulesConfig_updatedAt,
+
+    -- * AutomationRulesFindingFieldsUpdate
+    AutomationRulesFindingFieldsUpdate (..),
+    newAutomationRulesFindingFieldsUpdate,
+    automationRulesFindingFieldsUpdate_confidence,
+    automationRulesFindingFieldsUpdate_criticality,
+    automationRulesFindingFieldsUpdate_note,
+    automationRulesFindingFieldsUpdate_relatedFindings,
+    automationRulesFindingFieldsUpdate_severity,
+    automationRulesFindingFieldsUpdate_types,
+    automationRulesFindingFieldsUpdate_userDefinedFields,
+    automationRulesFindingFieldsUpdate_verificationState,
+    automationRulesFindingFieldsUpdate_workflow,
+
+    -- * AutomationRulesFindingFilters
+    AutomationRulesFindingFilters (..),
+    newAutomationRulesFindingFilters,
+    automationRulesFindingFilters_awsAccountId,
+    automationRulesFindingFilters_companyName,
+    automationRulesFindingFilters_complianceAssociatedStandardsId,
+    automationRulesFindingFilters_complianceSecurityControlId,
+    automationRulesFindingFilters_complianceStatus,
+    automationRulesFindingFilters_confidence,
+    automationRulesFindingFilters_createdAt,
+    automationRulesFindingFilters_criticality,
+    automationRulesFindingFilters_description,
+    automationRulesFindingFilters_firstObservedAt,
+    automationRulesFindingFilters_generatorId,
+    automationRulesFindingFilters_id,
+    automationRulesFindingFilters_lastObservedAt,
+    automationRulesFindingFilters_noteText,
+    automationRulesFindingFilters_noteUpdatedAt,
+    automationRulesFindingFilters_noteUpdatedBy,
+    automationRulesFindingFilters_productArn,
+    automationRulesFindingFilters_productName,
+    automationRulesFindingFilters_recordState,
+    automationRulesFindingFilters_relatedFindingsId,
+    automationRulesFindingFilters_relatedFindingsProductArn,
+    automationRulesFindingFilters_resourceDetailsOther,
+    automationRulesFindingFilters_resourceId,
+    automationRulesFindingFilters_resourcePartition,
+    automationRulesFindingFilters_resourceRegion,
+    automationRulesFindingFilters_resourceTags,
+    automationRulesFindingFilters_resourceType,
+    automationRulesFindingFilters_severityLabel,
+    automationRulesFindingFilters_sourceUrl,
+    automationRulesFindingFilters_title,
+    automationRulesFindingFilters_type,
+    automationRulesFindingFilters_updatedAt,
+    automationRulesFindingFilters_userDefinedFields,
+    automationRulesFindingFilters_verificationState,
+    automationRulesFindingFilters_workflowStatus,
+
+    -- * AutomationRulesMetadata
+    AutomationRulesMetadata (..),
+    newAutomationRulesMetadata,
+    automationRulesMetadata_createdAt,
+    automationRulesMetadata_createdBy,
+    automationRulesMetadata_description,
+    automationRulesMetadata_isTerminal,
+    automationRulesMetadata_ruleArn,
+    automationRulesMetadata_ruleName,
+    automationRulesMetadata_ruleOrder,
+    automationRulesMetadata_ruleStatus,
+    automationRulesMetadata_updatedAt,
+
     -- * AvailabilityZone
     AvailabilityZone (..),
     newAvailabilityZone,
     availabilityZone_subnetId,
     availabilityZone_zoneName,
+
+    -- * AwsAmazonMqBrokerDetails
+    AwsAmazonMqBrokerDetails (..),
+    newAwsAmazonMqBrokerDetails,
+    awsAmazonMqBrokerDetails_authenticationStrategy,
+    awsAmazonMqBrokerDetails_autoMinorVersionUpgrade,
+    awsAmazonMqBrokerDetails_brokerArn,
+    awsAmazonMqBrokerDetails_brokerId,
+    awsAmazonMqBrokerDetails_brokerName,
+    awsAmazonMqBrokerDetails_deploymentMode,
+    awsAmazonMqBrokerDetails_encryptionOptions,
+    awsAmazonMqBrokerDetails_engineType,
+    awsAmazonMqBrokerDetails_engineVersion,
+    awsAmazonMqBrokerDetails_hostInstanceType,
+    awsAmazonMqBrokerDetails_ldapServerMetadata,
+    awsAmazonMqBrokerDetails_logs,
+    awsAmazonMqBrokerDetails_maintenanceWindowStartTime,
+    awsAmazonMqBrokerDetails_publiclyAccessible,
+    awsAmazonMqBrokerDetails_securityGroups,
+    awsAmazonMqBrokerDetails_storageType,
+    awsAmazonMqBrokerDetails_subnetIds,
+    awsAmazonMqBrokerDetails_users,
+
+    -- * AwsAmazonMqBrokerEncryptionOptionsDetails
+    AwsAmazonMqBrokerEncryptionOptionsDetails (..),
+    newAwsAmazonMqBrokerEncryptionOptionsDetails,
+    awsAmazonMqBrokerEncryptionOptionsDetails_kmsKeyId,
+    awsAmazonMqBrokerEncryptionOptionsDetails_useAwsOwnedKey,
+
+    -- * AwsAmazonMqBrokerLdapServerMetadataDetails
+    AwsAmazonMqBrokerLdapServerMetadataDetails (..),
+    newAwsAmazonMqBrokerLdapServerMetadataDetails,
+    awsAmazonMqBrokerLdapServerMetadataDetails_hosts,
+    awsAmazonMqBrokerLdapServerMetadataDetails_roleBase,
+    awsAmazonMqBrokerLdapServerMetadataDetails_roleName,
+    awsAmazonMqBrokerLdapServerMetadataDetails_roleSearchMatching,
+    awsAmazonMqBrokerLdapServerMetadataDetails_roleSearchSubtree,
+    awsAmazonMqBrokerLdapServerMetadataDetails_serviceAccountUsername,
+    awsAmazonMqBrokerLdapServerMetadataDetails_userBase,
+    awsAmazonMqBrokerLdapServerMetadataDetails_userRoleName,
+    awsAmazonMqBrokerLdapServerMetadataDetails_userSearchMatching,
+    awsAmazonMqBrokerLdapServerMetadataDetails_userSearchSubtree,
+
+    -- * AwsAmazonMqBrokerLogsDetails
+    AwsAmazonMqBrokerLogsDetails (..),
+    newAwsAmazonMqBrokerLogsDetails,
+    awsAmazonMqBrokerLogsDetails_audit,
+    awsAmazonMqBrokerLogsDetails_auditLogGroup,
+    awsAmazonMqBrokerLogsDetails_general,
+    awsAmazonMqBrokerLogsDetails_generalLogGroup,
+    awsAmazonMqBrokerLogsDetails_pending,
+
+    -- * AwsAmazonMqBrokerLogsPendingDetails
+    AwsAmazonMqBrokerLogsPendingDetails (..),
+    newAwsAmazonMqBrokerLogsPendingDetails,
+    awsAmazonMqBrokerLogsPendingDetails_audit,
+    awsAmazonMqBrokerLogsPendingDetails_general,
+
+    -- * AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails
+    AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails (..),
+    newAwsAmazonMqBrokerMaintenanceWindowStartTimeDetails,
+    awsAmazonMqBrokerMaintenanceWindowStartTimeDetails_dayOfWeek,
+    awsAmazonMqBrokerMaintenanceWindowStartTimeDetails_timeOfDay,
+    awsAmazonMqBrokerMaintenanceWindowStartTimeDetails_timeZone,
+
+    -- * AwsAmazonMqBrokerUsersDetails
+    AwsAmazonMqBrokerUsersDetails (..),
+    newAwsAmazonMqBrokerUsersDetails,
+    awsAmazonMqBrokerUsersDetails_pendingChange,
+    awsAmazonMqBrokerUsersDetails_username,
 
     -- * AwsApiCallAction
     AwsApiCallAction (..),
@@ -294,6 +492,60 @@ module Amazonka.SecurityHub.Types
     awsApiGatewayV2StageDetails_routeSettings,
     awsApiGatewayV2StageDetails_stageName,
     awsApiGatewayV2StageDetails_stageVariables,
+
+    -- * AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails
+    AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails (..),
+    newAwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails,
+    awsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails_authenticationType,
+    awsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails_lambdaAuthorizerConfig,
+    awsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails_openIdConnectConfig,
+    awsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails_userPoolConfig,
+
+    -- * AwsAppSyncGraphQlApiDetails
+    AwsAppSyncGraphQlApiDetails (..),
+    newAwsAppSyncGraphQlApiDetails,
+    awsAppSyncGraphQlApiDetails_additionalAuthenticationProviders,
+    awsAppSyncGraphQlApiDetails_apiId,
+    awsAppSyncGraphQlApiDetails_arn,
+    awsAppSyncGraphQlApiDetails_authenticationType,
+    awsAppSyncGraphQlApiDetails_id,
+    awsAppSyncGraphQlApiDetails_lambdaAuthorizerConfig,
+    awsAppSyncGraphQlApiDetails_logConfig,
+    awsAppSyncGraphQlApiDetails_name,
+    awsAppSyncGraphQlApiDetails_openIdConnectConfig,
+    awsAppSyncGraphQlApiDetails_userPoolConfig,
+    awsAppSyncGraphQlApiDetails_wafWebAclArn,
+    awsAppSyncGraphQlApiDetails_xrayEnabled,
+
+    -- * AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails
+    AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails (..),
+    newAwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails,
+    awsAppSyncGraphQlApiLambdaAuthorizerConfigDetails_authorizerResultTtlInSeconds,
+    awsAppSyncGraphQlApiLambdaAuthorizerConfigDetails_authorizerUri,
+    awsAppSyncGraphQlApiLambdaAuthorizerConfigDetails_identityValidationExpression,
+
+    -- * AwsAppSyncGraphQlApiLogConfigDetails
+    AwsAppSyncGraphQlApiLogConfigDetails (..),
+    newAwsAppSyncGraphQlApiLogConfigDetails,
+    awsAppSyncGraphQlApiLogConfigDetails_cloudWatchLogsRoleArn,
+    awsAppSyncGraphQlApiLogConfigDetails_excludeVerboseContent,
+    awsAppSyncGraphQlApiLogConfigDetails_fieldLogLevel,
+
+    -- * AwsAppSyncGraphQlApiOpenIdConnectConfigDetails
+    AwsAppSyncGraphQlApiOpenIdConnectConfigDetails (..),
+    newAwsAppSyncGraphQlApiOpenIdConnectConfigDetails,
+    awsAppSyncGraphQlApiOpenIdConnectConfigDetails_authTtL,
+    awsAppSyncGraphQlApiOpenIdConnectConfigDetails_clientId,
+    awsAppSyncGraphQlApiOpenIdConnectConfigDetails_iatTtL,
+    awsAppSyncGraphQlApiOpenIdConnectConfigDetails_issuer,
+
+    -- * AwsAppSyncGraphQlApiUserPoolConfigDetails
+    AwsAppSyncGraphQlApiUserPoolConfigDetails (..),
+    newAwsAppSyncGraphQlApiUserPoolConfigDetails,
+    awsAppSyncGraphQlApiUserPoolConfigDetails_appIdClientRegex,
+    awsAppSyncGraphQlApiUserPoolConfigDetails_awsRegion,
+    awsAppSyncGraphQlApiUserPoolConfigDetails_defaultAction,
+    awsAppSyncGraphQlApiUserPoolConfigDetails_userPoolId,
 
     -- * AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
     AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails (..),
@@ -1006,6 +1258,7 @@ module Amazonka.SecurityHub.Types
     awsEc2InstanceDetails_keyName,
     awsEc2InstanceDetails_launchedAt,
     awsEc2InstanceDetails_metadataOptions,
+    awsEc2InstanceDetails_monitoring,
     awsEc2InstanceDetails_networkInterfaces,
     awsEc2InstanceDetails_subnetId,
     awsEc2InstanceDetails_type,
@@ -1020,6 +1273,11 @@ module Amazonka.SecurityHub.Types
     awsEc2InstanceMetadataOptions_httpPutResponseHopLimit,
     awsEc2InstanceMetadataOptions_httpTokens,
     awsEc2InstanceMetadataOptions_instanceMetadataTags,
+
+    -- * AwsEc2InstanceMonitoringDetails
+    AwsEc2InstanceMonitoringDetails (..),
+    newAwsEc2InstanceMonitoringDetails,
+    awsEc2InstanceMonitoringDetails_state,
 
     -- * AwsEc2InstanceNetworkInterfacesDetails
     AwsEc2InstanceNetworkInterfacesDetails (..),
@@ -1382,6 +1640,16 @@ module Amazonka.SecurityHub.Types
     newAwsEc2NetworkInterfaceSecurityGroup,
     awsEc2NetworkInterfaceSecurityGroup_groupId,
     awsEc2NetworkInterfaceSecurityGroup_groupName,
+
+    -- * AwsEc2RouteTableDetails
+    AwsEc2RouteTableDetails (..),
+    newAwsEc2RouteTableDetails,
+    awsEc2RouteTableDetails_associationSet,
+    awsEc2RouteTableDetails_ownerId,
+    awsEc2RouteTableDetails_propagatingVgwSet,
+    awsEc2RouteTableDetails_routeSet,
+    awsEc2RouteTableDetails_routeTableId,
+    awsEc2RouteTableDetails_vpcId,
 
     -- * AwsEc2SecurityGroupDetails
     AwsEc2SecurityGroupDetails (..),
@@ -2111,6 +2379,7 @@ module Amazonka.SecurityHub.Types
     -- * AwsEksClusterResourcesVpcConfigDetails
     AwsEksClusterResourcesVpcConfigDetails (..),
     newAwsEksClusterResourcesVpcConfigDetails,
+    awsEksClusterResourcesVpcConfigDetails_endpointPublicAccess,
     awsEksClusterResourcesVpcConfigDetails_securityGroupIds,
     awsEksClusterResourcesVpcConfigDetails_subnetIds,
 
@@ -2377,6 +2646,85 @@ module Amazonka.SecurityHub.Types
     awsElbv2LoadBalancerDetails_state,
     awsElbv2LoadBalancerDetails_type,
     awsElbv2LoadBalancerDetails_vpcId,
+
+    -- * AwsEventSchemasRegistryDetails
+    AwsEventSchemasRegistryDetails (..),
+    newAwsEventSchemasRegistryDetails,
+    awsEventSchemasRegistryDetails_description,
+    awsEventSchemasRegistryDetails_registryArn,
+    awsEventSchemasRegistryDetails_registryName,
+
+    -- * AwsGuardDutyDetectorDataSourcesCloudTrailDetails
+    AwsGuardDutyDetectorDataSourcesCloudTrailDetails (..),
+    newAwsGuardDutyDetectorDataSourcesCloudTrailDetails,
+    awsGuardDutyDetectorDataSourcesCloudTrailDetails_status,
+
+    -- * AwsGuardDutyDetectorDataSourcesDetails
+    AwsGuardDutyDetectorDataSourcesDetails (..),
+    newAwsGuardDutyDetectorDataSourcesDetails,
+    awsGuardDutyDetectorDataSourcesDetails_cloudTrail,
+    awsGuardDutyDetectorDataSourcesDetails_dnsLogs,
+    awsGuardDutyDetectorDataSourcesDetails_flowLogs,
+    awsGuardDutyDetectorDataSourcesDetails_kubernetes,
+    awsGuardDutyDetectorDataSourcesDetails_malwareProtection,
+    awsGuardDutyDetectorDataSourcesDetails_s3Logs,
+
+    -- * AwsGuardDutyDetectorDataSourcesDnsLogsDetails
+    AwsGuardDutyDetectorDataSourcesDnsLogsDetails (..),
+    newAwsGuardDutyDetectorDataSourcesDnsLogsDetails,
+    awsGuardDutyDetectorDataSourcesDnsLogsDetails_status,
+
+    -- * AwsGuardDutyDetectorDataSourcesFlowLogsDetails
+    AwsGuardDutyDetectorDataSourcesFlowLogsDetails (..),
+    newAwsGuardDutyDetectorDataSourcesFlowLogsDetails,
+    awsGuardDutyDetectorDataSourcesFlowLogsDetails_status,
+
+    -- * AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails
+    AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails (..),
+    newAwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails,
+    awsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails_status,
+
+    -- * AwsGuardDutyDetectorDataSourcesKubernetesDetails
+    AwsGuardDutyDetectorDataSourcesKubernetesDetails (..),
+    newAwsGuardDutyDetectorDataSourcesKubernetesDetails,
+    awsGuardDutyDetectorDataSourcesKubernetesDetails_auditLogs,
+
+    -- * AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails
+    AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails (..),
+    newAwsGuardDutyDetectorDataSourcesMalwareProtectionDetails,
+    awsGuardDutyDetectorDataSourcesMalwareProtectionDetails_scanEc2InstanceWithFindings,
+    awsGuardDutyDetectorDataSourcesMalwareProtectionDetails_serviceRole,
+
+    -- * AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails
+    AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails (..),
+    newAwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails,
+    awsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails_ebsVolumes,
+
+    -- * AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails
+    AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails (..),
+    newAwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails,
+    awsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails_reason,
+    awsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails_status,
+
+    -- * AwsGuardDutyDetectorDataSourcesS3LogsDetails
+    AwsGuardDutyDetectorDataSourcesS3LogsDetails (..),
+    newAwsGuardDutyDetectorDataSourcesS3LogsDetails,
+    awsGuardDutyDetectorDataSourcesS3LogsDetails_status,
+
+    -- * AwsGuardDutyDetectorDetails
+    AwsGuardDutyDetectorDetails (..),
+    newAwsGuardDutyDetectorDetails,
+    awsGuardDutyDetectorDetails_dataSources,
+    awsGuardDutyDetectorDetails_features,
+    awsGuardDutyDetectorDetails_findingPublishingFrequency,
+    awsGuardDutyDetectorDetails_serviceRole,
+    awsGuardDutyDetectorDetails_status,
+
+    -- * AwsGuardDutyDetectorFeaturesDetails
+    AwsGuardDutyDetectorFeaturesDetails (..),
+    newAwsGuardDutyDetectorFeaturesDetails,
+    awsGuardDutyDetectorFeaturesDetails_name,
+    awsGuardDutyDetectorFeaturesDetails_status,
 
     -- * AwsIamAccessKeyDetails
     AwsIamAccessKeyDetails (..),
@@ -3337,6 +3685,7 @@ module Amazonka.SecurityHub.Types
     awsS3BucketDetails_bucketVersioningConfiguration,
     awsS3BucketDetails_bucketWebsiteConfiguration,
     awsS3BucketDetails_createdAt,
+    awsS3BucketDetails_objectLockConfiguration,
     awsS3BucketDetails_ownerAccountId,
     awsS3BucketDetails_ownerId,
     awsS3BucketDetails_ownerName,
@@ -3377,6 +3726,24 @@ module Amazonka.SecurityHub.Types
     newAwsS3BucketNotificationConfigurationS3KeyFilterRule,
     awsS3BucketNotificationConfigurationS3KeyFilterRule_name,
     awsS3BucketNotificationConfigurationS3KeyFilterRule_value,
+
+    -- * AwsS3BucketObjectLockConfiguration
+    AwsS3BucketObjectLockConfiguration (..),
+    newAwsS3BucketObjectLockConfiguration,
+    awsS3BucketObjectLockConfiguration_objectLockEnabled,
+    awsS3BucketObjectLockConfiguration_rule,
+
+    -- * AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails
+    AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails (..),
+    newAwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails,
+    awsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails_days,
+    awsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails_mode,
+    awsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails_years,
+
+    -- * AwsS3BucketObjectLockConfigurationRuleDetails
+    AwsS3BucketObjectLockConfigurationRuleDetails (..),
+    newAwsS3BucketObjectLockConfigurationRuleDetails,
+    awsS3BucketObjectLockConfigurationRuleDetails_defaultRetention,
 
     -- * AwsS3BucketServerSideEncryptionByDefault
     AwsS3BucketServerSideEncryptionByDefault (..),
@@ -3535,6 +3902,8 @@ module Amazonka.SecurityHub.Types
     newAwsSecurityFindingFilters,
     awsSecurityFindingFilters_awsAccountId,
     awsSecurityFindingFilters_companyName,
+    awsSecurityFindingFilters_complianceAssociatedStandardsId,
+    awsSecurityFindingFilters_complianceSecurityControlId,
     awsSecurityFindingFilters_complianceStatus,
     awsSecurityFindingFilters_confidence,
     awsSecurityFindingFilters_createdAt,
@@ -3695,6 +4064,40 @@ module Amazonka.SecurityHub.Types
     AwsSsmPatchComplianceDetails (..),
     newAwsSsmPatchComplianceDetails,
     awsSsmPatchComplianceDetails_patch,
+
+    -- * AwsStepFunctionStateMachineDetails
+    AwsStepFunctionStateMachineDetails (..),
+    newAwsStepFunctionStateMachineDetails,
+    awsStepFunctionStateMachineDetails_label,
+    awsStepFunctionStateMachineDetails_loggingConfiguration,
+    awsStepFunctionStateMachineDetails_name,
+    awsStepFunctionStateMachineDetails_roleArn,
+    awsStepFunctionStateMachineDetails_stateMachineArn,
+    awsStepFunctionStateMachineDetails_status,
+    awsStepFunctionStateMachineDetails_tracingConfiguration,
+    awsStepFunctionStateMachineDetails_type,
+
+    -- * AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
+    AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails (..),
+    newAwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails,
+    awsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails_logGroupArn,
+
+    -- * AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails
+    AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails (..),
+    newAwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
+    awsStepFunctionStateMachineLoggingConfigurationDestinationsDetails_cloudWatchLogsLogGroup,
+
+    -- * AwsStepFunctionStateMachineLoggingConfigurationDetails
+    AwsStepFunctionStateMachineLoggingConfigurationDetails (..),
+    newAwsStepFunctionStateMachineLoggingConfigurationDetails,
+    awsStepFunctionStateMachineLoggingConfigurationDetails_destinations,
+    awsStepFunctionStateMachineLoggingConfigurationDetails_includeExecutionData,
+    awsStepFunctionStateMachineLoggingConfigurationDetails_level,
+
+    -- * AwsStepFunctionStateMachineTracingConfigurationDetails
+    AwsStepFunctionStateMachineTracingConfigurationDetails (..),
+    newAwsStepFunctionStateMachineTracingConfigurationDetails,
+    awsStepFunctionStateMachineTracingConfigurationDetails_enabled,
 
     -- * AwsWafRateBasedRuleDetails
     AwsWafRateBasedRuleDetails (..),
@@ -4010,7 +4413,9 @@ module Amazonka.SecurityHub.Types
     -- * Compliance
     Compliance (..),
     newCompliance,
+    compliance_associatedStandards,
     compliance_relatedRequirements,
+    compliance_securityControlId,
     compliance_status,
     compliance_statusReasons,
 
@@ -4092,6 +4497,29 @@ module Amazonka.SecurityHub.Types
     FindingAggregator (..),
     newFindingAggregator,
     findingAggregator_findingAggregatorArn,
+
+    -- * FindingHistoryRecord
+    FindingHistoryRecord (..),
+    newFindingHistoryRecord,
+    findingHistoryRecord_findingCreated,
+    findingHistoryRecord_findingIdentifier,
+    findingHistoryRecord_nextToken,
+    findingHistoryRecord_updateSource,
+    findingHistoryRecord_updateTime,
+    findingHistoryRecord_updates,
+
+    -- * FindingHistoryUpdate
+    FindingHistoryUpdate (..),
+    newFindingHistoryUpdate,
+    findingHistoryUpdate_newValue,
+    findingHistoryUpdate_oldValue,
+    findingHistoryUpdate_updatedField,
+
+    -- * FindingHistoryUpdateSource
+    FindingHistoryUpdateSource (..),
+    newFindingHistoryUpdateSource,
+    findingHistoryUpdateSource_identity,
+    findingHistoryUpdateSource_type,
 
     -- * FindingProviderFields
     FindingProviderFields (..),
@@ -4385,6 +4813,11 @@ module Amazonka.SecurityHub.Types
     product_productSubscriptionResourcePolicy,
     product_productArn,
 
+    -- * PropagatingVgwSetDetails
+    PropagatingVgwSetDetails (..),
+    newPropagatingVgwSetDetails,
+    propagatingVgwSetDetails_gatewayId,
+
     -- * Range
     Range (..),
     newRange,
@@ -4430,10 +4863,12 @@ module Amazonka.SecurityHub.Types
     -- * ResourceDetails
     ResourceDetails (..),
     newResourceDetails,
+    resourceDetails_awsAmazonMqBroker,
     resourceDetails_awsApiGatewayRestApi,
     resourceDetails_awsApiGatewayStage,
     resourceDetails_awsApiGatewayV2Api,
     resourceDetails_awsApiGatewayV2Stage,
+    resourceDetails_awsAppSyncGraphQlApi,
     resourceDetails_awsAutoScalingAutoScalingGroup,
     resourceDetails_awsAutoScalingLaunchConfiguration,
     resourceDetails_awsBackupBackupPlan,
@@ -4451,6 +4886,7 @@ module Amazonka.SecurityHub.Types
     resourceDetails_awsEc2LaunchTemplate,
     resourceDetails_awsEc2NetworkAcl,
     resourceDetails_awsEc2NetworkInterface,
+    resourceDetails_awsEc2RouteTable,
     resourceDetails_awsEc2SecurityGroup,
     resourceDetails_awsEc2Subnet,
     resourceDetails_awsEc2TransitGateway,
@@ -4472,6 +4908,8 @@ module Amazonka.SecurityHub.Types
     resourceDetails_awsElasticsearchDomain,
     resourceDetails_awsElbLoadBalancer,
     resourceDetails_awsElbv2LoadBalancer,
+    resourceDetails_awsEventSchemasRegistry,
+    resourceDetails_awsGuardDutyDetector,
     resourceDetails_awsIamAccessKey,
     resourceDetails_awsIamGroup,
     resourceDetails_awsIamPolicy,
@@ -4500,6 +4938,7 @@ module Amazonka.SecurityHub.Types
     resourceDetails_awsSnsTopic,
     resourceDetails_awsSqsQueue,
     resourceDetails_awsSsmPatchCompliance,
+    resourceDetails_awsStepFunctionStateMachine,
     resourceDetails_awsWafRateBasedRule,
     resourceDetails_awsWafRegionalRateBasedRule,
     resourceDetails_awsWafRegionalRule,
@@ -4519,6 +4958,26 @@ module Amazonka.SecurityHub.Types
     newResult,
     result_accountId,
     result_processingResult,
+
+    -- * RouteSetDetails
+    RouteSetDetails (..),
+    newRouteSetDetails,
+    routeSetDetails_carrierGatewayId,
+    routeSetDetails_coreNetworkArn,
+    routeSetDetails_destinationCidrBlock,
+    routeSetDetails_destinationIpv6CidrBlock,
+    routeSetDetails_destinationPrefixListId,
+    routeSetDetails_egressOnlyInternetGatewayId,
+    routeSetDetails_gatewayId,
+    routeSetDetails_instanceId,
+    routeSetDetails_instanceOwnerId,
+    routeSetDetails_localGatewayId,
+    routeSetDetails_natGatewayId,
+    routeSetDetails_networkInterfaceId,
+    routeSetDetails_origin,
+    routeSetDetails_state,
+    routeSetDetails_transitGatewayId,
+    routeSetDetails_vpcPeeringConnectionId,
 
     -- * RuleGroupDetails
     RuleGroupDetails (..),
@@ -4642,6 +5101,27 @@ module Amazonka.SecurityHub.Types
     newRuleGroupVariablesPortSetsDetails,
     ruleGroupVariablesPortSetsDetails_definition,
 
+    -- * SecurityControl
+    SecurityControl (..),
+    newSecurityControl,
+    securityControl_securityControlId,
+    securityControl_securityControlArn,
+    securityControl_title,
+    securityControl_description,
+    securityControl_remediationUrl,
+    securityControl_severityRating,
+    securityControl_securityControlStatus,
+
+    -- * SecurityControlDefinition
+    SecurityControlDefinition (..),
+    newSecurityControlDefinition,
+    securityControlDefinition_securityControlId,
+    securityControlDefinition_title,
+    securityControlDefinition_description,
+    securityControlDefinition_remediationUrl,
+    securityControlDefinition_severityRating,
+    securityControlDefinition_currentRegionAvailability,
+
     -- * SensitiveDataDetections
     SensitiveDataDetections (..),
     newSensitiveDataDetections,
@@ -4715,6 +5195,47 @@ module Amazonka.SecurityHub.Types
     standardsControl_standardsControlArn,
     standardsControl_title,
 
+    -- * StandardsControlAssociationDetail
+    StandardsControlAssociationDetail (..),
+    newStandardsControlAssociationDetail,
+    standardsControlAssociationDetail_relatedRequirements,
+    standardsControlAssociationDetail_standardsControlArns,
+    standardsControlAssociationDetail_standardsControlDescription,
+    standardsControlAssociationDetail_standardsControlTitle,
+    standardsControlAssociationDetail_updatedAt,
+    standardsControlAssociationDetail_updatedReason,
+    standardsControlAssociationDetail_standardsArn,
+    standardsControlAssociationDetail_securityControlId,
+    standardsControlAssociationDetail_securityControlArn,
+    standardsControlAssociationDetail_associationStatus,
+
+    -- * StandardsControlAssociationId
+    StandardsControlAssociationId (..),
+    newStandardsControlAssociationId,
+    standardsControlAssociationId_securityControlId,
+    standardsControlAssociationId_standardsArn,
+
+    -- * StandardsControlAssociationSummary
+    StandardsControlAssociationSummary (..),
+    newStandardsControlAssociationSummary,
+    standardsControlAssociationSummary_relatedRequirements,
+    standardsControlAssociationSummary_standardsControlDescription,
+    standardsControlAssociationSummary_standardsControlTitle,
+    standardsControlAssociationSummary_updatedAt,
+    standardsControlAssociationSummary_updatedReason,
+    standardsControlAssociationSummary_standardsArn,
+    standardsControlAssociationSummary_securityControlId,
+    standardsControlAssociationSummary_securityControlArn,
+    standardsControlAssociationSummary_associationStatus,
+
+    -- * StandardsControlAssociationUpdate
+    StandardsControlAssociationUpdate (..),
+    newStandardsControlAssociationUpdate,
+    standardsControlAssociationUpdate_updatedReason,
+    standardsControlAssociationUpdate_standardsArn,
+    standardsControlAssociationUpdate_securityControlId,
+    standardsControlAssociationUpdate_associationStatus,
+
     -- * StandardsManagedBy
     StandardsManagedBy (..),
     newStandardsManagedBy,
@@ -4785,6 +5306,46 @@ module Amazonka.SecurityHub.Types
     threatIntelIndicator_sourceUrl,
     threatIntelIndicator_type,
     threatIntelIndicator_value,
+
+    -- * UnprocessedAutomationRule
+    UnprocessedAutomationRule (..),
+    newUnprocessedAutomationRule,
+    unprocessedAutomationRule_errorCode,
+    unprocessedAutomationRule_errorMessage,
+    unprocessedAutomationRule_ruleArn,
+
+    -- * UnprocessedSecurityControl
+    UnprocessedSecurityControl (..),
+    newUnprocessedSecurityControl,
+    unprocessedSecurityControl_errorReason,
+    unprocessedSecurityControl_securityControlId,
+    unprocessedSecurityControl_errorCode,
+
+    -- * UnprocessedStandardsControlAssociation
+    UnprocessedStandardsControlAssociation (..),
+    newUnprocessedStandardsControlAssociation,
+    unprocessedStandardsControlAssociation_errorReason,
+    unprocessedStandardsControlAssociation_standardsControlAssociationId,
+    unprocessedStandardsControlAssociation_errorCode,
+
+    -- * UnprocessedStandardsControlAssociationUpdate
+    UnprocessedStandardsControlAssociationUpdate (..),
+    newUnprocessedStandardsControlAssociationUpdate,
+    unprocessedStandardsControlAssociationUpdate_errorReason,
+    unprocessedStandardsControlAssociationUpdate_standardsControlAssociationUpdate,
+    unprocessedStandardsControlAssociationUpdate_errorCode,
+
+    -- * UpdateAutomationRulesRequestItem
+    UpdateAutomationRulesRequestItem (..),
+    newUpdateAutomationRulesRequestItem,
+    updateAutomationRulesRequestItem_actions,
+    updateAutomationRulesRequestItem_criteria,
+    updateAutomationRulesRequestItem_description,
+    updateAutomationRulesRequestItem_isTerminal,
+    updateAutomationRulesRequestItem_ruleName,
+    updateAutomationRulesRequestItem_ruleOrder,
+    updateAutomationRulesRequestItem_ruleStatus,
+    updateAutomationRulesRequestItem_ruleArn,
 
     -- * VolumeMount
     VolumeMount (..),
@@ -4869,8 +5430,25 @@ import Amazonka.SecurityHub.Types.ActionTarget
 import Amazonka.SecurityHub.Types.Adjustment
 import Amazonka.SecurityHub.Types.AdminAccount
 import Amazonka.SecurityHub.Types.AdminStatus
+import Amazonka.SecurityHub.Types.AssociatedStandard
+import Amazonka.SecurityHub.Types.AssociationSetDetails
+import Amazonka.SecurityHub.Types.AssociationStateDetails
+import Amazonka.SecurityHub.Types.AssociationStatus
 import Amazonka.SecurityHub.Types.AutoEnableStandards
+import Amazonka.SecurityHub.Types.AutomationRulesAction
+import Amazonka.SecurityHub.Types.AutomationRulesActionType
+import Amazonka.SecurityHub.Types.AutomationRulesConfig
+import Amazonka.SecurityHub.Types.AutomationRulesFindingFieldsUpdate
+import Amazonka.SecurityHub.Types.AutomationRulesFindingFilters
+import Amazonka.SecurityHub.Types.AutomationRulesMetadata
 import Amazonka.SecurityHub.Types.AvailabilityZone
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerDetails
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerEncryptionOptionsDetails
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerLdapServerMetadataDetails
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerLogsDetails
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerLogsPendingDetails
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerMaintenanceWindowStartTimeDetails
+import Amazonka.SecurityHub.Types.AwsAmazonMqBrokerUsersDetails
 import Amazonka.SecurityHub.Types.AwsApiCallAction
 import Amazonka.SecurityHub.Types.AwsApiCallActionDomainDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayAccessLogSettings
@@ -4882,6 +5460,12 @@ import Amazonka.SecurityHub.Types.AwsApiGatewayStageDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2ApiDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2RouteSettings
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2StageDetails
+import Amazonka.SecurityHub.Types.AwsAppSyncGraphQlApiAdditionalAuthenticationProvidersDetails
+import Amazonka.SecurityHub.Types.AwsAppSyncGraphQlApiDetails
+import Amazonka.SecurityHub.Types.AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails
+import Amazonka.SecurityHub.Types.AwsAppSyncGraphQlApiLogConfigDetails
+import Amazonka.SecurityHub.Types.AwsAppSyncGraphQlApiOpenIdConnectConfigDetails
+import Amazonka.SecurityHub.Types.AwsAppSyncGraphQlApiUserPoolConfigDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification
@@ -4963,6 +5547,7 @@ import Amazonka.SecurityHub.Types.AwsDynamoDbTableStreamSpecification
 import Amazonka.SecurityHub.Types.AwsEc2EipDetails
 import Amazonka.SecurityHub.Types.AwsEc2InstanceDetails
 import Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions
+import Amazonka.SecurityHub.Types.AwsEc2InstanceMonitoringDetails
 import Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails
 import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
 import Amazonka.SecurityHub.Types.AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
@@ -5007,6 +5592,7 @@ import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceIpV6AddressDetail
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfacePrivateIpAddressDetail
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceSecurityGroup
+import Amazonka.SecurityHub.Types.AwsEc2RouteTableDetails
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupDetails
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpPermission
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupIpRange
@@ -5124,6 +5710,19 @@ import Amazonka.SecurityHub.Types.AwsElbLoadBalancerPolicies
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerSourceSecurityGroup
 import Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerAttribute
 import Amazonka.SecurityHub.Types.AwsElbv2LoadBalancerDetails
+import Amazonka.SecurityHub.Types.AwsEventSchemasRegistryDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesCloudTrailDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesDnsLogsDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesFlowLogsDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesKubernetesDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDataSourcesS3LogsDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorDetails
+import Amazonka.SecurityHub.Types.AwsGuardDutyDetectorFeaturesDetails
 import Amazonka.SecurityHub.Types.AwsIamAccessKeyDetails
 import Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContext
 import Amazonka.SecurityHub.Types.AwsIamAccessKeySessionContextAttributes
@@ -5230,6 +5829,9 @@ import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationFilter
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilter
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRule
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfigurationS3KeyFilterRuleName
+import Amazonka.SecurityHub.Types.AwsS3BucketObjectLockConfiguration
+import Amazonka.SecurityHub.Types.AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails
+import Amazonka.SecurityHub.Types.AwsS3BucketObjectLockConfigurationRuleDetails
 import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionByDefault
 import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionRule
@@ -5252,6 +5854,11 @@ import Amazonka.SecurityHub.Types.AwsSqsQueueDetails
 import Amazonka.SecurityHub.Types.AwsSsmComplianceSummary
 import Amazonka.SecurityHub.Types.AwsSsmPatch
 import Amazonka.SecurityHub.Types.AwsSsmPatchComplianceDetails
+import Amazonka.SecurityHub.Types.AwsStepFunctionStateMachineDetails
+import Amazonka.SecurityHub.Types.AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
+import Amazonka.SecurityHub.Types.AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails
+import Amazonka.SecurityHub.Types.AwsStepFunctionStateMachineLoggingConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsStepFunctionStateMachineTracingConfigurationDetails
 import Amazonka.SecurityHub.Types.AwsWafRateBasedRuleDetails
 import Amazonka.SecurityHub.Types.AwsWafRateBasedRuleMatchPredicate
 import Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails
@@ -5298,6 +5905,7 @@ import Amazonka.SecurityHub.Types.ClassificationStatus
 import Amazonka.SecurityHub.Types.Compliance
 import Amazonka.SecurityHub.Types.ComplianceStatus
 import Amazonka.SecurityHub.Types.ContainerDetails
+import Amazonka.SecurityHub.Types.ControlFindingGenerator
 import Amazonka.SecurityHub.Types.ControlStatus
 import Amazonka.SecurityHub.Types.Country
 import Amazonka.SecurityHub.Types.CustomDataIdentifiersDetections
@@ -5310,6 +5918,10 @@ import Amazonka.SecurityHub.Types.DateRangeUnit
 import Amazonka.SecurityHub.Types.DnsRequestAction
 import Amazonka.SecurityHub.Types.FilePaths
 import Amazonka.SecurityHub.Types.FindingAggregator
+import Amazonka.SecurityHub.Types.FindingHistoryRecord
+import Amazonka.SecurityHub.Types.FindingHistoryUpdate
+import Amazonka.SecurityHub.Types.FindingHistoryUpdateSource
+import Amazonka.SecurityHub.Types.FindingHistoryUpdateSourceType
 import Amazonka.SecurityHub.Types.FindingProviderFields
 import Amazonka.SecurityHub.Types.FindingProviderSeverity
 import Amazonka.SecurityHub.Types.FirewallPolicyDetails
@@ -5354,15 +5966,18 @@ import Amazonka.SecurityHub.Types.PortRange
 import Amazonka.SecurityHub.Types.PortRangeFromTo
 import Amazonka.SecurityHub.Types.ProcessDetails
 import Amazonka.SecurityHub.Types.Product
+import Amazonka.SecurityHub.Types.PropagatingVgwSetDetails
 import Amazonka.SecurityHub.Types.Range
 import Amazonka.SecurityHub.Types.Recommendation
 import Amazonka.SecurityHub.Types.Record
 import Amazonka.SecurityHub.Types.RecordState
+import Amazonka.SecurityHub.Types.RegionAvailabilityStatus
 import Amazonka.SecurityHub.Types.RelatedFinding
 import Amazonka.SecurityHub.Types.Remediation
 import Amazonka.SecurityHub.Types.Resource
 import Amazonka.SecurityHub.Types.ResourceDetails
 import Amazonka.SecurityHub.Types.Result
+import Amazonka.SecurityHub.Types.RouteSetDetails
 import Amazonka.SecurityHub.Types.RuleGroupDetails
 import Amazonka.SecurityHub.Types.RuleGroupSource
 import Amazonka.SecurityHub.Types.RuleGroupSourceCustomActionsDetails
@@ -5382,6 +5997,9 @@ import Amazonka.SecurityHub.Types.RuleGroupSourceStatelessRulesDetails
 import Amazonka.SecurityHub.Types.RuleGroupVariables
 import Amazonka.SecurityHub.Types.RuleGroupVariablesIpSetsDetails
 import Amazonka.SecurityHub.Types.RuleGroupVariablesPortSetsDetails
+import Amazonka.SecurityHub.Types.RuleStatus
+import Amazonka.SecurityHub.Types.SecurityControl
+import Amazonka.SecurityHub.Types.SecurityControlDefinition
 import Amazonka.SecurityHub.Types.SensitiveDataDetections
 import Amazonka.SecurityHub.Types.SensitiveDataResult
 import Amazonka.SecurityHub.Types.Severity
@@ -5393,6 +6011,10 @@ import Amazonka.SecurityHub.Types.SortCriterion
 import Amazonka.SecurityHub.Types.SortOrder
 import Amazonka.SecurityHub.Types.Standard
 import Amazonka.SecurityHub.Types.StandardsControl
+import Amazonka.SecurityHub.Types.StandardsControlAssociationDetail
+import Amazonka.SecurityHub.Types.StandardsControlAssociationId
+import Amazonka.SecurityHub.Types.StandardsControlAssociationSummary
+import Amazonka.SecurityHub.Types.StandardsControlAssociationUpdate
 import Amazonka.SecurityHub.Types.StandardsManagedBy
 import Amazonka.SecurityHub.Types.StandardsStatus
 import Amazonka.SecurityHub.Types.StandardsStatusReason
@@ -5409,6 +6031,12 @@ import Amazonka.SecurityHub.Types.Threat
 import Amazonka.SecurityHub.Types.ThreatIntelIndicator
 import Amazonka.SecurityHub.Types.ThreatIntelIndicatorCategory
 import Amazonka.SecurityHub.Types.ThreatIntelIndicatorType
+import Amazonka.SecurityHub.Types.UnprocessedAutomationRule
+import Amazonka.SecurityHub.Types.UnprocessedErrorCode
+import Amazonka.SecurityHub.Types.UnprocessedSecurityControl
+import Amazonka.SecurityHub.Types.UnprocessedStandardsControlAssociation
+import Amazonka.SecurityHub.Types.UnprocessedStandardsControlAssociationUpdate
+import Amazonka.SecurityHub.Types.UpdateAutomationRulesRequestItem
 import Amazonka.SecurityHub.Types.VerificationState
 import Amazonka.SecurityHub.Types.VolumeMount
 import Amazonka.SecurityHub.Types.VpcInfoCidrBlockSetDetails
@@ -5452,53 +6080,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have permission to perform the action specified in the
 -- request.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -5506,7 +6134,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | Internal server error.
-_InternalException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalException =
   Core._MatchServiceError
     defaultService
@@ -5514,7 +6142,7 @@ _InternalException =
     Prelude.. Core.hasStatus 500
 
 -- | The account doesn\'t have permission to perform this action.
-_InvalidAccessException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidAccessException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidAccessException =
   Core._MatchServiceError
     defaultService
@@ -5523,7 +6151,7 @@ _InvalidAccessException =
 
 -- | The request was rejected because you supplied an invalid or out-of-range
 -- value for an input parameter.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
@@ -5533,7 +6161,7 @@ _InvalidInputException =
 -- | The request was rejected because it attempted to create resources beyond
 -- the current Amazon Web Services account or throttling limits. The error
 -- code describes the limit exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -5542,7 +6170,7 @@ _LimitExceededException =
 
 -- | The resource specified in the request conflicts with an existing
 -- resource.
-_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -5550,7 +6178,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because we can\'t find the specified resource.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService

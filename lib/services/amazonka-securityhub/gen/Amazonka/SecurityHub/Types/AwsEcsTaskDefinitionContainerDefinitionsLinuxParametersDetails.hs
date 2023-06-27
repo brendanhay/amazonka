@@ -140,12 +140,12 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'
             Prelude.<$> (x Data..:? "Capabilities")
-              Prelude.<*> (x Data..:? "Devices" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "InitProcessEnabled")
-              Prelude.<*> (x Data..:? "MaxSwap")
-              Prelude.<*> (x Data..:? "SharedMemorySize")
-              Prelude.<*> (x Data..:? "Swappiness")
-              Prelude.<*> (x Data..:? "Tmpfs" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Devices" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InitProcessEnabled")
+            Prelude.<*> (x Data..:? "MaxSwap")
+            Prelude.<*> (x Data..:? "SharedMemorySize")
+            Prelude.<*> (x Data..:? "Swappiness")
+            Prelude.<*> (x Data..:? "Tmpfs" Data..!= Prelude.mempty)
       )
 
 instance
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' {..} =
-      _salt `Prelude.hashWithSalt` capabilities
+      _salt
+        `Prelude.hashWithSalt` capabilities
         `Prelude.hashWithSalt` devices
         `Prelude.hashWithSalt` initProcessEnabled
         `Prelude.hashWithSalt` maxSwap

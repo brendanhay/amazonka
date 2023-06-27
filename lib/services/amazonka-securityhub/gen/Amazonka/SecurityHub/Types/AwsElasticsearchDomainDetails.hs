@@ -241,7 +241,8 @@ instance
     AwsElasticsearchDomainDetails
   where
   hashWithSalt _salt AwsElasticsearchDomainDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicies
+    _salt
+      `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` domainEndpointOptions
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` domainName

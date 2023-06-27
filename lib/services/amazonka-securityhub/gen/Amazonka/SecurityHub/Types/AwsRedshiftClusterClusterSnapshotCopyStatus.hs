@@ -24,7 +24,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about a cross-Region snapshot copy.
+-- | You can configure Amazon Redshift to copy snapshots for a cluster to
+-- another Amazon Web Services Region. This parameter provides information
+-- about a cross-Region snapshot copy.
 --
 -- /See:/ 'newAwsRedshiftClusterClusterSnapshotCopyStatus' smart constructor.
 data AwsRedshiftClusterClusterSnapshotCopyStatus = AwsRedshiftClusterClusterSnapshotCopyStatus'
@@ -32,7 +34,7 @@ data AwsRedshiftClusterClusterSnapshotCopyStatus = AwsRedshiftClusterClusterSnap
     -- cross-Region snapshot copy is enabled.
     destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | The number of days that manual snapshots are retained in the destination
-    -- region after they are copied from a source region.
+    -- Region after they are copied from a source Region.
     --
     -- If the value is @-1@, then the manual snapshot is retained indefinitely.
     --
@@ -58,7 +60,7 @@ data AwsRedshiftClusterClusterSnapshotCopyStatus = AwsRedshiftClusterClusterSnap
 -- cross-Region snapshot copy is enabled.
 --
 -- 'manualSnapshotRetentionPeriod', 'awsRedshiftClusterClusterSnapshotCopyStatus_manualSnapshotRetentionPeriod' - The number of days that manual snapshots are retained in the destination
--- region after they are copied from a source region.
+-- Region after they are copied from a source Region.
 --
 -- If the value is @-1@, then the manual snapshot is retained indefinitely.
 --
@@ -88,7 +90,7 @@ awsRedshiftClusterClusterSnapshotCopyStatus_destinationRegion :: Lens.Lens' AwsR
 awsRedshiftClusterClusterSnapshotCopyStatus_destinationRegion = Lens.lens (\AwsRedshiftClusterClusterSnapshotCopyStatus' {destinationRegion} -> destinationRegion) (\s@AwsRedshiftClusterClusterSnapshotCopyStatus' {} a -> s {destinationRegion = a} :: AwsRedshiftClusterClusterSnapshotCopyStatus)
 
 -- | The number of days that manual snapshots are retained in the destination
--- region after they are copied from a source region.
+-- Region after they are copied from a source Region.
 --
 -- If the value is @-1@, then the manual snapshot is retained indefinitely.
 --
@@ -115,9 +117,9 @@ instance
       ( \x ->
           AwsRedshiftClusterClusterSnapshotCopyStatus'
             Prelude.<$> (x Data..:? "DestinationRegion")
-              Prelude.<*> (x Data..:? "ManualSnapshotRetentionPeriod")
-              Prelude.<*> (x Data..:? "RetentionPeriod")
-              Prelude.<*> (x Data..:? "SnapshotCopyGrantName")
+            Prelude.<*> (x Data..:? "ManualSnapshotRetentionPeriod")
+            Prelude.<*> (x Data..:? "RetentionPeriod")
+            Prelude.<*> (x Data..:? "SnapshotCopyGrantName")
       )
 
 instance
@@ -127,7 +129,8 @@ instance
   hashWithSalt
     _salt
     AwsRedshiftClusterClusterSnapshotCopyStatus' {..} =
-      _salt `Prelude.hashWithSalt` destinationRegion
+      _salt
+        `Prelude.hashWithSalt` destinationRegion
         `Prelude.hashWithSalt` manualSnapshotRetentionPeriod
         `Prelude.hashWithSalt` retentionPeriod
         `Prelude.hashWithSalt` snapshotCopyGrantName

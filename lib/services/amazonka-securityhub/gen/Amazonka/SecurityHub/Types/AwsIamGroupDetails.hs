@@ -36,8 +36,8 @@ data AwsIamGroupDetails = AwsIamGroupDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the IAM group.
     groupId :: Prelude.Maybe Prelude.Text,
@@ -64,8 +64,8 @@ data AwsIamGroupDetails = AwsIamGroupDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'groupId', 'awsIamGroupDetails_groupId' - The identifier of the IAM group.
 --
@@ -95,8 +95,8 @@ awsIamGroupDetails_attachedManagedPolicies = Lens.lens (\AwsIamGroupDetails' {at
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamGroupDetails_createDate :: Lens.Lens' AwsIamGroupDetails (Prelude.Maybe Prelude.Text)
 awsIamGroupDetails_createDate = Lens.lens (\AwsIamGroupDetails' {createDate} -> createDate) (\s@AwsIamGroupDetails' {} a -> s {createDate = a} :: AwsIamGroupDetails)
 
@@ -122,13 +122,15 @@ instance Data.FromJSON AwsIamGroupDetails where
       "AwsIamGroupDetails"
       ( \x ->
           AwsIamGroupDetails'
-            Prelude.<$> ( x Data..:? "AttachedManagedPolicies"
+            Prelude.<$> ( x
+                            Data..:? "AttachedManagedPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateDate")
             Prelude.<*> (x Data..:? "GroupId")
             Prelude.<*> (x Data..:? "GroupName")
-            Prelude.<*> ( x Data..:? "GroupPolicyList"
+            Prelude.<*> ( x
+                            Data..:? "GroupPolicyList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Path")

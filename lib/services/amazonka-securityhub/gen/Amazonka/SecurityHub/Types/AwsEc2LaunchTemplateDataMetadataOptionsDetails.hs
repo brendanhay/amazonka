@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAwsEc2LaunchTemplateDataMetadataOptionsDetails' smart constructor.
 data AwsEc2LaunchTemplateDataMetadataOptionsDetails = AwsEc2LaunchTemplateDataMetadataOptionsDetails'
   { -- | Enables or disables the HTTP metadata endpoint on your instances. If the
-    -- parameter is not specified, the default state is enabled, and you won’t
+    -- parameter is not specified, the default state is enabled, and you won\'t
     -- be able to access your instance metadata.
     httpEndpoint :: Prelude.Maybe Prelude.Text,
     -- | Enables or disables the IPv6 endpoint for the instance metadata service.
@@ -58,7 +58,7 @@ data AwsEc2LaunchTemplateDataMetadataOptionsDetails = AwsEc2LaunchTemplateDataMe
 -- for backwards compatibility:
 --
 -- 'httpEndpoint', 'awsEc2LaunchTemplateDataMetadataOptionsDetails_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If the
--- parameter is not specified, the default state is enabled, and you won’t
+-- parameter is not specified, the default state is enabled, and you won\'t
 -- be able to access your instance metadata.
 --
 -- 'httpProtocolIpv6', 'awsEc2LaunchTemplateDataMetadataOptionsDetails_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
@@ -91,7 +91,7 @@ newAwsEc2LaunchTemplateDataMetadataOptionsDetails =
     }
 
 -- | Enables or disables the HTTP metadata endpoint on your instances. If the
--- parameter is not specified, the default state is enabled, and you won’t
+-- parameter is not specified, the default state is enabled, and you won\'t
 -- be able to access your instance metadata.
 awsEc2LaunchTemplateDataMetadataOptionsDetails_httpEndpoint :: Lens.Lens' AwsEc2LaunchTemplateDataMetadataOptionsDetails (Prelude.Maybe Prelude.Text)
 awsEc2LaunchTemplateDataMetadataOptionsDetails_httpEndpoint = Lens.lens (\AwsEc2LaunchTemplateDataMetadataOptionsDetails' {httpEndpoint} -> httpEndpoint) (\s@AwsEc2LaunchTemplateDataMetadataOptionsDetails' {} a -> s {httpEndpoint = a} :: AwsEc2LaunchTemplateDataMetadataOptionsDetails)
@@ -128,10 +128,10 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataMetadataOptionsDetails'
             Prelude.<$> (x Data..:? "HttpEndpoint")
-              Prelude.<*> (x Data..:? "HttpProtocolIpv6")
-              Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
-              Prelude.<*> (x Data..:? "HttpTokens")
-              Prelude.<*> (x Data..:? "InstanceMetadataTags")
+            Prelude.<*> (x Data..:? "HttpProtocolIpv6")
+            Prelude.<*> (x Data..:? "HttpPutResponseHopLimit")
+            Prelude.<*> (x Data..:? "HttpTokens")
+            Prelude.<*> (x Data..:? "InstanceMetadataTags")
       )
 
 instance
@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataMetadataOptionsDetails' {..} =
-      _salt `Prelude.hashWithSalt` httpEndpoint
+      _salt
+        `Prelude.hashWithSalt` httpEndpoint
         `Prelude.hashWithSalt` httpProtocolIpv6
         `Prelude.hashWithSalt` httpPutResponseHopLimit
         `Prelude.hashWithSalt` httpTokens

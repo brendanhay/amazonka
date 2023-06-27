@@ -35,8 +35,8 @@ data AwsIamInstanceProfile = AwsIamInstanceProfile'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the instance profile.
     instanceProfileId :: Prelude.Maybe Prelude.Text,
@@ -63,8 +63,8 @@ data AwsIamInstanceProfile = AwsIamInstanceProfile'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'instanceProfileId', 'awsIamInstanceProfile_instanceProfileId' - The identifier of the instance profile.
 --
@@ -93,8 +93,8 @@ awsIamInstanceProfile_arn = Lens.lens (\AwsIamInstanceProfile' {arn} -> arn) (\s
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamInstanceProfile_createDate :: Lens.Lens' AwsIamInstanceProfile (Prelude.Maybe Prelude.Text)
 awsIamInstanceProfile_createDate = Lens.lens (\AwsIamInstanceProfile' {createDate} -> createDate) (\s@AwsIamInstanceProfile' {} a -> s {createDate = a} :: AwsIamInstanceProfile)
 
@@ -130,7 +130,8 @@ instance Data.FromJSON AwsIamInstanceProfile where
 
 instance Prelude.Hashable AwsIamInstanceProfile where
   hashWithSalt _salt AwsIamInstanceProfile' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` instanceProfileId
       `Prelude.hashWithSalt` instanceProfileName

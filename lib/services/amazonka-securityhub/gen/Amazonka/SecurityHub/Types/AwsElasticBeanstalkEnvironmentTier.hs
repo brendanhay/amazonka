@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     AwsElasticBeanstalkEnvironmentTier' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` version
 

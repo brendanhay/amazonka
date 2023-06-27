@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     AwsWafRegionalRuleGroupRulesDetails' {..} =
-      _salt `Prelude.hashWithSalt` action
+      _salt
+        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` priority
         `Prelude.hashWithSalt` ruleId
         `Prelude.hashWithSalt` type'

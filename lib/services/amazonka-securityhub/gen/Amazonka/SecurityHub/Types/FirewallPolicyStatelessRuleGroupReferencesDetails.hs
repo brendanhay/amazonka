@@ -74,7 +74,7 @@ instance
       ( \x ->
           FirewallPolicyStatelessRuleGroupReferencesDetails'
             Prelude.<$> (x Data..:? "Priority")
-              Prelude.<*> (x Data..:? "ResourceArn")
+            Prelude.<*> (x Data..:? "ResourceArn")
       )
 
 instance
@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     FirewallPolicyStatelessRuleGroupReferencesDetails' {..} =
-      _salt `Prelude.hashWithSalt` priority
+      _salt
+        `Prelude.hashWithSalt` priority
         `Prelude.hashWithSalt` resourceArn
 
 instance

@@ -37,8 +37,8 @@ data AwsDynamoDbTableBillingModeSummary = AwsDynamoDbTableBillingModeSummary'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastUpdateToPayPerRequestDateTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,8 +59,8 @@ data AwsDynamoDbTableBillingModeSummary = AwsDynamoDbTableBillingModeSummary'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 newAwsDynamoDbTableBillingModeSummary ::
   AwsDynamoDbTableBillingModeSummary
 newAwsDynamoDbTableBillingModeSummary =
@@ -81,8 +81,8 @@ awsDynamoDbTableBillingModeSummary_billingMode = Lens.lens (\AwsDynamoDbTableBil
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsDynamoDbTableBillingModeSummary_lastUpdateToPayPerRequestDateTime :: Lens.Lens' AwsDynamoDbTableBillingModeSummary (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableBillingModeSummary_lastUpdateToPayPerRequestDateTime = Lens.lens (\AwsDynamoDbTableBillingModeSummary' {lastUpdateToPayPerRequestDateTime} -> lastUpdateToPayPerRequestDateTime) (\s@AwsDynamoDbTableBillingModeSummary' {} a -> s {lastUpdateToPayPerRequestDateTime = a} :: AwsDynamoDbTableBillingModeSummary)
 
@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableBillingModeSummary' {..} =
-      _salt `Prelude.hashWithSalt` billingMode
+      _salt
+        `Prelude.hashWithSalt` billingMode
         `Prelude.hashWithSalt` lastUpdateToPayPerRequestDateTime
 
 instance

@@ -131,8 +131,8 @@ data AwsRdsDbInstanceDetails = AwsRdsDbInstanceDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     instanceCreateTime :: Prelude.Maybe Prelude.Text,
     -- | Specifies the provisioned IOPS (I\/O operations per second) for this DB
     -- instance.
@@ -145,8 +145,8 @@ data AwsRdsDbInstanceDetails = AwsRdsDbInstanceDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     latestRestorableTime :: Prelude.Maybe Prelude.Text,
     -- | License model information for this DB instance.
     licenseModel :: Prelude.Maybe Prelude.Text,
@@ -333,8 +333,8 @@ data AwsRdsDbInstanceDetails = AwsRdsDbInstanceDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'iops', 'awsRdsDbInstanceDetails_iops' - Specifies the provisioned IOPS (I\/O operations per second) for this DB
 -- instance.
@@ -347,8 +347,8 @@ data AwsRdsDbInstanceDetails = AwsRdsDbInstanceDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'licenseModel', 'awsRdsDbInstanceDetails_licenseModel' - License model information for this DB instance.
 --
@@ -642,8 +642,8 @@ awsRdsDbInstanceDetails_iAMDatabaseAuthenticationEnabled = Lens.lens (\AwsRdsDbI
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRdsDbInstanceDetails_instanceCreateTime :: Lens.Lens' AwsRdsDbInstanceDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbInstanceDetails_instanceCreateTime = Lens.lens (\AwsRdsDbInstanceDetails' {instanceCreateTime} -> instanceCreateTime) (\s@AwsRdsDbInstanceDetails' {} a -> s {instanceCreateTime = a} :: AwsRdsDbInstanceDetails)
 
@@ -662,8 +662,8 @@ awsRdsDbInstanceDetails_kmsKeyId = Lens.lens (\AwsRdsDbInstanceDetails' {kmsKeyI
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRdsDbInstanceDetails_latestRestorableTime :: Lens.Lens' AwsRdsDbInstanceDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbInstanceDetails_latestRestorableTime = Lens.lens (\AwsRdsDbInstanceDetails' {latestRestorableTime} -> latestRestorableTime) (\s@AwsRdsDbInstanceDetails' {} a -> s {latestRestorableTime = a} :: AwsRdsDbInstanceDetails)
 
@@ -810,7 +810,8 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
       ( \x ->
           AwsRdsDbInstanceDetails'
             Prelude.<$> (x Data..:? "AllocatedStorage")
-            Prelude.<*> ( x Data..:? "AssociatedRoles"
+            Prelude.<*> ( x
+                            Data..:? "AssociatedRoles"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AutoMinorVersionUpgrade")
@@ -825,19 +826,23 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "DBName")
             Prelude.<*> (x Data..:? "DbInstancePort")
             Prelude.<*> (x Data..:? "DbInstanceStatus")
-            Prelude.<*> ( x Data..:? "DbParameterGroups"
+            Prelude.<*> ( x
+                            Data..:? "DbParameterGroups"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "DbSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "DbSecurityGroups"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DbSubnetGroup")
             Prelude.<*> (x Data..:? "DbiResourceId")
             Prelude.<*> (x Data..:? "DeletionProtection")
-            Prelude.<*> ( x Data..:? "DomainMemberships"
+            Prelude.<*> ( x
+                            Data..:? "DomainMemberships"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "EnabledCloudWatchLogsExports"
+            Prelude.<*> ( x
+                            Data..:? "EnabledCloudWatchLogsExports"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Endpoint")
@@ -856,7 +861,8 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "MonitoringInterval")
             Prelude.<*> (x Data..:? "MonitoringRoleArn")
             Prelude.<*> (x Data..:? "MultiAz")
-            Prelude.<*> ( x Data..:? "OptionGroupMemberships"
+            Prelude.<*> ( x
+                            Data..:? "OptionGroupMemberships"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PendingModifiedValues")
@@ -865,15 +871,18 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "PerformanceInsightsRetentionPeriod")
             Prelude.<*> (x Data..:? "PreferredBackupWindow")
             Prelude.<*> (x Data..:? "PreferredMaintenanceWindow")
-            Prelude.<*> ( x Data..:? "ProcessorFeatures"
+            Prelude.<*> ( x
+                            Data..:? "ProcessorFeatures"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PromotionTier")
             Prelude.<*> (x Data..:? "PubliclyAccessible")
-            Prelude.<*> ( x Data..:? "ReadReplicaDBClusterIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "ReadReplicaDBClusterIdentifiers"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ReadReplicaDBInstanceIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "ReadReplicaDBInstanceIdentifiers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReadReplicaSourceDBInstanceIdentifier")
@@ -883,14 +892,16 @@ instance Data.FromJSON AwsRdsDbInstanceDetails where
             Prelude.<*> (x Data..:? "StorageType")
             Prelude.<*> (x Data..:? "TdeCredentialArn")
             Prelude.<*> (x Data..:? "Timezone")
-            Prelude.<*> ( x Data..:? "VpcSecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "VpcSecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsRdsDbInstanceDetails where
   hashWithSalt _salt AwsRdsDbInstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` associatedRoles
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` availabilityZone

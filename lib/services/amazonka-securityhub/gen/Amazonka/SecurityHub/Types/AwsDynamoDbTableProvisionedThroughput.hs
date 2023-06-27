@@ -33,15 +33,15 @@ data AwsDynamoDbTableProvisionedThroughput = AwsDynamoDbTableProvisionedThroughp
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastDecreaseDateTime :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the provisioned throughput was last increased.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastIncreaseDateTime :: Prelude.Maybe Prelude.Text,
     -- | The number of times during the current UTC calendar day that the
     -- provisioned throughput was decreased.
@@ -67,15 +67,15 @@ data AwsDynamoDbTableProvisionedThroughput = AwsDynamoDbTableProvisionedThroughp
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'lastIncreaseDateTime', 'awsDynamoDbTableProvisionedThroughput_lastIncreaseDateTime' - Indicates when the provisioned throughput was last increased.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'numberOfDecreasesToday', 'awsDynamoDbTableProvisionedThroughput_numberOfDecreasesToday' - The number of times during the current UTC calendar day that the
 -- provisioned throughput was decreased.
@@ -103,8 +103,8 @@ newAwsDynamoDbTableProvisionedThroughput =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsDynamoDbTableProvisionedThroughput_lastDecreaseDateTime :: Lens.Lens' AwsDynamoDbTableProvisionedThroughput (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableProvisionedThroughput_lastDecreaseDateTime = Lens.lens (\AwsDynamoDbTableProvisionedThroughput' {lastDecreaseDateTime} -> lastDecreaseDateTime) (\s@AwsDynamoDbTableProvisionedThroughput' {} a -> s {lastDecreaseDateTime = a} :: AwsDynamoDbTableProvisionedThroughput)
 
@@ -112,8 +112,8 @@ awsDynamoDbTableProvisionedThroughput_lastDecreaseDateTime = Lens.lens (\AwsDyna
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsDynamoDbTableProvisionedThroughput_lastIncreaseDateTime :: Lens.Lens' AwsDynamoDbTableProvisionedThroughput (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableProvisionedThroughput_lastIncreaseDateTime = Lens.lens (\AwsDynamoDbTableProvisionedThroughput' {lastIncreaseDateTime} -> lastIncreaseDateTime) (\s@AwsDynamoDbTableProvisionedThroughput' {} a -> s {lastIncreaseDateTime = a} :: AwsDynamoDbTableProvisionedThroughput)
 
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableProvisionedThroughput' {..} =
-      _salt `Prelude.hashWithSalt` lastDecreaseDateTime
+      _salt
+        `Prelude.hashWithSalt` lastDecreaseDateTime
         `Prelude.hashWithSalt` lastIncreaseDateTime
         `Prelude.hashWithSalt` numberOfDecreasesToday
         `Prelude.hashWithSalt` readCapacityUnits

@@ -94,7 +94,8 @@ instance Data.FromJSON AwsDynamoDbTableProjection where
       "AwsDynamoDbTableProjection"
       ( \x ->
           AwsDynamoDbTableProjection'
-            Prelude.<$> ( x Data..:? "NonKeyAttributes"
+            Prelude.<$> ( x
+                            Data..:? "NonKeyAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProjectionType")
@@ -102,7 +103,8 @@ instance Data.FromJSON AwsDynamoDbTableProjection where
 
 instance Prelude.Hashable AwsDynamoDbTableProjection where
   hashWithSalt _salt AwsDynamoDbTableProjection' {..} =
-    _salt `Prelude.hashWithSalt` nonKeyAttributes
+    _salt
+      `Prelude.hashWithSalt` nonKeyAttributes
       `Prelude.hashWithSalt` projectionType
 
 instance Prelude.NFData AwsDynamoDbTableProjection where

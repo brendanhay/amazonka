@@ -136,7 +136,8 @@ instance Core.AWSRequest CreateInsight where
 
 instance Prelude.Hashable CreateInsight where
   hashWithSalt _salt CreateInsight' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` groupByAttribute
 

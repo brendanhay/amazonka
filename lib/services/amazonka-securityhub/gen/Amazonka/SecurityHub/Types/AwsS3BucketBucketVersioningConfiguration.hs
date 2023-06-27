@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     AwsS3BucketBucketVersioningConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` isMfaDeleteEnabled
+      _salt
+        `Prelude.hashWithSalt` isMfaDeleteEnabled
         `Prelude.hashWithSalt` status
 
 instance

@@ -353,7 +353,8 @@ instance Data.FromJSON AwsEcsServiceDetails where
       "AwsEcsServiceDetails"
       ( \x ->
           AwsEcsServiceDetails'
-            Prelude.<$> ( x Data..:? "CapacityProviderStrategy"
+            Prelude.<$> ( x
+                            Data..:? "CapacityProviderStrategy"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Cluster")
@@ -367,10 +368,12 @@ instance Data.FromJSON AwsEcsServiceDetails where
             Prelude.<*> (x Data..:? "LoadBalancers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "NetworkConfiguration")
-            Prelude.<*> ( x Data..:? "PlacementConstraints"
+            Prelude.<*> ( x
+                            Data..:? "PlacementConstraints"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "PlacementStrategies"
+            Prelude.<*> ( x
+                            Data..:? "PlacementStrategies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PlatformVersion")
@@ -379,7 +382,8 @@ instance Data.FromJSON AwsEcsServiceDetails where
             Prelude.<*> (x Data..:? "SchedulingStrategy")
             Prelude.<*> (x Data..:? "ServiceArn")
             Prelude.<*> (x Data..:? "ServiceName")
-            Prelude.<*> ( x Data..:? "ServiceRegistries"
+            Prelude.<*> ( x
+                            Data..:? "ServiceRegistries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TaskDefinition")

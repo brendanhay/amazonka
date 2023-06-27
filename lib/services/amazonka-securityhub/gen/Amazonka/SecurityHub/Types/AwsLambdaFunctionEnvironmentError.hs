@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsLambdaFunctionEnvironmentError' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` message
 
 instance

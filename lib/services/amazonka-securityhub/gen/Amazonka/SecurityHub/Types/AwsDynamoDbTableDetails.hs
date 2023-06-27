@@ -46,8 +46,8 @@ data AwsDynamoDbTableDetails = AwsDynamoDbTableDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     creationDateTime :: Prelude.Maybe Prelude.Text,
     -- | List of global secondary indexes for the table.
     globalSecondaryIndexes :: Prelude.Maybe [AwsDynamoDbTableGlobalSecondaryIndex],
@@ -114,8 +114,8 @@ data AwsDynamoDbTableDetails = AwsDynamoDbTableDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'globalSecondaryIndexes', 'awsDynamoDbTableDetails_globalSecondaryIndexes' - List of global secondary indexes for the table.
 --
@@ -200,8 +200,8 @@ awsDynamoDbTableDetails_billingModeSummary = Lens.lens (\AwsDynamoDbTableDetails
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsDynamoDbTableDetails_creationDateTime :: Lens.Lens' AwsDynamoDbTableDetails (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableDetails_creationDateTime = Lens.lens (\AwsDynamoDbTableDetails' {creationDateTime} -> creationDateTime) (\s@AwsDynamoDbTableDetails' {} a -> s {creationDateTime = a} :: AwsDynamoDbTableDetails)
 
@@ -289,12 +289,14 @@ instance Data.FromJSON AwsDynamoDbTableDetails where
       "AwsDynamoDbTableDetails"
       ( \x ->
           AwsDynamoDbTableDetails'
-            Prelude.<$> ( x Data..:? "AttributeDefinitions"
+            Prelude.<$> ( x
+                            Data..:? "AttributeDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BillingModeSummary")
             Prelude.<*> (x Data..:? "CreationDateTime")
-            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GlobalTableVersion")
@@ -302,7 +304,8 @@ instance Data.FromJSON AwsDynamoDbTableDetails where
             Prelude.<*> (x Data..:? "KeySchema" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "LatestStreamArn")
             Prelude.<*> (x Data..:? "LatestStreamLabel")
-            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "LocalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProvisionedThroughput")
@@ -318,7 +321,8 @@ instance Data.FromJSON AwsDynamoDbTableDetails where
 
 instance Prelude.Hashable AwsDynamoDbTableDetails where
   hashWithSalt _salt AwsDynamoDbTableDetails' {..} =
-    _salt `Prelude.hashWithSalt` attributeDefinitions
+    _salt
+      `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` billingModeSummary
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` globalSecondaryIndexes

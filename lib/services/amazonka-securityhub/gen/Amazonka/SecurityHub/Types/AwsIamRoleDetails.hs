@@ -41,8 +41,8 @@ data AwsIamRoleDetails = AwsIamRoleDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
     -- | The list of instance profiles that contain this role.
     instanceProfileList :: Prelude.Maybe [AwsIamInstanceProfile],
@@ -77,8 +77,8 @@ data AwsIamRoleDetails = AwsIamRoleDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'instanceProfileList', 'awsIamRoleDetails_instanceProfileList' - The list of instance profiles that contain this role.
 --
@@ -123,8 +123,8 @@ awsIamRoleDetails_attachedManagedPolicies = Lens.lens (\AwsIamRoleDetails' {atta
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamRoleDetails_createDate :: Lens.Lens' AwsIamRoleDetails (Prelude.Maybe Prelude.Text)
 awsIamRoleDetails_createDate = Lens.lens (\AwsIamRoleDetails' {createDate} -> createDate) (\s@AwsIamRoleDetails' {} a -> s {createDate = a} :: AwsIamRoleDetails)
 
@@ -164,11 +164,13 @@ instance Data.FromJSON AwsIamRoleDetails where
       ( \x ->
           AwsIamRoleDetails'
             Prelude.<$> (x Data..:? "AssumeRolePolicyDocument")
-            Prelude.<*> ( x Data..:? "AttachedManagedPolicies"
+            Prelude.<*> ( x
+                            Data..:? "AttachedManagedPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateDate")
-            Prelude.<*> ( x Data..:? "InstanceProfileList"
+            Prelude.<*> ( x
+                            Data..:? "InstanceProfileList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MaxSessionDuration")
@@ -176,7 +178,8 @@ instance Data.FromJSON AwsIamRoleDetails where
             Prelude.<*> (x Data..:? "PermissionsBoundary")
             Prelude.<*> (x Data..:? "RoleId")
             Prelude.<*> (x Data..:? "RoleName")
-            Prelude.<*> ( x Data..:? "RolePolicyList"
+            Prelude.<*> ( x
+                            Data..:? "RolePolicyList"
                             Data..!= Prelude.mempty
                         )
       )

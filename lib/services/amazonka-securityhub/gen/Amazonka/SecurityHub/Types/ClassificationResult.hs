@@ -130,7 +130,8 @@ instance Data.FromJSON ClassificationResult where
 
 instance Prelude.Hashable ClassificationResult where
   hashWithSalt _salt ClassificationResult' {..} =
-    _salt `Prelude.hashWithSalt` additionalOccurrences
+    _salt
+      `Prelude.hashWithSalt` additionalOccurrences
       `Prelude.hashWithSalt` customDataIdentifiers
       `Prelude.hashWithSalt` mimeType
       `Prelude.hashWithSalt` sensitiveData

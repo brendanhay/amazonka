@@ -36,6 +36,7 @@ module Amazonka.SecurityHub.DescribeHub
 
     -- * Response Lenses
     describeHubResponse_autoEnableControls,
+    describeHubResponse_controlFindingGenerator,
     describeHubResponse_hubArn,
     describeHubResponse_subscribedAt,
     describeHubResponse_httpStatus,
@@ -84,6 +85,7 @@ instance Core.AWSRequest DescribeHub where
       ( \s h x ->
           DescribeHubResponse'
             Prelude.<$> (x Data..?> "AutoEnableControls")
+            Prelude.<*> (x Data..?> "ControlFindingGenerator")
             Prelude.<*> (x Data..?> "HubArn")
             Prelude.<*> (x Data..?> "SubscribedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,6 +124,20 @@ data DescribeHubResponse = DescribeHubResponse'
     -- If set to @true@, then new controls for enabled standards are enabled
     -- automatically. If set to @false@, then new controls are not enabled.
     autoEnableControls :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the calling account has consolidated control findings
+    -- turned on. If the value for this field is set to @SECURITY_CONTROL@,
+    -- Security Hub generates a single finding for a control check even when
+    -- the check applies to multiple enabled standards.
+    --
+    -- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+    -- generates separate findings for a control check when the check applies
+    -- to multiple enabled standards.
+    --
+    -- The value for this field in a member account matches the value in the
+    -- administrator account. For accounts that aren\'t part of an
+    -- organization, the default value of this field is @SECURITY_CONTROL@ if
+    -- you enabled Security Hub on or after February 23, 2023.
+    controlFindingGenerator :: Prelude.Maybe ControlFindingGenerator,
     -- | The ARN of the Hub resource that was retrieved.
     hubArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time when Security Hub was enabled in the account.
@@ -145,6 +161,20 @@ data DescribeHubResponse = DescribeHubResponse'
 -- If set to @true@, then new controls for enabled standards are enabled
 -- automatically. If set to @false@, then new controls are not enabled.
 --
+-- 'controlFindingGenerator', 'describeHubResponse_controlFindingGenerator' - Specifies whether the calling account has consolidated control findings
+-- turned on. If the value for this field is set to @SECURITY_CONTROL@,
+-- Security Hub generates a single finding for a control check even when
+-- the check applies to multiple enabled standards.
+--
+-- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+-- generates separate findings for a control check when the check applies
+-- to multiple enabled standards.
+--
+-- The value for this field in a member account matches the value in the
+-- administrator account. For accounts that aren\'t part of an
+-- organization, the default value of this field is @SECURITY_CONTROL@ if
+-- you enabled Security Hub on or after February 23, 2023.
+--
 -- 'hubArn', 'describeHubResponse_hubArn' - The ARN of the Hub resource that was retrieved.
 --
 -- 'subscribedAt', 'describeHubResponse_subscribedAt' - The date and time when Security Hub was enabled in the account.
@@ -158,6 +188,7 @@ newDescribeHubResponse pHttpStatus_ =
   DescribeHubResponse'
     { autoEnableControls =
         Prelude.Nothing,
+      controlFindingGenerator = Prelude.Nothing,
       hubArn = Prelude.Nothing,
       subscribedAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -170,6 +201,22 @@ newDescribeHubResponse pHttpStatus_ =
 -- automatically. If set to @false@, then new controls are not enabled.
 describeHubResponse_autoEnableControls :: Lens.Lens' DescribeHubResponse (Prelude.Maybe Prelude.Bool)
 describeHubResponse_autoEnableControls = Lens.lens (\DescribeHubResponse' {autoEnableControls} -> autoEnableControls) (\s@DescribeHubResponse' {} a -> s {autoEnableControls = a} :: DescribeHubResponse)
+
+-- | Specifies whether the calling account has consolidated control findings
+-- turned on. If the value for this field is set to @SECURITY_CONTROL@,
+-- Security Hub generates a single finding for a control check even when
+-- the check applies to multiple enabled standards.
+--
+-- If the value for this field is set to @STANDARD_CONTROL@, Security Hub
+-- generates separate findings for a control check when the check applies
+-- to multiple enabled standards.
+--
+-- The value for this field in a member account matches the value in the
+-- administrator account. For accounts that aren\'t part of an
+-- organization, the default value of this field is @SECURITY_CONTROL@ if
+-- you enabled Security Hub on or after February 23, 2023.
+describeHubResponse_controlFindingGenerator :: Lens.Lens' DescribeHubResponse (Prelude.Maybe ControlFindingGenerator)
+describeHubResponse_controlFindingGenerator = Lens.lens (\DescribeHubResponse' {controlFindingGenerator} -> controlFindingGenerator) (\s@DescribeHubResponse' {} a -> s {controlFindingGenerator = a} :: DescribeHubResponse)
 
 -- | The ARN of the Hub resource that was retrieved.
 describeHubResponse_hubArn :: Lens.Lens' DescribeHubResponse (Prelude.Maybe Prelude.Text)
@@ -186,6 +233,7 @@ describeHubResponse_httpStatus = Lens.lens (\DescribeHubResponse' {httpStatus} -
 instance Prelude.NFData DescribeHubResponse where
   rnf DescribeHubResponse' {..} =
     Prelude.rnf autoEnableControls
+      `Prelude.seq` Prelude.rnf controlFindingGenerator
       `Prelude.seq` Prelude.rnf hubArn
       `Prelude.seq` Prelude.rnf subscribedAt
       `Prelude.seq` Prelude.rnf httpStatus

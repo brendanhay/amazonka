@@ -32,8 +32,8 @@ data AwsIamAccessKeySessionContextAttributes = AwsIamAccessKeySessionContextAttr
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     creationDate :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the session used multi-factor authentication (MFA).
     mfaAuthenticated :: Prelude.Maybe Prelude.Bool
@@ -52,8 +52,8 @@ data AwsIamAccessKeySessionContextAttributes = AwsIamAccessKeySessionContextAttr
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'mfaAuthenticated', 'awsIamAccessKeySessionContextAttributes_mfaAuthenticated' - Indicates whether the session used multi-factor authentication (MFA).
 newAwsIamAccessKeySessionContextAttributes ::
@@ -69,8 +69,8 @@ newAwsIamAccessKeySessionContextAttributes =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamAccessKeySessionContextAttributes_creationDate :: Lens.Lens' AwsIamAccessKeySessionContextAttributes (Prelude.Maybe Prelude.Text)
 awsIamAccessKeySessionContextAttributes_creationDate = Lens.lens (\AwsIamAccessKeySessionContextAttributes' {creationDate} -> creationDate) (\s@AwsIamAccessKeySessionContextAttributes' {} a -> s {creationDate = a} :: AwsIamAccessKeySessionContextAttributes)
 
@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     AwsIamAccessKeySessionContextAttributes' {..} =
-      _salt `Prelude.hashWithSalt` creationDate
+      _salt
+        `Prelude.hashWithSalt` creationDate
         `Prelude.hashWithSalt` mfaAuthenticated
 
 instance

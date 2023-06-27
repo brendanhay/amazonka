@@ -33,8 +33,8 @@ data AwsRedshiftClusterDeferredMaintenanceWindow = AwsRedshiftClusterDeferredMai
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     deferMaintenanceEndTime :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the maintenance window.
     deferMaintenanceIdentifier :: Prelude.Maybe Prelude.Text,
@@ -42,8 +42,8 @@ data AwsRedshiftClusterDeferredMaintenanceWindow = AwsRedshiftClusterDeferredMai
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     deferMaintenanceStartTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +60,8 @@ data AwsRedshiftClusterDeferredMaintenanceWindow = AwsRedshiftClusterDeferredMai
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'deferMaintenanceIdentifier', 'awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceIdentifier' - The identifier of the maintenance window.
 --
@@ -69,8 +69,8 @@ data AwsRedshiftClusterDeferredMaintenanceWindow = AwsRedshiftClusterDeferredMai
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 newAwsRedshiftClusterDeferredMaintenanceWindow ::
   AwsRedshiftClusterDeferredMaintenanceWindow
 newAwsRedshiftClusterDeferredMaintenanceWindow =
@@ -87,8 +87,8 @@ newAwsRedshiftClusterDeferredMaintenanceWindow =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceEndTime :: Lens.Lens' AwsRedshiftClusterDeferredMaintenanceWindow (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceEndTime = Lens.lens (\AwsRedshiftClusterDeferredMaintenanceWindow' {deferMaintenanceEndTime} -> deferMaintenanceEndTime) (\s@AwsRedshiftClusterDeferredMaintenanceWindow' {} a -> s {deferMaintenanceEndTime = a} :: AwsRedshiftClusterDeferredMaintenanceWindow)
 
@@ -100,8 +100,8 @@ awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceIdentifier = Lens.le
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceStartTime :: Lens.Lens' AwsRedshiftClusterDeferredMaintenanceWindow (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterDeferredMaintenanceWindow_deferMaintenanceStartTime = Lens.lens (\AwsRedshiftClusterDeferredMaintenanceWindow' {deferMaintenanceStartTime} -> deferMaintenanceStartTime) (\s@AwsRedshiftClusterDeferredMaintenanceWindow' {} a -> s {deferMaintenanceStartTime = a} :: AwsRedshiftClusterDeferredMaintenanceWindow)
 
@@ -115,8 +115,8 @@ instance
       ( \x ->
           AwsRedshiftClusterDeferredMaintenanceWindow'
             Prelude.<$> (x Data..:? "DeferMaintenanceEndTime")
-              Prelude.<*> (x Data..:? "DeferMaintenanceIdentifier")
-              Prelude.<*> (x Data..:? "DeferMaintenanceStartTime")
+            Prelude.<*> (x Data..:? "DeferMaintenanceIdentifier")
+            Prelude.<*> (x Data..:? "DeferMaintenanceStartTime")
       )
 
 instance

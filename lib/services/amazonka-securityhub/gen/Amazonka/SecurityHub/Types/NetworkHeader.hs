@@ -86,7 +86,8 @@ instance Data.FromJSON NetworkHeader where
 
 instance Prelude.Hashable NetworkHeader where
   hashWithSalt _salt NetworkHeader' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` source
 

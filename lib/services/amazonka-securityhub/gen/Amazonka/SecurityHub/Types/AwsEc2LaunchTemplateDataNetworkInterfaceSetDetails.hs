@@ -304,26 +304,27 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails'
             Prelude.<$> (x Data..:? "AssociateCarrierIpAddress")
-              Prelude.<*> (x Data..:? "AssociatePublicIpAddress")
-              Prelude.<*> (x Data..:? "DeleteOnTermination")
-              Prelude.<*> (x Data..:? "Description")
-              Prelude.<*> (x Data..:? "DeviceIndex")
-              Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "InterfaceType")
-              Prelude.<*> (x Data..:? "Ipv4PrefixCount")
-              Prelude.<*> (x Data..:? "Ipv4Prefixes" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Ipv6AddressCount")
-              Prelude.<*> (x Data..:? "Ipv6Addresses" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Ipv6PrefixCount")
-              Prelude.<*> (x Data..:? "Ipv6Prefixes" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "NetworkCardIndex")
-              Prelude.<*> (x Data..:? "NetworkInterfaceId")
-              Prelude.<*> (x Data..:? "PrivateIpAddress")
-              Prelude.<*> ( x Data..:? "PrivateIpAddresses"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "SecondaryPrivateIpAddressCount")
-              Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> (x Data..:? "AssociatePublicIpAddress")
+            Prelude.<*> (x Data..:? "DeleteOnTermination")
+            Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "DeviceIndex")
+            Prelude.<*> (x Data..:? "Groups" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "InterfaceType")
+            Prelude.<*> (x Data..:? "Ipv4PrefixCount")
+            Prelude.<*> (x Data..:? "Ipv4Prefixes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Ipv6AddressCount")
+            Prelude.<*> (x Data..:? "Ipv6Addresses" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Ipv6PrefixCount")
+            Prelude.<*> (x Data..:? "Ipv6Prefixes" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "NetworkCardIndex")
+            Prelude.<*> (x Data..:? "NetworkInterfaceId")
+            Prelude.<*> (x Data..:? "PrivateIpAddress")
+            Prelude.<*> ( x
+                            Data..:? "PrivateIpAddresses"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "SecondaryPrivateIpAddressCount")
+            Prelude.<*> (x Data..:? "SubnetId")
       )
 
 instance

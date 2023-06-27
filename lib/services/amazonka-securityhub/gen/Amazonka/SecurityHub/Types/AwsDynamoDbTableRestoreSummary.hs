@@ -32,8 +32,8 @@ data AwsDynamoDbTableRestoreSummary = AwsDynamoDbTableRestoreSummary'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     restoreDateTime :: Prelude.Maybe Prelude.Text,
     -- | Whether a restore is currently in progress.
     restoreInProgress :: Prelude.Maybe Prelude.Bool,
@@ -56,8 +56,8 @@ data AwsDynamoDbTableRestoreSummary = AwsDynamoDbTableRestoreSummary'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'restoreInProgress', 'awsDynamoDbTableRestoreSummary_restoreInProgress' - Whether a restore is currently in progress.
 --
@@ -79,8 +79,8 @@ newAwsDynamoDbTableRestoreSummary =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsDynamoDbTableRestoreSummary_restoreDateTime :: Lens.Lens' AwsDynamoDbTableRestoreSummary (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableRestoreSummary_restoreDateTime = Lens.lens (\AwsDynamoDbTableRestoreSummary' {restoreDateTime} -> restoreDateTime) (\s@AwsDynamoDbTableRestoreSummary' {} a -> s {restoreDateTime = a} :: AwsDynamoDbTableRestoreSummary)
 
@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     AwsDynamoDbTableRestoreSummary' {..} =
-      _salt `Prelude.hashWithSalt` restoreDateTime
+      _salt
+        `Prelude.hashWithSalt` restoreDateTime
         `Prelude.hashWithSalt` restoreInProgress
         `Prelude.hashWithSalt` sourceBackupArn
         `Prelude.hashWithSalt` sourceTableArn

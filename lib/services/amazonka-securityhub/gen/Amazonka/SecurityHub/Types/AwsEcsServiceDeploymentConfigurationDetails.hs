@@ -163,8 +163,8 @@ instance
       ( \x ->
           AwsEcsServiceDeploymentConfigurationDetails'
             Prelude.<$> (x Data..:? "DeploymentCircuitBreaker")
-              Prelude.<*> (x Data..:? "MaximumPercent")
-              Prelude.<*> (x Data..:? "MinimumHealthyPercent")
+            Prelude.<*> (x Data..:? "MaximumPercent")
+            Prelude.<*> (x Data..:? "MinimumHealthyPercent")
       )
 
 instance

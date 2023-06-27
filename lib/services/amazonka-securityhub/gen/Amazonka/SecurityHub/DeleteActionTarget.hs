@@ -53,7 +53,7 @@ import Amazonka.SecurityHub.Types
 
 -- | /See:/ 'newDeleteActionTarget' smart constructor.
 data DeleteActionTarget = DeleteActionTarget'
-  { -- | The ARN of the custom action target to delete.
+  { -- | The Amazon Resource Name (ARN) of the custom action target to delete.
     actionTargetArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data DeleteActionTarget = DeleteActionTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionTargetArn', 'deleteActionTarget_actionTargetArn' - The ARN of the custom action target to delete.
+-- 'actionTargetArn', 'deleteActionTarget_actionTargetArn' - The Amazon Resource Name (ARN) of the custom action target to delete.
 newDeleteActionTarget ::
   -- | 'actionTargetArn'
   Prelude.Text ->
@@ -77,7 +77,7 @@ newDeleteActionTarget pActionTargetArn_ =
         pActionTargetArn_
     }
 
--- | The ARN of the custom action target to delete.
+-- | The Amazon Resource Name (ARN) of the custom action target to delete.
 deleteActionTarget_actionTargetArn :: Lens.Lens' DeleteActionTarget Prelude.Text
 deleteActionTarget_actionTargetArn = Lens.lens (\DeleteActionTarget' {actionTargetArn} -> actionTargetArn) (\s@DeleteActionTarget' {} a -> s {actionTargetArn = a} :: DeleteActionTarget)
 

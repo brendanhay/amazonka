@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsEc2InstanceMetadataOptions
+import Amazonka.SecurityHub.Types.AwsEc2InstanceMonitoringDetails
 import Amazonka.SecurityHub.Types.AwsEc2InstanceNetworkInterfacesDetails
 
 -- | The details of an Amazon EC2 instance.
@@ -44,11 +45,13 @@ data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     launchedAt :: Prelude.Maybe Prelude.Text,
     -- | Details about the metadata options for the Amazon EC2 instance.
     metadataOptions :: Prelude.Maybe AwsEc2InstanceMetadataOptions,
+    -- | Describes the type of monitoring that’s turned on for an instance.
+    monitoring :: Prelude.Maybe AwsEc2InstanceMonitoringDetails,
     -- | The identifiers of the network interfaces for the EC2 instance. The
     -- details for each network interface are in a corresponding
     -- @AwsEc2NetworkInterfacesDetails@ object.
@@ -87,10 +90,12 @@ data AwsEc2InstanceDetails = AwsEc2InstanceDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'metadataOptions', 'awsEc2InstanceDetails_metadataOptions' - Details about the metadata options for the Amazon EC2 instance.
+--
+-- 'monitoring', 'awsEc2InstanceDetails_monitoring' - Describes the type of monitoring that’s turned on for an instance.
 --
 -- 'networkInterfaces', 'awsEc2InstanceDetails_networkInterfaces' - The identifiers of the network interfaces for the EC2 instance. The
 -- details for each network interface are in a corresponding
@@ -116,6 +121,7 @@ newAwsEc2InstanceDetails =
       keyName = Prelude.Nothing,
       launchedAt = Prelude.Nothing,
       metadataOptions = Prelude.Nothing,
+      monitoring = Prelude.Nothing,
       networkInterfaces = Prelude.Nothing,
       subnetId = Prelude.Nothing,
       type' = Prelude.Nothing,
@@ -147,14 +153,18 @@ awsEc2InstanceDetails_keyName = Lens.lens (\AwsEc2InstanceDetails' {keyName} -> 
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsEc2InstanceDetails_launchedAt :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe Prelude.Text)
 awsEc2InstanceDetails_launchedAt = Lens.lens (\AwsEc2InstanceDetails' {launchedAt} -> launchedAt) (\s@AwsEc2InstanceDetails' {} a -> s {launchedAt = a} :: AwsEc2InstanceDetails)
 
 -- | Details about the metadata options for the Amazon EC2 instance.
 awsEc2InstanceDetails_metadataOptions :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe AwsEc2InstanceMetadataOptions)
 awsEc2InstanceDetails_metadataOptions = Lens.lens (\AwsEc2InstanceDetails' {metadataOptions} -> metadataOptions) (\s@AwsEc2InstanceDetails' {} a -> s {metadataOptions = a} :: AwsEc2InstanceDetails)
+
+-- | Describes the type of monitoring that’s turned on for an instance.
+awsEc2InstanceDetails_monitoring :: Lens.Lens' AwsEc2InstanceDetails (Prelude.Maybe AwsEc2InstanceMonitoringDetails)
+awsEc2InstanceDetails_monitoring = Lens.lens (\AwsEc2InstanceDetails' {monitoring} -> monitoring) (\s@AwsEc2InstanceDetails' {} a -> s {monitoring = a} :: AwsEc2InstanceDetails)
 
 -- | The identifiers of the network interfaces for the EC2 instance. The
 -- details for each network interface are in a corresponding
@@ -192,7 +202,9 @@ instance Data.FromJSON AwsEc2InstanceDetails where
             Prelude.<*> (x Data..:? "KeyName")
             Prelude.<*> (x Data..:? "LaunchedAt")
             Prelude.<*> (x Data..:? "MetadataOptions")
-            Prelude.<*> ( x Data..:? "NetworkInterfaces"
+            Prelude.<*> (x Data..:? "Monitoring")
+            Prelude.<*> ( x
+                            Data..:? "NetworkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetId")
@@ -203,13 +215,15 @@ instance Data.FromJSON AwsEc2InstanceDetails where
 
 instance Prelude.Hashable AwsEc2InstanceDetails where
   hashWithSalt _salt AwsEc2InstanceDetails' {..} =
-    _salt `Prelude.hashWithSalt` iamInstanceProfileArn
+    _salt
+      `Prelude.hashWithSalt` iamInstanceProfileArn
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` ipV4Addresses
       `Prelude.hashWithSalt` ipV6Addresses
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` launchedAt
       `Prelude.hashWithSalt` metadataOptions
+      `Prelude.hashWithSalt` monitoring
       `Prelude.hashWithSalt` networkInterfaces
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` type'
@@ -225,6 +239,7 @@ instance Prelude.NFData AwsEc2InstanceDetails where
       `Prelude.seq` Prelude.rnf keyName
       `Prelude.seq` Prelude.rnf launchedAt
       `Prelude.seq` Prelude.rnf metadataOptions
+      `Prelude.seq` Prelude.rnf monitoring
       `Prelude.seq` Prelude.rnf networkInterfaces
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf type'
@@ -244,6 +259,7 @@ instance Data.ToJSON AwsEc2InstanceDetails where
             ("LaunchedAt" Data..=) Prelude.<$> launchedAt,
             ("MetadataOptions" Data..=)
               Prelude.<$> metadataOptions,
+            ("Monitoring" Data..=) Prelude.<$> monitoring,
             ("NetworkInterfaces" Data..=)
               Prelude.<$> networkInterfaces,
             ("SubnetId" Data..=) Prelude.<$> subnetId,

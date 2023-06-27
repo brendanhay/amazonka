@@ -42,8 +42,8 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     imagePublishedAt :: Prelude.Maybe Prelude.Text,
     -- | The list of tags that are associated with the image.
     imageTags :: Prelude.Maybe [Prelude.Text],
@@ -77,8 +77,8 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'imageTags', 'awsEcrContainerImageDetails_imageTags' - The list of tags that are associated with the image.
 --
@@ -117,8 +117,8 @@ awsEcrContainerImageDetails_imageDigest = Lens.lens (\AwsEcrContainerImageDetail
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsEcrContainerImageDetails_imagePublishedAt :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_imagePublishedAt = Lens.lens (\AwsEcrContainerImageDetails' {imagePublishedAt} -> imagePublishedAt) (\s@AwsEcrContainerImageDetails' {} a -> s {imagePublishedAt = a} :: AwsEcrContainerImageDetails)
 
@@ -151,7 +151,8 @@ instance Data.FromJSON AwsEcrContainerImageDetails where
 
 instance Prelude.Hashable AwsEcrContainerImageDetails where
   hashWithSalt _salt AwsEcrContainerImageDetails' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imagePublishedAt
       `Prelude.hashWithSalt` imageTags

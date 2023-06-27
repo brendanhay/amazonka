@@ -186,7 +186,8 @@ instance Data.FromJSON AwsWafWebAclRule where
 
 instance Prelude.Hashable AwsWafWebAclRule where
   hashWithSalt _salt AwsWafWebAclRule' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` excludedRules
       `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` priority

@@ -39,8 +39,8 @@ data AwsAutoScalingAutoScalingGroupDetails = AwsAutoScalingAutoScalingGroupDetai
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
     -- before it checks the health status of an EC2 instance that has come into
@@ -76,8 +76,8 @@ data AwsAutoScalingAutoScalingGroupDetails = AwsAutoScalingAutoScalingGroupDetai
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'healthCheckGracePeriod', 'awsAutoScalingAutoScalingGroupDetails_healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
 -- before it checks the health status of an EC2 instance that has come into
@@ -124,8 +124,8 @@ awsAutoScalingAutoScalingGroupDetails_capacityRebalance = Lens.lens (\AwsAutoSca
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsAutoScalingAutoScalingGroupDetails_createdTime :: Lens.Lens' AwsAutoScalingAutoScalingGroupDetails (Prelude.Maybe Prelude.Text)
 awsAutoScalingAutoScalingGroupDetails_createdTime = Lens.lens (\AwsAutoScalingAutoScalingGroupDetails' {createdTime} -> createdTime) (\s@AwsAutoScalingAutoScalingGroupDetails' {} a -> s {createdTime = a} :: AwsAutoScalingAutoScalingGroupDetails)
 
@@ -165,7 +165,8 @@ instance
       "AwsAutoScalingAutoScalingGroupDetails"
       ( \x ->
           AwsAutoScalingAutoScalingGroupDetails'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CapacityRebalance")
@@ -174,7 +175,8 @@ instance
             Prelude.<*> (x Data..:? "HealthCheckType")
             Prelude.<*> (x Data..:? "LaunchConfigurationName")
             Prelude.<*> (x Data..:? "LaunchTemplate")
-            Prelude.<*> ( x Data..:? "LoadBalancerNames"
+            Prelude.<*> ( x
+                            Data..:? "LoadBalancerNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MixedInstancesPolicy")
@@ -187,7 +189,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingAutoScalingGroupDetails' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZones
+      _salt
+        `Prelude.hashWithSalt` availabilityZones
         `Prelude.hashWithSalt` capacityRebalance
         `Prelude.hashWithSalt` createdTime
         `Prelude.hashWithSalt` healthCheckGracePeriod

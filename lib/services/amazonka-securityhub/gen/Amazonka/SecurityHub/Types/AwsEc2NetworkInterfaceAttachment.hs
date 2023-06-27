@@ -32,8 +32,8 @@ data AwsEc2NetworkInterfaceAttachment = AwsEc2NetworkInterfaceAttachment'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     attachTime :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the network interface attachment
     attachmentId :: Prelude.Maybe Prelude.Text,
@@ -65,8 +65,8 @@ data AwsEc2NetworkInterfaceAttachment = AwsEc2NetworkInterfaceAttachment'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'attachmentId', 'awsEc2NetworkInterfaceAttachment_attachmentId' - The identifier of the network interface attachment
 --
@@ -100,8 +100,8 @@ newAwsEc2NetworkInterfaceAttachment =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsEc2NetworkInterfaceAttachment_attachTime :: Lens.Lens' AwsEc2NetworkInterfaceAttachment (Prelude.Maybe Prelude.Text)
 awsEc2NetworkInterfaceAttachment_attachTime = Lens.lens (\AwsEc2NetworkInterfaceAttachment' {attachTime} -> attachTime) (\s@AwsEc2NetworkInterfaceAttachment' {} a -> s {attachTime = a} :: AwsEc2NetworkInterfaceAttachment)
 
@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2NetworkInterfaceAttachment' {..} =
-      _salt `Prelude.hashWithSalt` attachTime
+      _salt
+        `Prelude.hashWithSalt` attachTime
         `Prelude.hashWithSalt` attachmentId
         `Prelude.hashWithSalt` deleteOnTermination
         `Prelude.hashWithSalt` deviceIndex

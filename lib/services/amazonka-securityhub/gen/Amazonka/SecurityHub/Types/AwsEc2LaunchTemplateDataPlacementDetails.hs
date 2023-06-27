@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataPlacementDetails' {..} =
-      _salt `Prelude.hashWithSalt` affinity
+      _salt
+        `Prelude.hashWithSalt` affinity
         `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` groupName
         `Prelude.hashWithSalt` hostId

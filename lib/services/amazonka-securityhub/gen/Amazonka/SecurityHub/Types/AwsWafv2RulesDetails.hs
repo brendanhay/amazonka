@@ -28,8 +28,8 @@ import Amazonka.SecurityHub.Types.AwsWafv2VisibilityConfigDetails
 
 -- | Provides details about rules in a rule group. A rule identifies web
 -- requests that you want to allow, block, or count. Each rule includes one
--- top-level Statement that AWS WAF uses to identify matching web requests,
--- and parameters that govern how AWS WAF handles them.
+-- top-level Statement that WAF uses to identify matching web requests, and
+-- parameters that govern how WAF handles them.
 --
 -- /See:/ 'newAwsWafv2RulesDetails' smart constructor.
 data AwsWafv2RulesDetails = AwsWafv2RulesDetails'
@@ -130,7 +130,8 @@ instance Data.FromJSON AwsWafv2RulesDetails where
 
 instance Prelude.Hashable AwsWafv2RulesDetails where
   hashWithSalt _salt AwsWafv2RulesDetails' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overrideAction
       `Prelude.hashWithSalt` priority

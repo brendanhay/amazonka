@@ -98,7 +98,8 @@ instance Data.FromJSON AwsWafv2CustomResponseDetails where
           AwsWafv2CustomResponseDetails'
             Prelude.<$> (x Data..:? "CustomResponseBodyKey")
             Prelude.<*> (x Data..:? "ResponseCode")
-            Prelude.<*> ( x Data..:? "ResponseHeaders"
+            Prelude.<*> ( x
+                            Data..:? "ResponseHeaders"
                             Data..!= Prelude.mempty
                         )
       )
@@ -108,7 +109,8 @@ instance
     AwsWafv2CustomResponseDetails
   where
   hashWithSalt _salt AwsWafv2CustomResponseDetails' {..} =
-    _salt `Prelude.hashWithSalt` customResponseBodyKey
+    _salt
+      `Prelude.hashWithSalt` customResponseBodyKey
       `Prelude.hashWithSalt` responseCode
       `Prelude.hashWithSalt` responseHeaders
 

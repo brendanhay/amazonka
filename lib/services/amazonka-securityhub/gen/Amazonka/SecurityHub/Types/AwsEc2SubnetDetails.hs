@@ -184,7 +184,8 @@ instance Data.FromJSON AwsEc2SubnetDetails where
             Prelude.<*> (x Data..:? "AvailableIpAddressCount")
             Prelude.<*> (x Data..:? "CidrBlock")
             Prelude.<*> (x Data..:? "DefaultForAz")
-            Prelude.<*> ( x Data..:? "Ipv6CidrBlockAssociationSet"
+            Prelude.<*> ( x
+                            Data..:? "Ipv6CidrBlockAssociationSet"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MapPublicIpOnLaunch")

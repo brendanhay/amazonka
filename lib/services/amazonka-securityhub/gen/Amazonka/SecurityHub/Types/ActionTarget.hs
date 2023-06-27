@@ -93,7 +93,8 @@ instance Data.FromJSON ActionTarget where
 
 instance Prelude.Hashable ActionTarget where
   hashWithSalt _salt ActionTarget' {..} =
-    _salt `Prelude.hashWithSalt` actionTargetArn
+    _salt
+      `Prelude.hashWithSalt` actionTargetArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` description
 

@@ -130,7 +130,8 @@ instance Data.FromJSON AwsEc2NetworkInterfaceDetails where
             Prelude.<$> (x Data..:? "Attachment")
             Prelude.<*> (x Data..:? "IpV6Addresses" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "NetworkInterfaceId")
-            Prelude.<*> ( x Data..:? "PrivateIpAddresses"
+            Prelude.<*> ( x
+                            Data..:? "PrivateIpAddresses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PublicDnsName")
@@ -144,7 +145,8 @@ instance
     AwsEc2NetworkInterfaceDetails
   where
   hashWithSalt _salt AwsEc2NetworkInterfaceDetails' {..} =
-    _salt `Prelude.hashWithSalt` attachment
+    _salt
+      `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` ipV6Addresses
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` privateIpAddresses

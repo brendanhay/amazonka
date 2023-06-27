@@ -83,7 +83,8 @@ instance
       "AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails"
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails'
-            Prelude.<$> (x Data..:? "Max") Prelude.<*> (x Data..:? "Min")
+            Prelude.<$> (x Data..:? "Max")
+            Prelude.<*> (x Data..:? "Min")
       )
 
 instance
@@ -93,7 +94,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

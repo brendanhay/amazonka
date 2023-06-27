@@ -74,12 +74,14 @@ instance Data.FromJSON IcmpTypeCode where
       "IcmpTypeCode"
       ( \x ->
           IcmpTypeCode'
-            Prelude.<$> (x Data..:? "Code") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Code")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable IcmpTypeCode where
   hashWithSalt _salt IcmpTypeCode' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData IcmpTypeCode where

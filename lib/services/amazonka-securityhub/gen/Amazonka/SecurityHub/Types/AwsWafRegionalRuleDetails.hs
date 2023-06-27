@@ -106,7 +106,8 @@ instance Data.FromJSON AwsWafRegionalRuleDetails where
 
 instance Prelude.Hashable AwsWafRegionalRuleDetails where
   hashWithSalt _salt AwsWafRegionalRuleDetails' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` predicateList
       `Prelude.hashWithSalt` ruleId

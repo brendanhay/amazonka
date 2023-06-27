@@ -124,7 +124,8 @@ instance Data.FromJSON Ipv6CidrBlockAssociation where
 
 instance Prelude.Hashable Ipv6CidrBlockAssociation where
   hashWithSalt _salt Ipv6CidrBlockAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` cidrBlockState
       `Prelude.hashWithSalt` ipv6CidrBlock
 

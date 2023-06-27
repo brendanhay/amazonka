@@ -65,7 +65,8 @@ sortCriterion_sortOrder = Lens.lens (\SortCriterion' {sortOrder} -> sortOrder) (
 
 instance Prelude.Hashable SortCriterion where
   hashWithSalt _salt SortCriterion' {..} =
-    _salt `Prelude.hashWithSalt` field
+    _salt
+      `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData SortCriterion where

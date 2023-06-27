@@ -88,21 +88,21 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- @FindingProviderFields@ to provide and update their own values for
     -- confidence, criticality, related findings, severity, and types.
     findingProviderFields :: Prelude.Maybe FindingProviderFields,
-    -- | Indicates when the security-findings provider first observed the
+    -- | Indicates when the security findings provider first observed the
     -- potential security issue that a finding captured.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     firstObservedAt :: Prelude.Maybe Prelude.Text,
-    -- | Indicates when the security-findings provider most recently observed the
+    -- | Indicates when the security findings provider most recently observed the
     -- potential security issue that a finding captured.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastObservedAt :: Prelude.Maybe Prelude.Text,
     -- | A list of malware related to a finding.
     malware :: Prelude.Maybe [Malware],
@@ -118,7 +118,7 @@ data AwsSecurityFinding = AwsSecurityFinding'
     patchSummary :: Prelude.Maybe PatchSummary,
     -- | The details of process-related information about a finding.
     process :: Prelude.Maybe ProcessDetails,
-    -- | A data type where security-findings providers can include additional
+    -- | A data type where security findings providers can include additional
     -- solution-specific details that aren\'t part of the defined
     -- @AwsSecurityFinding@ format.
     --
@@ -151,8 +151,8 @@ data AwsSecurityFinding = AwsSecurityFinding'
     sample :: Prelude.Maybe Prelude.Bool,
     -- | A finding\'s severity.
     severity :: Prelude.Maybe Severity,
-    -- | A URL that links to a page about the current finding in the
-    -- security-findings provider\'s solution.
+    -- | A URL that links to a page about the current finding in the security
+    -- findings provider\'s solution.
     sourceUrl :: Prelude.Maybe Prelude.Text,
     -- | Threat intelligence details related to a finding.
     threatIntelIndicators :: Prelude.Maybe [ThreatIntelIndicator],
@@ -187,27 +187,27 @@ data AwsSecurityFinding = AwsSecurityFinding'
     -- integration.
     productArn :: Prelude.Text,
     -- | The identifier for the solution-specific component (a discrete unit of
-    -- logic) that generated a finding. In various security-findings
+    -- logic) that generated a finding. In various security findings
     -- providers\' solutions, this generator can be called a rule, a check, a
     -- detector, a plugin, etc.
     generatorId :: Prelude.Text,
     -- | The Amazon Web Services account ID that a finding is generated in.
     awsAccountId :: Prelude.Text,
-    -- | Indicates when the security-findings provider created the potential
+    -- | Indicates when the security findings provider created the potential
     -- security issue that a finding captured.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdAt :: Prelude.Text,
-    -- | Indicates when the security-findings provider last updated the finding
+    -- | Indicates when the security findings provider last updated the finding
     -- record.
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     updatedAt :: Prelude.Text,
     -- | A finding\'s title.
     --
@@ -265,21 +265,21 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- @FindingProviderFields@ to provide and update their own values for
 -- confidence, criticality, related findings, severity, and types.
 --
--- 'firstObservedAt', 'awsSecurityFinding_firstObservedAt' - Indicates when the security-findings provider first observed the
+-- 'firstObservedAt', 'awsSecurityFinding_firstObservedAt' - Indicates when the security findings provider first observed the
 -- potential security issue that a finding captured.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
--- 'lastObservedAt', 'awsSecurityFinding_lastObservedAt' - Indicates when the security-findings provider most recently observed the
+-- 'lastObservedAt', 'awsSecurityFinding_lastObservedAt' - Indicates when the security findings provider most recently observed the
 -- potential security issue that a finding captured.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'malware', 'awsSecurityFinding_malware' - A list of malware related to a finding.
 --
@@ -295,7 +295,7 @@ data AwsSecurityFinding = AwsSecurityFinding'
 --
 -- 'process', 'awsSecurityFinding_process' - The details of process-related information about a finding.
 --
--- 'productFields', 'awsSecurityFinding_productFields' - A data type where security-findings providers can include additional
+-- 'productFields', 'awsSecurityFinding_productFields' - A data type where security findings providers can include additional
 -- solution-specific details that aren\'t part of the defined
 -- @AwsSecurityFinding@ format.
 --
@@ -328,8 +328,8 @@ data AwsSecurityFinding = AwsSecurityFinding'
 --
 -- 'severity', 'awsSecurityFinding_severity' - A finding\'s severity.
 --
--- 'sourceUrl', 'awsSecurityFinding_sourceUrl' - A URL that links to a page about the current finding in the
--- security-findings provider\'s solution.
+-- 'sourceUrl', 'awsSecurityFinding_sourceUrl' - A URL that links to a page about the current finding in the security
+-- findings provider\'s solution.
 --
 -- 'threatIntelIndicators', 'awsSecurityFinding_threatIntelIndicators' - Threat intelligence details related to a finding.
 --
@@ -364,27 +364,27 @@ data AwsSecurityFinding = AwsSecurityFinding'
 -- integration.
 --
 -- 'generatorId', 'awsSecurityFinding_generatorId' - The identifier for the solution-specific component (a discrete unit of
--- logic) that generated a finding. In various security-findings
+-- logic) that generated a finding. In various security findings
 -- providers\' solutions, this generator can be called a rule, a check, a
 -- detector, a plugin, etc.
 --
 -- 'awsAccountId', 'awsSecurityFinding_awsAccountId' - The Amazon Web Services account ID that a finding is generated in.
 --
--- 'createdAt', 'awsSecurityFinding_createdAt' - Indicates when the security-findings provider created the potential
+-- 'createdAt', 'awsSecurityFinding_createdAt' - Indicates when the security findings provider created the potential
 -- security issue that a finding captured.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
--- 'updatedAt', 'awsSecurityFinding_updatedAt' - Indicates when the security-findings provider last updated the finding
+-- 'updatedAt', 'awsSecurityFinding_updatedAt' - Indicates when the security findings provider last updated the finding
 -- record.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'title', 'awsSecurityFinding_title' - A finding\'s title.
 --
@@ -516,23 +516,23 @@ awsSecurityFinding_criticality = Lens.lens (\AwsSecurityFinding' {criticality} -
 awsSecurityFinding_findingProviderFields :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe FindingProviderFields)
 awsSecurityFinding_findingProviderFields = Lens.lens (\AwsSecurityFinding' {findingProviderFields} -> findingProviderFields) (\s@AwsSecurityFinding' {} a -> s {findingProviderFields = a} :: AwsSecurityFinding)
 
--- | Indicates when the security-findings provider first observed the
+-- | Indicates when the security findings provider first observed the
 -- potential security issue that a finding captured.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsSecurityFinding_firstObservedAt :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_firstObservedAt = Lens.lens (\AwsSecurityFinding' {firstObservedAt} -> firstObservedAt) (\s@AwsSecurityFinding' {} a -> s {firstObservedAt = a} :: AwsSecurityFinding)
 
--- | Indicates when the security-findings provider most recently observed the
+-- | Indicates when the security findings provider most recently observed the
 -- potential security issue that a finding captured.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsSecurityFinding_lastObservedAt :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_lastObservedAt = Lens.lens (\AwsSecurityFinding' {lastObservedAt} -> lastObservedAt) (\s@AwsSecurityFinding' {} a -> s {lastObservedAt = a} :: AwsSecurityFinding)
 
@@ -562,7 +562,7 @@ awsSecurityFinding_patchSummary = Lens.lens (\AwsSecurityFinding' {patchSummary}
 awsSecurityFinding_process :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe ProcessDetails)
 awsSecurityFinding_process = Lens.lens (\AwsSecurityFinding' {process} -> process) (\s@AwsSecurityFinding' {} a -> s {process = a} :: AwsSecurityFinding)
 
--- | A data type where security-findings providers can include additional
+-- | A data type where security findings providers can include additional
 -- solution-specific details that aren\'t part of the defined
 -- @AwsSecurityFinding@ format.
 --
@@ -611,8 +611,8 @@ awsSecurityFinding_sample = Lens.lens (\AwsSecurityFinding' {sample} -> sample) 
 awsSecurityFinding_severity :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Severity)
 awsSecurityFinding_severity = Lens.lens (\AwsSecurityFinding' {severity} -> severity) (\s@AwsSecurityFinding' {} a -> s {severity = a} :: AwsSecurityFinding)
 
--- | A URL that links to a page about the current finding in the
--- security-findings provider\'s solution.
+-- | A URL that links to a page about the current finding in the security
+-- findings provider\'s solution.
 awsSecurityFinding_sourceUrl :: Lens.Lens' AwsSecurityFinding (Prelude.Maybe Prelude.Text)
 awsSecurityFinding_sourceUrl = Lens.lens (\AwsSecurityFinding' {sourceUrl} -> sourceUrl) (\s@AwsSecurityFinding' {} a -> s {sourceUrl = a} :: AwsSecurityFinding)
 
@@ -671,7 +671,7 @@ awsSecurityFinding_productArn :: Lens.Lens' AwsSecurityFinding Prelude.Text
 awsSecurityFinding_productArn = Lens.lens (\AwsSecurityFinding' {productArn} -> productArn) (\s@AwsSecurityFinding' {} a -> s {productArn = a} :: AwsSecurityFinding)
 
 -- | The identifier for the solution-specific component (a discrete unit of
--- logic) that generated a finding. In various security-findings
+-- logic) that generated a finding. In various security findings
 -- providers\' solutions, this generator can be called a rule, a check, a
 -- detector, a plugin, etc.
 awsSecurityFinding_generatorId :: Lens.Lens' AwsSecurityFinding Prelude.Text
@@ -681,23 +681,23 @@ awsSecurityFinding_generatorId = Lens.lens (\AwsSecurityFinding' {generatorId} -
 awsSecurityFinding_awsAccountId :: Lens.Lens' AwsSecurityFinding Prelude.Text
 awsSecurityFinding_awsAccountId = Lens.lens (\AwsSecurityFinding' {awsAccountId} -> awsAccountId) (\s@AwsSecurityFinding' {} a -> s {awsAccountId = a} :: AwsSecurityFinding)
 
--- | Indicates when the security-findings provider created the potential
+-- | Indicates when the security findings provider created the potential
 -- security issue that a finding captured.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsSecurityFinding_createdAt :: Lens.Lens' AwsSecurityFinding Prelude.Text
 awsSecurityFinding_createdAt = Lens.lens (\AwsSecurityFinding' {createdAt} -> createdAt) (\s@AwsSecurityFinding' {} a -> s {createdAt = a} :: AwsSecurityFinding)
 
--- | Indicates when the security-findings provider last updated the finding
+-- | Indicates when the security findings provider last updated the finding
 -- record.
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsSecurityFinding_updatedAt :: Lens.Lens' AwsSecurityFinding Prelude.Text
 awsSecurityFinding_updatedAt = Lens.lens (\AwsSecurityFinding' {updatedAt} -> updatedAt) (\s@AwsSecurityFinding' {} a -> s {updatedAt = a} :: AwsSecurityFinding)
 
@@ -742,23 +742,27 @@ instance Data.FromJSON AwsSecurityFinding where
             Prelude.<*> (x Data..:? "ProductName")
             Prelude.<*> (x Data..:? "RecordState")
             Prelude.<*> (x Data..:? "Region")
-            Prelude.<*> ( x Data..:? "RelatedFindings"
+            Prelude.<*> ( x
+                            Data..:? "RelatedFindings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Remediation")
             Prelude.<*> (x Data..:? "Sample")
             Prelude.<*> (x Data..:? "Severity")
             Prelude.<*> (x Data..:? "SourceUrl")
-            Prelude.<*> ( x Data..:? "ThreatIntelIndicators"
+            Prelude.<*> ( x
+                            Data..:? "ThreatIntelIndicators"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Threats" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Types" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "UserDefinedFields"
+            Prelude.<*> ( x
+                            Data..:? "UserDefinedFields"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VerificationState")
-            Prelude.<*> ( x Data..:? "Vulnerabilities"
+            Prelude.<*> ( x
+                            Data..:? "Vulnerabilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Workflow")
@@ -777,7 +781,8 @@ instance Data.FromJSON AwsSecurityFinding where
 
 instance Prelude.Hashable AwsSecurityFinding where
   hashWithSalt _salt AwsSecurityFinding' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` companyName
       `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` confidence

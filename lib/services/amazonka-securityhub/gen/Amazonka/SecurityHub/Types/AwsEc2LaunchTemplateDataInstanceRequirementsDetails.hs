@@ -82,7 +82,7 @@ data AwsEc2LaunchTemplateDataInstanceRequirementsDetails = AwsEc2LaunchTemplateD
     -- | The minimum and maximum number of network interfaces.
     networkInterfaceCount :: Prelude.Maybe AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails,
     -- | The price protection threshold for On-Demand Instances. This is the
-    -- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
+    -- maximum you\'ll pay for an On-Demand Instance, expressed as a percentage
     -- above the least expensive current generation M, C, or R instance type
     -- with your specified attributes. When Amazon EC2 selects instance types
     -- with your attributes, it excludes instance types priced above your
@@ -97,7 +97,7 @@ data AwsEc2LaunchTemplateDataInstanceRequirementsDetails = AwsEc2LaunchTemplateD
     -- Instances.
     requireHibernateSupport :: Prelude.Maybe Prelude.Bool,
     -- | The price protection threshold for Spot Instances. This is the maximum
-    -- you’ll pay for a Spot Instance, expressed as a percentage above the
+    -- you\'ll pay for a Spot Instance, expressed as a percentage above the
     -- least expensive current generation M, C, or R instance type with your
     -- specified attributes. When Amazon EC2 selects instance types with your
     -- attributes, it excludes instance types priced above your threshold.
@@ -168,7 +168,7 @@ data AwsEc2LaunchTemplateDataInstanceRequirementsDetails = AwsEc2LaunchTemplateD
 -- 'networkInterfaceCount', 'awsEc2LaunchTemplateDataInstanceRequirementsDetails_networkInterfaceCount' - The minimum and maximum number of network interfaces.
 --
 -- 'onDemandMaxPricePercentageOverLowestPrice', 'awsEc2LaunchTemplateDataInstanceRequirementsDetails_onDemandMaxPricePercentageOverLowestPrice' - The price protection threshold for On-Demand Instances. This is the
--- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
+-- maximum you\'ll pay for an On-Demand Instance, expressed as a percentage
 -- above the least expensive current generation M, C, or R instance type
 -- with your specified attributes. When Amazon EC2 selects instance types
 -- with your attributes, it excludes instance types priced above your
@@ -183,7 +183,7 @@ data AwsEc2LaunchTemplateDataInstanceRequirementsDetails = AwsEc2LaunchTemplateD
 -- Instances.
 --
 -- 'spotMaxPricePercentageOverLowestPrice', 'awsEc2LaunchTemplateDataInstanceRequirementsDetails_spotMaxPricePercentageOverLowestPrice' - The price protection threshold for Spot Instances. This is the maximum
--- you’ll pay for a Spot Instance, expressed as a percentage above the
+-- you\'ll pay for a Spot Instance, expressed as a percentage above the
 -- least expensive current generation M, C, or R instance type with your
 -- specified attributes. When Amazon EC2 selects instance types with your
 -- attributes, it excludes instance types priced above your threshold.
@@ -322,7 +322,7 @@ awsEc2LaunchTemplateDataInstanceRequirementsDetails_networkInterfaceCount :: Len
 awsEc2LaunchTemplateDataInstanceRequirementsDetails_networkInterfaceCount = Lens.lens (\AwsEc2LaunchTemplateDataInstanceRequirementsDetails' {networkInterfaceCount} -> networkInterfaceCount) (\s@AwsEc2LaunchTemplateDataInstanceRequirementsDetails' {} a -> s {networkInterfaceCount = a} :: AwsEc2LaunchTemplateDataInstanceRequirementsDetails)
 
 -- | The price protection threshold for On-Demand Instances. This is the
--- maximum you’ll pay for an On-Demand Instance, expressed as a percentage
+-- maximum you\'ll pay for an On-Demand Instance, expressed as a percentage
 -- above the least expensive current generation M, C, or R instance type
 -- with your specified attributes. When Amazon EC2 selects instance types
 -- with your attributes, it excludes instance types priced above your
@@ -341,7 +341,7 @@ awsEc2LaunchTemplateDataInstanceRequirementsDetails_requireHibernateSupport :: L
 awsEc2LaunchTemplateDataInstanceRequirementsDetails_requireHibernateSupport = Lens.lens (\AwsEc2LaunchTemplateDataInstanceRequirementsDetails' {requireHibernateSupport} -> requireHibernateSupport) (\s@AwsEc2LaunchTemplateDataInstanceRequirementsDetails' {} a -> s {requireHibernateSupport = a} :: AwsEc2LaunchTemplateDataInstanceRequirementsDetails)
 
 -- | The price protection threshold for Spot Instances. This is the maximum
--- you’ll pay for a Spot Instance, expressed as a percentage above the
+-- you\'ll pay for a Spot Instance, expressed as a percentage above the
 -- least expensive current generation M, C, or R instance type with your
 -- specified attributes. When Amazon EC2 selects instance types with your
 -- attributes, it excludes instance types priced above your threshold.
@@ -371,42 +371,49 @@ instance
       ( \x ->
           AwsEc2LaunchTemplateDataInstanceRequirementsDetails'
             Prelude.<$> (x Data..:? "AcceleratorCount")
-              Prelude.<*> ( x Data..:? "AcceleratorManufacturers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "AcceleratorNames"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "AcceleratorTotalMemoryMiB")
-              Prelude.<*> ( x Data..:? "AcceleratorTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "BareMetal")
-              Prelude.<*> (x Data..:? "BaselineEbsBandwidthMbps")
-              Prelude.<*> (x Data..:? "BurstablePerformance")
-              Prelude.<*> ( x Data..:? "CpuManufacturers"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "ExcludedInstanceTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "InstanceGenerations"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "LocalStorage")
-              Prelude.<*> ( x Data..:? "LocalStorageTypes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "MemoryGiBPerVCpu")
-              Prelude.<*> (x Data..:? "MemoryMiB")
-              Prelude.<*> (x Data..:? "NetworkInterfaceCount")
-              Prelude.<*> ( x
-                              Data..:? "OnDemandMaxPricePercentageOverLowestPrice"
-                          )
-              Prelude.<*> (x Data..:? "RequireHibernateSupport")
-              Prelude.<*> (x Data..:? "SpotMaxPricePercentageOverLowestPrice")
-              Prelude.<*> (x Data..:? "TotalLocalStorageGB")
-              Prelude.<*> (x Data..:? "VCpuCount")
+            Prelude.<*> ( x
+                            Data..:? "AcceleratorManufacturers"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "AcceleratorNames"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "AcceleratorTotalMemoryMiB")
+            Prelude.<*> ( x
+                            Data..:? "AcceleratorTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "BareMetal")
+            Prelude.<*> (x Data..:? "BaselineEbsBandwidthMbps")
+            Prelude.<*> (x Data..:? "BurstablePerformance")
+            Prelude.<*> ( x
+                            Data..:? "CpuManufacturers"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ExcludedInstanceTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "InstanceGenerations"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "LocalStorage")
+            Prelude.<*> ( x
+                            Data..:? "LocalStorageTypes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "MemoryGiBPerVCpu")
+            Prelude.<*> (x Data..:? "MemoryMiB")
+            Prelude.<*> (x Data..:? "NetworkInterfaceCount")
+            Prelude.<*> ( x
+                            Data..:? "OnDemandMaxPricePercentageOverLowestPrice"
+                        )
+            Prelude.<*> (x Data..:? "RequireHibernateSupport")
+            Prelude.<*> (x Data..:? "SpotMaxPricePercentageOverLowestPrice")
+            Prelude.<*> (x Data..:? "TotalLocalStorageGB")
+            Prelude.<*> (x Data..:? "VCpuCount")
       )
 
 instance
@@ -416,7 +423,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2LaunchTemplateDataInstanceRequirementsDetails' {..} =
-      _salt `Prelude.hashWithSalt` acceleratorCount
+      _salt
+        `Prelude.hashWithSalt` acceleratorCount
         `Prelude.hashWithSalt` acceleratorManufacturers
         `Prelude.hashWithSalt` acceleratorNames
         `Prelude.hashWithSalt` acceleratorTotalMemoryMiB

@@ -40,8 +40,8 @@ data AwsBackupBackupVaultNotificationsDetails = AwsBackupBackupVaultNotification
     --
     -- -   @S3_BACKUP_OBJECT_FAILED | S3_RESTORE_OBJECT_FAILED@
     backupVaultEvents :: Prelude.Maybe [Prelude.Text],
-    -- | An ARN that uniquely identifies the Amazon SNS topic for a backup
-    -- vault’s events.
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS
+    -- topic for a backup vault\'s events.
     snsTopicArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,8 +65,8 @@ data AwsBackupBackupVaultNotificationsDetails = AwsBackupBackupVaultNotification
 --
 -- -   @S3_BACKUP_OBJECT_FAILED | S3_RESTORE_OBJECT_FAILED@
 --
--- 'snsTopicArn', 'awsBackupBackupVaultNotificationsDetails_snsTopicArn' - An ARN that uniquely identifies the Amazon SNS topic for a backup
--- vault’s events.
+-- 'snsTopicArn', 'awsBackupBackupVaultNotificationsDetails_snsTopicArn' - The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS
+-- topic for a backup vault\'s events.
 newAwsBackupBackupVaultNotificationsDetails ::
   AwsBackupBackupVaultNotificationsDetails
 newAwsBackupBackupVaultNotificationsDetails =
@@ -89,8 +89,8 @@ newAwsBackupBackupVaultNotificationsDetails =
 awsBackupBackupVaultNotificationsDetails_backupVaultEvents :: Lens.Lens' AwsBackupBackupVaultNotificationsDetails (Prelude.Maybe [Prelude.Text])
 awsBackupBackupVaultNotificationsDetails_backupVaultEvents = Lens.lens (\AwsBackupBackupVaultNotificationsDetails' {backupVaultEvents} -> backupVaultEvents) (\s@AwsBackupBackupVaultNotificationsDetails' {} a -> s {backupVaultEvents = a} :: AwsBackupBackupVaultNotificationsDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | An ARN that uniquely identifies the Amazon SNS topic for a backup
--- vault’s events.
+-- | The Amazon Resource Name (ARN) that uniquely identifies the Amazon SNS
+-- topic for a backup vault\'s events.
 awsBackupBackupVaultNotificationsDetails_snsTopicArn :: Lens.Lens' AwsBackupBackupVaultNotificationsDetails (Prelude.Maybe Prelude.Text)
 awsBackupBackupVaultNotificationsDetails_snsTopicArn = Lens.lens (\AwsBackupBackupVaultNotificationsDetails' {snsTopicArn} -> snsTopicArn) (\s@AwsBackupBackupVaultNotificationsDetails' {} a -> s {snsTopicArn = a} :: AwsBackupBackupVaultNotificationsDetails)
 
@@ -103,7 +103,8 @@ instance
       "AwsBackupBackupVaultNotificationsDetails"
       ( \x ->
           AwsBackupBackupVaultNotificationsDetails'
-            Prelude.<$> ( x Data..:? "BackupVaultEvents"
+            Prelude.<$> ( x
+                            Data..:? "BackupVaultEvents"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SnsTopicArn")
@@ -116,7 +117,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupBackupVaultNotificationsDetails' {..} =
-      _salt `Prelude.hashWithSalt` backupVaultEvents
+      _salt
+        `Prelude.hashWithSalt` backupVaultEvents
         `Prelude.hashWithSalt` snsTopicArn
 
 instance

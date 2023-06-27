@@ -107,7 +107,7 @@ instance
       ( \x ->
           AwsBackupBackupPlanAdvancedBackupSettingsDetails'
             Prelude.<$> (x Data..:? "BackupOptions" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "ResourceType")
+            Prelude.<*> (x Data..:? "ResourceType")
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     AwsBackupBackupPlanAdvancedBackupSettingsDetails' {..} =
-      _salt `Prelude.hashWithSalt` backupOptions
+      _salt
+        `Prelude.hashWithSalt` backupOptions
         `Prelude.hashWithSalt` resourceType
 
 instance

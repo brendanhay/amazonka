@@ -35,8 +35,8 @@ data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createTime :: Prelude.Maybe Prelude.Text,
     -- | The device name for the volume that is attached to the instance.
     deviceName :: Prelude.Maybe Prelude.Text,
@@ -86,8 +86,8 @@ data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'deviceName', 'awsEc2VolumeDetails_deviceName' - The device name for the volume that is attached to the instance.
 --
@@ -144,8 +144,8 @@ awsEc2VolumeDetails_attachments = Lens.lens (\AwsEc2VolumeDetails' {attachments}
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsEc2VolumeDetails_createTime :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
 awsEc2VolumeDetails_createTime = Lens.lens (\AwsEc2VolumeDetails' {createTime} -> createTime) (\s@AwsEc2VolumeDetails' {} a -> s {createTime = a} :: AwsEc2VolumeDetails)
 
@@ -219,7 +219,8 @@ instance Data.FromJSON AwsEc2VolumeDetails where
 
 instance Prelude.Hashable AwsEc2VolumeDetails where
   hashWithSalt _salt AwsEc2VolumeDetails' {..} =
-    _salt `Prelude.hashWithSalt` attachments
+    _salt
+      `Prelude.hashWithSalt` attachments
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` encrypted

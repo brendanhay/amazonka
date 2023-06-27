@@ -84,8 +84,8 @@ instance
       ( \x ->
           AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails'
             Prelude.<$> (x Data..:? "GroupName")
-              Prelude.<*> (x Data..:? "Status")
-              Prelude.<*> (x Data..:? "StreamName")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "StreamName")
       )
 
 instance
@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails' {..} =
-      _salt `Prelude.hashWithSalt` groupName
+      _salt
+        `Prelude.hashWithSalt` groupName
         `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` streamName
 

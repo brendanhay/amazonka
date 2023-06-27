@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     AwsElbLoadBalancerSourceSecurityGroup' {..} =
-      _salt `Prelude.hashWithSalt` groupName
+      _salt
+        `Prelude.hashWithSalt` groupName
         `Prelude.hashWithSalt` ownerAlias
 
 instance

@@ -37,8 +37,8 @@ data AwsIamUserDetails = AwsIamUserDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createDate :: Prelude.Maybe Prelude.Text,
     -- | A list of IAM groups that the user belongs to.
     groupList :: Prelude.Maybe [Prelude.Text],
@@ -69,8 +69,8 @@ data AwsIamUserDetails = AwsIamUserDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'groupList', 'awsIamUserDetails_groupList' - A list of IAM groups that the user belongs to.
 --
@@ -106,8 +106,8 @@ awsIamUserDetails_attachedManagedPolicies = Lens.lens (\AwsIamUserDetails' {atta
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsIamUserDetails_createDate :: Lens.Lens' AwsIamUserDetails (Prelude.Maybe Prelude.Text)
 awsIamUserDetails_createDate = Lens.lens (\AwsIamUserDetails' {createDate} -> createDate) (\s@AwsIamUserDetails' {} a -> s {createDate = a} :: AwsIamUserDetails)
 
@@ -141,7 +141,8 @@ instance Data.FromJSON AwsIamUserDetails where
       "AwsIamUserDetails"
       ( \x ->
           AwsIamUserDetails'
-            Prelude.<$> ( x Data..:? "AttachedManagedPolicies"
+            Prelude.<$> ( x
+                            Data..:? "AttachedManagedPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateDate")
@@ -150,7 +151,8 @@ instance Data.FromJSON AwsIamUserDetails where
             Prelude.<*> (x Data..:? "PermissionsBoundary")
             Prelude.<*> (x Data..:? "UserId")
             Prelude.<*> (x Data..:? "UserName")
-            Prelude.<*> ( x Data..:? "UserPolicyList"
+            Prelude.<*> ( x
+                            Data..:? "UserPolicyList"
                             Data..!= Prelude.mempty
                         )
       )

@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     AwsEc2VpcPeeringConnectionDetails' {..} =
-      _salt `Prelude.hashWithSalt` accepterVpcInfo
+      _salt
+        `Prelude.hashWithSalt` accepterVpcInfo
         `Prelude.hashWithSalt` expirationTime
         `Prelude.hashWithSalt` requesterVpcInfo
         `Prelude.hashWithSalt` status

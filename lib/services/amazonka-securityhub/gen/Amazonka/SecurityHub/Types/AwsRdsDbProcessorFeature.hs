@@ -71,12 +71,14 @@ instance Data.FromJSON AwsRdsDbProcessorFeature where
       "AwsRdsDbProcessorFeature"
       ( \x ->
           AwsRdsDbProcessorFeature'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable AwsRdsDbProcessorFeature where
   hashWithSalt _salt AwsRdsDbProcessorFeature' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AwsRdsDbProcessorFeature where

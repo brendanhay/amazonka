@@ -76,7 +76,8 @@ instance Data.FromJSON RuleGroupVariables where
 
 instance Prelude.Hashable RuleGroupVariables where
   hashWithSalt _salt RuleGroupVariables' {..} =
-    _salt `Prelude.hashWithSalt` ipSets
+    _salt
+      `Prelude.hashWithSalt` ipSets
       `Prelude.hashWithSalt` portSets
 
 instance Prelude.NFData RuleGroupVariables where

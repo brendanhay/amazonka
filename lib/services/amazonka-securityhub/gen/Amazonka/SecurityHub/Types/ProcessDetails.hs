@@ -32,12 +32,13 @@ data ProcessDetails = ProcessDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     launchedAt :: Prelude.Maybe Prelude.Text,
     -- | The name of the process.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The parent process ID.
+    -- | The parent process ID. This field accepts positive integers between @O@
+    -- and @2147483647@.
     parentPid :: Prelude.Maybe Prelude.Int,
     -- | The path to the process executable.
     path :: Prelude.Maybe Prelude.Text,
@@ -47,8 +48,8 @@ data ProcessDetails = ProcessDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     terminatedAt :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,12 +66,13 @@ data ProcessDetails = ProcessDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'name', 'processDetails_name' - The name of the process.
 --
--- 'parentPid', 'processDetails_parentPid' - The parent process ID.
+-- 'parentPid', 'processDetails_parentPid' - The parent process ID. This field accepts positive integers between @O@
+-- and @2147483647@.
 --
 -- 'path', 'processDetails_path' - The path to the process executable.
 --
@@ -80,8 +82,8 @@ data ProcessDetails = ProcessDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 newProcessDetails ::
   ProcessDetails
 newProcessDetails =
@@ -98,8 +100,8 @@ newProcessDetails =
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 processDetails_launchedAt :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
 processDetails_launchedAt = Lens.lens (\ProcessDetails' {launchedAt} -> launchedAt) (\s@ProcessDetails' {} a -> s {launchedAt = a} :: ProcessDetails)
 
@@ -107,7 +109,8 @@ processDetails_launchedAt = Lens.lens (\ProcessDetails' {launchedAt} -> launched
 processDetails_name :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
 processDetails_name = Lens.lens (\ProcessDetails' {name} -> name) (\s@ProcessDetails' {} a -> s {name = a} :: ProcessDetails)
 
--- | The parent process ID.
+-- | The parent process ID. This field accepts positive integers between @O@
+-- and @2147483647@.
 processDetails_parentPid :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Int)
 processDetails_parentPid = Lens.lens (\ProcessDetails' {parentPid} -> parentPid) (\s@ProcessDetails' {} a -> s {parentPid = a} :: ProcessDetails)
 
@@ -123,8 +126,8 @@ processDetails_pid = Lens.lens (\ProcessDetails' {pid} -> pid) (\s@ProcessDetail
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 processDetails_terminatedAt :: Lens.Lens' ProcessDetails (Prelude.Maybe Prelude.Text)
 processDetails_terminatedAt = Lens.lens (\ProcessDetails' {terminatedAt} -> terminatedAt) (\s@ProcessDetails' {} a -> s {terminatedAt = a} :: ProcessDetails)
 
@@ -144,7 +147,8 @@ instance Data.FromJSON ProcessDetails where
 
 instance Prelude.Hashable ProcessDetails where
   hashWithSalt _salt ProcessDetails' {..} =
-    _salt `Prelude.hashWithSalt` launchedAt
+    _salt
+      `Prelude.hashWithSalt` launchedAt
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentPid
       `Prelude.hashWithSalt` path

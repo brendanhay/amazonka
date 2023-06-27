@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Identifies a finding to update using @BatchUpdateFindings@.
+-- | Identifies which finding to get the finding history for.
 --
 -- /See:/ 'newAwsSecurityFindingIdentifier' smart constructor.
 data AwsSecurityFindingIdentifier = AwsSecurityFindingIdentifier'
@@ -93,7 +93,8 @@ instance
     AwsSecurityFindingIdentifier
   where
   hashWithSalt _salt AwsSecurityFindingIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` productArn
 
 instance Prelude.NFData AwsSecurityFindingIdentifier where

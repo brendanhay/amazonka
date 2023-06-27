@@ -97,7 +97,8 @@ instance Data.FromJSON RuleGroupSourceListDetails where
 
 instance Prelude.Hashable RuleGroupSourceListDetails where
   hashWithSalt _salt RuleGroupSourceListDetails' {..} =
-    _salt `Prelude.hashWithSalt` generatedRulesType
+    _salt
+      `Prelude.hashWithSalt` generatedRulesType
       `Prelude.hashWithSalt` targetTypes
       `Prelude.hashWithSalt` targets
 

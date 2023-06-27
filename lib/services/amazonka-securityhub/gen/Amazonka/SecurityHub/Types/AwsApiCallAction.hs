@@ -43,9 +43,19 @@ data AwsApiCallAction = AwsApiCallAction'
     domainDetails :: Prelude.Maybe AwsApiCallActionDomainDetails,
     -- | An ISO8601-formatted timestamp that indicates when the API call was
     -- first observed.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     firstSeen :: Prelude.Maybe Prelude.Text,
     -- | An ISO8601-formatted timestamp that indicates when the API call was most
     -- recently observed.
+    --
+    -- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+    -- cannot contain spaces, and date and time should be separated by @T@. For
+    -- more information, see
+    -- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
     lastSeen :: Prelude.Maybe Prelude.Text,
     -- | Provided if @CallerType@ is @remoteIp@. Provides information about the
     -- remote IP address that the API call originated from.
@@ -77,8 +87,18 @@ data AwsApiCallAction = AwsApiCallAction'
 -- 'firstSeen', 'awsApiCallAction_firstSeen' - An ISO8601-formatted timestamp that indicates when the API call was
 -- first observed.
 --
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
+--
 -- 'lastSeen', 'awsApiCallAction_lastSeen' - An ISO8601-formatted timestamp that indicates when the API call was most
 -- recently observed.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 --
 -- 'remoteIpDetails', 'awsApiCallAction_remoteIpDetails' - Provided if @CallerType@ is @remoteIp@. Provides information about the
 -- remote IP address that the API call originated from.
@@ -120,11 +140,21 @@ awsApiCallAction_domainDetails = Lens.lens (\AwsApiCallAction' {domainDetails} -
 
 -- | An ISO8601-formatted timestamp that indicates when the API call was
 -- first observed.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsApiCallAction_firstSeen :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_firstSeen = Lens.lens (\AwsApiCallAction' {firstSeen} -> firstSeen) (\s@AwsApiCallAction' {} a -> s {firstSeen = a} :: AwsApiCallAction)
 
 -- | An ISO8601-formatted timestamp that indicates when the API call was most
 -- recently observed.
+--
+-- A correctly formatted example is @2020-05-21T20:16:34.724Z@. The value
+-- cannot contain spaces, and date and time should be separated by @T@. For
+-- more information, see
+-- <https://www.rfc-editor.org/rfc/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
 awsApiCallAction_lastSeen :: Lens.Lens' AwsApiCallAction (Prelude.Maybe Prelude.Text)
 awsApiCallAction_lastSeen = Lens.lens (\AwsApiCallAction' {lastSeen} -> lastSeen) (\s@AwsApiCallAction' {} a -> s {lastSeen = a} :: AwsApiCallAction)
 
@@ -144,7 +174,8 @@ instance Data.FromJSON AwsApiCallAction where
       "AwsApiCallAction"
       ( \x ->
           AwsApiCallAction'
-            Prelude.<$> ( x Data..:? "AffectedResources"
+            Prelude.<$> ( x
+                            Data..:? "AffectedResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Api")
@@ -158,7 +189,8 @@ instance Data.FromJSON AwsApiCallAction where
 
 instance Prelude.Hashable AwsApiCallAction where
   hashWithSalt _salt AwsApiCallAction' {..} =
-    _salt `Prelude.hashWithSalt` affectedResources
+    _salt
+      `Prelude.hashWithSalt` affectedResources
       `Prelude.hashWithSalt` api
       `Prelude.hashWithSalt` callerType
       `Prelude.hashWithSalt` domainDetails

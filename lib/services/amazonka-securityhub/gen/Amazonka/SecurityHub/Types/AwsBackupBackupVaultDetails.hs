@@ -131,7 +131,8 @@ instance Data.FromJSON AwsBackupBackupVaultDetails where
 
 instance Prelude.Hashable AwsBackupBackupVaultDetails where
   hashWithSalt _salt AwsBackupBackupVaultDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessPolicy
+    _salt
+      `Prelude.hashWithSalt` accessPolicy
       `Prelude.hashWithSalt` backupVaultArn
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` encryptionKeyArn

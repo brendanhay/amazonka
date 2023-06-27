@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateMembers where
     Response.receiveJSON
       ( \s h x ->
           CreateMembersResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedAccounts"
+            Prelude.<$> ( x
+                            Data..?> "UnprocessedAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

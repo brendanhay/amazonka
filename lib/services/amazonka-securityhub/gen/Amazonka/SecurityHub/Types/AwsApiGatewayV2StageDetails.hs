@@ -44,8 +44,8 @@ data AwsApiGatewayV2StageDetails = AwsApiGatewayV2StageDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     createdDate :: Prelude.Maybe Prelude.Text,
     -- | Default route settings for the stage.
     defaultRouteSettings :: Prelude.Maybe AwsApiGatewayV2RouteSettings,
@@ -60,8 +60,8 @@ data AwsApiGatewayV2StageDetails = AwsApiGatewayV2StageDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastUpdatedDate :: Prelude.Maybe Prelude.Text,
     -- | The route settings for the stage.
     routeSettings :: Prelude.Maybe AwsApiGatewayV2RouteSettings,
@@ -104,8 +104,8 @@ data AwsApiGatewayV2StageDetails = AwsApiGatewayV2StageDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'defaultRouteSettings', 'awsApiGatewayV2StageDetails_defaultRouteSettings' - Default route settings for the stage.
 --
@@ -120,8 +120,8 @@ data AwsApiGatewayV2StageDetails = AwsApiGatewayV2StageDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'routeSettings', 'awsApiGatewayV2StageDetails_routeSettings' - The route settings for the stage.
 --
@@ -180,8 +180,8 @@ awsApiGatewayV2StageDetails_clientCertificateId = Lens.lens (\AwsApiGatewayV2Sta
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsApiGatewayV2StageDetails_createdDate :: Lens.Lens' AwsApiGatewayV2StageDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayV2StageDetails_createdDate = Lens.lens (\AwsApiGatewayV2StageDetails' {createdDate} -> createdDate) (\s@AwsApiGatewayV2StageDetails' {} a -> s {createdDate = a} :: AwsApiGatewayV2StageDetails)
 
@@ -206,8 +206,8 @@ awsApiGatewayV2StageDetails_lastDeploymentStatusMessage = Lens.lens (\AwsApiGate
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsApiGatewayV2StageDetails_lastUpdatedDate :: Lens.Lens' AwsApiGatewayV2StageDetails (Prelude.Maybe Prelude.Text)
 awsApiGatewayV2StageDetails_lastUpdatedDate = Lens.lens (\AwsApiGatewayV2StageDetails' {lastUpdatedDate} -> lastUpdatedDate) (\s@AwsApiGatewayV2StageDetails' {} a -> s {lastUpdatedDate = a} :: AwsApiGatewayV2StageDetails)
 
@@ -251,14 +251,16 @@ instance Data.FromJSON AwsApiGatewayV2StageDetails where
             Prelude.<*> (x Data..:? "LastUpdatedDate")
             Prelude.<*> (x Data..:? "RouteSettings")
             Prelude.<*> (x Data..:? "StageName")
-            Prelude.<*> ( x Data..:? "StageVariables"
+            Prelude.<*> ( x
+                            Data..:? "StageVariables"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AwsApiGatewayV2StageDetails where
   hashWithSalt _salt AwsApiGatewayV2StageDetails' {..} =
-    _salt `Prelude.hashWithSalt` accessLogSettings
+    _salt
+      `Prelude.hashWithSalt` accessLogSettings
       `Prelude.hashWithSalt` apiGatewayManaged
       `Prelude.hashWithSalt` autoDeploy
       `Prelude.hashWithSalt` clientCertificateId

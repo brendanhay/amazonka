@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     RuleGroupSourceStatefulRulesDetails' {..} =
-      _salt `Prelude.hashWithSalt` action
+      _salt
+        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` header
         `Prelude.hashWithSalt` ruleOptions
 

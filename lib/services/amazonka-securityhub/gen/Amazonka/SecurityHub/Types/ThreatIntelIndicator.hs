@@ -37,8 +37,8 @@ data ThreatIntelIndicator = ThreatIntelIndicator'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastObservedAt :: Prelude.Maybe Prelude.Text,
     -- | The source of the threat intelligence indicator.
     source :: Prelude.Maybe Prelude.Text,
@@ -67,8 +67,8 @@ data ThreatIntelIndicator = ThreatIntelIndicator'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'source', 'threatIntelIndicator_source' - The source of the threat intelligence indicator.
 --
@@ -99,8 +99,8 @@ threatIntelIndicator_category = Lens.lens (\ThreatIntelIndicator' {category} -> 
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 threatIntelIndicator_lastObservedAt :: Lens.Lens' ThreatIntelIndicator (Prelude.Maybe Prelude.Text)
 threatIntelIndicator_lastObservedAt = Lens.lens (\ThreatIntelIndicator' {lastObservedAt} -> lastObservedAt) (\s@ThreatIntelIndicator' {} a -> s {lastObservedAt = a} :: ThreatIntelIndicator)
 
@@ -137,7 +137,8 @@ instance Data.FromJSON ThreatIntelIndicator where
 
 instance Prelude.Hashable ThreatIntelIndicator where
   hashWithSalt _salt ThreatIntelIndicator' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` lastObservedAt
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` sourceUrl

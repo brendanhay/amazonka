@@ -30,20 +30,41 @@ import Test.Tasty
 --         [ requestAcceptAdministratorInvitation $
 --             newAcceptAdministratorInvitation
 --
+--         , requestBatchDeleteAutomationRules $
+--             newBatchDeleteAutomationRules
+--
 --         , requestBatchDisableStandards $
 --             newBatchDisableStandards
 --
 --         , requestBatchEnableStandards $
 --             newBatchEnableStandards
 --
+--         , requestBatchGetAutomationRules $
+--             newBatchGetAutomationRules
+--
+--         , requestBatchGetSecurityControls $
+--             newBatchGetSecurityControls
+--
+--         , requestBatchGetStandardsControlAssociations $
+--             newBatchGetStandardsControlAssociations
+--
 --         , requestBatchImportFindings $
 --             newBatchImportFindings
+--
+--         , requestBatchUpdateAutomationRules $
+--             newBatchUpdateAutomationRules
 --
 --         , requestBatchUpdateFindings $
 --             newBatchUpdateFindings
 --
+--         , requestBatchUpdateStandardsControlAssociations $
+--             newBatchUpdateStandardsControlAssociations
+--
 --         , requestCreateActionTarget $
 --             newCreateActionTarget
+--
+--         , requestCreateAutomationRule $
+--             newCreateAutomationRule
 --
 --         , requestCreateFindingAggregator $
 --             newCreateFindingAggregator
@@ -123,6 +144,9 @@ import Test.Tasty
 --         , requestGetFindingAggregator $
 --             newGetFindingAggregator
 --
+--         , requestGetFindingHistory $
+--             newGetFindingHistory
+--
 --         , requestGetFindings $
 --             newGetFindings
 --
@@ -141,6 +165,9 @@ import Test.Tasty
 --         , requestInviteMembers $
 --             newInviteMembers
 --
+--         , requestListAutomationRules $
+--             newListAutomationRules
+--
 --         , requestListEnabledProductsForImport $
 --             newListEnabledProductsForImport
 --
@@ -155,6 +182,12 @@ import Test.Tasty
 --
 --         , requestListOrganizationAdminAccounts $
 --             newListOrganizationAdminAccounts
+--
+--         , requestListSecurityControlDefinitions $
+--             newListSecurityControlDefinitions
+--
+--         , requestListStandardsControlAssociations $
+--             newListStandardsControlAssociations
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -192,20 +225,41 @@ import Test.Tasty
 --         [ responseAcceptAdministratorInvitation $
 --             newAcceptAdministratorInvitationResponse
 --
+--         , responseBatchDeleteAutomationRules $
+--             newBatchDeleteAutomationRulesResponse
+--
 --         , responseBatchDisableStandards $
 --             newBatchDisableStandardsResponse
 --
 --         , responseBatchEnableStandards $
 --             newBatchEnableStandardsResponse
 --
+--         , responseBatchGetAutomationRules $
+--             newBatchGetAutomationRulesResponse
+--
+--         , responseBatchGetSecurityControls $
+--             newBatchGetSecurityControlsResponse
+--
+--         , responseBatchGetStandardsControlAssociations $
+--             newBatchGetStandardsControlAssociationsResponse
+--
 --         , responseBatchImportFindings $
 --             newBatchImportFindingsResponse
+--
+--         , responseBatchUpdateAutomationRules $
+--             newBatchUpdateAutomationRulesResponse
 --
 --         , responseBatchUpdateFindings $
 --             newBatchUpdateFindingsResponse
 --
+--         , responseBatchUpdateStandardsControlAssociations $
+--             newBatchUpdateStandardsControlAssociationsResponse
+--
 --         , responseCreateActionTarget $
 --             newCreateActionTargetResponse
+--
+--         , responseCreateAutomationRule $
+--             newCreateAutomationRuleResponse
 --
 --         , responseCreateFindingAggregator $
 --             newCreateFindingAggregatorResponse
@@ -285,6 +339,9 @@ import Test.Tasty
 --         , responseGetFindingAggregator $
 --             newGetFindingAggregatorResponse
 --
+--         , responseGetFindingHistory $
+--             newGetFindingHistoryResponse
+--
 --         , responseGetFindings $
 --             newGetFindingsResponse
 --
@@ -303,6 +360,9 @@ import Test.Tasty
 --         , responseInviteMembers $
 --             newInviteMembersResponse
 --
+--         , responseListAutomationRules $
+--             newListAutomationRulesResponse
+--
 --         , responseListEnabledProductsForImport $
 --             newListEnabledProductsForImportResponse
 --
@@ -317,6 +377,12 @@ import Test.Tasty
 --
 --         , responseListOrganizationAdminAccounts $
 --             newListOrganizationAdminAccountsResponse
+--
+--         , responseListSecurityControlDefinitions $
+--             newListSecurityControlDefinitionsResponse
+--
+--         , responseListStandardsControlAssociations $
+--             newListStandardsControlAssociationsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -359,6 +425,12 @@ requestAcceptAdministratorInvitation =
     "AcceptAdministratorInvitation"
     "fixture/AcceptAdministratorInvitation.yaml"
 
+requestBatchDeleteAutomationRules :: BatchDeleteAutomationRules -> TestTree
+requestBatchDeleteAutomationRules =
+  req
+    "BatchDeleteAutomationRules"
+    "fixture/BatchDeleteAutomationRules.yaml"
+
 requestBatchDisableStandards :: BatchDisableStandards -> TestTree
 requestBatchDisableStandards =
   req
@@ -371,11 +443,35 @@ requestBatchEnableStandards =
     "BatchEnableStandards"
     "fixture/BatchEnableStandards.yaml"
 
+requestBatchGetAutomationRules :: BatchGetAutomationRules -> TestTree
+requestBatchGetAutomationRules =
+  req
+    "BatchGetAutomationRules"
+    "fixture/BatchGetAutomationRules.yaml"
+
+requestBatchGetSecurityControls :: BatchGetSecurityControls -> TestTree
+requestBatchGetSecurityControls =
+  req
+    "BatchGetSecurityControls"
+    "fixture/BatchGetSecurityControls.yaml"
+
+requestBatchGetStandardsControlAssociations :: BatchGetStandardsControlAssociations -> TestTree
+requestBatchGetStandardsControlAssociations =
+  req
+    "BatchGetStandardsControlAssociations"
+    "fixture/BatchGetStandardsControlAssociations.yaml"
+
 requestBatchImportFindings :: BatchImportFindings -> TestTree
 requestBatchImportFindings =
   req
     "BatchImportFindings"
     "fixture/BatchImportFindings.yaml"
+
+requestBatchUpdateAutomationRules :: BatchUpdateAutomationRules -> TestTree
+requestBatchUpdateAutomationRules =
+  req
+    "BatchUpdateAutomationRules"
+    "fixture/BatchUpdateAutomationRules.yaml"
 
 requestBatchUpdateFindings :: BatchUpdateFindings -> TestTree
 requestBatchUpdateFindings =
@@ -383,11 +479,23 @@ requestBatchUpdateFindings =
     "BatchUpdateFindings"
     "fixture/BatchUpdateFindings.yaml"
 
+requestBatchUpdateStandardsControlAssociations :: BatchUpdateStandardsControlAssociations -> TestTree
+requestBatchUpdateStandardsControlAssociations =
+  req
+    "BatchUpdateStandardsControlAssociations"
+    "fixture/BatchUpdateStandardsControlAssociations.yaml"
+
 requestCreateActionTarget :: CreateActionTarget -> TestTree
 requestCreateActionTarget =
   req
     "CreateActionTarget"
     "fixture/CreateActionTarget.yaml"
+
+requestCreateAutomationRule :: CreateAutomationRule -> TestTree
+requestCreateAutomationRule =
+  req
+    "CreateAutomationRule"
+    "fixture/CreateAutomationRule.yaml"
 
 requestCreateFindingAggregator :: CreateFindingAggregator -> TestTree
 requestCreateFindingAggregator =
@@ -545,6 +653,12 @@ requestGetFindingAggregator =
     "GetFindingAggregator"
     "fixture/GetFindingAggregator.yaml"
 
+requestGetFindingHistory :: GetFindingHistory -> TestTree
+requestGetFindingHistory =
+  req
+    "GetFindingHistory"
+    "fixture/GetFindingHistory.yaml"
+
 requestGetFindings :: GetFindings -> TestTree
 requestGetFindings =
   req
@@ -581,6 +695,12 @@ requestInviteMembers =
     "InviteMembers"
     "fixture/InviteMembers.yaml"
 
+requestListAutomationRules :: ListAutomationRules -> TestTree
+requestListAutomationRules =
+  req
+    "ListAutomationRules"
+    "fixture/ListAutomationRules.yaml"
+
 requestListEnabledProductsForImport :: ListEnabledProductsForImport -> TestTree
 requestListEnabledProductsForImport =
   req
@@ -610,6 +730,18 @@ requestListOrganizationAdminAccounts =
   req
     "ListOrganizationAdminAccounts"
     "fixture/ListOrganizationAdminAccounts.yaml"
+
+requestListSecurityControlDefinitions :: ListSecurityControlDefinitions -> TestTree
+requestListSecurityControlDefinitions =
+  req
+    "ListSecurityControlDefinitions"
+    "fixture/ListSecurityControlDefinitions.yaml"
+
+requestListStandardsControlAssociations :: ListStandardsControlAssociations -> TestTree
+requestListStandardsControlAssociations =
+  req
+    "ListStandardsControlAssociations"
+    "fixture/ListStandardsControlAssociations.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -681,6 +813,14 @@ responseAcceptAdministratorInvitation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptAdministratorInvitation)
 
+responseBatchDeleteAutomationRules :: BatchDeleteAutomationRulesResponse -> TestTree
+responseBatchDeleteAutomationRules =
+  res
+    "BatchDeleteAutomationRulesResponse"
+    "fixture/BatchDeleteAutomationRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteAutomationRules)
+
 responseBatchDisableStandards :: BatchDisableStandardsResponse -> TestTree
 responseBatchDisableStandards =
   res
@@ -697,6 +837,30 @@ responseBatchEnableStandards =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchEnableStandards)
 
+responseBatchGetAutomationRules :: BatchGetAutomationRulesResponse -> TestTree
+responseBatchGetAutomationRules =
+  res
+    "BatchGetAutomationRulesResponse"
+    "fixture/BatchGetAutomationRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetAutomationRules)
+
+responseBatchGetSecurityControls :: BatchGetSecurityControlsResponse -> TestTree
+responseBatchGetSecurityControls =
+  res
+    "BatchGetSecurityControlsResponse"
+    "fixture/BatchGetSecurityControlsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetSecurityControls)
+
+responseBatchGetStandardsControlAssociations :: BatchGetStandardsControlAssociationsResponse -> TestTree
+responseBatchGetStandardsControlAssociations =
+  res
+    "BatchGetStandardsControlAssociationsResponse"
+    "fixture/BatchGetStandardsControlAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetStandardsControlAssociations)
+
 responseBatchImportFindings :: BatchImportFindingsResponse -> TestTree
 responseBatchImportFindings =
   res
@@ -704,6 +868,14 @@ responseBatchImportFindings =
     "fixture/BatchImportFindingsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchImportFindings)
+
+responseBatchUpdateAutomationRules :: BatchUpdateAutomationRulesResponse -> TestTree
+responseBatchUpdateAutomationRules =
+  res
+    "BatchUpdateAutomationRulesResponse"
+    "fixture/BatchUpdateAutomationRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateAutomationRules)
 
 responseBatchUpdateFindings :: BatchUpdateFindingsResponse -> TestTree
 responseBatchUpdateFindings =
@@ -713,6 +885,14 @@ responseBatchUpdateFindings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchUpdateFindings)
 
+responseBatchUpdateStandardsControlAssociations :: BatchUpdateStandardsControlAssociationsResponse -> TestTree
+responseBatchUpdateStandardsControlAssociations =
+  res
+    "BatchUpdateStandardsControlAssociationsResponse"
+    "fixture/BatchUpdateStandardsControlAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchUpdateStandardsControlAssociations)
+
 responseCreateActionTarget :: CreateActionTargetResponse -> TestTree
 responseCreateActionTarget =
   res
@@ -720,6 +900,14 @@ responseCreateActionTarget =
     "fixture/CreateActionTargetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateActionTarget)
+
+responseCreateAutomationRule :: CreateAutomationRuleResponse -> TestTree
+responseCreateAutomationRule =
+  res
+    "CreateAutomationRuleResponse"
+    "fixture/CreateAutomationRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAutomationRule)
 
 responseCreateFindingAggregator :: CreateFindingAggregatorResponse -> TestTree
 responseCreateFindingAggregator =
@@ -929,6 +1117,14 @@ responseGetFindingAggregator =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetFindingAggregator)
 
+responseGetFindingHistory :: GetFindingHistoryResponse -> TestTree
+responseGetFindingHistory =
+  res
+    "GetFindingHistoryResponse"
+    "fixture/GetFindingHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFindingHistory)
+
 responseGetFindings :: GetFindingsResponse -> TestTree
 responseGetFindings =
   res
@@ -977,6 +1173,14 @@ responseInviteMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy InviteMembers)
 
+responseListAutomationRules :: ListAutomationRulesResponse -> TestTree
+responseListAutomationRules =
+  res
+    "ListAutomationRulesResponse"
+    "fixture/ListAutomationRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAutomationRules)
+
 responseListEnabledProductsForImport :: ListEnabledProductsForImportResponse -> TestTree
 responseListEnabledProductsForImport =
   res
@@ -1016,6 +1220,22 @@ responseListOrganizationAdminAccounts =
     "fixture/ListOrganizationAdminAccountsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
+
+responseListSecurityControlDefinitions :: ListSecurityControlDefinitionsResponse -> TestTree
+responseListSecurityControlDefinitions =
+  res
+    "ListSecurityControlDefinitionsResponse"
+    "fixture/ListSecurityControlDefinitionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSecurityControlDefinitions)
+
+responseListStandardsControlAssociations :: ListStandardsControlAssociationsResponse -> TestTree
+responseListStandardsControlAssociations =
+  res
+    "ListStandardsControlAssociationsResponse"
+    "fixture/ListStandardsControlAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStandardsControlAssociations)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

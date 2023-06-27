@@ -205,7 +205,8 @@ instance Data.FromJSON AwsRdsDbPendingModifiedValues where
             Prelude.<*> (x Data..:? "MultiAZ")
             Prelude.<*> (x Data..:? "PendingCloudWatchLogsExports")
             Prelude.<*> (x Data..:? "Port")
-            Prelude.<*> ( x Data..:? "ProcessorFeatures"
+            Prelude.<*> ( x
+                            Data..:? "ProcessorFeatures"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StorageType")
@@ -216,7 +217,8 @@ instance
     AwsRdsDbPendingModifiedValues
   where
   hashWithSalt _salt AwsRdsDbPendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` caCertificateIdentifier
       `Prelude.hashWithSalt` dbInstanceClass

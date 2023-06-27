@@ -36,7 +36,7 @@ data AwsSageMakerNotebookInstanceDetails = AwsSageMakerNotebookInstanceDetails'
     -- | An array of up to three Git repositories associated with the notebook
     -- instance. These can be either the names of Git repositories stored as
     -- resources in your account, or the URL of Git repositories in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html CodeCommit>
     -- or in any other Git repository. These repositories are cloned at the
     -- same level as the default repository of your notebook instance. For more
     -- information, see
@@ -46,7 +46,7 @@ data AwsSageMakerNotebookInstanceDetails = AwsSageMakerNotebookInstanceDetails'
     -- | The Git repository associated with the notebook instance as its default
     -- code repository. This can be either the name of a Git repository stored
     -- as a resource in your account, or the URL of a Git repository in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html CodeCommit>
     -- or in any other Git repository. When you open a notebook instance, it
     -- opens in the directory that contains this repository. For more
     -- information, see
@@ -121,7 +121,7 @@ data AwsSageMakerNotebookInstanceDetails = AwsSageMakerNotebookInstanceDetails'
 -- 'additionalCodeRepositories', 'awsSageMakerNotebookInstanceDetails_additionalCodeRepositories' - An array of up to three Git repositories associated with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
@@ -131,7 +131,7 @@ data AwsSageMakerNotebookInstanceDetails = AwsSageMakerNotebookInstanceDetails'
 -- 'defaultCodeRepository', 'awsSageMakerNotebookInstanceDetails_defaultCodeRepository' - The Git repository associated with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
 -- as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
@@ -228,7 +228,7 @@ awsSageMakerNotebookInstanceDetails_acceleratorTypes = Lens.lens (\AwsSageMakerN
 -- | An array of up to three Git repositories associated with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
@@ -240,7 +240,7 @@ awsSageMakerNotebookInstanceDetails_additionalCodeRepositories = Lens.lens (\Aws
 -- | The Git repository associated with the notebook instance as its default
 -- code repository. This can be either the name of a Git repository stored
 -- as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
@@ -342,10 +342,12 @@ instance
       "AwsSageMakerNotebookInstanceDetails"
       ( \x ->
           AwsSageMakerNotebookInstanceDetails'
-            Prelude.<$> ( x Data..:? "AcceleratorTypes"
+            Prelude.<$> ( x
+                            Data..:? "AcceleratorTypes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "AdditionalCodeRepositories"
+            Prelude.<*> ( x
+                            Data..:? "AdditionalCodeRepositories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DefaultCodeRepository")
@@ -375,7 +377,8 @@ instance
   hashWithSalt
     _salt
     AwsSageMakerNotebookInstanceDetails' {..} =
-      _salt `Prelude.hashWithSalt` acceleratorTypes
+      _salt
+        `Prelude.hashWithSalt` acceleratorTypes
         `Prelude.hashWithSalt` additionalCodeRepositories
         `Prelude.hashWithSalt` defaultCodeRepository
         `Prelude.hashWithSalt` directInternetAccess

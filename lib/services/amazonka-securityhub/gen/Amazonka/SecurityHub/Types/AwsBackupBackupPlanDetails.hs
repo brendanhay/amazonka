@@ -103,7 +103,8 @@ instance Data.FromJSON AwsBackupBackupPlanDetails where
 
 instance Prelude.Hashable AwsBackupBackupPlanDetails where
   hashWithSalt _salt AwsBackupBackupPlanDetails' {..} =
-    _salt `Prelude.hashWithSalt` backupPlan
+    _salt
+      `Prelude.hashWithSalt` backupPlan
       `Prelude.hashWithSalt` backupPlanArn
       `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` versionId

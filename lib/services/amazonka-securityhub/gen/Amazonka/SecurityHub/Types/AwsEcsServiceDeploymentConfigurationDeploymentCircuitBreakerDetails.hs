@@ -81,7 +81,7 @@ instance
       ( \x ->
           AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails'
             Prelude.<$> (x Data..:? "Enable")
-              Prelude.<*> (x Data..:? "Rollback")
+            Prelude.<*> (x Data..:? "Rollback")
       )
 
 instance
@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails' {..} =
-      _salt `Prelude.hashWithSalt` enable
+      _salt
+        `Prelude.hashWithSalt` enable
         `Prelude.hashWithSalt` rollback
 
 instance

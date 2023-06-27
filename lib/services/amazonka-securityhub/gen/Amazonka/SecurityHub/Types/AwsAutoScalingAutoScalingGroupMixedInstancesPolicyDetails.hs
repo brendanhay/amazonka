@@ -88,7 +88,7 @@ instance
       ( \x ->
           AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails'
             Prelude.<$> (x Data..:? "InstancesDistribution")
-              Prelude.<*> (x Data..:? "LaunchTemplate")
+            Prelude.<*> (x Data..:? "LaunchTemplate")
       )
 
 instance
@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails' {..} =
-      _salt `Prelude.hashWithSalt` instancesDistribution
+      _salt
+        `Prelude.hashWithSalt` instancesDistribution
         `Prelude.hashWithSalt` launchTemplate
 
 instance

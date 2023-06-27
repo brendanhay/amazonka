@@ -36,8 +36,8 @@ data Note = Note'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     updatedAt :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,8 +58,8 @@ data Note = Note'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 newNote ::
   -- | 'text'
   Prelude.Text ->
@@ -87,8 +87,8 @@ note_updatedBy = Lens.lens (\Note' {updatedBy} -> updatedBy) (\s@Note' {} a -> s
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 note_updatedAt :: Lens.Lens' Note Prelude.Text
 note_updatedAt = Lens.lens (\Note' {updatedAt} -> updatedAt) (\s@Note' {} a -> s {updatedAt = a} :: Note)
 
@@ -105,7 +105,8 @@ instance Data.FromJSON Note where
 
 instance Prelude.Hashable Note where
   hashWithSalt _salt Note' {..} =
-    _salt `Prelude.hashWithSalt` text
+    _salt
+      `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` updatedBy
       `Prelude.hashWithSalt` updatedAt
 

@@ -55,8 +55,8 @@ data AwsRdsEventSubscriptionDetails = AwsRdsEventSubscriptionDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     subscriptionCreationTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,8 +95,8 @@ data AwsRdsEventSubscriptionDetails = AwsRdsEventSubscriptionDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 newAwsRdsEventSubscriptionDetails ::
   AwsRdsEventSubscriptionDetails
 newAwsRdsEventSubscriptionDetails =
@@ -158,8 +158,8 @@ awsRdsEventSubscriptionDetails_status = Lens.lens (\AwsRdsEventSubscriptionDetai
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsRdsEventSubscriptionDetails_subscriptionCreationTime :: Lens.Lens' AwsRdsEventSubscriptionDetails (Prelude.Maybe Prelude.Text)
 awsRdsEventSubscriptionDetails_subscriptionCreationTime = Lens.lens (\AwsRdsEventSubscriptionDetails' {subscriptionCreationTime} -> subscriptionCreationTime) (\s@AwsRdsEventSubscriptionDetails' {} a -> s {subscriptionCreationTime = a} :: AwsRdsEventSubscriptionDetails)
 
@@ -172,7 +172,8 @@ instance Data.FromJSON AwsRdsEventSubscriptionDetails where
             Prelude.<$> (x Data..:? "CustSubscriptionId")
             Prelude.<*> (x Data..:? "CustomerAwsId")
             Prelude.<*> (x Data..:? "Enabled")
-            Prelude.<*> ( x Data..:? "EventCategoriesList"
+            Prelude.<*> ( x
+                            Data..:? "EventCategoriesList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EventSubscriptionArn")
@@ -190,7 +191,8 @@ instance
   hashWithSalt
     _salt
     AwsRdsEventSubscriptionDetails' {..} =
-      _salt `Prelude.hashWithSalt` custSubscriptionId
+      _salt
+        `Prelude.hashWithSalt` custSubscriptionId
         `Prelude.hashWithSalt` customerAwsId
         `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` eventCategoriesList

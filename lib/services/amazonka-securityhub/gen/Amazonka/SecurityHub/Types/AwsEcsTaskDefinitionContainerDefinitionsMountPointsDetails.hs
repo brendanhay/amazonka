@@ -87,8 +87,8 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails'
             Prelude.<$> (x Data..:? "ContainerPath")
-              Prelude.<*> (x Data..:? "ReadOnly")
-              Prelude.<*> (x Data..:? "SourceVolume")
+            Prelude.<*> (x Data..:? "ReadOnly")
+            Prelude.<*> (x Data..:? "SourceVolume")
       )
 
 instance
@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails' {..} =
-      _salt `Prelude.hashWithSalt` containerPath
+      _salt
+        `Prelude.hashWithSalt` containerPath
         `Prelude.hashWithSalt` readOnly
         `Prelude.hashWithSalt` sourceVolume
 

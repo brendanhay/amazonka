@@ -37,8 +37,8 @@ data AwsS3ObjectDetails = AwsS3ObjectDetails'
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     lastModified :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the KMS symmetric customer managed key that was used
     -- for the object.
@@ -69,8 +69,8 @@ data AwsS3ObjectDetails = AwsS3ObjectDetails'
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'sSEKMSKeyId', 'awsS3ObjectDetails_sSEKMSKeyId' - The identifier of the KMS symmetric customer managed key that was used
 -- for the object.
@@ -105,8 +105,8 @@ awsS3ObjectDetails_eTag = Lens.lens (\AwsS3ObjectDetails' {eTag} -> eTag) (\s@Aw
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsS3ObjectDetails_lastModified :: Lens.Lens' AwsS3ObjectDetails (Prelude.Maybe Prelude.Text)
 awsS3ObjectDetails_lastModified = Lens.lens (\AwsS3ObjectDetails' {lastModified} -> lastModified) (\s@AwsS3ObjectDetails' {} a -> s {lastModified = a} :: AwsS3ObjectDetails)
 
@@ -141,7 +141,8 @@ instance Data.FromJSON AwsS3ObjectDetails where
 
 instance Prelude.Hashable AwsS3ObjectDetails where
   hashWithSalt _salt AwsS3ObjectDetails' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` eTag
       `Prelude.hashWithSalt` lastModified
       `Prelude.hashWithSalt` sSEKMSKeyId

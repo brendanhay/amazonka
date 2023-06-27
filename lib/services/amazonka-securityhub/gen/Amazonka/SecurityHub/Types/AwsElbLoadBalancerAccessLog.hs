@@ -111,7 +111,8 @@ instance Data.FromJSON AwsElbLoadBalancerAccessLog where
 
 instance Prelude.Hashable AwsElbLoadBalancerAccessLog where
   hashWithSalt _salt AwsElbLoadBalancerAccessLog' {..} =
-    _salt `Prelude.hashWithSalt` emitInterval
+    _salt
+      `Prelude.hashWithSalt` emitInterval
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3BucketPrefix

@@ -75,7 +75,7 @@ instance
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails'
             Prelude.<$> (x Data..:? "Hostname")
-              Prelude.<*> (x Data..:? "IpAddress")
+            Prelude.<*> (x Data..:? "IpAddress")
       )
 
 instance
@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails' {..} =
-      _salt `Prelude.hashWithSalt` hostname
+      _salt
+        `Prelude.hashWithSalt` hostname
         `Prelude.hashWithSalt` ipAddress
 
 instance

@@ -185,7 +185,8 @@ instance Data.FromJSON Network where
 
 instance Prelude.Hashable Network where
   hashWithSalt _salt Network' {..} =
-    _salt `Prelude.hashWithSalt` destinationDomain
+    _salt
+      `Prelude.hashWithSalt` destinationDomain
       `Prelude.hashWithSalt` destinationIpV4
       `Prelude.hashWithSalt` destinationIpV6
       `Prelude.hashWithSalt` destinationPort

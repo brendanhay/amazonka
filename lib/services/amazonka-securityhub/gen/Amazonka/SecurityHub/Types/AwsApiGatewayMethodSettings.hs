@@ -254,7 +254,8 @@ instance Data.FromJSON AwsApiGatewayMethodSettings where
 
 instance Prelude.Hashable AwsApiGatewayMethodSettings where
   hashWithSalt _salt AwsApiGatewayMethodSettings' {..} =
-    _salt `Prelude.hashWithSalt` cacheDataEncrypted
+    _salt
+      `Prelude.hashWithSalt` cacheDataEncrypted
       `Prelude.hashWithSalt` cacheTtlInSeconds
       `Prelude.hashWithSalt` cachingEnabled
       `Prelude.hashWithSalt` dataTraceEnabled

@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     AwsElbAppCookieStickinessPolicy' {..} =
-      _salt `Prelude.hashWithSalt` cookieName
+      _salt
+        `Prelude.hashWithSalt` cookieName
         `Prelude.hashWithSalt` policyName
 
 instance

@@ -40,8 +40,8 @@ data AwsS3BucketBucketLifecycleConfigurationRulesDetails = AwsS3BucketBucketLife
     --
     -- Uses the @date-time@ format specified in
     -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
-    -- The value cannot contain spaces. For example,
-    -- @2020-03-22T13:22:13.933Z@.
+    -- The value cannot contain spaces, and date and time should be separated
+    -- by @T@. For example, @2020-03-22T13:22:13.933Z@.
     expirationDate :: Prelude.Maybe Prelude.Text,
     -- | The length in days of the lifetime for objects that are subject to the
     -- rule.
@@ -90,8 +90,8 @@ data AwsS3BucketBucketLifecycleConfigurationRulesDetails = AwsS3BucketBucketLife
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 --
 -- 'expirationInDays', 'awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationInDays' - The length in days of the lifetime for objects that are subject to the
 -- rule.
@@ -157,8 +157,8 @@ awsS3BucketBucketLifecycleConfigurationRulesDetails_abortIncompleteMultipartUplo
 --
 -- Uses the @date-time@ format specified in
 -- <https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format>.
--- The value cannot contain spaces. For example,
--- @2020-03-22T13:22:13.933Z@.
+-- The value cannot contain spaces, and date and time should be separated
+-- by @T@. For example, @2020-03-22T13:22:13.933Z@.
 awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationDate :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesDetails_expirationDate = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesDetails' {expirationDate} -> expirationDate) (\s@AwsS3BucketBucketLifecycleConfigurationRulesDetails' {} a -> s {expirationDate = a} :: AwsS3BucketBucketLifecycleConfigurationRulesDetails)
 
@@ -218,18 +218,19 @@ instance
       ( \x ->
           AwsS3BucketBucketLifecycleConfigurationRulesDetails'
             Prelude.<$> (x Data..:? "AbortIncompleteMultipartUpload")
-              Prelude.<*> (x Data..:? "ExpirationDate")
-              Prelude.<*> (x Data..:? "ExpirationInDays")
-              Prelude.<*> (x Data..:? "ExpiredObjectDeleteMarker")
-              Prelude.<*> (x Data..:? "Filter")
-              Prelude.<*> (x Data..:? "ID")
-              Prelude.<*> (x Data..:? "NoncurrentVersionExpirationInDays")
-              Prelude.<*> ( x Data..:? "NoncurrentVersionTransitions"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "Prefix")
-              Prelude.<*> (x Data..:? "Status")
-              Prelude.<*> (x Data..:? "Transitions" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ExpirationDate")
+            Prelude.<*> (x Data..:? "ExpirationInDays")
+            Prelude.<*> (x Data..:? "ExpiredObjectDeleteMarker")
+            Prelude.<*> (x Data..:? "Filter")
+            Prelude.<*> (x Data..:? "ID")
+            Prelude.<*> (x Data..:? "NoncurrentVersionExpirationInDays")
+            Prelude.<*> ( x
+                            Data..:? "NoncurrentVersionTransitions"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "Prefix")
+            Prelude.<*> (x Data..:? "Status")
+            Prelude.<*> (x Data..:? "Transitions" Data..!= Prelude.mempty)
       )
 
 instance

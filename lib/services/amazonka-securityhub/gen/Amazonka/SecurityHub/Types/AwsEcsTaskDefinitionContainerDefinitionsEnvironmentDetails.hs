@@ -73,7 +73,8 @@ instance
       "AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails"
       ( \x ->
           AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance
@@ -83,7 +84,8 @@ instance
   hashWithSalt
     _salt
     AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` value
 
 instance

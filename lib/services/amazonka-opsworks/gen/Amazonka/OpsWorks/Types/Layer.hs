@@ -386,11 +386,13 @@ instance Data.FromJSON Layer where
             Prelude.<*> (x Data..:? "CustomInstanceProfileArn")
             Prelude.<*> (x Data..:? "CustomJson")
             Prelude.<*> (x Data..:? "CustomRecipes")
-            Prelude.<*> ( x Data..:? "CustomSecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "CustomSecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DefaultRecipes")
-            Prelude.<*> ( x Data..:? "DefaultSecurityGroupNames"
+            Prelude.<*> ( x
+                            Data..:? "DefaultSecurityGroupNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EnableAutoHealing")
@@ -403,14 +405,16 @@ instance Data.FromJSON Layer where
             Prelude.<*> (x Data..:? "StackId")
             Prelude.<*> (x Data..:? "Type")
             Prelude.<*> (x Data..:? "UseEbsOptimizedInstances")
-            Prelude.<*> ( x Data..:? "VolumeConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "VolumeConfigurations"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable Layer where
   hashWithSalt _salt Layer' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` autoAssignElasticIps
       `Prelude.hashWithSalt` autoAssignPublicIps

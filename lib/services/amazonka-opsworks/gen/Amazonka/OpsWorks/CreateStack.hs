@@ -866,7 +866,8 @@ instance Core.AWSRequest CreateStack where
 
 instance Prelude.Hashable CreateStack where
   hashWithSalt _salt CreateStack' {..} =
-    _salt `Prelude.hashWithSalt` agentVersion
+    _salt
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` chefConfiguration
       `Prelude.hashWithSalt` configurationManager

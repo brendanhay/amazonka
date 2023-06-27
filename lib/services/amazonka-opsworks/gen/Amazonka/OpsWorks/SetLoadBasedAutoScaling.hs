@@ -146,7 +146,8 @@ instance Core.AWSRequest SetLoadBasedAutoScaling where
 
 instance Prelude.Hashable SetLoadBasedAutoScaling where
   hashWithSalt _salt SetLoadBasedAutoScaling' {..} =
-    _salt `Prelude.hashWithSalt` downScaling
+    _salt
+      `Prelude.hashWithSalt` downScaling
       `Prelude.hashWithSalt` enable
       `Prelude.hashWithSalt` upScaling
       `Prelude.hashWithSalt` layerId

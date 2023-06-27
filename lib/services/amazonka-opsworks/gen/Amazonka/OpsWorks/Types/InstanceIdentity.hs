@@ -69,7 +69,8 @@ instanceIdentity_signature = Lens.lens (\InstanceIdentity' {signature} -> signat
 
 instance Prelude.Hashable InstanceIdentity where
   hashWithSalt _salt InstanceIdentity' {..} =
-    _salt `Prelude.hashWithSalt` document
+    _salt
+      `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` signature
 
 instance Prelude.NFData InstanceIdentity where

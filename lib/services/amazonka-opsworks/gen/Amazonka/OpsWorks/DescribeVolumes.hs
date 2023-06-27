@@ -143,7 +143,8 @@ instance Core.AWSRequest DescribeVolumes where
 
 instance Prelude.Hashable DescribeVolumes where
   hashWithSalt _salt DescribeVolumes' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` raidArrayId
       `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` volumeIds

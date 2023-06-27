@@ -254,7 +254,8 @@ instance Data.FromJSON InstancesCount where
 
 instance Prelude.Hashable InstancesCount where
   hashWithSalt _salt InstancesCount' {..} =
-    _salt `Prelude.hashWithSalt` assigning
+    _salt
+      `Prelude.hashWithSalt` assigning
       `Prelude.hashWithSalt` booting
       `Prelude.hashWithSalt` connectionLost
       `Prelude.hashWithSalt` deregistering

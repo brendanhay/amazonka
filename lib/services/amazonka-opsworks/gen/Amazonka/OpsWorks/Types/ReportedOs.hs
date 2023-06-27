@@ -84,7 +84,8 @@ instance Data.FromJSON ReportedOs where
 
 instance Prelude.Hashable ReportedOs where
   hashWithSalt _salt ReportedOs' {..} =
-    _salt `Prelude.hashWithSalt` family
+    _salt
+      `Prelude.hashWithSalt` family
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 

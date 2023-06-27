@@ -236,7 +236,8 @@ instance Data.FromJSON App where
 
 instance Prelude.Hashable App where
   hashWithSalt _salt App' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` appSource
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` createdAt

@@ -130,7 +130,8 @@ instance Core.AWSRequest DescribeDeployments where
 
 instance Prelude.Hashable DescribeDeployments where
   hashWithSalt _salt DescribeDeployments' {..} =
-    _salt `Prelude.hashWithSalt` appId
+    _salt
+      `Prelude.hashWithSalt` appId
       `Prelude.hashWithSalt` deploymentIds
       `Prelude.hashWithSalt` stackId
 

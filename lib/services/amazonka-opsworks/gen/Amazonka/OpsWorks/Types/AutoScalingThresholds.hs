@@ -192,7 +192,8 @@ instance Data.FromJSON AutoScalingThresholds where
 
 instance Prelude.Hashable AutoScalingThresholds where
   hashWithSalt _salt AutoScalingThresholds' {..} =
-    _salt `Prelude.hashWithSalt` alarms
+    _salt
+      `Prelude.hashWithSalt` alarms
       `Prelude.hashWithSalt` cpuThreshold
       `Prelude.hashWithSalt` ignoreMetricsTime
       `Prelude.hashWithSalt` instanceCount

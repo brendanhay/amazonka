@@ -107,7 +107,8 @@ instance Data.FromJSON ElasticIp where
 
 instance Prelude.Hashable ElasticIp where
   hashWithSalt _salt ElasticIp' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` name

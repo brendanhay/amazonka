@@ -357,7 +357,8 @@ instance Data.FromJSON Stack where
 
 instance Prelude.Hashable Stack where
   hashWithSalt _salt Stack' {..} =
-    _salt `Prelude.hashWithSalt` agentVersion
+    _salt
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` chefConfiguration

@@ -98,8 +98,8 @@ instance
       ( \s h x ->
           DescribeStackProvisioningParametersResponse'
             Prelude.<$> (x Data..?> "AgentInstallerUrl")
-              Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "Parameters" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

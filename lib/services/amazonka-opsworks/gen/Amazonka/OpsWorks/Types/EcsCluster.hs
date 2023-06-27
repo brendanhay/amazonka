@@ -94,7 +94,8 @@ instance Data.FromJSON EcsCluster where
 
 instance Prelude.Hashable EcsCluster where
   hashWithSalt _salt EcsCluster' {..} =
-    _salt `Prelude.hashWithSalt` ecsClusterArn
+    _salt
+      `Prelude.hashWithSalt` ecsClusterArn
       `Prelude.hashWithSalt` ecsClusterName
       `Prelude.hashWithSalt` registeredAt
       `Prelude.hashWithSalt` stackId

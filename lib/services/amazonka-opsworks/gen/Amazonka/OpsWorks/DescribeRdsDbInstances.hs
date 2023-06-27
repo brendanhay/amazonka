@@ -114,7 +114,8 @@ instance Core.AWSRequest DescribeRdsDbInstances where
 
 instance Prelude.Hashable DescribeRdsDbInstances where
   hashWithSalt _salt DescribeRdsDbInstances' {..} =
-    _salt `Prelude.hashWithSalt` rdsDbInstanceArns
+    _salt
+      `Prelude.hashWithSalt` rdsDbInstanceArns
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeRdsDbInstances where

@@ -152,7 +152,8 @@ instance Data.FromJSON Permission where
 
 instance Prelude.Hashable Permission where
   hashWithSalt _salt Permission' {..} =
-    _salt `Prelude.hashWithSalt` allowSsh
+    _salt
+      `Prelude.hashWithSalt` allowSsh
       `Prelude.hashWithSalt` allowSudo
       `Prelude.hashWithSalt` iamUserArn
       `Prelude.hashWithSalt` level

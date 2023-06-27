@@ -101,7 +101,8 @@ instance Core.AWSRequest UpdateElasticIp where
 
 instance Prelude.Hashable UpdateElasticIp where
   hashWithSalt _salt UpdateElasticIp' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` elasticIp
 
 instance Prelude.NFData UpdateElasticIp where

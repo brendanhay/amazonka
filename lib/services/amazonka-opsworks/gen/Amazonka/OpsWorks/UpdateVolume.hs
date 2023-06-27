@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateVolume where
 
 instance Prelude.Hashable UpdateVolume where
   hashWithSalt _salt UpdateVolume' {..} =
-    _salt `Prelude.hashWithSalt` mountPoint
+    _salt
+      `Prelude.hashWithSalt` mountPoint
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` volumeId
 

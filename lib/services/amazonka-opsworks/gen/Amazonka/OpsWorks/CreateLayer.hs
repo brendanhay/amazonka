@@ -394,7 +394,8 @@ instance Core.AWSRequest CreateLayer where
 
 instance Prelude.Hashable CreateLayer where
   hashWithSalt _salt CreateLayer' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` autoAssignElasticIps
       `Prelude.hashWithSalt` autoAssignPublicIps
       `Prelude.hashWithSalt` cloudWatchLogsConfiguration

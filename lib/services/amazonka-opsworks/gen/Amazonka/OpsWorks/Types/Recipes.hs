@@ -116,7 +116,8 @@ instance Data.FromJSON Recipes where
 
 instance Prelude.Hashable Recipes where
   hashWithSalt _salt Recipes' {..} =
-    _salt `Prelude.hashWithSalt` configure
+    _salt
+      `Prelude.hashWithSalt` configure
       `Prelude.hashWithSalt` deploy
       `Prelude.hashWithSalt` setup
       `Prelude.hashWithSalt` shutdown

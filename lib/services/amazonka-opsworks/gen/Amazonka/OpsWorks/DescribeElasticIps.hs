@@ -140,7 +140,8 @@ instance Core.AWSRequest DescribeElasticIps where
 
 instance Prelude.Hashable DescribeElasticIps where
   hashWithSalt _salt DescribeElasticIps' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` ips
       `Prelude.hashWithSalt` stackId
 

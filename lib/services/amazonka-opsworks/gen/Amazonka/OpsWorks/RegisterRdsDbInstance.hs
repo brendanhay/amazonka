@@ -129,7 +129,8 @@ instance Core.AWSRequest RegisterRdsDbInstance where
 
 instance Prelude.Hashable RegisterRdsDbInstance where
   hashWithSalt _salt RegisterRdsDbInstance' {..} =
-    _salt `Prelude.hashWithSalt` stackId
+    _salt
+      `Prelude.hashWithSalt` stackId
       `Prelude.hashWithSalt` rdsDbInstanceArn
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` dbPassword

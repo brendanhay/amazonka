@@ -115,7 +115,8 @@ instance Data.FromJSON StackSummary where
 
 instance Prelude.Hashable StackSummary where
   hashWithSalt _salt StackSummary' {..} =
-    _salt `Prelude.hashWithSalt` appsCount
+    _salt
+      `Prelude.hashWithSalt` appsCount
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` instancesCount
       `Prelude.hashWithSalt` layersCount

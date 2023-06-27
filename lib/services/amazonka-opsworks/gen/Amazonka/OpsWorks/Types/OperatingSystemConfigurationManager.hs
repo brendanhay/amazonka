@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     OperatingSystemConfigurationManager' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` version
 
 instance

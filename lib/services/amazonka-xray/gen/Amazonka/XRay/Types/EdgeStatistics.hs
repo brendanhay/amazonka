@@ -112,7 +112,8 @@ instance Data.FromJSON EdgeStatistics where
 
 instance Prelude.Hashable EdgeStatistics where
   hashWithSalt _salt EdgeStatistics' {..} =
-    _salt `Prelude.hashWithSalt` errorStatistics
+    _salt
+      `Prelude.hashWithSalt` errorStatistics
       `Prelude.hashWithSalt` faultStatistics
       `Prelude.hashWithSalt` okCount
       `Prelude.hashWithSalt` totalCount

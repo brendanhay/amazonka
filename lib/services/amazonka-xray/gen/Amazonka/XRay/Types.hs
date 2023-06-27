@@ -613,55 +613,55 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | A policy revision id was provided which does not match the latest policy
 -- revision. This exception is also if a policy revision id of 0 is
 -- provided via @PutResourcePolicy@ and a policy with the same name already
 -- exists.
-_InvalidPolicyRevisionIdException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPolicyRevisionIdException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPolicyRevisionIdException =
   Core._MatchServiceError
     defaultService
@@ -669,7 +669,7 @@ _InvalidPolicyRevisionIdException =
     Prelude.. Core.hasStatus 400
 
 -- | The request is missing required parameters or has invalid parameters.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -677,7 +677,7 @@ _InvalidRequestException =
 
 -- | The provided resource policy would prevent the caller of this request
 -- from calling PutResourcePolicy in the future.
-_LockoutPreventionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LockoutPreventionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LockoutPreventionException =
   Core._MatchServiceError
     defaultService
@@ -685,7 +685,7 @@ _LockoutPreventionException =
     Prelude.. Core.hasStatus 400
 
 -- | Invalid policy document provided in request.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MalformedPolicyDocumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
@@ -694,7 +694,7 @@ _MalformedPolicyDocumentException =
 
 -- | Exceeded the maximum number of resource policies for a target Amazon Web
 -- Services account.
-_PolicyCountLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PolicyCountLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PolicyCountLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -702,7 +702,7 @@ _PolicyCountLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | Exceeded the maximum size for a resource policy.
-_PolicySizeLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PolicySizeLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PolicySizeLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -711,7 +711,7 @@ _PolicySizeLimitExceededException =
 
 -- | The resource was not found. Verify that the name or Amazon Resource Name
 -- (ARN) of the resource is correct.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -719,14 +719,14 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | You have reached the maximum number of sampling rules.
-_RuleLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RuleLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RuleLimitExceededException =
   Core._MatchServiceError
     defaultService
     "RuleLimitExceededException"
 
 -- | The request exceeds the maximum number of requests per second.
-_ThrottledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottledException =
   Core._MatchServiceError
     defaultService
@@ -735,7 +735,7 @@ _ThrottledException =
 
 -- | You have exceeded the maximum number of tags you can apply to this
 -- resource.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService

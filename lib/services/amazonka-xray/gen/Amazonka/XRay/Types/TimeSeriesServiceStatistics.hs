@@ -99,7 +99,8 @@ instance Data.FromJSON TimeSeriesServiceStatistics where
       ( \x ->
           TimeSeriesServiceStatistics'
             Prelude.<$> (x Data..:? "EdgeSummaryStatistics")
-            Prelude.<*> ( x Data..:? "ResponseTimeHistogram"
+            Prelude.<*> ( x
+                            Data..:? "ResponseTimeHistogram"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ServiceForecastStatistics")
@@ -109,7 +110,8 @@ instance Data.FromJSON TimeSeriesServiceStatistics where
 
 instance Prelude.Hashable TimeSeriesServiceStatistics where
   hashWithSalt _salt TimeSeriesServiceStatistics' {..} =
-    _salt `Prelude.hashWithSalt` edgeSummaryStatistics
+    _salt
+      `Prelude.hashWithSalt` edgeSummaryStatistics
       `Prelude.hashWithSalt` responseTimeHistogram
       `Prelude.hashWithSalt` serviceForecastStatistics
       `Prelude.hashWithSalt` serviceSummaryStatistics

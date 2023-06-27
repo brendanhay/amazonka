@@ -277,15 +277,18 @@ instance Data.FromJSON TraceSummary where
       ( \x ->
           TraceSummary'
             Prelude.<$> (x Data..:? "Annotations" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "AvailabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Duration")
             Prelude.<*> (x Data..:? "EntryPoint")
-            Prelude.<*> ( x Data..:? "ErrorRootCauses"
+            Prelude.<*> ( x
+                            Data..:? "ErrorRootCauses"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "FaultRootCauses"
+            Prelude.<*> ( x
+                            Data..:? "FaultRootCauses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "HasError")
@@ -298,7 +301,8 @@ instance Data.FromJSON TraceSummary where
             Prelude.<*> (x Data..:? "MatchedEventTime")
             Prelude.<*> (x Data..:? "ResourceARNs" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ResponseTime")
-            Prelude.<*> ( x Data..:? "ResponseTimeRootCauses"
+            Prelude.<*> ( x
+                            Data..:? "ResponseTimeRootCauses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Revision")
@@ -308,7 +312,8 @@ instance Data.FromJSON TraceSummary where
 
 instance Prelude.Hashable TraceSummary where
   hashWithSalt _salt TraceSummary' {..} =
-    _salt `Prelude.hashWithSalt` annotations
+    _salt
+      `Prelude.hashWithSalt` annotations
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` entryPoint

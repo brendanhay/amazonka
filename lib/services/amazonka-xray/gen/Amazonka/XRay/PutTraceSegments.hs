@@ -136,7 +136,8 @@ instance Core.AWSRequest PutTraceSegments where
     Response.receiveJSON
       ( \s h x ->
           PutTraceSegmentsResponse'
-            Prelude.<$> ( x Data..?> "UnprocessedTraceSegments"
+            Prelude.<$> ( x
+                            Data..?> "UnprocessedTraceSegments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

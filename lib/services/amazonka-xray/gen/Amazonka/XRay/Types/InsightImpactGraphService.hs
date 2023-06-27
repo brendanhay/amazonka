@@ -163,7 +163,8 @@ instance Data.FromJSON InsightImpactGraphService where
 
 instance Prelude.Hashable InsightImpactGraphService where
   hashWithSalt _salt InsightImpactGraphService' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` edges
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` names

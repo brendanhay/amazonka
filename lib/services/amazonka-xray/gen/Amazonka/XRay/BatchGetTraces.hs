@@ -95,20 +95,22 @@ instance Core.AWSPager BatchGetTraces where
     | Core.stop
         ( rs
             Lens.^? batchGetTracesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? batchGetTracesResponse_traces Prelude.. Lens._Just
+            Lens.^? batchGetTracesResponse_traces
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& batchGetTraces_nextToken
           Lens..~ rs
-          Lens.^? batchGetTracesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? batchGetTracesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest BatchGetTraces where
   type
@@ -122,7 +124,8 @@ instance Core.AWSRequest BatchGetTraces where
           BatchGetTracesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "Traces" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "UnprocessedTraceIds"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedTraceIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,7 +133,8 @@ instance Core.AWSRequest BatchGetTraces where
 
 instance Prelude.Hashable BatchGetTraces where
   hashWithSalt _salt BatchGetTraces' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` traceIds
 
 instance Prelude.NFData BatchGetTraces where

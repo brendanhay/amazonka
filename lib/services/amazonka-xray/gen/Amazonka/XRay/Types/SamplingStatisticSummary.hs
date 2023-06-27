@@ -106,7 +106,8 @@ instance Data.FromJSON SamplingStatisticSummary where
 
 instance Prelude.Hashable SamplingStatisticSummary where
   hashWithSalt _salt SamplingStatisticSummary' {..} =
-    _salt `Prelude.hashWithSalt` borrowCount
+    _salt
+      `Prelude.hashWithSalt` borrowCount
       `Prelude.hashWithSalt` requestCount
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` sampledCount

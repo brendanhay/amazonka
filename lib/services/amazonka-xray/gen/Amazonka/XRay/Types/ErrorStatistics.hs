@@ -91,7 +91,8 @@ instance Data.FromJSON ErrorStatistics where
 
 instance Prelude.Hashable ErrorStatistics where
   hashWithSalt _salt ErrorStatistics' {..} =
-    _salt `Prelude.hashWithSalt` otherCount
+    _salt
+      `Prelude.hashWithSalt` otherCount
       `Prelude.hashWithSalt` throttleCount
       `Prelude.hashWithSalt` totalCount
 

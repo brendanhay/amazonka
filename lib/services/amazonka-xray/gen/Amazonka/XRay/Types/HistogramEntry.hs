@@ -76,7 +76,8 @@ instance Data.FromJSON HistogramEntry where
 
 instance Prelude.Hashable HistogramEntry where
   hashWithSalt _salt HistogramEntry' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData HistogramEntry where

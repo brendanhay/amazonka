@@ -87,7 +87,8 @@ instance Data.FromJSON SamplingRuleRecord where
 
 instance Prelude.Hashable SamplingRuleRecord where
   hashWithSalt _salt SamplingRuleRecord' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` modifiedAt
       `Prelude.hashWithSalt` samplingRule
 

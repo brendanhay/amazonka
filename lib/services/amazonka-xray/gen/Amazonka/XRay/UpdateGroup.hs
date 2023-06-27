@@ -142,7 +142,8 @@ instance Core.AWSRequest UpdateGroup where
 
 instance Prelude.Hashable UpdateGroup where
   hashWithSalt _salt UpdateGroup' {..} =
-    _salt `Prelude.hashWithSalt` filterExpression
+    _salt
+      `Prelude.hashWithSalt` filterExpression
       `Prelude.hashWithSalt` groupARN
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` insightsConfiguration

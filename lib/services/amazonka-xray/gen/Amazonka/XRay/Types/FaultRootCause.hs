@@ -78,7 +78,8 @@ instance Data.FromJSON FaultRootCause where
 
 instance Prelude.Hashable FaultRootCause where
   hashWithSalt _salt FaultRootCause' {..} =
-    _salt `Prelude.hashWithSalt` clientImpacting
+    _salt
+      `Prelude.hashWithSalt` clientImpacting
       `Prelude.hashWithSalt` services
 
 instance Prelude.NFData FaultRootCause where

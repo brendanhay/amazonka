@@ -80,22 +80,22 @@ instance Core.AWSPager GetSamplingRules where
     | Core.stop
         ( rs
             Lens.^? getSamplingRulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getSamplingRulesResponse_samplingRuleRecords
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getSamplingRules_nextToken
           Lens..~ rs
           Lens.^? getSamplingRulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSamplingRules where
   type
@@ -108,7 +108,8 @@ instance Core.AWSRequest GetSamplingRules where
       ( \s h x ->
           GetSamplingRulesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SamplingRuleRecords"
+            Prelude.<*> ( x
+                            Data..?> "SamplingRuleRecords"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

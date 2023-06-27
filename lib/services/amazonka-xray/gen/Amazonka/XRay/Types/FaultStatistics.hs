@@ -81,7 +81,8 @@ instance Data.FromJSON FaultStatistics where
 
 instance Prelude.Hashable FaultStatistics where
   hashWithSalt _salt FaultStatistics' {..} =
-    _salt `Prelude.hashWithSalt` otherCount
+    _salt
+      `Prelude.hashWithSalt` otherCount
       `Prelude.hashWithSalt` totalCount
 
 instance Prelude.NFData FaultStatistics where

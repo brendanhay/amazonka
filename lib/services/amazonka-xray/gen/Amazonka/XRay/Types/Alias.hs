@@ -84,7 +84,8 @@ instance Data.FromJSON Alias where
 
 instance Prelude.Hashable Alias where
   hashWithSalt _salt Alias' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` type'
 

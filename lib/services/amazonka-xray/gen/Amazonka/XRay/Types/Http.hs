@@ -104,7 +104,8 @@ instance Data.FromJSON Http where
 
 instance Prelude.Hashable Http where
   hashWithSalt _salt Http' {..} =
-    _salt `Prelude.hashWithSalt` clientIp
+    _salt
+      `Prelude.hashWithSalt` clientIp
       `Prelude.hashWithSalt` httpMethod
       `Prelude.hashWithSalt` httpStatus
       `Prelude.hashWithSalt` httpURL

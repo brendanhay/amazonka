@@ -74,7 +74,8 @@ instance Data.FromJSON RootCauseException where
 
 instance Prelude.Hashable RootCauseException where
   hashWithSalt _salt RootCauseException' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RootCauseException where

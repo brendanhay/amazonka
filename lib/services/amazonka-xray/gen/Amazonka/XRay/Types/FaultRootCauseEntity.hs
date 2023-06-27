@@ -86,7 +86,8 @@ instance Data.FromJSON FaultRootCauseEntity where
 
 instance Prelude.Hashable FaultRootCauseEntity where
   hashWithSalt _salt FaultRootCauseEntity' {..} =
-    _salt `Prelude.hashWithSalt` exceptions
+    _salt
+      `Prelude.hashWithSalt` exceptions
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` remote
 

@@ -238,7 +238,8 @@ instance Data.FromJSON SamplingRule where
 
 instance Prelude.Hashable SamplingRule where
   hashWithSalt _salt SamplingRule' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` ruleARN
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` resourceARN

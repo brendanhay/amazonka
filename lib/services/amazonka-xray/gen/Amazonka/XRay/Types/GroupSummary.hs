@@ -116,7 +116,8 @@ instance Data.FromJSON GroupSummary where
 
 instance Prelude.Hashable GroupSummary where
   hashWithSalt _salt GroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` filterExpression
+    _salt
+      `Prelude.hashWithSalt` filterExpression
       `Prelude.hashWithSalt` groupARN
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` insightsConfiguration

@@ -144,7 +144,8 @@ instance Core.AWSRequest PutEncryptionConfig where
 
 instance Prelude.Hashable PutEncryptionConfig where
   hashWithSalt _salt PutEncryptionConfig' {..} =
-    _salt `Prelude.hashWithSalt` keyId
+    _salt
+      `Prelude.hashWithSalt` keyId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData PutEncryptionConfig where

@@ -161,7 +161,8 @@ instance Core.AWSRequest GetInsightImpactGraph where
 
 instance Prelude.Hashable GetInsightImpactGraph where
   hashWithSalt _salt GetInsightImpactGraph' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` insightId
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime

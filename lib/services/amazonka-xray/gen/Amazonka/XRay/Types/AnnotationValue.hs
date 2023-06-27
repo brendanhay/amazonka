@@ -85,7 +85,8 @@ instance Data.FromJSON AnnotationValue where
 
 instance Prelude.Hashable AnnotationValue where
   hashWithSalt _salt AnnotationValue' {..} =
-    _salt `Prelude.hashWithSalt` booleanValue
+    _salt
+      `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` numberValue
       `Prelude.hashWithSalt` stringValue
 

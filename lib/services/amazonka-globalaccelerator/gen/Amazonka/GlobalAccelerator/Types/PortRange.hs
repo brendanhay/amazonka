@@ -74,7 +74,8 @@ instance Data.FromJSON PortRange where
 
 instance Prelude.Hashable PortRange where
   hashWithSalt _salt PortRange' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` toPort
 
 instance Prelude.NFData PortRange where

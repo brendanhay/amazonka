@@ -160,7 +160,8 @@ instance Data.FromJSON Listener where
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` clientAffinity
+    _salt
+      `Prelude.hashWithSalt` clientAffinity
       `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` portRanges
       `Prelude.hashWithSalt` protocol

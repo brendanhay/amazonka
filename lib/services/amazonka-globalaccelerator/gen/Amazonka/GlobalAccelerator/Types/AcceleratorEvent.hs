@@ -87,7 +87,8 @@ instance Data.FromJSON AcceleratorEvent where
 
 instance Prelude.Hashable AcceleratorEvent where
   hashWithSalt _salt AcceleratorEvent' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData AcceleratorEvent where

@@ -92,7 +92,7 @@ instance
       ( \s h x ->
           DescribeCustomRoutingEndpointGroupResponse'
             Prelude.<$> (x Data..?> "EndpointGroup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

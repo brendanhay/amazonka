@@ -111,7 +111,8 @@ instance Core.AWSRequest AddEndpoints where
     Response.receiveJSON
       ( \s h x ->
           AddEndpointsResponse'
-            Prelude.<$> ( x Data..?> "EndpointDescriptions"
+            Prelude.<$> ( x
+                            Data..?> "EndpointDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EndpointGroupArn")
@@ -120,7 +121,8 @@ instance Core.AWSRequest AddEndpoints where
 
 instance Prelude.Hashable AddEndpoints where
   hashWithSalt _salt AddEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` endpointConfigurations
+    _salt
+      `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` endpointGroupArn
 
 instance Prelude.NFData AddEndpoints where

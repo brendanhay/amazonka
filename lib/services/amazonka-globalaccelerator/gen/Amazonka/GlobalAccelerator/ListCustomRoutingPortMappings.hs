@@ -143,22 +143,22 @@ instance Core.AWSPager ListCustomRoutingPortMappings where
     | Core.stop
         ( rs
             Lens.^? listCustomRoutingPortMappingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCustomRoutingPortMappingsResponse_portMappings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCustomRoutingPortMappings_nextToken
           Lens..~ rs
           Lens.^? listCustomRoutingPortMappingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -183,7 +183,8 @@ instance
     ListCustomRoutingPortMappings
   where
   hashWithSalt _salt ListCustomRoutingPortMappings' {..} =
-    _salt `Prelude.hashWithSalt` endpointGroupArn
+    _salt
+      `Prelude.hashWithSalt` endpointGroupArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` acceleratorArn

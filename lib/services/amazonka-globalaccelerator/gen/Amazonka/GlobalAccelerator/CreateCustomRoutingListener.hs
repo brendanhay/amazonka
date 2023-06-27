@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateCustomRoutingListener where
 
 instance Prelude.Hashable CreateCustomRoutingListener where
   hashWithSalt _salt CreateCustomRoutingListener' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorArn
+    _salt
+      `Prelude.hashWithSalt` acceleratorArn
       `Prelude.hashWithSalt` portRanges
       `Prelude.hashWithSalt` idempotencyToken
 

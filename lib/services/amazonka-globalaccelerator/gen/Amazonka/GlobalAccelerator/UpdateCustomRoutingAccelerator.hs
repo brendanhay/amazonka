@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     UpdateCustomRoutingAccelerator' {..} =
-      _salt `Prelude.hashWithSalt` enabled
+      _salt
+        `Prelude.hashWithSalt` enabled
         `Prelude.hashWithSalt` ipAddressType
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` acceleratorArn

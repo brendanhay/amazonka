@@ -282,7 +282,8 @@ instance Data.FromJSON Accelerator where
 
 instance Prelude.Hashable Accelerator where
   hashWithSalt _salt Accelerator' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorArn
+    _salt
+      `Prelude.hashWithSalt` acceleratorArn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` dualStackDnsName

@@ -217,7 +217,8 @@ instance Data.FromJSON EndpointGroup where
       "EndpointGroup"
       ( \x ->
           EndpointGroup'
-            Prelude.<$> ( x Data..:? "EndpointDescriptions"
+            Prelude.<$> ( x
+                            Data..:? "EndpointDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EndpointGroupArn")
@@ -233,7 +234,8 @@ instance Data.FromJSON EndpointGroup where
 
 instance Prelude.Hashable EndpointGroup where
   hashWithSalt _salt EndpointGroup' {..} =
-    _salt `Prelude.hashWithSalt` endpointDescriptions
+    _salt
+      `Prelude.hashWithSalt` endpointDescriptions
       `Prelude.hashWithSalt` endpointGroupArn
       `Prelude.hashWithSalt` endpointGroupRegion
       `Prelude.hashWithSalt` healthCheckIntervalSeconds

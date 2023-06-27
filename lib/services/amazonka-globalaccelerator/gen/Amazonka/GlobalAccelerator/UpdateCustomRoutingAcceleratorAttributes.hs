@@ -179,7 +179,7 @@ instance
       ( \s h x ->
           UpdateCustomRoutingAcceleratorAttributesResponse'
             Prelude.<$> (x Data..?> "AcceleratorAttributes")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -189,7 +189,8 @@ instance
   hashWithSalt
     _salt
     UpdateCustomRoutingAcceleratorAttributes' {..} =
-      _salt `Prelude.hashWithSalt` flowLogsEnabled
+      _salt
+        `Prelude.hashWithSalt` flowLogsEnabled
         `Prelude.hashWithSalt` flowLogsS3Bucket
         `Prelude.hashWithSalt` flowLogsS3Prefix
         `Prelude.hashWithSalt` acceleratorArn

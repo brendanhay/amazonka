@@ -96,7 +96,7 @@ instance
       ( \s h x ->
           DescribeCustomRoutingAcceleratorAttributesResponse'
             Prelude.<$> (x Data..?> "AcceleratorAttributes")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

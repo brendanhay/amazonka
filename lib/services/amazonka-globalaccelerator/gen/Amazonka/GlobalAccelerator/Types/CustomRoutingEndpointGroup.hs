@@ -100,10 +100,12 @@ instance Data.FromJSON CustomRoutingEndpointGroup where
       "CustomRoutingEndpointGroup"
       ( \x ->
           CustomRoutingEndpointGroup'
-            Prelude.<$> ( x Data..:? "DestinationDescriptions"
+            Prelude.<$> ( x
+                            Data..:? "DestinationDescriptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "EndpointDescriptions"
+            Prelude.<*> ( x
+                            Data..:? "EndpointDescriptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EndpointGroupArn")

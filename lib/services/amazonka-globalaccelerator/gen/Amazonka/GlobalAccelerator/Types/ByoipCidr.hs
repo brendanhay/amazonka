@@ -142,7 +142,8 @@ instance Data.FromJSON ByoipCidr where
 
 instance Prelude.Hashable ByoipCidr where
   hashWithSalt _salt ByoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` state
 

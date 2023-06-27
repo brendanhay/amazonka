@@ -214,7 +214,8 @@ instance Data.FromJSON CustomRoutingAccelerator where
 
 instance Prelude.Hashable CustomRoutingAccelerator where
   hashWithSalt _salt CustomRoutingAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorArn
+    _salt
+      `Prelude.hashWithSalt` acceleratorArn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` enabled

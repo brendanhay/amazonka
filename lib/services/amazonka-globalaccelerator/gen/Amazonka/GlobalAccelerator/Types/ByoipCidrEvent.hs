@@ -88,7 +88,8 @@ instance Data.FromJSON ByoipCidrEvent where
 
 instance Prelude.Hashable ByoipCidrEvent where
   hashWithSalt _salt ByoipCidrEvent' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData ByoipCidrEvent where

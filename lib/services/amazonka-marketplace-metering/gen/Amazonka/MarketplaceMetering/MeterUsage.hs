@@ -195,7 +195,8 @@ instance Core.AWSRequest MeterUsage where
 
 instance Prelude.Hashable MeterUsage where
   hashWithSalt _salt MeterUsage' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` usageAllocations
       `Prelude.hashWithSalt` usageQuantity
       `Prelude.hashWithSalt` productCode

@@ -148,7 +148,8 @@ instance Data.FromJSON UsageRecord where
 
 instance Prelude.Hashable UsageRecord where
   hashWithSalt _salt UsageRecord' {..} =
-    _salt `Prelude.hashWithSalt` quantity
+    _salt
+      `Prelude.hashWithSalt` quantity
       `Prelude.hashWithSalt` usageAllocations
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` customerIdentifier

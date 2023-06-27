@@ -121,8 +121,7 @@ data Options = Options'
     --
     -- Some storage classes have specific behaviors that can affect your Amazon
     -- S3 storage cost. For detailed information, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
-    -- .
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>.
     overwriteMode :: Prelude.Maybe OverwriteMode,
     -- | Specifies which users or groups can access a file for a specific purpose
     -- such as reading, writing, or execution of the file.
@@ -143,14 +142,17 @@ data Options = Options'
     -- storage cost. If your task deletes objects, you might incur minimum
     -- storage duration charges for certain storage classes. For detailed
     -- information, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
-    -- .
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>.
     --
     -- Default value: @PRESERVE@
     --
     -- @PRESERVE@: Ignore such destination files (recommended).
     --
     -- @REMOVE@: Delete destination files that aren’t present in the source.
+    --
+    -- If you set this parameter to @REMOVE@, you can\'t set @TransferMode@ to
+    -- @ALL@. When you transfer all data, DataSync doesn\'t scan your
+    -- destination location and doesn\'t know what to delete.
     preserveDeletedFiles :: Prelude.Maybe PreserveDeletedFiles,
     -- | Specifies whether DataSync should preserve the metadata of block and
     -- character devices in the source location and recreate the files with
@@ -352,8 +354,7 @@ data Options = Options'
 --
 -- Some storage classes have specific behaviors that can affect your Amazon
 -- S3 storage cost. For detailed information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- .
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>.
 --
 -- 'posixPermissions', 'options_posixPermissions' - Specifies which users or groups can access a file for a specific purpose
 -- such as reading, writing, or execution of the file.
@@ -374,14 +375,17 @@ data Options = Options'
 -- storage cost. If your task deletes objects, you might incur minimum
 -- storage duration charges for certain storage classes. For detailed
 -- information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- .
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>.
 --
 -- Default value: @PRESERVE@
 --
 -- @PRESERVE@: Ignore such destination files (recommended).
 --
 -- @REMOVE@: Delete destination files that aren’t present in the source.
+--
+-- If you set this parameter to @REMOVE@, you can\'t set @TransferMode@ to
+-- @ALL@. When you transfer all data, DataSync doesn\'t scan your
+-- destination location and doesn\'t know what to delete.
 --
 -- 'preserveDevices', 'options_preserveDevices' - Specifies whether DataSync should preserve the metadata of block and
 -- character devices in the source location and recreate the files with
@@ -604,8 +608,7 @@ options_objectTags = Lens.lens (\Options' {objectTags} -> objectTags) (\s@Option
 --
 -- Some storage classes have specific behaviors that can affect your Amazon
 -- S3 storage cost. For detailed information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- .
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>.
 options_overwriteMode :: Lens.Lens' Options (Prelude.Maybe OverwriteMode)
 options_overwriteMode = Lens.lens (\Options' {overwriteMode} -> overwriteMode) (\s@Options' {} a -> s {overwriteMode = a} :: Options)
 
@@ -630,14 +633,17 @@ options_posixPermissions = Lens.lens (\Options' {posixPermissions} -> posixPermi
 -- storage cost. If your task deletes objects, you might incur minimum
 -- storage duration charges for certain storage classes. For detailed
 -- information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>
--- .
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Considerations when working with Amazon S3 storage classes in DataSync>.
 --
 -- Default value: @PRESERVE@
 --
 -- @PRESERVE@: Ignore such destination files (recommended).
 --
 -- @REMOVE@: Delete destination files that aren’t present in the source.
+--
+-- If you set this parameter to @REMOVE@, you can\'t set @TransferMode@ to
+-- @ALL@. When you transfer all data, DataSync doesn\'t scan your
+-- destination location and doesn\'t know what to delete.
 options_preserveDeletedFiles :: Lens.Lens' Options (Prelude.Maybe PreserveDeletedFiles)
 options_preserveDeletedFiles = Lens.lens (\Options' {preserveDeletedFiles} -> preserveDeletedFiles) (\s@Options' {} a -> s {preserveDeletedFiles = a} :: Options)
 
@@ -794,7 +800,8 @@ instance Data.FromJSON Options where
 
 instance Prelude.Hashable Options where
   hashWithSalt _salt Options' {..} =
-    _salt `Prelude.hashWithSalt` atime
+    _salt
+      `Prelude.hashWithSalt` atime
       `Prelude.hashWithSalt` bytesPerSecond
       `Prelude.hashWithSalt` gid
       `Prelude.hashWithSalt` logLevel

@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Defines a file system on a Server Message Block (SMB) server that can be
--- read from or written to.
+-- Creates an endpoint for a Server Message Block (SMB) file server that
+-- DataSync can access for a transfer. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html Creating an SMB location>.
 module Amazonka.DataSync.CreateLocationSmb
   ( -- * Creating a Request
     CreateLocationSmb (..),
@@ -59,52 +60,54 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateLocationSmb' smart constructor.
 data CreateLocationSmb = CreateLocationSmb'
-  { -- | The name of the Windows domain that the SMB server belongs to.
+  { -- | Specifies the Windows domain name that your SMB file server belongs to.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+    -- for SMB locations.
     domain :: Prelude.Maybe Prelude.Text,
-    -- | The mount options used by DataSync to access the SMB server.
+    -- | Specifies the version of the SMB protocol that DataSync uses to access
+    -- your SMB file server.
     mountOptions :: Prelude.Maybe SmbMountOptions,
-    -- | The key-value pair that represents the tag that you want to add to the
-    -- location. The value can be an empty string. We recommend using tags to
-    -- name your resources.
+    -- | Specifies labels that help you categorize, filter, and search for your
+    -- Amazon Web Services resources. We recommend creating at least a name tag
+    -- for your location.
     tags :: Prelude.Maybe [TagListEntry],
-    -- | The subdirectory in the SMB file system that is used to read data from
-    -- the SMB source location or write data to the SMB destination. The SMB
-    -- path should be a path that\'s exported by the SMB server, or a
-    -- subdirectory of that path. The path should be such that it can be
-    -- mounted by other SMB clients in your network.
+    -- | Specifies the name of the share exported by your SMB file server where
+    -- DataSync will read or write data. You can include a subdirectory in the
+    -- share path (for example, @\/path\/to\/subdirectory@). Make sure that
+    -- other SMB clients in your network can also mount this path.
     --
-    -- @Subdirectory@ must be specified with forward slashes. For example,
-    -- @\/path\/to\/folder@.
-    --
-    -- To transfer all the data in the folder you specified, DataSync needs to
-    -- have permissions to mount the SMB share, as well as to access all the
-    -- data in that share. To ensure this, either ensure that the
-    -- user\/password specified belongs to the user who can mount the share,
-    -- and who has the appropriate permissions for all of the files and
-    -- directories that you want DataSync to access, or use credentials of a
-    -- member of the Backup Operators group to mount the share. Doing either
-    -- enables the agent to access the data. For the agent to access
-    -- directories, you must additionally enable all execute access.
+    -- To copy all data in the specified subdirectory, DataSync must be able to
+    -- mount the SMB share and access all of its data. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+    -- for SMB locations.
     subdirectory :: Prelude.Text,
-    -- | The name of the SMB server. This value is the IP address or Domain Name
-    -- Service (DNS) name of the SMB server. An agent that is installed
-    -- on-premises uses this hostname to mount the SMB server in a network.
+    -- | Specifies the Domain Name Service (DNS) name or IP address of the SMB
+    -- file server that your DataSync agent will mount.
     --
-    -- This name must either be DNS-compliant or must be an IP version 4 (IPv4)
-    -- address.
+    -- You can\'t specify an IP version 6 (IPv6) address.
     serverHostname :: Prelude.Text,
-    -- | The user who can mount the share, has the permissions to access files
-    -- and folders in the SMB share.
+    -- | Specifies the user name that can mount your SMB file server and has
+    -- permission to access the files and folders involved in your transfer.
     --
-    -- For information about choosing a user name that ensures sufficient
-    -- permissions to files, folders, and metadata, see the
-    -- <create-smb-location.html#SMBuser User setting> for SMB locations.
+    -- For information about choosing a user with the right level of access for
+    -- your transfer, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+    -- for SMB locations.
     user :: Prelude.Text,
-    -- | The password of the user who can mount the share, has the permissions to
-    -- access files and folders in the SMB share.
+    -- | Specifies the password of the user who can mount your SMB file server
+    -- and has permission to access the files and folders involved in your
+    -- transfer.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+    -- for SMB locations.
     password :: Data.Sensitive Prelude.Text,
-    -- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message
-    -- Block (SMB) location.
+    -- | Specifies the DataSync agent (or agents) which you want to connect to
+    -- your SMB file server. You specify an agent by using its Amazon Resource
+    -- Name (ARN).
     agentArns :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -117,52 +120,54 @@ data CreateLocationSmb = CreateLocationSmb'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'createLocationSmb_domain' - The name of the Windows domain that the SMB server belongs to.
+-- 'domain', 'createLocationSmb_domain' - Specifies the Windows domain name that your SMB file server belongs to.
 --
--- 'mountOptions', 'createLocationSmb_mountOptions' - The mount options used by DataSync to access the SMB server.
+-- For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
 --
--- 'tags', 'createLocationSmb_tags' - The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
+-- 'mountOptions', 'createLocationSmb_mountOptions' - Specifies the version of the SMB protocol that DataSync uses to access
+-- your SMB file server.
 --
--- 'subdirectory', 'createLocationSmb_subdirectory' - The subdirectory in the SMB file system that is used to read data from
--- the SMB source location or write data to the SMB destination. The SMB
--- path should be a path that\'s exported by the SMB server, or a
--- subdirectory of that path. The path should be such that it can be
--- mounted by other SMB clients in your network.
+-- 'tags', 'createLocationSmb_tags' - Specifies labels that help you categorize, filter, and search for your
+-- Amazon Web Services resources. We recommend creating at least a name tag
+-- for your location.
 --
--- @Subdirectory@ must be specified with forward slashes. For example,
--- @\/path\/to\/folder@.
+-- 'subdirectory', 'createLocationSmb_subdirectory' - Specifies the name of the share exported by your SMB file server where
+-- DataSync will read or write data. You can include a subdirectory in the
+-- share path (for example, @\/path\/to\/subdirectory@). Make sure that
+-- other SMB clients in your network can also mount this path.
 --
--- To transfer all the data in the folder you specified, DataSync needs to
--- have permissions to mount the SMB share, as well as to access all the
--- data in that share. To ensure this, either ensure that the
--- user\/password specified belongs to the user who can mount the share,
--- and who has the appropriate permissions for all of the files and
--- directories that you want DataSync to access, or use credentials of a
--- member of the Backup Operators group to mount the share. Doing either
--- enables the agent to access the data. For the agent to access
--- directories, you must additionally enable all execute access.
+-- To copy all data in the specified subdirectory, DataSync must be able to
+-- mount the SMB share and access all of its data. For more information,
+-- see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
 --
--- 'serverHostname', 'createLocationSmb_serverHostname' - The name of the SMB server. This value is the IP address or Domain Name
--- Service (DNS) name of the SMB server. An agent that is installed
--- on-premises uses this hostname to mount the SMB server in a network.
+-- 'serverHostname', 'createLocationSmb_serverHostname' - Specifies the Domain Name Service (DNS) name or IP address of the SMB
+-- file server that your DataSync agent will mount.
 --
--- This name must either be DNS-compliant or must be an IP version 4 (IPv4)
--- address.
+-- You can\'t specify an IP version 6 (IPv6) address.
 --
--- 'user', 'createLocationSmb_user' - The user who can mount the share, has the permissions to access files
--- and folders in the SMB share.
+-- 'user', 'createLocationSmb_user' - Specifies the user name that can mount your SMB file server and has
+-- permission to access the files and folders involved in your transfer.
 --
--- For information about choosing a user name that ensures sufficient
--- permissions to files, folders, and metadata, see the
--- <create-smb-location.html#SMBuser User setting> for SMB locations.
+-- For information about choosing a user with the right level of access for
+-- your transfer, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
 --
--- 'password', 'createLocationSmb_password' - The password of the user who can mount the share, has the permissions to
--- access files and folders in the SMB share.
+-- 'password', 'createLocationSmb_password' - Specifies the password of the user who can mount your SMB file server
+-- and has permission to access the files and folders involved in your
+-- transfer.
 --
--- 'agentArns', 'createLocationSmb_agentArns' - The Amazon Resource Names (ARNs) of agents to use for a Simple Message
--- Block (SMB) location.
+-- For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
+--
+-- 'agentArns', 'createLocationSmb_agentArns' - Specifies the DataSync agent (or agents) which you want to connect to
+-- your SMB file server. You specify an agent by using its Amazon Resource
+-- Name (ARN).
 newCreateLocationSmb ::
   -- | 'subdirectory'
   Prelude.Text ->
@@ -192,66 +197,68 @@ newCreateLocationSmb
         agentArns = Lens.coerced Lens.# pAgentArns_
       }
 
--- | The name of the Windows domain that the SMB server belongs to.
+-- | Specifies the Windows domain name that your SMB file server belongs to.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
 createLocationSmb_domain :: Lens.Lens' CreateLocationSmb (Prelude.Maybe Prelude.Text)
 createLocationSmb_domain = Lens.lens (\CreateLocationSmb' {domain} -> domain) (\s@CreateLocationSmb' {} a -> s {domain = a} :: CreateLocationSmb)
 
--- | The mount options used by DataSync to access the SMB server.
+-- | Specifies the version of the SMB protocol that DataSync uses to access
+-- your SMB file server.
 createLocationSmb_mountOptions :: Lens.Lens' CreateLocationSmb (Prelude.Maybe SmbMountOptions)
 createLocationSmb_mountOptions = Lens.lens (\CreateLocationSmb' {mountOptions} -> mountOptions) (\s@CreateLocationSmb' {} a -> s {mountOptions = a} :: CreateLocationSmb)
 
--- | The key-value pair that represents the tag that you want to add to the
--- location. The value can be an empty string. We recommend using tags to
--- name your resources.
+-- | Specifies labels that help you categorize, filter, and search for your
+-- Amazon Web Services resources. We recommend creating at least a name tag
+-- for your location.
 createLocationSmb_tags :: Lens.Lens' CreateLocationSmb (Prelude.Maybe [TagListEntry])
 createLocationSmb_tags = Lens.lens (\CreateLocationSmb' {tags} -> tags) (\s@CreateLocationSmb' {} a -> s {tags = a} :: CreateLocationSmb) Prelude.. Lens.mapping Lens.coerced
 
--- | The subdirectory in the SMB file system that is used to read data from
--- the SMB source location or write data to the SMB destination. The SMB
--- path should be a path that\'s exported by the SMB server, or a
--- subdirectory of that path. The path should be such that it can be
--- mounted by other SMB clients in your network.
+-- | Specifies the name of the share exported by your SMB file server where
+-- DataSync will read or write data. You can include a subdirectory in the
+-- share path (for example, @\/path\/to\/subdirectory@). Make sure that
+-- other SMB clients in your network can also mount this path.
 --
--- @Subdirectory@ must be specified with forward slashes. For example,
--- @\/path\/to\/folder@.
---
--- To transfer all the data in the folder you specified, DataSync needs to
--- have permissions to mount the SMB share, as well as to access all the
--- data in that share. To ensure this, either ensure that the
--- user\/password specified belongs to the user who can mount the share,
--- and who has the appropriate permissions for all of the files and
--- directories that you want DataSync to access, or use credentials of a
--- member of the Backup Operators group to mount the share. Doing either
--- enables the agent to access the data. For the agent to access
--- directories, you must additionally enable all execute access.
+-- To copy all data in the specified subdirectory, DataSync must be able to
+-- mount the SMB share and access all of its data. For more information,
+-- see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
 createLocationSmb_subdirectory :: Lens.Lens' CreateLocationSmb Prelude.Text
 createLocationSmb_subdirectory = Lens.lens (\CreateLocationSmb' {subdirectory} -> subdirectory) (\s@CreateLocationSmb' {} a -> s {subdirectory = a} :: CreateLocationSmb)
 
--- | The name of the SMB server. This value is the IP address or Domain Name
--- Service (DNS) name of the SMB server. An agent that is installed
--- on-premises uses this hostname to mount the SMB server in a network.
+-- | Specifies the Domain Name Service (DNS) name or IP address of the SMB
+-- file server that your DataSync agent will mount.
 --
--- This name must either be DNS-compliant or must be an IP version 4 (IPv4)
--- address.
+-- You can\'t specify an IP version 6 (IPv6) address.
 createLocationSmb_serverHostname :: Lens.Lens' CreateLocationSmb Prelude.Text
 createLocationSmb_serverHostname = Lens.lens (\CreateLocationSmb' {serverHostname} -> serverHostname) (\s@CreateLocationSmb' {} a -> s {serverHostname = a} :: CreateLocationSmb)
 
--- | The user who can mount the share, has the permissions to access files
--- and folders in the SMB share.
+-- | Specifies the user name that can mount your SMB file server and has
+-- permission to access the files and folders involved in your transfer.
 --
--- For information about choosing a user name that ensures sufficient
--- permissions to files, folders, and metadata, see the
--- <create-smb-location.html#SMBuser User setting> for SMB locations.
+-- For information about choosing a user with the right level of access for
+-- your transfer, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
 createLocationSmb_user :: Lens.Lens' CreateLocationSmb Prelude.Text
 createLocationSmb_user = Lens.lens (\CreateLocationSmb' {user} -> user) (\s@CreateLocationSmb' {} a -> s {user = a} :: CreateLocationSmb)
 
--- | The password of the user who can mount the share, has the permissions to
--- access files and folders in the SMB share.
+-- | Specifies the password of the user who can mount your SMB file server
+-- and has permission to access the files and folders involved in your
+-- transfer.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions required permissions>
+-- for SMB locations.
 createLocationSmb_password :: Lens.Lens' CreateLocationSmb Prelude.Text
 createLocationSmb_password = Lens.lens (\CreateLocationSmb' {password} -> password) (\s@CreateLocationSmb' {} a -> s {password = a} :: CreateLocationSmb) Prelude.. Data._Sensitive
 
--- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message
--- Block (SMB) location.
+-- | Specifies the DataSync agent (or agents) which you want to connect to
+-- your SMB file server. You specify an agent by using its Amazon Resource
+-- Name (ARN).
 createLocationSmb_agentArns :: Lens.Lens' CreateLocationSmb (Prelude.NonEmpty Prelude.Text)
 createLocationSmb_agentArns = Lens.lens (\CreateLocationSmb' {agentArns} -> agentArns) (\s@CreateLocationSmb' {} a -> s {agentArns = a} :: CreateLocationSmb) Prelude.. Lens.coerced
 
@@ -271,7 +278,8 @@ instance Core.AWSRequest CreateLocationSmb where
 
 instance Prelude.Hashable CreateLocationSmb where
   hashWithSalt _salt CreateLocationSmb' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subdirectory
@@ -332,8 +340,7 @@ instance Data.ToQuery CreateLocationSmb where
 --
 -- /See:/ 'newCreateLocationSmbResponse' smart constructor.
 data CreateLocationSmbResponse = CreateLocationSmbResponse'
-  { -- | The Amazon Resource Name (ARN) of the source SMB file system location
-    -- that is created.
+  { -- | The ARN of the SMB location that you created.
     locationArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -348,8 +355,7 @@ data CreateLocationSmbResponse = CreateLocationSmbResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'locationArn', 'createLocationSmbResponse_locationArn' - The Amazon Resource Name (ARN) of the source SMB file system location
--- that is created.
+-- 'locationArn', 'createLocationSmbResponse_locationArn' - The ARN of the SMB location that you created.
 --
 -- 'httpStatus', 'createLocationSmbResponse_httpStatus' - The response's http status code.
 newCreateLocationSmbResponse ::
@@ -363,8 +369,7 @@ newCreateLocationSmbResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the source SMB file system location
--- that is created.
+-- | The ARN of the SMB location that you created.
 createLocationSmbResponse_locationArn :: Lens.Lens' CreateLocationSmbResponse (Prelude.Maybe Prelude.Text)
 createLocationSmbResponse_locationArn = Lens.lens (\CreateLocationSmbResponse' {locationArn} -> locationArn) (\s@CreateLocationSmbResponse' {} a -> s {locationArn = a} :: CreateLocationSmbResponse)
 

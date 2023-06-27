@@ -227,7 +227,8 @@ instance Core.AWSRequest UpdateLocationSmb where
 
 instance Prelude.Hashable UpdateLocationSmb where
   hashWithSalt _salt UpdateLocationSmb' {..} =
-    _salt `Prelude.hashWithSalt` agentArns
+    _salt
+      `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` password

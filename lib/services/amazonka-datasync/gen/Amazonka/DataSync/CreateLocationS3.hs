@@ -20,12 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an endpoint for an Amazon S3 bucket that DataSync can access for
--- a transfer.
+-- A /location/ is an endpoint for an Amazon S3 bucket. DataSync can use
+-- the location as a source or destination for copying data.
+--
+-- Before you create your location, make sure that you read the following
+-- sections:
+--
+-- -   <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes Storage class considerations with Amazon S3 locations>
+--
+-- -   <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests Evaluating S3 request costs when using DataSync>
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli Create an Amazon S3 location>
--- in the /DataSync User Guide/.
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli Creating an Amazon S3 location>.
 module Amazonka.DataSync.CreateLocationS3
   ( -- * Creating a Request
     CreateLocationS3 (..),
@@ -204,7 +210,8 @@ instance Core.AWSRequest CreateLocationS3 where
 
 instance Prelude.Hashable CreateLocationS3 where
   hashWithSalt _salt CreateLocationS3' {..} =
-    _salt `Prelude.hashWithSalt` agentArns
+    _salt
+      `Prelude.hashWithSalt` agentArns
       `Prelude.hashWithSalt` s3StorageClass
       `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` tags

@@ -21,7 +21,9 @@ module Amazonka.DataSync.Types.SmbVersion
   ( SmbVersion
       ( ..,
         SmbVersion_AUTOMATIC,
+        SmbVersion_SMB1,
         SmbVersion_SMB2,
+        SmbVersion_SMB2_0,
         SmbVersion_SMB3
       ),
   )
@@ -62,15 +64,23 @@ newtype SmbVersion = SmbVersion'
 pattern SmbVersion_AUTOMATIC :: SmbVersion
 pattern SmbVersion_AUTOMATIC = SmbVersion' "AUTOMATIC"
 
+pattern SmbVersion_SMB1 :: SmbVersion
+pattern SmbVersion_SMB1 = SmbVersion' "SMB1"
+
 pattern SmbVersion_SMB2 :: SmbVersion
 pattern SmbVersion_SMB2 = SmbVersion' "SMB2"
+
+pattern SmbVersion_SMB2_0 :: SmbVersion
+pattern SmbVersion_SMB2_0 = SmbVersion' "SMB2_0"
 
 pattern SmbVersion_SMB3 :: SmbVersion
 pattern SmbVersion_SMB3 = SmbVersion' "SMB3"
 
 {-# COMPLETE
   SmbVersion_AUTOMATIC,
+  SmbVersion_SMB1,
   SmbVersion_SMB2,
+  SmbVersion_SMB2_0,
   SmbVersion_SMB3,
   SmbVersion'
   #-}

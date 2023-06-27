@@ -20,10 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata such as the name, the network interfaces, and the
--- status (that is, whether the agent is running or not) for an agent. To
--- specify which agent to describe, use the Amazon Resource Name (ARN) of
--- the agent in your request.
+-- Returns metadata about an DataSync agent, such as its name, endpoint
+-- type, and status.
 module Amazonka.DataSync.DescribeAgent
   ( -- * Creating a Request
     DescribeAgent (..),
@@ -60,7 +58,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeAgent' smart constructor.
 data DescribeAgent = DescribeAgent'
-  { -- | The Amazon Resource Name (ARN) of the agent to describe.
+  { -- | Specifies the Amazon Resource Name (ARN) of the DataSync agent to
+    -- describe.
     agentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +72,8 @@ data DescribeAgent = DescribeAgent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentArn', 'describeAgent_agentArn' - The Amazon Resource Name (ARN) of the agent to describe.
+-- 'agentArn', 'describeAgent_agentArn' - Specifies the Amazon Resource Name (ARN) of the DataSync agent to
+-- describe.
 newDescribeAgent ::
   -- | 'agentArn'
   Prelude.Text ->
@@ -81,7 +81,8 @@ newDescribeAgent ::
 newDescribeAgent pAgentArn_ =
   DescribeAgent' {agentArn = pAgentArn_}
 
--- | The Amazon Resource Name (ARN) of the agent to describe.
+-- | Specifies the Amazon Resource Name (ARN) of the DataSync agent to
+-- describe.
 describeAgent_agentArn :: Lens.Lens' DescribeAgent Prelude.Text
 describeAgent_agentArn = Lens.lens (\DescribeAgent' {agentArn} -> agentArn) (\s@DescribeAgent' {} a -> s {agentArn = a} :: DescribeAgent)
 
@@ -142,7 +143,7 @@ instance Data.ToQuery DescribeAgent where
 --
 -- /See:/ 'newDescribeAgentResponse' smart constructor.
 data DescribeAgentResponse = DescribeAgentResponse'
-  { -- | The Amazon Resource Name (ARN) of the agent.
+  { -- | The ARN of the agent.
     agentArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the agent was activated (that is, created in your
     -- account).
@@ -177,7 +178,7 @@ data DescribeAgentResponse = DescribeAgentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentArn', 'describeAgentResponse_agentArn' - The Amazon Resource Name (ARN) of the agent.
+-- 'agentArn', 'describeAgentResponse_agentArn' - The ARN of the agent.
 --
 -- 'creationTime', 'describeAgentResponse_creationTime' - The time that the agent was activated (that is, created in your
 -- account).
@@ -216,7 +217,7 @@ newDescribeAgentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the agent.
+-- | The ARN of the agent.
 describeAgentResponse_agentArn :: Lens.Lens' DescribeAgentResponse (Prelude.Maybe Prelude.Text)
 describeAgentResponse_agentArn = Lens.lens (\DescribeAgentResponse' {agentArn} -> agentArn) (\s@DescribeAgentResponse' {} a -> s {agentArn = a} :: DescribeAgentResponse)
 

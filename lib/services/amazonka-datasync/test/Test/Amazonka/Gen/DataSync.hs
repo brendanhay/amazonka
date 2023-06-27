@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCancelTaskExecution $
+--         [ requestAddStorageSystem $
+--             newAddStorageSystem
+--
+--         , requestCancelTaskExecution $
 --             newCancelTaskExecution
 --
 --         , requestCreateAgent $
@@ -78,6 +81,9 @@ import Test.Tasty
 --         , requestDescribeAgent $
 --             newDescribeAgent
 --
+--         , requestDescribeDiscoveryJob $
+--             newDescribeDiscoveryJob
+--
 --         , requestDescribeLocationEfs $
 --             newDescribeLocationEfs
 --
@@ -108,17 +114,35 @@ import Test.Tasty
 --         , requestDescribeLocationSmb $
 --             newDescribeLocationSmb
 --
+--         , requestDescribeStorageSystem $
+--             newDescribeStorageSystem
+--
+--         , requestDescribeStorageSystemResourceMetrics $
+--             newDescribeStorageSystemResourceMetrics
+--
+--         , requestDescribeStorageSystemResources $
+--             newDescribeStorageSystemResources
+--
 --         , requestDescribeTask $
 --             newDescribeTask
 --
 --         , requestDescribeTaskExecution $
 --             newDescribeTaskExecution
 --
+--         , requestGenerateRecommendations $
+--             newGenerateRecommendations
+--
 --         , requestListAgents $
 --             newListAgents
 --
+--         , requestListDiscoveryJobs $
+--             newListDiscoveryJobs
+--
 --         , requestListLocations $
 --             newListLocations
+--
+--         , requestListStorageSystems $
+--             newListStorageSystems
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -129,8 +153,17 @@ import Test.Tasty
 --         , requestListTasks $
 --             newListTasks
 --
+--         , requestRemoveStorageSystem $
+--             newRemoveStorageSystem
+--
+--         , requestStartDiscoveryJob $
+--             newStartDiscoveryJob
+--
 --         , requestStartTaskExecution $
 --             newStartTaskExecution
+--
+--         , requestStopDiscoveryJob $
+--             newStopDiscoveryJob
 --
 --         , requestTagResource $
 --             newTagResource
@@ -140,6 +173,9 @@ import Test.Tasty
 --
 --         , requestUpdateAgent $
 --             newUpdateAgent
+--
+--         , requestUpdateDiscoveryJob $
+--             newUpdateDiscoveryJob
 --
 --         , requestUpdateLocationHdfs $
 --             newUpdateLocationHdfs
@@ -153,6 +189,9 @@ import Test.Tasty
 --         , requestUpdateLocationSmb $
 --             newUpdateLocationSmb
 --
+--         , requestUpdateStorageSystem $
+--             newUpdateStorageSystem
+--
 --         , requestUpdateTask $
 --             newUpdateTask
 --
@@ -162,7 +201,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCancelTaskExecution $
+--         [ responseAddStorageSystem $
+--             newAddStorageSystemResponse
+--
+--         , responseCancelTaskExecution $
 --             newCancelTaskExecutionResponse
 --
 --         , responseCreateAgent $
@@ -213,6 +255,9 @@ import Test.Tasty
 --         , responseDescribeAgent $
 --             newDescribeAgentResponse
 --
+--         , responseDescribeDiscoveryJob $
+--             newDescribeDiscoveryJobResponse
+--
 --         , responseDescribeLocationEfs $
 --             newDescribeLocationEfsResponse
 --
@@ -243,17 +288,35 @@ import Test.Tasty
 --         , responseDescribeLocationSmb $
 --             newDescribeLocationSmbResponse
 --
+--         , responseDescribeStorageSystem $
+--             newDescribeStorageSystemResponse
+--
+--         , responseDescribeStorageSystemResourceMetrics $
+--             newDescribeStorageSystemResourceMetricsResponse
+--
+--         , responseDescribeStorageSystemResources $
+--             newDescribeStorageSystemResourcesResponse
+--
 --         , responseDescribeTask $
 --             newDescribeTaskResponse
 --
 --         , responseDescribeTaskExecution $
 --             newDescribeTaskExecutionResponse
 --
+--         , responseGenerateRecommendations $
+--             newGenerateRecommendationsResponse
+--
 --         , responseListAgents $
 --             newListAgentsResponse
 --
+--         , responseListDiscoveryJobs $
+--             newListDiscoveryJobsResponse
+--
 --         , responseListLocations $
 --             newListLocationsResponse
+--
+--         , responseListStorageSystems $
+--             newListStorageSystemsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -264,8 +327,17 @@ import Test.Tasty
 --         , responseListTasks $
 --             newListTasksResponse
 --
+--         , responseRemoveStorageSystem $
+--             newRemoveStorageSystemResponse
+--
+--         , responseStartDiscoveryJob $
+--             newStartDiscoveryJobResponse
+--
 --         , responseStartTaskExecution $
 --             newStartTaskExecutionResponse
+--
+--         , responseStopDiscoveryJob $
+--             newStopDiscoveryJobResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -275,6 +347,9 @@ import Test.Tasty
 --
 --         , responseUpdateAgent $
 --             newUpdateAgentResponse
+--
+--         , responseUpdateDiscoveryJob $
+--             newUpdateDiscoveryJobResponse
 --
 --         , responseUpdateLocationHdfs $
 --             newUpdateLocationHdfsResponse
@@ -288,6 +363,9 @@ import Test.Tasty
 --         , responseUpdateLocationSmb $
 --             newUpdateLocationSmbResponse
 --
+--         , responseUpdateStorageSystem $
+--             newUpdateStorageSystemResponse
+--
 --         , responseUpdateTask $
 --             newUpdateTaskResponse
 --
@@ -298,6 +376,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestAddStorageSystem :: AddStorageSystem -> TestTree
+requestAddStorageSystem =
+  req
+    "AddStorageSystem"
+    "fixture/AddStorageSystem.yaml"
 
 requestCancelTaskExecution :: CancelTaskExecution -> TestTree
 requestCancelTaskExecution =
@@ -401,6 +485,12 @@ requestDescribeAgent =
     "DescribeAgent"
     "fixture/DescribeAgent.yaml"
 
+requestDescribeDiscoveryJob :: DescribeDiscoveryJob -> TestTree
+requestDescribeDiscoveryJob =
+  req
+    "DescribeDiscoveryJob"
+    "fixture/DescribeDiscoveryJob.yaml"
+
 requestDescribeLocationEfs :: DescribeLocationEfs -> TestTree
 requestDescribeLocationEfs =
   req
@@ -461,6 +551,24 @@ requestDescribeLocationSmb =
     "DescribeLocationSmb"
     "fixture/DescribeLocationSmb.yaml"
 
+requestDescribeStorageSystem :: DescribeStorageSystem -> TestTree
+requestDescribeStorageSystem =
+  req
+    "DescribeStorageSystem"
+    "fixture/DescribeStorageSystem.yaml"
+
+requestDescribeStorageSystemResourceMetrics :: DescribeStorageSystemResourceMetrics -> TestTree
+requestDescribeStorageSystemResourceMetrics =
+  req
+    "DescribeStorageSystemResourceMetrics"
+    "fixture/DescribeStorageSystemResourceMetrics.yaml"
+
+requestDescribeStorageSystemResources :: DescribeStorageSystemResources -> TestTree
+requestDescribeStorageSystemResources =
+  req
+    "DescribeStorageSystemResources"
+    "fixture/DescribeStorageSystemResources.yaml"
+
 requestDescribeTask :: DescribeTask -> TestTree
 requestDescribeTask =
   req
@@ -473,17 +581,35 @@ requestDescribeTaskExecution =
     "DescribeTaskExecution"
     "fixture/DescribeTaskExecution.yaml"
 
+requestGenerateRecommendations :: GenerateRecommendations -> TestTree
+requestGenerateRecommendations =
+  req
+    "GenerateRecommendations"
+    "fixture/GenerateRecommendations.yaml"
+
 requestListAgents :: ListAgents -> TestTree
 requestListAgents =
   req
     "ListAgents"
     "fixture/ListAgents.yaml"
 
+requestListDiscoveryJobs :: ListDiscoveryJobs -> TestTree
+requestListDiscoveryJobs =
+  req
+    "ListDiscoveryJobs"
+    "fixture/ListDiscoveryJobs.yaml"
+
 requestListLocations :: ListLocations -> TestTree
 requestListLocations =
   req
     "ListLocations"
     "fixture/ListLocations.yaml"
+
+requestListStorageSystems :: ListStorageSystems -> TestTree
+requestListStorageSystems =
+  req
+    "ListStorageSystems"
+    "fixture/ListStorageSystems.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -503,11 +629,29 @@ requestListTasks =
     "ListTasks"
     "fixture/ListTasks.yaml"
 
+requestRemoveStorageSystem :: RemoveStorageSystem -> TestTree
+requestRemoveStorageSystem =
+  req
+    "RemoveStorageSystem"
+    "fixture/RemoveStorageSystem.yaml"
+
+requestStartDiscoveryJob :: StartDiscoveryJob -> TestTree
+requestStartDiscoveryJob =
+  req
+    "StartDiscoveryJob"
+    "fixture/StartDiscoveryJob.yaml"
+
 requestStartTaskExecution :: StartTaskExecution -> TestTree
 requestStartTaskExecution =
   req
     "StartTaskExecution"
     "fixture/StartTaskExecution.yaml"
+
+requestStopDiscoveryJob :: StopDiscoveryJob -> TestTree
+requestStopDiscoveryJob =
+  req
+    "StopDiscoveryJob"
+    "fixture/StopDiscoveryJob.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -526,6 +670,12 @@ requestUpdateAgent =
   req
     "UpdateAgent"
     "fixture/UpdateAgent.yaml"
+
+requestUpdateDiscoveryJob :: UpdateDiscoveryJob -> TestTree
+requestUpdateDiscoveryJob =
+  req
+    "UpdateDiscoveryJob"
+    "fixture/UpdateDiscoveryJob.yaml"
 
 requestUpdateLocationHdfs :: UpdateLocationHdfs -> TestTree
 requestUpdateLocationHdfs =
@@ -551,6 +701,12 @@ requestUpdateLocationSmb =
     "UpdateLocationSmb"
     "fixture/UpdateLocationSmb.yaml"
 
+requestUpdateStorageSystem :: UpdateStorageSystem -> TestTree
+requestUpdateStorageSystem =
+  req
+    "UpdateStorageSystem"
+    "fixture/UpdateStorageSystem.yaml"
+
 requestUpdateTask :: UpdateTask -> TestTree
 requestUpdateTask =
   req
@@ -564,6 +720,14 @@ requestUpdateTaskExecution =
     "fixture/UpdateTaskExecution.yaml"
 
 -- Responses
+
+responseAddStorageSystem :: AddStorageSystemResponse -> TestTree
+responseAddStorageSystem =
+  res
+    "AddStorageSystemResponse"
+    "fixture/AddStorageSystemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AddStorageSystem)
 
 responseCancelTaskExecution :: CancelTaskExecutionResponse -> TestTree
 responseCancelTaskExecution =
@@ -701,6 +865,14 @@ responseDescribeAgent =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAgent)
 
+responseDescribeDiscoveryJob :: DescribeDiscoveryJobResponse -> TestTree
+responseDescribeDiscoveryJob =
+  res
+    "DescribeDiscoveryJobResponse"
+    "fixture/DescribeDiscoveryJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDiscoveryJob)
+
 responseDescribeLocationEfs :: DescribeLocationEfsResponse -> TestTree
 responseDescribeLocationEfs =
   res
@@ -781,6 +953,30 @@ responseDescribeLocationSmb =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeLocationSmb)
 
+responseDescribeStorageSystem :: DescribeStorageSystemResponse -> TestTree
+responseDescribeStorageSystem =
+  res
+    "DescribeStorageSystemResponse"
+    "fixture/DescribeStorageSystemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeStorageSystem)
+
+responseDescribeStorageSystemResourceMetrics :: DescribeStorageSystemResourceMetricsResponse -> TestTree
+responseDescribeStorageSystemResourceMetrics =
+  res
+    "DescribeStorageSystemResourceMetricsResponse"
+    "fixture/DescribeStorageSystemResourceMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeStorageSystemResourceMetrics)
+
+responseDescribeStorageSystemResources :: DescribeStorageSystemResourcesResponse -> TestTree
+responseDescribeStorageSystemResources =
+  res
+    "DescribeStorageSystemResourcesResponse"
+    "fixture/DescribeStorageSystemResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeStorageSystemResources)
+
 responseDescribeTask :: DescribeTaskResponse -> TestTree
 responseDescribeTask =
   res
@@ -797,6 +993,14 @@ responseDescribeTaskExecution =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTaskExecution)
 
+responseGenerateRecommendations :: GenerateRecommendationsResponse -> TestTree
+responseGenerateRecommendations =
+  res
+    "GenerateRecommendationsResponse"
+    "fixture/GenerateRecommendationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GenerateRecommendations)
+
 responseListAgents :: ListAgentsResponse -> TestTree
 responseListAgents =
   res
@@ -805,6 +1009,14 @@ responseListAgents =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAgents)
 
+responseListDiscoveryJobs :: ListDiscoveryJobsResponse -> TestTree
+responseListDiscoveryJobs =
+  res
+    "ListDiscoveryJobsResponse"
+    "fixture/ListDiscoveryJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDiscoveryJobs)
+
 responseListLocations :: ListLocationsResponse -> TestTree
 responseListLocations =
   res
@@ -812,6 +1024,14 @@ responseListLocations =
     "fixture/ListLocationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListLocations)
+
+responseListStorageSystems :: ListStorageSystemsResponse -> TestTree
+responseListStorageSystems =
+  res
+    "ListStorageSystemsResponse"
+    "fixture/ListStorageSystemsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStorageSystems)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -837,6 +1057,22 @@ responseListTasks =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTasks)
 
+responseRemoveStorageSystem :: RemoveStorageSystemResponse -> TestTree
+responseRemoveStorageSystem =
+  res
+    "RemoveStorageSystemResponse"
+    "fixture/RemoveStorageSystemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RemoveStorageSystem)
+
+responseStartDiscoveryJob :: StartDiscoveryJobResponse -> TestTree
+responseStartDiscoveryJob =
+  res
+    "StartDiscoveryJobResponse"
+    "fixture/StartDiscoveryJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartDiscoveryJob)
+
 responseStartTaskExecution :: StartTaskExecutionResponse -> TestTree
 responseStartTaskExecution =
   res
@@ -844,6 +1080,14 @@ responseStartTaskExecution =
     "fixture/StartTaskExecutionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartTaskExecution)
+
+responseStopDiscoveryJob :: StopDiscoveryJobResponse -> TestTree
+responseStopDiscoveryJob =
+  res
+    "StopDiscoveryJobResponse"
+    "fixture/StopDiscoveryJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopDiscoveryJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -868,6 +1112,14 @@ responseUpdateAgent =
     "fixture/UpdateAgentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAgent)
+
+responseUpdateDiscoveryJob :: UpdateDiscoveryJobResponse -> TestTree
+responseUpdateDiscoveryJob =
+  res
+    "UpdateDiscoveryJobResponse"
+    "fixture/UpdateDiscoveryJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDiscoveryJob)
 
 responseUpdateLocationHdfs :: UpdateLocationHdfsResponse -> TestTree
 responseUpdateLocationHdfs =
@@ -900,6 +1152,14 @@ responseUpdateLocationSmb =
     "fixture/UpdateLocationSmbResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateLocationSmb)
+
+responseUpdateStorageSystem :: UpdateStorageSystemResponse -> TestTree
+responseUpdateStorageSystem =
+  res
+    "UpdateStorageSystemResponse"
+    "fixture/UpdateStorageSystemResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStorageSystem)
 
 responseUpdateTask :: UpdateTaskResponse -> TestTree
 responseUpdateTask =

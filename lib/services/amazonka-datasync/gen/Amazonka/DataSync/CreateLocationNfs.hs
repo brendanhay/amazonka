@@ -265,7 +265,8 @@ instance Core.AWSRequest CreateLocationNfs where
 
 instance Prelude.Hashable CreateLocationNfs where
   hashWithSalt _salt CreateLocationNfs' {..} =
-    _salt `Prelude.hashWithSalt` mountOptions
+    _salt
+      `Prelude.hashWithSalt` mountOptions
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` serverHostname

@@ -20,18 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of agents owned by an Amazon Web Services account in the
--- Amazon Web Services Region specified in the request. The returned list
--- is ordered by agent Amazon Resource Name (ARN).
+-- Returns a list of DataSync agents that belong to an Amazon Web Services
+-- account in the Amazon Web Services Region specified in the request.
 --
--- By default, this operation returns a maximum of 100 agents. This
--- operation supports pagination that enables you to optionally reduce the
--- number of agents returned in a response.
+-- With pagination, you can reduce the number of agents returned in a
+-- response. If you get a truncated list of agents in a response, the
+-- response contains a marker that you can specify in your next request to
+-- fetch the next page of agents.
 --
--- If you have more agents than are returned in a response (that is, the
--- response returns only a truncated list of your agents), the response
--- contains a marker that you can specify in your next request to fetch the
--- next page of agents.
+-- @ListAgents@ is eventually consistent. This means the result of running
+-- the operation might not reflect that you just created or deleted an
+-- agent. For example, if you create an agent with
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html CreateAgent>
+-- and then immediately run @ListAgents@, that agent might not show up in
+-- the list right away. In situations like this, you can always confirm
+-- whether an agent has been created (or deleted) by using
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html DescribeAgent>.
 --
 -- This operation returns paginated results.
 module Amazonka.DataSync.ListAgents
@@ -66,10 +70,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newListAgents' smart constructor.
 data ListAgents = ListAgents'
-  { -- | The maximum number of agents to list.
+  { -- | Specifies the maximum number of DataSync agents to list in a response.
+    -- By default, a response shows a maximum of 100 agents.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | An opaque string that indicates the position at which to begin the next
-    -- list of agents.
+    -- | Specifies an opaque string that indicates the position to begin the next
+    -- list of results in the response.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,10 +87,11 @@ data ListAgents = ListAgents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listAgents_maxResults' - The maximum number of agents to list.
+-- 'maxResults', 'listAgents_maxResults' - Specifies the maximum number of DataSync agents to list in a response.
+-- By default, a response shows a maximum of 100 agents.
 --
--- 'nextToken', 'listAgents_nextToken' - An opaque string that indicates the position at which to begin the next
--- list of agents.
+-- 'nextToken', 'listAgents_nextToken' - Specifies an opaque string that indicates the position to begin the next
+-- list of results in the response.
 newListAgents ::
   ListAgents
 newListAgents =
@@ -94,12 +100,13 @@ newListAgents =
       nextToken = Prelude.Nothing
     }
 
--- | The maximum number of agents to list.
+-- | Specifies the maximum number of DataSync agents to list in a response.
+-- By default, a response shows a maximum of 100 agents.
 listAgents_maxResults :: Lens.Lens' ListAgents (Prelude.Maybe Prelude.Natural)
 listAgents_maxResults = Lens.lens (\ListAgents' {maxResults} -> maxResults) (\s@ListAgents' {} a -> s {maxResults = a} :: ListAgents)
 
--- | An opaque string that indicates the position at which to begin the next
--- list of agents.
+-- | Specifies an opaque string that indicates the position to begin the next
+-- list of results in the response.
 listAgents_nextToken :: Lens.Lens' ListAgents (Prelude.Maybe Prelude.Text)
 listAgents_nextToken = Lens.lens (\ListAgents' {nextToken} -> nextToken) (\s@ListAgents' {} a -> s {nextToken = a} :: ListAgents)
 
@@ -107,20 +114,23 @@ instance Core.AWSPager ListAgents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAgentsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAgentsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAgentsResponse_agents Prelude.. Lens._Just
+            Lens.^? listAgentsResponse_agents
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAgents_nextToken
           Lens..~ rs
-          Lens.^? listAgentsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAgentsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAgents where
   type AWSResponse ListAgents = ListAgentsResponse
@@ -137,7 +147,8 @@ instance Core.AWSRequest ListAgents where
 
 instance Prelude.Hashable ListAgents where
   hashWithSalt _salt ListAgents' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAgents where
@@ -177,10 +188,12 @@ instance Data.ToQuery ListAgents where
 --
 -- /See:/ 'newListAgentsResponse' smart constructor.
 data ListAgentsResponse = ListAgentsResponse'
-  { -- | A list of agents in your account.
+  { -- | A list of DataSync agents in your Amazon Web Services account in the
+    -- Amazon Web Services Region specified in the request. The list is ordered
+    -- by the agents\' Amazon Resource Names (ARNs).
     agents :: Prelude.Maybe [AgentListEntry],
-    -- | An opaque string that indicates the position at which to begin returning
-    -- the next list of agents.
+    -- | The opaque string that indicates the position to begin the next list of
+    -- results in the response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -195,10 +208,12 @@ data ListAgentsResponse = ListAgentsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agents', 'listAgentsResponse_agents' - A list of agents in your account.
+-- 'agents', 'listAgentsResponse_agents' - A list of DataSync agents in your Amazon Web Services account in the
+-- Amazon Web Services Region specified in the request. The list is ordered
+-- by the agents\' Amazon Resource Names (ARNs).
 --
--- 'nextToken', 'listAgentsResponse_nextToken' - An opaque string that indicates the position at which to begin returning
--- the next list of agents.
+-- 'nextToken', 'listAgentsResponse_nextToken' - The opaque string that indicates the position to begin the next list of
+-- results in the response.
 --
 -- 'httpStatus', 'listAgentsResponse_httpStatus' - The response's http status code.
 newListAgentsResponse ::
@@ -212,12 +227,14 @@ newListAgentsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of agents in your account.
+-- | A list of DataSync agents in your Amazon Web Services account in the
+-- Amazon Web Services Region specified in the request. The list is ordered
+-- by the agents\' Amazon Resource Names (ARNs).
 listAgentsResponse_agents :: Lens.Lens' ListAgentsResponse (Prelude.Maybe [AgentListEntry])
 listAgentsResponse_agents = Lens.lens (\ListAgentsResponse' {agents} -> agents) (\s@ListAgentsResponse' {} a -> s {agents = a} :: ListAgentsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An opaque string that indicates the position at which to begin returning
--- the next list of agents.
+-- | The opaque string that indicates the position to begin the next list of
+-- results in the response.
 listAgentsResponse_nextToken :: Lens.Lens' ListAgentsResponse (Prelude.Maybe Prelude.Text)
 listAgentsResponse_nextToken = Lens.lens (\ListAgentsResponse' {nextToken} -> nextToken) (\s@ListAgentsResponse' {} a -> s {nextToken = a} :: ListAgentsResponse)
 

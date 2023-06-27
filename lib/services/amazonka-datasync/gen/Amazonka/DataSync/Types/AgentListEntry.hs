@@ -25,18 +25,19 @@ import qualified Amazonka.Data as Data
 import Amazonka.DataSync.Types.AgentStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a single entry in a list of agents. @AgentListEntry@ returns
--- an array that contains a list of agents when the
+-- | Represents a single entry in a list (or array) of DataSync agents when
+-- you call the
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html ListAgents>
--- operation is called.
+-- operation.
 --
 -- /See:/ 'newAgentListEntry' smart constructor.
 data AgentListEntry = AgentListEntry'
-  { -- | The Amazon Resource Name (ARN) of the agent.
+  { -- | The Amazon Resource Name (ARN) of a DataSync agent.
     agentArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the agent.
+    -- | The name of an agent.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The status of the agent.
+    -- | The status of an agent. For more information, see
+    -- <https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html DataSync agent statuses>.
     status :: Prelude.Maybe AgentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,11 +50,12 @@ data AgentListEntry = AgentListEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'agentArn', 'agentListEntry_agentArn' - The Amazon Resource Name (ARN) of the agent.
+-- 'agentArn', 'agentListEntry_agentArn' - The Amazon Resource Name (ARN) of a DataSync agent.
 --
--- 'name', 'agentListEntry_name' - The name of the agent.
+-- 'name', 'agentListEntry_name' - The name of an agent.
 --
--- 'status', 'agentListEntry_status' - The status of the agent.
+-- 'status', 'agentListEntry_status' - The status of an agent. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html DataSync agent statuses>.
 newAgentListEntry ::
   AgentListEntry
 newAgentListEntry =
@@ -63,15 +65,16 @@ newAgentListEntry =
       status = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the agent.
+-- | The Amazon Resource Name (ARN) of a DataSync agent.
 agentListEntry_agentArn :: Lens.Lens' AgentListEntry (Prelude.Maybe Prelude.Text)
 agentListEntry_agentArn = Lens.lens (\AgentListEntry' {agentArn} -> agentArn) (\s@AgentListEntry' {} a -> s {agentArn = a} :: AgentListEntry)
 
--- | The name of the agent.
+-- | The name of an agent.
 agentListEntry_name :: Lens.Lens' AgentListEntry (Prelude.Maybe Prelude.Text)
 agentListEntry_name = Lens.lens (\AgentListEntry' {name} -> name) (\s@AgentListEntry' {} a -> s {name = a} :: AgentListEntry)
 
--- | The status of the agent.
+-- | The status of an agent. For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/understand-agent-statuses.html DataSync agent statuses>.
 agentListEntry_status :: Lens.Lens' AgentListEntry (Prelude.Maybe AgentStatus)
 agentListEntry_status = Lens.lens (\AgentListEntry' {status} -> status) (\s@AgentListEntry' {} a -> s {status = a} :: AgentListEntry)
 
@@ -88,7 +91,8 @@ instance Data.FromJSON AgentListEntry where
 
 instance Prelude.Hashable AgentListEntry where
   hashWithSalt _salt AgentListEntry' {..} =
-    _salt `Prelude.hashWithSalt` agentArn
+    _salt
+      `Prelude.hashWithSalt` agentArn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

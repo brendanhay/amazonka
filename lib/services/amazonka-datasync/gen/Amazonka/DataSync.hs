@@ -41,6 +41,12 @@ module Amazonka.DataSync
     -- * Operations
     -- $operations
 
+    -- ** AddStorageSystem
+    AddStorageSystem (AddStorageSystem'),
+    newAddStorageSystem,
+    AddStorageSystemResponse (AddStorageSystemResponse'),
+    newAddStorageSystemResponse,
+
     -- ** CancelTaskExecution
     CancelTaskExecution (CancelTaskExecution'),
     newCancelTaskExecution,
@@ -143,6 +149,12 @@ module Amazonka.DataSync
     DescribeAgentResponse (DescribeAgentResponse'),
     newDescribeAgentResponse,
 
+    -- ** DescribeDiscoveryJob
+    DescribeDiscoveryJob (DescribeDiscoveryJob'),
+    newDescribeDiscoveryJob,
+    DescribeDiscoveryJobResponse (DescribeDiscoveryJobResponse'),
+    newDescribeDiscoveryJobResponse,
+
     -- ** DescribeLocationEfs
     DescribeLocationEfs (DescribeLocationEfs'),
     newDescribeLocationEfs,
@@ -203,6 +215,24 @@ module Amazonka.DataSync
     DescribeLocationSmbResponse (DescribeLocationSmbResponse'),
     newDescribeLocationSmbResponse,
 
+    -- ** DescribeStorageSystem
+    DescribeStorageSystem (DescribeStorageSystem'),
+    newDescribeStorageSystem,
+    DescribeStorageSystemResponse (DescribeStorageSystemResponse'),
+    newDescribeStorageSystemResponse,
+
+    -- ** DescribeStorageSystemResourceMetrics (Paginated)
+    DescribeStorageSystemResourceMetrics (DescribeStorageSystemResourceMetrics'),
+    newDescribeStorageSystemResourceMetrics,
+    DescribeStorageSystemResourceMetricsResponse (DescribeStorageSystemResourceMetricsResponse'),
+    newDescribeStorageSystemResourceMetricsResponse,
+
+    -- ** DescribeStorageSystemResources
+    DescribeStorageSystemResources (DescribeStorageSystemResources'),
+    newDescribeStorageSystemResources,
+    DescribeStorageSystemResourcesResponse (DescribeStorageSystemResourcesResponse'),
+    newDescribeStorageSystemResourcesResponse,
+
     -- ** DescribeTask
     DescribeTask (DescribeTask'),
     newDescribeTask,
@@ -215,17 +245,35 @@ module Amazonka.DataSync
     DescribeTaskExecutionResponse (DescribeTaskExecutionResponse'),
     newDescribeTaskExecutionResponse,
 
+    -- ** GenerateRecommendations
+    GenerateRecommendations (GenerateRecommendations'),
+    newGenerateRecommendations,
+    GenerateRecommendationsResponse (GenerateRecommendationsResponse'),
+    newGenerateRecommendationsResponse,
+
     -- ** ListAgents (Paginated)
     ListAgents (ListAgents'),
     newListAgents,
     ListAgentsResponse (ListAgentsResponse'),
     newListAgentsResponse,
 
+    -- ** ListDiscoveryJobs (Paginated)
+    ListDiscoveryJobs (ListDiscoveryJobs'),
+    newListDiscoveryJobs,
+    ListDiscoveryJobsResponse (ListDiscoveryJobsResponse'),
+    newListDiscoveryJobsResponse,
+
     -- ** ListLocations (Paginated)
     ListLocations (ListLocations'),
     newListLocations,
     ListLocationsResponse (ListLocationsResponse'),
     newListLocationsResponse,
+
+    -- ** ListStorageSystems (Paginated)
+    ListStorageSystems (ListStorageSystems'),
+    newListStorageSystems,
+    ListStorageSystemsResponse (ListStorageSystemsResponse'),
+    newListStorageSystemsResponse,
 
     -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),
@@ -245,11 +293,29 @@ module Amazonka.DataSync
     ListTasksResponse (ListTasksResponse'),
     newListTasksResponse,
 
+    -- ** RemoveStorageSystem
+    RemoveStorageSystem (RemoveStorageSystem'),
+    newRemoveStorageSystem,
+    RemoveStorageSystemResponse (RemoveStorageSystemResponse'),
+    newRemoveStorageSystemResponse,
+
+    -- ** StartDiscoveryJob
+    StartDiscoveryJob (StartDiscoveryJob'),
+    newStartDiscoveryJob,
+    StartDiscoveryJobResponse (StartDiscoveryJobResponse'),
+    newStartDiscoveryJobResponse,
+
     -- ** StartTaskExecution
     StartTaskExecution (StartTaskExecution'),
     newStartTaskExecution,
     StartTaskExecutionResponse (StartTaskExecutionResponse'),
     newStartTaskExecutionResponse,
+
+    -- ** StopDiscoveryJob
+    StopDiscoveryJob (StopDiscoveryJob'),
+    newStopDiscoveryJob,
+    StopDiscoveryJobResponse (StopDiscoveryJobResponse'),
+    newStopDiscoveryJobResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -268,6 +334,12 @@ module Amazonka.DataSync
     newUpdateAgent,
     UpdateAgentResponse (UpdateAgentResponse'),
     newUpdateAgentResponse,
+
+    -- ** UpdateDiscoveryJob
+    UpdateDiscoveryJob (UpdateDiscoveryJob'),
+    newUpdateDiscoveryJob,
+    UpdateDiscoveryJobResponse (UpdateDiscoveryJobResponse'),
+    newUpdateDiscoveryJobResponse,
 
     -- ** UpdateLocationHdfs
     UpdateLocationHdfs (UpdateLocationHdfs'),
@@ -293,6 +365,12 @@ module Amazonka.DataSync
     UpdateLocationSmbResponse (UpdateLocationSmbResponse'),
     newUpdateLocationSmbResponse,
 
+    -- ** UpdateStorageSystem
+    UpdateStorageSystem (UpdateStorageSystem'),
+    newUpdateStorageSystem,
+    UpdateStorageSystemResponse (UpdateStorageSystemResponse'),
+    newUpdateStorageSystemResponse,
+
     -- ** UpdateTask
     UpdateTask (UpdateTask'),
     newUpdateTask,
@@ -312,6 +390,18 @@ module Amazonka.DataSync
 
     -- ** Atime
     Atime (..),
+
+    -- ** DiscoveryJobStatus
+    DiscoveryJobStatus (..),
+
+    -- ** DiscoveryResourceFilter
+    DiscoveryResourceFilter (..),
+
+    -- ** DiscoveryResourceType
+    DiscoveryResourceType (..),
+
+    -- ** DiscoverySystemType
+    DiscoverySystemType (..),
 
     -- ** EfsInTransitEncryption
     EfsInTransitEncryption (..),
@@ -370,6 +460,9 @@ module Amazonka.DataSync
     -- ** PreserveDevices
     PreserveDevices (..),
 
+    -- ** RecommendationStatus
+    RecommendationStatus (..),
+
     -- ** S3StorageClass
     S3StorageClass (..),
 
@@ -378,6 +471,9 @@ module Amazonka.DataSync
 
     -- ** SmbVersion
     SmbVersion (..),
+
+    -- ** StorageSystemConnectivityStatus
+    StorageSystemConnectivityStatus (..),
 
     -- ** TaskExecutionStatus
     TaskExecutionStatus (..),
@@ -404,6 +500,22 @@ module Amazonka.DataSync
     AgentListEntry (AgentListEntry'),
     newAgentListEntry,
 
+    -- ** Capacity
+    Capacity (Capacity'),
+    newCapacity,
+
+    -- ** Credentials
+    Credentials (Credentials'),
+    newCredentials,
+
+    -- ** DiscoveryJobListEntry
+    DiscoveryJobListEntry (DiscoveryJobListEntry'),
+    newDiscoveryJobListEntry,
+
+    -- ** DiscoveryServerConfiguration
+    DiscoveryServerConfiguration (DiscoveryServerConfiguration'),
+    newDiscoveryServerConfiguration,
+
     -- ** Ec2Config
     Ec2Config (Ec2Config'),
     newEc2Config,
@@ -428,6 +540,14 @@ module Amazonka.DataSync
     HdfsNameNode (HdfsNameNode'),
     newHdfsNameNode,
 
+    -- ** IOPS
+    IOPS (IOPS'),
+    newIOPS,
+
+    -- ** Latency
+    Latency (Latency'),
+    newLatency,
+
     -- ** LocationFilter
     LocationFilter (LocationFilter'),
     newLocationFilter,
@@ -435,6 +555,22 @@ module Amazonka.DataSync
     -- ** LocationListEntry
     LocationListEntry (LocationListEntry'),
     newLocationListEntry,
+
+    -- ** MaxP95Performance
+    MaxP95Performance (MaxP95Performance'),
+    newMaxP95Performance,
+
+    -- ** NetAppONTAPCluster
+    NetAppONTAPCluster (NetAppONTAPCluster'),
+    newNetAppONTAPCluster,
+
+    -- ** NetAppONTAPSVM
+    NetAppONTAPSVM (NetAppONTAPSVM'),
+    newNetAppONTAPSVM,
+
+    -- ** NetAppONTAPVolume
+    NetAppONTAPVolume (NetAppONTAPVolume'),
+    newNetAppONTAPVolume,
 
     -- ** NfsMountOptions
     NfsMountOptions (NfsMountOptions'),
@@ -448,6 +584,10 @@ module Amazonka.DataSync
     Options (Options'),
     newOptions,
 
+    -- ** P95Metrics
+    P95Metrics (P95Metrics'),
+    newP95Metrics,
+
     -- ** PrivateLinkConfig
     PrivateLinkConfig (PrivateLinkConfig'),
     newPrivateLinkConfig,
@@ -456,6 +596,18 @@ module Amazonka.DataSync
     QopConfiguration (QopConfiguration'),
     newQopConfiguration,
 
+    -- ** Recommendation
+    Recommendation (Recommendation'),
+    newRecommendation,
+
+    -- ** ResourceDetails
+    ResourceDetails (ResourceDetails'),
+    newResourceDetails,
+
+    -- ** ResourceMetrics
+    ResourceMetrics (ResourceMetrics'),
+    newResourceMetrics,
+
     -- ** S3Config
     S3Config (S3Config'),
     newS3Config,
@@ -463,6 +615,10 @@ module Amazonka.DataSync
     -- ** SmbMountOptions
     SmbMountOptions (SmbMountOptions'),
     newSmbMountOptions,
+
+    -- ** StorageSystemListEntry
+    StorageSystemListEntry (StorageSystemListEntry'),
+    newStorageSystemListEntry,
 
     -- ** TagListEntry
     TagListEntry (TagListEntry'),
@@ -487,9 +643,14 @@ module Amazonka.DataSync
     -- ** TaskSchedule
     TaskSchedule (TaskSchedule'),
     newTaskSchedule,
+
+    -- ** Throughput
+    Throughput (Throughput'),
+    newThroughput,
   )
 where
 
+import Amazonka.DataSync.AddStorageSystem
 import Amazonka.DataSync.CancelTaskExecution
 import Amazonka.DataSync.CreateAgent
 import Amazonka.DataSync.CreateLocationEfs
@@ -507,6 +668,7 @@ import Amazonka.DataSync.DeleteAgent
 import Amazonka.DataSync.DeleteLocation
 import Amazonka.DataSync.DeleteTask
 import Amazonka.DataSync.DescribeAgent
+import Amazonka.DataSync.DescribeDiscoveryJob
 import Amazonka.DataSync.DescribeLocationEfs
 import Amazonka.DataSync.DescribeLocationFsxLustre
 import Amazonka.DataSync.DescribeLocationFsxOntap
@@ -517,23 +679,34 @@ import Amazonka.DataSync.DescribeLocationNfs
 import Amazonka.DataSync.DescribeLocationObjectStorage
 import Amazonka.DataSync.DescribeLocationS3
 import Amazonka.DataSync.DescribeLocationSmb
+import Amazonka.DataSync.DescribeStorageSystem
+import Amazonka.DataSync.DescribeStorageSystemResourceMetrics
+import Amazonka.DataSync.DescribeStorageSystemResources
 import Amazonka.DataSync.DescribeTask
 import Amazonka.DataSync.DescribeTaskExecution
+import Amazonka.DataSync.GenerateRecommendations
 import Amazonka.DataSync.Lens
 import Amazonka.DataSync.ListAgents
+import Amazonka.DataSync.ListDiscoveryJobs
 import Amazonka.DataSync.ListLocations
+import Amazonka.DataSync.ListStorageSystems
 import Amazonka.DataSync.ListTagsForResource
 import Amazonka.DataSync.ListTaskExecutions
 import Amazonka.DataSync.ListTasks
+import Amazonka.DataSync.RemoveStorageSystem
+import Amazonka.DataSync.StartDiscoveryJob
 import Amazonka.DataSync.StartTaskExecution
+import Amazonka.DataSync.StopDiscoveryJob
 import Amazonka.DataSync.TagResource
 import Amazonka.DataSync.Types
 import Amazonka.DataSync.UntagResource
 import Amazonka.DataSync.UpdateAgent
+import Amazonka.DataSync.UpdateDiscoveryJob
 import Amazonka.DataSync.UpdateLocationHdfs
 import Amazonka.DataSync.UpdateLocationNfs
 import Amazonka.DataSync.UpdateLocationObjectStorage
 import Amazonka.DataSync.UpdateLocationSmb
+import Amazonka.DataSync.UpdateStorageSystem
 import Amazonka.DataSync.UpdateTask
 import Amazonka.DataSync.UpdateTaskExecution
 import Amazonka.DataSync.Waiters

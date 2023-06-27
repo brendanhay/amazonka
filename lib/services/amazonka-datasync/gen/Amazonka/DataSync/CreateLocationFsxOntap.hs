@@ -55,8 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateLocationFsxOntap' smart constructor.
 data CreateLocationFsxOntap = CreateLocationFsxOntap'
-  { -- | Specifies the junction path (also known as a mount point) in the SVM
-    -- volume where you\'re copying data to or from (for example, @\/vol1@).
+  { -- | Specifies a path to the file share in the SVM where you\'ll copy your
+    -- data.
+    --
+    -- You can specify a junction path (also known as a mount point), qtree
+    -- path (for NFS file shares), or share name (for SMB file shares). For
+    -- example, your mount path might be @\/vol1@, @\/vol1\/tree1@, or
+    -- @\/share1@.
     --
     -- Don\'t specify a junction path in the SVM\'s root volume. For more
     -- information, see
@@ -81,8 +86,8 @@ data CreateLocationFsxOntap = CreateLocationFsxOntap'
     -- Your file system\'s security groups must also allow inbound traffic on
     -- the same ports.
     securityGroupArns :: Prelude.NonEmpty Prelude.Text,
-    -- | Specifies the ARN of the storage virtual machine (SVM) on your file
-    -- system where you\'re copying data to or from.
+    -- | Specifies the ARN of the storage virtual machine (SVM) in your file
+    -- system where you want to copy data to or from.
     storageVirtualMachineArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -95,8 +100,13 @@ data CreateLocationFsxOntap = CreateLocationFsxOntap'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subdirectory', 'createLocationFsxOntap_subdirectory' - Specifies the junction path (also known as a mount point) in the SVM
--- volume where you\'re copying data to or from (for example, @\/vol1@).
+-- 'subdirectory', 'createLocationFsxOntap_subdirectory' - Specifies a path to the file share in the SVM where you\'ll copy your
+-- data.
+--
+-- You can specify a junction path (also known as a mount point), qtree
+-- path (for NFS file shares), or share name (for SMB file shares). For
+-- example, your mount path might be @\/vol1@, @\/vol1\/tree1@, or
+-- @\/share1@.
 --
 -- Don\'t specify a junction path in the SVM\'s root volume. For more
 -- information, see
@@ -122,8 +132,8 @@ data CreateLocationFsxOntap = CreateLocationFsxOntap'
 -- Your file system\'s security groups must also allow inbound traffic on
 -- the same ports.
 --
--- 'storageVirtualMachineArn', 'createLocationFsxOntap_storageVirtualMachineArn' - Specifies the ARN of the storage virtual machine (SVM) on your file
--- system where you\'re copying data to or from.
+-- 'storageVirtualMachineArn', 'createLocationFsxOntap_storageVirtualMachineArn' - Specifies the ARN of the storage virtual machine (SVM) in your file
+-- system where you want to copy data to or from.
 newCreateLocationFsxOntap ::
   -- | 'protocol'
   FsxProtocol ->
@@ -147,8 +157,13 @@ newCreateLocationFsxOntap
           pStorageVirtualMachineArn_
       }
 
--- | Specifies the junction path (also known as a mount point) in the SVM
--- volume where you\'re copying data to or from (for example, @\/vol1@).
+-- | Specifies a path to the file share in the SVM where you\'ll copy your
+-- data.
+--
+-- You can specify a junction path (also known as a mount point), qtree
+-- path (for NFS file shares), or share name (for SMB file shares). For
+-- example, your mount path might be @\/vol1@, @\/vol1\/tree1@, or
+-- @\/share1@.
 --
 -- Don\'t specify a junction path in the SVM\'s root volume. For more
 -- information, see
@@ -182,8 +197,8 @@ createLocationFsxOntap_protocol = Lens.lens (\CreateLocationFsxOntap' {protocol}
 createLocationFsxOntap_securityGroupArns :: Lens.Lens' CreateLocationFsxOntap (Prelude.NonEmpty Prelude.Text)
 createLocationFsxOntap_securityGroupArns = Lens.lens (\CreateLocationFsxOntap' {securityGroupArns} -> securityGroupArns) (\s@CreateLocationFsxOntap' {} a -> s {securityGroupArns = a} :: CreateLocationFsxOntap) Prelude.. Lens.coerced
 
--- | Specifies the ARN of the storage virtual machine (SVM) on your file
--- system where you\'re copying data to or from.
+-- | Specifies the ARN of the storage virtual machine (SVM) in your file
+-- system where you want to copy data to or from.
 createLocationFsxOntap_storageVirtualMachineArn :: Lens.Lens' CreateLocationFsxOntap Prelude.Text
 createLocationFsxOntap_storageVirtualMachineArn = Lens.lens (\CreateLocationFsxOntap' {storageVirtualMachineArn} -> storageVirtualMachineArn) (\s@CreateLocationFsxOntap' {} a -> s {storageVirtualMachineArn = a} :: CreateLocationFsxOntap)
 
@@ -203,7 +218,8 @@ instance Core.AWSRequest CreateLocationFsxOntap where
 
 instance Prelude.Hashable CreateLocationFsxOntap where
   hashWithSalt _salt CreateLocationFsxOntap' {..} =
-    _salt `Prelude.hashWithSalt` subdirectory
+    _salt
+      `Prelude.hashWithSalt` subdirectory
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` securityGroupArns

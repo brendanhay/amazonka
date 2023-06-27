@@ -26,6 +26,12 @@
 -- A task includes a source location, a destination location, and the
 -- preferences for how and when you want to transfer your data (such as
 -- bandwidth limits, scheduling, among other options).
+--
+-- If you\'re planning to transfer data to or from an Amazon S3 location,
+-- review
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests how DataSync can affect your S3 request charges>
+-- and the <http://aws.amazon.com/datasync/pricing/ DataSync pricing page>
+-- before you begin.
 module Amazonka.DataSync.CreateTask
   ( -- * Creating a Request
     CreateTask (..),
@@ -239,7 +245,8 @@ instance Core.AWSRequest CreateTask where
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupArn
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` name

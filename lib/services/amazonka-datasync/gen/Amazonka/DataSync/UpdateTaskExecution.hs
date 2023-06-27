@@ -20,14 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates execution of a task.
+-- Modifies a running DataSync task.
 --
--- You can modify bandwidth throttling for a task execution that is running
--- or queued. For more information, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling Adjusting Bandwidth Throttling for a Task Execution>.
---
--- The only @Option@ that can be modified by @UpdateTaskExecution@ is
--- @ BytesPerSecond @.
+-- Currently, the only @Option@ that you can modify with
+-- @UpdateTaskExecution@ is
+-- @ @<https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond BytesPerSecond>@ @,
+-- which throttles bandwidth for a running or queued task.
 module Amazonka.DataSync.UpdateTaskExecution
   ( -- * Creating a Request
     UpdateTaskExecution (..),
@@ -56,8 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateTaskExecution' smart constructor.
 data UpdateTaskExecution = UpdateTaskExecution'
-  { -- | The Amazon Resource Name (ARN) of the specific task execution that is
-    -- being updated.
+  { -- | Specifies the Amazon Resource Name (ARN) of the task execution that
+    -- you\'re updating.
     taskExecutionArn :: Prelude.Text,
     options :: Options
   }
@@ -71,8 +69,8 @@ data UpdateTaskExecution = UpdateTaskExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskExecutionArn', 'updateTaskExecution_taskExecutionArn' - The Amazon Resource Name (ARN) of the specific task execution that is
--- being updated.
+-- 'taskExecutionArn', 'updateTaskExecution_taskExecutionArn' - Specifies the Amazon Resource Name (ARN) of the task execution that
+-- you\'re updating.
 --
 -- 'options', 'updateTaskExecution_options' - Undocumented member.
 newUpdateTaskExecution ::
@@ -88,8 +86,8 @@ newUpdateTaskExecution pTaskExecutionArn_ pOptions_ =
       options = pOptions_
     }
 
--- | The Amazon Resource Name (ARN) of the specific task execution that is
--- being updated.
+-- | Specifies the Amazon Resource Name (ARN) of the task execution that
+-- you\'re updating.
 updateTaskExecution_taskExecutionArn :: Lens.Lens' UpdateTaskExecution Prelude.Text
 updateTaskExecution_taskExecutionArn = Lens.lens (\UpdateTaskExecution' {taskExecutionArn} -> taskExecutionArn) (\s@UpdateTaskExecution' {} a -> s {taskExecutionArn = a} :: UpdateTaskExecution)
 
@@ -112,7 +110,8 @@ instance Core.AWSRequest UpdateTaskExecution where
 
 instance Prelude.Hashable UpdateTaskExecution where
   hashWithSalt _salt UpdateTaskExecution' {..} =
-    _salt `Prelude.hashWithSalt` taskExecutionArn
+    _salt
+      `Prelude.hashWithSalt` taskExecutionArn
       `Prelude.hashWithSalt` options
 
 instance Prelude.NFData UpdateTaskExecution where

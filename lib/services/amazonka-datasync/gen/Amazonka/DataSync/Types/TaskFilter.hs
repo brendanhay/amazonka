@@ -97,7 +97,8 @@ taskFilter_operator = Lens.lens (\TaskFilter' {operator} -> operator) (\s@TaskFi
 
 instance Prelude.Hashable TaskFilter where
   hashWithSalt _salt TaskFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

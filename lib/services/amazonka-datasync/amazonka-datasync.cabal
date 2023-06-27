@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.DataSync
+    Amazonka.DataSync.AddStorageSystem
     Amazonka.DataSync.CancelTaskExecution
     Amazonka.DataSync.CreateAgent
     Amazonka.DataSync.CreateLocationEfs
@@ -61,6 +62,7 @@ library
     Amazonka.DataSync.DeleteLocation
     Amazonka.DataSync.DeleteTask
     Amazonka.DataSync.DescribeAgent
+    Amazonka.DataSync.DescribeDiscoveryJob
     Amazonka.DataSync.DescribeLocationEfs
     Amazonka.DataSync.DescribeLocationFsxLustre
     Amazonka.DataSync.DescribeLocationFsxOntap
@@ -71,20 +73,37 @@ library
     Amazonka.DataSync.DescribeLocationObjectStorage
     Amazonka.DataSync.DescribeLocationS3
     Amazonka.DataSync.DescribeLocationSmb
+    Amazonka.DataSync.DescribeStorageSystem
+    Amazonka.DataSync.DescribeStorageSystemResourceMetrics
+    Amazonka.DataSync.DescribeStorageSystemResources
     Amazonka.DataSync.DescribeTask
     Amazonka.DataSync.DescribeTaskExecution
+    Amazonka.DataSync.GenerateRecommendations
     Amazonka.DataSync.Lens
     Amazonka.DataSync.ListAgents
+    Amazonka.DataSync.ListDiscoveryJobs
     Amazonka.DataSync.ListLocations
+    Amazonka.DataSync.ListStorageSystems
     Amazonka.DataSync.ListTagsForResource
     Amazonka.DataSync.ListTaskExecutions
     Amazonka.DataSync.ListTasks
+    Amazonka.DataSync.RemoveStorageSystem
+    Amazonka.DataSync.StartDiscoveryJob
     Amazonka.DataSync.StartTaskExecution
+    Amazonka.DataSync.StopDiscoveryJob
     Amazonka.DataSync.TagResource
     Amazonka.DataSync.Types
     Amazonka.DataSync.Types.AgentListEntry
     Amazonka.DataSync.Types.AgentStatus
     Amazonka.DataSync.Types.Atime
+    Amazonka.DataSync.Types.Capacity
+    Amazonka.DataSync.Types.Credentials
+    Amazonka.DataSync.Types.DiscoveryJobListEntry
+    Amazonka.DataSync.Types.DiscoveryJobStatus
+    Amazonka.DataSync.Types.DiscoveryResourceFilter
+    Amazonka.DataSync.Types.DiscoveryResourceType
+    Amazonka.DataSync.Types.DiscoveryServerConfiguration
+    Amazonka.DataSync.Types.DiscoverySystemType
     Amazonka.DataSync.Types.Ec2Config
     Amazonka.DataSync.Types.EfsInTransitEncryption
     Amazonka.DataSync.Types.EndpointType
@@ -98,11 +117,17 @@ library
     Amazonka.DataSync.Types.HdfsDataTransferProtection
     Amazonka.DataSync.Types.HdfsNameNode
     Amazonka.DataSync.Types.HdfsRpcProtection
+    Amazonka.DataSync.Types.IOPS
+    Amazonka.DataSync.Types.Latency
     Amazonka.DataSync.Types.LocationFilter
     Amazonka.DataSync.Types.LocationFilterName
     Amazonka.DataSync.Types.LocationListEntry
     Amazonka.DataSync.Types.LogLevel
+    Amazonka.DataSync.Types.MaxP95Performance
     Amazonka.DataSync.Types.Mtime
+    Amazonka.DataSync.Types.NetAppONTAPCluster
+    Amazonka.DataSync.Types.NetAppONTAPSVM
+    Amazonka.DataSync.Types.NetAppONTAPVolume
     Amazonka.DataSync.Types.NfsMountOptions
     Amazonka.DataSync.Types.NfsVersion
     Amazonka.DataSync.Types.ObjectStorageServerProtocol
@@ -111,17 +136,24 @@ library
     Amazonka.DataSync.Types.Operator
     Amazonka.DataSync.Types.Options
     Amazonka.DataSync.Types.OverwriteMode
+    Amazonka.DataSync.Types.P95Metrics
     Amazonka.DataSync.Types.PhaseStatus
     Amazonka.DataSync.Types.PosixPermissions
     Amazonka.DataSync.Types.PreserveDeletedFiles
     Amazonka.DataSync.Types.PreserveDevices
     Amazonka.DataSync.Types.PrivateLinkConfig
     Amazonka.DataSync.Types.QopConfiguration
+    Amazonka.DataSync.Types.Recommendation
+    Amazonka.DataSync.Types.RecommendationStatus
+    Amazonka.DataSync.Types.ResourceDetails
+    Amazonka.DataSync.Types.ResourceMetrics
     Amazonka.DataSync.Types.S3Config
     Amazonka.DataSync.Types.S3StorageClass
     Amazonka.DataSync.Types.SmbMountOptions
     Amazonka.DataSync.Types.SmbSecurityDescriptorCopyFlags
     Amazonka.DataSync.Types.SmbVersion
+    Amazonka.DataSync.Types.StorageSystemConnectivityStatus
+    Amazonka.DataSync.Types.StorageSystemListEntry
     Amazonka.DataSync.Types.TagListEntry
     Amazonka.DataSync.Types.TaskExecutionListEntry
     Amazonka.DataSync.Types.TaskExecutionResultDetail
@@ -132,15 +164,18 @@ library
     Amazonka.DataSync.Types.TaskQueueing
     Amazonka.DataSync.Types.TaskSchedule
     Amazonka.DataSync.Types.TaskStatus
+    Amazonka.DataSync.Types.Throughput
     Amazonka.DataSync.Types.TransferMode
     Amazonka.DataSync.Types.Uid
     Amazonka.DataSync.Types.VerifyMode
     Amazonka.DataSync.UntagResource
     Amazonka.DataSync.UpdateAgent
+    Amazonka.DataSync.UpdateDiscoveryJob
     Amazonka.DataSync.UpdateLocationHdfs
     Amazonka.DataSync.UpdateLocationNfs
     Amazonka.DataSync.UpdateLocationObjectStorage
     Amazonka.DataSync.UpdateLocationSmb
+    Amazonka.DataSync.UpdateStorageSystem
     Amazonka.DataSync.UpdateTask
     Amazonka.DataSync.UpdateTaskExecution
     Amazonka.DataSync.Waiters

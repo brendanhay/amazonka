@@ -89,7 +89,8 @@ instance Data.FromJSON TaskListEntry where
 
 instance Prelude.Hashable TaskListEntry where
   hashWithSalt _salt TaskListEntry' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` taskArn
 

@@ -14,6 +14,18 @@
 module Amazonka.DataSync.Lens
   ( -- * Operations
 
+    -- ** AddStorageSystem
+    addStorageSystem_cloudWatchLogGroupArn,
+    addStorageSystem_name,
+    addStorageSystem_tags,
+    addStorageSystem_serverConfiguration,
+    addStorageSystem_systemType,
+    addStorageSystem_agentArns,
+    addStorageSystem_clientToken,
+    addStorageSystem_credentials,
+    addStorageSystemResponse_httpStatus,
+    addStorageSystemResponse_storageSystemArn,
+
     -- ** CancelTaskExecution
     cancelTaskExecution_taskExecutionArn,
     cancelTaskExecutionResponse_httpStatus,
@@ -174,6 +186,16 @@ module Amazonka.DataSync.Lens
     describeAgentResponse_status,
     describeAgentResponse_httpStatus,
 
+    -- ** DescribeDiscoveryJob
+    describeDiscoveryJob_discoveryJobArn,
+    describeDiscoveryJobResponse_collectionDurationMinutes,
+    describeDiscoveryJobResponse_discoveryJobArn,
+    describeDiscoveryJobResponse_jobEndTime,
+    describeDiscoveryJobResponse_jobStartTime,
+    describeDiscoveryJobResponse_status,
+    describeDiscoveryJobResponse_storageSystemArn,
+    describeDiscoveryJobResponse_httpStatus,
+
     -- ** DescribeLocationEfs
     describeLocationEfs_locationArn,
     describeLocationEfsResponse_accessPointArn,
@@ -281,6 +303,43 @@ module Amazonka.DataSync.Lens
     describeLocationSmbResponse_user,
     describeLocationSmbResponse_httpStatus,
 
+    -- ** DescribeStorageSystem
+    describeStorageSystem_storageSystemArn,
+    describeStorageSystemResponse_agentArns,
+    describeStorageSystemResponse_cloudWatchLogGroupArn,
+    describeStorageSystemResponse_connectivityStatus,
+    describeStorageSystemResponse_creationTime,
+    describeStorageSystemResponse_errorMessage,
+    describeStorageSystemResponse_name,
+    describeStorageSystemResponse_secretsManagerArn,
+    describeStorageSystemResponse_serverConfiguration,
+    describeStorageSystemResponse_storageSystemArn,
+    describeStorageSystemResponse_systemType,
+    describeStorageSystemResponse_httpStatus,
+
+    -- ** DescribeStorageSystemResourceMetrics
+    describeStorageSystemResourceMetrics_endTime,
+    describeStorageSystemResourceMetrics_maxResults,
+    describeStorageSystemResourceMetrics_nextToken,
+    describeStorageSystemResourceMetrics_startTime,
+    describeStorageSystemResourceMetrics_discoveryJobArn,
+    describeStorageSystemResourceMetrics_resourceType,
+    describeStorageSystemResourceMetrics_resourceId,
+    describeStorageSystemResourceMetricsResponse_metrics,
+    describeStorageSystemResourceMetricsResponse_nextToken,
+    describeStorageSystemResourceMetricsResponse_httpStatus,
+
+    -- ** DescribeStorageSystemResources
+    describeStorageSystemResources_filter,
+    describeStorageSystemResources_maxResults,
+    describeStorageSystemResources_nextToken,
+    describeStorageSystemResources_resourceIds,
+    describeStorageSystemResources_discoveryJobArn,
+    describeStorageSystemResources_resourceType,
+    describeStorageSystemResourcesResponse_nextToken,
+    describeStorageSystemResourcesResponse_resourceDetails,
+    describeStorageSystemResourcesResponse_httpStatus,
+
     -- ** DescribeTask
     describeTask_taskArn,
     describeTaskResponse_cloudWatchLogGroupArn,
@@ -318,12 +377,26 @@ module Amazonka.DataSync.Lens
     describeTaskExecutionResponse_taskExecutionArn,
     describeTaskExecutionResponse_httpStatus,
 
+    -- ** GenerateRecommendations
+    generateRecommendations_discoveryJobArn,
+    generateRecommendations_resourceIds,
+    generateRecommendations_resourceType,
+    generateRecommendationsResponse_httpStatus,
+
     -- ** ListAgents
     listAgents_maxResults,
     listAgents_nextToken,
     listAgentsResponse_agents,
     listAgentsResponse_nextToken,
     listAgentsResponse_httpStatus,
+
+    -- ** ListDiscoveryJobs
+    listDiscoveryJobs_maxResults,
+    listDiscoveryJobs_nextToken,
+    listDiscoveryJobs_storageSystemArn,
+    listDiscoveryJobsResponse_discoveryJobs,
+    listDiscoveryJobsResponse_nextToken,
+    listDiscoveryJobsResponse_httpStatus,
 
     -- ** ListLocations
     listLocations_filters,
@@ -332,6 +405,13 @@ module Amazonka.DataSync.Lens
     listLocationsResponse_locations,
     listLocationsResponse_nextToken,
     listLocationsResponse_httpStatus,
+
+    -- ** ListStorageSystems
+    listStorageSystems_maxResults,
+    listStorageSystems_nextToken,
+    listStorageSystemsResponse_nextToken,
+    listStorageSystemsResponse_storageSystems,
+    listStorageSystemsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_maxResults,
@@ -357,6 +437,18 @@ module Amazonka.DataSync.Lens
     listTasksResponse_tasks,
     listTasksResponse_httpStatus,
 
+    -- ** RemoveStorageSystem
+    removeStorageSystem_storageSystemArn,
+    removeStorageSystemResponse_httpStatus,
+
+    -- ** StartDiscoveryJob
+    startDiscoveryJob_tags,
+    startDiscoveryJob_storageSystemArn,
+    startDiscoveryJob_collectionDurationMinutes,
+    startDiscoveryJob_clientToken,
+    startDiscoveryJobResponse_discoveryJobArn,
+    startDiscoveryJobResponse_httpStatus,
+
     -- ** StartTaskExecution
     startTaskExecution_excludes,
     startTaskExecution_includes,
@@ -365,6 +457,10 @@ module Amazonka.DataSync.Lens
     startTaskExecution_taskArn,
     startTaskExecutionResponse_taskExecutionArn,
     startTaskExecutionResponse_httpStatus,
+
+    -- ** StopDiscoveryJob
+    stopDiscoveryJob_discoveryJobArn,
+    stopDiscoveryJobResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -380,6 +476,11 @@ module Amazonka.DataSync.Lens
     updateAgent_name,
     updateAgent_agentArn,
     updateAgentResponse_httpStatus,
+
+    -- ** UpdateDiscoveryJob
+    updateDiscoveryJob_discoveryJobArn,
+    updateDiscoveryJob_collectionDurationMinutes,
+    updateDiscoveryJobResponse_httpStatus,
 
     -- ** UpdateLocationHdfs
     updateLocationHdfs_agentArns,
@@ -425,6 +526,15 @@ module Amazonka.DataSync.Lens
     updateLocationSmb_locationArn,
     updateLocationSmbResponse_httpStatus,
 
+    -- ** UpdateStorageSystem
+    updateStorageSystem_agentArns,
+    updateStorageSystem_cloudWatchLogGroupArn,
+    updateStorageSystem_credentials,
+    updateStorageSystem_name,
+    updateStorageSystem_serverConfiguration,
+    updateStorageSystem_storageSystemArn,
+    updateStorageSystemResponse_httpStatus,
+
     -- ** UpdateTask
     updateTask_cloudWatchLogGroupArn,
     updateTask_excludes,
@@ -446,6 +556,23 @@ module Amazonka.DataSync.Lens
     agentListEntry_agentArn,
     agentListEntry_name,
     agentListEntry_status,
+
+    -- ** Capacity
+    capacity_logicalUsed,
+    capacity_provisioned,
+    capacity_used,
+
+    -- ** Credentials
+    credentials_username,
+    credentials_password,
+
+    -- ** DiscoveryJobListEntry
+    discoveryJobListEntry_discoveryJobArn,
+    discoveryJobListEntry_status,
+
+    -- ** DiscoveryServerConfiguration
+    discoveryServerConfiguration_serverPort,
+    discoveryServerConfiguration_serverHostname,
 
     -- ** Ec2Config
     ec2Config_subnetArn,
@@ -472,6 +599,17 @@ module Amazonka.DataSync.Lens
     hdfsNameNode_hostname,
     hdfsNameNode_port,
 
+    -- ** IOPS
+    iops_other,
+    iops_read,
+    iops_total,
+    iops_write,
+
+    -- ** Latency
+    latency_other,
+    latency_read,
+    latency_write,
+
     -- ** LocationFilter
     locationFilter_name,
     locationFilter_values,
@@ -480,6 +618,62 @@ module Amazonka.DataSync.Lens
     -- ** LocationListEntry
     locationListEntry_locationArn,
     locationListEntry_locationUri,
+
+    -- ** MaxP95Performance
+    maxP95Performance_iopsOther,
+    maxP95Performance_iopsRead,
+    maxP95Performance_iopsTotal,
+    maxP95Performance_iopsWrite,
+    maxP95Performance_latencyOther,
+    maxP95Performance_latencyRead,
+    maxP95Performance_latencyWrite,
+    maxP95Performance_throughputOther,
+    maxP95Performance_throughputRead,
+    maxP95Performance_throughputTotal,
+    maxP95Performance_throughputWrite,
+
+    -- ** NetAppONTAPCluster
+    netAppONTAPCluster_cifsShareCount,
+    netAppONTAPCluster_clusterBlockStorageLogicalUsed,
+    netAppONTAPCluster_clusterBlockStorageSize,
+    netAppONTAPCluster_clusterBlockStorageUsed,
+    netAppONTAPCluster_clusterName,
+    netAppONTAPCluster_maxP95Performance,
+    netAppONTAPCluster_nfsExportedVolumes,
+    netAppONTAPCluster_recommendationStatus,
+    netAppONTAPCluster_recommendations,
+    netAppONTAPCluster_resourceId,
+
+    -- ** NetAppONTAPSVM
+    netAppONTAPSVM_cifsShareCount,
+    netAppONTAPSVM_clusterUuid,
+    netAppONTAPSVM_enabledProtocols,
+    netAppONTAPSVM_maxP95Performance,
+    netAppONTAPSVM_nfsExportedVolumes,
+    netAppONTAPSVM_recommendationStatus,
+    netAppONTAPSVM_recommendations,
+    netAppONTAPSVM_resourceId,
+    netAppONTAPSVM_svmName,
+    netAppONTAPSVM_totalCapacityProvisioned,
+    netAppONTAPSVM_totalCapacityUsed,
+    netAppONTAPSVM_totalLogicalCapacityUsed,
+    netAppONTAPSVM_totalSnapshotCapacityUsed,
+
+    -- ** NetAppONTAPVolume
+    netAppONTAPVolume_capacityProvisioned,
+    netAppONTAPVolume_capacityUsed,
+    netAppONTAPVolume_cifsShareCount,
+    netAppONTAPVolume_logicalCapacityUsed,
+    netAppONTAPVolume_maxP95Performance,
+    netAppONTAPVolume_nfsExported,
+    netAppONTAPVolume_recommendationStatus,
+    netAppONTAPVolume_recommendations,
+    netAppONTAPVolume_resourceId,
+    netAppONTAPVolume_securityStyle,
+    netAppONTAPVolume_snapshotCapacityUsed,
+    netAppONTAPVolume_svmName,
+    netAppONTAPVolume_svmUuid,
+    netAppONTAPVolume_volumeName,
 
     -- ** NfsMountOptions
     nfsMountOptions_version,
@@ -504,6 +698,11 @@ module Amazonka.DataSync.Lens
     options_uid,
     options_verifyMode,
 
+    -- ** P95Metrics
+    p95Metrics_iops,
+    p95Metrics_latency,
+    p95Metrics_throughput,
+
     -- ** PrivateLinkConfig
     privateLinkConfig_privateLinkEndpoint,
     privateLinkConfig_securityGroupArns,
@@ -514,11 +713,32 @@ module Amazonka.DataSync.Lens
     qopConfiguration_dataTransferProtection,
     qopConfiguration_rpcProtection,
 
+    -- ** Recommendation
+    recommendation_estimatedMonthlyStorageCost,
+    recommendation_storageConfiguration,
+    recommendation_storageType,
+
+    -- ** ResourceDetails
+    resourceDetails_netAppONTAPClusters,
+    resourceDetails_netAppONTAPSVMs,
+    resourceDetails_netAppONTAPVolumes,
+
+    -- ** ResourceMetrics
+    resourceMetrics_capacity,
+    resourceMetrics_p95Metrics,
+    resourceMetrics_resourceId,
+    resourceMetrics_resourceType,
+    resourceMetrics_timestamp,
+
     -- ** S3Config
     s3Config_bucketAccessRoleArn,
 
     -- ** SmbMountOptions
     smbMountOptions_version,
+
+    -- ** StorageSystemListEntry
+    storageSystemListEntry_name,
+    storageSystemListEntry_storageSystemArn,
 
     -- ** TagListEntry
     tagListEntry_value,
@@ -551,9 +771,16 @@ module Amazonka.DataSync.Lens
 
     -- ** TaskSchedule
     taskSchedule_scheduleExpression,
+
+    -- ** Throughput
+    throughput_other,
+    throughput_read,
+    throughput_total,
+    throughput_write,
   )
 where
 
+import Amazonka.DataSync.AddStorageSystem
 import Amazonka.DataSync.CancelTaskExecution
 import Amazonka.DataSync.CreateAgent
 import Amazonka.DataSync.CreateLocationEfs
@@ -571,6 +798,7 @@ import Amazonka.DataSync.DeleteAgent
 import Amazonka.DataSync.DeleteLocation
 import Amazonka.DataSync.DeleteTask
 import Amazonka.DataSync.DescribeAgent
+import Amazonka.DataSync.DescribeDiscoveryJob
 import Amazonka.DataSync.DescribeLocationEfs
 import Amazonka.DataSync.DescribeLocationFsxLustre
 import Amazonka.DataSync.DescribeLocationFsxOntap
@@ -581,42 +809,69 @@ import Amazonka.DataSync.DescribeLocationNfs
 import Amazonka.DataSync.DescribeLocationObjectStorage
 import Amazonka.DataSync.DescribeLocationS3
 import Amazonka.DataSync.DescribeLocationSmb
+import Amazonka.DataSync.DescribeStorageSystem
+import Amazonka.DataSync.DescribeStorageSystemResourceMetrics
+import Amazonka.DataSync.DescribeStorageSystemResources
 import Amazonka.DataSync.DescribeTask
 import Amazonka.DataSync.DescribeTaskExecution
+import Amazonka.DataSync.GenerateRecommendations
 import Amazonka.DataSync.ListAgents
+import Amazonka.DataSync.ListDiscoveryJobs
 import Amazonka.DataSync.ListLocations
+import Amazonka.DataSync.ListStorageSystems
 import Amazonka.DataSync.ListTagsForResource
 import Amazonka.DataSync.ListTaskExecutions
 import Amazonka.DataSync.ListTasks
+import Amazonka.DataSync.RemoveStorageSystem
+import Amazonka.DataSync.StartDiscoveryJob
 import Amazonka.DataSync.StartTaskExecution
+import Amazonka.DataSync.StopDiscoveryJob
 import Amazonka.DataSync.TagResource
 import Amazonka.DataSync.Types.AgentListEntry
+import Amazonka.DataSync.Types.Capacity
+import Amazonka.DataSync.Types.Credentials
+import Amazonka.DataSync.Types.DiscoveryJobListEntry
+import Amazonka.DataSync.Types.DiscoveryServerConfiguration
 import Amazonka.DataSync.Types.Ec2Config
 import Amazonka.DataSync.Types.FilterRule
 import Amazonka.DataSync.Types.FsxProtocol
 import Amazonka.DataSync.Types.FsxProtocolNfs
 import Amazonka.DataSync.Types.FsxProtocolSmb
 import Amazonka.DataSync.Types.HdfsNameNode
+import Amazonka.DataSync.Types.IOPS
+import Amazonka.DataSync.Types.Latency
 import Amazonka.DataSync.Types.LocationFilter
 import Amazonka.DataSync.Types.LocationListEntry
+import Amazonka.DataSync.Types.MaxP95Performance
+import Amazonka.DataSync.Types.NetAppONTAPCluster
+import Amazonka.DataSync.Types.NetAppONTAPSVM
+import Amazonka.DataSync.Types.NetAppONTAPVolume
 import Amazonka.DataSync.Types.NfsMountOptions
 import Amazonka.DataSync.Types.OnPremConfig
 import Amazonka.DataSync.Types.Options
+import Amazonka.DataSync.Types.P95Metrics
 import Amazonka.DataSync.Types.PrivateLinkConfig
 import Amazonka.DataSync.Types.QopConfiguration
+import Amazonka.DataSync.Types.Recommendation
+import Amazonka.DataSync.Types.ResourceDetails
+import Amazonka.DataSync.Types.ResourceMetrics
 import Amazonka.DataSync.Types.S3Config
 import Amazonka.DataSync.Types.SmbMountOptions
+import Amazonka.DataSync.Types.StorageSystemListEntry
 import Amazonka.DataSync.Types.TagListEntry
 import Amazonka.DataSync.Types.TaskExecutionListEntry
 import Amazonka.DataSync.Types.TaskExecutionResultDetail
 import Amazonka.DataSync.Types.TaskFilter
 import Amazonka.DataSync.Types.TaskListEntry
 import Amazonka.DataSync.Types.TaskSchedule
+import Amazonka.DataSync.Types.Throughput
 import Amazonka.DataSync.UntagResource
 import Amazonka.DataSync.UpdateAgent
+import Amazonka.DataSync.UpdateDiscoveryJob
 import Amazonka.DataSync.UpdateLocationHdfs
 import Amazonka.DataSync.UpdateLocationNfs
 import Amazonka.DataSync.UpdateLocationObjectStorage
 import Amazonka.DataSync.UpdateLocationSmb
+import Amazonka.DataSync.UpdateStorageSystem
 import Amazonka.DataSync.UpdateTask
 import Amazonka.DataSync.UpdateTaskExecution

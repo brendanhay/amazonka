@@ -25,6 +25,12 @@
 --
 -- There are several phases to a task execution. For more information, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses Task execution statuses>.
+--
+-- If you\'re planning to transfer data to or from an Amazon S3 location,
+-- review
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests how DataSync can affect your S3 request charges>
+-- and the <http://aws.amazon.com/datasync/pricing/ DataSync pricing page>
+-- before you begin.
 module Amazonka.DataSync.StartTaskExecution
   ( -- * Creating a Request
     StartTaskExecution (..),
@@ -170,7 +176,8 @@ instance Core.AWSRequest StartTaskExecution where
 
 instance Prelude.Hashable StartTaskExecution where
   hashWithSalt _salt StartTaskExecution' {..} =
-    _salt `Prelude.hashWithSalt` excludes
+    _salt
+      `Prelude.hashWithSalt` excludes
       `Prelude.hashWithSalt` includes
       `Prelude.hashWithSalt` overrideOptions
       `Prelude.hashWithSalt` tags

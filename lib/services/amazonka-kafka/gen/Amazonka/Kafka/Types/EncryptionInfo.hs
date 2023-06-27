@@ -78,7 +78,8 @@ instance Data.FromJSON EncryptionInfo where
 
 instance Prelude.Hashable EncryptionInfo where
   hashWithSalt _salt EncryptionInfo' {..} =
-    _salt `Prelude.hashWithSalt` encryptionAtRest
+    _salt
+      `Prelude.hashWithSalt` encryptionAtRest
       `Prelude.hashWithSalt` encryptionInTransit
 
 instance Prelude.NFData EncryptionInfo where

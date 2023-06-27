@@ -72,12 +72,14 @@ instance Data.FromJSON ConfigurationInfo where
       "ConfigurationInfo"
       ( \x ->
           ConfigurationInfo'
-            Prelude.<$> (x Data..: "revision") Prelude.<*> (x Data..: "arn")
+            Prelude.<$> (x Data..: "revision")
+            Prelude.<*> (x Data..: "arn")
       )
 
 instance Prelude.Hashable ConfigurationInfo where
   hashWithSalt _salt ConfigurationInfo' {..} =
-    _salt `Prelude.hashWithSalt` revision
+    _salt
+      `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ConfigurationInfo where

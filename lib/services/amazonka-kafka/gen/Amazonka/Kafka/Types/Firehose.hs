@@ -72,7 +72,8 @@ instance Data.FromJSON Firehose where
 
 instance Prelude.Hashable Firehose where
   hashWithSalt _salt Firehose' {..} =
-    _salt `Prelude.hashWithSalt` deliveryStream
+    _salt
+      `Prelude.hashWithSalt` deliveryStream
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData Firehose where

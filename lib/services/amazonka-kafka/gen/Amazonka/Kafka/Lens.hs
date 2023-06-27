@@ -69,6 +69,23 @@ module Amazonka.Kafka.Lens
     createConfigurationResponse_state,
     createConfigurationResponse_httpStatus,
 
+    -- ** CreateVpcConnection
+    createVpcConnection_tags,
+    createVpcConnection_targetClusterArn,
+    createVpcConnection_authentication,
+    createVpcConnection_vpcId,
+    createVpcConnection_clientSubnets,
+    createVpcConnection_securityGroups,
+    createVpcConnectionResponse_authentication,
+    createVpcConnectionResponse_clientSubnets,
+    createVpcConnectionResponse_creationTime,
+    createVpcConnectionResponse_securityGroups,
+    createVpcConnectionResponse_state,
+    createVpcConnectionResponse_tags,
+    createVpcConnectionResponse_vpcConnectionArn,
+    createVpcConnectionResponse_vpcId,
+    createVpcConnectionResponse_httpStatus,
+
     -- ** DeleteCluster
     deleteCluster_currentVersion,
     deleteCluster_clusterArn,
@@ -76,11 +93,21 @@ module Amazonka.Kafka.Lens
     deleteClusterResponse_state,
     deleteClusterResponse_httpStatus,
 
+    -- ** DeleteClusterPolicy
+    deleteClusterPolicy_clusterArn,
+    deleteClusterPolicyResponse_httpStatus,
+
     -- ** DeleteConfiguration
     deleteConfiguration_arn,
     deleteConfigurationResponse_arn,
     deleteConfigurationResponse_state,
     deleteConfigurationResponse_httpStatus,
+
+    -- ** DeleteVpcConnection
+    deleteVpcConnection_arn,
+    deleteVpcConnectionResponse_state,
+    deleteVpcConnectionResponse_vpcConnectionArn,
+    deleteVpcConnectionResponse_httpStatus,
 
     -- ** DescribeCluster
     describeCluster_clusterArn,
@@ -118,6 +145,19 @@ module Amazonka.Kafka.Lens
     describeConfigurationRevisionResponse_serverProperties,
     describeConfigurationRevisionResponse_httpStatus,
 
+    -- ** DescribeVpcConnection
+    describeVpcConnection_arn,
+    describeVpcConnectionResponse_authentication,
+    describeVpcConnectionResponse_creationTime,
+    describeVpcConnectionResponse_securityGroups,
+    describeVpcConnectionResponse_state,
+    describeVpcConnectionResponse_subnets,
+    describeVpcConnectionResponse_tags,
+    describeVpcConnectionResponse_targetClusterArn,
+    describeVpcConnectionResponse_vpcConnectionArn,
+    describeVpcConnectionResponse_vpcId,
+    describeVpcConnectionResponse_httpStatus,
+
     -- ** GetBootstrapBrokers
     getBootstrapBrokers_clusterArn,
     getBootstrapBrokersResponse_bootstrapBrokerString,
@@ -127,12 +167,29 @@ module Amazonka.Kafka.Lens
     getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam,
     getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram,
     getBootstrapBrokersResponse_bootstrapBrokerStringTls,
+    getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslIam,
+    getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslScram,
+    getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivityTls,
     getBootstrapBrokersResponse_httpStatus,
+
+    -- ** GetClusterPolicy
+    getClusterPolicy_clusterArn,
+    getClusterPolicyResponse_currentVersion,
+    getClusterPolicyResponse_policy,
+    getClusterPolicyResponse_httpStatus,
 
     -- ** GetCompatibleKafkaVersions
     getCompatibleKafkaVersions_clusterArn,
     getCompatibleKafkaVersionsResponse_compatibleKafkaVersions,
     getCompatibleKafkaVersionsResponse_httpStatus,
+
+    -- ** ListClientVpcConnections
+    listClientVpcConnections_maxResults,
+    listClientVpcConnections_nextToken,
+    listClientVpcConnections_clusterArn,
+    listClientVpcConnectionsResponse_clientVpcConnections,
+    listClientVpcConnectionsResponse_nextToken,
+    listClientVpcConnectionsResponse_httpStatus,
 
     -- ** ListClusterOperations
     listClusterOperations_maxResults,
@@ -202,12 +259,31 @@ module Amazonka.Kafka.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** ListVpcConnections
+    listVpcConnections_maxResults,
+    listVpcConnections_nextToken,
+    listVpcConnectionsResponse_nextToken,
+    listVpcConnectionsResponse_vpcConnections,
+    listVpcConnectionsResponse_httpStatus,
+
+    -- ** PutClusterPolicy
+    putClusterPolicy_currentVersion,
+    putClusterPolicy_clusterArn,
+    putClusterPolicy_policy,
+    putClusterPolicyResponse_currentVersion,
+    putClusterPolicyResponse_httpStatus,
+
     -- ** RebootBroker
     rebootBroker_clusterArn,
     rebootBroker_brokerIds,
     rebootBrokerResponse_clusterArn,
     rebootBrokerResponse_clusterOperationArn,
     rebootBrokerResponse_httpStatus,
+
+    -- ** RejectClientVpcConnection
+    rejectClientVpcConnection_vpcConnectionArn,
+    rejectClientVpcConnection_clusterArn,
+    rejectClientVpcConnectionResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -320,6 +396,7 @@ module Amazonka.Kafka.Lens
     brokerNodeGroupInfo_connectivityInfo,
     brokerNodeGroupInfo_securityGroups,
     brokerNodeGroupInfo_storageInfo,
+    brokerNodeGroupInfo_zoneIds,
     brokerNodeGroupInfo_clientSubnets,
     brokerNodeGroupInfo_instanceType,
 
@@ -340,6 +417,13 @@ module Amazonka.Kafka.Lens
     clientAuthentication_sasl,
     clientAuthentication_tls,
     clientAuthentication_unauthenticated,
+
+    -- ** ClientVpcConnection
+    clientVpcConnection_authentication,
+    clientVpcConnection_creationTime,
+    clientVpcConnection_owner,
+    clientVpcConnection_state,
+    clientVpcConnection_vpcConnectionArn,
 
     -- ** CloudWatchLogs
     cloudWatchLogs_logGroup,
@@ -391,6 +475,7 @@ module Amazonka.Kafka.Lens
     clusterOperationInfo_operationType,
     clusterOperationInfo_sourceClusterInfo,
     clusterOperationInfo_targetClusterInfo,
+    clusterOperationInfo_vpcConnectionInfo,
 
     -- ** ClusterOperationStep
     clusterOperationStep_stepInfo,
@@ -423,6 +508,7 @@ module Amazonka.Kafka.Lens
 
     -- ** ConnectivityInfo
     connectivityInfo_publicAccess,
+    connectivityInfo_vpcConnectivity,
 
     -- ** EBSStorageInfo
     eBSStorageInfo_provisionedThroughput,
@@ -582,9 +668,47 @@ module Amazonka.Kafka.Lens
     unprocessedScramSecret_errorMessage,
     unprocessedScramSecret_secretArn,
 
+    -- ** UserIdentity
+    userIdentity_principalId,
+    userIdentity_type,
+
     -- ** VpcConfig
     vpcConfig_securityGroupIds,
     vpcConfig_subnetIds,
+
+    -- ** VpcConnection
+    vpcConnection_authentication,
+    vpcConnection_creationTime,
+    vpcConnection_state,
+    vpcConnection_vpcId,
+    vpcConnection_vpcConnectionArn,
+    vpcConnection_targetClusterArn,
+
+    -- ** VpcConnectionInfo
+    vpcConnectionInfo_creationTime,
+    vpcConnectionInfo_owner,
+    vpcConnectionInfo_userIdentity,
+    vpcConnectionInfo_vpcConnectionArn,
+
+    -- ** VpcConnectivity
+    vpcConnectivity_clientAuthentication,
+
+    -- ** VpcConnectivityClientAuthentication
+    vpcConnectivityClientAuthentication_sasl,
+    vpcConnectivityClientAuthentication_tls,
+
+    -- ** VpcConnectivityIam
+    vpcConnectivityIam_enabled,
+
+    -- ** VpcConnectivitySasl
+    vpcConnectivitySasl_iam,
+    vpcConnectivitySasl_scram,
+
+    -- ** VpcConnectivityScram
+    vpcConnectivityScram_enabled,
+
+    -- ** VpcConnectivityTls
+    vpcConnectivityTls_enabled,
 
     -- ** ZookeeperNodeInfo
     zookeeperNodeInfo_attachedENIId,
@@ -600,15 +724,21 @@ import Amazonka.Kafka.BatchDisassociateScramSecret
 import Amazonka.Kafka.CreateCluster
 import Amazonka.Kafka.CreateClusterV2
 import Amazonka.Kafka.CreateConfiguration
+import Amazonka.Kafka.CreateVpcConnection
 import Amazonka.Kafka.DeleteCluster
+import Amazonka.Kafka.DeleteClusterPolicy
 import Amazonka.Kafka.DeleteConfiguration
+import Amazonka.Kafka.DeleteVpcConnection
 import Amazonka.Kafka.DescribeCluster
 import Amazonka.Kafka.DescribeClusterOperation
 import Amazonka.Kafka.DescribeClusterV2
 import Amazonka.Kafka.DescribeConfiguration
 import Amazonka.Kafka.DescribeConfigurationRevision
+import Amazonka.Kafka.DescribeVpcConnection
 import Amazonka.Kafka.GetBootstrapBrokers
+import Amazonka.Kafka.GetClusterPolicy
 import Amazonka.Kafka.GetCompatibleKafkaVersions
+import Amazonka.Kafka.ListClientVpcConnections
 import Amazonka.Kafka.ListClusterOperations
 import Amazonka.Kafka.ListClusters
 import Amazonka.Kafka.ListClustersV2
@@ -618,7 +748,10 @@ import Amazonka.Kafka.ListKafkaVersions
 import Amazonka.Kafka.ListNodes
 import Amazonka.Kafka.ListScramSecrets
 import Amazonka.Kafka.ListTagsForResource
+import Amazonka.Kafka.ListVpcConnections
+import Amazonka.Kafka.PutClusterPolicy
 import Amazonka.Kafka.RebootBroker
+import Amazonka.Kafka.RejectClientVpcConnection
 import Amazonka.Kafka.TagResource
 import Amazonka.Kafka.Types.BrokerEBSVolumeInfo
 import Amazonka.Kafka.Types.BrokerLogs
@@ -626,6 +759,7 @@ import Amazonka.Kafka.Types.BrokerNodeGroupInfo
 import Amazonka.Kafka.Types.BrokerNodeInfo
 import Amazonka.Kafka.Types.BrokerSoftwareInfo
 import Amazonka.Kafka.Types.ClientAuthentication
+import Amazonka.Kafka.Types.ClientVpcConnection
 import Amazonka.Kafka.Types.CloudWatchLogs
 import Amazonka.Kafka.Types.Cluster
 import Amazonka.Kafka.Types.ClusterInfo
@@ -672,7 +806,16 @@ import Amazonka.Kafka.Types.StorageInfo
 import Amazonka.Kafka.Types.Tls
 import Amazonka.Kafka.Types.Unauthenticated
 import Amazonka.Kafka.Types.UnprocessedScramSecret
+import Amazonka.Kafka.Types.UserIdentity
 import Amazonka.Kafka.Types.VpcConfig
+import Amazonka.Kafka.Types.VpcConnection
+import Amazonka.Kafka.Types.VpcConnectionInfo
+import Amazonka.Kafka.Types.VpcConnectivity
+import Amazonka.Kafka.Types.VpcConnectivityClientAuthentication
+import Amazonka.Kafka.Types.VpcConnectivityIam
+import Amazonka.Kafka.Types.VpcConnectivitySasl
+import Amazonka.Kafka.Types.VpcConnectivityScram
+import Amazonka.Kafka.Types.VpcConnectivityTls
 import Amazonka.Kafka.Types.ZookeeperNodeInfo
 import Amazonka.Kafka.UntagResource
 import Amazonka.Kafka.UpdateBrokerCount

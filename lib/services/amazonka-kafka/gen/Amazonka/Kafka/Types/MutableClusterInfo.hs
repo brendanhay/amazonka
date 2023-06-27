@@ -181,7 +181,8 @@ instance Data.FromJSON MutableClusterInfo where
       "MutableClusterInfo"
       ( \x ->
           MutableClusterInfo'
-            Prelude.<$> ( x Data..:? "brokerEBSVolumeInfo"
+            Prelude.<$> ( x
+                            Data..:? "brokerEBSVolumeInfo"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "clientAuthentication")
@@ -199,7 +200,8 @@ instance Data.FromJSON MutableClusterInfo where
 
 instance Prelude.Hashable MutableClusterInfo where
   hashWithSalt _salt MutableClusterInfo' {..} =
-    _salt `Prelude.hashWithSalt` brokerEBSVolumeInfo
+    _salt
+      `Prelude.hashWithSalt` brokerEBSVolumeInfo
       `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` configurationInfo
       `Prelude.hashWithSalt` connectivityInfo

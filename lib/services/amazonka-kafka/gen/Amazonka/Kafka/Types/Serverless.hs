@@ -76,7 +76,8 @@ instance Data.FromJSON Serverless where
 
 instance Prelude.Hashable Serverless where
   hashWithSalt _salt Serverless' {..} =
-    _salt `Prelude.hashWithSalt` clientAuthentication
+    _salt
+      `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` vpcConfigs
 
 instance Prelude.NFData Serverless where

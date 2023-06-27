@@ -70,12 +70,14 @@ instance Data.FromJSON Sasl where
       "Sasl"
       ( \x ->
           Sasl'
-            Prelude.<$> (x Data..:? "iam") Prelude.<*> (x Data..:? "scram")
+            Prelude.<$> (x Data..:? "iam")
+            Prelude.<*> (x Data..:? "scram")
       )
 
 instance Prelude.Hashable Sasl where
   hashWithSalt _salt Sasl' {..} =
-    _salt `Prelude.hashWithSalt` iam
+    _salt
+      `Prelude.hashWithSalt` iam
       `Prelude.hashWithSalt` scram
 
 instance Prelude.NFData Sasl where

@@ -50,6 +50,8 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
     securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Contains information about storage volumes attached to MSK broker nodes.
     storageInfo :: Prelude.Maybe StorageInfo,
+    -- | The list of zoneIds for the cluster in the virtual private cloud (VPC).
+    zoneIds :: Prelude.Maybe [Prelude.Text],
     -- | The list of subnets to connect to in the client virtual private cloud
     -- (VPC). AWS creates elastic network interfaces inside these subnets.
     -- Client applications use elastic network interfaces to produce and
@@ -90,6 +92,8 @@ data BrokerNodeGroupInfo = BrokerNodeGroupInfo'
 --
 -- 'storageInfo', 'brokerNodeGroupInfo_storageInfo' - Contains information about storage volumes attached to MSK broker nodes.
 --
+-- 'zoneIds', 'brokerNodeGroupInfo_zoneIds' - The list of zoneIds for the cluster in the virtual private cloud (VPC).
+--
 -- 'clientSubnets', 'brokerNodeGroupInfo_clientSubnets' - The list of subnets to connect to in the client virtual private cloud
 -- (VPC). AWS creates elastic network interfaces inside these subnets.
 -- Client applications use elastic network interfaces to produce and
@@ -111,6 +115,7 @@ newBrokerNodeGroupInfo pInstanceType_ =
       connectivityInfo = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
       storageInfo = Prelude.Nothing,
+      zoneIds = Prelude.Nothing,
       clientSubnets = Prelude.mempty,
       instanceType = pInstanceType_
     }
@@ -141,6 +146,10 @@ brokerNodeGroupInfo_securityGroups = Lens.lens (\BrokerNodeGroupInfo' {securityG
 brokerNodeGroupInfo_storageInfo :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe StorageInfo)
 brokerNodeGroupInfo_storageInfo = Lens.lens (\BrokerNodeGroupInfo' {storageInfo} -> storageInfo) (\s@BrokerNodeGroupInfo' {} a -> s {storageInfo = a} :: BrokerNodeGroupInfo)
 
+-- | The list of zoneIds for the cluster in the virtual private cloud (VPC).
+brokerNodeGroupInfo_zoneIds :: Lens.Lens' BrokerNodeGroupInfo (Prelude.Maybe [Prelude.Text])
+brokerNodeGroupInfo_zoneIds = Lens.lens (\BrokerNodeGroupInfo' {zoneIds} -> zoneIds) (\s@BrokerNodeGroupInfo' {} a -> s {zoneIds = a} :: BrokerNodeGroupInfo) Prelude.. Lens.mapping Lens.coerced
+
 -- | The list of subnets to connect to in the client virtual private cloud
 -- (VPC). AWS creates elastic network interfaces inside these subnets.
 -- Client applications use elastic network interfaces to produce and
@@ -166,16 +175,19 @@ instance Data.FromJSON BrokerNodeGroupInfo where
             Prelude.<*> (x Data..:? "connectivityInfo")
             Prelude.<*> (x Data..:? "securityGroups" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "storageInfo")
+            Prelude.<*> (x Data..:? "zoneIds" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "clientSubnets" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "instanceType")
       )
 
 instance Prelude.Hashable BrokerNodeGroupInfo where
   hashWithSalt _salt BrokerNodeGroupInfo' {..} =
-    _salt `Prelude.hashWithSalt` brokerAZDistribution
+    _salt
+      `Prelude.hashWithSalt` brokerAZDistribution
       `Prelude.hashWithSalt` connectivityInfo
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` storageInfo
+      `Prelude.hashWithSalt` zoneIds
       `Prelude.hashWithSalt` clientSubnets
       `Prelude.hashWithSalt` instanceType
 
@@ -185,6 +197,7 @@ instance Prelude.NFData BrokerNodeGroupInfo where
       `Prelude.seq` Prelude.rnf connectivityInfo
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf storageInfo
+      `Prelude.seq` Prelude.rnf zoneIds
       `Prelude.seq` Prelude.rnf clientSubnets
       `Prelude.seq` Prelude.rnf instanceType
 
@@ -199,6 +212,7 @@ instance Data.ToJSON BrokerNodeGroupInfo where
             ("securityGroups" Data..=)
               Prelude.<$> securityGroups,
             ("storageInfo" Data..=) Prelude.<$> storageInfo,
+            ("zoneIds" Data..=) Prelude.<$> zoneIds,
             Prelude.Just ("clientSubnets" Data..= clientSubnets),
             Prelude.Just ("instanceType" Data..= instanceType)
           ]

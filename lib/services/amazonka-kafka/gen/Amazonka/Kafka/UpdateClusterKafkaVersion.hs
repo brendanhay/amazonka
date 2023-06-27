@@ -135,7 +135,8 @@ instance Core.AWSRequest UpdateClusterKafkaVersion where
 
 instance Prelude.Hashable UpdateClusterKafkaVersion where
   hashWithSalt _salt UpdateClusterKafkaVersion' {..} =
-    _salt `Prelude.hashWithSalt` configurationInfo
+    _salt
+      `Prelude.hashWithSalt` configurationInfo
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` targetKafkaVersion
       `Prelude.hashWithSalt` currentVersion

@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateClusterV2 where
 
 instance Prelude.Hashable CreateClusterV2 where
   hashWithSalt _salt CreateClusterV2' {..} =
-    _salt `Prelude.hashWithSalt` provisioned
+    _salt
+      `Prelude.hashWithSalt` provisioned
       `Prelude.hashWithSalt` serverless
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterName

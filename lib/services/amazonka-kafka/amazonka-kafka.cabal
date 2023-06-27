@@ -49,16 +49,22 @@ library
     Amazonka.Kafka.CreateCluster
     Amazonka.Kafka.CreateClusterV2
     Amazonka.Kafka.CreateConfiguration
+    Amazonka.Kafka.CreateVpcConnection
     Amazonka.Kafka.DeleteCluster
+    Amazonka.Kafka.DeleteClusterPolicy
     Amazonka.Kafka.DeleteConfiguration
+    Amazonka.Kafka.DeleteVpcConnection
     Amazonka.Kafka.DescribeCluster
     Amazonka.Kafka.DescribeClusterOperation
     Amazonka.Kafka.DescribeClusterV2
     Amazonka.Kafka.DescribeConfiguration
     Amazonka.Kafka.DescribeConfigurationRevision
+    Amazonka.Kafka.DescribeVpcConnection
     Amazonka.Kafka.GetBootstrapBrokers
+    Amazonka.Kafka.GetClusterPolicy
     Amazonka.Kafka.GetCompatibleKafkaVersions
     Amazonka.Kafka.Lens
+    Amazonka.Kafka.ListClientVpcConnections
     Amazonka.Kafka.ListClusterOperations
     Amazonka.Kafka.ListClusters
     Amazonka.Kafka.ListClustersV2
@@ -68,7 +74,10 @@ library
     Amazonka.Kafka.ListNodes
     Amazonka.Kafka.ListScramSecrets
     Amazonka.Kafka.ListTagsForResource
+    Amazonka.Kafka.ListVpcConnections
+    Amazonka.Kafka.PutClusterPolicy
     Amazonka.Kafka.RebootBroker
+    Amazonka.Kafka.RejectClientVpcConnection
     Amazonka.Kafka.TagResource
     Amazonka.Kafka.Types
     Amazonka.Kafka.Types.BrokerAZDistribution
@@ -79,6 +88,7 @@ library
     Amazonka.Kafka.Types.BrokerSoftwareInfo
     Amazonka.Kafka.Types.ClientAuthentication
     Amazonka.Kafka.Types.ClientBroker
+    Amazonka.Kafka.Types.ClientVpcConnection
     Amazonka.Kafka.Types.CloudWatchLogs
     Amazonka.Kafka.Types.Cluster
     Amazonka.Kafka.Types.ClusterInfo
@@ -132,7 +142,18 @@ library
     Amazonka.Kafka.Types.Tls
     Amazonka.Kafka.Types.Unauthenticated
     Amazonka.Kafka.Types.UnprocessedScramSecret
+    Amazonka.Kafka.Types.UserIdentity
+    Amazonka.Kafka.Types.UserIdentityType
     Amazonka.Kafka.Types.VpcConfig
+    Amazonka.Kafka.Types.VpcConnection
+    Amazonka.Kafka.Types.VpcConnectionInfo
+    Amazonka.Kafka.Types.VpcConnectionState
+    Amazonka.Kafka.Types.VpcConnectivity
+    Amazonka.Kafka.Types.VpcConnectivityClientAuthentication
+    Amazonka.Kafka.Types.VpcConnectivityIam
+    Amazonka.Kafka.Types.VpcConnectivitySasl
+    Amazonka.Kafka.Types.VpcConnectivityScram
+    Amazonka.Kafka.Types.VpcConnectivityTls
     Amazonka.Kafka.Types.ZookeeperNodeInfo
     Amazonka.Kafka.UntagResource
     Amazonka.Kafka.UpdateBrokerCount

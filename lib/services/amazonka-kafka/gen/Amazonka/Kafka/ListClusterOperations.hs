@@ -115,22 +115,22 @@ instance Core.AWSPager ListClusterOperations where
     | Core.stop
         ( rs
             Lens.^? listClusterOperationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listClusterOperationsResponse_clusterOperationInfoList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listClusterOperations_nextToken
           Lens..~ rs
           Lens.^? listClusterOperationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusterOperations where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListClusterOperations where
     Response.receiveJSON
       ( \s h x ->
           ListClusterOperationsResponse'
-            Prelude.<$> ( x Data..?> "clusterOperationInfoList"
+            Prelude.<$> ( x
+                            Data..?> "clusterOperationInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -151,7 +152,8 @@ instance Core.AWSRequest ListClusterOperations where
 
 instance Prelude.Hashable ListClusterOperations where
   hashWithSalt _salt ListClusterOperations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterArn
 

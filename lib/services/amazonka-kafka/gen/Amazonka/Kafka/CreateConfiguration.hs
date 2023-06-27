@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateConfiguration where
 
 instance Prelude.Hashable CreateConfiguration where
   hashWithSalt _salt CreateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kafkaVersions
       `Prelude.hashWithSalt` serverProperties
       `Prelude.hashWithSalt` name

@@ -90,7 +90,8 @@ instance Data.FromJSON BrokerEBSVolumeInfo where
 
 instance Prelude.Hashable BrokerEBSVolumeInfo where
   hashWithSalt _salt BrokerEBSVolumeInfo' {..} =
-    _salt `Prelude.hashWithSalt` provisionedThroughput
+    _salt
+      `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` volumeSizeGB
       `Prelude.hashWithSalt` kafkaBrokerNodeId
 

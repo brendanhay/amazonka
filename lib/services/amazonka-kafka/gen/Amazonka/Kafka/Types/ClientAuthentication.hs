@@ -87,7 +87,8 @@ instance Data.FromJSON ClientAuthentication where
 
 instance Prelude.Hashable ClientAuthentication where
   hashWithSalt _salt ClientAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` sasl
+    _salt
+      `Prelude.hashWithSalt` sasl
       `Prelude.hashWithSalt` tls
       `Prelude.hashWithSalt` unauthenticated
 

@@ -42,11 +42,20 @@ import Test.Tasty
 --         , requestCreateConfiguration $
 --             newCreateConfiguration
 --
+--         , requestCreateVpcConnection $
+--             newCreateVpcConnection
+--
 --         , requestDeleteCluster $
 --             newDeleteCluster
 --
+--         , requestDeleteClusterPolicy $
+--             newDeleteClusterPolicy
+--
 --         , requestDeleteConfiguration $
 --             newDeleteConfiguration
+--
+--         , requestDeleteVpcConnection $
+--             newDeleteVpcConnection
 --
 --         , requestDescribeCluster $
 --             newDescribeCluster
@@ -63,11 +72,20 @@ import Test.Tasty
 --         , requestDescribeConfigurationRevision $
 --             newDescribeConfigurationRevision
 --
+--         , requestDescribeVpcConnection $
+--             newDescribeVpcConnection
+--
 --         , requestGetBootstrapBrokers $
 --             newGetBootstrapBrokers
 --
+--         , requestGetClusterPolicy $
+--             newGetClusterPolicy
+--
 --         , requestGetCompatibleKafkaVersions $
 --             newGetCompatibleKafkaVersions
+--
+--         , requestListClientVpcConnections $
+--             newListClientVpcConnections
 --
 --         , requestListClusterOperations $
 --             newListClusterOperations
@@ -96,8 +114,17 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestListVpcConnections $
+--             newListVpcConnections
+--
+--         , requestPutClusterPolicy $
+--             newPutClusterPolicy
+--
 --         , requestRebootBroker $
 --             newRebootBroker
+--
+--         , requestRejectClientVpcConnection $
+--             newRejectClientVpcConnection
 --
 --         , requestTagResource $
 --             newTagResource
@@ -153,11 +180,20 @@ import Test.Tasty
 --         , responseCreateConfiguration $
 --             newCreateConfigurationResponse
 --
+--         , responseCreateVpcConnection $
+--             newCreateVpcConnectionResponse
+--
 --         , responseDeleteCluster $
 --             newDeleteClusterResponse
 --
+--         , responseDeleteClusterPolicy $
+--             newDeleteClusterPolicyResponse
+--
 --         , responseDeleteConfiguration $
 --             newDeleteConfigurationResponse
+--
+--         , responseDeleteVpcConnection $
+--             newDeleteVpcConnectionResponse
 --
 --         , responseDescribeCluster $
 --             newDescribeClusterResponse
@@ -174,11 +210,20 @@ import Test.Tasty
 --         , responseDescribeConfigurationRevision $
 --             newDescribeConfigurationRevisionResponse
 --
+--         , responseDescribeVpcConnection $
+--             newDescribeVpcConnectionResponse
+--
 --         , responseGetBootstrapBrokers $
 --             newGetBootstrapBrokersResponse
 --
+--         , responseGetClusterPolicy $
+--             newGetClusterPolicyResponse
+--
 --         , responseGetCompatibleKafkaVersions $
 --             newGetCompatibleKafkaVersionsResponse
+--
+--         , responseListClientVpcConnections $
+--             newListClientVpcConnectionsResponse
 --
 --         , responseListClusterOperations $
 --             newListClusterOperationsResponse
@@ -207,8 +252,17 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responseListVpcConnections $
+--             newListVpcConnectionsResponse
+--
+--         , responsePutClusterPolicy $
+--             newPutClusterPolicyResponse
+--
 --         , responseRebootBroker $
 --             newRebootBrokerResponse
+--
+--         , responseRejectClientVpcConnection $
+--             newRejectClientVpcConnectionResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -281,17 +335,35 @@ requestCreateConfiguration =
     "CreateConfiguration"
     "fixture/CreateConfiguration.yaml"
 
+requestCreateVpcConnection :: CreateVpcConnection -> TestTree
+requestCreateVpcConnection =
+  req
+    "CreateVpcConnection"
+    "fixture/CreateVpcConnection.yaml"
+
 requestDeleteCluster :: DeleteCluster -> TestTree
 requestDeleteCluster =
   req
     "DeleteCluster"
     "fixture/DeleteCluster.yaml"
 
+requestDeleteClusterPolicy :: DeleteClusterPolicy -> TestTree
+requestDeleteClusterPolicy =
+  req
+    "DeleteClusterPolicy"
+    "fixture/DeleteClusterPolicy.yaml"
+
 requestDeleteConfiguration :: DeleteConfiguration -> TestTree
 requestDeleteConfiguration =
   req
     "DeleteConfiguration"
     "fixture/DeleteConfiguration.yaml"
+
+requestDeleteVpcConnection :: DeleteVpcConnection -> TestTree
+requestDeleteVpcConnection =
+  req
+    "DeleteVpcConnection"
+    "fixture/DeleteVpcConnection.yaml"
 
 requestDescribeCluster :: DescribeCluster -> TestTree
 requestDescribeCluster =
@@ -323,17 +395,35 @@ requestDescribeConfigurationRevision =
     "DescribeConfigurationRevision"
     "fixture/DescribeConfigurationRevision.yaml"
 
+requestDescribeVpcConnection :: DescribeVpcConnection -> TestTree
+requestDescribeVpcConnection =
+  req
+    "DescribeVpcConnection"
+    "fixture/DescribeVpcConnection.yaml"
+
 requestGetBootstrapBrokers :: GetBootstrapBrokers -> TestTree
 requestGetBootstrapBrokers =
   req
     "GetBootstrapBrokers"
     "fixture/GetBootstrapBrokers.yaml"
 
+requestGetClusterPolicy :: GetClusterPolicy -> TestTree
+requestGetClusterPolicy =
+  req
+    "GetClusterPolicy"
+    "fixture/GetClusterPolicy.yaml"
+
 requestGetCompatibleKafkaVersions :: GetCompatibleKafkaVersions -> TestTree
 requestGetCompatibleKafkaVersions =
   req
     "GetCompatibleKafkaVersions"
     "fixture/GetCompatibleKafkaVersions.yaml"
+
+requestListClientVpcConnections :: ListClientVpcConnections -> TestTree
+requestListClientVpcConnections =
+  req
+    "ListClientVpcConnections"
+    "fixture/ListClientVpcConnections.yaml"
 
 requestListClusterOperations :: ListClusterOperations -> TestTree
 requestListClusterOperations =
@@ -389,11 +479,29 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestListVpcConnections :: ListVpcConnections -> TestTree
+requestListVpcConnections =
+  req
+    "ListVpcConnections"
+    "fixture/ListVpcConnections.yaml"
+
+requestPutClusterPolicy :: PutClusterPolicy -> TestTree
+requestPutClusterPolicy =
+  req
+    "PutClusterPolicy"
+    "fixture/PutClusterPolicy.yaml"
+
 requestRebootBroker :: RebootBroker -> TestTree
 requestRebootBroker =
   req
     "RebootBroker"
     "fixture/RebootBroker.yaml"
+
+requestRejectClientVpcConnection :: RejectClientVpcConnection -> TestTree
+requestRejectClientVpcConnection =
+  req
+    "RejectClientVpcConnection"
+    "fixture/RejectClientVpcConnection.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -509,6 +617,14 @@ responseCreateConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateConfiguration)
 
+responseCreateVpcConnection :: CreateVpcConnectionResponse -> TestTree
+responseCreateVpcConnection =
+  res
+    "CreateVpcConnectionResponse"
+    "fixture/CreateVpcConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVpcConnection)
+
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
 responseDeleteCluster =
   res
@@ -517,6 +633,14 @@ responseDeleteCluster =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCluster)
 
+responseDeleteClusterPolicy :: DeleteClusterPolicyResponse -> TestTree
+responseDeleteClusterPolicy =
+  res
+    "DeleteClusterPolicyResponse"
+    "fixture/DeleteClusterPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteClusterPolicy)
+
 responseDeleteConfiguration :: DeleteConfigurationResponse -> TestTree
 responseDeleteConfiguration =
   res
@@ -524,6 +648,14 @@ responseDeleteConfiguration =
     "fixture/DeleteConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConfiguration)
+
+responseDeleteVpcConnection :: DeleteVpcConnectionResponse -> TestTree
+responseDeleteVpcConnection =
+  res
+    "DeleteVpcConnectionResponse"
+    "fixture/DeleteVpcConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVpcConnection)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
 responseDescribeCluster =
@@ -565,6 +697,14 @@ responseDescribeConfigurationRevision =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeConfigurationRevision)
 
+responseDescribeVpcConnection :: DescribeVpcConnectionResponse -> TestTree
+responseDescribeVpcConnection =
+  res
+    "DescribeVpcConnectionResponse"
+    "fixture/DescribeVpcConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVpcConnection)
+
 responseGetBootstrapBrokers :: GetBootstrapBrokersResponse -> TestTree
 responseGetBootstrapBrokers =
   res
@@ -573,6 +713,14 @@ responseGetBootstrapBrokers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetBootstrapBrokers)
 
+responseGetClusterPolicy :: GetClusterPolicyResponse -> TestTree
+responseGetClusterPolicy =
+  res
+    "GetClusterPolicyResponse"
+    "fixture/GetClusterPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetClusterPolicy)
+
 responseGetCompatibleKafkaVersions :: GetCompatibleKafkaVersionsResponse -> TestTree
 responseGetCompatibleKafkaVersions =
   res
@@ -580,6 +728,14 @@ responseGetCompatibleKafkaVersions =
     "fixture/GetCompatibleKafkaVersionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetCompatibleKafkaVersions)
+
+responseListClientVpcConnections :: ListClientVpcConnectionsResponse -> TestTree
+responseListClientVpcConnections =
+  res
+    "ListClientVpcConnectionsResponse"
+    "fixture/ListClientVpcConnectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClientVpcConnections)
 
 responseListClusterOperations :: ListClusterOperationsResponse -> TestTree
 responseListClusterOperations =
@@ -653,6 +809,22 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responseListVpcConnections :: ListVpcConnectionsResponse -> TestTree
+responseListVpcConnections =
+  res
+    "ListVpcConnectionsResponse"
+    "fixture/ListVpcConnectionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVpcConnections)
+
+responsePutClusterPolicy :: PutClusterPolicyResponse -> TestTree
+responsePutClusterPolicy =
+  res
+    "PutClusterPolicyResponse"
+    "fixture/PutClusterPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutClusterPolicy)
+
 responseRebootBroker :: RebootBrokerResponse -> TestTree
 responseRebootBroker =
   res
@@ -660,6 +832,14 @@ responseRebootBroker =
     "fixture/RebootBrokerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RebootBroker)
+
+responseRejectClientVpcConnection :: RejectClientVpcConnectionResponse -> TestTree
+responseRejectClientVpcConnection =
+  res
+    "RejectClientVpcConnectionResponse"
+    "fixture/RejectClientVpcConnectionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RejectClientVpcConnection)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.ClusterOperationStep
 import Amazonka.Kafka.Types.ErrorInfo
 import Amazonka.Kafka.Types.MutableClusterInfo
+import Amazonka.Kafka.Types.VpcConnectionInfo
 import qualified Amazonka.Prelude as Prelude
 
 -- | Returns information about a cluster operation.
@@ -52,7 +53,10 @@ data ClusterOperationInfo = ClusterOperationInfo'
     -- | Information about cluster attributes before a cluster is updated.
     sourceClusterInfo :: Prelude.Maybe MutableClusterInfo,
     -- | Information about cluster attributes after a cluster is updated.
-    targetClusterInfo :: Prelude.Maybe MutableClusterInfo
+    targetClusterInfo :: Prelude.Maybe MutableClusterInfo,
+    -- | Description of the VPC connection for CreateVpcConnection and
+    -- DeleteVpcConnection operations.
+    vpcConnectionInfo :: Prelude.Maybe VpcConnectionInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -85,6 +89,9 @@ data ClusterOperationInfo = ClusterOperationInfo'
 -- 'sourceClusterInfo', 'clusterOperationInfo_sourceClusterInfo' - Information about cluster attributes before a cluster is updated.
 --
 -- 'targetClusterInfo', 'clusterOperationInfo_targetClusterInfo' - Information about cluster attributes after a cluster is updated.
+--
+-- 'vpcConnectionInfo', 'clusterOperationInfo_vpcConnectionInfo' - Description of the VPC connection for CreateVpcConnection and
+-- DeleteVpcConnection operations.
 newClusterOperationInfo ::
   ClusterOperationInfo
 newClusterOperationInfo =
@@ -100,7 +107,8 @@ newClusterOperationInfo =
       operationSteps = Prelude.Nothing,
       operationType = Prelude.Nothing,
       sourceClusterInfo = Prelude.Nothing,
-      targetClusterInfo = Prelude.Nothing
+      targetClusterInfo = Prelude.Nothing,
+      vpcConnectionInfo = Prelude.Nothing
     }
 
 -- | The ID of the API request that triggered this operation.
@@ -147,6 +155,11 @@ clusterOperationInfo_sourceClusterInfo = Lens.lens (\ClusterOperationInfo' {sour
 clusterOperationInfo_targetClusterInfo :: Lens.Lens' ClusterOperationInfo (Prelude.Maybe MutableClusterInfo)
 clusterOperationInfo_targetClusterInfo = Lens.lens (\ClusterOperationInfo' {targetClusterInfo} -> targetClusterInfo) (\s@ClusterOperationInfo' {} a -> s {targetClusterInfo = a} :: ClusterOperationInfo)
 
+-- | Description of the VPC connection for CreateVpcConnection and
+-- DeleteVpcConnection operations.
+clusterOperationInfo_vpcConnectionInfo :: Lens.Lens' ClusterOperationInfo (Prelude.Maybe VpcConnectionInfo)
+clusterOperationInfo_vpcConnectionInfo = Lens.lens (\ClusterOperationInfo' {vpcConnectionInfo} -> vpcConnectionInfo) (\s@ClusterOperationInfo' {} a -> s {vpcConnectionInfo = a} :: ClusterOperationInfo)
+
 instance Data.FromJSON ClusterOperationInfo where
   parseJSON =
     Data.withObject
@@ -164,11 +177,13 @@ instance Data.FromJSON ClusterOperationInfo where
             Prelude.<*> (x Data..:? "operationType")
             Prelude.<*> (x Data..:? "sourceClusterInfo")
             Prelude.<*> (x Data..:? "targetClusterInfo")
+            Prelude.<*> (x Data..:? "vpcConnectionInfo")
       )
 
 instance Prelude.Hashable ClusterOperationInfo where
   hashWithSalt _salt ClusterOperationInfo' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestId
+    _salt
+      `Prelude.hashWithSalt` clientRequestId
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` endTime
@@ -179,6 +194,7 @@ instance Prelude.Hashable ClusterOperationInfo where
       `Prelude.hashWithSalt` operationType
       `Prelude.hashWithSalt` sourceClusterInfo
       `Prelude.hashWithSalt` targetClusterInfo
+      `Prelude.hashWithSalt` vpcConnectionInfo
 
 instance Prelude.NFData ClusterOperationInfo where
   rnf ClusterOperationInfo' {..} =
@@ -193,3 +209,4 @@ instance Prelude.NFData ClusterOperationInfo where
       `Prelude.seq` Prelude.rnf operationType
       `Prelude.seq` Prelude.rnf sourceClusterInfo
       `Prelude.seq` Prelude.rnf targetClusterInfo
+      `Prelude.seq` Prelude.rnf vpcConnectionInfo

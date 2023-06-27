@@ -121,7 +121,8 @@ instance Data.FromJSON EncryptionInTransit where
 
 instance Prelude.Hashable EncryptionInTransit where
   hashWithSalt _salt EncryptionInTransit' {..} =
-    _salt `Prelude.hashWithSalt` clientBroker
+    _salt
+      `Prelude.hashWithSalt` clientBroker
       `Prelude.hashWithSalt` inCluster
 
 instance Prelude.NFData EncryptionInTransit where

@@ -89,7 +89,8 @@ instance Data.FromJSON ConfigurationRevision where
 
 instance Prelude.Hashable ConfigurationRevision where
   hashWithSalt _salt ConfigurationRevision' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` creationTime
 

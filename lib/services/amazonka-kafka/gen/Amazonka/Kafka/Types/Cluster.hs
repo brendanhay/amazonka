@@ -175,7 +175,8 @@ instance Data.FromJSON Cluster where
 
 instance Prelude.Hashable Cluster where
   hashWithSalt _salt Cluster' {..} =
-    _salt `Prelude.hashWithSalt` activeOperationArn
+    _salt
+      `Prelude.hashWithSalt` activeOperationArn
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` clusterName
       `Prelude.hashWithSalt` clusterType

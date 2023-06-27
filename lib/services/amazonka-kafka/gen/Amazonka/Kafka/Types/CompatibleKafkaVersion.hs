@@ -71,14 +71,16 @@ instance Data.FromJSON CompatibleKafkaVersion where
       ( \x ->
           CompatibleKafkaVersion'
             Prelude.<$> (x Data..:? "sourceVersion")
-            Prelude.<*> ( x Data..:? "targetVersions"
+            Prelude.<*> ( x
+                            Data..:? "targetVersions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CompatibleKafkaVersion where
   hashWithSalt _salt CompatibleKafkaVersion' {..} =
-    _salt `Prelude.hashWithSalt` sourceVersion
+    _salt
+      `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` targetVersions
 
 instance Prelude.NFData CompatibleKafkaVersion where

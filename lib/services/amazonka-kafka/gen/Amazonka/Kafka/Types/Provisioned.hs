@@ -188,7 +188,8 @@ instance Data.FromJSON Provisioned where
 
 instance Prelude.Hashable Provisioned where
   hashWithSalt _salt Provisioned' {..} =
-    _salt `Prelude.hashWithSalt` clientAuthentication
+    _salt
+      `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` currentBrokerSoftwareInfo
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` enhancedMonitoring

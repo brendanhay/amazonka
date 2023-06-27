@@ -70,7 +70,8 @@ instance Data.FromJSON StateInfo where
 
 instance Prelude.Hashable StateInfo where
   hashWithSalt _salt StateInfo' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData StateInfo where

@@ -225,7 +225,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` clientAuthentication
+    _salt
+      `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` configurationInfo
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` enhancedMonitoring

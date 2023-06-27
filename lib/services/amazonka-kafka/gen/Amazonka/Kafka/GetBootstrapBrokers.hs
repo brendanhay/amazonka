@@ -41,6 +41,9 @@ module Amazonka.Kafka.GetBootstrapBrokers
     getBootstrapBrokersResponse_bootstrapBrokerStringSaslIam,
     getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram,
     getBootstrapBrokersResponse_bootstrapBrokerStringTls,
+    getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslIam,
+    getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslScram,
+    getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivityTls,
     getBootstrapBrokersResponse_httpStatus,
   )
 where
@@ -97,6 +100,15 @@ instance Core.AWSRequest GetBootstrapBrokers where
             Prelude.<*> (x Data..?> "bootstrapBrokerStringSaslIam")
             Prelude.<*> (x Data..?> "bootstrapBrokerStringSaslScram")
             Prelude.<*> (x Data..?> "bootstrapBrokerStringTls")
+            Prelude.<*> ( x
+                            Data..?> "bootstrapBrokerStringVpcConnectivitySaslIam"
+                        )
+            Prelude.<*> ( x
+                            Data..?> "bootstrapBrokerStringVpcConnectivitySaslScram"
+                        )
+            Prelude.<*> ( x
+                            Data..?> "bootstrapBrokerStringVpcConnectivityTls"
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -149,6 +161,15 @@ data GetBootstrapBrokersResponse = GetBootstrapBrokersResponse'
     bootstrapBrokerStringSaslScram :: Prelude.Maybe Prelude.Text,
     -- | A string containing one or more DNS names (or IP) and TLS port pairs.
     bootstrapBrokerStringTls :: Prelude.Maybe Prelude.Text,
+    -- | A string containing one or more DNS names (or IP) and SASL\/IAM port
+    -- pairs for VPC connectivity.
+    bootstrapBrokerStringVpcConnectivitySaslIam :: Prelude.Maybe Prelude.Text,
+    -- | A string containing one or more DNS names (or IP) and SASL\/SCRAM port
+    -- pairs for VPC connectivity.
+    bootstrapBrokerStringVpcConnectivitySaslScram :: Prelude.Maybe Prelude.Text,
+    -- | A string containing one or more DNS names (or IP) and TLS port pairs for
+    -- VPC connectivity.
+    bootstrapBrokerStringVpcConnectivityTls :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -180,6 +201,15 @@ data GetBootstrapBrokersResponse = GetBootstrapBrokersResponse'
 --
 -- 'bootstrapBrokerStringTls', 'getBootstrapBrokersResponse_bootstrapBrokerStringTls' - A string containing one or more DNS names (or IP) and TLS port pairs.
 --
+-- 'bootstrapBrokerStringVpcConnectivitySaslIam', 'getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslIam' - A string containing one or more DNS names (or IP) and SASL\/IAM port
+-- pairs for VPC connectivity.
+--
+-- 'bootstrapBrokerStringVpcConnectivitySaslScram', 'getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslScram' - A string containing one or more DNS names (or IP) and SASL\/SCRAM port
+-- pairs for VPC connectivity.
+--
+-- 'bootstrapBrokerStringVpcConnectivityTls', 'getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivityTls' - A string containing one or more DNS names (or IP) and TLS port pairs for
+-- VPC connectivity.
+--
 -- 'httpStatus', 'getBootstrapBrokersResponse_httpStatus' - The response's http status code.
 newGetBootstrapBrokersResponse ::
   -- | 'httpStatus'
@@ -199,6 +229,12 @@ newGetBootstrapBrokersResponse pHttpStatus_ =
       bootstrapBrokerStringSaslScram =
         Prelude.Nothing,
       bootstrapBrokerStringTls = Prelude.Nothing,
+      bootstrapBrokerStringVpcConnectivitySaslIam =
+        Prelude.Nothing,
+      bootstrapBrokerStringVpcConnectivitySaslScram =
+        Prelude.Nothing,
+      bootstrapBrokerStringVpcConnectivityTls =
+        Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -234,6 +270,21 @@ getBootstrapBrokersResponse_bootstrapBrokerStringSaslScram = Lens.lens (\GetBoot
 getBootstrapBrokersResponse_bootstrapBrokerStringTls :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
 getBootstrapBrokersResponse_bootstrapBrokerStringTls = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerStringTls} -> bootstrapBrokerStringTls) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerStringTls = a} :: GetBootstrapBrokersResponse)
 
+-- | A string containing one or more DNS names (or IP) and SASL\/IAM port
+-- pairs for VPC connectivity.
+getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslIam :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
+getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslIam = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerStringVpcConnectivitySaslIam} -> bootstrapBrokerStringVpcConnectivitySaslIam) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerStringVpcConnectivitySaslIam = a} :: GetBootstrapBrokersResponse)
+
+-- | A string containing one or more DNS names (or IP) and SASL\/SCRAM port
+-- pairs for VPC connectivity.
+getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslScram :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
+getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivitySaslScram = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerStringVpcConnectivitySaslScram} -> bootstrapBrokerStringVpcConnectivitySaslScram) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerStringVpcConnectivitySaslScram = a} :: GetBootstrapBrokersResponse)
+
+-- | A string containing one or more DNS names (or IP) and TLS port pairs for
+-- VPC connectivity.
+getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivityTls :: Lens.Lens' GetBootstrapBrokersResponse (Prelude.Maybe Prelude.Text)
+getBootstrapBrokersResponse_bootstrapBrokerStringVpcConnectivityTls = Lens.lens (\GetBootstrapBrokersResponse' {bootstrapBrokerStringVpcConnectivityTls} -> bootstrapBrokerStringVpcConnectivityTls) (\s@GetBootstrapBrokersResponse' {} a -> s {bootstrapBrokerStringVpcConnectivityTls = a} :: GetBootstrapBrokersResponse)
+
 -- | The response's http status code.
 getBootstrapBrokersResponse_httpStatus :: Lens.Lens' GetBootstrapBrokersResponse Prelude.Int
 getBootstrapBrokersResponse_httpStatus = Lens.lens (\GetBootstrapBrokersResponse' {httpStatus} -> httpStatus) (\s@GetBootstrapBrokersResponse' {} a -> s {httpStatus = a} :: GetBootstrapBrokersResponse)
@@ -247,4 +298,10 @@ instance Prelude.NFData GetBootstrapBrokersResponse where
       `Prelude.seq` Prelude.rnf bootstrapBrokerStringSaslIam
       `Prelude.seq` Prelude.rnf bootstrapBrokerStringSaslScram
       `Prelude.seq` Prelude.rnf bootstrapBrokerStringTls
+      `Prelude.seq` Prelude.rnf
+        bootstrapBrokerStringVpcConnectivitySaslIam
+      `Prelude.seq` Prelude.rnf
+        bootstrapBrokerStringVpcConnectivitySaslScram
+      `Prelude.seq` Prelude.rnf
+        bootstrapBrokerStringVpcConnectivityTls
       `Prelude.seq` Prelude.rnf httpStatus

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Kafka.Types.PublicAccess
+import Amazonka.Kafka.Types.VpcConnectivity
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the broker access configuration.
@@ -30,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConnectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
   { -- | Public access control for brokers.
-    publicAccess :: Prelude.Maybe PublicAccess
+    publicAccess :: Prelude.Maybe PublicAccess,
+    -- | VPC connectivity access control for brokers.
+    vpcConnectivity :: Prelude.Maybe VpcConnectivity
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -43,14 +46,23 @@ data ConnectivityInfo = ConnectivityInfo'
 -- for backwards compatibility:
 --
 -- 'publicAccess', 'connectivityInfo_publicAccess' - Public access control for brokers.
+--
+-- 'vpcConnectivity', 'connectivityInfo_vpcConnectivity' - VPC connectivity access control for brokers.
 newConnectivityInfo ::
   ConnectivityInfo
 newConnectivityInfo =
-  ConnectivityInfo' {publicAccess = Prelude.Nothing}
+  ConnectivityInfo'
+    { publicAccess = Prelude.Nothing,
+      vpcConnectivity = Prelude.Nothing
+    }
 
 -- | Public access control for brokers.
 connectivityInfo_publicAccess :: Lens.Lens' ConnectivityInfo (Prelude.Maybe PublicAccess)
 connectivityInfo_publicAccess = Lens.lens (\ConnectivityInfo' {publicAccess} -> publicAccess) (\s@ConnectivityInfo' {} a -> s {publicAccess = a} :: ConnectivityInfo)
+
+-- | VPC connectivity access control for brokers.
+connectivityInfo_vpcConnectivity :: Lens.Lens' ConnectivityInfo (Prelude.Maybe VpcConnectivity)
+connectivityInfo_vpcConnectivity = Lens.lens (\ConnectivityInfo' {vpcConnectivity} -> vpcConnectivity) (\s@ConnectivityInfo' {} a -> s {vpcConnectivity = a} :: ConnectivityInfo)
 
 instance Data.FromJSON ConnectivityInfo where
   parseJSON =
@@ -59,18 +71,26 @@ instance Data.FromJSON ConnectivityInfo where
       ( \x ->
           ConnectivityInfo'
             Prelude.<$> (x Data..:? "publicAccess")
+            Prelude.<*> (x Data..:? "vpcConnectivity")
       )
 
 instance Prelude.Hashable ConnectivityInfo where
   hashWithSalt _salt ConnectivityInfo' {..} =
-    _salt `Prelude.hashWithSalt` publicAccess
+    _salt
+      `Prelude.hashWithSalt` publicAccess
+      `Prelude.hashWithSalt` vpcConnectivity
 
 instance Prelude.NFData ConnectivityInfo where
-  rnf ConnectivityInfo' {..} = Prelude.rnf publicAccess
+  rnf ConnectivityInfo' {..} =
+    Prelude.rnf publicAccess
+      `Prelude.seq` Prelude.rnf vpcConnectivity
 
 instance Data.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =
     Data.object
       ( Prelude.catMaybes
-          [("publicAccess" Data..=) Prelude.<$> publicAccess]
+          [ ("publicAccess" Data..=) Prelude.<$> publicAccess,
+            ("vpcConnectivity" Data..=)
+              Prelude.<$> vpcConnectivity
+          ]
       )

@@ -163,7 +163,8 @@ provisionedRequest_numberOfBrokerNodes = Lens.lens (\ProvisionedRequest' {number
 
 instance Prelude.Hashable ProvisionedRequest where
   hashWithSalt _salt ProvisionedRequest' {..} =
-    _salt `Prelude.hashWithSalt` clientAuthentication
+    _salt
+      `Prelude.hashWithSalt` clientAuthentication
       `Prelude.hashWithSalt` configurationInfo
       `Prelude.hashWithSalt` encryptionInfo
       `Prelude.hashWithSalt` enhancedMonitoring

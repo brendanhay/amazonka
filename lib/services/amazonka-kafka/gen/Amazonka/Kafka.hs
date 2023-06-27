@@ -79,17 +79,35 @@ module Amazonka.Kafka
     CreateConfigurationResponse (CreateConfigurationResponse'),
     newCreateConfigurationResponse,
 
+    -- ** CreateVpcConnection
+    CreateVpcConnection (CreateVpcConnection'),
+    newCreateVpcConnection,
+    CreateVpcConnectionResponse (CreateVpcConnectionResponse'),
+    newCreateVpcConnectionResponse,
+
     -- ** DeleteCluster
     DeleteCluster (DeleteCluster'),
     newDeleteCluster,
     DeleteClusterResponse (DeleteClusterResponse'),
     newDeleteClusterResponse,
 
+    -- ** DeleteClusterPolicy
+    DeleteClusterPolicy (DeleteClusterPolicy'),
+    newDeleteClusterPolicy,
+    DeleteClusterPolicyResponse (DeleteClusterPolicyResponse'),
+    newDeleteClusterPolicyResponse,
+
     -- ** DeleteConfiguration
     DeleteConfiguration (DeleteConfiguration'),
     newDeleteConfiguration,
     DeleteConfigurationResponse (DeleteConfigurationResponse'),
     newDeleteConfigurationResponse,
+
+    -- ** DeleteVpcConnection
+    DeleteVpcConnection (DeleteVpcConnection'),
+    newDeleteVpcConnection,
+    DeleteVpcConnectionResponse (DeleteVpcConnectionResponse'),
+    newDeleteVpcConnectionResponse,
 
     -- ** DescribeCluster
     DescribeCluster (DescribeCluster'),
@@ -121,17 +139,35 @@ module Amazonka.Kafka
     DescribeConfigurationRevisionResponse (DescribeConfigurationRevisionResponse'),
     newDescribeConfigurationRevisionResponse,
 
+    -- ** DescribeVpcConnection
+    DescribeVpcConnection (DescribeVpcConnection'),
+    newDescribeVpcConnection,
+    DescribeVpcConnectionResponse (DescribeVpcConnectionResponse'),
+    newDescribeVpcConnectionResponse,
+
     -- ** GetBootstrapBrokers
     GetBootstrapBrokers (GetBootstrapBrokers'),
     newGetBootstrapBrokers,
     GetBootstrapBrokersResponse (GetBootstrapBrokersResponse'),
     newGetBootstrapBrokersResponse,
 
+    -- ** GetClusterPolicy
+    GetClusterPolicy (GetClusterPolicy'),
+    newGetClusterPolicy,
+    GetClusterPolicyResponse (GetClusterPolicyResponse'),
+    newGetClusterPolicyResponse,
+
     -- ** GetCompatibleKafkaVersions
     GetCompatibleKafkaVersions (GetCompatibleKafkaVersions'),
     newGetCompatibleKafkaVersions,
     GetCompatibleKafkaVersionsResponse (GetCompatibleKafkaVersionsResponse'),
     newGetCompatibleKafkaVersionsResponse,
+
+    -- ** ListClientVpcConnections (Paginated)
+    ListClientVpcConnections (ListClientVpcConnections'),
+    newListClientVpcConnections,
+    ListClientVpcConnectionsResponse (ListClientVpcConnectionsResponse'),
+    newListClientVpcConnectionsResponse,
 
     -- ** ListClusterOperations (Paginated)
     ListClusterOperations (ListClusterOperations'),
@@ -187,11 +223,29 @@ module Amazonka.Kafka
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** ListVpcConnections (Paginated)
+    ListVpcConnections (ListVpcConnections'),
+    newListVpcConnections,
+    ListVpcConnectionsResponse (ListVpcConnectionsResponse'),
+    newListVpcConnectionsResponse,
+
+    -- ** PutClusterPolicy
+    PutClusterPolicy (PutClusterPolicy'),
+    newPutClusterPolicy,
+    PutClusterPolicyResponse (PutClusterPolicyResponse'),
+    newPutClusterPolicyResponse,
+
     -- ** RebootBroker
     RebootBroker (RebootBroker'),
     newRebootBroker,
     RebootBrokerResponse (RebootBrokerResponse'),
     newRebootBrokerResponse,
+
+    -- ** RejectClientVpcConnection
+    RejectClientVpcConnection (RejectClientVpcConnection'),
+    newRejectClientVpcConnection,
+    RejectClientVpcConnectionResponse (RejectClientVpcConnectionResponse'),
+    newRejectClientVpcConnectionResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -294,6 +348,12 @@ module Amazonka.Kafka
     -- ** StorageMode
     StorageMode (..),
 
+    -- ** UserIdentityType
+    UserIdentityType (..),
+
+    -- ** VpcConnectionState
+    VpcConnectionState (..),
+
     -- ** BrokerEBSVolumeInfo
     BrokerEBSVolumeInfo (BrokerEBSVolumeInfo'),
     newBrokerEBSVolumeInfo,
@@ -317,6 +377,10 @@ module Amazonka.Kafka
     -- ** ClientAuthentication
     ClientAuthentication (ClientAuthentication'),
     newClientAuthentication,
+
+    -- ** ClientVpcConnection
+    ClientVpcConnection (ClientVpcConnection'),
+    newClientVpcConnection,
 
     -- ** CloudWatchLogs
     CloudWatchLogs (CloudWatchLogs'),
@@ -502,9 +566,45 @@ module Amazonka.Kafka
     UnprocessedScramSecret (UnprocessedScramSecret'),
     newUnprocessedScramSecret,
 
+    -- ** UserIdentity
+    UserIdentity (UserIdentity'),
+    newUserIdentity,
+
     -- ** VpcConfig
     VpcConfig (VpcConfig'),
     newVpcConfig,
+
+    -- ** VpcConnection
+    VpcConnection (VpcConnection'),
+    newVpcConnection,
+
+    -- ** VpcConnectionInfo
+    VpcConnectionInfo (VpcConnectionInfo'),
+    newVpcConnectionInfo,
+
+    -- ** VpcConnectivity
+    VpcConnectivity (VpcConnectivity'),
+    newVpcConnectivity,
+
+    -- ** VpcConnectivityClientAuthentication
+    VpcConnectivityClientAuthentication (VpcConnectivityClientAuthentication'),
+    newVpcConnectivityClientAuthentication,
+
+    -- ** VpcConnectivityIam
+    VpcConnectivityIam (VpcConnectivityIam'),
+    newVpcConnectivityIam,
+
+    -- ** VpcConnectivitySasl
+    VpcConnectivitySasl (VpcConnectivitySasl'),
+    newVpcConnectivitySasl,
+
+    -- ** VpcConnectivityScram
+    VpcConnectivityScram (VpcConnectivityScram'),
+    newVpcConnectivityScram,
+
+    -- ** VpcConnectivityTls
+    VpcConnectivityTls (VpcConnectivityTls'),
+    newVpcConnectivityTls,
 
     -- ** ZookeeperNodeInfo
     ZookeeperNodeInfo (ZookeeperNodeInfo'),
@@ -517,16 +617,22 @@ import Amazonka.Kafka.BatchDisassociateScramSecret
 import Amazonka.Kafka.CreateCluster
 import Amazonka.Kafka.CreateClusterV2
 import Amazonka.Kafka.CreateConfiguration
+import Amazonka.Kafka.CreateVpcConnection
 import Amazonka.Kafka.DeleteCluster
+import Amazonka.Kafka.DeleteClusterPolicy
 import Amazonka.Kafka.DeleteConfiguration
+import Amazonka.Kafka.DeleteVpcConnection
 import Amazonka.Kafka.DescribeCluster
 import Amazonka.Kafka.DescribeClusterOperation
 import Amazonka.Kafka.DescribeClusterV2
 import Amazonka.Kafka.DescribeConfiguration
 import Amazonka.Kafka.DescribeConfigurationRevision
+import Amazonka.Kafka.DescribeVpcConnection
 import Amazonka.Kafka.GetBootstrapBrokers
+import Amazonka.Kafka.GetClusterPolicy
 import Amazonka.Kafka.GetCompatibleKafkaVersions
 import Amazonka.Kafka.Lens
+import Amazonka.Kafka.ListClientVpcConnections
 import Amazonka.Kafka.ListClusterOperations
 import Amazonka.Kafka.ListClusters
 import Amazonka.Kafka.ListClustersV2
@@ -536,7 +642,10 @@ import Amazonka.Kafka.ListKafkaVersions
 import Amazonka.Kafka.ListNodes
 import Amazonka.Kafka.ListScramSecrets
 import Amazonka.Kafka.ListTagsForResource
+import Amazonka.Kafka.ListVpcConnections
+import Amazonka.Kafka.PutClusterPolicy
 import Amazonka.Kafka.RebootBroker
+import Amazonka.Kafka.RejectClientVpcConnection
 import Amazonka.Kafka.TagResource
 import Amazonka.Kafka.Types
 import Amazonka.Kafka.UntagResource

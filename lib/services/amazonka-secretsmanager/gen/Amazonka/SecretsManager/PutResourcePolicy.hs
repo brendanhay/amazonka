@@ -70,7 +70,7 @@ import Amazonka.SecretsManager.Types
 data PutResourcePolicy = PutResourcePolicy'
   { -- | Specifies whether to block resource-based policies that allow broad
     -- access to the secret, for example those that use a wildcard for the
-    -- principal.
+    -- principal. By default, public policies aren\'t blocked.
     blockPublicPolicy :: Prelude.Maybe Prelude.Bool,
     -- | The ARN or name of the secret to attach the resource-based policy.
     --
@@ -95,7 +95,7 @@ data PutResourcePolicy = PutResourcePolicy'
 --
 -- 'blockPublicPolicy', 'putResourcePolicy_blockPublicPolicy' - Specifies whether to block resource-based policies that allow broad
 -- access to the secret, for example those that use a wildcard for the
--- principal.
+-- principal. By default, public policies aren\'t blocked.
 --
 -- 'secretId', 'putResourcePolicy_secretId' - The ARN or name of the secret to attach the resource-based policy.
 --
@@ -122,7 +122,7 @@ newPutResourcePolicy pSecretId_ pResourcePolicy_ =
 
 -- | Specifies whether to block resource-based policies that allow broad
 -- access to the secret, for example those that use a wildcard for the
--- principal.
+-- principal. By default, public policies aren\'t blocked.
 putResourcePolicy_blockPublicPolicy :: Lens.Lens' PutResourcePolicy (Prelude.Maybe Prelude.Bool)
 putResourcePolicy_blockPublicPolicy = Lens.lens (\PutResourcePolicy' {blockPublicPolicy} -> blockPublicPolicy) (\s@PutResourcePolicy' {} a -> s {blockPublicPolicy = a} :: PutResourcePolicy)
 
@@ -157,7 +157,8 @@ instance Core.AWSRequest PutResourcePolicy where
 
 instance Prelude.Hashable PutResourcePolicy where
   hashWithSalt _salt PutResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` blockPublicPolicy
+    _salt
+      `Prelude.hashWithSalt` blockPublicPolicy
       `Prelude.hashWithSalt` secretId
       `Prelude.hashWithSalt` resourcePolicy
 

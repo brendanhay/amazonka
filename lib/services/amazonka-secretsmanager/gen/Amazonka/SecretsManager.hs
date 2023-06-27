@@ -25,6 +25,9 @@
 -- This version of the Secrets Manager API Reference documents the Secrets
 -- Manager API version 2017-10-17.
 --
+-- For a list of endpoints, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/asm_access.html#endpoints Amazon Web Services Secrets Manager endpoints>.
+--
 -- __Support and Feedback for Amazon Web Services Secrets Manager__
 --
 -- We welcome your feedback. Send your comments to

@@ -28,9 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRotationRulesType' smart constructor.
 data RotationRulesType = RotationRulesType'
-  { -- | The number of days between automatic scheduled rotations of the secret.
-    -- You can use this value to check that your secret meets your compliance
-    -- guidelines for how often secrets must be rotated.
+  { -- | The number of days between rotations of the secret. You can use this
+    -- value to check that your secret meets your compliance guidelines for how
+    -- often secrets must be rotated. If you use this field to set the rotation
+    -- schedule, Secrets Manager calculates the next rotation date based on the
+    -- previous rotation. Manually updating the secret value by calling
+    -- @PutSecretValue@ or @UpdateSecret@ is considered a valid rotation.
     --
     -- In @DescribeSecret@ and @ListSecrets@, this value is calculated from the
     -- rotation schedule after every successful rotation. In @RotateSecret@,
@@ -85,9 +88,12 @@ data RotationRulesType = RotationRulesType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'automaticallyAfterDays', 'rotationRulesType_automaticallyAfterDays' - The number of days between automatic scheduled rotations of the secret.
--- You can use this value to check that your secret meets your compliance
--- guidelines for how often secrets must be rotated.
+-- 'automaticallyAfterDays', 'rotationRulesType_automaticallyAfterDays' - The number of days between rotations of the secret. You can use this
+-- value to check that your secret meets your compliance guidelines for how
+-- often secrets must be rotated. If you use this field to set the rotation
+-- schedule, Secrets Manager calculates the next rotation date based on the
+-- previous rotation. Manually updating the secret value by calling
+-- @PutSecretValue@ or @UpdateSecret@ is considered a valid rotation.
 --
 -- In @DescribeSecret@ and @ListSecrets@, this value is calculated from the
 -- rotation schedule after every successful rotation. In @RotateSecret@,
@@ -140,9 +146,12 @@ newRotationRulesType =
       scheduleExpression = Prelude.Nothing
     }
 
--- | The number of days between automatic scheduled rotations of the secret.
--- You can use this value to check that your secret meets your compliance
--- guidelines for how often secrets must be rotated.
+-- | The number of days between rotations of the secret. You can use this
+-- value to check that your secret meets your compliance guidelines for how
+-- often secrets must be rotated. If you use this field to set the rotation
+-- schedule, Secrets Manager calculates the next rotation date based on the
+-- previous rotation. Manually updating the secret value by calling
+-- @PutSecretValue@ or @UpdateSecret@ is considered a valid rotation.
 --
 -- In @DescribeSecret@ and @ListSecrets@, this value is calculated from the
 -- rotation schedule after every successful rotation. In @RotateSecret@,
@@ -205,7 +214,8 @@ instance Data.FromJSON RotationRulesType where
 
 instance Prelude.Hashable RotationRulesType where
   hashWithSalt _salt RotationRulesType' {..} =
-    _salt `Prelude.hashWithSalt` automaticallyAfterDays
+    _salt
+      `Prelude.hashWithSalt` automaticallyAfterDays
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` scheduleExpression
 

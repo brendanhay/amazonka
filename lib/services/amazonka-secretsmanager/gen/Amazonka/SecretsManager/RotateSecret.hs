@@ -21,44 +21,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Configures and starts the asynchronous process of rotating the secret.
--- For more information about rotation, see
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html Rotate secrets>.
---
--- If you include the configuration parameters, the operation sets the
--- values for the secret and then immediately starts a rotation. If you
--- don\'t include the configuration parameters, the operation starts a
--- rotation with the values already stored in the secret.
---
--- For database credentials you want to rotate, for Secrets Manager to be
--- able to rotate the secret, you must make sure the secret value is in the
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_secret_json_structure.html JSON structure of a database secret>.
--- In particular, if you want to use the
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html#rotating-secrets-two-users alternating users strategy>,
--- your secret must contain the ARN of a superuser secret.
---
--- To configure rotation, you also need the ARN of an Amazon Web Services
--- Lambda function and the schedule for the rotation. The Lambda rotation
--- function creates a new version of the secret and creates or updates the
--- credentials on the database or service to match. After testing the new
--- credentials, the function marks the new secret version with the staging
--- label @AWSCURRENT@. Then anyone who retrieves the secret gets the new
--- version. For more information, see
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html How rotation works>.
---
--- You can create the Lambda rotation function based on the
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-rotation-templates.html rotation function templates>
--- that Secrets Manager provides. Choose a template that matches your
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets_strategies.html Rotation strategy>.
+-- For information about rotation, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html Rotate secrets>
+-- in the /Secrets Manager User Guide/. If you include the configuration
+-- parameters, the operation sets the values for the secret and then
+-- immediately starts a rotation. If you don\'t include the configuration
+-- parameters, the operation starts a rotation with the values already
+-- stored in the secret.
 --
 -- When rotation is successful, the @AWSPENDING@ staging label might be
 -- attached to the same version as the @AWSCURRENT@ version, or it might
 -- not be attached to any version. If the @AWSPENDING@ staging label is
 -- present but not attached to the same version as @AWSCURRENT@, then any
 -- later invocation of @RotateSecret@ assumes that a previous rotation
--- request is still in progress and returns an error.
---
--- When rotation is unsuccessful, the @AWSPENDING@ staging label might be
--- attached to an empty secret version. For more information, see
+-- request is still in progress and returns an error. When rotation is
+-- unsuccessful, the @AWSPENDING@ staging label might be attached to an
+-- empty secret version. For more information, see
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html Troubleshoot rotation>
 -- in the /Secrets Manager User Guide/.
 --
@@ -132,16 +110,22 @@ data RotateSecret = RotateSecret'
     -- next scheduled rotation window. The rotation schedule is defined in
     -- RotateSecretRequest$RotationRules.
     --
-    -- If you don\'t immediately rotate the secret, Secrets Manager tests the
-    -- rotation configuration by running the
+    -- For secrets that use a Lambda rotation function to rotate, if you don\'t
+    -- immediately rotate the secret, Secrets Manager tests the rotation
+    -- configuration by running the
     -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html testSecret step>
     -- of the Lambda rotation function. The test creates an @AWSPENDING@
     -- version of the secret and then removes it.
     --
-    -- If you don\'t specify this value, then by default, Secrets Manager
-    -- rotates the secret immediately.
+    -- By default, Secrets Manager rotates the secret immediately.
     rotateImmediately :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the Lambda rotation function that can rotate the secret.
+    -- | For secrets that use a Lambda rotation function to rotate, the ARN of
+    -- the Lambda rotation function.
+    --
+    -- For secrets that use /managed rotation/, omit this field. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html Managed rotation>
+    -- in the /Secrets Manager User Guide/.
     rotationLambdaARN :: Prelude.Maybe Prelude.Text,
     -- | A structure that defines the rotation configuration for this secret.
     rotationRules :: Prelude.Maybe RotationRulesType,
@@ -185,16 +169,22 @@ data RotateSecret = RotateSecret'
 -- next scheduled rotation window. The rotation schedule is defined in
 -- RotateSecretRequest$RotationRules.
 --
--- If you don\'t immediately rotate the secret, Secrets Manager tests the
--- rotation configuration by running the
+-- For secrets that use a Lambda rotation function to rotate, if you don\'t
+-- immediately rotate the secret, Secrets Manager tests the rotation
+-- configuration by running the
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html testSecret step>
 -- of the Lambda rotation function. The test creates an @AWSPENDING@
 -- version of the secret and then removes it.
 --
--- If you don\'t specify this value, then by default, Secrets Manager
--- rotates the secret immediately.
+-- By default, Secrets Manager rotates the secret immediately.
 --
--- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - The ARN of the Lambda rotation function that can rotate the secret.
+-- 'rotationLambdaARN', 'rotateSecret_rotationLambdaARN' - For secrets that use a Lambda rotation function to rotate, the ARN of
+-- the Lambda rotation function.
+--
+-- For secrets that use /managed rotation/, omit this field. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html Managed rotation>
+-- in the /Secrets Manager User Guide/.
 --
 -- 'rotationRules', 'rotateSecret_rotationRules' - A structure that defines the rotation configuration for this secret.
 --
@@ -241,18 +231,24 @@ rotateSecret_clientRequestToken = Lens.lens (\RotateSecret' {clientRequestToken}
 -- next scheduled rotation window. The rotation schedule is defined in
 -- RotateSecretRequest$RotationRules.
 --
--- If you don\'t immediately rotate the secret, Secrets Manager tests the
--- rotation configuration by running the
+-- For secrets that use a Lambda rotation function to rotate, if you don\'t
+-- immediately rotate the secret, Secrets Manager tests the rotation
+-- configuration by running the
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html testSecret step>
 -- of the Lambda rotation function. The test creates an @AWSPENDING@
 -- version of the secret and then removes it.
 --
--- If you don\'t specify this value, then by default, Secrets Manager
--- rotates the secret immediately.
+-- By default, Secrets Manager rotates the secret immediately.
 rotateSecret_rotateImmediately :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Bool)
 rotateSecret_rotateImmediately = Lens.lens (\RotateSecret' {rotateImmediately} -> rotateImmediately) (\s@RotateSecret' {} a -> s {rotateImmediately = a} :: RotateSecret)
 
--- | The ARN of the Lambda rotation function that can rotate the secret.
+-- | For secrets that use a Lambda rotation function to rotate, the ARN of
+-- the Lambda rotation function.
+--
+-- For secrets that use /managed rotation/, omit this field. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html Managed rotation>
+-- in the /Secrets Manager User Guide/.
 rotateSecret_rotationLambdaARN :: Lens.Lens' RotateSecret (Prelude.Maybe Prelude.Text)
 rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -> rotationLambdaARN) (\s@RotateSecret' {} a -> s {rotationLambdaARN = a} :: RotateSecret)
 
@@ -284,7 +280,8 @@ instance Core.AWSRequest RotateSecret where
 
 instance Prelude.Hashable RotateSecret where
   hashWithSalt _salt RotateSecret' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` rotateImmediately
       `Prelude.hashWithSalt` rotationLambdaARN
       `Prelude.hashWithSalt` rotationRules

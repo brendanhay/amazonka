@@ -364,7 +364,8 @@ instance Core.AWSRequest PutSecretValue where
 
 instance Prelude.Hashable PutSecretValue where
   hashWithSalt _salt PutSecretValue' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` secretBinary
       `Prelude.hashWithSalt` secretString
       `Prelude.hashWithSalt` versionStages

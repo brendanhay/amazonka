@@ -112,7 +112,8 @@ instance Data.FromJSON ReplicationStatusType where
 
 instance Prelude.Hashable ReplicationStatusType where
   hashWithSalt _salt ReplicationStatusType' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` lastAccessedDate
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` status

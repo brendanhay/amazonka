@@ -65,7 +65,7 @@ import Amazonka.SecretsManager.Types
 -- | /See:/ 'newReplicateSecretToRegions' smart constructor.
 data ReplicateSecretToRegions = ReplicateSecretToRegions'
   { -- | Specifies whether to overwrite a secret with the same name in the
-    -- destination Region.
+    -- destination Region. By default, secrets aren\'t overwritten.
     forceOverwriteReplicaSecret :: Prelude.Maybe Prelude.Bool,
     -- | The ARN or name of the secret to replicate.
     secretId :: Prelude.Text,
@@ -83,7 +83,7 @@ data ReplicateSecretToRegions = ReplicateSecretToRegions'
 -- for backwards compatibility:
 --
 -- 'forceOverwriteReplicaSecret', 'replicateSecretToRegions_forceOverwriteReplicaSecret' - Specifies whether to overwrite a secret with the same name in the
--- destination Region.
+-- destination Region. By default, secrets aren\'t overwritten.
 --
 -- 'secretId', 'replicateSecretToRegions_secretId' - The ARN or name of the secret to replicate.
 --
@@ -106,7 +106,7 @@ newReplicateSecretToRegions
       }
 
 -- | Specifies whether to overwrite a secret with the same name in the
--- destination Region.
+-- destination Region. By default, secrets aren\'t overwritten.
 replicateSecretToRegions_forceOverwriteReplicaSecret :: Lens.Lens' ReplicateSecretToRegions (Prelude.Maybe Prelude.Bool)
 replicateSecretToRegions_forceOverwriteReplicaSecret = Lens.lens (\ReplicateSecretToRegions' {forceOverwriteReplicaSecret} -> forceOverwriteReplicaSecret) (\s@ReplicateSecretToRegions' {} a -> s {forceOverwriteReplicaSecret = a} :: ReplicateSecretToRegions)
 
@@ -129,7 +129,8 @@ instance Core.AWSRequest ReplicateSecretToRegions where
       ( \s h x ->
           ReplicateSecretToRegionsResponse'
             Prelude.<$> (x Data..?> "ARN")
-            Prelude.<*> ( x Data..?> "ReplicationStatus"
+            Prelude.<*> ( x
+                            Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

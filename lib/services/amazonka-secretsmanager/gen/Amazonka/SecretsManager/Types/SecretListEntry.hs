@@ -65,6 +65,8 @@ data SecretListEntry = SecretListEntry'
     -- @\/prod\/databases\/dbserver1@ could represent the secret for a server
     -- named @dbserver1@ in the folder @databases@ in the folder @prod@.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The next rotation is scheduled to occur on or before this date. If the
+    -- secret isn\'t configured for rotation, Secrets Manager returns null.
     nextRotationDate :: Prelude.Maybe Data.POSIX,
     -- | Returns the name of the service that created the secret.
     owningService :: Prelude.Maybe Prelude.Text,
@@ -139,7 +141,8 @@ data SecretListEntry = SecretListEntry'
 -- @\/prod\/databases\/dbserver1@ could represent the secret for a server
 -- named @dbserver1@ in the folder @databases@ in the folder @prod@.
 --
--- 'nextRotationDate', 'secretListEntry_nextRotationDate' - Undocumented member.
+-- 'nextRotationDate', 'secretListEntry_nextRotationDate' - The next rotation is scheduled to occur on or before this date. If the
+-- secret isn\'t configured for rotation, Secrets Manager returns null.
 --
 -- 'owningService', 'secretListEntry_owningService' - Returns the name of the service that created the secret.
 --
@@ -243,7 +246,8 @@ secretListEntry_lastRotatedDate = Lens.lens (\SecretListEntry' {lastRotatedDate}
 secretListEntry_name :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.Text)
 secretListEntry_name = Lens.lens (\SecretListEntry' {name} -> name) (\s@SecretListEntry' {} a -> s {name = a} :: SecretListEntry)
 
--- | Undocumented member.
+-- | The next rotation is scheduled to occur on or before this date. If the
+-- secret isn\'t configured for rotation, Secrets Manager returns null.
 secretListEntry_nextRotationDate :: Lens.Lens' SecretListEntry (Prelude.Maybe Prelude.UTCTime)
 secretListEntry_nextRotationDate = Lens.lens (\SecretListEntry' {nextRotationDate} -> nextRotationDate) (\s@SecretListEntry' {} a -> s {nextRotationDate = a} :: SecretListEntry) Prelude.. Lens.mapping Data._Time
 
@@ -313,7 +317,8 @@ instance Data.FromJSON SecretListEntry where
             Prelude.<*> (x Data..:? "RotationEnabled")
             Prelude.<*> (x Data..:? "RotationLambdaARN")
             Prelude.<*> (x Data..:? "RotationRules")
-            Prelude.<*> ( x Data..:? "SecretVersionsToStages"
+            Prelude.<*> ( x
+                            Data..:? "SecretVersionsToStages"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
@@ -321,7 +326,8 @@ instance Data.FromJSON SecretListEntry where
 
 instance Prelude.Hashable SecretListEntry where
   hashWithSalt _salt SecretListEntry' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` deletedDate
       `Prelude.hashWithSalt` description

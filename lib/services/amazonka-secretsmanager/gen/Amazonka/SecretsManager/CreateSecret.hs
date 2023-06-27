@@ -28,6 +28,10 @@
 -- Secrets Manager consists of both the protected secret data and the
 -- important information needed to manage the secret.
 --
+-- For secrets that use /managed rotation/, you need to create the secret
+-- through the managing service. For more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets Manager secrets managed by other Amazon Web Services services>.
+--
 -- For information about creating a secret in the console, see
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html Create a secret>.
 --
@@ -147,7 +151,7 @@ data CreateSecret = CreateSecret'
     -- | The description of the secret.
     description :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to overwrite a secret with the same name in the
-    -- destination Region.
+    -- destination Region. By default, secrets aren\'t overwritten.
     forceOverwriteReplicaSecret :: Prelude.Maybe Prelude.Bool,
     -- | The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
     -- encrypt the secret value in the secret. An alias is always prefixed by
@@ -291,7 +295,7 @@ data CreateSecret = CreateSecret'
 -- 'description', 'createSecret_description' - The description of the secret.
 --
 -- 'forceOverwriteReplicaSecret', 'createSecret_forceOverwriteReplicaSecret' - Specifies whether to overwrite a secret with the same name in the
--- destination Region.
+-- destination Region. By default, secrets aren\'t overwritten.
 --
 -- 'kmsKeyId', 'createSecret_kmsKeyId' - The ARN, key ID, or alias of the KMS key that Secrets Manager uses to
 -- encrypt the secret value in the secret. An alias is always prefixed by
@@ -450,7 +454,7 @@ createSecret_description :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Text)
 createSecret_description = Lens.lens (\CreateSecret' {description} -> description) (\s@CreateSecret' {} a -> s {description = a} :: CreateSecret)
 
 -- | Specifies whether to overwrite a secret with the same name in the
--- destination Region.
+-- destination Region. By default, secrets aren\'t overwritten.
 createSecret_forceOverwriteReplicaSecret :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Bool)
 createSecret_forceOverwriteReplicaSecret = Lens.lens (\CreateSecret' {forceOverwriteReplicaSecret} -> forceOverwriteReplicaSecret) (\s@CreateSecret' {} a -> s {forceOverwriteReplicaSecret = a} :: CreateSecret)
 
@@ -571,7 +575,8 @@ instance Core.AWSRequest CreateSecret where
           CreateSecretResponse'
             Prelude.<$> (x Data..?> "ARN")
             Prelude.<*> (x Data..?> "Name")
-            Prelude.<*> ( x Data..?> "ReplicationStatus"
+            Prelude.<*> ( x
+                            Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "VersionId")
@@ -580,7 +585,8 @@ instance Core.AWSRequest CreateSecret where
 
 instance Prelude.Hashable CreateSecret where
   hashWithSalt _salt CreateSecret' {..} =
-    _salt `Prelude.hashWithSalt` addReplicaRegions
+    _salt
+      `Prelude.hashWithSalt` addReplicaRegions
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` forceOverwriteReplicaSecret

@@ -200,7 +200,8 @@ instance Core.AWSRequest UpdateSecretVersionStage where
 
 instance Prelude.Hashable UpdateSecretVersionStage where
   hashWithSalt _salt UpdateSecretVersionStage' {..} =
-    _salt `Prelude.hashWithSalt` moveToVersionId
+    _salt
+      `Prelude.hashWithSalt` moveToVersionId
       `Prelude.hashWithSalt` removeFromVersionId
       `Prelude.hashWithSalt` secretId
       `Prelude.hashWithSalt` versionStage

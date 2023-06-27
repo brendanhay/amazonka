@@ -98,13 +98,16 @@ import Amazonka.SecretsManager.Types
 data DeleteSecret = DeleteSecret'
   { -- | Specifies whether to delete the secret without any recovery window. You
     -- can\'t use both this parameter and @RecoveryWindowInDays@ in the same
-    -- call. If you don\'t use either, then Secrets Manager defaults to a 30
-    -- day recovery window.
+    -- call. If you don\'t use either, then by default Secrets Manager uses a
+    -- 30 day recovery window.
     --
     -- Secrets Manager performs the actual deletion with an asynchronous
     -- background process, so there might be a short delay before the secret is
     -- permanently deleted. If you delete a secret and then immediately create
     -- a secret with the same name, use appropriate back off and retry logic.
+    --
+    -- If you forcibly delete an already deleted or nonexistent secret, the
+    -- operation does not return @ResourceNotFoundException@.
     --
     -- Use this parameter with caution. This parameter causes the operation to
     -- skip the normal recovery window before the permanent deletion that
@@ -116,7 +119,7 @@ data DeleteSecret = DeleteSecret'
     -- | The number of days from 7 to 30 that Secrets Manager waits before
     -- permanently deleting the secret. You can\'t use both this parameter and
     -- @ForceDeleteWithoutRecovery@ in the same call. If you don\'t use either,
-    -- then Secrets Manager defaults to a 30 day recovery window.
+    -- then by default Secrets Manager uses a 30 day recovery window.
     recoveryWindowInDays :: Prelude.Maybe Prelude.Integer,
     -- | The ARN or name of the secret to delete.
     --
@@ -137,13 +140,16 @@ data DeleteSecret = DeleteSecret'
 --
 -- 'forceDeleteWithoutRecovery', 'deleteSecret_forceDeleteWithoutRecovery' - Specifies whether to delete the secret without any recovery window. You
 -- can\'t use both this parameter and @RecoveryWindowInDays@ in the same
--- call. If you don\'t use either, then Secrets Manager defaults to a 30
--- day recovery window.
+-- call. If you don\'t use either, then by default Secrets Manager uses a
+-- 30 day recovery window.
 --
 -- Secrets Manager performs the actual deletion with an asynchronous
 -- background process, so there might be a short delay before the secret is
 -- permanently deleted. If you delete a secret and then immediately create
 -- a secret with the same name, use appropriate back off and retry logic.
+--
+-- If you forcibly delete an already deleted or nonexistent secret, the
+-- operation does not return @ResourceNotFoundException@.
 --
 -- Use this parameter with caution. This parameter causes the operation to
 -- skip the normal recovery window before the permanent deletion that
@@ -155,7 +161,7 @@ data DeleteSecret = DeleteSecret'
 -- 'recoveryWindowInDays', 'deleteSecret_recoveryWindowInDays' - The number of days from 7 to 30 that Secrets Manager waits before
 -- permanently deleting the secret. You can\'t use both this parameter and
 -- @ForceDeleteWithoutRecovery@ in the same call. If you don\'t use either,
--- then Secrets Manager defaults to a 30 day recovery window.
+-- then by default Secrets Manager uses a 30 day recovery window.
 --
 -- 'secretId', 'deleteSecret_secretId' - The ARN or name of the secret to delete.
 --
@@ -176,13 +182,16 @@ newDeleteSecret pSecretId_ =
 
 -- | Specifies whether to delete the secret without any recovery window. You
 -- can\'t use both this parameter and @RecoveryWindowInDays@ in the same
--- call. If you don\'t use either, then Secrets Manager defaults to a 30
--- day recovery window.
+-- call. If you don\'t use either, then by default Secrets Manager uses a
+-- 30 day recovery window.
 --
 -- Secrets Manager performs the actual deletion with an asynchronous
 -- background process, so there might be a short delay before the secret is
 -- permanently deleted. If you delete a secret and then immediately create
 -- a secret with the same name, use appropriate back off and retry logic.
+--
+-- If you forcibly delete an already deleted or nonexistent secret, the
+-- operation does not return @ResourceNotFoundException@.
 --
 -- Use this parameter with caution. This parameter causes the operation to
 -- skip the normal recovery window before the permanent deletion that
@@ -196,7 +205,7 @@ deleteSecret_forceDeleteWithoutRecovery = Lens.lens (\DeleteSecret' {forceDelete
 -- | The number of days from 7 to 30 that Secrets Manager waits before
 -- permanently deleting the secret. You can\'t use both this parameter and
 -- @ForceDeleteWithoutRecovery@ in the same call. If you don\'t use either,
--- then Secrets Manager defaults to a 30 day recovery window.
+-- then by default Secrets Manager uses a 30 day recovery window.
 deleteSecret_recoveryWindowInDays :: Lens.Lens' DeleteSecret (Prelude.Maybe Prelude.Integer)
 deleteSecret_recoveryWindowInDays = Lens.lens (\DeleteSecret' {recoveryWindowInDays} -> recoveryWindowInDays) (\s@DeleteSecret' {} a -> s {recoveryWindowInDays = a} :: DeleteSecret)
 

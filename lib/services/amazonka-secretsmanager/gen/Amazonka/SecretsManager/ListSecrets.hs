@@ -83,6 +83,8 @@ import Amazonka.SecretsManager.Types
 data ListSecrets = ListSecrets'
   { -- | The filters to apply to the list of secrets.
     filters :: Prelude.Maybe [Filter],
+    -- | Specifies whether to include secrets scheduled for deletion. By default,
+    -- secrets scheduled for deletion aren\'t included.
     includePlannedDeletion :: Prelude.Maybe Prelude.Bool,
     -- | The number of results to include in the response.
     --
@@ -109,7 +111,8 @@ data ListSecrets = ListSecrets'
 --
 -- 'filters', 'listSecrets_filters' - The filters to apply to the list of secrets.
 --
--- 'includePlannedDeletion', 'listSecrets_includePlannedDeletion' - Undocumented member.
+-- 'includePlannedDeletion', 'listSecrets_includePlannedDeletion' - Specifies whether to include secrets scheduled for deletion. By default,
+-- secrets scheduled for deletion aren\'t included.
 --
 -- 'maxResults', 'listSecrets_maxResults' - The number of results to include in the response.
 --
@@ -137,7 +140,8 @@ newListSecrets =
 listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
 listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSecrets' {} a -> s {filters = a} :: ListSecrets) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | Specifies whether to include secrets scheduled for deletion. By default,
+-- secrets scheduled for deletion aren\'t included.
 listSecrets_includePlannedDeletion :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Bool)
 listSecrets_includePlannedDeletion = Lens.lens (\ListSecrets' {includePlannedDeletion} -> includePlannedDeletion) (\s@ListSecrets' {} a -> s {includePlannedDeletion = a} :: ListSecrets)
 
@@ -163,20 +167,23 @@ instance Core.AWSPager ListSecrets where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSecretsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSecretsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSecretsResponse_secretList Prelude.. Lens._Just
+            Lens.^? listSecretsResponse_secretList
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecrets_nextToken
           Lens..~ rs
-          Lens.^? listSecretsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSecretsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecrets where
   type AWSResponse ListSecrets = ListSecretsResponse
@@ -193,7 +200,8 @@ instance Core.AWSRequest ListSecrets where
 
 instance Prelude.Hashable ListSecrets where
   hashWithSalt _salt ListSecrets' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includePlannedDeletion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

@@ -41,8 +41,8 @@
 -- because it might be logged. For more information, see
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html Logging Secrets Manager events with CloudTrail>.
 --
--- __Required permissions:__ @secretsmanager:ValidateResourcePolicy@. For
--- more information, see
+-- __Required permissions:__ @secretsmanager:ValidateResourcePolicy@ and
+-- @secretsmanager:PutResourcePolicy@. For more information, see
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
 -- and
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
@@ -132,7 +132,8 @@ instance Core.AWSRequest ValidateResourcePolicy where
       ( \s h x ->
           ValidateResourcePolicyResponse'
             Prelude.<$> (x Data..?> "PolicyValidationPassed")
-            Prelude.<*> ( x Data..?> "ValidationErrors"
+            Prelude.<*> ( x
+                            Data..?> "ValidationErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,7 +141,8 @@ instance Core.AWSRequest ValidateResourcePolicy where
 
 instance Prelude.Hashable ValidateResourcePolicy where
   hashWithSalt _salt ValidateResourcePolicy' {..} =
-    _salt `Prelude.hashWithSalt` secretId
+    _salt
+      `Prelude.hashWithSalt` secretId
       `Prelude.hashWithSalt` resourcePolicy
 
 instance Prelude.NFData ValidateResourcePolicy where

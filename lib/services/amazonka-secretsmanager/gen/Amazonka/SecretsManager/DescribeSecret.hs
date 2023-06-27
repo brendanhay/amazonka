@@ -138,14 +138,16 @@ instance Core.AWSRequest DescribeSecret where
             Prelude.<*> (x Data..?> "NextRotationDate")
             Prelude.<*> (x Data..?> "OwningService")
             Prelude.<*> (x Data..?> "PrimaryRegion")
-            Prelude.<*> ( x Data..?> "ReplicationStatus"
+            Prelude.<*> ( x
+                            Data..?> "ReplicationStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "RotationEnabled")
             Prelude.<*> (x Data..?> "RotationLambdaARN")
             Prelude.<*> (x Data..?> "RotationRules")
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "VersionIdsToStages"
+            Prelude.<*> ( x
+                            Data..?> "VersionIdsToStages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -219,6 +221,8 @@ data DescribeSecretResponse = DescribeSecretResponse'
     lastRotatedDate :: Prelude.Maybe Data.POSIX,
     -- | The name of the secret.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The next rotation is scheduled to occur on or before this date. If the
+    -- secret isn\'t configured for rotation, Secrets Manager returns null.
     nextRotationDate :: Prelude.Maybe Data.POSIX,
     -- | The ID of the service that created this secret. For more information,
     -- see
@@ -319,7 +323,8 @@ data DescribeSecretResponse = DescribeSecretResponse'
 --
 -- 'name', 'describeSecretResponse_name' - The name of the secret.
 --
--- 'nextRotationDate', 'describeSecretResponse_nextRotationDate' - Undocumented member.
+-- 'nextRotationDate', 'describeSecretResponse_nextRotationDate' - The next rotation is scheduled to occur on or before this date. If the
+-- secret isn\'t configured for rotation, Secrets Manager returns null.
 --
 -- 'owningService', 'describeSecretResponse_owningService' - The ID of the service that created this secret. For more information,
 -- see
@@ -453,7 +458,8 @@ describeSecretResponse_lastRotatedDate = Lens.lens (\DescribeSecretResponse' {la
 describeSecretResponse_name :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.Text)
 describeSecretResponse_name = Lens.lens (\DescribeSecretResponse' {name} -> name) (\s@DescribeSecretResponse' {} a -> s {name = a} :: DescribeSecretResponse)
 
--- | Undocumented member.
+-- | The next rotation is scheduled to occur on or before this date. If the
+-- secret isn\'t configured for rotation, Secrets Manager returns null.
 describeSecretResponse_nextRotationDate :: Lens.Lens' DescribeSecretResponse (Prelude.Maybe Prelude.UTCTime)
 describeSecretResponse_nextRotationDate = Lens.lens (\DescribeSecretResponse' {nextRotationDate} -> nextRotationDate) (\s@DescribeSecretResponse' {} a -> s {nextRotationDate = a} :: DescribeSecretResponse) Prelude.. Lens.mapping Data._Time
 

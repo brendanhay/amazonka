@@ -114,7 +114,8 @@ instance Data.FromJSON SecretVersionsListEntry where
 
 instance Prelude.Hashable SecretVersionsListEntry where
   hashWithSalt _salt SecretVersionsListEntry' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` kmsKeyIds
       `Prelude.hashWithSalt` lastAccessedDate
       `Prelude.hashWithSalt` versionId

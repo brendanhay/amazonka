@@ -74,7 +74,8 @@ import Amazonka.SecretsManager.Types
 data ListSecretVersionIds = ListSecretVersionIds'
   { -- | Specifies whether to include versions of secrets that don\'t have any
     -- staging labels attached to them. Versions without staging labels are
-    -- considered deprecated and are subject to deletion by Secrets Manager.
+    -- considered deprecated and are subject to deletion by Secrets Manager. By
+    -- default, versions without staging labels aren\'t included.
     includeDeprecated :: Prelude.Maybe Prelude.Bool,
     -- | The number of results to include in the response.
     --
@@ -105,7 +106,8 @@ data ListSecretVersionIds = ListSecretVersionIds'
 --
 -- 'includeDeprecated', 'listSecretVersionIds_includeDeprecated' - Specifies whether to include versions of secrets that don\'t have any
 -- staging labels attached to them. Versions without staging labels are
--- considered deprecated and are subject to deletion by Secrets Manager.
+-- considered deprecated and are subject to deletion by Secrets Manager. By
+-- default, versions without staging labels aren\'t included.
 --
 -- 'maxResults', 'listSecretVersionIds_maxResults' - The number of results to include in the response.
 --
@@ -137,7 +139,8 @@ newListSecretVersionIds pSecretId_ =
 
 -- | Specifies whether to include versions of secrets that don\'t have any
 -- staging labels attached to them. Versions without staging labels are
--- considered deprecated and are subject to deletion by Secrets Manager.
+-- considered deprecated and are subject to deletion by Secrets Manager. By
+-- default, versions without staging labels aren\'t included.
 listSecretVersionIds_includeDeprecated :: Lens.Lens' ListSecretVersionIds (Prelude.Maybe Prelude.Bool)
 listSecretVersionIds_includeDeprecated = Lens.lens (\ListSecretVersionIds' {includeDeprecated} -> includeDeprecated) (\s@ListSecretVersionIds' {} a -> s {includeDeprecated = a} :: ListSecretVersionIds)
 
@@ -168,22 +171,22 @@ instance Core.AWSPager ListSecretVersionIds where
     | Core.stop
         ( rs
             Lens.^? listSecretVersionIdsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecretVersionIdsResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecretVersionIds_nextToken
           Lens..~ rs
           Lens.^? listSecretVersionIdsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecretVersionIds where
   type
@@ -204,7 +207,8 @@ instance Core.AWSRequest ListSecretVersionIds where
 
 instance Prelude.Hashable ListSecretVersionIds where
   hashWithSalt _salt ListSecretVersionIds' {..} =
-    _salt `Prelude.hashWithSalt` includeDeprecated
+    _salt
+      `Prelude.hashWithSalt` includeDeprecated
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` secretId

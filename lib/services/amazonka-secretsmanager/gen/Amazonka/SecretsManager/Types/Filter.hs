@@ -43,6 +43,8 @@ data Filter = Filter'
     --
     -- -   __primary-region__: Prefix match, case-sensitive.
     --
+    -- -   __owning-service__: Prefix match, case-sensitive.
+    --
     -- -   __all__: Breaks the filter value string into words and then searches
     --     all attributes for matches. Not case-sensitive.
     key :: Prelude.Maybe FilterNameStringType,
@@ -74,6 +76,8 @@ data Filter = Filter'
 --
 -- -   __primary-region__: Prefix match, case-sensitive.
 --
+-- -   __owning-service__: Prefix match, case-sensitive.
+--
 -- -   __all__: Breaks the filter value string into words and then searches
 --     all attributes for matches. Not case-sensitive.
 --
@@ -101,6 +105,8 @@ newFilter =
 --
 -- -   __primary-region__: Prefix match, case-sensitive.
 --
+-- -   __owning-service__: Prefix match, case-sensitive.
+--
 -- -   __all__: Breaks the filter value string into words and then searches
 --     all attributes for matches. Not case-sensitive.
 filter_key :: Lens.Lens' Filter (Prelude.Maybe FilterNameStringType)
@@ -115,7 +121,8 @@ filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {v
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Filter where

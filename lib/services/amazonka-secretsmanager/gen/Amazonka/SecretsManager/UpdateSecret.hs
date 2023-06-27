@@ -26,6 +26,10 @@
 -- To change the rotation configuration of a secret, use RotateSecret
 -- instead.
 --
+-- To change a secret so that it is managed by another service, you need to
+-- recreate the secret in that service. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets Manager secrets managed by other Amazon Web Services services>.
+--
 -- We recommend you avoid calling @UpdateSecret@ at a sustained rate of
 -- more than once every 10 minutes. When you call @UpdateSecret@ to update
 -- the secret value, Secrets Manager creates a new version of the secret.
@@ -342,7 +346,8 @@ instance Core.AWSRequest UpdateSecret where
 
 instance Prelude.Hashable UpdateSecret where
   hashWithSalt _salt UpdateSecret' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` secretBinary

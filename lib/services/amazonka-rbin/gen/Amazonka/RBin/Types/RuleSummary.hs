@@ -141,7 +141,8 @@ instance Data.FromJSON RuleSummary where
 
 instance Prelude.Hashable RuleSummary where
   hashWithSalt _salt RuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` lockState
       `Prelude.hashWithSalt` retentionPeriod

@@ -326,6 +326,20 @@ module Amazonka.WorkDocs.Lens
     restoreDocumentVersions_authenticationToken,
     restoreDocumentVersions_documentId,
 
+    -- ** SearchResources
+    searchResources_additionalResponseFields,
+    searchResources_authenticationToken,
+    searchResources_filters,
+    searchResources_limit,
+    searchResources_marker,
+    searchResources_orderBy,
+    searchResources_organizationId,
+    searchResources_queryScopes,
+    searchResources_queryText,
+    searchResourcesResponse_items,
+    searchResourcesResponse_marker,
+    searchResourcesResponse_httpStatus,
+
     -- ** UpdateDocument
     updateDocument_authenticationToken,
     updateDocument_name,
@@ -387,8 +401,13 @@ module Amazonka.WorkDocs.Lens
     commentMetadata_commentId,
     commentMetadata_commentStatus,
     commentMetadata_contributor,
+    commentMetadata_contributorId,
     commentMetadata_createdTimestamp,
     commentMetadata_recipientId,
+
+    -- ** DateRangeType
+    dateRangeType_endValue,
+    dateRangeType_startValue,
 
     -- ** DocumentMetadata
     documentMetadata_createdTimestamp,
@@ -415,6 +434,18 @@ module Amazonka.WorkDocs.Lens
     documentVersionMetadata_status,
     documentVersionMetadata_thumbnail,
 
+    -- ** Filters
+    filters_ancestorIds,
+    filters_contentCategories,
+    filters_createdRange,
+    filters_labels,
+    filters_modifiedRange,
+    filters_principals,
+    filters_resourceTypes,
+    filters_searchCollectionTypes,
+    filters_sizeRange,
+    filters_textLocales,
+
     -- ** FolderMetadata
     folderMetadata_createdTimestamp,
     folderMetadata_creatorId,
@@ -431,6 +462,10 @@ module Amazonka.WorkDocs.Lens
     -- ** GroupMetadata
     groupMetadata_id,
     groupMetadata_name,
+
+    -- ** LongRangeType
+    longRangeType_endValue,
+    longRangeType_startValue,
 
     -- ** NotificationOptions
     notificationOptions_emailMessage,
@@ -464,6 +499,22 @@ module Amazonka.WorkDocs.Lens
     -- ** ResourcePathComponent
     resourcePathComponent_id,
     resourcePathComponent_name,
+
+    -- ** ResponseItem
+    responseItem_commentMetadata,
+    responseItem_documentMetadata,
+    responseItem_documentVersionMetadata,
+    responseItem_folderMetadata,
+    responseItem_resourceType,
+    responseItem_webUrl,
+
+    -- ** SearchPrincipalType
+    searchPrincipalType_roles,
+    searchPrincipalType_id,
+
+    -- ** SearchSortResult
+    searchSortResult_field,
+    searchSortResult_order,
 
     -- ** SharePrincipal
     sharePrincipal_id,
@@ -560,13 +611,17 @@ import Amazonka.WorkDocs.InitiateDocumentVersionUpload
 import Amazonka.WorkDocs.RemoveAllResourcePermissions
 import Amazonka.WorkDocs.RemoveResourcePermission
 import Amazonka.WorkDocs.RestoreDocumentVersions
+import Amazonka.WorkDocs.SearchResources
 import Amazonka.WorkDocs.Types.Activity
 import Amazonka.WorkDocs.Types.Comment
 import Amazonka.WorkDocs.Types.CommentMetadata
+import Amazonka.WorkDocs.Types.DateRangeType
 import Amazonka.WorkDocs.Types.DocumentMetadata
 import Amazonka.WorkDocs.Types.DocumentVersionMetadata
+import Amazonka.WorkDocs.Types.Filters
 import Amazonka.WorkDocs.Types.FolderMetadata
 import Amazonka.WorkDocs.Types.GroupMetadata
+import Amazonka.WorkDocs.Types.LongRangeType
 import Amazonka.WorkDocs.Types.NotificationOptions
 import Amazonka.WorkDocs.Types.Participants
 import Amazonka.WorkDocs.Types.PermissionInfo
@@ -574,6 +629,9 @@ import Amazonka.WorkDocs.Types.Principal
 import Amazonka.WorkDocs.Types.ResourceMetadata
 import Amazonka.WorkDocs.Types.ResourcePath
 import Amazonka.WorkDocs.Types.ResourcePathComponent
+import Amazonka.WorkDocs.Types.ResponseItem
+import Amazonka.WorkDocs.Types.SearchPrincipalType
+import Amazonka.WorkDocs.Types.SearchSortResult
 import Amazonka.WorkDocs.Types.SharePrincipal
 import Amazonka.WorkDocs.Types.ShareResult
 import Amazonka.WorkDocs.Types.StorageRuleType

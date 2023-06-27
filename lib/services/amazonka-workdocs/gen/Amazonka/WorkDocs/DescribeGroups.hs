@@ -57,8 +57,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeGroups' smart constructor.
 data DescribeGroups = DescribeGroups'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return with this call.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -80,8 +80,8 @@ data DescribeGroups = DescribeGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'describeGroups_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'describeGroups_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'limit', 'describeGroups_limit' - The maximum number of items to return with this call.
 --
@@ -105,8 +105,8 @@ newDescribeGroups pSearchQuery_ =
       searchQuery = Data._Sensitive Lens.# pSearchQuery_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 describeGroups_authenticationToken :: Lens.Lens' DescribeGroups (Prelude.Maybe Prelude.Text)
 describeGroups_authenticationToken = Lens.lens (\DescribeGroups' {authenticationToken} -> authenticationToken) (\s@DescribeGroups' {} a -> s {authenticationToken = a} :: DescribeGroups) Prelude.. Lens.mapping Data._Sensitive
 
@@ -131,20 +131,23 @@ instance Core.AWSPager DescribeGroups where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeGroupsResponse_marker Prelude.. Lens._Just
+            Lens.^? describeGroupsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeGroupsResponse_groups Prelude.. Lens._Just
+            Lens.^? describeGroupsResponse_groups
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeGroups_marker
           Lens..~ rs
-          Lens.^? describeGroupsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeGroupsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeGroups where
   type
@@ -163,7 +166,8 @@ instance Core.AWSRequest DescribeGroups where
 
 instance Prelude.Hashable DescribeGroups where
   hashWithSalt _salt DescribeGroups' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` organizationId

@@ -54,8 +54,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newAddResourcePermissions' smart constructor.
 data AddResourcePermissions = AddResourcePermissions'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The notification options.
     notificationOptions :: Prelude.Maybe NotificationOptions,
@@ -74,8 +74,8 @@ data AddResourcePermissions = AddResourcePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'addResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'addResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'notificationOptions', 'addResourcePermissions_notificationOptions' - The notification options.
 --
@@ -95,8 +95,8 @@ newAddResourcePermissions pResourceId_ =
       principals = Prelude.mempty
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 addResourcePermissions_authenticationToken :: Lens.Lens' AddResourcePermissions (Prelude.Maybe Prelude.Text)
 addResourcePermissions_authenticationToken = Lens.lens (\AddResourcePermissions' {authenticationToken} -> authenticationToken) (\s@AddResourcePermissions' {} a -> s {authenticationToken = a} :: AddResourcePermissions) Prelude.. Lens.mapping Data._Sensitive
 
@@ -128,7 +128,8 @@ instance Core.AWSRequest AddResourcePermissions where
 
 instance Prelude.Hashable AddResourcePermissions where
   hashWithSalt _salt AddResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` notificationOptions
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` principals

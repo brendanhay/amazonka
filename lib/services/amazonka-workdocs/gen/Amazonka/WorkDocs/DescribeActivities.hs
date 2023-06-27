@@ -64,8 +64,8 @@ data DescribeActivities = DescribeActivities'
   { -- | Specifies which activity types to include in the response. If this field
     -- is left empty, all activity types are returned.
     activityTypes :: Prelude.Maybe Prelude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+    -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The timestamp that determines the end time of the activities. The
     -- response includes the activities performed before the specified
@@ -107,8 +107,8 @@ data DescribeActivities = DescribeActivities'
 -- 'activityTypes', 'describeActivities_activityTypes' - Specifies which activity types to include in the response. If this field
 -- is left empty, all activity types are returned.
 --
--- 'authenticationToken', 'describeActivities_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'describeActivities_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'endTime', 'describeActivities_endTime' - The timestamp that determines the end time of the activities. The
 -- response includes the activities performed before the specified
@@ -157,8 +157,8 @@ newDescribeActivities =
 describeActivities_activityTypes :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
 describeActivities_activityTypes = Lens.lens (\DescribeActivities' {activityTypes} -> activityTypes) (\s@DescribeActivities' {} a -> s {activityTypes = a} :: DescribeActivities)
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 describeActivities_authenticationToken :: Lens.Lens' DescribeActivities (Prelude.Maybe Prelude.Text)
 describeActivities_authenticationToken = Lens.lens (\DescribeActivities' {authenticationToken} -> authenticationToken) (\s@DescribeActivities' {} a -> s {authenticationToken = a} :: DescribeActivities) Prelude.. Lens.mapping Data._Sensitive
 
@@ -209,22 +209,22 @@ instance Core.AWSPager DescribeActivities where
     | Core.stop
         ( rs
             Lens.^? describeActivitiesResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeActivitiesResponse_userActivities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeActivities_marker
           Lens..~ rs
           Lens.^? describeActivitiesResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeActivities where
   type
@@ -243,7 +243,8 @@ instance Core.AWSRequest DescribeActivities where
 
 instance Prelude.Hashable DescribeActivities where
   hashWithSalt _salt DescribeActivities' {..} =
-    _salt `Prelude.hashWithSalt` activityTypes
+    _salt
+      `Prelude.hashWithSalt` activityTypes
       `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` includeIndirectActivities

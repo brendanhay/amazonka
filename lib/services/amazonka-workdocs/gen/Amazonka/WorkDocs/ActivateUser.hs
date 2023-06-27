@@ -51,8 +51,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newActivateUser' smart constructor.
 data ActivateUser = ActivateUser'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the user.
     userId :: Prelude.Text
@@ -67,8 +67,8 @@ data ActivateUser = ActivateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'activateUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'activateUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'userId', 'activateUser_userId' - The ID of the user.
 newActivateUser ::
@@ -82,8 +82,8 @@ newActivateUser pUserId_ =
       userId = pUserId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 activateUser_authenticationToken :: Lens.Lens' ActivateUser (Prelude.Maybe Prelude.Text)
 activateUser_authenticationToken = Lens.lens (\ActivateUser' {authenticationToken} -> authenticationToken) (\s@ActivateUser' {} a -> s {authenticationToken = a} :: ActivateUser) Prelude.. Lens.mapping Data._Sensitive
 
@@ -105,7 +105,8 @@ instance Core.AWSRequest ActivateUser where
 
 instance Prelude.Hashable ActivateUser where
   hashWithSalt _salt ActivateUser' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData ActivateUser where

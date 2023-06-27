@@ -56,8 +56,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeResourcePermissions' smart constructor.
 data DescribeResourcePermissions = DescribeResourcePermissions'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return with this call.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -79,8 +79,8 @@ data DescribeResourcePermissions = DescribeResourcePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'describeResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'describeResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'limit', 'describeResourcePermissions_limit' - The maximum number of items to return with this call.
 --
@@ -104,8 +104,8 @@ newDescribeResourcePermissions pResourceId_ =
       resourceId = pResourceId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 describeResourcePermissions_authenticationToken :: Lens.Lens' DescribeResourcePermissions (Prelude.Maybe Prelude.Text)
 describeResourcePermissions_authenticationToken = Lens.lens (\DescribeResourcePermissions' {authenticationToken} -> authenticationToken) (\s@DescribeResourcePermissions' {} a -> s {authenticationToken = a} :: DescribeResourcePermissions) Prelude.. Lens.mapping Data._Sensitive
 
@@ -131,22 +131,22 @@ instance Core.AWSPager DescribeResourcePermissions where
     | Core.stop
         ( rs
             Lens.^? describeResourcePermissionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeResourcePermissionsResponse_principals
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeResourcePermissions_marker
           Lens..~ rs
           Lens.^? describeResourcePermissionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeResourcePermissions where
   type
@@ -165,7 +165,8 @@ instance Core.AWSRequest DescribeResourcePermissions where
 
 instance Prelude.Hashable DescribeResourcePermissions where
   hashWithSalt _salt DescribeResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` principalId

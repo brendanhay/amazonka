@@ -49,8 +49,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newRemoveResourcePermission' smart constructor.
 data RemoveResourcePermission = RemoveResourcePermission'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The principal type of the resource.
     principalType :: Prelude.Maybe PrincipalType,
@@ -69,8 +69,8 @@ data RemoveResourcePermission = RemoveResourcePermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'removeResourcePermission_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'removeResourcePermission_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'principalType', 'removeResourcePermission_principalType' - The principal type of the resource.
 --
@@ -94,8 +94,8 @@ newRemoveResourcePermission
         principalId = pPrincipalId_
       }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 removeResourcePermission_authenticationToken :: Lens.Lens' RemoveResourcePermission (Prelude.Maybe Prelude.Text)
 removeResourcePermission_authenticationToken = Lens.lens (\RemoveResourcePermission' {authenticationToken} -> authenticationToken) (\s@RemoveResourcePermission' {} a -> s {authenticationToken = a} :: RemoveResourcePermission) Prelude.. Lens.mapping Data._Sensitive
 
@@ -123,7 +123,8 @@ instance Core.AWSRequest RemoveResourcePermission where
 
 instance Prelude.Hashable RemoveResourcePermission where
   hashWithSalt _salt RemoveResourcePermission' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` principalType
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` principalId

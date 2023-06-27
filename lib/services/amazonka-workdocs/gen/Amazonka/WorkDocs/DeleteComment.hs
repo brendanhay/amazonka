@@ -48,8 +48,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeleteComment' smart constructor.
 data DeleteComment = DeleteComment'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text,
@@ -68,8 +68,8 @@ data DeleteComment = DeleteComment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'deleteComment_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'deleteComment_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'documentId', 'deleteComment_documentId' - The ID of the document.
 --
@@ -93,8 +93,8 @@ newDeleteComment pDocumentId_ pVersionId_ pCommentId_ =
       commentId = pCommentId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 deleteComment_authenticationToken :: Lens.Lens' DeleteComment (Prelude.Maybe Prelude.Text)
 deleteComment_authenticationToken = Lens.lens (\DeleteComment' {authenticationToken} -> authenticationToken) (\s@DeleteComment' {} a -> s {authenticationToken = a} :: DeleteComment) Prelude.. Lens.mapping Data._Sensitive
 
@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteComment where
 
 instance Prelude.Hashable DeleteComment where
   hashWithSalt _salt DeleteComment' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` commentId

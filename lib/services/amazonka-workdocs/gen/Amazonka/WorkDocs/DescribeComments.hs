@@ -56,8 +56,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeComments' smart constructor.
 data DescribeComments = DescribeComments'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The maximum number of items to return.
     limit :: Prelude.Maybe Prelude.Natural,
@@ -79,8 +79,8 @@ data DescribeComments = DescribeComments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'describeComments_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'describeComments_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'limit', 'describeComments_limit' - The maximum number of items to return.
 --
@@ -106,8 +106,8 @@ newDescribeComments pDocumentId_ pVersionId_ =
       versionId = pVersionId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 describeComments_authenticationToken :: Lens.Lens' DescribeComments (Prelude.Maybe Prelude.Text)
 describeComments_authenticationToken = Lens.lens (\DescribeComments' {authenticationToken} -> authenticationToken) (\s@DescribeComments' {} a -> s {authenticationToken = a} :: DescribeComments) Prelude.. Lens.mapping Data._Sensitive
 
@@ -132,21 +132,23 @@ instance Core.AWSPager DescribeComments where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeCommentsResponse_marker Prelude.. Lens._Just
+            Lens.^? describeCommentsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCommentsResponse_comments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeComments_marker
           Lens..~ rs
-          Lens.^? describeCommentsResponse_marker Prelude.. Lens._Just
+          Lens.^? describeCommentsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeComments where
   type
@@ -165,7 +167,8 @@ instance Core.AWSRequest DescribeComments where
 
 instance Prelude.Hashable DescribeComments where
   hashWithSalt _salt DescribeComments' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` documentId

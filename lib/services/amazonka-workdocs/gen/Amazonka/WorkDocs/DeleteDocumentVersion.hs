@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a version of an Amazon WorkDocs document. Use the
--- @DeletePriorVersions@ parameter to delete prior versions.
+-- Deletes a specific version of a document.
 module Amazonka.WorkDocs.DeleteDocumentVersion
   ( -- * Creating a Request
     DeleteDocumentVersion (..),
@@ -49,15 +48,14 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeleteDocumentVersion' smart constructor.
 data DeleteDocumentVersion = DeleteDocumentVersion'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The ID of a document.
+    -- | The ID of the document associated with the version being deleted.
     documentId :: Prelude.Text,
-    -- | The version ID of a document.
+    -- | The ID of the version being deleted.
     versionId :: Prelude.Text,
-    -- | When set to @TRUE@, deletes the specified version and /all prior
-    -- versions/ of a document.
+    -- | Deletes all versions of a document prior to the current version.
     deletePriorVersions :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -70,15 +68,14 @@ data DeleteDocumentVersion = DeleteDocumentVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'deleteDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'deleteDocumentVersion_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
--- 'documentId', 'deleteDocumentVersion_documentId' - The ID of a document.
+-- 'documentId', 'deleteDocumentVersion_documentId' - The ID of the document associated with the version being deleted.
 --
--- 'versionId', 'deleteDocumentVersion_versionId' - The version ID of a document.
+-- 'versionId', 'deleteDocumentVersion_versionId' - The ID of the version being deleted.
 --
--- 'deletePriorVersions', 'deleteDocumentVersion_deletePriorVersions' - When set to @TRUE@, deletes the specified version and /all prior
--- versions/ of a document.
+-- 'deletePriorVersions', 'deleteDocumentVersion_deletePriorVersions' - Deletes all versions of a document prior to the current version.
 newDeleteDocumentVersion ::
   -- | 'documentId'
   Prelude.Text ->
@@ -99,21 +96,20 @@ newDeleteDocumentVersion
         deletePriorVersions = pDeletePriorVersions_
       }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 deleteDocumentVersion_authenticationToken :: Lens.Lens' DeleteDocumentVersion (Prelude.Maybe Prelude.Text)
 deleteDocumentVersion_authenticationToken = Lens.lens (\DeleteDocumentVersion' {authenticationToken} -> authenticationToken) (\s@DeleteDocumentVersion' {} a -> s {authenticationToken = a} :: DeleteDocumentVersion) Prelude.. Lens.mapping Data._Sensitive
 
--- | The ID of a document.
+-- | The ID of the document associated with the version being deleted.
 deleteDocumentVersion_documentId :: Lens.Lens' DeleteDocumentVersion Prelude.Text
 deleteDocumentVersion_documentId = Lens.lens (\DeleteDocumentVersion' {documentId} -> documentId) (\s@DeleteDocumentVersion' {} a -> s {documentId = a} :: DeleteDocumentVersion)
 
--- | The version ID of a document.
+-- | The ID of the version being deleted.
 deleteDocumentVersion_versionId :: Lens.Lens' DeleteDocumentVersion Prelude.Text
 deleteDocumentVersion_versionId = Lens.lens (\DeleteDocumentVersion' {versionId} -> versionId) (\s@DeleteDocumentVersion' {} a -> s {versionId = a} :: DeleteDocumentVersion)
 
--- | When set to @TRUE@, deletes the specified version and /all prior
--- versions/ of a document.
+-- | Deletes all versions of a document prior to the current version.
 deleteDocumentVersion_deletePriorVersions :: Lens.Lens' DeleteDocumentVersion Prelude.Bool
 deleteDocumentVersion_deletePriorVersions = Lens.lens (\DeleteDocumentVersion' {deletePriorVersions} -> deletePriorVersions) (\s@DeleteDocumentVersion' {} a -> s {deletePriorVersions = a} :: DeleteDocumentVersion)
 
@@ -128,7 +124,8 @@ instance Core.AWSRequest DeleteDocumentVersion where
 
 instance Prelude.Hashable DeleteDocumentVersion where
   hashWithSalt _salt DeleteDocumentVersion' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` deletePriorVersions

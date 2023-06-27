@@ -46,7 +46,7 @@ data DocumentVersionMetadata = DocumentVersionMetadata'
     -- | The timestamp when the document was last uploaded.
     modifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the version.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The signature of the document.
     signature :: Prelude.Maybe Prelude.Text,
     -- | The size of the document, in bytes.
@@ -143,7 +143,7 @@ documentVersionMetadata_modifiedTimestamp = Lens.lens (\DocumentVersionMetadata'
 
 -- | The name of the version.
 documentVersionMetadata_name :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.Text)
-documentVersionMetadata_name = Lens.lens (\DocumentVersionMetadata' {name} -> name) (\s@DocumentVersionMetadata' {} a -> s {name = a} :: DocumentVersionMetadata)
+documentVersionMetadata_name = Lens.lens (\DocumentVersionMetadata' {name} -> name) (\s@DocumentVersionMetadata' {} a -> s {name = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The signature of the document.
 documentVersionMetadata_signature :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.Text)

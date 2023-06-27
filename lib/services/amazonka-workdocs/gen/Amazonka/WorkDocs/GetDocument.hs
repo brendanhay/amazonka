@@ -52,8 +52,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newGetDocument' smart constructor.
 data GetDocument = GetDocument'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Set this to @TRUE@ to include custom metadata in the response.
     includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
@@ -70,8 +70,8 @@ data GetDocument = GetDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'getDocument_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'getDocument_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'includeCustomMetadata', 'getDocument_includeCustomMetadata' - Set this to @TRUE@ to include custom metadata in the response.
 --
@@ -87,8 +87,8 @@ newGetDocument pDocumentId_ =
       documentId = pDocumentId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 getDocument_authenticationToken :: Lens.Lens' GetDocument (Prelude.Maybe Prelude.Text)
 getDocument_authenticationToken = Lens.lens (\GetDocument' {authenticationToken} -> authenticationToken) (\s@GetDocument' {} a -> s {authenticationToken = a} :: GetDocument) Prelude.. Lens.mapping Data._Sensitive
 
@@ -115,7 +115,8 @@ instance Core.AWSRequest GetDocument where
 
 instance Prelude.Hashable GetDocument where
   hashWithSalt _salt GetDocument' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` includeCustomMetadata
       `Prelude.hashWithSalt` documentId
 

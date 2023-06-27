@@ -58,8 +58,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The email address of the user.
     emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -70,11 +70,11 @@ data CreateUser = CreateUser'
     -- | The time zone ID of the user.
     timeZoneId :: Prelude.Maybe Prelude.Text,
     -- | The login name of the user.
-    username :: Prelude.Text,
+    username :: Data.Sensitive Prelude.Text,
     -- | The given name of the user.
-    givenName :: Prelude.Text,
+    givenName :: Data.Sensitive Prelude.Text,
     -- | The surname of the user.
-    surname :: Prelude.Text,
+    surname :: Data.Sensitive Prelude.Text,
     -- | The password of the user.
     password :: Data.Sensitive Prelude.Text
   }
@@ -88,8 +88,8 @@ data CreateUser = CreateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'createUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'createUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'emailAddress', 'createUser_emailAddress' - The email address of the user.
 --
@@ -127,14 +127,14 @@ newCreateUser
         organizationId = Prelude.Nothing,
         storageRule = Prelude.Nothing,
         timeZoneId = Prelude.Nothing,
-        username = pUsername_,
-        givenName = pGivenName_,
-        surname = pSurname_,
+        username = Data._Sensitive Lens.# pUsername_,
+        givenName = Data._Sensitive Lens.# pGivenName_,
+        surname = Data._Sensitive Lens.# pSurname_,
         password = Data._Sensitive Lens.# pPassword_
       }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 createUser_authenticationToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_authenticationToken = Lens.lens (\CreateUser' {authenticationToken} -> authenticationToken) (\s@CreateUser' {} a -> s {authenticationToken = a} :: CreateUser) Prelude.. Lens.mapping Data._Sensitive
 
@@ -156,15 +156,15 @@ createUser_timeZoneId = Lens.lens (\CreateUser' {timeZoneId} -> timeZoneId) (\s@
 
 -- | The login name of the user.
 createUser_username :: Lens.Lens' CreateUser Prelude.Text
-createUser_username = Lens.lens (\CreateUser' {username} -> username) (\s@CreateUser' {} a -> s {username = a} :: CreateUser)
+createUser_username = Lens.lens (\CreateUser' {username} -> username) (\s@CreateUser' {} a -> s {username = a} :: CreateUser) Prelude.. Data._Sensitive
 
 -- | The given name of the user.
 createUser_givenName :: Lens.Lens' CreateUser Prelude.Text
-createUser_givenName = Lens.lens (\CreateUser' {givenName} -> givenName) (\s@CreateUser' {} a -> s {givenName = a} :: CreateUser)
+createUser_givenName = Lens.lens (\CreateUser' {givenName} -> givenName) (\s@CreateUser' {} a -> s {givenName = a} :: CreateUser) Prelude.. Data._Sensitive
 
 -- | The surname of the user.
 createUser_surname :: Lens.Lens' CreateUser Prelude.Text
-createUser_surname = Lens.lens (\CreateUser' {surname} -> surname) (\s@CreateUser' {} a -> s {surname = a} :: CreateUser)
+createUser_surname = Lens.lens (\CreateUser' {surname} -> surname) (\s@CreateUser' {} a -> s {surname = a} :: CreateUser) Prelude.. Data._Sensitive
 
 -- | The password of the user.
 createUser_password :: Lens.Lens' CreateUser Prelude.Text
@@ -184,7 +184,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` storageRule

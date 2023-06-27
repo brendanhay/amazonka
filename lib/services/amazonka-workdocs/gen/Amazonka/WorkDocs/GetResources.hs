@@ -56,8 +56,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newGetResources' smart constructor.
 data GetResources = GetResources'
-  { -- | The Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | The Amazon WorkDocs authentication token. Not required when using Amazon
+    -- Web Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The collection type.
     collectionType :: Prelude.Maybe ResourceCollectionType,
@@ -80,8 +80,8 @@ data GetResources = GetResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'getResources_authenticationToken' - The Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'getResources_authenticationToken' - The Amazon WorkDocs authentication token. Not required when using Amazon
+-- Web Services administrator credentials to access the API.
 --
 -- 'collectionType', 'getResources_collectionType' - The collection type.
 --
@@ -104,8 +104,8 @@ newGetResources =
       userId = Prelude.Nothing
     }
 
--- | The Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | The Amazon WorkDocs authentication token. Not required when using Amazon
+-- Web Services administrator credentials to access the API.
 getResources_authenticationToken :: Lens.Lens' GetResources (Prelude.Maybe Prelude.Text)
 getResources_authenticationToken = Lens.lens (\GetResources' {authenticationToken} -> authenticationToken) (\s@GetResources' {} a -> s {authenticationToken = a} :: GetResources) Prelude.. Lens.mapping Data._Sensitive
 
@@ -143,7 +143,8 @@ instance Core.AWSRequest GetResources where
 
 instance Prelude.Hashable GetResources where
   hashWithSalt _salt GetResources' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` collectionType
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker

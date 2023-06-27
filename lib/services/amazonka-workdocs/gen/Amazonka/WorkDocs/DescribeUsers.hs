@@ -67,8 +67,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | A comma-separated list of values. Specify \"STORAGE_METADATA\" to
     -- include the user storage quota and utilization information.
@@ -118,8 +118,8 @@ data DescribeUsers = DescribeUsers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'describeUsers_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'describeUsers_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'fields', 'describeUsers_fields' - A comma-separated list of values. Specify \"STORAGE_METADATA\" to
 -- include the user storage quota and utilization information.
@@ -174,8 +174,8 @@ newDescribeUsers =
       userIds = Prelude.Nothing
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 describeUsers_authenticationToken :: Lens.Lens' DescribeUsers (Prelude.Maybe Prelude.Text)
 describeUsers_authenticationToken = Lens.lens (\DescribeUsers' {authenticationToken} -> authenticationToken) (\s@DescribeUsers' {} a -> s {authenticationToken = a} :: DescribeUsers) Prelude.. Lens.mapping Data._Sensitive
 
@@ -238,20 +238,23 @@ instance Core.AWSPager DescribeUsers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_marker Prelude.. Lens._Just
+            Lens.^? describeUsersResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeUsersResponse_users Prelude.. Lens._Just
+            Lens.^? describeUsersResponse_users
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeUsers_marker
           Lens..~ rs
-          Lens.^? describeUsersResponse_marker Prelude.. Lens._Just
+          Lens.^? describeUsersResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUsers where
   type
@@ -271,7 +274,8 @@ instance Core.AWSRequest DescribeUsers where
 
 instance Prelude.Hashable DescribeUsers where
   hashWithSalt _salt DescribeUsers' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` limit

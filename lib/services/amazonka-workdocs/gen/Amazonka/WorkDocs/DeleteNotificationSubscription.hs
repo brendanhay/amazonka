@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     DeleteNotificationSubscription' {..} =
-      _salt `Prelude.hashWithSalt` subscriptionId
+      _salt
+        `Prelude.hashWithSalt` subscriptionId
         `Prelude.hashWithSalt` organizationId
 
 instance

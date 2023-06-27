@@ -51,11 +51,11 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newCreateFolder' smart constructor.
 data CreateFolder = CreateFolder'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the new folder.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Text
   }
@@ -69,8 +69,8 @@ data CreateFolder = CreateFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'createFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'createFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'name', 'createFolder_name' - The name of the new folder.
 --
@@ -87,14 +87,14 @@ newCreateFolder pParentFolderId_ =
       parentFolderId = pParentFolderId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 createFolder_authenticationToken :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
 createFolder_authenticationToken = Lens.lens (\CreateFolder' {authenticationToken} -> authenticationToken) (\s@CreateFolder' {} a -> s {authenticationToken = a} :: CreateFolder) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the new folder.
 createFolder_name :: Lens.Lens' CreateFolder (Prelude.Maybe Prelude.Text)
-createFolder_name = Lens.lens (\CreateFolder' {name} -> name) (\s@CreateFolder' {} a -> s {name = a} :: CreateFolder)
+createFolder_name = Lens.lens (\CreateFolder' {name} -> name) (\s@CreateFolder' {} a -> s {name = a} :: CreateFolder) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the parent folder.
 createFolder_parentFolderId :: Lens.Lens' CreateFolder Prelude.Text
@@ -114,7 +114,8 @@ instance Core.AWSRequest CreateFolder where
 
 instance Prelude.Hashable CreateFolder where
   hashWithSalt _salt CreateFolder' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentFolderId
 
@@ -155,7 +156,7 @@ data CreateFolderResponse = CreateFolderResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateFolderResponse' with all optional fields omitted.

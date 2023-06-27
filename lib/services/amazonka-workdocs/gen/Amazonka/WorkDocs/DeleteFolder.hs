@@ -46,8 +46,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeleteFolder' smart constructor.
 data DeleteFolder = DeleteFolder'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the folder.
     folderId :: Prelude.Text
@@ -62,8 +62,8 @@ data DeleteFolder = DeleteFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'deleteFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'deleteFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'folderId', 'deleteFolder_folderId' - The ID of the folder.
 newDeleteFolder ::
@@ -77,8 +77,8 @@ newDeleteFolder pFolderId_ =
       folderId = pFolderId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 deleteFolder_authenticationToken :: Lens.Lens' DeleteFolder (Prelude.Maybe Prelude.Text)
 deleteFolder_authenticationToken = Lens.lens (\DeleteFolder' {authenticationToken} -> authenticationToken) (\s@DeleteFolder' {} a -> s {authenticationToken = a} :: DeleteFolder) Prelude.. Lens.mapping Data._Sensitive
 
@@ -94,7 +94,8 @@ instance Core.AWSRequest DeleteFolder where
 
 instance Prelude.Hashable DeleteFolder where
   hashWithSalt _salt DeleteFolder' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData DeleteFolder where

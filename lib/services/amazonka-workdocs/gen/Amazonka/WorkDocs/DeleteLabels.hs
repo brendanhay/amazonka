@@ -51,8 +51,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDeleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Flag to request removal of all labels from the specified resource.
     deleteAll :: Prelude.Maybe Prelude.Bool,
@@ -71,8 +71,8 @@ data DeleteLabels = DeleteLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'deleteLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'deleteLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'deleteAll', 'deleteLabels_deleteAll' - Flag to request removal of all labels from the specified resource.
 --
@@ -92,8 +92,8 @@ newDeleteLabels pResourceId_ =
       resourceId = pResourceId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 deleteLabels_authenticationToken :: Lens.Lens' DeleteLabels (Prelude.Maybe Prelude.Text)
 deleteLabels_authenticationToken = Lens.lens (\DeleteLabels' {authenticationToken} -> authenticationToken) (\s@DeleteLabels' {} a -> s {authenticationToken = a} :: DeleteLabels) Prelude.. Lens.mapping Data._Sensitive
 
@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteLabels where
 
 instance Prelude.Hashable DeleteLabels where
   hashWithSalt _salt DeleteLabels' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` deleteAll
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` resourceId

@@ -42,7 +42,7 @@ data FolderMetadata = FolderMetadata'
     -- | The time when the folder was updated.
     modifiedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The name of the folder.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Maybe Prelude.Text,
     -- | The resource state of the folder.
@@ -53,7 +53,7 @@ data FolderMetadata = FolderMetadata'
     -- | The size of the folder metadata.
     size :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FolderMetadata' with all optional fields omitted.
@@ -128,7 +128,7 @@ folderMetadata_modifiedTimestamp = Lens.lens (\FolderMetadata' {modifiedTimestam
 
 -- | The name of the folder.
 folderMetadata_name :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Text)
-folderMetadata_name = Lens.lens (\FolderMetadata' {name} -> name) (\s@FolderMetadata' {} a -> s {name = a} :: FolderMetadata)
+folderMetadata_name = Lens.lens (\FolderMetadata' {name} -> name) (\s@FolderMetadata' {} a -> s {name = a} :: FolderMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the parent folder.
 folderMetadata_parentFolderId :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Text)
@@ -168,7 +168,8 @@ instance Data.FromJSON FolderMetadata where
 
 instance Prelude.Hashable FolderMetadata where
   hashWithSalt _salt FolderMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` creatorId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` labels

@@ -58,12 +58,12 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newUpdateUser' smart constructor.
 data UpdateUser = UpdateUser'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The given name of the user.
-    givenName :: Prelude.Maybe Prelude.Text,
-    -- | Boolean value to determine whether the user is granted Poweruser
+    givenName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | Boolean value to determine whether the user is granted Power user
     -- privileges.
     grantPoweruserPrivileges :: Prelude.Maybe BooleanEnumType,
     -- | The locale of the user.
@@ -71,7 +71,7 @@ data UpdateUser = UpdateUser'
     -- | The amount of storage for the user.
     storageRule :: Prelude.Maybe StorageRuleType,
     -- | The surname of the user.
-    surname :: Prelude.Maybe Prelude.Text,
+    surname :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time zone ID of the user.
     timeZoneId :: Prelude.Maybe Prelude.Text,
     -- | The type of the user.
@@ -89,12 +89,12 @@ data UpdateUser = UpdateUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'updateUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'updateUser_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'givenName', 'updateUser_givenName' - The given name of the user.
 --
--- 'grantPoweruserPrivileges', 'updateUser_grantPoweruserPrivileges' - Boolean value to determine whether the user is granted Poweruser
+-- 'grantPoweruserPrivileges', 'updateUser_grantPoweruserPrivileges' - Boolean value to determine whether the user is granted Power user
 -- privileges.
 --
 -- 'locale', 'updateUser_locale' - The locale of the user.
@@ -125,16 +125,16 @@ newUpdateUser pUserId_ =
       userId = pUserId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 updateUser_authenticationToken :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_authenticationToken = Lens.lens (\UpdateUser' {authenticationToken} -> authenticationToken) (\s@UpdateUser' {} a -> s {authenticationToken = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The given name of the user.
 updateUser_givenName :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_givenName = Lens.lens (\UpdateUser' {givenName} -> givenName) (\s@UpdateUser' {} a -> s {givenName = a} :: UpdateUser)
+updateUser_givenName = Lens.lens (\UpdateUser' {givenName} -> givenName) (\s@UpdateUser' {} a -> s {givenName = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | Boolean value to determine whether the user is granted Poweruser
+-- | Boolean value to determine whether the user is granted Power user
 -- privileges.
 updateUser_grantPoweruserPrivileges :: Lens.Lens' UpdateUser (Prelude.Maybe BooleanEnumType)
 updateUser_grantPoweruserPrivileges = Lens.lens (\UpdateUser' {grantPoweruserPrivileges} -> grantPoweruserPrivileges) (\s@UpdateUser' {} a -> s {grantPoweruserPrivileges = a} :: UpdateUser)
@@ -149,7 +149,7 @@ updateUser_storageRule = Lens.lens (\UpdateUser' {storageRule} -> storageRule) (
 
 -- | The surname of the user.
 updateUser_surname :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
-updateUser_surname = Lens.lens (\UpdateUser' {surname} -> surname) (\s@UpdateUser' {} a -> s {surname = a} :: UpdateUser)
+updateUser_surname = Lens.lens (\UpdateUser' {surname} -> surname) (\s@UpdateUser' {} a -> s {surname = a} :: UpdateUser) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time zone ID of the user.
 updateUser_timeZoneId :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
@@ -177,7 +177,8 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` givenName
       `Prelude.hashWithSalt` grantPoweruserPrivileges
       `Prelude.hashWithSalt` locale

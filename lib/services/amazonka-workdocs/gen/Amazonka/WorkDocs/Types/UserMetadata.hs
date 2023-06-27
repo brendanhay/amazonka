@@ -31,13 +31,13 @@ data UserMetadata = UserMetadata'
   { -- | The email address of the user.
     emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The given name of the user before a rename operation.
-    givenName :: Prelude.Maybe Prelude.Text,
+    givenName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the user.
     id :: Prelude.Maybe Prelude.Text,
     -- | The surname of the user.
-    surname :: Prelude.Maybe Prelude.Text,
+    surname :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The name of the user.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -75,7 +75,7 @@ userMetadata_emailAddress = Lens.lens (\UserMetadata' {emailAddress} -> emailAdd
 
 -- | The given name of the user before a rename operation.
 userMetadata_givenName :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
-userMetadata_givenName = Lens.lens (\UserMetadata' {givenName} -> givenName) (\s@UserMetadata' {} a -> s {givenName = a} :: UserMetadata)
+userMetadata_givenName = Lens.lens (\UserMetadata' {givenName} -> givenName) (\s@UserMetadata' {} a -> s {givenName = a} :: UserMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the user.
 userMetadata_id :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
@@ -83,11 +83,11 @@ userMetadata_id = Lens.lens (\UserMetadata' {id} -> id) (\s@UserMetadata' {} a -
 
 -- | The surname of the user.
 userMetadata_surname :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
-userMetadata_surname = Lens.lens (\UserMetadata' {surname} -> surname) (\s@UserMetadata' {} a -> s {surname = a} :: UserMetadata)
+userMetadata_surname = Lens.lens (\UserMetadata' {surname} -> surname) (\s@UserMetadata' {} a -> s {surname = a} :: UserMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The name of the user.
 userMetadata_username :: Lens.Lens' UserMetadata (Prelude.Maybe Prelude.Text)
-userMetadata_username = Lens.lens (\UserMetadata' {username} -> username) (\s@UserMetadata' {} a -> s {username = a} :: UserMetadata)
+userMetadata_username = Lens.lens (\UserMetadata' {username} -> username) (\s@UserMetadata' {} a -> s {username = a} :: UserMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON UserMetadata where
   parseJSON =
@@ -104,7 +104,8 @@ instance Data.FromJSON UserMetadata where
 
 instance Prelude.Hashable UserMetadata where
   hashWithSalt _salt UserMetadata' {..} =
-    _salt `Prelude.hashWithSalt` emailAddress
+    _salt
+      `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` givenName
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` surname

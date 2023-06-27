@@ -84,29 +84,38 @@ library
     Amazonka.WorkDocs.RemoveAllResourcePermissions
     Amazonka.WorkDocs.RemoveResourcePermission
     Amazonka.WorkDocs.RestoreDocumentVersions
+    Amazonka.WorkDocs.SearchResources
     Amazonka.WorkDocs.Types
     Amazonka.WorkDocs.Types.Activity
     Amazonka.WorkDocs.Types.ActivityType
+    Amazonka.WorkDocs.Types.AdditionalResponseFieldType
     Amazonka.WorkDocs.Types.BooleanEnumType
     Amazonka.WorkDocs.Types.Comment
     Amazonka.WorkDocs.Types.CommentMetadata
     Amazonka.WorkDocs.Types.CommentStatusType
     Amazonka.WorkDocs.Types.CommentVisibilityType
+    Amazonka.WorkDocs.Types.ContentCategoryType
+    Amazonka.WorkDocs.Types.DateRangeType
     Amazonka.WorkDocs.Types.DocumentMetadata
     Amazonka.WorkDocs.Types.DocumentSourceType
     Amazonka.WorkDocs.Types.DocumentStatusType
     Amazonka.WorkDocs.Types.DocumentThumbnailType
     Amazonka.WorkDocs.Types.DocumentVersionMetadata
     Amazonka.WorkDocs.Types.DocumentVersionStatus
+    Amazonka.WorkDocs.Types.Filters
     Amazonka.WorkDocs.Types.FolderContentType
     Amazonka.WorkDocs.Types.FolderMetadata
     Amazonka.WorkDocs.Types.GroupMetadata
+    Amazonka.WorkDocs.Types.LanguageCodeType
     Amazonka.WorkDocs.Types.LocaleType
+    Amazonka.WorkDocs.Types.LongRangeType
     Amazonka.WorkDocs.Types.NotificationOptions
+    Amazonka.WorkDocs.Types.OrderByFieldType
     Amazonka.WorkDocs.Types.OrderType
     Amazonka.WorkDocs.Types.Participants
     Amazonka.WorkDocs.Types.PermissionInfo
     Amazonka.WorkDocs.Types.Principal
+    Amazonka.WorkDocs.Types.PrincipalRoleType
     Amazonka.WorkDocs.Types.PrincipalType
     Amazonka.WorkDocs.Types.ResourceCollectionType
     Amazonka.WorkDocs.Types.ResourceMetadata
@@ -115,11 +124,19 @@ library
     Amazonka.WorkDocs.Types.ResourceSortType
     Amazonka.WorkDocs.Types.ResourceStateType
     Amazonka.WorkDocs.Types.ResourceType
+    Amazonka.WorkDocs.Types.ResponseItem
+    Amazonka.WorkDocs.Types.ResponseItemType
     Amazonka.WorkDocs.Types.RolePermissionType
     Amazonka.WorkDocs.Types.RoleType
+    Amazonka.WorkDocs.Types.SearchCollectionType
+    Amazonka.WorkDocs.Types.SearchPrincipalType
+    Amazonka.WorkDocs.Types.SearchQueryScopeType
+    Amazonka.WorkDocs.Types.SearchResourceType
+    Amazonka.WorkDocs.Types.SearchSortResult
     Amazonka.WorkDocs.Types.SharePrincipal
     Amazonka.WorkDocs.Types.ShareResult
     Amazonka.WorkDocs.Types.ShareStatusType
+    Amazonka.WorkDocs.Types.SortOrder
     Amazonka.WorkDocs.Types.StorageRuleType
     Amazonka.WorkDocs.Types.StorageType
     Amazonka.WorkDocs.Types.Subscription

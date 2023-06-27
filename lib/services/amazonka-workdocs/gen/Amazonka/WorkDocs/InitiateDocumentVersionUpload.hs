@@ -65,8 +65,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newInitiateDocumentVersionUpload' smart constructor.
 data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The timestamp when the content of the document was originally created.
     contentCreatedTimestamp :: Prelude.Maybe Data.POSIX,
@@ -79,7 +79,7 @@ data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
     -- | The ID of the document.
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the document.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the parent folder.
     parentFolderId :: Prelude.Maybe Prelude.Text
   }
@@ -93,8 +93,8 @@ data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'initiateDocumentVersionUpload_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'initiateDocumentVersionUpload_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'contentCreatedTimestamp', 'initiateDocumentVersionUpload_contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
 --
@@ -124,8 +124,8 @@ newInitiateDocumentVersionUpload =
       parentFolderId = Prelude.Nothing
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 initiateDocumentVersionUpload_authenticationToken :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
 initiateDocumentVersionUpload_authenticationToken = Lens.lens (\InitiateDocumentVersionUpload' {authenticationToken} -> authenticationToken) (\s@InitiateDocumentVersionUpload' {} a -> s {authenticationToken = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Data._Sensitive
 
@@ -151,7 +151,7 @@ initiateDocumentVersionUpload_id = Lens.lens (\InitiateDocumentVersionUpload' {i
 
 -- | The name of the document.
 initiateDocumentVersionUpload_name :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
-initiateDocumentVersionUpload_name = Lens.lens (\InitiateDocumentVersionUpload' {name} -> name) (\s@InitiateDocumentVersionUpload' {} a -> s {name = a} :: InitiateDocumentVersionUpload)
+initiateDocumentVersionUpload_name = Lens.lens (\InitiateDocumentVersionUpload' {name} -> name) (\s@InitiateDocumentVersionUpload' {} a -> s {name = a} :: InitiateDocumentVersionUpload) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the parent folder.
 initiateDocumentVersionUpload_parentFolderId :: Lens.Lens' InitiateDocumentVersionUpload (Prelude.Maybe Prelude.Text)
@@ -180,7 +180,8 @@ instance
     InitiateDocumentVersionUpload
   where
   hashWithSalt _salt InitiateDocumentVersionUpload' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` contentCreatedTimestamp
       `Prelude.hashWithSalt` contentModifiedTimestamp
       `Prelude.hashWithSalt` contentType

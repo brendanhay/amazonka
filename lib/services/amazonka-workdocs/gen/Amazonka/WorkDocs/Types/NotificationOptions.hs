@@ -31,7 +31,7 @@ data NotificationOptions = NotificationOptions'
   { -- | Text value to be included in the email body.
     emailMessage :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Boolean value to indicate an email notification should be sent to the
-    -- receipients.
+    -- recipients.
     sendEmail :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data NotificationOptions = NotificationOptions'
 -- 'emailMessage', 'notificationOptions_emailMessage' - Text value to be included in the email body.
 --
 -- 'sendEmail', 'notificationOptions_sendEmail' - Boolean value to indicate an email notification should be sent to the
--- receipients.
+-- recipients.
 newNotificationOptions ::
   NotificationOptions
 newNotificationOptions =
@@ -62,13 +62,14 @@ notificationOptions_emailMessage :: Lens.Lens' NotificationOptions (Prelude.Mayb
 notificationOptions_emailMessage = Lens.lens (\NotificationOptions' {emailMessage} -> emailMessage) (\s@NotificationOptions' {} a -> s {emailMessage = a} :: NotificationOptions) Prelude.. Lens.mapping Data._Sensitive
 
 -- | Boolean value to indicate an email notification should be sent to the
--- receipients.
+-- recipients.
 notificationOptions_sendEmail :: Lens.Lens' NotificationOptions (Prelude.Maybe Prelude.Bool)
 notificationOptions_sendEmail = Lens.lens (\NotificationOptions' {sendEmail} -> sendEmail) (\s@NotificationOptions' {} a -> s {sendEmail = a} :: NotificationOptions)
 
 instance Prelude.Hashable NotificationOptions where
   hashWithSalt _salt NotificationOptions' {..} =
-    _salt `Prelude.hashWithSalt` emailMessage
+    _salt
+      `Prelude.hashWithSalt` emailMessage
       `Prelude.hashWithSalt` sendEmail
 
 instance Prelude.NFData NotificationOptions where

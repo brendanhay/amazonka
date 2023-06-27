@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified user from a Simple AD or Microsoft AD directory.
+--
+-- Deleting a user immediately and permanently deletes all content in that
+-- user\'s folder structure. Site retention policies do NOT apply to this
+-- type of deletion.
 module Amazonka.WorkDocs.DeleteUser
   ( -- * Creating a Request
     DeleteUser (..),
@@ -47,8 +51,8 @@ import Amazonka.WorkDocs.Types
 -- | /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
   { -- | Amazon WorkDocs authentication token. Do not set this field when using
-    -- administrative API actions, as in accessing the API using AWS
-    -- credentials.
+    -- administrative API actions, as in accessing the API using Amazon Web
+    -- Services credentials.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the user.
     userId :: Prelude.Text
@@ -64,8 +68,8 @@ data DeleteUser = DeleteUser'
 -- for backwards compatibility:
 --
 -- 'authenticationToken', 'deleteUser_authenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using
--- administrative API actions, as in accessing the API using AWS
--- credentials.
+-- administrative API actions, as in accessing the API using Amazon Web
+-- Services credentials.
 --
 -- 'userId', 'deleteUser_userId' - The ID of the user.
 newDeleteUser ::
@@ -79,8 +83,8 @@ newDeleteUser pUserId_ =
     }
 
 -- | Amazon WorkDocs authentication token. Do not set this field when using
--- administrative API actions, as in accessing the API using AWS
--- credentials.
+-- administrative API actions, as in accessing the API using Amazon Web
+-- Services credentials.
 deleteUser_authenticationToken :: Lens.Lens' DeleteUser (Prelude.Maybe Prelude.Text)
 deleteUser_authenticationToken = Lens.lens (\DeleteUser' {authenticationToken} -> authenticationToken) (\s@DeleteUser' {} a -> s {authenticationToken = a} :: DeleteUser) Prelude.. Lens.mapping Data._Sensitive
 
@@ -96,7 +100,8 @@ instance Core.AWSRequest DeleteUser where
 
 instance Prelude.Hashable DeleteUser where
   hashWithSalt _salt DeleteUser' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData DeleteUser where

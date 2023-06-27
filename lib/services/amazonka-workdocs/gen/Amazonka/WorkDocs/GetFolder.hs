@@ -52,8 +52,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newGetFolder' smart constructor.
 data GetFolder = GetFolder'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Set to TRUE to include custom metadata in the response.
     includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
@@ -70,8 +70,8 @@ data GetFolder = GetFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'getFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'getFolder_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'includeCustomMetadata', 'getFolder_includeCustomMetadata' - Set to TRUE to include custom metadata in the response.
 --
@@ -87,8 +87,8 @@ newGetFolder pFolderId_ =
       folderId = pFolderId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 getFolder_authenticationToken :: Lens.Lens' GetFolder (Prelude.Maybe Prelude.Text)
 getFolder_authenticationToken = Lens.lens (\GetFolder' {authenticationToken} -> authenticationToken) (\s@GetFolder' {} a -> s {authenticationToken = a} :: GetFolder) Prelude.. Lens.mapping Data._Sensitive
 
@@ -115,7 +115,8 @@ instance Core.AWSRequest GetFolder where
 
 instance Prelude.Hashable GetFolder where
   hashWithSalt _salt GetFolder' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` includeCustomMetadata
       `Prelude.hashWithSalt` folderId
 
@@ -154,7 +155,7 @@ data GetFolderResponse = GetFolderResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetFolderResponse' with all optional fields omitted.

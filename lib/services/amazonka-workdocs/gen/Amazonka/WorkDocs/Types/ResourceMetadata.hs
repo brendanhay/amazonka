@@ -33,9 +33,9 @@ data ResourceMetadata = ResourceMetadata'
   { -- | The ID of the resource.
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The original name of the resource before a rename operation.
-    originalName :: Prelude.Maybe Prelude.Text,
+    originalName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The owner of the resource.
     owner :: Prelude.Maybe UserMetadata,
     -- | The parent ID of the resource before a rename operation.
@@ -89,11 +89,11 @@ resourceMetadata_id = Lens.lens (\ResourceMetadata' {id} -> id) (\s@ResourceMeta
 
 -- | The name of the resource.
 resourceMetadata_name :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
-resourceMetadata_name = Lens.lens (\ResourceMetadata' {name} -> name) (\s@ResourceMetadata' {} a -> s {name = a} :: ResourceMetadata)
+resourceMetadata_name = Lens.lens (\ResourceMetadata' {name} -> name) (\s@ResourceMetadata' {} a -> s {name = a} :: ResourceMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The original name of the resource before a rename operation.
 resourceMetadata_originalName :: Lens.Lens' ResourceMetadata (Prelude.Maybe Prelude.Text)
-resourceMetadata_originalName = Lens.lens (\ResourceMetadata' {originalName} -> originalName) (\s@ResourceMetadata' {} a -> s {originalName = a} :: ResourceMetadata)
+resourceMetadata_originalName = Lens.lens (\ResourceMetadata' {originalName} -> originalName) (\s@ResourceMetadata' {} a -> s {originalName = a} :: ResourceMetadata) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The owner of the resource.
 resourceMetadata_owner :: Lens.Lens' ResourceMetadata (Prelude.Maybe UserMetadata)
@@ -129,7 +129,8 @@ instance Data.FromJSON ResourceMetadata where
 
 instance Prelude.Hashable ResourceMetadata where
   hashWithSalt _salt ResourceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` originalName
       `Prelude.hashWithSalt` owner

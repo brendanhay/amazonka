@@ -161,7 +161,8 @@ instance Data.FromJSON Comment where
 
 instance Prelude.Hashable Comment where
   hashWithSalt _salt Comment' {..} =
-    _salt `Prelude.hashWithSalt` contributor
+    _salt
+      `Prelude.hashWithSalt` contributor
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` recipientId

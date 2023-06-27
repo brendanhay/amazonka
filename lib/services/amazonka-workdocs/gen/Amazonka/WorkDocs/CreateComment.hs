@@ -56,8 +56,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newCreateComment' smart constructor.
 data CreateComment = CreateComment'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Set this parameter to TRUE to send an email out to the document
     -- collaborators after the comment is created.
@@ -88,8 +88,8 @@ data CreateComment = CreateComment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'createComment_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'createComment_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'notifyCollaborators', 'createComment_notifyCollaborators' - Set this parameter to TRUE to send an email out to the document
 -- collaborators after the comment is created.
@@ -129,8 +129,8 @@ newCreateComment pDocumentId_ pVersionId_ pText_ =
       text = Data._Sensitive Lens.# pText_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 createComment_authenticationToken :: Lens.Lens' CreateComment (Prelude.Maybe Prelude.Text)
 createComment_authenticationToken = Lens.lens (\CreateComment' {authenticationToken} -> authenticationToken) (\s@CreateComment' {} a -> s {authenticationToken = a} :: CreateComment) Prelude.. Lens.mapping Data._Sensitive
 
@@ -182,7 +182,8 @@ instance Core.AWSRequest CreateComment where
 
 instance Prelude.Hashable CreateComment where
   hashWithSalt _salt CreateComment' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` notifyCollaborators
       `Prelude.hashWithSalt` parentId
       `Prelude.hashWithSalt` threadId

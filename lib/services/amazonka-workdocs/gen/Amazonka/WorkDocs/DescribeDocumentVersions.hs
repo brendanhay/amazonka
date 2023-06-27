@@ -59,8 +59,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeDocumentVersions' smart constructor.
 data DescribeDocumentVersions = DescribeDocumentVersions'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | Specify \"SOURCE\" to include initialized versions and a URL for the
     -- source document.
@@ -86,8 +86,8 @@ data DescribeDocumentVersions = DescribeDocumentVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'describeDocumentVersions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'describeDocumentVersions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'fields', 'describeDocumentVersions_fields' - Specify \"SOURCE\" to include initialized versions and a URL for the
 -- source document.
@@ -116,8 +116,8 @@ newDescribeDocumentVersions pDocumentId_ =
       documentId = pDocumentId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 describeDocumentVersions_authenticationToken :: Lens.Lens' DescribeDocumentVersions (Prelude.Maybe Prelude.Text)
 describeDocumentVersions_authenticationToken = Lens.lens (\DescribeDocumentVersions' {authenticationToken} -> authenticationToken) (\s@DescribeDocumentVersions' {} a -> s {authenticationToken = a} :: DescribeDocumentVersions) Prelude.. Lens.mapping Data._Sensitive
 
@@ -149,22 +149,22 @@ instance Core.AWSPager DescribeDocumentVersions where
     | Core.stop
         ( rs
             Lens.^? describeDocumentVersionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDocumentVersionsResponse_documentVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDocumentVersions_marker
           Lens..~ rs
           Lens.^? describeDocumentVersionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDocumentVersions where
   type
@@ -176,7 +176,8 @@ instance Core.AWSRequest DescribeDocumentVersions where
     Response.receiveJSON
       ( \s h x ->
           DescribeDocumentVersionsResponse'
-            Prelude.<$> ( x Data..?> "DocumentVersions"
+            Prelude.<$> ( x
+                            Data..?> "DocumentVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Marker")
@@ -185,7 +186,8 @@ instance Core.AWSRequest DescribeDocumentVersions where
 
 instance Prelude.Hashable DescribeDocumentVersions where
   hashWithSalt _salt DescribeDocumentVersions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` limit

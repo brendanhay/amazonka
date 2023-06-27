@@ -11,7 +11,7 @@
 --
 -- Derived from API version @2016-05-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- The WorkDocs API is designed for the following use cases:
+-- The Amazon WorkDocs API is designed for the following use cases:
 --
 -- -   File Migration: File migration applications are supported for users
 --     who want to migrate their files from an on-premises or off-premises
@@ -21,7 +21,7 @@
 --
 -- -   Security: Support security applications are supported for users who
 --     have additional security needs, such as antivirus or data loss
---     prevention. The API actions, along with AWS CloudTrail, allow these
+--     prevention. The API actions, along with CloudTrail, allow these
 --     applications to detect when changes occur in Amazon WorkDocs. Then,
 --     the application can take the necessary actions and replace the
 --     target file. If the target file violates the policy, the application
@@ -30,18 +30,18 @@
 -- -   eDiscovery\/Analytics: General administrative applications are
 --     supported, such as eDiscovery and analytics. These applications can
 --     choose to mimic or record the actions in an Amazon WorkDocs site,
---     along with AWS CloudTrail, to replicate data for eDiscovery, backup,
---     or analytical applications.
+--     along with CloudTrail, to replicate data for eDiscovery, backup, or
+--     analytical applications.
 --
 -- All Amazon WorkDocs API actions are Amazon authenticated and
--- certificate-signed. They not only require the use of the AWS SDK, but
--- also allow for the exclusive use of IAM users and roles to help
--- facilitate access, trust, and permission policies. By creating a role
--- and allowing an IAM user to access the Amazon WorkDocs site, the IAM
--- user gains full administrative visibility into the entire Amazon
--- WorkDocs site (or as set in the IAM policy). This includes, but is not
--- limited to, the ability to modify file permissions and upload any file
--- to any user. This allows developers to perform the three use cases
+-- certificate-signed. They not only require the use of the Amazon Web
+-- Services SDK, but also allow for the exclusive use of IAM users and
+-- roles to help facilitate access, trust, and permission policies. By
+-- creating a role and allowing an IAM user to access the Amazon WorkDocs
+-- site, the IAM user gains full administrative visibility into the entire
+-- Amazon WorkDocs site (or as set in the IAM policy). This includes, but
+-- is not limited to, the ability to modify file permissions and upload any
+-- file to any user. This allows developers to perform the three use cases
 -- above, as well as give users the ability to grant access on a selective
 -- basis using the IAM model.
 --
@@ -380,6 +380,12 @@ module Amazonka.WorkDocs
     RestoreDocumentVersionsResponse (RestoreDocumentVersionsResponse'),
     newRestoreDocumentVersionsResponse,
 
+    -- ** SearchResources (Paginated)
+    SearchResources (SearchResources'),
+    newSearchResources,
+    SearchResourcesResponse (SearchResourcesResponse'),
+    newSearchResourcesResponse,
+
     -- ** UpdateDocument
     UpdateDocument (UpdateDocument'),
     newUpdateDocument,
@@ -409,6 +415,9 @@ module Amazonka.WorkDocs
     -- ** ActivityType
     ActivityType (..),
 
+    -- ** AdditionalResponseFieldType
+    AdditionalResponseFieldType (..),
+
     -- ** BooleanEnumType
     BooleanEnumType (..),
 
@@ -417,6 +426,9 @@ module Amazonka.WorkDocs
 
     -- ** CommentVisibilityType
     CommentVisibilityType (..),
+
+    -- ** ContentCategoryType
+    ContentCategoryType (..),
 
     -- ** DocumentSourceType
     DocumentSourceType (..),
@@ -433,11 +445,20 @@ module Amazonka.WorkDocs
     -- ** FolderContentType
     FolderContentType (..),
 
+    -- ** LanguageCodeType
+    LanguageCodeType (..),
+
     -- ** LocaleType
     LocaleType (..),
 
+    -- ** OrderByFieldType
+    OrderByFieldType (..),
+
     -- ** OrderType
     OrderType (..),
+
+    -- ** PrincipalRoleType
+    PrincipalRoleType (..),
 
     -- ** PrincipalType
     PrincipalType (..),
@@ -454,14 +475,29 @@ module Amazonka.WorkDocs
     -- ** ResourceType
     ResourceType (..),
 
+    -- ** ResponseItemType
+    ResponseItemType (..),
+
     -- ** RolePermissionType
     RolePermissionType (..),
 
     -- ** RoleType
     RoleType (..),
 
+    -- ** SearchCollectionType
+    SearchCollectionType (..),
+
+    -- ** SearchQueryScopeType
+    SearchQueryScopeType (..),
+
+    -- ** SearchResourceType
+    SearchResourceType (..),
+
     -- ** ShareStatusType
     ShareStatusType (..),
+
+    -- ** SortOrder
+    SortOrder (..),
 
     -- ** StorageType
     StorageType (..),
@@ -496,6 +532,10 @@ module Amazonka.WorkDocs
     CommentMetadata (CommentMetadata'),
     newCommentMetadata,
 
+    -- ** DateRangeType
+    DateRangeType (DateRangeType'),
+    newDateRangeType,
+
     -- ** DocumentMetadata
     DocumentMetadata (DocumentMetadata'),
     newDocumentMetadata,
@@ -504,6 +544,10 @@ module Amazonka.WorkDocs
     DocumentVersionMetadata (DocumentVersionMetadata'),
     newDocumentVersionMetadata,
 
+    -- ** Filters
+    Filters (Filters'),
+    newFilters,
+
     -- ** FolderMetadata
     FolderMetadata (FolderMetadata'),
     newFolderMetadata,
@@ -511,6 +555,10 @@ module Amazonka.WorkDocs
     -- ** GroupMetadata
     GroupMetadata (GroupMetadata'),
     newGroupMetadata,
+
+    -- ** LongRangeType
+    LongRangeType (LongRangeType'),
+    newLongRangeType,
 
     -- ** NotificationOptions
     NotificationOptions (NotificationOptions'),
@@ -539,6 +587,18 @@ module Amazonka.WorkDocs
     -- ** ResourcePathComponent
     ResourcePathComponent (ResourcePathComponent'),
     newResourcePathComponent,
+
+    -- ** ResponseItem
+    ResponseItem (ResponseItem'),
+    newResponseItem,
+
+    -- ** SearchPrincipalType
+    SearchPrincipalType (SearchPrincipalType'),
+    newSearchPrincipalType,
+
+    -- ** SearchSortResult
+    SearchSortResult (SearchSortResult'),
+    newSearchSortResult,
 
     -- ** SharePrincipal
     SharePrincipal (SharePrincipal'),
@@ -614,6 +674,7 @@ import Amazonka.WorkDocs.Lens
 import Amazonka.WorkDocs.RemoveAllResourcePermissions
 import Amazonka.WorkDocs.RemoveResourcePermission
 import Amazonka.WorkDocs.RestoreDocumentVersions
+import Amazonka.WorkDocs.SearchResources
 import Amazonka.WorkDocs.Types
 import Amazonka.WorkDocs.UpdateDocument
 import Amazonka.WorkDocs.UpdateDocumentVersion

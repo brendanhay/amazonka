@@ -66,8 +66,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newDescribeFolderContents' smart constructor.
 data DescribeFolderContents = DescribeFolderContents'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The contents to include. Specify \"INITIALIZED\" to include initialized
     -- documents.
@@ -96,8 +96,8 @@ data DescribeFolderContents = DescribeFolderContents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'describeFolderContents_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'describeFolderContents_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'include', 'describeFolderContents_include' - The contents to include. Specify \"INITIALIZED\" to include initialized
 -- documents.
@@ -131,8 +131,8 @@ newDescribeFolderContents pFolderId_ =
       folderId = pFolderId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 describeFolderContents_authenticationToken :: Lens.Lens' DescribeFolderContents (Prelude.Maybe Prelude.Text)
 describeFolderContents_authenticationToken = Lens.lens (\DescribeFolderContents' {authenticationToken} -> authenticationToken) (\s@DescribeFolderContents' {} a -> s {authenticationToken = a} :: DescribeFolderContents) Prelude.. Lens.mapping Data._Sensitive
 
@@ -171,28 +171,28 @@ instance Core.AWSPager DescribeFolderContents where
     | Core.stop
         ( rs
             Lens.^? describeFolderContentsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFolderContentsResponse_folders
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFolderContentsResponse_documents
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFolderContents_marker
           Lens..~ rs
           Lens.^? describeFolderContentsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFolderContents where
   type
@@ -212,7 +212,8 @@ instance Core.AWSRequest DescribeFolderContents where
 
 instance Prelude.Hashable DescribeFolderContents where
   hashWithSalt _salt DescribeFolderContents' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` include
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker

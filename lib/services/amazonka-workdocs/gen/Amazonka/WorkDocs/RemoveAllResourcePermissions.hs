@@ -46,8 +46,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newRemoveAllResourcePermissions' smart constructor.
 data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the resource.
     resourceId :: Prelude.Text
@@ -62,8 +62,8 @@ data RemoveAllResourcePermissions = RemoveAllResourcePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'removeAllResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'removeAllResourcePermissions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'resourceId', 'removeAllResourcePermissions_resourceId' - The ID of the resource.
 newRemoveAllResourcePermissions ::
@@ -77,8 +77,8 @@ newRemoveAllResourcePermissions pResourceId_ =
       resourceId = pResourceId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 removeAllResourcePermissions_authenticationToken :: Lens.Lens' RemoveAllResourcePermissions (Prelude.Maybe Prelude.Text)
 removeAllResourcePermissions_authenticationToken = Lens.lens (\RemoveAllResourcePermissions' {authenticationToken} -> authenticationToken) (\s@RemoveAllResourcePermissions' {} a -> s {authenticationToken = a} :: RemoveAllResourcePermissions) Prelude.. Lens.mapping Data._Sensitive
 
@@ -101,7 +101,8 @@ instance
     RemoveAllResourcePermissions
   where
   hashWithSalt _salt RemoveAllResourcePermissions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData RemoveAllResourcePermissions where

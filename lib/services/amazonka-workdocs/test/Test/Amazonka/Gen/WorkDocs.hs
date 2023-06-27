@@ -144,6 +144,9 @@ import Test.Tasty
 --         , requestRestoreDocumentVersions $
 --             newRestoreDocumentVersions
 --
+--         , requestSearchResources $
+--             newSearchResources
+--
 --         , requestUpdateDocument $
 --             newUpdateDocument
 --
@@ -275,6 +278,9 @@ import Test.Tasty
 --
 --         , responseRestoreDocumentVersions $
 --             newRestoreDocumentVersionsResponse
+--
+--         , responseSearchResources $
+--             newSearchResourcesResponse
 --
 --         , responseUpdateDocument $
 --             newUpdateDocumentResponse
@@ -526,6 +532,12 @@ requestRestoreDocumentVersions =
   req
     "RestoreDocumentVersions"
     "fixture/RestoreDocumentVersions.yaml"
+
+requestSearchResources :: SearchResources -> TestTree
+requestSearchResources =
+  req
+    "SearchResources"
+    "fixture/SearchResources.yaml"
 
 requestUpdateDocument :: UpdateDocument -> TestTree
 requestUpdateDocument =
@@ -864,6 +876,14 @@ responseRestoreDocumentVersions =
     "fixture/RestoreDocumentVersionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RestoreDocumentVersions)
+
+responseSearchResources :: SearchResourcesResponse -> TestTree
+responseSearchResources =
+  res
+    "SearchResourcesResponse"
+    "fixture/SearchResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchResources)
 
 responseUpdateDocument :: UpdateDocumentResponse -> TestTree
 responseUpdateDocument =

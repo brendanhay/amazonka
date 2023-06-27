@@ -32,7 +32,7 @@ data ResourcePath = ResourcePath'
   { -- | The components of the resource path.
     components :: Prelude.Maybe [ResourcePathComponent]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourcePath' with all optional fields omitted.

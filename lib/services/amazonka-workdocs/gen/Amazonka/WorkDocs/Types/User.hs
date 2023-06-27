@@ -37,7 +37,7 @@ data User = User'
     -- | The email address of the user.
     emailAddress :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The given name of the user.
-    givenName :: Prelude.Maybe Prelude.Text,
+    givenName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the user.
     id :: Prelude.Maybe Prelude.Text,
     -- | The locale of the user.
@@ -55,13 +55,13 @@ data User = User'
     -- | The storage for the user.
     storage :: Prelude.Maybe UserStorageMetadata,
     -- | The surname of the user.
-    surname :: Prelude.Maybe Prelude.Text,
+    surname :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time zone ID of the user.
     timeZoneId :: Prelude.Maybe Prelude.Text,
     -- | The type of user.
     type' :: Prelude.Maybe UserType,
     -- | The login name of the user.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -133,7 +133,7 @@ user_emailAddress = Lens.lens (\User' {emailAddress} -> emailAddress) (\s@User' 
 
 -- | The given name of the user.
 user_givenName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_givenName = Lens.lens (\User' {givenName} -> givenName) (\s@User' {} a -> s {givenName = a} :: User)
+user_givenName = Lens.lens (\User' {givenName} -> givenName) (\s@User' {} a -> s {givenName = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The ID of the user.
 user_id :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
@@ -169,7 +169,7 @@ user_storage = Lens.lens (\User' {storage} -> storage) (\s@User' {} a -> s {stor
 
 -- | The surname of the user.
 user_surname :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_surname = Lens.lens (\User' {surname} -> surname) (\s@User' {} a -> s {surname = a} :: User)
+user_surname = Lens.lens (\User' {surname} -> surname) (\s@User' {} a -> s {surname = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time zone ID of the user.
 user_timeZoneId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
@@ -181,7 +181,7 @@ user_type = Lens.lens (\User' {type'} -> type') (\s@User' {} a -> s {type' = a} 
 
 -- | The login name of the user.
 user_username :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_username = Lens.lens (\User' {username} -> username) (\s@User' {} a -> s {username = a} :: User)
+user_username = Lens.lens (\User' {username} -> username) (\s@User' {} a -> s {username = a} :: User) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON User where
   parseJSON =
@@ -208,7 +208,8 @@ instance Data.FromJSON User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` emailAddress
       `Prelude.hashWithSalt` givenName
       `Prelude.hashWithSalt` id

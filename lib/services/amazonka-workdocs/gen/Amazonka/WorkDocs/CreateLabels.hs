@@ -51,8 +51,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newCreateLabels' smart constructor.
 data CreateLabels = CreateLabels'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the resource.
     resourceId :: Prelude.Text,
@@ -69,8 +69,8 @@ data CreateLabels = CreateLabels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'createLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'createLabels_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'resourceId', 'createLabels_resourceId' - The ID of the resource.
 --
@@ -87,8 +87,8 @@ newCreateLabels pResourceId_ =
       labels = Prelude.mempty
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 createLabels_authenticationToken :: Lens.Lens' CreateLabels (Prelude.Maybe Prelude.Text)
 createLabels_authenticationToken = Lens.lens (\CreateLabels' {authenticationToken} -> authenticationToken) (\s@CreateLabels' {} a -> s {authenticationToken = a} :: CreateLabels) Prelude.. Lens.mapping Data._Sensitive
 
@@ -113,7 +113,8 @@ instance Core.AWSRequest CreateLabels where
 
 instance Prelude.Hashable CreateLabels where
   hashWithSalt _salt CreateLabels' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` labels
 

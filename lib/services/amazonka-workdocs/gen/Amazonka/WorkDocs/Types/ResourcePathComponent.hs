@@ -31,9 +31,9 @@ data ResourcePathComponent = ResourcePathComponent'
   { -- | The ID of the resource path.
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource path.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResourcePathComponent' with all optional fields omitted.
@@ -60,7 +60,7 @@ resourcePathComponent_id = Lens.lens (\ResourcePathComponent' {id} -> id) (\s@Re
 
 -- | The name of the resource path.
 resourcePathComponent_name :: Lens.Lens' ResourcePathComponent (Prelude.Maybe Prelude.Text)
-resourcePathComponent_name = Lens.lens (\ResourcePathComponent' {name} -> name) (\s@ResourcePathComponent' {} a -> s {name = a} :: ResourcePathComponent)
+resourcePathComponent_name = Lens.lens (\ResourcePathComponent' {name} -> name) (\s@ResourcePathComponent' {} a -> s {name = a} :: ResourcePathComponent) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromJSON ResourcePathComponent where
   parseJSON =
@@ -68,12 +68,14 @@ instance Data.FromJSON ResourcePathComponent where
       "ResourcePathComponent"
       ( \x ->
           ResourcePathComponent'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable ResourcePathComponent where
   hashWithSalt _salt ResourcePathComponent' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData ResourcePathComponent where

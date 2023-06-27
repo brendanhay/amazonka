@@ -46,8 +46,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newRestoreDocumentVersions' smart constructor.
 data RestoreDocumentVersions = RestoreDocumentVersions'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the document.
     documentId :: Prelude.Text
@@ -62,8 +62,8 @@ data RestoreDocumentVersions = RestoreDocumentVersions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'restoreDocumentVersions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'restoreDocumentVersions_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'documentId', 'restoreDocumentVersions_documentId' - The ID of the document.
 newRestoreDocumentVersions ::
@@ -77,8 +77,8 @@ newRestoreDocumentVersions pDocumentId_ =
       documentId = pDocumentId_
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 restoreDocumentVersions_authenticationToken :: Lens.Lens' RestoreDocumentVersions (Prelude.Maybe Prelude.Text)
 restoreDocumentVersions_authenticationToken = Lens.lens (\RestoreDocumentVersions' {authenticationToken} -> authenticationToken) (\s@RestoreDocumentVersions' {} a -> s {authenticationToken = a} :: RestoreDocumentVersions) Prelude.. Lens.mapping Data._Sensitive
 
@@ -98,7 +98,8 @@ instance Core.AWSRequest RestoreDocumentVersions where
 
 instance Prelude.Hashable RestoreDocumentVersions where
   hashWithSalt _salt RestoreDocumentVersions' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` documentId
 
 instance Prelude.NFData RestoreDocumentVersions where

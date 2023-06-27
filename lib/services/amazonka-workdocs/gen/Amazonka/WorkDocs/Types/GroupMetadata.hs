@@ -68,12 +68,14 @@ instance Data.FromJSON GroupMetadata where
       "GroupMetadata"
       ( \x ->
           GroupMetadata'
-            Prelude.<$> (x Data..:? "Id") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Id")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable GroupMetadata where
   hashWithSalt _salt GroupMetadata' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GroupMetadata where

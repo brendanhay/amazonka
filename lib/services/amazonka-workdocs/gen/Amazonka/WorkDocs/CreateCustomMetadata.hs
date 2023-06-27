@@ -52,8 +52,8 @@ import Amazonka.WorkDocs.Types
 
 -- | /See:/ 'newCreateCustomMetadata' smart constructor.
 data CreateCustomMetadata = CreateCustomMetadata'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS
-    -- administrator credentials to access the API.
+  { -- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+    -- Services administrator credentials to access the API.
     authenticationToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ID of the version, if the custom metadata is being added to a
     -- document version.
@@ -73,8 +73,8 @@ data CreateCustomMetadata = CreateCustomMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authenticationToken', 'createCustomMetadata_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- 'authenticationToken', 'createCustomMetadata_authenticationToken' - Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 --
 -- 'versionId', 'createCustomMetadata_versionId' - The ID of the version, if the custom metadata is being added to a
 -- document version.
@@ -95,8 +95,8 @@ newCreateCustomMetadata pResourceId_ =
       customMetadata = Prelude.mempty
     }
 
--- | Amazon WorkDocs authentication token. Not required when using AWS
--- administrator credentials to access the API.
+-- | Amazon WorkDocs authentication token. Not required when using Amazon Web
+-- Services administrator credentials to access the API.
 createCustomMetadata_authenticationToken :: Lens.Lens' CreateCustomMetadata (Prelude.Maybe Prelude.Text)
 createCustomMetadata_authenticationToken = Lens.lens (\CreateCustomMetadata' {authenticationToken} -> authenticationToken) (\s@CreateCustomMetadata' {} a -> s {authenticationToken = a} :: CreateCustomMetadata) Prelude.. Lens.mapping Data._Sensitive
 
@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateCustomMetadata where
 
 instance Prelude.Hashable CreateCustomMetadata where
   hashWithSalt _salt CreateCustomMetadata' {..} =
-    _salt `Prelude.hashWithSalt` authenticationToken
+    _salt
+      `Prelude.hashWithSalt` authenticationToken
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` customMetadata

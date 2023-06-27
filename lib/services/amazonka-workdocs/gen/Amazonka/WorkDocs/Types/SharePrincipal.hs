@@ -81,7 +81,8 @@ sharePrincipal_role = Lens.lens (\SharePrincipal' {role'} -> role') (\s@SharePri
 
 instance Prelude.Hashable SharePrincipal where
   hashWithSalt _salt SharePrincipal' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` role'
 

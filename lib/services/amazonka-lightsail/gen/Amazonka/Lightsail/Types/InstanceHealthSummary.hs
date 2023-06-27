@@ -240,7 +240,8 @@ instance Data.FromJSON InstanceHealthSummary where
 
 instance Prelude.Hashable InstanceHealthSummary where
   hashWithSalt _salt InstanceHealthSummary' {..} =
-    _salt `Prelude.hashWithSalt` instanceHealth
+    _salt
+      `Prelude.hashWithSalt` instanceHealth
       `Prelude.hashWithSalt` instanceHealthReason
       `Prelude.hashWithSalt` instanceName
 

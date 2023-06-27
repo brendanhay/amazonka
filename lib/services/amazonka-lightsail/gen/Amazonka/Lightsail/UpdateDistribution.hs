@@ -186,7 +186,8 @@ instance Core.AWSRequest UpdateDistribution where
 
 instance Prelude.Hashable UpdateDistribution where
   hashWithSalt _salt UpdateDistribution' {..} =
-    _salt `Prelude.hashWithSalt` cacheBehaviorSettings
+    _salt
+      `Prelude.hashWithSalt` cacheBehaviorSettings
       `Prelude.hashWithSalt` cacheBehaviors
       `Prelude.hashWithSalt` defaultCacheBehavior
       `Prelude.hashWithSalt` isEnabled

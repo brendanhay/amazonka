@@ -26,6 +26,7 @@ module Amazonka.Lightsail.Lens
     attachCertificateToDistributionResponse_httpStatus,
 
     -- ** AttachDisk
+    attachDisk_autoMounting,
     attachDisk_diskName,
     attachDisk_instanceName,
     attachDisk_diskPath,
@@ -177,6 +178,15 @@ module Amazonka.Lightsail.Lens
     createDomainEntry_domainEntry,
     createDomainEntryResponse_operation,
     createDomainEntryResponse_httpStatus,
+
+    -- ** CreateGUISessionAccessDetails
+    createGUISessionAccessDetails_resourceName,
+    createGUISessionAccessDetailsResponse_failureReason,
+    createGUISessionAccessDetailsResponse_percentageComplete,
+    createGUISessionAccessDetailsResponse_resourceName,
+    createGUISessionAccessDetailsResponse_sessions,
+    createGUISessionAccessDetailsResponse_status,
+    createGUISessionAccessDetailsResponse_httpStatus,
 
     -- ** CreateInstanceSnapshot
     createInstanceSnapshot_tags,
@@ -463,6 +473,7 @@ module Amazonka.Lightsail.Lens
     getAutoSnapshotsResponse_httpStatus,
 
     -- ** GetBlueprints
+    getBlueprints_appCategory,
     getBlueprints_includeInactive,
     getBlueprints_pageToken,
     getBlueprintsResponse_blueprints,
@@ -501,6 +512,7 @@ module Amazonka.Lightsail.Lens
     getBucketsResponse_httpStatus,
 
     -- ** GetBundles
+    getBundles_appCategory,
     getBundles_includeInactive,
     getBundles_pageToken,
     getBundlesResponse_bundles,
@@ -511,7 +523,9 @@ module Amazonka.Lightsail.Lens
     getCertificates_certificateName,
     getCertificates_certificateStatuses,
     getCertificates_includeCertificateDetails,
+    getCertificates_pageToken,
     getCertificatesResponse_certificates,
+    getCertificatesResponse_nextPageToken,
     getCertificatesResponse_httpStatus,
 
     -- ** GetCloudFormationStackRecords
@@ -569,6 +583,13 @@ module Amazonka.Lightsail.Lens
     getContainerServices_serviceName,
     getContainerServicesResponse_containerServices,
     getContainerServicesResponse_httpStatus,
+
+    -- ** GetCostEstimate
+    getCostEstimate_resourceName,
+    getCostEstimate_startTime,
+    getCostEstimate_endTime,
+    getCostEstimateResponse_resourcesBudgetEstimate,
+    getCostEstimateResponse_httpStatus,
 
     -- ** GetDisk
     getDisk_diskName,
@@ -945,6 +966,11 @@ module Amazonka.Lightsail.Lens
     setResourceAccessForBucketResponse_operations,
     setResourceAccessForBucketResponse_httpStatus,
 
+    -- ** StartGUISession
+    startGUISession_resourceName,
+    startGUISessionResponse_operations,
+    startGUISessionResponse_httpStatus,
+
     -- ** StartInstance
     startInstance_instanceName,
     startInstanceResponse_operations,
@@ -954,6 +980,11 @@ module Amazonka.Lightsail.Lens
     startRelationalDatabase_relationalDatabaseName,
     startRelationalDatabaseResponse_operations,
     startRelationalDatabaseResponse_httpStatus,
+
+    -- ** StopGUISession
+    stopGUISession_resourceName,
+    stopGUISessionResponse_operations,
+    stopGUISessionResponse_httpStatus,
 
     -- ** StopInstance
     stopInstance_force,
@@ -1100,13 +1131,16 @@ module Amazonka.Lightsail.Lens
     accountLevelBpaSync_status,
 
     -- ** AddOn
+    addOn_duration,
     addOn_name,
     addOn_nextSnapshotTimeOfDay,
     addOn_snapshotTimeOfDay,
     addOn_status,
+    addOn_threshold,
 
     -- ** AddOnRequest
     addOnRequest_autoSnapshotAddOnRequest,
+    addOnRequest_stopInstanceOnIdleRequest,
     addOnRequest_addOnType,
 
     -- ** Alarm
@@ -1149,6 +1183,7 @@ module Amazonka.Lightsail.Lens
     availabilityZone_zoneName,
 
     -- ** Blueprint
+    blueprint_appCategory,
     blueprint_blueprintId,
     blueprint_description,
     blueprint_group,
@@ -1207,6 +1242,7 @@ module Amazonka.Lightsail.Lens
     bundle_power,
     bundle_price,
     bundle_ramSizeInGb,
+    bundle_supportedAppCategories,
     bundle_supportedPlatforms,
     bundle_transferPerMonthInGb,
 
@@ -1372,6 +1408,10 @@ module Amazonka.Lightsail.Lens
     cookieObject_cookiesAllowList,
     cookieObject_option,
 
+    -- ** CostEstimate
+    costEstimate_resultsByTime,
+    costEstimate_usageType,
+
     -- ** DestinationInfo
     destinationInfo_id,
     destinationInfo_service,
@@ -1381,6 +1421,7 @@ module Amazonka.Lightsail.Lens
     disk_arn,
     disk_attachedTo,
     disk_attachmentState,
+    disk_autoMountStatus,
     disk_createdAt,
     disk_gbInUse,
     disk_iops,
@@ -1465,6 +1506,13 @@ module Amazonka.Lightsail.Lens
     endpointRequest_healthCheck,
     endpointRequest_containerName,
     endpointRequest_containerPort,
+
+    -- ** EstimateByTime
+    estimateByTime_currency,
+    estimateByTime_pricingUnit,
+    estimateByTime_timePeriod,
+    estimateByTime_unit,
+    estimateByTime_usageCost,
 
     -- ** ExportSnapshotRecord
     exportSnapshotRecord_arn,
@@ -1915,6 +1963,13 @@ module Amazonka.Lightsail.Lens
     renewalSummary_renewalStatusReason,
     renewalSummary_updatedAt,
 
+    -- ** ResourceBudgetEstimate
+    resourceBudgetEstimate_costEstimates,
+    resourceBudgetEstimate_endTime,
+    resourceBudgetEstimate_resourceName,
+    resourceBudgetEstimate_resourceType,
+    resourceBudgetEstimate_startTime,
+
     -- ** ResourceLocation
     resourceLocation_availabilityZone,
     resourceLocation_regionName,
@@ -1928,6 +1983,11 @@ module Amazonka.Lightsail.Lens
     resourceRecord_type,
     resourceRecord_value,
 
+    -- ** Session
+    session_isPrimary,
+    session_name,
+    session_url,
+
     -- ** StaticIp
     staticIp_arn,
     staticIp_attachedTo,
@@ -1939,9 +1999,17 @@ module Amazonka.Lightsail.Lens
     staticIp_resourceType,
     staticIp_supportCode,
 
+    -- ** StopInstanceOnIdleRequest
+    stopInstanceOnIdleRequest_duration,
+    stopInstanceOnIdleRequest_threshold,
+
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** TimePeriod
+    timePeriod_end,
+    timePeriod_start,
   )
 where
 
@@ -1967,6 +2035,7 @@ import Amazonka.Lightsail.CreateDiskSnapshot
 import Amazonka.Lightsail.CreateDistribution
 import Amazonka.Lightsail.CreateDomain
 import Amazonka.Lightsail.CreateDomainEntry
+import Amazonka.Lightsail.CreateGUISessionAccessDetails
 import Amazonka.Lightsail.CreateInstanceSnapshot
 import Amazonka.Lightsail.CreateInstances
 import Amazonka.Lightsail.CreateInstancesFromSnapshot
@@ -2024,6 +2093,7 @@ import Amazonka.Lightsail.GetContainerServiceDeployments
 import Amazonka.Lightsail.GetContainerServiceMetricData
 import Amazonka.Lightsail.GetContainerServicePowers
 import Amazonka.Lightsail.GetContainerServices
+import Amazonka.Lightsail.GetCostEstimate
 import Amazonka.Lightsail.GetDisk
 import Amazonka.Lightsail.GetDiskSnapshot
 import Amazonka.Lightsail.GetDiskSnapshots
@@ -2082,8 +2152,10 @@ import Amazonka.Lightsail.ResetDistributionCache
 import Amazonka.Lightsail.SendContactMethodVerification
 import Amazonka.Lightsail.SetIpAddressType
 import Amazonka.Lightsail.SetResourceAccessForBucket
+import Amazonka.Lightsail.StartGUISession
 import Amazonka.Lightsail.StartInstance
 import Amazonka.Lightsail.StartRelationalDatabase
+import Amazonka.Lightsail.StopGUISession
 import Amazonka.Lightsail.StopInstance
 import Amazonka.Lightsail.StopRelationalDatabase
 import Amazonka.Lightsail.TagResource
@@ -2127,6 +2199,7 @@ import Amazonka.Lightsail.Types.ContainerServicePower
 import Amazonka.Lightsail.Types.ContainerServiceRegistryLogin
 import Amazonka.Lightsail.Types.ContainerServiceStateDetail
 import Amazonka.Lightsail.Types.CookieObject
+import Amazonka.Lightsail.Types.CostEstimate
 import Amazonka.Lightsail.Types.DestinationInfo
 import Amazonka.Lightsail.Types.Disk
 import Amazonka.Lightsail.Types.DiskInfo
@@ -2139,6 +2212,7 @@ import Amazonka.Lightsail.Types.Domain
 import Amazonka.Lightsail.Types.DomainEntry
 import Amazonka.Lightsail.Types.DomainValidationRecord
 import Amazonka.Lightsail.Types.EndpointRequest
+import Amazonka.Lightsail.Types.EstimateByTime
 import Amazonka.Lightsail.Types.ExportSnapshotRecord
 import Amazonka.Lightsail.Types.ExportSnapshotRecordSourceInfo
 import Amazonka.Lightsail.Types.HeaderObject
@@ -2192,11 +2266,15 @@ import Amazonka.Lightsail.Types.RelationalDatabaseHardware
 import Amazonka.Lightsail.Types.RelationalDatabaseParameter
 import Amazonka.Lightsail.Types.RelationalDatabaseSnapshot
 import Amazonka.Lightsail.Types.RenewalSummary
+import Amazonka.Lightsail.Types.ResourceBudgetEstimate
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceReceivingAccess
 import Amazonka.Lightsail.Types.ResourceRecord
+import Amazonka.Lightsail.Types.Session
 import Amazonka.Lightsail.Types.StaticIp
+import Amazonka.Lightsail.Types.StopInstanceOnIdleRequest
 import Amazonka.Lightsail.Types.Tag
+import Amazonka.Lightsail.Types.TimePeriod
 import Amazonka.Lightsail.UnpeerVpc
 import Amazonka.Lightsail.UntagResource
 import Amazonka.Lightsail.UpdateBucket

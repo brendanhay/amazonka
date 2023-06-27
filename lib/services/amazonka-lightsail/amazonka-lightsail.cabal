@@ -66,6 +66,7 @@ library
     Amazonka.Lightsail.CreateDistribution
     Amazonka.Lightsail.CreateDomain
     Amazonka.Lightsail.CreateDomainEntry
+    Amazonka.Lightsail.CreateGUISessionAccessDetails
     Amazonka.Lightsail.CreateInstances
     Amazonka.Lightsail.CreateInstancesFromSnapshot
     Amazonka.Lightsail.CreateInstanceSnapshot
@@ -123,6 +124,7 @@ library
     Amazonka.Lightsail.GetContainerServiceMetricData
     Amazonka.Lightsail.GetContainerServicePowers
     Amazonka.Lightsail.GetContainerServices
+    Amazonka.Lightsail.GetCostEstimate
     Amazonka.Lightsail.GetDisk
     Amazonka.Lightsail.GetDisks
     Amazonka.Lightsail.GetDiskSnapshot
@@ -182,8 +184,10 @@ library
     Amazonka.Lightsail.SendContactMethodVerification
     Amazonka.Lightsail.SetIpAddressType
     Amazonka.Lightsail.SetResourceAccessForBucket
+    Amazonka.Lightsail.StartGUISession
     Amazonka.Lightsail.StartInstance
     Amazonka.Lightsail.StartRelationalDatabase
+    Amazonka.Lightsail.StopGUISession
     Amazonka.Lightsail.StopInstance
     Amazonka.Lightsail.StopRelationalDatabase
     Amazonka.Lightsail.TagResource
@@ -201,7 +205,9 @@ library
     Amazonka.Lightsail.Types.AddOnType
     Amazonka.Lightsail.Types.Alarm
     Amazonka.Lightsail.Types.AlarmState
+    Amazonka.Lightsail.Types.AppCategory
     Amazonka.Lightsail.Types.AttachedDisk
+    Amazonka.Lightsail.Types.AutoMountStatus
     Amazonka.Lightsail.Types.AutoSnapshotAddOnRequest
     Amazonka.Lightsail.Types.AutoSnapshotDetails
     Amazonka.Lightsail.Types.AutoSnapshotStatus
@@ -251,6 +257,8 @@ library
     Amazonka.Lightsail.Types.ContainerServiceStateDetail
     Amazonka.Lightsail.Types.ContainerServiceStateDetailCode
     Amazonka.Lightsail.Types.CookieObject
+    Amazonka.Lightsail.Types.CostEstimate
+    Amazonka.Lightsail.Types.Currency
     Amazonka.Lightsail.Types.DestinationInfo
     Amazonka.Lightsail.Types.Disk
     Amazonka.Lightsail.Types.DiskInfo
@@ -267,6 +275,7 @@ library
     Amazonka.Lightsail.Types.DomainEntry
     Amazonka.Lightsail.Types.DomainValidationRecord
     Amazonka.Lightsail.Types.EndpointRequest
+    Amazonka.Lightsail.Types.EstimateByTime
     Amazonka.Lightsail.Types.ExportSnapshotRecord
     Amazonka.Lightsail.Types.ExportSnapshotRecordSourceInfo
     Amazonka.Lightsail.Types.ExportSnapshotRecordSourceType
@@ -340,6 +349,7 @@ library
     Amazonka.Lightsail.Types.PortInfo
     Amazonka.Lightsail.Types.PortInfoSourceType
     Amazonka.Lightsail.Types.PortState
+    Amazonka.Lightsail.Types.PricingUnit
     Amazonka.Lightsail.Types.PrivateRegistryAccess
     Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
     Amazonka.Lightsail.Types.QueryStringObject
@@ -363,13 +373,18 @@ library
     Amazonka.Lightsail.Types.RenewalStatus
     Amazonka.Lightsail.Types.RenewalSummary
     Amazonka.Lightsail.Types.ResourceBucketAccess
+    Amazonka.Lightsail.Types.ResourceBudgetEstimate
     Amazonka.Lightsail.Types.ResourceLocation
     Amazonka.Lightsail.Types.ResourceReceivingAccess
     Amazonka.Lightsail.Types.ResourceRecord
     Amazonka.Lightsail.Types.ResourceType
+    Amazonka.Lightsail.Types.Session
     Amazonka.Lightsail.Types.StaticIp
+    Amazonka.Lightsail.Types.Status
     Amazonka.Lightsail.Types.StatusType
+    Amazonka.Lightsail.Types.StopInstanceOnIdleRequest
     Amazonka.Lightsail.Types.Tag
+    Amazonka.Lightsail.Types.TimePeriod
     Amazonka.Lightsail.Types.TreatMissingData
     Amazonka.Lightsail.UnpeerVpc
     Amazonka.Lightsail.UntagResource

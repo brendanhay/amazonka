@@ -110,7 +110,8 @@ instance Data.FromJSON NameServersUpdateState where
 
 instance Prelude.Hashable NameServersUpdateState where
   hashWithSalt _salt NameServersUpdateState' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData NameServersUpdateState where

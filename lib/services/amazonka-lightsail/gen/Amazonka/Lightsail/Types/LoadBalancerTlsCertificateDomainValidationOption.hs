@@ -76,7 +76,7 @@ instance
       ( \x ->
           LoadBalancerTlsCertificateDomainValidationOption'
             Prelude.<$> (x Data..:? "domainName")
-              Prelude.<*> (x Data..:? "validationStatus")
+            Prelude.<*> (x Data..:? "validationStatus")
       )
 
 instance
@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     LoadBalancerTlsCertificateDomainValidationOption' {..} =
-      _salt `Prelude.hashWithSalt` domainName
+      _salt
+        `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` validationStatus
 
 instance

@@ -24,7 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes an Availability Zone.
+-- | Describes an Availability Zone. This is returned only as part of a
+-- @GetRegions@ request.
 --
 -- /See:/ 'newAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
@@ -77,7 +78,8 @@ instance Data.FromJSON AvailabilityZone where
 
 instance Prelude.Hashable AvailabilityZone where
   hashWithSalt _salt AvailabilityZone' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` zoneName
 
 instance Prelude.NFData AvailabilityZone where

@@ -22,6 +22,7 @@ module Amazonka.Lightsail.Types.Blueprint where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Lightsail.Types.AppCategory
 import Amazonka.Lightsail.Types.BlueprintType
 import Amazonka.Lightsail.Types.InstancePlatform
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBlueprint' smart constructor.
 data Blueprint = Blueprint'
-  { -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@
+  { -- | Virtual computer blueprints that are supported by Lightsail for
+    -- Research.
+    --
+    -- This parameter only applies to Lightsail for Research resources.
+    appCategory :: Prelude.Maybe AppCategory,
+    -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@
     -- or @app_lamp_7_0@).
     blueprintId :: Prelude.Maybe Prelude.Text,
     -- | The description of the blueprint.
@@ -75,6 +81,11 @@ data Blueprint = Blueprint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appCategory', 'blueprint_appCategory' - Virtual computer blueprints that are supported by Lightsail for
+-- Research.
+--
+-- This parameter only applies to Lightsail for Research resources.
+--
 -- 'blueprintId', 'blueprint_blueprintId' - The ID for the virtual private server image (e.g., @app_wordpress_4_4@
 -- or @app_lamp_7_0@).
 --
@@ -112,7 +123,8 @@ newBlueprint ::
   Blueprint
 newBlueprint =
   Blueprint'
-    { blueprintId = Prelude.Nothing,
+    { appCategory = Prelude.Nothing,
+      blueprintId = Prelude.Nothing,
       description = Prelude.Nothing,
       group' = Prelude.Nothing,
       isActive = Prelude.Nothing,
@@ -125,6 +137,13 @@ newBlueprint =
       version = Prelude.Nothing,
       versionCode = Prelude.Nothing
     }
+
+-- | Virtual computer blueprints that are supported by Lightsail for
+-- Research.
+--
+-- This parameter only applies to Lightsail for Research resources.
+blueprint_appCategory :: Lens.Lens' Blueprint (Prelude.Maybe AppCategory)
+blueprint_appCategory = Lens.lens (\Blueprint' {appCategory} -> appCategory) (\s@Blueprint' {} a -> s {appCategory = a} :: Blueprint)
 
 -- | The ID for the virtual private server image (e.g., @app_wordpress_4_4@
 -- or @app_lamp_7_0@).
@@ -190,7 +209,8 @@ instance Data.FromJSON Blueprint where
       "Blueprint"
       ( \x ->
           Blueprint'
-            Prelude.<$> (x Data..:? "blueprintId")
+            Prelude.<$> (x Data..:? "appCategory")
+            Prelude.<*> (x Data..:? "blueprintId")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "group")
             Prelude.<*> (x Data..:? "isActive")
@@ -206,7 +226,9 @@ instance Data.FromJSON Blueprint where
 
 instance Prelude.Hashable Blueprint where
   hashWithSalt _salt Blueprint' {..} =
-    _salt `Prelude.hashWithSalt` blueprintId
+    _salt
+      `Prelude.hashWithSalt` appCategory
+      `Prelude.hashWithSalt` blueprintId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` isActive
@@ -221,7 +243,8 @@ instance Prelude.Hashable Blueprint where
 
 instance Prelude.NFData Blueprint where
   rnf Blueprint' {..} =
-    Prelude.rnf blueprintId
+    Prelude.rnf appCategory
+      `Prelude.seq` Prelude.rnf blueprintId
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf group'
       `Prelude.seq` Prelude.rnf isActive

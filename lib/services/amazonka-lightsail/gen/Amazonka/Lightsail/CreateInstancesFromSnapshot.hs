@@ -422,7 +422,8 @@ instance Core.AWSRequest CreateInstancesFromSnapshot where
 
 instance Prelude.Hashable CreateInstancesFromSnapshot where
   hashWithSalt _salt CreateInstancesFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` addOns
+    _salt
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` attachedDiskMapping
       `Prelude.hashWithSalt` instanceSnapshotName
       `Prelude.hashWithSalt` ipAddressType

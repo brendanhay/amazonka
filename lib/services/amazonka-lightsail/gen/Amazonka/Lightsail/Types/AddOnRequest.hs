@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AddOnType
 import Amazonka.Lightsail.Types.AutoSnapshotAddOnRequest
+import Amazonka.Lightsail.Types.StopInstanceOnIdleRequest
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a request to enable, modify, or disable an add-on for an
@@ -38,6 +39,11 @@ data AddOnRequest = AddOnRequest'
   { -- | An object that represents additional parameters when enabling or
     -- modifying the automatic snapshot add-on.
     autoSnapshotAddOnRequest :: Prelude.Maybe AutoSnapshotAddOnRequest,
+    -- | An object that represents additional parameters when enabling or
+    -- modifying the @StopInstanceOnIdle@ add-on.
+    --
+    -- This object only applies to Lightsail for Research resources.
+    stopInstanceOnIdleRequest :: Prelude.Maybe StopInstanceOnIdleRequest,
     -- | The add-on type.
     addOnType :: AddOnType
   }
@@ -54,6 +60,11 @@ data AddOnRequest = AddOnRequest'
 -- 'autoSnapshotAddOnRequest', 'addOnRequest_autoSnapshotAddOnRequest' - An object that represents additional parameters when enabling or
 -- modifying the automatic snapshot add-on.
 --
+-- 'stopInstanceOnIdleRequest', 'addOnRequest_stopInstanceOnIdleRequest' - An object that represents additional parameters when enabling or
+-- modifying the @StopInstanceOnIdle@ add-on.
+--
+-- This object only applies to Lightsail for Research resources.
+--
 -- 'addOnType', 'addOnRequest_addOnType' - The add-on type.
 newAddOnRequest ::
   -- | 'addOnType'
@@ -63,6 +74,7 @@ newAddOnRequest pAddOnType_ =
   AddOnRequest'
     { autoSnapshotAddOnRequest =
         Prelude.Nothing,
+      stopInstanceOnIdleRequest = Prelude.Nothing,
       addOnType = pAddOnType_
     }
 
@@ -70,6 +82,13 @@ newAddOnRequest pAddOnType_ =
 -- modifying the automatic snapshot add-on.
 addOnRequest_autoSnapshotAddOnRequest :: Lens.Lens' AddOnRequest (Prelude.Maybe AutoSnapshotAddOnRequest)
 addOnRequest_autoSnapshotAddOnRequest = Lens.lens (\AddOnRequest' {autoSnapshotAddOnRequest} -> autoSnapshotAddOnRequest) (\s@AddOnRequest' {} a -> s {autoSnapshotAddOnRequest = a} :: AddOnRequest)
+
+-- | An object that represents additional parameters when enabling or
+-- modifying the @StopInstanceOnIdle@ add-on.
+--
+-- This object only applies to Lightsail for Research resources.
+addOnRequest_stopInstanceOnIdleRequest :: Lens.Lens' AddOnRequest (Prelude.Maybe StopInstanceOnIdleRequest)
+addOnRequest_stopInstanceOnIdleRequest = Lens.lens (\AddOnRequest' {stopInstanceOnIdleRequest} -> stopInstanceOnIdleRequest) (\s@AddOnRequest' {} a -> s {stopInstanceOnIdleRequest = a} :: AddOnRequest)
 
 -- | The add-on type.
 addOnRequest_addOnType :: Lens.Lens' AddOnRequest AddOnType
@@ -79,11 +98,13 @@ instance Prelude.Hashable AddOnRequest where
   hashWithSalt _salt AddOnRequest' {..} =
     _salt
       `Prelude.hashWithSalt` autoSnapshotAddOnRequest
+      `Prelude.hashWithSalt` stopInstanceOnIdleRequest
       `Prelude.hashWithSalt` addOnType
 
 instance Prelude.NFData AddOnRequest where
   rnf AddOnRequest' {..} =
     Prelude.rnf autoSnapshotAddOnRequest
+      `Prelude.seq` Prelude.rnf stopInstanceOnIdleRequest
       `Prelude.seq` Prelude.rnf addOnType
 
 instance Data.ToJSON AddOnRequest where
@@ -92,6 +113,8 @@ instance Data.ToJSON AddOnRequest where
       ( Prelude.catMaybes
           [ ("autoSnapshotAddOnRequest" Data..=)
               Prelude.<$> autoSnapshotAddOnRequest,
+            ("stopInstanceOnIdleRequest" Data..=)
+              Prelude.<$> stopInstanceOnIdleRequest,
             Prelude.Just ("addOnType" Data..= addOnType)
           ]
       )

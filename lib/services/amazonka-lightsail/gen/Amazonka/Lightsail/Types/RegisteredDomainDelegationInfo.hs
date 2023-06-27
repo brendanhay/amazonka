@@ -61,6 +61,9 @@ data RegisteredDomainDelegationInfo = RegisteredDomainDelegationInfo'
   { -- | An object that describes the state of the name server records that are
     -- automatically added to the Route 53 domain by Lightsail.
     nameServersUpdateState :: Prelude.Maybe NameServersUpdateState,
+    -- | Describes the deletion state of an Amazon Route 53 hosted zone for a
+    -- domain that is being automatically delegated to an Amazon Lightsail DNS
+    -- zone.
     r53HostedZoneDeletionState :: Prelude.Maybe R53HostedZoneDeletionState
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +79,9 @@ data RegisteredDomainDelegationInfo = RegisteredDomainDelegationInfo'
 -- 'nameServersUpdateState', 'registeredDomainDelegationInfo_nameServersUpdateState' - An object that describes the state of the name server records that are
 -- automatically added to the Route 53 domain by Lightsail.
 --
--- 'r53HostedZoneDeletionState', 'registeredDomainDelegationInfo_r53HostedZoneDeletionState' - Undocumented member.
+-- 'r53HostedZoneDeletionState', 'registeredDomainDelegationInfo_r53HostedZoneDeletionState' - Describes the deletion state of an Amazon Route 53 hosted zone for a
+-- domain that is being automatically delegated to an Amazon Lightsail DNS
+-- zone.
 newRegisteredDomainDelegationInfo ::
   RegisteredDomainDelegationInfo
 newRegisteredDomainDelegationInfo =
@@ -92,7 +97,9 @@ newRegisteredDomainDelegationInfo =
 registeredDomainDelegationInfo_nameServersUpdateState :: Lens.Lens' RegisteredDomainDelegationInfo (Prelude.Maybe NameServersUpdateState)
 registeredDomainDelegationInfo_nameServersUpdateState = Lens.lens (\RegisteredDomainDelegationInfo' {nameServersUpdateState} -> nameServersUpdateState) (\s@RegisteredDomainDelegationInfo' {} a -> s {nameServersUpdateState = a} :: RegisteredDomainDelegationInfo)
 
--- | Undocumented member.
+-- | Describes the deletion state of an Amazon Route 53 hosted zone for a
+-- domain that is being automatically delegated to an Amazon Lightsail DNS
+-- zone.
 registeredDomainDelegationInfo_r53HostedZoneDeletionState :: Lens.Lens' RegisteredDomainDelegationInfo (Prelude.Maybe R53HostedZoneDeletionState)
 registeredDomainDelegationInfo_r53HostedZoneDeletionState = Lens.lens (\RegisteredDomainDelegationInfo' {r53HostedZoneDeletionState} -> r53HostedZoneDeletionState) (\s@RegisteredDomainDelegationInfo' {} a -> s {r53HostedZoneDeletionState = a} :: RegisteredDomainDelegationInfo)
 
@@ -113,7 +120,8 @@ instance
   hashWithSalt
     _salt
     RegisteredDomainDelegationInfo' {..} =
-      _salt `Prelude.hashWithSalt` nameServersUpdateState
+      _salt
+        `Prelude.hashWithSalt` nameServersUpdateState
         `Prelude.hashWithSalt` r53HostedZoneDeletionState
 
 instance

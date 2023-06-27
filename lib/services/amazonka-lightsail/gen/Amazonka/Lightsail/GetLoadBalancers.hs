@@ -92,22 +92,22 @@ instance Core.AWSPager GetLoadBalancers where
     | Core.stop
         ( rs
             Lens.^? getLoadBalancersResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getLoadBalancersResponse_loadBalancers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getLoadBalancers_pageToken
           Lens..~ rs
           Lens.^? getLoadBalancersResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetLoadBalancers where
   type

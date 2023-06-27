@@ -68,12 +68,14 @@ instance Data.FromJSON InstanceState where
       "InstanceState"
       ( \x ->
           InstanceState'
-            Prelude.<$> (x Data..:? "code") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "code")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable InstanceState where
   hashWithSalt _salt InstanceState' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData InstanceState where

@@ -112,7 +112,8 @@ instance Data.FromJSON AccessKeyLastUsed where
 
 instance Prelude.Hashable AccessKeyLastUsed where
   hashWithSalt _salt AccessKeyLastUsed' {..} =
-    _salt `Prelude.hashWithSalt` lastUsedDate
+    _salt
+      `Prelude.hashWithSalt` lastUsedDate
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` serviceName
 

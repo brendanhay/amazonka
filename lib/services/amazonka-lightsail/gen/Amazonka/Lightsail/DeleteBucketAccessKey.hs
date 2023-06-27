@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteBucketAccessKey where
 
 instance Prelude.Hashable DeleteBucketAccessKey where
   hashWithSalt _salt DeleteBucketAccessKey' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` accessKeyId
 
 instance Prelude.NFData DeleteBucketAccessKey where

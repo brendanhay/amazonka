@@ -36,6 +36,7 @@ module Amazonka.Lightsail.GetBundles
     newGetBundles,
 
     -- * Request Lenses
+    getBundles_appCategory,
     getBundles_includeInactive,
     getBundles_pageToken,
 
@@ -60,7 +61,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBundles' smart constructor.
 data GetBundles = GetBundles'
-  { -- | A Boolean value that indicates whether to include inactive (unavailable)
+  { -- | Returns a list of bundles that are specific to Lightsail for Research.
+    --
+    -- You must use this parameter to view Lightsail for Research bundles.
+    appCategory :: Prelude.Maybe AppCategory,
+    -- | A Boolean value that indicates whether to include inactive (unavailable)
     -- bundles in the response of your request.
     includeInactive :: Prelude.Maybe Prelude.Bool,
     -- | The token to advance to the next page of results from your request.
@@ -80,6 +85,10 @@ data GetBundles = GetBundles'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appCategory', 'getBundles_appCategory' - Returns a list of bundles that are specific to Lightsail for Research.
+--
+-- You must use this parameter to view Lightsail for Research bundles.
+--
 -- 'includeInactive', 'getBundles_includeInactive' - A Boolean value that indicates whether to include inactive (unavailable)
 -- bundles in the response of your request.
 --
@@ -92,9 +101,16 @@ newGetBundles ::
   GetBundles
 newGetBundles =
   GetBundles'
-    { includeInactive = Prelude.Nothing,
+    { appCategory = Prelude.Nothing,
+      includeInactive = Prelude.Nothing,
       pageToken = Prelude.Nothing
     }
+
+-- | Returns a list of bundles that are specific to Lightsail for Research.
+--
+-- You must use this parameter to view Lightsail for Research bundles.
+getBundles_appCategory :: Lens.Lens' GetBundles (Prelude.Maybe AppCategory)
+getBundles_appCategory = Lens.lens (\GetBundles' {appCategory} -> appCategory) (\s@GetBundles' {} a -> s {appCategory = a} :: GetBundles)
 
 -- | A Boolean value that indicates whether to include inactive (unavailable)
 -- bundles in the response of your request.
@@ -114,20 +130,22 @@ instance Core.AWSPager GetBundles where
     | Core.stop
         ( rs
             Lens.^? getBundlesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getBundlesResponse_bundles Prelude.. Lens._Just
+            Lens.^? getBundlesResponse_bundles
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBundles_pageToken
           Lens..~ rs
-          Lens.^? getBundlesResponse_nextPageToken Prelude.. Lens._Just
+          Lens.^? getBundlesResponse_nextPageToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBundles where
   type AWSResponse GetBundles = GetBundlesResponse
@@ -144,12 +162,15 @@ instance Core.AWSRequest GetBundles where
 
 instance Prelude.Hashable GetBundles where
   hashWithSalt _salt GetBundles' {..} =
-    _salt `Prelude.hashWithSalt` includeInactive
+    _salt
+      `Prelude.hashWithSalt` appCategory
+      `Prelude.hashWithSalt` includeInactive
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetBundles where
   rnf GetBundles' {..} =
-    Prelude.rnf includeInactive
+    Prelude.rnf appCategory
+      `Prelude.seq` Prelude.rnf includeInactive
       `Prelude.seq` Prelude.rnf pageToken
 
 instance Data.ToHeaders GetBundles where
@@ -171,7 +192,8 @@ instance Data.ToJSON GetBundles where
   toJSON GetBundles' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("includeInactive" Data..=)
+          [ ("appCategory" Data..=) Prelude.<$> appCategory,
+            ("includeInactive" Data..=)
               Prelude.<$> includeInactive,
             ("pageToken" Data..=) Prelude.<$> pageToken
           ]

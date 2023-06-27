@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteDomainEntry where
 
 instance Prelude.Hashable DeleteDomainEntry where
   hashWithSalt _salt DeleteDomainEntry' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainEntry
 
 instance Prelude.NFData DeleteDomainEntry where

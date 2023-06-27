@@ -132,7 +132,8 @@ instance Core.AWSRequest UpdateDistributionBundle where
 
 instance Prelude.Hashable UpdateDistributionBundle where
   hashWithSalt _salt UpdateDistributionBundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` distributionName
 
 instance Prelude.NFData UpdateDistributionBundle where

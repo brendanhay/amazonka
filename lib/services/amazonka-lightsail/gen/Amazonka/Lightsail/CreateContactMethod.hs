@@ -214,7 +214,8 @@ instance Core.AWSRequest CreateContactMethod where
 
 instance Prelude.Hashable CreateContactMethod where
   hashWithSalt _salt CreateContactMethod' {..} =
-    _salt `Prelude.hashWithSalt` protocol
+    _salt
+      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` contactEndpoint
 
 instance Prelude.NFData CreateContactMethod where

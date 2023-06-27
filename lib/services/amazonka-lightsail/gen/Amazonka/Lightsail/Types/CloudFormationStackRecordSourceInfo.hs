@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     CloudFormationStackRecordSourceInfo' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` resourceType
 

@@ -500,7 +500,8 @@ instance Core.AWSRequest GetDistributionMetricData where
 
 instance Prelude.Hashable GetDistributionMetricData where
   hashWithSalt _salt GetDistributionMetricData' {..} =
-    _salt `Prelude.hashWithSalt` distributionName
+    _salt
+      `Prelude.hashWithSalt` distributionName
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime

@@ -98,14 +98,16 @@ instance Data.FromJSON QueryStringObject where
       ( \x ->
           QueryStringObject'
             Prelude.<$> (x Data..:? "option")
-            Prelude.<*> ( x Data..:? "queryStringsAllowList"
+            Prelude.<*> ( x
+                            Data..:? "queryStringsAllowList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable QueryStringObject where
   hashWithSalt _salt QueryStringObject' {..} =
-    _salt `Prelude.hashWithSalt` option
+    _salt
+      `Prelude.hashWithSalt` option
       `Prelude.hashWithSalt` queryStringsAllowList
 
 instance Prelude.NFData QueryStringObject where

@@ -94,7 +94,7 @@ instance
       ( \s h x ->
           CreateContainerServiceRegistryLoginResponse'
             Prelude.<$> (x Data..?> "registryLogin")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

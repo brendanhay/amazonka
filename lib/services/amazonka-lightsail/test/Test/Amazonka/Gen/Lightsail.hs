@@ -93,6 +93,9 @@ import Test.Tasty
 --         , requestCreateDomainEntry $
 --             newCreateDomainEntry
 --
+--         , requestCreateGUISessionAccessDetails $
+--             newCreateGUISessionAccessDetails
+--
 --         , requestCreateInstanceSnapshot $
 --             newCreateInstanceSnapshot
 --
@@ -263,6 +266,9 @@ import Test.Tasty
 --
 --         , requestGetContainerServices $
 --             newGetContainerServices
+--
+--         , requestGetCostEstimate $
+--             newGetCostEstimate
 --
 --         , requestGetDisk $
 --             newGetDisk
@@ -438,11 +444,17 @@ import Test.Tasty
 --         , requestSetResourceAccessForBucket $
 --             newSetResourceAccessForBucket
 --
+--         , requestStartGUISession $
+--             newStartGUISession
+--
 --         , requestStartInstance $
 --             newStartInstance
 --
 --         , requestStartRelationalDatabase $
 --             newStartRelationalDatabase
+--
+--         , requestStopGUISession $
+--             newStopGUISession
 --
 --         , requestStopInstance $
 --             newStopInstance
@@ -560,6 +572,9 @@ import Test.Tasty
 --
 --         , responseCreateDomainEntry $
 --             newCreateDomainEntryResponse
+--
+--         , responseCreateGUISessionAccessDetails $
+--             newCreateGUISessionAccessDetailsResponse
 --
 --         , responseCreateInstanceSnapshot $
 --             newCreateInstanceSnapshotResponse
@@ -731,6 +746,9 @@ import Test.Tasty
 --
 --         , responseGetContainerServices $
 --             newGetContainerServicesResponse
+--
+--         , responseGetCostEstimate $
+--             newGetCostEstimateResponse
 --
 --         , responseGetDisk $
 --             newGetDiskResponse
@@ -906,11 +924,17 @@ import Test.Tasty
 --         , responseSetResourceAccessForBucket $
 --             newSetResourceAccessForBucketResponse
 --
+--         , responseStartGUISession $
+--             newStartGUISessionResponse
+--
 --         , responseStartInstance $
 --             newStartInstanceResponse
 --
 --         , responseStartRelationalDatabase $
 --             newStartRelationalDatabaseResponse
+--
+--         , responseStopGUISession $
+--             newStopGUISessionResponse
 --
 --         , responseStopInstance $
 --             newStopInstanceResponse
@@ -1096,6 +1120,12 @@ requestCreateDomainEntry =
   req
     "CreateDomainEntry"
     "fixture/CreateDomainEntry.yaml"
+
+requestCreateGUISessionAccessDetails :: CreateGUISessionAccessDetails -> TestTree
+requestCreateGUISessionAccessDetails =
+  req
+    "CreateGUISessionAccessDetails"
+    "fixture/CreateGUISessionAccessDetails.yaml"
 
 requestCreateInstanceSnapshot :: CreateInstanceSnapshot -> TestTree
 requestCreateInstanceSnapshot =
@@ -1438,6 +1468,12 @@ requestGetContainerServices =
   req
     "GetContainerServices"
     "fixture/GetContainerServices.yaml"
+
+requestGetCostEstimate :: GetCostEstimate -> TestTree
+requestGetCostEstimate =
+  req
+    "GetCostEstimate"
+    "fixture/GetCostEstimate.yaml"
 
 requestGetDisk :: GetDisk -> TestTree
 requestGetDisk =
@@ -1787,6 +1823,12 @@ requestSetResourceAccessForBucket =
     "SetResourceAccessForBucket"
     "fixture/SetResourceAccessForBucket.yaml"
 
+requestStartGUISession :: StartGUISession -> TestTree
+requestStartGUISession =
+  req
+    "StartGUISession"
+    "fixture/StartGUISession.yaml"
+
 requestStartInstance :: StartInstance -> TestTree
 requestStartInstance =
   req
@@ -1798,6 +1840,12 @@ requestStartRelationalDatabase =
   req
     "StartRelationalDatabase"
     "fixture/StartRelationalDatabase.yaml"
+
+requestStopGUISession :: StopGUISession -> TestTree
+requestStopGUISession =
+  req
+    "StopGUISession"
+    "fixture/StopGUISession.yaml"
 
 requestStopInstance :: StopInstance -> TestTree
 requestStopInstance =
@@ -2072,6 +2120,14 @@ responseCreateDomainEntry =
     "fixture/CreateDomainEntryResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDomainEntry)
+
+responseCreateGUISessionAccessDetails :: CreateGUISessionAccessDetailsResponse -> TestTree
+responseCreateGUISessionAccessDetails =
+  res
+    "CreateGUISessionAccessDetailsResponse"
+    "fixture/CreateGUISessionAccessDetailsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateGUISessionAccessDetails)
 
 responseCreateInstanceSnapshot :: CreateInstanceSnapshotResponse -> TestTree
 responseCreateInstanceSnapshot =
@@ -2528,6 +2584,14 @@ responseGetContainerServices =
     "fixture/GetContainerServicesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetContainerServices)
+
+responseGetCostEstimate :: GetCostEstimateResponse -> TestTree
+responseGetCostEstimate =
+  res
+    "GetCostEstimateResponse"
+    "fixture/GetCostEstimateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCostEstimate)
 
 responseGetDisk :: GetDiskResponse -> TestTree
 responseGetDisk =
@@ -2993,6 +3057,14 @@ responseSetResourceAccessForBucket =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SetResourceAccessForBucket)
 
+responseStartGUISession :: StartGUISessionResponse -> TestTree
+responseStartGUISession =
+  res
+    "StartGUISessionResponse"
+    "fixture/StartGUISessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartGUISession)
+
 responseStartInstance :: StartInstanceResponse -> TestTree
 responseStartInstance =
   res
@@ -3008,6 +3080,14 @@ responseStartRelationalDatabase =
     "fixture/StartRelationalDatabaseResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartRelationalDatabase)
+
+responseStopGUISession :: StopGUISessionResponse -> TestTree
+responseStopGUISession =
+  res
+    "StopGUISessionResponse"
+    "fixture/StopGUISessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopGUISession)
 
 responseStopInstance :: StopInstanceResponse -> TestTree
 responseStopInstance =

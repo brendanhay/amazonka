@@ -326,7 +326,7 @@ instance
       ( \s h x ->
           CreateRelationalDatabaseFromSnapshotResponse'
             Prelude.<$> (x Data..?> "operations" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -336,7 +336,8 @@ instance
   hashWithSalt
     _salt
     CreateRelationalDatabaseFromSnapshot' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` publiclyAccessible
         `Prelude.hashWithSalt` relationalDatabaseBundleId
         `Prelude.hashWithSalt` relationalDatabaseSnapshotName

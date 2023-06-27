@@ -121,7 +121,8 @@ instance Data.FromJSON BucketBundle where
 
 instance Prelude.Hashable BucketBundle where
   hashWithSalt _salt BucketBundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` isActive
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` price

@@ -334,7 +334,8 @@ instance Core.AWSRequest GetBucketMetricData where
 
 instance Prelude.Hashable GetBucketMetricData where
   hashWithSalt _salt GetBucketMetricData' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endTime

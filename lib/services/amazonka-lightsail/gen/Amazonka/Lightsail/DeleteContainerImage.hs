@@ -133,7 +133,8 @@ instance Core.AWSRequest DeleteContainerImage where
 
 instance Prelude.Hashable DeleteContainerImage where
   hashWithSalt _salt DeleteContainerImage' {..} =
-    _salt `Prelude.hashWithSalt` serviceName
+    _salt
+      `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` image
 
 instance Prelude.NFData DeleteContainerImage where

@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     PendingModifiedRelationalDatabaseValues' {..} =
-      _salt `Prelude.hashWithSalt` backupRetentionEnabled
+      _salt
+        `Prelude.hashWithSalt` backupRetentionEnabled
         `Prelude.hashWithSalt` engineVersion
         `Prelude.hashWithSalt` masterUserPassword
 

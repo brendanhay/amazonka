@@ -23,8 +23,8 @@
 -- Returns information about one or more Amazon Lightsail SSL\/TLS
 -- certificates.
 --
--- To get a summary of a certificate, ommit @includeCertificateDetails@
--- from your request. The response will include only the certificate Amazon
+-- To get a summary of a certificate, omit @includeCertificateDetails@ from
+-- your request. The response will include only the certificate Amazon
 -- Resource Name (ARN), certificate name, domain name, and tags.
 module Amazonka.Lightsail.GetCertificates
   ( -- * Creating a Request
@@ -35,6 +35,7 @@ module Amazonka.Lightsail.GetCertificates
     getCertificates_certificateName,
     getCertificates_certificateStatuses,
     getCertificates_includeCertificateDetails,
+    getCertificates_pageToken,
 
     -- * Destructuring the Response
     GetCertificatesResponse (..),
@@ -42,6 +43,7 @@ module Amazonka.Lightsail.GetCertificates
 
     -- * Response Lenses
     getCertificatesResponse_certificates,
+    getCertificatesResponse_nextPageToken,
     getCertificatesResponse_httpStatus,
   )
 where
@@ -75,7 +77,13 @@ data GetCertificates = GetCertificates'
     --
     -- When omitted, the response includes only the certificate names, Amazon
     -- Resource Names (ARNs), domain names, and tags.
-    includeCertificateDetails :: Prelude.Maybe Prelude.Bool
+    includeCertificateDetails :: Prelude.Maybe Prelude.Bool,
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetCertificates@ request. If
+    -- your results are paginated, the response will return a next page token
+    -- that you can specify as the page token in a subsequent request.
+    pageToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -106,13 +114,20 @@ data GetCertificates = GetCertificates'
 --
 -- When omitted, the response includes only the certificate names, Amazon
 -- Resource Names (ARNs), domain names, and tags.
+--
+-- 'pageToken', 'getCertificates_pageToken' - The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetCertificates@ request. If
+-- your results are paginated, the response will return a next page token
+-- that you can specify as the page token in a subsequent request.
 newGetCertificates ::
   GetCertificates
 newGetCertificates =
   GetCertificates'
     { certificateName = Prelude.Nothing,
       certificateStatuses = Prelude.Nothing,
-      includeCertificateDetails = Prelude.Nothing
+      includeCertificateDetails = Prelude.Nothing,
+      pageToken = Prelude.Nothing
     }
 
 -- | The name for the certificate for which to return information.
@@ -141,6 +156,14 @@ getCertificates_certificateStatuses = Lens.lens (\GetCertificates' {certificateS
 getCertificates_includeCertificateDetails :: Lens.Lens' GetCertificates (Prelude.Maybe Prelude.Bool)
 getCertificates_includeCertificateDetails = Lens.lens (\GetCertificates' {includeCertificateDetails} -> includeCertificateDetails) (\s@GetCertificates' {} a -> s {includeCertificateDetails = a} :: GetCertificates)
 
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetCertificates@ request. If
+-- your results are paginated, the response will return a next page token
+-- that you can specify as the page token in a subsequent request.
+getCertificates_pageToken :: Lens.Lens' GetCertificates (Prelude.Maybe Prelude.Text)
+getCertificates_pageToken = Lens.lens (\GetCertificates' {pageToken} -> pageToken) (\s@GetCertificates' {} a -> s {pageToken = a} :: GetCertificates)
+
 instance Core.AWSRequest GetCertificates where
   type
     AWSResponse GetCertificates =
@@ -152,20 +175,24 @@ instance Core.AWSRequest GetCertificates where
       ( \s h x ->
           GetCertificatesResponse'
             Prelude.<$> (x Data..?> "certificates" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetCertificates where
   hashWithSalt _salt GetCertificates' {..} =
-    _salt `Prelude.hashWithSalt` certificateName
+    _salt
+      `Prelude.hashWithSalt` certificateName
       `Prelude.hashWithSalt` certificateStatuses
       `Prelude.hashWithSalt` includeCertificateDetails
+      `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetCertificates where
   rnf GetCertificates' {..} =
     Prelude.rnf certificateName
       `Prelude.seq` Prelude.rnf certificateStatuses
       `Prelude.seq` Prelude.rnf includeCertificateDetails
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Data.ToHeaders GetCertificates where
   toHeaders =
@@ -191,7 +218,8 @@ instance Data.ToJSON GetCertificates where
             ("certificateStatuses" Data..=)
               Prelude.<$> certificateStatuses,
             ("includeCertificateDetails" Data..=)
-              Prelude.<$> includeCertificateDetails
+              Prelude.<$> includeCertificateDetails,
+            ("pageToken" Data..=) Prelude.<$> pageToken
           ]
       )
 
@@ -205,6 +233,11 @@ instance Data.ToQuery GetCertificates where
 data GetCertificatesResponse = GetCertificatesResponse'
   { -- | An object that describes certificates.
     certificates :: Prelude.Maybe [CertificateSummary],
+    -- | If @NextPageToken@ is returned there are more results available. The
+    -- value of @NextPageToken@ is a unique pagination token for each page.
+    -- Make the call again using the returned token to retrieve the next page.
+    -- Keep all other arguments unchanged.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -220,6 +253,11 @@ data GetCertificatesResponse = GetCertificatesResponse'
 --
 -- 'certificates', 'getCertificatesResponse_certificates' - An object that describes certificates.
 --
+-- 'nextPageToken', 'getCertificatesResponse_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
+-- value of @NextPageToken@ is a unique pagination token for each page.
+-- Make the call again using the returned token to retrieve the next page.
+-- Keep all other arguments unchanged.
+--
 -- 'httpStatus', 'getCertificatesResponse_httpStatus' - The response's http status code.
 newGetCertificatesResponse ::
   -- | 'httpStatus'
@@ -229,12 +267,20 @@ newGetCertificatesResponse pHttpStatus_ =
   GetCertificatesResponse'
     { certificates =
         Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | An object that describes certificates.
 getCertificatesResponse_certificates :: Lens.Lens' GetCertificatesResponse (Prelude.Maybe [CertificateSummary])
 getCertificatesResponse_certificates = Lens.lens (\GetCertificatesResponse' {certificates} -> certificates) (\s@GetCertificatesResponse' {} a -> s {certificates = a} :: GetCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | If @NextPageToken@ is returned there are more results available. The
+-- value of @NextPageToken@ is a unique pagination token for each page.
+-- Make the call again using the returned token to retrieve the next page.
+-- Keep all other arguments unchanged.
+getCertificatesResponse_nextPageToken :: Lens.Lens' GetCertificatesResponse (Prelude.Maybe Prelude.Text)
+getCertificatesResponse_nextPageToken = Lens.lens (\GetCertificatesResponse' {nextPageToken} -> nextPageToken) (\s@GetCertificatesResponse' {} a -> s {nextPageToken = a} :: GetCertificatesResponse)
 
 -- | The response's http status code.
 getCertificatesResponse_httpStatus :: Lens.Lens' GetCertificatesResponse Prelude.Int
@@ -243,4 +289,5 @@ getCertificatesResponse_httpStatus = Lens.lens (\GetCertificatesResponse' {httpS
 instance Prelude.NFData GetCertificatesResponse where
   rnf GetCertificatesResponse' {..} =
     Prelude.rnf certificates
+      `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf httpStatus

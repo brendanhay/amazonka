@@ -75,7 +75,8 @@ instance Data.FromJSON ResourceReceivingAccess where
 
 instance Prelude.Hashable ResourceReceivingAccess where
   hashWithSalt _salt ResourceReceivingAccess' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ResourceReceivingAccess where

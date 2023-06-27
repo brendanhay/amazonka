@@ -31,9 +31,12 @@ data DomainEntry = DomainEntry'
   { -- | The ID of the domain recordset entry.
     id :: Prelude.Maybe Prelude.Text,
     -- | When @true@, specifies whether the domain entry is an alias used by the
-    -- Lightsail load balancer. You can include an alias (A type) record in
-    -- your request, which points to a load balancer DNS name and routes
-    -- traffic to your load balancer.
+    -- Lightsail load balancer, Lightsail container service, Lightsail content
+    -- delivery network (CDN) distribution, or another Amazon Web Services
+    -- resource. You can include an alias (A type) record in your request,
+    -- which points to the DNS name of a load balancer, container service, CDN
+    -- distribution, or other Amazon Web Services resource and routes traffic
+    -- to that resource.
     isAlias :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain.
     name :: Prelude.Maybe Prelude.Text,
@@ -90,9 +93,12 @@ data DomainEntry = DomainEntry'
 -- 'id', 'domainEntry_id' - The ID of the domain recordset entry.
 --
 -- 'isAlias', 'domainEntry_isAlias' - When @true@, specifies whether the domain entry is an alias used by the
--- Lightsail load balancer. You can include an alias (A type) record in
--- your request, which points to a load balancer DNS name and routes
--- traffic to your load balancer.
+-- Lightsail load balancer, Lightsail container service, Lightsail content
+-- delivery network (CDN) distribution, or another Amazon Web Services
+-- resource. You can include an alias (A type) record in your request,
+-- which points to the DNS name of a load balancer, container service, CDN
+-- distribution, or other Amazon Web Services resource and routes traffic
+-- to that resource.
 --
 -- 'name', 'domainEntry_name' - The name of the domain.
 --
@@ -151,9 +157,12 @@ domainEntry_id :: Lens.Lens' DomainEntry (Prelude.Maybe Prelude.Text)
 domainEntry_id = Lens.lens (\DomainEntry' {id} -> id) (\s@DomainEntry' {} a -> s {id = a} :: DomainEntry)
 
 -- | When @true@, specifies whether the domain entry is an alias used by the
--- Lightsail load balancer. You can include an alias (A type) record in
--- your request, which points to a load balancer DNS name and routes
--- traffic to your load balancer.
+-- Lightsail load balancer, Lightsail container service, Lightsail content
+-- delivery network (CDN) distribution, or another Amazon Web Services
+-- resource. You can include an alias (A type) record in your request,
+-- which points to the DNS name of a load balancer, container service, CDN
+-- distribution, or other Amazon Web Services resource and routes traffic
+-- to that resource.
 domainEntry_isAlias :: Lens.Lens' DomainEntry (Prelude.Maybe Prelude.Bool)
 domainEntry_isAlias = Lens.lens (\DomainEntry' {isAlias} -> isAlias) (\s@DomainEntry' {} a -> s {isAlias = a} :: DomainEntry)
 
@@ -222,7 +231,8 @@ instance Data.FromJSON DomainEntry where
 
 instance Prelude.Hashable DomainEntry where
   hashWithSalt _salt DomainEntry' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` isAlias
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` options

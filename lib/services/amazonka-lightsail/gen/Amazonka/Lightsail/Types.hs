@@ -41,6 +41,12 @@ module Amazonka.Lightsail.Types
     -- * AlarmState
     AlarmState (..),
 
+    -- * AppCategory
+    AppCategory (..),
+
+    -- * AutoMountStatus
+    AutoMountStatus (..),
+
     -- * AutoSnapshotStatus
     AutoSnapshotStatus (..),
 
@@ -94,6 +100,9 @@ module Amazonka.Lightsail.Types
 
     -- * ContainerServiceStateDetailCode
     ContainerServiceStateDetailCode (..),
+
+    -- * Currency
+    Currency (..),
 
     -- * DiskSnapshotState
     DiskSnapshotState (..),
@@ -212,6 +221,9 @@ module Amazonka.Lightsail.Types
     -- * PortState
     PortState (..),
 
+    -- * PricingUnit
+    PricingUnit (..),
+
     -- * R53HostedZoneDeletionStateCode
     R53HostedZoneDeletionStateCode (..),
 
@@ -238,6 +250,9 @@ module Amazonka.Lightsail.Types
 
     -- * ResourceType
     ResourceType (..),
+
+    -- * Status
+    Status (..),
 
     -- * StatusType
     StatusType (..),
@@ -278,15 +293,18 @@ module Amazonka.Lightsail.Types
     -- * AddOn
     AddOn (..),
     newAddOn,
+    addOn_duration,
     addOn_name,
     addOn_nextSnapshotTimeOfDay,
     addOn_snapshotTimeOfDay,
     addOn_status,
+    addOn_threshold,
 
     -- * AddOnRequest
     AddOnRequest (..),
     newAddOnRequest,
     addOnRequest_autoSnapshotAddOnRequest,
+    addOnRequest_stopInstanceOnIdleRequest,
     addOnRequest_addOnType,
 
     -- * Alarm
@@ -341,6 +359,7 @@ module Amazonka.Lightsail.Types
     -- * Blueprint
     Blueprint (..),
     newBlueprint,
+    blueprint_appCategory,
     blueprint_blueprintId,
     blueprint_description,
     blueprint_group,
@@ -409,6 +428,7 @@ module Amazonka.Lightsail.Types
     bundle_power,
     bundle_price,
     bundle_ramSizeInGb,
+    bundle_supportedAppCategories,
     bundle_supportedPlatforms,
     bundle_transferPerMonthInGb,
 
@@ -618,6 +638,12 @@ module Amazonka.Lightsail.Types
     cookieObject_cookiesAllowList,
     cookieObject_option,
 
+    -- * CostEstimate
+    CostEstimate (..),
+    newCostEstimate,
+    costEstimate_resultsByTime,
+    costEstimate_usageType,
+
     -- * DestinationInfo
     DestinationInfo (..),
     newDestinationInfo,
@@ -631,6 +657,7 @@ module Amazonka.Lightsail.Types
     disk_arn,
     disk_attachedTo,
     disk_attachmentState,
+    disk_autoMountStatus,
     disk_createdAt,
     disk_gbInUse,
     disk_iops,
@@ -735,6 +762,15 @@ module Amazonka.Lightsail.Types
     endpointRequest_healthCheck,
     endpointRequest_containerName,
     endpointRequest_containerPort,
+
+    -- * EstimateByTime
+    EstimateByTime (..),
+    newEstimateByTime,
+    estimateByTime_currency,
+    estimateByTime_pricingUnit,
+    estimateByTime_timePeriod,
+    estimateByTime_unit,
+    estimateByTime_usageCost,
 
     -- * ExportSnapshotRecord
     ExportSnapshotRecord (..),
@@ -1291,6 +1327,15 @@ module Amazonka.Lightsail.Types
     renewalSummary_renewalStatusReason,
     renewalSummary_updatedAt,
 
+    -- * ResourceBudgetEstimate
+    ResourceBudgetEstimate (..),
+    newResourceBudgetEstimate,
+    resourceBudgetEstimate_costEstimates,
+    resourceBudgetEstimate_endTime,
+    resourceBudgetEstimate_resourceName,
+    resourceBudgetEstimate_resourceType,
+    resourceBudgetEstimate_startTime,
+
     -- * ResourceLocation
     ResourceLocation (..),
     newResourceLocation,
@@ -1310,6 +1355,13 @@ module Amazonka.Lightsail.Types
     resourceRecord_type,
     resourceRecord_value,
 
+    -- * Session
+    Session (..),
+    newSession,
+    session_isPrimary,
+    session_name,
+    session_url,
+
     -- * StaticIp
     StaticIp (..),
     newStaticIp,
@@ -1323,11 +1375,23 @@ module Amazonka.Lightsail.Types
     staticIp_resourceType,
     staticIp_supportCode,
 
+    -- * StopInstanceOnIdleRequest
+    StopInstanceOnIdleRequest (..),
+    newStopInstanceOnIdleRequest,
+    stopInstanceOnIdleRequest_duration,
+    stopInstanceOnIdleRequest_threshold,
+
     -- * Tag
     Tag (..),
     newTag,
     tag_key,
     tag_value,
+
+    -- * TimePeriod
+    TimePeriod (..),
+    newTimePeriod,
+    timePeriod_end,
+    timePeriod_start,
   )
 where
 
@@ -1345,7 +1409,9 @@ import Amazonka.Lightsail.Types.AddOnRequest
 import Amazonka.Lightsail.Types.AddOnType
 import Amazonka.Lightsail.Types.Alarm
 import Amazonka.Lightsail.Types.AlarmState
+import Amazonka.Lightsail.Types.AppCategory
 import Amazonka.Lightsail.Types.AttachedDisk
+import Amazonka.Lightsail.Types.AutoMountStatus
 import Amazonka.Lightsail.Types.AutoSnapshotAddOnRequest
 import Amazonka.Lightsail.Types.AutoSnapshotDetails
 import Amazonka.Lightsail.Types.AutoSnapshotStatus
@@ -1395,6 +1461,8 @@ import Amazonka.Lightsail.Types.ContainerServiceState
 import Amazonka.Lightsail.Types.ContainerServiceStateDetail
 import Amazonka.Lightsail.Types.ContainerServiceStateDetailCode
 import Amazonka.Lightsail.Types.CookieObject
+import Amazonka.Lightsail.Types.CostEstimate
+import Amazonka.Lightsail.Types.Currency
 import Amazonka.Lightsail.Types.DestinationInfo
 import Amazonka.Lightsail.Types.Disk
 import Amazonka.Lightsail.Types.DiskInfo
@@ -1411,6 +1479,7 @@ import Amazonka.Lightsail.Types.Domain
 import Amazonka.Lightsail.Types.DomainEntry
 import Amazonka.Lightsail.Types.DomainValidationRecord
 import Amazonka.Lightsail.Types.EndpointRequest
+import Amazonka.Lightsail.Types.EstimateByTime
 import Amazonka.Lightsail.Types.ExportSnapshotRecord
 import Amazonka.Lightsail.Types.ExportSnapshotRecordSourceInfo
 import Amazonka.Lightsail.Types.ExportSnapshotRecordSourceType
@@ -1484,6 +1553,7 @@ import Amazonka.Lightsail.Types.PortAccessType
 import Amazonka.Lightsail.Types.PortInfo
 import Amazonka.Lightsail.Types.PortInfoSourceType
 import Amazonka.Lightsail.Types.PortState
+import Amazonka.Lightsail.Types.PricingUnit
 import Amazonka.Lightsail.Types.PrivateRegistryAccess
 import Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
 import Amazonka.Lightsail.Types.QueryStringObject
@@ -1507,13 +1577,18 @@ import Amazonka.Lightsail.Types.RelationalDatabaseSnapshot
 import Amazonka.Lightsail.Types.RenewalStatus
 import Amazonka.Lightsail.Types.RenewalSummary
 import Amazonka.Lightsail.Types.ResourceBucketAccess
+import Amazonka.Lightsail.Types.ResourceBudgetEstimate
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceReceivingAccess
 import Amazonka.Lightsail.Types.ResourceRecord
 import Amazonka.Lightsail.Types.ResourceType
+import Amazonka.Lightsail.Types.Session
 import Amazonka.Lightsail.Types.StaticIp
+import Amazonka.Lightsail.Types.Status
 import Amazonka.Lightsail.Types.StatusType
+import Amazonka.Lightsail.Types.StopInstanceOnIdleRequest
 import Amazonka.Lightsail.Types.Tag
+import Amazonka.Lightsail.Types.TimePeriod
 import Amazonka.Lightsail.Types.TreatMissingData
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -1544,53 +1619,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Lightsail throws this exception when the user cannot be authenticated or
 -- uses invalid credentials to access a resource.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1598,7 +1673,7 @@ _AccessDeniedException =
 
 -- | Lightsail throws this exception when an account is still in the setup in
 -- progress state.
-_AccountSetupInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccountSetupInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccountSetupInProgressException =
   Core._MatchServiceError
     defaultService
@@ -1611,28 +1686,28 @@ _AccountSetupInProgressException =
 -- (@us-east-1@) Amazon Web Services Region. Please set your Amazon Web
 -- Services Region configuration to @us-east-1@ to create, view, or edit
 -- these resources.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | Lightsail throws this exception when it cannot find a resource.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
 
 -- | Lightsail throws this exception when an operation fails to execute.
-_OperationFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationFailureException =
   Core._MatchServiceError
     defaultService
     "OperationFailureException"
 
 -- | A general service exception.
-_ServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceException =
   Core._MatchServiceError
     defaultService
@@ -1640,7 +1715,7 @@ _ServiceException =
 
 -- | Lightsail throws this exception when the user has not been
 -- authenticated.
-_UnauthenticatedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthenticatedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthenticatedException =
   Core._MatchServiceError
     defaultService

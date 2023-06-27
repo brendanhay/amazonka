@@ -369,7 +369,8 @@ portInfo_toPort = Lens.lens (\PortInfo' {toPort} -> toPort) (\s@PortInfo' {} a -
 
 instance Prelude.Hashable PortInfo where
   hashWithSalt _salt PortInfo' {..} =
-    _salt `Prelude.hashWithSalt` cidrListAliases
+    _salt
+      `Prelude.hashWithSalt` cidrListAliases
       `Prelude.hashWithSalt` cidrs
       `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipv6Cidrs

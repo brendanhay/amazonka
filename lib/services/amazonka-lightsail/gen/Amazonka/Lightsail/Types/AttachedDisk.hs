@@ -75,7 +75,8 @@ instance Data.FromJSON AttachedDisk where
 
 instance Prelude.Hashable AttachedDisk where
   hashWithSalt _salt AttachedDisk' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` sizeInGb
 
 instance Prelude.NFData AttachedDisk where

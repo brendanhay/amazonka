@@ -39,6 +39,7 @@ module Amazonka.Lightsail.GetBlueprints
     newGetBlueprints,
 
     -- * Request Lenses
+    getBlueprints_appCategory,
     getBlueprints_includeInactive,
     getBlueprints_pageToken,
 
@@ -63,7 +64,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetBlueprints' smart constructor.
 data GetBlueprints = GetBlueprints'
-  { -- | A Boolean value that indicates whether to include inactive (unavailable)
+  { -- | Returns a list of blueprints that are specific to Lightsail for
+    -- Research.
+    --
+    -- You must use this parameter to view Lightsail for Research blueprints.
+    appCategory :: Prelude.Maybe AppCategory,
+    -- | A Boolean value that indicates whether to include inactive (unavailable)
     -- blueprints in the response of your request.
     includeInactive :: Prelude.Maybe Prelude.Bool,
     -- | The token to advance to the next page of results from your request.
@@ -83,6 +89,11 @@ data GetBlueprints = GetBlueprints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'appCategory', 'getBlueprints_appCategory' - Returns a list of blueprints that are specific to Lightsail for
+-- Research.
+--
+-- You must use this parameter to view Lightsail for Research blueprints.
+--
 -- 'includeInactive', 'getBlueprints_includeInactive' - A Boolean value that indicates whether to include inactive (unavailable)
 -- blueprints in the response of your request.
 --
@@ -95,9 +106,17 @@ newGetBlueprints ::
   GetBlueprints
 newGetBlueprints =
   GetBlueprints'
-    { includeInactive = Prelude.Nothing,
+    { appCategory = Prelude.Nothing,
+      includeInactive = Prelude.Nothing,
       pageToken = Prelude.Nothing
     }
+
+-- | Returns a list of blueprints that are specific to Lightsail for
+-- Research.
+--
+-- You must use this parameter to view Lightsail for Research blueprints.
+getBlueprints_appCategory :: Lens.Lens' GetBlueprints (Prelude.Maybe AppCategory)
+getBlueprints_appCategory = Lens.lens (\GetBlueprints' {appCategory} -> appCategory) (\s@GetBlueprints' {} a -> s {appCategory = a} :: GetBlueprints)
 
 -- | A Boolean value that indicates whether to include inactive (unavailable)
 -- blueprints in the response of your request.
@@ -117,22 +136,22 @@ instance Core.AWSPager GetBlueprints where
     | Core.stop
         ( rs
             Lens.^? getBlueprintsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getBlueprintsResponse_blueprints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getBlueprints_pageToken
           Lens..~ rs
           Lens.^? getBlueprintsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetBlueprints where
   type
@@ -151,12 +170,15 @@ instance Core.AWSRequest GetBlueprints where
 
 instance Prelude.Hashable GetBlueprints where
   hashWithSalt _salt GetBlueprints' {..} =
-    _salt `Prelude.hashWithSalt` includeInactive
+    _salt
+      `Prelude.hashWithSalt` appCategory
+      `Prelude.hashWithSalt` includeInactive
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetBlueprints where
   rnf GetBlueprints' {..} =
-    Prelude.rnf includeInactive
+    Prelude.rnf appCategory
+      `Prelude.seq` Prelude.rnf includeInactive
       `Prelude.seq` Prelude.rnf pageToken
 
 instance Data.ToHeaders GetBlueprints where
@@ -178,7 +200,8 @@ instance Data.ToJSON GetBlueprints where
   toJSON GetBlueprints' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("includeInactive" Data..=)
+          [ ("appCategory" Data..=) Prelude.<$> appCategory,
+            ("includeInactive" Data..=)
               Prelude.<$> includeInactive,
             ("pageToken" Data..=) Prelude.<$> pageToken
           ]

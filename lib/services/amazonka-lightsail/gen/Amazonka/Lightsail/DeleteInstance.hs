@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteInstance where
 
 instance Prelude.Hashable DeleteInstance where
   hashWithSalt _salt DeleteInstance' {..} =
-    _salt `Prelude.hashWithSalt` forceDeleteAddOns
+    _salt
+      `Prelude.hashWithSalt` forceDeleteAddOns
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData DeleteInstance where

@@ -100,7 +100,7 @@ instance
       ( \x ->
           LoadBalancerTlsCertificateDnsRecordCreationState'
             Prelude.<$> (x Data..:? "code")
-              Prelude.<*> (x Data..:? "message")
+            Prelude.<*> (x Data..:? "message")
       )
 
 instance
@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     LoadBalancerTlsCertificateDnsRecordCreationState' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` message
 
 instance

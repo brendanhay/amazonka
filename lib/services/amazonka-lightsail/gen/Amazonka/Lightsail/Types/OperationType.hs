@@ -85,8 +85,10 @@ module Amazonka.Lightsail.Types.OperationType
         OperationType_SendContactMethodVerification,
         OperationType_SetIpAddressType,
         OperationType_SetResourceAccessForBucket,
+        OperationType_StartGUISession,
         OperationType_StartInstance,
         OperationType_StartRelationalDatabase,
+        OperationType_StopGUISession,
         OperationType_StopInstance,
         OperationType_StopRelationalDatabase,
         OperationType_TestAlarm,
@@ -331,11 +333,17 @@ pattern OperationType_SetIpAddressType = OperationType' "SetIpAddressType"
 pattern OperationType_SetResourceAccessForBucket :: OperationType
 pattern OperationType_SetResourceAccessForBucket = OperationType' "SetResourceAccessForBucket"
 
+pattern OperationType_StartGUISession :: OperationType
+pattern OperationType_StartGUISession = OperationType' "StartGUISession"
+
 pattern OperationType_StartInstance :: OperationType
 pattern OperationType_StartInstance = OperationType' "StartInstance"
 
 pattern OperationType_StartRelationalDatabase :: OperationType
 pattern OperationType_StartRelationalDatabase = OperationType' "StartRelationalDatabase"
+
+pattern OperationType_StopGUISession :: OperationType
+pattern OperationType_StopGUISession = OperationType' "StopGUISession"
 
 pattern OperationType_StopInstance :: OperationType
 pattern OperationType_StopInstance = OperationType' "StopInstance"
@@ -442,8 +450,10 @@ pattern OperationType_UpdateRelationalDatabaseParameters = OperationType' "Updat
   OperationType_SendContactMethodVerification,
   OperationType_SetIpAddressType,
   OperationType_SetResourceAccessForBucket,
+  OperationType_StartGUISession,
   OperationType_StartInstance,
   OperationType_StartRelationalDatabase,
+  OperationType_StopGUISession,
   OperationType_StopInstance,
   OperationType_StopRelationalDatabase,
   OperationType_TestAlarm,

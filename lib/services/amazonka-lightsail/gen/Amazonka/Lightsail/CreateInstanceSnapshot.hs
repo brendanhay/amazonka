@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateInstanceSnapshot where
 
 instance Prelude.Hashable CreateInstanceSnapshot where
   hashWithSalt _salt CreateInstanceSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceSnapshotName
       `Prelude.hashWithSalt` instanceName
 

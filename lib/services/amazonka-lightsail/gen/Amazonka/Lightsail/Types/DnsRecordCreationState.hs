@@ -115,7 +115,8 @@ instance Data.FromJSON DnsRecordCreationState where
 
 instance Prelude.Hashable DnsRecordCreationState where
   hashWithSalt _salt DnsRecordCreationState' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData DnsRecordCreationState where

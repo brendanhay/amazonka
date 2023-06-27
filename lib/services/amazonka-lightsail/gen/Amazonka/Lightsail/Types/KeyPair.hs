@@ -155,7 +155,8 @@ instance Data.FromJSON KeyPair where
 
 instance Prelude.Hashable KeyPair where
   hashWithSalt _salt KeyPair' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` fingerprint
       `Prelude.hashWithSalt` location

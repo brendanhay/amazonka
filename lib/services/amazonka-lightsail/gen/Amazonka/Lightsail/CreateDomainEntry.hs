@@ -118,7 +118,8 @@ instance Core.AWSRequest CreateDomainEntry where
 
 instance Prelude.Hashable CreateDomainEntry where
   hashWithSalt _salt CreateDomainEntry' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` domainEntry
 
 instance Prelude.NFData CreateDomainEntry where

@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAddOn' smart constructor.
 data AddOn = AddOn'
-  { -- | The name of the add-on.
+  { -- | The amount of idle time in minutes after which your virtual computer
+    -- will automatically stop.
+    --
+    -- This add-on only applies to Lightsail for Research resources.
+    duration :: Prelude.Maybe Prelude.Text,
+    -- | The name of the add-on.
     name :: Prelude.Maybe Prelude.Text,
     -- | The next daily time an automatic snapshot will be created.
     --
@@ -47,7 +52,11 @@ data AddOn = AddOn'
     -- 45 minutes after.
     snapshotTimeOfDay :: Prelude.Maybe Prelude.Text,
     -- | The status of the add-on.
-    status :: Prelude.Maybe Prelude.Text
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The trigger threshold of the action.
+    --
+    -- This add-on only applies to Lightsail for Research resources.
+    threshold :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,6 +67,11 @@ data AddOn = AddOn'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'duration', 'addOn_duration' - The amount of idle time in minutes after which your virtual computer
+-- will automatically stop.
+--
+-- This add-on only applies to Lightsail for Research resources.
 --
 -- 'name', 'addOn_name' - The name of the add-on.
 --
@@ -78,15 +92,28 @@ data AddOn = AddOn'
 -- 45 minutes after.
 --
 -- 'status', 'addOn_status' - The status of the add-on.
+--
+-- 'threshold', 'addOn_threshold' - The trigger threshold of the action.
+--
+-- This add-on only applies to Lightsail for Research resources.
 newAddOn ::
   AddOn
 newAddOn =
   AddOn'
-    { name = Prelude.Nothing,
+    { duration = Prelude.Nothing,
+      name = Prelude.Nothing,
       nextSnapshotTimeOfDay = Prelude.Nothing,
       snapshotTimeOfDay = Prelude.Nothing,
-      status = Prelude.Nothing
+      status = Prelude.Nothing,
+      threshold = Prelude.Nothing
     }
+
+-- | The amount of idle time in minutes after which your virtual computer
+-- will automatically stop.
+--
+-- This add-on only applies to Lightsail for Research resources.
+addOn_duration :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_duration = Lens.lens (\AddOn' {duration} -> duration) (\s@AddOn' {} a -> s {duration = a} :: AddOn)
 
 -- | The name of the add-on.
 addOn_name :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
@@ -116,28 +143,41 @@ addOn_snapshotTimeOfDay = Lens.lens (\AddOn' {snapshotTimeOfDay} -> snapshotTime
 addOn_status :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
 addOn_status = Lens.lens (\AddOn' {status} -> status) (\s@AddOn' {} a -> s {status = a} :: AddOn)
 
+-- | The trigger threshold of the action.
+--
+-- This add-on only applies to Lightsail for Research resources.
+addOn_threshold :: Lens.Lens' AddOn (Prelude.Maybe Prelude.Text)
+addOn_threshold = Lens.lens (\AddOn' {threshold} -> threshold) (\s@AddOn' {} a -> s {threshold = a} :: AddOn)
+
 instance Data.FromJSON AddOn where
   parseJSON =
     Data.withObject
       "AddOn"
       ( \x ->
           AddOn'
-            Prelude.<$> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "duration")
+            Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "nextSnapshotTimeOfDay")
             Prelude.<*> (x Data..:? "snapshotTimeOfDay")
             Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "threshold")
       )
 
 instance Prelude.Hashable AddOn where
   hashWithSalt _salt AddOn' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` duration
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextSnapshotTimeOfDay
       `Prelude.hashWithSalt` snapshotTimeOfDay
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` threshold
 
 instance Prelude.NFData AddOn where
   rnf AddOn' {..} =
-    Prelude.rnf name
+    Prelude.rnf duration
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf nextSnapshotTimeOfDay
       `Prelude.seq` Prelude.rnf snapshotTimeOfDay
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf threshold

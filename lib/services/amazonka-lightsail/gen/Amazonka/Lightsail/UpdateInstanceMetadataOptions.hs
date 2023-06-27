@@ -215,7 +215,8 @@ instance
     UpdateInstanceMetadataOptions
   where
   hashWithSalt _salt UpdateInstanceMetadataOptions' {..} =
-    _salt `Prelude.hashWithSalt` httpEndpoint
+    _salt
+      `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` httpProtocolIpv6
       `Prelude.hashWithSalt` httpPutResponseHopLimit
       `Prelude.hashWithSalt` httpTokens
@@ -266,7 +267,10 @@ instance Data.ToQuery UpdateInstanceMetadataOptions where
 
 -- | /See:/ 'newUpdateInstanceMetadataOptionsResponse' smart constructor.
 data UpdateInstanceMetadataOptionsResponse = UpdateInstanceMetadataOptionsResponse'
-  { operation :: Prelude.Maybe Operation,
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -280,7 +284,9 @@ data UpdateInstanceMetadataOptionsResponse = UpdateInstanceMetadataOptionsRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operation', 'updateInstanceMetadataOptionsResponse_operation' - Undocumented member.
+-- 'operation', 'updateInstanceMetadataOptionsResponse_operation' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
 --
 -- 'httpStatus', 'updateInstanceMetadataOptionsResponse_httpStatus' - The response's http status code.
 newUpdateInstanceMetadataOptionsResponse ::
@@ -294,7 +300,9 @@ newUpdateInstanceMetadataOptionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
 updateInstanceMetadataOptionsResponse_operation :: Lens.Lens' UpdateInstanceMetadataOptionsResponse (Prelude.Maybe Operation)
 updateInstanceMetadataOptionsResponse_operation = Lens.lens (\UpdateInstanceMetadataOptionsResponse' {operation} -> operation) (\s@UpdateInstanceMetadataOptionsResponse' {} a -> s {operation = a} :: UpdateInstanceMetadataOptionsResponse)
 

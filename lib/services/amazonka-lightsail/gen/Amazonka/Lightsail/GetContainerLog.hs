@@ -294,7 +294,8 @@ instance Core.AWSRequest GetContainerLog where
 
 instance Prelude.Hashable GetContainerLog where
   hashWithSalt _salt GetContainerLog' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` filterPattern
       `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` startTime

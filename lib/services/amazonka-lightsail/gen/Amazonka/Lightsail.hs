@@ -197,6 +197,12 @@ module Amazonka.Lightsail
     CreateDomainEntryResponse (CreateDomainEntryResponse'),
     newCreateDomainEntryResponse,
 
+    -- ** CreateGUISessionAccessDetails
+    CreateGUISessionAccessDetails (CreateGUISessionAccessDetails'),
+    newCreateGUISessionAccessDetails,
+    CreateGUISessionAccessDetailsResponse (CreateGUISessionAccessDetailsResponse'),
+    newCreateGUISessionAccessDetailsResponse,
+
     -- ** CreateInstanceSnapshot
     CreateInstanceSnapshot (CreateInstanceSnapshot'),
     newCreateInstanceSnapshot,
@@ -538,6 +544,12 @@ module Amazonka.Lightsail
     newGetContainerServices,
     GetContainerServicesResponse (GetContainerServicesResponse'),
     newGetContainerServicesResponse,
+
+    -- ** GetCostEstimate
+    GetCostEstimate (GetCostEstimate'),
+    newGetCostEstimate,
+    GetCostEstimateResponse (GetCostEstimateResponse'),
+    newGetCostEstimateResponse,
 
     -- ** GetDisk
     GetDisk (GetDisk'),
@@ -887,6 +899,12 @@ module Amazonka.Lightsail
     SetResourceAccessForBucketResponse (SetResourceAccessForBucketResponse'),
     newSetResourceAccessForBucketResponse,
 
+    -- ** StartGUISession
+    StartGUISession (StartGUISession'),
+    newStartGUISession,
+    StartGUISessionResponse (StartGUISessionResponse'),
+    newStartGUISessionResponse,
+
     -- ** StartInstance
     StartInstance (StartInstance'),
     newStartInstance,
@@ -898,6 +916,12 @@ module Amazonka.Lightsail
     newStartRelationalDatabase,
     StartRelationalDatabaseResponse (StartRelationalDatabaseResponse'),
     newStartRelationalDatabaseResponse,
+
+    -- ** StopGUISession
+    StopGUISession (StopGUISession'),
+    newStopGUISession,
+    StopGUISessionResponse (StopGUISessionResponse'),
+    newStopGUISessionResponse,
 
     -- ** StopInstance
     StopInstance (StopInstance'),
@@ -1012,6 +1036,12 @@ module Amazonka.Lightsail
     -- ** AlarmState
     AlarmState (..),
 
+    -- ** AppCategory
+    AppCategory (..),
+
+    -- ** AutoMountStatus
+    AutoMountStatus (..),
+
     -- ** AutoSnapshotStatus
     AutoSnapshotStatus (..),
 
@@ -1065,6 +1095,9 @@ module Amazonka.Lightsail
 
     -- ** ContainerServiceStateDetailCode
     ContainerServiceStateDetailCode (..),
+
+    -- ** Currency
+    Currency (..),
 
     -- ** DiskSnapshotState
     DiskSnapshotState (..),
@@ -1183,6 +1216,9 @@ module Amazonka.Lightsail
     -- ** PortState
     PortState (..),
 
+    -- ** PricingUnit
+    PricingUnit (..),
+
     -- ** R53HostedZoneDeletionStateCode
     R53HostedZoneDeletionStateCode (..),
 
@@ -1209,6 +1245,9 @@ module Amazonka.Lightsail
 
     -- ** ResourceType
     ResourceType (..),
+
+    -- ** Status
+    Status (..),
 
     -- ** StatusType
     StatusType (..),
@@ -1372,6 +1411,10 @@ module Amazonka.Lightsail
     CookieObject (CookieObject'),
     newCookieObject,
 
+    -- ** CostEstimate
+    CostEstimate (CostEstimate'),
+    newCostEstimate,
+
     -- ** DestinationInfo
     DestinationInfo (DestinationInfo'),
     newDestinationInfo,
@@ -1419,6 +1462,10 @@ module Amazonka.Lightsail
     -- ** EndpointRequest
     EndpointRequest (EndpointRequest'),
     newEndpointRequest,
+
+    -- ** EstimateByTime
+    EstimateByTime (EstimateByTime'),
+    newEstimateByTime,
 
     -- ** ExportSnapshotRecord
     ExportSnapshotRecord (ExportSnapshotRecord'),
@@ -1632,6 +1679,10 @@ module Amazonka.Lightsail
     RenewalSummary (RenewalSummary'),
     newRenewalSummary,
 
+    -- ** ResourceBudgetEstimate
+    ResourceBudgetEstimate (ResourceBudgetEstimate'),
+    newResourceBudgetEstimate,
+
     -- ** ResourceLocation
     ResourceLocation (ResourceLocation'),
     newResourceLocation,
@@ -1644,13 +1695,25 @@ module Amazonka.Lightsail
     ResourceRecord (ResourceRecord'),
     newResourceRecord,
 
+    -- ** Session
+    Session (Session'),
+    newSession,
+
     -- ** StaticIp
     StaticIp (StaticIp'),
     newStaticIp,
 
+    -- ** StopInstanceOnIdleRequest
+    StopInstanceOnIdleRequest (StopInstanceOnIdleRequest'),
+    newStopInstanceOnIdleRequest,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** TimePeriod
+    TimePeriod (TimePeriod'),
+    newTimePeriod,
   )
 where
 
@@ -1676,6 +1739,7 @@ import Amazonka.Lightsail.CreateDiskSnapshot
 import Amazonka.Lightsail.CreateDistribution
 import Amazonka.Lightsail.CreateDomain
 import Amazonka.Lightsail.CreateDomainEntry
+import Amazonka.Lightsail.CreateGUISessionAccessDetails
 import Amazonka.Lightsail.CreateInstanceSnapshot
 import Amazonka.Lightsail.CreateInstances
 import Amazonka.Lightsail.CreateInstancesFromSnapshot
@@ -1733,6 +1797,7 @@ import Amazonka.Lightsail.GetContainerServiceDeployments
 import Amazonka.Lightsail.GetContainerServiceMetricData
 import Amazonka.Lightsail.GetContainerServicePowers
 import Amazonka.Lightsail.GetContainerServices
+import Amazonka.Lightsail.GetCostEstimate
 import Amazonka.Lightsail.GetDisk
 import Amazonka.Lightsail.GetDiskSnapshot
 import Amazonka.Lightsail.GetDiskSnapshots
@@ -1792,8 +1857,10 @@ import Amazonka.Lightsail.ResetDistributionCache
 import Amazonka.Lightsail.SendContactMethodVerification
 import Amazonka.Lightsail.SetIpAddressType
 import Amazonka.Lightsail.SetResourceAccessForBucket
+import Amazonka.Lightsail.StartGUISession
 import Amazonka.Lightsail.StartInstance
 import Amazonka.Lightsail.StartRelationalDatabase
+import Amazonka.Lightsail.StopGUISession
 import Amazonka.Lightsail.StopInstance
 import Amazonka.Lightsail.StopRelationalDatabase
 import Amazonka.Lightsail.TagResource

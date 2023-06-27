@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Lightsail.Types.AddOn
+import Amazonka.Lightsail.Types.AutoMountStatus
 import Amazonka.Lightsail.Types.DiskState
 import Amazonka.Lightsail.Types.ResourceLocation
 import Amazonka.Lightsail.Types.ResourceType
@@ -45,6 +46,11 @@ data Disk = Disk'
     -- @attached@ for system disks in the API response. It is now deprecated,
     -- but still included in the response. Use @isAttached@ instead.
     attachmentState :: Prelude.Maybe Prelude.Text,
+    -- | The status of automatically mounting a storage disk to a virtual
+    -- computer.
+    --
+    -- This parameter only applies to Lightsail for Research resources.
+    autoMountStatus :: Prelude.Maybe AutoMountStatus,
     -- | The date when the disk was created.
     createdAt :: Prelude.Maybe Data.POSIX,
     -- | (Deprecated) The number of GB in use by the disk.
@@ -103,6 +109,11 @@ data Disk = Disk'
 -- @attached@ for system disks in the API response. It is now deprecated,
 -- but still included in the response. Use @isAttached@ instead.
 --
+-- 'autoMountStatus', 'disk_autoMountStatus' - The status of automatically mounting a storage disk to a virtual
+-- computer.
+--
+-- This parameter only applies to Lightsail for Research resources.
+--
 -- 'createdAt', 'disk_createdAt' - The date when the disk was created.
 --
 -- 'gbInUse', 'disk_gbInUse' - (Deprecated) The number of GB in use by the disk.
@@ -145,6 +156,7 @@ newDisk =
       arn = Prelude.Nothing,
       attachedTo = Prelude.Nothing,
       attachmentState = Prelude.Nothing,
+      autoMountStatus = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       gbInUse = Prelude.Nothing,
       iops = Prelude.Nothing,
@@ -179,6 +191,13 @@ disk_attachedTo = Lens.lens (\Disk' {attachedTo} -> attachedTo) (\s@Disk' {} a -
 -- but still included in the response. Use @isAttached@ instead.
 disk_attachmentState :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_attachmentState = Lens.lens (\Disk' {attachmentState} -> attachmentState) (\s@Disk' {} a -> s {attachmentState = a} :: Disk)
+
+-- | The status of automatically mounting a storage disk to a virtual
+-- computer.
+--
+-- This parameter only applies to Lightsail for Research resources.
+disk_autoMountStatus :: Lens.Lens' Disk (Prelude.Maybe AutoMountStatus)
+disk_autoMountStatus = Lens.lens (\Disk' {autoMountStatus} -> autoMountStatus) (\s@Disk' {} a -> s {autoMountStatus = a} :: Disk)
 
 -- | The date when the disk was created.
 disk_createdAt :: Lens.Lens' Disk (Prelude.Maybe Prelude.UTCTime)
@@ -251,6 +270,7 @@ instance Data.FromJSON Disk where
             Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "attachedTo")
             Prelude.<*> (x Data..:? "attachmentState")
+            Prelude.<*> (x Data..:? "autoMountStatus")
             Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "gbInUse")
             Prelude.<*> (x Data..:? "iops")
@@ -268,10 +288,12 @@ instance Data.FromJSON Disk where
 
 instance Prelude.Hashable Disk where
   hashWithSalt _salt Disk' {..} =
-    _salt `Prelude.hashWithSalt` addOns
+    _salt
+      `Prelude.hashWithSalt` addOns
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` attachedTo
       `Prelude.hashWithSalt` attachmentState
+      `Prelude.hashWithSalt` autoMountStatus
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` gbInUse
       `Prelude.hashWithSalt` iops
@@ -292,6 +314,7 @@ instance Prelude.NFData Disk where
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf attachedTo
       `Prelude.seq` Prelude.rnf attachmentState
+      `Prelude.seq` Prelude.rnf autoMountStatus
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf gbInUse
       `Prelude.seq` Prelude.rnf iops

@@ -85,7 +85,8 @@ instance Data.FromJSON RelationalDatabaseHardware where
 
 instance Prelude.Hashable RelationalDatabaseHardware where
   hashWithSalt _salt RelationalDatabaseHardware' {..} =
-    _salt `Prelude.hashWithSalt` cpuCount
+    _salt
+      `Prelude.hashWithSalt` cpuCount
       `Prelude.hashWithSalt` diskSizeInGb
       `Prelude.hashWithSalt` ramSizeInGb
 

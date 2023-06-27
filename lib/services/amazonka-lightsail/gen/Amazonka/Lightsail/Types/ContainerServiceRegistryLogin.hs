@@ -24,12 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the login information for the container image registry of an
+-- | Describes the sign-in credentials for the container image registry of an
 -- Amazon Lightsail account.
 --
 -- /See:/ 'newContainerServiceRegistryLogin' smart constructor.
 data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
-  { -- | The timestamp of when the container image registry username and password
+  { -- | The timestamp of when the container image registry sign-in credentials
     -- expire.
     --
     -- The log in credentials expire 12 hours after they are created, at which
@@ -56,7 +56,7 @@ data ContainerServiceRegistryLogin = ContainerServiceRegistryLogin'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiresAt', 'containerServiceRegistryLogin_expiresAt' - The timestamp of when the container image registry username and password
+-- 'expiresAt', 'containerServiceRegistryLogin_expiresAt' - The timestamp of when the container image registry sign-in credentials
 -- expire.
 --
 -- The log in credentials expire 12 hours after they are created, at which
@@ -82,7 +82,7 @@ newContainerServiceRegistryLogin =
       username = Prelude.Nothing
     }
 
--- | The timestamp of when the container image registry username and password
+-- | The timestamp of when the container image registry sign-in credentials
 -- expire.
 --
 -- The log in credentials expire 12 hours after they are created, at which
@@ -123,7 +123,8 @@ instance
     ContainerServiceRegistryLogin
   where
   hashWithSalt _salt ContainerServiceRegistryLogin' {..} =
-    _salt `Prelude.hashWithSalt` expiresAt
+    _salt
+      `Prelude.hashWithSalt` expiresAt
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` registry
       `Prelude.hashWithSalt` username

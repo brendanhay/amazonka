@@ -20,7 +20,8 @@
 module Amazonka.Lightsail.Types.AddOnType
   ( AddOnType
       ( ..,
-        AddOnType_AutoSnapshot
+        AddOnType_AutoSnapshot,
+        AddOnType_StopInstanceOnIdle
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype AddOnType = AddOnType'
 pattern AddOnType_AutoSnapshot :: AddOnType
 pattern AddOnType_AutoSnapshot = AddOnType' "AutoSnapshot"
 
+pattern AddOnType_StopInstanceOnIdle :: AddOnType
+pattern AddOnType_StopInstanceOnIdle = AddOnType' "StopInstanceOnIdle"
+
 {-# COMPLETE
   AddOnType_AutoSnapshot,
+  AddOnType_StopInstanceOnIdle,
   AddOnType'
   #-}

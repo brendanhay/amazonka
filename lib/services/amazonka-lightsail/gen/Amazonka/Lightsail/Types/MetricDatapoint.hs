@@ -125,7 +125,8 @@ instance Data.FromJSON MetricDatapoint where
 
 instance Prelude.Hashable MetricDatapoint where
   hashWithSalt _salt MetricDatapoint' {..} =
-    _salt `Prelude.hashWithSalt` average
+    _salt
+      `Prelude.hashWithSalt` average
       `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` minimum
       `Prelude.hashWithSalt` sampleCount

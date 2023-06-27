@@ -105,7 +105,7 @@ instance
       ( \s h x ->
           DetachCertificateFromDistributionResponse'
             Prelude.<$> (x Data..?> "operation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -135,7 +135,8 @@ instance Data.FromJSON PasswordData where
 
 instance Prelude.Hashable PasswordData where
   hashWithSalt _salt PasswordData' {..} =
-    _salt `Prelude.hashWithSalt` ciphertext
+    _salt
+      `Prelude.hashWithSalt` ciphertext
       `Prelude.hashWithSalt` keyPairName
 
 instance Prelude.NFData PasswordData where

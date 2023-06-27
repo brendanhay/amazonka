@@ -115,22 +115,22 @@ instance Core.AWSPager GetRelationalDatabaseBundles where
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseBundlesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseBundlesResponse_bundles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getRelationalDatabaseBundles_pageToken
           Lens..~ rs
           Lens.^? getRelationalDatabaseBundlesResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetRelationalDatabaseBundles where
   type
@@ -152,7 +152,8 @@ instance
     GetRelationalDatabaseBundles
   where
   hashWithSalt _salt GetRelationalDatabaseBundles' {..} =
-    _salt `Prelude.hashWithSalt` includeInactive
+    _salt
+      `Prelude.hashWithSalt` includeInactive
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetRelationalDatabaseBundles where

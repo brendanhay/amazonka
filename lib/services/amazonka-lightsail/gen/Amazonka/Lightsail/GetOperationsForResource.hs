@@ -123,7 +123,8 @@ instance Core.AWSRequest GetOperationsForResource where
 
 instance Prelude.Hashable GetOperationsForResource where
   hashWithSalt _salt GetOperationsForResource' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt
+      `Prelude.hashWithSalt` pageToken
       `Prelude.hashWithSalt` resourceName
 
 instance Prelude.NFData GetOperationsForResource where

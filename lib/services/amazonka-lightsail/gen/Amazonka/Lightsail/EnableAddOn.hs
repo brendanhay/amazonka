@@ -107,7 +107,8 @@ instance Core.AWSRequest EnableAddOn where
 
 instance Prelude.Hashable EnableAddOn where
   hashWithSalt _salt EnableAddOn' {..} =
-    _salt `Prelude.hashWithSalt` resourceName
+    _salt
+      `Prelude.hashWithSalt` resourceName
       `Prelude.hashWithSalt` addOnRequest
 
 instance Prelude.NFData EnableAddOn where

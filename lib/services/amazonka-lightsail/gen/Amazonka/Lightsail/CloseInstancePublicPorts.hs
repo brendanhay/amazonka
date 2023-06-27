@@ -109,7 +109,8 @@ instance Core.AWSRequest CloseInstancePublicPorts where
 
 instance Prelude.Hashable CloseInstancePublicPorts where
   hashWithSalt _salt CloseInstancePublicPorts' {..} =
-    _salt `Prelude.hashWithSalt` portInfo
+    _salt
+      `Prelude.hashWithSalt` portInfo
       `Prelude.hashWithSalt` instanceName
 
 instance Prelude.NFData CloseInstancePublicPorts where

@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     ContainerServiceHealthCheckConfig' {..} =
-      _salt `Prelude.hashWithSalt` healthyThreshold
+      _salt
+        `Prelude.hashWithSalt` healthyThreshold
         `Prelude.hashWithSalt` intervalSeconds
         `Prelude.hashWithSalt` path
         `Prelude.hashWithSalt` successCodes

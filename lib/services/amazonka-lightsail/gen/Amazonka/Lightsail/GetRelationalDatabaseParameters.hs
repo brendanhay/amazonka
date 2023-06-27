@@ -121,22 +121,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseParametersResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getRelationalDatabaseParametersResponse_parameters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getRelationalDatabaseParameters_pageToken
           Lens..~ rs
           Lens.^? getRelationalDatabaseParametersResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     GetRelationalDatabaseParameters' {..} =
-      _salt `Prelude.hashWithSalt` pageToken
+      _salt
+        `Prelude.hashWithSalt` pageToken
         `Prelude.hashWithSalt` relationalDatabaseName
 
 instance

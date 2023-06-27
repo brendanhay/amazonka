@@ -75,7 +75,8 @@ instance Data.FromJSON RelationalDatabaseEndpoint where
 
 instance Prelude.Hashable RelationalDatabaseEndpoint where
   hashWithSalt _salt RelationalDatabaseEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData RelationalDatabaseEndpoint where

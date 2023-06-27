@@ -154,7 +154,8 @@ instance Data.FromJSON AccessKey where
 
 instance Prelude.Hashable AccessKey where
   hashWithSalt _salt AccessKey' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUsed
       `Prelude.hashWithSalt` secretAccessKey

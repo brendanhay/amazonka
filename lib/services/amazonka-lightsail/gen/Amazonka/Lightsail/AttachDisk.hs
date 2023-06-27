@@ -33,6 +33,7 @@ module Amazonka.Lightsail.AttachDisk
     newAttachDisk,
 
     -- * Request Lenses
+    attachDisk_autoMounting,
     attachDisk_diskName,
     attachDisk_instanceName,
     attachDisk_diskPath,
@@ -57,7 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAttachDisk' smart constructor.
 data AttachDisk = AttachDisk'
-  { -- | The unique Lightsail disk name (e.g., @my-disk@).
+  { -- | A Boolean value used to determine the automatic mounting of a storage
+    -- volume to a virtual computer. The default value is @False@.
+    --
+    -- This value only applies to Lightsail for Research resources.
+    autoMounting :: Prelude.Maybe Prelude.Bool,
+    -- | The unique Lightsail disk name (e.g., @my-disk@).
     diskName :: Prelude.Text,
     -- | The name of the Lightsail instance where you want to utilize the storage
     -- disk.
@@ -75,6 +81,11 @@ data AttachDisk = AttachDisk'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoMounting', 'attachDisk_autoMounting' - A Boolean value used to determine the automatic mounting of a storage
+-- volume to a virtual computer. The default value is @False@.
+--
+-- This value only applies to Lightsail for Research resources.
+--
 -- 'diskName', 'attachDisk_diskName' - The unique Lightsail disk name (e.g., @my-disk@).
 --
 -- 'instanceName', 'attachDisk_instanceName' - The name of the Lightsail instance where you want to utilize the storage
@@ -91,10 +102,18 @@ newAttachDisk ::
   AttachDisk
 newAttachDisk pDiskName_ pInstanceName_ pDiskPath_ =
   AttachDisk'
-    { diskName = pDiskName_,
+    { autoMounting = Prelude.Nothing,
+      diskName = pDiskName_,
       instanceName = pInstanceName_,
       diskPath = pDiskPath_
     }
+
+-- | A Boolean value used to determine the automatic mounting of a storage
+-- volume to a virtual computer. The default value is @False@.
+--
+-- This value only applies to Lightsail for Research resources.
+attachDisk_autoMounting :: Lens.Lens' AttachDisk (Prelude.Maybe Prelude.Bool)
+attachDisk_autoMounting = Lens.lens (\AttachDisk' {autoMounting} -> autoMounting) (\s@AttachDisk' {} a -> s {autoMounting = a} :: AttachDisk)
 
 -- | The unique Lightsail disk name (e.g., @my-disk@).
 attachDisk_diskName :: Lens.Lens' AttachDisk Prelude.Text
@@ -123,13 +142,16 @@ instance Core.AWSRequest AttachDisk where
 
 instance Prelude.Hashable AttachDisk where
   hashWithSalt _salt AttachDisk' {..} =
-    _salt `Prelude.hashWithSalt` diskName
+    _salt
+      `Prelude.hashWithSalt` autoMounting
+      `Prelude.hashWithSalt` diskName
       `Prelude.hashWithSalt` instanceName
       `Prelude.hashWithSalt` diskPath
 
 instance Prelude.NFData AttachDisk where
   rnf AttachDisk' {..} =
-    Prelude.rnf diskName
+    Prelude.rnf autoMounting
+      `Prelude.seq` Prelude.rnf diskName
       `Prelude.seq` Prelude.rnf instanceName
       `Prelude.seq` Prelude.rnf diskPath
 
@@ -152,7 +174,8 @@ instance Data.ToJSON AttachDisk where
   toJSON AttachDisk' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("diskName" Data..= diskName),
+          [ ("autoMounting" Data..=) Prelude.<$> autoMounting,
+            Prelude.Just ("diskName" Data..= diskName),
             Prelude.Just ("instanceName" Data..= instanceName),
             Prelude.Just ("diskPath" Data..= diskPath)
           ]

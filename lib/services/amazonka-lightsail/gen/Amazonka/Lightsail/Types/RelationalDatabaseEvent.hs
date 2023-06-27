@@ -88,7 +88,8 @@ instance Data.FromJSON RelationalDatabaseEvent where
       ( \x ->
           RelationalDatabaseEvent'
             Prelude.<$> (x Data..:? "createdAt")
-            Prelude.<*> ( x Data..:? "eventCategories"
+            Prelude.<*> ( x
+                            Data..:? "eventCategories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "message")
@@ -97,7 +98,8 @@ instance Data.FromJSON RelationalDatabaseEvent where
 
 instance Prelude.Hashable RelationalDatabaseEvent where
   hashWithSalt _salt RelationalDatabaseEvent' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resource

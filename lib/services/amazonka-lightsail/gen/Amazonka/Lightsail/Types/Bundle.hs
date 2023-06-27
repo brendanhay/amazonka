@@ -22,6 +22,7 @@ module Amazonka.Lightsail.Types.Bundle where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Lightsail.Types.AppCategory
 import Amazonka.Lightsail.Types.InstancePlatform
 import qualified Amazonka.Prelude as Prelude
 
@@ -53,6 +54,11 @@ data Bundle = Bundle'
     price :: Prelude.Maybe Prelude.Double,
     -- | The amount of RAM in GB (e.g., @2.0@).
     ramSizeInGb :: Prelude.Maybe Prelude.Double,
+    -- | Virtual computer blueprints that are supported by a Lightsail for
+    -- Research bundle.
+    --
+    -- This parameter only applies to Lightsail for Research resources.
+    supportedAppCategories :: Prelude.Maybe [AppCategory],
     -- | The operating system platform (Linux\/Unix-based or Windows
     -- Server-based) that the bundle supports. You can only launch a @WINDOWS@
     -- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@
@@ -94,6 +100,11 @@ data Bundle = Bundle'
 --
 -- 'ramSizeInGb', 'bundle_ramSizeInGb' - The amount of RAM in GB (e.g., @2.0@).
 --
+-- 'supportedAppCategories', 'bundle_supportedAppCategories' - Virtual computer blueprints that are supported by a Lightsail for
+-- Research bundle.
+--
+-- This parameter only applies to Lightsail for Research resources.
+--
 -- 'supportedPlatforms', 'bundle_supportedPlatforms' - The operating system platform (Linux\/Unix-based or Windows
 -- Server-based) that the bundle supports. You can only launch a @WINDOWS@
 -- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@
@@ -113,6 +124,7 @@ newBundle =
       power = Prelude.Nothing,
       price = Prelude.Nothing,
       ramSizeInGb = Prelude.Nothing,
+      supportedAppCategories = Prelude.Nothing,
       supportedPlatforms = Prelude.Nothing,
       transferPerMonthInGb = Prelude.Nothing
     }
@@ -158,6 +170,13 @@ bundle_price = Lens.lens (\Bundle' {price} -> price) (\s@Bundle' {} a -> s {pric
 bundle_ramSizeInGb :: Lens.Lens' Bundle (Prelude.Maybe Prelude.Double)
 bundle_ramSizeInGb = Lens.lens (\Bundle' {ramSizeInGb} -> ramSizeInGb) (\s@Bundle' {} a -> s {ramSizeInGb = a} :: Bundle)
 
+-- | Virtual computer blueprints that are supported by a Lightsail for
+-- Research bundle.
+--
+-- This parameter only applies to Lightsail for Research resources.
+bundle_supportedAppCategories :: Lens.Lens' Bundle (Prelude.Maybe [AppCategory])
+bundle_supportedAppCategories = Lens.lens (\Bundle' {supportedAppCategories} -> supportedAppCategories) (\s@Bundle' {} a -> s {supportedAppCategories = a} :: Bundle) Prelude.. Lens.mapping Lens.coerced
+
 -- | The operating system platform (Linux\/Unix-based or Windows
 -- Server-based) that the bundle supports. You can only launch a @WINDOWS@
 -- bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@
@@ -184,7 +203,12 @@ instance Data.FromJSON Bundle where
             Prelude.<*> (x Data..:? "power")
             Prelude.<*> (x Data..:? "price")
             Prelude.<*> (x Data..:? "ramSizeInGb")
-            Prelude.<*> ( x Data..:? "supportedPlatforms"
+            Prelude.<*> ( x
+                            Data..:? "supportedAppCategories"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "supportedPlatforms"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "transferPerMonthInGb")
@@ -192,7 +216,8 @@ instance Data.FromJSON Bundle where
 
 instance Prelude.Hashable Bundle where
   hashWithSalt _salt Bundle' {..} =
-    _salt `Prelude.hashWithSalt` bundleId
+    _salt
+      `Prelude.hashWithSalt` bundleId
       `Prelude.hashWithSalt` cpuCount
       `Prelude.hashWithSalt` diskSizeInGb
       `Prelude.hashWithSalt` instanceType
@@ -201,6 +226,7 @@ instance Prelude.Hashable Bundle where
       `Prelude.hashWithSalt` power
       `Prelude.hashWithSalt` price
       `Prelude.hashWithSalt` ramSizeInGb
+      `Prelude.hashWithSalt` supportedAppCategories
       `Prelude.hashWithSalt` supportedPlatforms
       `Prelude.hashWithSalt` transferPerMonthInGb
 
@@ -215,5 +241,6 @@ instance Prelude.NFData Bundle where
       `Prelude.seq` Prelude.rnf power
       `Prelude.seq` Prelude.rnf price
       `Prelude.seq` Prelude.rnf ramSizeInGb
+      `Prelude.seq` Prelude.rnf supportedAppCategories
       `Prelude.seq` Prelude.rnf supportedPlatforms
       `Prelude.seq` Prelude.rnf transferPerMonthInGb

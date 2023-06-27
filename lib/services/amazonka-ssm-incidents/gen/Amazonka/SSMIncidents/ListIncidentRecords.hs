@@ -56,8 +56,8 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newListIncidentRecords' smart constructor.
 data ListIncidentRecords = ListIncidentRecords'
-  { -- | Filters the list of incident records through which you are searching.
-    -- You can filter on the following keys:
+  { -- | Filters the list of incident records you want to search through. You can
+    -- filter on the following keys:
     --
     -- -   @creationTime@
     --
@@ -67,7 +67,7 @@ data ListIncidentRecords = ListIncidentRecords'
     --
     -- -   @createdBy@
     --
-    -- Note the following when deciding how to use Filters:
+    -- Note the following when when you use Filters:
     --
     -- -   If you don\'t specify a Filter, the response includes all incident
     --     records.
@@ -93,8 +93,8 @@ data ListIncidentRecords = ListIncidentRecords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filters', 'listIncidentRecords_filters' - Filters the list of incident records through which you are searching.
--- You can filter on the following keys:
+-- 'filters', 'listIncidentRecords_filters' - Filters the list of incident records you want to search through. You can
+-- filter on the following keys:
 --
 -- -   @creationTime@
 --
@@ -104,7 +104,7 @@ data ListIncidentRecords = ListIncidentRecords'
 --
 -- -   @createdBy@
 --
--- Note the following when deciding how to use Filters:
+-- Note the following when when you use Filters:
 --
 -- -   If you don\'t specify a Filter, the response includes all incident
 --     records.
@@ -127,8 +127,8 @@ newListIncidentRecords =
       nextToken = Prelude.Nothing
     }
 
--- | Filters the list of incident records through which you are searching.
--- You can filter on the following keys:
+-- | Filters the list of incident records you want to search through. You can
+-- filter on the following keys:
 --
 -- -   @creationTime@
 --
@@ -138,7 +138,7 @@ newListIncidentRecords =
 --
 -- -   @createdBy@
 --
--- Note the following when deciding how to use Filters:
+-- Note the following when when you use Filters:
 --
 -- -   If you don\'t specify a Filter, the response includes all incident
 --     records.
@@ -164,21 +164,21 @@ instance Core.AWSPager ListIncidentRecords where
     | Core.stop
         ( rs
             Lens.^? listIncidentRecordsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listIncidentRecordsResponse_incidentRecordSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIncidentRecords_nextToken
           Lens..~ rs
           Lens.^? listIncidentRecordsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIncidentRecords where
   type
@@ -192,14 +192,16 @@ instance Core.AWSRequest ListIncidentRecords where
           ListIncidentRecordsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "incidentRecordSummaries"
+            Prelude.<*> ( x
+                            Data..?> "incidentRecordSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListIncidentRecords where
   hashWithSalt _salt ListIncidentRecords' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

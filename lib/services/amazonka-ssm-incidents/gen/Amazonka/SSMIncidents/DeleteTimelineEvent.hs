@@ -49,8 +49,8 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newDeleteTimelineEvent' smart constructor.
 data DeleteTimelineEvent = DeleteTimelineEvent'
-  { -- | The ID of the event you are updating. You can find this by using
-    -- @ListTimelineEvents@.
+  { -- | The ID of the event to update. You can use @ListTimelineEvents@ to find
+    -- an event\'s ID.
     eventId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the incident that includes the
     -- timeline event.
@@ -66,8 +66,8 @@ data DeleteTimelineEvent = DeleteTimelineEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventId', 'deleteTimelineEvent_eventId' - The ID of the event you are updating. You can find this by using
--- @ListTimelineEvents@.
+-- 'eventId', 'deleteTimelineEvent_eventId' - The ID of the event to update. You can use @ListTimelineEvents@ to find
+-- an event\'s ID.
 --
 -- 'incidentRecordArn', 'deleteTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that includes the
 -- timeline event.
@@ -83,8 +83,8 @@ newDeleteTimelineEvent pEventId_ pIncidentRecordArn_ =
       incidentRecordArn = pIncidentRecordArn_
     }
 
--- | The ID of the event you are updating. You can find this by using
--- @ListTimelineEvents@.
+-- | The ID of the event to update. You can use @ListTimelineEvents@ to find
+-- an event\'s ID.
 deleteTimelineEvent_eventId :: Lens.Lens' DeleteTimelineEvent Prelude.Text
 deleteTimelineEvent_eventId = Lens.lens (\DeleteTimelineEvent' {eventId} -> eventId) (\s@DeleteTimelineEvent' {} a -> s {eventId = a} :: DeleteTimelineEvent)
 
@@ -108,7 +108,8 @@ instance Core.AWSRequest DeleteTimelineEvent where
 
 instance Prelude.Hashable DeleteTimelineEvent where
   hashWithSalt _salt DeleteTimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventId
+    _salt
+      `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` incidentRecordArn
 
 instance Prelude.NFData DeleteTimelineEvent where

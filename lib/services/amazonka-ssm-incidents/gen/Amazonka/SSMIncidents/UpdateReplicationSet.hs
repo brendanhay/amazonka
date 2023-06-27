@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateReplicationSet where
 
 instance Prelude.Hashable UpdateReplicationSet where
   hashWithSalt _salt UpdateReplicationSet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` arn
 

@@ -109,7 +109,8 @@ instance Data.FromJSON RegionInfo where
 
 instance Prelude.Hashable RegionInfo where
   hashWithSalt _salt RegionInfo' {..} =
-    _salt `Prelude.hashWithSalt` sseKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` sseKmsKeyId
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusUpdateDateTime

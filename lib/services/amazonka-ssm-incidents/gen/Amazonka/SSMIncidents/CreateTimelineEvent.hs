@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a custom timeline event on the incident details page of an
--- incident record. Timeline events are automatically created by Incident
--- Manager, marking key moment during an incident. You can create custom
--- timeline events to mark important events that are automatically detected
--- by Incident Manager.
+-- incident record. Incident Manager automatically creates timeline events
+-- that mark key moments during an incident. You can create custom timeline
+-- events to mark important events that Incident Manager can detect
+-- automatically.
 module Amazonka.SSMIncidents.CreateTimelineEvent
   ( -- * Creating a Request
     CreateTimelineEvent (..),
@@ -59,27 +59,26 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newCreateTimelineEvent' smart constructor.
 data CreateTimelineEvent = CreateTimelineEvent'
-  { -- | A token ensuring that the action is called only once with the specified
-    -- details.
+  { -- | A token that ensures that a client calls the action only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Adds one or more references to the @TimelineEvent@. A reference can be
-    -- an Amazon Web Services resource involved in the incident or in some way
-    -- associated with it. When you specify a reference, you enter the Amazon
-    -- Resource Name (ARN) of the resource. You can also specify a related
-    -- item. As an example, you could specify the ARN of an Amazon DynamoDB
-    -- (DynamoDB) table. The table for this example is the resource. You could
-    -- also specify a Amazon CloudWatch metric for that table. The metric is
-    -- the related item.
+    -- | Adds one or more references to the @TimelineEvent@. A reference is an
+    -- Amazon Web Services resource involved or associated with the incident.
+    -- To specify a reference, enter its Amazon Resource Name (ARN). You can
+    -- also specify a related item associated with a resource. For example, to
+    -- specify an Amazon DynamoDB (DynamoDB) table as a resource, use the
+    -- table\'s ARN. You can also specify an Amazon CloudWatch metric
+    -- associated with the DynamoDB table as a related item.
     eventReferences :: Prelude.Maybe [EventReference],
     -- | A short description of the event.
     eventData :: Prelude.Text,
     -- | The time that the event occurred.
     eventTime :: Data.POSIX,
-    -- | The type of the event. You can create timeline events of type
+    -- | The type of event. You can create timeline events of type
     -- @Custom Event@.
     eventType :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the incident record to which the event
-    -- will be added.
+    -- | The Amazon Resource Name (ARN) of the incident record that the action
+    -- adds the incident to.
     incidentRecordArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,27 +91,26 @@ data CreateTimelineEvent = CreateTimelineEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createTimelineEvent_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'createTimelineEvent_clientToken' - A token that ensures that a client calls the action only once with the
+-- specified details.
 --
--- 'eventReferences', 'createTimelineEvent_eventReferences' - Adds one or more references to the @TimelineEvent@. A reference can be
--- an Amazon Web Services resource involved in the incident or in some way
--- associated with it. When you specify a reference, you enter the Amazon
--- Resource Name (ARN) of the resource. You can also specify a related
--- item. As an example, you could specify the ARN of an Amazon DynamoDB
--- (DynamoDB) table. The table for this example is the resource. You could
--- also specify a Amazon CloudWatch metric for that table. The metric is
--- the related item.
+-- 'eventReferences', 'createTimelineEvent_eventReferences' - Adds one or more references to the @TimelineEvent@. A reference is an
+-- Amazon Web Services resource involved or associated with the incident.
+-- To specify a reference, enter its Amazon Resource Name (ARN). You can
+-- also specify a related item associated with a resource. For example, to
+-- specify an Amazon DynamoDB (DynamoDB) table as a resource, use the
+-- table\'s ARN. You can also specify an Amazon CloudWatch metric
+-- associated with the DynamoDB table as a related item.
 --
 -- 'eventData', 'createTimelineEvent_eventData' - A short description of the event.
 --
 -- 'eventTime', 'createTimelineEvent_eventTime' - The time that the event occurred.
 --
--- 'eventType', 'createTimelineEvent_eventType' - The type of the event. You can create timeline events of type
+-- 'eventType', 'createTimelineEvent_eventType' - The type of event. You can create timeline events of type
 -- @Custom Event@.
 --
--- 'incidentRecordArn', 'createTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record to which the event
--- will be added.
+-- 'incidentRecordArn', 'createTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record that the action
+-- adds the incident to.
 newCreateTimelineEvent ::
   -- | 'eventData'
   Prelude.Text ->
@@ -137,19 +135,18 @@ newCreateTimelineEvent
         incidentRecordArn = pIncidentRecordArn_
       }
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token that ensures that a client calls the action only once with the
+-- specified details.
 createTimelineEvent_clientToken :: Lens.Lens' CreateTimelineEvent (Prelude.Maybe Prelude.Text)
 createTimelineEvent_clientToken = Lens.lens (\CreateTimelineEvent' {clientToken} -> clientToken) (\s@CreateTimelineEvent' {} a -> s {clientToken = a} :: CreateTimelineEvent)
 
--- | Adds one or more references to the @TimelineEvent@. A reference can be
--- an Amazon Web Services resource involved in the incident or in some way
--- associated with it. When you specify a reference, you enter the Amazon
--- Resource Name (ARN) of the resource. You can also specify a related
--- item. As an example, you could specify the ARN of an Amazon DynamoDB
--- (DynamoDB) table. The table for this example is the resource. You could
--- also specify a Amazon CloudWatch metric for that table. The metric is
--- the related item.
+-- | Adds one or more references to the @TimelineEvent@. A reference is an
+-- Amazon Web Services resource involved or associated with the incident.
+-- To specify a reference, enter its Amazon Resource Name (ARN). You can
+-- also specify a related item associated with a resource. For example, to
+-- specify an Amazon DynamoDB (DynamoDB) table as a resource, use the
+-- table\'s ARN. You can also specify an Amazon CloudWatch metric
+-- associated with the DynamoDB table as a related item.
 createTimelineEvent_eventReferences :: Lens.Lens' CreateTimelineEvent (Prelude.Maybe [EventReference])
 createTimelineEvent_eventReferences = Lens.lens (\CreateTimelineEvent' {eventReferences} -> eventReferences) (\s@CreateTimelineEvent' {} a -> s {eventReferences = a} :: CreateTimelineEvent) Prelude.. Lens.mapping Lens.coerced
 
@@ -161,13 +158,13 @@ createTimelineEvent_eventData = Lens.lens (\CreateTimelineEvent' {eventData} -> 
 createTimelineEvent_eventTime :: Lens.Lens' CreateTimelineEvent Prelude.UTCTime
 createTimelineEvent_eventTime = Lens.lens (\CreateTimelineEvent' {eventTime} -> eventTime) (\s@CreateTimelineEvent' {} a -> s {eventTime = a} :: CreateTimelineEvent) Prelude.. Data._Time
 
--- | The type of the event. You can create timeline events of type
+-- | The type of event. You can create timeline events of type
 -- @Custom Event@.
 createTimelineEvent_eventType :: Lens.Lens' CreateTimelineEvent Prelude.Text
 createTimelineEvent_eventType = Lens.lens (\CreateTimelineEvent' {eventType} -> eventType) (\s@CreateTimelineEvent' {} a -> s {eventType = a} :: CreateTimelineEvent)
 
--- | The Amazon Resource Name (ARN) of the incident record to which the event
--- will be added.
+-- | The Amazon Resource Name (ARN) of the incident record that the action
+-- adds the incident to.
 createTimelineEvent_incidentRecordArn :: Lens.Lens' CreateTimelineEvent Prelude.Text
 createTimelineEvent_incidentRecordArn = Lens.lens (\CreateTimelineEvent' {incidentRecordArn} -> incidentRecordArn) (\s@CreateTimelineEvent' {} a -> s {incidentRecordArn = a} :: CreateTimelineEvent)
 
@@ -188,7 +185,8 @@ instance Core.AWSRequest CreateTimelineEvent where
 
 instance Prelude.Hashable CreateTimelineEvent where
   hashWithSalt _salt CreateTimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` eventReferences
       `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` eventTime

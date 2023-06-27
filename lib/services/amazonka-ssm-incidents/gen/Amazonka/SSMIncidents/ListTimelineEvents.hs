@@ -58,7 +58,7 @@ import Amazonka.SSMIncidents.Types
 -- | /See:/ 'newListTimelineEvents' smart constructor.
 data ListTimelineEvents = ListTimelineEvents'
   { -- | Filters the timeline events based on the provided conditional values.
-    -- You can filter timeline events using the following keys:
+    -- You can filter timeline events with the following keys:
     --
     -- -   @eventTime@
     --
@@ -79,7 +79,7 @@ data ListTimelineEvents = ListTimelineEvents'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The pagination token to continue to the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Sort by the specified key value pair.
+    -- | Sort timeline events by the specified key value pair.
     sortBy :: Prelude.Maybe TimelineEventSort,
     -- | Sorts the order of timeline events by the value specified in the
     -- @sortBy@ field.
@@ -99,7 +99,7 @@ data ListTimelineEvents = ListTimelineEvents'
 -- for backwards compatibility:
 --
 -- 'filters', 'listTimelineEvents_filters' - Filters the timeline events based on the provided conditional values.
--- You can filter timeline events using the following keys:
+-- You can filter timeline events with the following keys:
 --
 -- -   @eventTime@
 --
@@ -120,7 +120,7 @@ data ListTimelineEvents = ListTimelineEvents'
 --
 -- 'nextToken', 'listTimelineEvents_nextToken' - The pagination token to continue to the next page of results.
 --
--- 'sortBy', 'listTimelineEvents_sortBy' - Sort by the specified key value pair.
+-- 'sortBy', 'listTimelineEvents_sortBy' - Sort timeline events by the specified key value pair.
 --
 -- 'sortOrder', 'listTimelineEvents_sortOrder' - Sorts the order of timeline events by the value specified in the
 -- @sortBy@ field.
@@ -142,7 +142,7 @@ newListTimelineEvents pIncidentRecordArn_ =
     }
 
 -- | Filters the timeline events based on the provided conditional values.
--- You can filter timeline events using the following keys:
+-- You can filter timeline events with the following keys:
 --
 -- -   @eventTime@
 --
@@ -169,7 +169,7 @@ listTimelineEvents_maxResults = Lens.lens (\ListTimelineEvents' {maxResults} -> 
 listTimelineEvents_nextToken :: Lens.Lens' ListTimelineEvents (Prelude.Maybe Prelude.Text)
 listTimelineEvents_nextToken = Lens.lens (\ListTimelineEvents' {nextToken} -> nextToken) (\s@ListTimelineEvents' {} a -> s {nextToken = a} :: ListTimelineEvents)
 
--- | Sort by the specified key value pair.
+-- | Sort timeline events by the specified key value pair.
 listTimelineEvents_sortBy :: Lens.Lens' ListTimelineEvents (Prelude.Maybe TimelineEventSort)
 listTimelineEvents_sortBy = Lens.lens (\ListTimelineEvents' {sortBy} -> sortBy) (\s@ListTimelineEvents' {} a -> s {sortBy = a} :: ListTimelineEvents)
 
@@ -188,21 +188,21 @@ instance Core.AWSPager ListTimelineEvents where
     | Core.stop
         ( rs
             Lens.^? listTimelineEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listTimelineEventsResponse_eventSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTimelineEvents_nextToken
           Lens..~ rs
           Lens.^? listTimelineEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTimelineEvents where
   type
@@ -216,14 +216,16 @@ instance Core.AWSRequest ListTimelineEvents where
           ListTimelineEventsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "eventSummaries"
+            Prelude.<*> ( x
+                            Data..?> "eventSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListTimelineEvents where
   hashWithSalt _salt ListTimelineEvents' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

@@ -124,7 +124,8 @@ instance Data.FromJSON EventSummary where
       "EventSummary"
       ( \x ->
           EventSummary'
-            Prelude.<$> ( x Data..:? "eventReferences"
+            Prelude.<$> ( x
+                            Data..:? "eventReferences"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "eventId")
@@ -136,7 +137,8 @@ instance Data.FromJSON EventSummary where
 
 instance Prelude.Hashable EventSummary where
   hashWithSalt _salt EventSummary' {..} =
-    _salt `Prelude.hashWithSalt` eventReferences
+    _salt
+      `Prelude.hashWithSalt` eventReferences
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTime
       `Prelude.hashWithSalt` eventType

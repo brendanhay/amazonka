@@ -191,7 +191,8 @@ instance Core.AWSRequest CreateResponsePlan where
 
 instance Prelude.Hashable CreateResponsePlan where
   hashWithSalt _salt CreateResponsePlan' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chatChannel
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` displayName

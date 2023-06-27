@@ -139,7 +139,8 @@ instance Data.FromJSON TimelineEvent where
       "TimelineEvent"
       ( \x ->
           TimelineEvent'
-            Prelude.<$> ( x Data..:? "eventReferences"
+            Prelude.<$> ( x
+                            Data..:? "eventReferences"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "eventData")
@@ -152,7 +153,8 @@ instance Data.FromJSON TimelineEvent where
 
 instance Prelude.Hashable TimelineEvent where
   hashWithSalt _salt TimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventReferences
+    _salt
+      `Prelude.hashWithSalt` eventReferences
       `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventTime

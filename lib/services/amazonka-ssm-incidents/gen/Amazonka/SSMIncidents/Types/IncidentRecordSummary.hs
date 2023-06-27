@@ -148,7 +148,8 @@ instance Data.FromJSON IncidentRecordSummary where
 
 instance Prelude.Hashable IncidentRecordSummary where
   hashWithSalt _salt IncidentRecordSummary' {..} =
-    _salt `Prelude.hashWithSalt` resolvedTime
+    _salt
+      `Prelude.hashWithSalt` resolvedTime
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` impact

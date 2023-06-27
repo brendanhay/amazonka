@@ -79,8 +79,8 @@ data StartIncident = StartIncident'
     --     action is needed to avoid impact.
     impact :: Prelude.Maybe Prelude.Natural,
     -- | Add related items to the incident for other responders to use. Related
-    -- items are AWS resources, external links, or files uploaded to an Amazon
-    -- S3 bucket.
+    -- items are Amazon Web Services resources, external links, or files
+    -- uploaded to an Amazon S3 bucket.
     relatedItems :: Prelude.Maybe [RelatedItem],
     -- | Provide a title for the incident. Providing a title overwrites the title
     -- provided by the response plan.
@@ -126,8 +126,8 @@ data StartIncident = StartIncident'
 --     action is needed to avoid impact.
 --
 -- 'relatedItems', 'startIncident_relatedItems' - Add related items to the incident for other responders to use. Related
--- items are AWS resources, external links, or files uploaded to an Amazon
--- S3 bucket.
+-- items are Amazon Web Services resources, external links, or files
+-- uploaded to an Amazon S3 bucket.
 --
 -- 'title', 'startIncident_title' - Provide a title for the incident. Providing a title overwrites the title
 -- provided by the response plan.
@@ -179,8 +179,8 @@ startIncident_impact :: Lens.Lens' StartIncident (Prelude.Maybe Prelude.Natural)
 startIncident_impact = Lens.lens (\StartIncident' {impact} -> impact) (\s@StartIncident' {} a -> s {impact = a} :: StartIncident)
 
 -- | Add related items to the incident for other responders to use. Related
--- items are AWS resources, external links, or files uploaded to an Amazon
--- S3 bucket.
+-- items are Amazon Web Services resources, external links, or files
+-- uploaded to an Amazon S3 bucket.
 startIncident_relatedItems :: Lens.Lens' StartIncident (Prelude.Maybe [RelatedItem])
 startIncident_relatedItems = Lens.lens (\StartIncident' {relatedItems} -> relatedItems) (\s@StartIncident' {} a -> s {relatedItems = a} :: StartIncident) Prelude.. Lens.mapping Lens.coerced
 
@@ -215,7 +215,8 @@ instance Core.AWSRequest StartIncident where
 
 instance Prelude.Hashable StartIncident where
   hashWithSalt _salt StartIncident' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` impact
       `Prelude.hashWithSalt` relatedItems
       `Prelude.hashWithSalt` title

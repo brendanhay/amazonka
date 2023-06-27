@@ -60,11 +60,12 @@ import Amazonka.SSMIncidents.Types
 data UpdateIncidentRecord = UpdateIncidentRecord'
   { -- | The Chatbot chat channel where responders can collaborate.
     chatChannel :: Prelude.Maybe ChatChannel,
-    -- | A token that ensures that the operation is called only once with the
-    -- specified details.
+    -- | A token that ensures that a client calls the operation only once with
+    -- the specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Defines the impact of the incident to customers and applications.
-    -- Providing an impact overwrites the impact provided by the response plan.
+    -- | Defines the impact of the incident to customers and applications. If you
+    -- provide an impact for an incident, it overwrites the impact provided by
+    -- the response plan.
     --
     -- __Possible impacts:__
     --
@@ -82,13 +83,13 @@ data UpdateIncidentRecord = UpdateIncidentRecord'
     -- -   @5@ - No impact, customers aren\'t currently impacted but urgent
     --     action is needed to avoid impact.
     impact :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon SNS targets that are notified when updates are made to an
-    -- incident.
+    -- | The Amazon SNS targets that Incident Manager notifies when a client
+    -- updates an incident.
     --
     -- Using multiple SNS topics creates redundancy in the event that a Region
     -- is down during the incident.
     notificationTargets :: Prelude.Maybe [NotificationTargetItem],
-    -- | The status of the incident. An incident can be @Open@ or @Resolved@.
+    -- | The status of the incident. Possible statuses are @Open@ or @Resolved@.
     status :: Prelude.Maybe IncidentRecordStatus,
     -- | A longer description of what occurred during the incident.
     summary :: Prelude.Maybe Prelude.Text,
@@ -109,11 +110,12 @@ data UpdateIncidentRecord = UpdateIncidentRecord'
 --
 -- 'chatChannel', 'updateIncidentRecord_chatChannel' - The Chatbot chat channel where responders can collaborate.
 --
--- 'clientToken', 'updateIncidentRecord_clientToken' - A token that ensures that the operation is called only once with the
--- specified details.
+-- 'clientToken', 'updateIncidentRecord_clientToken' - A token that ensures that a client calls the operation only once with
+-- the specified details.
 --
--- 'impact', 'updateIncidentRecord_impact' - Defines the impact of the incident to customers and applications.
--- Providing an impact overwrites the impact provided by the response plan.
+-- 'impact', 'updateIncidentRecord_impact' - Defines the impact of the incident to customers and applications. If you
+-- provide an impact for an incident, it overwrites the impact provided by
+-- the response plan.
 --
 -- __Possible impacts:__
 --
@@ -131,13 +133,13 @@ data UpdateIncidentRecord = UpdateIncidentRecord'
 -- -   @5@ - No impact, customers aren\'t currently impacted but urgent
 --     action is needed to avoid impact.
 --
--- 'notificationTargets', 'updateIncidentRecord_notificationTargets' - The Amazon SNS targets that are notified when updates are made to an
--- incident.
+-- 'notificationTargets', 'updateIncidentRecord_notificationTargets' - The Amazon SNS targets that Incident Manager notifies when a client
+-- updates an incident.
 --
 -- Using multiple SNS topics creates redundancy in the event that a Region
 -- is down during the incident.
 --
--- 'status', 'updateIncidentRecord_status' - The status of the incident. An incident can be @Open@ or @Resolved@.
+-- 'status', 'updateIncidentRecord_status' - The status of the incident. Possible statuses are @Open@ or @Resolved@.
 --
 -- 'summary', 'updateIncidentRecord_summary' - A longer description of what occurred during the incident.
 --
@@ -165,13 +167,14 @@ newUpdateIncidentRecord pArn_ =
 updateIncidentRecord_chatChannel :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe ChatChannel)
 updateIncidentRecord_chatChannel = Lens.lens (\UpdateIncidentRecord' {chatChannel} -> chatChannel) (\s@UpdateIncidentRecord' {} a -> s {chatChannel = a} :: UpdateIncidentRecord)
 
--- | A token that ensures that the operation is called only once with the
--- specified details.
+-- | A token that ensures that a client calls the operation only once with
+-- the specified details.
 updateIncidentRecord_clientToken :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe Prelude.Text)
 updateIncidentRecord_clientToken = Lens.lens (\UpdateIncidentRecord' {clientToken} -> clientToken) (\s@UpdateIncidentRecord' {} a -> s {clientToken = a} :: UpdateIncidentRecord)
 
--- | Defines the impact of the incident to customers and applications.
--- Providing an impact overwrites the impact provided by the response plan.
+-- | Defines the impact of the incident to customers and applications. If you
+-- provide an impact for an incident, it overwrites the impact provided by
+-- the response plan.
 --
 -- __Possible impacts:__
 --
@@ -191,15 +194,15 @@ updateIncidentRecord_clientToken = Lens.lens (\UpdateIncidentRecord' {clientToke
 updateIncidentRecord_impact :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe Prelude.Natural)
 updateIncidentRecord_impact = Lens.lens (\UpdateIncidentRecord' {impact} -> impact) (\s@UpdateIncidentRecord' {} a -> s {impact = a} :: UpdateIncidentRecord)
 
--- | The Amazon SNS targets that are notified when updates are made to an
--- incident.
+-- | The Amazon SNS targets that Incident Manager notifies when a client
+-- updates an incident.
 --
 -- Using multiple SNS topics creates redundancy in the event that a Region
 -- is down during the incident.
 updateIncidentRecord_notificationTargets :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe [NotificationTargetItem])
 updateIncidentRecord_notificationTargets = Lens.lens (\UpdateIncidentRecord' {notificationTargets} -> notificationTargets) (\s@UpdateIncidentRecord' {} a -> s {notificationTargets = a} :: UpdateIncidentRecord) Prelude.. Lens.mapping Lens.coerced
 
--- | The status of the incident. An incident can be @Open@ or @Resolved@.
+-- | The status of the incident. Possible statuses are @Open@ or @Resolved@.
 updateIncidentRecord_status :: Lens.Lens' UpdateIncidentRecord (Prelude.Maybe IncidentRecordStatus)
 updateIncidentRecord_status = Lens.lens (\UpdateIncidentRecord' {status} -> status) (\s@UpdateIncidentRecord' {} a -> s {status = a} :: UpdateIncidentRecord)
 
@@ -230,7 +233,8 @@ instance Core.AWSRequest UpdateIncidentRecord where
 
 instance Prelude.Hashable UpdateIncidentRecord where
   hashWithSalt _salt UpdateIncidentRecord' {..} =
-    _salt `Prelude.hashWithSalt` chatChannel
+    _salt
+      `Prelude.hashWithSalt` chatChannel
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` impact
       `Prelude.hashWithSalt` notificationTargets

@@ -51,13 +51,13 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateRelatedItems' smart constructor.
 data UpdateRelatedItems = UpdateRelatedItems'
-  { -- | A token ensuring that the operation is called only once with the
-    -- specified details.
+  { -- | A token that ensures that a client calls the operation only once with
+    -- the specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the incident record containing the
-    -- related items you are updating.
+    -- | The Amazon Resource Name (ARN) of the incident record that contains the
+    -- related items that you update.
     incidentRecordArn :: Prelude.Text,
-    -- | Details about the item you are adding or deleting.
+    -- | Details about the item that you are add to, or delete from, an incident.
     relatedItemsUpdate :: RelatedItemsUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,13 +70,13 @@ data UpdateRelatedItems = UpdateRelatedItems'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateRelatedItems_clientToken' - A token ensuring that the operation is called only once with the
--- specified details.
+-- 'clientToken', 'updateRelatedItems_clientToken' - A token that ensures that a client calls the operation only once with
+-- the specified details.
 --
--- 'incidentRecordArn', 'updateRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record containing the
--- related items you are updating.
+-- 'incidentRecordArn', 'updateRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record that contains the
+-- related items that you update.
 --
--- 'relatedItemsUpdate', 'updateRelatedItems_relatedItemsUpdate' - Details about the item you are adding or deleting.
+-- 'relatedItemsUpdate', 'updateRelatedItems_relatedItemsUpdate' - Details about the item that you are add to, or delete from, an incident.
 newUpdateRelatedItems ::
   -- | 'incidentRecordArn'
   Prelude.Text ->
@@ -92,17 +92,17 @@ newUpdateRelatedItems
         relatedItemsUpdate = pRelatedItemsUpdate_
       }
 
--- | A token ensuring that the operation is called only once with the
--- specified details.
+-- | A token that ensures that a client calls the operation only once with
+-- the specified details.
 updateRelatedItems_clientToken :: Lens.Lens' UpdateRelatedItems (Prelude.Maybe Prelude.Text)
 updateRelatedItems_clientToken = Lens.lens (\UpdateRelatedItems' {clientToken} -> clientToken) (\s@UpdateRelatedItems' {} a -> s {clientToken = a} :: UpdateRelatedItems)
 
--- | The Amazon Resource Name (ARN) of the incident record containing the
--- related items you are updating.
+-- | The Amazon Resource Name (ARN) of the incident record that contains the
+-- related items that you update.
 updateRelatedItems_incidentRecordArn :: Lens.Lens' UpdateRelatedItems Prelude.Text
 updateRelatedItems_incidentRecordArn = Lens.lens (\UpdateRelatedItems' {incidentRecordArn} -> incidentRecordArn) (\s@UpdateRelatedItems' {} a -> s {incidentRecordArn = a} :: UpdateRelatedItems)
 
--- | Details about the item you are adding or deleting.
+-- | Details about the item that you are add to, or delete from, an incident.
 updateRelatedItems_relatedItemsUpdate :: Lens.Lens' UpdateRelatedItems RelatedItemsUpdate
 updateRelatedItems_relatedItemsUpdate = Lens.lens (\UpdateRelatedItems' {relatedItemsUpdate} -> relatedItemsUpdate) (\s@UpdateRelatedItems' {} a -> s {relatedItemsUpdate = a} :: UpdateRelatedItems)
 
@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateRelatedItems where
 
 instance Prelude.Hashable UpdateRelatedItems where
   hashWithSalt _salt UpdateRelatedItems' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` incidentRecordArn
       `Prelude.hashWithSalt` relatedItemsUpdate
 

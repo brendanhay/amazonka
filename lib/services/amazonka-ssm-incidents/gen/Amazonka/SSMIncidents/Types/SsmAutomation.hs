@@ -124,7 +124,8 @@ instance Data.FromJSON SsmAutomation where
       ( \x ->
           SsmAutomation'
             Prelude.<$> (x Data..:? "documentVersion")
-            Prelude.<*> ( x Data..:? "dynamicParameters"
+            Prelude.<*> ( x
+                            Data..:? "dynamicParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
@@ -135,7 +136,8 @@ instance Data.FromJSON SsmAutomation where
 
 instance Prelude.Hashable SsmAutomation where
   hashWithSalt _salt SsmAutomation' {..} =
-    _salt `Prelude.hashWithSalt` documentVersion
+    _salt
+      `Prelude.hashWithSalt` documentVersion
       `Prelude.hashWithSalt` dynamicParameters
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` targetAccount

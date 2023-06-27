@@ -54,30 +54,30 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateTimelineEvent' smart constructor.
 data UpdateTimelineEvent = UpdateTimelineEvent'
-  { -- | A token ensuring that the operation is called only once with the
-    -- specified details.
+  { -- | A token that ensures that a client calls the operation only once with
+    -- the specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A short description of the event.
     eventData :: Prelude.Maybe Prelude.Text,
-    -- | Updates all existing references in a @TimelineEvent@. A reference can be
-    -- an Amazon Web Services resource involved in the incident or in some way
-    -- associated with it. When you specify a reference, you enter the Amazon
-    -- Resource Name (ARN) of the resource. You can also specify a related
-    -- item. As an example, you could specify the ARN of an Amazon DynamoDB
-    -- (DynamoDB) table. The table for this example is the resource. You could
-    -- also specify a Amazon CloudWatch metric for that table. The metric is
-    -- the related item.
+    -- | Updates all existing references in a @TimelineEvent@. A reference is an
+    -- Amazon Web Services resource involved or associated with the incident.
+    -- To specify a reference, enter its Amazon Resource Name (ARN). You can
+    -- also specify a related item associated with that resource. For example,
+    -- to specify an Amazon DynamoDB (DynamoDB) table as a resource, use its
+    -- ARN. You can also specify an Amazon CloudWatch metric associated with
+    -- the DynamoDB table as a related item.
     --
     -- This update action overrides all existing references. If you want to
     -- keep existing references, you must specify them in the call. If you
-    -- don\'t, this action removes them and enters only new references.
+    -- don\'t, this action removes any existing references and enters only new
+    -- references.
     eventReferences :: Prelude.Maybe [EventReference],
     -- | The time that the event occurred.
     eventTime :: Prelude.Maybe Data.POSIX,
-    -- | The type of the event. You can update events of type @Custom Event@.
+    -- | The type of event. You can update events of type @Custom Event@.
     eventType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the event you are updating. You can find this by using
-    -- @ListTimelineEvents@.
+    -- | The ID of the event to update. You can use @ListTimelineEvents@ to find
+    -- an event\'s ID.
     eventId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the incident that includes the
     -- timeline event.
@@ -93,30 +93,30 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateTimelineEvent_clientToken' - A token ensuring that the operation is called only once with the
--- specified details.
+-- 'clientToken', 'updateTimelineEvent_clientToken' - A token that ensures that a client calls the operation only once with
+-- the specified details.
 --
 -- 'eventData', 'updateTimelineEvent_eventData' - A short description of the event.
 --
--- 'eventReferences', 'updateTimelineEvent_eventReferences' - Updates all existing references in a @TimelineEvent@. A reference can be
--- an Amazon Web Services resource involved in the incident or in some way
--- associated with it. When you specify a reference, you enter the Amazon
--- Resource Name (ARN) of the resource. You can also specify a related
--- item. As an example, you could specify the ARN of an Amazon DynamoDB
--- (DynamoDB) table. The table for this example is the resource. You could
--- also specify a Amazon CloudWatch metric for that table. The metric is
--- the related item.
+-- 'eventReferences', 'updateTimelineEvent_eventReferences' - Updates all existing references in a @TimelineEvent@. A reference is an
+-- Amazon Web Services resource involved or associated with the incident.
+-- To specify a reference, enter its Amazon Resource Name (ARN). You can
+-- also specify a related item associated with that resource. For example,
+-- to specify an Amazon DynamoDB (DynamoDB) table as a resource, use its
+-- ARN. You can also specify an Amazon CloudWatch metric associated with
+-- the DynamoDB table as a related item.
 --
 -- This update action overrides all existing references. If you want to
 -- keep existing references, you must specify them in the call. If you
--- don\'t, this action removes them and enters only new references.
+-- don\'t, this action removes any existing references and enters only new
+-- references.
 --
 -- 'eventTime', 'updateTimelineEvent_eventTime' - The time that the event occurred.
 --
--- 'eventType', 'updateTimelineEvent_eventType' - The type of the event. You can update events of type @Custom Event@.
+-- 'eventType', 'updateTimelineEvent_eventType' - The type of event. You can update events of type @Custom Event@.
 --
--- 'eventId', 'updateTimelineEvent_eventId' - The ID of the event you are updating. You can find this by using
--- @ListTimelineEvents@.
+-- 'eventId', 'updateTimelineEvent_eventId' - The ID of the event to update. You can use @ListTimelineEvents@ to find
+-- an event\'s ID.
 --
 -- 'incidentRecordArn', 'updateTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that includes the
 -- timeline event.
@@ -137,8 +137,8 @@ newUpdateTimelineEvent pEventId_ pIncidentRecordArn_ =
       incidentRecordArn = pIncidentRecordArn_
     }
 
--- | A token ensuring that the operation is called only once with the
--- specified details.
+-- | A token that ensures that a client calls the operation only once with
+-- the specified details.
 updateTimelineEvent_clientToken :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
 updateTimelineEvent_clientToken = Lens.lens (\UpdateTimelineEvent' {clientToken} -> clientToken) (\s@UpdateTimelineEvent' {} a -> s {clientToken = a} :: UpdateTimelineEvent)
 
@@ -146,18 +146,18 @@ updateTimelineEvent_clientToken = Lens.lens (\UpdateTimelineEvent' {clientToken}
 updateTimelineEvent_eventData :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
 updateTimelineEvent_eventData = Lens.lens (\UpdateTimelineEvent' {eventData} -> eventData) (\s@UpdateTimelineEvent' {} a -> s {eventData = a} :: UpdateTimelineEvent)
 
--- | Updates all existing references in a @TimelineEvent@. A reference can be
--- an Amazon Web Services resource involved in the incident or in some way
--- associated with it. When you specify a reference, you enter the Amazon
--- Resource Name (ARN) of the resource. You can also specify a related
--- item. As an example, you could specify the ARN of an Amazon DynamoDB
--- (DynamoDB) table. The table for this example is the resource. You could
--- also specify a Amazon CloudWatch metric for that table. The metric is
--- the related item.
+-- | Updates all existing references in a @TimelineEvent@. A reference is an
+-- Amazon Web Services resource involved or associated with the incident.
+-- To specify a reference, enter its Amazon Resource Name (ARN). You can
+-- also specify a related item associated with that resource. For example,
+-- to specify an Amazon DynamoDB (DynamoDB) table as a resource, use its
+-- ARN. You can also specify an Amazon CloudWatch metric associated with
+-- the DynamoDB table as a related item.
 --
 -- This update action overrides all existing references. If you want to
 -- keep existing references, you must specify them in the call. If you
--- don\'t, this action removes them and enters only new references.
+-- don\'t, this action removes any existing references and enters only new
+-- references.
 updateTimelineEvent_eventReferences :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe [EventReference])
 updateTimelineEvent_eventReferences = Lens.lens (\UpdateTimelineEvent' {eventReferences} -> eventReferences) (\s@UpdateTimelineEvent' {} a -> s {eventReferences = a} :: UpdateTimelineEvent) Prelude.. Lens.mapping Lens.coerced
 
@@ -165,12 +165,12 @@ updateTimelineEvent_eventReferences = Lens.lens (\UpdateTimelineEvent' {eventRef
 updateTimelineEvent_eventTime :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.UTCTime)
 updateTimelineEvent_eventTime = Lens.lens (\UpdateTimelineEvent' {eventTime} -> eventTime) (\s@UpdateTimelineEvent' {} a -> s {eventTime = a} :: UpdateTimelineEvent) Prelude.. Lens.mapping Data._Time
 
--- | The type of the event. You can update events of type @Custom Event@.
+-- | The type of event. You can update events of type @Custom Event@.
 updateTimelineEvent_eventType :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
 updateTimelineEvent_eventType = Lens.lens (\UpdateTimelineEvent' {eventType} -> eventType) (\s@UpdateTimelineEvent' {} a -> s {eventType = a} :: UpdateTimelineEvent)
 
--- | The ID of the event you are updating. You can find this by using
--- @ListTimelineEvents@.
+-- | The ID of the event to update. You can use @ListTimelineEvents@ to find
+-- an event\'s ID.
 updateTimelineEvent_eventId :: Lens.Lens' UpdateTimelineEvent Prelude.Text
 updateTimelineEvent_eventId = Lens.lens (\UpdateTimelineEvent' {eventId} -> eventId) (\s@UpdateTimelineEvent' {} a -> s {eventId = a} :: UpdateTimelineEvent)
 
@@ -194,7 +194,8 @@ instance Core.AWSRequest UpdateTimelineEvent where
 
 instance Prelude.Hashable UpdateTimelineEvent where
   hashWithSalt _salt UpdateTimelineEvent' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` eventData
       `Prelude.hashWithSalt` eventReferences
       `Prelude.hashWithSalt` eventTime

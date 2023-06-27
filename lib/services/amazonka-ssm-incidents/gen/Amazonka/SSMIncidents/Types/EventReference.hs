@@ -79,7 +79,8 @@ instance Data.FromJSON EventReference where
 
 instance Prelude.Hashable EventReference where
   hashWithSalt _salt EventReference' {..} =
-    _salt `Prelude.hashWithSalt` relatedItemId
+    _salt
+      `Prelude.hashWithSalt` relatedItemId
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData EventReference where

@@ -111,7 +111,8 @@ instance Core.AWSRequest GetDeviceRegistration where
 
 instance Prelude.Hashable GetDeviceRegistration where
   hashWithSalt _salt GetDeviceRegistration' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceFleetName
 
 instance Prelude.NFData GetDeviceRegistration where

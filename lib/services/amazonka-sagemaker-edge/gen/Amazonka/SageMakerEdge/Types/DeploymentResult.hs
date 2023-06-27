@@ -106,7 +106,8 @@ deploymentResult_deploymentStatusMessage = Lens.lens (\DeploymentResult' {deploy
 
 instance Prelude.Hashable DeploymentResult where
   hashWithSalt _salt DeploymentResult' {..} =
-    _salt `Prelude.hashWithSalt` deploymentEndTime
+    _salt
+      `Prelude.hashWithSalt` deploymentEndTime
       `Prelude.hashWithSalt` deploymentModels
       `Prelude.hashWithSalt` deploymentName
       `Prelude.hashWithSalt` deploymentStartTime

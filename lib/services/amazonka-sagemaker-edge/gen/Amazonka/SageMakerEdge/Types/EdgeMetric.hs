@@ -82,7 +82,8 @@ edgeMetric_value = Lens.lens (\EdgeMetric' {value} -> value) (\s@EdgeMetric' {} 
 
 instance Prelude.Hashable EdgeMetric where
   hashWithSalt _salt EdgeMetric' {..} =
-    _salt `Prelude.hashWithSalt` dimension
+    _salt
+      `Prelude.hashWithSalt` dimension
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` value

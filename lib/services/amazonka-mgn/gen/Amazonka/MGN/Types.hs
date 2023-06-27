@@ -27,6 +27,9 @@ module Amazonka.MGN.Types
     _UninitializedAccountException,
     _ValidationException,
 
+    -- * ActionCategory
+    ActionCategory (..),
+
     -- * ApplicationHealthStatus
     ApplicationHealthStatus (..),
 
@@ -51,8 +54,17 @@ module Amazonka.MGN.Types
     -- * DataReplicationState
     DataReplicationState (..),
 
+    -- * ExportStatus
+    ExportStatus (..),
+
     -- * FirstBoot
     FirstBoot (..),
+
+    -- * ImportErrorType
+    ImportErrorType (..),
+
+    -- * ImportStatus
+    ImportStatus (..),
 
     -- * InitiatedBy
     InitiatedBy (..),
@@ -208,6 +220,37 @@ module Amazonka.MGN.Types
     disk_bytes,
     disk_deviceName,
 
+    -- * ExportErrorData
+    ExportErrorData (..),
+    newExportErrorData,
+    exportErrorData_rawError,
+
+    -- * ExportTask
+    ExportTask (..),
+    newExportTask,
+    exportTask_creationDateTime,
+    exportTask_endDateTime,
+    exportTask_exportID,
+    exportTask_progressPercentage,
+    exportTask_s3Bucket,
+    exportTask_s3BucketOwner,
+    exportTask_s3Key,
+    exportTask_status,
+    exportTask_summary,
+
+    -- * ExportTaskError
+    ExportTaskError (..),
+    newExportTaskError,
+    exportTaskError_errorData,
+    exportTaskError_errorDateTime,
+
+    -- * ExportTaskSummary
+    ExportTaskSummary (..),
+    newExportTaskSummary,
+    exportTaskSummary_applicationsCount,
+    exportTaskSummary_serversCount,
+    exportTaskSummary_wavesCount,
+
     -- * IdentificationHints
     IdentificationHints (..),
     newIdentificationHints,
@@ -216,6 +259,59 @@ module Amazonka.MGN.Types
     identificationHints_hostname,
     identificationHints_vmPath,
     identificationHints_vmWareUuid,
+
+    -- * ImportErrorData
+    ImportErrorData (..),
+    newImportErrorData,
+    importErrorData_applicationID,
+    importErrorData_ec2LaunchTemplateID,
+    importErrorData_rawError,
+    importErrorData_rowNumber,
+    importErrorData_sourceServerID,
+    importErrorData_waveID,
+
+    -- * ImportTask
+    ImportTask (..),
+    newImportTask,
+    importTask_creationDateTime,
+    importTask_endDateTime,
+    importTask_importID,
+    importTask_progressPercentage,
+    importTask_s3BucketSource,
+    importTask_status,
+    importTask_summary,
+
+    -- * ImportTaskError
+    ImportTaskError (..),
+    newImportTaskError,
+    importTaskError_errorData,
+    importTaskError_errorDateTime,
+    importTaskError_errorType,
+
+    -- * ImportTaskSummary
+    ImportTaskSummary (..),
+    newImportTaskSummary,
+    importTaskSummary_applications,
+    importTaskSummary_servers,
+    importTaskSummary_waves,
+
+    -- * ImportTaskSummaryApplications
+    ImportTaskSummaryApplications (..),
+    newImportTaskSummaryApplications,
+    importTaskSummaryApplications_createdCount,
+    importTaskSummaryApplications_modifiedCount,
+
+    -- * ImportTaskSummaryServers
+    ImportTaskSummaryServers (..),
+    newImportTaskSummaryServers,
+    importTaskSummaryServers_createdCount,
+    importTaskSummaryServers_modifiedCount,
+
+    -- * ImportTaskSummaryWaves
+    ImportTaskSummaryWaves (..),
+    newImportTaskSummaryWaves,
+    importTaskSummaryWaves_createdCount,
+    importTaskSummaryWaves_modifiedCount,
 
     -- * Job
     Job (..),
@@ -374,6 +470,16 @@ module Amazonka.MGN.Types
     listApplicationsRequestFilters_isArchived,
     listApplicationsRequestFilters_waveIDs,
 
+    -- * ListExportsRequestFilters
+    ListExportsRequestFilters (..),
+    newListExportsRequestFilters,
+    listExportsRequestFilters_exportIDs,
+
+    -- * ListImportsRequestFilters
+    ListImportsRequestFilters (..),
+    newListImportsRequestFilters,
+    listImportsRequestFilters_importIDs,
+
     -- * ListWavesRequestFilters
     ListWavesRequestFilters (..),
     newListWavesRequestFilters,
@@ -462,6 +568,13 @@ module Amazonka.MGN.Types
     replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
+    -- * S3BucketSource
+    S3BucketSource (..),
+    newS3BucketSource,
+    s3BucketSource_s3BucketOwner,
+    s3BucketSource_s3Bucket,
+    s3BucketSource_s3Key,
+
     -- * SourceProperties
     SourceProperties (..),
     newSourceProperties,
@@ -480,6 +593,7 @@ module Amazonka.MGN.Types
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -487,6 +601,7 @@ module Amazonka.MGN.Types
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- * SourceServerActionDocument
@@ -495,8 +610,11 @@ module Amazonka.MGN.Types
     sourceServerActionDocument_actionID,
     sourceServerActionDocument_actionName,
     sourceServerActionDocument_active,
+    sourceServerActionDocument_category,
+    sourceServerActionDocument_description,
     sourceServerActionDocument_documentIdentifier,
     sourceServerActionDocument_documentVersion,
+    sourceServerActionDocument_externalParameters,
     sourceServerActionDocument_mustSucceedForCutover,
     sourceServerActionDocument_order,
     sourceServerActionDocument_parameters,
@@ -510,11 +628,17 @@ module Amazonka.MGN.Types
     -- * SsmDocument
     SsmDocument (..),
     newSsmDocument,
+    ssmDocument_externalParameters,
     ssmDocument_mustSucceedForCutover,
     ssmDocument_parameters,
     ssmDocument_timeoutSeconds,
     ssmDocument_actionName,
     ssmDocument_ssmDocumentName,
+
+    -- * SsmExternalParameter
+    SsmExternalParameter (..),
+    newSsmExternalParameter,
+    ssmExternalParameter_dynamicPath,
 
     -- * SsmParameterStoreParameter
     SsmParameterStoreParameter (..),
@@ -528,8 +652,11 @@ module Amazonka.MGN.Types
     templateActionDocument_actionID,
     templateActionDocument_actionName,
     templateActionDocument_active,
+    templateActionDocument_category,
+    templateActionDocument_description,
     templateActionDocument_documentIdentifier,
     templateActionDocument_documentVersion,
+    templateActionDocument_externalParameters,
     templateActionDocument_mustSucceedForCutover,
     templateActionDocument_operatingSystem,
     templateActionDocument_order,
@@ -579,6 +706,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
+import Amazonka.MGN.Types.ActionCategory
 import Amazonka.MGN.Types.Application
 import Amazonka.MGN.Types.ApplicationAggregatedStatus
 import Amazonka.MGN.Types.ApplicationHealthStatus
@@ -599,8 +727,22 @@ import Amazonka.MGN.Types.DataReplicationState
 import Amazonka.MGN.Types.DescribeJobsRequestFilters
 import Amazonka.MGN.Types.DescribeSourceServersRequestFilters
 import Amazonka.MGN.Types.Disk
+import Amazonka.MGN.Types.ExportErrorData
+import Amazonka.MGN.Types.ExportStatus
+import Amazonka.MGN.Types.ExportTask
+import Amazonka.MGN.Types.ExportTaskError
+import Amazonka.MGN.Types.ExportTaskSummary
 import Amazonka.MGN.Types.FirstBoot
 import Amazonka.MGN.Types.IdentificationHints
+import Amazonka.MGN.Types.ImportErrorData
+import Amazonka.MGN.Types.ImportErrorType
+import Amazonka.MGN.Types.ImportStatus
+import Amazonka.MGN.Types.ImportTask
+import Amazonka.MGN.Types.ImportTaskError
+import Amazonka.MGN.Types.ImportTaskSummary
+import Amazonka.MGN.Types.ImportTaskSummaryApplications
+import Amazonka.MGN.Types.ImportTaskSummaryServers
+import Amazonka.MGN.Types.ImportTaskSummaryWaves
 import Amazonka.MGN.Types.InitiatedBy
 import Amazonka.MGN.Types.Job
 import Amazonka.MGN.Types.JobLog
@@ -627,6 +769,8 @@ import Amazonka.MGN.Types.LifeCycleLastTestInitiated
 import Amazonka.MGN.Types.LifeCycleLastTestReverted
 import Amazonka.MGN.Types.LifeCycleState
 import Amazonka.MGN.Types.ListApplicationsRequestFilters
+import Amazonka.MGN.Types.ListExportsRequestFilters
+import Amazonka.MGN.Types.ListImportsRequestFilters
 import Amazonka.MGN.Types.ListWavesRequestFilters
 import Amazonka.MGN.Types.NetworkInterface
 import Amazonka.MGN.Types.OS
@@ -643,12 +787,14 @@ import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDisk
 import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
 import Amazonka.MGN.Types.ReplicationConfigurationTemplate
 import Amazonka.MGN.Types.ReplicationType
+import Amazonka.MGN.Types.S3BucketSource
 import Amazonka.MGN.Types.SourceProperties
 import Amazonka.MGN.Types.SourceServer
 import Amazonka.MGN.Types.SourceServerActionDocument
 import Amazonka.MGN.Types.SourceServerActionsRequestFilters
 import Amazonka.MGN.Types.SsmDocument
 import Amazonka.MGN.Types.SsmDocumentType
+import Amazonka.MGN.Types.SsmExternalParameter
 import Amazonka.MGN.Types.SsmParameterStoreParameter
 import Amazonka.MGN.Types.SsmParameterStoreParameterType
 import Amazonka.MGN.Types.TargetInstanceTypeRightSizingMethod
@@ -689,52 +835,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Operating denied due to a file permission or access check error.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -743,7 +889,7 @@ _AccessDeniedException =
 
 -- | The request could not be completed due to a conflict with the current
 -- state of the target resource.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -752,7 +898,7 @@ _ConflictException =
 
 -- | The server encountered an unexpected condition that prevented it from
 -- fulfilling the request.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -760,7 +906,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | Resource not found exception.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -769,7 +915,7 @@ _ResourceNotFoundException =
 
 -- | The request could not be completed because its exceeded the service
 -- quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -777,7 +923,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | Reached throttling quota exception.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -785,7 +931,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | Uninitialized account exception.
-_UninitializedAccountException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UninitializedAccountException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UninitializedAccountException =
   Core._MatchServiceError
     defaultService
@@ -793,7 +939,7 @@ _UninitializedAccountException =
     Prelude.. Core.hasStatus 400
 
 -- | Validate exception.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

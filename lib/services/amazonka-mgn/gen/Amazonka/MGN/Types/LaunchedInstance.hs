@@ -85,7 +85,8 @@ instance Data.FromJSON LaunchedInstance where
 
 instance Prelude.Hashable LaunchedInstance where
   hashWithSalt _salt LaunchedInstance' {..} =
-    _salt `Prelude.hashWithSalt` ec2InstanceID
+    _salt
+      `Prelude.hashWithSalt` ec2InstanceID
       `Prelude.hashWithSalt` firstBoot
       `Prelude.hashWithSalt` jobID
 

@@ -103,7 +103,8 @@ instance Core.AWSRequest DisassociateApplications where
 
 instance Prelude.Hashable DisassociateApplications where
   hashWithSalt _salt DisassociateApplications' {..} =
-    _salt `Prelude.hashWithSalt` applicationIDs
+    _salt
+      `Prelude.hashWithSalt` applicationIDs
       `Prelude.hashWithSalt` waveID
 
 instance Prelude.NFData DisassociateApplications where

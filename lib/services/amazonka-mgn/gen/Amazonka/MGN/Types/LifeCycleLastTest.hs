@@ -87,7 +87,8 @@ instance Data.FromJSON LifeCycleLastTest where
 
 instance Prelude.Hashable LifeCycleLastTest where
   hashWithSalt _salt LifeCycleLastTest' {..} =
-    _salt `Prelude.hashWithSalt` finalized
+    _salt
+      `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` initiated
       `Prelude.hashWithSalt` reverted
 

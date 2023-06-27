@@ -82,7 +82,8 @@ instance Data.FromJSON SsmParameterStoreParameter where
 
 instance Prelude.Hashable SsmParameterStoreParameter where
   hashWithSalt _salt SsmParameterStoreParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterName
+    _salt
+      `Prelude.hashWithSalt` parameterName
       `Prelude.hashWithSalt` parameterType
 
 instance Prelude.NFData SsmParameterStoreParameter where

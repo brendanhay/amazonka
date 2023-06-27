@@ -28,7 +28,10 @@ module Amazonka.MGN.PutTemplateAction
 
     -- * Request Lenses
     putTemplateAction_active,
+    putTemplateAction_category,
+    putTemplateAction_description,
     putTemplateAction_documentVersion,
+    putTemplateAction_externalParameters,
     putTemplateAction_mustSucceedForCutover,
     putTemplateAction_operatingSystem,
     putTemplateAction_parameters,
@@ -47,8 +50,11 @@ module Amazonka.MGN.PutTemplateAction
     templateActionDocument_actionID,
     templateActionDocument_actionName,
     templateActionDocument_active,
+    templateActionDocument_category,
+    templateActionDocument_description,
     templateActionDocument_documentIdentifier,
     templateActionDocument_documentVersion,
+    templateActionDocument_externalParameters,
     templateActionDocument_mustSucceedForCutover,
     templateActionDocument_operatingSystem,
     templateActionDocument_order,
@@ -69,8 +75,14 @@ import qualified Amazonka.Response as Response
 data PutTemplateAction = PutTemplateAction'
   { -- | Template post migration custom action active status.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | Template post migration custom action category.
+    category :: Prelude.Maybe ActionCategory,
+    -- | Template post migration custom action description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Template post migration custom action document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Template post migration custom action external parameters.
+    externalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter),
     -- | Template post migration custom action must succeed for cutover.
     mustSucceedForCutover :: Prelude.Maybe Prelude.Bool,
     -- | Operating system eligible for this template post migration custom
@@ -103,7 +115,13 @@ data PutTemplateAction = PutTemplateAction'
 --
 -- 'active', 'putTemplateAction_active' - Template post migration custom action active status.
 --
+-- 'category', 'putTemplateAction_category' - Template post migration custom action category.
+--
+-- 'description', 'putTemplateAction_description' - Template post migration custom action description.
+--
 -- 'documentVersion', 'putTemplateAction_documentVersion' - Template post migration custom action document version.
+--
+-- 'externalParameters', 'putTemplateAction_externalParameters' - Template post migration custom action external parameters.
 --
 -- 'mustSucceedForCutover', 'putTemplateAction_mustSucceedForCutover' - Template post migration custom action must succeed for cutover.
 --
@@ -143,7 +161,10 @@ newPutTemplateAction
   pOrder_ =
     PutTemplateAction'
       { active = Prelude.Nothing,
+        category = Prelude.Nothing,
+        description = Prelude.Nothing,
         documentVersion = Prelude.Nothing,
+        externalParameters = Prelude.Nothing,
         mustSucceedForCutover = Prelude.Nothing,
         operatingSystem = Prelude.Nothing,
         parameters = Prelude.Nothing,
@@ -160,9 +181,21 @@ newPutTemplateAction
 putTemplateAction_active :: Lens.Lens' PutTemplateAction (Prelude.Maybe Prelude.Bool)
 putTemplateAction_active = Lens.lens (\PutTemplateAction' {active} -> active) (\s@PutTemplateAction' {} a -> s {active = a} :: PutTemplateAction)
 
+-- | Template post migration custom action category.
+putTemplateAction_category :: Lens.Lens' PutTemplateAction (Prelude.Maybe ActionCategory)
+putTemplateAction_category = Lens.lens (\PutTemplateAction' {category} -> category) (\s@PutTemplateAction' {} a -> s {category = a} :: PutTemplateAction)
+
+-- | Template post migration custom action description.
+putTemplateAction_description :: Lens.Lens' PutTemplateAction (Prelude.Maybe Prelude.Text)
+putTemplateAction_description = Lens.lens (\PutTemplateAction' {description} -> description) (\s@PutTemplateAction' {} a -> s {description = a} :: PutTemplateAction)
+
 -- | Template post migration custom action document version.
 putTemplateAction_documentVersion :: Lens.Lens' PutTemplateAction (Prelude.Maybe Prelude.Text)
 putTemplateAction_documentVersion = Lens.lens (\PutTemplateAction' {documentVersion} -> documentVersion) (\s@PutTemplateAction' {} a -> s {documentVersion = a} :: PutTemplateAction)
+
+-- | Template post migration custom action external parameters.
+putTemplateAction_externalParameters :: Lens.Lens' PutTemplateAction (Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter))
+putTemplateAction_externalParameters = Lens.lens (\PutTemplateAction' {externalParameters} -> externalParameters) (\s@PutTemplateAction' {} a -> s {externalParameters = a} :: PutTemplateAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | Template post migration custom action must succeed for cutover.
 putTemplateAction_mustSucceedForCutover :: Lens.Lens' PutTemplateAction (Prelude.Maybe Prelude.Bool)
@@ -213,8 +246,12 @@ instance Core.AWSRequest PutTemplateAction where
 
 instance Prelude.Hashable PutTemplateAction where
   hashWithSalt _salt PutTemplateAction' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` externalParameters
       `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` parameters
@@ -228,7 +265,10 @@ instance Prelude.Hashable PutTemplateAction where
 instance Prelude.NFData PutTemplateAction where
   rnf PutTemplateAction' {..} =
     Prelude.rnf active
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf externalParameters
       `Prelude.seq` Prelude.rnf mustSucceedForCutover
       `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf parameters
@@ -255,8 +295,12 @@ instance Data.ToJSON PutTemplateAction where
     Data.object
       ( Prelude.catMaybes
           [ ("active" Data..=) Prelude.<$> active,
+            ("category" Data..=) Prelude.<$> category,
+            ("description" Data..=) Prelude.<$> description,
             ("documentVersion" Data..=)
               Prelude.<$> documentVersion,
+            ("externalParameters" Data..=)
+              Prelude.<$> externalParameters,
             ("mustSucceedForCutover" Data..=)
               Prelude.<$> mustSucceedForCutover,
             ("operatingSystem" Data..=)

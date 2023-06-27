@@ -74,7 +74,8 @@ describeJobsRequestFilters_toDate = Lens.lens (\DescribeJobsRequestFilters' {toD
 
 instance Prelude.Hashable DescribeJobsRequestFilters where
   hashWithSalt _salt DescribeJobsRequestFilters' {..} =
-    _salt `Prelude.hashWithSalt` fromDate
+    _salt
+      `Prelude.hashWithSalt` fromDate
       `Prelude.hashWithSalt` jobIDs
       `Prelude.hashWithSalt` toDate
 

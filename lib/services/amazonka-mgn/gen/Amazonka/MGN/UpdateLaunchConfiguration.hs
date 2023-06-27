@@ -199,7 +199,8 @@ instance Core.AWSRequest UpdateLaunchConfiguration where
 
 instance Prelude.Hashable UpdateLaunchConfiguration where
   hashWithSalt _salt UpdateLaunchConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` bootMode
+    _salt
+      `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` copyPrivateIp
       `Prelude.hashWithSalt` copyTags
       `Prelude.hashWithSalt` enableMapAutoTagging

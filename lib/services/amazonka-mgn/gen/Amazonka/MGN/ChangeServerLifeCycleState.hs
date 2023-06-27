@@ -41,6 +41,7 @@ module Amazonka.MGN.ChangeServerLifeCycleState
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -48,6 +49,7 @@ module Amazonka.MGN.ChangeServerLifeCycleState
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
   )
 where
@@ -118,7 +120,8 @@ instance Core.AWSRequest ChangeServerLifeCycleState where
 
 instance Prelude.Hashable ChangeServerLifeCycleState where
   hashWithSalt _salt ChangeServerLifeCycleState' {..} =
-    _salt `Prelude.hashWithSalt` lifeCycle
+    _salt
+      `Prelude.hashWithSalt` lifeCycle
       `Prelude.hashWithSalt` sourceServerID
 
 instance Prelude.NFData ChangeServerLifeCycleState where

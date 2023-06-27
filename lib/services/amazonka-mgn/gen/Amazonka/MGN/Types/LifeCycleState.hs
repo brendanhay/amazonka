@@ -25,6 +25,7 @@ module Amazonka.MGN.Types.LifeCycleState
         LifeCycleState_DISCONNECTED,
         LifeCycleState_DISCOVERED,
         LifeCycleState_NOT_READY,
+        LifeCycleState_PENDING_INSTALLATION,
         LifeCycleState_READY_FOR_CUTOVER,
         LifeCycleState_READY_FOR_TEST,
         LifeCycleState_STOPPED,
@@ -80,6 +81,9 @@ pattern LifeCycleState_DISCOVERED = LifeCycleState' "DISCOVERED"
 pattern LifeCycleState_NOT_READY :: LifeCycleState
 pattern LifeCycleState_NOT_READY = LifeCycleState' "NOT_READY"
 
+pattern LifeCycleState_PENDING_INSTALLATION :: LifeCycleState
+pattern LifeCycleState_PENDING_INSTALLATION = LifeCycleState' "PENDING_INSTALLATION"
+
 pattern LifeCycleState_READY_FOR_CUTOVER :: LifeCycleState
 pattern LifeCycleState_READY_FOR_CUTOVER = LifeCycleState' "READY_FOR_CUTOVER"
 
@@ -98,6 +102,7 @@ pattern LifeCycleState_TESTING = LifeCycleState' "TESTING"
   LifeCycleState_DISCONNECTED,
   LifeCycleState_DISCOVERED,
   LifeCycleState_NOT_READY,
+  LifeCycleState_PENDING_INSTALLATION,
   LifeCycleState_READY_FOR_CUTOVER,
   LifeCycleState_READY_FOR_TEST,
   LifeCycleState_STOPPED,

@@ -39,6 +39,7 @@ module Amazonka.MGN.UpdateSourceServerReplicationType
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -46,6 +47,7 @@ module Amazonka.MGN.UpdateSourceServerReplicationType
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
   )
 where
@@ -121,7 +123,8 @@ instance
   hashWithSalt
     _salt
     UpdateSourceServerReplicationType' {..} =
-      _salt `Prelude.hashWithSalt` replicationType
+      _salt
+        `Prelude.hashWithSalt` replicationType
         `Prelude.hashWithSalt` sourceServerID
 
 instance

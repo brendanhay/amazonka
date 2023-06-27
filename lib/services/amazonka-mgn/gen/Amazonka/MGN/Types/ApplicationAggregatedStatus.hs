@@ -97,7 +97,8 @@ instance Data.FromJSON ApplicationAggregatedStatus where
 
 instance Prelude.Hashable ApplicationAggregatedStatus where
   hashWithSalt _salt ApplicationAggregatedStatus' {..} =
-    _salt `Prelude.hashWithSalt` healthStatus
+    _salt
+      `Prelude.hashWithSalt` healthStatus
       `Prelude.hashWithSalt` lastUpdateDateTime
       `Prelude.hashWithSalt` progressStatus
       `Prelude.hashWithSalt` totalSourceServers

@@ -110,7 +110,8 @@ instance Data.FromJSON WaveAggregatedStatus where
 
 instance Prelude.Hashable WaveAggregatedStatus where
   hashWithSalt _salt WaveAggregatedStatus' {..} =
-    _salt `Prelude.hashWithSalt` healthStatus
+    _salt
+      `Prelude.hashWithSalt` healthStatus
       `Prelude.hashWithSalt` lastUpdateDateTime
       `Prelude.hashWithSalt` progressStatus
       `Prelude.hashWithSalt` replicationStartedDateTime

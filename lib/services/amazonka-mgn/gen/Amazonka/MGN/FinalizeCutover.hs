@@ -48,6 +48,7 @@ module Amazonka.MGN.FinalizeCutover
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -55,6 +56,7 @@ module Amazonka.MGN.FinalizeCutover
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
   )
 where

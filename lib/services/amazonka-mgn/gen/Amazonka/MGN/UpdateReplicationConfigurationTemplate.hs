@@ -272,7 +272,8 @@ instance
   hashWithSalt
     _salt
     UpdateReplicationConfigurationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` associateDefaultSecurityGroup
         `Prelude.hashWithSalt` bandwidthThrottling
         `Prelude.hashWithSalt` createPublicIP

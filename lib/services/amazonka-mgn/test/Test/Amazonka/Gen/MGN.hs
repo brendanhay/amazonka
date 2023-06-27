@@ -117,6 +117,18 @@ import Test.Tasty
 --         , requestListApplications $
 --             newListApplications
 --
+--         , requestListExportErrors $
+--             newListExportErrors
+--
+--         , requestListExports $
+--             newListExports
+--
+--         , requestListImportErrors $
+--             newListImportErrors
+--
+--         , requestListImports $
+--             newListImports
+--
 --         , requestListSourceServerActions $
 --             newListSourceServerActions
 --
@@ -149,6 +161,12 @@ import Test.Tasty
 --
 --         , requestStartCutover $
 --             newStartCutover
+--
+--         , requestStartExport $
+--             newStartExport
+--
+--         , requestStartImport $
+--             newStartImport
 --
 --         , requestStartReplication $
 --             newStartReplication
@@ -285,6 +303,18 @@ import Test.Tasty
 --         , responseListApplications $
 --             newListApplicationsResponse
 --
+--         , responseListExportErrors $
+--             newListExportErrorsResponse
+--
+--         , responseListExports $
+--             newListExportsResponse
+--
+--         , responseListImportErrors $
+--             newListImportErrorsResponse
+--
+--         , responseListImports $
+--             newListImportsResponse
+--
 --         , responseListSourceServerActions $
 --             newListSourceServerActionsResponse
 --
@@ -317,6 +347,12 @@ import Test.Tasty
 --
 --         , responseStartCutover $
 --             newStartCutoverResponse
+--
+--         , responseStartExport $
+--             newStartExportResponse
+--
+--         , responseStartImport $
+--             newStartImportResponse
 --
 --         , responseStartReplication $
 --             newSourceServer
@@ -545,6 +581,30 @@ requestListApplications =
     "ListApplications"
     "fixture/ListApplications.yaml"
 
+requestListExportErrors :: ListExportErrors -> TestTree
+requestListExportErrors =
+  req
+    "ListExportErrors"
+    "fixture/ListExportErrors.yaml"
+
+requestListExports :: ListExports -> TestTree
+requestListExports =
+  req
+    "ListExports"
+    "fixture/ListExports.yaml"
+
+requestListImportErrors :: ListImportErrors -> TestTree
+requestListImportErrors =
+  req
+    "ListImportErrors"
+    "fixture/ListImportErrors.yaml"
+
+requestListImports :: ListImports -> TestTree
+requestListImports =
+  req
+    "ListImports"
+    "fixture/ListImports.yaml"
+
 requestListSourceServerActions :: ListSourceServerActions -> TestTree
 requestListSourceServerActions =
   req
@@ -610,6 +670,18 @@ requestStartCutover =
   req
     "StartCutover"
     "fixture/StartCutover.yaml"
+
+requestStartExport :: StartExport -> TestTree
+requestStartExport =
+  req
+    "StartExport"
+    "fixture/StartExport.yaml"
+
+requestStartImport :: StartImport -> TestTree
+requestStartImport =
+  req
+    "StartImport"
+    "fixture/StartImport.yaml"
 
 requestStartReplication :: StartReplication -> TestTree
 requestStartReplication =
@@ -937,6 +1009,38 @@ responseListApplications =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListApplications)
 
+responseListExportErrors :: ListExportErrorsResponse -> TestTree
+responseListExportErrors =
+  res
+    "ListExportErrorsResponse"
+    "fixture/ListExportErrorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExportErrors)
+
+responseListExports :: ListExportsResponse -> TestTree
+responseListExports =
+  res
+    "ListExportsResponse"
+    "fixture/ListExportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListExports)
+
+responseListImportErrors :: ListImportErrorsResponse -> TestTree
+responseListImportErrors =
+  res
+    "ListImportErrorsResponse"
+    "fixture/ListImportErrorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImportErrors)
+
+responseListImports :: ListImportsResponse -> TestTree
+responseListImports =
+  res
+    "ListImportsResponse"
+    "fixture/ListImportsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImports)
+
 responseListSourceServerActions :: ListSourceServerActionsResponse -> TestTree
 responseListSourceServerActions =
   res
@@ -1024,6 +1128,22 @@ responseStartCutover =
     "fixture/StartCutoverResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartCutover)
+
+responseStartExport :: StartExportResponse -> TestTree
+responseStartExport =
+  res
+    "StartExportResponse"
+    "fixture/StartExportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartExport)
+
+responseStartImport :: StartImportResponse -> TestTree
+responseStartImport =
+  res
+    "StartImportResponse"
+    "fixture/StartImportResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartImport)
 
 responseStartReplication :: SourceServer -> TestTree
 responseStartReplication =

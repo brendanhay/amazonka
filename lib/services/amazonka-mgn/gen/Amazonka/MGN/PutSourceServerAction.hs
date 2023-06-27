@@ -28,7 +28,10 @@ module Amazonka.MGN.PutSourceServerAction
 
     -- * Request Lenses
     putSourceServerAction_active,
+    putSourceServerAction_category,
+    putSourceServerAction_description,
     putSourceServerAction_documentVersion,
+    putSourceServerAction_externalParameters,
     putSourceServerAction_mustSucceedForCutover,
     putSourceServerAction_parameters,
     putSourceServerAction_timeoutSeconds,
@@ -46,8 +49,11 @@ module Amazonka.MGN.PutSourceServerAction
     sourceServerActionDocument_actionID,
     sourceServerActionDocument_actionName,
     sourceServerActionDocument_active,
+    sourceServerActionDocument_category,
+    sourceServerActionDocument_description,
     sourceServerActionDocument_documentIdentifier,
     sourceServerActionDocument_documentVersion,
+    sourceServerActionDocument_externalParameters,
     sourceServerActionDocument_mustSucceedForCutover,
     sourceServerActionDocument_order,
     sourceServerActionDocument_parameters,
@@ -67,8 +73,14 @@ import qualified Amazonka.Response as Response
 data PutSourceServerAction = PutSourceServerAction'
   { -- | Source server post migration custom action active status.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | Source server post migration custom action category.
+    category :: Prelude.Maybe ActionCategory,
+    -- | Source server post migration custom action description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Source server post migration custom action document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Source server post migration custom action external parameters.
+    externalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter),
     -- | Source server post migration custom action must succeed for cutover.
     mustSucceedForCutover :: Prelude.Maybe Prelude.Bool,
     -- | Source server post migration custom action parameters.
@@ -98,7 +110,13 @@ data PutSourceServerAction = PutSourceServerAction'
 --
 -- 'active', 'putSourceServerAction_active' - Source server post migration custom action active status.
 --
+-- 'category', 'putSourceServerAction_category' - Source server post migration custom action category.
+--
+-- 'description', 'putSourceServerAction_description' - Source server post migration custom action description.
+--
 -- 'documentVersion', 'putSourceServerAction_documentVersion' - Source server post migration custom action document version.
+--
+-- 'externalParameters', 'putSourceServerAction_externalParameters' - Source server post migration custom action external parameters.
 --
 -- 'mustSucceedForCutover', 'putSourceServerAction_mustSucceedForCutover' - Source server post migration custom action must succeed for cutover.
 --
@@ -135,7 +153,10 @@ newPutSourceServerAction
   pSourceServerID_ =
     PutSourceServerAction'
       { active = Prelude.Nothing,
+        category = Prelude.Nothing,
+        description = Prelude.Nothing,
         documentVersion = Prelude.Nothing,
+        externalParameters = Prelude.Nothing,
         mustSucceedForCutover = Prelude.Nothing,
         parameters = Prelude.Nothing,
         timeoutSeconds = Prelude.Nothing,
@@ -150,9 +171,21 @@ newPutSourceServerAction
 putSourceServerAction_active :: Lens.Lens' PutSourceServerAction (Prelude.Maybe Prelude.Bool)
 putSourceServerAction_active = Lens.lens (\PutSourceServerAction' {active} -> active) (\s@PutSourceServerAction' {} a -> s {active = a} :: PutSourceServerAction)
 
+-- | Source server post migration custom action category.
+putSourceServerAction_category :: Lens.Lens' PutSourceServerAction (Prelude.Maybe ActionCategory)
+putSourceServerAction_category = Lens.lens (\PutSourceServerAction' {category} -> category) (\s@PutSourceServerAction' {} a -> s {category = a} :: PutSourceServerAction)
+
+-- | Source server post migration custom action description.
+putSourceServerAction_description :: Lens.Lens' PutSourceServerAction (Prelude.Maybe Prelude.Text)
+putSourceServerAction_description = Lens.lens (\PutSourceServerAction' {description} -> description) (\s@PutSourceServerAction' {} a -> s {description = a} :: PutSourceServerAction)
+
 -- | Source server post migration custom action document version.
 putSourceServerAction_documentVersion :: Lens.Lens' PutSourceServerAction (Prelude.Maybe Prelude.Text)
 putSourceServerAction_documentVersion = Lens.lens (\PutSourceServerAction' {documentVersion} -> documentVersion) (\s@PutSourceServerAction' {} a -> s {documentVersion = a} :: PutSourceServerAction)
+
+-- | Source server post migration custom action external parameters.
+putSourceServerAction_externalParameters :: Lens.Lens' PutSourceServerAction (Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter))
+putSourceServerAction_externalParameters = Lens.lens (\PutSourceServerAction' {externalParameters} -> externalParameters) (\s@PutSourceServerAction' {} a -> s {externalParameters = a} :: PutSourceServerAction) Prelude.. Lens.mapping Lens.coerced
 
 -- | Source server post migration custom action must succeed for cutover.
 putSourceServerAction_mustSucceedForCutover :: Lens.Lens' PutSourceServerAction (Prelude.Maybe Prelude.Bool)
@@ -198,8 +231,12 @@ instance Core.AWSRequest PutSourceServerAction where
 
 instance Prelude.Hashable PutSourceServerAction where
   hashWithSalt _salt PutSourceServerAction' {..} =
-    _salt `Prelude.hashWithSalt` active
+    _salt
+      `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` externalParameters
       `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` timeoutSeconds
@@ -212,7 +249,10 @@ instance Prelude.Hashable PutSourceServerAction where
 instance Prelude.NFData PutSourceServerAction where
   rnf PutSourceServerAction' {..} =
     Prelude.rnf active
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf externalParameters
       `Prelude.seq` Prelude.rnf mustSucceedForCutover
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf timeoutSeconds
@@ -238,8 +278,12 @@ instance Data.ToJSON PutSourceServerAction where
     Data.object
       ( Prelude.catMaybes
           [ ("active" Data..=) Prelude.<$> active,
+            ("category" Data..=) Prelude.<$> category,
+            ("description" Data..=) Prelude.<$> description,
             ("documentVersion" Data..=)
               Prelude.<$> documentVersion,
+            ("externalParameters" Data..=)
+              Prelude.<$> externalParameters,
             ("mustSucceedForCutover" Data..=)
               Prelude.<$> mustSucceedForCutover,
             ("parameters" Data..=) Prelude.<$> parameters,

@@ -75,6 +75,10 @@ library
     Amazonka.MGN.InitializeService
     Amazonka.MGN.Lens
     Amazonka.MGN.ListApplications
+    Amazonka.MGN.ListExportErrors
+    Amazonka.MGN.ListExports
+    Amazonka.MGN.ListImportErrors
+    Amazonka.MGN.ListImports
     Amazonka.MGN.ListSourceServerActions
     Amazonka.MGN.ListTagsForResource
     Amazonka.MGN.ListTemplateActions
@@ -86,11 +90,14 @@ library
     Amazonka.MGN.RemoveTemplateAction
     Amazonka.MGN.RetryDataReplication
     Amazonka.MGN.StartCutover
+    Amazonka.MGN.StartExport
+    Amazonka.MGN.StartImport
     Amazonka.MGN.StartReplication
     Amazonka.MGN.StartTest
     Amazonka.MGN.TagResource
     Amazonka.MGN.TerminateTargetInstances
     Amazonka.MGN.Types
+    Amazonka.MGN.Types.ActionCategory
     Amazonka.MGN.Types.Application
     Amazonka.MGN.Types.ApplicationAggregatedStatus
     Amazonka.MGN.Types.ApplicationHealthStatus
@@ -111,8 +118,22 @@ library
     Amazonka.MGN.Types.DescribeJobsRequestFilters
     Amazonka.MGN.Types.DescribeSourceServersRequestFilters
     Amazonka.MGN.Types.Disk
+    Amazonka.MGN.Types.ExportErrorData
+    Amazonka.MGN.Types.ExportStatus
+    Amazonka.MGN.Types.ExportTask
+    Amazonka.MGN.Types.ExportTaskError
+    Amazonka.MGN.Types.ExportTaskSummary
     Amazonka.MGN.Types.FirstBoot
     Amazonka.MGN.Types.IdentificationHints
+    Amazonka.MGN.Types.ImportErrorData
+    Amazonka.MGN.Types.ImportErrorType
+    Amazonka.MGN.Types.ImportStatus
+    Amazonka.MGN.Types.ImportTask
+    Amazonka.MGN.Types.ImportTaskError
+    Amazonka.MGN.Types.ImportTaskSummary
+    Amazonka.MGN.Types.ImportTaskSummaryApplications
+    Amazonka.MGN.Types.ImportTaskSummaryServers
+    Amazonka.MGN.Types.ImportTaskSummaryWaves
     Amazonka.MGN.Types.InitiatedBy
     Amazonka.MGN.Types.Job
     Amazonka.MGN.Types.JobLog
@@ -139,6 +160,8 @@ library
     Amazonka.MGN.Types.LifeCycleLastTestReverted
     Amazonka.MGN.Types.LifeCycleState
     Amazonka.MGN.Types.ListApplicationsRequestFilters
+    Amazonka.MGN.Types.ListExportsRequestFilters
+    Amazonka.MGN.Types.ListImportsRequestFilters
     Amazonka.MGN.Types.ListWavesRequestFilters
     Amazonka.MGN.Types.NetworkInterface
     Amazonka.MGN.Types.OS
@@ -155,12 +178,14 @@ library
     Amazonka.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
     Amazonka.MGN.Types.ReplicationConfigurationTemplate
     Amazonka.MGN.Types.ReplicationType
+    Amazonka.MGN.Types.S3BucketSource
     Amazonka.MGN.Types.SourceProperties
     Amazonka.MGN.Types.SourceServer
     Amazonka.MGN.Types.SourceServerActionDocument
     Amazonka.MGN.Types.SourceServerActionsRequestFilters
     Amazonka.MGN.Types.SsmDocument
     Amazonka.MGN.Types.SsmDocumentType
+    Amazonka.MGN.Types.SsmExternalParameter
     Amazonka.MGN.Types.SsmParameterStoreParameter
     Amazonka.MGN.Types.SsmParameterStoreParameterType
     Amazonka.MGN.Types.TargetInstanceTypeRightSizingMethod

@@ -22,6 +22,8 @@ module Amazonka.MGN.Types.TemplateActionDocument where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MGN.Types.ActionCategory
+import Amazonka.MGN.Types.SsmExternalParameter
 import Amazonka.MGN.Types.SsmParameterStoreParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,10 +35,16 @@ data TemplateActionDocument = TemplateActionDocument'
     actionName :: Prelude.Maybe Prelude.Text,
     -- | Template post migration custom action active status.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | Template post migration custom action category.
+    category :: Prelude.Maybe ActionCategory,
+    -- | Template post migration custom action description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Template post migration custom action document identifier.
     documentIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Template post migration custom action document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Template post migration custom action external parameters.
+    externalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter),
     -- | Template post migration custom action must succeed for cutover.
     mustSucceedForCutover :: Prelude.Maybe Prelude.Bool,
     -- | Operating system eligible for this template post migration custom
@@ -65,9 +73,15 @@ data TemplateActionDocument = TemplateActionDocument'
 --
 -- 'active', 'templateActionDocument_active' - Template post migration custom action active status.
 --
+-- 'category', 'templateActionDocument_category' - Template post migration custom action category.
+--
+-- 'description', 'templateActionDocument_description' - Template post migration custom action description.
+--
 -- 'documentIdentifier', 'templateActionDocument_documentIdentifier' - Template post migration custom action document identifier.
 --
 -- 'documentVersion', 'templateActionDocument_documentVersion' - Template post migration custom action document version.
+--
+-- 'externalParameters', 'templateActionDocument_externalParameters' - Template post migration custom action external parameters.
 --
 -- 'mustSucceedForCutover', 'templateActionDocument_mustSucceedForCutover' - Template post migration custom action must succeed for cutover.
 --
@@ -86,8 +100,11 @@ newTemplateActionDocument =
     { actionID = Prelude.Nothing,
       actionName = Prelude.Nothing,
       active = Prelude.Nothing,
+      category = Prelude.Nothing,
+      description = Prelude.Nothing,
       documentIdentifier = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
+      externalParameters = Prelude.Nothing,
       mustSucceedForCutover = Prelude.Nothing,
       operatingSystem = Prelude.Nothing,
       order = Prelude.Nothing,
@@ -107,6 +124,14 @@ templateActionDocument_actionName = Lens.lens (\TemplateActionDocument' {actionN
 templateActionDocument_active :: Lens.Lens' TemplateActionDocument (Prelude.Maybe Prelude.Bool)
 templateActionDocument_active = Lens.lens (\TemplateActionDocument' {active} -> active) (\s@TemplateActionDocument' {} a -> s {active = a} :: TemplateActionDocument)
 
+-- | Template post migration custom action category.
+templateActionDocument_category :: Lens.Lens' TemplateActionDocument (Prelude.Maybe ActionCategory)
+templateActionDocument_category = Lens.lens (\TemplateActionDocument' {category} -> category) (\s@TemplateActionDocument' {} a -> s {category = a} :: TemplateActionDocument)
+
+-- | Template post migration custom action description.
+templateActionDocument_description :: Lens.Lens' TemplateActionDocument (Prelude.Maybe Prelude.Text)
+templateActionDocument_description = Lens.lens (\TemplateActionDocument' {description} -> description) (\s@TemplateActionDocument' {} a -> s {description = a} :: TemplateActionDocument)
+
 -- | Template post migration custom action document identifier.
 templateActionDocument_documentIdentifier :: Lens.Lens' TemplateActionDocument (Prelude.Maybe Prelude.Text)
 templateActionDocument_documentIdentifier = Lens.lens (\TemplateActionDocument' {documentIdentifier} -> documentIdentifier) (\s@TemplateActionDocument' {} a -> s {documentIdentifier = a} :: TemplateActionDocument)
@@ -114,6 +139,10 @@ templateActionDocument_documentIdentifier = Lens.lens (\TemplateActionDocument' 
 -- | Template post migration custom action document version.
 templateActionDocument_documentVersion :: Lens.Lens' TemplateActionDocument (Prelude.Maybe Prelude.Text)
 templateActionDocument_documentVersion = Lens.lens (\TemplateActionDocument' {documentVersion} -> documentVersion) (\s@TemplateActionDocument' {} a -> s {documentVersion = a} :: TemplateActionDocument)
+
+-- | Template post migration custom action external parameters.
+templateActionDocument_externalParameters :: Lens.Lens' TemplateActionDocument (Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter))
+templateActionDocument_externalParameters = Lens.lens (\TemplateActionDocument' {externalParameters} -> externalParameters) (\s@TemplateActionDocument' {} a -> s {externalParameters = a} :: TemplateActionDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | Template post migration custom action must succeed for cutover.
 templateActionDocument_mustSucceedForCutover :: Lens.Lens' TemplateActionDocument (Prelude.Maybe Prelude.Bool)
@@ -145,8 +174,14 @@ instance Data.FromJSON TemplateActionDocument where
             Prelude.<$> (x Data..:? "actionID")
             Prelude.<*> (x Data..:? "actionName")
             Prelude.<*> (x Data..:? "active")
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "documentIdentifier")
             Prelude.<*> (x Data..:? "documentVersion")
+            Prelude.<*> ( x
+                            Data..:? "externalParameters"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "mustSucceedForCutover")
             Prelude.<*> (x Data..:? "operatingSystem")
             Prelude.<*> (x Data..:? "order")
@@ -156,11 +191,15 @@ instance Data.FromJSON TemplateActionDocument where
 
 instance Prelude.Hashable TemplateActionDocument where
   hashWithSalt _salt TemplateActionDocument' {..} =
-    _salt `Prelude.hashWithSalt` actionID
+    _salt
+      `Prelude.hashWithSalt` actionID
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` documentIdentifier
       `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` externalParameters
       `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` operatingSystem
       `Prelude.hashWithSalt` order
@@ -172,8 +211,11 @@ instance Prelude.NFData TemplateActionDocument where
     Prelude.rnf actionID
       `Prelude.seq` Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf documentIdentifier
       `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf externalParameters
       `Prelude.seq` Prelude.rnf mustSucceedForCutover
       `Prelude.seq` Prelude.rnf operatingSystem
       `Prelude.seq` Prelude.rnf order

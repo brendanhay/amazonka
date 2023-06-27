@@ -22,6 +22,8 @@ module Amazonka.MGN.Types.SourceServerActionDocument where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MGN.Types.ActionCategory
+import Amazonka.MGN.Types.SsmExternalParameter
 import Amazonka.MGN.Types.SsmParameterStoreParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,10 +35,16 @@ data SourceServerActionDocument = SourceServerActionDocument'
     actionName :: Prelude.Maybe Prelude.Text,
     -- | Source server post migration custom action active status.
     active :: Prelude.Maybe Prelude.Bool,
+    -- | Source server post migration custom action category.
+    category :: Prelude.Maybe ActionCategory,
+    -- | Source server post migration custom action description.
+    description :: Prelude.Maybe Prelude.Text,
     -- | Source server post migration custom action document identifier.
     documentIdentifier :: Prelude.Maybe Prelude.Text,
     -- | Source server post migration custom action document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | Source server post migration custom action external parameters.
+    externalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter),
     -- | Source server post migration custom action must succeed for cutover.
     mustSucceedForCutover :: Prelude.Maybe Prelude.Bool,
     -- | Source server post migration custom action order.
@@ -62,9 +70,15 @@ data SourceServerActionDocument = SourceServerActionDocument'
 --
 -- 'active', 'sourceServerActionDocument_active' - Source server post migration custom action active status.
 --
+-- 'category', 'sourceServerActionDocument_category' - Source server post migration custom action category.
+--
+-- 'description', 'sourceServerActionDocument_description' - Source server post migration custom action description.
+--
 -- 'documentIdentifier', 'sourceServerActionDocument_documentIdentifier' - Source server post migration custom action document identifier.
 --
 -- 'documentVersion', 'sourceServerActionDocument_documentVersion' - Source server post migration custom action document version.
+--
+-- 'externalParameters', 'sourceServerActionDocument_externalParameters' - Source server post migration custom action external parameters.
 --
 -- 'mustSucceedForCutover', 'sourceServerActionDocument_mustSucceedForCutover' - Source server post migration custom action must succeed for cutover.
 --
@@ -81,8 +95,11 @@ newSourceServerActionDocument =
         Prelude.Nothing,
       actionName = Prelude.Nothing,
       active = Prelude.Nothing,
+      category = Prelude.Nothing,
+      description = Prelude.Nothing,
       documentIdentifier = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
+      externalParameters = Prelude.Nothing,
       mustSucceedForCutover = Prelude.Nothing,
       order = Prelude.Nothing,
       parameters = Prelude.Nothing,
@@ -101,6 +118,14 @@ sourceServerActionDocument_actionName = Lens.lens (\SourceServerActionDocument' 
 sourceServerActionDocument_active :: Lens.Lens' SourceServerActionDocument (Prelude.Maybe Prelude.Bool)
 sourceServerActionDocument_active = Lens.lens (\SourceServerActionDocument' {active} -> active) (\s@SourceServerActionDocument' {} a -> s {active = a} :: SourceServerActionDocument)
 
+-- | Source server post migration custom action category.
+sourceServerActionDocument_category :: Lens.Lens' SourceServerActionDocument (Prelude.Maybe ActionCategory)
+sourceServerActionDocument_category = Lens.lens (\SourceServerActionDocument' {category} -> category) (\s@SourceServerActionDocument' {} a -> s {category = a} :: SourceServerActionDocument)
+
+-- | Source server post migration custom action description.
+sourceServerActionDocument_description :: Lens.Lens' SourceServerActionDocument (Prelude.Maybe Prelude.Text)
+sourceServerActionDocument_description = Lens.lens (\SourceServerActionDocument' {description} -> description) (\s@SourceServerActionDocument' {} a -> s {description = a} :: SourceServerActionDocument)
+
 -- | Source server post migration custom action document identifier.
 sourceServerActionDocument_documentIdentifier :: Lens.Lens' SourceServerActionDocument (Prelude.Maybe Prelude.Text)
 sourceServerActionDocument_documentIdentifier = Lens.lens (\SourceServerActionDocument' {documentIdentifier} -> documentIdentifier) (\s@SourceServerActionDocument' {} a -> s {documentIdentifier = a} :: SourceServerActionDocument)
@@ -108,6 +133,10 @@ sourceServerActionDocument_documentIdentifier = Lens.lens (\SourceServerActionDo
 -- | Source server post migration custom action document version.
 sourceServerActionDocument_documentVersion :: Lens.Lens' SourceServerActionDocument (Prelude.Maybe Prelude.Text)
 sourceServerActionDocument_documentVersion = Lens.lens (\SourceServerActionDocument' {documentVersion} -> documentVersion) (\s@SourceServerActionDocument' {} a -> s {documentVersion = a} :: SourceServerActionDocument)
+
+-- | Source server post migration custom action external parameters.
+sourceServerActionDocument_externalParameters :: Lens.Lens' SourceServerActionDocument (Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter))
+sourceServerActionDocument_externalParameters = Lens.lens (\SourceServerActionDocument' {externalParameters} -> externalParameters) (\s@SourceServerActionDocument' {} a -> s {externalParameters = a} :: SourceServerActionDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | Source server post migration custom action must succeed for cutover.
 sourceServerActionDocument_mustSucceedForCutover :: Lens.Lens' SourceServerActionDocument (Prelude.Maybe Prelude.Bool)
@@ -134,8 +163,14 @@ instance Data.FromJSON SourceServerActionDocument where
             Prelude.<$> (x Data..:? "actionID")
             Prelude.<*> (x Data..:? "actionName")
             Prelude.<*> (x Data..:? "active")
+            Prelude.<*> (x Data..:? "category")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "documentIdentifier")
             Prelude.<*> (x Data..:? "documentVersion")
+            Prelude.<*> ( x
+                            Data..:? "externalParameters"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "mustSucceedForCutover")
             Prelude.<*> (x Data..:? "order")
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
@@ -144,11 +179,15 @@ instance Data.FromJSON SourceServerActionDocument where
 
 instance Prelude.Hashable SourceServerActionDocument where
   hashWithSalt _salt SourceServerActionDocument' {..} =
-    _salt `Prelude.hashWithSalt` actionID
+    _salt
+      `Prelude.hashWithSalt` actionID
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` active
+      `Prelude.hashWithSalt` category
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` documentIdentifier
       `Prelude.hashWithSalt` documentVersion
+      `Prelude.hashWithSalt` externalParameters
       `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` order
       `Prelude.hashWithSalt` parameters
@@ -159,8 +198,11 @@ instance Prelude.NFData SourceServerActionDocument where
     Prelude.rnf actionID
       `Prelude.seq` Prelude.rnf actionName
       `Prelude.seq` Prelude.rnf active
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf documentIdentifier
       `Prelude.seq` Prelude.rnf documentVersion
+      `Prelude.seq` Prelude.rnf externalParameters
       `Prelude.seq` Prelude.rnf mustSucceedForCutover
       `Prelude.seq` Prelude.rnf order
       `Prelude.seq` Prelude.rnf parameters

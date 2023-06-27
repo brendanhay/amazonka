@@ -37,6 +37,8 @@ data SourceServer = SourceServer'
     arn :: Prelude.Maybe Prelude.Text,
     -- | Source server data replication info.
     dataReplicationInfo :: Prelude.Maybe DataReplicationInfo,
+    -- | Source server fqdn for action framework.
+    fqdnForActionFramework :: Prelude.Maybe Prelude.Text,
     -- | Source server archived status.
     isArchived :: Prelude.Maybe Prelude.Bool,
     -- | Source server launched instance.
@@ -51,6 +53,8 @@ data SourceServer = SourceServer'
     sourceServerID :: Prelude.Maybe Prelude.Text,
     -- | Source server Tags.
     tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | Source server user provided ID.
+    userProvidedID :: Prelude.Maybe Prelude.Text,
     -- | Source server vCenter client id.
     vcenterClientID :: Prelude.Maybe Prelude.Text
   }
@@ -70,6 +74,8 @@ data SourceServer = SourceServer'
 --
 -- 'dataReplicationInfo', 'sourceServer_dataReplicationInfo' - Source server data replication info.
 --
+-- 'fqdnForActionFramework', 'sourceServer_fqdnForActionFramework' - Source server fqdn for action framework.
+--
 -- 'isArchived', 'sourceServer_isArchived' - Source server archived status.
 --
 -- 'launchedInstance', 'sourceServer_launchedInstance' - Source server launched instance.
@@ -84,6 +90,8 @@ data SourceServer = SourceServer'
 --
 -- 'tags', 'sourceServer_tags' - Source server Tags.
 --
+-- 'userProvidedID', 'sourceServer_userProvidedID' - Source server user provided ID.
+--
 -- 'vcenterClientID', 'sourceServer_vcenterClientID' - Source server vCenter client id.
 newSourceServer ::
   SourceServer
@@ -92,6 +100,7 @@ newSourceServer =
     { applicationID = Prelude.Nothing,
       arn = Prelude.Nothing,
       dataReplicationInfo = Prelude.Nothing,
+      fqdnForActionFramework = Prelude.Nothing,
       isArchived = Prelude.Nothing,
       launchedInstance = Prelude.Nothing,
       lifeCycle = Prelude.Nothing,
@@ -99,6 +108,7 @@ newSourceServer =
       sourceProperties = Prelude.Nothing,
       sourceServerID = Prelude.Nothing,
       tags = Prelude.Nothing,
+      userProvidedID = Prelude.Nothing,
       vcenterClientID = Prelude.Nothing
     }
 
@@ -113,6 +123,10 @@ sourceServer_arn = Lens.lens (\SourceServer' {arn} -> arn) (\s@SourceServer' {} 
 -- | Source server data replication info.
 sourceServer_dataReplicationInfo :: Lens.Lens' SourceServer (Prelude.Maybe DataReplicationInfo)
 sourceServer_dataReplicationInfo = Lens.lens (\SourceServer' {dataReplicationInfo} -> dataReplicationInfo) (\s@SourceServer' {} a -> s {dataReplicationInfo = a} :: SourceServer)
+
+-- | Source server fqdn for action framework.
+sourceServer_fqdnForActionFramework :: Lens.Lens' SourceServer (Prelude.Maybe Prelude.Text)
+sourceServer_fqdnForActionFramework = Lens.lens (\SourceServer' {fqdnForActionFramework} -> fqdnForActionFramework) (\s@SourceServer' {} a -> s {fqdnForActionFramework = a} :: SourceServer)
 
 -- | Source server archived status.
 sourceServer_isArchived :: Lens.Lens' SourceServer (Prelude.Maybe Prelude.Bool)
@@ -142,6 +156,10 @@ sourceServer_sourceServerID = Lens.lens (\SourceServer' {sourceServerID} -> sour
 sourceServer_tags :: Lens.Lens' SourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sourceServer_tags = Lens.lens (\SourceServer' {tags} -> tags) (\s@SourceServer' {} a -> s {tags = a} :: SourceServer) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
+-- | Source server user provided ID.
+sourceServer_userProvidedID :: Lens.Lens' SourceServer (Prelude.Maybe Prelude.Text)
+sourceServer_userProvidedID = Lens.lens (\SourceServer' {userProvidedID} -> userProvidedID) (\s@SourceServer' {} a -> s {userProvidedID = a} :: SourceServer)
+
 -- | Source server vCenter client id.
 sourceServer_vcenterClientID :: Lens.Lens' SourceServer (Prelude.Maybe Prelude.Text)
 sourceServer_vcenterClientID = Lens.lens (\SourceServer' {vcenterClientID} -> vcenterClientID) (\s@SourceServer' {} a -> s {vcenterClientID = a} :: SourceServer)
@@ -155,6 +173,7 @@ instance Data.FromJSON SourceServer where
             Prelude.<$> (x Data..:? "applicationID")
             Prelude.<*> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "dataReplicationInfo")
+            Prelude.<*> (x Data..:? "fqdnForActionFramework")
             Prelude.<*> (x Data..:? "isArchived")
             Prelude.<*> (x Data..:? "launchedInstance")
             Prelude.<*> (x Data..:? "lifeCycle")
@@ -162,14 +181,17 @@ instance Data.FromJSON SourceServer where
             Prelude.<*> (x Data..:? "sourceProperties")
             Prelude.<*> (x Data..:? "sourceServerID")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "userProvidedID")
             Prelude.<*> (x Data..:? "vcenterClientID")
       )
 
 instance Prelude.Hashable SourceServer where
   hashWithSalt _salt SourceServer' {..} =
-    _salt `Prelude.hashWithSalt` applicationID
+    _salt
+      `Prelude.hashWithSalt` applicationID
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataReplicationInfo
+      `Prelude.hashWithSalt` fqdnForActionFramework
       `Prelude.hashWithSalt` isArchived
       `Prelude.hashWithSalt` launchedInstance
       `Prelude.hashWithSalt` lifeCycle
@@ -177,6 +199,7 @@ instance Prelude.Hashable SourceServer where
       `Prelude.hashWithSalt` sourceProperties
       `Prelude.hashWithSalt` sourceServerID
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` userProvidedID
       `Prelude.hashWithSalt` vcenterClientID
 
 instance Prelude.NFData SourceServer where
@@ -184,6 +207,7 @@ instance Prelude.NFData SourceServer where
     Prelude.rnf applicationID
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dataReplicationInfo
+      `Prelude.seq` Prelude.rnf fqdnForActionFramework
       `Prelude.seq` Prelude.rnf isArchived
       `Prelude.seq` Prelude.rnf launchedInstance
       `Prelude.seq` Prelude.rnf lifeCycle
@@ -191,4 +215,5 @@ instance Prelude.NFData SourceServer where
       `Prelude.seq` Prelude.rnf sourceProperties
       `Prelude.seq` Prelude.rnf sourceServerID
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf userProvidedID
       `Prelude.seq` Prelude.rnf vcenterClientID

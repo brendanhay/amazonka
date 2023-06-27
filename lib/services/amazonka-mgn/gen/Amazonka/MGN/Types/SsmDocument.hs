@@ -22,6 +22,7 @@ module Amazonka.MGN.Types.SsmDocument where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MGN.Types.SsmExternalParameter
 import Amazonka.MGN.Types.SsmParameterStoreParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSsmDocument' smart constructor.
 data SsmDocument = SsmDocument'
-  { -- | If true, Cutover will not be enabled if the document has failed.
+  { -- | AWS Systems Manager Document external parameters.
+    externalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter),
+    -- | If true, Cutover will not be enabled if the document has failed.
     mustSucceedForCutover :: Prelude.Maybe Prelude.Bool,
     -- | AWS Systems Manager Document parameters.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [SsmParameterStoreParameter]),
@@ -50,6 +53,8 @@ data SsmDocument = SsmDocument'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'externalParameters', 'ssmDocument_externalParameters' - AWS Systems Manager Document external parameters.
+--
 -- 'mustSucceedForCutover', 'ssmDocument_mustSucceedForCutover' - If true, Cutover will not be enabled if the document has failed.
 --
 -- 'parameters', 'ssmDocument_parameters' - AWS Systems Manager Document parameters.
@@ -67,13 +72,17 @@ newSsmDocument ::
   SsmDocument
 newSsmDocument pActionName_ pSsmDocumentName_ =
   SsmDocument'
-    { mustSucceedForCutover =
-        Prelude.Nothing,
+    { externalParameters = Prelude.Nothing,
+      mustSucceedForCutover = Prelude.Nothing,
       parameters = Prelude.Nothing,
       timeoutSeconds = Prelude.Nothing,
       actionName = pActionName_,
       ssmDocumentName = pSsmDocumentName_
     }
+
+-- | AWS Systems Manager Document external parameters.
+ssmDocument_externalParameters :: Lens.Lens' SsmDocument (Prelude.Maybe (Prelude.HashMap Prelude.Text SsmExternalParameter))
+ssmDocument_externalParameters = Lens.lens (\SsmDocument' {externalParameters} -> externalParameters) (\s@SsmDocument' {} a -> s {externalParameters = a} :: SsmDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | If true, Cutover will not be enabled if the document has failed.
 ssmDocument_mustSucceedForCutover :: Lens.Lens' SsmDocument (Prelude.Maybe Prelude.Bool)
@@ -101,7 +110,11 @@ instance Data.FromJSON SsmDocument where
       "SsmDocument"
       ( \x ->
           SsmDocument'
-            Prelude.<$> (x Data..:? "mustSucceedForCutover")
+            Prelude.<$> ( x
+                            Data..:? "externalParameters"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "mustSucceedForCutover")
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "timeoutSeconds")
             Prelude.<*> (x Data..: "actionName")
@@ -110,7 +123,9 @@ instance Data.FromJSON SsmDocument where
 
 instance Prelude.Hashable SsmDocument where
   hashWithSalt _salt SsmDocument' {..} =
-    _salt `Prelude.hashWithSalt` mustSucceedForCutover
+    _salt
+      `Prelude.hashWithSalt` externalParameters
+      `Prelude.hashWithSalt` mustSucceedForCutover
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` timeoutSeconds
       `Prelude.hashWithSalt` actionName
@@ -118,7 +133,8 @@ instance Prelude.Hashable SsmDocument where
 
 instance Prelude.NFData SsmDocument where
   rnf SsmDocument' {..} =
-    Prelude.rnf mustSucceedForCutover
+    Prelude.rnf externalParameters
+      `Prelude.seq` Prelude.rnf mustSucceedForCutover
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf timeoutSeconds
       `Prelude.seq` Prelude.rnf actionName
@@ -128,7 +144,9 @@ instance Data.ToJSON SsmDocument where
   toJSON SsmDocument' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("mustSucceedForCutover" Data..=)
+          [ ("externalParameters" Data..=)
+              Prelude.<$> externalParameters,
+            ("mustSucceedForCutover" Data..=)
               Prelude.<$> mustSucceedForCutover,
             ("parameters" Data..=) Prelude.<$> parameters,
             ("timeoutSeconds" Data..=)

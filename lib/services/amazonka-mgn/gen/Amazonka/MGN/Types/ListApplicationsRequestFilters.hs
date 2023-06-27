@@ -79,7 +79,8 @@ instance
   hashWithSalt
     _salt
     ListApplicationsRequestFilters' {..} =
-      _salt `Prelude.hashWithSalt` applicationIDs
+      _salt
+        `Prelude.hashWithSalt` applicationIDs
         `Prelude.hashWithSalt` isArchived
         `Prelude.hashWithSalt` waveIDs
 

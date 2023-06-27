@@ -85,7 +85,8 @@ instance Data.FromJSON LaunchTemplateDiskConf where
 
 instance Prelude.Hashable LaunchTemplateDiskConf where
   hashWithSalt _salt LaunchTemplateDiskConf' {..} =
-    _salt `Prelude.hashWithSalt` iops
+    _salt
+      `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` throughput
       `Prelude.hashWithSalt` volumeType
 

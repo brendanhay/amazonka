@@ -55,6 +55,7 @@ module Amazonka.MGN.Lens
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -62,6 +63,7 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** CreateApplication
@@ -245,6 +247,7 @@ module Amazonka.MGN.Lens
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -252,6 +255,7 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** FinalizeCutover
@@ -259,6 +263,7 @@ module Amazonka.MGN.Lens
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -266,6 +271,7 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** GetLaunchConfiguration
@@ -312,6 +318,38 @@ module Amazonka.MGN.Lens
     listApplicationsResponse_nextToken,
     listApplicationsResponse_httpStatus,
 
+    -- ** ListExportErrors
+    listExportErrors_maxResults,
+    listExportErrors_nextToken,
+    listExportErrors_exportID,
+    listExportErrorsResponse_items,
+    listExportErrorsResponse_nextToken,
+    listExportErrorsResponse_httpStatus,
+
+    -- ** ListExports
+    listExports_filters,
+    listExports_maxResults,
+    listExports_nextToken,
+    listExportsResponse_items,
+    listExportsResponse_nextToken,
+    listExportsResponse_httpStatus,
+
+    -- ** ListImportErrors
+    listImportErrors_maxResults,
+    listImportErrors_nextToken,
+    listImportErrors_importID,
+    listImportErrorsResponse_items,
+    listImportErrorsResponse_nextToken,
+    listImportErrorsResponse_httpStatus,
+
+    -- ** ListImports
+    listImports_filters,
+    listImports_maxResults,
+    listImports_nextToken,
+    listImportsResponse_items,
+    listImportsResponse_nextToken,
+    listImportsResponse_httpStatus,
+
     -- ** ListSourceServerActions
     listSourceServerActions_filters,
     listSourceServerActions_maxResults,
@@ -348,6 +386,7 @@ module Amazonka.MGN.Lens
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -355,11 +394,15 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** PutSourceServerAction
     putSourceServerAction_active,
+    putSourceServerAction_category,
+    putSourceServerAction_description,
     putSourceServerAction_documentVersion,
+    putSourceServerAction_externalParameters,
     putSourceServerAction_mustSucceedForCutover,
     putSourceServerAction_parameters,
     putSourceServerAction_timeoutSeconds,
@@ -371,8 +414,11 @@ module Amazonka.MGN.Lens
     sourceServerActionDocument_actionID,
     sourceServerActionDocument_actionName,
     sourceServerActionDocument_active,
+    sourceServerActionDocument_category,
+    sourceServerActionDocument_description,
     sourceServerActionDocument_documentIdentifier,
     sourceServerActionDocument_documentVersion,
+    sourceServerActionDocument_externalParameters,
     sourceServerActionDocument_mustSucceedForCutover,
     sourceServerActionDocument_order,
     sourceServerActionDocument_parameters,
@@ -380,7 +426,10 @@ module Amazonka.MGN.Lens
 
     -- ** PutTemplateAction
     putTemplateAction_active,
+    putTemplateAction_category,
+    putTemplateAction_description,
     putTemplateAction_documentVersion,
+    putTemplateAction_externalParameters,
     putTemplateAction_mustSucceedForCutover,
     putTemplateAction_operatingSystem,
     putTemplateAction_parameters,
@@ -393,8 +442,11 @@ module Amazonka.MGN.Lens
     templateActionDocument_actionID,
     templateActionDocument_actionName,
     templateActionDocument_active,
+    templateActionDocument_category,
+    templateActionDocument_description,
     templateActionDocument_documentIdentifier,
     templateActionDocument_documentVersion,
+    templateActionDocument_externalParameters,
     templateActionDocument_mustSucceedForCutover,
     templateActionDocument_operatingSystem,
     templateActionDocument_order,
@@ -416,6 +468,7 @@ module Amazonka.MGN.Lens
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -423,6 +476,7 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** StartCutover
@@ -431,11 +485,25 @@ module Amazonka.MGN.Lens
     startCutoverResponse_job,
     startCutoverResponse_httpStatus,
 
+    -- ** StartExport
+    startExport_s3BucketOwner,
+    startExport_s3Bucket,
+    startExport_s3Key,
+    startExportResponse_exportTask,
+    startExportResponse_httpStatus,
+
+    -- ** StartImport
+    startImport_clientToken,
+    startImport_s3BucketSource,
+    startImportResponse_importTask,
+    startImportResponse_httpStatus,
+
     -- ** StartReplication
     startReplication_sourceServerID,
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -443,6 +511,7 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** StartTest
@@ -632,6 +701,7 @@ module Amazonka.MGN.Lens
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -639,6 +709,7 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** UpdateWave
@@ -727,12 +798,74 @@ module Amazonka.MGN.Lens
     disk_bytes,
     disk_deviceName,
 
+    -- ** ExportErrorData
+    exportErrorData_rawError,
+
+    -- ** ExportTask
+    exportTask_creationDateTime,
+    exportTask_endDateTime,
+    exportTask_exportID,
+    exportTask_progressPercentage,
+    exportTask_s3Bucket,
+    exportTask_s3BucketOwner,
+    exportTask_s3Key,
+    exportTask_status,
+    exportTask_summary,
+
+    -- ** ExportTaskError
+    exportTaskError_errorData,
+    exportTaskError_errorDateTime,
+
+    -- ** ExportTaskSummary
+    exportTaskSummary_applicationsCount,
+    exportTaskSummary_serversCount,
+    exportTaskSummary_wavesCount,
+
     -- ** IdentificationHints
     identificationHints_awsInstanceID,
     identificationHints_fqdn,
     identificationHints_hostname,
     identificationHints_vmPath,
     identificationHints_vmWareUuid,
+
+    -- ** ImportErrorData
+    importErrorData_applicationID,
+    importErrorData_ec2LaunchTemplateID,
+    importErrorData_rawError,
+    importErrorData_rowNumber,
+    importErrorData_sourceServerID,
+    importErrorData_waveID,
+
+    -- ** ImportTask
+    importTask_creationDateTime,
+    importTask_endDateTime,
+    importTask_importID,
+    importTask_progressPercentage,
+    importTask_s3BucketSource,
+    importTask_status,
+    importTask_summary,
+
+    -- ** ImportTaskError
+    importTaskError_errorData,
+    importTaskError_errorDateTime,
+    importTaskError_errorType,
+
+    -- ** ImportTaskSummary
+    importTaskSummary_applications,
+    importTaskSummary_servers,
+    importTaskSummary_waves,
+
+    -- ** ImportTaskSummaryApplications
+    importTaskSummaryApplications_createdCount,
+    importTaskSummaryApplications_modifiedCount,
+
+    -- ** ImportTaskSummaryServers
+    importTaskSummaryServers_createdCount,
+    importTaskSummaryServers_modifiedCount,
+
+    -- ** ImportTaskSummaryWaves
+    importTaskSummaryWaves_createdCount,
+    importTaskSummaryWaves_modifiedCount,
 
     -- ** Job
     job_arn,
@@ -853,6 +986,12 @@ module Amazonka.MGN.Lens
     listApplicationsRequestFilters_isArchived,
     listApplicationsRequestFilters_waveIDs,
 
+    -- ** ListExportsRequestFilters
+    listExportsRequestFilters_exportIDs,
+
+    -- ** ListImportsRequestFilters
+    listImportsRequestFilters_importIDs,
+
     -- ** ListWavesRequestFilters
     listWavesRequestFilters_isArchived,
     listWavesRequestFilters_waveIDs,
@@ -923,6 +1062,11 @@ module Amazonka.MGN.Lens
     replicationConfigurationTemplate_useDedicatedReplicationServer,
     replicationConfigurationTemplate_replicationConfigurationTemplateID,
 
+    -- ** S3BucketSource
+    s3BucketSource_s3BucketOwner,
+    s3BucketSource_s3Bucket,
+    s3BucketSource_s3Key,
+
     -- ** SourceProperties
     sourceProperties_cpus,
     sourceProperties_disks,
@@ -937,6 +1081,7 @@ module Amazonka.MGN.Lens
     sourceServer_applicationID,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
+    sourceServer_fqdnForActionFramework,
     sourceServer_isArchived,
     sourceServer_launchedInstance,
     sourceServer_lifeCycle,
@@ -944,14 +1089,18 @@ module Amazonka.MGN.Lens
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_tags,
+    sourceServer_userProvidedID,
     sourceServer_vcenterClientID,
 
     -- ** SourceServerActionDocument
     sourceServerActionDocument_actionID,
     sourceServerActionDocument_actionName,
     sourceServerActionDocument_active,
+    sourceServerActionDocument_category,
+    sourceServerActionDocument_description,
     sourceServerActionDocument_documentIdentifier,
     sourceServerActionDocument_documentVersion,
+    sourceServerActionDocument_externalParameters,
     sourceServerActionDocument_mustSucceedForCutover,
     sourceServerActionDocument_order,
     sourceServerActionDocument_parameters,
@@ -961,11 +1110,15 @@ module Amazonka.MGN.Lens
     sourceServerActionsRequestFilters_actionIDs,
 
     -- ** SsmDocument
+    ssmDocument_externalParameters,
     ssmDocument_mustSucceedForCutover,
     ssmDocument_parameters,
     ssmDocument_timeoutSeconds,
     ssmDocument_actionName,
     ssmDocument_ssmDocumentName,
+
+    -- ** SsmExternalParameter
+    ssmExternalParameter_dynamicPath,
 
     -- ** SsmParameterStoreParameter
     ssmParameterStoreParameter_parameterName,
@@ -975,8 +1128,11 @@ module Amazonka.MGN.Lens
     templateActionDocument_actionID,
     templateActionDocument_actionName,
     templateActionDocument_active,
+    templateActionDocument_category,
+    templateActionDocument_description,
     templateActionDocument_documentIdentifier,
     templateActionDocument_documentVersion,
+    templateActionDocument_externalParameters,
     templateActionDocument_mustSucceedForCutover,
     templateActionDocument_operatingSystem,
     templateActionDocument_order,
@@ -1046,6 +1202,10 @@ import Amazonka.MGN.GetLaunchConfiguration
 import Amazonka.MGN.GetReplicationConfiguration
 import Amazonka.MGN.InitializeService
 import Amazonka.MGN.ListApplications
+import Amazonka.MGN.ListExportErrors
+import Amazonka.MGN.ListExports
+import Amazonka.MGN.ListImportErrors
+import Amazonka.MGN.ListImports
 import Amazonka.MGN.ListSourceServerActions
 import Amazonka.MGN.ListTagsForResource
 import Amazonka.MGN.ListTemplateActions
@@ -1057,6 +1217,8 @@ import Amazonka.MGN.RemoveSourceServerAction
 import Amazonka.MGN.RemoveTemplateAction
 import Amazonka.MGN.RetryDataReplication
 import Amazonka.MGN.StartCutover
+import Amazonka.MGN.StartExport
+import Amazonka.MGN.StartImport
 import Amazonka.MGN.StartReplication
 import Amazonka.MGN.StartTest
 import Amazonka.MGN.TagResource
@@ -1073,7 +1235,18 @@ import Amazonka.MGN.Types.DataReplicationInitiationStep
 import Amazonka.MGN.Types.DescribeJobsRequestFilters
 import Amazonka.MGN.Types.DescribeSourceServersRequestFilters
 import Amazonka.MGN.Types.Disk
+import Amazonka.MGN.Types.ExportErrorData
+import Amazonka.MGN.Types.ExportTask
+import Amazonka.MGN.Types.ExportTaskError
+import Amazonka.MGN.Types.ExportTaskSummary
 import Amazonka.MGN.Types.IdentificationHints
+import Amazonka.MGN.Types.ImportErrorData
+import Amazonka.MGN.Types.ImportTask
+import Amazonka.MGN.Types.ImportTaskError
+import Amazonka.MGN.Types.ImportTaskSummary
+import Amazonka.MGN.Types.ImportTaskSummaryApplications
+import Amazonka.MGN.Types.ImportTaskSummaryServers
+import Amazonka.MGN.Types.ImportTaskSummaryWaves
 import Amazonka.MGN.Types.Job
 import Amazonka.MGN.Types.JobLog
 import Amazonka.MGN.Types.JobLogEventData
@@ -1093,6 +1266,8 @@ import Amazonka.MGN.Types.LifeCycleLastTestFinalized
 import Amazonka.MGN.Types.LifeCycleLastTestInitiated
 import Amazonka.MGN.Types.LifeCycleLastTestReverted
 import Amazonka.MGN.Types.ListApplicationsRequestFilters
+import Amazonka.MGN.Types.ListExportsRequestFilters
+import Amazonka.MGN.Types.ListImportsRequestFilters
 import Amazonka.MGN.Types.ListWavesRequestFilters
 import Amazonka.MGN.Types.NetworkInterface
 import Amazonka.MGN.Types.OS
@@ -1102,11 +1277,13 @@ import Amazonka.MGN.Types.PostLaunchActionsStatus
 import Amazonka.MGN.Types.ReplicationConfiguration
 import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDisk
 import Amazonka.MGN.Types.ReplicationConfigurationTemplate
+import Amazonka.MGN.Types.S3BucketSource
 import Amazonka.MGN.Types.SourceProperties
 import Amazonka.MGN.Types.SourceServer
 import Amazonka.MGN.Types.SourceServerActionDocument
 import Amazonka.MGN.Types.SourceServerActionsRequestFilters
 import Amazonka.MGN.Types.SsmDocument
+import Amazonka.MGN.Types.SsmExternalParameter
 import Amazonka.MGN.Types.SsmParameterStoreParameter
 import Amazonka.MGN.Types.TemplateActionDocument
 import Amazonka.MGN.Types.TemplateActionsRequestFilters

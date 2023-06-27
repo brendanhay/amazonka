@@ -229,6 +229,30 @@ module Amazonka.MGN
     ListApplicationsResponse (ListApplicationsResponse'),
     newListApplicationsResponse,
 
+    -- ** ListExportErrors (Paginated)
+    ListExportErrors (ListExportErrors'),
+    newListExportErrors,
+    ListExportErrorsResponse (ListExportErrorsResponse'),
+    newListExportErrorsResponse,
+
+    -- ** ListExports (Paginated)
+    ListExports (ListExports'),
+    newListExports,
+    ListExportsResponse (ListExportsResponse'),
+    newListExportsResponse,
+
+    -- ** ListImportErrors (Paginated)
+    ListImportErrors (ListImportErrors'),
+    newListImportErrors,
+    ListImportErrorsResponse (ListImportErrorsResponse'),
+    newListImportErrorsResponse,
+
+    -- ** ListImports (Paginated)
+    ListImports (ListImports'),
+    newListImports,
+    ListImportsResponse (ListImportsResponse'),
+    newListImportsResponse,
+
     -- ** ListSourceServerActions (Paginated)
     ListSourceServerActions (ListSourceServerActions'),
     newListSourceServerActions,
@@ -294,6 +318,18 @@ module Amazonka.MGN
     newStartCutover,
     StartCutoverResponse (StartCutoverResponse'),
     newStartCutoverResponse,
+
+    -- ** StartExport
+    StartExport (StartExport'),
+    newStartExport,
+    StartExportResponse (StartExportResponse'),
+    newStartExportResponse,
+
+    -- ** StartImport
+    StartImport (StartImport'),
+    newStartImport,
+    StartImportResponse (StartImportResponse'),
+    newStartImportResponse,
 
     -- ** StartReplication
     StartReplication (StartReplication'),
@@ -381,6 +417,9 @@ module Amazonka.MGN
 
     -- * Types
 
+    -- ** ActionCategory
+    ActionCategory (..),
+
     -- ** ApplicationHealthStatus
     ApplicationHealthStatus (..),
 
@@ -405,8 +444,17 @@ module Amazonka.MGN
     -- ** DataReplicationState
     DataReplicationState (..),
 
+    -- ** ExportStatus
+    ExportStatus (..),
+
     -- ** FirstBoot
     FirstBoot (..),
+
+    -- ** ImportErrorType
+    ImportErrorType (..),
+
+    -- ** ImportStatus
+    ImportStatus (..),
 
     -- ** InitiatedBy
     InitiatedBy (..),
@@ -516,9 +564,53 @@ module Amazonka.MGN
     Disk (Disk'),
     newDisk,
 
+    -- ** ExportErrorData
+    ExportErrorData (ExportErrorData'),
+    newExportErrorData,
+
+    -- ** ExportTask
+    ExportTask (ExportTask'),
+    newExportTask,
+
+    -- ** ExportTaskError
+    ExportTaskError (ExportTaskError'),
+    newExportTaskError,
+
+    -- ** ExportTaskSummary
+    ExportTaskSummary (ExportTaskSummary'),
+    newExportTaskSummary,
+
     -- ** IdentificationHints
     IdentificationHints (IdentificationHints'),
     newIdentificationHints,
+
+    -- ** ImportErrorData
+    ImportErrorData (ImportErrorData'),
+    newImportErrorData,
+
+    -- ** ImportTask
+    ImportTask (ImportTask'),
+    newImportTask,
+
+    -- ** ImportTaskError
+    ImportTaskError (ImportTaskError'),
+    newImportTaskError,
+
+    -- ** ImportTaskSummary
+    ImportTaskSummary (ImportTaskSummary'),
+    newImportTaskSummary,
+
+    -- ** ImportTaskSummaryApplications
+    ImportTaskSummaryApplications (ImportTaskSummaryApplications'),
+    newImportTaskSummaryApplications,
+
+    -- ** ImportTaskSummaryServers
+    ImportTaskSummaryServers (ImportTaskSummaryServers'),
+    newImportTaskSummaryServers,
+
+    -- ** ImportTaskSummaryWaves
+    ImportTaskSummaryWaves (ImportTaskSummaryWaves'),
+    newImportTaskSummaryWaves,
 
     -- ** Job
     Job (Job'),
@@ -596,6 +688,14 @@ module Amazonka.MGN
     ListApplicationsRequestFilters (ListApplicationsRequestFilters'),
     newListApplicationsRequestFilters,
 
+    -- ** ListExportsRequestFilters
+    ListExportsRequestFilters (ListExportsRequestFilters'),
+    newListExportsRequestFilters,
+
+    -- ** ListImportsRequestFilters
+    ListImportsRequestFilters (ListImportsRequestFilters'),
+    newListImportsRequestFilters,
+
     -- ** ListWavesRequestFilters
     ListWavesRequestFilters (ListWavesRequestFilters'),
     newListWavesRequestFilters,
@@ -632,6 +732,10 @@ module Amazonka.MGN
     ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
     newReplicationConfigurationTemplate,
 
+    -- ** S3BucketSource
+    S3BucketSource (S3BucketSource'),
+    newS3BucketSource,
+
     -- ** SourceProperties
     SourceProperties (SourceProperties'),
     newSourceProperties,
@@ -651,6 +755,10 @@ module Amazonka.MGN
     -- ** SsmDocument
     SsmDocument (SsmDocument'),
     newSsmDocument,
+
+    -- ** SsmExternalParameter
+    SsmExternalParameter (SsmExternalParameter'),
+    newSsmExternalParameter,
 
     -- ** SsmParameterStoreParameter
     SsmParameterStoreParameter (SsmParameterStoreParameter'),
@@ -709,6 +817,10 @@ import Amazonka.MGN.GetReplicationConfiguration
 import Amazonka.MGN.InitializeService
 import Amazonka.MGN.Lens
 import Amazonka.MGN.ListApplications
+import Amazonka.MGN.ListExportErrors
+import Amazonka.MGN.ListExports
+import Amazonka.MGN.ListImportErrors
+import Amazonka.MGN.ListImports
 import Amazonka.MGN.ListSourceServerActions
 import Amazonka.MGN.ListTagsForResource
 import Amazonka.MGN.ListTemplateActions
@@ -720,6 +832,8 @@ import Amazonka.MGN.RemoveSourceServerAction
 import Amazonka.MGN.RemoveTemplateAction
 import Amazonka.MGN.RetryDataReplication
 import Amazonka.MGN.StartCutover
+import Amazonka.MGN.StartExport
+import Amazonka.MGN.StartImport
 import Amazonka.MGN.StartReplication
 import Amazonka.MGN.StartTest
 import Amazonka.MGN.TagResource

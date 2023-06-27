@@ -106,7 +106,8 @@ instance Core.AWSRequest PutApplicationPolicy where
 
 instance Prelude.Hashable PutApplicationPolicy where
   hashWithSalt _salt PutApplicationPolicy' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` statements
 
 instance Prelude.NFData PutApplicationPolicy where

@@ -128,7 +128,8 @@ instance Core.AWSRequest GetCloudFormationTemplate where
 
 instance Prelude.Hashable GetCloudFormationTemplate where
   hashWithSalt _salt GetCloudFormationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` templateId
 
 instance Prelude.NFData GetCloudFormationTemplate where

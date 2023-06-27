@@ -112,7 +112,8 @@ instance Data.FromJSON VersionSummary where
 
 instance Prelude.Hashable VersionSummary where
   hashWithSalt _salt VersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` sourceCodeUrl
+    _salt
+      `Prelude.hashWithSalt` sourceCodeUrl
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` semanticVersion

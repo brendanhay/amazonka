@@ -84,7 +84,8 @@ instance
     ApplicationDependencySummary
   where
   hashWithSalt _salt ApplicationDependencySummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` semanticVersion
 
 instance Prelude.NFData ApplicationDependencySummary where

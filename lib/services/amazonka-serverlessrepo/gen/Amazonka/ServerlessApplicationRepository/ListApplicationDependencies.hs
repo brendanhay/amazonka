@@ -115,22 +115,22 @@ instance Core.AWSPager ListApplicationDependencies where
     | Core.stop
         ( rs
             Lens.^? listApplicationDependenciesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationDependenciesResponse_dependencies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApplicationDependencies_nextToken
           Lens..~ rs
           Lens.^? listApplicationDependenciesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationDependencies where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest ListApplicationDependencies where
 
 instance Prelude.Hashable ListApplicationDependencies where
   hashWithSalt _salt ListApplicationDependencies' {..} =
-    _salt `Prelude.hashWithSalt` maxItems
+    _salt
+      `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` semanticVersion
       `Prelude.hashWithSalt` applicationId

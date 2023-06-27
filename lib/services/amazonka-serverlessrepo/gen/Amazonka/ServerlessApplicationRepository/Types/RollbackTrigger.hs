@@ -85,7 +85,8 @@ rollbackTrigger_arn = Lens.lens (\RollbackTrigger' {arn} -> arn) (\s@RollbackTri
 
 instance Prelude.Hashable RollbackTrigger where
   hashWithSalt _salt RollbackTrigger' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData RollbackTrigger where

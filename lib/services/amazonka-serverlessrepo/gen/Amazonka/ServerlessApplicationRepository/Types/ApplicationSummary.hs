@@ -191,7 +191,8 @@ instance Data.FromJSON ApplicationSummary where
 
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` homePageUrl
       `Prelude.hashWithSalt` labels
       `Prelude.hashWithSalt` spdxLicenseId

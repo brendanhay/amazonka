@@ -66,7 +66,8 @@ command_unlock = Lens.lens (\Command' {unlock} -> unlock) (\s@Command' {} a -> s
 
 instance Prelude.Hashable Command where
   hashWithSalt _salt Command' {..} =
-    _salt `Prelude.hashWithSalt` reboot
+    _salt
+      `Prelude.hashWithSalt` reboot
       `Prelude.hashWithSalt` unlock
 
 instance Prelude.NFData Command where

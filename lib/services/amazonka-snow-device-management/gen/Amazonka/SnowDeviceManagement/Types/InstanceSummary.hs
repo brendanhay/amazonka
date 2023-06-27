@@ -75,7 +75,8 @@ instance Data.FromJSON InstanceSummary where
 
 instance Prelude.Hashable InstanceSummary where
   hashWithSalt _salt InstanceSummary' {..} =
-    _salt `Prelude.hashWithSalt` instance'
+    _salt
+      `Prelude.hashWithSalt` instance'
       `Prelude.hashWithSalt` lastUpdatedAt
 
 instance Prelude.NFData InstanceSummary where

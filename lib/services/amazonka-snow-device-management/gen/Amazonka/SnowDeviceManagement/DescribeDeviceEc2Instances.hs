@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeDeviceEc2Instances where
 
 instance Prelude.Hashable DescribeDeviceEc2Instances where
   hashWithSalt _salt DescribeDeviceEc2Instances' {..} =
-    _salt `Prelude.hashWithSalt` instanceIds
+    _salt
+      `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` managedDeviceId
 
 instance Prelude.NFData DescribeDeviceEc2Instances where

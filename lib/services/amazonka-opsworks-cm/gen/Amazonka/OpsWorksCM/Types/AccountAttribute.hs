@@ -108,7 +108,8 @@ instance Data.FromJSON AccountAttribute where
 
 instance Prelude.Hashable AccountAttribute where
   hashWithSalt _salt AccountAttribute' {..} =
-    _salt `Prelude.hashWithSalt` maximum
+    _salt
+      `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` used
 

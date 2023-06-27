@@ -95,7 +95,8 @@ instance Data.FromJSON ServerEvent where
 
 instance Prelude.Hashable ServerEvent where
   hashWithSalt _salt ServerEvent' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` logUrl
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` serverName

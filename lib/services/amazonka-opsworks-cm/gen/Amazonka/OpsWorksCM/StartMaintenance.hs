@@ -139,7 +139,8 @@ instance Core.AWSRequest StartMaintenance where
 
 instance Prelude.Hashable StartMaintenance where
   hashWithSalt _salt StartMaintenance' {..} =
-    _salt `Prelude.hashWithSalt` engineAttributes
+    _salt
+      `Prelude.hashWithSalt` engineAttributes
       `Prelude.hashWithSalt` serverName
 
 instance Prelude.NFData StartMaintenance where

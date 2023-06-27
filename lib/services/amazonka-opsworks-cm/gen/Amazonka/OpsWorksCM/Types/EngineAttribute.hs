@@ -68,12 +68,14 @@ instance Data.FromJSON EngineAttribute where
       "EngineAttribute"
       ( \x ->
           EngineAttribute'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable EngineAttribute where
   hashWithSalt _salt EngineAttribute' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EngineAttribute where

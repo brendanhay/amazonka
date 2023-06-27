@@ -26,13 +26,13 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Defines the VPC networking components used to secure and enable network
 -- traffic between the Amazon Web Services resources for your environment.
--- To learn more, see
+-- For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
 -- /See:/ 'newUpdateNetworkConfigurationInput' smart constructor.
 data UpdateNetworkConfigurationInput = UpdateNetworkConfigurationInput'
   { -- | A list of security group IDs. A security group must be attached to the
-    -- same VPC as the subnets. To learn more, see
+    -- same VPC as the subnets. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
     securityGroupIds :: Prelude.NonEmpty Prelude.Text
   }
@@ -47,7 +47,7 @@ data UpdateNetworkConfigurationInput = UpdateNetworkConfigurationInput'
 -- for backwards compatibility:
 --
 -- 'securityGroupIds', 'updateNetworkConfigurationInput_securityGroupIds' - A list of security group IDs. A security group must be attached to the
--- same VPC as the subnets. To learn more, see
+-- same VPC as the subnets. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 newUpdateNetworkConfigurationInput ::
   -- | 'securityGroupIds'
@@ -60,7 +60,7 @@ newUpdateNetworkConfigurationInput pSecurityGroupIds_ =
     }
 
 -- | A list of security group IDs. A security group must be attached to the
--- same VPC as the subnets. To learn more, see
+-- same VPC as the subnets. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 updateNetworkConfigurationInput_securityGroupIds :: Lens.Lens' UpdateNetworkConfigurationInput (Prelude.NonEmpty Prelude.Text)
 updateNetworkConfigurationInput_securityGroupIds = Lens.lens (\UpdateNetworkConfigurationInput' {securityGroupIds} -> securityGroupIds) (\s@UpdateNetworkConfigurationInput' {} a -> s {securityGroupIds = a} :: UpdateNetworkConfigurationInput) Prelude.. Lens.coerced

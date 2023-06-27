@@ -26,15 +26,15 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the VPC networking components used to secure and enable
 -- network traffic between the Amazon Web Services resources for your
--- environment. To learn more, see
+-- environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
 -- /See:/ 'newNetworkConfiguration' smart constructor.
 data NetworkConfiguration = NetworkConfiguration'
-  { -- | A list of security group IDs. To learn more, see
+  { -- | A list of security group IDs. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
     securityGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of subnet IDs. To learn more, see
+    -- | A list of subnet IDs. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
     subnetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
@@ -48,10 +48,10 @@ data NetworkConfiguration = NetworkConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'networkConfiguration_securityGroupIds' - A list of security group IDs. To learn more, see
+-- 'securityGroupIds', 'networkConfiguration_securityGroupIds' - A list of security group IDs. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 --
--- 'subnetIds', 'networkConfiguration_subnetIds' - A list of subnet IDs. To learn more, see
+-- 'subnetIds', 'networkConfiguration_subnetIds' - A list of subnet IDs. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 newNetworkConfiguration ::
   NetworkConfiguration
@@ -62,12 +62,12 @@ newNetworkConfiguration =
       subnetIds = Prelude.Nothing
     }
 
--- | A list of security group IDs. To learn more, see
+-- | A list of security group IDs. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 networkConfiguration_securityGroupIds :: Lens.Lens' NetworkConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 networkConfiguration_securityGroupIds = Lens.lens (\NetworkConfiguration' {securityGroupIds} -> securityGroupIds) (\s@NetworkConfiguration' {} a -> s {securityGroupIds = a} :: NetworkConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of subnet IDs. To learn more, see
+-- | A list of subnet IDs. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 networkConfiguration_subnetIds :: Lens.Lens' NetworkConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 networkConfiguration_subnetIds = Lens.lens (\NetworkConfiguration' {subnetIds} -> subnetIds) (\s@NetworkConfiguration' {} a -> s {subnetIds = a} :: NetworkConfiguration) Prelude.. Lens.mapping Lens.coerced
@@ -84,7 +84,8 @@ instance Data.FromJSON NetworkConfiguration where
 
 instance Prelude.Hashable NetworkConfiguration where
   hashWithSalt _salt NetworkConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData NetworkConfiguration where

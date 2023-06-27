@@ -43,6 +43,8 @@ module Amazonka.MwAA.UpdateEnvironment
     updateEnvironment_requirementsS3Path,
     updateEnvironment_schedulers,
     updateEnvironment_sourceBucketArn,
+    updateEnvironment_startupScriptS3ObjectVersion,
+    updateEnvironment_startupScriptS3Path,
     updateEnvironment_webserverAccessMode,
     updateEnvironment_weeklyMaintenanceWindowStart,
     updateEnvironment_name,
@@ -68,25 +70,34 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
   { -- | A list of key-value pairs containing the Apache Airflow configuration
-    -- options you want to attach to your environment. To learn more, see
+    -- options you want to attach to your environment. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
     airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
-    -- | The Apache Airflow version for your environment. If no value is
-    -- specified, defaults to the latest version. Valid values: @1.10.12@,
-    -- @2.0.2@, @2.2.2@, and @2.4.3@.
+    -- | The Apache Airflow version for your environment. To upgrade your
+    -- environment, specify a newer version of Apache Airflow supported by
+    -- Amazon MWAA.
+    --
+    -- Before you upgrade an environment, make sure your requirements, DAGs,
+    -- plugins, and other resources used in your workflows are compatible with
+    -- the new Apache Airflow version. For more information about updating your
+    -- resources, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html Upgrading an Amazon MWAA environment>.
+    --
+    -- Valid values: @1.10.12@, @2.0.2@, @2.2.2@, @2.4.3@, and @2.5.1@.
     airflowVersion :: Prelude.Maybe Prelude.Text,
     -- | The relative path to the DAGs folder on your Amazon S3 bucket. For
-    -- example, @dags@. To learn more, see
+    -- example, @dags@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html Adding or updating DAGs>.
     dagS3Path :: Prelude.Maybe Prelude.Text,
     -- | The environment class type. Valid values: @mw1.small@, @mw1.medium@,
-    -- @mw1.large@. To learn more, see
+    -- @mw1.large@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
     environmentClass :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
     -- MWAA to access Amazon Web Services resources in your environment. For
-    -- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
-    -- more, see
+    -- example, @arn:aws:iam::123456789:role\/my-execution-role@. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Apache Airflow log types to send to CloudWatch Logs.
@@ -105,28 +116,28 @@ data UpdateEnvironment = UpdateEnvironment'
     -- worker count you specify in the @MinWorkers@ field. For example, @2@.
     minWorkers :: Prelude.Maybe Prelude.Natural,
     -- | The VPC networking components used to secure and enable network traffic
-    -- between the Amazon Web Services resources for your environment. To learn
-    -- more, see
+    -- between the Amazon Web Services resources for your environment. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
     networkConfiguration :: Prelude.Maybe UpdateNetworkConfigurationInput,
-    -- | The version of the plugins.zip file on your Amazon S3 bucket. A version
-    -- must be specified each time a plugins.zip file is updated. To learn
-    -- more, see
+    -- | The version of the plugins.zip file on your Amazon S3 bucket. You must
+    -- specify a version each time a @plugins.zip@ file is updated. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
     pluginsS3ObjectVersion :: Prelude.Maybe Prelude.Text,
     -- | The relative path to the @plugins.zip@ file on your Amazon S3 bucket.
     -- For example, @plugins.zip@. If specified, then the plugins.zip version
-    -- is required. To learn more, see
+    -- is required. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
     pluginsS3Path :: Prelude.Maybe Prelude.Text,
-    -- | The version of the requirements.txt file on your Amazon S3 bucket. A
-    -- version must be specified each time a requirements.txt file is updated.
-    -- To learn more, see
+    -- | The version of the requirements.txt file on your Amazon S3 bucket. You
+    -- must specify a version each time a @requirements.txt@ file is updated.
+    -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
     requirementsS3ObjectVersion :: Prelude.Maybe Prelude.Text,
     -- | The relative path to the @requirements.txt@ file on your Amazon S3
     -- bucket. For example, @requirements.txt@. If specified, then a file
-    -- version is required. To learn more, see
+    -- version is required. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
     requirementsS3Path :: Prelude.Maybe Prelude.Text,
     -- | The number of Apache Airflow schedulers to run in your Amazon MWAA
@@ -134,10 +145,32 @@ data UpdateEnvironment = UpdateEnvironment'
     schedulers :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG
     -- code and supporting files are stored. For example,
-    -- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
+    -- @arn:aws:s3:::my-airflow-bucket-unique-name@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
     sourceBucketArn :: Prelude.Maybe Prelude.Text,
-    -- | The Apache Airflow /Web server/ access mode. To learn more, see
+    -- | The version of the startup shell script in your Amazon S3 bucket. You
+    -- must specify the
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+    -- that Amazon S3 assigns to the file every time you update the script.
+    --
+    -- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+    -- are no more than 1,024 bytes long. The following is an example:
+    --
+    -- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+    startupScriptS3ObjectVersion :: Prelude.Maybe Prelude.Text,
+    -- | The relative path to the startup shell script in your Amazon S3 bucket.
+    -- For example, @s3:\/\/mwaa-environment\/startup.sh@.
+    --
+    -- Amazon MWAA runs the script as your environment starts, and before
+    -- running the Apache Airflow process. You can use this script to install
+    -- dependencies, modify Apache Airflow configuration options, and set
+    -- environment variables. For more information, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+    startupScriptS3Path :: Prelude.Maybe Prelude.Text,
+    -- | The Apache Airflow /Web server/ access mode. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html Apache Airflow access modes>.
     webserverAccessMode :: Prelude.Maybe WebserverAccessMode,
     -- | The day and time of the week in Coordinated Universal Time (UTC) 24-hour
@@ -160,25 +193,34 @@ data UpdateEnvironment = UpdateEnvironment'
 -- for backwards compatibility:
 --
 -- 'airflowConfigurationOptions', 'updateEnvironment_airflowConfigurationOptions' - A list of key-value pairs containing the Apache Airflow configuration
--- options you want to attach to your environment. To learn more, see
+-- options you want to attach to your environment. For more information,
+-- see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 --
--- 'airflowVersion', 'updateEnvironment_airflowVersion' - The Apache Airflow version for your environment. If no value is
--- specified, defaults to the latest version. Valid values: @1.10.12@,
--- @2.0.2@, @2.2.2@, and @2.4.3@.
+-- 'airflowVersion', 'updateEnvironment_airflowVersion' - The Apache Airflow version for your environment. To upgrade your
+-- environment, specify a newer version of Apache Airflow supported by
+-- Amazon MWAA.
+--
+-- Before you upgrade an environment, make sure your requirements, DAGs,
+-- plugins, and other resources used in your workflows are compatible with
+-- the new Apache Airflow version. For more information about updating your
+-- resources, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html Upgrading an Amazon MWAA environment>.
+--
+-- Valid values: @1.10.12@, @2.0.2@, @2.2.2@, @2.4.3@, and @2.5.1@.
 --
 -- 'dagS3Path', 'updateEnvironment_dagS3Path' - The relative path to the DAGs folder on your Amazon S3 bucket. For
--- example, @dags@. To learn more, see
+-- example, @dags@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html Adding or updating DAGs>.
 --
 -- 'environmentClass', 'updateEnvironment_environmentClass' - The environment class type. Valid values: @mw1.small@, @mw1.medium@,
--- @mw1.large@. To learn more, see
+-- @mw1.large@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
 --
 -- 'executionRoleArn', 'updateEnvironment_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role in IAM that allows
 -- MWAA to access Amazon Web Services resources in your environment. For
--- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
--- more, see
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. For more
+-- information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 --
 -- 'loggingConfiguration', 'updateEnvironment_loggingConfiguration' - The Apache Airflow log types to send to CloudWatch Logs.
@@ -197,28 +239,28 @@ data UpdateEnvironment = UpdateEnvironment'
 -- worker count you specify in the @MinWorkers@ field. For example, @2@.
 --
 -- 'networkConfiguration', 'updateEnvironment_networkConfiguration' - The VPC networking components used to secure and enable network traffic
--- between the Amazon Web Services resources for your environment. To learn
--- more, see
+-- between the Amazon Web Services resources for your environment. For more
+-- information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
--- 'pluginsS3ObjectVersion', 'updateEnvironment_pluginsS3ObjectVersion' - The version of the plugins.zip file on your Amazon S3 bucket. A version
--- must be specified each time a plugins.zip file is updated. To learn
--- more, see
+-- 'pluginsS3ObjectVersion', 'updateEnvironment_pluginsS3ObjectVersion' - The version of the plugins.zip file on your Amazon S3 bucket. You must
+-- specify a version each time a @plugins.zip@ file is updated. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
 --
 -- 'pluginsS3Path', 'updateEnvironment_pluginsS3Path' - The relative path to the @plugins.zip@ file on your Amazon S3 bucket.
 -- For example, @plugins.zip@. If specified, then the plugins.zip version
--- is required. To learn more, see
+-- is required. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 --
--- 'requirementsS3ObjectVersion', 'updateEnvironment_requirementsS3ObjectVersion' - The version of the requirements.txt file on your Amazon S3 bucket. A
--- version must be specified each time a requirements.txt file is updated.
--- To learn more, see
+-- 'requirementsS3ObjectVersion', 'updateEnvironment_requirementsS3ObjectVersion' - The version of the requirements.txt file on your Amazon S3 bucket. You
+-- must specify a version each time a @requirements.txt@ file is updated.
+-- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
 --
 -- 'requirementsS3Path', 'updateEnvironment_requirementsS3Path' - The relative path to the @requirements.txt@ file on your Amazon S3
 -- bucket. For example, @requirements.txt@. If specified, then a file
--- version is required. To learn more, see
+-- version is required. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
 --
 -- 'schedulers', 'updateEnvironment_schedulers' - The number of Apache Airflow schedulers to run in your Amazon MWAA
@@ -226,10 +268,32 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 -- 'sourceBucketArn', 'updateEnvironment_sourceBucketArn' - The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG
 -- code and supporting files are stored. For example,
--- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
+-- @arn:aws:s3:::my-airflow-bucket-unique-name@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
 --
--- 'webserverAccessMode', 'updateEnvironment_webserverAccessMode' - The Apache Airflow /Web server/ access mode. To learn more, see
+-- 'startupScriptS3ObjectVersion', 'updateEnvironment_startupScriptS3ObjectVersion' - The version of the startup shell script in your Amazon S3 bucket. You
+-- must specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file every time you update the script.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+--
+-- 'startupScriptS3Path', 'updateEnvironment_startupScriptS3Path' - The relative path to the startup shell script in your Amazon S3 bucket.
+-- For example, @s3:\/\/mwaa-environment\/startup.sh@.
+--
+-- Amazon MWAA runs the script as your environment starts, and before
+-- running the Apache Airflow process. You can use this script to install
+-- dependencies, modify Apache Airflow configuration options, and set
+-- environment variables. For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+--
+-- 'webserverAccessMode', 'updateEnvironment_webserverAccessMode' - The Apache Airflow /Web server/ access mode. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html Apache Airflow access modes>.
 --
 -- 'weeklyMaintenanceWindowStart', 'updateEnvironment_weeklyMaintenanceWindowStart' - The day and time of the week in Coordinated Universal Time (UTC) 24-hour
@@ -261,39 +325,50 @@ newUpdateEnvironment pName_ =
       requirementsS3Path = Prelude.Nothing,
       schedulers = Prelude.Nothing,
       sourceBucketArn = Prelude.Nothing,
+      startupScriptS3ObjectVersion = Prelude.Nothing,
+      startupScriptS3Path = Prelude.Nothing,
       webserverAccessMode = Prelude.Nothing,
       weeklyMaintenanceWindowStart = Prelude.Nothing,
       name = pName_
     }
 
 -- | A list of key-value pairs containing the Apache Airflow configuration
--- options you want to attach to your environment. To learn more, see
+-- options you want to attach to your environment. For more information,
+-- see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 updateEnvironment_airflowConfigurationOptions :: Lens.Lens' UpdateEnvironment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateEnvironment_airflowConfigurationOptions = Lens.lens (\UpdateEnvironment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@UpdateEnvironment' {} a -> s {airflowConfigurationOptions = a} :: UpdateEnvironment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The Apache Airflow version for your environment. If no value is
--- specified, defaults to the latest version. Valid values: @1.10.12@,
--- @2.0.2@, @2.2.2@, and @2.4.3@.
+-- | The Apache Airflow version for your environment. To upgrade your
+-- environment, specify a newer version of Apache Airflow supported by
+-- Amazon MWAA.
+--
+-- Before you upgrade an environment, make sure your requirements, DAGs,
+-- plugins, and other resources used in your workflows are compatible with
+-- the new Apache Airflow version. For more information about updating your
+-- resources, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html Upgrading an Amazon MWAA environment>.
+--
+-- Valid values: @1.10.12@, @2.0.2@, @2.2.2@, @2.4.3@, and @2.5.1@.
 updateEnvironment_airflowVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_airflowVersion = Lens.lens (\UpdateEnvironment' {airflowVersion} -> airflowVersion) (\s@UpdateEnvironment' {} a -> s {airflowVersion = a} :: UpdateEnvironment)
 
 -- | The relative path to the DAGs folder on your Amazon S3 bucket. For
--- example, @dags@. To learn more, see
+-- example, @dags@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html Adding or updating DAGs>.
 updateEnvironment_dagS3Path :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_dagS3Path = Lens.lens (\UpdateEnvironment' {dagS3Path} -> dagS3Path) (\s@UpdateEnvironment' {} a -> s {dagS3Path = a} :: UpdateEnvironment)
 
 -- | The environment class type. Valid values: @mw1.small@, @mw1.medium@,
--- @mw1.large@. To learn more, see
+-- @mw1.large@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
 updateEnvironment_environmentClass :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_environmentClass = Lens.lens (\UpdateEnvironment' {environmentClass} -> environmentClass) (\s@UpdateEnvironment' {} a -> s {environmentClass = a} :: UpdateEnvironment)
 
 -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
 -- MWAA to access Amazon Web Services resources in your environment. For
--- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
--- more, see
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. For more
+-- information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 updateEnvironment_executionRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_executionRoleArn = Lens.lens (\UpdateEnvironment' {executionRoleArn} -> executionRoleArn) (\s@UpdateEnvironment' {} a -> s {executionRoleArn = a} :: UpdateEnvironment)
@@ -320,36 +395,36 @@ updateEnvironment_minWorkers :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prel
 updateEnvironment_minWorkers = Lens.lens (\UpdateEnvironment' {minWorkers} -> minWorkers) (\s@UpdateEnvironment' {} a -> s {minWorkers = a} :: UpdateEnvironment)
 
 -- | The VPC networking components used to secure and enable network traffic
--- between the Amazon Web Services resources for your environment. To learn
--- more, see
+-- between the Amazon Web Services resources for your environment. For more
+-- information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 updateEnvironment_networkConfiguration :: Lens.Lens' UpdateEnvironment (Prelude.Maybe UpdateNetworkConfigurationInput)
 updateEnvironment_networkConfiguration = Lens.lens (\UpdateEnvironment' {networkConfiguration} -> networkConfiguration) (\s@UpdateEnvironment' {} a -> s {networkConfiguration = a} :: UpdateEnvironment)
 
--- | The version of the plugins.zip file on your Amazon S3 bucket. A version
--- must be specified each time a plugins.zip file is updated. To learn
--- more, see
+-- | The version of the plugins.zip file on your Amazon S3 bucket. You must
+-- specify a version each time a @plugins.zip@ file is updated. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
 updateEnvironment_pluginsS3ObjectVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_pluginsS3ObjectVersion = Lens.lens (\UpdateEnvironment' {pluginsS3ObjectVersion} -> pluginsS3ObjectVersion) (\s@UpdateEnvironment' {} a -> s {pluginsS3ObjectVersion = a} :: UpdateEnvironment)
 
 -- | The relative path to the @plugins.zip@ file on your Amazon S3 bucket.
 -- For example, @plugins.zip@. If specified, then the plugins.zip version
--- is required. To learn more, see
+-- is required. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 updateEnvironment_pluginsS3Path :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_pluginsS3Path = Lens.lens (\UpdateEnvironment' {pluginsS3Path} -> pluginsS3Path) (\s@UpdateEnvironment' {} a -> s {pluginsS3Path = a} :: UpdateEnvironment)
 
--- | The version of the requirements.txt file on your Amazon S3 bucket. A
--- version must be specified each time a requirements.txt file is updated.
--- To learn more, see
+-- | The version of the requirements.txt file on your Amazon S3 bucket. You
+-- must specify a version each time a @requirements.txt@ file is updated.
+-- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html How S3 Versioning works>.
 updateEnvironment_requirementsS3ObjectVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_requirementsS3ObjectVersion = Lens.lens (\UpdateEnvironment' {requirementsS3ObjectVersion} -> requirementsS3ObjectVersion) (\s@UpdateEnvironment' {} a -> s {requirementsS3ObjectVersion = a} :: UpdateEnvironment)
 
 -- | The relative path to the @requirements.txt@ file on your Amazon S3
 -- bucket. For example, @requirements.txt@. If specified, then a file
--- version is required. To learn more, see
+-- version is required. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
 updateEnvironment_requirementsS3Path :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_requirementsS3Path = Lens.lens (\UpdateEnvironment' {requirementsS3Path} -> requirementsS3Path) (\s@UpdateEnvironment' {} a -> s {requirementsS3Path = a} :: UpdateEnvironment)
@@ -361,12 +436,38 @@ updateEnvironment_schedulers = Lens.lens (\UpdateEnvironment' {schedulers} -> sc
 
 -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG
 -- code and supporting files are stored. For example,
--- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
+-- @arn:aws:s3:::my-airflow-bucket-unique-name@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
 updateEnvironment_sourceBucketArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_sourceBucketArn = Lens.lens (\UpdateEnvironment' {sourceBucketArn} -> sourceBucketArn) (\s@UpdateEnvironment' {} a -> s {sourceBucketArn = a} :: UpdateEnvironment)
 
--- | The Apache Airflow /Web server/ access mode. To learn more, see
+-- | The version of the startup shell script in your Amazon S3 bucket. You
+-- must specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file every time you update the script.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+updateEnvironment_startupScriptS3ObjectVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_startupScriptS3ObjectVersion = Lens.lens (\UpdateEnvironment' {startupScriptS3ObjectVersion} -> startupScriptS3ObjectVersion) (\s@UpdateEnvironment' {} a -> s {startupScriptS3ObjectVersion = a} :: UpdateEnvironment)
+
+-- | The relative path to the startup shell script in your Amazon S3 bucket.
+-- For example, @s3:\/\/mwaa-environment\/startup.sh@.
+--
+-- Amazon MWAA runs the script as your environment starts, and before
+-- running the Apache Airflow process. You can use this script to install
+-- dependencies, modify Apache Airflow configuration options, and set
+-- environment variables. For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+updateEnvironment_startupScriptS3Path :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_startupScriptS3Path = Lens.lens (\UpdateEnvironment' {startupScriptS3Path} -> startupScriptS3Path) (\s@UpdateEnvironment' {} a -> s {startupScriptS3Path = a} :: UpdateEnvironment)
+
+-- | The Apache Airflow /Web server/ access mode. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html Apache Airflow access modes>.
 updateEnvironment_webserverAccessMode :: Lens.Lens' UpdateEnvironment (Prelude.Maybe WebserverAccessMode)
 updateEnvironment_webserverAccessMode = Lens.lens (\UpdateEnvironment' {webserverAccessMode} -> webserverAccessMode) (\s@UpdateEnvironment' {} a -> s {webserverAccessMode = a} :: UpdateEnvironment)
@@ -415,6 +516,8 @@ instance Prelude.Hashable UpdateEnvironment where
       `Prelude.hashWithSalt` requirementsS3Path
       `Prelude.hashWithSalt` schedulers
       `Prelude.hashWithSalt` sourceBucketArn
+      `Prelude.hashWithSalt` startupScriptS3ObjectVersion
+      `Prelude.hashWithSalt` startupScriptS3Path
       `Prelude.hashWithSalt` webserverAccessMode
       `Prelude.hashWithSalt` weeklyMaintenanceWindowStart
       `Prelude.hashWithSalt` name
@@ -436,6 +539,9 @@ instance Prelude.NFData UpdateEnvironment where
       `Prelude.seq` Prelude.rnf requirementsS3Path
       `Prelude.seq` Prelude.rnf schedulers
       `Prelude.seq` Prelude.rnf sourceBucketArn
+      `Prelude.seq` Prelude.rnf
+        startupScriptS3ObjectVersion
+      `Prelude.seq` Prelude.rnf startupScriptS3Path
       `Prelude.seq` Prelude.rnf webserverAccessMode
       `Prelude.seq` Prelude.rnf
         weeklyMaintenanceWindowStart
@@ -481,6 +587,10 @@ instance Data.ToJSON UpdateEnvironment where
             ("Schedulers" Data..=) Prelude.<$> schedulers,
             ("SourceBucketArn" Data..=)
               Prelude.<$> sourceBucketArn,
+            ("StartupScriptS3ObjectVersion" Data..=)
+              Prelude.<$> startupScriptS3ObjectVersion,
+            ("StartupScriptS3Path" Data..=)
+              Prelude.<$> startupScriptS3Path,
             ("WebserverAccessMode" Data..=)
               Prelude.<$> webserverAccessMode,
             ("WeeklyMaintenanceWindowStart" Data..=)

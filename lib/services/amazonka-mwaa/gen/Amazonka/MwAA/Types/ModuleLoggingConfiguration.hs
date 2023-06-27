@@ -102,7 +102,8 @@ instance Data.FromJSON ModuleLoggingConfiguration where
 
 instance Prelude.Hashable ModuleLoggingConfiguration where
   hashWithSalt _salt ModuleLoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupArn
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupArn
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` logLevel
 

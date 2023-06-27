@@ -23,8 +23,10 @@ module Amazonka.MwAA.Types.EnvironmentStatus
         EnvironmentStatus_AVAILABLE,
         EnvironmentStatus_CREATE_FAILED,
         EnvironmentStatus_CREATING,
+        EnvironmentStatus_CREATING_SNAPSHOT,
         EnvironmentStatus_DELETED,
         EnvironmentStatus_DELETING,
+        EnvironmentStatus_ROLLING_BACK,
         EnvironmentStatus_UNAVAILABLE,
         EnvironmentStatus_UPDATE_FAILED,
         EnvironmentStatus_UPDATING
@@ -73,11 +75,17 @@ pattern EnvironmentStatus_CREATE_FAILED = EnvironmentStatus' "CREATE_FAILED"
 pattern EnvironmentStatus_CREATING :: EnvironmentStatus
 pattern EnvironmentStatus_CREATING = EnvironmentStatus' "CREATING"
 
+pattern EnvironmentStatus_CREATING_SNAPSHOT :: EnvironmentStatus
+pattern EnvironmentStatus_CREATING_SNAPSHOT = EnvironmentStatus' "CREATING_SNAPSHOT"
+
 pattern EnvironmentStatus_DELETED :: EnvironmentStatus
 pattern EnvironmentStatus_DELETED = EnvironmentStatus' "DELETED"
 
 pattern EnvironmentStatus_DELETING :: EnvironmentStatus
 pattern EnvironmentStatus_DELETING = EnvironmentStatus' "DELETING"
+
+pattern EnvironmentStatus_ROLLING_BACK :: EnvironmentStatus
+pattern EnvironmentStatus_ROLLING_BACK = EnvironmentStatus' "ROLLING_BACK"
 
 pattern EnvironmentStatus_UNAVAILABLE :: EnvironmentStatus
 pattern EnvironmentStatus_UNAVAILABLE = EnvironmentStatus' "UNAVAILABLE"
@@ -92,8 +100,10 @@ pattern EnvironmentStatus_UPDATING = EnvironmentStatus' "UPDATING"
   EnvironmentStatus_AVAILABLE,
   EnvironmentStatus_CREATE_FAILED,
   EnvironmentStatus_CREATING,
+  EnvironmentStatus_CREATING_SNAPSHOT,
   EnvironmentStatus_DELETED,
   EnvironmentStatus_DELETING,
+  EnvironmentStatus_ROLLING_BACK,
   EnvironmentStatus_UNAVAILABLE,
   EnvironmentStatus_UPDATE_FAILED,
   EnvironmentStatus_UPDATING,

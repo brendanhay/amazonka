@@ -35,28 +35,28 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEnvironment' smart constructor.
 data Environment = Environment'
   { -- | A list of key-value pairs containing the Apache Airflow configuration
-    -- options attached to your environment. To learn more, see
+    -- options attached to your environment. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
     airflowConfigurationOptions :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text))),
     -- | The Apache Airflow version on your environment. Valid values: @1.10.12@,
-    -- @2.0.2@, @2.2.2@, and @2.4.3@.
+    -- @2.0.2@, @2.2.2@, @2.4.3@, and @2.5.1@.
     airflowVersion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon MWAA environment.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The day and time the environment was created.
     createdAt :: Prelude.Maybe Data.POSIX,
-    -- | The relative path to the DAGs folder on your Amazon S3 bucket. For
-    -- example, @dags@. To learn more, see
+    -- | The relative path to the DAGs folder in your Amazon S3 bucket. For
+    -- example, @s3:\/\/mwaa-environment\/dags@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html Adding or updating DAGs>.
     dagS3Path :: Prelude.Maybe Prelude.Text,
     -- | The environment class type. Valid values: @mw1.small@, @mw1.medium@,
-    -- @mw1.large@. To learn more, see
+    -- @mw1.large@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
     environmentClass :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
     -- MWAA to access Amazon Web Services resources in your environment. For
-    -- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
-    -- more, see
+    -- example, @arn:aws:iam::123456789:role\/my-execution-role@. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Key Management Service (KMS) encryption key used
@@ -77,41 +77,90 @@ data Environment = Environment'
     name :: Prelude.Maybe Prelude.Text,
     -- | Describes the VPC networking components used to secure and enable
     -- network traffic between the Amazon Web Services resources for your
-    -- environment. To learn more, see
+    -- environment. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The version of the plugins.zip file on your Amazon S3 bucket. To learn
-    -- more, see
+    -- | The version of the @plugins.zip@ file in your Amazon S3 bucket. You must
+    -- specify the
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+    -- that Amazon S3 assigns to the file.
+    --
+    -- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+    -- are no more than 1,024 bytes long. The following is an example:
+    --
+    -- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+    --
+    -- For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
     pluginsS3ObjectVersion :: Prelude.Maybe Prelude.Text,
-    -- | The relative path to the @plugins.zip@ file on your Amazon S3 bucket.
-    -- For example, @plugins.zip@. To learn more, see
+    -- | The relative path to the file in your Amazon S3 bucket. For example,
+    -- @s3:\/\/mwaa-environment\/plugins.zip@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
     pluginsS3Path :: Prelude.Maybe Prelude.Text,
-    -- | The version of the requirements.txt file on your Amazon S3 bucket. To
-    -- learn more, see
+    -- | The version of the @requirements.txt @ file on your Amazon S3 bucket.
+    -- You must specify the
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+    -- that Amazon S3 assigns to the file.
+    --
+    -- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+    -- are no more than 1,024 bytes long. The following is an example:
+    --
+    -- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+    --
+    -- For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
     requirementsS3ObjectVersion :: Prelude.Maybe Prelude.Text,
-    -- | The relative path to the @requirements.txt@ file on your Amazon S3
-    -- bucket. For example, @requirements.txt@. To learn more, see
+    -- | The relative path to the @requirements.txt@ file in your Amazon S3
+    -- bucket. For example, @s3:\/\/mwaa-environment\/requirements.txt@. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
     requirementsS3Path :: Prelude.Maybe Prelude.Text,
     -- | The number of Apache Airflow schedulers that run in your Amazon MWAA
     -- environment.
     schedulers :: Prelude.Maybe Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the service-linked role of the
-    -- environment. To learn more, see
+    -- environment. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-slr.html Amazon MWAA Service-linked role>.
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG
     -- code and supporting files are stored. For example,
-    -- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
+    -- @arn:aws:s3:::my-airflow-bucket-unique-name@. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
     sourceBucketArn :: Prelude.Maybe Prelude.Text,
+    -- | The version of the startup shell script in your Amazon S3 bucket. You
+    -- must specify the
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+    -- that Amazon S3 assigns to the file.
+    --
+    -- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+    -- are no more than 1,024 bytes long. The following is an example:
+    --
+    -- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+    startupScriptS3ObjectVersion :: Prelude.Maybe Prelude.Text,
+    -- | The relative path to the startup shell script in your Amazon S3 bucket.
+    -- For example, @s3:\/\/mwaa-environment\/startup.sh@.
+    --
+    -- Amazon MWAA runs the script as your environment starts, and before
+    -- running the Apache Airflow process. You can use this script to install
+    -- dependencies, modify Apache Airflow configuration options, and set
+    -- environment variables. For more information, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+    startupScriptS3Path :: Prelude.Maybe Prelude.Text,
     -- | The status of the Amazon MWAA environment. Valid values:
     --
     -- -   @CREATING@ - Indicates the request to create the environment is in
     --     progress.
+    --
+    -- -   @CREATING_SNAPSHOT@ - Indicates the request to update environment
+    --     details, or upgrade the environment version, is in progress and
+    --     Amazon MWAA is creating a storage volume snapshot of the Amazon RDS
+    --     database cluster associated with the environment. A database
+    --     snapshot is a backup created at a specific point in time. Amazon
+    --     MWAA uses snapshots to recover environment metadata if the process
+    --     to update or upgrade an environment fails.
     --
     -- -   @CREATE_FAILED@ - Indicates the request to create the environment
     --     failed, and the environment could not be created.
@@ -121,6 +170,11 @@ data Environment = Environment'
     --
     -- -   @UPDATING@ - Indicates the request to update the environment is in
     --     progress.
+    --
+    -- -   @ROLLING_BACK@ - Indicates the request to update environment
+    --     details, or upgrade the environment version, failed and Amazon MWAA
+    --     is restoring the environment using the latest storage volume
+    --     snapshot.
     --
     -- -   @DELETING@ - Indicates the request to delete the environment is in
     --     progress.
@@ -136,18 +190,18 @@ data Environment = Environment'
     --     ready to use.
     --
     -- We recommend reviewing our troubleshooting guide for a list of common
-    -- errors and their solutions. To learn more, see
+    -- errors and their solutions. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html Amazon MWAA troubleshooting>.
     status :: Prelude.Maybe EnvironmentStatus,
     -- | The key-value tag pairs associated to your environment. For example,
-    -- @\"Environment\": \"Staging\"@. To learn more, see
+    -- @\"Environment\": \"Staging\"@. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Apache Airflow /Web server/ access mode. To learn more, see
+    -- | The Apache Airflow /Web server/ access mode. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html Apache Airflow access modes>.
     webserverAccessMode :: Prelude.Maybe WebserverAccessMode,
     -- | The Apache Airflow /Web server/ host name for the Amazon MWAA
-    -- environment. To learn more, see
+    -- environment. For more information, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html Accessing the Apache Airflow UI>.
     webserverUrl :: Prelude.Maybe Prelude.Text,
     -- | The day and time of the week in Coordinated Universal Time (UTC) 24-hour
@@ -166,28 +220,28 @@ data Environment = Environment'
 -- for backwards compatibility:
 --
 -- 'airflowConfigurationOptions', 'environment_airflowConfigurationOptions' - A list of key-value pairs containing the Apache Airflow configuration
--- options attached to your environment. To learn more, see
+-- options attached to your environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 --
 -- 'airflowVersion', 'environment_airflowVersion' - The Apache Airflow version on your environment. Valid values: @1.10.12@,
--- @2.0.2@, @2.2.2@, and @2.4.3@.
+-- @2.0.2@, @2.2.2@, @2.4.3@, and @2.5.1@.
 --
 -- 'arn', 'environment_arn' - The Amazon Resource Name (ARN) of the Amazon MWAA environment.
 --
 -- 'createdAt', 'environment_createdAt' - The day and time the environment was created.
 --
--- 'dagS3Path', 'environment_dagS3Path' - The relative path to the DAGs folder on your Amazon S3 bucket. For
--- example, @dags@. To learn more, see
+-- 'dagS3Path', 'environment_dagS3Path' - The relative path to the DAGs folder in your Amazon S3 bucket. For
+-- example, @s3:\/\/mwaa-environment\/dags@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html Adding or updating DAGs>.
 --
 -- 'environmentClass', 'environment_environmentClass' - The environment class type. Valid values: @mw1.small@, @mw1.medium@,
--- @mw1.large@. To learn more, see
+-- @mw1.large@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
 --
 -- 'executionRoleArn', 'environment_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role in IAM that allows
 -- MWAA to access Amazon Web Services resources in your environment. For
--- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
--- more, see
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. For more
+-- information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 --
 -- 'kmsKey', 'environment_kmsKey' - The Amazon Web Services Key Management Service (KMS) encryption key used
@@ -208,41 +262,90 @@ data Environment = Environment'
 --
 -- 'networkConfiguration', 'environment_networkConfiguration' - Describes the VPC networking components used to secure and enable
 -- network traffic between the Amazon Web Services resources for your
--- environment. To learn more, see
+-- environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
--- 'pluginsS3ObjectVersion', 'environment_pluginsS3ObjectVersion' - The version of the plugins.zip file on your Amazon S3 bucket. To learn
--- more, see
+-- 'pluginsS3ObjectVersion', 'environment_pluginsS3ObjectVersion' - The version of the @plugins.zip@ file in your Amazon S3 bucket. You must
+-- specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 --
--- 'pluginsS3Path', 'environment_pluginsS3Path' - The relative path to the @plugins.zip@ file on your Amazon S3 bucket.
--- For example, @plugins.zip@. To learn more, see
+-- 'pluginsS3Path', 'environment_pluginsS3Path' - The relative path to the file in your Amazon S3 bucket. For example,
+-- @s3:\/\/mwaa-environment\/plugins.zip@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 --
--- 'requirementsS3ObjectVersion', 'environment_requirementsS3ObjectVersion' - The version of the requirements.txt file on your Amazon S3 bucket. To
--- learn more, see
+-- 'requirementsS3ObjectVersion', 'environment_requirementsS3ObjectVersion' - The version of the @requirements.txt @ file on your Amazon S3 bucket.
+-- You must specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
 --
--- 'requirementsS3Path', 'environment_requirementsS3Path' - The relative path to the @requirements.txt@ file on your Amazon S3
--- bucket. For example, @requirements.txt@. To learn more, see
+-- 'requirementsS3Path', 'environment_requirementsS3Path' - The relative path to the @requirements.txt@ file in your Amazon S3
+-- bucket. For example, @s3:\/\/mwaa-environment\/requirements.txt@. For
+-- more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
 --
 -- 'schedulers', 'environment_schedulers' - The number of Apache Airflow schedulers that run in your Amazon MWAA
 -- environment.
 --
 -- 'serviceRoleArn', 'environment_serviceRoleArn' - The Amazon Resource Name (ARN) for the service-linked role of the
--- environment. To learn more, see
+-- environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-slr.html Amazon MWAA Service-linked role>.
 --
 -- 'sourceBucketArn', 'environment_sourceBucketArn' - The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG
 -- code and supporting files are stored. For example,
--- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
+-- @arn:aws:s3:::my-airflow-bucket-unique-name@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
+--
+-- 'startupScriptS3ObjectVersion', 'environment_startupScriptS3ObjectVersion' - The version of the startup shell script in your Amazon S3 bucket. You
+-- must specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+--
+-- 'startupScriptS3Path', 'environment_startupScriptS3Path' - The relative path to the startup shell script in your Amazon S3 bucket.
+-- For example, @s3:\/\/mwaa-environment\/startup.sh@.
+--
+-- Amazon MWAA runs the script as your environment starts, and before
+-- running the Apache Airflow process. You can use this script to install
+-- dependencies, modify Apache Airflow configuration options, and set
+-- environment variables. For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
 --
 -- 'status', 'environment_status' - The status of the Amazon MWAA environment. Valid values:
 --
 -- -   @CREATING@ - Indicates the request to create the environment is in
 --     progress.
+--
+-- -   @CREATING_SNAPSHOT@ - Indicates the request to update environment
+--     details, or upgrade the environment version, is in progress and
+--     Amazon MWAA is creating a storage volume snapshot of the Amazon RDS
+--     database cluster associated with the environment. A database
+--     snapshot is a backup created at a specific point in time. Amazon
+--     MWAA uses snapshots to recover environment metadata if the process
+--     to update or upgrade an environment fails.
 --
 -- -   @CREATE_FAILED@ - Indicates the request to create the environment
 --     failed, and the environment could not be created.
@@ -252,6 +355,11 @@ data Environment = Environment'
 --
 -- -   @UPDATING@ - Indicates the request to update the environment is in
 --     progress.
+--
+-- -   @ROLLING_BACK@ - Indicates the request to update environment
+--     details, or upgrade the environment version, failed and Amazon MWAA
+--     is restoring the environment using the latest storage volume
+--     snapshot.
 --
 -- -   @DELETING@ - Indicates the request to delete the environment is in
 --     progress.
@@ -267,18 +375,18 @@ data Environment = Environment'
 --     ready to use.
 --
 -- We recommend reviewing our troubleshooting guide for a list of common
--- errors and their solutions. To learn more, see
+-- errors and their solutions. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html Amazon MWAA troubleshooting>.
 --
 -- 'tags', 'environment_tags' - The key-value tag pairs associated to your environment. For example,
--- @\"Environment\": \"Staging\"@. To learn more, see
+-- @\"Environment\": \"Staging\"@. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
--- 'webserverAccessMode', 'environment_webserverAccessMode' - The Apache Airflow /Web server/ access mode. To learn more, see
+-- 'webserverAccessMode', 'environment_webserverAccessMode' - The Apache Airflow /Web server/ access mode. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html Apache Airflow access modes>.
 --
 -- 'webserverUrl', 'environment_webserverUrl' - The Apache Airflow /Web server/ host name for the Amazon MWAA
--- environment. To learn more, see
+-- environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html Accessing the Apache Airflow UI>.
 --
 -- 'weeklyMaintenanceWindowStart', 'environment_weeklyMaintenanceWindowStart' - The day and time of the week in Coordinated Universal Time (UTC) 24-hour
@@ -310,6 +418,8 @@ newEnvironment =
       schedulers = Prelude.Nothing,
       serviceRoleArn = Prelude.Nothing,
       sourceBucketArn = Prelude.Nothing,
+      startupScriptS3ObjectVersion = Prelude.Nothing,
+      startupScriptS3Path = Prelude.Nothing,
       status = Prelude.Nothing,
       tags = Prelude.Nothing,
       webserverAccessMode = Prelude.Nothing,
@@ -318,13 +428,13 @@ newEnvironment =
     }
 
 -- | A list of key-value pairs containing the Apache Airflow configuration
--- options attached to your environment. To learn more, see
+-- options attached to your environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html Apache Airflow configuration options>.
 environment_airflowConfigurationOptions :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 environment_airflowConfigurationOptions = Lens.lens (\Environment' {airflowConfigurationOptions} -> airflowConfigurationOptions) (\s@Environment' {} a -> s {airflowConfigurationOptions = a} :: Environment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
 -- | The Apache Airflow version on your environment. Valid values: @1.10.12@,
--- @2.0.2@, @2.2.2@, and @2.4.3@.
+-- @2.0.2@, @2.2.2@, @2.4.3@, and @2.5.1@.
 environment_airflowVersion :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_airflowVersion = Lens.lens (\Environment' {airflowVersion} -> airflowVersion) (\s@Environment' {} a -> s {airflowVersion = a} :: Environment)
 
@@ -336,22 +446,22 @@ environment_arn = Lens.lens (\Environment' {arn} -> arn) (\s@Environment' {} a -
 environment_createdAt :: Lens.Lens' Environment (Prelude.Maybe Prelude.UTCTime)
 environment_createdAt = Lens.lens (\Environment' {createdAt} -> createdAt) (\s@Environment' {} a -> s {createdAt = a} :: Environment) Prelude.. Lens.mapping Data._Time
 
--- | The relative path to the DAGs folder on your Amazon S3 bucket. For
--- example, @dags@. To learn more, see
+-- | The relative path to the DAGs folder in your Amazon S3 bucket. For
+-- example, @s3:\/\/mwaa-environment\/dags@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-folder.html Adding or updating DAGs>.
 environment_dagS3Path :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_dagS3Path = Lens.lens (\Environment' {dagS3Path} -> dagS3Path) (\s@Environment' {} a -> s {dagS3Path = a} :: Environment)
 
 -- | The environment class type. Valid values: @mw1.small@, @mw1.medium@,
--- @mw1.large@. To learn more, see
+-- @mw1.large@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html Amazon MWAA environment class>.
 environment_environmentClass :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_environmentClass = Lens.lens (\Environment' {environmentClass} -> environmentClass) (\s@Environment' {} a -> s {environmentClass = a} :: Environment)
 
 -- | The Amazon Resource Name (ARN) of the execution role in IAM that allows
 -- MWAA to access Amazon Web Services resources in your environment. For
--- example, @arn:aws:iam::123456789:role\/my-execution-role@. To learn
--- more, see
+-- example, @arn:aws:iam::123456789:role\/my-execution-role@. For more
+-- information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html Amazon MWAA Execution role>.
 environment_executionRoleArn :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_executionRoleArn = Lens.lens (\Environment' {executionRoleArn} -> executionRoleArn) (\s@Environment' {} a -> s {executionRoleArn = a} :: Environment)
@@ -386,31 +496,50 @@ environment_name = Lens.lens (\Environment' {name} -> name) (\s@Environment' {} 
 
 -- | Describes the VPC networking components used to secure and enable
 -- network traffic between the Amazon Web Services resources for your
--- environment. To learn more, see
+-- environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 environment_networkConfiguration :: Lens.Lens' Environment (Prelude.Maybe NetworkConfiguration)
 environment_networkConfiguration = Lens.lens (\Environment' {networkConfiguration} -> networkConfiguration) (\s@Environment' {} a -> s {networkConfiguration = a} :: Environment)
 
--- | The version of the plugins.zip file on your Amazon S3 bucket. To learn
--- more, see
+-- | The version of the @plugins.zip@ file in your Amazon S3 bucket. You must
+-- specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 environment_pluginsS3ObjectVersion :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_pluginsS3ObjectVersion = Lens.lens (\Environment' {pluginsS3ObjectVersion} -> pluginsS3ObjectVersion) (\s@Environment' {} a -> s {pluginsS3ObjectVersion = a} :: Environment)
 
--- | The relative path to the @plugins.zip@ file on your Amazon S3 bucket.
--- For example, @plugins.zip@. To learn more, see
+-- | The relative path to the file in your Amazon S3 bucket. For example,
+-- @s3:\/\/mwaa-environment\/plugins.zip@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import-plugins.html Installing custom plugins>.
 environment_pluginsS3Path :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_pluginsS3Path = Lens.lens (\Environment' {pluginsS3Path} -> pluginsS3Path) (\s@Environment' {} a -> s {pluginsS3Path = a} :: Environment)
 
--- | The version of the requirements.txt file on your Amazon S3 bucket. To
--- learn more, see
+-- | The version of the @requirements.txt @ file on your Amazon S3 bucket.
+-- You must specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
 environment_requirementsS3ObjectVersion :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_requirementsS3ObjectVersion = Lens.lens (\Environment' {requirementsS3ObjectVersion} -> requirementsS3ObjectVersion) (\s@Environment' {} a -> s {requirementsS3ObjectVersion = a} :: Environment)
 
--- | The relative path to the @requirements.txt@ file on your Amazon S3
--- bucket. For example, @requirements.txt@. To learn more, see
+-- | The relative path to the @requirements.txt@ file in your Amazon S3
+-- bucket. For example, @s3:\/\/mwaa-environment\/requirements.txt@. For
+-- more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html Installing Python dependencies>.
 environment_requirementsS3Path :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_requirementsS3Path = Lens.lens (\Environment' {requirementsS3Path} -> requirementsS3Path) (\s@Environment' {} a -> s {requirementsS3Path = a} :: Environment)
@@ -421,22 +550,56 @@ environment_schedulers :: Lens.Lens' Environment (Prelude.Maybe Prelude.Int)
 environment_schedulers = Lens.lens (\Environment' {schedulers} -> schedulers) (\s@Environment' {} a -> s {schedulers = a} :: Environment)
 
 -- | The Amazon Resource Name (ARN) for the service-linked role of the
--- environment. To learn more, see
+-- environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-slr.html Amazon MWAA Service-linked role>.
 environment_serviceRoleArn :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_serviceRoleArn = Lens.lens (\Environment' {serviceRoleArn} -> serviceRoleArn) (\s@Environment' {} a -> s {serviceRoleArn = a} :: Environment)
 
 -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket where your DAG
 -- code and supporting files are stored. For example,
--- @arn:aws:s3:::my-airflow-bucket-unique-name@. To learn more, see
+-- @arn:aws:s3:::my-airflow-bucket-unique-name@. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-s3-bucket.html Create an Amazon S3 bucket for Amazon MWAA>.
 environment_sourceBucketArn :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_sourceBucketArn = Lens.lens (\Environment' {sourceBucketArn} -> sourceBucketArn) (\s@Environment' {} a -> s {sourceBucketArn = a} :: Environment)
+
+-- | The version of the startup shell script in your Amazon S3 bucket. You
+-- must specify the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/versioning-workflows.html version ID>
+-- that Amazon S3 assigns to the file.
+--
+-- Version IDs are Unicode, UTF-8 encoded, URL-ready, opaque strings that
+-- are no more than 1,024 bytes long. The following is an example:
+--
+-- @3sL4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY+MTRCxf3vjVBH40Nr8X8gdRQBpUMLUo@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+environment_startupScriptS3ObjectVersion :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
+environment_startupScriptS3ObjectVersion = Lens.lens (\Environment' {startupScriptS3ObjectVersion} -> startupScriptS3ObjectVersion) (\s@Environment' {} a -> s {startupScriptS3ObjectVersion = a} :: Environment)
+
+-- | The relative path to the startup shell script in your Amazon S3 bucket.
+-- For example, @s3:\/\/mwaa-environment\/startup.sh@.
+--
+-- Amazon MWAA runs the script as your environment starts, and before
+-- running the Apache Airflow process. You can use this script to install
+-- dependencies, modify Apache Airflow configuration options, and set
+-- environment variables. For more information, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html Using a startup script>.
+environment_startupScriptS3Path :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
+environment_startupScriptS3Path = Lens.lens (\Environment' {startupScriptS3Path} -> startupScriptS3Path) (\s@Environment' {} a -> s {startupScriptS3Path = a} :: Environment)
 
 -- | The status of the Amazon MWAA environment. Valid values:
 --
 -- -   @CREATING@ - Indicates the request to create the environment is in
 --     progress.
+--
+-- -   @CREATING_SNAPSHOT@ - Indicates the request to update environment
+--     details, or upgrade the environment version, is in progress and
+--     Amazon MWAA is creating a storage volume snapshot of the Amazon RDS
+--     database cluster associated with the environment. A database
+--     snapshot is a backup created at a specific point in time. Amazon
+--     MWAA uses snapshots to recover environment metadata if the process
+--     to update or upgrade an environment fails.
 --
 -- -   @CREATE_FAILED@ - Indicates the request to create the environment
 --     failed, and the environment could not be created.
@@ -446,6 +609,11 @@ environment_sourceBucketArn = Lens.lens (\Environment' {sourceBucketArn} -> sour
 --
 -- -   @UPDATING@ - Indicates the request to update the environment is in
 --     progress.
+--
+-- -   @ROLLING_BACK@ - Indicates the request to update environment
+--     details, or upgrade the environment version, failed and Amazon MWAA
+--     is restoring the environment using the latest storage volume
+--     snapshot.
 --
 -- -   @DELETING@ - Indicates the request to delete the environment is in
 --     progress.
@@ -461,24 +629,24 @@ environment_sourceBucketArn = Lens.lens (\Environment' {sourceBucketArn} -> sour
 --     ready to use.
 --
 -- We recommend reviewing our troubleshooting guide for a list of common
--- errors and their solutions. To learn more, see
+-- errors and their solutions. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/troubleshooting.html Amazon MWAA troubleshooting>.
 environment_status :: Lens.Lens' Environment (Prelude.Maybe EnvironmentStatus)
 environment_status = Lens.lens (\Environment' {status} -> status) (\s@Environment' {} a -> s {status = a} :: Environment)
 
 -- | The key-value tag pairs associated to your environment. For example,
--- @\"Environment\": \"Staging\"@. To learn more, see
+-- @\"Environment\": \"Staging\"@. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 environment_tags :: Lens.Lens' Environment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 environment_tags = Lens.lens (\Environment' {tags} -> tags) (\s@Environment' {} a -> s {tags = a} :: Environment) Prelude.. Lens.mapping Lens.coerced
 
--- | The Apache Airflow /Web server/ access mode. To learn more, see
+-- | The Apache Airflow /Web server/ access mode. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-networking.html Apache Airflow access modes>.
 environment_webserverAccessMode :: Lens.Lens' Environment (Prelude.Maybe WebserverAccessMode)
 environment_webserverAccessMode = Lens.lens (\Environment' {webserverAccessMode} -> webserverAccessMode) (\s@Environment' {} a -> s {webserverAccessMode = a} :: Environment)
 
 -- | The Apache Airflow /Web server/ host name for the Amazon MWAA
--- environment. To learn more, see
+-- environment. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/access-airflow-ui.html Accessing the Apache Airflow UI>.
 environment_webserverUrl :: Lens.Lens' Environment (Prelude.Maybe Prelude.Text)
 environment_webserverUrl = Lens.lens (\Environment' {webserverUrl} -> webserverUrl) (\s@Environment' {} a -> s {webserverUrl = a} :: Environment)
@@ -495,7 +663,8 @@ instance Data.FromJSON Environment where
       "Environment"
       ( \x ->
           Environment'
-            Prelude.<$> ( x Data..:? "AirflowConfigurationOptions"
+            Prelude.<$> ( x
+                            Data..:? "AirflowConfigurationOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AirflowVersion")
@@ -518,6 +687,8 @@ instance Data.FromJSON Environment where
             Prelude.<*> (x Data..:? "Schedulers")
             Prelude.<*> (x Data..:? "ServiceRoleArn")
             Prelude.<*> (x Data..:? "SourceBucketArn")
+            Prelude.<*> (x Data..:? "StartupScriptS3ObjectVersion")
+            Prelude.<*> (x Data..:? "StartupScriptS3Path")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "WebserverAccessMode")
@@ -549,6 +720,8 @@ instance Prelude.Hashable Environment where
       `Prelude.hashWithSalt` schedulers
       `Prelude.hashWithSalt` serviceRoleArn
       `Prelude.hashWithSalt` sourceBucketArn
+      `Prelude.hashWithSalt` startupScriptS3ObjectVersion
+      `Prelude.hashWithSalt` startupScriptS3Path
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` webserverAccessMode
@@ -579,6 +752,10 @@ instance Prelude.NFData Environment where
       `Prelude.seq` Prelude.rnf schedulers
       `Prelude.seq` Prelude.rnf serviceRoleArn
       `Prelude.seq` Prelude.rnf sourceBucketArn
+      `Prelude.seq` Prelude.rnf
+        startupScriptS3ObjectVersion
+      `Prelude.seq` Prelude.rnf
+        startupScriptS3Path
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf

@@ -1,0 +1,174 @@
+cabal-version:      2.2
+name:               amazonka-cleanrooms
+version:            2.0
+synopsis:           Amazon Clean Rooms Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2023 Brendan Hay
+category:           AWS
+build-type:         Simple
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
+description:
+  Derived from API version @2022-02-17@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses can be found in "Amazonka.CleanRooms.Lens" and are
+  suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  See "Amazonka.CleanRooms" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
+
+source-repository head
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-cleanrooms
+
+library
+  default-language: Haskell2010
+  hs-source-dirs:   src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
+
+  exposed-modules:
+    Amazonka.CleanRooms
+    Amazonka.CleanRooms.BatchGetSchema
+    Amazonka.CleanRooms.CreateCollaboration
+    Amazonka.CleanRooms.CreateConfiguredTable
+    Amazonka.CleanRooms.CreateConfiguredTableAnalysisRule
+    Amazonka.CleanRooms.CreateConfiguredTableAssociation
+    Amazonka.CleanRooms.CreateMembership
+    Amazonka.CleanRooms.DeleteCollaboration
+    Amazonka.CleanRooms.DeleteConfiguredTable
+    Amazonka.CleanRooms.DeleteConfiguredTableAnalysisRule
+    Amazonka.CleanRooms.DeleteConfiguredTableAssociation
+    Amazonka.CleanRooms.DeleteMember
+    Amazonka.CleanRooms.DeleteMembership
+    Amazonka.CleanRooms.GetCollaboration
+    Amazonka.CleanRooms.GetConfiguredTable
+    Amazonka.CleanRooms.GetConfiguredTableAnalysisRule
+    Amazonka.CleanRooms.GetConfiguredTableAssociation
+    Amazonka.CleanRooms.GetMembership
+    Amazonka.CleanRooms.GetProtectedQuery
+    Amazonka.CleanRooms.GetSchema
+    Amazonka.CleanRooms.GetSchemaAnalysisRule
+    Amazonka.CleanRooms.Lens
+    Amazonka.CleanRooms.ListCollaborations
+    Amazonka.CleanRooms.ListConfiguredTableAssociations
+    Amazonka.CleanRooms.ListConfiguredTables
+    Amazonka.CleanRooms.ListMembers
+    Amazonka.CleanRooms.ListMemberships
+    Amazonka.CleanRooms.ListProtectedQueries
+    Amazonka.CleanRooms.ListSchemas
+    Amazonka.CleanRooms.ListTagsForResource
+    Amazonka.CleanRooms.StartProtectedQuery
+    Amazonka.CleanRooms.TagResource
+    Amazonka.CleanRooms.Types
+    Amazonka.CleanRooms.Types.AggregateColumn
+    Amazonka.CleanRooms.Types.AggregateFunctionName
+    Amazonka.CleanRooms.Types.AggregationConstraint
+    Amazonka.CleanRooms.Types.AggregationType
+    Amazonka.CleanRooms.Types.AnalysisMethod
+    Amazonka.CleanRooms.Types.AnalysisRule
+    Amazonka.CleanRooms.Types.AnalysisRuleAggregation
+    Amazonka.CleanRooms.Types.AnalysisRuleList
+    Amazonka.CleanRooms.Types.AnalysisRulePolicy
+    Amazonka.CleanRooms.Types.AnalysisRulePolicyV1
+    Amazonka.CleanRooms.Types.AnalysisRuleType
+    Amazonka.CleanRooms.Types.BatchGetSchemaError
+    Amazonka.CleanRooms.Types.Collaboration
+    Amazonka.CleanRooms.Types.CollaborationQueryLogStatus
+    Amazonka.CleanRooms.Types.CollaborationSummary
+    Amazonka.CleanRooms.Types.Column
+    Amazonka.CleanRooms.Types.ConfiguredTable
+    Amazonka.CleanRooms.Types.ConfiguredTableAnalysisRule
+    Amazonka.CleanRooms.Types.ConfiguredTableAnalysisRulePolicy
+    Amazonka.CleanRooms.Types.ConfiguredTableAnalysisRulePolicyV1
+    Amazonka.CleanRooms.Types.ConfiguredTableAnalysisRuleType
+    Amazonka.CleanRooms.Types.ConfiguredTableAssociation
+    Amazonka.CleanRooms.Types.ConfiguredTableAssociationSummary
+    Amazonka.CleanRooms.Types.ConfiguredTableSummary
+    Amazonka.CleanRooms.Types.DataEncryptionMetadata
+    Amazonka.CleanRooms.Types.FilterableMemberStatus
+    Amazonka.CleanRooms.Types.GlueTableReference
+    Amazonka.CleanRooms.Types.JoinRequiredOption
+    Amazonka.CleanRooms.Types.MemberAbility
+    Amazonka.CleanRooms.Types.Membership
+    Amazonka.CleanRooms.Types.MembershipQueryLogStatus
+    Amazonka.CleanRooms.Types.MembershipStatus
+    Amazonka.CleanRooms.Types.MembershipSummary
+    Amazonka.CleanRooms.Types.MemberSpecification
+    Amazonka.CleanRooms.Types.MemberStatus
+    Amazonka.CleanRooms.Types.MemberSummary
+    Amazonka.CleanRooms.Types.ProtectedQuery
+    Amazonka.CleanRooms.Types.ProtectedQueryError
+    Amazonka.CleanRooms.Types.ProtectedQueryOutput
+    Amazonka.CleanRooms.Types.ProtectedQueryOutputConfiguration
+    Amazonka.CleanRooms.Types.ProtectedQueryResult
+    Amazonka.CleanRooms.Types.ProtectedQueryResultConfiguration
+    Amazonka.CleanRooms.Types.ProtectedQueryS3Output
+    Amazonka.CleanRooms.Types.ProtectedQueryS3OutputConfiguration
+    Amazonka.CleanRooms.Types.ProtectedQuerySQLParameters
+    Amazonka.CleanRooms.Types.ProtectedQueryStatistics
+    Amazonka.CleanRooms.Types.ProtectedQueryStatus
+    Amazonka.CleanRooms.Types.ProtectedQuerySummary
+    Amazonka.CleanRooms.Types.ProtectedQueryType
+    Amazonka.CleanRooms.Types.ResultFormat
+    Amazonka.CleanRooms.Types.ScalarFunctions
+    Amazonka.CleanRooms.Types.Schema
+    Amazonka.CleanRooms.Types.SchemaSummary
+    Amazonka.CleanRooms.Types.SchemaType
+    Amazonka.CleanRooms.Types.TableReference
+    Amazonka.CleanRooms.Types.TargetProtectedQueryStatus
+    Amazonka.CleanRooms.UntagResource
+    Amazonka.CleanRooms.UpdateCollaboration
+    Amazonka.CleanRooms.UpdateConfiguredTable
+    Amazonka.CleanRooms.UpdateConfiguredTableAnalysisRule
+    Amazonka.CleanRooms.UpdateConfiguredTableAssociation
+    Amazonka.CleanRooms.UpdateMembership
+    Amazonka.CleanRooms.UpdateProtectedQuery
+    Amazonka.CleanRooms.Waiters
+
+  build-depends:
+    , amazonka-core  >=2.0  && <2.1
+    , base           >=4.12 && <5
+
+test-suite amazonka-cleanrooms-test
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.Amazonka.CleanRooms
+    Test.Amazonka.CleanRooms.Internal
+    Test.Amazonka.Gen.CleanRooms
+
+  build-depends:
+    , amazonka-cleanrooms
+    , amazonka-core         >=2.0 && <2.1
+    , amazonka-test         >=2.0 && <2.1
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -102,7 +102,8 @@ instance Core.AWSRequest GetGameConfiguration where
 
 instance Prelude.Hashable GetGameConfiguration where
   hashWithSalt _salt GetGameConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` sections
+    _salt
+      `Prelude.hashWithSalt` sections
       `Prelude.hashWithSalt` gameName
 
 instance Prelude.NFData GetGameConfiguration where

@@ -121,7 +121,8 @@ instance Core.AWSRequest StartGeneratedCodeJob where
 
 instance Prelude.Hashable StartGeneratedCodeJob where
   hashWithSalt _salt StartGeneratedCodeJob' {..} =
-    _salt `Prelude.hashWithSalt` gameName
+    _salt
+      `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` generator
       `Prelude.hashWithSalt` snapshotId
 

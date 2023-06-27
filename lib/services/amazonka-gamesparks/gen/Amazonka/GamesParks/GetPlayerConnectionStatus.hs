@@ -123,7 +123,8 @@ instance Core.AWSRequest GetPlayerConnectionStatus where
 
 instance Prelude.Hashable GetPlayerConnectionStatus where
   hashWithSalt _salt GetPlayerConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` gameName
+    _salt
+      `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` playerId
       `Prelude.hashWithSalt` stageName
 

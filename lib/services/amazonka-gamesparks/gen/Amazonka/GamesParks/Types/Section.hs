@@ -85,7 +85,8 @@ instance Data.FromJSON Section where
 
 instance Prelude.Hashable Section where
   hashWithSalt _salt Section' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` size
 

@@ -135,7 +135,8 @@ instance Data.FromJSON GameDetails where
 
 instance Prelude.Hashable GameDetails where
   hashWithSalt _salt GameDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enableTerminationProtection

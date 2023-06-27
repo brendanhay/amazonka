@@ -102,7 +102,8 @@ sectionModification_section = Lens.lens (\SectionModification' {section} -> sect
 
 instance Prelude.Hashable SectionModification where
   hashWithSalt _salt SectionModification' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` section

@@ -142,22 +142,22 @@ instance Core.AWSPager ListExtensionVersions where
     | Core.stop
         ( rs
             Lens.^? listExtensionVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listExtensionVersionsResponse_extensionVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listExtensionVersions_nextToken
           Lens..~ rs
           Lens.^? listExtensionVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExtensionVersions where
   type
@@ -169,7 +169,8 @@ instance Core.AWSRequest ListExtensionVersions where
     Response.receiveJSON
       ( \s h x ->
           ListExtensionVersionsResponse'
-            Prelude.<$> ( x Data..?> "ExtensionVersions"
+            Prelude.<$> ( x
+                            Data..?> "ExtensionVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -178,7 +179,8 @@ instance Core.AWSRequest ListExtensionVersions where
 
 instance Prelude.Hashable ListExtensionVersions where
   hashWithSalt _salt ListExtensionVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace

@@ -112,7 +112,8 @@ instance Data.FromJSON GeneratedCodeJobDetails where
 
 instance Prelude.Hashable GeneratedCodeJobDetails where
   hashWithSalt _salt GeneratedCodeJobDetails' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` generatedCodeJobId
       `Prelude.hashWithSalt` s3Url

@@ -68,12 +68,14 @@ instance Data.FromJSON Connection where
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> (x Data..:? "Created") Prelude.<*> (x Data..:? "Id")
+            Prelude.<$> (x Data..:? "Created")
+            Prelude.<*> (x Data..:? "Id")
       )
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData Connection where

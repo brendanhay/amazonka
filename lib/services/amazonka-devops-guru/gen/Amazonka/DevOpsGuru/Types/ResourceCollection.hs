@@ -49,7 +49,7 @@ data ResourceCollection = ResourceCollection'
     -- resources are related. For example, you can assign the same tag to an
     -- Amazon DynamoDB table resource that you assign to an Lambda function.
     -- For more information about using tags, see the
-    -- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+    -- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging best practices>
     -- whitepaper.
     --
     -- Each Amazon Web Services tag has two parts.
@@ -99,7 +99,7 @@ data ResourceCollection = ResourceCollection'
 -- resources are related. For example, you can assign the same tag to an
 -- Amazon DynamoDB table resource that you assign to an Lambda function.
 -- For more information about using tags, see the
--- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging best practices>
 -- whitepaper.
 --
 -- Each Amazon Web Services tag has two parts.
@@ -148,7 +148,7 @@ resourceCollection_cloudFormation = Lens.lens (\ResourceCollection' {cloudFormat
 -- resources are related. For example, you can assign the same tag to an
 -- Amazon DynamoDB table resource that you assign to an Lambda function.
 -- For more information about using tags, see the
--- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging best practices>
 -- whitepaper.
 --
 -- Each Amazon Web Services tag has two parts.
@@ -188,7 +188,8 @@ instance Data.FromJSON ResourceCollection where
 
 instance Prelude.Hashable ResourceCollection where
   hashWithSalt _salt ResourceCollection' {..} =
-    _salt `Prelude.hashWithSalt` cloudFormation
+    _salt
+      `Prelude.hashWithSalt` cloudFormation
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ResourceCollection where

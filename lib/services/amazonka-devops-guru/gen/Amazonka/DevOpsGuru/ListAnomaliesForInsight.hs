@@ -31,6 +31,7 @@ module Amazonka.DevOpsGuru.ListAnomaliesForInsight
 
     -- * Request Lenses
     listAnomaliesForInsight_accountId,
+    listAnomaliesForInsight_filters,
     listAnomaliesForInsight_maxResults,
     listAnomaliesForInsight_nextToken,
     listAnomaliesForInsight_startTimeRange,
@@ -60,6 +61,8 @@ import qualified Amazonka.Response as Response
 data ListAnomaliesForInsight = ListAnomaliesForInsight'
   { -- | The ID of the Amazon Web Services account.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies one or more service names that are used to list anomalies.
+    filters :: Prelude.Maybe ListAnomaliesForInsightFilters,
     -- | The maximum number of results to return with a single call. To retrieve
     -- the remaining results, make another call with the returned @nextToken@
     -- value.
@@ -85,6 +88,8 @@ data ListAnomaliesForInsight = ListAnomaliesForInsight'
 --
 -- 'accountId', 'listAnomaliesForInsight_accountId' - The ID of the Amazon Web Services account.
 --
+-- 'filters', 'listAnomaliesForInsight_filters' - Specifies one or more service names that are used to list anomalies.
+--
 -- 'maxResults', 'listAnomaliesForInsight_maxResults' - The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
 -- value.
@@ -104,6 +109,7 @@ newListAnomaliesForInsight pInsightId_ =
   ListAnomaliesForInsight'
     { accountId =
         Prelude.Nothing,
+      filters = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       startTimeRange = Prelude.Nothing,
@@ -113,6 +119,10 @@ newListAnomaliesForInsight pInsightId_ =
 -- | The ID of the Amazon Web Services account.
 listAnomaliesForInsight_accountId :: Lens.Lens' ListAnomaliesForInsight (Prelude.Maybe Prelude.Text)
 listAnomaliesForInsight_accountId = Lens.lens (\ListAnomaliesForInsight' {accountId} -> accountId) (\s@ListAnomaliesForInsight' {} a -> s {accountId = a} :: ListAnomaliesForInsight)
+
+-- | Specifies one or more service names that are used to list anomalies.
+listAnomaliesForInsight_filters :: Lens.Lens' ListAnomaliesForInsight (Prelude.Maybe ListAnomaliesForInsightFilters)
+listAnomaliesForInsight_filters = Lens.lens (\ListAnomaliesForInsight' {filters} -> filters) (\s@ListAnomaliesForInsight' {} a -> s {filters = a} :: ListAnomaliesForInsight)
 
 -- | The maximum number of results to return with a single call. To retrieve
 -- the remaining results, make another call with the returned @nextToken@
@@ -139,28 +149,28 @@ instance Core.AWSPager ListAnomaliesForInsight where
     | Core.stop
         ( rs
             Lens.^? listAnomaliesForInsightResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAnomaliesForInsightResponse_reactiveAnomalies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAnomaliesForInsightResponse_proactiveAnomalies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAnomaliesForInsight_nextToken
           Lens..~ rs
           Lens.^? listAnomaliesForInsightResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnomaliesForInsight where
   type
@@ -173,10 +183,12 @@ instance Core.AWSRequest ListAnomaliesForInsight where
       ( \s h x ->
           ListAnomaliesForInsightResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProactiveAnomalies"
+            Prelude.<*> ( x
+                            Data..?> "ProactiveAnomalies"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ReactiveAnomalies"
+            Prelude.<*> ( x
+                            Data..?> "ReactiveAnomalies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -184,7 +196,9 @@ instance Core.AWSRequest ListAnomaliesForInsight where
 
 instance Prelude.Hashable ListAnomaliesForInsight where
   hashWithSalt _salt ListAnomaliesForInsight' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTimeRange
@@ -193,6 +207,7 @@ instance Prelude.Hashable ListAnomaliesForInsight where
 instance Prelude.NFData ListAnomaliesForInsight where
   rnf ListAnomaliesForInsight' {..} =
     Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf startTimeRange
@@ -214,6 +229,7 @@ instance Data.ToJSON ListAnomaliesForInsight where
     Data.object
       ( Prelude.catMaybes
           [ ("AccountId" Data..=) Prelude.<$> accountId,
+            ("Filters" Data..=) Prelude.<$> filters,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("StartTimeRange" Data..=)

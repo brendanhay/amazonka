@@ -100,7 +100,8 @@ instance Data.FromJSON CloudFormationHealth where
 
 instance Prelude.Hashable CloudFormationHealth where
   hashWithSalt _salt CloudFormationHealth' {..} =
-    _salt `Prelude.hashWithSalt` analyzedResourceCount
+    _salt
+      `Prelude.hashWithSalt` analyzedResourceCount
       `Prelude.hashWithSalt` insight
       `Prelude.hashWithSalt` stackName
 

@@ -88,7 +88,8 @@ instance
       "RecommendationRelatedAnomalyResource"
       ( \x ->
           RecommendationRelatedAnomalyResource'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -98,7 +99,8 @@ instance
   hashWithSalt
     _salt
     RecommendationRelatedAnomalyResource' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` type'
 
 instance

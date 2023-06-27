@@ -105,7 +105,8 @@ instance Data.FromJSON AnomalousLogGroup where
           AnomalousLogGroup'
             Prelude.<$> (x Data..:? "ImpactEndTime")
             Prelude.<*> (x Data..:? "ImpactStartTime")
-            Prelude.<*> ( x Data..:? "LogAnomalyShowcases"
+            Prelude.<*> ( x
+                            Data..:? "LogAnomalyShowcases"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LogGroupName")
@@ -114,7 +115,8 @@ instance Data.FromJSON AnomalousLogGroup where
 
 instance Prelude.Hashable AnomalousLogGroup where
   hashWithSalt _salt AnomalousLogGroup' {..} =
-    _salt `Prelude.hashWithSalt` impactEndTime
+    _salt
+      `Prelude.hashWithSalt` impactEndTime
       `Prelude.hashWithSalt` impactStartTime
       `Prelude.hashWithSalt` logAnomalyShowcases
       `Prelude.hashWithSalt` logGroupName

@@ -22,6 +22,7 @@ module Amazonka.DevOpsGuru.Types.ServiceIntegrationConfig where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.DevOpsGuru.Types.KMSServerSideEncryptionIntegration
 import Amazonka.DevOpsGuru.Types.LogsAnomalyDetectionIntegration
 import Amazonka.DevOpsGuru.Types.OpsCenterIntegration
 import qualified Amazonka.Prelude as Prelude
@@ -31,7 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newServiceIntegrationConfig' smart constructor.
 data ServiceIntegrationConfig = ServiceIntegrationConfig'
-  { -- | Information about whether DevOps Guru is configured to perform log
+  { -- | Information about whether DevOps Guru is configured to encrypt
+    -- server-side data using KMS.
+    kmsServerSideEncryption :: Prelude.Maybe KMSServerSideEncryptionIntegration,
+    -- | Information about whether DevOps Guru is configured to perform log
     -- anomaly detection on Amazon CloudWatch log groups.
     logsAnomalyDetection :: Prelude.Maybe LogsAnomalyDetectionIntegration,
     -- | Information about whether DevOps Guru is configured to create an OpsItem
@@ -49,6 +53,9 @@ data ServiceIntegrationConfig = ServiceIntegrationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsServerSideEncryption', 'serviceIntegrationConfig_kmsServerSideEncryption' - Information about whether DevOps Guru is configured to encrypt
+-- server-side data using KMS.
+--
 -- 'logsAnomalyDetection', 'serviceIntegrationConfig_logsAnomalyDetection' - Information about whether DevOps Guru is configured to perform log
 -- anomaly detection on Amazon CloudWatch log groups.
 --
@@ -59,10 +66,16 @@ newServiceIntegrationConfig ::
   ServiceIntegrationConfig
 newServiceIntegrationConfig =
   ServiceIntegrationConfig'
-    { logsAnomalyDetection =
+    { kmsServerSideEncryption =
         Prelude.Nothing,
+      logsAnomalyDetection = Prelude.Nothing,
       opsCenter = Prelude.Nothing
     }
+
+-- | Information about whether DevOps Guru is configured to encrypt
+-- server-side data using KMS.
+serviceIntegrationConfig_kmsServerSideEncryption :: Lens.Lens' ServiceIntegrationConfig (Prelude.Maybe KMSServerSideEncryptionIntegration)
+serviceIntegrationConfig_kmsServerSideEncryption = Lens.lens (\ServiceIntegrationConfig' {kmsServerSideEncryption} -> kmsServerSideEncryption) (\s@ServiceIntegrationConfig' {} a -> s {kmsServerSideEncryption = a} :: ServiceIntegrationConfig)
 
 -- | Information about whether DevOps Guru is configured to perform log
 -- anomaly detection on Amazon CloudWatch log groups.
@@ -81,16 +94,20 @@ instance Data.FromJSON ServiceIntegrationConfig where
       "ServiceIntegrationConfig"
       ( \x ->
           ServiceIntegrationConfig'
-            Prelude.<$> (x Data..:? "LogsAnomalyDetection")
+            Prelude.<$> (x Data..:? "KMSServerSideEncryption")
+            Prelude.<*> (x Data..:? "LogsAnomalyDetection")
             Prelude.<*> (x Data..:? "OpsCenter")
       )
 
 instance Prelude.Hashable ServiceIntegrationConfig where
   hashWithSalt _salt ServiceIntegrationConfig' {..} =
-    _salt `Prelude.hashWithSalt` logsAnomalyDetection
+    _salt
+      `Prelude.hashWithSalt` kmsServerSideEncryption
+      `Prelude.hashWithSalt` logsAnomalyDetection
       `Prelude.hashWithSalt` opsCenter
 
 instance Prelude.NFData ServiceIntegrationConfig where
   rnf ServiceIntegrationConfig' {..} =
-    Prelude.rnf logsAnomalyDetection
+    Prelude.rnf kmsServerSideEncryption
+      `Prelude.seq` Prelude.rnf logsAnomalyDetection
       `Prelude.seq` Prelude.rnf opsCenter

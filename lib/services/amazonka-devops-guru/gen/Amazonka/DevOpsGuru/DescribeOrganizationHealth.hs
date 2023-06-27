@@ -108,7 +108,8 @@ instance Core.AWSRequest DescribeOrganizationHealth where
 
 instance Prelude.Hashable DescribeOrganizationHealth where
   hashWithSalt _salt DescribeOrganizationHealth' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` organizationalUnitIds
 
 instance Prelude.NFData DescribeOrganizationHealth where

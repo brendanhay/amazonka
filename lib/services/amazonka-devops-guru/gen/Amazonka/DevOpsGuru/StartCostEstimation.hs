@@ -104,7 +104,8 @@ instance Core.AWSRequest StartCostEstimation where
 
 instance Prelude.Hashable StartCostEstimation where
   hashWithSalt _salt StartCostEstimation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` resourceCollection
 
 instance Prelude.NFData StartCostEstimation where

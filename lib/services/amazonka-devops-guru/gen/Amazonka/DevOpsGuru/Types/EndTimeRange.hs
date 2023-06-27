@@ -65,7 +65,8 @@ endTimeRange_toTime = Lens.lens (\EndTimeRange' {toTime} -> toTime) (\s@EndTimeR
 
 instance Prelude.Hashable EndTimeRange where
   hashWithSalt _salt EndTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` fromTime
+    _salt
+      `Prelude.hashWithSalt` fromTime
       `Prelude.hashWithSalt` toTime
 
 instance Prelude.NFData EndTimeRange where

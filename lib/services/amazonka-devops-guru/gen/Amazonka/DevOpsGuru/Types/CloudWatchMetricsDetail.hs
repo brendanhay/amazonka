@@ -146,7 +146,8 @@ instance Data.FromJSON CloudWatchMetricsDetail where
 
 instance Prelude.Hashable CloudWatchMetricsDetail where
   hashWithSalt _salt CloudWatchMetricsDetail' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` metricDataSummary
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace

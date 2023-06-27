@@ -92,6 +92,9 @@ module Amazonka.DevOpsGuru.Types
     -- * ResourceTypeFilter
     ResourceTypeFilter (..),
 
+    -- * ServerSideEncryptionType
+    ServerSideEncryptionType (..),
+
     -- * ServiceName
     ServiceName (..),
 
@@ -267,6 +270,25 @@ module Amazonka.DevOpsGuru.Types
     insightTimeRange_endTime,
     insightTimeRange_startTime,
 
+    -- * KMSServerSideEncryptionIntegration
+    KMSServerSideEncryptionIntegration (..),
+    newKMSServerSideEncryptionIntegration,
+    kmsServerSideEncryptionIntegration_kmsKeyId,
+    kmsServerSideEncryptionIntegration_optInStatus,
+    kmsServerSideEncryptionIntegration_type,
+
+    -- * KMSServerSideEncryptionIntegrationConfig
+    KMSServerSideEncryptionIntegrationConfig (..),
+    newKMSServerSideEncryptionIntegrationConfig,
+    kmsServerSideEncryptionIntegrationConfig_kmsKeyId,
+    kmsServerSideEncryptionIntegrationConfig_optInStatus,
+    kmsServerSideEncryptionIntegrationConfig_type,
+
+    -- * ListAnomaliesForInsightFilters
+    ListAnomaliesForInsightFilters (..),
+    newListAnomaliesForInsightFilters,
+    listAnomaliesForInsightFilters_serviceCollection,
+
     -- * ListEventsFilters
     ListEventsFilters (..),
     newListEventsFilters,
@@ -435,6 +457,7 @@ module Amazonka.DevOpsGuru.Types
     proactiveAnomaly_anomalyResources,
     proactiveAnomaly_anomalyTimeRange,
     proactiveAnomaly_associatedInsightId,
+    proactiveAnomaly_description,
     proactiveAnomaly_id,
     proactiveAnomaly_limit,
     proactiveAnomaly_predictionTimeRange,
@@ -452,6 +475,7 @@ module Amazonka.DevOpsGuru.Types
     proactiveAnomalySummary_anomalyResources,
     proactiveAnomalySummary_anomalyTimeRange,
     proactiveAnomalySummary_associatedInsightId,
+    proactiveAnomalySummary_description,
     proactiveAnomalySummary_id,
     proactiveAnomalySummary_limit,
     proactiveAnomalySummary_predictionTimeRange,
@@ -669,6 +693,7 @@ module Amazonka.DevOpsGuru.Types
     -- * ServiceIntegrationConfig
     ServiceIntegrationConfig (..),
     newServiceIntegrationConfig,
+    serviceIntegrationConfig_kmsServerSideEncryption,
     serviceIntegrationConfig_logsAnomalyDetection,
     serviceIntegrationConfig_opsCenter,
 
@@ -738,6 +763,7 @@ module Amazonka.DevOpsGuru.Types
     -- * UpdateServiceIntegrationConfig
     UpdateServiceIntegrationConfig (..),
     newUpdateServiceIntegrationConfig,
+    updateServiceIntegrationConfig_kmsServerSideEncryption,
     updateServiceIntegrationConfig_logsAnomalyDetection,
     updateServiceIntegrationConfig_opsCenter,
 
@@ -791,6 +817,9 @@ import Amazonka.DevOpsGuru.Types.InsightSeverity
 import Amazonka.DevOpsGuru.Types.InsightStatus
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
 import Amazonka.DevOpsGuru.Types.InsightType
+import Amazonka.DevOpsGuru.Types.KMSServerSideEncryptionIntegration
+import Amazonka.DevOpsGuru.Types.KMSServerSideEncryptionIntegrationConfig
+import Amazonka.DevOpsGuru.Types.ListAnomaliesForInsightFilters
 import Amazonka.DevOpsGuru.Types.ListEventsFilters
 import Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter
 import Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter
@@ -845,6 +874,7 @@ import Amazonka.DevOpsGuru.Types.ResourcePermission
 import Amazonka.DevOpsGuru.Types.ResourceTypeFilter
 import Amazonka.DevOpsGuru.Types.SearchInsightsFilters
 import Amazonka.DevOpsGuru.Types.SearchOrganizationInsightsFilters
+import Amazonka.DevOpsGuru.Types.ServerSideEncryptionType
 import Amazonka.DevOpsGuru.Types.ServiceCollection
 import Amazonka.DevOpsGuru.Types.ServiceHealth
 import Amazonka.DevOpsGuru.Types.ServiceInsightHealth
@@ -892,48 +922,48 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have permissions to perform the requested operation. The user
@@ -942,7 +972,7 @@ defaultService =
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
 -- in the /IAM User Guide/.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -950,7 +980,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | An exception that is thrown when a conflict occurs.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -958,7 +988,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An internal failure in an Amazon service occurred.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -966,7 +996,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | A requested resource could not be found
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -974,7 +1004,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request contains a value that exceeds a maximum quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -982,7 +1012,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to a request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -991,7 +1021,7 @@ _ThrottlingException =
 
 -- | Contains information about data passed in to a field during a request
 -- that is not valid.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

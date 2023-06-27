@@ -74,7 +74,8 @@ instance Data.FromJSON CostEstimationTimeRange where
 
 instance Prelude.Hashable CostEstimationTimeRange where
   hashWithSalt _salt CostEstimationTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData CostEstimationTimeRange where

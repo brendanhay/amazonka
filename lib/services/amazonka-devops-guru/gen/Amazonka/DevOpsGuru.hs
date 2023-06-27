@@ -320,6 +320,9 @@ module Amazonka.DevOpsGuru
     -- ** ResourceTypeFilter
     ResourceTypeFilter (..),
 
+    -- ** ServerSideEncryptionType
+    ServerSideEncryptionType (..),
+
     -- ** ServiceName
     ServiceName (..),
 
@@ -429,6 +432,18 @@ module Amazonka.DevOpsGuru
     -- ** InsightTimeRange
     InsightTimeRange (InsightTimeRange'),
     newInsightTimeRange,
+
+    -- ** KMSServerSideEncryptionIntegration
+    KMSServerSideEncryptionIntegration (KMSServerSideEncryptionIntegration'),
+    newKMSServerSideEncryptionIntegration,
+
+    -- ** KMSServerSideEncryptionIntegrationConfig
+    KMSServerSideEncryptionIntegrationConfig (KMSServerSideEncryptionIntegrationConfig'),
+    newKMSServerSideEncryptionIntegrationConfig,
+
+    -- ** ListAnomaliesForInsightFilters
+    ListAnomaliesForInsightFilters (ListAnomaliesForInsightFilters'),
+    newListAnomaliesForInsightFilters,
 
     -- ** ListEventsFilters
     ListEventsFilters (ListEventsFilters'),

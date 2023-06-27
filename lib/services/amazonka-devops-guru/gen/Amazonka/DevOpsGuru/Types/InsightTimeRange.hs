@@ -77,7 +77,8 @@ instance Data.FromJSON InsightTimeRange where
 
 instance Prelude.Hashable InsightTimeRange where
   hashWithSalt _salt InsightTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData InsightTimeRange where

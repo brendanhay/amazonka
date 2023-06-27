@@ -27,8 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A single query to be processed. Use these parameters to query the
 -- Performance Insights @GetResourceMetrics@ API to retrieve the metrics
--- for an anomaly. For more information, see @ GetResourceMetrics @ in the
--- /Amazon RDS Performance Insights API Reference/.
+-- for an anomaly. For more information, see
+-- @ @<https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_GetResourceMetrics.html GetResourceMetrics>@ @
+-- in the /Amazon RDS Performance Insights API Reference/.
 --
 -- Amazon RDS Performance Insights enables you to monitor and explore
 -- different dimensions of database load based on data captured from a
@@ -196,7 +197,8 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsMetricQuery' {..} =
-      _salt `Prelude.hashWithSalt` filter'
+      _salt
+        `Prelude.hashWithSalt` filter'
         `Prelude.hashWithSalt` groupBy
         `Prelude.hashWithSalt` metric
 

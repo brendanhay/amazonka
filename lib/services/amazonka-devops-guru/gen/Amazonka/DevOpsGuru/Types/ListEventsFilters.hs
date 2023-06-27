@@ -116,7 +116,8 @@ listEventsFilters_resourceCollection = Lens.lens (\ListEventsFilters' {resourceC
 
 instance Prelude.Hashable ListEventsFilters where
   hashWithSalt _salt ListEventsFilters' {..} =
-    _salt `Prelude.hashWithSalt` dataSource
+    _salt
+      `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` eventClass
       `Prelude.hashWithSalt` eventSource
       `Prelude.hashWithSalt` eventTimeRange

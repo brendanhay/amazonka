@@ -86,7 +86,8 @@ instance Data.FromJSON AnomalySourceMetadata where
 
 instance Prelude.Hashable AnomalySourceMetadata where
   hashWithSalt _salt AnomalySourceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` source
+    _salt
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` sourceResourceName
       `Prelude.hashWithSalt` sourceResourceType
 

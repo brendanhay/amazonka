@@ -43,7 +43,7 @@ data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
     -- resources are related. For example, you can assign the same tag to an
     -- Amazon DynamoDB table resource that you assign to an Lambda function.
     -- For more information about using tags, see the
-    -- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+    -- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging best practices>
     -- whitepaper.
     --
     -- Each Amazon Web Services tag has two parts.
@@ -92,7 +92,7 @@ data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
 -- resources are related. For example, you can assign the same tag to an
 -- Amazon DynamoDB table resource that you assign to an Lambda function.
 -- For more information about using tags, see the
--- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging best practices>
 -- whitepaper.
 --
 -- Each Amazon Web Services tag has two parts.
@@ -140,7 +140,7 @@ updateResourceCollectionFilter_cloudFormation = Lens.lens (\UpdateResourceCollec
 -- resources are related. For example, you can assign the same tag to an
 -- Amazon DynamoDB table resource that you assign to an Lambda function.
 -- For more information about using tags, see the
--- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- <https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html Tagging best practices>
 -- whitepaper.
 --
 -- Each Amazon Web Services tag has two parts.
@@ -175,7 +175,8 @@ instance
   hashWithSalt
     _salt
     UpdateResourceCollectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` cloudFormation
+      _salt
+        `Prelude.hashWithSalt` cloudFormation
         `Prelude.hashWithSalt` tags
 
 instance

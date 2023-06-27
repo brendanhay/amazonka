@@ -69,7 +69,8 @@ instance
       "RecommendationRelatedAnomalySourceDetail"
       ( \x ->
           RecommendationRelatedAnomalySourceDetail'
-            Prelude.<$> ( x Data..:? "CloudWatchMetrics"
+            Prelude.<$> ( x
+                            Data..:? "CloudWatchMetrics"
                             Data..!= Prelude.mempty
                         )
       )

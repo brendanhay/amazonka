@@ -82,7 +82,8 @@ instance Data.FromJSON AccountInsightHealth where
 
 instance Prelude.Hashable AccountInsightHealth where
   hashWithSalt _salt AccountInsightHealth' {..} =
-    _salt `Prelude.hashWithSalt` openProactiveInsights
+    _salt
+      `Prelude.hashWithSalt` openProactiveInsights
       `Prelude.hashWithSalt` openReactiveInsights
 
 instance Prelude.NFData AccountInsightHealth where

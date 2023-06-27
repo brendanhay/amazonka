@@ -28,8 +28,12 @@ import Amazonka.DevOpsGuru.Types.ResourceCollection
 import Amazonka.DevOpsGuru.Types.ServiceCollection
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies one or more severity values and one or more status values that
--- are used to search for insights.
+-- | Specifies values used to filter responses when searching for insights.
+-- You can use a @ResourceCollection@, @ServiceCollection@, array of
+-- severities, and an array of status values. Each filter type contains one
+-- or more values to search for. If you specify multiple filter types, the
+-- filter types are joined with an @AND@, and the request returns only
+-- results that match all of the specified filters.
 --
 -- /See:/ 'newSearchInsightsFilters' smart constructor.
 data SearchInsightsFilters = SearchInsightsFilters'
@@ -87,7 +91,8 @@ searchInsightsFilters_statuses = Lens.lens (\SearchInsightsFilters' {statuses} -
 
 instance Prelude.Hashable SearchInsightsFilters where
   hashWithSalt _salt SearchInsightsFilters' {..} =
-    _salt `Prelude.hashWithSalt` resourceCollection
+    _salt
+      `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` serviceCollection
       `Prelude.hashWithSalt` severities
       `Prelude.hashWithSalt` statuses

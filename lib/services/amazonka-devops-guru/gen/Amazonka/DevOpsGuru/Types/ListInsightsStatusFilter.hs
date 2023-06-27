@@ -85,7 +85,8 @@ listInsightsStatusFilter_ongoing = Lens.lens (\ListInsightsStatusFilter' {ongoin
 
 instance Prelude.Hashable ListInsightsStatusFilter where
   hashWithSalt _salt ListInsightsStatusFilter' {..} =
-    _salt `Prelude.hashWithSalt` any
+    _salt
+      `Prelude.hashWithSalt` any
       `Prelude.hashWithSalt` closed
       `Prelude.hashWithSalt` ongoing
 

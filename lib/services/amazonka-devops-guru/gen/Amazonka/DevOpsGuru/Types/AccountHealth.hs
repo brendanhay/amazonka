@@ -84,7 +84,8 @@ instance Data.FromJSON AccountHealth where
 
 instance Prelude.Hashable AccountHealth where
   hashWithSalt _salt AccountHealth' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` insight
 
 instance Prelude.NFData AccountHealth where

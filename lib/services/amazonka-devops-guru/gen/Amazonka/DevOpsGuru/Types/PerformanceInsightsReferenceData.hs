@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data PerformanceInsightsReferenceData = PerformanceInsightsReferenceData'
   { -- | The specific reference values used to evaluate the Performance Insights.
     -- For more information, see
-    -- @ PerformanceInsightsReferenceComparisonValues @.
+    -- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceComparisonValues.html PerformanceInsightsReferenceComparisonValues>@ @.
     comparisonValues :: Prelude.Maybe PerformanceInsightsReferenceComparisonValues,
     -- | The name of the reference data.
     name :: Prelude.Maybe Prelude.Text
@@ -49,7 +49,7 @@ data PerformanceInsightsReferenceData = PerformanceInsightsReferenceData'
 --
 -- 'comparisonValues', 'performanceInsightsReferenceData_comparisonValues' - The specific reference values used to evaluate the Performance Insights.
 -- For more information, see
--- @ PerformanceInsightsReferenceComparisonValues @.
+-- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceComparisonValues.html PerformanceInsightsReferenceComparisonValues>@ @.
 --
 -- 'name', 'performanceInsightsReferenceData_name' - The name of the reference data.
 newPerformanceInsightsReferenceData ::
@@ -63,7 +63,7 @@ newPerformanceInsightsReferenceData =
 
 -- | The specific reference values used to evaluate the Performance Insights.
 -- For more information, see
--- @ PerformanceInsightsReferenceComparisonValues @.
+-- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceComparisonValues.html PerformanceInsightsReferenceComparisonValues>@ @.
 performanceInsightsReferenceData_comparisonValues :: Lens.Lens' PerformanceInsightsReferenceData (Prelude.Maybe PerformanceInsightsReferenceComparisonValues)
 performanceInsightsReferenceData_comparisonValues = Lens.lens (\PerformanceInsightsReferenceData' {comparisonValues} -> comparisonValues) (\s@PerformanceInsightsReferenceData' {} a -> s {comparisonValues = a} :: PerformanceInsightsReferenceData)
 
@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsReferenceData' {..} =
-      _salt `Prelude.hashWithSalt` comparisonValues
+      _salt
+        `Prelude.hashWithSalt` comparisonValues
         `Prelude.hashWithSalt` name
 
 instance

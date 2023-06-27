@@ -137,7 +137,8 @@ instance Data.FromJSON LogAnomalyClass where
 
 instance Prelude.Hashable LogAnomalyClass where
   hashWithSalt _salt LogAnomalyClass' {..} =
-    _salt `Prelude.hashWithSalt` explanation
+    _salt
+      `Prelude.hashWithSalt` explanation
       `Prelude.hashWithSalt` logAnomalyToken
       `Prelude.hashWithSalt` logAnomalyType
       `Prelude.hashWithSalt` logEventId

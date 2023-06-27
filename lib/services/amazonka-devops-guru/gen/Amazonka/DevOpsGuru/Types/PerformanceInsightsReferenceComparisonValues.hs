@@ -91,7 +91,7 @@ instance
       ( \x ->
           PerformanceInsightsReferenceComparisonValues'
             Prelude.<$> (x Data..:? "ReferenceMetric")
-              Prelude.<*> (x Data..:? "ReferenceScalar")
+            Prelude.<*> (x Data..:? "ReferenceScalar")
       )
 
 instance
@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsReferenceComparisonValues' {..} =
-      _salt `Prelude.hashWithSalt` referenceMetric
+      _salt
+        `Prelude.hashWithSalt` referenceMetric
         `Prelude.hashWithSalt` referenceScalar
 
 instance

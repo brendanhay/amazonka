@@ -171,7 +171,8 @@ instance Data.FromJSON TagHealth where
 
 instance Prelude.Hashable TagHealth where
   hashWithSalt _salt TagHealth' {..} =
-    _salt `Prelude.hashWithSalt` analyzedResourceCount
+    _salt
+      `Prelude.hashWithSalt` analyzedResourceCount
       `Prelude.hashWithSalt` appBoundaryKey
       `Prelude.hashWithSalt` insight
       `Prelude.hashWithSalt` tagValue

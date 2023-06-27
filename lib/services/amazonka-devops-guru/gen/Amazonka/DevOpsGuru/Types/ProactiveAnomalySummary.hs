@@ -48,6 +48,8 @@ data ProactiveAnomalySummary = ProactiveAnomalySummary'
     -- | The ID of the insight that contains this anomaly. An insight is composed
     -- of related anomalies.
     associatedInsightId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the proactive anomaly.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the anomaly.
     id :: Prelude.Maybe Prelude.Text,
     -- | A threshold that was exceeded by behavior in analyzed resources.
@@ -92,6 +94,8 @@ data ProactiveAnomalySummary = ProactiveAnomalySummary'
 -- 'associatedInsightId', 'proactiveAnomalySummary_associatedInsightId' - The ID of the insight that contains this anomaly. An insight is composed
 -- of related anomalies.
 --
+-- 'description', 'proactiveAnomalySummary_description' - A description of the proactive anomaly.
+--
 -- 'id', 'proactiveAnomalySummary_id' - The ID of the anomaly.
 --
 -- 'limit', 'proactiveAnomalySummary_limit' - A threshold that was exceeded by behavior in analyzed resources.
@@ -124,6 +128,7 @@ newProactiveAnomalySummary =
       anomalyResources = Prelude.Nothing,
       anomalyTimeRange = Prelude.Nothing,
       associatedInsightId = Prelude.Nothing,
+      description = Prelude.Nothing,
       id = Prelude.Nothing,
       limit = Prelude.Nothing,
       predictionTimeRange = Prelude.Nothing,
@@ -153,6 +158,10 @@ proactiveAnomalySummary_anomalyTimeRange = Lens.lens (\ProactiveAnomalySummary' 
 -- of related anomalies.
 proactiveAnomalySummary_associatedInsightId :: Lens.Lens' ProactiveAnomalySummary (Prelude.Maybe Prelude.Text)
 proactiveAnomalySummary_associatedInsightId = Lens.lens (\ProactiveAnomalySummary' {associatedInsightId} -> associatedInsightId) (\s@ProactiveAnomalySummary' {} a -> s {associatedInsightId = a} :: ProactiveAnomalySummary)
+
+-- | A description of the proactive anomaly.
+proactiveAnomalySummary_description :: Lens.Lens' ProactiveAnomalySummary (Prelude.Maybe Prelude.Text)
+proactiveAnomalySummary_description = Lens.lens (\ProactiveAnomalySummary' {description} -> description) (\s@ProactiveAnomalySummary' {} a -> s {description = a} :: ProactiveAnomalySummary)
 
 -- | The ID of the anomaly.
 proactiveAnomalySummary_id :: Lens.Lens' ProactiveAnomalySummary (Prelude.Maybe Prelude.Text)
@@ -203,11 +212,13 @@ instance Data.FromJSON ProactiveAnomalySummary where
       ( \x ->
           ProactiveAnomalySummary'
             Prelude.<$> (x Data..:? "AnomalyReportedTimeRange")
-            Prelude.<*> ( x Data..:? "AnomalyResources"
+            Prelude.<*> ( x
+                            Data..:? "AnomalyResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AnomalyTimeRange")
             Prelude.<*> (x Data..:? "AssociatedInsightId")
+            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Limit")
             Prelude.<*> (x Data..:? "PredictionTimeRange")
@@ -226,6 +237,7 @@ instance Prelude.Hashable ProactiveAnomalySummary where
       `Prelude.hashWithSalt` anomalyResources
       `Prelude.hashWithSalt` anomalyTimeRange
       `Prelude.hashWithSalt` associatedInsightId
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` predictionTimeRange
@@ -242,6 +254,7 @@ instance Prelude.NFData ProactiveAnomalySummary where
       `Prelude.seq` Prelude.rnf anomalyResources
       `Prelude.seq` Prelude.rnf anomalyTimeRange
       `Prelude.seq` Prelude.rnf associatedInsightId
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf predictionTimeRange

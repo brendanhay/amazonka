@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     SearchOrganizationInsightsFilters' {..} =
-      _salt `Prelude.hashWithSalt` resourceCollection
+      _salt
+        `Prelude.hashWithSalt` resourceCollection
         `Prelude.hashWithSalt` serviceCollection
         `Prelude.hashWithSalt` severities
         `Prelude.hashWithSalt` statuses

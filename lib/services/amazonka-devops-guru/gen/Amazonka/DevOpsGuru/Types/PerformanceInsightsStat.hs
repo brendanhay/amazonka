@@ -68,12 +68,14 @@ instance Data.FromJSON PerformanceInsightsStat where
       "PerformanceInsightsStat"
       ( \x ->
           PerformanceInsightsStat'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable PerformanceInsightsStat where
   hashWithSalt _salt PerformanceInsightsStat' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PerformanceInsightsStat where

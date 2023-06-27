@@ -127,7 +127,8 @@ instance Data.FromJSON Recommendation where
             Prelude.<*> (x Data..:? "Link")
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Reason")
-            Prelude.<*> ( x Data..:? "RelatedAnomalies"
+            Prelude.<*> ( x
+                            Data..:? "RelatedAnomalies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RelatedEvents" Data..!= Prelude.mempty)
@@ -135,7 +136,8 @@ instance Data.FromJSON Recommendation where
 
 instance Prelude.Hashable Recommendation where
   hashWithSalt _salt Recommendation' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` link
       `Prelude.hashWithSalt` name

@@ -114,6 +114,9 @@ library
     Amazonka.DevOpsGuru.Types.InsightStatus
     Amazonka.DevOpsGuru.Types.InsightTimeRange
     Amazonka.DevOpsGuru.Types.InsightType
+    Amazonka.DevOpsGuru.Types.KMSServerSideEncryptionIntegration
+    Amazonka.DevOpsGuru.Types.KMSServerSideEncryptionIntegrationConfig
+    Amazonka.DevOpsGuru.Types.ListAnomaliesForInsightFilters
     Amazonka.DevOpsGuru.Types.ListEventsFilters
     Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter
     Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter
@@ -168,6 +171,7 @@ library
     Amazonka.DevOpsGuru.Types.ResourceTypeFilter
     Amazonka.DevOpsGuru.Types.SearchInsightsFilters
     Amazonka.DevOpsGuru.Types.SearchOrganizationInsightsFilters
+    Amazonka.DevOpsGuru.Types.ServerSideEncryptionType
     Amazonka.DevOpsGuru.Types.ServiceCollection
     Amazonka.DevOpsGuru.Types.ServiceHealth
     Amazonka.DevOpsGuru.Types.ServiceInsightHealth

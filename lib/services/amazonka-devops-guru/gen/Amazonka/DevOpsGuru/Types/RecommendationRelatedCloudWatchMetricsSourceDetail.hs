@@ -79,7 +79,7 @@ instance
       ( \x ->
           RecommendationRelatedCloudWatchMetricsSourceDetail'
             Prelude.<$> (x Data..:? "MetricName")
-              Prelude.<*> (x Data..:? "Namespace")
+            Prelude.<*> (x Data..:? "Namespace")
       )
 
 instance
@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     RecommendationRelatedCloudWatchMetricsSourceDetail' {..} =
-      _salt `Prelude.hashWithSalt` metricName
+      _salt
+        `Prelude.hashWithSalt` metricName
         `Prelude.hashWithSalt` namespace
 
 instance

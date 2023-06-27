@@ -125,6 +125,7 @@ module Amazonka.DevOpsGuru.Lens
 
     -- ** ListAnomaliesForInsight
     listAnomaliesForInsight_accountId,
+    listAnomaliesForInsight_filters,
     listAnomaliesForInsight_maxResults,
     listAnomaliesForInsight_nextToken,
     listAnomaliesForInsight_startTimeRange,
@@ -363,6 +364,19 @@ module Amazonka.DevOpsGuru.Lens
     insightTimeRange_endTime,
     insightTimeRange_startTime,
 
+    -- ** KMSServerSideEncryptionIntegration
+    kmsServerSideEncryptionIntegration_kmsKeyId,
+    kmsServerSideEncryptionIntegration_optInStatus,
+    kmsServerSideEncryptionIntegration_type,
+
+    -- ** KMSServerSideEncryptionIntegrationConfig
+    kmsServerSideEncryptionIntegrationConfig_kmsKeyId,
+    kmsServerSideEncryptionIntegrationConfig_optInStatus,
+    kmsServerSideEncryptionIntegrationConfig_type,
+
+    -- ** ListAnomaliesForInsightFilters
+    listAnomaliesForInsightFilters_serviceCollection,
+
     -- ** ListEventsFilters
     listEventsFilters_dataSource,
     listEventsFilters_eventClass,
@@ -479,6 +493,7 @@ module Amazonka.DevOpsGuru.Lens
     proactiveAnomaly_anomalyResources,
     proactiveAnomaly_anomalyTimeRange,
     proactiveAnomaly_associatedInsightId,
+    proactiveAnomaly_description,
     proactiveAnomaly_id,
     proactiveAnomaly_limit,
     proactiveAnomaly_predictionTimeRange,
@@ -494,6 +509,7 @@ module Amazonka.DevOpsGuru.Lens
     proactiveAnomalySummary_anomalyResources,
     proactiveAnomalySummary_anomalyTimeRange,
     proactiveAnomalySummary_associatedInsightId,
+    proactiveAnomalySummary_description,
     proactiveAnomalySummary_id,
     proactiveAnomalySummary_limit,
     proactiveAnomalySummary_predictionTimeRange,
@@ -665,6 +681,7 @@ module Amazonka.DevOpsGuru.Lens
     serviceInsightHealth_openReactiveInsights,
 
     -- ** ServiceIntegrationConfig
+    serviceIntegrationConfig_kmsServerSideEncryption,
     serviceIntegrationConfig_logsAnomalyDetection,
     serviceIntegrationConfig_opsCenter,
 
@@ -712,6 +729,7 @@ module Amazonka.DevOpsGuru.Lens
     updateResourceCollectionFilter_tags,
 
     -- ** UpdateServiceIntegrationConfig
+    updateServiceIntegrationConfig_kmsServerSideEncryption,
     updateServiceIntegrationConfig_logsAnomalyDetection,
     updateServiceIntegrationConfig_opsCenter,
 
@@ -775,6 +793,9 @@ import Amazonka.DevOpsGuru.Types.EventTimeRange
 import Amazonka.DevOpsGuru.Types.InsightFeedback
 import Amazonka.DevOpsGuru.Types.InsightHealth
 import Amazonka.DevOpsGuru.Types.InsightTimeRange
+import Amazonka.DevOpsGuru.Types.KMSServerSideEncryptionIntegration
+import Amazonka.DevOpsGuru.Types.KMSServerSideEncryptionIntegrationConfig
+import Amazonka.DevOpsGuru.Types.ListAnomaliesForInsightFilters
 import Amazonka.DevOpsGuru.Types.ListEventsFilters
 import Amazonka.DevOpsGuru.Types.ListInsightsAnyStatusFilter
 import Amazonka.DevOpsGuru.Types.ListInsightsClosedStatusFilter

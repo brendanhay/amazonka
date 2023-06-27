@@ -131,7 +131,8 @@ updateTagCollectionFilter_tagValues = Lens.lens (\UpdateTagCollectionFilter' {ta
 
 instance Prelude.Hashable UpdateTagCollectionFilter where
   hashWithSalt _salt UpdateTagCollectionFilter' {..} =
-    _salt `Prelude.hashWithSalt` appBoundaryKey
+    _salt
+      `Prelude.hashWithSalt` appBoundaryKey
       `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData UpdateTagCollectionFilter where

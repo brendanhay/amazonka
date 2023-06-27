@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateResourceCollection where
 
 instance Prelude.Hashable UpdateResourceCollection where
   hashWithSalt _salt UpdateResourceCollection' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` resourceCollection
 
 instance Prelude.NFData UpdateResourceCollection where

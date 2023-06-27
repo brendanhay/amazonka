@@ -48,6 +48,8 @@ data ProactiveAnomaly = ProactiveAnomaly'
     -- | The ID of the insight that contains this anomaly. An insight is composed
     -- of related anomalies.
     associatedInsightId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the proactive anomaly.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The ID of a proactive anomaly.
     id :: Prelude.Maybe Prelude.Text,
     -- | A threshold that was exceeded by behavior in analyzed resources.
@@ -92,6 +94,8 @@ data ProactiveAnomaly = ProactiveAnomaly'
 -- 'associatedInsightId', 'proactiveAnomaly_associatedInsightId' - The ID of the insight that contains this anomaly. An insight is composed
 -- of related anomalies.
 --
+-- 'description', 'proactiveAnomaly_description' - A description of the proactive anomaly.
+--
 -- 'id', 'proactiveAnomaly_id' - The ID of a proactive anomaly.
 --
 -- 'limit', 'proactiveAnomaly_limit' - A threshold that was exceeded by behavior in analyzed resources.
@@ -124,6 +128,7 @@ newProactiveAnomaly =
       anomalyResources = Prelude.Nothing,
       anomalyTimeRange = Prelude.Nothing,
       associatedInsightId = Prelude.Nothing,
+      description = Prelude.Nothing,
       id = Prelude.Nothing,
       limit = Prelude.Nothing,
       predictionTimeRange = Prelude.Nothing,
@@ -153,6 +158,10 @@ proactiveAnomaly_anomalyTimeRange = Lens.lens (\ProactiveAnomaly' {anomalyTimeRa
 -- of related anomalies.
 proactiveAnomaly_associatedInsightId :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe Prelude.Text)
 proactiveAnomaly_associatedInsightId = Lens.lens (\ProactiveAnomaly' {associatedInsightId} -> associatedInsightId) (\s@ProactiveAnomaly' {} a -> s {associatedInsightId = a} :: ProactiveAnomaly)
+
+-- | A description of the proactive anomaly.
+proactiveAnomaly_description :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe Prelude.Text)
+proactiveAnomaly_description = Lens.lens (\ProactiveAnomaly' {description} -> description) (\s@ProactiveAnomaly' {} a -> s {description = a} :: ProactiveAnomaly)
 
 -- | The ID of a proactive anomaly.
 proactiveAnomaly_id :: Lens.Lens' ProactiveAnomaly (Prelude.Maybe Prelude.Text)
@@ -203,11 +212,13 @@ instance Data.FromJSON ProactiveAnomaly where
       ( \x ->
           ProactiveAnomaly'
             Prelude.<$> (x Data..:? "AnomalyReportedTimeRange")
-            Prelude.<*> ( x Data..:? "AnomalyResources"
+            Prelude.<*> ( x
+                            Data..:? "AnomalyResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "AnomalyTimeRange")
             Prelude.<*> (x Data..:? "AssociatedInsightId")
+            Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "Limit")
             Prelude.<*> (x Data..:? "PredictionTimeRange")
@@ -226,6 +237,7 @@ instance Prelude.Hashable ProactiveAnomaly where
       `Prelude.hashWithSalt` anomalyResources
       `Prelude.hashWithSalt` anomalyTimeRange
       `Prelude.hashWithSalt` associatedInsightId
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` predictionTimeRange
@@ -242,6 +254,7 @@ instance Prelude.NFData ProactiveAnomaly where
       `Prelude.seq` Prelude.rnf anomalyResources
       `Prelude.seq` Prelude.rnf anomalyTimeRange
       `Prelude.seq` Prelude.rnf associatedInsightId
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf limit
       `Prelude.seq` Prelude.rnf predictionTimeRange

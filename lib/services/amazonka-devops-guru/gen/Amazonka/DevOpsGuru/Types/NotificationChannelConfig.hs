@@ -41,17 +41,11 @@ data NotificationChannelConfig = NotificationChannelConfig'
     -- send notifications when insights are created.
     --
     -- If you use an Amazon SNS topic in another account, you must attach a
-    -- policy to it that grants DevOps Guru permission to it notifications.
-    -- DevOps Guru adds the required policy on your behalf to send
-    -- notifications using Amazon SNS in your account. DevOps Guru only
+    -- policy to it that grants DevOps Guru permission to send it
+    -- notifications. DevOps Guru adds the required policy on your behalf to
+    -- send notifications using Amazon SNS in your account. DevOps Guru only
     -- supports standard SNS topics. For more information, see
-    -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for cross account Amazon SNS topics>.
-    --
-    -- If you use an Amazon SNS topic in another account, you must attach a
-    -- policy to it that grants DevOps Guru permission to it notifications.
-    -- DevOps Guru adds the required policy on your behalf to send
-    -- notifications using Amazon SNS in your account. For more information,
-    -- see Permissions for cross account Amazon SNS topics.
+    -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for Amazon SNS topics>.
     --
     -- If you use an Amazon SNS topic that is encrypted by an Amazon Web
     -- Services Key Management Service customer-managed key (CMK), then you
@@ -78,17 +72,11 @@ data NotificationChannelConfig = NotificationChannelConfig'
 -- send notifications when insights are created.
 --
 -- If you use an Amazon SNS topic in another account, you must attach a
--- policy to it that grants DevOps Guru permission to it notifications.
--- DevOps Guru adds the required policy on your behalf to send
--- notifications using Amazon SNS in your account. DevOps Guru only
+-- policy to it that grants DevOps Guru permission to send it
+-- notifications. DevOps Guru adds the required policy on your behalf to
+-- send notifications using Amazon SNS in your account. DevOps Guru only
 -- supports standard SNS topics. For more information, see
--- <https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for cross account Amazon SNS topics>.
---
--- If you use an Amazon SNS topic in another account, you must attach a
--- policy to it that grants DevOps Guru permission to it notifications.
--- DevOps Guru adds the required policy on your behalf to send
--- notifications using Amazon SNS in your account. For more information,
--- see Permissions for cross account Amazon SNS topics.
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for Amazon SNS topics>.
 --
 -- If you use an Amazon SNS topic that is encrypted by an Amazon Web
 -- Services Key Management Service customer-managed key (CMK), then you
@@ -116,17 +104,11 @@ notificationChannelConfig_filters = Lens.lens (\NotificationChannelConfig' {filt
 -- send notifications when insights are created.
 --
 -- If you use an Amazon SNS topic in another account, you must attach a
--- policy to it that grants DevOps Guru permission to it notifications.
--- DevOps Guru adds the required policy on your behalf to send
--- notifications using Amazon SNS in your account. DevOps Guru only
+-- policy to it that grants DevOps Guru permission to send it
+-- notifications. DevOps Guru adds the required policy on your behalf to
+-- send notifications using Amazon SNS in your account. DevOps Guru only
 -- supports standard SNS topics. For more information, see
--- <https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for cross account Amazon SNS topics>.
---
--- If you use an Amazon SNS topic in another account, you must attach a
--- policy to it that grants DevOps Guru permission to it notifications.
--- DevOps Guru adds the required policy on your behalf to send
--- notifications using Amazon SNS in your account. For more information,
--- see Permissions for cross account Amazon SNS topics.
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html Permissions for Amazon SNS topics>.
 --
 -- If you use an Amazon SNS topic that is encrypted by an Amazon Web
 -- Services Key Management Service customer-managed key (CMK), then you
@@ -141,12 +123,14 @@ instance Data.FromJSON NotificationChannelConfig where
       "NotificationChannelConfig"
       ( \x ->
           NotificationChannelConfig'
-            Prelude.<$> (x Data..:? "Filters") Prelude.<*> (x Data..: "Sns")
+            Prelude.<$> (x Data..:? "Filters")
+            Prelude.<*> (x Data..: "Sns")
       )
 
 instance Prelude.Hashable NotificationChannelConfig where
   hashWithSalt _salt NotificationChannelConfig' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` sns
 
 instance Prelude.NFData NotificationChannelConfig where

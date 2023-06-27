@@ -31,7 +31,13 @@
 -- a launch allows you to define different traffic splits for the different
 -- audience segments.
 --
--- >  <p>For more information about segment pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html"> Segment rule pattern syntax</a>.</p> <p>The pattern that you define for a segment is matched against the value of <code>evaluationContext</code>, which is passed into Evidently in the <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html">EvaluateFeature</a> operation, when Evidently assigns a feature variation to a user.</p>
+-- For more information about segment pattern syntax, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html Segment rule pattern syntax>.
+--
+-- The pattern that you define for a segment is matched against the value
+-- of @evaluationContext@, which is passed into Evidently in the
+-- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html EvaluateFeature>
+-- operation, when Evidently assigns a feature variation to a user.
 module Amazonka.Evidently.CreateSegment
   ( -- * Creating a Request
     CreateSegment (..),
@@ -74,7 +80,10 @@ data CreateSegment = CreateSegment'
     -- Tags don\'t have any semantic meaning to Amazon Web Services and are
     -- interpreted strictly as strings of characters.
     --
-    -- >  <p>You can associate as many as 50 tags with a segment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    -- You can associate as many as 50 tags with a segment.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A name for the segment.
     name :: Prelude.Text,
@@ -104,7 +113,10 @@ data CreateSegment = CreateSegment'
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a segment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a segment.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
 -- 'name', 'createSegment_name' - A name for the segment.
 --
@@ -138,7 +150,10 @@ createSegment_description = Lens.lens (\CreateSegment' {description} -> descript
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a segment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a segment.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 createSegment_tags :: Lens.Lens' CreateSegment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSegment_tags = Lens.lens (\CreateSegment' {tags} -> tags) (\s@CreateSegment' {} a -> s {tags = a} :: CreateSegment) Prelude.. Lens.mapping Lens.coerced
 
@@ -168,7 +183,8 @@ instance Core.AWSRequest CreateSegment where
 
 instance Prelude.Hashable CreateSegment where
   hashWithSalt _salt CreateSegment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` pattern'

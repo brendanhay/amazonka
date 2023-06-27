@@ -129,7 +129,8 @@ instance Core.AWSRequest UpdateProjectDataDelivery where
 
 instance Prelude.Hashable UpdateProjectDataDelivery where
   hashWithSalt _salt UpdateProjectDataDelivery' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
       `Prelude.hashWithSalt` s3Destination
       `Prelude.hashWithSalt` project
 

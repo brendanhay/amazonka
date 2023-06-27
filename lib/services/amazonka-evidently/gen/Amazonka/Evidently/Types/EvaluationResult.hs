@@ -151,7 +151,8 @@ instance Data.FromJSON EvaluationResult where
 
 instance Prelude.Hashable EvaluationResult where
   hashWithSalt _salt EvaluationResult' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` project
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` value

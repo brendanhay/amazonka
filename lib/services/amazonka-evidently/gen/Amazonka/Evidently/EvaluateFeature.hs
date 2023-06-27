@@ -28,7 +28,35 @@
 -- user\'s @entityID@ matches an override rule, the user is served the
 -- variation specified by that rule.
 --
--- >  <p>If there is a current launch with this feature that uses segment overrides, and if the user session's <code>evaluationContext</code> matches a segment rule defined in a segment override, the configuration in the segment overrides is used. For more information about segments, see <a href="https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html">CreateSegment</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html">Use segments to focus your audience</a>.</p> <p>If there is a launch with no segment overrides, the user might be assigned to a variation in the launch. The chance of this depends on the percentage of users that are allocated to that launch. If the user is enrolled in the launch, the variation they are served depends on the allocation of the various feature variations used for the launch.</p> <p>If the user is not assigned to a launch, and there is an ongoing experiment for this feature, the user might be assigned to a variation in the experiment. The chance of this depends on the percentage of users that are allocated to that experiment.</p> <p>If the experiment uses a segment, then only user sessions with <code>evaluationContext</code> values that match the segment rule are used in the experiment.</p> <p>If the user is enrolled in the experiment, the variation they are served depends on the allocation of the various feature variations used for the experiment. </p> <p>If the user is not assigned to a launch or experiment, they are served the default variation.</p>
+-- If there is a current launch with this feature that uses segment
+-- overrides, and if the user session\'s @evaluationContext@ matches a
+-- segment rule defined in a segment override, the configuration in the
+-- segment overrides is used. For more information about segments, see
+-- <https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html CreateSegment>
+-- and
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html Use segments to focus your audience>.
+--
+-- If there is a launch with no segment overrides, the user might be
+-- assigned to a variation in the launch. The chance of this depends on the
+-- percentage of users that are allocated to that launch. If the user is
+-- enrolled in the launch, the variation they are served depends on the
+-- allocation of the various feature variations used for the launch.
+--
+-- If the user is not assigned to a launch, and there is an ongoing
+-- experiment for this feature, the user might be assigned to a variation
+-- in the experiment. The chance of this depends on the percentage of users
+-- that are allocated to that experiment.
+--
+-- If the experiment uses a segment, then only user sessions with
+-- @evaluationContext@ values that match the segment rule are used in the
+-- experiment.
+--
+-- If the user is enrolled in the experiment, the variation they are served
+-- depends on the allocation of the various feature variations used for the
+-- experiment.
+--
+-- If the user is not assigned to a launch or experiment, they are served
+-- the default variation.
 module Amazonka.Evidently.EvaluateFeature
   ( -- * Creating a Request
     EvaluateFeature (..),
@@ -69,7 +97,8 @@ data EvaluateFeature = EvaluateFeature'
     -- segments. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html Use segments to focus your audience>.
     --
-    -- >  <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
+    -- If you include this parameter, the value must be a JSON object. A JSON
+    -- array is not supported.
     evaluationContext :: Prelude.Maybe Prelude.Text,
     -- | An internal ID that represents a unique user of the application. This
     -- @entityID@ is checked against any override rules assigned for this
@@ -96,7 +125,8 @@ data EvaluateFeature = EvaluateFeature'
 -- segments. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html Use segments to focus your audience>.
 --
--- >  <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
+-- If you include this parameter, the value must be a JSON object. A JSON
+-- array is not supported.
 --
 -- 'entityId', 'evaluateFeature_entityId' - An internal ID that represents a unique user of the application. This
 -- @entityID@ is checked against any override rules assigned for this
@@ -128,7 +158,8 @@ newEvaluateFeature pEntityId_ pFeature_ pProject_ =
 -- segments. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html Use segments to focus your audience>.
 --
--- >  <p>If you include this parameter, the value must be a JSON object. A JSON array is not supported.</p>
+-- If you include this parameter, the value must be a JSON object. A JSON
+-- array is not supported.
 evaluateFeature_evaluationContext :: Lens.Lens' EvaluateFeature (Prelude.Maybe Prelude.Text)
 evaluateFeature_evaluationContext = Lens.lens (\EvaluateFeature' {evaluationContext} -> evaluationContext) (\s@EvaluateFeature' {} a -> s {evaluationContext = a} :: EvaluateFeature)
 
@@ -165,7 +196,8 @@ instance Core.AWSRequest EvaluateFeature where
 
 instance Prelude.Hashable EvaluateFeature where
   hashWithSalt _salt EvaluateFeature' {..} =
-    _salt `Prelude.hashWithSalt` evaluationContext
+    _salt
+      `Prelude.hashWithSalt` evaluationContext
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` feature
       `Prelude.hashWithSalt` project

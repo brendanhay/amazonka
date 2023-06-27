@@ -133,7 +133,8 @@ instance Core.AWSRequest StopLaunch where
 
 instance Prelude.Hashable StopLaunch where
   hashWithSalt _salt StopLaunch' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
+    _salt
+      `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` launch
       `Prelude.hashWithSalt` project

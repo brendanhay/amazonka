@@ -89,7 +89,8 @@ launchGroupConfig_variation = Lens.lens (\LaunchGroupConfig' {variation} -> vari
 
 instance Prelude.Hashable LaunchGroupConfig where
   hashWithSalt _salt LaunchGroupConfig' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` feature
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` variation

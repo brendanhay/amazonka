@@ -89,7 +89,10 @@ data CreateProject = CreateProject'
     -- Tags don\'t have any semantic meaning to Amazon Web Services and are
     -- interpreted strictly as strings of characters.
     --
-    -- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    -- You can associate as many as 50 tags with a project.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the project.
     name :: Prelude.Text
@@ -135,7 +138,10 @@ data CreateProject = CreateProject'
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a project.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
 -- 'name', 'createProject_name' - The name for the project.
 newCreateProject ::
@@ -188,7 +194,10 @@ createProject_description = Lens.lens (\CreateProject' {description} -> descript
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a project.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a project.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens.coerced
 
@@ -212,7 +221,8 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` appConfigResource
+    _salt
+      `Prelude.hashWithSalt` appConfigResource
       `Prelude.hashWithSalt` dataDelivery
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags

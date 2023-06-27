@@ -89,7 +89,10 @@ data CreateLaunch = CreateLaunch'
     -- Tags don\'t have any semantic meaning to Amazon Web Services and are
     -- interpreted strictly as strings of characters.
     --
-    -- >  <p>You can associate as many as 50 tags with a launch.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    -- You can associate as many as 50 tags with a launch.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An array of structures that contains the feature and variations that are
     -- to be used for the launch.
@@ -132,7 +135,10 @@ data CreateLaunch = CreateLaunch'
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a launch.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a launch.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
 -- 'groups', 'createLaunch_groups' - An array of structures that contains the feature and variations that are
 -- to be used for the launch.
@@ -191,7 +197,10 @@ createLaunch_scheduledSplitsConfig = Lens.lens (\CreateLaunch' {scheduledSplitsC
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a launch.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a launch.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 createLaunch_tags :: Lens.Lens' CreateLaunch (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createLaunch_tags = Lens.lens (\CreateLaunch' {tags} -> tags) (\s@CreateLaunch' {} a -> s {tags = a} :: CreateLaunch) Prelude.. Lens.mapping Lens.coerced
 
@@ -222,7 +231,8 @@ instance Core.AWSRequest CreateLaunch where
 
 instance Prelude.Hashable CreateLaunch where
   hashWithSalt _salt CreateLaunch' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metricMonitors
       `Prelude.hashWithSalt` randomizationSalt
       `Prelude.hashWithSalt` scheduledSplitsConfig

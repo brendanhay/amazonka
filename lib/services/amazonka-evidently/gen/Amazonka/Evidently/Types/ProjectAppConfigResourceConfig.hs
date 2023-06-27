@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     ProjectAppConfigResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` applicationId
+      _salt
+        `Prelude.hashWithSalt` applicationId
         `Prelude.hashWithSalt` environmentId
 
 instance

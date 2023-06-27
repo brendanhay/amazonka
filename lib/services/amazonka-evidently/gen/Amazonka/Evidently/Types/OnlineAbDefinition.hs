@@ -88,14 +88,16 @@ instance Data.FromJSON OnlineAbDefinition where
       ( \x ->
           OnlineAbDefinition'
             Prelude.<$> (x Data..:? "controlTreatmentName")
-            Prelude.<*> ( x Data..:? "treatmentWeights"
+            Prelude.<*> ( x
+                            Data..:? "treatmentWeights"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable OnlineAbDefinition where
   hashWithSalt _salt OnlineAbDefinition' {..} =
-    _salt `Prelude.hashWithSalt` controlTreatmentName
+    _salt
+      `Prelude.hashWithSalt` controlTreatmentName
       `Prelude.hashWithSalt` treatmentWeights
 
 instance Prelude.NFData OnlineAbDefinition where

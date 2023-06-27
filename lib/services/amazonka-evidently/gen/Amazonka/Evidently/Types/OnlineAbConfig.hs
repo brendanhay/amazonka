@@ -83,7 +83,8 @@ onlineAbConfig_treatmentWeights = Lens.lens (\OnlineAbConfig' {treatmentWeights}
 
 instance Prelude.Hashable OnlineAbConfig where
   hashWithSalt _salt OnlineAbConfig' {..} =
-    _salt `Prelude.hashWithSalt` controlTreatmentName
+    _salt
+      `Prelude.hashWithSalt` controlTreatmentName
       `Prelude.hashWithSalt` treatmentWeights
 
 instance Prelude.NFData OnlineAbConfig where

@@ -114,7 +114,8 @@ metricDefinitionConfig_valueKey = Lens.lens (\MetricDefinitionConfig' {valueKey}
 
 instance Prelude.Hashable MetricDefinitionConfig where
   hashWithSalt _salt MetricDefinitionConfig' {..} =
-    _salt `Prelude.hashWithSalt` eventPattern
+    _salt
+      `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` unitLabel
       `Prelude.hashWithSalt` entityIdKey
       `Prelude.hashWithSalt` name

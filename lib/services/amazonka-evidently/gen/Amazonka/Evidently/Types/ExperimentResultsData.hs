@@ -100,7 +100,8 @@ instance Data.FromJSON ExperimentResultsData where
 
 instance Prelude.Hashable ExperimentResultsData where
   hashWithSalt _salt ExperimentResultsData' {..} =
-    _salt `Prelude.hashWithSalt` metricName
+    _salt
+      `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` resultStat
       `Prelude.hashWithSalt` treatmentName
       `Prelude.hashWithSalt` values

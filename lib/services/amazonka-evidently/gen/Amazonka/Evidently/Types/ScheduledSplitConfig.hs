@@ -46,7 +46,13 @@ data ScheduledSplitConfig = ScheduledSplitConfig'
     -- variation names. The values represent the percentage of traffic to
     -- allocate to that variation during this step.
     --
-    -- >  <p>The values is expressed in thousandths of a percent, so assigning a weight of 50000 assigns 50% of traffic to that variation.</p> <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000, then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves on to the next segment override or the default traffic split.</p>
+    -- The values is expressed in thousandths of a percent, so assigning a
+    -- weight of 50000 assigns 50% of traffic to that variation.
+    --
+    -- If the sum of the weights for all the variations in a segment override
+    -- does not add up to 100,000, then the remaining traffic that matches this
+    -- segment is not assigned by this segment override, and instead moves on
+    -- to the next segment override or the default traffic split.
     groupWeights :: Prelude.HashMap Prelude.Text Prelude.Natural,
     -- | The date and time that this step of the launch starts.
     startTime :: Data.POSIX
@@ -76,7 +82,13 @@ data ScheduledSplitConfig = ScheduledSplitConfig'
 -- variation names. The values represent the percentage of traffic to
 -- allocate to that variation during this step.
 --
--- >  <p>The values is expressed in thousandths of a percent, so assigning a weight of 50000 assigns 50% of traffic to that variation.</p> <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000, then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves on to the next segment override or the default traffic split.</p>
+-- The values is expressed in thousandths of a percent, so assigning a
+-- weight of 50000 assigns 50% of traffic to that variation.
+--
+-- If the sum of the weights for all the variations in a segment override
+-- does not add up to 100,000, then the remaining traffic that matches this
+-- segment is not assigned by this segment override, and instead moves on
+-- to the next segment override or the default traffic split.
 --
 -- 'startTime', 'scheduledSplitConfig_startTime' - The date and time that this step of the launch starts.
 newScheduledSplitConfig ::
@@ -108,7 +120,13 @@ scheduledSplitConfig_segmentOverrides = Lens.lens (\ScheduledSplitConfig' {segme
 -- variation names. The values represent the percentage of traffic to
 -- allocate to that variation during this step.
 --
--- >  <p>The values is expressed in thousandths of a percent, so assigning a weight of 50000 assigns 50% of traffic to that variation.</p> <p>If the sum of the weights for all the variations in a segment override does not add up to 100,000, then the remaining traffic that matches this segment is not assigned by this segment override, and instead moves on to the next segment override or the default traffic split.</p>
+-- The values is expressed in thousandths of a percent, so assigning a
+-- weight of 50000 assigns 50% of traffic to that variation.
+--
+-- If the sum of the weights for all the variations in a segment override
+-- does not add up to 100,000, then the remaining traffic that matches this
+-- segment is not assigned by this segment override, and instead moves on
+-- to the next segment override or the default traffic split.
 scheduledSplitConfig_groupWeights :: Lens.Lens' ScheduledSplitConfig (Prelude.HashMap Prelude.Text Prelude.Natural)
 scheduledSplitConfig_groupWeights = Lens.lens (\ScheduledSplitConfig' {groupWeights} -> groupWeights) (\s@ScheduledSplitConfig' {} a -> s {groupWeights = a} :: ScheduledSplitConfig) Prelude.. Lens.coerced
 
@@ -118,7 +136,8 @@ scheduledSplitConfig_startTime = Lens.lens (\ScheduledSplitConfig' {startTime} -
 
 instance Prelude.Hashable ScheduledSplitConfig where
   hashWithSalt _salt ScheduledSplitConfig' {..} =
-    _salt `Prelude.hashWithSalt` segmentOverrides
+    _salt
+      `Prelude.hashWithSalt` segmentOverrides
       `Prelude.hashWithSalt` groupWeights
       `Prelude.hashWithSalt` startTime
 

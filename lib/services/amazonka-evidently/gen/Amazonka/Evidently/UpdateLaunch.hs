@@ -180,7 +180,8 @@ instance Core.AWSRequest UpdateLaunch where
 
 instance Prelude.Hashable UpdateLaunch where
   hashWithSalt _salt UpdateLaunch' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` metricMonitors
       `Prelude.hashWithSalt` randomizationSalt

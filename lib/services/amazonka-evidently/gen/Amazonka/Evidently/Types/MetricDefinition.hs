@@ -117,7 +117,8 @@ instance Data.FromJSON MetricDefinition where
 
 instance Prelude.Hashable MetricDefinition where
   hashWithSalt _salt MetricDefinition' {..} =
-    _salt `Prelude.hashWithSalt` entityIdKey
+    _salt
+      `Prelude.hashWithSalt` entityIdKey
       `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` unitLabel

@@ -79,6 +79,9 @@ data CreateFeature = CreateFeature'
     -- specify a user by entering their user ID, account ID, or some other
     -- identifier. For the value, specify the name of the variation that they
     -- are to be served.
+    --
+    -- This parameter is limited to 2500 overrides or a total of 40KB. The 40KB
+    -- limit includes an overhead of 6 bytes per override.
     entityOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
     -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
@@ -93,7 +96,10 @@ data CreateFeature = CreateFeature'
     -- Tags don\'t have any semantic meaning to Amazon Web Services and are
     -- interpreted strictly as strings of characters.
     --
-    -- >  <p>You can associate as many as 50 tags with a feature.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    -- You can associate as many as 50 tags with a feature.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the new feature.
     name :: Prelude.Text,
@@ -130,6 +136,9 @@ data CreateFeature = CreateFeature'
 -- identifier. For the value, specify the name of the variation that they
 -- are to be served.
 --
+-- This parameter is limited to 2500 overrides or a total of 40KB. The 40KB
+-- limit includes an overhead of 6 bytes per override.
+--
 -- 'evaluationStrategy', 'createFeature_evaluationStrategy' - Specify @ALL_RULES@ to activate the traffic allocation specified by any
 -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
 -- the default variation to all users instead.
@@ -143,7 +152,10 @@ data CreateFeature = CreateFeature'
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a feature.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a feature.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
 -- 'name', 'createFeature_name' - The name for the new feature.
 --
@@ -191,6 +203,9 @@ createFeature_description = Lens.lens (\CreateFeature' {description} -> descript
 -- specify a user by entering their user ID, account ID, or some other
 -- identifier. For the value, specify the name of the variation that they
 -- are to be served.
+--
+-- This parameter is limited to 2500 overrides or a total of 40KB. The 40KB
+-- limit includes an overhead of 6 bytes per override.
 createFeature_entityOverrides :: Lens.Lens' CreateFeature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createFeature_entityOverrides = Lens.lens (\CreateFeature' {entityOverrides} -> entityOverrides) (\s@CreateFeature' {} a -> s {entityOverrides = a} :: CreateFeature) Prelude.. Lens.mapping Lens.coerced
 
@@ -209,7 +224,10 @@ createFeature_evaluationStrategy = Lens.lens (\CreateFeature' {evaluationStrateg
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with a feature.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with a feature.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 createFeature_tags :: Lens.Lens' CreateFeature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createFeature_tags = Lens.lens (\CreateFeature' {tags} -> tags) (\s@CreateFeature' {} a -> s {tags = a} :: CreateFeature) Prelude.. Lens.mapping Lens.coerced
 
@@ -242,7 +260,8 @@ instance Core.AWSRequest CreateFeature where
 
 instance Prelude.Hashable CreateFeature where
   hashWithSalt _salt CreateFeature' {..} =
-    _salt `Prelude.hashWithSalt` defaultVariation
+    _salt
+      `Prelude.hashWithSalt` defaultVariation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityOverrides
       `Prelude.hashWithSalt` evaluationStrategy

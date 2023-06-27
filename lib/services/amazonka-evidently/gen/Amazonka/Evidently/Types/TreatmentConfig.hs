@@ -89,7 +89,8 @@ treatmentConfig_variation = Lens.lens (\TreatmentConfig' {variation} -> variatio
 
 instance Prelude.Hashable TreatmentConfig where
   hashWithSalt _salt TreatmentConfig' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` feature
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` variation

@@ -108,7 +108,8 @@ instance Data.FromJSON VariableValue where
 
 instance Prelude.Hashable VariableValue where
   hashWithSalt _salt VariableValue' {..} =
-    _salt `Prelude.hashWithSalt` boolValue
+    _salt
+      `Prelude.hashWithSalt` boolValue
       `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` longValue
       `Prelude.hashWithSalt` stringValue

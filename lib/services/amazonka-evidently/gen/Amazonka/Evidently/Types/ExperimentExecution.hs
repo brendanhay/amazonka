@@ -75,7 +75,8 @@ instance Data.FromJSON ExperimentExecution where
 
 instance Prelude.Hashable ExperimentExecution where
   hashWithSalt _salt ExperimentExecution' {..} =
-    _salt `Prelude.hashWithSalt` endedTime
+    _salt
+      `Prelude.hashWithSalt` endedTime
       `Prelude.hashWithSalt` startedTime
 
 instance Prelude.NFData ExperimentExecution where

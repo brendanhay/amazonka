@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteExperiment where
 
 instance Prelude.Hashable DeleteExperiment where
   hashWithSalt _salt DeleteExperiment' {..} =
-    _salt `Prelude.hashWithSalt` experiment
+    _salt
+      `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` project
 
 instance Prelude.NFData DeleteExperiment where

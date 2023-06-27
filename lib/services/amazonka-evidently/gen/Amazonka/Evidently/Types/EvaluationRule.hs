@@ -77,12 +77,14 @@ instance Data.FromJSON EvaluationRule where
       "EvaluationRule"
       ( \x ->
           EvaluationRule'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable EvaluationRule where
   hashWithSalt _salt EvaluationRule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData EvaluationRule where

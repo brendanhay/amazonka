@@ -106,7 +106,10 @@ data CreateExperiment = CreateExperiment'
     -- Tags don\'t have any semantic meaning to Amazon Web Services and are
     -- interpreted strictly as strings of characters.
     --
-    -- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+    -- You can associate as many as 50 tags with an experiment.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An array of structures that defines the metrics used for the experiment,
     -- and whether a higher or lower value for each metric is the goal.
@@ -164,7 +167,10 @@ data CreateExperiment = CreateExperiment'
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with an experiment.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 --
 -- 'metricGoals', 'createExperiment_metricGoals' - An array of structures that defines the metrics used for the experiment,
 -- and whether a higher or lower value for each metric is the goal.
@@ -242,7 +248,10 @@ createExperiment_segment = Lens.lens (\CreateExperiment' {segment} -> segment) (
 -- Tags don\'t have any semantic meaning to Amazon Web Services and are
 -- interpreted strictly as strings of characters.
 --
--- >  <p>You can associate as many as 50 tags with an experiment.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
+-- You can associate as many as 50 tags with an experiment.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
 createExperiment_tags :: Lens.Lens' CreateExperiment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Prelude.. Lens.mapping Lens.coerced
 
@@ -281,7 +290,8 @@ instance Core.AWSRequest CreateExperiment where
 
 instance Prelude.Hashable CreateExperiment where
   hashWithSalt _salt CreateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` onlineAbConfig
       `Prelude.hashWithSalt` randomizationSalt
       `Prelude.hashWithSalt` samplingRate

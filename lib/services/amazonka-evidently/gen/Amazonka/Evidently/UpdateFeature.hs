@@ -77,6 +77,9 @@ data UpdateFeature = UpdateFeature'
     -- specify a user by entering their user ID, account ID, or some other
     -- identifier. For the value, specify the name of the variation that they
     -- are to be served.
+    --
+    -- This parameter is limited to 2500 overrides or a total of 40KB. The 40KB
+    -- limit includes an overhead of 6 bytes per override.
     entityOverrides :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specify @ALL_RULES@ to activate the traffic allocation specified by any
     -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
@@ -120,6 +123,9 @@ data UpdateFeature = UpdateFeature'
 -- specify a user by entering their user ID, account ID, or some other
 -- identifier. For the value, specify the name of the variation that they
 -- are to be served.
+--
+-- This parameter is limited to 2500 overrides or a total of 40KB. The 40KB
+-- limit includes an overhead of 6 bytes per override.
 --
 -- 'evaluationStrategy', 'updateFeature_evaluationStrategy' - Specify @ALL_RULES@ to activate the traffic allocation specified by any
 -- ongoing launches or experiments. Specify @DEFAULT_VARIATION@ to serve
@@ -176,6 +182,9 @@ updateFeature_description = Lens.lens (\UpdateFeature' {description} -> descript
 -- specify a user by entering their user ID, account ID, or some other
 -- identifier. For the value, specify the name of the variation that they
 -- are to be served.
+--
+-- This parameter is limited to 2500 overrides or a total of 40KB. The 40KB
+-- limit includes an overhead of 6 bytes per override.
 updateFeature_entityOverrides :: Lens.Lens' UpdateFeature (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateFeature_entityOverrides = Lens.lens (\UpdateFeature' {entityOverrides} -> entityOverrides) (\s@UpdateFeature' {} a -> s {entityOverrides = a} :: UpdateFeature) Prelude.. Lens.mapping Lens.coerced
 
@@ -217,7 +226,8 @@ instance Core.AWSRequest UpdateFeature where
 
 instance Prelude.Hashable UpdateFeature where
   hashWithSalt _salt UpdateFeature' {..} =
-    _salt `Prelude.hashWithSalt` addOrUpdateVariations
+    _salt
+      `Prelude.hashWithSalt` addOrUpdateVariations
       `Prelude.hashWithSalt` defaultVariation
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` entityOverrides

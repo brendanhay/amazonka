@@ -109,7 +109,8 @@ instance Core.AWSRequest TestSegmentPattern where
 
 instance Prelude.Hashable TestSegmentPattern where
   hashWithSalt _salt TestSegmentPattern' {..} =
-    _salt `Prelude.hashWithSalt` pattern'
+    _salt
+      `Prelude.hashWithSalt` pattern'
       `Prelude.hashWithSalt` payload
 
 instance Prelude.NFData TestSegmentPattern where

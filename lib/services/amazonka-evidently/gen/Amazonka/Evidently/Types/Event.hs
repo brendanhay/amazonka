@@ -92,7 +92,8 @@ event_type = Lens.lens (\Event' {type'} -> type') (\s@Event' {} a -> s {type' = 
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` type'
 

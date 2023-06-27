@@ -112,7 +112,7 @@ data InvokeEndpoint = InvokeEndpoint'
     -- | An optional JMESPath expression used to override the
     -- @EnableExplanations@ parameter of the @ClarifyExplainerConfig@ API. See
     -- the
-    -- <https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable EnableExplanations>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
     -- section in the developer guide for more information.
     enableExplanations :: Prelude.Maybe Prelude.Text,
     -- | If you provide a value, it is added to the captured data when you enable
@@ -183,7 +183,7 @@ data InvokeEndpoint = InvokeEndpoint'
 -- 'enableExplanations', 'invokeEndpoint_enableExplanations' - An optional JMESPath expression used to override the
 -- @EnableExplanations@ parameter of the @ClarifyExplainerConfig@ API. See
 -- the
--- <https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable EnableExplanations>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
 -- section in the developer guide for more information.
 --
 -- 'inferenceId', 'invokeEndpoint_inferenceId' - If you provide a value, it is added to the captured data when you enable
@@ -268,7 +268,7 @@ invokeEndpoint_customAttributes = Lens.lens (\InvokeEndpoint' {customAttributes}
 -- | An optional JMESPath expression used to override the
 -- @EnableExplanations@ parameter of the @ClarifyExplainerConfig@ API. See
 -- the
--- <https://docs.aws.amazon.com/clarify-online-explainability-create-endpoint.html#clarify-online-exaplainability-create-endpoint-enable EnableExplanations>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable EnableExplanations>
 -- section in the developer guide for more information.
 invokeEndpoint_enableExplanations :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
 invokeEndpoint_enableExplanations = Lens.lens (\InvokeEndpoint' {enableExplanations} -> enableExplanations) (\s@InvokeEndpoint' {} a -> s {enableExplanations = a} :: InvokeEndpoint)
@@ -335,7 +335,8 @@ instance Core.AWSRequest InvokeEndpoint where
 
 instance Prelude.Hashable InvokeEndpoint where
   hashWithSalt _salt InvokeEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` customAttributes
       `Prelude.hashWithSalt` enableExplanations

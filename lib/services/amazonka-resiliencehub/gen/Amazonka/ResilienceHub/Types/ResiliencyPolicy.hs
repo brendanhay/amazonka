@@ -47,7 +47,7 @@ data ResiliencyPolicy = ResiliencyPolicy'
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The description for the policy.
     policyDescription :: Prelude.Maybe Prelude.Text,
@@ -84,7 +84,7 @@ data ResiliencyPolicy = ResiliencyPolicy'
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'policyDescription', 'resiliencyPolicy_policyDescription' - The description for the policy.
 --
@@ -132,7 +132,7 @@ resiliencyPolicy_policy = Lens.lens (\ResiliencyPolicy' {policy} -> policy) (\s@
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 resiliencyPolicy_policyArn :: Lens.Lens' ResiliencyPolicy (Prelude.Maybe Prelude.Text)
 resiliencyPolicy_policyArn = Lens.lens (\ResiliencyPolicy' {policyArn} -> policyArn) (\s@ResiliencyPolicy' {} a -> s {policyArn = a} :: ResiliencyPolicy)
 
@@ -173,7 +173,8 @@ instance Data.FromJSON ResiliencyPolicy where
 
 instance Prelude.Hashable ResiliencyPolicy where
   hashWithSalt _salt ResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataLocationConstraint
       `Prelude.hashWithSalt` estimatedCostTier
       `Prelude.hashWithSalt` policy

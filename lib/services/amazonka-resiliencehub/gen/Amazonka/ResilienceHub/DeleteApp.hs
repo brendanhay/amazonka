@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS Resilience Hub application. This is a destructive action
--- that can\'t be undone.
+-- Deletes an Resilience Hub application. This is a destructive action that
+-- can\'t be undone.
 module Amazonka.ResilienceHub.DeleteApp
   ( -- * Creating a Request
     DeleteApp (..),
@@ -56,13 +56,14 @@ data DeleteApp = DeleteApp'
     -- case-sensitive string of up to 64 ASCII characters. You should not reuse
     -- the same client token for other API requests.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A boolean option to force the deletion of a Resilience Hub application.
+    -- | A boolean option to force the deletion of an Resilience Hub application.
     forceDelete :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,13 +80,14 @@ data DeleteApp = DeleteApp'
 -- case-sensitive string of up to 64 ASCII characters. You should not reuse
 -- the same client token for other API requests.
 --
--- 'forceDelete', 'deleteApp_forceDelete' - A boolean option to force the deletion of a Resilience Hub application.
+-- 'forceDelete', 'deleteApp_forceDelete' - A boolean option to force the deletion of an Resilience Hub application.
 --
--- 'appArn', 'deleteApp_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'deleteApp_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDeleteApp ::
   -- | 'appArn'
   Prelude.Text ->
@@ -103,15 +105,16 @@ newDeleteApp pAppArn_ =
 deleteApp_clientToken :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Text)
 deleteApp_clientToken = Lens.lens (\DeleteApp' {clientToken} -> clientToken) (\s@DeleteApp' {} a -> s {clientToken = a} :: DeleteApp)
 
--- | A boolean option to force the deletion of a Resilience Hub application.
+-- | A boolean option to force the deletion of an Resilience Hub application.
 deleteApp_forceDelete :: Lens.Lens' DeleteApp (Prelude.Maybe Prelude.Bool)
 deleteApp_forceDelete = Lens.lens (\DeleteApp' {forceDelete} -> forceDelete) (\s@DeleteApp' {} a -> s {forceDelete = a} :: DeleteApp)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 deleteApp_appArn :: Lens.Lens' DeleteApp Prelude.Text
 deleteApp_appArn = Lens.lens (\DeleteApp' {appArn} -> appArn) (\s@DeleteApp' {} a -> s {appArn = a} :: DeleteApp)
 
@@ -129,7 +132,8 @@ instance Core.AWSRequest DeleteApp where
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` appArn
 
@@ -170,11 +174,12 @@ instance Data.ToQuery DeleteApp where
 data DeleteAppResponse = DeleteAppResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -189,11 +194,12 @@ data DeleteAppResponse = DeleteAppResponse'
 --
 -- 'httpStatus', 'deleteAppResponse_httpStatus' - The response's http status code.
 --
--- 'appArn', 'deleteAppResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'deleteAppResponse_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDeleteAppResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -210,11 +216,12 @@ newDeleteAppResponse pHttpStatus_ pAppArn_ =
 deleteAppResponse_httpStatus :: Lens.Lens' DeleteAppResponse Prelude.Int
 deleteAppResponse_httpStatus = Lens.lens (\DeleteAppResponse' {httpStatus} -> httpStatus) (\s@DeleteAppResponse' {} a -> s {httpStatus = a} :: DeleteAppResponse)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 deleteAppResponse_appArn :: Lens.Lens' DeleteAppResponse Prelude.Text
 deleteAppResponse_appArn = Lens.lens (\DeleteAppResponse' {appArn} -> appArn) (\s@DeleteAppResponse' {} a -> s {appArn = a} :: DeleteAppResponse)
 

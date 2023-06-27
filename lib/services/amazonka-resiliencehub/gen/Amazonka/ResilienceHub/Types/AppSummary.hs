@@ -41,11 +41,12 @@ data AppSummary = AppSummary'
     resiliencyScore :: Prelude.Maybe Prelude.Double,
     -- | The status of the application.
     status :: Prelude.Maybe AppStatusType,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The timestamp for when the app was created.
     creationTime :: Data.POSIX,
@@ -72,11 +73,12 @@ data AppSummary = AppSummary'
 --
 -- 'status', 'appSummary_status' - The status of the application.
 --
--- 'appArn', 'appSummary_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'appSummary_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'creationTime', 'appSummary_creationTime' - The timestamp for when the app was created.
 --
@@ -121,11 +123,12 @@ appSummary_resiliencyScore = Lens.lens (\AppSummary' {resiliencyScore} -> resili
 appSummary_status :: Lens.Lens' AppSummary (Prelude.Maybe AppStatusType)
 appSummary_status = Lens.lens (\AppSummary' {status} -> status) (\s@AppSummary' {} a -> s {status = a} :: AppSummary)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 appSummary_appArn :: Lens.Lens' AppSummary Prelude.Text
 appSummary_appArn = Lens.lens (\AppSummary' {appArn} -> appArn) (\s@AppSummary' {} a -> s {appArn = a} :: AppSummary)
 
@@ -155,7 +158,8 @@ instance Data.FromJSON AppSummary where
 
 instance Prelude.Hashable AppSummary where
   hashWithSalt _salt AppSummary' {..} =
-    _salt `Prelude.hashWithSalt` assessmentSchedule
+    _salt
+      `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` resiliencyScore

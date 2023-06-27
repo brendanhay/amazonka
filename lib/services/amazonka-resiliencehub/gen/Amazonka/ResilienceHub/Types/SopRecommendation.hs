@@ -30,7 +30,7 @@ import Amazonka.ResilienceHub.Types.SopServiceType
 --
 -- /See:/ 'newSopRecommendation' smart constructor.
 data SopRecommendation = SopRecommendation'
-  { -- | The application component name.
+  { -- | The name of the Application Component.
     appComponentName :: Prelude.Maybe Prelude.Text,
     -- | The description of the SOP recommendation.
     description :: Prelude.Maybe Prelude.Text,
@@ -57,7 +57,7 @@ data SopRecommendation = SopRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appComponentName', 'sopRecommendation_appComponentName' - The application component name.
+-- 'appComponentName', 'sopRecommendation_appComponentName' - The name of the Application Component.
 --
 -- 'description', 'sopRecommendation_description' - The description of the SOP recommendation.
 --
@@ -96,7 +96,7 @@ newSopRecommendation
         serviceType = pServiceType_
       }
 
--- | The application component name.
+-- | The name of the Application Component.
 sopRecommendation_appComponentName :: Lens.Lens' SopRecommendation (Prelude.Maybe Prelude.Text)
 sopRecommendation_appComponentName = Lens.lens (\SopRecommendation' {appComponentName} -> appComponentName) (\s@SopRecommendation' {} a -> s {appComponentName = a} :: SopRecommendation)
 
@@ -146,7 +146,8 @@ instance Data.FromJSON SopRecommendation where
 
 instance Prelude.Hashable SopRecommendation where
   hashWithSalt _salt SopRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` name

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the alarm recommendations for a AWS Resilience Hub application.
+-- Lists the alarm recommendations for an Resilience Hub application.
 module Amazonka.ResilienceHub.ListAlarmRecommendations
   ( -- * Creating a Request
     ListAlarmRecommendations (..),
@@ -63,7 +63,7 @@ data ListAlarmRecommendations = ListAlarmRecommendations'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data ListAlarmRecommendations = ListAlarmRecommendations'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newListAlarmRecommendations ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -115,7 +115,7 @@ listAlarmRecommendations_nextToken = Lens.lens (\ListAlarmRecommendations' {next
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listAlarmRecommendations_assessmentArn :: Lens.Lens' ListAlarmRecommendations Prelude.Text
 listAlarmRecommendations_assessmentArn = Lens.lens (\ListAlarmRecommendations' {assessmentArn} -> assessmentArn) (\s@ListAlarmRecommendations' {} a -> s {assessmentArn = a} :: ListAlarmRecommendations)
 
@@ -131,14 +131,16 @@ instance Core.AWSRequest ListAlarmRecommendations where
           ListAlarmRecommendationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "alarmRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "alarmRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAlarmRecommendations where
   hashWithSalt _salt ListAlarmRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 
@@ -183,8 +185,8 @@ data ListAlarmRecommendationsResponse = ListAlarmRecommendationsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The alarm recommendations for an AWS Resilience Hub application,
-    -- returned as an object. This object includes application component names,
+    -- | The alarm recommendations for an Resilience Hub application, returned as
+    -- an object. This object includes Application Component names,
     -- descriptions, information about whether a recommendation has already
     -- been implemented or not, prerequisites, and more.
     alarmRecommendations :: [AlarmRecommendation]
@@ -204,8 +206,8 @@ data ListAlarmRecommendationsResponse = ListAlarmRecommendationsResponse'
 --
 -- 'httpStatus', 'listAlarmRecommendationsResponse_httpStatus' - The response's http status code.
 --
--- 'alarmRecommendations', 'listAlarmRecommendationsResponse_alarmRecommendations' - The alarm recommendations for an AWS Resilience Hub application,
--- returned as an object. This object includes application component names,
+-- 'alarmRecommendations', 'listAlarmRecommendationsResponse_alarmRecommendations' - The alarm recommendations for an Resilience Hub application, returned as
+-- an object. This object includes Application Component names,
 -- descriptions, information about whether a recommendation has already
 -- been implemented or not, prerequisites, and more.
 newListAlarmRecommendationsResponse ::
@@ -229,8 +231,8 @@ listAlarmRecommendationsResponse_nextToken = Lens.lens (\ListAlarmRecommendation
 listAlarmRecommendationsResponse_httpStatus :: Lens.Lens' ListAlarmRecommendationsResponse Prelude.Int
 listAlarmRecommendationsResponse_httpStatus = Lens.lens (\ListAlarmRecommendationsResponse' {httpStatus} -> httpStatus) (\s@ListAlarmRecommendationsResponse' {} a -> s {httpStatus = a} :: ListAlarmRecommendationsResponse)
 
--- | The alarm recommendations for an AWS Resilience Hub application,
--- returned as an object. This object includes application component names,
+-- | The alarm recommendations for an Resilience Hub application, returned as
+-- an object. This object includes Application Component names,
 -- descriptions, information about whether a recommendation has already
 -- been implemented or not, prerequisites, and more.
 listAlarmRecommendationsResponse_alarmRecommendations :: Lens.Lens' ListAlarmRecommendationsResponse [AlarmRecommendation]

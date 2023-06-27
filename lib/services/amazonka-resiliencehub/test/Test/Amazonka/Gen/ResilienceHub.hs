@@ -33,6 +33,12 @@ import Test.Tasty
 --         , requestCreateApp $
 --             newCreateApp
 --
+--         , requestCreateAppVersionAppComponent $
+--             newCreateAppVersionAppComponent
+--
+--         , requestCreateAppVersionResource $
+--             newCreateAppVersionResource
+--
 --         , requestCreateRecommendationTemplate $
 --             newCreateRecommendationTemplate
 --
@@ -45,6 +51,15 @@ import Test.Tasty
 --         , requestDeleteAppAssessment $
 --             newDeleteAppAssessment
 --
+--         , requestDeleteAppInputSource $
+--             newDeleteAppInputSource
+--
+--         , requestDeleteAppVersionAppComponent $
+--             newDeleteAppVersionAppComponent
+--
+--         , requestDeleteAppVersionResource $
+--             newDeleteAppVersionResource
+--
 --         , requestDeleteRecommendationTemplate $
 --             newDeleteRecommendationTemplate
 --
@@ -56,6 +71,15 @@ import Test.Tasty
 --
 --         , requestDescribeAppAssessment $
 --             newDescribeAppAssessment
+--
+--         , requestDescribeAppVersion $
+--             newDescribeAppVersion
+--
+--         , requestDescribeAppVersionAppComponent $
+--             newDescribeAppVersionAppComponent
+--
+--         , requestDescribeAppVersionResource $
+--             newDescribeAppVersionResource
 --
 --         , requestDescribeAppVersionResourcesResolutionStatus $
 --             newDescribeAppVersionResourcesResolutionStatus
@@ -83,6 +107,12 @@ import Test.Tasty
 --
 --         , requestListAppComponentRecommendations $
 --             newListAppComponentRecommendations
+--
+--         , requestListAppInputSources $
+--             newListAppInputSources
+--
+--         , requestListAppVersionAppComponents $
+--             newListAppVersionAppComponents
 --
 --         , requestListAppVersionResourceMappings $
 --             newListAppVersionResourceMappings
@@ -141,6 +171,15 @@ import Test.Tasty
 --         , requestUpdateApp $
 --             newUpdateApp
 --
+--         , requestUpdateAppVersion $
+--             newUpdateAppVersion
+--
+--         , requestUpdateAppVersionAppComponent $
+--             newUpdateAppVersionAppComponent
+--
+--         , requestUpdateAppVersionResource $
+--             newUpdateAppVersionResource
+--
 --         , requestUpdateResiliencyPolicy $
 --             newUpdateResiliencyPolicy
 --
@@ -152,6 +191,12 @@ import Test.Tasty
 --
 --         , responseCreateApp $
 --             newCreateAppResponse
+--
+--         , responseCreateAppVersionAppComponent $
+--             newCreateAppVersionAppComponentResponse
+--
+--         , responseCreateAppVersionResource $
+--             newCreateAppVersionResourceResponse
 --
 --         , responseCreateRecommendationTemplate $
 --             newCreateRecommendationTemplateResponse
@@ -165,6 +210,15 @@ import Test.Tasty
 --         , responseDeleteAppAssessment $
 --             newDeleteAppAssessmentResponse
 --
+--         , responseDeleteAppInputSource $
+--             newDeleteAppInputSourceResponse
+--
+--         , responseDeleteAppVersionAppComponent $
+--             newDeleteAppVersionAppComponentResponse
+--
+--         , responseDeleteAppVersionResource $
+--             newDeleteAppVersionResourceResponse
+--
 --         , responseDeleteRecommendationTemplate $
 --             newDeleteRecommendationTemplateResponse
 --
@@ -176,6 +230,15 @@ import Test.Tasty
 --
 --         , responseDescribeAppAssessment $
 --             newDescribeAppAssessmentResponse
+--
+--         , responseDescribeAppVersion $
+--             newDescribeAppVersionResponse
+--
+--         , responseDescribeAppVersionAppComponent $
+--             newDescribeAppVersionAppComponentResponse
+--
+--         , responseDescribeAppVersionResource $
+--             newDescribeAppVersionResourceResponse
 --
 --         , responseDescribeAppVersionResourcesResolutionStatus $
 --             newDescribeAppVersionResourcesResolutionStatusResponse
@@ -203,6 +266,12 @@ import Test.Tasty
 --
 --         , responseListAppComponentRecommendations $
 --             newListAppComponentRecommendationsResponse
+--
+--         , responseListAppInputSources $
+--             newListAppInputSourcesResponse
+--
+--         , responseListAppVersionAppComponents $
+--             newListAppVersionAppComponentsResponse
 --
 --         , responseListAppVersionResourceMappings $
 --             newListAppVersionResourceMappingsResponse
@@ -261,6 +330,15 @@ import Test.Tasty
 --         , responseUpdateApp $
 --             newUpdateAppResponse
 --
+--         , responseUpdateAppVersion $
+--             newUpdateAppVersionResponse
+--
+--         , responseUpdateAppVersionAppComponent $
+--             newUpdateAppVersionAppComponentResponse
+--
+--         , responseUpdateAppVersionResource $
+--             newUpdateAppVersionResourceResponse
+--
 --         , responseUpdateResiliencyPolicy $
 --             newUpdateResiliencyPolicyResponse
 --
@@ -280,6 +358,18 @@ requestCreateApp =
   req
     "CreateApp"
     "fixture/CreateApp.yaml"
+
+requestCreateAppVersionAppComponent :: CreateAppVersionAppComponent -> TestTree
+requestCreateAppVersionAppComponent =
+  req
+    "CreateAppVersionAppComponent"
+    "fixture/CreateAppVersionAppComponent.yaml"
+
+requestCreateAppVersionResource :: CreateAppVersionResource -> TestTree
+requestCreateAppVersionResource =
+  req
+    "CreateAppVersionResource"
+    "fixture/CreateAppVersionResource.yaml"
 
 requestCreateRecommendationTemplate :: CreateRecommendationTemplate -> TestTree
 requestCreateRecommendationTemplate =
@@ -305,6 +395,24 @@ requestDeleteAppAssessment =
     "DeleteAppAssessment"
     "fixture/DeleteAppAssessment.yaml"
 
+requestDeleteAppInputSource :: DeleteAppInputSource -> TestTree
+requestDeleteAppInputSource =
+  req
+    "DeleteAppInputSource"
+    "fixture/DeleteAppInputSource.yaml"
+
+requestDeleteAppVersionAppComponent :: DeleteAppVersionAppComponent -> TestTree
+requestDeleteAppVersionAppComponent =
+  req
+    "DeleteAppVersionAppComponent"
+    "fixture/DeleteAppVersionAppComponent.yaml"
+
+requestDeleteAppVersionResource :: DeleteAppVersionResource -> TestTree
+requestDeleteAppVersionResource =
+  req
+    "DeleteAppVersionResource"
+    "fixture/DeleteAppVersionResource.yaml"
+
 requestDeleteRecommendationTemplate :: DeleteRecommendationTemplate -> TestTree
 requestDeleteRecommendationTemplate =
   req
@@ -328,6 +436,24 @@ requestDescribeAppAssessment =
   req
     "DescribeAppAssessment"
     "fixture/DescribeAppAssessment.yaml"
+
+requestDescribeAppVersion :: DescribeAppVersion -> TestTree
+requestDescribeAppVersion =
+  req
+    "DescribeAppVersion"
+    "fixture/DescribeAppVersion.yaml"
+
+requestDescribeAppVersionAppComponent :: DescribeAppVersionAppComponent -> TestTree
+requestDescribeAppVersionAppComponent =
+  req
+    "DescribeAppVersionAppComponent"
+    "fixture/DescribeAppVersionAppComponent.yaml"
+
+requestDescribeAppVersionResource :: DescribeAppVersionResource -> TestTree
+requestDescribeAppVersionResource =
+  req
+    "DescribeAppVersionResource"
+    "fixture/DescribeAppVersionResource.yaml"
 
 requestDescribeAppVersionResourcesResolutionStatus :: DescribeAppVersionResourcesResolutionStatus -> TestTree
 requestDescribeAppVersionResourcesResolutionStatus =
@@ -382,6 +508,18 @@ requestListAppComponentRecommendations =
   req
     "ListAppComponentRecommendations"
     "fixture/ListAppComponentRecommendations.yaml"
+
+requestListAppInputSources :: ListAppInputSources -> TestTree
+requestListAppInputSources =
+  req
+    "ListAppInputSources"
+    "fixture/ListAppInputSources.yaml"
+
+requestListAppVersionAppComponents :: ListAppVersionAppComponents -> TestTree
+requestListAppVersionAppComponents =
+  req
+    "ListAppVersionAppComponents"
+    "fixture/ListAppVersionAppComponents.yaml"
 
 requestListAppVersionResourceMappings :: ListAppVersionResourceMappings -> TestTree
 requestListAppVersionResourceMappings =
@@ -497,6 +635,24 @@ requestUpdateApp =
     "UpdateApp"
     "fixture/UpdateApp.yaml"
 
+requestUpdateAppVersion :: UpdateAppVersion -> TestTree
+requestUpdateAppVersion =
+  req
+    "UpdateAppVersion"
+    "fixture/UpdateAppVersion.yaml"
+
+requestUpdateAppVersionAppComponent :: UpdateAppVersionAppComponent -> TestTree
+requestUpdateAppVersionAppComponent =
+  req
+    "UpdateAppVersionAppComponent"
+    "fixture/UpdateAppVersionAppComponent.yaml"
+
+requestUpdateAppVersionResource :: UpdateAppVersionResource -> TestTree
+requestUpdateAppVersionResource =
+  req
+    "UpdateAppVersionResource"
+    "fixture/UpdateAppVersionResource.yaml"
+
 requestUpdateResiliencyPolicy :: UpdateResiliencyPolicy -> TestTree
 requestUpdateResiliencyPolicy =
   req
@@ -520,6 +676,22 @@ responseCreateApp =
     "fixture/CreateAppResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateApp)
+
+responseCreateAppVersionAppComponent :: CreateAppVersionAppComponentResponse -> TestTree
+responseCreateAppVersionAppComponent =
+  res
+    "CreateAppVersionAppComponentResponse"
+    "fixture/CreateAppVersionAppComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAppVersionAppComponent)
+
+responseCreateAppVersionResource :: CreateAppVersionResourceResponse -> TestTree
+responseCreateAppVersionResource =
+  res
+    "CreateAppVersionResourceResponse"
+    "fixture/CreateAppVersionResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAppVersionResource)
 
 responseCreateRecommendationTemplate :: CreateRecommendationTemplateResponse -> TestTree
 responseCreateRecommendationTemplate =
@@ -553,6 +725,30 @@ responseDeleteAppAssessment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAppAssessment)
 
+responseDeleteAppInputSource :: DeleteAppInputSourceResponse -> TestTree
+responseDeleteAppInputSource =
+  res
+    "DeleteAppInputSourceResponse"
+    "fixture/DeleteAppInputSourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppInputSource)
+
+responseDeleteAppVersionAppComponent :: DeleteAppVersionAppComponentResponse -> TestTree
+responseDeleteAppVersionAppComponent =
+  res
+    "DeleteAppVersionAppComponentResponse"
+    "fixture/DeleteAppVersionAppComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppVersionAppComponent)
+
+responseDeleteAppVersionResource :: DeleteAppVersionResourceResponse -> TestTree
+responseDeleteAppVersionResource =
+  res
+    "DeleteAppVersionResourceResponse"
+    "fixture/DeleteAppVersionResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppVersionResource)
+
 responseDeleteRecommendationTemplate :: DeleteRecommendationTemplateResponse -> TestTree
 responseDeleteRecommendationTemplate =
   res
@@ -584,6 +780,30 @@ responseDescribeAppAssessment =
     "fixture/DescribeAppAssessmentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAppAssessment)
+
+responseDescribeAppVersion :: DescribeAppVersionResponse -> TestTree
+responseDescribeAppVersion =
+  res
+    "DescribeAppVersionResponse"
+    "fixture/DescribeAppVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppVersion)
+
+responseDescribeAppVersionAppComponent :: DescribeAppVersionAppComponentResponse -> TestTree
+responseDescribeAppVersionAppComponent =
+  res
+    "DescribeAppVersionAppComponentResponse"
+    "fixture/DescribeAppVersionAppComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppVersionAppComponent)
+
+responseDescribeAppVersionResource :: DescribeAppVersionResourceResponse -> TestTree
+responseDescribeAppVersionResource =
+  res
+    "DescribeAppVersionResourceResponse"
+    "fixture/DescribeAppVersionResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppVersionResource)
 
 responseDescribeAppVersionResourcesResolutionStatus :: DescribeAppVersionResourcesResolutionStatusResponse -> TestTree
 responseDescribeAppVersionResourcesResolutionStatus =
@@ -656,6 +876,22 @@ responseListAppComponentRecommendations =
     "fixture/ListAppComponentRecommendationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAppComponentRecommendations)
+
+responseListAppInputSources :: ListAppInputSourcesResponse -> TestTree
+responseListAppInputSources =
+  res
+    "ListAppInputSourcesResponse"
+    "fixture/ListAppInputSourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInputSources)
+
+responseListAppVersionAppComponents :: ListAppVersionAppComponentsResponse -> TestTree
+responseListAppVersionAppComponents =
+  res
+    "ListAppVersionAppComponentsResponse"
+    "fixture/ListAppVersionAppComponentsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppVersionAppComponents)
 
 responseListAppVersionResourceMappings :: ListAppVersionResourceMappingsResponse -> TestTree
 responseListAppVersionResourceMappings =
@@ -808,6 +1044,30 @@ responseUpdateApp =
     "fixture/UpdateAppResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateApp)
+
+responseUpdateAppVersion :: UpdateAppVersionResponse -> TestTree
+responseUpdateAppVersion =
+  res
+    "UpdateAppVersionResponse"
+    "fixture/UpdateAppVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppVersion)
+
+responseUpdateAppVersionAppComponent :: UpdateAppVersionAppComponentResponse -> TestTree
+responseUpdateAppVersionAppComponent =
+  res
+    "UpdateAppVersionAppComponentResponse"
+    "fixture/UpdateAppVersionAppComponentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppVersionAppComponent)
+
+responseUpdateAppVersionResource :: UpdateAppVersionResourceResponse -> TestTree
+responseUpdateAppVersionResource =
+  res
+    "UpdateAppVersionResourceResponse"
+    "fixture/UpdateAppVersionResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppVersionResource)
 
 responseUpdateResiliencyPolicy :: UpdateResiliencyPolicyResponse -> TestTree
 responseUpdateResiliencyPolicy =

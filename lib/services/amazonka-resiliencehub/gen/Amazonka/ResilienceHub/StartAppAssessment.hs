@@ -60,11 +60,12 @@ data StartAppAssessment = StartAppAssessment'
     -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
     tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text,
@@ -88,11 +89,12 @@ data StartAppAssessment = StartAppAssessment'
 -- 'tags', 'startAppAssessment_tags' - The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 --
--- 'appArn', 'startAppAssessment_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'startAppAssessment_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'startAppAssessment_appVersion' - The version of the application.
 --
@@ -128,11 +130,12 @@ startAppAssessment_clientToken = Lens.lens (\StartAppAssessment' {clientToken} -
 startAppAssessment_tags :: Lens.Lens' StartAppAssessment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startAppAssessment_tags = Lens.lens (\StartAppAssessment' {tags} -> tags) (\s@StartAppAssessment' {} a -> s {tags = a} :: StartAppAssessment) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 startAppAssessment_appArn :: Lens.Lens' StartAppAssessment Prelude.Text
 startAppAssessment_appArn = Lens.lens (\StartAppAssessment' {appArn} -> appArn) (\s@StartAppAssessment' {} a -> s {appArn = a} :: StartAppAssessment)
 
@@ -160,7 +163,8 @@ instance Core.AWSRequest StartAppAssessment where
 
 instance Prelude.Hashable StartAppAssessment where
   hashWithSalt _salt StartAppAssessment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion

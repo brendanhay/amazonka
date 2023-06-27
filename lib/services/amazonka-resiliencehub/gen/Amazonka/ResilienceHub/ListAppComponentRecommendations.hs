@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the recommendations for an AWS Resilience Hub component.
+-- Lists the recommendations for an Resilience Hub Application Component.
 module Amazonka.ResilienceHub.ListAppComponentRecommendations
   ( -- * Creating a Request
     ListAppComponentRecommendations (..),
@@ -63,7 +63,7 @@ data ListAppComponentRecommendations = ListAppComponentRecommendations'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data ListAppComponentRecommendations = ListAppComponentRecommendations'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newListAppComponentRecommendations ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -115,7 +115,7 @@ listAppComponentRecommendations_nextToken = Lens.lens (\ListAppComponentRecommen
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listAppComponentRecommendations_assessmentArn :: Lens.Lens' ListAppComponentRecommendations Prelude.Text
 listAppComponentRecommendations_assessmentArn = Lens.lens (\ListAppComponentRecommendations' {assessmentArn} -> assessmentArn) (\s@ListAppComponentRecommendations' {} a -> s {assessmentArn = a} :: ListAppComponentRecommendations)
 
@@ -134,7 +134,8 @@ instance
           ListAppComponentRecommendationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "componentRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "componentRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -146,7 +147,8 @@ instance
   hashWithSalt
     _salt
     ListAppComponentRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` assessmentArn
 
@@ -198,9 +200,9 @@ data ListAppComponentRecommendationsResponse = ListAppComponentRecommendationsRe
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The recommendations for an Resilience Hub application component,
-    -- returned as an object. This object contains component names,
-    -- configuration recommendations, and recommendation statuses.
+    -- | The recommendations for an Resilience Hub Application Component,
+    -- returned as an object. This object contains the names of the Application
+    -- Components, configuration recommendations, and recommendation statuses.
     componentRecommendations :: [ComponentRecommendation]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -218,9 +220,9 @@ data ListAppComponentRecommendationsResponse = ListAppComponentRecommendationsRe
 --
 -- 'httpStatus', 'listAppComponentRecommendationsResponse_httpStatus' - The response's http status code.
 --
--- 'componentRecommendations', 'listAppComponentRecommendationsResponse_componentRecommendations' - The recommendations for an Resilience Hub application component,
--- returned as an object. This object contains component names,
--- configuration recommendations, and recommendation statuses.
+-- 'componentRecommendations', 'listAppComponentRecommendationsResponse_componentRecommendations' - The recommendations for an Resilience Hub Application Component,
+-- returned as an object. This object contains the names of the Application
+-- Components, configuration recommendations, and recommendation statuses.
 newListAppComponentRecommendationsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -244,9 +246,9 @@ listAppComponentRecommendationsResponse_nextToken = Lens.lens (\ListAppComponent
 listAppComponentRecommendationsResponse_httpStatus :: Lens.Lens' ListAppComponentRecommendationsResponse Prelude.Int
 listAppComponentRecommendationsResponse_httpStatus = Lens.lens (\ListAppComponentRecommendationsResponse' {httpStatus} -> httpStatus) (\s@ListAppComponentRecommendationsResponse' {} a -> s {httpStatus = a} :: ListAppComponentRecommendationsResponse)
 
--- | The recommendations for an Resilience Hub application component,
--- returned as an object. This object contains component names,
--- configuration recommendations, and recommendation statuses.
+-- | The recommendations for an Resilience Hub Application Component,
+-- returned as an object. This object contains the names of the Application
+-- Components, configuration recommendations, and recommendation statuses.
 listAppComponentRecommendationsResponse_componentRecommendations :: Lens.Lens' ListAppComponentRecommendationsResponse [ComponentRecommendation]
 listAppComponentRecommendationsResponse_componentRecommendations = Lens.lens (\ListAppComponentRecommendationsResponse' {componentRecommendations} -> componentRecommendations) (\s@ListAppComponentRecommendationsResponse' {} a -> s {componentRecommendations = a} :: ListAppComponentRecommendationsResponse) Prelude.. Lens.coerced
 

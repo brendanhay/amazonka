@@ -91,7 +91,8 @@ instance Data.FromJSON Cost where
 
 instance Prelude.Hashable Cost where
   hashWithSalt _salt Cost' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` currency
       `Prelude.hashWithSalt` frequency
 

@@ -30,7 +30,7 @@ import Amazonka.ResilienceHub.Types.RecommendationItem
 --
 -- /See:/ 'newAlarmRecommendation' smart constructor.
 data AlarmRecommendation = AlarmRecommendation'
-  { -- | The application component for the CloudWatch alarm recommendation.
+  { -- | The Application Component for the CloudWatch alarm recommendation.
     appComponentName :: Prelude.Maybe Prelude.Text,
     -- | The description of the recommendation.
     description :: Prelude.Maybe Prelude.Text,
@@ -57,7 +57,7 @@ data AlarmRecommendation = AlarmRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appComponentName', 'alarmRecommendation_appComponentName' - The application component for the CloudWatch alarm recommendation.
+-- 'appComponentName', 'alarmRecommendation_appComponentName' - The Application Component for the CloudWatch alarm recommendation.
 --
 -- 'description', 'alarmRecommendation_description' - The description of the recommendation.
 --
@@ -99,7 +99,7 @@ newAlarmRecommendation
         type' = pType_
       }
 
--- | The application component for the CloudWatch alarm recommendation.
+-- | The Application Component for the CloudWatch alarm recommendation.
 alarmRecommendation_appComponentName :: Lens.Lens' AlarmRecommendation (Prelude.Maybe Prelude.Text)
 alarmRecommendation_appComponentName = Lens.lens (\AlarmRecommendation' {appComponentName} -> appComponentName) (\s@AlarmRecommendation' {} a -> s {appComponentName = a} :: AlarmRecommendation)
 
@@ -149,7 +149,8 @@ instance Data.FromJSON AlarmRecommendation where
 
 instance Prelude.Hashable AlarmRecommendation where
   hashWithSalt _salt AlarmRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` prerequisite

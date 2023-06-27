@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the resources that are not currently supported in AWS Resilience
--- Hub. An unsupported resource is a resource that exists in the object
--- that was used to create an app, but is not supported by Resilience Hub.
+-- Lists the resources that are not currently supported in Resilience Hub.
+-- An unsupported resource is a resource that exists in the object that was
+-- used to create an app, but is not supported by Resilience Hub.
 module Amazonka.ResilienceHub.ListUnsupportedAppVersionResources
   ( -- * Creating a Request
     ListUnsupportedAppVersionResources (..),
@@ -65,11 +65,12 @@ data ListUnsupportedAppVersionResources = ListUnsupportedAppVersionResources'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier for a specific resolution.
     resolutionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text
@@ -92,11 +93,12 @@ data ListUnsupportedAppVersionResources = ListUnsupportedAppVersionResources'
 --
 -- 'resolutionId', 'listUnsupportedAppVersionResources_resolutionId' - The identifier for a specific resolution.
 --
--- 'appArn', 'listUnsupportedAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'listUnsupportedAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'listUnsupportedAppVersionResources_appVersion' - The version of the application.
 newListUnsupportedAppVersionResources ::
@@ -131,11 +133,12 @@ listUnsupportedAppVersionResources_nextToken = Lens.lens (\ListUnsupportedAppVer
 listUnsupportedAppVersionResources_resolutionId :: Lens.Lens' ListUnsupportedAppVersionResources (Prelude.Maybe Prelude.Text)
 listUnsupportedAppVersionResources_resolutionId = Lens.lens (\ListUnsupportedAppVersionResources' {resolutionId} -> resolutionId) (\s@ListUnsupportedAppVersionResources' {} a -> s {resolutionId = a} :: ListUnsupportedAppVersionResources)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listUnsupportedAppVersionResources_appArn :: Lens.Lens' ListUnsupportedAppVersionResources Prelude.Text
 listUnsupportedAppVersionResources_appArn = Lens.lens (\ListUnsupportedAppVersionResources' {appArn} -> appArn) (\s@ListUnsupportedAppVersionResources' {} a -> s {appArn = a} :: ListUnsupportedAppVersionResources)
 
@@ -157,11 +160,12 @@ instance
       ( \s h x ->
           ListUnsupportedAppVersionResourcesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "resolutionId")
-              Prelude.<*> ( x Data..?> "unsupportedResources"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "resolutionId")
+            Prelude.<*> ( x
+                            Data..?> "unsupportedResources"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -171,7 +175,8 @@ instance
   hashWithSalt
     _salt
     ListUnsupportedAppVersionResources' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` resolutionId
         `Prelude.hashWithSalt` appArn

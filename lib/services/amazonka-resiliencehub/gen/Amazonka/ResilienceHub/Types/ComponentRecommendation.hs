@@ -26,13 +26,13 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.ResilienceHub.Types.ConfigRecommendation
 import Amazonka.ResilienceHub.Types.RecommendationComplianceStatus
 
--- | Defines recommendations for a Resilience Hub application component,
+-- | Defines recommendations for an Resilience Hub Application Component,
 -- returned as an object. This object contains component names,
 -- configuration recommendations, and recommendation statuses.
 --
 -- /See:/ 'newComponentRecommendation' smart constructor.
 data ComponentRecommendation = ComponentRecommendation'
-  { -- | The name of the application component.
+  { -- | The name of the Application Component.
     appComponentName :: Prelude.Text,
     -- | The list of recommendations.
     configRecommendations :: [ConfigRecommendation],
@@ -49,7 +49,7 @@ data ComponentRecommendation = ComponentRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appComponentName', 'componentRecommendation_appComponentName' - The name of the application component.
+-- 'appComponentName', 'componentRecommendation_appComponentName' - The name of the Application Component.
 --
 -- 'configRecommendations', 'componentRecommendation_configRecommendations' - The list of recommendations.
 --
@@ -70,7 +70,7 @@ newComponentRecommendation
         recommendationStatus = pRecommendationStatus_
       }
 
--- | The name of the application component.
+-- | The name of the Application Component.
 componentRecommendation_appComponentName :: Lens.Lens' ComponentRecommendation Prelude.Text
 componentRecommendation_appComponentName = Lens.lens (\ComponentRecommendation' {appComponentName} -> appComponentName) (\s@ComponentRecommendation' {} a -> s {appComponentName = a} :: ComponentRecommendation)
 
@@ -89,7 +89,8 @@ instance Data.FromJSON ComponentRecommendation where
       ( \x ->
           ComponentRecommendation'
             Prelude.<$> (x Data..: "appComponentName")
-            Prelude.<*> ( x Data..:? "configRecommendations"
+            Prelude.<*> ( x
+                            Data..:? "configRecommendations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "recommendationStatus")
@@ -97,7 +98,8 @@ instance Data.FromJSON ComponentRecommendation where
 
 instance Prelude.Hashable ComponentRecommendation where
   hashWithSalt _salt ComponentRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` configRecommendations
       `Prelude.hashWithSalt` recommendationStatus
 

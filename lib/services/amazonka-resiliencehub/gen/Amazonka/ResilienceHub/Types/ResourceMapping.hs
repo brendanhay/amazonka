@@ -32,6 +32,11 @@ import Amazonka.ResilienceHub.Types.ResourceMappingType
 data ResourceMapping = ResourceMapping'
   { -- | The name of the application this resource is mapped to.
     appRegistryAppName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Amazon Elastic Kubernetes Service cluster and namespace
+    -- this resource belongs to.
+    --
+    -- This parameter accepts values in \"eks-cluster\/namespace\" format.
+    eksSourceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the CloudFormation stack this resource is mapped to.
     logicalStackName :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource group this resource is mapped to.
@@ -56,7 +61,7 @@ data ResourceMapping = ResourceMapping'
     --     is contained in the @resourceName@ property.
     --
     -- [ResourceGroup]
-    --     The resource is mapped to a resource group. The name of the resource
+    --     The resource is mapped to Resource Groups. The name of the resource
     --     group is contained in the @resourceGroupName@ property.
     mappingType :: ResourceMappingType,
     -- | The identifier of this resource.
@@ -73,6 +78,11 @@ data ResourceMapping = ResourceMapping'
 -- for backwards compatibility:
 --
 -- 'appRegistryAppName', 'resourceMapping_appRegistryAppName' - The name of the application this resource is mapped to.
+--
+-- 'eksSourceName', 'resourceMapping_eksSourceName' - The name of the Amazon Elastic Kubernetes Service cluster and namespace
+-- this resource belongs to.
+--
+-- This parameter accepts values in \"eks-cluster\/namespace\" format.
 --
 -- 'logicalStackName', 'resourceMapping_logicalStackName' - The name of the CloudFormation stack this resource is mapped to.
 --
@@ -98,7 +108,7 @@ data ResourceMapping = ResourceMapping'
 --     is contained in the @resourceName@ property.
 --
 -- [ResourceGroup]
---     The resource is mapped to a resource group. The name of the resource
+--     The resource is mapped to Resource Groups. The name of the resource
 --     group is contained in the @resourceGroupName@ property.
 --
 -- 'physicalResourceId', 'resourceMapping_physicalResourceId' - The identifier of this resource.
@@ -112,6 +122,7 @@ newResourceMapping pMappingType_ pPhysicalResourceId_ =
   ResourceMapping'
     { appRegistryAppName =
         Prelude.Nothing,
+      eksSourceName = Prelude.Nothing,
       logicalStackName = Prelude.Nothing,
       resourceGroupName = Prelude.Nothing,
       resourceName = Prelude.Nothing,
@@ -123,6 +134,13 @@ newResourceMapping pMappingType_ pPhysicalResourceId_ =
 -- | The name of the application this resource is mapped to.
 resourceMapping_appRegistryAppName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
 resourceMapping_appRegistryAppName = Lens.lens (\ResourceMapping' {appRegistryAppName} -> appRegistryAppName) (\s@ResourceMapping' {} a -> s {appRegistryAppName = a} :: ResourceMapping)
+
+-- | The name of the Amazon Elastic Kubernetes Service cluster and namespace
+-- this resource belongs to.
+--
+-- This parameter accepts values in \"eks-cluster\/namespace\" format.
+resourceMapping_eksSourceName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
+resourceMapping_eksSourceName = Lens.lens (\ResourceMapping' {eksSourceName} -> eksSourceName) (\s@ResourceMapping' {} a -> s {eksSourceName = a} :: ResourceMapping)
 
 -- | The name of the CloudFormation stack this resource is mapped to.
 resourceMapping_logicalStackName :: Lens.Lens' ResourceMapping (Prelude.Maybe Prelude.Text)
@@ -156,7 +174,7 @@ resourceMapping_terraformSourceName = Lens.lens (\ResourceMapping' {terraformSou
 --     is contained in the @resourceName@ property.
 --
 -- [ResourceGroup]
---     The resource is mapped to a resource group. The name of the resource
+--     The resource is mapped to Resource Groups. The name of the resource
 --     group is contained in the @resourceGroupName@ property.
 resourceMapping_mappingType :: Lens.Lens' ResourceMapping ResourceMappingType
 resourceMapping_mappingType = Lens.lens (\ResourceMapping' {mappingType} -> mappingType) (\s@ResourceMapping' {} a -> s {mappingType = a} :: ResourceMapping)
@@ -172,6 +190,7 @@ instance Data.FromJSON ResourceMapping where
       ( \x ->
           ResourceMapping'
             Prelude.<$> (x Data..:? "appRegistryAppName")
+            Prelude.<*> (x Data..:? "eksSourceName")
             Prelude.<*> (x Data..:? "logicalStackName")
             Prelude.<*> (x Data..:? "resourceGroupName")
             Prelude.<*> (x Data..:? "resourceName")
@@ -182,7 +201,9 @@ instance Data.FromJSON ResourceMapping where
 
 instance Prelude.Hashable ResourceMapping where
   hashWithSalt _salt ResourceMapping' {..} =
-    _salt `Prelude.hashWithSalt` appRegistryAppName
+    _salt
+      `Prelude.hashWithSalt` appRegistryAppName
+      `Prelude.hashWithSalt` eksSourceName
       `Prelude.hashWithSalt` logicalStackName
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` resourceName
@@ -193,6 +214,7 @@ instance Prelude.Hashable ResourceMapping where
 instance Prelude.NFData ResourceMapping where
   rnf ResourceMapping' {..} =
     Prelude.rnf appRegistryAppName
+      `Prelude.seq` Prelude.rnf eksSourceName
       `Prelude.seq` Prelude.rnf logicalStackName
       `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf resourceName
@@ -206,6 +228,7 @@ instance Data.ToJSON ResourceMapping where
       ( Prelude.catMaybes
           [ ("appRegistryAppName" Data..=)
               Prelude.<$> appRegistryAppName,
+            ("eksSourceName" Data..=) Prelude.<$> eksSourceName,
             ("logicalStackName" Data..=)
               Prelude.<$> logicalStackName,
             ("resourceGroupName" Data..=)

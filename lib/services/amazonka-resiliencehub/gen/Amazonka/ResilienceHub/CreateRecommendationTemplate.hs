@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new recommendation template.
+-- Creates a new recommendation template for the Resilience Hub
+-- application.
 module Amazonka.ResilienceHub.CreateRecommendationTemplate
   ( -- * Creating a Request
     CreateRecommendationTemplate (..),
@@ -94,7 +95,7 @@ data CreateRecommendationTemplate = CreateRecommendationTemplate'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text,
     -- | The name for the recommendation template.
     name :: Prelude.Text
@@ -147,7 +148,7 @@ data CreateRecommendationTemplate = CreateRecommendationTemplate'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'name', 'createRecommendationTemplate_name' - The name for the recommendation template.
 newCreateRecommendationTemplate ::
@@ -221,7 +222,7 @@ createRecommendationTemplate_tags = Lens.lens (\CreateRecommendationTemplate' {t
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 createRecommendationTemplate_assessmentArn :: Lens.Lens' CreateRecommendationTemplate Prelude.Text
 createRecommendationTemplate_assessmentArn = Lens.lens (\CreateRecommendationTemplate' {assessmentArn} -> assessmentArn) (\s@CreateRecommendationTemplate' {} a -> s {assessmentArn = a} :: CreateRecommendationTemplate)
 
@@ -248,7 +249,8 @@ instance
     CreateRecommendationTemplate
   where
   hashWithSalt _salt CreateRecommendationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` recommendationIds

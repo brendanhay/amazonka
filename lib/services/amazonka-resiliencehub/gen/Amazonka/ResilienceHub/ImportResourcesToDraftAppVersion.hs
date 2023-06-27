@@ -20,15 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports resources from sources such as a CloudFormation stack,
--- resource-groups, or application registry app to a draft application
--- version.
+-- Imports resources to Resilience Hub application draft version from
+-- different input sources. For more information about the input sources
+-- supported by Resilience Hub, see
+-- <https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html Discover the structure and describe your Resilience Hub application>.
 module Amazonka.ResilienceHub.ImportResourcesToDraftAppVersion
   ( -- * Creating a Request
     ImportResourcesToDraftAppVersion (..),
     newImportResourcesToDraftAppVersion,
 
     -- * Request Lenses
+    importResourcesToDraftAppVersion_eksSources,
+    importResourcesToDraftAppVersion_importStrategy,
     importResourcesToDraftAppVersion_sourceArns,
     importResourcesToDraftAppVersion_terraformSources,
     importResourcesToDraftAppVersion_appArn,
@@ -38,6 +41,7 @@ module Amazonka.ResilienceHub.ImportResourcesToDraftAppVersion
     newImportResourcesToDraftAppVersionResponse,
 
     -- * Response Lenses
+    importResourcesToDraftAppVersionResponse_eksSources,
     importResourcesToDraftAppVersionResponse_sourceArns,
     importResourcesToDraftAppVersionResponse_terraformSources,
     importResourcesToDraftAppVersionResponse_httpStatus,
@@ -57,16 +61,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newImportResourcesToDraftAppVersion' smart constructor.
 data ImportResourcesToDraftAppVersion = ImportResourcesToDraftAppVersion'
-  { -- | The Amazon Resource Names (ARNs) for the resources that you want to
-    -- import.
+  { -- | The input sources of the Amazon Elastic Kubernetes Service resources you
+    -- need to import.
+    eksSources :: Prelude.Maybe [EksSource],
+    -- | The import strategy you would like to set to import resources into
+    -- Resilience Hub application.
+    importStrategy :: Prelude.Maybe ResourceImportStrategyType,
+    -- | The Amazon Resource Names (ARNs) for the resources.
     sourceArns :: Prelude.Maybe [Prelude.Text],
     -- | A list of terraform file s3 URLs you need to import.
     terraformSources :: Prelude.Maybe [TerraformSource],
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,30 +89,47 @@ data ImportResourcesToDraftAppVersion = ImportResourcesToDraftAppVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceArns', 'importResourcesToDraftAppVersion_sourceArns' - The Amazon Resource Names (ARNs) for the resources that you want to
--- import.
+-- 'eksSources', 'importResourcesToDraftAppVersion_eksSources' - The input sources of the Amazon Elastic Kubernetes Service resources you
+-- need to import.
+--
+-- 'importStrategy', 'importResourcesToDraftAppVersion_importStrategy' - The import strategy you would like to set to import resources into
+-- Resilience Hub application.
+--
+-- 'sourceArns', 'importResourcesToDraftAppVersion_sourceArns' - The Amazon Resource Names (ARNs) for the resources.
 --
 -- 'terraformSources', 'importResourcesToDraftAppVersion_terraformSources' - A list of terraform file s3 URLs you need to import.
 --
--- 'appArn', 'importResourcesToDraftAppVersion_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'importResourcesToDraftAppVersion_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newImportResourcesToDraftAppVersion ::
   -- | 'appArn'
   Prelude.Text ->
   ImportResourcesToDraftAppVersion
 newImportResourcesToDraftAppVersion pAppArn_ =
   ImportResourcesToDraftAppVersion'
-    { sourceArns =
+    { eksSources =
         Prelude.Nothing,
+      importStrategy = Prelude.Nothing,
+      sourceArns = Prelude.Nothing,
       terraformSources = Prelude.Nothing,
       appArn = pAppArn_
     }
 
--- | The Amazon Resource Names (ARNs) for the resources that you want to
--- import.
+-- | The input sources of the Amazon Elastic Kubernetes Service resources you
+-- need to import.
+importResourcesToDraftAppVersion_eksSources :: Lens.Lens' ImportResourcesToDraftAppVersion (Prelude.Maybe [EksSource])
+importResourcesToDraftAppVersion_eksSources = Lens.lens (\ImportResourcesToDraftAppVersion' {eksSources} -> eksSources) (\s@ImportResourcesToDraftAppVersion' {} a -> s {eksSources = a} :: ImportResourcesToDraftAppVersion) Prelude.. Lens.mapping Lens.coerced
+
+-- | The import strategy you would like to set to import resources into
+-- Resilience Hub application.
+importResourcesToDraftAppVersion_importStrategy :: Lens.Lens' ImportResourcesToDraftAppVersion (Prelude.Maybe ResourceImportStrategyType)
+importResourcesToDraftAppVersion_importStrategy = Lens.lens (\ImportResourcesToDraftAppVersion' {importStrategy} -> importStrategy) (\s@ImportResourcesToDraftAppVersion' {} a -> s {importStrategy = a} :: ImportResourcesToDraftAppVersion)
+
+-- | The Amazon Resource Names (ARNs) for the resources.
 importResourcesToDraftAppVersion_sourceArns :: Lens.Lens' ImportResourcesToDraftAppVersion (Prelude.Maybe [Prelude.Text])
 importResourcesToDraftAppVersion_sourceArns = Lens.lens (\ImportResourcesToDraftAppVersion' {sourceArns} -> sourceArns) (\s@ImportResourcesToDraftAppVersion' {} a -> s {sourceArns = a} :: ImportResourcesToDraftAppVersion) Prelude.. Lens.mapping Lens.coerced
 
@@ -110,11 +137,12 @@ importResourcesToDraftAppVersion_sourceArns = Lens.lens (\ImportResourcesToDraft
 importResourcesToDraftAppVersion_terraformSources :: Lens.Lens' ImportResourcesToDraftAppVersion (Prelude.Maybe [TerraformSource])
 importResourcesToDraftAppVersion_terraformSources = Lens.lens (\ImportResourcesToDraftAppVersion' {terraformSources} -> terraformSources) (\s@ImportResourcesToDraftAppVersion' {} a -> s {terraformSources = a} :: ImportResourcesToDraftAppVersion) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 importResourcesToDraftAppVersion_appArn :: Lens.Lens' ImportResourcesToDraftAppVersion Prelude.Text
 importResourcesToDraftAppVersion_appArn = Lens.lens (\ImportResourcesToDraftAppVersion' {appArn} -> appArn) (\s@ImportResourcesToDraftAppVersion' {} a -> s {appArn = a} :: ImportResourcesToDraftAppVersion)
 
@@ -131,8 +159,10 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ImportResourcesToDraftAppVersionResponse'
-            Prelude.<$> (x Data..?> "sourceArns" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "terraformSources"
+            Prelude.<$> (x Data..?> "eksSources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "sourceArns" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..?> "terraformSources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -148,7 +178,10 @@ instance
   hashWithSalt
     _salt
     ImportResourcesToDraftAppVersion' {..} =
-      _salt `Prelude.hashWithSalt` sourceArns
+      _salt
+        `Prelude.hashWithSalt` eksSources
+        `Prelude.hashWithSalt` importStrategy
+        `Prelude.hashWithSalt` sourceArns
         `Prelude.hashWithSalt` terraformSources
         `Prelude.hashWithSalt` appArn
 
@@ -157,7 +190,9 @@ instance
     ImportResourcesToDraftAppVersion
   where
   rnf ImportResourcesToDraftAppVersion' {..} =
-    Prelude.rnf sourceArns
+    Prelude.rnf eksSources
+      `Prelude.seq` Prelude.rnf importStrategy
+      `Prelude.seq` Prelude.rnf sourceArns
       `Prelude.seq` Prelude.rnf terraformSources
       `Prelude.seq` Prelude.rnf appArn
 
@@ -179,7 +214,10 @@ instance Data.ToJSON ImportResourcesToDraftAppVersion where
   toJSON ImportResourcesToDraftAppVersion' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("sourceArns" Data..=) Prelude.<$> sourceArns,
+          [ ("eksSources" Data..=) Prelude.<$> eksSources,
+            ("importStrategy" Data..=)
+              Prelude.<$> importStrategy,
+            ("sourceArns" Data..=) Prelude.<$> sourceArns,
             ("terraformSources" Data..=)
               Prelude.<$> terraformSources,
             Prelude.Just ("appArn" Data..= appArn)
@@ -199,17 +237,21 @@ instance
 
 -- | /See:/ 'newImportResourcesToDraftAppVersionResponse' smart constructor.
 data ImportResourcesToDraftAppVersionResponse = ImportResourcesToDraftAppVersionResponse'
-  { -- | The Amazon Resource Names (ARNs) for the resources that you imported.
+  { -- | The input sources of the Amazon Elastic Kubernetes Service resources you
+    -- have imported.
+    eksSources :: Prelude.Maybe [EksSource],
+    -- | The Amazon Resource Names (ARNs) for the resources you have imported.
     sourceArns :: Prelude.Maybe [Prelude.Text],
-    -- | A list of terraform file s3 URLs you need to import.
+    -- | A list of terraform file s3 URLs you have imported.
     terraformSources :: Prelude.Maybe [TerraformSource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text,
@@ -226,17 +268,21 @@ data ImportResourcesToDraftAppVersionResponse = ImportResourcesToDraftAppVersion
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceArns', 'importResourcesToDraftAppVersionResponse_sourceArns' - The Amazon Resource Names (ARNs) for the resources that you imported.
+-- 'eksSources', 'importResourcesToDraftAppVersionResponse_eksSources' - The input sources of the Amazon Elastic Kubernetes Service resources you
+-- have imported.
 --
--- 'terraformSources', 'importResourcesToDraftAppVersionResponse_terraformSources' - A list of terraform file s3 URLs you need to import.
+-- 'sourceArns', 'importResourcesToDraftAppVersionResponse_sourceArns' - The Amazon Resource Names (ARNs) for the resources you have imported.
+--
+-- 'terraformSources', 'importResourcesToDraftAppVersionResponse_terraformSources' - A list of terraform file s3 URLs you have imported.
 --
 -- 'httpStatus', 'importResourcesToDraftAppVersionResponse_httpStatus' - The response's http status code.
 --
--- 'appArn', 'importResourcesToDraftAppVersionResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'importResourcesToDraftAppVersionResponse_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'importResourcesToDraftAppVersionResponse_appVersion' - The version of the application.
 --
@@ -257,8 +303,9 @@ newImportResourcesToDraftAppVersionResponse
   pAppVersion_
   pStatus_ =
     ImportResourcesToDraftAppVersionResponse'
-      { sourceArns =
+      { eksSources =
           Prelude.Nothing,
+        sourceArns = Prelude.Nothing,
         terraformSources =
           Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -267,11 +314,16 @@ newImportResourcesToDraftAppVersionResponse
         status = pStatus_
       }
 
--- | The Amazon Resource Names (ARNs) for the resources that you imported.
+-- | The input sources of the Amazon Elastic Kubernetes Service resources you
+-- have imported.
+importResourcesToDraftAppVersionResponse_eksSources :: Lens.Lens' ImportResourcesToDraftAppVersionResponse (Prelude.Maybe [EksSource])
+importResourcesToDraftAppVersionResponse_eksSources = Lens.lens (\ImportResourcesToDraftAppVersionResponse' {eksSources} -> eksSources) (\s@ImportResourcesToDraftAppVersionResponse' {} a -> s {eksSources = a} :: ImportResourcesToDraftAppVersionResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Names (ARNs) for the resources you have imported.
 importResourcesToDraftAppVersionResponse_sourceArns :: Lens.Lens' ImportResourcesToDraftAppVersionResponse (Prelude.Maybe [Prelude.Text])
 importResourcesToDraftAppVersionResponse_sourceArns = Lens.lens (\ImportResourcesToDraftAppVersionResponse' {sourceArns} -> sourceArns) (\s@ImportResourcesToDraftAppVersionResponse' {} a -> s {sourceArns = a} :: ImportResourcesToDraftAppVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of terraform file s3 URLs you need to import.
+-- | A list of terraform file s3 URLs you have imported.
 importResourcesToDraftAppVersionResponse_terraformSources :: Lens.Lens' ImportResourcesToDraftAppVersionResponse (Prelude.Maybe [TerraformSource])
 importResourcesToDraftAppVersionResponse_terraformSources = Lens.lens (\ImportResourcesToDraftAppVersionResponse' {terraformSources} -> terraformSources) (\s@ImportResourcesToDraftAppVersionResponse' {} a -> s {terraformSources = a} :: ImportResourcesToDraftAppVersionResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -279,11 +331,12 @@ importResourcesToDraftAppVersionResponse_terraformSources = Lens.lens (\ImportRe
 importResourcesToDraftAppVersionResponse_httpStatus :: Lens.Lens' ImportResourcesToDraftAppVersionResponse Prelude.Int
 importResourcesToDraftAppVersionResponse_httpStatus = Lens.lens (\ImportResourcesToDraftAppVersionResponse' {httpStatus} -> httpStatus) (\s@ImportResourcesToDraftAppVersionResponse' {} a -> s {httpStatus = a} :: ImportResourcesToDraftAppVersionResponse)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 importResourcesToDraftAppVersionResponse_appArn :: Lens.Lens' ImportResourcesToDraftAppVersionResponse Prelude.Text
 importResourcesToDraftAppVersionResponse_appArn = Lens.lens (\ImportResourcesToDraftAppVersionResponse' {appArn} -> appArn) (\s@ImportResourcesToDraftAppVersionResponse' {} a -> s {appArn = a} :: ImportResourcesToDraftAppVersionResponse)
 
@@ -300,7 +353,8 @@ instance
     ImportResourcesToDraftAppVersionResponse
   where
   rnf ImportResourcesToDraftAppVersionResponse' {..} =
-    Prelude.rnf sourceArns
+    Prelude.rnf eksSources
+      `Prelude.seq` Prelude.rnf sourceArns
       `Prelude.seq` Prelude.rnf terraformSources
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf appArn

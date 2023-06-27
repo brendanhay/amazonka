@@ -37,11 +37,12 @@ import Amazonka.ResilienceHub.Types.ResourceErrorsDetails
 --
 -- /See:/ 'newAppAssessment' smart constructor.
 data AppAssessment = AppAssessment'
-  { -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+  { -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Maybe Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Maybe Prelude.Text,
@@ -74,7 +75,7 @@ data AppAssessment = AppAssessment'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text,
     -- | The current status of the assessment for the resiliency policy.
     assessmentStatus :: AssessmentStatus,
@@ -91,11 +92,12 @@ data AppAssessment = AppAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appArn', 'appAssessment_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'appAssessment_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'appAssessment_appVersion' - The version of the application.
 --
@@ -128,7 +130,7 @@ data AppAssessment = AppAssessment'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'assessmentStatus', 'appAssessment_assessmentStatus' - The current status of the assessment for the resiliency policy.
 --
@@ -164,11 +166,12 @@ newAppAssessment
         invoker = pInvoker_
       }
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 appAssessment_appArn :: Lens.Lens' AppAssessment (Prelude.Maybe Prelude.Text)
 appAssessment_appArn = Lens.lens (\AppAssessment' {appArn} -> appArn) (\s@AppAssessment' {} a -> s {appArn = a} :: AppAssessment)
 
@@ -227,7 +230,7 @@ appAssessment_tags = Lens.lens (\AppAssessment' {tags} -> tags) (\s@AppAssessmen
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 appAssessment_assessmentArn :: Lens.Lens' AppAssessment Prelude.Text
 appAssessment_assessmentArn = Lens.lens (\AppAssessment' {assessmentArn} -> assessmentArn) (\s@AppAssessment' {} a -> s {assessmentArn = a} :: AppAssessment)
 
@@ -265,7 +268,8 @@ instance Data.FromJSON AppAssessment where
 
 instance Prelude.Hashable AppAssessment where
   hashWithSalt _salt AppAssessment' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` compliance

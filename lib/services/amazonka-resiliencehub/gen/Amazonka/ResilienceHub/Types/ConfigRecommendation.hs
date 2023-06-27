@@ -34,7 +34,7 @@ import Amazonka.ResilienceHub.Types.RecommendationDisruptionCompliance
 --
 -- /See:/ 'newConfigRecommendation' smart constructor.
 data ConfigRecommendation = ConfigRecommendation'
-  { -- | The application component name.
+  { -- | The name of the Application Component.
     appComponentName :: Prelude.Maybe Prelude.Text,
     -- | The current compliance against the resiliency policy before applying the
     -- configuration change.
@@ -67,7 +67,7 @@ data ConfigRecommendation = ConfigRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appComponentName', 'configRecommendation_appComponentName' - The application component name.
+-- 'appComponentName', 'configRecommendation_appComponentName' - The name of the Application Component.
 --
 -- 'compliance', 'configRecommendation_compliance' - The current compliance against the resiliency policy before applying the
 -- configuration change.
@@ -114,7 +114,7 @@ newConfigRecommendation
         referenceId = pReferenceId_
       }
 
--- | The application component name.
+-- | The name of the Application Component.
 configRecommendation_appComponentName :: Lens.Lens' ConfigRecommendation (Prelude.Maybe Prelude.Text)
 configRecommendation_appComponentName = Lens.lens (\ConfigRecommendation' {appComponentName} -> appComponentName) (\s@ConfigRecommendation' {} a -> s {appComponentName = a} :: ConfigRecommendation)
 
@@ -167,10 +167,12 @@ instance Data.FromJSON ConfigRecommendation where
             Prelude.<*> (x Data..:? "cost")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "haArchitecture")
-            Prelude.<*> ( x Data..:? "recommendationCompliance"
+            Prelude.<*> ( x
+                            Data..:? "recommendationCompliance"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "suggestedChanges"
+            Prelude.<*> ( x
+                            Data..:? "suggestedChanges"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "name")
@@ -180,7 +182,8 @@ instance Data.FromJSON ConfigRecommendation where
 
 instance Prelude.Hashable ConfigRecommendation where
   hashWithSalt _salt ConfigRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` cost
       `Prelude.hashWithSalt` description

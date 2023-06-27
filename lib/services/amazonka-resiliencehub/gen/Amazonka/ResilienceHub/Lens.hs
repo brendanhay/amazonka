@@ -32,6 +32,34 @@ module Amazonka.ResilienceHub.Lens
     createAppResponse_httpStatus,
     createAppResponse_app,
 
+    -- ** CreateAppVersionAppComponent
+    createAppVersionAppComponent_additionalInfo,
+    createAppVersionAppComponent_clientToken,
+    createAppVersionAppComponent_id,
+    createAppVersionAppComponent_appArn,
+    createAppVersionAppComponent_name,
+    createAppVersionAppComponent_type,
+    createAppVersionAppComponentResponse_appComponent,
+    createAppVersionAppComponentResponse_httpStatus,
+    createAppVersionAppComponentResponse_appArn,
+    createAppVersionAppComponentResponse_appVersion,
+
+    -- ** CreateAppVersionResource
+    createAppVersionResource_additionalInfo,
+    createAppVersionResource_awsAccountId,
+    createAppVersionResource_awsRegion,
+    createAppVersionResource_clientToken,
+    createAppVersionResource_resourceName,
+    createAppVersionResource_appArn,
+    createAppVersionResource_appComponents,
+    createAppVersionResource_logicalResourceId,
+    createAppVersionResource_physicalResourceId,
+    createAppVersionResource_resourceType,
+    createAppVersionResourceResponse_physicalResource,
+    createAppVersionResourceResponse_httpStatus,
+    createAppVersionResourceResponse_appArn,
+    createAppVersionResourceResponse_appVersion,
+
     -- ** CreateRecommendationTemplate
     createRecommendationTemplate_bucketName,
     createRecommendationTemplate_clientToken,
@@ -69,6 +97,38 @@ module Amazonka.ResilienceHub.Lens
     deleteAppAssessmentResponse_assessmentArn,
     deleteAppAssessmentResponse_assessmentStatus,
 
+    -- ** DeleteAppInputSource
+    deleteAppInputSource_clientToken,
+    deleteAppInputSource_eksSourceClusterNamespace,
+    deleteAppInputSource_sourceArn,
+    deleteAppInputSource_terraformSource,
+    deleteAppInputSource_appArn,
+    deleteAppInputSourceResponse_appArn,
+    deleteAppInputSourceResponse_appInputSource,
+    deleteAppInputSourceResponse_httpStatus,
+
+    -- ** DeleteAppVersionAppComponent
+    deleteAppVersionAppComponent_clientToken,
+    deleteAppVersionAppComponent_appArn,
+    deleteAppVersionAppComponent_id,
+    deleteAppVersionAppComponentResponse_appComponent,
+    deleteAppVersionAppComponentResponse_httpStatus,
+    deleteAppVersionAppComponentResponse_appArn,
+    deleteAppVersionAppComponentResponse_appVersion,
+
+    -- ** DeleteAppVersionResource
+    deleteAppVersionResource_awsAccountId,
+    deleteAppVersionResource_awsRegion,
+    deleteAppVersionResource_clientToken,
+    deleteAppVersionResource_logicalResourceId,
+    deleteAppVersionResource_physicalResourceId,
+    deleteAppVersionResource_resourceName,
+    deleteAppVersionResource_appArn,
+    deleteAppVersionResourceResponse_physicalResource,
+    deleteAppVersionResourceResponse_httpStatus,
+    deleteAppVersionResourceResponse_appArn,
+    deleteAppVersionResourceResponse_appVersion,
+
     -- ** DeleteRecommendationTemplate
     deleteRecommendationTemplate_clientToken,
     deleteRecommendationTemplate_recommendationTemplateArn,
@@ -91,6 +151,36 @@ module Amazonka.ResilienceHub.Lens
     describeAppAssessment_assessmentArn,
     describeAppAssessmentResponse_httpStatus,
     describeAppAssessmentResponse_assessment,
+
+    -- ** DescribeAppVersion
+    describeAppVersion_appArn,
+    describeAppVersion_appVersion,
+    describeAppVersionResponse_additionalInfo,
+    describeAppVersionResponse_httpStatus,
+    describeAppVersionResponse_appArn,
+    describeAppVersionResponse_appVersion,
+
+    -- ** DescribeAppVersionAppComponent
+    describeAppVersionAppComponent_appArn,
+    describeAppVersionAppComponent_appVersion,
+    describeAppVersionAppComponent_id,
+    describeAppVersionAppComponentResponse_appComponent,
+    describeAppVersionAppComponentResponse_httpStatus,
+    describeAppVersionAppComponentResponse_appArn,
+    describeAppVersionAppComponentResponse_appVersion,
+
+    -- ** DescribeAppVersionResource
+    describeAppVersionResource_awsAccountId,
+    describeAppVersionResource_awsRegion,
+    describeAppVersionResource_logicalResourceId,
+    describeAppVersionResource_physicalResourceId,
+    describeAppVersionResource_resourceName,
+    describeAppVersionResource_appArn,
+    describeAppVersionResource_appVersion,
+    describeAppVersionResourceResponse_physicalResource,
+    describeAppVersionResourceResponse_httpStatus,
+    describeAppVersionResourceResponse_appArn,
+    describeAppVersionResourceResponse_appVersion,
 
     -- ** DescribeAppVersionResourcesResolutionStatus
     describeAppVersionResourcesResolutionStatus_resolutionId,
@@ -126,9 +216,12 @@ module Amazonka.ResilienceHub.Lens
     describeResiliencyPolicyResponse_policy,
 
     -- ** ImportResourcesToDraftAppVersion
+    importResourcesToDraftAppVersion_eksSources,
+    importResourcesToDraftAppVersion_importStrategy,
     importResourcesToDraftAppVersion_sourceArns,
     importResourcesToDraftAppVersion_terraformSources,
     importResourcesToDraftAppVersion_appArn,
+    importResourcesToDraftAppVersionResponse_eksSources,
     importResourcesToDraftAppVersionResponse_sourceArns,
     importResourcesToDraftAppVersionResponse_terraformSources,
     importResourcesToDraftAppVersionResponse_httpStatus,
@@ -172,6 +265,26 @@ module Amazonka.ResilienceHub.Lens
     listAppComponentRecommendationsResponse_nextToken,
     listAppComponentRecommendationsResponse_httpStatus,
     listAppComponentRecommendationsResponse_componentRecommendations,
+
+    -- ** ListAppInputSources
+    listAppInputSources_maxResults,
+    listAppInputSources_nextToken,
+    listAppInputSources_appArn,
+    listAppInputSources_appVersion,
+    listAppInputSourcesResponse_nextToken,
+    listAppInputSourcesResponse_httpStatus,
+    listAppInputSourcesResponse_appInputSources,
+
+    -- ** ListAppVersionAppComponents
+    listAppVersionAppComponents_maxResults,
+    listAppVersionAppComponents_nextToken,
+    listAppVersionAppComponents_appArn,
+    listAppVersionAppComponents_appVersion,
+    listAppVersionAppComponentsResponse_appComponents,
+    listAppVersionAppComponentsResponse_nextToken,
+    listAppVersionAppComponentsResponse_httpStatus,
+    listAppVersionAppComponentsResponse_appArn,
+    listAppVersionAppComponentsResponse_appVersion,
 
     -- ** ListAppVersionResourceMappings
     listAppVersionResourceMappings_maxResults,
@@ -284,6 +397,7 @@ module Amazonka.ResilienceHub.Lens
 
     -- ** RemoveDraftAppVersionResourceMappings
     removeDraftAppVersionResourceMappings_appRegistryAppNames,
+    removeDraftAppVersionResourceMappings_eksSourceNames,
     removeDraftAppVersionResourceMappings_logicalStackNames,
     removeDraftAppVersionResourceMappings_resourceGroupNames,
     removeDraftAppVersionResourceMappings_resourceNames,
@@ -329,6 +443,41 @@ module Amazonka.ResilienceHub.Lens
     updateApp_appArn,
     updateAppResponse_httpStatus,
     updateAppResponse_app,
+
+    -- ** UpdateAppVersion
+    updateAppVersion_additionalInfo,
+    updateAppVersion_appArn,
+    updateAppVersionResponse_additionalInfo,
+    updateAppVersionResponse_httpStatus,
+    updateAppVersionResponse_appArn,
+    updateAppVersionResponse_appVersion,
+
+    -- ** UpdateAppVersionAppComponent
+    updateAppVersionAppComponent_additionalInfo,
+    updateAppVersionAppComponent_name,
+    updateAppVersionAppComponent_type,
+    updateAppVersionAppComponent_appArn,
+    updateAppVersionAppComponent_id,
+    updateAppVersionAppComponentResponse_appComponent,
+    updateAppVersionAppComponentResponse_httpStatus,
+    updateAppVersionAppComponentResponse_appArn,
+    updateAppVersionAppComponentResponse_appVersion,
+
+    -- ** UpdateAppVersionResource
+    updateAppVersionResource_additionalInfo,
+    updateAppVersionResource_appComponents,
+    updateAppVersionResource_awsAccountId,
+    updateAppVersionResource_awsRegion,
+    updateAppVersionResource_excluded,
+    updateAppVersionResource_logicalResourceId,
+    updateAppVersionResource_physicalResourceId,
+    updateAppVersionResource_resourceName,
+    updateAppVersionResource_resourceType,
+    updateAppVersionResource_appArn,
+    updateAppVersionResourceResponse_physicalResource,
+    updateAppVersionResourceResponse_httpStatus,
+    updateAppVersionResourceResponse_appArn,
+    updateAppVersionResourceResponse_appVersion,
 
     -- ** UpdateResiliencyPolicy
     updateResiliencyPolicy_dataLocationConstraint,
@@ -399,6 +548,8 @@ module Amazonka.ResilienceHub.Lens
     appAssessmentSummary_assessmentStatus,
 
     -- ** AppComponent
+    appComponent_additionalInfo,
+    appComponent_id,
     appComponent_name,
     appComponent_type,
 
@@ -409,6 +560,14 @@ module Amazonka.ResilienceHub.Lens
     appComponentCompliance_message,
     appComponentCompliance_resiliencyScore,
     appComponentCompliance_status,
+
+    -- ** AppInputSource
+    appInputSource_eksSourceClusterNamespace,
+    appInputSource_resourceCount,
+    appInputSource_sourceArn,
+    appInputSource_sourceName,
+    appInputSource_terraformSource,
+    appInputSource_importType,
 
     -- ** AppSummary
     appSummary_assessmentSchedule,
@@ -457,19 +616,32 @@ module Amazonka.ResilienceHub.Lens
     disruptionCompliance_rtoReferenceId,
     disruptionCompliance_complianceStatus,
 
+    -- ** EksSource
+    eksSource_eksClusterArn,
+    eksSource_namespaces,
+
+    -- ** EksSourceClusterNamespace
+    eksSourceClusterNamespace_eksClusterArn,
+    eksSourceClusterNamespace_namespace,
+
     -- ** FailurePolicy
     failurePolicy_rpoInSecs,
     failurePolicy_rtoInSecs,
 
     -- ** LogicalResourceId
+    logicalResourceId_eksSourceName,
     logicalResourceId_logicalStackName,
     logicalResourceId_resourceGroupName,
     logicalResourceId_terraformSourceName,
     logicalResourceId_identifier,
 
     -- ** PhysicalResource
+    physicalResource_additionalInfo,
     physicalResource_appComponents,
+    physicalResource_excluded,
+    physicalResource_parentResourceName,
     physicalResource_resourceName,
+    physicalResource_sourceType,
     physicalResource_logicalResourceId,
     physicalResource_physicalResourceId,
     physicalResource_resourceType,
@@ -535,6 +707,7 @@ module Amazonka.ResilienceHub.Lens
 
     -- ** ResourceMapping
     resourceMapping_appRegistryAppName,
+    resourceMapping_eksSourceName,
     resourceMapping_logicalStackName,
     resourceMapping_resourceGroupName,
     resourceMapping_resourceName,
@@ -573,6 +746,7 @@ module Amazonka.ResilienceHub.Lens
     testRecommendation_referenceId,
 
     -- ** UnsupportedResource
+    unsupportedResource_unsupportedResourceStatus,
     unsupportedResource_logicalResourceId,
     unsupportedResource_physicalResourceId,
     unsupportedResource_resourceType,
@@ -581,14 +755,22 @@ where
 
 import Amazonka.ResilienceHub.AddDraftAppVersionResourceMappings
 import Amazonka.ResilienceHub.CreateApp
+import Amazonka.ResilienceHub.CreateAppVersionAppComponent
+import Amazonka.ResilienceHub.CreateAppVersionResource
 import Amazonka.ResilienceHub.CreateRecommendationTemplate
 import Amazonka.ResilienceHub.CreateResiliencyPolicy
 import Amazonka.ResilienceHub.DeleteApp
 import Amazonka.ResilienceHub.DeleteAppAssessment
+import Amazonka.ResilienceHub.DeleteAppInputSource
+import Amazonka.ResilienceHub.DeleteAppVersionAppComponent
+import Amazonka.ResilienceHub.DeleteAppVersionResource
 import Amazonka.ResilienceHub.DeleteRecommendationTemplate
 import Amazonka.ResilienceHub.DeleteResiliencyPolicy
 import Amazonka.ResilienceHub.DescribeApp
 import Amazonka.ResilienceHub.DescribeAppAssessment
+import Amazonka.ResilienceHub.DescribeAppVersion
+import Amazonka.ResilienceHub.DescribeAppVersionAppComponent
+import Amazonka.ResilienceHub.DescribeAppVersionResource
 import Amazonka.ResilienceHub.DescribeAppVersionResourcesResolutionStatus
 import Amazonka.ResilienceHub.DescribeAppVersionTemplate
 import Amazonka.ResilienceHub.DescribeDraftAppVersionResourcesImportStatus
@@ -598,6 +780,8 @@ import Amazonka.ResilienceHub.ListAlarmRecommendations
 import Amazonka.ResilienceHub.ListAppAssessments
 import Amazonka.ResilienceHub.ListAppComponentCompliances
 import Amazonka.ResilienceHub.ListAppComponentRecommendations
+import Amazonka.ResilienceHub.ListAppInputSources
+import Amazonka.ResilienceHub.ListAppVersionAppComponents
 import Amazonka.ResilienceHub.ListAppVersionResourceMappings
 import Amazonka.ResilienceHub.ListAppVersionResources
 import Amazonka.ResilienceHub.ListAppVersions
@@ -621,12 +805,15 @@ import Amazonka.ResilienceHub.Types.AppAssessment
 import Amazonka.ResilienceHub.Types.AppAssessmentSummary
 import Amazonka.ResilienceHub.Types.AppComponent
 import Amazonka.ResilienceHub.Types.AppComponentCompliance
+import Amazonka.ResilienceHub.Types.AppInputSource
 import Amazonka.ResilienceHub.Types.AppSummary
 import Amazonka.ResilienceHub.Types.AppVersionSummary
 import Amazonka.ResilienceHub.Types.ComponentRecommendation
 import Amazonka.ResilienceHub.Types.ConfigRecommendation
 import Amazonka.ResilienceHub.Types.Cost
 import Amazonka.ResilienceHub.Types.DisruptionCompliance
+import Amazonka.ResilienceHub.Types.EksSource
+import Amazonka.ResilienceHub.Types.EksSourceClusterNamespace
 import Amazonka.ResilienceHub.Types.FailurePolicy
 import Amazonka.ResilienceHub.Types.LogicalResourceId
 import Amazonka.ResilienceHub.Types.PhysicalResource
@@ -646,4 +833,7 @@ import Amazonka.ResilienceHub.Types.TestRecommendation
 import Amazonka.ResilienceHub.Types.UnsupportedResource
 import Amazonka.ResilienceHub.UntagResource
 import Amazonka.ResilienceHub.UpdateApp
+import Amazonka.ResilienceHub.UpdateAppVersion
+import Amazonka.ResilienceHub.UpdateAppVersionAppComponent
+import Amazonka.ResilienceHub.UpdateAppVersionResource
 import Amazonka.ResilienceHub.UpdateResiliencyPolicy

@@ -63,7 +63,7 @@ data ListTestRecommendations = ListTestRecommendations'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data ListTestRecommendations = ListTestRecommendations'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newListTestRecommendations ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -115,7 +115,7 @@ listTestRecommendations_nextToken = Lens.lens (\ListTestRecommendations' {nextTo
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listTestRecommendations_assessmentArn :: Lens.Lens' ListTestRecommendations Prelude.Text
 listTestRecommendations_assessmentArn = Lens.lens (\ListTestRecommendations' {assessmentArn} -> assessmentArn) (\s@ListTestRecommendations' {} a -> s {assessmentArn = a} :: ListTestRecommendations)
 
@@ -131,14 +131,16 @@ instance Core.AWSRequest ListTestRecommendations where
           ListTestRecommendationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "testRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "testRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListTestRecommendations where
   hashWithSalt _salt ListTestRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 

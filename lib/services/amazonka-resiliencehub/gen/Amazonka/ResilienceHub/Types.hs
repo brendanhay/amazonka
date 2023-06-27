@@ -83,11 +83,17 @@ module Amazonka.ResilienceHub.Types
     -- * ResourceImportStatusType
     ResourceImportStatusType (..),
 
+    -- * ResourceImportStrategyType
+    ResourceImportStrategyType (..),
+
     -- * ResourceMappingType
     ResourceMappingType (..),
 
     -- * ResourceResolutionStatusType
     ResourceResolutionStatusType (..),
+
+    -- * ResourceSourceType
+    ResourceSourceType (..),
 
     -- * SopServiceType
     SopServiceType (..),
@@ -168,6 +174,8 @@ module Amazonka.ResilienceHub.Types
     -- * AppComponent
     AppComponent (..),
     newAppComponent,
+    appComponent_additionalInfo,
+    appComponent_id,
     appComponent_name,
     appComponent_type,
 
@@ -180,6 +188,16 @@ module Amazonka.ResilienceHub.Types
     appComponentCompliance_message,
     appComponentCompliance_resiliencyScore,
     appComponentCompliance_status,
+
+    -- * AppInputSource
+    AppInputSource (..),
+    newAppInputSource,
+    appInputSource_eksSourceClusterNamespace,
+    appInputSource_resourceCount,
+    appInputSource_sourceArn,
+    appInputSource_sourceName,
+    appInputSource_terraformSource,
+    appInputSource_importType,
 
     -- * AppSummary
     AppSummary (..),
@@ -240,6 +258,18 @@ module Amazonka.ResilienceHub.Types
     disruptionCompliance_rtoReferenceId,
     disruptionCompliance_complianceStatus,
 
+    -- * EksSource
+    EksSource (..),
+    newEksSource,
+    eksSource_eksClusterArn,
+    eksSource_namespaces,
+
+    -- * EksSourceClusterNamespace
+    EksSourceClusterNamespace (..),
+    newEksSourceClusterNamespace,
+    eksSourceClusterNamespace_eksClusterArn,
+    eksSourceClusterNamespace_namespace,
+
     -- * FailurePolicy
     FailurePolicy (..),
     newFailurePolicy,
@@ -249,6 +279,7 @@ module Amazonka.ResilienceHub.Types
     -- * LogicalResourceId
     LogicalResourceId (..),
     newLogicalResourceId,
+    logicalResourceId_eksSourceName,
     logicalResourceId_logicalStackName,
     logicalResourceId_resourceGroupName,
     logicalResourceId_terraformSourceName,
@@ -257,8 +288,12 @@ module Amazonka.ResilienceHub.Types
     -- * PhysicalResource
     PhysicalResource (..),
     newPhysicalResource,
+    physicalResource_additionalInfo,
     physicalResource_appComponents,
+    physicalResource_excluded,
+    physicalResource_parentResourceName,
     physicalResource_resourceName,
+    physicalResource_sourceType,
     physicalResource_logicalResourceId,
     physicalResource_physicalResourceId,
     physicalResource_resourceType,
@@ -342,6 +377,7 @@ module Amazonka.ResilienceHub.Types
     ResourceMapping (..),
     newResourceMapping,
     resourceMapping_appRegistryAppName,
+    resourceMapping_eksSourceName,
     resourceMapping_logicalStackName,
     resourceMapping_resourceGroupName,
     resourceMapping_resourceName,
@@ -390,6 +426,7 @@ module Amazonka.ResilienceHub.Types
     -- * UnsupportedResource
     UnsupportedResource (..),
     newUnsupportedResource,
+    unsupportedResource_unsupportedResourceStatus,
     unsupportedResource_logicalResourceId,
     unsupportedResource_physicalResourceId,
     unsupportedResource_resourceType,
@@ -408,6 +445,7 @@ import Amazonka.ResilienceHub.Types.AppAssessmentSummary
 import Amazonka.ResilienceHub.Types.AppComplianceStatusType
 import Amazonka.ResilienceHub.Types.AppComponent
 import Amazonka.ResilienceHub.Types.AppComponentCompliance
+import Amazonka.ResilienceHub.Types.AppInputSource
 import Amazonka.ResilienceHub.Types.AppStatusType
 import Amazonka.ResilienceHub.Types.AppSummary
 import Amazonka.ResilienceHub.Types.AppVersionSummary
@@ -422,6 +460,8 @@ import Amazonka.ResilienceHub.Types.CostFrequency
 import Amazonka.ResilienceHub.Types.DataLocationConstraint
 import Amazonka.ResilienceHub.Types.DisruptionCompliance
 import Amazonka.ResilienceHub.Types.DisruptionType
+import Amazonka.ResilienceHub.Types.EksSource
+import Amazonka.ResilienceHub.Types.EksSourceClusterNamespace
 import Amazonka.ResilienceHub.Types.EstimatedCostTier
 import Amazonka.ResilienceHub.Types.FailurePolicy
 import Amazonka.ResilienceHub.Types.HaArchitecture
@@ -441,9 +481,11 @@ import Amazonka.ResilienceHub.Types.ResiliencyScore
 import Amazonka.ResilienceHub.Types.ResourceError
 import Amazonka.ResilienceHub.Types.ResourceErrorsDetails
 import Amazonka.ResilienceHub.Types.ResourceImportStatusType
+import Amazonka.ResilienceHub.Types.ResourceImportStrategyType
 import Amazonka.ResilienceHub.Types.ResourceMapping
 import Amazonka.ResilienceHub.Types.ResourceMappingType
 import Amazonka.ResilienceHub.Types.ResourceResolutionStatusType
+import Amazonka.ResilienceHub.Types.ResourceSourceType
 import Amazonka.ResilienceHub.Types.S3Location
 import Amazonka.ResilienceHub.Types.SopRecommendation
 import Amazonka.ResilienceHub.Types.SopServiceType
@@ -481,109 +523,110 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have permissions to perform the requested operation. The user
 -- or role that is making the request must have at least one IAM
 -- permissions policy attached that grants the required permissions.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Occurs when a conflict with a previous successful write is detected.
--- This generally occurs when the previous write did not have time to
--- propagate to the host serving the current request. A retry (with
+-- | This exception occurs when a conflict with a previous successful write
+-- is detected. This generally occurs when the previous write did not have
+-- time to propagate to the host serving the current request. A retry (with
 -- appropriate backoff logic) is the recommended response to this
 -- exception.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | This exception occurs when there is an internal failure in the AWS
+-- | This exception occurs when there is an internal failure in the
 -- Resilience Hub service.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | The specified resource could not be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | This exception occurs when the specified resource could not be found.
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | You have exceeded your service quota. To perform the requested action,
--- remove some of the relevant resources, or use Service Quotas to request
--- a service quota increase.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | This exception occurs when you have exceeded your service quota. To
+-- perform the requested action, remove some of the relevant resources, or
+-- use Service Quotas to request a service quota increase.
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | The limit on the number of requests per second was exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | This exception occurs when you have exceeded the limit on the number of
+-- requests per second.
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
--- | Indicates that a request was not valid.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | This exception occurs when a request is not valid.
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

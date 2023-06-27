@@ -20,14 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a Resilience Hub application. A Resilience Hub application is a
--- collection of Amazon Web Services resources structured to prevent and
--- recover Amazon Web Services application disruptions. To describe a
+-- Creates an Resilience Hub application. An Resilience Hub application is
+-- a collection of Amazon Web Services resources structured to prevent and
+-- recover Amazon Web Services application disruptions. To describe an
 -- Resilience Hub application, you provide an application name, resources
--- from one or more–up to five–CloudFormation stacks, and an appropriate
--- resiliency policy.
+-- from one or more CloudFormation stacks, Resource Groups, Terraform state
+-- files, AppRegistry applications, and an appropriate resiliency policy.
+-- For more information about the number of resources supported per
+-- application, see
+-- <https://docs.aws.amazon.com/general/latest/gr/resiliencehub.html#limits_resiliencehub Service Quotas>.
 --
--- After you create a Resilience Hub application, you publish it so that
+-- After you create an Resilience Hub application, you publish it so that
 -- you can run a resiliency assessment on it. You can then use
 -- recommendations from the assessment to improve resiliency by running
 -- another assessment, comparing results, and then iterating the process
@@ -79,7 +82,7 @@ data CreateApp = CreateApp'
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
@@ -110,7 +113,7 @@ data CreateApp = CreateApp'
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'tags', 'createApp_tags' - The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
@@ -149,7 +152,7 @@ createApp_description = Lens.lens (\CreateApp' {description} -> description) (\s
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 createApp_policyArn :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_policyArn = Lens.lens (\CreateApp' {policyArn} -> policyArn) (\s@CreateApp' {} a -> s {policyArn = a} :: CreateApp)
 
@@ -176,7 +179,8 @@ instance Core.AWSRequest CreateApp where
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =
-    _salt `Prelude.hashWithSalt` assessmentSchedule
+    _salt
+      `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` policyArn

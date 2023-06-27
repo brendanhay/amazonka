@@ -27,7 +27,7 @@ import Amazonka.ResilienceHub.Types.AppAssessmentScheduleType
 import Amazonka.ResilienceHub.Types.AppComplianceStatusType
 import Amazonka.ResilienceHub.Types.AppStatusType
 
--- | Defines a Resilience Hub application.
+-- | Defines an Resilience Hub application.
 --
 -- /See:/ 'newApp' smart constructor.
 data App = App'
@@ -46,7 +46,7 @@ data App = App'
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The current resiliency score for the application.
     resiliencyScore :: Prelude.Maybe Prelude.Double,
@@ -55,11 +55,12 @@ data App = App'
     -- | The tags assigned to the resource. A tag is a label that you assign to
     -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
     tags :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The timestamp for when the app was created.
     creationTime :: Data.POSIX,
@@ -91,7 +92,7 @@ data App = App'
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'resiliencyScore', 'app_resiliencyScore' - The current resiliency score for the application.
 --
@@ -100,11 +101,12 @@ data App = App'
 -- 'tags', 'app_tags' - The tags assigned to the resource. A tag is a label that you assign to
 -- an Amazon Web Services resource. Each tag consists of a key\/value pair.
 --
--- 'appArn', 'app_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'app_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'creationTime', 'app_creationTime' - The timestamp for when the app was created.
 --
@@ -158,7 +160,7 @@ app_lastResiliencyScoreEvaluationTime = Lens.lens (\App' {lastResiliencyScoreEva
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 app_policyArn :: Lens.Lens' App (Prelude.Maybe Prelude.Text)
 app_policyArn = Lens.lens (\App' {policyArn} -> policyArn) (\s@App' {} a -> s {policyArn = a} :: App)
 
@@ -175,11 +177,12 @@ app_status = Lens.lens (\App' {status} -> status) (\s@App' {} a -> s {status = a
 app_tags :: Lens.Lens' App (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 app_tags = Lens.lens (\App' {tags} -> tags) (\s@App' {} a -> s {tags = a} :: App) Prelude.. Lens.mapping (Data._Sensitive Prelude.. Lens.coerced)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 app_appArn :: Lens.Lens' App Prelude.Text
 app_appArn = Lens.lens (\App' {appArn} -> appArn) (\s@App' {} a -> s {appArn = a} :: App)
 
@@ -213,7 +216,8 @@ instance Data.FromJSON App where
 
 instance Prelude.Hashable App where
   hashWithSalt _salt App' {..} =
-    _salt `Prelude.hashWithSalt` assessmentSchedule
+    _salt
+      `Prelude.hashWithSalt` assessmentSchedule
       `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastAppComplianceEvaluationTime

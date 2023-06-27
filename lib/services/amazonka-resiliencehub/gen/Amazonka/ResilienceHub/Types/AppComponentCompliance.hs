@@ -29,14 +29,14 @@ import Amazonka.ResilienceHub.Types.DisruptionCompliance
 import Amazonka.ResilienceHub.Types.DisruptionType
 import Amazonka.ResilienceHub.Types.ResiliencyScore
 
--- | Defines the compliance of an application component against the
+-- | Defines the compliance of an Application Component against the
 -- resiliency policy.
 --
 -- /See:/ 'newAppComponentCompliance' smart constructor.
 data AppComponentCompliance = AppComponentCompliance'
-  { -- | The name of the application component.
+  { -- | The name of the Application Component.
     appComponentName :: Prelude.Maybe Prelude.Text,
-    -- | The compliance of the application component against the resiliency
+    -- | The compliance of the Application Component against the resiliency
     -- policy.
     compliance :: Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance),
     -- | The cost for the application.
@@ -58,9 +58,9 @@ data AppComponentCompliance = AppComponentCompliance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appComponentName', 'appComponentCompliance_appComponentName' - The name of the application component.
+-- 'appComponentName', 'appComponentCompliance_appComponentName' - The name of the Application Component.
 --
--- 'compliance', 'appComponentCompliance_compliance' - The compliance of the application component against the resiliency
+-- 'compliance', 'appComponentCompliance_compliance' - The compliance of the Application Component against the resiliency
 -- policy.
 --
 -- 'cost', 'appComponentCompliance_cost' - The cost for the application.
@@ -83,11 +83,11 @@ newAppComponentCompliance =
       status = Prelude.Nothing
     }
 
--- | The name of the application component.
+-- | The name of the Application Component.
 appComponentCompliance_appComponentName :: Lens.Lens' AppComponentCompliance (Prelude.Maybe Prelude.Text)
 appComponentCompliance_appComponentName = Lens.lens (\AppComponentCompliance' {appComponentName} -> appComponentName) (\s@AppComponentCompliance' {} a -> s {appComponentName = a} :: AppComponentCompliance)
 
--- | The compliance of the application component against the resiliency
+-- | The compliance of the Application Component against the resiliency
 -- policy.
 appComponentCompliance_compliance :: Lens.Lens' AppComponentCompliance (Prelude.Maybe (Prelude.HashMap DisruptionType DisruptionCompliance))
 appComponentCompliance_compliance = Lens.lens (\AppComponentCompliance' {compliance} -> compliance) (\s@AppComponentCompliance' {} a -> s {compliance = a} :: AppComponentCompliance) Prelude.. Lens.mapping Lens.coerced
@@ -124,7 +124,8 @@ instance Data.FromJSON AppComponentCompliance where
 
 instance Prelude.Hashable AppComponentCompliance where
   hashWithSalt _salt AppComponentCompliance' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` cost
       `Prelude.hashWithSalt` message

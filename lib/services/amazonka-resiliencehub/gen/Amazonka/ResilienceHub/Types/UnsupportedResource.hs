@@ -30,7 +30,9 @@ import Amazonka.ResilienceHub.Types.PhysicalResourceId
 --
 -- /See:/ 'newUnsupportedResource' smart constructor.
 data UnsupportedResource = UnsupportedResource'
-  { -- | The logical resource identifier for the unsupported resource.
+  { -- | The status of the unsupported resource.
+    unsupportedResourceStatus :: Prelude.Maybe Prelude.Text,
+    -- | The logical resource identifier for the unsupported resource.
     logicalResourceId :: LogicalResourceId,
     -- | The physical resource identifier for the unsupported resource.
     physicalResourceId :: PhysicalResourceId,
@@ -46,6 +48,8 @@ data UnsupportedResource = UnsupportedResource'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'unsupportedResourceStatus', 'unsupportedResource_unsupportedResourceStatus' - The status of the unsupported resource.
 --
 -- 'logicalResourceId', 'unsupportedResource_logicalResourceId' - The logical resource identifier for the unsupported resource.
 --
@@ -65,11 +69,16 @@ newUnsupportedResource
   pPhysicalResourceId_
   pResourceType_ =
     UnsupportedResource'
-      { logicalResourceId =
-          pLogicalResourceId_,
+      { unsupportedResourceStatus =
+          Prelude.Nothing,
+        logicalResourceId = pLogicalResourceId_,
         physicalResourceId = pPhysicalResourceId_,
         resourceType = pResourceType_
       }
+
+-- | The status of the unsupported resource.
+unsupportedResource_unsupportedResourceStatus :: Lens.Lens' UnsupportedResource (Prelude.Maybe Prelude.Text)
+unsupportedResource_unsupportedResourceStatus = Lens.lens (\UnsupportedResource' {unsupportedResourceStatus} -> unsupportedResourceStatus) (\s@UnsupportedResource' {} a -> s {unsupportedResourceStatus = a} :: UnsupportedResource)
 
 -- | The logical resource identifier for the unsupported resource.
 unsupportedResource_logicalResourceId :: Lens.Lens' UnsupportedResource LogicalResourceId
@@ -89,19 +98,23 @@ instance Data.FromJSON UnsupportedResource where
       "UnsupportedResource"
       ( \x ->
           UnsupportedResource'
-            Prelude.<$> (x Data..: "logicalResourceId")
+            Prelude.<$> (x Data..:? "unsupportedResourceStatus")
+            Prelude.<*> (x Data..: "logicalResourceId")
             Prelude.<*> (x Data..: "physicalResourceId")
             Prelude.<*> (x Data..: "resourceType")
       )
 
 instance Prelude.Hashable UnsupportedResource where
   hashWithSalt _salt UnsupportedResource' {..} =
-    _salt `Prelude.hashWithSalt` logicalResourceId
+    _salt
+      `Prelude.hashWithSalt` unsupportedResourceStatus
+      `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` physicalResourceId
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData UnsupportedResource where
   rnf UnsupportedResource' {..} =
-    Prelude.rnf logicalResourceId
+    Prelude.rnf unsupportedResourceStatus
+      `Prelude.seq` Prelude.rnf logicalResourceId
       `Prelude.seq` Prelude.rnf physicalResourceId
       `Prelude.seq` Prelude.rnf resourceType

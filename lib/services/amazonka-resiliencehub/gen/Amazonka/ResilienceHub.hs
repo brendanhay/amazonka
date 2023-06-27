@@ -11,13 +11,13 @@
 --
 -- Derived from API version @2020-04-30@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Resilience Hub helps you proactively prepare and protect your Amazon
--- Web Services applications from disruptions. Resilience Hub offers
--- continuous resiliency assessment and validation that integrates into
--- your software development lifecycle. This enables you to uncover
--- resiliency weaknesses, ensure recovery time objective (RTO) and recovery
--- point objective (RPO) targets for your applications are met, and resolve
--- issues before they are released into production.
+-- Resilience Hub helps you proactively prepare and protect your Amazon Web
+-- Services applications from disruptions. It offers continual resiliency
+-- assessment and validation that integrates into your software development
+-- lifecycle. This enables you to uncover resiliency weaknesses, ensure
+-- recovery time objective (RTO) and recovery point objective (RPO) targets
+-- for your applications are met, and resolve issues before they are
+-- released into production.
 module Amazonka.ResilienceHub
   ( -- * Service Configuration
     defaultService,
@@ -64,6 +64,18 @@ module Amazonka.ResilienceHub
     CreateAppResponse (CreateAppResponse'),
     newCreateAppResponse,
 
+    -- ** CreateAppVersionAppComponent
+    CreateAppVersionAppComponent (CreateAppVersionAppComponent'),
+    newCreateAppVersionAppComponent,
+    CreateAppVersionAppComponentResponse (CreateAppVersionAppComponentResponse'),
+    newCreateAppVersionAppComponentResponse,
+
+    -- ** CreateAppVersionResource
+    CreateAppVersionResource (CreateAppVersionResource'),
+    newCreateAppVersionResource,
+    CreateAppVersionResourceResponse (CreateAppVersionResourceResponse'),
+    newCreateAppVersionResourceResponse,
+
     -- ** CreateRecommendationTemplate
     CreateRecommendationTemplate (CreateRecommendationTemplate'),
     newCreateRecommendationTemplate,
@@ -88,6 +100,24 @@ module Amazonka.ResilienceHub
     DeleteAppAssessmentResponse (DeleteAppAssessmentResponse'),
     newDeleteAppAssessmentResponse,
 
+    -- ** DeleteAppInputSource
+    DeleteAppInputSource (DeleteAppInputSource'),
+    newDeleteAppInputSource,
+    DeleteAppInputSourceResponse (DeleteAppInputSourceResponse'),
+    newDeleteAppInputSourceResponse,
+
+    -- ** DeleteAppVersionAppComponent
+    DeleteAppVersionAppComponent (DeleteAppVersionAppComponent'),
+    newDeleteAppVersionAppComponent,
+    DeleteAppVersionAppComponentResponse (DeleteAppVersionAppComponentResponse'),
+    newDeleteAppVersionAppComponentResponse,
+
+    -- ** DeleteAppVersionResource
+    DeleteAppVersionResource (DeleteAppVersionResource'),
+    newDeleteAppVersionResource,
+    DeleteAppVersionResourceResponse (DeleteAppVersionResourceResponse'),
+    newDeleteAppVersionResourceResponse,
+
     -- ** DeleteRecommendationTemplate
     DeleteRecommendationTemplate (DeleteRecommendationTemplate'),
     newDeleteRecommendationTemplate,
@@ -111,6 +141,24 @@ module Amazonka.ResilienceHub
     newDescribeAppAssessment,
     DescribeAppAssessmentResponse (DescribeAppAssessmentResponse'),
     newDescribeAppAssessmentResponse,
+
+    -- ** DescribeAppVersion
+    DescribeAppVersion (DescribeAppVersion'),
+    newDescribeAppVersion,
+    DescribeAppVersionResponse (DescribeAppVersionResponse'),
+    newDescribeAppVersionResponse,
+
+    -- ** DescribeAppVersionAppComponent
+    DescribeAppVersionAppComponent (DescribeAppVersionAppComponent'),
+    newDescribeAppVersionAppComponent,
+    DescribeAppVersionAppComponentResponse (DescribeAppVersionAppComponentResponse'),
+    newDescribeAppVersionAppComponentResponse,
+
+    -- ** DescribeAppVersionResource
+    DescribeAppVersionResource (DescribeAppVersionResource'),
+    newDescribeAppVersionResource,
+    DescribeAppVersionResourceResponse (DescribeAppVersionResourceResponse'),
+    newDescribeAppVersionResourceResponse,
 
     -- ** DescribeAppVersionResourcesResolutionStatus
     DescribeAppVersionResourcesResolutionStatus (DescribeAppVersionResourcesResolutionStatus'),
@@ -165,6 +213,18 @@ module Amazonka.ResilienceHub
     newListAppComponentRecommendations,
     ListAppComponentRecommendationsResponse (ListAppComponentRecommendationsResponse'),
     newListAppComponentRecommendationsResponse,
+
+    -- ** ListAppInputSources
+    ListAppInputSources (ListAppInputSources'),
+    newListAppInputSources,
+    ListAppInputSourcesResponse (ListAppInputSourcesResponse'),
+    newListAppInputSourcesResponse,
+
+    -- ** ListAppVersionAppComponents
+    ListAppVersionAppComponents (ListAppVersionAppComponents'),
+    newListAppVersionAppComponents,
+    ListAppVersionAppComponentsResponse (ListAppVersionAppComponentsResponse'),
+    newListAppVersionAppComponentsResponse,
 
     -- ** ListAppVersionResourceMappings
     ListAppVersionResourceMappings (ListAppVersionResourceMappings'),
@@ -280,6 +340,24 @@ module Amazonka.ResilienceHub
     UpdateAppResponse (UpdateAppResponse'),
     newUpdateAppResponse,
 
+    -- ** UpdateAppVersion
+    UpdateAppVersion (UpdateAppVersion'),
+    newUpdateAppVersion,
+    UpdateAppVersionResponse (UpdateAppVersionResponse'),
+    newUpdateAppVersionResponse,
+
+    -- ** UpdateAppVersionAppComponent
+    UpdateAppVersionAppComponent (UpdateAppVersionAppComponent'),
+    newUpdateAppVersionAppComponent,
+    UpdateAppVersionAppComponentResponse (UpdateAppVersionAppComponentResponse'),
+    newUpdateAppVersionAppComponentResponse,
+
+    -- ** UpdateAppVersionResource
+    UpdateAppVersionResource (UpdateAppVersionResource'),
+    newUpdateAppVersionResource,
+    UpdateAppVersionResourceResponse (UpdateAppVersionResourceResponse'),
+    newUpdateAppVersionResourceResponse,
+
     -- ** UpdateResiliencyPolicy
     UpdateResiliencyPolicy (UpdateResiliencyPolicy'),
     newUpdateResiliencyPolicy,
@@ -345,11 +423,17 @@ module Amazonka.ResilienceHub
     -- ** ResourceImportStatusType
     ResourceImportStatusType (..),
 
+    -- ** ResourceImportStrategyType
+    ResourceImportStrategyType (..),
+
     -- ** ResourceMappingType
     ResourceMappingType (..),
 
     -- ** ResourceResolutionStatusType
     ResourceResolutionStatusType (..),
+
+    -- ** ResourceSourceType
+    ResourceSourceType (..),
 
     -- ** SopServiceType
     SopServiceType (..),
@@ -387,6 +471,10 @@ module Amazonka.ResilienceHub
     AppComponentCompliance (AppComponentCompliance'),
     newAppComponentCompliance,
 
+    -- ** AppInputSource
+    AppInputSource (AppInputSource'),
+    newAppInputSource,
+
     -- ** AppSummary
     AppSummary (AppSummary'),
     newAppSummary,
@@ -410,6 +498,14 @@ module Amazonka.ResilienceHub
     -- ** DisruptionCompliance
     DisruptionCompliance (DisruptionCompliance'),
     newDisruptionCompliance,
+
+    -- ** EksSource
+    EksSource (EksSource'),
+    newEksSource,
+
+    -- ** EksSourceClusterNamespace
+    EksSourceClusterNamespace (EksSourceClusterNamespace'),
+    newEksSourceClusterNamespace,
 
     -- ** FailurePolicy
     FailurePolicy (FailurePolicy'),
@@ -483,14 +579,22 @@ where
 
 import Amazonka.ResilienceHub.AddDraftAppVersionResourceMappings
 import Amazonka.ResilienceHub.CreateApp
+import Amazonka.ResilienceHub.CreateAppVersionAppComponent
+import Amazonka.ResilienceHub.CreateAppVersionResource
 import Amazonka.ResilienceHub.CreateRecommendationTemplate
 import Amazonka.ResilienceHub.CreateResiliencyPolicy
 import Amazonka.ResilienceHub.DeleteApp
 import Amazonka.ResilienceHub.DeleteAppAssessment
+import Amazonka.ResilienceHub.DeleteAppInputSource
+import Amazonka.ResilienceHub.DeleteAppVersionAppComponent
+import Amazonka.ResilienceHub.DeleteAppVersionResource
 import Amazonka.ResilienceHub.DeleteRecommendationTemplate
 import Amazonka.ResilienceHub.DeleteResiliencyPolicy
 import Amazonka.ResilienceHub.DescribeApp
 import Amazonka.ResilienceHub.DescribeAppAssessment
+import Amazonka.ResilienceHub.DescribeAppVersion
+import Amazonka.ResilienceHub.DescribeAppVersionAppComponent
+import Amazonka.ResilienceHub.DescribeAppVersionResource
 import Amazonka.ResilienceHub.DescribeAppVersionResourcesResolutionStatus
 import Amazonka.ResilienceHub.DescribeAppVersionTemplate
 import Amazonka.ResilienceHub.DescribeDraftAppVersionResourcesImportStatus
@@ -501,6 +605,8 @@ import Amazonka.ResilienceHub.ListAlarmRecommendations
 import Amazonka.ResilienceHub.ListAppAssessments
 import Amazonka.ResilienceHub.ListAppComponentCompliances
 import Amazonka.ResilienceHub.ListAppComponentRecommendations
+import Amazonka.ResilienceHub.ListAppInputSources
+import Amazonka.ResilienceHub.ListAppVersionAppComponents
 import Amazonka.ResilienceHub.ListAppVersionResourceMappings
 import Amazonka.ResilienceHub.ListAppVersionResources
 import Amazonka.ResilienceHub.ListAppVersions
@@ -521,6 +627,9 @@ import Amazonka.ResilienceHub.TagResource
 import Amazonka.ResilienceHub.Types
 import Amazonka.ResilienceHub.UntagResource
 import Amazonka.ResilienceHub.UpdateApp
+import Amazonka.ResilienceHub.UpdateAppVersion
+import Amazonka.ResilienceHub.UpdateAppVersionAppComponent
+import Amazonka.ResilienceHub.UpdateAppVersionResource
 import Amazonka.ResilienceHub.UpdateResiliencyPolicy
 import Amazonka.ResilienceHub.Waiters
 

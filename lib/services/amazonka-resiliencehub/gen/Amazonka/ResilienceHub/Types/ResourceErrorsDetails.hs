@@ -74,14 +74,16 @@ instance Data.FromJSON ResourceErrorsDetails where
       ( \x ->
           ResourceErrorsDetails'
             Prelude.<$> (x Data..:? "hasMoreErrors")
-            Prelude.<*> ( x Data..:? "resourceErrors"
+            Prelude.<*> ( x
+                            Data..:? "resourceErrors"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ResourceErrorsDetails where
   hashWithSalt _salt ResourceErrorsDetails' {..} =
-    _salt `Prelude.hashWithSalt` hasMoreErrors
+    _salt
+      `Prelude.hashWithSalt` hasMoreErrors
       `Prelude.hashWithSalt` resourceErrors
 
 instance Prelude.NFData ResourceErrorsDetails where

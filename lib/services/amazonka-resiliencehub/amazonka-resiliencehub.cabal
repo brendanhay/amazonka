@@ -46,14 +46,22 @@ library
     Amazonka.ResilienceHub
     Amazonka.ResilienceHub.AddDraftAppVersionResourceMappings
     Amazonka.ResilienceHub.CreateApp
+    Amazonka.ResilienceHub.CreateAppVersionAppComponent
+    Amazonka.ResilienceHub.CreateAppVersionResource
     Amazonka.ResilienceHub.CreateRecommendationTemplate
     Amazonka.ResilienceHub.CreateResiliencyPolicy
     Amazonka.ResilienceHub.DeleteApp
     Amazonka.ResilienceHub.DeleteAppAssessment
+    Amazonka.ResilienceHub.DeleteAppInputSource
+    Amazonka.ResilienceHub.DeleteAppVersionAppComponent
+    Amazonka.ResilienceHub.DeleteAppVersionResource
     Amazonka.ResilienceHub.DeleteRecommendationTemplate
     Amazonka.ResilienceHub.DeleteResiliencyPolicy
     Amazonka.ResilienceHub.DescribeApp
     Amazonka.ResilienceHub.DescribeAppAssessment
+    Amazonka.ResilienceHub.DescribeAppVersion
+    Amazonka.ResilienceHub.DescribeAppVersionAppComponent
+    Amazonka.ResilienceHub.DescribeAppVersionResource
     Amazonka.ResilienceHub.DescribeAppVersionResourcesResolutionStatus
     Amazonka.ResilienceHub.DescribeAppVersionTemplate
     Amazonka.ResilienceHub.DescribeDraftAppVersionResourcesImportStatus
@@ -64,7 +72,9 @@ library
     Amazonka.ResilienceHub.ListAppAssessments
     Amazonka.ResilienceHub.ListAppComponentCompliances
     Amazonka.ResilienceHub.ListAppComponentRecommendations
+    Amazonka.ResilienceHub.ListAppInputSources
     Amazonka.ResilienceHub.ListApps
+    Amazonka.ResilienceHub.ListAppVersionAppComponents
     Amazonka.ResilienceHub.ListAppVersionResourceMappings
     Amazonka.ResilienceHub.ListAppVersionResources
     Amazonka.ResilienceHub.ListAppVersions
@@ -91,6 +101,7 @@ library
     Amazonka.ResilienceHub.Types.AppComplianceStatusType
     Amazonka.ResilienceHub.Types.AppComponent
     Amazonka.ResilienceHub.Types.AppComponentCompliance
+    Amazonka.ResilienceHub.Types.AppInputSource
     Amazonka.ResilienceHub.Types.AppStatusType
     Amazonka.ResilienceHub.Types.AppSummary
     Amazonka.ResilienceHub.Types.AppVersionSummary
@@ -105,6 +116,8 @@ library
     Amazonka.ResilienceHub.Types.DataLocationConstraint
     Amazonka.ResilienceHub.Types.DisruptionCompliance
     Amazonka.ResilienceHub.Types.DisruptionType
+    Amazonka.ResilienceHub.Types.EksSource
+    Amazonka.ResilienceHub.Types.EksSourceClusterNamespace
     Amazonka.ResilienceHub.Types.EstimatedCostTier
     Amazonka.ResilienceHub.Types.FailurePolicy
     Amazonka.ResilienceHub.Types.HaArchitecture
@@ -124,9 +137,11 @@ library
     Amazonka.ResilienceHub.Types.ResourceError
     Amazonka.ResilienceHub.Types.ResourceErrorsDetails
     Amazonka.ResilienceHub.Types.ResourceImportStatusType
+    Amazonka.ResilienceHub.Types.ResourceImportStrategyType
     Amazonka.ResilienceHub.Types.ResourceMapping
     Amazonka.ResilienceHub.Types.ResourceMappingType
     Amazonka.ResilienceHub.Types.ResourceResolutionStatusType
+    Amazonka.ResilienceHub.Types.ResourceSourceType
     Amazonka.ResilienceHub.Types.S3Location
     Amazonka.ResilienceHub.Types.SopRecommendation
     Amazonka.ResilienceHub.Types.SopServiceType
@@ -138,6 +153,9 @@ library
     Amazonka.ResilienceHub.Types.UnsupportedResource
     Amazonka.ResilienceHub.UntagResource
     Amazonka.ResilienceHub.UpdateApp
+    Amazonka.ResilienceHub.UpdateAppVersion
+    Amazonka.ResilienceHub.UpdateAppVersionAppComponent
+    Amazonka.ResilienceHub.UpdateAppVersionResource
     Amazonka.ResilienceHub.UpdateResiliencyPolicy
     Amazonka.ResilienceHub.Waiters
 

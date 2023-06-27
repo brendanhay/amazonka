@@ -31,7 +31,7 @@ import Amazonka.ResilienceHub.Types.TestType
 --
 -- /See:/ 'newTestRecommendation' smart constructor.
 data TestRecommendation = TestRecommendation'
-  { -- | The name of the application component.
+  { -- | The name of the Application Component.
     appComponentName :: Prelude.Maybe Prelude.Text,
     -- | A list of recommended alarms that are used in the test and must be
     -- exported before or with the test.
@@ -65,7 +65,7 @@ data TestRecommendation = TestRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appComponentName', 'testRecommendation_appComponentName' - The name of the application component.
+-- 'appComponentName', 'testRecommendation_appComponentName' - The name of the Application Component.
 --
 -- 'dependsOnAlarms', 'testRecommendation_dependsOnAlarms' - A list of recommended alarms that are used in the test and must be
 -- exported before or with the test.
@@ -107,7 +107,7 @@ newTestRecommendation pReferenceId_ =
       referenceId = pReferenceId_
     }
 
--- | The name of the application component.
+-- | The name of the Application Component.
 testRecommendation_appComponentName :: Lens.Lens' TestRecommendation (Prelude.Maybe Prelude.Text)
 testRecommendation_appComponentName = Lens.lens (\TestRecommendation' {appComponentName} -> appComponentName) (\s@TestRecommendation' {} a -> s {appComponentName = a} :: TestRecommendation)
 
@@ -173,7 +173,8 @@ instance Data.FromJSON TestRecommendation where
 
 instance Prelude.Hashable TestRecommendation where
   hashWithSalt _salt TestRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` appComponentName
+    _salt
+      `Prelude.hashWithSalt` appComponentName
       `Prelude.hashWithSalt` dependsOnAlarms
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` intent

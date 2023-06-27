@@ -61,11 +61,12 @@ data ListAppVersionResourceMappings = ListAppVersionResourceMappings'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Null, or the token from a previous call to get the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text
@@ -86,11 +87,12 @@ data ListAppVersionResourceMappings = ListAppVersionResourceMappings'
 --
 -- 'nextToken', 'listAppVersionResourceMappings_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
--- 'appArn', 'listAppVersionResourceMappings_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'listAppVersionResourceMappings_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'listAppVersionResourceMappings_appVersion' - The version of the application.
 newListAppVersionResourceMappings ::
@@ -120,11 +122,12 @@ listAppVersionResourceMappings_maxResults = Lens.lens (\ListAppVersionResourceMa
 listAppVersionResourceMappings_nextToken :: Lens.Lens' ListAppVersionResourceMappings (Prelude.Maybe Prelude.Text)
 listAppVersionResourceMappings_nextToken = Lens.lens (\ListAppVersionResourceMappings' {nextToken} -> nextToken) (\s@ListAppVersionResourceMappings' {} a -> s {nextToken = a} :: ListAppVersionResourceMappings)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listAppVersionResourceMappings_appArn :: Lens.Lens' ListAppVersionResourceMappings Prelude.Text
 listAppVersionResourceMappings_appArn = Lens.lens (\ListAppVersionResourceMappings' {appArn} -> appArn) (\s@ListAppVersionResourceMappings' {} a -> s {appArn = a} :: ListAppVersionResourceMappings)
 
@@ -147,7 +150,8 @@ instance
           ListAppVersionResourceMappingsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "resourceMappings"
+            Prelude.<*> ( x
+                            Data..?> "resourceMappings"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -159,7 +163,8 @@ instance
   hashWithSalt
     _salt
     ListAppVersionResourceMappings' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` appArn
         `Prelude.hashWithSalt` appVersion

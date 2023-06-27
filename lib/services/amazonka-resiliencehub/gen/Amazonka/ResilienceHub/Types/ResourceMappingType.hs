@@ -22,6 +22,7 @@ module Amazonka.ResilienceHub.Types.ResourceMappingType
       ( ..,
         ResourceMappingType_AppRegistryApp,
         ResourceMappingType_CfnStack,
+        ResourceMappingType_EKS,
         ResourceMappingType_Resource,
         ResourceMappingType_ResourceGroup,
         ResourceMappingType_Terraform
@@ -67,6 +68,9 @@ pattern ResourceMappingType_AppRegistryApp = ResourceMappingType' "AppRegistryAp
 pattern ResourceMappingType_CfnStack :: ResourceMappingType
 pattern ResourceMappingType_CfnStack = ResourceMappingType' "CfnStack"
 
+pattern ResourceMappingType_EKS :: ResourceMappingType
+pattern ResourceMappingType_EKS = ResourceMappingType' "EKS"
+
 pattern ResourceMappingType_Resource :: ResourceMappingType
 pattern ResourceMappingType_Resource = ResourceMappingType' "Resource"
 
@@ -79,6 +83,7 @@ pattern ResourceMappingType_Terraform = ResourceMappingType' "Terraform"
 {-# COMPLETE
   ResourceMappingType_AppRegistryApp,
   ResourceMappingType_CfnStack,
+  ResourceMappingType_EKS,
   ResourceMappingType_Resource,
   ResourceMappingType_ResourceGroup,
   ResourceMappingType_Terraform,

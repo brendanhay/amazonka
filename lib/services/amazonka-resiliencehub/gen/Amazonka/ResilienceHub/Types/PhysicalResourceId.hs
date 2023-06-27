@@ -41,7 +41,7 @@ data PhysicalResourceId = PhysicalResourceId'
     --     The resource identifier is an Amazon Resource Name (ARN) .
     --
     -- [Native]
-    --     The resource identifier is a Resilience Hub-native identifier.
+    --     The resource identifier is an Resilience Hub-native identifier.
     type' :: PhysicalIdentifierType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data PhysicalResourceId = PhysicalResourceId'
 --     The resource identifier is an Amazon Resource Name (ARN) .
 --
 -- [Native]
---     The resource identifier is a Resilience Hub-native identifier.
+--     The resource identifier is an Resilience Hub-native identifier.
 newPhysicalResourceId ::
   -- | 'identifier'
   Prelude.Text ->
@@ -99,7 +99,7 @@ physicalResourceId_identifier = Lens.lens (\PhysicalResourceId' {identifier} -> 
 --     The resource identifier is an Amazon Resource Name (ARN) .
 --
 -- [Native]
---     The resource identifier is a Resilience Hub-native identifier.
+--     The resource identifier is an Resilience Hub-native identifier.
 physicalResourceId_type :: Lens.Lens' PhysicalResourceId PhysicalIdentifierType
 physicalResourceId_type = Lens.lens (\PhysicalResourceId' {type'} -> type') (\s@PhysicalResourceId' {} a -> s {type' = a} :: PhysicalResourceId)
 
@@ -117,7 +117,8 @@ instance Data.FromJSON PhysicalResourceId where
 
 instance Prelude.Hashable PhysicalResourceId where
   hashWithSalt _salt PhysicalResourceId' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` type'

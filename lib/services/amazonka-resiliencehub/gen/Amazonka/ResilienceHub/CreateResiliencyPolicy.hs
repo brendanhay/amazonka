@@ -173,7 +173,8 @@ instance Core.AWSRequest CreateResiliencyPolicy where
 
 instance Prelude.Hashable CreateResiliencyPolicy where
   hashWithSalt _salt CreateResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dataLocationConstraint
       `Prelude.hashWithSalt` policyDescription
       `Prelude.hashWithSalt` tags

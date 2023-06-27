@@ -33,11 +33,12 @@ import Amazonka.ResilienceHub.Types.TemplateFormat
 --
 -- /See:/ 'newRecommendationTemplate' smart constructor.
 data RecommendationTemplate = RecommendationTemplate'
-  { -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+  { -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Maybe Prelude.Text,
     -- | The end time for the action.
     endTime :: Prelude.Maybe Data.POSIX,
@@ -59,7 +60,7 @@ data RecommendationTemplate = RecommendationTemplate'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text,
     -- | The format of the recommendation template.
     --
@@ -98,11 +99,12 @@ data RecommendationTemplate = RecommendationTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appArn', 'recommendationTemplate_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'recommendationTemplate_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'endTime', 'recommendationTemplate_endTime' - The end time for the action.
 --
@@ -124,7 +126,7 @@ data RecommendationTemplate = RecommendationTemplate'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'format', 'recommendationTemplate_format' - The format of the recommendation template.
 --
@@ -191,11 +193,12 @@ newRecommendationTemplate
         status = pStatus_
       }
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 recommendationTemplate_appArn :: Lens.Lens' RecommendationTemplate (Prelude.Maybe Prelude.Text)
 recommendationTemplate_appArn = Lens.lens (\RecommendationTemplate' {appArn} -> appArn) (\s@RecommendationTemplate' {} a -> s {appArn = a} :: RecommendationTemplate)
 
@@ -233,7 +236,7 @@ recommendationTemplate_templatesLocation = Lens.lens (\RecommendationTemplate' {
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 recommendationTemplate_assessmentArn :: Lens.Lens' RecommendationTemplate Prelude.Text
 recommendationTemplate_assessmentArn = Lens.lens (\RecommendationTemplate' {assessmentArn} -> assessmentArn) (\s@RecommendationTemplate' {} a -> s {assessmentArn = a} :: RecommendationTemplate)
 
@@ -297,7 +300,8 @@ instance Data.FromJSON RecommendationTemplate where
 
 instance Prelude.Hashable RecommendationTemplate where
   hashWithSalt _salt RecommendationTemplate' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` needsReplacements

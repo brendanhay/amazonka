@@ -95,7 +95,8 @@ instance Data.FromJSON RecommendationItem where
 
 instance Prelude.Hashable RecommendationItem where
   hashWithSalt _salt RecommendationItem' {..} =
-    _salt `Prelude.hashWithSalt` alreadyImplemented
+    _salt
+      `Prelude.hashWithSalt` alreadyImplemented
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` targetAccountId
       `Prelude.hashWithSalt` targetRegion

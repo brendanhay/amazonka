@@ -158,7 +158,8 @@ instance Data.FromJSON DisruptionCompliance where
 
 instance Prelude.Hashable DisruptionCompliance where
   hashWithSalt _salt DisruptionCompliance' {..} =
-    _salt `Prelude.hashWithSalt` achievableRpoInSecs
+    _salt
+      `Prelude.hashWithSalt` achievableRpoInSecs
       `Prelude.hashWithSalt` achievableRtoInSecs
       `Prelude.hashWithSalt` currentRpoInSecs
       `Prelude.hashWithSalt` currentRtoInSecs

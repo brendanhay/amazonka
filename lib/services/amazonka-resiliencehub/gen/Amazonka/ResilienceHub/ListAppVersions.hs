@@ -58,11 +58,12 @@ data ListAppVersions = ListAppVersions'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Null, or the token from a previous call to get the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,11 +82,12 @@ data ListAppVersions = ListAppVersions'
 --
 -- 'nextToken', 'listAppVersions_nextToken' - Null, or the token from a previous call to get the next set of results.
 --
--- 'appArn', 'listAppVersions_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'listAppVersions_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newListAppVersions ::
   -- | 'appArn'
   Prelude.Text ->
@@ -107,11 +109,12 @@ listAppVersions_maxResults = Lens.lens (\ListAppVersions' {maxResults} -> maxRes
 listAppVersions_nextToken :: Lens.Lens' ListAppVersions (Prelude.Maybe Prelude.Text)
 listAppVersions_nextToken = Lens.lens (\ListAppVersions' {nextToken} -> nextToken) (\s@ListAppVersions' {} a -> s {nextToken = a} :: ListAppVersions)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listAppVersions_appArn :: Lens.Lens' ListAppVersions Prelude.Text
 listAppVersions_appArn = Lens.lens (\ListAppVersions' {appArn} -> appArn) (\s@ListAppVersions' {} a -> s {appArn = a} :: ListAppVersions)
 
@@ -132,7 +135,8 @@ instance Core.AWSRequest ListAppVersions where
 
 instance Prelude.Hashable ListAppVersions where
   hashWithSalt _salt ListAppVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appArn
 

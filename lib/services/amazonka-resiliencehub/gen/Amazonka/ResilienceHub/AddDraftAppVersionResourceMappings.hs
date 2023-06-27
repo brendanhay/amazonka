@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds the resource mapping for the draft application version.
+-- Adds the resource mapping for the draft application version. You can
+-- also update an existing resource mapping to a new physical resource.
 module Amazonka.ResilienceHub.AddDraftAppVersionResourceMappings
   ( -- * Creating a Request
     AddDraftAppVersionResourceMappings (..),
@@ -52,11 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAddDraftAppVersionResourceMappings' smart constructor.
 data AddDraftAppVersionResourceMappings = AddDraftAppVersionResourceMappings'
-  { -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+  { -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | Mappings used to map logical resources from the template to physical
     -- resources. You can use the mapping type @CFN_STACK@ if the application
@@ -75,11 +77,12 @@ data AddDraftAppVersionResourceMappings = AddDraftAppVersionResourceMappings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appArn', 'addDraftAppVersionResourceMappings_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'addDraftAppVersionResourceMappings_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'resourceMappings', 'addDraftAppVersionResourceMappings_resourceMappings' - Mappings used to map logical resources from the template to physical
 -- resources. You can use the mapping type @CFN_STACK@ if the application
@@ -97,11 +100,12 @@ newAddDraftAppVersionResourceMappings pAppArn_ =
       resourceMappings = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 addDraftAppVersionResourceMappings_appArn :: Lens.Lens' AddDraftAppVersionResourceMappings Prelude.Text
 addDraftAppVersionResourceMappings_appArn = Lens.lens (\AddDraftAppVersionResourceMappings' {appArn} -> appArn) (\s@AddDraftAppVersionResourceMappings' {} a -> s {appArn = a} :: AddDraftAppVersionResourceMappings)
 
@@ -127,11 +131,12 @@ instance
       ( \s h x ->
           AddDraftAppVersionResourceMappingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "appArn")
-              Prelude.<*> (x Data..:> "appVersion")
-              Prelude.<*> ( x Data..?> "resourceMappings"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (x Data..:> "appArn")
+            Prelude.<*> (x Data..:> "appVersion")
+            Prelude.<*> ( x
+                            Data..?> "resourceMappings"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -141,7 +146,8 @@ instance
   hashWithSalt
     _salt
     AddDraftAppVersionResourceMappings' {..} =
-      _salt `Prelude.hashWithSalt` appArn
+      _salt
+        `Prelude.hashWithSalt` appArn
         `Prelude.hashWithSalt` resourceMappings
 
 instance
@@ -197,11 +203,12 @@ instance
 data AddDraftAppVersionResourceMappingsResponse = AddDraftAppVersionResourceMappingsResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text,
@@ -224,11 +231,12 @@ data AddDraftAppVersionResourceMappingsResponse = AddDraftAppVersionResourceMapp
 --
 -- 'httpStatus', 'addDraftAppVersionResourceMappingsResponse_httpStatus' - The response's http status code.
 --
--- 'appArn', 'addDraftAppVersionResourceMappingsResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'addDraftAppVersionResourceMappingsResponse_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'addDraftAppVersionResourceMappingsResponse_appVersion' - The version of the application.
 --
@@ -262,11 +270,12 @@ newAddDraftAppVersionResourceMappingsResponse
 addDraftAppVersionResourceMappingsResponse_httpStatus :: Lens.Lens' AddDraftAppVersionResourceMappingsResponse Prelude.Int
 addDraftAppVersionResourceMappingsResponse_httpStatus = Lens.lens (\AddDraftAppVersionResourceMappingsResponse' {httpStatus} -> httpStatus) (\s@AddDraftAppVersionResourceMappingsResponse' {} a -> s {httpStatus = a} :: AddDraftAppVersionResourceMappingsResponse)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 addDraftAppVersionResourceMappingsResponse_appArn :: Lens.Lens' AddDraftAppVersionResourceMappingsResponse Prelude.Text
 addDraftAppVersionResourceMappingsResponse_appArn = Lens.lens (\AddDraftAppVersionResourceMappingsResponse' {appArn} -> appArn) (\s@AddDraftAppVersionResourceMappingsResponse' {} a -> s {appArn = a} :: AddDraftAppVersionResourceMappingsResponse)
 

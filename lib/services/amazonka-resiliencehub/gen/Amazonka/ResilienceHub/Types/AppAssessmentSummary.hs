@@ -32,11 +32,12 @@ import Amazonka.ResilienceHub.Types.Cost
 --
 -- /See:/ 'newAppAssessmentSummary' smart constructor.
 data AppAssessmentSummary = AppAssessmentSummary'
-  { -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+  { -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Maybe Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Maybe Prelude.Text,
@@ -61,7 +62,7 @@ data AppAssessmentSummary = AppAssessmentSummary'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text,
     -- | The current status of the assessment for the resiliency policy.
     assessmentStatus :: AssessmentStatus
@@ -76,11 +77,12 @@ data AppAssessmentSummary = AppAssessmentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appArn', 'appAssessmentSummary_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'appAssessmentSummary_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'appAssessmentSummary_appVersion' - The version of the application.
 --
@@ -105,7 +107,7 @@ data AppAssessmentSummary = AppAssessmentSummary'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'assessmentStatus', 'appAssessmentSummary_assessmentStatus' - The current status of the assessment for the resiliency policy.
 newAppAssessmentSummary ::
@@ -132,11 +134,12 @@ newAppAssessmentSummary
         assessmentStatus = pAssessmentStatus_
       }
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 appAssessmentSummary_appArn :: Lens.Lens' AppAssessmentSummary (Prelude.Maybe Prelude.Text)
 appAssessmentSummary_appArn = Lens.lens (\AppAssessmentSummary' {appArn} -> appArn) (\s@AppAssessmentSummary' {} a -> s {appArn = a} :: AppAssessmentSummary)
 
@@ -181,7 +184,7 @@ appAssessmentSummary_startTime = Lens.lens (\AppAssessmentSummary' {startTime} -
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 appAssessmentSummary_assessmentArn :: Lens.Lens' AppAssessmentSummary Prelude.Text
 appAssessmentSummary_assessmentArn = Lens.lens (\AppAssessmentSummary' {assessmentArn} -> assessmentArn) (\s@AppAssessmentSummary' {} a -> s {assessmentArn = a} :: AppAssessmentSummary)
 
@@ -211,7 +214,8 @@ instance Data.FromJSON AppAssessmentSummary where
 
 instance Prelude.Hashable AppAssessmentSummary where
   hashWithSalt _salt AppAssessmentSummary' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` complianceStatus

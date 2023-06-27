@@ -84,7 +84,8 @@ instance Data.FromJSON ResourceError where
 
 instance Prelude.Hashable ResourceError where
   hashWithSalt _salt ResourceError' {..} =
-    _salt `Prelude.hashWithSalt` logicalResourceId
+    _salt
+      `Prelude.hashWithSalt` logicalResourceId
       `Prelude.hashWithSalt` physicalResourceId
       `Prelude.hashWithSalt` reason
 

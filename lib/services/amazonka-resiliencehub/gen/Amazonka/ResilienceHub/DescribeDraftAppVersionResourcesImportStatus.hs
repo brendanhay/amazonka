@@ -21,6 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the status of importing resources to an application version.
+--
+-- If you get a 404 error with
+-- @ResourceImportStatusNotFoundAppMetadataException@, you must call
+-- @importResourcesToDraftAppVersion@ after creating the application and
+-- before calling @describeDraftAppVersionResourcesImportStatus@ to obtain
+-- the status.
 module Amazonka.ResilienceHub.DescribeDraftAppVersionResourcesImportStatus
   ( -- * Creating a Request
     DescribeDraftAppVersionResourcesImportStatus (..),
@@ -53,11 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDraftAppVersionResourcesImportStatus' smart constructor.
 data DescribeDraftAppVersionResourcesImportStatus = DescribeDraftAppVersionResourcesImportStatus'
-  { -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+  { -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,11 +77,12 @@ data DescribeDraftAppVersionResourcesImportStatus = DescribeDraftAppVersionResou
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appArn', 'describeDraftAppVersionResourcesImportStatus_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'describeDraftAppVersionResourcesImportStatus_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDescribeDraftAppVersionResourcesImportStatus ::
   -- | 'appArn'
   Prelude.Text ->
@@ -86,11 +94,12 @@ newDescribeDraftAppVersionResourcesImportStatus
           pAppArn_
       }
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 describeDraftAppVersionResourcesImportStatus_appArn :: Lens.Lens' DescribeDraftAppVersionResourcesImportStatus Prelude.Text
 describeDraftAppVersionResourcesImportStatus_appArn = Lens.lens (\DescribeDraftAppVersionResourcesImportStatus' {appArn} -> appArn) (\s@DescribeDraftAppVersionResourcesImportStatus' {} a -> s {appArn = a} :: DescribeDraftAppVersionResourcesImportStatus)
 
@@ -109,11 +118,11 @@ instance
       ( \s h x ->
           DescribeDraftAppVersionResourcesImportStatusResponse'
             Prelude.<$> (x Data..?> "errorMessage")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "appArn")
-              Prelude.<*> (x Data..:> "appVersion")
-              Prelude.<*> (x Data..:> "status")
-              Prelude.<*> (x Data..:> "statusChangeTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "appArn")
+            Prelude.<*> (x Data..:> "appVersion")
+            Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (x Data..:> "statusChangeTime")
       )
 
 instance
@@ -177,11 +186,12 @@ data DescribeDraftAppVersionResourcesImportStatusResponse = DescribeDraftAppVers
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text,
@@ -204,11 +214,12 @@ data DescribeDraftAppVersionResourcesImportStatusResponse = DescribeDraftAppVers
 --
 -- 'httpStatus', 'describeDraftAppVersionResourcesImportStatusResponse_httpStatus' - The response's http status code.
 --
--- 'appArn', 'describeDraftAppVersionResourcesImportStatusResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'describeDraftAppVersionResourcesImportStatusResponse_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'describeDraftAppVersionResourcesImportStatusResponse_appVersion' - The version of the application.
 --
@@ -255,11 +266,12 @@ describeDraftAppVersionResourcesImportStatusResponse_errorMessage = Lens.lens (\
 describeDraftAppVersionResourcesImportStatusResponse_httpStatus :: Lens.Lens' DescribeDraftAppVersionResourcesImportStatusResponse Prelude.Int
 describeDraftAppVersionResourcesImportStatusResponse_httpStatus = Lens.lens (\DescribeDraftAppVersionResourcesImportStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeDraftAppVersionResourcesImportStatusResponse' {} a -> s {httpStatus = a} :: DescribeDraftAppVersionResourcesImportStatusResponse)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 describeDraftAppVersionResourcesImportStatusResponse_appArn :: Lens.Lens' DescribeDraftAppVersionResourcesImportStatusResponse Prelude.Text
 describeDraftAppVersionResourcesImportStatusResponse_appArn = Lens.lens (\DescribeDraftAppVersionResourcesImportStatusResponse' {appArn} -> appArn) (\s@DescribeDraftAppVersionResourcesImportStatusResponse' {} a -> s {appArn = a} :: DescribeDraftAppVersionResourcesImportStatusResponse)
 

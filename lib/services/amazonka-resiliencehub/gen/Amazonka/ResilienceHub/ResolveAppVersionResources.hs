@@ -53,11 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newResolveAppVersionResources' smart constructor.
 data ResolveAppVersionResources = ResolveAppVersionResources'
-  { -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+  { -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text
@@ -72,11 +73,12 @@ data ResolveAppVersionResources = ResolveAppVersionResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appArn', 'resolveAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'resolveAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'resolveAppVersionResources_appVersion' - The version of the application.
 newResolveAppVersionResources ::
@@ -91,11 +93,12 @@ newResolveAppVersionResources pAppArn_ pAppVersion_ =
       appVersion = pAppVersion_
     }
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 resolveAppVersionResources_appArn :: Lens.Lens' ResolveAppVersionResources Prelude.Text
 resolveAppVersionResources_appArn = Lens.lens (\ResolveAppVersionResources' {appArn} -> appArn) (\s@ResolveAppVersionResources' {} a -> s {appArn = a} :: ResolveAppVersionResources)
 
@@ -122,7 +125,8 @@ instance Core.AWSRequest ResolveAppVersionResources where
 
 instance Prelude.Hashable ResolveAppVersionResources where
   hashWithSalt _salt ResolveAppVersionResources' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` appVersion
 
 instance Prelude.NFData ResolveAppVersionResources where
@@ -161,11 +165,12 @@ instance Data.ToQuery ResolveAppVersionResources where
 data ResolveAppVersionResourcesResponse = ResolveAppVersionResourcesResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text,
@@ -186,11 +191,12 @@ data ResolveAppVersionResourcesResponse = ResolveAppVersionResourcesResponse'
 --
 -- 'httpStatus', 'resolveAppVersionResourcesResponse_httpStatus' - The response's http status code.
 --
--- 'appArn', 'resolveAppVersionResourcesResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'resolveAppVersionResourcesResponse_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'resolveAppVersionResourcesResponse_appVersion' - The version of the application.
 --
@@ -228,11 +234,12 @@ newResolveAppVersionResourcesResponse
 resolveAppVersionResourcesResponse_httpStatus :: Lens.Lens' ResolveAppVersionResourcesResponse Prelude.Int
 resolveAppVersionResourcesResponse_httpStatus = Lens.lens (\ResolveAppVersionResourcesResponse' {httpStatus} -> httpStatus) (\s@ResolveAppVersionResourcesResponse' {} a -> s {httpStatus = a} :: ResolveAppVersionResourcesResponse)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 resolveAppVersionResourcesResponse_appArn :: Lens.Lens' ResolveAppVersionResourcesResponse Prelude.Text
 resolveAppVersionResourcesResponse_appArn = Lens.lens (\ResolveAppVersionResourcesResponse' {appArn} -> appArn) (\s@ResolveAppVersionResourcesResponse' {} a -> s {appArn = a} :: ResolveAppVersionResourcesResponse)
 

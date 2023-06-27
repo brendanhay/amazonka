@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an assessment for an AWS Resilience Hub application.
+-- Describes an assessment for an Resilience Hub application.
 module Amazonka.ResilienceHub.DescribeAppAssessment
   ( -- * Creating a Request
     DescribeAppAssessment (..),
@@ -54,7 +54,7 @@ data DescribeAppAssessment = DescribeAppAssessment'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +72,7 @@ data DescribeAppAssessment = DescribeAppAssessment'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDescribeAppAssessment ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -88,7 +88,7 @@ newDescribeAppAssessment pAssessmentArn_ =
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 describeAppAssessment_assessmentArn :: Lens.Lens' DescribeAppAssessment Prelude.Text
 describeAppAssessment_assessmentArn = Lens.lens (\DescribeAppAssessment' {assessmentArn} -> assessmentArn) (\s@DescribeAppAssessment' {} a -> s {assessmentArn = a} :: DescribeAppAssessment)
 
@@ -144,8 +144,8 @@ instance Data.ToQuery DescribeAppAssessment where
 data DescribeAppAssessmentResponse = DescribeAppAssessmentResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The assessment for an AWS Resilience Hub application, returned as an
-    -- object. This object includes Amazon Resource Names (ARNs), compliance
+    -- | The assessment for an Resilience Hub application, returned as an object.
+    -- This object includes Amazon Resource Names (ARNs), compliance
     -- information, compliance status, cost, messages, resiliency scores, and
     -- more.
     assessment :: AppAssessment
@@ -162,8 +162,8 @@ data DescribeAppAssessmentResponse = DescribeAppAssessmentResponse'
 --
 -- 'httpStatus', 'describeAppAssessmentResponse_httpStatus' - The response's http status code.
 --
--- 'assessment', 'describeAppAssessmentResponse_assessment' - The assessment for an AWS Resilience Hub application, returned as an
--- object. This object includes Amazon Resource Names (ARNs), compliance
+-- 'assessment', 'describeAppAssessmentResponse_assessment' - The assessment for an Resilience Hub application, returned as an object.
+-- This object includes Amazon Resource Names (ARNs), compliance
 -- information, compliance status, cost, messages, resiliency scores, and
 -- more.
 newDescribeAppAssessmentResponse ::
@@ -185,8 +185,8 @@ newDescribeAppAssessmentResponse
 describeAppAssessmentResponse_httpStatus :: Lens.Lens' DescribeAppAssessmentResponse Prelude.Int
 describeAppAssessmentResponse_httpStatus = Lens.lens (\DescribeAppAssessmentResponse' {httpStatus} -> httpStatus) (\s@DescribeAppAssessmentResponse' {} a -> s {httpStatus = a} :: DescribeAppAssessmentResponse)
 
--- | The assessment for an AWS Resilience Hub application, returned as an
--- object. This object includes Amazon Resource Names (ARNs), compliance
+-- | The assessment for an Resilience Hub application, returned as an object.
+-- This object includes Amazon Resource Names (ARNs), compliance
 -- information, compliance status, cost, messages, resiliency scores, and
 -- more.
 describeAppAssessmentResponse_assessment :: Lens.Lens' DescribeAppAssessmentResponse AppAssessment

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the resources in an application version.
+-- Lists all the resources in an Resilience Hub application.
 module Amazonka.ResilienceHub.ListAppVersionResources
   ( -- * Creating a Request
     ListAppVersionResources (..),
@@ -63,11 +63,12 @@ data ListAppVersionResources = ListAppVersionResources'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier for a specific resolution.
     resolutionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text
@@ -90,11 +91,12 @@ data ListAppVersionResources = ListAppVersionResources'
 --
 -- 'resolutionId', 'listAppVersionResources_resolutionId' - The identifier for a specific resolution.
 --
--- 'appArn', 'listAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'listAppVersionResources_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'listAppVersionResources_appVersion' - The version of the application.
 newListAppVersionResources ::
@@ -127,11 +129,12 @@ listAppVersionResources_nextToken = Lens.lens (\ListAppVersionResources' {nextTo
 listAppVersionResources_resolutionId :: Lens.Lens' ListAppVersionResources (Prelude.Maybe Prelude.Text)
 listAppVersionResources_resolutionId = Lens.lens (\ListAppVersionResources' {resolutionId} -> resolutionId) (\s@ListAppVersionResources' {} a -> s {resolutionId = a} :: ListAppVersionResources)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listAppVersionResources_appArn :: Lens.Lens' ListAppVersionResources Prelude.Text
 listAppVersionResources_appArn = Lens.lens (\ListAppVersionResources' {appArn} -> appArn) (\s@ListAppVersionResources' {} a -> s {appArn = a} :: ListAppVersionResources)
 
@@ -151,7 +154,8 @@ instance Core.AWSRequest ListAppVersionResources where
           ListAppVersionResourcesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "physicalResources"
+            Prelude.<*> ( x
+                            Data..?> "physicalResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "resolutionId")
@@ -159,7 +163,8 @@ instance Core.AWSRequest ListAppVersionResources where
 
 instance Prelude.Hashable ListAppVersionResources where
   hashWithSalt _salt ListAppVersionResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resolutionId
       `Prelude.hashWithSalt` appArn
@@ -211,7 +216,7 @@ data ListAppVersionResourcesResponse = ListAppVersionResourcesResponse'
     httpStatus :: Prelude.Int,
     -- | The physical resources in the application version.
     physicalResources :: [PhysicalResource],
-    -- | The identifier for a specific resolution.
+    -- | The ID for a specific resolution.
     resolutionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -231,7 +236,7 @@ data ListAppVersionResourcesResponse = ListAppVersionResourcesResponse'
 --
 -- 'physicalResources', 'listAppVersionResourcesResponse_physicalResources' - The physical resources in the application version.
 --
--- 'resolutionId', 'listAppVersionResourcesResponse_resolutionId' - The identifier for a specific resolution.
+-- 'resolutionId', 'listAppVersionResourcesResponse_resolutionId' - The ID for a specific resolution.
 newListAppVersionResourcesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -262,7 +267,7 @@ listAppVersionResourcesResponse_httpStatus = Lens.lens (\ListAppVersionResources
 listAppVersionResourcesResponse_physicalResources :: Lens.Lens' ListAppVersionResourcesResponse [PhysicalResource]
 listAppVersionResourcesResponse_physicalResources = Lens.lens (\ListAppVersionResourcesResponse' {physicalResources} -> physicalResources) (\s@ListAppVersionResourcesResponse' {} a -> s {physicalResources = a} :: ListAppVersionResourcesResponse) Prelude.. Lens.coerced
 
--- | The identifier for a specific resolution.
+-- | The ID for a specific resolution.
 listAppVersionResourcesResponse_resolutionId :: Lens.Lens' ListAppVersionResourcesResponse Prelude.Text
 listAppVersionResourcesResponse_resolutionId = Lens.lens (\ListAppVersionResourcesResponse' {resolutionId} -> resolutionId) (\s@ListAppVersionResourcesResponse' {} a -> s {resolutionId = a} :: ListAppVersionResourcesResponse)
 

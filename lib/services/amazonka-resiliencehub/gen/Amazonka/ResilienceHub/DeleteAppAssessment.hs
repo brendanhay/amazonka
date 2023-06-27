@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an AWS Resilience Hub application assessment. This is a
--- destructive action that can\'t be undone.
+-- Deletes an Resilience Hub application assessment. This is a destructive
+-- action that can\'t be undone.
 module Amazonka.ResilienceHub.DeleteAppAssessment
   ( -- * Creating a Request
     DeleteAppAssessment (..),
@@ -61,7 +61,7 @@ data DeleteAppAssessment = DeleteAppAssessment'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +83,7 @@ data DeleteAppAssessment = DeleteAppAssessment'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDeleteAppAssessment ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -105,7 +105,7 @@ deleteAppAssessment_clientToken = Lens.lens (\DeleteAppAssessment' {clientToken}
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 deleteAppAssessment_assessmentArn :: Lens.Lens' DeleteAppAssessment Prelude.Text
 deleteAppAssessment_assessmentArn = Lens.lens (\DeleteAppAssessment' {assessmentArn} -> assessmentArn) (\s@DeleteAppAssessment' {} a -> s {assessmentArn = a} :: DeleteAppAssessment)
 
@@ -126,7 +126,8 @@ instance Core.AWSRequest DeleteAppAssessment where
 
 instance Prelude.Hashable DeleteAppAssessment where
   hashWithSalt _salt DeleteAppAssessment' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` assessmentArn
 
 instance Prelude.NFData DeleteAppAssessment where
@@ -170,7 +171,7 @@ data DeleteAppAssessmentResponse = DeleteAppAssessmentResponse'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text,
     -- | The current status of the assessment for the resiliency policy.
     assessmentStatus :: AssessmentStatus
@@ -192,7 +193,7 @@ data DeleteAppAssessmentResponse = DeleteAppAssessmentResponse'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'assessmentStatus', 'deleteAppAssessmentResponse_assessmentStatus' - The current status of the assessment for the resiliency policy.
 newDeleteAppAssessmentResponse ::
@@ -223,7 +224,7 @@ deleteAppAssessmentResponse_httpStatus = Lens.lens (\DeleteAppAssessmentResponse
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 deleteAppAssessmentResponse_assessmentArn :: Lens.Lens' DeleteAppAssessmentResponse Prelude.Text
 deleteAppAssessmentResponse_assessmentArn = Lens.lens (\DeleteAppAssessmentResponse' {assessmentArn} -> assessmentArn) (\s@DeleteAppAssessmentResponse' {} a -> s {assessmentArn = a} :: DeleteAppAssessmentResponse)
 

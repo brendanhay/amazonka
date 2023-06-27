@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the compliances for an AWS Resilience Hub component.
+-- Lists the compliances for an Resilience Hub Application Component.
 module Amazonka.ResilienceHub.ListAppComponentCompliances
   ( -- * Creating a Request
     ListAppComponentCompliances (..),
@@ -63,7 +63,7 @@ data ListAppComponentCompliances = ListAppComponentCompliances'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data ListAppComponentCompliances = ListAppComponentCompliances'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newListAppComponentCompliances ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -115,7 +115,7 @@ listAppComponentCompliances_nextToken = Lens.lens (\ListAppComponentCompliances'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listAppComponentCompliances_assessmentArn :: Lens.Lens' ListAppComponentCompliances Prelude.Text
 listAppComponentCompliances_assessmentArn = Lens.lens (\ListAppComponentCompliances' {assessmentArn} -> assessmentArn) (\s@ListAppComponentCompliances' {} a -> s {assessmentArn = a} :: ListAppComponentCompliances)
 
@@ -131,14 +131,16 @@ instance Core.AWSRequest ListAppComponentCompliances where
           ListAppComponentCompliancesResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "componentCompliances"
+            Prelude.<*> ( x
+                            Data..?> "componentCompliances"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAppComponentCompliances where
   hashWithSalt _salt ListAppComponentCompliances' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 
@@ -184,8 +186,8 @@ data ListAppComponentCompliancesResponse = ListAppComponentCompliancesResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The compliances for an AWS Resilience Hub application component,
-    -- returned as an object. This object contains component names,
+    -- | The compliances for an Resilience Hub Application Component, returned as
+    -- an object. This object contains the names of the Application Components,
     -- compliances, costs, resiliency scores, outage scores, and more.
     componentCompliances :: [AppComponentCompliance]
   }
@@ -204,8 +206,8 @@ data ListAppComponentCompliancesResponse = ListAppComponentCompliancesResponse'
 --
 -- 'httpStatus', 'listAppComponentCompliancesResponse_httpStatus' - The response's http status code.
 --
--- 'componentCompliances', 'listAppComponentCompliancesResponse_componentCompliances' - The compliances for an AWS Resilience Hub application component,
--- returned as an object. This object contains component names,
+-- 'componentCompliances', 'listAppComponentCompliancesResponse_componentCompliances' - The compliances for an Resilience Hub Application Component, returned as
+-- an object. This object contains the names of the Application Components,
 -- compliances, costs, resiliency scores, outage scores, and more.
 newListAppComponentCompliancesResponse ::
   -- | 'httpStatus'
@@ -228,8 +230,8 @@ listAppComponentCompliancesResponse_nextToken = Lens.lens (\ListAppComponentComp
 listAppComponentCompliancesResponse_httpStatus :: Lens.Lens' ListAppComponentCompliancesResponse Prelude.Int
 listAppComponentCompliancesResponse_httpStatus = Lens.lens (\ListAppComponentCompliancesResponse' {httpStatus} -> httpStatus) (\s@ListAppComponentCompliancesResponse' {} a -> s {httpStatus = a} :: ListAppComponentCompliancesResponse)
 
--- | The compliances for an AWS Resilience Hub application component,
--- returned as an object. This object contains component names,
+-- | The compliances for an Resilience Hub Application Component, returned as
+-- an object. This object contains the names of the Application Components,
 -- compliances, costs, resiliency scores, outage scores, and more.
 listAppComponentCompliancesResponse_componentCompliances :: Lens.Lens' ListAppComponentCompliancesResponse [AppComponentCompliance]
 listAppComponentCompliancesResponse_componentCompliances = Lens.lens (\ListAppComponentCompliancesResponse' {componentCompliances} -> componentCompliances) (\s@ListAppComponentCompliancesResponse' {} a -> s {componentCompliances = a} :: ListAppComponentCompliancesResponse) Prelude.. Lens.coerced

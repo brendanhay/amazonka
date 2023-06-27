@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a specified resiliency policy for an AWS Resilience Hub
+-- Describes a specified resiliency policy for an Resilience Hub
 -- application. The returned policy object includes creation time, data
 -- location constraints, the Amazon Resource Name (ARN) for the policy,
 -- tags, tier, and more.
@@ -57,7 +57,7 @@ data DescribeResiliencyPolicy = DescribeResiliencyPolicy'
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +75,7 @@ data DescribeResiliencyPolicy = DescribeResiliencyPolicy'
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDescribeResiliencyPolicy ::
   -- | 'policyArn'
   Prelude.Text ->
@@ -88,7 +88,7 @@ newDescribeResiliencyPolicy pPolicyArn_ =
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 describeResiliencyPolicy_policyArn :: Lens.Lens' DescribeResiliencyPolicy Prelude.Text
 describeResiliencyPolicy_policyArn = Lens.lens (\DescribeResiliencyPolicy' {policyArn} -> policyArn) (\s@DescribeResiliencyPolicy' {} a -> s {policyArn = a} :: DescribeResiliencyPolicy)
 

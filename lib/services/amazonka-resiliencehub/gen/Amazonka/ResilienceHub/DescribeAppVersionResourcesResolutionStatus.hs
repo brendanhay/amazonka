@@ -59,11 +59,12 @@ import qualified Amazonka.Response as Response
 data DescribeAppVersionResourcesResolutionStatus = DescribeAppVersionResourcesResolutionStatus'
   { -- | The identifier for a specific resolution.
     resolutionId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text
@@ -80,11 +81,12 @@ data DescribeAppVersionResourcesResolutionStatus = DescribeAppVersionResourcesRe
 --
 -- 'resolutionId', 'describeAppVersionResourcesResolutionStatus_resolutionId' - The identifier for a specific resolution.
 --
--- 'appArn', 'describeAppVersionResourcesResolutionStatus_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'describeAppVersionResourcesResolutionStatus_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'describeAppVersionResourcesResolutionStatus_appVersion' - The version of the application.
 newDescribeAppVersionResourcesResolutionStatus ::
@@ -107,11 +109,12 @@ newDescribeAppVersionResourcesResolutionStatus
 describeAppVersionResourcesResolutionStatus_resolutionId :: Lens.Lens' DescribeAppVersionResourcesResolutionStatus (Prelude.Maybe Prelude.Text)
 describeAppVersionResourcesResolutionStatus_resolutionId = Lens.lens (\DescribeAppVersionResourcesResolutionStatus' {resolutionId} -> resolutionId) (\s@DescribeAppVersionResourcesResolutionStatus' {} a -> s {resolutionId = a} :: DescribeAppVersionResourcesResolutionStatus)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 describeAppVersionResourcesResolutionStatus_appArn :: Lens.Lens' DescribeAppVersionResourcesResolutionStatus Prelude.Text
 describeAppVersionResourcesResolutionStatus_appArn = Lens.lens (\DescribeAppVersionResourcesResolutionStatus' {appArn} -> appArn) (\s@DescribeAppVersionResourcesResolutionStatus' {} a -> s {appArn = a} :: DescribeAppVersionResourcesResolutionStatus)
 
@@ -134,11 +137,11 @@ instance
       ( \s h x ->
           DescribeAppVersionResourcesResolutionStatusResponse'
             Prelude.<$> (x Data..?> "errorMessage")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "appArn")
-              Prelude.<*> (x Data..:> "appVersion")
-              Prelude.<*> (x Data..:> "resolutionId")
-              Prelude.<*> (x Data..:> "status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "appArn")
+            Prelude.<*> (x Data..:> "appVersion")
+            Prelude.<*> (x Data..:> "resolutionId")
+            Prelude.<*> (x Data..:> "status")
       )
 
 instance
@@ -148,7 +151,8 @@ instance
   hashWithSalt
     _salt
     DescribeAppVersionResourcesResolutionStatus' {..} =
-      _salt `Prelude.hashWithSalt` resolutionId
+      _salt
+        `Prelude.hashWithSalt` resolutionId
         `Prelude.hashWithSalt` appArn
         `Prelude.hashWithSalt` appVersion
 
@@ -209,11 +213,12 @@ data DescribeAppVersionResourcesResolutionStatusResponse = DescribeAppVersionRes
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+    -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Text,
     -- | The version of the application.
     appVersion :: Prelude.Text,
@@ -236,11 +241,12 @@ data DescribeAppVersionResourcesResolutionStatusResponse = DescribeAppVersionRes
 --
 -- 'httpStatus', 'describeAppVersionResourcesResolutionStatusResponse_httpStatus' - The response's http status code.
 --
--- 'appArn', 'describeAppVersionResourcesResolutionStatusResponse_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'describeAppVersionResourcesResolutionStatusResponse_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'appVersion', 'describeAppVersionResourcesResolutionStatusResponse_appVersion' - The version of the application.
 --
@@ -286,11 +292,12 @@ describeAppVersionResourcesResolutionStatusResponse_errorMessage = Lens.lens (\D
 describeAppVersionResourcesResolutionStatusResponse_httpStatus :: Lens.Lens' DescribeAppVersionResourcesResolutionStatusResponse Prelude.Int
 describeAppVersionResourcesResolutionStatusResponse_httpStatus = Lens.lens (\DescribeAppVersionResourcesResolutionStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeAppVersionResourcesResolutionStatusResponse' {} a -> s {httpStatus = a} :: DescribeAppVersionResourcesResolutionStatusResponse)
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 describeAppVersionResourcesResolutionStatusResponse_appArn :: Lens.Lens' DescribeAppVersionResourcesResolutionStatusResponse Prelude.Text
 describeAppVersionResourcesResolutionStatusResponse_appArn = Lens.lens (\DescribeAppVersionResourcesResolutionStatusResponse' {appArn} -> appArn) (\s@DescribeAppVersionResourcesResolutionStatusResponse' {} a -> s {appArn = a} :: DescribeAppVersionResourcesResolutionStatusResponse)
 

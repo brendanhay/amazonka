@@ -60,7 +60,7 @@ data DeleteResiliencyPolicy = DeleteResiliencyPolicy'
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data DeleteResiliencyPolicy = DeleteResiliencyPolicy'
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDeleteResiliencyPolicy ::
   -- | 'policyArn'
   Prelude.Text ->
@@ -105,7 +105,7 @@ deleteResiliencyPolicy_clientToken = Lens.lens (\DeleteResiliencyPolicy' {client
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 deleteResiliencyPolicy_policyArn :: Lens.Lens' DeleteResiliencyPolicy Prelude.Text
 deleteResiliencyPolicy_policyArn = Lens.lens (\DeleteResiliencyPolicy' {policyArn} -> policyArn) (\s@DeleteResiliencyPolicy' {} a -> s {policyArn = a} :: DeleteResiliencyPolicy)
 
@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteResiliencyPolicy where
 
 instance Prelude.Hashable DeleteResiliencyPolicy where
   hashWithSalt _salt DeleteResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` policyArn
 
 instance Prelude.NFData DeleteResiliencyPolicy where
@@ -168,7 +169,7 @@ data DeleteResiliencyPolicyResponse = DeleteResiliencyPolicyResponse'
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -188,7 +189,7 @@ data DeleteResiliencyPolicyResponse = DeleteResiliencyPolicyResponse'
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newDeleteResiliencyPolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -213,7 +214,7 @@ deleteResiliencyPolicyResponse_httpStatus = Lens.lens (\DeleteResiliencyPolicyRe
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 deleteResiliencyPolicyResponse_policyArn :: Lens.Lens' DeleteResiliencyPolicyResponse Prelude.Text
 deleteResiliencyPolicyResponse_policyArn = Lens.lens (\DeleteResiliencyPolicyResponse' {policyArn} -> policyArn) (\s@DeleteResiliencyPolicyResponse' {} a -> s {policyArn = a} :: DeleteResiliencyPolicyResponse)
 

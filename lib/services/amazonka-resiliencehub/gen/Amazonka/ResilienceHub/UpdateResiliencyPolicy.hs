@@ -72,7 +72,7 @@ data UpdateResiliencyPolicy = UpdateResiliencyPolicy'
     -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,7 +103,7 @@ data UpdateResiliencyPolicy = UpdateResiliencyPolicy'
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newUpdateResiliencyPolicy ::
   -- | 'policyArn'
   Prelude.Text ->
@@ -147,7 +147,7 @@ updateResiliencyPolicy_tier = Lens.lens (\UpdateResiliencyPolicy' {tier} -> tier
 -- arn:@partition@:resiliencehub:@region@:@account@:resiliency-policy\/@policy-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 updateResiliencyPolicy_policyArn :: Lens.Lens' UpdateResiliencyPolicy Prelude.Text
 updateResiliencyPolicy_policyArn = Lens.lens (\UpdateResiliencyPolicy' {policyArn} -> policyArn) (\s@UpdateResiliencyPolicy' {} a -> s {policyArn = a} :: UpdateResiliencyPolicy)
 
@@ -167,7 +167,8 @@ instance Core.AWSRequest UpdateResiliencyPolicy where
 
 instance Prelude.Hashable UpdateResiliencyPolicy where
   hashWithSalt _salt UpdateResiliencyPolicy' {..} =
-    _salt `Prelude.hashWithSalt` dataLocationConstraint
+    _salt
+      `Prelude.hashWithSalt` dataLocationConstraint
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyDescription
       `Prelude.hashWithSalt` policyName

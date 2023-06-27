@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text,
-    -- | The keys of the tags to remove.
+    -- | The keys of the tags you want to remove.
     tagKeys :: Data.Sensitive (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data UntagResource = UntagResource'
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to remove.
+-- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags you want to remove.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -77,7 +77,8 @@ newUntagResource pResourceArn_ pTagKeys_ =
   UntagResource'
     { resourceArn = pResourceArn_,
       tagKeys =
-        Data._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive
+          Prelude.. Lens.coerced
           Lens.# pTagKeys_
     }
 
@@ -85,7 +86,7 @@ newUntagResource pResourceArn_ pTagKeys_ =
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | The keys of the tags to remove.
+-- | The keys of the tags you want to remove.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Data._Sensitive Prelude.. Lens.coerced
 
@@ -104,7 +105,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

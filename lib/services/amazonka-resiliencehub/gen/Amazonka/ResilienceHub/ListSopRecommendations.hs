@@ -64,7 +64,7 @@ data ListSopRecommendations = ListSopRecommendations'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +88,7 @@ data ListSopRecommendations = ListSopRecommendations'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newListSopRecommendations ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -116,7 +116,7 @@ listSopRecommendations_nextToken = Lens.lens (\ListSopRecommendations' {nextToke
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listSopRecommendations_assessmentArn :: Lens.Lens' ListSopRecommendations Prelude.Text
 listSopRecommendations_assessmentArn = Lens.lens (\ListSopRecommendations' {assessmentArn} -> assessmentArn) (\s@ListSopRecommendations' {} a -> s {assessmentArn = a} :: ListSopRecommendations)
 
@@ -132,14 +132,16 @@ instance Core.AWSRequest ListSopRecommendations where
           ListSopRecommendationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "sopRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "sopRecommendations"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListSopRecommendations where
   hashWithSalt _salt ListSopRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` assessmentArn
 

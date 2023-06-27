@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the assessments for an AWS Resilience Hub application. You can use
+-- Lists the assessments for an Resilience Hub application. You can use
 -- request parameters to refine the results for the response object.
 module Amazonka.ResilienceHub.ListAppAssessments
   ( -- * Creating a Request
@@ -58,11 +58,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListAppAssessments' smart constructor.
 data ListAppAssessments = ListAppAssessments'
-  { -- | The Amazon Resource Name (ARN) of the application. The format for this
-    -- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
-    -- For more information about ARNs, see
+  { -- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+    -- format for this ARN is:
+    -- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+    -- information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     appArn :: Prelude.Maybe Prelude.Text,
     -- | The name for the assessment.
     assessmentName :: Prelude.Maybe Prelude.Text,
@@ -93,11 +94,12 @@ data ListAppAssessments = ListAppAssessments'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appArn', 'listAppAssessments_appArn' - The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- 'appArn', 'listAppAssessments_appArn' - The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 --
 -- 'assessmentName', 'listAppAssessments_assessmentName' - The name for the assessment.
 --
@@ -130,11 +132,12 @@ newListAppAssessments =
       reverseOrder = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the application. The format for this
--- ARN is: arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@.
--- For more information about ARNs, see
+-- | The Amazon Resource Name (ARN) of the Resilience Hub application. The
+-- format for this ARN is:
+-- arn:@partition@:resiliencehub:@region@:@account@:app\/@app-id@. For more
+-- information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listAppAssessments_appArn :: Lens.Lens' ListAppAssessments (Prelude.Maybe Prelude.Text)
 listAppAssessments_appArn = Lens.lens (\ListAppAssessments' {appArn} -> appArn) (\s@ListAppAssessments' {} a -> s {appArn = a} :: ListAppAssessments)
 
@@ -182,14 +185,16 @@ instance Core.AWSRequest ListAppAssessments where
           ListAppAssessmentsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "assessmentSummaries"
+            Prelude.<*> ( x
+                            Data..?> "assessmentSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAppAssessments where
   hashWithSalt _salt ListAppAssessments' {..} =
-    _salt `Prelude.hashWithSalt` appArn
+    _salt
+      `Prelude.hashWithSalt` appArn
       `Prelude.hashWithSalt` assessmentName
       `Prelude.hashWithSalt` assessmentStatus
       `Prelude.hashWithSalt` complianceStatus

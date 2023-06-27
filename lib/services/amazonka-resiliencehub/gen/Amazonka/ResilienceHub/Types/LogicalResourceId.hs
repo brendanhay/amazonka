@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLogicalResourceId' smart constructor.
 data LogicalResourceId = LogicalResourceId'
-  { -- | The name of the CloudFormation stack this resource belongs to.
+  { -- | The name of the Amazon Elastic Kubernetes Service cluster and namespace
+    -- this resource belongs to.
+    --
+    -- This parameter accepts values in \"eks-cluster\/namespace\" format.
+    eksSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the CloudFormation stack this resource belongs to.
     logicalStackName :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource group that this resource belongs to.
     resourceGroupName :: Prelude.Maybe Prelude.Text,
@@ -47,6 +52,11 @@ data LogicalResourceId = LogicalResourceId'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eksSourceName', 'logicalResourceId_eksSourceName' - The name of the Amazon Elastic Kubernetes Service cluster and namespace
+-- this resource belongs to.
+--
+-- This parameter accepts values in \"eks-cluster\/namespace\" format.
+--
 -- 'logicalStackName', 'logicalResourceId_logicalStackName' - The name of the CloudFormation stack this resource belongs to.
 --
 -- 'resourceGroupName', 'logicalResourceId_resourceGroupName' - The name of the resource group that this resource belongs to.
@@ -60,12 +70,19 @@ newLogicalResourceId ::
   LogicalResourceId
 newLogicalResourceId pIdentifier_ =
   LogicalResourceId'
-    { logicalStackName =
-        Prelude.Nothing,
+    { eksSourceName = Prelude.Nothing,
+      logicalStackName = Prelude.Nothing,
       resourceGroupName = Prelude.Nothing,
       terraformSourceName = Prelude.Nothing,
       identifier = pIdentifier_
     }
+
+-- | The name of the Amazon Elastic Kubernetes Service cluster and namespace
+-- this resource belongs to.
+--
+-- This parameter accepts values in \"eks-cluster\/namespace\" format.
+logicalResourceId_eksSourceName :: Lens.Lens' LogicalResourceId (Prelude.Maybe Prelude.Text)
+logicalResourceId_eksSourceName = Lens.lens (\LogicalResourceId' {eksSourceName} -> eksSourceName) (\s@LogicalResourceId' {} a -> s {eksSourceName = a} :: LogicalResourceId)
 
 -- | The name of the CloudFormation stack this resource belongs to.
 logicalResourceId_logicalStackName :: Lens.Lens' LogicalResourceId (Prelude.Maybe Prelude.Text)
@@ -89,7 +106,8 @@ instance Data.FromJSON LogicalResourceId where
       "LogicalResourceId"
       ( \x ->
           LogicalResourceId'
-            Prelude.<$> (x Data..:? "logicalStackName")
+            Prelude.<$> (x Data..:? "eksSourceName")
+            Prelude.<*> (x Data..:? "logicalStackName")
             Prelude.<*> (x Data..:? "resourceGroupName")
             Prelude.<*> (x Data..:? "terraformSourceName")
             Prelude.<*> (x Data..: "identifier")
@@ -97,14 +115,32 @@ instance Data.FromJSON LogicalResourceId where
 
 instance Prelude.Hashable LogicalResourceId where
   hashWithSalt _salt LogicalResourceId' {..} =
-    _salt `Prelude.hashWithSalt` logicalStackName
+    _salt
+      `Prelude.hashWithSalt` eksSourceName
+      `Prelude.hashWithSalt` logicalStackName
       `Prelude.hashWithSalt` resourceGroupName
       `Prelude.hashWithSalt` terraformSourceName
       `Prelude.hashWithSalt` identifier
 
 instance Prelude.NFData LogicalResourceId where
   rnf LogicalResourceId' {..} =
-    Prelude.rnf logicalStackName
+    Prelude.rnf eksSourceName
+      `Prelude.seq` Prelude.rnf logicalStackName
       `Prelude.seq` Prelude.rnf resourceGroupName
       `Prelude.seq` Prelude.rnf terraformSourceName
       `Prelude.seq` Prelude.rnf identifier
+
+instance Data.ToJSON LogicalResourceId where
+  toJSON LogicalResourceId' {..} =
+    Data.object
+      ( Prelude.catMaybes
+          [ ("eksSourceName" Data..=) Prelude.<$> eksSourceName,
+            ("logicalStackName" Data..=)
+              Prelude.<$> logicalStackName,
+            ("resourceGroupName" Data..=)
+              Prelude.<$> resourceGroupName,
+            ("terraformSourceName" Data..=)
+              Prelude.<$> terraformSourceName,
+            Prelude.Just ("identifier" Data..= identifier)
+          ]
+      )

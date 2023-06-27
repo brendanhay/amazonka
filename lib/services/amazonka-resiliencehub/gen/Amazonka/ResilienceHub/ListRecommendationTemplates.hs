@@ -76,7 +76,7 @@ data ListRecommendationTemplates = ListRecommendationTemplates'
     -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /AWS General Reference/ guide.
     assessmentArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,7 +109,7 @@ data ListRecommendationTemplates = ListRecommendationTemplates'
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 newListRecommendationTemplates ::
   -- | 'assessmentArn'
   Prelude.Text ->
@@ -158,7 +158,7 @@ listRecommendationTemplates_status = Lens.lens (\ListRecommendationTemplates' {s
 -- arn:@partition@:resiliencehub:@region@:@account@:app-assessment\/@app-id@.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /AWS General Reference/ guide.
 listRecommendationTemplates_assessmentArn :: Lens.Lens' ListRecommendationTemplates Prelude.Text
 listRecommendationTemplates_assessmentArn = Lens.lens (\ListRecommendationTemplates' {assessmentArn} -> assessmentArn) (\s@ListRecommendationTemplates' {} a -> s {assessmentArn = a} :: ListRecommendationTemplates)
 
@@ -173,7 +173,8 @@ instance Core.AWSRequest ListRecommendationTemplates where
       ( \s h x ->
           ListRecommendationTemplatesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "recommendationTemplates"
+            Prelude.<*> ( x
+                            Data..?> "recommendationTemplates"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,7 +182,8 @@ instance Core.AWSRequest ListRecommendationTemplates where
 
 instance Prelude.Hashable ListRecommendationTemplates where
   hashWithSalt _salt ListRecommendationTemplates' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recommendationTemplateArn

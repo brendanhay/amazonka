@@ -58,6 +58,7 @@ library
     Amazonka.ChimeSDKMessaging.DeleteChannelMembership
     Amazonka.ChimeSDKMessaging.DeleteChannelMessage
     Amazonka.ChimeSDKMessaging.DeleteChannelModerator
+    Amazonka.ChimeSDKMessaging.DeleteMessagingStreamingConfigurations
     Amazonka.ChimeSDKMessaging.DescribeChannel
     Amazonka.ChimeSDKMessaging.DescribeChannelBan
     Amazonka.ChimeSDKMessaging.DescribeChannelFlow
@@ -70,6 +71,7 @@ library
     Amazonka.ChimeSDKMessaging.GetChannelMessage
     Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
     Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint
+    Amazonka.ChimeSDKMessaging.GetMessagingStreamingConfigurations
     Amazonka.ChimeSDKMessaging.Lens
     Amazonka.ChimeSDKMessaging.ListChannelBans
     Amazonka.ChimeSDKMessaging.ListChannelFlows
@@ -82,7 +84,9 @@ library
     Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
     Amazonka.ChimeSDKMessaging.ListSubChannels
     Amazonka.ChimeSDKMessaging.ListTagsForResource
+    Amazonka.ChimeSDKMessaging.PutChannelExpirationSettings
     Amazonka.ChimeSDKMessaging.PutChannelMembershipPreferences
+    Amazonka.ChimeSDKMessaging.PutMessagingStreamingConfigurations
     Amazonka.ChimeSDKMessaging.RedactChannelMessage
     Amazonka.ChimeSDKMessaging.SearchChannels
     Amazonka.ChimeSDKMessaging.SendChannelMessage
@@ -118,11 +122,14 @@ library
     Amazonka.ChimeSDKMessaging.Types.ChannelSummary
     Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
     Amazonka.ChimeSDKMessaging.Types.ErrorCode
+    Amazonka.ChimeSDKMessaging.Types.ExpirationCriterion
+    Amazonka.ChimeSDKMessaging.Types.ExpirationSettings
     Amazonka.ChimeSDKMessaging.Types.FallbackAction
     Amazonka.ChimeSDKMessaging.Types.Identity
     Amazonka.ChimeSDKMessaging.Types.InvocationType
     Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
     Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
+    Amazonka.ChimeSDKMessaging.Types.MessagingDataType
     Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
     Amazonka.ChimeSDKMessaging.Types.Processor
     Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
@@ -133,8 +140,10 @@ library
     Amazonka.ChimeSDKMessaging.Types.SearchFieldKey
     Amazonka.ChimeSDKMessaging.Types.SearchFieldOperator
     Amazonka.ChimeSDKMessaging.Types.SortOrder
+    Amazonka.ChimeSDKMessaging.Types.StreamingConfiguration
     Amazonka.ChimeSDKMessaging.Types.SubChannelSummary
     Amazonka.ChimeSDKMessaging.Types.Tag
+    Amazonka.ChimeSDKMessaging.Types.Target
     Amazonka.ChimeSDKMessaging.UntagResource
     Amazonka.ChimeSDKMessaging.UpdateChannel
     Amazonka.ChimeSDKMessaging.UpdateChannelFlow

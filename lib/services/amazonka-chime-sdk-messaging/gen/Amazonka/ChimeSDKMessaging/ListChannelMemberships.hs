@@ -22,9 +22,9 @@
 --
 -- Lists all channel memberships in a channel.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 --
 -- If you want to list the channels to which a specific app instance user
 -- belongs, see the
@@ -82,7 +82,8 @@ data ListChannelMemberships = ListChannelMemberships'
     type' :: Prelude.Maybe ChannelMembershipType,
     -- | The maximum number of channel memberships that you want returned.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -112,7 +113,8 @@ data ListChannelMemberships = ListChannelMemberships'
 --
 -- 'channelArn', 'listChannelMemberships_channelArn' - The maximum number of channel memberships that you want returned.
 --
--- 'chimeBearer', 'listChannelMemberships_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'listChannelMemberships_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newListChannelMemberships ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -157,7 +159,8 @@ listChannelMemberships_type = Lens.lens (\ListChannelMemberships' {type'} -> typ
 listChannelMemberships_channelArn :: Lens.Lens' ListChannelMemberships Prelude.Text
 listChannelMemberships_channelArn = Lens.lens (\ListChannelMemberships' {channelArn} -> channelArn) (\s@ListChannelMemberships' {} a -> s {channelArn = a} :: ListChannelMemberships)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 listChannelMemberships_chimeBearer :: Lens.Lens' ListChannelMemberships Prelude.Text
 listChannelMemberships_chimeBearer = Lens.lens (\ListChannelMemberships' {chimeBearer} -> chimeBearer) (\s@ListChannelMemberships' {} a -> s {chimeBearer = a} :: ListChannelMemberships)
 
@@ -172,7 +175,8 @@ instance Core.AWSRequest ListChannelMemberships where
       ( \s h x ->
           ListChannelMembershipsResponse'
             Prelude.<$> (x Data..?> "ChannelArn")
-            Prelude.<*> ( x Data..?> "ChannelMemberships"
+            Prelude.<*> ( x
+                            Data..?> "ChannelMemberships"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -181,7 +185,8 @@ instance Core.AWSRequest ListChannelMemberships where
 
 instance Prelude.Hashable ListChannelMemberships where
   hashWithSalt _salt ListChannelMemberships' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` type'

@@ -35,7 +35,7 @@
 -- 3.  The Standard message type
 --
 -- Channel flows don\'t process Control or System messages. For more
--- information about the message types provided by Chime SDK Messaging,
+-- information about the message types provided by Chime SDK messaging,
 -- refer to
 -- <https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types Message types>
 -- in the /Amazon Chime developer guide/.
@@ -161,7 +161,8 @@ instance Core.AWSRequest CreateChannelFlow where
 
 instance Prelude.Hashable CreateChannelFlow where
   hashWithSalt _salt CreateChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` appInstanceArn
       `Prelude.hashWithSalt` processors
       `Prelude.hashWithSalt` name

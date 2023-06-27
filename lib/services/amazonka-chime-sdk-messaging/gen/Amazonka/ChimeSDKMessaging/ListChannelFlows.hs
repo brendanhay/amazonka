@@ -118,7 +118,8 @@ instance Core.AWSRequest ListChannelFlows where
 
 instance Prelude.Hashable ListChannelFlows where
   hashWithSalt _salt ListChannelFlows' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` appInstanceArn
 

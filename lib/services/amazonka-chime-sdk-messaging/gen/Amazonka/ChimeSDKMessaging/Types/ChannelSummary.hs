@@ -32,7 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data ChannelSummary = ChannelSummary'
   { -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The time at which the last persistent message in a channel was sent.
+    -- | The time at which the last persistent message visible to the caller in a
+    -- channel was sent.
     lastMessageTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The metadata of the channel.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -55,7 +56,8 @@ data ChannelSummary = ChannelSummary'
 --
 -- 'channelArn', 'channelSummary_channelArn' - The ARN of the channel.
 --
--- 'lastMessageTimestamp', 'channelSummary_lastMessageTimestamp' - The time at which the last persistent message in a channel was sent.
+-- 'lastMessageTimestamp', 'channelSummary_lastMessageTimestamp' - The time at which the last persistent message visible to the caller in a
+-- channel was sent.
 --
 -- 'metadata', 'channelSummary_metadata' - The metadata of the channel.
 --
@@ -80,7 +82,8 @@ newChannelSummary =
 channelSummary_channelArn :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
 channelSummary_channelArn = Lens.lens (\ChannelSummary' {channelArn} -> channelArn) (\s@ChannelSummary' {} a -> s {channelArn = a} :: ChannelSummary)
 
--- | The time at which the last persistent message in a channel was sent.
+-- | The time at which the last persistent message visible to the caller in a
+-- channel was sent.
 channelSummary_lastMessageTimestamp :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.UTCTime)
 channelSummary_lastMessageTimestamp = Lens.lens (\ChannelSummary' {lastMessageTimestamp} -> lastMessageTimestamp) (\s@ChannelSummary' {} a -> s {lastMessageTimestamp = a} :: ChannelSummary) Prelude.. Lens.mapping Data._Time
 
@@ -116,7 +119,8 @@ instance Data.FromJSON ChannelSummary where
 
 instance Prelude.Hashable ChannelSummary where
   hashWithSalt _salt ChannelSummary' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` lastMessageTimestamp
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` mode

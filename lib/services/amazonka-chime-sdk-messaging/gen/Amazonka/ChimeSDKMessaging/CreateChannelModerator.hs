@@ -32,9 +32,9 @@
 --
 -- -   List messages in the channel.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@of the user that makes the API call
+-- as the value in the header.
 module Amazonka.ChimeSDKMessaging.CreateChannelModerator
   ( -- * Creating a Request
     CreateChannelModerator (..),
@@ -70,7 +70,8 @@ data CreateChannelModerator = CreateChannelModerator'
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the moderator.
     channelModeratorArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +88,8 @@ data CreateChannelModerator = CreateChannelModerator'
 --
 -- 'channelModeratorArn', 'createChannelModerator_channelModeratorArn' - The @AppInstanceUserArn@ of the moderator.
 --
--- 'chimeBearer', 'createChannelModerator_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'createChannelModerator_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newCreateChannelModerator ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -114,7 +116,8 @@ createChannelModerator_channelArn = Lens.lens (\CreateChannelModerator' {channel
 createChannelModerator_channelModeratorArn :: Lens.Lens' CreateChannelModerator Prelude.Text
 createChannelModerator_channelModeratorArn = Lens.lens (\CreateChannelModerator' {channelModeratorArn} -> channelModeratorArn) (\s@CreateChannelModerator' {} a -> s {channelModeratorArn = a} :: CreateChannelModerator)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 createChannelModerator_chimeBearer :: Lens.Lens' CreateChannelModerator Prelude.Text
 createChannelModerator_chimeBearer = Lens.lens (\CreateChannelModerator' {chimeBearer} -> chimeBearer) (\s@CreateChannelModerator' {} a -> s {chimeBearer = a} :: CreateChannelModerator)
 
@@ -135,7 +138,8 @@ instance Core.AWSRequest CreateChannelModerator where
 
 instance Prelude.Hashable CreateChannelModerator where
   hashWithSalt _salt CreateChannelModerator' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelModeratorArn
       `Prelude.hashWithSalt` chimeBearer
 

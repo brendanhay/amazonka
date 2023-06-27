@@ -84,7 +84,8 @@ instance
     PushNotificationConfiguration
   where
   hashWithSalt _salt PushNotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` type'
 

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the users banned from a particular channel.
+-- Lists all the users and bots banned from a particular channel.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.ListChannelBans
   ( -- * Creating a Request
     ListChannelBans (..),
@@ -65,7 +65,8 @@ data ListChannelBans = ListChannelBans'
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -85,7 +86,8 @@ data ListChannelBans = ListChannelBans'
 --
 -- 'channelArn', 'listChannelBans_channelArn' - The ARN of the channel.
 --
--- 'chimeBearer', 'listChannelBans_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'listChannelBans_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newListChannelBans ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -113,7 +115,8 @@ listChannelBans_nextToken = Lens.lens (\ListChannelBans' {nextToken} -> nextToke
 listChannelBans_channelArn :: Lens.Lens' ListChannelBans Prelude.Text
 listChannelBans_channelArn = Lens.lens (\ListChannelBans' {channelArn} -> channelArn) (\s@ListChannelBans' {} a -> s {channelArn = a} :: ListChannelBans)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 listChannelBans_chimeBearer :: Lens.Lens' ListChannelBans Prelude.Text
 listChannelBans_chimeBearer = Lens.lens (\ListChannelBans' {chimeBearer} -> chimeBearer) (\s@ListChannelBans' {} a -> s {chimeBearer = a} :: ListChannelBans)
 
@@ -135,7 +138,8 @@ instance Core.AWSRequest ListChannelBans where
 
 instance Prelude.Hashable ListChannelBans where
   hashWithSalt _salt ListChannelBans' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer

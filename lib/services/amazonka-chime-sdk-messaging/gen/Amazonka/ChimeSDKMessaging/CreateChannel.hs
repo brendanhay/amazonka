@@ -24,9 +24,9 @@
 --
 -- __Restriction__: You can\'t change a channel\'s privacy.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.CreateChannel
   ( -- * Creating a Request
     CreateChannel (..),
@@ -35,6 +35,7 @@ module Amazonka.ChimeSDKMessaging.CreateChannel
     -- * Request Lenses
     createChannel_channelId,
     createChannel_elasticChannelConfiguration,
+    createChannel_expirationSettings,
     createChannel_memberArns,
     createChannel_metadata,
     createChannel_mode,
@@ -72,6 +73,9 @@ data CreateChannel = CreateChannel'
     -- elastic channel can support a maximum of 1-million users, excluding
     -- moderators.
     elasticChannelConfiguration :: Prelude.Maybe ElasticChannelConfiguration,
+    -- | Settings that control the interval after which the channel is
+    -- automatically deleted.
+    expirationSettings :: Prelude.Maybe ExpirationSettings,
     -- | The ARNs of the channel members in the request.
     memberArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The metadata of the creation request. Limited to 1KB and UTF-8.
@@ -95,7 +99,8 @@ data CreateChannel = CreateChannel'
     name :: Data.Sensitive Prelude.Text,
     -- | The client token for the request. An @Idempotency@ token.
     clientRequestToken :: Data.Sensitive Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -113,6 +118,9 @@ data CreateChannel = CreateChannel'
 -- 'elasticChannelConfiguration', 'createChannel_elasticChannelConfiguration' - The attributes required to configure and create an elastic channel. An
 -- elastic channel can support a maximum of 1-million users, excluding
 -- moderators.
+--
+-- 'expirationSettings', 'createChannel_expirationSettings' - Settings that control the interval after which the channel is
+-- automatically deleted.
 --
 -- 'memberArns', 'createChannel_memberArns' - The ARNs of the channel members in the request.
 --
@@ -137,7 +145,8 @@ data CreateChannel = CreateChannel'
 --
 -- 'clientRequestToken', 'createChannel_clientRequestToken' - The client token for the request. An @Idempotency@ token.
 --
--- 'chimeBearer', 'createChannel_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'createChannel_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newCreateChannel ::
   -- | 'appInstanceArn'
   Prelude.Text ->
@@ -156,6 +165,7 @@ newCreateChannel
     CreateChannel'
       { channelId = Prelude.Nothing,
         elasticChannelConfiguration = Prelude.Nothing,
+        expirationSettings = Prelude.Nothing,
         memberArns = Prelude.Nothing,
         metadata = Prelude.Nothing,
         mode = Prelude.Nothing,
@@ -178,6 +188,11 @@ createChannel_channelId = Lens.lens (\CreateChannel' {channelId} -> channelId) (
 -- moderators.
 createChannel_elasticChannelConfiguration :: Lens.Lens' CreateChannel (Prelude.Maybe ElasticChannelConfiguration)
 createChannel_elasticChannelConfiguration = Lens.lens (\CreateChannel' {elasticChannelConfiguration} -> elasticChannelConfiguration) (\s@CreateChannel' {} a -> s {elasticChannelConfiguration = a} :: CreateChannel)
+
+-- | Settings that control the interval after which the channel is
+-- automatically deleted.
+createChannel_expirationSettings :: Lens.Lens' CreateChannel (Prelude.Maybe ExpirationSettings)
+createChannel_expirationSettings = Lens.lens (\CreateChannel' {expirationSettings} -> expirationSettings) (\s@CreateChannel' {} a -> s {expirationSettings = a} :: CreateChannel)
 
 -- | The ARNs of the channel members in the request.
 createChannel_memberArns :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -220,7 +235,8 @@ createChannel_name = Lens.lens (\CreateChannel' {name} -> name) (\s@CreateChanne
 createChannel_clientRequestToken :: Lens.Lens' CreateChannel Prelude.Text
 createChannel_clientRequestToken = Lens.lens (\CreateChannel' {clientRequestToken} -> clientRequestToken) (\s@CreateChannel' {} a -> s {clientRequestToken = a} :: CreateChannel) Prelude.. Data._Sensitive
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 createChannel_chimeBearer :: Lens.Lens' CreateChannel Prelude.Text
 createChannel_chimeBearer = Lens.lens (\CreateChannel' {chimeBearer} -> chimeBearer) (\s@CreateChannel' {} a -> s {chimeBearer = a} :: CreateChannel)
 
@@ -240,8 +256,10 @@ instance Core.AWSRequest CreateChannel where
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelId
+    _salt
+      `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` elasticChannelConfiguration
+      `Prelude.hashWithSalt` expirationSettings
       `Prelude.hashWithSalt` memberArns
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` mode
@@ -257,6 +275,7 @@ instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
     Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf elasticChannelConfiguration
+      `Prelude.seq` Prelude.rnf expirationSettings
       `Prelude.seq` Prelude.rnf memberArns
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf mode
@@ -280,6 +299,8 @@ instance Data.ToJSON CreateChannel where
           [ ("ChannelId" Data..=) Prelude.<$> channelId,
             ("ElasticChannelConfiguration" Data..=)
               Prelude.<$> elasticChannelConfiguration,
+            ("ExpirationSettings" Data..=)
+              Prelude.<$> expirationSettings,
             ("MemberArns" Data..=) Prelude.<$> memberArns,
             ("Metadata" Data..=) Prelude.<$> metadata,
             ("Mode" Data..=) Prelude.<$> mode,

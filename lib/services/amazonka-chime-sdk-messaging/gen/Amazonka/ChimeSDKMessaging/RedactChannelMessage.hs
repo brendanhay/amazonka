@@ -24,9 +24,9 @@
 -- back end, but the action returns null content, and the state shows as
 -- redacted.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.RedactChannelMessage
   ( -- * Creating a Request
     RedactChannelMessage (..),
@@ -66,7 +66,8 @@ data RedactChannelMessage = RedactChannelMessage'
     channelArn :: Prelude.Text,
     -- | The ID of the message being redacted.
     messageId :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +86,8 @@ data RedactChannelMessage = RedactChannelMessage'
 --
 -- 'messageId', 'redactChannelMessage_messageId' - The ID of the message being redacted.
 --
--- 'chimeBearer', 'redactChannelMessage_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'redactChannelMessage_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newRedactChannelMessage ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -118,7 +120,8 @@ redactChannelMessage_channelArn = Lens.lens (\RedactChannelMessage' {channelArn}
 redactChannelMessage_messageId :: Lens.Lens' RedactChannelMessage Prelude.Text
 redactChannelMessage_messageId = Lens.lens (\RedactChannelMessage' {messageId} -> messageId) (\s@RedactChannelMessage' {} a -> s {messageId = a} :: RedactChannelMessage)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 redactChannelMessage_chimeBearer :: Lens.Lens' RedactChannelMessage Prelude.Text
 redactChannelMessage_chimeBearer = Lens.lens (\RedactChannelMessage' {chimeBearer} -> chimeBearer) (\s@RedactChannelMessage' {} a -> s {chimeBearer = a} :: RedactChannelMessage)
 
@@ -140,7 +143,8 @@ instance Core.AWSRequest RedactChannelMessage where
 
 instance Prelude.Hashable RedactChannelMessage where
   hashWithSalt _salt RedactChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer

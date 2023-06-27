@@ -22,9 +22,9 @@
 --
 -- A list of the channels moderated by an @AppInstanceUser@.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
   ( -- * Creating a Request
     ListChannelsModeratedByAppInstanceUser (..),
@@ -57,14 +57,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannelsModeratedByAppInstanceUser' smart constructor.
 data ListChannelsModeratedByAppInstanceUser = ListChannelsModeratedByAppInstanceUser'
-  { -- | The ARN of the user in the moderated channel.
+  { -- | The ARN of the user or bot in the moderated channel.
     appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of channels in the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token returned from previous API requests until the number of
     -- channels moderated by the user is reached.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -77,14 +78,15 @@ data ListChannelsModeratedByAppInstanceUser = ListChannelsModeratedByAppInstance
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appInstanceUserArn', 'listChannelsModeratedByAppInstanceUser_appInstanceUserArn' - The ARN of the user in the moderated channel.
+-- 'appInstanceUserArn', 'listChannelsModeratedByAppInstanceUser_appInstanceUserArn' - The ARN of the user or bot in the moderated channel.
 --
 -- 'maxResults', 'listChannelsModeratedByAppInstanceUser_maxResults' - The maximum number of channels in the request.
 --
 -- 'nextToken', 'listChannelsModeratedByAppInstanceUser_nextToken' - The token returned from previous API requests until the number of
 -- channels moderated by the user is reached.
 --
--- 'chimeBearer', 'listChannelsModeratedByAppInstanceUser_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'listChannelsModeratedByAppInstanceUser_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newListChannelsModeratedByAppInstanceUser ::
   -- | 'chimeBearer'
   Prelude.Text ->
@@ -99,7 +101,7 @@ newListChannelsModeratedByAppInstanceUser
         chimeBearer = pChimeBearer_
       }
 
--- | The ARN of the user in the moderated channel.
+-- | The ARN of the user or bot in the moderated channel.
 listChannelsModeratedByAppInstanceUser_appInstanceUserArn :: Lens.Lens' ListChannelsModeratedByAppInstanceUser (Prelude.Maybe Prelude.Text)
 listChannelsModeratedByAppInstanceUser_appInstanceUserArn = Lens.lens (\ListChannelsModeratedByAppInstanceUser' {appInstanceUserArn} -> appInstanceUserArn) (\s@ListChannelsModeratedByAppInstanceUser' {} a -> s {appInstanceUserArn = a} :: ListChannelsModeratedByAppInstanceUser)
 
@@ -112,7 +114,8 @@ listChannelsModeratedByAppInstanceUser_maxResults = Lens.lens (\ListChannelsMode
 listChannelsModeratedByAppInstanceUser_nextToken :: Lens.Lens' ListChannelsModeratedByAppInstanceUser (Prelude.Maybe Prelude.Text)
 listChannelsModeratedByAppInstanceUser_nextToken = Lens.lens (\ListChannelsModeratedByAppInstanceUser' {nextToken} -> nextToken) (\s@ListChannelsModeratedByAppInstanceUser' {} a -> s {nextToken = a} :: ListChannelsModeratedByAppInstanceUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 listChannelsModeratedByAppInstanceUser_chimeBearer :: Lens.Lens' ListChannelsModeratedByAppInstanceUser Prelude.Text
 listChannelsModeratedByAppInstanceUser_chimeBearer = Lens.lens (\ListChannelsModeratedByAppInstanceUser' {chimeBearer} -> chimeBearer) (\s@ListChannelsModeratedByAppInstanceUser' {} a -> s {chimeBearer = a} :: ListChannelsModeratedByAppInstanceUser)
 
@@ -131,8 +134,8 @@ instance
       ( \s h x ->
           ListChannelsModeratedByAppInstanceUserResponse'
             Prelude.<$> (x Data..?> "Channels" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -142,7 +145,8 @@ instance
   hashWithSalt
     _salt
     ListChannelsModeratedByAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` chimeBearer

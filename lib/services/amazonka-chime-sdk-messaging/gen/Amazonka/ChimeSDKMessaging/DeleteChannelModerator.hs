@@ -22,9 +22,9 @@
 --
 -- Deletes a channel moderator.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DeleteChannelModerator
   ( -- * Creating a Request
     DeleteChannelModerator (..),
@@ -55,7 +55,8 @@ data DeleteChannelModerator = DeleteChannelModerator'
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the moderator being deleted.
     channelModeratorArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +73,8 @@ data DeleteChannelModerator = DeleteChannelModerator'
 --
 -- 'channelModeratorArn', 'deleteChannelModerator_channelModeratorArn' - The @AppInstanceUserArn@ of the moderator being deleted.
 --
--- 'chimeBearer', 'deleteChannelModerator_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'deleteChannelModerator_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDeleteChannelModerator ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -99,7 +101,8 @@ deleteChannelModerator_channelArn = Lens.lens (\DeleteChannelModerator' {channel
 deleteChannelModerator_channelModeratorArn :: Lens.Lens' DeleteChannelModerator Prelude.Text
 deleteChannelModerator_channelModeratorArn = Lens.lens (\DeleteChannelModerator' {channelModeratorArn} -> channelModeratorArn) (\s@DeleteChannelModerator' {} a -> s {channelModeratorArn = a} :: DeleteChannelModerator)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 deleteChannelModerator_chimeBearer :: Lens.Lens' DeleteChannelModerator Prelude.Text
 deleteChannelModerator_chimeBearer = Lens.lens (\DeleteChannelModerator' {chimeBearer} -> chimeBearer) (\s@DeleteChannelModerator' {} a -> s {chimeBearer = a} :: DeleteChannelModerator)
 
@@ -115,7 +118,8 @@ instance Core.AWSRequest DeleteChannelModerator where
 
 instance Prelude.Hashable DeleteChannelModerator where
   hashWithSalt _salt DeleteChannelModerator' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelModeratorArn
       `Prelude.hashWithSalt` chimeBearer
 

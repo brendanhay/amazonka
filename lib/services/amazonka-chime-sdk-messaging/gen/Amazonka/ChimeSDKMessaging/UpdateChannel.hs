@@ -24,9 +24,9 @@
 --
 -- __Restriction__: You can\'t change a channel\'s privacy.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.UpdateChannel
   ( -- * Creating a Request
     UpdateChannel (..),
@@ -67,7 +67,8 @@ data UpdateChannel = UpdateChannel'
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -88,7 +89,8 @@ data UpdateChannel = UpdateChannel'
 --
 -- 'channelArn', 'updateChannel_channelArn' - The ARN of the channel.
 --
--- 'chimeBearer', 'updateChannel_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'updateChannel_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newUpdateChannel ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -120,7 +122,8 @@ updateChannel_name = Lens.lens (\UpdateChannel' {name} -> name) (\s@UpdateChanne
 updateChannel_channelArn :: Lens.Lens' UpdateChannel Prelude.Text
 updateChannel_channelArn = Lens.lens (\UpdateChannel' {channelArn} -> channelArn) (\s@UpdateChannel' {} a -> s {channelArn = a} :: UpdateChannel)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 updateChannel_chimeBearer :: Lens.Lens' UpdateChannel Prelude.Text
 updateChannel_chimeBearer = Lens.lens (\UpdateChannel' {chimeBearer} -> chimeBearer) (\s@UpdateChannel' {} a -> s {chimeBearer = a} :: UpdateChannel)
 
@@ -140,7 +143,8 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` channelArn

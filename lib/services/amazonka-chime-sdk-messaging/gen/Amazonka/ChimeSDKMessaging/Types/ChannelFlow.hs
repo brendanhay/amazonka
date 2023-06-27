@@ -105,7 +105,8 @@ instance Data.FromJSON ChannelFlow where
 
 instance Prelude.Hashable ChannelFlow where
   hashWithSalt _salt ChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` channelFlowArn
+    _salt
+      `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` name

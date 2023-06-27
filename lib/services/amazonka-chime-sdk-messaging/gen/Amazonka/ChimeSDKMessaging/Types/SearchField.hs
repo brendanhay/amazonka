@@ -114,7 +114,8 @@ searchField_operator = Lens.lens (\SearchField' {operator} -> operator) (\s@Sear
 
 instance Prelude.Hashable SearchField where
   hashWithSalt _salt SearchField' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` operator
 

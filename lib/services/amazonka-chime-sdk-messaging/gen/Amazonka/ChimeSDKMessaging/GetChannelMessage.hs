@@ -22,9 +22,9 @@
 --
 -- Gets the full details of a channel message.
 --
--- The x-amz-chime-bearer request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.GetChannelMessage
   ( -- * Creating a Request
     GetChannelMessage (..),
@@ -65,7 +65,8 @@ data GetChannelMessage = GetChannelMessage'
     channelArn :: Prelude.Text,
     -- | The ID of the message.
     messageId :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +88,8 @@ data GetChannelMessage = GetChannelMessage'
 --
 -- 'messageId', 'getChannelMessage_messageId' - The ID of the message.
 --
--- 'chimeBearer', 'getChannelMessage_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'getChannelMessage_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newGetChannelMessage ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -122,7 +124,8 @@ getChannelMessage_channelArn = Lens.lens (\GetChannelMessage' {channelArn} -> ch
 getChannelMessage_messageId :: Lens.Lens' GetChannelMessage Prelude.Text
 getChannelMessage_messageId = Lens.lens (\GetChannelMessage' {messageId} -> messageId) (\s@GetChannelMessage' {} a -> s {messageId = a} :: GetChannelMessage)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 getChannelMessage_chimeBearer :: Lens.Lens' GetChannelMessage Prelude.Text
 getChannelMessage_chimeBearer = Lens.lens (\GetChannelMessage' {chimeBearer} -> chimeBearer) (\s@GetChannelMessage' {} a -> s {chimeBearer = a} :: GetChannelMessage)
 
@@ -142,7 +145,8 @@ instance Core.AWSRequest GetChannelMessage where
 
 instance Prelude.Hashable GetChannelMessage where
   hashWithSalt _salt GetChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer

@@ -30,10 +30,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelMessageCallback' smart constructor.
 data ChannelMessageCallback = ChannelMessageCallback'
-  { -- | The message content.
+  { -- | The message content. For Amazon Lex V2 bot responses, this field holds a
+    -- list of messages originating from the bot. For more information, refer
+    -- to
+    -- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+    -- in the /Amazon Chime SDK Messaging Developer Guide/.
     content :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The attributes for the message, used for message filtering along with a
-    -- @FilterRule@ defined in the @PushNotificationPreferences@.
+    -- | The content type of the call-back message. For Amazon Lex V2 bot
+    -- responses, the content type is @application\/amz-chime-lex-msgs@ for
+    -- success responses and @application\/amz-chime-lex-error@ for failure
+    -- responses. For more information, refer to
+    -- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+    -- in the /Amazon Chime SDK Messaging Developer Guide/.
+    contentType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The attributes for the channel message. For Amazon Lex V2 bot responses,
+    -- the attributes are mapped to specific fields from the bot. For more
+    -- information, refer to
+    -- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+    -- in the /Amazon Chime SDK Messaging Developer Guide/.
     messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The message metadata.
     metadata :: Prelude.Maybe (Data.Sensitive Prelude.Text),
@@ -54,10 +68,24 @@ data ChannelMessageCallback = ChannelMessageCallback'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'content', 'channelMessageCallback_content' - The message content.
+-- 'content', 'channelMessageCallback_content' - The message content. For Amazon Lex V2 bot responses, this field holds a
+-- list of messages originating from the bot. For more information, refer
+-- to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 --
--- 'messageAttributes', 'channelMessageCallback_messageAttributes' - The attributes for the message, used for message filtering along with a
--- @FilterRule@ defined in the @PushNotificationPreferences@.
+-- 'contentType', 'channelMessageCallback_contentType' - The content type of the call-back message. For Amazon Lex V2 bot
+-- responses, the content type is @application\/amz-chime-lex-msgs@ for
+-- success responses and @application\/amz-chime-lex-error@ for failure
+-- responses. For more information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
+--
+-- 'messageAttributes', 'channelMessageCallback_messageAttributes' - The attributes for the channel message. For Amazon Lex V2 bot responses,
+-- the attributes are mapped to specific fields from the bot. For more
+-- information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 --
 -- 'metadata', 'channelMessageCallback_metadata' - The message metadata.
 --
@@ -73,6 +101,7 @@ newChannelMessageCallback ::
 newChannelMessageCallback pMessageId_ =
   ChannelMessageCallback'
     { content = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       messageAttributes = Prelude.Nothing,
       metadata = Prelude.Nothing,
       pushNotification = Prelude.Nothing,
@@ -80,12 +109,28 @@ newChannelMessageCallback pMessageId_ =
       messageId = pMessageId_
     }
 
--- | The message content.
+-- | The message content. For Amazon Lex V2 bot responses, this field holds a
+-- list of messages originating from the bot. For more information, refer
+-- to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 channelMessageCallback_content :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
 channelMessageCallback_content = Lens.lens (\ChannelMessageCallback' {content} -> content) (\s@ChannelMessageCallback' {} a -> s {content = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Data._Sensitive
 
--- | The attributes for the message, used for message filtering along with a
--- @FilterRule@ defined in the @PushNotificationPreferences@.
+-- | The content type of the call-back message. For Amazon Lex V2 bot
+-- responses, the content type is @application\/amz-chime-lex-msgs@ for
+-- success responses and @application\/amz-chime-lex-error@ for failure
+-- responses. For more information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
+channelMessageCallback_contentType :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe Prelude.Text)
+channelMessageCallback_contentType = Lens.lens (\ChannelMessageCallback' {contentType} -> contentType) (\s@ChannelMessageCallback' {} a -> s {contentType = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The attributes for the channel message. For Amazon Lex V2 bot responses,
+-- the attributes are mapped to specific fields from the bot. For more
+-- information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 channelMessageCallback_messageAttributes :: Lens.Lens' ChannelMessageCallback (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
 channelMessageCallback_messageAttributes = Lens.lens (\ChannelMessageCallback' {messageAttributes} -> messageAttributes) (\s@ChannelMessageCallback' {} a -> s {messageAttributes = a} :: ChannelMessageCallback) Prelude.. Lens.mapping Lens.coerced
 
@@ -107,7 +152,9 @@ channelMessageCallback_messageId = Lens.lens (\ChannelMessageCallback' {messageI
 
 instance Prelude.Hashable ChannelMessageCallback where
   hashWithSalt _salt ChannelMessageCallback' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` pushNotification
@@ -117,6 +164,7 @@ instance Prelude.Hashable ChannelMessageCallback where
 instance Prelude.NFData ChannelMessageCallback where
   rnf ChannelMessageCallback' {..} =
     Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf messageAttributes
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf pushNotification
@@ -128,6 +176,7 @@ instance Data.ToJSON ChannelMessageCallback where
     Data.object
       ( Prelude.catMaybes
           [ ("Content" Data..=) Prelude.<$> content,
+            ("ContentType" Data..=) Prelude.<$> contentType,
             ("MessageAttributes" Data..=)
               Prelude.<$> messageAttributes,
             ("Metadata" Data..=) Prelude.<$> metadata,

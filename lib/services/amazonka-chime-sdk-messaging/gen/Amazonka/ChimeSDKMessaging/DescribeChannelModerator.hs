@@ -59,7 +59,8 @@ data DescribeChannelModerator = DescribeChannelModerator'
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the channel moderator.
     channelModeratorArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +77,8 @@ data DescribeChannelModerator = DescribeChannelModerator'
 --
 -- 'channelModeratorArn', 'describeChannelModerator_channelModeratorArn' - The @AppInstanceUserArn@ of the channel moderator.
 --
--- 'chimeBearer', 'describeChannelModerator_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'describeChannelModerator_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDescribeChannelModerator ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -104,7 +106,8 @@ describeChannelModerator_channelArn = Lens.lens (\DescribeChannelModerator' {cha
 describeChannelModerator_channelModeratorArn :: Lens.Lens' DescribeChannelModerator Prelude.Text
 describeChannelModerator_channelModeratorArn = Lens.lens (\DescribeChannelModerator' {channelModeratorArn} -> channelModeratorArn) (\s@DescribeChannelModerator' {} a -> s {channelModeratorArn = a} :: DescribeChannelModerator)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 describeChannelModerator_chimeBearer :: Lens.Lens' DescribeChannelModerator Prelude.Text
 describeChannelModerator_chimeBearer = Lens.lens (\DescribeChannelModerator' {chimeBearer} -> chimeBearer) (\s@DescribeChannelModerator' {} a -> s {chimeBearer = a} :: DescribeChannelModerator)
 
@@ -124,7 +127,8 @@ instance Core.AWSRequest DescribeChannelModerator where
 
 instance Prelude.Hashable DescribeChannelModerator where
   hashWithSalt _salt DescribeChannelModerator' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelModeratorArn
       `Prelude.hashWithSalt` chimeBearer
 

@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Calls back Chime SDK Messaging with a processing response message. This
--- should be invoked from the processor Lambda. This is a developer API.
+-- Calls back Amazon Chime SDK messaging with a processing response
+-- message. This should be invoked from the processor Lambda. This is a
+-- developer API.
 --
 -- You can return one of the following processing responses:
 --
@@ -147,7 +148,8 @@ instance Core.AWSRequest ChannelFlowCallback where
 
 instance Prelude.Hashable ChannelFlowCallback where
   hashWithSalt _salt ChannelFlowCallback' {..} =
-    _salt `Prelude.hashWithSalt` deleteResource
+    _salt
+      `Prelude.hashWithSalt` deleteResource
       `Prelude.hashWithSalt` callbackId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelMessage

@@ -38,16 +38,16 @@
 --     Processing failed
 --
 -- [DENIED]
---     Messasge denied by the processor
+--     Message denied by the processor
 --
 -- -   This API does not return statuses for denied messages, because we
 --     don\'t store them once the processor denies them.
 --
 -- -   Only the message sender can invoke this API.
 --
--- -   The @x-amz-chime-bearer@ request header is mandatory. Use the
---     @AppInstanceUserArn@ of the user that makes the API call as the
---     value in the header
+-- -   The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of
+--     the @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as
+--     the value in the header.
 module Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
   ( -- * Creating a Request
     GetChannelMessageStatus (..),
@@ -166,7 +166,8 @@ instance Core.AWSRequest GetChannelMessageStatus where
 
 instance Prelude.Hashable GetChannelMessageStatus where
   hashWithSalt _salt GetChannelMessageStatus' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer

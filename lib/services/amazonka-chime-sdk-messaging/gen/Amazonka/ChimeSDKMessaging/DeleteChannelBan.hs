@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a user from a channel\'s ban list.
+-- Removes a member from a channel\'s ban list.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DeleteChannelBan
   ( -- * Creating a Request
     DeleteChannelBan (..),
@@ -55,7 +55,8 @@ data DeleteChannelBan = DeleteChannelBan'
     channelArn :: Prelude.Text,
     -- | The ARN of the @AppInstanceUser@ that you want to reinstate.
     memberArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +73,8 @@ data DeleteChannelBan = DeleteChannelBan'
 --
 -- 'memberArn', 'deleteChannelBan_memberArn' - The ARN of the @AppInstanceUser@ that you want to reinstate.
 --
--- 'chimeBearer', 'deleteChannelBan_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'deleteChannelBan_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDeleteChannelBan ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -99,7 +101,8 @@ deleteChannelBan_channelArn = Lens.lens (\DeleteChannelBan' {channelArn} -> chan
 deleteChannelBan_memberArn :: Lens.Lens' DeleteChannelBan Prelude.Text
 deleteChannelBan_memberArn = Lens.lens (\DeleteChannelBan' {memberArn} -> memberArn) (\s@DeleteChannelBan' {} a -> s {memberArn = a} :: DeleteChannelBan)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 deleteChannelBan_chimeBearer :: Lens.Lens' DeleteChannelBan Prelude.Text
 deleteChannelBan_chimeBearer = Lens.lens (\DeleteChannelBan' {chimeBearer} -> chimeBearer) (\s@DeleteChannelBan' {} a -> s {chimeBearer = a} :: DeleteChannelBan)
 
@@ -114,7 +117,8 @@ instance Core.AWSRequest DeleteChannelBan where
 
 instance Prelude.Hashable DeleteChannelBan where
   hashWithSalt _salt DeleteChannelBan' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` chimeBearer
 

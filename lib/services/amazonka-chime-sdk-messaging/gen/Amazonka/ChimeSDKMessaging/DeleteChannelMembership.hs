@@ -61,7 +61,8 @@ data DeleteChannelMembership = DeleteChannelMembership'
     -- | The @AppInstanceUserArn@ of the member that you\'re removing from the
     -- channel.
     memberArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +84,8 @@ data DeleteChannelMembership = DeleteChannelMembership'
 -- 'memberArn', 'deleteChannelMembership_memberArn' - The @AppInstanceUserArn@ of the member that you\'re removing from the
 -- channel.
 --
--- 'chimeBearer', 'deleteChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'deleteChannelMembership_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDeleteChannelMembership ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -119,7 +121,8 @@ deleteChannelMembership_channelArn = Lens.lens (\DeleteChannelMembership' {chann
 deleteChannelMembership_memberArn :: Lens.Lens' DeleteChannelMembership Prelude.Text
 deleteChannelMembership_memberArn = Lens.lens (\DeleteChannelMembership' {memberArn} -> memberArn) (\s@DeleteChannelMembership' {} a -> s {memberArn = a} :: DeleteChannelMembership)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 deleteChannelMembership_chimeBearer :: Lens.Lens' DeleteChannelMembership Prelude.Text
 deleteChannelMembership_chimeBearer = Lens.lens (\DeleteChannelMembership' {chimeBearer} -> chimeBearer) (\s@DeleteChannelMembership' {} a -> s {chimeBearer = a} :: DeleteChannelMembership)
 
@@ -135,7 +138,8 @@ instance Core.AWSRequest DeleteChannelMembership where
 
 instance Prelude.Hashable DeleteChannelMembership where
   hashWithSalt _salt DeleteChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` chimeBearer

@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     ChannelAssociatedWithFlowSummary' {..} =
-      _salt `Prelude.hashWithSalt` channelArn
+      _salt
+        `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` metadata
         `Prelude.hashWithSalt` mode
         `Prelude.hashWithSalt` name

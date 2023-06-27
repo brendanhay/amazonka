@@ -41,6 +41,7 @@ module Amazonka.ChimeSDKMessaging.Lens
     -- ** CreateChannel
     createChannel_channelId,
     createChannel_elasticChannelConfiguration,
+    createChannel_expirationSettings,
     createChannel_memberArns,
     createChannel_metadata,
     createChannel_mode,
@@ -91,7 +92,6 @@ module Amazonka.ChimeSDKMessaging.Lens
     createChannelModeratorResponse_httpStatus,
 
     -- ** DeleteChannel
-    deleteChannel_subChannelId,
     deleteChannel_channelArn,
     deleteChannel_chimeBearer,
 
@@ -119,6 +119,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     deleteChannelModerator_channelArn,
     deleteChannelModerator_channelModeratorArn,
     deleteChannelModerator_chimeBearer,
+
+    -- ** DeleteMessagingStreamingConfigurations
+    deleteMessagingStreamingConfigurations_appInstanceArn,
 
     -- ** DescribeChannel
     describeChannel_channelArn,
@@ -200,6 +203,11 @@ module Amazonka.ChimeSDKMessaging.Lens
     -- ** GetMessagingSessionEndpoint
     getMessagingSessionEndpointResponse_endpoint,
     getMessagingSessionEndpointResponse_httpStatus,
+
+    -- ** GetMessagingStreamingConfigurations
+    getMessagingStreamingConfigurations_appInstanceArn,
+    getMessagingStreamingConfigurationsResponse_streamingConfigurations,
+    getMessagingStreamingConfigurationsResponse_httpStatus,
 
     -- ** ListChannelBans
     listChannelBans_maxResults,
@@ -307,6 +315,14 @@ module Amazonka.ChimeSDKMessaging.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** PutChannelExpirationSettings
+    putChannelExpirationSettings_chimeBearer,
+    putChannelExpirationSettings_expirationSettings,
+    putChannelExpirationSettings_channelArn,
+    putChannelExpirationSettingsResponse_channelArn,
+    putChannelExpirationSettingsResponse_expirationSettings,
+    putChannelExpirationSettingsResponse_httpStatus,
+
     -- ** PutChannelMembershipPreferences
     putChannelMembershipPreferences_channelArn,
     putChannelMembershipPreferences_memberArn,
@@ -316,6 +332,12 @@ module Amazonka.ChimeSDKMessaging.Lens
     putChannelMembershipPreferencesResponse_member,
     putChannelMembershipPreferencesResponse_preferences,
     putChannelMembershipPreferencesResponse_httpStatus,
+
+    -- ** PutMessagingStreamingConfigurations
+    putMessagingStreamingConfigurations_appInstanceArn,
+    putMessagingStreamingConfigurations_streamingConfigurations,
+    putMessagingStreamingConfigurationsResponse_streamingConfigurations,
+    putMessagingStreamingConfigurationsResponse_httpStatus,
 
     -- ** RedactChannelMessage
     redactChannelMessage_subChannelId,
@@ -337,10 +359,12 @@ module Amazonka.ChimeSDKMessaging.Lens
     searchChannelsResponse_httpStatus,
 
     -- ** SendChannelMessage
+    sendChannelMessage_contentType,
     sendChannelMessage_messageAttributes,
     sendChannelMessage_metadata,
     sendChannelMessage_pushNotification,
     sendChannelMessage_subChannelId,
+    sendChannelMessage_target,
     sendChannelMessage_channelArn,
     sendChannelMessage_content,
     sendChannelMessage_type,
@@ -378,11 +402,12 @@ module Amazonka.ChimeSDKMessaging.Lens
     updateChannelFlowResponse_httpStatus,
 
     -- ** UpdateChannelMessage
-    updateChannelMessage_content,
+    updateChannelMessage_contentType,
     updateChannelMessage_metadata,
     updateChannelMessage_subChannelId,
     updateChannelMessage_channelArn,
     updateChannelMessage_messageId,
+    updateChannelMessage_content,
     updateChannelMessage_chimeBearer,
     updateChannelMessageResponse_channelArn,
     updateChannelMessageResponse_messageId,
@@ -391,11 +416,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     updateChannelMessageResponse_httpStatus,
 
     -- ** UpdateChannelReadMarker
-    updateChannelReadMarker_subChannelId,
     updateChannelReadMarker_channelArn,
     updateChannelReadMarker_chimeBearer,
     updateChannelReadMarkerResponse_channelArn,
-    updateChannelReadMarkerResponse_subChannelId,
     updateChannelReadMarkerResponse_httpStatus,
 
     -- * Types
@@ -423,6 +446,7 @@ module Amazonka.ChimeSDKMessaging.Lens
     channel_createdBy,
     channel_createdTimestamp,
     channel_elasticChannelConfiguration,
+    channel_expirationSettings,
     channel_lastMessageTimestamp,
     channel_lastUpdatedTimestamp,
     channel_metadata,
@@ -480,6 +504,7 @@ module Amazonka.ChimeSDKMessaging.Lens
     -- ** ChannelMessage
     channelMessage_channelArn,
     channelMessage_content,
+    channelMessage_contentType,
     channelMessage_createdTimestamp,
     channelMessage_lastEditedTimestamp,
     channelMessage_lastUpdatedTimestamp,
@@ -491,10 +516,12 @@ module Amazonka.ChimeSDKMessaging.Lens
     channelMessage_sender,
     channelMessage_status,
     channelMessage_subChannelId,
+    channelMessage_target,
     channelMessage_type,
 
     -- ** ChannelMessageCallback
     channelMessageCallback_content,
+    channelMessageCallback_contentType,
     channelMessageCallback_messageAttributes,
     channelMessageCallback_metadata,
     channelMessageCallback_pushNotification,
@@ -507,6 +534,7 @@ module Amazonka.ChimeSDKMessaging.Lens
 
     -- ** ChannelMessageSummary
     channelMessageSummary_content,
+    channelMessageSummary_contentType,
     channelMessageSummary_createdTimestamp,
     channelMessageSummary_lastEditedTimestamp,
     channelMessageSummary_lastUpdatedTimestamp,
@@ -516,6 +544,7 @@ module Amazonka.ChimeSDKMessaging.Lens
     channelMessageSummary_redacted,
     channelMessageSummary_sender,
     channelMessageSummary_status,
+    channelMessageSummary_target,
     channelMessageSummary_type,
 
     -- ** ChannelModeratedByAppInstanceUserSummary
@@ -542,6 +571,10 @@ module Amazonka.ChimeSDKMessaging.Lens
     elasticChannelConfiguration_maximumSubChannels,
     elasticChannelConfiguration_targetMembershipsPerSubChannel,
     elasticChannelConfiguration_minimumMembershipPercentage,
+
+    -- ** ExpirationSettings
+    expirationSettings_expirationDays,
+    expirationSettings_expirationCriterion,
 
     -- ** Identity
     identity_arn,
@@ -580,6 +613,10 @@ module Amazonka.ChimeSDKMessaging.Lens
     searchField_values,
     searchField_operator,
 
+    -- ** StreamingConfiguration
+    streamingConfiguration_dataType,
+    streamingConfiguration_resourceArn,
+
     -- ** SubChannelSummary
     subChannelSummary_membershipCount,
     subChannelSummary_subChannelId,
@@ -587,6 +624,9 @@ module Amazonka.ChimeSDKMessaging.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** Target
+    target_memberArn,
   )
 where
 
@@ -604,6 +644,7 @@ import Amazonka.ChimeSDKMessaging.DeleteChannelFlow
 import Amazonka.ChimeSDKMessaging.DeleteChannelMembership
 import Amazonka.ChimeSDKMessaging.DeleteChannelMessage
 import Amazonka.ChimeSDKMessaging.DeleteChannelModerator
+import Amazonka.ChimeSDKMessaging.DeleteMessagingStreamingConfigurations
 import Amazonka.ChimeSDKMessaging.DescribeChannel
 import Amazonka.ChimeSDKMessaging.DescribeChannelBan
 import Amazonka.ChimeSDKMessaging.DescribeChannelFlow
@@ -616,6 +657,7 @@ import Amazonka.ChimeSDKMessaging.GetChannelMembershipPreferences
 import Amazonka.ChimeSDKMessaging.GetChannelMessage
 import Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
 import Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint
+import Amazonka.ChimeSDKMessaging.GetMessagingStreamingConfigurations
 import Amazonka.ChimeSDKMessaging.ListChannelBans
 import Amazonka.ChimeSDKMessaging.ListChannelFlows
 import Amazonka.ChimeSDKMessaging.ListChannelMemberships
@@ -627,7 +669,9 @@ import Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
 import Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
 import Amazonka.ChimeSDKMessaging.ListSubChannels
 import Amazonka.ChimeSDKMessaging.ListTagsForResource
+import Amazonka.ChimeSDKMessaging.PutChannelExpirationSettings
 import Amazonka.ChimeSDKMessaging.PutChannelMembershipPreferences
+import Amazonka.ChimeSDKMessaging.PutMessagingStreamingConfigurations
 import Amazonka.ChimeSDKMessaging.RedactChannelMessage
 import Amazonka.ChimeSDKMessaging.SearchChannels
 import Amazonka.ChimeSDKMessaging.SendChannelMessage
@@ -654,6 +698,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelModerator
 import Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary
 import Amazonka.ChimeSDKMessaging.Types.ChannelSummary
 import Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
+import Amazonka.ChimeSDKMessaging.Types.ExpirationSettings
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
 import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
@@ -663,8 +708,10 @@ import Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
 import Amazonka.ChimeSDKMessaging.Types.PushNotificationConfiguration
 import Amazonka.ChimeSDKMessaging.Types.PushNotificationPreferences
 import Amazonka.ChimeSDKMessaging.Types.SearchField
+import Amazonka.ChimeSDKMessaging.Types.StreamingConfiguration
 import Amazonka.ChimeSDKMessaging.Types.SubChannelSummary
 import Amazonka.ChimeSDKMessaging.Types.Tag
+import Amazonka.ChimeSDKMessaging.Types.Target
 import Amazonka.ChimeSDKMessaging.UntagResource
 import Amazonka.ChimeSDKMessaging.UpdateChannel
 import Amazonka.ChimeSDKMessaging.UpdateChannelFlow

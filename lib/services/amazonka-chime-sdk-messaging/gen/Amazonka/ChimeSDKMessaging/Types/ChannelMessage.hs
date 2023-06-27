@@ -24,6 +24,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessageType
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
+import Amazonka.ChimeSDKMessaging.Types.Target
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -35,16 +36,30 @@ import qualified Amazonka.Prelude as Prelude
 data ChannelMessage = ChannelMessage'
   { -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The message content.
+    -- | The content of the channel message. For Amazon Lex V2 bot responses,
+    -- this field holds a list of messages originating from the bot. For more
+    -- information, refer to
+    -- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+    -- in the /Amazon Chime SDK Messaging Developer Guide/.
     content :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The content type of the channel message. For Amazon Lex V2 bot
+    -- responses, the content type is @application\/amz-chime-lex-msgs@ for
+    -- success responses and @application\/amz-chime-lex-error@ for failure
+    -- responses. For more information, refer to
+    -- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+    -- in the /Amazon Chime SDK Messaging Developer Guide/.
+    contentType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The time at which the message was created.
     createdTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time at which a message was edited.
     lastEditedTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time at which a message was updated.
     lastUpdatedTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | The attributes for the message, used for message filtering along with a
-    -- @FilterRule@ defined in the @PushNotificationPreferences@.
+    -- | The attributes for the channel message. For Amazon Lex V2 bot responses,
+    -- the attributes are mapped to specific fields from the bot. For more
+    -- information, refer to
+    -- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+    -- in the /Amazon Chime SDK Messaging Developer Guide/.
     messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The ID of a message.
     messageId :: Prelude.Maybe Prelude.Text,
@@ -60,6 +75,11 @@ data ChannelMessage = ChannelMessage'
     status :: Prelude.Maybe ChannelMessageStatusStructure,
     -- | The ID of the SubChannel.
     subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The target of a message, a sender, a user, or a bot. Only the target and
+    -- the sender can view targeted messages. Only users who can see targeted
+    -- messages can take actions on them. However, administrators can delete
+    -- targeted messages that they can’t see.
+    target :: Prelude.Maybe (Prelude.NonEmpty Target),
     -- | The message type.
     type' :: Prelude.Maybe ChannelMessageType
   }
@@ -75,7 +95,18 @@ data ChannelMessage = ChannelMessage'
 --
 -- 'channelArn', 'channelMessage_channelArn' - The ARN of the channel.
 --
--- 'content', 'channelMessage_content' - The message content.
+-- 'content', 'channelMessage_content' - The content of the channel message. For Amazon Lex V2 bot responses,
+-- this field holds a list of messages originating from the bot. For more
+-- information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
+--
+-- 'contentType', 'channelMessage_contentType' - The content type of the channel message. For Amazon Lex V2 bot
+-- responses, the content type is @application\/amz-chime-lex-msgs@ for
+-- success responses and @application\/amz-chime-lex-error@ for failure
+-- responses. For more information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 --
 -- 'createdTimestamp', 'channelMessage_createdTimestamp' - The time at which the message was created.
 --
@@ -83,8 +114,11 @@ data ChannelMessage = ChannelMessage'
 --
 -- 'lastUpdatedTimestamp', 'channelMessage_lastUpdatedTimestamp' - The time at which a message was updated.
 --
--- 'messageAttributes', 'channelMessage_messageAttributes' - The attributes for the message, used for message filtering along with a
--- @FilterRule@ defined in the @PushNotificationPreferences@.
+-- 'messageAttributes', 'channelMessage_messageAttributes' - The attributes for the channel message. For Amazon Lex V2 bot responses,
+-- the attributes are mapped to specific fields from the bot. For more
+-- information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 --
 -- 'messageId', 'channelMessage_messageId' - The ID of a message.
 --
@@ -100,6 +134,11 @@ data ChannelMessage = ChannelMessage'
 --
 -- 'subChannelId', 'channelMessage_subChannelId' - The ID of the SubChannel.
 --
+-- 'target', 'channelMessage_target' - The target of a message, a sender, a user, or a bot. Only the target and
+-- the sender can view targeted messages. Only users who can see targeted
+-- messages can take actions on them. However, administrators can delete
+-- targeted messages that they can’t see.
+--
 -- 'type'', 'channelMessage_type' - The message type.
 newChannelMessage ::
   ChannelMessage
@@ -107,6 +146,7 @@ newChannelMessage =
   ChannelMessage'
     { channelArn = Prelude.Nothing,
       content = Prelude.Nothing,
+      contentType = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
       lastEditedTimestamp = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
@@ -118,6 +158,7 @@ newChannelMessage =
       sender = Prelude.Nothing,
       status = Prelude.Nothing,
       subChannelId = Prelude.Nothing,
+      target = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -125,9 +166,22 @@ newChannelMessage =
 channelMessage_channelArn :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
 channelMessage_channelArn = Lens.lens (\ChannelMessage' {channelArn} -> channelArn) (\s@ChannelMessage' {} a -> s {channelArn = a} :: ChannelMessage)
 
--- | The message content.
+-- | The content of the channel message. For Amazon Lex V2 bot responses,
+-- this field holds a list of messages originating from the bot. For more
+-- information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 channelMessage_content :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
 channelMessage_content = Lens.lens (\ChannelMessage' {content} -> content) (\s@ChannelMessage' {} a -> s {content = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Sensitive
+
+-- | The content type of the channel message. For Amazon Lex V2 bot
+-- responses, the content type is @application\/amz-chime-lex-msgs@ for
+-- success responses and @application\/amz-chime-lex-error@ for failure
+-- responses. For more information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
+channelMessage_contentType :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
+channelMessage_contentType = Lens.lens (\ChannelMessage' {contentType} -> contentType) (\s@ChannelMessage' {} a -> s {contentType = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The time at which the message was created.
 channelMessage_createdTimestamp :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.UTCTime)
@@ -141,8 +195,11 @@ channelMessage_lastEditedTimestamp = Lens.lens (\ChannelMessage' {lastEditedTime
 channelMessage_lastUpdatedTimestamp :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.UTCTime)
 channelMessage_lastUpdatedTimestamp = Lens.lens (\ChannelMessage' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@ChannelMessage' {} a -> s {lastUpdatedTimestamp = a} :: ChannelMessage) Prelude.. Lens.mapping Data._Time
 
--- | The attributes for the message, used for message filtering along with a
--- @FilterRule@ defined in the @PushNotificationPreferences@.
+-- | The attributes for the channel message. For Amazon Lex V2 bot responses,
+-- the attributes are mapped to specific fields from the bot. For more
+-- information, refer to
+-- <https://docs.aws.amazon.com/chime-sdk/latest/dg/appinstance-bots#process-response.html Processing responses from an AppInstanceBot>
+-- in the /Amazon Chime SDK Messaging Developer Guide/.
 channelMessage_messageAttributes :: Lens.Lens' ChannelMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
 channelMessage_messageAttributes = Lens.lens (\ChannelMessage' {messageAttributes} -> messageAttributes) (\s@ChannelMessage' {} a -> s {messageAttributes = a} :: ChannelMessage) Prelude.. Lens.mapping Lens.coerced
 
@@ -174,6 +231,13 @@ channelMessage_status = Lens.lens (\ChannelMessage' {status} -> status) (\s@Chan
 channelMessage_subChannelId :: Lens.Lens' ChannelMessage (Prelude.Maybe Prelude.Text)
 channelMessage_subChannelId = Lens.lens (\ChannelMessage' {subChannelId} -> subChannelId) (\s@ChannelMessage' {} a -> s {subChannelId = a} :: ChannelMessage)
 
+-- | The target of a message, a sender, a user, or a bot. Only the target and
+-- the sender can view targeted messages. Only users who can see targeted
+-- messages can take actions on them. However, administrators can delete
+-- targeted messages that they can’t see.
+channelMessage_target :: Lens.Lens' ChannelMessage (Prelude.Maybe (Prelude.NonEmpty Target))
+channelMessage_target = Lens.lens (\ChannelMessage' {target} -> target) (\s@ChannelMessage' {} a -> s {target = a} :: ChannelMessage) Prelude.. Lens.mapping Lens.coerced
+
 -- | The message type.
 channelMessage_type :: Lens.Lens' ChannelMessage (Prelude.Maybe ChannelMessageType)
 channelMessage_type = Lens.lens (\ChannelMessage' {type'} -> type') (\s@ChannelMessage' {} a -> s {type' = a} :: ChannelMessage)
@@ -186,10 +250,12 @@ instance Data.FromJSON ChannelMessage where
           ChannelMessage'
             Prelude.<$> (x Data..:? "ChannelArn")
             Prelude.<*> (x Data..:? "Content")
+            Prelude.<*> (x Data..:? "ContentType")
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "LastEditedTimestamp")
             Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
-            Prelude.<*> ( x Data..:? "MessageAttributes"
+            Prelude.<*> ( x
+                            Data..:? "MessageAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MessageId")
@@ -199,13 +265,16 @@ instance Data.FromJSON ChannelMessage where
             Prelude.<*> (x Data..:? "Sender")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "SubChannelId")
+            Prelude.<*> (x Data..:? "Target")
             Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable ChannelMessage where
   hashWithSalt _salt ChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` content
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` lastEditedTimestamp
       `Prelude.hashWithSalt` lastUpdatedTimestamp
@@ -217,12 +286,14 @@ instance Prelude.Hashable ChannelMessage where
       `Prelude.hashWithSalt` sender
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ChannelMessage where
   rnf ChannelMessage' {..} =
     Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf content
+      `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf lastEditedTimestamp
       `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
@@ -234,4 +305,5 @@ instance Prelude.NFData ChannelMessage where
       `Prelude.seq` Prelude.rnf sender
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf type'

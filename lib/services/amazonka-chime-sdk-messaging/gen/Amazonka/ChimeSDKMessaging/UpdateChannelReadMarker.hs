@@ -22,16 +22,15 @@
 --
 -- The details of the time when a user last read messages in a channel.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.UpdateChannelReadMarker
   ( -- * Creating a Request
     UpdateChannelReadMarker (..),
     newUpdateChannelReadMarker,
 
     -- * Request Lenses
-    updateChannelReadMarker_subChannelId,
     updateChannelReadMarker_channelArn,
     updateChannelReadMarker_chimeBearer,
 
@@ -41,7 +40,6 @@ module Amazonka.ChimeSDKMessaging.UpdateChannelReadMarker
 
     -- * Response Lenses
     updateChannelReadMarkerResponse_channelArn,
-    updateChannelReadMarkerResponse_subChannelId,
     updateChannelReadMarkerResponse_httpStatus,
   )
 where
@@ -56,11 +54,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateChannelReadMarker' smart constructor.
 data UpdateChannelReadMarker = UpdateChannelReadMarker'
-  { -- | The ID of the SubChannel in the request.
-    subChannelId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the channel.
+  { -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,11 +70,10 @@ data UpdateChannelReadMarker = UpdateChannelReadMarker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subChannelId', 'updateChannelReadMarker_subChannelId' - The ID of the SubChannel in the request.
---
 -- 'channelArn', 'updateChannelReadMarker_channelArn' - The ARN of the channel.
 --
--- 'chimeBearer', 'updateChannelReadMarker_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'updateChannelReadMarker_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newUpdateChannelReadMarker ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -86,21 +82,16 @@ newUpdateChannelReadMarker ::
   UpdateChannelReadMarker
 newUpdateChannelReadMarker pChannelArn_ pChimeBearer_ =
   UpdateChannelReadMarker'
-    { subChannelId =
-        Prelude.Nothing,
-      channelArn = pChannelArn_,
+    { channelArn = pChannelArn_,
       chimeBearer = pChimeBearer_
     }
-
--- | The ID of the SubChannel in the request.
-updateChannelReadMarker_subChannelId :: Lens.Lens' UpdateChannelReadMarker (Prelude.Maybe Prelude.Text)
-updateChannelReadMarker_subChannelId = Lens.lens (\UpdateChannelReadMarker' {subChannelId} -> subChannelId) (\s@UpdateChannelReadMarker' {} a -> s {subChannelId = a} :: UpdateChannelReadMarker)
 
 -- | The ARN of the channel.
 updateChannelReadMarker_channelArn :: Lens.Lens' UpdateChannelReadMarker Prelude.Text
 updateChannelReadMarker_channelArn = Lens.lens (\UpdateChannelReadMarker' {channelArn} -> channelArn) (\s@UpdateChannelReadMarker' {} a -> s {channelArn = a} :: UpdateChannelReadMarker)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 updateChannelReadMarker_chimeBearer :: Lens.Lens' UpdateChannelReadMarker Prelude.Text
 updateChannelReadMarker_chimeBearer = Lens.lens (\UpdateChannelReadMarker' {chimeBearer} -> chimeBearer) (\s@UpdateChannelReadMarker' {} a -> s {chimeBearer = a} :: UpdateChannelReadMarker)
 
@@ -115,20 +106,18 @@ instance Core.AWSRequest UpdateChannelReadMarker where
       ( \s h x ->
           UpdateChannelReadMarkerResponse'
             Prelude.<$> (x Data..?> "ChannelArn")
-            Prelude.<*> (x Data..?> "SubChannelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateChannelReadMarker where
   hashWithSalt _salt UpdateChannelReadMarker' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData UpdateChannelReadMarker where
   rnf UpdateChannelReadMarker' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
 instance Data.ToHeaders UpdateChannelReadMarker where
@@ -137,11 +126,7 @@ instance Data.ToHeaders UpdateChannelReadMarker where
       ["x-amz-chime-bearer" Data.=# chimeBearer]
 
 instance Data.ToJSON UpdateChannelReadMarker where
-  toJSON UpdateChannelReadMarker' {..} =
-    Data.object
-      ( Prelude.catMaybes
-          [("SubChannelId" Data..=) Prelude.<$> subChannelId]
-      )
+  toJSON = Prelude.const (Data.Object Prelude.mempty)
 
 instance Data.ToPath UpdateChannelReadMarker where
   toPath UpdateChannelReadMarker' {..} =
@@ -155,8 +140,6 @@ instance Data.ToQuery UpdateChannelReadMarker where
 data UpdateChannelReadMarkerResponse = UpdateChannelReadMarkerResponse'
   { -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the SubChannel in the response.
-    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -172,8 +155,6 @@ data UpdateChannelReadMarkerResponse = UpdateChannelReadMarkerResponse'
 --
 -- 'channelArn', 'updateChannelReadMarkerResponse_channelArn' - The ARN of the channel.
 --
--- 'subChannelId', 'updateChannelReadMarkerResponse_subChannelId' - The ID of the SubChannel in the response.
---
 -- 'httpStatus', 'updateChannelReadMarkerResponse_httpStatus' - The response's http status code.
 newUpdateChannelReadMarkerResponse ::
   -- | 'httpStatus'
@@ -183,17 +164,12 @@ newUpdateChannelReadMarkerResponse pHttpStatus_ =
   UpdateChannelReadMarkerResponse'
     { channelArn =
         Prelude.Nothing,
-      subChannelId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The ARN of the channel.
 updateChannelReadMarkerResponse_channelArn :: Lens.Lens' UpdateChannelReadMarkerResponse (Prelude.Maybe Prelude.Text)
 updateChannelReadMarkerResponse_channelArn = Lens.lens (\UpdateChannelReadMarkerResponse' {channelArn} -> channelArn) (\s@UpdateChannelReadMarkerResponse' {} a -> s {channelArn = a} :: UpdateChannelReadMarkerResponse)
-
--- | The ID of the SubChannel in the response.
-updateChannelReadMarkerResponse_subChannelId :: Lens.Lens' UpdateChannelReadMarkerResponse (Prelude.Maybe Prelude.Text)
-updateChannelReadMarkerResponse_subChannelId = Lens.lens (\UpdateChannelReadMarkerResponse' {subChannelId} -> subChannelId) (\s@UpdateChannelReadMarkerResponse' {} a -> s {subChannelId = a} :: UpdateChannelReadMarkerResponse)
 
 -- | The response's http status code.
 updateChannelReadMarkerResponse_httpStatus :: Lens.Lens' UpdateChannelReadMarkerResponse Prelude.Int
@@ -205,5 +181,4 @@ instance
   where
   rnf UpdateChannelReadMarkerResponse' {..} =
     Prelude.rnf channelArn
-      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf httpStatus

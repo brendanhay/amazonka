@@ -22,9 +22,9 @@
 --
 -- Returns the full details of a user\'s channel membership.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DescribeChannelMembership
   ( -- * Creating a Request
     DescribeChannelMembership (..),
@@ -65,7 +65,8 @@ data DescribeChannelMembership = DescribeChannelMembership'
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the member.
     memberArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +88,8 @@ data DescribeChannelMembership = DescribeChannelMembership'
 --
 -- 'memberArn', 'describeChannelMembership_memberArn' - The @AppInstanceUserArn@ of the member.
 --
--- 'chimeBearer', 'describeChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'describeChannelMembership_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDescribeChannelMembership ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -123,7 +125,8 @@ describeChannelMembership_channelArn = Lens.lens (\DescribeChannelMembership' {c
 describeChannelMembership_memberArn :: Lens.Lens' DescribeChannelMembership Prelude.Text
 describeChannelMembership_memberArn = Lens.lens (\DescribeChannelMembership' {memberArn} -> memberArn) (\s@DescribeChannelMembership' {} a -> s {memberArn = a} :: DescribeChannelMembership)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 describeChannelMembership_chimeBearer :: Lens.Lens' DescribeChannelMembership Prelude.Text
 describeChannelMembership_chimeBearer = Lens.lens (\DescribeChannelMembership' {chimeBearer} -> chimeBearer) (\s@DescribeChannelMembership' {} a -> s {chimeBearer = a} :: DescribeChannelMembership)
 
@@ -143,7 +146,8 @@ instance Core.AWSRequest DescribeChannelMembership where
 
 instance Prelude.Hashable DescribeChannelMembership where
   hashWithSalt _salt DescribeChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` chimeBearer

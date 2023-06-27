@@ -21,11 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the full details of a channel moderated by the specified
--- @AppInstanceUser@.
+-- @AppInstanceUser@ or @AppInstanceBot@.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
   ( -- * Creating a Request
     DescribeChannelModeratedByAppInstanceUser (..),
@@ -58,9 +58,10 @@ import qualified Amazonka.Response as Response
 data DescribeChannelModeratedByAppInstanceUser = DescribeChannelModeratedByAppInstanceUser'
   { -- | The ARN of the moderated channel.
     channelArn :: Prelude.Text,
-    -- | The ARN of the @AppInstanceUser@ in the moderated channel.
+    -- | The ARN of the user or bot in the moderated channel.
     appInstanceUserArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,9 +76,10 @@ data DescribeChannelModeratedByAppInstanceUser = DescribeChannelModeratedByAppIn
 --
 -- 'channelArn', 'describeChannelModeratedByAppInstanceUser_channelArn' - The ARN of the moderated channel.
 --
--- 'appInstanceUserArn', 'describeChannelModeratedByAppInstanceUser_appInstanceUserArn' - The ARN of the @AppInstanceUser@ in the moderated channel.
+-- 'appInstanceUserArn', 'describeChannelModeratedByAppInstanceUser_appInstanceUserArn' - The ARN of the user or bot in the moderated channel.
 --
--- 'chimeBearer', 'describeChannelModeratedByAppInstanceUser_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'describeChannelModeratedByAppInstanceUser_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDescribeChannelModeratedByAppInstanceUser ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -102,11 +104,12 @@ newDescribeChannelModeratedByAppInstanceUser
 describeChannelModeratedByAppInstanceUser_channelArn :: Lens.Lens' DescribeChannelModeratedByAppInstanceUser Prelude.Text
 describeChannelModeratedByAppInstanceUser_channelArn = Lens.lens (\DescribeChannelModeratedByAppInstanceUser' {channelArn} -> channelArn) (\s@DescribeChannelModeratedByAppInstanceUser' {} a -> s {channelArn = a} :: DescribeChannelModeratedByAppInstanceUser)
 
--- | The ARN of the @AppInstanceUser@ in the moderated channel.
+-- | The ARN of the user or bot in the moderated channel.
 describeChannelModeratedByAppInstanceUser_appInstanceUserArn :: Lens.Lens' DescribeChannelModeratedByAppInstanceUser Prelude.Text
 describeChannelModeratedByAppInstanceUser_appInstanceUserArn = Lens.lens (\DescribeChannelModeratedByAppInstanceUser' {appInstanceUserArn} -> appInstanceUserArn) (\s@DescribeChannelModeratedByAppInstanceUser' {} a -> s {appInstanceUserArn = a} :: DescribeChannelModeratedByAppInstanceUser)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 describeChannelModeratedByAppInstanceUser_chimeBearer :: Lens.Lens' DescribeChannelModeratedByAppInstanceUser Prelude.Text
 describeChannelModeratedByAppInstanceUser_chimeBearer = Lens.lens (\DescribeChannelModeratedByAppInstanceUser' {chimeBearer} -> chimeBearer) (\s@DescribeChannelModeratedByAppInstanceUser' {} a -> s {chimeBearer = a} :: DescribeChannelModeratedByAppInstanceUser)
 
@@ -125,7 +128,7 @@ instance
       ( \s h x ->
           DescribeChannelModeratedByAppInstanceUserResponse'
             Prelude.<$> (x Data..?> "Channel")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -135,7 +138,8 @@ instance
   hashWithSalt
     _salt
     DescribeChannelModeratedByAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` channelArn
+      _salt
+        `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` chimeBearer
 

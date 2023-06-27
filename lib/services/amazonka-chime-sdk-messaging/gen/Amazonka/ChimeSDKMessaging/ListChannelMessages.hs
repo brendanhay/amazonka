@@ -28,9 +28,9 @@
 -- redacted, not deleted. Deleted messages do not appear in the results.
 -- This action always returns the latest version of an edited message.
 --
--- Also, the x-amz-chime-bearer request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- Also, the @x-amz-chime-bearer@ request header is mandatory. Use the ARN
+-- of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as
+-- the value in the header.
 module Amazonka.ChimeSDKMessaging.ListChannelMessages
   ( -- * Creating a Request
     ListChannelMessages (..),
@@ -88,7 +88,8 @@ data ListChannelMessages = ListChannelMessages'
     subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -120,7 +121,8 @@ data ListChannelMessages = ListChannelMessages'
 --
 -- 'channelArn', 'listChannelMessages_channelArn' - The ARN of the channel.
 --
--- 'chimeBearer', 'listChannelMessages_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'listChannelMessages_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newListChannelMessages ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -172,7 +174,8 @@ listChannelMessages_subChannelId = Lens.lens (\ListChannelMessages' {subChannelI
 listChannelMessages_channelArn :: Lens.Lens' ListChannelMessages Prelude.Text
 listChannelMessages_channelArn = Lens.lens (\ListChannelMessages' {channelArn} -> channelArn) (\s@ListChannelMessages' {} a -> s {channelArn = a} :: ListChannelMessages)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 listChannelMessages_chimeBearer :: Lens.Lens' ListChannelMessages Prelude.Text
 listChannelMessages_chimeBearer = Lens.lens (\ListChannelMessages' {chimeBearer} -> chimeBearer) (\s@ListChannelMessages' {} a -> s {chimeBearer = a} :: ListChannelMessages)
 
@@ -187,7 +190,8 @@ instance Core.AWSRequest ListChannelMessages where
       ( \s h x ->
           ListChannelMessagesResponse'
             Prelude.<$> (x Data..?> "ChannelArn")
-            Prelude.<*> ( x Data..?> "ChannelMessages"
+            Prelude.<*> ( x
+                            Data..?> "ChannelMessages"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -197,7 +201,8 @@ instance Core.AWSRequest ListChannelMessages where
 
 instance Prelude.Hashable ListChannelMessages where
   hashWithSalt _salt ListChannelMessages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` notAfter
       `Prelude.hashWithSalt` notBefore

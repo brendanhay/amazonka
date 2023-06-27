@@ -20,12 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the membership preferences of an @AppInstanceUser@ for the
--- specified channel. The @AppInstanceUser@ must be a member of the
--- channel. Only the @AppInstanceUser@ who owns the membership can set
--- preferences. Users in the @AppInstanceAdmin@ and channel moderator roles
--- can\'t set preferences for other users. Banned users can\'t set
--- membership preferences for the channel from which they are banned.
+-- Sets the membership preferences of an @AppInstanceUser@ or
+-- @AppInstanceBot@ for the specified channel. The user or bot must be a
+-- member of the channel. Only the user or bot who owns the membership can
+-- set preferences. Users or bots in the @AppInstanceAdmin@ and channel
+-- moderator roles can\'t set preferences for other users. Banned users or
+-- bots can\'t set membership preferences for the channel from which they
+-- are banned.
+--
+-- The x-amz-chime-bearer request header is mandatory. Use the ARN of an
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.PutChannelMembershipPreferences
   ( -- * Creating a Request
     PutChannelMembershipPreferences (..),
@@ -61,9 +66,10 @@ import qualified Amazonka.Response as Response
 data PutChannelMembershipPreferences = PutChannelMembershipPreferences'
   { -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the member setting the preferences.
+    -- | The ARN of the member setting the preferences.
     memberArn :: Prelude.Text,
-    -- | The @AppInstanceUserARN@ of the user making the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text,
     -- | The channel membership preferences of an @AppInstanceUser@ .
     preferences :: ChannelMembershipPreferences
@@ -80,9 +86,10 @@ data PutChannelMembershipPreferences = PutChannelMembershipPreferences'
 --
 -- 'channelArn', 'putChannelMembershipPreferences_channelArn' - The ARN of the channel.
 --
--- 'memberArn', 'putChannelMembershipPreferences_memberArn' - The @AppInstanceUserArn@ of the member setting the preferences.
+-- 'memberArn', 'putChannelMembershipPreferences_memberArn' - The ARN of the member setting the preferences.
 --
--- 'chimeBearer', 'putChannelMembershipPreferences_chimeBearer' - The @AppInstanceUserARN@ of the user making the API call.
+-- 'chimeBearer', 'putChannelMembershipPreferences_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 --
 -- 'preferences', 'putChannelMembershipPreferences_preferences' - The channel membership preferences of an @AppInstanceUser@ .
 newPutChannelMembershipPreferences ::
@@ -112,11 +119,12 @@ newPutChannelMembershipPreferences
 putChannelMembershipPreferences_channelArn :: Lens.Lens' PutChannelMembershipPreferences Prelude.Text
 putChannelMembershipPreferences_channelArn = Lens.lens (\PutChannelMembershipPreferences' {channelArn} -> channelArn) (\s@PutChannelMembershipPreferences' {} a -> s {channelArn = a} :: PutChannelMembershipPreferences)
 
--- | The @AppInstanceUserArn@ of the member setting the preferences.
+-- | The ARN of the member setting the preferences.
 putChannelMembershipPreferences_memberArn :: Lens.Lens' PutChannelMembershipPreferences Prelude.Text
 putChannelMembershipPreferences_memberArn = Lens.lens (\PutChannelMembershipPreferences' {memberArn} -> memberArn) (\s@PutChannelMembershipPreferences' {} a -> s {memberArn = a} :: PutChannelMembershipPreferences)
 
--- | The @AppInstanceUserARN@ of the user making the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 putChannelMembershipPreferences_chimeBearer :: Lens.Lens' PutChannelMembershipPreferences Prelude.Text
 putChannelMembershipPreferences_chimeBearer = Lens.lens (\PutChannelMembershipPreferences' {chimeBearer} -> chimeBearer) (\s@PutChannelMembershipPreferences' {} a -> s {chimeBearer = a} :: PutChannelMembershipPreferences)
 
@@ -150,7 +158,8 @@ instance
   hashWithSalt
     _salt
     PutChannelMembershipPreferences' {..} =
-      _salt `Prelude.hashWithSalt` channelArn
+      _salt
+        `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` memberArn
         `Prelude.hashWithSalt` chimeBearer
         `Prelude.hashWithSalt` preferences

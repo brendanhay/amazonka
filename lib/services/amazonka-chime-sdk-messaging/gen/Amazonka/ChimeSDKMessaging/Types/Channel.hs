@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.Channel where
 import Amazonka.ChimeSDKMessaging.Types.ChannelMode
 import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
 import Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
+import Amazonka.ChimeSDKMessaging.Types.ExpirationSettings
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -43,6 +44,8 @@ data Channel = Channel'
     -- | The attributes required to configure and create an elastic channel. An
     -- elastic channel can support a maximum of 1-million members.
     elasticChannelConfiguration :: Prelude.Maybe ElasticChannelConfiguration,
+    -- | Settings that control when a channel expires.
+    expirationSettings :: Prelude.Maybe ExpirationSettings,
     -- | The time at which a member sent the last message in the channel.
     lastMessageTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The time at which a channel was last updated.
@@ -77,6 +80,8 @@ data Channel = Channel'
 -- 'elasticChannelConfiguration', 'channel_elasticChannelConfiguration' - The attributes required to configure and create an elastic channel. An
 -- elastic channel can support a maximum of 1-million members.
 --
+-- 'expirationSettings', 'channel_expirationSettings' - Settings that control when a channel expires.
+--
 -- 'lastMessageTimestamp', 'channel_lastMessageTimestamp' - The time at which a member sent the last message in the channel.
 --
 -- 'lastUpdatedTimestamp', 'channel_lastUpdatedTimestamp' - The time at which a channel was last updated.
@@ -97,6 +102,7 @@ newChannel =
       createdBy = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
       elasticChannelConfiguration = Prelude.Nothing,
+      expirationSettings = Prelude.Nothing,
       lastMessageTimestamp = Prelude.Nothing,
       lastUpdatedTimestamp = Prelude.Nothing,
       metadata = Prelude.Nothing,
@@ -125,6 +131,10 @@ channel_createdTimestamp = Lens.lens (\Channel' {createdTimestamp} -> createdTim
 -- elastic channel can support a maximum of 1-million members.
 channel_elasticChannelConfiguration :: Lens.Lens' Channel (Prelude.Maybe ElasticChannelConfiguration)
 channel_elasticChannelConfiguration = Lens.lens (\Channel' {elasticChannelConfiguration} -> elasticChannelConfiguration) (\s@Channel' {} a -> s {elasticChannelConfiguration = a} :: Channel)
+
+-- | Settings that control when a channel expires.
+channel_expirationSettings :: Lens.Lens' Channel (Prelude.Maybe ExpirationSettings)
+channel_expirationSettings = Lens.lens (\Channel' {expirationSettings} -> expirationSettings) (\s@Channel' {} a -> s {expirationSettings = a} :: Channel)
 
 -- | The time at which a member sent the last message in the channel.
 channel_lastMessageTimestamp :: Lens.Lens' Channel (Prelude.Maybe Prelude.UTCTime)
@@ -161,6 +171,7 @@ instance Data.FromJSON Channel where
             Prelude.<*> (x Data..:? "CreatedBy")
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "ElasticChannelConfiguration")
+            Prelude.<*> (x Data..:? "ExpirationSettings")
             Prelude.<*> (x Data..:? "LastMessageTimestamp")
             Prelude.<*> (x Data..:? "LastUpdatedTimestamp")
             Prelude.<*> (x Data..:? "Metadata")
@@ -171,11 +182,13 @@ instance Data.FromJSON Channel where
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` elasticChannelConfiguration
+      `Prelude.hashWithSalt` expirationSettings
       `Prelude.hashWithSalt` lastMessageTimestamp
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` metadata
@@ -190,6 +203,7 @@ instance Prelude.NFData Channel where
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf elasticChannelConfiguration
+      `Prelude.seq` Prelude.rnf expirationSettings
       `Prelude.seq` Prelude.rnf lastMessageTimestamp
       `Prelude.seq` Prelude.rnf lastUpdatedTimestamp
       `Prelude.seq` Prelude.rnf metadata

@@ -11,10 +11,10 @@
 --
 -- Derived from API version @2021-05-15@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- The Amazon Chime SDK Messaging APIs in this section allow software
+-- The Amazon Chime SDK messaging APIs in this section allow software
 -- developers to send and receive messages in custom messaging
 -- applications. These APIs depend on the frameworks provided by the Amazon
--- Chime SDK Identity APIs. For more information about the messaging APIs,
+-- Chime SDK identity APIs. For more information about the messaging APIs,
 -- see
 -- <https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html Amazon Chime SDK messaging>.
 module Amazonka.ChimeSDKMessaging
@@ -141,6 +141,12 @@ module Amazonka.ChimeSDKMessaging
     DeleteChannelModeratorResponse (DeleteChannelModeratorResponse'),
     newDeleteChannelModeratorResponse,
 
+    -- ** DeleteMessagingStreamingConfigurations
+    DeleteMessagingStreamingConfigurations (DeleteMessagingStreamingConfigurations'),
+    newDeleteMessagingStreamingConfigurations,
+    DeleteMessagingStreamingConfigurationsResponse (DeleteMessagingStreamingConfigurationsResponse'),
+    newDeleteMessagingStreamingConfigurationsResponse,
+
     -- ** DescribeChannel
     DescribeChannel (DescribeChannel'),
     newDescribeChannel,
@@ -213,6 +219,12 @@ module Amazonka.ChimeSDKMessaging
     GetMessagingSessionEndpointResponse (GetMessagingSessionEndpointResponse'),
     newGetMessagingSessionEndpointResponse,
 
+    -- ** GetMessagingStreamingConfigurations
+    GetMessagingStreamingConfigurations (GetMessagingStreamingConfigurations'),
+    newGetMessagingStreamingConfigurations,
+    GetMessagingStreamingConfigurationsResponse (GetMessagingStreamingConfigurationsResponse'),
+    newGetMessagingStreamingConfigurationsResponse,
+
     -- ** ListChannelBans
     ListChannelBans (ListChannelBans'),
     newListChannelBans,
@@ -279,11 +291,23 @@ module Amazonka.ChimeSDKMessaging
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** PutChannelExpirationSettings
+    PutChannelExpirationSettings (PutChannelExpirationSettings'),
+    newPutChannelExpirationSettings,
+    PutChannelExpirationSettingsResponse (PutChannelExpirationSettingsResponse'),
+    newPutChannelExpirationSettingsResponse,
+
     -- ** PutChannelMembershipPreferences
     PutChannelMembershipPreferences (PutChannelMembershipPreferences'),
     newPutChannelMembershipPreferences,
     PutChannelMembershipPreferencesResponse (PutChannelMembershipPreferencesResponse'),
     newPutChannelMembershipPreferencesResponse,
+
+    -- ** PutMessagingStreamingConfigurations
+    PutMessagingStreamingConfigurations (PutMessagingStreamingConfigurations'),
+    newPutMessagingStreamingConfigurations,
+    PutMessagingStreamingConfigurationsResponse (PutMessagingStreamingConfigurationsResponse'),
+    newPutMessagingStreamingConfigurationsResponse,
 
     -- ** RedactChannelMessage
     RedactChannelMessage (RedactChannelMessage'),
@@ -365,11 +389,17 @@ module Amazonka.ChimeSDKMessaging
     -- ** ErrorCode
     ErrorCode (..),
 
+    -- ** ExpirationCriterion
+    ExpirationCriterion (..),
+
     -- ** FallbackAction
     FallbackAction (..),
 
     -- ** InvocationType
     InvocationType (..),
+
+    -- ** MessagingDataType
+    MessagingDataType (..),
 
     -- ** PushNotificationType
     PushNotificationType (..),
@@ -471,6 +501,10 @@ module Amazonka.ChimeSDKMessaging
     ElasticChannelConfiguration (ElasticChannelConfiguration'),
     newElasticChannelConfiguration,
 
+    -- ** ExpirationSettings
+    ExpirationSettings (ExpirationSettings'),
+    newExpirationSettings,
+
     -- ** Identity
     Identity (Identity'),
     newIdentity,
@@ -507,6 +541,10 @@ module Amazonka.ChimeSDKMessaging
     SearchField (SearchField'),
     newSearchField,
 
+    -- ** StreamingConfiguration
+    StreamingConfiguration (StreamingConfiguration'),
+    newStreamingConfiguration,
+
     -- ** SubChannelSummary
     SubChannelSummary (SubChannelSummary'),
     newSubChannelSummary,
@@ -514,6 +552,10 @@ module Amazonka.ChimeSDKMessaging
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** Target
+    Target (Target'),
+    newTarget,
   )
 where
 
@@ -531,6 +573,7 @@ import Amazonka.ChimeSDKMessaging.DeleteChannelFlow
 import Amazonka.ChimeSDKMessaging.DeleteChannelMembership
 import Amazonka.ChimeSDKMessaging.DeleteChannelMessage
 import Amazonka.ChimeSDKMessaging.DeleteChannelModerator
+import Amazonka.ChimeSDKMessaging.DeleteMessagingStreamingConfigurations
 import Amazonka.ChimeSDKMessaging.DescribeChannel
 import Amazonka.ChimeSDKMessaging.DescribeChannelBan
 import Amazonka.ChimeSDKMessaging.DescribeChannelFlow
@@ -543,6 +586,7 @@ import Amazonka.ChimeSDKMessaging.GetChannelMembershipPreferences
 import Amazonka.ChimeSDKMessaging.GetChannelMessage
 import Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
 import Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint
+import Amazonka.ChimeSDKMessaging.GetMessagingStreamingConfigurations
 import Amazonka.ChimeSDKMessaging.Lens
 import Amazonka.ChimeSDKMessaging.ListChannelBans
 import Amazonka.ChimeSDKMessaging.ListChannelFlows
@@ -555,7 +599,9 @@ import Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
 import Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
 import Amazonka.ChimeSDKMessaging.ListSubChannels
 import Amazonka.ChimeSDKMessaging.ListTagsForResource
+import Amazonka.ChimeSDKMessaging.PutChannelExpirationSettings
 import Amazonka.ChimeSDKMessaging.PutChannelMembershipPreferences
+import Amazonka.ChimeSDKMessaging.PutMessagingStreamingConfigurations
 import Amazonka.ChimeSDKMessaging.RedactChannelMessage
 import Amazonka.ChimeSDKMessaging.SearchChannels
 import Amazonka.ChimeSDKMessaging.SendChannelMessage

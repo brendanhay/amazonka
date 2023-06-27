@@ -21,11 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the details of a channel based on the membership of the
--- specified @AppInstanceUser@.
+-- specified @AppInstanceUser@ or @AppInstanceBot@.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DescribeChannelMembershipForAppInstanceUser
   ( -- * Creating a Request
     DescribeChannelMembershipForAppInstanceUser (..),
@@ -58,9 +58,10 @@ import qualified Amazonka.Response as Response
 data DescribeChannelMembershipForAppInstanceUser = DescribeChannelMembershipForAppInstanceUser'
   { -- | The ARN of the channel to which the user belongs.
     channelArn :: Prelude.Text,
-    -- | The ARN of the user in a channel.
+    -- | The ARN of the user or bot in a channel.
     appInstanceUserArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,9 +76,10 @@ data DescribeChannelMembershipForAppInstanceUser = DescribeChannelMembershipForA
 --
 -- 'channelArn', 'describeChannelMembershipForAppInstanceUser_channelArn' - The ARN of the channel to which the user belongs.
 --
--- 'appInstanceUserArn', 'describeChannelMembershipForAppInstanceUser_appInstanceUserArn' - The ARN of the user in a channel.
+-- 'appInstanceUserArn', 'describeChannelMembershipForAppInstanceUser_appInstanceUserArn' - The ARN of the user or bot in a channel.
 --
--- 'chimeBearer', 'describeChannelMembershipForAppInstanceUser_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'describeChannelMembershipForAppInstanceUser_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDescribeChannelMembershipForAppInstanceUser ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -102,11 +104,12 @@ newDescribeChannelMembershipForAppInstanceUser
 describeChannelMembershipForAppInstanceUser_channelArn :: Lens.Lens' DescribeChannelMembershipForAppInstanceUser Prelude.Text
 describeChannelMembershipForAppInstanceUser_channelArn = Lens.lens (\DescribeChannelMembershipForAppInstanceUser' {channelArn} -> channelArn) (\s@DescribeChannelMembershipForAppInstanceUser' {} a -> s {channelArn = a} :: DescribeChannelMembershipForAppInstanceUser)
 
--- | The ARN of the user in a channel.
+-- | The ARN of the user or bot in a channel.
 describeChannelMembershipForAppInstanceUser_appInstanceUserArn :: Lens.Lens' DescribeChannelMembershipForAppInstanceUser Prelude.Text
 describeChannelMembershipForAppInstanceUser_appInstanceUserArn = Lens.lens (\DescribeChannelMembershipForAppInstanceUser' {appInstanceUserArn} -> appInstanceUserArn) (\s@DescribeChannelMembershipForAppInstanceUser' {} a -> s {appInstanceUserArn = a} :: DescribeChannelMembershipForAppInstanceUser)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 describeChannelMembershipForAppInstanceUser_chimeBearer :: Lens.Lens' DescribeChannelMembershipForAppInstanceUser Prelude.Text
 describeChannelMembershipForAppInstanceUser_chimeBearer = Lens.lens (\DescribeChannelMembershipForAppInstanceUser' {chimeBearer} -> chimeBearer) (\s@DescribeChannelMembershipForAppInstanceUser' {} a -> s {chimeBearer = a} :: DescribeChannelMembershipForAppInstanceUser)
 
@@ -125,7 +128,7 @@ instance
       ( \s h x ->
           DescribeChannelMembershipForAppInstanceUserResponse'
             Prelude.<$> (x Data..?> "ChannelMembership")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -135,7 +138,8 @@ instance
   hashWithSalt
     _salt
     DescribeChannelMembershipForAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` channelArn
+      _salt
+        `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` chimeBearer
 

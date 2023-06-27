@@ -25,9 +25,11 @@
 -- processor.
 --
 -- Only administrators or channel moderators can disassociate a channel
--- flow. The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- flow.
+--
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DisassociateChannelFlow
   ( -- * Creating a Request
     DisassociateChannelFlow (..),
@@ -118,7 +120,8 @@ instance Core.AWSRequest DisassociateChannelFlow where
 
 instance Prelude.Hashable DisassociateChannelFlow where
   hashWithSalt _salt DisassociateChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` chimeBearer
 

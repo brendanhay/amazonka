@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all channels that a particular @AppInstanceUser@ is a part of.
--- Only an @AppInstanceAdmin@ can call the API with a user ARN that is not
--- their own.
+-- Lists all channels that an @AppInstanceUser@ or @AppInstanceBot@ is a
+-- part of. Only an @AppInstanceAdmin@ can call the API with a user ARN
+-- that is not their own.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.ListChannelMembershipsForAppInstanceUser
   ( -- * Creating a Request
     ListChannelMembershipsForAppInstanceUser (..),
@@ -59,14 +59,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListChannelMembershipsForAppInstanceUser' smart constructor.
 data ListChannelMembershipsForAppInstanceUser = ListChannelMembershipsForAppInstanceUser'
-  { -- | The ARN of the @AppInstanceUser@s
+  { -- | The ARN of the user or bot.
     appInstanceUserArn :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of users that you want returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token returned from previous API requests until the number of
     -- channel memberships is reached.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -79,14 +80,15 @@ data ListChannelMembershipsForAppInstanceUser = ListChannelMembershipsForAppInst
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appInstanceUserArn', 'listChannelMembershipsForAppInstanceUser_appInstanceUserArn' - The ARN of the @AppInstanceUser@s
+-- 'appInstanceUserArn', 'listChannelMembershipsForAppInstanceUser_appInstanceUserArn' - The ARN of the user or bot.
 --
 -- 'maxResults', 'listChannelMembershipsForAppInstanceUser_maxResults' - The maximum number of users that you want returned.
 --
 -- 'nextToken', 'listChannelMembershipsForAppInstanceUser_nextToken' - The token returned from previous API requests until the number of
 -- channel memberships is reached.
 --
--- 'chimeBearer', 'listChannelMembershipsForAppInstanceUser_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'listChannelMembershipsForAppInstanceUser_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newListChannelMembershipsForAppInstanceUser ::
   -- | 'chimeBearer'
   Prelude.Text ->
@@ -101,7 +103,7 @@ newListChannelMembershipsForAppInstanceUser
         chimeBearer = pChimeBearer_
       }
 
--- | The ARN of the @AppInstanceUser@s
+-- | The ARN of the user or bot.
 listChannelMembershipsForAppInstanceUser_appInstanceUserArn :: Lens.Lens' ListChannelMembershipsForAppInstanceUser (Prelude.Maybe Prelude.Text)
 listChannelMembershipsForAppInstanceUser_appInstanceUserArn = Lens.lens (\ListChannelMembershipsForAppInstanceUser' {appInstanceUserArn} -> appInstanceUserArn) (\s@ListChannelMembershipsForAppInstanceUser' {} a -> s {appInstanceUserArn = a} :: ListChannelMembershipsForAppInstanceUser)
 
@@ -114,7 +116,8 @@ listChannelMembershipsForAppInstanceUser_maxResults = Lens.lens (\ListChannelMem
 listChannelMembershipsForAppInstanceUser_nextToken :: Lens.Lens' ListChannelMembershipsForAppInstanceUser (Prelude.Maybe Prelude.Text)
 listChannelMembershipsForAppInstanceUser_nextToken = Lens.lens (\ListChannelMembershipsForAppInstanceUser' {nextToken} -> nextToken) (\s@ListChannelMembershipsForAppInstanceUser' {} a -> s {nextToken = a} :: ListChannelMembershipsForAppInstanceUser) Prelude.. Lens.mapping Data._Sensitive
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 listChannelMembershipsForAppInstanceUser_chimeBearer :: Lens.Lens' ListChannelMembershipsForAppInstanceUser Prelude.Text
 listChannelMembershipsForAppInstanceUser_chimeBearer = Lens.lens (\ListChannelMembershipsForAppInstanceUser' {chimeBearer} -> chimeBearer) (\s@ListChannelMembershipsForAppInstanceUser' {} a -> s {chimeBearer = a} :: ListChannelMembershipsForAppInstanceUser)
 
@@ -132,11 +135,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListChannelMembershipsForAppInstanceUserResponse'
-            Prelude.<$> ( x Data..?> "ChannelMemberships"
+            Prelude.<$> ( x
+                            Data..?> "ChannelMemberships"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -146,7 +150,8 @@ instance
   hashWithSalt
     _salt
     ListChannelMembershipsForAppInstanceUser' {..} =
-      _salt `Prelude.hashWithSalt` appInstanceUserArn
+      _salt
+        `Prelude.hashWithSalt` appInstanceUserArn
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` chimeBearer

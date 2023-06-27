@@ -22,9 +22,9 @@
 --
 -- Lists all the moderators for a channel.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.ListChannelModerators
   ( -- * Creating a Request
     ListChannelModerators (..),
@@ -65,7 +65,8 @@ data ListChannelModerators = ListChannelModerators'
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -85,7 +86,8 @@ data ListChannelModerators = ListChannelModerators'
 --
 -- 'channelArn', 'listChannelModerators_channelArn' - The ARN of the channel.
 --
--- 'chimeBearer', 'listChannelModerators_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'listChannelModerators_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newListChannelModerators ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -114,7 +116,8 @@ listChannelModerators_nextToken = Lens.lens (\ListChannelModerators' {nextToken}
 listChannelModerators_channelArn :: Lens.Lens' ListChannelModerators Prelude.Text
 listChannelModerators_channelArn = Lens.lens (\ListChannelModerators' {channelArn} -> channelArn) (\s@ListChannelModerators' {} a -> s {channelArn = a} :: ListChannelModerators)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 listChannelModerators_chimeBearer :: Lens.Lens' ListChannelModerators Prelude.Text
 listChannelModerators_chimeBearer = Lens.lens (\ListChannelModerators' {chimeBearer} -> chimeBearer) (\s@ListChannelModerators' {} a -> s {chimeBearer = a} :: ListChannelModerators)
 
@@ -129,7 +132,8 @@ instance Core.AWSRequest ListChannelModerators where
       ( \s h x ->
           ListChannelModeratorsResponse'
             Prelude.<$> (x Data..?> "ChannelArn")
-            Prelude.<*> ( x Data..?> "ChannelModerators"
+            Prelude.<*> ( x
+                            Data..?> "ChannelModerators"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -138,7 +142,8 @@ instance Core.AWSRequest ListChannelModerators where
 
 instance Prelude.Hashable ListChannelModerators where
   hashWithSalt _salt ListChannelModerators' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer

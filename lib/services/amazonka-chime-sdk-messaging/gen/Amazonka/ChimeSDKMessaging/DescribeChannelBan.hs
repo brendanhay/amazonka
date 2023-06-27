@@ -22,9 +22,9 @@
 --
 -- Returns the full details of a channel ban.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DescribeChannelBan
   ( -- * Creating a Request
     DescribeChannelBan (..),
@@ -59,7 +59,8 @@ data DescribeChannelBan = DescribeChannelBan'
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the member being banned.
     memberArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +77,8 @@ data DescribeChannelBan = DescribeChannelBan'
 --
 -- 'memberArn', 'describeChannelBan_memberArn' - The @AppInstanceUserArn@ of the member being banned.
 --
--- 'chimeBearer', 'describeChannelBan_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'describeChannelBan_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDescribeChannelBan ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -103,7 +105,8 @@ describeChannelBan_channelArn = Lens.lens (\DescribeChannelBan' {channelArn} -> 
 describeChannelBan_memberArn :: Lens.Lens' DescribeChannelBan Prelude.Text
 describeChannelBan_memberArn = Lens.lens (\DescribeChannelBan' {memberArn} -> memberArn) (\s@DescribeChannelBan' {} a -> s {memberArn = a} :: DescribeChannelBan)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 describeChannelBan_chimeBearer :: Lens.Lens' DescribeChannelBan Prelude.Text
 describeChannelBan_chimeBearer = Lens.lens (\DescribeChannelBan' {chimeBearer} -> chimeBearer) (\s@DescribeChannelBan' {} a -> s {chimeBearer = a} :: DescribeChannelBan)
 
@@ -123,7 +126,8 @@ instance Core.AWSRequest DescribeChannelBan where
 
 instance Prelude.Hashable DescribeChannelBan where
   hashWithSalt _salt DescribeChannelBan' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` chimeBearer
 

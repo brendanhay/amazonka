@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestDeleteChannelModerator $
 --             newDeleteChannelModerator
 --
+--         , requestDeleteMessagingStreamingConfigurations $
+--             newDeleteMessagingStreamingConfigurations
+--
 --         , requestDescribeChannel $
 --             newDescribeChannel
 --
@@ -105,6 +108,9 @@ import Test.Tasty
 --         , requestGetMessagingSessionEndpoint $
 --             newGetMessagingSessionEndpoint
 --
+--         , requestGetMessagingStreamingConfigurations $
+--             newGetMessagingStreamingConfigurations
+--
 --         , requestListChannelBans $
 --             newListChannelBans
 --
@@ -138,8 +144,14 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestPutChannelExpirationSettings $
+--             newPutChannelExpirationSettings
+--
 --         , requestPutChannelMembershipPreferences $
 --             newPutChannelMembershipPreferences
+--
+--         , requestPutMessagingStreamingConfigurations $
+--             newPutMessagingStreamingConfigurations
 --
 --         , requestRedactChannelMessage $
 --             newRedactChannelMessage
@@ -213,6 +225,9 @@ import Test.Tasty
 --         , responseDeleteChannelModerator $
 --             newDeleteChannelModeratorResponse
 --
+--         , responseDeleteMessagingStreamingConfigurations $
+--             newDeleteMessagingStreamingConfigurationsResponse
+--
 --         , responseDescribeChannel $
 --             newDescribeChannelResponse
 --
@@ -249,6 +264,9 @@ import Test.Tasty
 --         , responseGetMessagingSessionEndpoint $
 --             newGetMessagingSessionEndpointResponse
 --
+--         , responseGetMessagingStreamingConfigurations $
+--             newGetMessagingStreamingConfigurationsResponse
+--
 --         , responseListChannelBans $
 --             newListChannelBansResponse
 --
@@ -282,8 +300,14 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responsePutChannelExpirationSettings $
+--             newPutChannelExpirationSettingsResponse
+--
 --         , responsePutChannelMembershipPreferences $
 --             newPutChannelMembershipPreferencesResponse
+--
+--         , responsePutMessagingStreamingConfigurations $
+--             newPutMessagingStreamingConfigurationsResponse
 --
 --         , responseRedactChannelMessage $
 --             newRedactChannelMessageResponse
@@ -401,6 +425,12 @@ requestDeleteChannelModerator =
     "DeleteChannelModerator"
     "fixture/DeleteChannelModerator.yaml"
 
+requestDeleteMessagingStreamingConfigurations :: DeleteMessagingStreamingConfigurations -> TestTree
+requestDeleteMessagingStreamingConfigurations =
+  req
+    "DeleteMessagingStreamingConfigurations"
+    "fixture/DeleteMessagingStreamingConfigurations.yaml"
+
 requestDescribeChannel :: DescribeChannel -> TestTree
 requestDescribeChannel =
   req
@@ -473,6 +503,12 @@ requestGetMessagingSessionEndpoint =
     "GetMessagingSessionEndpoint"
     "fixture/GetMessagingSessionEndpoint.yaml"
 
+requestGetMessagingStreamingConfigurations :: GetMessagingStreamingConfigurations -> TestTree
+requestGetMessagingStreamingConfigurations =
+  req
+    "GetMessagingStreamingConfigurations"
+    "fixture/GetMessagingStreamingConfigurations.yaml"
+
 requestListChannelBans :: ListChannelBans -> TestTree
 requestListChannelBans =
   req
@@ -539,11 +575,23 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestPutChannelExpirationSettings :: PutChannelExpirationSettings -> TestTree
+requestPutChannelExpirationSettings =
+  req
+    "PutChannelExpirationSettings"
+    "fixture/PutChannelExpirationSettings.yaml"
+
 requestPutChannelMembershipPreferences :: PutChannelMembershipPreferences -> TestTree
 requestPutChannelMembershipPreferences =
   req
     "PutChannelMembershipPreferences"
     "fixture/PutChannelMembershipPreferences.yaml"
+
+requestPutMessagingStreamingConfigurations :: PutMessagingStreamingConfigurations -> TestTree
+requestPutMessagingStreamingConfigurations =
+  req
+    "PutMessagingStreamingConfigurations"
+    "fixture/PutMessagingStreamingConfigurations.yaml"
 
 requestRedactChannelMessage :: RedactChannelMessage -> TestTree
 requestRedactChannelMessage =
@@ -713,6 +761,14 @@ responseDeleteChannelModerator =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteChannelModerator)
 
+responseDeleteMessagingStreamingConfigurations :: DeleteMessagingStreamingConfigurationsResponse -> TestTree
+responseDeleteMessagingStreamingConfigurations =
+  res
+    "DeleteMessagingStreamingConfigurationsResponse"
+    "fixture/DeleteMessagingStreamingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteMessagingStreamingConfigurations)
+
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
 responseDescribeChannel =
   res
@@ -809,6 +865,14 @@ responseGetMessagingSessionEndpoint =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMessagingSessionEndpoint)
 
+responseGetMessagingStreamingConfigurations :: GetMessagingStreamingConfigurationsResponse -> TestTree
+responseGetMessagingStreamingConfigurations =
+  res
+    "GetMessagingStreamingConfigurationsResponse"
+    "fixture/GetMessagingStreamingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetMessagingStreamingConfigurations)
+
 responseListChannelBans :: ListChannelBansResponse -> TestTree
 responseListChannelBans =
   res
@@ -897,6 +961,14 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responsePutChannelExpirationSettings :: PutChannelExpirationSettingsResponse -> TestTree
+responsePutChannelExpirationSettings =
+  res
+    "PutChannelExpirationSettingsResponse"
+    "fixture/PutChannelExpirationSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutChannelExpirationSettings)
+
 responsePutChannelMembershipPreferences :: PutChannelMembershipPreferencesResponse -> TestTree
 responsePutChannelMembershipPreferences =
   res
@@ -904,6 +976,14 @@ responsePutChannelMembershipPreferences =
     "fixture/PutChannelMembershipPreferencesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutChannelMembershipPreferences)
+
+responsePutMessagingStreamingConfigurations :: PutMessagingStreamingConfigurationsResponse -> TestTree
+responsePutMessagingStreamingConfigurations =
+  res
+    "PutMessagingStreamingConfigurationsResponse"
+    "fixture/PutMessagingStreamingConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutMessagingStreamingConfigurations)
 
 responseRedactChannelMessage :: RedactChannelMessageResponse -> TestTree
 responseRedactChannelMessage =

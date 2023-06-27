@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannelMessageStatusStructure' smart constructor.
 data ChannelMessageStatusStructure = ChannelMessageStatusStructure'
-  { -- | Contains more details about the messasge status.
+  { -- | Contains more details about the message status.
     detail :: Prelude.Maybe Prelude.Text,
     -- | The message status value.
     value :: Prelude.Maybe ChannelMessageStatus
@@ -44,7 +44,7 @@ data ChannelMessageStatusStructure = ChannelMessageStatusStructure'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'detail', 'channelMessageStatusStructure_detail' - Contains more details about the messasge status.
+-- 'detail', 'channelMessageStatusStructure_detail' - Contains more details about the message status.
 --
 -- 'value', 'channelMessageStatusStructure_value' - The message status value.
 newChannelMessageStatusStructure ::
@@ -56,7 +56,7 @@ newChannelMessageStatusStructure =
       value = Prelude.Nothing
     }
 
--- | Contains more details about the messasge status.
+-- | Contains more details about the message status.
 channelMessageStatusStructure_detail :: Lens.Lens' ChannelMessageStatusStructure (Prelude.Maybe Prelude.Text)
 channelMessageStatusStructure_detail = Lens.lens (\ChannelMessageStatusStructure' {detail} -> detail) (\s@ChannelMessageStatusStructure' {} a -> s {detail = a} :: ChannelMessageStatusStructure)
 
@@ -79,7 +79,8 @@ instance
     ChannelMessageStatusStructure
   where
   hashWithSalt _salt ChannelMessageStatusStructure' {..} =
-    _salt `Prelude.hashWithSalt` detail
+    _salt
+      `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ChannelMessageStatusStructure where

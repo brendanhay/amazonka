@@ -52,11 +52,17 @@ module Amazonka.ChimeSDKMessaging.Types
     -- * ErrorCode
     ErrorCode (..),
 
+    -- * ExpirationCriterion
+    ExpirationCriterion (..),
+
     -- * FallbackAction
     FallbackAction (..),
 
     -- * InvocationType
     InvocationType (..),
+
+    -- * MessagingDataType
+    MessagingDataType (..),
 
     -- * PushNotificationType
     PushNotificationType (..),
@@ -101,6 +107,7 @@ module Amazonka.ChimeSDKMessaging.Types
     channel_createdBy,
     channel_createdTimestamp,
     channel_elasticChannelConfiguration,
+    channel_expirationSettings,
     channel_lastMessageTimestamp,
     channel_lastUpdatedTimestamp,
     channel_metadata,
@@ -178,6 +185,7 @@ module Amazonka.ChimeSDKMessaging.Types
     newChannelMessage,
     channelMessage_channelArn,
     channelMessage_content,
+    channelMessage_contentType,
     channelMessage_createdTimestamp,
     channelMessage_lastEditedTimestamp,
     channelMessage_lastUpdatedTimestamp,
@@ -189,12 +197,14 @@ module Amazonka.ChimeSDKMessaging.Types
     channelMessage_sender,
     channelMessage_status,
     channelMessage_subChannelId,
+    channelMessage_target,
     channelMessage_type,
 
     -- * ChannelMessageCallback
     ChannelMessageCallback (..),
     newChannelMessageCallback,
     channelMessageCallback_content,
+    channelMessageCallback_contentType,
     channelMessageCallback_messageAttributes,
     channelMessageCallback_metadata,
     channelMessageCallback_pushNotification,
@@ -211,6 +221,7 @@ module Amazonka.ChimeSDKMessaging.Types
     ChannelMessageSummary (..),
     newChannelMessageSummary,
     channelMessageSummary_content,
+    channelMessageSummary_contentType,
     channelMessageSummary_createdTimestamp,
     channelMessageSummary_lastEditedTimestamp,
     channelMessageSummary_lastUpdatedTimestamp,
@@ -220,6 +231,7 @@ module Amazonka.ChimeSDKMessaging.Types
     channelMessageSummary_redacted,
     channelMessageSummary_sender,
     channelMessageSummary_status,
+    channelMessageSummary_target,
     channelMessageSummary_type,
 
     -- * ChannelModeratedByAppInstanceUserSummary
@@ -256,6 +268,12 @@ module Amazonka.ChimeSDKMessaging.Types
     elasticChannelConfiguration_maximumSubChannels,
     elasticChannelConfiguration_targetMembershipsPerSubChannel,
     elasticChannelConfiguration_minimumMembershipPercentage,
+
+    -- * ExpirationSettings
+    ExpirationSettings (..),
+    newExpirationSettings,
+    expirationSettings_expirationDays,
+    expirationSettings_expirationCriterion,
 
     -- * Identity
     Identity (..),
@@ -312,6 +330,12 @@ module Amazonka.ChimeSDKMessaging.Types
     searchField_values,
     searchField_operator,
 
+    -- * StreamingConfiguration
+    StreamingConfiguration (..),
+    newStreamingConfiguration,
+    streamingConfiguration_dataType,
+    streamingConfiguration_resourceArn,
+
     -- * SubChannelSummary
     SubChannelSummary (..),
     newSubChannelSummary,
@@ -323,6 +347,11 @@ module Amazonka.ChimeSDKMessaging.Types
     newTag,
     tag_key,
     tag_value,
+
+    -- * Target
+    Target (..),
+    newTarget,
+    target_memberArn,
   )
 where
 
@@ -356,11 +385,14 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
 import Amazonka.ChimeSDKMessaging.Types.ChannelSummary
 import Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
 import Amazonka.ChimeSDKMessaging.Types.ErrorCode
+import Amazonka.ChimeSDKMessaging.Types.ExpirationCriterion
+import Amazonka.ChimeSDKMessaging.Types.ExpirationSettings
 import Amazonka.ChimeSDKMessaging.Types.FallbackAction
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import Amazonka.ChimeSDKMessaging.Types.InvocationType
 import Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
 import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
+import Amazonka.ChimeSDKMessaging.Types.MessagingDataType
 import Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
 import Amazonka.ChimeSDKMessaging.Types.Processor
 import Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
@@ -371,8 +403,10 @@ import Amazonka.ChimeSDKMessaging.Types.SearchField
 import Amazonka.ChimeSDKMessaging.Types.SearchFieldKey
 import Amazonka.ChimeSDKMessaging.Types.SearchFieldOperator
 import Amazonka.ChimeSDKMessaging.Types.SortOrder
+import Amazonka.ChimeSDKMessaging.Types.StreamingConfiguration
 import Amazonka.ChimeSDKMessaging.Types.SubChannelSummary
 import Amazonka.ChimeSDKMessaging.Types.Tag
+import Amazonka.ChimeSDKMessaging.Types.Target
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -404,52 +438,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The input parameters don\'t match the service\'s restrictions.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -458,7 +492,7 @@ _BadRequestException =
 
 -- | The request could not be processed because of conflict in the current
 -- state of the resource.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -466,7 +500,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | The client is permanently forbidden from making the request.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -475,7 +509,7 @@ _ForbiddenException =
 
 -- | One or more of the resources in the request does not exist in the
 -- system.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -483,7 +517,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request exceeds the resource limit.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -491,7 +525,7 @@ _ResourceLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The service encountered an unexpected error.
-_ServiceFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceFailureException =
   Core._MatchServiceError
     defaultService
@@ -499,7 +533,7 @@ _ServiceFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The service is currently unavailable.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
@@ -507,7 +541,7 @@ _ServiceUnavailableException =
     Prelude.. Core.hasStatus 503
 
 -- | The client exceeded its request rate limit.
-_ThrottledClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottledClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottledClientException =
   Core._MatchServiceError
     defaultService
@@ -515,7 +549,7 @@ _ThrottledClientException =
     Prelude.. Core.hasStatus 429
 
 -- | The client is not currently authorized to make the request.
-_UnauthorizedClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedClientException =
   Core._MatchServiceError
     defaultService

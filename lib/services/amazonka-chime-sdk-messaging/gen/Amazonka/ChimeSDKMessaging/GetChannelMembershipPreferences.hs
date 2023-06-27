@@ -20,13 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the membership preferences of an @AppInstanceUser@ for the
--- specified channel. The @AppInstanceUser@ must be a member of the
--- channel. Only the @AppInstanceUser@ who owns the membership can retrieve
--- preferences. Users in the @AppInstanceAdmin@ and channel moderator roles
--- can\'t retrieve preferences for other users. Banned users can\'t
--- retrieve membership preferences for the channel from which they are
--- banned.
+-- Gets the membership preferences of an @AppInstanceUser@ or
+-- @AppInstanceBot@ for the specified channel. A user or a bot must be a
+-- member of the channel and own the membership in order to retrieve
+-- membership preferences. Users or bots in the @AppInstanceAdmin@ and
+-- channel moderator roles can\'t retrieve preferences for other users or
+-- bots. Banned users or bots can\'t retrieve membership preferences for
+-- the channel from which they are banned.
+--
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.GetChannelMembershipPreferences
   ( -- * Creating a Request
     GetChannelMembershipPreferences (..),
@@ -63,7 +67,8 @@ data GetChannelMembershipPreferences = GetChannelMembershipPreferences'
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the member retrieving the preferences.
     memberArn :: Prelude.Text,
-    -- | The @AppInstanceUserARN@ of the user making the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,7 +85,8 @@ data GetChannelMembershipPreferences = GetChannelMembershipPreferences'
 --
 -- 'memberArn', 'getChannelMembershipPreferences_memberArn' - The @AppInstanceUserArn@ of the member retrieving the preferences.
 --
--- 'chimeBearer', 'getChannelMembershipPreferences_chimeBearer' - The @AppInstanceUserARN@ of the user making the API call.
+-- 'chimeBearer', 'getChannelMembershipPreferences_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newGetChannelMembershipPreferences ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -108,7 +114,8 @@ getChannelMembershipPreferences_channelArn = Lens.lens (\GetChannelMembershipPre
 getChannelMembershipPreferences_memberArn :: Lens.Lens' GetChannelMembershipPreferences Prelude.Text
 getChannelMembershipPreferences_memberArn = Lens.lens (\GetChannelMembershipPreferences' {memberArn} -> memberArn) (\s@GetChannelMembershipPreferences' {} a -> s {memberArn = a} :: GetChannelMembershipPreferences)
 
--- | The @AppInstanceUserARN@ of the user making the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 getChannelMembershipPreferences_chimeBearer :: Lens.Lens' GetChannelMembershipPreferences Prelude.Text
 getChannelMembershipPreferences_chimeBearer = Lens.lens (\GetChannelMembershipPreferences' {chimeBearer} -> chimeBearer) (\s@GetChannelMembershipPreferences' {} a -> s {chimeBearer = a} :: GetChannelMembershipPreferences)
 
@@ -138,7 +145,8 @@ instance
   hashWithSalt
     _salt
     GetChannelMembershipPreferences' {..} =
-      _salt `Prelude.hashWithSalt` channelArn
+      _salt
+        `Prelude.hashWithSalt` channelArn
         `Prelude.hashWithSalt` memberArn
         `Prelude.hashWithSalt` chimeBearer
 

@@ -22,9 +22,9 @@
 --
 -- Returns the full details of a channel in an Amazon Chime @AppInstance@.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DescribeChannel
   ( -- * Creating a Request
     DescribeChannel (..),
@@ -56,7 +56,8 @@ import qualified Amazonka.Response as Response
 data DescribeChannel = DescribeChannel'
   { -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +72,8 @@ data DescribeChannel = DescribeChannel'
 --
 -- 'channelArn', 'describeChannel_channelArn' - The ARN of the channel.
 --
--- 'chimeBearer', 'describeChannel_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'describeChannel_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDescribeChannel ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -88,7 +90,8 @@ newDescribeChannel pChannelArn_ pChimeBearer_ =
 describeChannel_channelArn :: Lens.Lens' DescribeChannel Prelude.Text
 describeChannel_channelArn = Lens.lens (\DescribeChannel' {channelArn} -> channelArn) (\s@DescribeChannel' {} a -> s {channelArn = a} :: DescribeChannel)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 describeChannel_chimeBearer :: Lens.Lens' DescribeChannel Prelude.Text
 describeChannel_chimeBearer = Lens.lens (\DescribeChannel' {chimeBearer} -> chimeBearer) (\s@DescribeChannel' {} a -> s {chimeBearer = a} :: DescribeChannel)
 
@@ -108,7 +111,8 @@ instance Core.AWSRequest DescribeChannel where
 
 instance Prelude.Hashable DescribeChannel where
   hashWithSalt _salt DescribeChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData DescribeChannel where

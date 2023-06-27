@@ -20,9 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allows @ChimeBearer@ to search channels by channel members.
--- AppInstanceUsers can search across the channels that they belong to.
--- AppInstanceAdmins can search across all channels.
+-- Allows the @ChimeBearer@ to search channels by channel members. Users or
+-- bots can search across the channels that they belong to. Users in the
+-- @AppInstanceAdmin@ role can search across all channels.
+--
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.SearchChannels
   ( -- * Creating a Request
     SearchChannels (..),
@@ -129,7 +133,8 @@ instance Core.AWSRequest SearchChannels where
 
 instance Prelude.Hashable SearchChannels where
   hashWithSalt _salt SearchChannels' {..} =
-    _salt `Prelude.hashWithSalt` chimeBearer
+    _salt
+      `Prelude.hashWithSalt` chimeBearer
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` fields

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a specified number of users to a channel.
+-- Adds a specified number of users and bots to a channel.
 module Amazonka.ChimeSDKMessaging.BatchCreateChannelMembership
   ( -- * Creating a Request
     BatchCreateChannelMembership (..),
@@ -65,11 +65,14 @@ data BatchCreateChannelMembership = BatchCreateChannelMembership'
     -- @HIDDEN@. Otherwise hidden members are not returned. This is only
     -- supported by moderators.
     type' :: Prelude.Maybe ChannelMembershipType,
-    -- | The ARN of the channel to which you\'re adding users.
+    -- | The ARN of the channel to which you\'re adding users or bots.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@s of the members you want to add to the channel.
+    -- | The ARNs of the members you want to add to the channel. Only
+    -- @AppInstanceUsers@ and @AppInstanceBots@ can be added as a channel
+    -- member.
     memberArns :: Prelude.NonEmpty Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,11 +96,14 @@ data BatchCreateChannelMembership = BatchCreateChannelMembership'
 -- @HIDDEN@. Otherwise hidden members are not returned. This is only
 -- supported by moderators.
 --
--- 'channelArn', 'batchCreateChannelMembership_channelArn' - The ARN of the channel to which you\'re adding users.
+-- 'channelArn', 'batchCreateChannelMembership_channelArn' - The ARN of the channel to which you\'re adding users or bots.
 --
--- 'memberArns', 'batchCreateChannelMembership_memberArns' - The @AppInstanceUserArn@s of the members you want to add to the channel.
+-- 'memberArns', 'batchCreateChannelMembership_memberArns' - The ARNs of the members you want to add to the channel. Only
+-- @AppInstanceUsers@ and @AppInstanceBots@ can be added as a channel
+-- member.
 --
--- 'chimeBearer', 'batchCreateChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'batchCreateChannelMembership_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newBatchCreateChannelMembership ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -134,15 +140,18 @@ batchCreateChannelMembership_subChannelId = Lens.lens (\BatchCreateChannelMember
 batchCreateChannelMembership_type :: Lens.Lens' BatchCreateChannelMembership (Prelude.Maybe ChannelMembershipType)
 batchCreateChannelMembership_type = Lens.lens (\BatchCreateChannelMembership' {type'} -> type') (\s@BatchCreateChannelMembership' {} a -> s {type' = a} :: BatchCreateChannelMembership)
 
--- | The ARN of the channel to which you\'re adding users.
+-- | The ARN of the channel to which you\'re adding users or bots.
 batchCreateChannelMembership_channelArn :: Lens.Lens' BatchCreateChannelMembership Prelude.Text
 batchCreateChannelMembership_channelArn = Lens.lens (\BatchCreateChannelMembership' {channelArn} -> channelArn) (\s@BatchCreateChannelMembership' {} a -> s {channelArn = a} :: BatchCreateChannelMembership)
 
--- | The @AppInstanceUserArn@s of the members you want to add to the channel.
+-- | The ARNs of the members you want to add to the channel. Only
+-- @AppInstanceUsers@ and @AppInstanceBots@ can be added as a channel
+-- member.
 batchCreateChannelMembership_memberArns :: Lens.Lens' BatchCreateChannelMembership (Prelude.NonEmpty Prelude.Text)
 batchCreateChannelMembership_memberArns = Lens.lens (\BatchCreateChannelMembership' {memberArns} -> memberArns) (\s@BatchCreateChannelMembership' {} a -> s {memberArns = a} :: BatchCreateChannelMembership) Prelude.. Lens.coerced
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 batchCreateChannelMembership_chimeBearer :: Lens.Lens' BatchCreateChannelMembership Prelude.Text
 batchCreateChannelMembership_chimeBearer = Lens.lens (\BatchCreateChannelMembership' {chimeBearer} -> chimeBearer) (\s@BatchCreateChannelMembership' {} a -> s {chimeBearer = a} :: BatchCreateChannelMembership)
 
@@ -166,7 +175,8 @@ instance
     BatchCreateChannelMembership
   where
   hashWithSalt _salt BatchCreateChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArns

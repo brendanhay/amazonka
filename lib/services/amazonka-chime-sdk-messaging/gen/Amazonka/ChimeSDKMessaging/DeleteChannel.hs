@@ -23,16 +23,15 @@
 -- Immediately makes a channel and its memberships inaccessible and marks
 -- them for deletion. This is an irreversible process.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUserArn@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DeleteChannel
   ( -- * Creating a Request
     DeleteChannel (..),
     newDeleteChannel,
 
     -- * Request Lenses
-    deleteChannel_subChannelId,
     deleteChannel_channelArn,
     deleteChannel_chimeBearer,
 
@@ -52,11 +51,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteChannel' smart constructor.
 data DeleteChannel = DeleteChannel'
-  { -- | The ID of the SubChannel in the request.
-    subChannelId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the channel being deleted.
+  { -- | The ARN of the channel being deleted.
     channelArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +67,10 @@ data DeleteChannel = DeleteChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subChannelId', 'deleteChannel_subChannelId' - The ID of the SubChannel in the request.
---
 -- 'channelArn', 'deleteChannel_channelArn' - The ARN of the channel being deleted.
 --
--- 'chimeBearer', 'deleteChannel_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'deleteChannel_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDeleteChannel ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -82,20 +79,16 @@ newDeleteChannel ::
   DeleteChannel
 newDeleteChannel pChannelArn_ pChimeBearer_ =
   DeleteChannel'
-    { subChannelId = Prelude.Nothing,
-      channelArn = pChannelArn_,
+    { channelArn = pChannelArn_,
       chimeBearer = pChimeBearer_
     }
-
--- | The ID of the SubChannel in the request.
-deleteChannel_subChannelId :: Lens.Lens' DeleteChannel (Prelude.Maybe Prelude.Text)
-deleteChannel_subChannelId = Lens.lens (\DeleteChannel' {subChannelId} -> subChannelId) (\s@DeleteChannel' {} a -> s {subChannelId = a} :: DeleteChannel)
 
 -- | The ARN of the channel being deleted.
 deleteChannel_channelArn :: Lens.Lens' DeleteChannel Prelude.Text
 deleteChannel_channelArn = Lens.lens (\DeleteChannel' {channelArn} -> channelArn) (\s@DeleteChannel' {} a -> s {channelArn = a} :: DeleteChannel)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 deleteChannel_chimeBearer :: Lens.Lens' DeleteChannel Prelude.Text
 deleteChannel_chimeBearer = Lens.lens (\DeleteChannel' {chimeBearer} -> chimeBearer) (\s@DeleteChannel' {} a -> s {chimeBearer = a} :: DeleteChannel)
 
@@ -110,14 +103,13 @@ instance Core.AWSRequest DeleteChannel where
 
 instance Prelude.Hashable DeleteChannel where
   hashWithSalt _salt DeleteChannel' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData DeleteChannel where
   rnf DeleteChannel' {..} =
-    Prelude.rnf subChannelId
-      `Prelude.seq` Prelude.rnf channelArn
+    Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
 instance Data.ToHeaders DeleteChannel where
@@ -131,9 +123,7 @@ instance Data.ToPath DeleteChannel where
       ["/channels/", Data.toBS channelArn]
 
 instance Data.ToQuery DeleteChannel where
-  toQuery DeleteChannel' {..} =
-    Prelude.mconcat
-      ["sub-channel-id" Data.=: subChannelId]
+  toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDeleteChannelResponse' smart constructor.
 data DeleteChannelResponse = DeleteChannelResponse'

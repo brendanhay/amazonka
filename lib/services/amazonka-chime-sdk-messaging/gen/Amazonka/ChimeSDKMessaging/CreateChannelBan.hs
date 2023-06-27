@@ -28,9 +28,9 @@
 -- If you ban a user who is already part of a channel, that user is
 -- automatically kicked from the channel.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.CreateChannelBan
   ( -- * Creating a Request
     CreateChannelBan (..),
@@ -66,7 +66,8 @@ data CreateChannelBan = CreateChannelBan'
     channelArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the member being banned.
     memberArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +84,8 @@ data CreateChannelBan = CreateChannelBan'
 --
 -- 'memberArn', 'createChannelBan_memberArn' - The @AppInstanceUserArn@ of the member being banned.
 --
--- 'chimeBearer', 'createChannelBan_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'createChannelBan_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newCreateChannelBan ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -110,7 +112,8 @@ createChannelBan_channelArn = Lens.lens (\CreateChannelBan' {channelArn} -> chan
 createChannelBan_memberArn :: Lens.Lens' CreateChannelBan Prelude.Text
 createChannelBan_memberArn = Lens.lens (\CreateChannelBan' {memberArn} -> memberArn) (\s@CreateChannelBan' {} a -> s {memberArn = a} :: CreateChannelBan)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 createChannelBan_chimeBearer :: Lens.Lens' CreateChannelBan Prelude.Text
 createChannelBan_chimeBearer = Lens.lens (\CreateChannelBan' {chimeBearer} -> chimeBearer) (\s@CreateChannelBan' {} a -> s {chimeBearer = a} :: CreateChannelBan)
 
@@ -131,7 +134,8 @@ instance Core.AWSRequest CreateChannelBan where
 
 instance Prelude.Hashable CreateChannelBan where
   hashWithSalt _salt CreateChannelBan' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` chimeBearer
 

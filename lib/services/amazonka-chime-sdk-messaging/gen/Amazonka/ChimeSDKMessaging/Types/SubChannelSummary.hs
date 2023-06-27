@@ -75,7 +75,8 @@ instance Data.FromJSON SubChannelSummary where
 
 instance Prelude.Hashable SubChannelSummary where
   hashWithSalt _salt SubChannelSummary' {..} =
-    _salt `Prelude.hashWithSalt` membershipCount
+    _salt
+      `Prelude.hashWithSalt` membershipCount
       `Prelude.hashWithSalt` subChannelId
 
 instance Prelude.NFData SubChannelSummary where

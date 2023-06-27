@@ -138,7 +138,8 @@ instance Data.FromJSON Processor where
 
 instance Prelude.Hashable Processor where
   hashWithSalt _salt Processor' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` executionOrder
       `Prelude.hashWithSalt` fallbackAction

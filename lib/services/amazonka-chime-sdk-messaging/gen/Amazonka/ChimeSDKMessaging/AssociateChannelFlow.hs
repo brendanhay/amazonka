@@ -25,9 +25,9 @@
 -- use the @DisassociateChannelFlow@ API.
 --
 -- Only administrators or channel moderators can associate a channel flow.
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.AssociateChannelFlow
   ( -- * Creating a Request
     AssociateChannelFlow (..),
@@ -117,7 +117,8 @@ instance Core.AWSRequest AssociateChannelFlow where
 
 instance Prelude.Hashable AssociateChannelFlow where
   hashWithSalt _salt AssociateChannelFlow' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` channelFlowArn
       `Prelude.hashWithSalt` chimeBearer
 

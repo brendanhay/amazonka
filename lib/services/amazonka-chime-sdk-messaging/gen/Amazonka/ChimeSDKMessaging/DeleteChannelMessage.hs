@@ -24,9 +24,9 @@
 -- makes messages inaccessible immediately. A background process deletes
 -- any revisions created by @UpdateChannelMessage@.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.DeleteChannelMessage
   ( -- * Creating a Request
     DeleteChannelMessage (..),
@@ -63,7 +63,8 @@ data DeleteChannelMessage = DeleteChannelMessage'
     channelArn :: Prelude.Text,
     -- | The ID of the message being deleted.
     messageId :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +86,8 @@ data DeleteChannelMessage = DeleteChannelMessage'
 --
 -- 'messageId', 'deleteChannelMessage_messageId' - The ID of the message being deleted.
 --
--- 'chimeBearer', 'deleteChannelMessage_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'deleteChannelMessage_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newDeleteChannelMessage ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -121,7 +123,8 @@ deleteChannelMessage_channelArn = Lens.lens (\DeleteChannelMessage' {channelArn}
 deleteChannelMessage_messageId :: Lens.Lens' DeleteChannelMessage Prelude.Text
 deleteChannelMessage_messageId = Lens.lens (\DeleteChannelMessage' {messageId} -> messageId) (\s@DeleteChannelMessage' {} a -> s {messageId = a} :: DeleteChannelMessage)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 deleteChannelMessage_chimeBearer :: Lens.Lens' DeleteChannelMessage Prelude.Text
 deleteChannelMessage_chimeBearer = Lens.lens (\DeleteChannelMessage' {chimeBearer} -> chimeBearer) (\s@DeleteChannelMessage' {} a -> s {chimeBearer = a} :: DeleteChannelMessage)
 
@@ -136,7 +139,8 @@ instance Core.AWSRequest DeleteChannelMessage where
 
 instance Prelude.Hashable DeleteChannelMessage where
   hashWithSalt _salt DeleteChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` chimeBearer

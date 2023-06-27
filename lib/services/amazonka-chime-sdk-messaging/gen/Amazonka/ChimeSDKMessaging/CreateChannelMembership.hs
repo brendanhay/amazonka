@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a user to a channel. The @InvitedBy@ field in @ChannelMembership@
+-- Adds a member to a channel. The @InvitedBy@ field in @ChannelMembership@
 -- is derived from the request header. A channel member can:
 --
 -- -   List messages
@@ -40,9 +40,9 @@
 --
 -- -   Private Channels: You must be a member to list or send messages.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUserArn@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.CreateChannelMembership
   ( -- * Creating a Request
     CreateChannelMembership (..),
@@ -92,7 +92,8 @@ data CreateChannelMembership = CreateChannelMembership'
     -- @HIDDEN@. Otherwise hidden members are not returned. This is only
     -- supported by moderators.
     type' :: ChannelMembershipType,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -120,7 +121,8 @@ data CreateChannelMembership = CreateChannelMembership'
 -- @HIDDEN@. Otherwise hidden members are not returned. This is only
 -- supported by moderators.
 --
--- 'chimeBearer', 'createChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'createChannelMembership_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newCreateChannelMembership ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -168,7 +170,8 @@ createChannelMembership_memberArn = Lens.lens (\CreateChannelMembership' {member
 createChannelMembership_type :: Lens.Lens' CreateChannelMembership ChannelMembershipType
 createChannelMembership_type = Lens.lens (\CreateChannelMembership' {type'} -> type') (\s@CreateChannelMembership' {} a -> s {type' = a} :: CreateChannelMembership)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 createChannelMembership_chimeBearer :: Lens.Lens' CreateChannelMembership Prelude.Text
 createChannelMembership_chimeBearer = Lens.lens (\CreateChannelMembership' {chimeBearer} -> chimeBearer) (\s@CreateChannelMembership' {} a -> s {chimeBearer = a} :: CreateChannelMembership)
 
@@ -190,7 +193,8 @@ instance Core.AWSRequest CreateChannelMembership where
 
 instance Prelude.Hashable CreateChannelMembership where
   hashWithSalt _salt CreateChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` subChannelId
+    _salt
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` type'

@@ -22,23 +22,27 @@
 --
 -- Sends a message to a particular channel that the member is a part of.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 --
--- Also, @STANDARD@ messages can contain 4KB of data and the 1KB of
--- metadata. @CONTROL@ messages can contain 30 bytes of data and no
--- metadata.
+-- Also, @STANDARD@ messages can be up to 4KB in size and contain metadata.
+-- Metadata is arbitrary, and you can use it in a variety of ways, such as
+-- containing a link to an attachment.
+--
+-- @CONTROL@ messages are limited to 30 bytes and do not contain metadata.
 module Amazonka.ChimeSDKMessaging.SendChannelMessage
   ( -- * Creating a Request
     SendChannelMessage (..),
     newSendChannelMessage,
 
     -- * Request Lenses
+    sendChannelMessage_contentType,
     sendChannelMessage_messageAttributes,
     sendChannelMessage_metadata,
     sendChannelMessage_pushNotification,
     sendChannelMessage_subChannelId,
+    sendChannelMessage_target,
     sendChannelMessage_channelArn,
     sendChannelMessage_content,
     sendChannelMessage_type,
@@ -69,7 +73,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSendChannelMessage' smart constructor.
 data SendChannelMessage = SendChannelMessage'
-  { -- | The attributes for the message, used for message filtering along with a
+  { -- | The content type of the channel message.
+    contentType :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The attributes for the message, used for message filtering along with a
     -- @FilterRule@ defined in the @PushNotificationPreferences@.
     messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The optional metadata for each message.
@@ -78,18 +84,31 @@ data SendChannelMessage = SendChannelMessage'
     pushNotification :: Prelude.Maybe PushNotificationConfiguration,
     -- | The ID of the SubChannel in the request.
     subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The target of a message. Must be a member of the channel, such as
+    -- another user, a bot, or the sender. Only the target and the sender can
+    -- view targeted messages. Only users who can see targeted messages can
+    -- take actions on them. However, administrators can delete targeted
+    -- messages that they can’t see.
+    target :: Prelude.Maybe (Prelude.NonEmpty Target),
     -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The content of the message.
+    -- | The content of the channel message.
     content :: Data.Sensitive Prelude.Text,
     -- | The type of message, @STANDARD@ or @CONTROL@.
+    --
+    -- @STANDARD@ messages can be up to 4KB in size and contain metadata.
+    -- Metadata is arbitrary, and you can use it in a variety of ways, such as
+    -- containing a link to an attachment.
+    --
+    -- @CONTROL@ messages are limited to 30 bytes and do not contain metadata.
     type' :: ChannelMessageType,
     -- | Boolean that controls whether the message is persisted on the back end.
     -- Required.
     persistence :: ChannelMessagePersistenceType,
     -- | The @Idempotency@ token for each client request.
     clientRequestToken :: Data.Sensitive Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -102,6 +121,8 @@ data SendChannelMessage = SendChannelMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'contentType', 'sendChannelMessage_contentType' - The content type of the channel message.
+--
 -- 'messageAttributes', 'sendChannelMessage_messageAttributes' - The attributes for the message, used for message filtering along with a
 -- @FilterRule@ defined in the @PushNotificationPreferences@.
 --
@@ -111,18 +132,31 @@ data SendChannelMessage = SendChannelMessage'
 --
 -- 'subChannelId', 'sendChannelMessage_subChannelId' - The ID of the SubChannel in the request.
 --
+-- 'target', 'sendChannelMessage_target' - The target of a message. Must be a member of the channel, such as
+-- another user, a bot, or the sender. Only the target and the sender can
+-- view targeted messages. Only users who can see targeted messages can
+-- take actions on them. However, administrators can delete targeted
+-- messages that they can’t see.
+--
 -- 'channelArn', 'sendChannelMessage_channelArn' - The ARN of the channel.
 --
--- 'content', 'sendChannelMessage_content' - The content of the message.
+-- 'content', 'sendChannelMessage_content' - The content of the channel message.
 --
 -- 'type'', 'sendChannelMessage_type' - The type of message, @STANDARD@ or @CONTROL@.
+--
+-- @STANDARD@ messages can be up to 4KB in size and contain metadata.
+-- Metadata is arbitrary, and you can use it in a variety of ways, such as
+-- containing a link to an attachment.
+--
+-- @CONTROL@ messages are limited to 30 bytes and do not contain metadata.
 --
 -- 'persistence', 'sendChannelMessage_persistence' - Boolean that controls whether the message is persisted on the back end.
 -- Required.
 --
 -- 'clientRequestToken', 'sendChannelMessage_clientRequestToken' - The @Idempotency@ token for each client request.
 --
--- 'chimeBearer', 'sendChannelMessage_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'sendChannelMessage_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newSendChannelMessage ::
   -- | 'channelArn'
   Prelude.Text ->
@@ -145,11 +179,12 @@ newSendChannelMessage
   pClientRequestToken_
   pChimeBearer_ =
     SendChannelMessage'
-      { messageAttributes =
-          Prelude.Nothing,
+      { contentType = Prelude.Nothing,
+        messageAttributes = Prelude.Nothing,
         metadata = Prelude.Nothing,
         pushNotification = Prelude.Nothing,
         subChannelId = Prelude.Nothing,
+        target = Prelude.Nothing,
         channelArn = pChannelArn_,
         content = Data._Sensitive Lens.# pContent_,
         type' = pType_,
@@ -158,6 +193,10 @@ newSendChannelMessage
           Data._Sensitive Lens.# pClientRequestToken_,
         chimeBearer = pChimeBearer_
       }
+
+-- | The content type of the channel message.
+sendChannelMessage_contentType :: Lens.Lens' SendChannelMessage (Prelude.Maybe Prelude.Text)
+sendChannelMessage_contentType = Lens.lens (\SendChannelMessage' {contentType} -> contentType) (\s@SendChannelMessage' {} a -> s {contentType = a} :: SendChannelMessage) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The attributes for the message, used for message filtering along with a
 -- @FilterRule@ defined in the @PushNotificationPreferences@.
@@ -176,15 +215,29 @@ sendChannelMessage_pushNotification = Lens.lens (\SendChannelMessage' {pushNotif
 sendChannelMessage_subChannelId :: Lens.Lens' SendChannelMessage (Prelude.Maybe Prelude.Text)
 sendChannelMessage_subChannelId = Lens.lens (\SendChannelMessage' {subChannelId} -> subChannelId) (\s@SendChannelMessage' {} a -> s {subChannelId = a} :: SendChannelMessage)
 
+-- | The target of a message. Must be a member of the channel, such as
+-- another user, a bot, or the sender. Only the target and the sender can
+-- view targeted messages. Only users who can see targeted messages can
+-- take actions on them. However, administrators can delete targeted
+-- messages that they can’t see.
+sendChannelMessage_target :: Lens.Lens' SendChannelMessage (Prelude.Maybe (Prelude.NonEmpty Target))
+sendChannelMessage_target = Lens.lens (\SendChannelMessage' {target} -> target) (\s@SendChannelMessage' {} a -> s {target = a} :: SendChannelMessage) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ARN of the channel.
 sendChannelMessage_channelArn :: Lens.Lens' SendChannelMessage Prelude.Text
 sendChannelMessage_channelArn = Lens.lens (\SendChannelMessage' {channelArn} -> channelArn) (\s@SendChannelMessage' {} a -> s {channelArn = a} :: SendChannelMessage)
 
--- | The content of the message.
+-- | The content of the channel message.
 sendChannelMessage_content :: Lens.Lens' SendChannelMessage Prelude.Text
 sendChannelMessage_content = Lens.lens (\SendChannelMessage' {content} -> content) (\s@SendChannelMessage' {} a -> s {content = a} :: SendChannelMessage) Prelude.. Data._Sensitive
 
 -- | The type of message, @STANDARD@ or @CONTROL@.
+--
+-- @STANDARD@ messages can be up to 4KB in size and contain metadata.
+-- Metadata is arbitrary, and you can use it in a variety of ways, such as
+-- containing a link to an attachment.
+--
+-- @CONTROL@ messages are limited to 30 bytes and do not contain metadata.
 sendChannelMessage_type :: Lens.Lens' SendChannelMessage ChannelMessageType
 sendChannelMessage_type = Lens.lens (\SendChannelMessage' {type'} -> type') (\s@SendChannelMessage' {} a -> s {type' = a} :: SendChannelMessage)
 
@@ -197,7 +250,8 @@ sendChannelMessage_persistence = Lens.lens (\SendChannelMessage' {persistence} -
 sendChannelMessage_clientRequestToken :: Lens.Lens' SendChannelMessage Prelude.Text
 sendChannelMessage_clientRequestToken = Lens.lens (\SendChannelMessage' {clientRequestToken} -> clientRequestToken) (\s@SendChannelMessage' {} a -> s {clientRequestToken = a} :: SendChannelMessage) Prelude.. Data._Sensitive
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 sendChannelMessage_chimeBearer :: Lens.Lens' SendChannelMessage Prelude.Text
 sendChannelMessage_chimeBearer = Lens.lens (\SendChannelMessage' {chimeBearer} -> chimeBearer) (\s@SendChannelMessage' {} a -> s {chimeBearer = a} :: SendChannelMessage)
 
@@ -220,10 +274,13 @@ instance Core.AWSRequest SendChannelMessage where
 
 instance Prelude.Hashable SendChannelMessage where
   hashWithSalt _salt SendChannelMessage' {..} =
-    _salt `Prelude.hashWithSalt` messageAttributes
+    _salt
+      `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` pushNotification
       `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` type'
@@ -233,10 +290,12 @@ instance Prelude.Hashable SendChannelMessage where
 
 instance Prelude.NFData SendChannelMessage where
   rnf SendChannelMessage' {..} =
-    Prelude.rnf messageAttributes
+    Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf messageAttributes
       `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf pushNotification
       `Prelude.seq` Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf target
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf content
       `Prelude.seq` Prelude.rnf type'
@@ -253,12 +312,14 @@ instance Data.ToJSON SendChannelMessage where
   toJSON SendChannelMessage' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("MessageAttributes" Data..=)
+          [ ("ContentType" Data..=) Prelude.<$> contentType,
+            ("MessageAttributes" Data..=)
               Prelude.<$> messageAttributes,
             ("Metadata" Data..=) Prelude.<$> metadata,
             ("PushNotification" Data..=)
               Prelude.<$> pushNotification,
             ("SubChannelId" Data..=) Prelude.<$> subChannelId,
+            ("Target" Data..=) Prelude.<$> target,
             Prelude.Just ("Content" Data..= content),
             Prelude.Just ("Type" Data..= type'),
             Prelude.Just ("Persistence" Data..= persistence),

@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The details of a user.
+-- | The details of a user or bot.
 --
 -- /See:/ 'newIdentity' smart constructor.
 data Identity = Identity'
@@ -68,12 +68,14 @@ instance Data.FromJSON Identity where
       "Identity"
       ( \x ->
           Identity'
-            Prelude.<$> (x Data..:? "Arn") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "Arn")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable Identity where
   hashWithSalt _salt Identity' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Identity where

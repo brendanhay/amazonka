@@ -31,9 +31,9 @@
 -- -   Only an @AppInstanceAdmin@ can set privacy = @PRIVATE@ to list the
 --     private channels in an account.
 --
--- The @x-amz-chime-bearer@ request header is mandatory. Use the
--- @AppInstanceUserArn@ of the user that makes the API call as the value in
--- the header.
+-- The @x-amz-chime-bearer@ request header is mandatory. Use the ARN of the
+-- @AppInstanceUser@ or @AppInstanceBot@ that makes the API call as the
+-- value in the header.
 module Amazonka.ChimeSDKMessaging.ListChannels
   ( -- * Creating a Request
     ListChannels (..),
@@ -78,7 +78,8 @@ data ListChannels = ListChannels'
     privacy :: Prelude.Maybe ChannelPrivacy,
     -- | The ARN of the @AppInstance@.
     appInstanceArn :: Prelude.Text,
-    -- | The @AppInstanceUserArn@ of the user that makes the API call.
+    -- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+    -- call.
     chimeBearer :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -102,7 +103,8 @@ data ListChannels = ListChannels'
 --
 -- 'appInstanceArn', 'listChannels_appInstanceArn' - The ARN of the @AppInstance@.
 --
--- 'chimeBearer', 'listChannels_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
+-- 'chimeBearer', 'listChannels_chimeBearer' - The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 newListChannels ::
   -- | 'appInstanceArn'
   Prelude.Text ->
@@ -137,7 +139,8 @@ listChannels_privacy = Lens.lens (\ListChannels' {privacy} -> privacy) (\s@ListC
 listChannels_appInstanceArn :: Lens.Lens' ListChannels Prelude.Text
 listChannels_appInstanceArn = Lens.lens (\ListChannels' {appInstanceArn} -> appInstanceArn) (\s@ListChannels' {} a -> s {appInstanceArn = a} :: ListChannels)
 
--- | The @AppInstanceUserArn@ of the user that makes the API call.
+-- | The ARN of the @AppInstanceUser@ or @AppInstanceBot@ that makes the API
+-- call.
 listChannels_chimeBearer :: Lens.Lens' ListChannels Prelude.Text
 listChannels_chimeBearer = Lens.lens (\ListChannels' {chimeBearer} -> chimeBearer) (\s@ListChannels' {} a -> s {chimeBearer = a} :: ListChannels)
 
@@ -156,7 +159,8 @@ instance Core.AWSRequest ListChannels where
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` privacy
       `Prelude.hashWithSalt` appInstanceArn

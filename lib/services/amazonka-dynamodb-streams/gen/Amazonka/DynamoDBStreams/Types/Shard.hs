@@ -86,7 +86,8 @@ instance Data.FromJSON Shard where
 
 instance Prelude.Hashable Shard where
   hashWithSalt _salt Shard' {..} =
-    _salt `Prelude.hashWithSalt` parentShardId
+    _salt
+      `Prelude.hashWithSalt` parentShardId
       `Prelude.hashWithSalt` sequenceNumberRange
       `Prelude.hashWithSalt` shardId
 

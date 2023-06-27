@@ -60,7 +60,7 @@ data StreamDescription = StreamDescription'
     -- same timestamp. However, the combination of the following three elements
     -- is guaranteed to be unique:
     --
-    -- -   the AWS customer ID.
+    -- -   the Amazon Web Services customer ID.
     --
     -- -   the table name
     --
@@ -132,7 +132,7 @@ data StreamDescription = StreamDescription'
 -- same timestamp. However, the combination of the following three elements
 -- is guaranteed to be unique:
 --
--- -   the AWS customer ID.
+-- -   the Amazon Web Services customer ID.
 --
 -- -   the table name
 --
@@ -218,7 +218,7 @@ streamDescription_streamArn = Lens.lens (\StreamDescription' {streamArn} -> stre
 -- same timestamp. However, the combination of the following three elements
 -- is guaranteed to be unique:
 --
--- -   the AWS customer ID.
+-- -   the Amazon Web Services customer ID.
 --
 -- -   the table name
 --

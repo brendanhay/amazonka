@@ -32,7 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStreamRecord' smart constructor.
 data StreamRecord = StreamRecord'
   { -- | The approximate date and time when the stream record was created, in
-    -- <http://www.epochconverter.com/ UNIX epoch time> format.
+    -- <http://www.epochconverter.com/ UNIX epoch time> format and rounded down
+    -- to the closest second.
     approximateCreationDateTime :: Prelude.Maybe Data.POSIX,
     -- | The primary key attribute(s) for the DynamoDB item that was modified.
     keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
@@ -69,7 +70,8 @@ data StreamRecord = StreamRecord'
 -- for backwards compatibility:
 --
 -- 'approximateCreationDateTime', 'streamRecord_approximateCreationDateTime' - The approximate date and time when the stream record was created, in
--- <http://www.epochconverter.com/ UNIX epoch time> format.
+-- <http://www.epochconverter.com/ UNIX epoch time> format and rounded down
+-- to the closest second.
 --
 -- 'keys', 'streamRecord_keys' - The primary key attribute(s) for the DynamoDB item that was modified.
 --
@@ -108,7 +110,8 @@ newStreamRecord =
     }
 
 -- | The approximate date and time when the stream record was created, in
--- <http://www.epochconverter.com/ UNIX epoch time> format.
+-- <http://www.epochconverter.com/ UNIX epoch time> format and rounded down
+-- to the closest second.
 streamRecord_approximateCreationDateTime :: Lens.Lens' StreamRecord (Prelude.Maybe Prelude.UTCTime)
 streamRecord_approximateCreationDateTime = Lens.lens (\StreamRecord' {approximateCreationDateTime} -> approximateCreationDateTime) (\s@StreamRecord' {} a -> s {approximateCreationDateTime = a} :: StreamRecord) Prelude.. Lens.mapping Data._Time
 

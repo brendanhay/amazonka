@@ -134,7 +134,8 @@ instance Data.FromJSON KeySchemaElement where
 
 instance Prelude.Hashable KeySchemaElement where
   hashWithSalt _salt KeySchemaElement' {..} =
-    _salt `Prelude.hashWithSalt` attributeName
+    _salt
+      `Prelude.hashWithSalt` attributeName
       `Prelude.hashWithSalt` keyType
 
 instance Prelude.NFData KeySchemaElement where

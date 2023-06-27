@@ -49,8 +49,8 @@ data Record = Record'
     --
     -- -   @REMOVE@ - the item was deleted from the table
     eventName :: Prelude.Maybe OperationType,
-    -- | The AWS service from which the stream record originated. For DynamoDB
-    -- Streams, this is @aws:dynamodb@.
+    -- | The Amazon Web Services service from which the stream record originated.
+    -- For DynamoDB Streams, this is @aws:dynamodb@.
     eventSource :: Prelude.Maybe Prelude.Text,
     -- | The version number of the stream record format. This number is updated
     -- whenever the structure of @Record@ is modified.
@@ -99,8 +99,8 @@ data Record = Record'
 --
 -- -   @REMOVE@ - the item was deleted from the table
 --
--- 'eventSource', 'record_eventSource' - The AWS service from which the stream record originated. For DynamoDB
--- Streams, this is @aws:dynamodb@.
+-- 'eventSource', 'record_eventSource' - The Amazon Web Services service from which the stream record originated.
+-- For DynamoDB Streams, this is @aws:dynamodb@.
 --
 -- 'eventVersion', 'record_eventVersion' - The version number of the stream record format. This number is updated
 -- whenever the structure of @Record@ is modified.
@@ -158,8 +158,8 @@ record_eventID = Lens.lens (\Record' {eventID} -> eventID) (\s@Record' {} a -> s
 record_eventName :: Lens.Lens' Record (Prelude.Maybe OperationType)
 record_eventName = Lens.lens (\Record' {eventName} -> eventName) (\s@Record' {} a -> s {eventName = a} :: Record)
 
--- | The AWS service from which the stream record originated. For DynamoDB
--- Streams, this is @aws:dynamodb@.
+-- | The Amazon Web Services service from which the stream record originated.
+-- For DynamoDB Streams, this is @aws:dynamodb@.
 record_eventSource :: Lens.Lens' Record (Prelude.Maybe Prelude.Text)
 record_eventSource = Lens.lens (\Record' {eventSource} -> eventSource) (\s@Record' {} a -> s {eventSource = a} :: Record)
 
@@ -203,7 +203,8 @@ instance Data.FromJSON Record where
 
 instance Prelude.Hashable Record where
   hashWithSalt _salt Record' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` dynamodb
       `Prelude.hashWithSalt` eventID
       `Prelude.hashWithSalt` eventName

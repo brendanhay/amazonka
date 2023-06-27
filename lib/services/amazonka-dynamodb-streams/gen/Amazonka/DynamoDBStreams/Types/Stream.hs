@@ -38,7 +38,7 @@ data Stream = Stream'
     -- same timestamp. However, the combination of the following three elements
     -- is guaranteed to be unique:
     --
-    -- -   the AWS customer ID.
+    -- -   the Amazon Web Services customer ID.
     --
     -- -   the table name
     --
@@ -66,7 +66,7 @@ data Stream = Stream'
 -- same timestamp. However, the combination of the following three elements
 -- is guaranteed to be unique:
 --
--- -   the AWS customer ID.
+-- -   the Amazon Web Services customer ID.
 --
 -- -   the table name
 --
@@ -93,7 +93,7 @@ stream_streamArn = Lens.lens (\Stream' {streamArn} -> streamArn) (\s@Stream' {} 
 -- same timestamp. However, the combination of the following three elements
 -- is guaranteed to be unique:
 --
--- -   the AWS customer ID.
+-- -   the Amazon Web Services customer ID.
 --
 -- -   the table name
 --
@@ -118,7 +118,8 @@ instance Data.FromJSON Stream where
 
 instance Prelude.Hashable Stream where
   hashWithSalt _salt Stream' {..} =
-    _salt `Prelude.hashWithSalt` streamArn
+    _salt
+      `Prelude.hashWithSalt` streamArn
       `Prelude.hashWithSalt` streamLabel
       `Prelude.hashWithSalt` tableName
 

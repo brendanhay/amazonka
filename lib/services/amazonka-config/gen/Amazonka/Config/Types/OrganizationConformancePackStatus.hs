@@ -242,7 +242,8 @@ instance
   hashWithSalt
     _salt
     OrganizationConformancePackStatus' {..} =
-      _salt `Prelude.hashWithSalt` errorCode
+      _salt
+        `Prelude.hashWithSalt` errorCode
         `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` lastUpdateTime
         `Prelude.hashWithSalt` organizationConformancePackName

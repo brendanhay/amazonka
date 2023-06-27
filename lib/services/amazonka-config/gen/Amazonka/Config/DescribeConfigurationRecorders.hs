@@ -24,8 +24,8 @@
 -- configuration recorder is not specified, this action returns the details
 -- for all configuration recorders associated with the account.
 --
--- Currently, you can specify only one configuration recorder per region in
--- your account.
+-- You can specify only one configuration recorder for each Amazon Web
+-- Services Region for each account.
 module Amazonka.Config.DescribeConfigurationRecorders
   ( -- * Creating a Request
     DescribeConfigurationRecorders (..),
@@ -95,7 +95,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRecordersResponse'
-            Prelude.<$> ( x Data..?> "ConfigurationRecorders"
+            Prelude.<$> ( x
+                            Data..?> "ConfigurationRecorders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -22,8 +22,9 @@
 --
 -- Associates the specified tags to a resource with the specified
 -- resourceArn. If existing tags on a resource are not specified in the
--- request parameters, they are not changed. When a resource is deleted,
--- the tags associated with that resource are deleted as well.
+-- request parameters, they are not changed. If existing tags are
+-- specified, however, then their values will be updated. When a resource
+-- is deleted, the tags associated with that resource are deleted as well.
 module Amazonka.Config.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -101,7 +102,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

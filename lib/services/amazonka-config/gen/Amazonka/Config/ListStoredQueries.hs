@@ -100,7 +100,8 @@ instance Core.AWSRequest ListStoredQueries where
       ( \s h x ->
           ListStoredQueriesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "StoredQueryMetadata"
+            Prelude.<*> ( x
+                            Data..?> "StoredQueryMetadata"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,7 +109,8 @@ instance Core.AWSRequest ListStoredQueries where
 
 instance Prelude.Hashable ListStoredQueries where
   hashWithSalt _salt ListStoredQueries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListStoredQueries where

@@ -836,6 +836,9 @@ module Amazonka.Config
     -- ** RecorderStatus
     RecorderStatus (..),
 
+    -- ** RecordingStrategyType
+    RecordingStrategyType (..),
+
     -- ** RemediationExecutionState
     RemediationExecutionState (..),
 
@@ -1074,6 +1077,10 @@ module Amazonka.Config
     EvaluationStatus (EvaluationStatus'),
     newEvaluationStatus,
 
+    -- ** ExclusionByResourceTypes
+    ExclusionByResourceTypes (ExclusionByResourceTypes'),
+    newExclusionByResourceTypes,
+
     -- ** ExecutionControls
     ExecutionControls (ExecutionControls'),
     newExecutionControls,
@@ -1161,6 +1168,10 @@ module Amazonka.Config
     -- ** RecordingGroup
     RecordingGroup (RecordingGroup'),
     newRecordingGroup,
+
+    -- ** RecordingStrategy
+    RecordingStrategy (RecordingStrategy'),
+    newRecordingStrategy,
 
     -- ** Relationship
     Relationship (Relationship'),

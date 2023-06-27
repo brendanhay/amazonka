@@ -78,7 +78,8 @@ instance Data.FromJSON ComplianceByConfigRule where
 
 instance Prelude.Hashable ComplianceByConfigRule where
   hashWithSalt _salt ComplianceByConfigRule' {..} =
-    _salt `Prelude.hashWithSalt` compliance
+    _salt
+      `Prelude.hashWithSalt` compliance
       `Prelude.hashWithSalt` configRuleName
 
 instance Prelude.NFData ComplianceByConfigRule where

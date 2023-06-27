@@ -64,7 +64,8 @@ timeWindow_startTime = Lens.lens (\TimeWindow' {startTime} -> startTime) (\s@Tim
 
 instance Prelude.Hashable TimeWindow where
   hashWithSalt _salt TimeWindow' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeWindow where

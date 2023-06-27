@@ -180,7 +180,8 @@ instance
   hashWithSalt
     _salt
     OrganizationResourceDetailedStatusFilters' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` status
 
 instance

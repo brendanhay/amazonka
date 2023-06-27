@@ -29,6 +29,18 @@
 --
 -- Ensure you have the @cloudformation:DescribeType@ role setup to validate
 -- the resource type schema.
+--
+-- You can find the
+-- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource type schema>
+-- in \"/Amazon Web Services public extensions/\" within the CloudFormation
+-- registry or with the following CLI commmand:
+-- @aws cloudformation describe-type --type-name \"AWS::S3::Bucket\" --type RESOURCE@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view Managing extensions through the CloudFormation registry>
+-- and
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the CloudFormation User Guide.
 module Amazonka.Config.StartResourceEvaluation
   ( -- * Creating a Request
     StartResourceEvaluation (..),
@@ -81,7 +93,8 @@ data StartResourceEvaluation = StartResourceEvaluation'
     evaluationTimeout :: Prelude.Maybe Prelude.Natural,
     -- | Returns a @ResourceDetails@ object.
     resourceDetails :: ResourceDetails,
-    -- | The mode of an evaluation. The valid value for this API is @Proactive@.
+    -- | The mode of an evaluation. The valid values for this API are @DETECTIVE@
+    -- and @PROACTIVE@.
     evaluationMode :: EvaluationMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -114,7 +127,8 @@ data StartResourceEvaluation = StartResourceEvaluation'
 --
 -- 'resourceDetails', 'startResourceEvaluation_resourceDetails' - Returns a @ResourceDetails@ object.
 --
--- 'evaluationMode', 'startResourceEvaluation_evaluationMode' - The mode of an evaluation. The valid value for this API is @Proactive@.
+-- 'evaluationMode', 'startResourceEvaluation_evaluationMode' - The mode of an evaluation. The valid values for this API are @DETECTIVE@
+-- and @PROACTIVE@.
 newStartResourceEvaluation ::
   -- | 'resourceDetails'
   ResourceDetails ->
@@ -161,7 +175,8 @@ startResourceEvaluation_evaluationTimeout = Lens.lens (\StartResourceEvaluation'
 startResourceEvaluation_resourceDetails :: Lens.Lens' StartResourceEvaluation ResourceDetails
 startResourceEvaluation_resourceDetails = Lens.lens (\StartResourceEvaluation' {resourceDetails} -> resourceDetails) (\s@StartResourceEvaluation' {} a -> s {resourceDetails = a} :: StartResourceEvaluation)
 
--- | The mode of an evaluation. The valid value for this API is @Proactive@.
+-- | The mode of an evaluation. The valid values for this API are @DETECTIVE@
+-- and @PROACTIVE@.
 startResourceEvaluation_evaluationMode :: Lens.Lens' StartResourceEvaluation EvaluationMode
 startResourceEvaluation_evaluationMode = Lens.lens (\StartResourceEvaluation' {evaluationMode} -> evaluationMode) (\s@StartResourceEvaluation' {} a -> s {evaluationMode = a} :: StartResourceEvaluation)
 
@@ -181,7 +196,8 @@ instance Core.AWSRequest StartResourceEvaluation where
 
 instance Prelude.Hashable StartResourceEvaluation where
   hashWithSalt _salt StartResourceEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` evaluationContext
       `Prelude.hashWithSalt` evaluationTimeout
       `Prelude.hashWithSalt` resourceDetails

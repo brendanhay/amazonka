@@ -27,17 +27,21 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The current status of the configuration recorder.
 --
+-- For a detailed status of recording events over time, add your Config
+-- events to CloudWatch metrics and use CloudWatch metrics.
+--
 -- /See:/ 'newConfigurationRecorderStatus' smart constructor.
 data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
-  { -- | The error code indicating that the recording failed.
+  { -- | The latest error code from when the recorder last failed.
     lastErrorCode :: Prelude.Maybe Prelude.Text,
-    -- | The message indicating that the recording failed due to an error.
+    -- | The latest error message from when the recorder last failed.
     lastErrorMessage :: Prelude.Maybe Prelude.Text,
     -- | The time the recorder was last started.
     lastStartTime :: Prelude.Maybe Data.POSIX,
-    -- | The last (previous) status of the recorder.
+    -- | The status of the latest recording event processed by the recorder.
     lastStatus :: Prelude.Maybe RecorderStatus,
-    -- | The time when the status was last changed.
+    -- | The time of the latest change in status of an recording event processed
+    -- by the recorder.
     lastStatusChangeTime :: Prelude.Maybe Data.POSIX,
     -- | The time the recorder was last stopped.
     lastStopTime :: Prelude.Maybe Data.POSIX,
@@ -56,15 +60,16 @@ data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastErrorCode', 'configurationRecorderStatus_lastErrorCode' - The error code indicating that the recording failed.
+-- 'lastErrorCode', 'configurationRecorderStatus_lastErrorCode' - The latest error code from when the recorder last failed.
 --
--- 'lastErrorMessage', 'configurationRecorderStatus_lastErrorMessage' - The message indicating that the recording failed due to an error.
+-- 'lastErrorMessage', 'configurationRecorderStatus_lastErrorMessage' - The latest error message from when the recorder last failed.
 --
 -- 'lastStartTime', 'configurationRecorderStatus_lastStartTime' - The time the recorder was last started.
 --
--- 'lastStatus', 'configurationRecorderStatus_lastStatus' - The last (previous) status of the recorder.
+-- 'lastStatus', 'configurationRecorderStatus_lastStatus' - The status of the latest recording event processed by the recorder.
 --
--- 'lastStatusChangeTime', 'configurationRecorderStatus_lastStatusChangeTime' - The time when the status was last changed.
+-- 'lastStatusChangeTime', 'configurationRecorderStatus_lastStatusChangeTime' - The time of the latest change in status of an recording event processed
+-- by the recorder.
 --
 -- 'lastStopTime', 'configurationRecorderStatus_lastStopTime' - The time the recorder was last stopped.
 --
@@ -86,11 +91,11 @@ newConfigurationRecorderStatus =
       recording = Prelude.Nothing
     }
 
--- | The error code indicating that the recording failed.
+-- | The latest error code from when the recorder last failed.
 configurationRecorderStatus_lastErrorCode :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.Text)
 configurationRecorderStatus_lastErrorCode = Lens.lens (\ConfigurationRecorderStatus' {lastErrorCode} -> lastErrorCode) (\s@ConfigurationRecorderStatus' {} a -> s {lastErrorCode = a} :: ConfigurationRecorderStatus)
 
--- | The message indicating that the recording failed due to an error.
+-- | The latest error message from when the recorder last failed.
 configurationRecorderStatus_lastErrorMessage :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.Text)
 configurationRecorderStatus_lastErrorMessage = Lens.lens (\ConfigurationRecorderStatus' {lastErrorMessage} -> lastErrorMessage) (\s@ConfigurationRecorderStatus' {} a -> s {lastErrorMessage = a} :: ConfigurationRecorderStatus)
 
@@ -98,11 +103,12 @@ configurationRecorderStatus_lastErrorMessage = Lens.lens (\ConfigurationRecorder
 configurationRecorderStatus_lastStartTime :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.UTCTime)
 configurationRecorderStatus_lastStartTime = Lens.lens (\ConfigurationRecorderStatus' {lastStartTime} -> lastStartTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStartTime = a} :: ConfigurationRecorderStatus) Prelude.. Lens.mapping Data._Time
 
--- | The last (previous) status of the recorder.
+-- | The status of the latest recording event processed by the recorder.
 configurationRecorderStatus_lastStatus :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe RecorderStatus)
 configurationRecorderStatus_lastStatus = Lens.lens (\ConfigurationRecorderStatus' {lastStatus} -> lastStatus) (\s@ConfigurationRecorderStatus' {} a -> s {lastStatus = a} :: ConfigurationRecorderStatus)
 
--- | The time when the status was last changed.
+-- | The time of the latest change in status of an recording event processed
+-- by the recorder.
 configurationRecorderStatus_lastStatusChangeTime :: Lens.Lens' ConfigurationRecorderStatus (Prelude.Maybe Prelude.UTCTime)
 configurationRecorderStatus_lastStatusChangeTime = Lens.lens (\ConfigurationRecorderStatus' {lastStatusChangeTime} -> lastStatusChangeTime) (\s@ConfigurationRecorderStatus' {} a -> s {lastStatusChangeTime = a} :: ConfigurationRecorderStatus) Prelude.. Lens.mapping Data._Time
 
@@ -136,7 +142,8 @@ instance Data.FromJSON ConfigurationRecorderStatus where
 
 instance Prelude.Hashable ConfigurationRecorderStatus where
   hashWithSalt _salt ConfigurationRecorderStatus' {..} =
-    _salt `Prelude.hashWithSalt` lastErrorCode
+    _salt
+      `Prelude.hashWithSalt` lastErrorCode
       `Prelude.hashWithSalt` lastErrorMessage
       `Prelude.hashWithSalt` lastStartTime
       `Prelude.hashWithSalt` lastStatus

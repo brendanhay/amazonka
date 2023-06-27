@@ -71,7 +71,7 @@ data RemediationConfiguration = RemediationConfiguration'
     -- | The type of the target. Target executes remediation. For example, SSM
     -- document.
     targetType :: RemediationTargetType,
-    -- | Target ID is the name of the public document.
+    -- | Target ID is the name of the SSM document.
     targetId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -122,7 +122,7 @@ data RemediationConfiguration = RemediationConfiguration'
 -- 'targetType', 'remediationConfiguration_targetType' - The type of the target. Target executes remediation. For example, SSM
 -- document.
 --
--- 'targetId', 'remediationConfiguration_targetId' - Target ID is the name of the public document.
+-- 'targetId', 'remediationConfiguration_targetId' - Target ID is the name of the SSM document.
 newRemediationConfiguration ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -210,7 +210,7 @@ remediationConfiguration_configRuleName = Lens.lens (\RemediationConfiguration' 
 remediationConfiguration_targetType :: Lens.Lens' RemediationConfiguration RemediationTargetType
 remediationConfiguration_targetType = Lens.lens (\RemediationConfiguration' {targetType} -> targetType) (\s@RemediationConfiguration' {} a -> s {targetType = a} :: RemediationConfiguration)
 
--- | Target ID is the name of the public document.
+-- | Target ID is the name of the SSM document.
 remediationConfiguration_targetId :: Lens.Lens' RemediationConfiguration Prelude.Text
 remediationConfiguration_targetId = Lens.lens (\RemediationConfiguration' {targetId} -> targetId) (\s@RemediationConfiguration' {} a -> s {targetId = a} :: RemediationConfiguration)
 
@@ -236,7 +236,8 @@ instance Data.FromJSON RemediationConfiguration where
 
 instance Prelude.Hashable RemediationConfiguration where
   hashWithSalt _salt RemediationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` automatic
       `Prelude.hashWithSalt` createdByService
       `Prelude.hashWithSalt` executionControls

@@ -78,7 +78,8 @@ instance Data.FromJSON RemediationParameterValue where
 
 instance Prelude.Hashable RemediationParameterValue where
   hashWithSalt _salt RemediationParameterValue' {..} =
-    _salt `Prelude.hashWithSalt` resourceValue
+    _salt
+      `Prelude.hashWithSalt` resourceValue
       `Prelude.hashWithSalt` staticValue
 
 instance Prelude.NFData RemediationParameterValue where

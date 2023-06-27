@@ -70,7 +70,8 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
     -- each page.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The @nextToken@ string in a prior request that you can use to get the
-    -- paginated response for next set of conformance pack compliance scores.
+    -- paginated response for the next set of conformance pack compliance
+    -- scores.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Sorts your conformance pack compliance scores in either ascending or
     -- descending order, depending on @SortOrder@.
@@ -112,7 +113,8 @@ data ListConformancePackComplianceScores = ListConformancePackComplianceScores'
 -- each page.
 --
 -- 'nextToken', 'listConformancePackComplianceScores_nextToken' - The @nextToken@ string in a prior request that you can use to get the
--- paginated response for next set of conformance pack compliance scores.
+-- paginated response for the next set of conformance pack compliance
+-- scores.
 --
 -- 'sortBy', 'listConformancePackComplianceScores_sortBy' - Sorts your conformance pack compliance scores in either ascending or
 -- descending order, depending on @SortOrder@.
@@ -158,7 +160,8 @@ listConformancePackComplianceScores_limit :: Lens.Lens' ListConformancePackCompl
 listConformancePackComplianceScores_limit = Lens.lens (\ListConformancePackComplianceScores' {limit} -> limit) (\s@ListConformancePackComplianceScores' {} a -> s {limit = a} :: ListConformancePackComplianceScores)
 
 -- | The @nextToken@ string in a prior request that you can use to get the
--- paginated response for next set of conformance pack compliance scores.
+-- paginated response for the next set of conformance pack compliance
+-- scores.
 listConformancePackComplianceScores_nextToken :: Lens.Lens' ListConformancePackComplianceScores (Prelude.Maybe Prelude.Text)
 listConformancePackComplianceScores_nextToken = Lens.lens (\ListConformancePackComplianceScores' {nextToken} -> nextToken) (\s@ListConformancePackComplianceScores' {} a -> s {nextToken = a} :: ListConformancePackComplianceScores)
 
@@ -202,10 +205,11 @@ instance
       ( \s h x ->
           ListConformancePackComplianceScoresResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "ConformancePackComplianceScores"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ConformancePackComplianceScores"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -215,7 +219,8 @@ instance
   hashWithSalt
     _salt
     ListConformancePackComplianceScores' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` sortBy

@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     FailedRemediationExceptionBatch' {..} =
-      _salt `Prelude.hashWithSalt` failedItems
+      _salt
+        `Prelude.hashWithSalt` failedItems
         `Prelude.hashWithSalt` failureMessage
 
 instance

@@ -20,12 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current status of the specified configuration recorder. If a
+-- Returns the current status of the specified configuration recorder as
+-- well as the status of the last recording event for the recorder. If a
 -- configuration recorder is not specified, this action returns the status
 -- of all configuration recorders associated with the account.
 --
--- Currently, you can specify only one configuration recorder per region in
--- your account.
+-- >You can specify only one configuration recorder for each Amazon Web
+-- Services Region for each account. For a detailed status of recording
+-- events over time, add your Config events to Amazon CloudWatch metrics
+-- and use CloudWatch metrics.
 module Amazonka.Config.DescribeConfigurationRecorderStatus
   ( -- * Creating a Request
     DescribeConfigurationRecorderStatus (..),
@@ -101,10 +104,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeConfigurationRecorderStatusResponse'
-            Prelude.<$> ( x Data..?> "ConfigurationRecordersStatus"
+            Prelude.<$> ( x
+                            Data..?> "ConfigurationRecordersStatus"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

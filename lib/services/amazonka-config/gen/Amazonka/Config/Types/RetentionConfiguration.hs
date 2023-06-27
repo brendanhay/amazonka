@@ -88,7 +88,8 @@ instance Data.FromJSON RetentionConfiguration where
 
 instance Prelude.Hashable RetentionConfiguration where
   hashWithSalt _salt RetentionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` retentionPeriodInDays
 
 instance Prelude.NFData RetentionConfiguration where

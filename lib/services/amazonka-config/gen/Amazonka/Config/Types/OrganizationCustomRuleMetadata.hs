@@ -26,12 +26,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that specifies organization custom rule metadata such as
--- resource type, resource ID of Amazon Web Services resource, Lambda
--- function ARN, and organization trigger types that trigger Config to
--- evaluate your Amazon Web Services resources against a rule. It also
--- provides the frequency with which you want Config to run evaluations for
--- the rule if the trigger type is periodic.
+-- | organization custom rule metadata such as resource type, resource ID of
+-- Amazon Web Services resource, Lambda function ARN, and organization
+-- trigger types that trigger Config to evaluate your Amazon Web Services
+-- resources against a rule. It also provides the frequency with which you
+-- want Config to run evaluations for the rule if the trigger type is
+-- periodic.
 --
 -- /See:/ 'newOrganizationCustomRuleMetadata' smart constructor.
 data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
@@ -212,13 +212,15 @@ instance Data.FromJSON OrganizationCustomRuleMetadata where
             Prelude.<*> (x Data..:? "InputParameters")
             Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
             Prelude.<*> (x Data..:? "ResourceIdScope")
-            Prelude.<*> ( x Data..:? "ResourceTypesScope"
+            Prelude.<*> ( x
+                            Data..:? "ResourceTypesScope"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TagKeyScope")
             Prelude.<*> (x Data..:? "TagValueScope")
             Prelude.<*> (x Data..: "LambdaFunctionArn")
-            Prelude.<*> ( x Data..:? "OrganizationConfigRuleTriggerTypes"
+            Prelude.<*> ( x
+                            Data..:? "OrganizationConfigRuleTriggerTypes"
                             Data..!= Prelude.mempty
                         )
       )
@@ -230,7 +232,8 @@ instance
   hashWithSalt
     _salt
     OrganizationCustomRuleMetadata' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` inputParameters
         `Prelude.hashWithSalt` maximumExecutionFrequency
         `Prelude.hashWithSalt` resourceIdScope

@@ -987,6 +987,9 @@ module Amazonka.Config.Lens
     evaluationStatus_failureReason,
     evaluationStatus_status,
 
+    -- ** ExclusionByResourceTypes
+    exclusionByResourceTypes_resourceTypes,
+
     -- ** ExecutionControls
     executionControls_ssmControls,
 
@@ -1128,8 +1131,13 @@ module Amazonka.Config.Lens
 
     -- ** RecordingGroup
     recordingGroup_allSupported,
+    recordingGroup_exclusionByResourceTypes,
     recordingGroup_includeGlobalResourceTypes,
+    recordingGroup_recordingStrategy,
     recordingGroup_resourceTypes,
+
+    -- ** RecordingStrategy
+    recordingStrategy_useOnly,
 
     -- ** Relationship
     relationship_relationshipName,
@@ -1426,6 +1434,7 @@ import Amazonka.Config.Types.EvaluationResult
 import Amazonka.Config.Types.EvaluationResultIdentifier
 import Amazonka.Config.Types.EvaluationResultQualifier
 import Amazonka.Config.Types.EvaluationStatus
+import Amazonka.Config.Types.ExclusionByResourceTypes
 import Amazonka.Config.Types.ExecutionControls
 import Amazonka.Config.Types.ExternalEvaluation
 import Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch
@@ -1448,6 +1457,7 @@ import Amazonka.Config.Types.OrganizationResourceDetailedStatusFilters
 import Amazonka.Config.Types.PendingAggregationRequest
 import Amazonka.Config.Types.QueryInfo
 import Amazonka.Config.Types.RecordingGroup
+import Amazonka.Config.Types.RecordingStrategy
 import Amazonka.Config.Types.Relationship
 import Amazonka.Config.Types.RemediationConfiguration
 import Amazonka.Config.Types.RemediationException

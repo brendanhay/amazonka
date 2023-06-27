@@ -131,22 +131,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeOrganizationConfigRuleStatusesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeOrganizationConfigRuleStatuses_nextToken
           Lens..~ rs
-            Lens.^? describeOrganizationConfigRuleStatusesResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeOrganizationConfigRuleStatusesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -163,10 +163,11 @@ instance
       ( \s h x ->
           DescribeOrganizationConfigRuleStatusesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "OrganizationConfigRuleStatuses"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "OrganizationConfigRuleStatuses"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -176,7 +177,8 @@ instance
   hashWithSalt
     _salt
     DescribeOrganizationConfigRuleStatuses' {..} =
-      _salt `Prelude.hashWithSalt` limit
+      _salt
+        `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationConfigRuleNames
 

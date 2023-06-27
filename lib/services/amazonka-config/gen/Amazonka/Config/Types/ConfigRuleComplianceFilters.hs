@@ -97,7 +97,8 @@ configRuleComplianceFilters_configRuleName = Lens.lens (\ConfigRuleComplianceFil
 
 instance Prelude.Hashable ConfigRuleComplianceFilters where
   hashWithSalt _salt ConfigRuleComplianceFilters' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` configRuleName

@@ -115,10 +115,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchGetAggregateResourceConfigResponse'
-            Prelude.<$> ( x Data..?> "BaseConfigurationItems"
+            Prelude.<$> ( x
+                            Data..?> "BaseConfigurationItems"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "UnprocessedResourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

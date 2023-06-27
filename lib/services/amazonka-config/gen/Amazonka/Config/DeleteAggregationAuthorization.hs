@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     DeleteAggregationAuthorization' {..} =
-      _salt `Prelude.hashWithSalt` authorizedAccountId
+      _salt
+        `Prelude.hashWithSalt` authorizedAccountId
         `Prelude.hashWithSalt` authorizedAwsRegion
 
 instance

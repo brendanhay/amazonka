@@ -137,7 +137,8 @@ instance Core.AWSRequest PutEvaluations where
     Response.receiveJSON
       ( \s h x ->
           PutEvaluationsResponse'
-            Prelude.<$> ( x Data..?> "FailedEvaluations"
+            Prelude.<$> ( x
+                            Data..?> "FailedEvaluations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,7 +146,8 @@ instance Core.AWSRequest PutEvaluations where
 
 instance Prelude.Hashable PutEvaluations where
   hashWithSalt _salt PutEvaluations' {..} =
-    _salt `Prelude.hashWithSalt` evaluations
+    _salt
+      `Prelude.hashWithSalt` evaluations
       `Prelude.hashWithSalt` testMode
       `Prelude.hashWithSalt` resultToken
 

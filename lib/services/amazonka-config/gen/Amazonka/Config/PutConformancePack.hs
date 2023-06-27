@@ -25,7 +25,7 @@
 -- a region and across an organization. For information on how many
 -- conformance packs you can have per account, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
--- in the Config Developer Guide.
+-- in the /Config Developer Guide/.
 --
 -- This API creates a service-linked role @AWSServiceRoleForConfigConforms@
 -- in your account. The service-linked role is created only when the role

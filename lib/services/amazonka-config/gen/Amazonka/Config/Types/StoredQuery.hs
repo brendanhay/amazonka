@@ -112,7 +112,8 @@ instance Data.FromJSON StoredQuery where
 
 instance Prelude.Hashable StoredQuery where
   hashWithSalt _salt StoredQuery' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` queryArn
       `Prelude.hashWithSalt` queryId

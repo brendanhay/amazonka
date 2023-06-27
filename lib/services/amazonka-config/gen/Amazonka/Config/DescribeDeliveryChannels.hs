@@ -92,7 +92,8 @@ instance Core.AWSRequest DescribeDeliveryChannels where
     Response.receiveJSON
       ( \s h x ->
           DescribeDeliveryChannelsResponse'
-            Prelude.<$> ( x Data..?> "DeliveryChannels"
+            Prelude.<$> ( x
+                            Data..?> "DeliveryChannels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

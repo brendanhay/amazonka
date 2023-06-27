@@ -63,8 +63,9 @@ import qualified Amazonka.Response as Response
 data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
   { -- | Filters the results by compliance.
     --
-    -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
-    -- @NOT_APPLICABLE@.
+    -- @INSUFFICIENT_DATA@ is a valid @ComplianceType@ that is returned when an
+    -- Config rule cannot be evaluated. However, @INSUFFICIENT_DATA@ cannot be
+    -- used as a @ComplianceType@ for filtering results.
     complianceTypes :: Prelude.Maybe [ComplianceType],
     -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
@@ -94,8 +95,9 @@ data GetComplianceDetailsByResource = GetComplianceDetailsByResource'
 --
 -- 'complianceTypes', 'getComplianceDetailsByResource_complianceTypes' - Filters the results by compliance.
 --
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @NOT_APPLICABLE@.
+-- @INSUFFICIENT_DATA@ is a valid @ComplianceType@ that is returned when an
+-- Config rule cannot be evaluated. However, @INSUFFICIENT_DATA@ cannot be
+-- used as a @ComplianceType@ for filtering results.
 --
 -- 'nextToken', 'getComplianceDetailsByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
@@ -125,8 +127,9 @@ newGetComplianceDetailsByResource =
 
 -- | Filters the results by compliance.
 --
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @NOT_APPLICABLE@.
+-- @INSUFFICIENT_DATA@ is a valid @ComplianceType@ that is returned when an
+-- Config rule cannot be evaluated. However, @INSUFFICIENT_DATA@ cannot be
+-- used as a @ComplianceType@ for filtering results.
 getComplianceDetailsByResource_complianceTypes :: Lens.Lens' GetComplianceDetailsByResource (Prelude.Maybe [ComplianceType])
 getComplianceDetailsByResource_complianceTypes = Lens.lens (\GetComplianceDetailsByResource' {complianceTypes} -> complianceTypes) (\s@GetComplianceDetailsByResource' {} a -> s {complianceTypes = a} :: GetComplianceDetailsByResource) Prelude.. Lens.mapping Lens.coerced
 
@@ -158,22 +161,22 @@ instance Core.AWSPager GetComplianceDetailsByResource where
     | Core.stop
         ( rs
             Lens.^? getComplianceDetailsByResourceResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getComplianceDetailsByResourceResponse_evaluationResults
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getComplianceDetailsByResource_nextToken
           Lens..~ rs
           Lens.^? getComplianceDetailsByResourceResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -188,7 +191,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceDetailsByResourceResponse'
-            Prelude.<$> ( x Data..?> "EvaluationResults"
+            Prelude.<$> ( x
+                            Data..?> "EvaluationResults"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -202,7 +206,8 @@ instance
   hashWithSalt
     _salt
     GetComplianceDetailsByResource' {..} =
-      _salt `Prelude.hashWithSalt` complianceTypes
+      _salt
+        `Prelude.hashWithSalt` complianceTypes
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` resourceEvaluationId
         `Prelude.hashWithSalt` resourceId

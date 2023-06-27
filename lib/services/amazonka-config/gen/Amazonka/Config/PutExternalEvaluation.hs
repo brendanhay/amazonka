@@ -107,7 +107,8 @@ instance Core.AWSRequest PutExternalEvaluation where
 
 instance Prelude.Hashable PutExternalEvaluation where
   hashWithSalt _salt PutExternalEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` configRuleName
+    _salt
+      `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` externalEvaluation
 
 instance Prelude.NFData PutExternalEvaluation where

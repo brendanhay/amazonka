@@ -94,7 +94,8 @@ instance
     OrganizationAggregationSource
   where
   hashWithSalt _salt OrganizationAggregationSource' {..} =
-    _salt `Prelude.hashWithSalt` allAwsRegions
+    _salt
+      `Prelude.hashWithSalt` allAwsRegions
       `Prelude.hashWithSalt` awsRegions
       `Prelude.hashWithSalt` roleArn
 

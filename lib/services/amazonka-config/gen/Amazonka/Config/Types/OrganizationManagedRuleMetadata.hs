@@ -25,10 +25,10 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that specifies organization managed rule metadata such as
--- resource type and ID of Amazon Web Services resource along with the rule
--- identifier. It also provides the frequency with which you want Config to
--- run evaluations for the rule if the trigger type is periodic.
+-- | organization managed rule metadata such as resource type and ID of
+-- Amazon Web Services resource along with the rule identifier. It also
+-- provides the frequency with which you want Config to run evaluations for
+-- the rule if the trigger type is periodic.
 --
 -- /See:/ 'newOrganizationManagedRuleMetadata' smart constructor.
 data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
@@ -173,7 +173,8 @@ instance
             Prelude.<*> (x Data..:? "InputParameters")
             Prelude.<*> (x Data..:? "MaximumExecutionFrequency")
             Prelude.<*> (x Data..:? "ResourceIdScope")
-            Prelude.<*> ( x Data..:? "ResourceTypesScope"
+            Prelude.<*> ( x
+                            Data..:? "ResourceTypesScope"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TagKeyScope")
@@ -188,7 +189,8 @@ instance
   hashWithSalt
     _salt
     OrganizationManagedRuleMetadata' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` inputParameters
         `Prelude.hashWithSalt` maximumExecutionFrequency
         `Prelude.hashWithSalt` resourceIdScope

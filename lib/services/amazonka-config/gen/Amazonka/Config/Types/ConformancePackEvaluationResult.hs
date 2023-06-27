@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     ConformancePackEvaluationResult' {..} =
-      _salt `Prelude.hashWithSalt` annotation
+      _salt
+        `Prelude.hashWithSalt` annotation
         `Prelude.hashWithSalt` complianceType
         `Prelude.hashWithSalt` evaluationResultIdentifier
         `Prelude.hashWithSalt` configRuleInvokedTime

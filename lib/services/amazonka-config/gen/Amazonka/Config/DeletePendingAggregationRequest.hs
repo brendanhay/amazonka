@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     DeletePendingAggregationRequest' {..} =
-      _salt `Prelude.hashWithSalt` requesterAccountId
+      _salt
+        `Prelude.hashWithSalt` requesterAccountId
         `Prelude.hashWithSalt` requesterAwsRegion
 
 instance

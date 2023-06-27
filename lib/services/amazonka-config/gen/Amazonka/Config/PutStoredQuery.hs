@@ -24,6 +24,12 @@
 -- must be unique for a single Amazon Web Services account and a single
 -- Amazon Web Services Region. You can create upto 300 queries in a single
 -- Amazon Web Services account and a single Amazon Web Services Region.
+--
+-- @PutStoredQuery@ is an idempotent API. Subsequent requests won’t create
+-- a duplicate resource if one was already created. If a following request
+-- has different @tags@ values, Config will ignore these differences and
+-- treat it as an idempotent request of the previous. In this case, @tags@
+-- will not be updated, even if they are different.
 module Amazonka.Config.PutStoredQuery
   ( -- * Creating a Request
     PutStoredQuery (..),
@@ -120,7 +126,8 @@ instance Core.AWSRequest PutStoredQuery where
 
 instance Prelude.Hashable PutStoredQuery where
   hashWithSalt _salt PutStoredQuery' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` storedQuery
 
 instance Prelude.NFData PutStoredQuery where

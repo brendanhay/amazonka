@@ -85,7 +85,8 @@ data ListDiscoveredResources = ListDiscoveredResources'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of only those resources that you want Config to list in the
     -- response. If you do not specify this parameter, Config lists all
-    -- resources of the specified type that it has discovered.
+    -- resources of the specified type that it has discovered. You can list a
+    -- minimum of 1 resourceID and a maximum of 20 resourceIds.
     resourceIds :: Prelude.Maybe [Prelude.Text],
     -- | The custom name of only those resources that you want Config to list in
     -- the response. If you do not specify this parameter, Config lists all
@@ -116,7 +117,8 @@ data ListDiscoveredResources = ListDiscoveredResources'
 --
 -- 'resourceIds', 'listDiscoveredResources_resourceIds' - The IDs of only those resources that you want Config to list in the
 -- response. If you do not specify this parameter, Config lists all
--- resources of the specified type that it has discovered.
+-- resources of the specified type that it has discovered. You can list a
+-- minimum of 1 resourceID and a maximum of 20 resourceIds.
 --
 -- 'resourceName', 'listDiscoveredResources_resourceName' - The custom name of only those resources that you want Config to list in
 -- the response. If you do not specify this parameter, Config lists all
@@ -156,7 +158,8 @@ listDiscoveredResources_nextToken = Lens.lens (\ListDiscoveredResources' {nextTo
 
 -- | The IDs of only those resources that you want Config to list in the
 -- response. If you do not specify this parameter, Config lists all
--- resources of the specified type that it has discovered.
+-- resources of the specified type that it has discovered. You can list a
+-- minimum of 1 resourceID and a maximum of 20 resourceIds.
 listDiscoveredResources_resourceIds :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe [Prelude.Text])
 listDiscoveredResources_resourceIds = Lens.lens (\ListDiscoveredResources' {resourceIds} -> resourceIds) (\s@ListDiscoveredResources' {} a -> s {resourceIds = a} :: ListDiscoveredResources) Prelude.. Lens.mapping Lens.coerced
 
@@ -175,22 +178,22 @@ instance Core.AWSPager ListDiscoveredResources where
     | Core.stop
         ( rs
             Lens.^? listDiscoveredResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDiscoveredResourcesResponse_resourceIdentifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDiscoveredResources_nextToken
           Lens..~ rs
           Lens.^? listDiscoveredResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDiscoveredResources where
   type
@@ -203,7 +206,8 @@ instance Core.AWSRequest ListDiscoveredResources where
       ( \s h x ->
           ListDiscoveredResourcesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "resourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "resourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

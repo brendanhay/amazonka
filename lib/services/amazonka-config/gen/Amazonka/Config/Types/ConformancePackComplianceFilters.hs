@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     ConformancePackComplianceFilters' {..} =
-      _salt `Prelude.hashWithSalt` complianceType
+      _salt
+        `Prelude.hashWithSalt` complianceType
         `Prelude.hashWithSalt` configRuleNames
 
 instance

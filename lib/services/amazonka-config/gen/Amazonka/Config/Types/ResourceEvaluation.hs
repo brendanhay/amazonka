@@ -86,7 +86,8 @@ instance Data.FromJSON ResourceEvaluation where
 
 instance Prelude.Hashable ResourceEvaluation where
   hashWithSalt _salt ResourceEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` evaluationMode
+    _salt
+      `Prelude.hashWithSalt` evaluationMode
       `Prelude.hashWithSalt` evaluationStartTimestamp
       `Prelude.hashWithSalt` resourceEvaluationId
 

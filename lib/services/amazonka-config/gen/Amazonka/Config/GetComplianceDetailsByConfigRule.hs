@@ -62,8 +62,9 @@ import qualified Amazonka.Response as Response
 data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
   { -- | Filters the results by compliance.
     --
-    -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
-    -- @NOT_APPLICABLE@.
+    -- @INSUFFICIENT_DATA@ is a valid @ComplianceType@ that is returned when an
+    -- Config rule cannot be evaluated. However, @INSUFFICIENT_DATA@ cannot be
+    -- used as a @ComplianceType@ for filtering results.
     complianceTypes :: Prelude.Maybe [ComplianceType],
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
@@ -87,8 +88,9 @@ data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
 --
 -- 'complianceTypes', 'getComplianceDetailsByConfigRule_complianceTypes' - Filters the results by compliance.
 --
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @NOT_APPLICABLE@.
+-- @INSUFFICIENT_DATA@ is a valid @ComplianceType@ that is returned when an
+-- Config rule cannot be evaluated. However, @INSUFFICIENT_DATA@ cannot be
+-- used as a @ComplianceType@ for filtering results.
 --
 -- 'limit', 'getComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
@@ -113,8 +115,9 @@ newGetComplianceDetailsByConfigRule pConfigRuleName_ =
 
 -- | Filters the results by compliance.
 --
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @NOT_APPLICABLE@.
+-- @INSUFFICIENT_DATA@ is a valid @ComplianceType@ that is returned when an
+-- Config rule cannot be evaluated. However, @INSUFFICIENT_DATA@ cannot be
+-- used as a @ComplianceType@ for filtering results.
 getComplianceDetailsByConfigRule_complianceTypes :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe [ComplianceType])
 getComplianceDetailsByConfigRule_complianceTypes = Lens.lens (\GetComplianceDetailsByConfigRule' {complianceTypes} -> complianceTypes) (\s@GetComplianceDetailsByConfigRule' {} a -> s {complianceTypes = a} :: GetComplianceDetailsByConfigRule) Prelude.. Lens.mapping Lens.coerced
 
@@ -141,22 +144,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getComplianceDetailsByConfigRuleResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getComplianceDetailsByConfigRuleResponse_evaluationResults
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getComplianceDetailsByConfigRule_nextToken
           Lens..~ rs
           Lens.^? getComplianceDetailsByConfigRuleResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -171,7 +174,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetComplianceDetailsByConfigRuleResponse'
-            Prelude.<$> ( x Data..?> "EvaluationResults"
+            Prelude.<$> ( x
+                            Data..?> "EvaluationResults"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -185,7 +189,8 @@ instance
   hashWithSalt
     _salt
     GetComplianceDetailsByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` complianceTypes
+      _salt
+        `Prelude.hashWithSalt` complianceTypes
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` configRuleName

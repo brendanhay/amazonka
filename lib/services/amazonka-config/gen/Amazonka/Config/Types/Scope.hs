@@ -113,7 +113,8 @@ instance Data.FromJSON Scope where
       ( \x ->
           Scope'
             Prelude.<$> (x Data..:? "ComplianceResourceId")
-            Prelude.<*> ( x Data..:? "ComplianceResourceTypes"
+            Prelude.<*> ( x
+                            Data..:? "ComplianceResourceTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TagKey")
@@ -122,7 +123,8 @@ instance Data.FromJSON Scope where
 
 instance Prelude.Hashable Scope where
   hashWithSalt _salt Scope' {..} =
-    _salt `Prelude.hashWithSalt` complianceResourceId
+    _salt
+      `Prelude.hashWithSalt` complianceResourceId
       `Prelude.hashWithSalt` complianceResourceTypes
       `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValue

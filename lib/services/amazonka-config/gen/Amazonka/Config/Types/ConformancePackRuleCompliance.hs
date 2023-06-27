@@ -31,9 +31,6 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConformancePackRuleCompliance' smart constructor.
 data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
   { -- | Compliance of the Config rule.
-    --
-    -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
-    -- @INSUFFICIENT_DATA@.
     complianceType :: Prelude.Maybe ConformancePackComplianceType,
     -- | Name of the Config rule.
     configRuleName :: Prelude.Maybe Prelude.Text,
@@ -55,9 +52,6 @@ data ConformancePackRuleCompliance = ConformancePackRuleCompliance'
 --
 -- 'complianceType', 'conformancePackRuleCompliance_complianceType' - Compliance of the Config rule.
 --
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @INSUFFICIENT_DATA@.
---
 -- 'configRuleName', 'conformancePackRuleCompliance_configRuleName' - Name of the Config rule.
 --
 -- 'controls', 'conformancePackRuleCompliance_controls' - Controls for the conformance pack. A control is a process to prevent or
@@ -75,9 +69,6 @@ newConformancePackRuleCompliance =
     }
 
 -- | Compliance of the Config rule.
---
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @INSUFFICIENT_DATA@.
 conformancePackRuleCompliance_complianceType :: Lens.Lens' ConformancePackRuleCompliance (Prelude.Maybe ConformancePackComplianceType)
 conformancePackRuleCompliance_complianceType = Lens.lens (\ConformancePackRuleCompliance' {complianceType} -> complianceType) (\s@ConformancePackRuleCompliance' {} a -> s {complianceType = a} :: ConformancePackRuleCompliance)
 
@@ -108,7 +99,8 @@ instance
     ConformancePackRuleCompliance
   where
   hashWithSalt _salt ConformancePackRuleCompliance' {..} =
-    _salt `Prelude.hashWithSalt` complianceType
+    _salt
+      `Prelude.hashWithSalt` complianceType
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` controls
 

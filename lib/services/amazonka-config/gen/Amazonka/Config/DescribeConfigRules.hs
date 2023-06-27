@@ -59,8 +59,11 @@ data DescribeConfigRules = DescribeConfigRules'
   { -- | The names of the Config rules for which you want details. If you do not
     -- specify any names, Config returns details for all your rules.
     configRuleNames :: Prelude.Maybe [Prelude.Text],
-    -- | Returns a list of Detecive or Proactive Config rules. By default, this
-    -- API returns an unfiltered list.
+    -- | Returns a list of Detective or Proactive Config rules. By default, this
+    -- API returns an unfiltered list. For more information on Detective or
+    -- Proactive Config rules, see
+    -- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html Evaluation Mode>
+    -- in the /Config Developer Guide/.
     filters :: Prelude.Maybe DescribeConfigRulesFilters,
     -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
@@ -79,8 +82,11 @@ data DescribeConfigRules = DescribeConfigRules'
 -- 'configRuleNames', 'describeConfigRules_configRuleNames' - The names of the Config rules for which you want details. If you do not
 -- specify any names, Config returns details for all your rules.
 --
--- 'filters', 'describeConfigRules_filters' - Returns a list of Detecive or Proactive Config rules. By default, this
--- API returns an unfiltered list.
+-- 'filters', 'describeConfigRules_filters' - Returns a list of Detective or Proactive Config rules. By default, this
+-- API returns an unfiltered list. For more information on Detective or
+-- Proactive Config rules, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html Evaluation Mode>
+-- in the /Config Developer Guide/.
 --
 -- 'nextToken', 'describeConfigRules_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
@@ -99,8 +105,11 @@ newDescribeConfigRules =
 describeConfigRules_configRuleNames :: Lens.Lens' DescribeConfigRules (Prelude.Maybe [Prelude.Text])
 describeConfigRules_configRuleNames = Lens.lens (\DescribeConfigRules' {configRuleNames} -> configRuleNames) (\s@DescribeConfigRules' {} a -> s {configRuleNames = a} :: DescribeConfigRules) Prelude.. Lens.mapping Lens.coerced
 
--- | Returns a list of Detecive or Proactive Config rules. By default, this
--- API returns an unfiltered list.
+-- | Returns a list of Detective or Proactive Config rules. By default, this
+-- API returns an unfiltered list. For more information on Detective or
+-- Proactive Config rules, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html Evaluation Mode>
+-- in the /Config Developer Guide/.
 describeConfigRules_filters :: Lens.Lens' DescribeConfigRules (Prelude.Maybe DescribeConfigRulesFilters)
 describeConfigRules_filters = Lens.lens (\DescribeConfigRules' {filters} -> filters) (\s@DescribeConfigRules' {} a -> s {filters = a} :: DescribeConfigRules)
 
@@ -114,22 +123,22 @@ instance Core.AWSPager DescribeConfigRules where
     | Core.stop
         ( rs
             Lens.^? describeConfigRulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeConfigRulesResponse_configRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeConfigRules_nextToken
           Lens..~ rs
           Lens.^? describeConfigRulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeConfigRules where
   type
@@ -148,7 +157,8 @@ instance Core.AWSRequest DescribeConfigRules where
 
 instance Prelude.Hashable DescribeConfigRules where
   hashWithSalt _salt DescribeConfigRules' {..} =
-    _salt `Prelude.hashWithSalt` configRuleNames
+    _salt
+      `Prelude.hashWithSalt` configRuleNames
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` nextToken
 

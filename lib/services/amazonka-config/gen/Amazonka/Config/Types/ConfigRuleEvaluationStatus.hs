@@ -257,7 +257,8 @@ instance Data.FromJSON ConfigRuleEvaluationStatus where
 
 instance Prelude.Hashable ConfigRuleEvaluationStatus where
   hashWithSalt _salt ConfigRuleEvaluationStatus' {..} =
-    _salt `Prelude.hashWithSalt` configRuleArn
+    _salt
+      `Prelude.hashWithSalt` configRuleArn
       `Prelude.hashWithSalt` configRuleId
       `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` firstActivatedTime

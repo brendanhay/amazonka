@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteRemediationExceptions where
 
 instance Prelude.Hashable DeleteRemediationExceptions where
   hashWithSalt _salt DeleteRemediationExceptions' {..} =
-    _salt `Prelude.hashWithSalt` configRuleName
+    _salt
+      `Prelude.hashWithSalt` configRuleName
       `Prelude.hashWithSalt` resourceKeys
 
 instance Prelude.NFData DeleteRemediationExceptions where

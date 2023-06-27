@@ -25,7 +25,7 @@
 -- conformance packs and how many Config rules you can have per account,
 -- see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html Service Limits>
--- in the Config Developer Guide.
+-- in the /Config Developer Guide/.
 --
 -- Only a management account and a delegated administrator can call this
 -- API. When calling this API with a delegated administrator, you must

@@ -79,7 +79,8 @@ instance Data.FromJSON ComplianceContributorCount where
 
 instance Prelude.Hashable ComplianceContributorCount where
   hashWithSalt _salt ComplianceContributorCount' {..} =
-    _salt `Prelude.hashWithSalt` capExceeded
+    _salt
+      `Prelude.hashWithSalt` capExceeded
       `Prelude.hashWithSalt` cappedCount
 
 instance Prelude.NFData ComplianceContributorCount where

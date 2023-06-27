@@ -22,6 +22,12 @@
 --
 -- Authorizes the aggregator account and region to collect data from the
 -- source account and region.
+--
+-- @PutAggregationAuthorization@ is an idempotent API. Subsequent requests
+-- won’t create a duplicate resource if one was already created. If a
+-- following request has different @tags@ values, Config will ignore these
+-- differences and treat it as an idempotent request of the previous. In
+-- this case, @tags@ will not be updated, even if they are different.
 module Amazonka.Config.PutAggregationAuthorization
   ( -- * Creating a Request
     PutAggregationAuthorization (..),
@@ -118,7 +124,8 @@ instance Core.AWSRequest PutAggregationAuthorization where
 
 instance Prelude.Hashable PutAggregationAuthorization where
   hashWithSalt _salt PutAggregationAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` authorizedAccountId
       `Prelude.hashWithSalt` authorizedAwsRegion
 

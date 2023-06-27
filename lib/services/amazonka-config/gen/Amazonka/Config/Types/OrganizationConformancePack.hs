@@ -146,12 +146,14 @@ instance Data.FromJSON OrganizationConformancePack where
       "OrganizationConformancePack"
       ( \x ->
           OrganizationConformancePack'
-            Prelude.<$> ( x Data..:? "ConformancePackInputParameters"
+            Prelude.<$> ( x
+                            Data..:? "ConformancePackInputParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DeliveryS3Bucket")
             Prelude.<*> (x Data..:? "DeliveryS3KeyPrefix")
-            Prelude.<*> ( x Data..:? "ExcludedAccounts"
+            Prelude.<*> ( x
+                            Data..:? "ExcludedAccounts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "OrganizationConformancePackName")

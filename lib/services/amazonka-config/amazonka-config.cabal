@@ -202,6 +202,7 @@ library
     Amazonka.Config.Types.EvaluationResultQualifier
     Amazonka.Config.Types.EvaluationStatus
     Amazonka.Config.Types.EventSource
+    Amazonka.Config.Types.ExclusionByResourceTypes
     Amazonka.Config.Types.ExecutionControls
     Amazonka.Config.Types.ExternalEvaluation
     Amazonka.Config.Types.FailedDeleteRemediationExceptionsBatch
@@ -234,6 +235,8 @@ library
     Amazonka.Config.Types.QueryInfo
     Amazonka.Config.Types.RecorderStatus
     Amazonka.Config.Types.RecordingGroup
+    Amazonka.Config.Types.RecordingStrategy
+    Amazonka.Config.Types.RecordingStrategyType
     Amazonka.Config.Types.Relationship
     Amazonka.Config.Types.RemediationConfiguration
     Amazonka.Config.Types.RemediationException

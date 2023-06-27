@@ -20,19 +20,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new configuration recorder to record the selected resource
--- configurations.
+-- Creates a new configuration recorder to record configuration changes for
+-- specified resource types.
 --
--- You can use this action to change the role @roleARN@ or the
--- @recordingGroup@ of an existing recorder. To change the role, call the
--- action on the existing configuration recorder and specify a role.
+-- You can also use this action to change the @roleARN@ or the
+-- @recordingGroup@ of an existing recorder. For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html Managing the Configuration Recorder>
+-- in the /Config Developer Guide/.
 --
--- Currently, you can specify only one configuration recorder per region in
--- your account.
+-- You can specify only one configuration recorder for each Amazon Web
+-- Services Region for each account.
 --
--- If @ConfigurationRecorder@ does not have the __recordingGroup__
--- parameter specified, the default is to record all supported resource
--- types.
+-- If the configuration recorder does not have the @recordingGroup@ field
+-- specified, the default is to record all supported resource types.
 module Amazonka.Config.PutConfigurationRecorder
   ( -- * Creating a Request
     PutConfigurationRecorder (..),
@@ -59,8 +59,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newPutConfigurationRecorder' smart constructor.
 data PutConfigurationRecorder = PutConfigurationRecorder'
-  { -- | The configuration recorder object that records each configuration change
-    -- made to the resources.
+  { -- | An object for the configuration recorder to record configuration changes
+    -- for specified resource types.
     configurationRecorder :: ConfigurationRecorder
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,8 +73,8 @@ data PutConfigurationRecorder = PutConfigurationRecorder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configurationRecorder', 'putConfigurationRecorder_configurationRecorder' - The configuration recorder object that records each configuration change
--- made to the resources.
+-- 'configurationRecorder', 'putConfigurationRecorder_configurationRecorder' - An object for the configuration recorder to record configuration changes
+-- for specified resource types.
 newPutConfigurationRecorder ::
   -- | 'configurationRecorder'
   ConfigurationRecorder ->
@@ -85,8 +85,8 @@ newPutConfigurationRecorder pConfigurationRecorder_ =
         pConfigurationRecorder_
     }
 
--- | The configuration recorder object that records each configuration change
--- made to the resources.
+-- | An object for the configuration recorder to record configuration changes
+-- for specified resource types.
 putConfigurationRecorder_configurationRecorder :: Lens.Lens' PutConfigurationRecorder ConfigurationRecorder
 putConfigurationRecorder_configurationRecorder = Lens.lens (\PutConfigurationRecorder' {configurationRecorder} -> configurationRecorder) (\s@PutConfigurationRecorder' {} a -> s {configurationRecorder = a} :: PutConfigurationRecorder)
 

@@ -84,9 +84,6 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
   { -- | Filters the results by compliance.
-    --
-    -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
-    -- @INSUFFICIENT_DATA@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
@@ -117,9 +114,6 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 --
 -- 'complianceTypes', 'describeComplianceByResource_complianceTypes' - Filters the results by compliance.
 --
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @INSUFFICIENT_DATA@.
---
 -- 'limit', 'describeComplianceByResource_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
 -- specify 0, Config uses the default.
@@ -148,9 +142,6 @@ newDescribeComplianceByResource =
     }
 
 -- | Filters the results by compliance.
---
--- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
--- @INSUFFICIENT_DATA@.
 describeComplianceByResource_complianceTypes :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe [ComplianceType])
 describeComplianceByResource_complianceTypes = Lens.lens (\DescribeComplianceByResource' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByResource' {} a -> s {complianceTypes = a} :: DescribeComplianceByResource) Prelude.. Lens.mapping Lens.coerced
 
@@ -183,22 +174,22 @@ instance Core.AWSPager DescribeComplianceByResource where
     | Core.stop
         ( rs
             Lens.^? describeComplianceByResourceResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeComplianceByResourceResponse_complianceByResources
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeComplianceByResource_nextToken
           Lens..~ rs
           Lens.^? describeComplianceByResourceResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeComplianceByResource where
   type
@@ -210,7 +201,8 @@ instance Core.AWSRequest DescribeComplianceByResource where
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByResourceResponse'
-            Prelude.<$> ( x Data..?> "ComplianceByResources"
+            Prelude.<$> ( x
+                            Data..?> "ComplianceByResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -222,7 +214,8 @@ instance
     DescribeComplianceByResource
   where
   hashWithSalt _salt DescribeComplianceByResource' {..} =
-    _salt `Prelude.hashWithSalt` complianceTypes
+    _salt
+      `Prelude.hashWithSalt` complianceTypes
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId

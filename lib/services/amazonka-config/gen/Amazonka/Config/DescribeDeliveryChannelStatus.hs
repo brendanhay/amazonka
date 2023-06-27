@@ -95,7 +95,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeDeliveryChannelStatusResponse'
-            Prelude.<$> ( x Data..?> "DeliveryChannelsStatus"
+            Prelude.<$> ( x
+                            Data..?> "DeliveryChannelsStatus"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

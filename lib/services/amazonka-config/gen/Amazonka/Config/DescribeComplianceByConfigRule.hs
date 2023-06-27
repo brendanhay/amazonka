@@ -81,8 +81,6 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeComplianceByConfigRule' smart constructor.
 data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
   { -- | Filters the results by compliance.
-    --
-    -- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
     -- | Specify one or more Config rule names to filter the results by rule.
     configRuleNames :: Prelude.Maybe [Prelude.Text],
@@ -102,8 +100,6 @@ data DescribeComplianceByConfigRule = DescribeComplianceByConfigRule'
 --
 -- 'complianceTypes', 'describeComplianceByConfigRule_complianceTypes' - Filters the results by compliance.
 --
--- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
---
 -- 'configRuleNames', 'describeComplianceByConfigRule_configRuleNames' - Specify one or more Config rule names to filter the results by rule.
 --
 -- 'nextToken', 'describeComplianceByConfigRule_nextToken' - The @nextToken@ string returned on a previous page that you use to get
@@ -119,8 +115,6 @@ newDescribeComplianceByConfigRule =
     }
 
 -- | Filters the results by compliance.
---
--- The allowed values are @COMPLIANT@ and @NON_COMPLIANT@.
 describeComplianceByConfigRule_complianceTypes :: Lens.Lens' DescribeComplianceByConfigRule (Prelude.Maybe [ComplianceType])
 describeComplianceByConfigRule_complianceTypes = Lens.lens (\DescribeComplianceByConfigRule' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByConfigRule' {} a -> s {complianceTypes = a} :: DescribeComplianceByConfigRule) Prelude.. Lens.mapping Lens.coerced
 
@@ -138,22 +132,22 @@ instance Core.AWSPager DescribeComplianceByConfigRule where
     | Core.stop
         ( rs
             Lens.^? describeComplianceByConfigRuleResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeComplianceByConfigRuleResponse_complianceByConfigRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeComplianceByConfigRule_nextToken
           Lens..~ rs
           Lens.^? describeComplianceByConfigRuleResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -168,7 +162,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeComplianceByConfigRuleResponse'
-            Prelude.<$> ( x Data..?> "ComplianceByConfigRules"
+            Prelude.<$> ( x
+                            Data..?> "ComplianceByConfigRules"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -182,7 +177,8 @@ instance
   hashWithSalt
     _salt
     DescribeComplianceByConfigRule' {..} =
-      _salt `Prelude.hashWithSalt` complianceTypes
+      _salt
+        `Prelude.hashWithSalt` complianceTypes
         `Prelude.hashWithSalt` configRuleNames
         `Prelude.hashWithSalt` nextToken
 

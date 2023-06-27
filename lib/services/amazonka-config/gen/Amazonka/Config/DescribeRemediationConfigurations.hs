@@ -91,10 +91,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeRemediationConfigurationsResponse'
-            Prelude.<$> ( x Data..?> "RemediationConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "RemediationConfigurations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

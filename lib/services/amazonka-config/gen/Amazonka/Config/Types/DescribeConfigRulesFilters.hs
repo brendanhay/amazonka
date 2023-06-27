@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Returns a filtered list of Detective or Proactive Config rules. By
 -- default, if the filter is not defined, this API returns an unfiltered
--- list.
+-- list. For more information on Detective or Proactive Config rules, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html Evaluation Mode>
+-- in the /Config Developer Guide/.
 --
 -- /See:/ 'newDescribeConfigRulesFilters' smart constructor.
 data DescribeConfigRulesFilters = DescribeConfigRulesFilters'

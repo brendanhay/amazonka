@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     RemediationExceptionResourceKey' {..} =
-      _salt `Prelude.hashWithSalt` resourceId
+      _salt
+        `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` resourceType
 
 instance

@@ -30,6 +30,18 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newResourceDetails' smart constructor.
 data ResourceDetails = ResourceDetails'
   { -- | The schema type of the resource configuration.
+    --
+    -- You can find the
+    -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource type schema>,
+    -- or @CFN_RESOURCE_SCHEMA@, in \"/Amazon Web Services public extensions/\"
+    -- within the CloudFormation registry or with the following CLI commmand:
+    -- @aws cloudformation describe-type --type-name \"AWS::S3::Bucket\" --type RESOURCE@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view Managing extensions through the CloudFormation registry>
+    -- and
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+    -- in the CloudFormation User Guide.
     resourceConfigurationSchemaType :: Prelude.Maybe ResourceConfigurationSchemaType,
     -- | A unique resource ID for an evaluation.
     resourceId :: Prelude.Text,
@@ -50,6 +62,18 @@ data ResourceDetails = ResourceDetails'
 -- for backwards compatibility:
 --
 -- 'resourceConfigurationSchemaType', 'resourceDetails_resourceConfigurationSchemaType' - The schema type of the resource configuration.
+--
+-- You can find the
+-- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource type schema>,
+-- or @CFN_RESOURCE_SCHEMA@, in \"/Amazon Web Services public extensions/\"
+-- within the CloudFormation registry or with the following CLI commmand:
+-- @aws cloudformation describe-type --type-name \"AWS::S3::Bucket\" --type RESOURCE@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view Managing extensions through the CloudFormation registry>
+-- and
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the CloudFormation User Guide.
 --
 -- 'resourceId', 'resourceDetails_resourceId' - A unique resource ID for an evaluation.
 --
@@ -78,6 +102,18 @@ newResourceDetails
       }
 
 -- | The schema type of the resource configuration.
+--
+-- You can find the
+-- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource type schema>,
+-- or @CFN_RESOURCE_SCHEMA@, in \"/Amazon Web Services public extensions/\"
+-- within the CloudFormation registry or with the following CLI commmand:
+-- @aws cloudformation describe-type --type-name \"AWS::S3::Bucket\" --type RESOURCE@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view Managing extensions through the CloudFormation registry>
+-- and
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the CloudFormation User Guide.
 resourceDetails_resourceConfigurationSchemaType :: Lens.Lens' ResourceDetails (Prelude.Maybe ResourceConfigurationSchemaType)
 resourceDetails_resourceConfigurationSchemaType = Lens.lens (\ResourceDetails' {resourceConfigurationSchemaType} -> resourceConfigurationSchemaType) (\s@ResourceDetails' {} a -> s {resourceConfigurationSchemaType = a} :: ResourceDetails)
 

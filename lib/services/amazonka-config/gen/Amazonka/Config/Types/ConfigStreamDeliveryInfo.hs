@@ -112,7 +112,8 @@ instance Data.FromJSON ConfigStreamDeliveryInfo where
 
 instance Prelude.Hashable ConfigStreamDeliveryInfo where
   hashWithSalt _salt ConfigStreamDeliveryInfo' {..} =
-    _salt `Prelude.hashWithSalt` lastErrorCode
+    _salt
+      `Prelude.hashWithSalt` lastErrorCode
       `Prelude.hashWithSalt` lastErrorMessage
       `Prelude.hashWithSalt` lastStatus
       `Prelude.hashWithSalt` lastStatusChangeTime

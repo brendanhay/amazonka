@@ -94,7 +94,8 @@ instance Data.FromJSON WorldSummary where
 
 instance Prelude.Hashable WorldSummary where
   hashWithSalt _salt WorldSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` generationJob
       `Prelude.hashWithSalt` template

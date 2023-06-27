@@ -68,7 +68,8 @@ templateLocation_s3Key = Lens.lens (\TemplateLocation' {s3Key} -> s3Key) (\s@Tem
 
 instance Prelude.Hashable TemplateLocation where
   hashWithSalt _salt TemplateLocation' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData TemplateLocation where

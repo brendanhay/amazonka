@@ -155,7 +155,8 @@ instance Data.FromJSON RobotApplicationConfig where
           RobotApplicationConfig'
             Prelude.<$> (x Data..:? "applicationVersion")
             Prelude.<*> (x Data..:? "tools" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "uploadConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "uploadConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "useDefaultTools")
@@ -166,7 +167,8 @@ instance Data.FromJSON RobotApplicationConfig where
 
 instance Prelude.Hashable RobotApplicationConfig where
   hashWithSalt _salt RobotApplicationConfig' {..} =
-    _salt `Prelude.hashWithSalt` applicationVersion
+    _salt
+      `Prelude.hashWithSalt` applicationVersion
       `Prelude.hashWithSalt` tools
       `Prelude.hashWithSalt` uploadConfigurations
       `Prelude.hashWithSalt` useDefaultTools

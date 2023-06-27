@@ -141,7 +141,8 @@ instance Core.AWSRequest StartSimulationJobBatch where
             Prelude.<*> (x Data..?> "batchPolicy")
             Prelude.<*> (x Data..?> "clientRequestToken")
             Prelude.<*> (x Data..?> "createdAt")
-            Prelude.<*> ( x Data..?> "createdRequests"
+            Prelude.<*> ( x
+                            Data..?> "createdRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "failedRequests" Core..!@ Prelude.mempty)
@@ -155,7 +156,8 @@ instance Core.AWSRequest StartSimulationJobBatch where
 
 instance Prelude.Hashable StartSimulationJobBatch where
   hashWithSalt _salt StartSimulationJobBatch' {..} =
-    _salt `Prelude.hashWithSalt` batchPolicy
+    _salt
+      `Prelude.hashWithSalt` batchPolicy
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` createSimulationJobRequests

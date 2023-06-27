@@ -190,7 +190,8 @@ instance Core.AWSRequest CreateSimulationApplication where
 
 instance Prelude.Hashable CreateSimulationApplication where
   hashWithSalt _salt CreateSimulationApplication' {..} =
-    _salt `Prelude.hashWithSalt` environment
+    _salt
+      `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` renderingEngine
       `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` tags

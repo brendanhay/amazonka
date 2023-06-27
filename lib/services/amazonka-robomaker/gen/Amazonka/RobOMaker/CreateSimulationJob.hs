@@ -307,7 +307,8 @@ instance Core.AWSRequest CreateSimulationJob where
 
 instance Prelude.Hashable CreateSimulationJob where
   hashWithSalt _salt CreateSimulationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` compute
       `Prelude.hashWithSalt` dataSources
       `Prelude.hashWithSalt` failureBehavior

@@ -154,7 +154,8 @@ instance Data.FromJSON DataSource where
 
 instance Prelude.Hashable DataSource where
   hashWithSalt _salt DataSource' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Keys

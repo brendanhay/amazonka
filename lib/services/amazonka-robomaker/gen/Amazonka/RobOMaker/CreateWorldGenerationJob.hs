@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateWorldGenerationJob where
 
 instance Prelude.Hashable CreateWorldGenerationJob where
   hashWithSalt _salt CreateWorldGenerationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` worldTags
       `Prelude.hashWithSalt` template

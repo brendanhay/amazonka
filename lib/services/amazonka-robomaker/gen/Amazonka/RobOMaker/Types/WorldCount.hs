@@ -81,7 +81,8 @@ instance Data.FromJSON WorldCount where
 
 instance Prelude.Hashable WorldCount where
   hashWithSalt _salt WorldCount' {..} =
-    _salt `Prelude.hashWithSalt` floorplanCount
+    _salt
+      `Prelude.hashWithSalt` floorplanCount
       `Prelude.hashWithSalt` interiorCountPerFloorplan
 
 instance Prelude.NFData WorldCount where

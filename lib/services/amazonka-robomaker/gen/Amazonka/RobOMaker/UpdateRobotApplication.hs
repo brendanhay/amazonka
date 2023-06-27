@@ -157,7 +157,8 @@ instance Core.AWSRequest UpdateRobotApplication where
 
 instance Prelude.Hashable UpdateRobotApplication where
   hashWithSalt _salt UpdateRobotApplication' {..} =
-    _salt `Prelude.hashWithSalt` currentRevisionId
+    _salt
+      `Prelude.hashWithSalt` currentRevisionId
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` sources
       `Prelude.hashWithSalt` application

@@ -142,16 +142,16 @@ instance
       ( \s h x ->
           CreateSimulationApplicationVersionResponse'
             Prelude.<$> (x Data..?> "arn")
-              Prelude.<*> (x Data..?> "environment")
-              Prelude.<*> (x Data..?> "lastUpdatedAt")
-              Prelude.<*> (x Data..?> "name")
-              Prelude.<*> (x Data..?> "renderingEngine")
-              Prelude.<*> (x Data..?> "revisionId")
-              Prelude.<*> (x Data..?> "robotSoftwareSuite")
-              Prelude.<*> (x Data..?> "simulationSoftwareSuite")
-              Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "version")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "environment")
+            Prelude.<*> (x Data..?> "lastUpdatedAt")
+            Prelude.<*> (x Data..?> "name")
+            Prelude.<*> (x Data..?> "renderingEngine")
+            Prelude.<*> (x Data..?> "revisionId")
+            Prelude.<*> (x Data..?> "robotSoftwareSuite")
+            Prelude.<*> (x Data..?> "simulationSoftwareSuite")
+            Prelude.<*> (x Data..?> "sources" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -161,7 +161,8 @@ instance
   hashWithSalt
     _salt
     CreateSimulationApplicationVersion' {..} =
-      _salt `Prelude.hashWithSalt` currentRevisionId
+      _salt
+        `Prelude.hashWithSalt` currentRevisionId
         `Prelude.hashWithSalt` imageDigest
         `Prelude.hashWithSalt` s3Etags
         `Prelude.hashWithSalt` application

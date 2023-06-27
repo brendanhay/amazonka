@@ -68,12 +68,14 @@ instance Data.FromJSON S3KeyOutput where
       "S3KeyOutput"
       ( \x ->
           S3KeyOutput'
-            Prelude.<$> (x Data..:? "etag") Prelude.<*> (x Data..:? "s3Key")
+            Prelude.<$> (x Data..:? "etag")
+            Prelude.<*> (x Data..:? "s3Key")
       )
 
 instance Prelude.Hashable S3KeyOutput where
   hashWithSalt _salt S3KeyOutput' {..} =
-    _salt `Prelude.hashWithSalt` etag
+    _salt
+      `Prelude.hashWithSalt` etag
       `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData S3KeyOutput where

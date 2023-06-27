@@ -112,7 +112,8 @@ instance Core.AWSRequest GetAccessPreview where
 
 instance Prelude.Hashable GetAccessPreview where
   hashWithSalt _salt GetAccessPreview' {..} =
-    _salt `Prelude.hashWithSalt` accessPreviewId
+    _salt
+      `Prelude.hashWithSalt` accessPreviewId
       `Prelude.hashWithSalt` analyzerArn
 
 instance Prelude.NFData GetAccessPreview where

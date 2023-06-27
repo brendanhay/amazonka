@@ -69,12 +69,14 @@ instance Data.FromJSON Substring where
       "Substring"
       ( \x ->
           Substring'
-            Prelude.<$> (x Data..: "start") Prelude.<*> (x Data..: "length")
+            Prelude.<$> (x Data..: "start")
+            Prelude.<*> (x Data..: "length")
       )
 
 instance Prelude.Hashable Substring where
   hashWithSalt _salt Substring' {..} =
-    _salt `Prelude.hashWithSalt` start
+    _salt
+      `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` length
 
 instance Prelude.NFData Substring where

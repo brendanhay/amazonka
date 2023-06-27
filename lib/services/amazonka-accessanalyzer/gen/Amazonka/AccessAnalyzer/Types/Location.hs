@@ -76,7 +76,8 @@ instance Data.FromJSON Location where
 
 instance Prelude.Hashable Location where
   hashWithSalt _salt Location' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` span
 
 instance Prelude.NFData Location where

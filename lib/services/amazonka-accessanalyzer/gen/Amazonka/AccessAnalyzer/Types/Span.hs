@@ -71,12 +71,14 @@ instance Data.FromJSON Span where
       "Span"
       ( \x ->
           Span'
-            Prelude.<$> (x Data..: "start") Prelude.<*> (x Data..: "end")
+            Prelude.<$> (x Data..: "start")
+            Prelude.<*> (x Data..: "end")
       )
 
 instance Prelude.Hashable Span where
   hashWithSalt _salt Span' {..} =
-    _salt `Prelude.hashWithSalt` start
+    _salt
+      `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` end
 
 instance Prelude.NFData Span where

@@ -236,7 +236,8 @@ instance Data.FromJSON FindingSummary where
 
 instance Prelude.Hashable FindingSummary where
   hashWithSalt _salt FindingSummary' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` isPublic
       `Prelude.hashWithSalt` principal

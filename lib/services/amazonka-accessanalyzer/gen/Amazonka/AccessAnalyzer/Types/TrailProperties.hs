@@ -99,7 +99,8 @@ instance Data.FromJSON TrailProperties where
 
 instance Prelude.Hashable TrailProperties where
   hashWithSalt _salt TrailProperties' {..} =
-    _salt `Prelude.hashWithSalt` allRegions
+    _salt
+      `Prelude.hashWithSalt` allRegions
       `Prelude.hashWithSalt` regions
       `Prelude.hashWithSalt` cloudTrailArn
 

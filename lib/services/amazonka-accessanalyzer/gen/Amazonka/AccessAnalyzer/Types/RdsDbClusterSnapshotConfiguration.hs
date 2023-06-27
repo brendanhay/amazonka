@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     RdsDbClusterSnapshotConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` attributes
+      _salt
+        `Prelude.hashWithSalt` attributes
         `Prelude.hashWithSalt` kmsKeyId
 
 instance

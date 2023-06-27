@@ -76,12 +76,14 @@ instance Data.FromJSON FindingSource where
       "FindingSource"
       ( \x ->
           FindingSource'
-            Prelude.<$> (x Data..:? "detail") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..:? "detail")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable FindingSource where
   hashWithSalt _salt FindingSource' {..} =
-    _salt `Prelude.hashWithSalt` detail
+    _salt
+      `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData FindingSource where

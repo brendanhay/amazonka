@@ -93,7 +93,8 @@ instance Data.FromJSON Position where
 
 instance Prelude.Hashable Position where
   hashWithSalt _salt Position' {..} =
-    _salt `Prelude.hashWithSalt` line
+    _salt
+      `Prelude.hashWithSalt` line
       `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` offset
 

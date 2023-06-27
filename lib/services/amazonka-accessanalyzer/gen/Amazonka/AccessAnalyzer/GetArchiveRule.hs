@@ -111,7 +111,8 @@ instance Core.AWSRequest GetArchiveRule where
 
 instance Prelude.Hashable GetArchiveRule where
   hashWithSalt _salt GetArchiveRule' {..} =
-    _salt `Prelude.hashWithSalt` analyzerName
+    _salt
+      `Prelude.hashWithSalt` analyzerName
       `Prelude.hashWithSalt` ruleName
 
 instance Prelude.NFData GetArchiveRule where

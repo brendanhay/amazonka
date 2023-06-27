@@ -138,7 +138,8 @@ instance Data.FromJSON KmsGrantConfiguration where
 
 instance Prelude.Hashable KmsGrantConfiguration where
   hashWithSalt _salt KmsGrantConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` retiringPrincipal
       `Prelude.hashWithSalt` operations
       `Prelude.hashWithSalt` granteePrincipal

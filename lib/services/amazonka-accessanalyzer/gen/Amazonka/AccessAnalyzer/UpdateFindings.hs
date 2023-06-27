@@ -139,7 +139,8 @@ instance Core.AWSRequest UpdateFindings where
 
 instance Prelude.Hashable UpdateFindings where
   hashWithSalt _salt UpdateFindings' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` ids
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` analyzerArn

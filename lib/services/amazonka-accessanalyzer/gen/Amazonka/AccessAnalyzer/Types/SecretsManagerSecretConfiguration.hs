@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     SecretsManagerSecretConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` kmsKeyId
+      _salt
+        `Prelude.hashWithSalt` kmsKeyId
         `Prelude.hashWithSalt` secretPolicy
 
 instance

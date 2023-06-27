@@ -102,10 +102,12 @@ instance Data.FromJSON KmsGrantConstraints where
       "KmsGrantConstraints"
       ( \x ->
           KmsGrantConstraints'
-            Prelude.<$> ( x Data..:? "encryptionContextEquals"
+            Prelude.<$> ( x
+                            Data..:? "encryptionContextEquals"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "encryptionContextSubset"
+            Prelude.<*> ( x
+                            Data..:? "encryptionContextSubset"
                             Data..!= Prelude.mempty
                         )
       )

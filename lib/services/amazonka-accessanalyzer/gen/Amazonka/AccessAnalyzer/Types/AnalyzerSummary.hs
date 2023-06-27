@@ -199,7 +199,8 @@ instance Data.FromJSON AnalyzerSummary where
 
 instance Prelude.Hashable AnalyzerSummary where
   hashWithSalt _salt AnalyzerSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastResourceAnalyzed
+    _salt
+      `Prelude.hashWithSalt` lastResourceAnalyzed
       `Prelude.hashWithSalt` lastResourceAnalyzedAt
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` tags

@@ -97,7 +97,8 @@ instance Data.FromJSON GeneratedPolicyProperties where
 
 instance Prelude.Hashable GeneratedPolicyProperties where
   hashWithSalt _salt GeneratedPolicyProperties' {..} =
-    _salt `Prelude.hashWithSalt` cloudTrailProperties
+    _salt
+      `Prelude.hashWithSalt` cloudTrailProperties
       `Prelude.hashWithSalt` isComplete
       `Prelude.hashWithSalt` principalArn
 

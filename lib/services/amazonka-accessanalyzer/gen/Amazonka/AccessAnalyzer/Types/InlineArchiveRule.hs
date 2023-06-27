@@ -68,7 +68,8 @@ inlineArchiveRule_filter = Lens.lens (\InlineArchiveRule' {filter'} -> filter') 
 
 instance Prelude.Hashable InlineArchiveRule where
   hashWithSalt _salt InlineArchiveRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleName
+    _salt
+      `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` filter'
 
 instance Prelude.NFData InlineArchiveRule where

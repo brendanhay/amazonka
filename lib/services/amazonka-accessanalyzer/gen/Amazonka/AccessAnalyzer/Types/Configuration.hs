@@ -180,7 +180,8 @@ instance Data.FromJSON Configuration where
 
 instance Prelude.Hashable Configuration where
   hashWithSalt _salt Configuration' {..} =
-    _salt `Prelude.hashWithSalt` ebsSnapshot
+    _salt
+      `Prelude.hashWithSalt` ebsSnapshot
       `Prelude.hashWithSalt` ecrRepository
       `Prelude.hashWithSalt` efsFileSystem
       `Prelude.hashWithSalt` iamRole

@@ -28,11 +28,23 @@ import Amazonka.Transcribe.Types.CLMLanguageCode
 import Amazonka.Transcribe.Types.InputDataConfig
 import Amazonka.Transcribe.Types.ModelStatus
 
--- | Provides information about a custom language model, including the base
--- model name, when the model was created, the location of the files used
--- to train the model, when the model was last modified, the name you chose
--- for the model, its language, its processing state, and if there is an
--- upgrade available for the base model.
+-- | Provides information about a custom language model, including:
+--
+-- -   The base model name
+--
+-- -   When the model was created
+--
+-- -   The location of the files used to train the model
+--
+-- -   When the model was last modified
+--
+-- -   The name you chose for the model
+--
+-- -   The model\'s language
+--
+-- -   The model\'s processing state
+--
+-- -   Any available upgrades for the base model
 --
 -- /See:/ 'newLanguageModel' smart constructor.
 data LanguageModel = LanguageModel'
@@ -263,7 +275,8 @@ instance Data.FromJSON LanguageModel where
 
 instance Prelude.Hashable LanguageModel where
   hashWithSalt _salt LanguageModel' {..} =
-    _salt `Prelude.hashWithSalt` baseModelName
+    _salt
+      `Prelude.hashWithSalt` baseModelName
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` inputDataConfig

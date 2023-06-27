@@ -29,6 +29,7 @@ module Amazonka.Transcribe.UpdateVocabulary
     newUpdateVocabulary,
 
     -- * Request Lenses
+    updateVocabulary_dataAccessRoleArn,
     updateVocabulary_phrases,
     updateVocabulary_vocabularyFileUri,
     updateVocabulary_vocabularyName,
@@ -57,7 +58,20 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newUpdateVocabulary' smart constructor.
 data UpdateVocabulary = UpdateVocabulary'
-  { -- | Use this parameter if you want to update your custom vocabulary by
+  { -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+    -- access the Amazon S3 bucket that contains your input files (in this
+    -- case, your custom vocabulary). If the role that you specify doesn’t have
+    -- the appropriate permissions to access the specified Amazon S3 location,
+    -- your request fails.
+    --
+    -- IAM role ARNs have the format
+    -- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+    -- @arn:aws:iam::111122223333:role\/Admin@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter if you want to update your custom vocabulary by
     -- including all desired terms, as comma-separated values, within your
     -- request. The other option for updating your custom vocabulary is to save
     -- your entries in a text file and upload them to an Amazon S3 bucket, then
@@ -111,6 +125,19 @@ data UpdateVocabulary = UpdateVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataAccessRoleArn', 'updateVocabulary_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary). If the role that you specify doesn’t have
+-- the appropriate permissions to access the specified Amazon S3 location,
+-- your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+--
 -- 'phrases', 'updateVocabulary_phrases' - Use this parameter if you want to update your custom vocabulary by
 -- including all desired terms, as comma-separated values, within your
 -- request. The other option for updating your custom vocabulary is to save
@@ -161,11 +188,28 @@ newUpdateVocabulary ::
   UpdateVocabulary
 newUpdateVocabulary pVocabularyName_ pLanguageCode_ =
   UpdateVocabulary'
-    { phrases = Prelude.Nothing,
+    { dataAccessRoleArn =
+        Prelude.Nothing,
+      phrases = Prelude.Nothing,
       vocabularyFileUri = Prelude.Nothing,
       vocabularyName = pVocabularyName_,
       languageCode = pLanguageCode_
     }
+
+-- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary). If the role that you specify doesn’t have
+-- the appropriate permissions to access the specified Amazon S3 location,
+-- your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+updateVocabulary_dataAccessRoleArn :: Lens.Lens' UpdateVocabulary (Prelude.Maybe Prelude.Text)
+updateVocabulary_dataAccessRoleArn = Lens.lens (\UpdateVocabulary' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@UpdateVocabulary' {} a -> s {dataAccessRoleArn = a} :: UpdateVocabulary)
 
 -- | Use this parameter if you want to update your custom vocabulary by
 -- including all desired terms, as comma-separated values, within your
@@ -237,14 +281,17 @@ instance Core.AWSRequest UpdateVocabulary where
 
 instance Prelude.Hashable UpdateVocabulary where
   hashWithSalt _salt UpdateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` phrases
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` phrases
       `Prelude.hashWithSalt` vocabularyFileUri
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData UpdateVocabulary where
   rnf UpdateVocabulary' {..} =
-    Prelude.rnf phrases
+    Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf phrases
       `Prelude.seq` Prelude.rnf vocabularyFileUri
       `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageCode
@@ -268,7 +315,9 @@ instance Data.ToJSON UpdateVocabulary where
   toJSON UpdateVocabulary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Phrases" Data..=) Prelude.<$> phrases,
+          [ ("DataAccessRoleArn" Data..=)
+              Prelude.<$> dataAccessRoleArn,
+            ("Phrases" Data..=) Prelude.<$> phrases,
             ("VocabularyFileUri" Data..=)
               Prelude.<$> vocabularyFileUri,
             Prelude.Just

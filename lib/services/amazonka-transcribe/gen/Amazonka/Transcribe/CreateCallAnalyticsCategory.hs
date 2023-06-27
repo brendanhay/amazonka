@@ -28,11 +28,11 @@
 -- transcription request, as categories cannot be applied retroactively.
 --
 -- When creating a new category, you can use the @InputType@ parameter to
--- label the category as a batch category (@POST_CALL@) or a streaming
--- category (@REAL_TIME@). Batch categories can only be applied to batch
--- transcriptions and streaming categories can only be applied to streaming
+-- label the category as a @POST_CALL@ or a @REAL_TIME@ category.
+-- @POST_CALL@ categories can only be applied to post-call transcriptions
+-- and @REAL_TIME@ categories can only be applied to real-time
 -- transcriptions. If you do not include @InputType@, your category is
--- created as a batch category by default.
+-- created as a @POST_CALL@ category by default.
 --
 -- Call Analytics categories are composed of rules. For each category, you
 -- must create between 1 and 20 rules. Rules can include these parameters:
@@ -41,9 +41,9 @@
 -- To update an existing category, see .
 --
 -- To learn more about Call Analytics categories, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for batch transcriptions>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for post-call transcriptions>
 -- and
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for streaming transcriptions>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for real-time transcriptions>.
 module Amazonka.Transcribe.CreateCallAnalyticsCategory
   ( -- * Creating a Request
     CreateCallAnalyticsCategory (..),
@@ -74,19 +74,19 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newCreateCallAnalyticsCategory' smart constructor.
 data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
-  { -- | Choose whether you want to create a streaming or a batch category for
-    -- your Call Analytics transcription.
+  { -- | Choose whether you want to create a real-time or a post-call category
+    -- for your Call Analytics transcription.
     --
-    -- Specifying @POST_CALL@ assigns your category to batch transcriptions;
-    -- categories with this input type cannot be applied to streaming
-    -- (real-time) transcriptions.
+    -- Specifying @POST_CALL@ assigns your category to post-call
+    -- transcriptions; categories with this input type cannot be applied to
+    -- streaming (real-time) transcriptions.
     --
     -- Specifying @REAL_TIME@ assigns your category to streaming
     -- transcriptions; categories with this input type cannot be applied to
-    -- batch (post-call) transcriptions.
+    -- post-call transcriptions.
     --
-    -- If you do not include @InputType@, your category is created as a batch
-    -- category by default.
+    -- If you do not include @InputType@, your category is created as a
+    -- post-call category by default.
     inputType :: Prelude.Maybe InputType,
     -- | A unique name, chosen by you, for your Call Analytics category. It\'s
     -- helpful to use a detailed naming system that will make sense to you in
@@ -113,19 +113,19 @@ data CreateCallAnalyticsCategory = CreateCallAnalyticsCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputType', 'createCallAnalyticsCategory_inputType' - Choose whether you want to create a streaming or a batch category for
--- your Call Analytics transcription.
+-- 'inputType', 'createCallAnalyticsCategory_inputType' - Choose whether you want to create a real-time or a post-call category
+-- for your Call Analytics transcription.
 --
--- Specifying @POST_CALL@ assigns your category to batch transcriptions;
--- categories with this input type cannot be applied to streaming
--- (real-time) transcriptions.
+-- Specifying @POST_CALL@ assigns your category to post-call
+-- transcriptions; categories with this input type cannot be applied to
+-- streaming (real-time) transcriptions.
 --
 -- Specifying @REAL_TIME@ assigns your category to streaming
 -- transcriptions; categories with this input type cannot be applied to
--- batch (post-call) transcriptions.
+-- post-call transcriptions.
 --
--- If you do not include @InputType@, your category is created as a batch
--- category by default.
+-- If you do not include @InputType@, your category is created as a
+-- post-call category by default.
 --
 -- 'categoryName', 'createCallAnalyticsCategory_categoryName' - A unique name, chosen by you, for your Call Analytics category. It\'s
 -- helpful to use a detailed naming system that will make sense to you in
@@ -154,19 +154,19 @@ newCreateCallAnalyticsCategory pCategoryName_ pRules_ =
       rules = Lens.coerced Lens.# pRules_
     }
 
--- | Choose whether you want to create a streaming or a batch category for
--- your Call Analytics transcription.
+-- | Choose whether you want to create a real-time or a post-call category
+-- for your Call Analytics transcription.
 --
--- Specifying @POST_CALL@ assigns your category to batch transcriptions;
--- categories with this input type cannot be applied to streaming
--- (real-time) transcriptions.
+-- Specifying @POST_CALL@ assigns your category to post-call
+-- transcriptions; categories with this input type cannot be applied to
+-- streaming (real-time) transcriptions.
 --
 -- Specifying @REAL_TIME@ assigns your category to streaming
 -- transcriptions; categories with this input type cannot be applied to
--- batch (post-call) transcriptions.
+-- post-call transcriptions.
 --
--- If you do not include @InputType@, your category is created as a batch
--- category by default.
+-- If you do not include @InputType@, your category is created as a
+-- post-call category by default.
 createCallAnalyticsCategory_inputType :: Lens.Lens' CreateCallAnalyticsCategory (Prelude.Maybe InputType)
 createCallAnalyticsCategory_inputType = Lens.lens (\CreateCallAnalyticsCategory' {inputType} -> inputType) (\s@CreateCallAnalyticsCategory' {} a -> s {inputType = a} :: CreateCallAnalyticsCategory)
 
@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateCallAnalyticsCategory where
 
 instance Prelude.Hashable CreateCallAnalyticsCategory where
   hashWithSalt _salt CreateCallAnalyticsCategory' {..} =
-    _salt `Prelude.hashWithSalt` inputType
+    _salt
+      `Prelude.hashWithSalt` inputType
       `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` rules
 

@@ -282,7 +282,8 @@ instance Core.AWSRequest CreateLanguageModel where
 
 instance Prelude.Hashable CreateLanguageModel where
   hashWithSalt _salt CreateLanguageModel' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` baseModelName
       `Prelude.hashWithSalt` modelName

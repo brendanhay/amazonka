@@ -190,7 +190,8 @@ instance Data.FromJSON CallAnalyticsJobSummary where
 
 instance Prelude.Hashable CallAnalyticsJobSummary where
   hashWithSalt _salt CallAnalyticsJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` callAnalyticsJobName
+    _salt
+      `Prelude.hashWithSalt` callAnalyticsJobName
       `Prelude.hashWithSalt` callAnalyticsJobStatus
       `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime

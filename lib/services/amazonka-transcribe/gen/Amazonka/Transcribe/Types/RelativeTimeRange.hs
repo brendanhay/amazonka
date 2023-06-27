@@ -132,7 +132,8 @@ instance Data.FromJSON RelativeTimeRange where
 
 instance Prelude.Hashable RelativeTimeRange where
   hashWithSalt _salt RelativeTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` endPercentage
+    _salt
+      `Prelude.hashWithSalt` endPercentage
       `Prelude.hashWithSalt` first
       `Prelude.hashWithSalt` last
       `Prelude.hashWithSalt` startPercentage

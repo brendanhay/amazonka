@@ -59,7 +59,7 @@ data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
     --
     -- If you want to include a custom language model, custom vocabulary, or
     -- custom vocabulary filter with your request but __do not__ want to use
-    -- automatic language identification, use instead the @@ parameter with the
+    -- automatic language identification, use instead the parameter with the
     -- @LanguageModelName@, @VocabularyName@, or @VocabularyFilterName@
     -- sub-parameters.
     --
@@ -146,7 +146,7 @@ data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
 --
 -- If you want to include a custom language model, custom vocabulary, or
 -- custom vocabulary filter with your request but __do not__ want to use
--- automatic language identification, use instead the @@ parameter with the
+-- automatic language identification, use instead the parameter with the
 -- @LanguageModelName@, @VocabularyName@, or @VocabularyFilterName@
 -- sub-parameters.
 --
@@ -237,7 +237,7 @@ callAnalyticsJobSettings_contentRedaction = Lens.lens (\CallAnalyticsJobSettings
 --
 -- If you want to include a custom language model, custom vocabulary, or
 -- custom vocabulary filter with your request but __do not__ want to use
--- automatic language identification, use instead the @@ parameter with the
+-- automatic language identification, use instead the parameter with the
 -- @LanguageModelName@, @VocabularyName@, or @VocabularyFilterName@
 -- sub-parameters.
 --
@@ -307,7 +307,8 @@ instance Data.FromJSON CallAnalyticsJobSettings where
       ( \x ->
           CallAnalyticsJobSettings'
             Prelude.<$> (x Data..:? "ContentRedaction")
-            Prelude.<*> ( x Data..:? "LanguageIdSettings"
+            Prelude.<*> ( x
+                            Data..:? "LanguageIdSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LanguageModelName")
@@ -319,7 +320,8 @@ instance Data.FromJSON CallAnalyticsJobSettings where
 
 instance Prelude.Hashable CallAnalyticsJobSettings where
   hashWithSalt _salt CallAnalyticsJobSettings' {..} =
-    _salt `Prelude.hashWithSalt` contentRedaction
+    _salt
+      `Prelude.hashWithSalt` contentRedaction
       `Prelude.hashWithSalt` languageIdSettings
       `Prelude.hashWithSalt` languageModelName
       `Prelude.hashWithSalt` languageOptions

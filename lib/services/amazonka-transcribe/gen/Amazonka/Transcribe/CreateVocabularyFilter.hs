@@ -40,6 +40,7 @@ module Amazonka.Transcribe.CreateVocabularyFilter
     newCreateVocabularyFilter,
 
     -- * Request Lenses
+    createVocabularyFilter_dataAccessRoleArn,
     createVocabularyFilter_tags,
     createVocabularyFilter_vocabularyFilterFileUri,
     createVocabularyFilter_words,
@@ -68,7 +69,20 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newCreateVocabularyFilter' smart constructor.
 data CreateVocabularyFilter = CreateVocabularyFilter'
-  { -- | Adds one or more custom tags, each in the form of a key:value pair, to a
+  { -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+    -- access the Amazon S3 bucket that contains your input files (in this
+    -- case, your custom vocabulary filter). If the role that you specify
+    -- doesn’t have the appropriate permissions to access the specified Amazon
+    -- S3 location, your request fails.
+    --
+    -- IAM role ARNs have the format
+    -- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+    -- @arn:aws:iam::111122223333:role\/Admin@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Adds one or more custom tags, each in the form of a key:value pair, to a
     -- new custom vocabulary filter at the time you create this new vocabulary
     -- filter.
     --
@@ -133,6 +147,19 @@ data CreateVocabularyFilter = CreateVocabularyFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataAccessRoleArn', 'createVocabularyFilter_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary filter). If the role that you specify
+-- doesn’t have the appropriate permissions to access the specified Amazon
+-- S3 location, your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+--
 -- 'tags', 'createVocabularyFilter_tags' - Adds one or more custom tags, each in the form of a key:value pair, to a
 -- new custom vocabulary filter at the time you create this new vocabulary
 -- filter.
@@ -196,12 +223,29 @@ newCreateVocabularyFilter
   pVocabularyFilterName_
   pLanguageCode_ =
     CreateVocabularyFilter'
-      { tags = Prelude.Nothing,
+      { dataAccessRoleArn =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         vocabularyFilterFileUri = Prelude.Nothing,
         words = Prelude.Nothing,
         vocabularyFilterName = pVocabularyFilterName_,
         languageCode = pLanguageCode_
       }
+
+-- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary filter). If the role that you specify
+-- doesn’t have the appropriate permissions to access the specified Amazon
+-- S3 location, your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+createVocabularyFilter_dataAccessRoleArn :: Lens.Lens' CreateVocabularyFilter (Prelude.Maybe Prelude.Text)
+createVocabularyFilter_dataAccessRoleArn = Lens.lens (\CreateVocabularyFilter' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateVocabularyFilter' {} a -> s {dataAccessRoleArn = a} :: CreateVocabularyFilter)
 
 -- | Adds one or more custom tags, each in the form of a key:value pair, to a
 -- new custom vocabulary filter at the time you create this new vocabulary
@@ -285,7 +329,9 @@ instance Core.AWSRequest CreateVocabularyFilter where
 
 instance Prelude.Hashable CreateVocabularyFilter where
   hashWithSalt _salt CreateVocabularyFilter' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vocabularyFilterFileUri
       `Prelude.hashWithSalt` words
       `Prelude.hashWithSalt` vocabularyFilterName
@@ -293,7 +339,8 @@ instance Prelude.Hashable CreateVocabularyFilter where
 
 instance Prelude.NFData CreateVocabularyFilter where
   rnf CreateVocabularyFilter' {..} =
-    Prelude.rnf tags
+    Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vocabularyFilterFileUri
       `Prelude.seq` Prelude.rnf words
       `Prelude.seq` Prelude.rnf vocabularyFilterName
@@ -318,7 +365,9 @@ instance Data.ToJSON CreateVocabularyFilter where
   toJSON CreateVocabularyFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("DataAccessRoleArn" Data..=)
+              Prelude.<$> dataAccessRoleArn,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("VocabularyFilterFileUri" Data..=)
               Prelude.<$> vocabularyFilterFileUri,
             ("Words" Data..=) Prelude.<$> words,

@@ -46,7 +46,7 @@ import Amazonka.Transcribe.Types.SentimentValue
 --     the agent, or both at specified points in the call
 --
 -- See
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for batch categories>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for post-call categories>
 -- for usage examples.
 --
 -- /See:/ 'newSentimentFilter' smart constructor.
@@ -151,7 +151,8 @@ instance Data.FromJSON SentimentFilter where
 
 instance Prelude.Hashable SentimentFilter where
   hashWithSalt _salt SentimentFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` relativeTimeRange

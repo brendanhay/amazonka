@@ -152,7 +152,8 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
     Response.receiveJSON
       ( \s h x ->
           ListCallAnalyticsJobsResponse'
-            Prelude.<$> ( x Data..?> "CallAnalyticsJobSummaries"
+            Prelude.<$> ( x
+                            Data..?> "CallAnalyticsJobSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -162,7 +163,8 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
 
 instance Prelude.Hashable ListCallAnalyticsJobs where
   hashWithSalt _salt ListCallAnalyticsJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobNameContains
+    _salt
+      `Prelude.hashWithSalt` jobNameContains
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status

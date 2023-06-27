@@ -29,6 +29,7 @@ module Amazonka.Transcribe.UpdateVocabularyFilter
     newUpdateVocabularyFilter,
 
     -- * Request Lenses
+    updateVocabularyFilter_dataAccessRoleArn,
     updateVocabularyFilter_vocabularyFilterFileUri,
     updateVocabularyFilter_words,
     updateVocabularyFilter_vocabularyFilterName,
@@ -55,7 +56,20 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newUpdateVocabularyFilter' smart constructor.
 data UpdateVocabularyFilter = UpdateVocabularyFilter'
-  { -- | The Amazon S3 location of the text file that contains your custom
+  { -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+    -- access the Amazon S3 bucket that contains your input files (in this
+    -- case, your custom vocabulary filter). If the role that you specify
+    -- doesn’t have the appropriate permissions to access the specified Amazon
+    -- S3 location, your request fails.
+    --
+    -- IAM role ARNs have the format
+    -- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+    -- @arn:aws:iam::111122223333:role\/Admin@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon S3 location of the text file that contains your custom
     -- vocabulary filter terms. The URI must be located in the same Amazon Web
     -- Services Region as the resource you\'re calling.
     --
@@ -95,6 +109,19 @@ data UpdateVocabularyFilter = UpdateVocabularyFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataAccessRoleArn', 'updateVocabularyFilter_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary filter). If the role that you specify
+-- doesn’t have the appropriate permissions to access the specified Amazon
+-- S3 location, your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+--
 -- 'vocabularyFilterFileUri', 'updateVocabularyFilter_vocabularyFilterFileUri' - The Amazon S3 location of the text file that contains your custom
 -- vocabulary filter terms. The URI must be located in the same Amazon Web
 -- Services Region as the resource you\'re calling.
@@ -129,11 +156,27 @@ newUpdateVocabularyFilter ::
   UpdateVocabularyFilter
 newUpdateVocabularyFilter pVocabularyFilterName_ =
   UpdateVocabularyFilter'
-    { vocabularyFilterFileUri =
+    { dataAccessRoleArn =
         Prelude.Nothing,
+      vocabularyFilterFileUri = Prelude.Nothing,
       words = Prelude.Nothing,
       vocabularyFilterName = pVocabularyFilterName_
     }
+
+-- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary filter). If the role that you specify
+-- doesn’t have the appropriate permissions to access the specified Amazon
+-- S3 location, your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+updateVocabularyFilter_dataAccessRoleArn :: Lens.Lens' UpdateVocabularyFilter (Prelude.Maybe Prelude.Text)
+updateVocabularyFilter_dataAccessRoleArn = Lens.lens (\UpdateVocabularyFilter' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@UpdateVocabularyFilter' {} a -> s {dataAccessRoleArn = a} :: UpdateVocabularyFilter)
 
 -- | The Amazon S3 location of the text file that contains your custom
 -- vocabulary filter terms. The URI must be located in the same Amazon Web
@@ -189,13 +232,15 @@ instance Core.AWSRequest UpdateVocabularyFilter where
 instance Prelude.Hashable UpdateVocabularyFilter where
   hashWithSalt _salt UpdateVocabularyFilter' {..} =
     _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` vocabularyFilterFileUri
       `Prelude.hashWithSalt` words
       `Prelude.hashWithSalt` vocabularyFilterName
 
 instance Prelude.NFData UpdateVocabularyFilter where
   rnf UpdateVocabularyFilter' {..} =
-    Prelude.rnf vocabularyFilterFileUri
+    Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf vocabularyFilterFileUri
       `Prelude.seq` Prelude.rnf words
       `Prelude.seq` Prelude.rnf vocabularyFilterName
 
@@ -218,7 +263,9 @@ instance Data.ToJSON UpdateVocabularyFilter where
   toJSON UpdateVocabularyFilter' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterFileUri" Data..=)
+          [ ("DataAccessRoleArn" Data..=)
+              Prelude.<$> dataAccessRoleArn,
+            ("VocabularyFilterFileUri" Data..=)
               Prelude.<$> vocabularyFilterFileUri,
             ("Words" Data..=) Prelude.<$> words,
             Prelude.Just

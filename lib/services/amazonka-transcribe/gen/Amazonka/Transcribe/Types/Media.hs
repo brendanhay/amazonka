@@ -147,7 +147,8 @@ instance Data.FromJSON Media where
 
 instance Prelude.Hashable Media where
   hashWithSalt _salt Media' {..} =
-    _salt `Prelude.hashWithSalt` mediaFileUri
+    _salt
+      `Prelude.hashWithSalt` mediaFileUri
       `Prelude.hashWithSalt` redactedMediaFileUri
 
 instance Prelude.NFData Media where

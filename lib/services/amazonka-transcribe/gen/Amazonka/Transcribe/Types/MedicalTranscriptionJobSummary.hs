@@ -283,7 +283,8 @@ instance
   hashWithSalt
     _salt
     MedicalTranscriptionJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` completionTime
+      _salt
+        `Prelude.hashWithSalt` completionTime
         `Prelude.hashWithSalt` contentIdentificationType
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` failureReason

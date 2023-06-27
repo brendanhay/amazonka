@@ -41,6 +41,7 @@ module Amazonka.Transcribe.CreateVocabulary
     newCreateVocabulary,
 
     -- * Request Lenses
+    createVocabulary_dataAccessRoleArn,
     createVocabulary_phrases,
     createVocabulary_tags,
     createVocabulary_vocabularyFileUri,
@@ -71,7 +72,20 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newCreateVocabulary' smart constructor.
 data CreateVocabulary = CreateVocabulary'
-  { -- | Use this parameter if you want to create your custom vocabulary by
+  { -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+    -- access the Amazon S3 bucket that contains your input files (in this
+    -- case, your custom vocabulary). If the role that you specify doesn’t have
+    -- the appropriate permissions to access the specified Amazon S3 location,
+    -- your request fails.
+    --
+    -- IAM role ARNs have the format
+    -- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+    -- @arn:aws:iam::111122223333:role\/Admin@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+    dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter if you want to create your custom vocabulary by
     -- including all desired terms, as comma-separated values, within your
     -- request. The other option for creating your custom vocabulary is to save
     -- your entries in a text file and upload them to an Amazon S3 bucket, then
@@ -135,6 +149,19 @@ data CreateVocabulary = CreateVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataAccessRoleArn', 'createVocabulary_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary). If the role that you specify doesn’t have
+-- the appropriate permissions to access the specified Amazon S3 location,
+-- your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+--
 -- 'phrases', 'createVocabulary_phrases' - Use this parameter if you want to create your custom vocabulary by
 -- including all desired terms, as comma-separated values, within your
 -- request. The other option for creating your custom vocabulary is to save
@@ -195,12 +222,29 @@ newCreateVocabulary ::
   CreateVocabulary
 newCreateVocabulary pVocabularyName_ pLanguageCode_ =
   CreateVocabulary'
-    { phrases = Prelude.Nothing,
+    { dataAccessRoleArn =
+        Prelude.Nothing,
+      phrases = Prelude.Nothing,
       tags = Prelude.Nothing,
       vocabularyFileUri = Prelude.Nothing,
       vocabularyName = pVocabularyName_,
       languageCode = pLanguageCode_
     }
+
+-- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files (in this
+-- case, your custom vocabulary). If the role that you specify doesn’t have
+-- the appropriate permissions to access the specified Amazon S3 location,
+-- your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
+createVocabulary_dataAccessRoleArn :: Lens.Lens' CreateVocabulary (Prelude.Maybe Prelude.Text)
+createVocabulary_dataAccessRoleArn = Lens.lens (\CreateVocabulary' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CreateVocabulary' {} a -> s {dataAccessRoleArn = a} :: CreateVocabulary)
 
 -- | Use this parameter if you want to create your custom vocabulary by
 -- including all desired terms, as comma-separated values, within your
@@ -285,7 +329,9 @@ instance Core.AWSRequest CreateVocabulary where
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` phrases
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
+      `Prelude.hashWithSalt` phrases
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vocabularyFileUri
       `Prelude.hashWithSalt` vocabularyName
@@ -293,7 +339,8 @@ instance Prelude.Hashable CreateVocabulary where
 
 instance Prelude.NFData CreateVocabulary where
   rnf CreateVocabulary' {..} =
-    Prelude.rnf phrases
+    Prelude.rnf dataAccessRoleArn
+      `Prelude.seq` Prelude.rnf phrases
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf vocabularyFileUri
       `Prelude.seq` Prelude.rnf vocabularyName
@@ -318,7 +365,9 @@ instance Data.ToJSON CreateVocabulary where
   toJSON CreateVocabulary' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Phrases" Data..=) Prelude.<$> phrases,
+          [ ("DataAccessRoleArn" Data..=)
+              Prelude.<$> dataAccessRoleArn,
+            ("Phrases" Data..=) Prelude.<$> phrases,
             ("Tags" Data..=) Prelude.<$> tags,
             ("VocabularyFileUri" Data..=)
               Prelude.<$> vocabularyFileUri,

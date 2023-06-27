@@ -34,9 +34,9 @@ import Amazonka.Transcribe.Types.TranscriptFilter
 -- Rules can include these parameters: , , , and .
 --
 -- To learn more about Call Analytics rules and categories, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for batch transcriptions>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for post-call transcriptions>
 -- and
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for streaming transcriptions>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for real-time transcriptions>.
 --
 -- To learn more about Call Analytics, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html Analyzing call center audio with Call Analytics>.
@@ -121,7 +121,8 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` interruptionFilter
+    _salt
+      `Prelude.hashWithSalt` interruptionFilter
       `Prelude.hashWithSalt` nonTalkTimeFilter
       `Prelude.hashWithSalt` sentimentFilter
       `Prelude.hashWithSalt` transcriptFilter

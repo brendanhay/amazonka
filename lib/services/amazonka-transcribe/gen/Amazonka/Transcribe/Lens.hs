@@ -47,6 +47,7 @@ module Amazonka.Transcribe.Lens
     createMedicalVocabularyResponse_httpStatus,
 
     -- ** CreateVocabulary
+    createVocabulary_dataAccessRoleArn,
     createVocabulary_phrases,
     createVocabulary_tags,
     createVocabulary_vocabularyFileUri,
@@ -60,6 +61,7 @@ module Amazonka.Transcribe.Lens
     createVocabularyResponse_httpStatus,
 
     -- ** CreateVocabularyFilter
+    createVocabularyFilter_dataAccessRoleArn,
     createVocabularyFilter_tags,
     createVocabularyFilter_vocabularyFilterFileUri,
     createVocabularyFilter_words,
@@ -309,6 +311,7 @@ module Amazonka.Transcribe.Lens
     updateMedicalVocabularyResponse_httpStatus,
 
     -- ** UpdateVocabulary
+    updateVocabulary_dataAccessRoleArn,
     updateVocabulary_phrases,
     updateVocabulary_vocabularyFileUri,
     updateVocabulary_vocabularyName,
@@ -320,6 +323,7 @@ module Amazonka.Transcribe.Lens
     updateVocabularyResponse_httpStatus,
 
     -- ** UpdateVocabularyFilter
+    updateVocabularyFilter_dataAccessRoleArn,
     updateVocabularyFilter_vocabularyFilterFileUri,
     updateVocabularyFilter_words,
     updateVocabularyFilter_vocabularyFilterName,

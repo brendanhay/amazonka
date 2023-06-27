@@ -43,8 +43,6 @@ data JobExecutionSettings = JobExecutionSettings'
     -- transcription job requests exceed the concurrent request limit, you get
     -- a @LimitExceededException@ error.
     --
-    -- Note that job queuing is enabled by default for Call Analytics jobs.
-    --
     -- If you include @AllowDeferredExecution@ in your request, you must also
     -- include @DataAccessRoleArn@.
     allowDeferredExecution :: Prelude.Maybe Prelude.Bool,
@@ -80,8 +78,6 @@ data JobExecutionSettings = JobExecutionSettings'
 -- transcription job requests exceed the concurrent request limit, you get
 -- a @LimitExceededException@ error.
 --
--- Note that job queuing is enabled by default for Call Analytics jobs.
---
 -- If you include @AllowDeferredExecution@ in your request, you must also
 -- include @DataAccessRoleArn@.
 --
@@ -113,8 +109,6 @@ newJobExecutionSettings =
 -- @AllowDeferredExecution@ is set to @false@ and the number of
 -- transcription job requests exceed the concurrent request limit, you get
 -- a @LimitExceededException@ error.
---
--- Note that job queuing is enabled by default for Call Analytics jobs.
 --
 -- If you include @AllowDeferredExecution@ in your request, you must also
 -- include @DataAccessRoleArn@.
@@ -148,7 +142,8 @@ instance Data.FromJSON JobExecutionSettings where
 
 instance Prelude.Hashable JobExecutionSettings where
   hashWithSalt _salt JobExecutionSettings' {..} =
-    _salt `Prelude.hashWithSalt` allowDeferredExecution
+    _salt
+      `Prelude.hashWithSalt` allowDeferredExecution
       `Prelude.hashWithSalt` dataAccessRoleArn
 
 instance Prelude.NFData JobExecutionSettings where

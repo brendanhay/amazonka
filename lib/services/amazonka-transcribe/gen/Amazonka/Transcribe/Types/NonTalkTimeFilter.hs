@@ -36,7 +36,7 @@ import Amazonka.Transcribe.Types.RelativeTimeRange
 -- -   The presence of speech at specified periods throughout the call
 --
 -- See
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for batch categories>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for post-call categories>
 -- for usage examples.
 --
 -- /See:/ 'newNonTalkTimeFilter' smart constructor.
@@ -129,7 +129,8 @@ instance Data.FromJSON NonTalkTimeFilter where
 
 instance Prelude.Hashable NonTalkTimeFilter where
   hashWithSalt _salt NonTalkTimeFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` relativeTimeRange
       `Prelude.hashWithSalt` threshold

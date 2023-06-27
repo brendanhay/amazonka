@@ -444,7 +444,8 @@ instance Data.FromJSON CallAnalyticsJob where
 
 instance Prelude.Hashable CallAnalyticsJob where
   hashWithSalt _salt CallAnalyticsJob' {..} =
-    _salt `Prelude.hashWithSalt` callAnalyticsJobName
+    _salt
+      `Prelude.hashWithSalt` callAnalyticsJobName
       `Prelude.hashWithSalt` callAnalyticsJobStatus
       `Prelude.hashWithSalt` channelDefinitions
       `Prelude.hashWithSalt` completionTime

@@ -34,13 +34,15 @@
 -- create them before submitting your job request. Categories cannot be
 -- retroactively applied to a job. To create a new category, use the
 -- operation. To learn more about Call Analytics categories, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for batch transcriptions>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html Creating categories for post-call transcriptions>
 -- and
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for streaming transcriptions>.
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html Creating categories for real-time transcriptions>.
 --
 -- To make a @StartCallAnalyticsJob@ request, you must first upload your
 -- media file into an Amazon S3 bucket; you can then specify the Amazon S3
 -- location of the file using the @Media@ parameter.
+--
+-- Note that job queuing is enabled by default for Call Analytics jobs.
 --
 -- You must include the following parameters in your
 -- @StartCallAnalyticsJob@ request:
@@ -149,7 +151,7 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location using the @OutputLocation@ parameter.
     --
-    -- Note that the user making the request must have permission to use the
+    -- Note that the role making the request must have permission to use the
     -- specified KMS key.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 location where you want your Call Analytics transcription
@@ -249,7 +251,7 @@ data StartCallAnalyticsJob = StartCallAnalyticsJob'
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location using the @OutputLocation@ parameter.
 --
--- Note that the user making the request must have permission to use the
+-- Note that the role making the request must have permission to use the
 -- specified KMS key.
 --
 -- 'outputLocation', 'startCallAnalyticsJob_outputLocation' - The Amazon S3 location where you want your Call Analytics transcription
@@ -361,7 +363,7 @@ startCallAnalyticsJob_dataAccessRoleArn = Lens.lens (\StartCallAnalyticsJob' {da
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location using the @OutputLocation@ parameter.
 --
--- Note that the user making the request must have permission to use the
+-- Note that the role making the request must have permission to use the
 -- specified KMS key.
 startCallAnalyticsJob_outputEncryptionKMSKeyId :: Lens.Lens' StartCallAnalyticsJob (Prelude.Maybe Prelude.Text)
 startCallAnalyticsJob_outputEncryptionKMSKeyId = Lens.lens (\StartCallAnalyticsJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartCallAnalyticsJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartCallAnalyticsJob)
@@ -427,7 +429,8 @@ instance Core.AWSRequest StartCallAnalyticsJob where
 
 instance Prelude.Hashable StartCallAnalyticsJob where
   hashWithSalt _salt StartCallAnalyticsJob' {..} =
-    _salt `Prelude.hashWithSalt` channelDefinitions
+    _salt
+      `Prelude.hashWithSalt` channelDefinitions
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` outputEncryptionKMSKeyId
       `Prelude.hashWithSalt` outputLocation

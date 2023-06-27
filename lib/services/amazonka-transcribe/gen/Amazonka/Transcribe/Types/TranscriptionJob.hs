@@ -529,7 +529,8 @@ instance Data.FromJSON TranscriptionJob where
             Prelude.<*> (x Data..:? "JobExecutionSettings")
             Prelude.<*> (x Data..:? "LanguageCode")
             Prelude.<*> (x Data..:? "LanguageCodes" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "LanguageIdSettings"
+            Prelude.<*> ( x
+                            Data..:? "LanguageIdSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LanguageOptions")
@@ -548,7 +549,8 @@ instance Data.FromJSON TranscriptionJob where
 
 instance Prelude.Hashable TranscriptionJob where
   hashWithSalt _salt TranscriptionJob' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` contentRedaction
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` failureReason

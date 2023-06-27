@@ -56,11 +56,11 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newUpdateCallAnalyticsCategory' smart constructor.
 data UpdateCallAnalyticsCategory = UpdateCallAnalyticsCategory'
-  { -- | Choose whether you want to update a streaming or a batch Call Analytics
-    -- category. The input type you specify must match the input type specified
-    -- when the category was created. For example, if you created a category
-    -- with the @POST_CALL@ input type, you must use @POST_CALL@ as the input
-    -- type when updating this category.
+  { -- | Choose whether you want to update a real-time or a post-call category.
+    -- The input type you specify must match the input type specified when the
+    -- category was created. For example, if you created a category with the
+    -- @POST_CALL@ input type, you must use @POST_CALL@ as the input type when
+    -- updating this category.
     inputType :: Prelude.Maybe InputType,
     -- | The name of the Call Analytics category you want to update. Category
     -- names are case sensitive.
@@ -80,11 +80,11 @@ data UpdateCallAnalyticsCategory = UpdateCallAnalyticsCategory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputType', 'updateCallAnalyticsCategory_inputType' - Choose whether you want to update a streaming or a batch Call Analytics
--- category. The input type you specify must match the input type specified
--- when the category was created. For example, if you created a category
--- with the @POST_CALL@ input type, you must use @POST_CALL@ as the input
--- type when updating this category.
+-- 'inputType', 'updateCallAnalyticsCategory_inputType' - Choose whether you want to update a real-time or a post-call category.
+-- The input type you specify must match the input type specified when the
+-- category was created. For example, if you created a category with the
+-- @POST_CALL@ input type, you must use @POST_CALL@ as the input type when
+-- updating this category.
 --
 -- 'categoryName', 'updateCallAnalyticsCategory_categoryName' - The name of the Call Analytics category you want to update. Category
 -- names are case sensitive.
@@ -106,11 +106,11 @@ newUpdateCallAnalyticsCategory pCategoryName_ pRules_ =
       rules = Lens.coerced Lens.# pRules_
     }
 
--- | Choose whether you want to update a streaming or a batch Call Analytics
--- category. The input type you specify must match the input type specified
--- when the category was created. For example, if you created a category
--- with the @POST_CALL@ input type, you must use @POST_CALL@ as the input
--- type when updating this category.
+-- | Choose whether you want to update a real-time or a post-call category.
+-- The input type you specify must match the input type specified when the
+-- category was created. For example, if you created a category with the
+-- @POST_CALL@ input type, you must use @POST_CALL@ as the input type when
+-- updating this category.
 updateCallAnalyticsCategory_inputType :: Lens.Lens' UpdateCallAnalyticsCategory (Prelude.Maybe InputType)
 updateCallAnalyticsCategory_inputType = Lens.lens (\UpdateCallAnalyticsCategory' {inputType} -> inputType) (\s@UpdateCallAnalyticsCategory' {} a -> s {inputType = a} :: UpdateCallAnalyticsCategory)
 
@@ -141,7 +141,8 @@ instance Core.AWSRequest UpdateCallAnalyticsCategory where
 
 instance Prelude.Hashable UpdateCallAnalyticsCategory where
   hashWithSalt _salt UpdateCallAnalyticsCategory' {..} =
-    _salt `Prelude.hashWithSalt` inputType
+    _salt
+      `Prelude.hashWithSalt` inputType
       `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` rules
 

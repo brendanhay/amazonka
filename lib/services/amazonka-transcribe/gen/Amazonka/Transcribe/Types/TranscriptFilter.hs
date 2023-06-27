@@ -41,7 +41,7 @@ import Amazonka.Transcribe.Types.TranscriptFilterType
 -- -   Custom words or phrases that occur at a specific time frame
 --
 -- See
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for batch categories>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for post-call categories>
 -- and
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html#tca-rules-stream Rule criteria for streaming categories>
 -- for usage examples.
@@ -178,7 +178,8 @@ instance Data.FromJSON TranscriptFilter where
 
 instance Prelude.Hashable TranscriptFilter where
   hashWithSalt _salt TranscriptFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` relativeTimeRange

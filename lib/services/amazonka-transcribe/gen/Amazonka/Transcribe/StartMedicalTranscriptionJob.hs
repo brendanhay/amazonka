@@ -154,7 +154,7 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location using the @OutputLocation@ parameter.
     --
-    -- Note that the user making the request must have permission to use the
+    -- Note that the role making the request must have permission to use the
     -- specified KMS key.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | Use in combination with @OutputBucketName@ to specify the output
@@ -314,7 +314,7 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location using the @OutputLocation@ parameter.
 --
--- Note that the user making the request must have permission to use the
+-- Note that the role making the request must have permission to use the
 -- specified KMS key.
 --
 -- 'outputKey', 'startMedicalTranscriptionJob_outputKey' - Use in combination with @OutputBucketName@ to specify the output
@@ -511,7 +511,7 @@ startMedicalTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartMedicalTran
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location using the @OutputLocation@ parameter.
 --
--- Note that the user making the request must have permission to use the
+-- Note that the role making the request must have permission to use the
 -- specified KMS key.
 startMedicalTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
 startMedicalTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartMedicalTranscriptionJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartMedicalTranscriptionJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartMedicalTranscriptionJob)

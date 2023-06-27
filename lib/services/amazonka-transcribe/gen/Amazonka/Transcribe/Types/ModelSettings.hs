@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- specified transcription job.
 --
 -- Only use @ModelSettings@ with the @LanguageModelName@ sub-parameter if
--- you\'re __not__ using automatic language identification (@@). If using
+-- you\'re __not__ using automatic language identification (). If using
 -- @LanguageIdSettings@ in your request, this parameter contains a
 -- @LanguageModelName@ sub-parameter.
 --

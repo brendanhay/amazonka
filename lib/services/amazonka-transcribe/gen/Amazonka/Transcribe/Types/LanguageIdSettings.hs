@@ -48,11 +48,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- If you want to include a custom language model with your request but
 -- __do not__ want to use automatic language identification, use instead
--- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
--- to include a custom vocabulary or a custom vocabulary filter (or both)
--- with your request but __do not__ want to use automatic language
--- identification, use instead the @@ parameter with the @VocabularyName@
--- or @VocabularyFilterName@ (or both) sub-parameter.
+-- the parameter with the @LanguageModelName@ sub-parameter. If you want to
+-- include a custom vocabulary or a custom vocabulary filter (or both) with
+-- your request but __do not__ want to use automatic language
+-- identification, use instead the parameter with the @VocabularyName@ or
+-- @VocabularyFilterName@ (or both) sub-parameter.
 --
 -- /See:/ 'newLanguageIdSettings' smart constructor.
 data LanguageIdSettings = LanguageIdSettings'
@@ -182,7 +182,8 @@ instance Data.FromJSON LanguageIdSettings where
 
 instance Prelude.Hashable LanguageIdSettings where
   hashWithSalt _salt LanguageIdSettings' {..} =
-    _salt `Prelude.hashWithSalt` languageModelName
+    _salt
+      `Prelude.hashWithSalt` languageModelName
       `Prelude.hashWithSalt` vocabularyFilterName
       `Prelude.hashWithSalt` vocabularyName
 

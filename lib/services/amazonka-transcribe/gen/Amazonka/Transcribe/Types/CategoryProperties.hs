@@ -150,7 +150,8 @@ instance Data.FromJSON CategoryProperties where
 
 instance Prelude.Hashable CategoryProperties where
   hashWithSalt _salt CategoryProperties' {..} =
-    _salt `Prelude.hashWithSalt` categoryName
+    _salt
+      `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` inputType
       `Prelude.hashWithSalt` lastUpdateTime

@@ -298,7 +298,8 @@ instance Data.FromJSON MedicalTranscriptionSetting where
 
 instance Prelude.Hashable MedicalTranscriptionSetting where
   hashWithSalt _salt MedicalTranscriptionSetting' {..} =
-    _salt `Prelude.hashWithSalt` channelIdentification
+    _salt
+      `Prelude.hashWithSalt` channelIdentification
       `Prelude.hashWithSalt` maxAlternatives
       `Prelude.hashWithSalt` maxSpeakerLabels
       `Prelude.hashWithSalt` showAlternatives

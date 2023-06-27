@@ -141,14 +141,16 @@ instance Data.FromJSON SubtitlesOutput where
           SubtitlesOutput'
             Prelude.<$> (x Data..:? "Formats" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "OutputStartIndex")
-            Prelude.<*> ( x Data..:? "SubtitleFileUris"
+            Prelude.<*> ( x
+                            Data..:? "SubtitleFileUris"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SubtitlesOutput where
   hashWithSalt _salt SubtitlesOutput' {..} =
-    _salt `Prelude.hashWithSalt` formats
+    _salt
+      `Prelude.hashWithSalt` formats
       `Prelude.hashWithSalt` outputStartIndex
       `Prelude.hashWithSalt` subtitleFileUris
 

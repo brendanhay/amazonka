@@ -41,7 +41,7 @@ import Amazonka.Transcribe.Types.RelativeTimeRange
 -- -   A lack of interruptions
 --
 -- See
--- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for batch categories>
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html#tca-rules-batch Rule criteria for post-call categories>
 -- for usage examples.
 --
 -- /See:/ 'newInterruptionFilter' smart constructor.
@@ -147,7 +147,8 @@ instance Data.FromJSON InterruptionFilter where
 
 instance Prelude.Hashable InterruptionFilter where
   hashWithSalt _salt InterruptionFilter' {..} =
-    _salt `Prelude.hashWithSalt` absoluteTimeRange
+    _salt
+      `Prelude.hashWithSalt` absoluteTimeRange
       `Prelude.hashWithSalt` negate
       `Prelude.hashWithSalt` participantRole
       `Prelude.hashWithSalt` relativeTimeRange

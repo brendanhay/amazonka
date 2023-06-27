@@ -299,6 +299,7 @@ module Amazonka.ComputeOptimizer.Lens
     eCSServiceRecommendation_lookbackPeriodInDays,
     eCSServiceRecommendation_serviceArn,
     eCSServiceRecommendation_serviceRecommendationOptions,
+    eCSServiceRecommendation_tags,
     eCSServiceRecommendation_utilizationMetrics,
 
     -- ** ECSServiceRecommendationFilter
@@ -339,6 +340,10 @@ module Amazonka.ComputeOptimizer.Lens
     -- ** ExportDestination
     exportDestination_s3,
 
+    -- ** ExternalMetricStatus
+    externalMetricStatus_statusCode,
+    externalMetricStatus_statusReason,
+
     -- ** ExternalMetricsPreference
     externalMetricsPreference_source,
 
@@ -351,20 +356,27 @@ module Amazonka.ComputeOptimizer.Lens
     getRecommendationError_identifier,
     getRecommendationError_message,
 
+    -- ** InferredWorkloadSaving
+    inferredWorkloadSaving_estimatedMonthlySavings,
+    inferredWorkloadSaving_inferredWorkloadTypes,
+
     -- ** InstanceRecommendation
     instanceRecommendation_accountId,
     instanceRecommendation_currentInstanceType,
     instanceRecommendation_currentPerformanceRisk,
     instanceRecommendation_effectiveRecommendationPreferences,
+    instanceRecommendation_externalMetricStatus,
     instanceRecommendation_finding,
     instanceRecommendation_findingReasonCodes,
     instanceRecommendation_inferredWorkloadTypes,
     instanceRecommendation_instanceArn,
     instanceRecommendation_instanceName,
+    instanceRecommendation_instanceState,
     instanceRecommendation_lastRefreshTimestamp,
     instanceRecommendation_lookBackPeriodInDays,
     instanceRecommendation_recommendationOptions,
     instanceRecommendation_recommendationSources,
+    instanceRecommendation_tags,
     instanceRecommendation_utilizationMetrics,
 
     -- ** InstanceRecommendationOption
@@ -403,6 +415,7 @@ module Amazonka.ComputeOptimizer.Lens
     lambdaFunctionRecommendation_lookbackPeriodInDays,
     lambdaFunctionRecommendation_memorySizeRecommendationOptions,
     lambdaFunctionRecommendation_numberOfInvocations,
+    lambdaFunctionRecommendation_tags,
     lambdaFunctionRecommendation_utilizationMetrics,
 
     -- ** LambdaFunctionRecommendationFilter
@@ -453,6 +466,7 @@ module Amazonka.ComputeOptimizer.Lens
     -- ** RecommendationSummary
     recommendationSummary_accountId,
     recommendationSummary_currentPerformanceRiskRatings,
+    recommendationSummary_inferredWorkloadSavings,
     recommendationSummary_recommendationResourceType,
     recommendationSummary_savingsOpportunity,
     recommendationSummary_summaries,
@@ -491,12 +505,17 @@ module Amazonka.ComputeOptimizer.Lens
     summary_reasonCodeSummaries,
     summary_value,
 
+    -- ** Tag
+    tag_key,
+    tag_value,
+
     -- ** UtilizationMetric
     utilizationMetric_name,
     utilizationMetric_statistic,
     utilizationMetric_value,
 
     -- ** VolumeConfiguration
+    volumeConfiguration_rootVolume,
     volumeConfiguration_volumeBaselineIOPS,
     volumeConfiguration_volumeBaselineThroughput,
     volumeConfiguration_volumeBurstIOPS,
@@ -511,6 +530,7 @@ module Amazonka.ComputeOptimizer.Lens
     volumeRecommendation_finding,
     volumeRecommendation_lastRefreshTimestamp,
     volumeRecommendation_lookBackPeriodInDays,
+    volumeRecommendation_tags,
     volumeRecommendation_utilizationMetrics,
     volumeRecommendation_volumeArn,
     volumeRecommendation_volumeRecommendationOptions,
@@ -563,9 +583,11 @@ import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.Types.EnrollmentFilter
 import Amazonka.ComputeOptimizer.Types.EstimatedMonthlySavings
 import Amazonka.ComputeOptimizer.Types.ExportDestination
+import Amazonka.ComputeOptimizer.Types.ExternalMetricStatus
 import Amazonka.ComputeOptimizer.Types.ExternalMetricsPreference
 import Amazonka.ComputeOptimizer.Types.Filter
 import Amazonka.ComputeOptimizer.Types.GetRecommendationError
+import Amazonka.ComputeOptimizer.Types.InferredWorkloadSaving
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendation
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
 import Amazonka.ComputeOptimizer.Types.JobFilter
@@ -589,6 +611,7 @@ import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.Scope
 import Amazonka.ComputeOptimizer.Types.ServiceConfiguration
 import Amazonka.ComputeOptimizer.Types.Summary
+import Amazonka.ComputeOptimizer.Types.Tag
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
 import Amazonka.ComputeOptimizer.Types.VolumeRecommendation

@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the utilization metric of an Amazon ECS service.
 --
--- To determine the performance difference between your current ECS service
--- and the recommended option, compare the utilization metric data of your
--- service against its projected utilization metric data.
+-- To determine the performance difference between your current Amazon ECS
+-- service and the recommended option, compare the utilization metric data
+-- of your service against its projected utilization metric data.
 --
 -- /See:/ 'newECSServiceUtilizationMetric' smart constructor.
 data ECSServiceUtilizationMetric = ECSServiceUtilizationMetric'
@@ -38,9 +38,9 @@ data ECSServiceUtilizationMetric = ECSServiceUtilizationMetric'
     --
     -- The following utilization metrics are available:
     --
-    -- -   @Cpu@ — The amount of CPU units that are used in the service.
+    -- -   @Cpu@ — The amount of CPU capacity that\'s used in the service.
     --
-    -- -   @Memory@ — The amount of memory that is used in the service.
+    -- -   @Memory@ — The amount of memory that\'s used in the service.
     name :: Prelude.Maybe ECSServiceMetricName,
     -- | The statistic of the utilization metric.
     --
@@ -74,9 +74,9 @@ data ECSServiceUtilizationMetric = ECSServiceUtilizationMetric'
 --
 -- The following utilization metrics are available:
 --
--- -   @Cpu@ — The amount of CPU units that are used in the service.
+-- -   @Cpu@ — The amount of CPU capacity that\'s used in the service.
 --
--- -   @Memory@ — The amount of memory that is used in the service.
+-- -   @Memory@ — The amount of memory that\'s used in the service.
 --
 -- 'statistic', 'eCSServiceUtilizationMetric_statistic' - The statistic of the utilization metric.
 --
@@ -108,9 +108,9 @@ newECSServiceUtilizationMetric =
 --
 -- The following utilization metrics are available:
 --
--- -   @Cpu@ — The amount of CPU units that are used in the service.
+-- -   @Cpu@ — The amount of CPU capacity that\'s used in the service.
 --
--- -   @Memory@ — The amount of memory that is used in the service.
+-- -   @Memory@ — The amount of memory that\'s used in the service.
 eCSServiceUtilizationMetric_name :: Lens.Lens' ECSServiceUtilizationMetric (Prelude.Maybe ECSServiceMetricName)
 eCSServiceUtilizationMetric_name = Lens.lens (\ECSServiceUtilizationMetric' {name} -> name) (\s@ECSServiceUtilizationMetric' {} a -> s {name = a} :: ECSServiceUtilizationMetric)
 
@@ -148,7 +148,8 @@ instance Data.FromJSON ECSServiceUtilizationMetric where
 
 instance Prelude.Hashable ECSServiceUtilizationMetric where
   hashWithSalt _salt ECSServiceUtilizationMetric' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` statistic
       `Prelude.hashWithSalt` value
 

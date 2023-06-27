@@ -42,6 +42,7 @@ module Amazonka.ComputeOptimizer.Types.ExportableLambdaFunctionField
         ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound,
         ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound,
         ExportableLambdaFunctionField_RecommendationOptionsSavingsOpportunityPercentage,
+        ExportableLambdaFunctionField_Tags,
         ExportableLambdaFunctionField_UtilizationMetricsDurationAverage,
         ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum,
         ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage,
@@ -148,6 +149,9 @@ pattern ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationM
 pattern ExportableLambdaFunctionField_RecommendationOptionsSavingsOpportunityPercentage :: ExportableLambdaFunctionField
 pattern ExportableLambdaFunctionField_RecommendationOptionsSavingsOpportunityPercentage = ExportableLambdaFunctionField' "RecommendationOptionsSavingsOpportunityPercentage"
 
+pattern ExportableLambdaFunctionField_Tags :: ExportableLambdaFunctionField
+pattern ExportableLambdaFunctionField_Tags = ExportableLambdaFunctionField' "Tags"
+
 pattern ExportableLambdaFunctionField_UtilizationMetricsDurationAverage :: ExportableLambdaFunctionField
 pattern ExportableLambdaFunctionField_UtilizationMetricsDurationAverage = ExportableLambdaFunctionField' "UtilizationMetricsDurationAverage"
 
@@ -183,6 +187,7 @@ pattern ExportableLambdaFunctionField_UtilizationMetricsMemoryMaximum = Exportab
   ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound,
   ExportableLambdaFunctionField_RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound,
   ExportableLambdaFunctionField_RecommendationOptionsSavingsOpportunityPercentage,
+  ExportableLambdaFunctionField_Tags,
   ExportableLambdaFunctionField_UtilizationMetricsDurationAverage,
   ExportableLambdaFunctionField_UtilizationMetricsDurationMaximum,
   ExportableLambdaFunctionField_UtilizationMetricsMemoryAverage,

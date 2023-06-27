@@ -107,8 +107,8 @@ instance
       ( \s h x ->
           GetEffectiveRecommendationPreferencesResponse'
             Prelude.<$> (x Data..?> "enhancedInfrastructureMetrics")
-              Prelude.<*> (x Data..?> "externalMetricsPreference")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "externalMetricsPreference")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

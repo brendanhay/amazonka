@@ -21,11 +21,14 @@ module Amazonka.ComputeOptimizer.Types.InstanceRecommendation where
 
 import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
 import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
+import Amazonka.ComputeOptimizer.Types.ExternalMetricStatus
 import Amazonka.ComputeOptimizer.Types.Finding
 import Amazonka.ComputeOptimizer.Types.InferredWorkloadType
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
 import Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
+import Amazonka.ComputeOptimizer.Types.InstanceState
 import Amazonka.ComputeOptimizer.Types.RecommendationSource
+import Amazonka.ComputeOptimizer.Types.Tag
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -47,6 +50,9 @@ data InstanceRecommendation = InstanceRecommendation'
     -- | An object that describes the effective recommendation preferences for
     -- the instance.
     effectiveRecommendationPreferences :: Prelude.Maybe EffectiveRecommendationPreferences,
+    -- | An object that describes Compute Optimizer\'s integration status with
+    -- your external metrics provider.
+    externalMetricStatus :: Prelude.Maybe ExternalMetricStatus,
     -- | The finding classification of the instance.
     --
     -- Findings for instances include:
@@ -111,28 +117,28 @@ data InstanceRecommendation = InstanceRecommendation'
     -- -   __@EBSThroughputOverprovisioned@__ — The instance’s EBS throughput
     --     configuration can be sized down while still meeting the performance
     --     requirements of your workload. This is identified by analyzing the
-    --     @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes attached
-    --     to the current instance during the look-back period.
+    --     @VolumeReadBytes@ and @VolumeWriteBytes@ metrics of EBS volumes
+    --     attached to the current instance during the look-back period.
     --
     -- -   __@EBSThroughputUnderprovisioned@__ — The instance’s EBS throughput
     --     configuration doesn\'t meet the performance requirements of your
     --     workload and there is an alternative instance type that provides
     --     better EBS throughput performance. This is identified by analyzing
-    --     the @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes
+    --     the @VolumeReadBytes@ and @VolumeWriteBytes@ metrics of EBS volumes
     --     attached to the current instance during the look-back period.
     --
     -- -   __@EBSIOPSOverprovisioned@__ — The instance’s EBS IOPS configuration
     --     can be sized down while still meeting the performance requirements
     --     of your workload. This is identified by analyzing the
-    --     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes
-    --     attached to the current instance during the look-back period.
+    --     @VolumeReadOps@ and @VolumeWriteOps@ metric of EBS volumes attached
+    --     to the current instance during the look-back period.
     --
     -- -   __@EBSIOPSUnderprovisioned@__ — The instance’s EBS IOPS
     --     configuration doesn\'t meet the performance requirements of your
     --     workload and there is an alternative instance type that provides
     --     better EBS IOPS performance. This is identified by analyzing the
-    --     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes
-    --     attached to the current instance during the look-back period.
+    --     @VolumeReadOps@ and @VolumeWriteOps@ metric of EBS volumes attached
+    --     to the current instance during the look-back period.
     --
     -- -   __@NetworkBandwidthOverprovisioned@__ — The instance’s network
     --     bandwidth configuration can be sized down while still meeting the
@@ -221,11 +227,18 @@ data InstanceRecommendation = InstanceRecommendation'
     --     instance.
     --
     -- -   @Redis@ - Infers that Redis might be running on the instance.
+    --
+    -- -   @Kafka@ - Infers that Kafka might be running on the instance.
+    --
+    -- -   @SQLServer@ - Infers that SQLServer might be running on the
+    --     instance.
     inferredWorkloadTypes :: Prelude.Maybe [InferredWorkloadType],
     -- | The Amazon Resource Name (ARN) of the current instance.
     instanceArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the current instance.
     instanceName :: Prelude.Maybe Prelude.Text,
+    -- | The state of the instance when the recommendation was generated.
+    instanceState :: Prelude.Maybe InstanceState,
     -- | The timestamp of when the instance recommendation was last generated.
     lastRefreshTimestamp :: Prelude.Maybe Data.POSIX,
     -- | The number of days for which utilization metrics were analyzed for the
@@ -237,6 +250,8 @@ data InstanceRecommendation = InstanceRecommendation'
     -- | An array of objects that describe the source resource of the
     -- recommendation.
     recommendationSources :: Prelude.Maybe [RecommendationSource],
+    -- | A list of tags assigned to your Amazon EC2 instance recommendations.
+    tags :: Prelude.Maybe [Tag],
     -- | An array of objects that describe the utilization metrics of the
     -- instance.
     utilizationMetrics :: Prelude.Maybe [UtilizationMetric]
@@ -261,6 +276,9 @@ data InstanceRecommendation = InstanceRecommendation'
 --
 -- 'effectiveRecommendationPreferences', 'instanceRecommendation_effectiveRecommendationPreferences' - An object that describes the effective recommendation preferences for
 -- the instance.
+--
+-- 'externalMetricStatus', 'instanceRecommendation_externalMetricStatus' - An object that describes Compute Optimizer\'s integration status with
+-- your external metrics provider.
 --
 -- 'finding', 'instanceRecommendation_finding' - The finding classification of the instance.
 --
@@ -326,28 +344,28 @@ data InstanceRecommendation = InstanceRecommendation'
 -- -   __@EBSThroughputOverprovisioned@__ — The instance’s EBS throughput
 --     configuration can be sized down while still meeting the performance
 --     requirements of your workload. This is identified by analyzing the
---     @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes attached
---     to the current instance during the look-back period.
+--     @VolumeReadBytes@ and @VolumeWriteBytes@ metrics of EBS volumes
+--     attached to the current instance during the look-back period.
 --
 -- -   __@EBSThroughputUnderprovisioned@__ — The instance’s EBS throughput
 --     configuration doesn\'t meet the performance requirements of your
 --     workload and there is an alternative instance type that provides
 --     better EBS throughput performance. This is identified by analyzing
---     the @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes
+--     the @VolumeReadBytes@ and @VolumeWriteBytes@ metrics of EBS volumes
 --     attached to the current instance during the look-back period.
 --
 -- -   __@EBSIOPSOverprovisioned@__ — The instance’s EBS IOPS configuration
 --     can be sized down while still meeting the performance requirements
 --     of your workload. This is identified by analyzing the
---     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes
---     attached to the current instance during the look-back period.
+--     @VolumeReadOps@ and @VolumeWriteOps@ metric of EBS volumes attached
+--     to the current instance during the look-back period.
 --
 -- -   __@EBSIOPSUnderprovisioned@__ — The instance’s EBS IOPS
 --     configuration doesn\'t meet the performance requirements of your
 --     workload and there is an alternative instance type that provides
 --     better EBS IOPS performance. This is identified by analyzing the
---     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes
---     attached to the current instance during the look-back period.
+--     @VolumeReadOps@ and @VolumeWriteOps@ metric of EBS volumes attached
+--     to the current instance during the look-back period.
 --
 -- -   __@NetworkBandwidthOverprovisioned@__ — The instance’s network
 --     bandwidth configuration can be sized down while still meeting the
@@ -437,9 +455,16 @@ data InstanceRecommendation = InstanceRecommendation'
 --
 -- -   @Redis@ - Infers that Redis might be running on the instance.
 --
+-- -   @Kafka@ - Infers that Kafka might be running on the instance.
+--
+-- -   @SQLServer@ - Infers that SQLServer might be running on the
+--     instance.
+--
 -- 'instanceArn', 'instanceRecommendation_instanceArn' - The Amazon Resource Name (ARN) of the current instance.
 --
 -- 'instanceName', 'instanceRecommendation_instanceName' - The name of the current instance.
+--
+-- 'instanceState', 'instanceRecommendation_instanceState' - The state of the instance when the recommendation was generated.
 --
 -- 'lastRefreshTimestamp', 'instanceRecommendation_lastRefreshTimestamp' - The timestamp of when the instance recommendation was last generated.
 --
@@ -451,6 +476,8 @@ data InstanceRecommendation = InstanceRecommendation'
 --
 -- 'recommendationSources', 'instanceRecommendation_recommendationSources' - An array of objects that describe the source resource of the
 -- recommendation.
+--
+-- 'tags', 'instanceRecommendation_tags' - A list of tags assigned to your Amazon EC2 instance recommendations.
 --
 -- 'utilizationMetrics', 'instanceRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the
 -- instance.
@@ -464,15 +491,18 @@ newInstanceRecommendation =
       currentPerformanceRisk = Prelude.Nothing,
       effectiveRecommendationPreferences =
         Prelude.Nothing,
+      externalMetricStatus = Prelude.Nothing,
       finding = Prelude.Nothing,
       findingReasonCodes = Prelude.Nothing,
       inferredWorkloadTypes = Prelude.Nothing,
       instanceArn = Prelude.Nothing,
       instanceName = Prelude.Nothing,
+      instanceState = Prelude.Nothing,
       lastRefreshTimestamp = Prelude.Nothing,
       lookBackPeriodInDays = Prelude.Nothing,
       recommendationOptions = Prelude.Nothing,
       recommendationSources = Prelude.Nothing,
+      tags = Prelude.Nothing,
       utilizationMetrics = Prelude.Nothing
     }
 
@@ -494,6 +524,11 @@ instanceRecommendation_currentPerformanceRisk = Lens.lens (\InstanceRecommendati
 -- the instance.
 instanceRecommendation_effectiveRecommendationPreferences :: Lens.Lens' InstanceRecommendation (Prelude.Maybe EffectiveRecommendationPreferences)
 instanceRecommendation_effectiveRecommendationPreferences = Lens.lens (\InstanceRecommendation' {effectiveRecommendationPreferences} -> effectiveRecommendationPreferences) (\s@InstanceRecommendation' {} a -> s {effectiveRecommendationPreferences = a} :: InstanceRecommendation)
+
+-- | An object that describes Compute Optimizer\'s integration status with
+-- your external metrics provider.
+instanceRecommendation_externalMetricStatus :: Lens.Lens' InstanceRecommendation (Prelude.Maybe ExternalMetricStatus)
+instanceRecommendation_externalMetricStatus = Lens.lens (\InstanceRecommendation' {externalMetricStatus} -> externalMetricStatus) (\s@InstanceRecommendation' {} a -> s {externalMetricStatus = a} :: InstanceRecommendation)
 
 -- | The finding classification of the instance.
 --
@@ -561,28 +596,28 @@ instanceRecommendation_finding = Lens.lens (\InstanceRecommendation' {finding} -
 -- -   __@EBSThroughputOverprovisioned@__ — The instance’s EBS throughput
 --     configuration can be sized down while still meeting the performance
 --     requirements of your workload. This is identified by analyzing the
---     @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes attached
---     to the current instance during the look-back period.
+--     @VolumeReadBytes@ and @VolumeWriteBytes@ metrics of EBS volumes
+--     attached to the current instance during the look-back period.
 --
 -- -   __@EBSThroughputUnderprovisioned@__ — The instance’s EBS throughput
 --     configuration doesn\'t meet the performance requirements of your
 --     workload and there is an alternative instance type that provides
 --     better EBS throughput performance. This is identified by analyzing
---     the @VolumeReadOps@ and @VolumeWriteOps@ metrics of EBS volumes
+--     the @VolumeReadBytes@ and @VolumeWriteBytes@ metrics of EBS volumes
 --     attached to the current instance during the look-back period.
 --
 -- -   __@EBSIOPSOverprovisioned@__ — The instance’s EBS IOPS configuration
 --     can be sized down while still meeting the performance requirements
 --     of your workload. This is identified by analyzing the
---     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes
---     attached to the current instance during the look-back period.
+--     @VolumeReadOps@ and @VolumeWriteOps@ metric of EBS volumes attached
+--     to the current instance during the look-back period.
 --
 -- -   __@EBSIOPSUnderprovisioned@__ — The instance’s EBS IOPS
 --     configuration doesn\'t meet the performance requirements of your
 --     workload and there is an alternative instance type that provides
 --     better EBS IOPS performance. This is identified by analyzing the
---     @VolumeReadBytes@ and @VolumeWriteBytes@ metric of EBS volumes
---     attached to the current instance during the look-back period.
+--     @VolumeReadOps@ and @VolumeWriteOps@ metric of EBS volumes attached
+--     to the current instance during the look-back period.
 --
 -- -   __@NetworkBandwidthOverprovisioned@__ — The instance’s network
 --     bandwidth configuration can be sized down while still meeting the
@@ -673,6 +708,11 @@ instanceRecommendation_findingReasonCodes = Lens.lens (\InstanceRecommendation' 
 --     instance.
 --
 -- -   @Redis@ - Infers that Redis might be running on the instance.
+--
+-- -   @Kafka@ - Infers that Kafka might be running on the instance.
+--
+-- -   @SQLServer@ - Infers that SQLServer might be running on the
+--     instance.
 instanceRecommendation_inferredWorkloadTypes :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [InferredWorkloadType])
 instanceRecommendation_inferredWorkloadTypes = Lens.lens (\InstanceRecommendation' {inferredWorkloadTypes} -> inferredWorkloadTypes) (\s@InstanceRecommendation' {} a -> s {inferredWorkloadTypes = a} :: InstanceRecommendation) Prelude.. Lens.mapping Lens.coerced
 
@@ -683,6 +723,10 @@ instanceRecommendation_instanceArn = Lens.lens (\InstanceRecommendation' {instan
 -- | The name of the current instance.
 instanceRecommendation_instanceName :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Prelude.Text)
 instanceRecommendation_instanceName = Lens.lens (\InstanceRecommendation' {instanceName} -> instanceName) (\s@InstanceRecommendation' {} a -> s {instanceName = a} :: InstanceRecommendation)
+
+-- | The state of the instance when the recommendation was generated.
+instanceRecommendation_instanceState :: Lens.Lens' InstanceRecommendation (Prelude.Maybe InstanceState)
+instanceRecommendation_instanceState = Lens.lens (\InstanceRecommendation' {instanceState} -> instanceState) (\s@InstanceRecommendation' {} a -> s {instanceState = a} :: InstanceRecommendation)
 
 -- | The timestamp of when the instance recommendation was last generated.
 instanceRecommendation_lastRefreshTimestamp :: Lens.Lens' InstanceRecommendation (Prelude.Maybe Prelude.UTCTime)
@@ -703,6 +747,10 @@ instanceRecommendation_recommendationOptions = Lens.lens (\InstanceRecommendatio
 instanceRecommendation_recommendationSources :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [RecommendationSource])
 instanceRecommendation_recommendationSources = Lens.lens (\InstanceRecommendation' {recommendationSources} -> recommendationSources) (\s@InstanceRecommendation' {} a -> s {recommendationSources = a} :: InstanceRecommendation) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of tags assigned to your Amazon EC2 instance recommendations.
+instanceRecommendation_tags :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [Tag])
+instanceRecommendation_tags = Lens.lens (\InstanceRecommendation' {tags} -> tags) (\s@InstanceRecommendation' {} a -> s {tags = a} :: InstanceRecommendation) Prelude.. Lens.mapping Lens.coerced
+
 -- | An array of objects that describe the utilization metrics of the
 -- instance.
 instanceRecommendation_utilizationMetrics :: Lens.Lens' InstanceRecommendation (Prelude.Maybe [UtilizationMetric])
@@ -718,43 +766,55 @@ instance Data.FromJSON InstanceRecommendation where
             Prelude.<*> (x Data..:? "currentInstanceType")
             Prelude.<*> (x Data..:? "currentPerformanceRisk")
             Prelude.<*> (x Data..:? "effectiveRecommendationPreferences")
+            Prelude.<*> (x Data..:? "externalMetricStatus")
             Prelude.<*> (x Data..:? "finding")
-            Prelude.<*> ( x Data..:? "findingReasonCodes"
+            Prelude.<*> ( x
+                            Data..:? "findingReasonCodes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "inferredWorkloadTypes"
+            Prelude.<*> ( x
+                            Data..:? "inferredWorkloadTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "instanceArn")
             Prelude.<*> (x Data..:? "instanceName")
+            Prelude.<*> (x Data..:? "instanceState")
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookBackPeriodInDays")
-            Prelude.<*> ( x Data..:? "recommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "recommendationOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "recommendationSources"
+            Prelude.<*> ( x
+                            Data..:? "recommendationSources"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable InstanceRecommendation where
   hashWithSalt _salt InstanceRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentInstanceType
       `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` effectiveRecommendationPreferences
+      `Prelude.hashWithSalt` externalMetricStatus
       `Prelude.hashWithSalt` finding
       `Prelude.hashWithSalt` findingReasonCodes
       `Prelude.hashWithSalt` inferredWorkloadTypes
       `Prelude.hashWithSalt` instanceArn
       `Prelude.hashWithSalt` instanceName
+      `Prelude.hashWithSalt` instanceState
       `Prelude.hashWithSalt` lastRefreshTimestamp
       `Prelude.hashWithSalt` lookBackPeriodInDays
       `Prelude.hashWithSalt` recommendationOptions
       `Prelude.hashWithSalt` recommendationSources
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` utilizationMetrics
 
 instance Prelude.NFData InstanceRecommendation where
@@ -763,13 +823,16 @@ instance Prelude.NFData InstanceRecommendation where
       `Prelude.seq` Prelude.rnf currentInstanceType
       `Prelude.seq` Prelude.rnf currentPerformanceRisk
       `Prelude.seq` Prelude.rnf effectiveRecommendationPreferences
+      `Prelude.seq` Prelude.rnf externalMetricStatus
       `Prelude.seq` Prelude.rnf finding
       `Prelude.seq` Prelude.rnf findingReasonCodes
       `Prelude.seq` Prelude.rnf inferredWorkloadTypes
       `Prelude.seq` Prelude.rnf instanceArn
       `Prelude.seq` Prelude.rnf instanceName
+      `Prelude.seq` Prelude.rnf instanceState
       `Prelude.seq` Prelude.rnf lastRefreshTimestamp
       `Prelude.seq` Prelude.rnf lookBackPeriodInDays
       `Prelude.seq` Prelude.rnf recommendationOptions
       `Prelude.seq` Prelude.rnf recommendationSources
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf utilizationMetrics

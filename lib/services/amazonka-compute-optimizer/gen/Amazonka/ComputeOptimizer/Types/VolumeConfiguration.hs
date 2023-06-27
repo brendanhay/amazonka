@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeConfiguration' smart constructor.
 data VolumeConfiguration = VolumeConfiguration'
-  { -- | The baseline IOPS of the volume.
+  { -- | Contains the image used to boot the instance during launch.
+    rootVolume :: Prelude.Maybe Prelude.Bool,
+    -- | The baseline IOPS of the volume.
     volumeBaselineIOPS :: Prelude.Maybe Prelude.Int,
     -- | The baseline throughput of the volume.
     volumeBaselineThroughput :: Prelude.Maybe Prelude.Int,
@@ -56,6 +58,8 @@ data VolumeConfiguration = VolumeConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'rootVolume', 'volumeConfiguration_rootVolume' - Contains the image used to boot the instance during launch.
+--
 -- 'volumeBaselineIOPS', 'volumeConfiguration_volumeBaselineIOPS' - The baseline IOPS of the volume.
 --
 -- 'volumeBaselineThroughput', 'volumeConfiguration_volumeBaselineThroughput' - The baseline throughput of the volume.
@@ -75,14 +79,18 @@ newVolumeConfiguration ::
   VolumeConfiguration
 newVolumeConfiguration =
   VolumeConfiguration'
-    { volumeBaselineIOPS =
-        Prelude.Nothing,
+    { rootVolume = Prelude.Nothing,
+      volumeBaselineIOPS = Prelude.Nothing,
       volumeBaselineThroughput = Prelude.Nothing,
       volumeBurstIOPS = Prelude.Nothing,
       volumeBurstThroughput = Prelude.Nothing,
       volumeSize = Prelude.Nothing,
       volumeType = Prelude.Nothing
     }
+
+-- | Contains the image used to boot the instance during launch.
+volumeConfiguration_rootVolume :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Bool)
+volumeConfiguration_rootVolume = Lens.lens (\VolumeConfiguration' {rootVolume} -> rootVolume) (\s@VolumeConfiguration' {} a -> s {rootVolume = a} :: VolumeConfiguration)
 
 -- | The baseline IOPS of the volume.
 volumeConfiguration_volumeBaselineIOPS :: Lens.Lens' VolumeConfiguration (Prelude.Maybe Prelude.Int)
@@ -118,7 +126,8 @@ instance Data.FromJSON VolumeConfiguration where
       "VolumeConfiguration"
       ( \x ->
           VolumeConfiguration'
-            Prelude.<$> (x Data..:? "volumeBaselineIOPS")
+            Prelude.<$> (x Data..:? "rootVolume")
+            Prelude.<*> (x Data..:? "volumeBaselineIOPS")
             Prelude.<*> (x Data..:? "volumeBaselineThroughput")
             Prelude.<*> (x Data..:? "volumeBurstIOPS")
             Prelude.<*> (x Data..:? "volumeBurstThroughput")
@@ -128,7 +137,9 @@ instance Data.FromJSON VolumeConfiguration where
 
 instance Prelude.Hashable VolumeConfiguration where
   hashWithSalt _salt VolumeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` volumeBaselineIOPS
+    _salt
+      `Prelude.hashWithSalt` rootVolume
+      `Prelude.hashWithSalt` volumeBaselineIOPS
       `Prelude.hashWithSalt` volumeBaselineThroughput
       `Prelude.hashWithSalt` volumeBurstIOPS
       `Prelude.hashWithSalt` volumeBurstThroughput
@@ -137,7 +148,8 @@ instance Prelude.Hashable VolumeConfiguration where
 
 instance Prelude.NFData VolumeConfiguration where
   rnf VolumeConfiguration' {..} =
-    Prelude.rnf volumeBaselineIOPS
+    Prelude.rnf rootVolume
+      `Prelude.seq` Prelude.rnf volumeBaselineIOPS
       `Prelude.seq` Prelude.rnf volumeBaselineThroughput
       `Prelude.seq` Prelude.rnf volumeBurstIOPS
       `Prelude.seq` Prelude.rnf volumeBurstThroughput

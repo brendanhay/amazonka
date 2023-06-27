@@ -32,18 +32,18 @@ import qualified Amazonka.Prelude as Prelude
 data ServiceConfiguration = ServiceConfiguration'
   { -- | Describes the Auto Scaling configuration methods for an Amazon ECS
     -- service. This affects the generated recommendations. For example, if
-    -- Auto Scaling is configured on a ECS service’s CPU, then Compute
-    -- Optimizer doesn’t generate CPU size recommendations.
+    -- Auto Scaling is configured on a service’s CPU, then Compute Optimizer
+    -- doesn’t generate CPU size recommendations.
     --
     -- The Auto Scaling configuration methods include:
     --
-    -- -   @TARGET_TRACKING_SCALING_CPU@ — If the ECS service is configured to
-    --     use target scaling on CPU, Compute Optimizer doesn\'t generate CPU
-    --     recommendations.
+    -- -   @TARGET_TRACKING_SCALING_CPU@ — If the Amazon ECS service is
+    --     configured to use target scaling on CPU, Compute Optimizer doesn\'t
+    --     generate CPU recommendations.
     --
-    -- -   @TARGET_TRACKING_SCALING_MEMORY@ — If the ECS service is configured
-    --     to use target scaling on memory, Compute Optimizer doesn\'t generate
-    --     memory recommendations.
+    -- -   @TARGET_TRACKING_SCALING_MEMORY@ — If the Amazon ECS service is
+    --     configured to use target scaling on memory, Compute Optimizer
+    --     doesn\'t generate memory recommendations.
     --
     -- For more information about step scaling and target scaling, see
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies for Application Auto Scaling>
@@ -51,13 +51,13 @@ data ServiceConfiguration = ServiceConfiguration'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies for Application Auto Scaling>
     -- in the /Application Auto Scaling User Guide/.
     autoScalingConfiguration :: Prelude.Maybe AutoScalingConfiguration,
-    -- | The container configurations within a task of an ECS service.
+    -- | The container configurations within a task of an Amazon ECS service.
     containerConfigurations :: Prelude.Maybe [ContainerConfiguration],
-    -- | The number of CPU units used by the tasks in the ECS service.
+    -- | The number of CPU units used by the tasks in the Amazon ECS service.
     cpu :: Prelude.Maybe Prelude.Int,
-    -- | The amount of memory used by the tasks in the ECS service.
+    -- | The amount of memory used by the tasks in the Amazon ECS service.
     memory :: Prelude.Maybe Prelude.Int,
-    -- | The task definition ARN used by the tasks in the ECS service.
+    -- | The task definition ARN used by the tasks in the Amazon ECS service.
     taskDefinitionArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,18 +72,18 @@ data ServiceConfiguration = ServiceConfiguration'
 --
 -- 'autoScalingConfiguration', 'serviceConfiguration_autoScalingConfiguration' - Describes the Auto Scaling configuration methods for an Amazon ECS
 -- service. This affects the generated recommendations. For example, if
--- Auto Scaling is configured on a ECS service’s CPU, then Compute
--- Optimizer doesn’t generate CPU size recommendations.
+-- Auto Scaling is configured on a service’s CPU, then Compute Optimizer
+-- doesn’t generate CPU size recommendations.
 --
 -- The Auto Scaling configuration methods include:
 --
--- -   @TARGET_TRACKING_SCALING_CPU@ — If the ECS service is configured to
---     use target scaling on CPU, Compute Optimizer doesn\'t generate CPU
---     recommendations.
+-- -   @TARGET_TRACKING_SCALING_CPU@ — If the Amazon ECS service is
+--     configured to use target scaling on CPU, Compute Optimizer doesn\'t
+--     generate CPU recommendations.
 --
--- -   @TARGET_TRACKING_SCALING_MEMORY@ — If the ECS service is configured
---     to use target scaling on memory, Compute Optimizer doesn\'t generate
---     memory recommendations.
+-- -   @TARGET_TRACKING_SCALING_MEMORY@ — If the Amazon ECS service is
+--     configured to use target scaling on memory, Compute Optimizer
+--     doesn\'t generate memory recommendations.
 --
 -- For more information about step scaling and target scaling, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies for Application Auto Scaling>
@@ -91,13 +91,13 @@ data ServiceConfiguration = ServiceConfiguration'
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies for Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
 --
--- 'containerConfigurations', 'serviceConfiguration_containerConfigurations' - The container configurations within a task of an ECS service.
+-- 'containerConfigurations', 'serviceConfiguration_containerConfigurations' - The container configurations within a task of an Amazon ECS service.
 --
--- 'cpu', 'serviceConfiguration_cpu' - The number of CPU units used by the tasks in the ECS service.
+-- 'cpu', 'serviceConfiguration_cpu' - The number of CPU units used by the tasks in the Amazon ECS service.
 --
--- 'memory', 'serviceConfiguration_memory' - The amount of memory used by the tasks in the ECS service.
+-- 'memory', 'serviceConfiguration_memory' - The amount of memory used by the tasks in the Amazon ECS service.
 --
--- 'taskDefinitionArn', 'serviceConfiguration_taskDefinitionArn' - The task definition ARN used by the tasks in the ECS service.
+-- 'taskDefinitionArn', 'serviceConfiguration_taskDefinitionArn' - The task definition ARN used by the tasks in the Amazon ECS service.
 newServiceConfiguration ::
   ServiceConfiguration
 newServiceConfiguration =
@@ -112,18 +112,18 @@ newServiceConfiguration =
 
 -- | Describes the Auto Scaling configuration methods for an Amazon ECS
 -- service. This affects the generated recommendations. For example, if
--- Auto Scaling is configured on a ECS service’s CPU, then Compute
--- Optimizer doesn’t generate CPU size recommendations.
+-- Auto Scaling is configured on a service’s CPU, then Compute Optimizer
+-- doesn’t generate CPU size recommendations.
 --
 -- The Auto Scaling configuration methods include:
 --
--- -   @TARGET_TRACKING_SCALING_CPU@ — If the ECS service is configured to
---     use target scaling on CPU, Compute Optimizer doesn\'t generate CPU
---     recommendations.
+-- -   @TARGET_TRACKING_SCALING_CPU@ — If the Amazon ECS service is
+--     configured to use target scaling on CPU, Compute Optimizer doesn\'t
+--     generate CPU recommendations.
 --
--- -   @TARGET_TRACKING_SCALING_MEMORY@ — If the ECS service is configured
---     to use target scaling on memory, Compute Optimizer doesn\'t generate
---     memory recommendations.
+-- -   @TARGET_TRACKING_SCALING_MEMORY@ — If the Amazon ECS service is
+--     configured to use target scaling on memory, Compute Optimizer
+--     doesn\'t generate memory recommendations.
 --
 -- For more information about step scaling and target scaling, see
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies for Application Auto Scaling>
@@ -133,19 +133,19 @@ newServiceConfiguration =
 serviceConfiguration_autoScalingConfiguration :: Lens.Lens' ServiceConfiguration (Prelude.Maybe AutoScalingConfiguration)
 serviceConfiguration_autoScalingConfiguration = Lens.lens (\ServiceConfiguration' {autoScalingConfiguration} -> autoScalingConfiguration) (\s@ServiceConfiguration' {} a -> s {autoScalingConfiguration = a} :: ServiceConfiguration)
 
--- | The container configurations within a task of an ECS service.
+-- | The container configurations within a task of an Amazon ECS service.
 serviceConfiguration_containerConfigurations :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [ContainerConfiguration])
 serviceConfiguration_containerConfigurations = Lens.lens (\ServiceConfiguration' {containerConfigurations} -> containerConfigurations) (\s@ServiceConfiguration' {} a -> s {containerConfigurations = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of CPU units used by the tasks in the ECS service.
+-- | The number of CPU units used by the tasks in the Amazon ECS service.
 serviceConfiguration_cpu :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Int)
 serviceConfiguration_cpu = Lens.lens (\ServiceConfiguration' {cpu} -> cpu) (\s@ServiceConfiguration' {} a -> s {cpu = a} :: ServiceConfiguration)
 
--- | The amount of memory used by the tasks in the ECS service.
+-- | The amount of memory used by the tasks in the Amazon ECS service.
 serviceConfiguration_memory :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Int)
 serviceConfiguration_memory = Lens.lens (\ServiceConfiguration' {memory} -> memory) (\s@ServiceConfiguration' {} a -> s {memory = a} :: ServiceConfiguration)
 
--- | The task definition ARN used by the tasks in the ECS service.
+-- | The task definition ARN used by the tasks in the Amazon ECS service.
 serviceConfiguration_taskDefinitionArn :: Lens.Lens' ServiceConfiguration (Prelude.Maybe Prelude.Text)
 serviceConfiguration_taskDefinitionArn = Lens.lens (\ServiceConfiguration' {taskDefinitionArn} -> taskDefinitionArn) (\s@ServiceConfiguration' {} a -> s {taskDefinitionArn = a} :: ServiceConfiguration)
 
@@ -156,7 +156,8 @@ instance Data.FromJSON ServiceConfiguration where
       ( \x ->
           ServiceConfiguration'
             Prelude.<$> (x Data..:? "autoScalingConfiguration")
-            Prelude.<*> ( x Data..:? "containerConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "containerConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")

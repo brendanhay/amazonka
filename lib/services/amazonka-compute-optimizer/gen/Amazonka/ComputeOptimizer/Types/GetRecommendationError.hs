@@ -88,7 +88,8 @@ instance Data.FromJSON GetRecommendationError where
 
 instance Prelude.Hashable GetRecommendationError where
   hashWithSalt _salt GetRecommendationError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` message
 

@@ -11,19 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ComputeOptimizer.Types.FilterName
+-- Module      : Amazonka.ComputeOptimizer.Types.InstanceState
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ComputeOptimizer.Types.FilterName
-  ( FilterName
+module Amazonka.ComputeOptimizer.Types.InstanceState
+  ( InstanceState
       ( ..,
-        FilterName_Finding,
-        FilterName_FindingReasonCodes,
-        FilterName_InferredWorkloadTypes,
-        FilterName_RecommendationSourceType
+        InstanceState_Pending,
+        InstanceState_Running,
+        InstanceState_Shutting_down,
+        InstanceState_Stopped,
+        InstanceState_Stopping,
+        InstanceState_Terminated
       ),
   )
 where
@@ -32,8 +34,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype FilterName = FilterName'
-  { fromFilterName ::
+newtype InstanceState = InstanceState'
+  { fromInstanceState ::
       Data.Text
   }
   deriving stock
@@ -60,22 +62,30 @@ newtype FilterName = FilterName'
       Data.ToXML
     )
 
-pattern FilterName_Finding :: FilterName
-pattern FilterName_Finding = FilterName' "Finding"
+pattern InstanceState_Pending :: InstanceState
+pattern InstanceState_Pending = InstanceState' "pending"
 
-pattern FilterName_FindingReasonCodes :: FilterName
-pattern FilterName_FindingReasonCodes = FilterName' "FindingReasonCodes"
+pattern InstanceState_Running :: InstanceState
+pattern InstanceState_Running = InstanceState' "running"
 
-pattern FilterName_InferredWorkloadTypes :: FilterName
-pattern FilterName_InferredWorkloadTypes = FilterName' "InferredWorkloadTypes"
+pattern InstanceState_Shutting_down :: InstanceState
+pattern InstanceState_Shutting_down = InstanceState' "shutting-down"
 
-pattern FilterName_RecommendationSourceType :: FilterName
-pattern FilterName_RecommendationSourceType = FilterName' "RecommendationSourceType"
+pattern InstanceState_Stopped :: InstanceState
+pattern InstanceState_Stopped = InstanceState' "stopped"
+
+pattern InstanceState_Stopping :: InstanceState
+pattern InstanceState_Stopping = InstanceState' "stopping"
+
+pattern InstanceState_Terminated :: InstanceState
+pattern InstanceState_Terminated = InstanceState' "terminated"
 
 {-# COMPLETE
-  FilterName_Finding,
-  FilterName_FindingReasonCodes,
-  FilterName_InferredWorkloadTypes,
-  FilterName_RecommendationSourceType,
-  FilterName'
+  InstanceState_Pending,
+  InstanceState_Running,
+  InstanceState_Shutting_down,
+  InstanceState_Stopped,
+  InstanceState_Stopping,
+  InstanceState_Terminated,
+  InstanceState'
   #-}

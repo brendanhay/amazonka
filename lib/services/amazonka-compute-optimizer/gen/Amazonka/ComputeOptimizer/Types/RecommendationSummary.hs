@@ -20,6 +20,7 @@
 module Amazonka.ComputeOptimizer.Types.RecommendationSummary where
 
 import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRiskRatings
+import Amazonka.ComputeOptimizer.Types.InferredWorkloadSaving
 import Amazonka.ComputeOptimizer.Types.RecommendationSourceType
 import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.Summary
@@ -37,6 +38,11 @@ data RecommendationSummary = RecommendationSummary'
     -- | An object that describes the performance risk ratings for a given
     -- resource type.
     currentPerformanceRiskRatings :: Prelude.Maybe CurrentPerformanceRiskRatings,
+    -- | An array of objects that describes the estimated monthly saving amounts
+    -- for the instances running on the specified @inferredWorkloadTypes@. The
+    -- array contains the top three savings opportunites for the instances
+    -- running inferred workload types.
+    inferredWorkloadSavings :: Prelude.Maybe [InferredWorkloadSaving],
     -- | The resource type that the recommendation summary applies to.
     recommendationResourceType :: Prelude.Maybe RecommendationSourceType,
     -- | An object that describes the savings opportunity for a given resource
@@ -61,6 +67,11 @@ data RecommendationSummary = RecommendationSummary'
 -- 'currentPerformanceRiskRatings', 'recommendationSummary_currentPerformanceRiskRatings' - An object that describes the performance risk ratings for a given
 -- resource type.
 --
+-- 'inferredWorkloadSavings', 'recommendationSummary_inferredWorkloadSavings' - An array of objects that describes the estimated monthly saving amounts
+-- for the instances running on the specified @inferredWorkloadTypes@. The
+-- array contains the top three savings opportunites for the instances
+-- running inferred workload types.
+--
 -- 'recommendationResourceType', 'recommendationSummary_recommendationResourceType' - The resource type that the recommendation summary applies to.
 --
 -- 'savingsOpportunity', 'recommendationSummary_savingsOpportunity' - An object that describes the savings opportunity for a given resource
@@ -74,6 +85,7 @@ newRecommendationSummary =
   RecommendationSummary'
     { accountId = Prelude.Nothing,
       currentPerformanceRiskRatings = Prelude.Nothing,
+      inferredWorkloadSavings = Prelude.Nothing,
       recommendationResourceType = Prelude.Nothing,
       savingsOpportunity = Prelude.Nothing,
       summaries = Prelude.Nothing
@@ -87,6 +99,13 @@ recommendationSummary_accountId = Lens.lens (\RecommendationSummary' {accountId}
 -- resource type.
 recommendationSummary_currentPerformanceRiskRatings :: Lens.Lens' RecommendationSummary (Prelude.Maybe CurrentPerformanceRiskRatings)
 recommendationSummary_currentPerformanceRiskRatings = Lens.lens (\RecommendationSummary' {currentPerformanceRiskRatings} -> currentPerformanceRiskRatings) (\s@RecommendationSummary' {} a -> s {currentPerformanceRiskRatings = a} :: RecommendationSummary)
+
+-- | An array of objects that describes the estimated monthly saving amounts
+-- for the instances running on the specified @inferredWorkloadTypes@. The
+-- array contains the top three savings opportunites for the instances
+-- running inferred workload types.
+recommendationSummary_inferredWorkloadSavings :: Lens.Lens' RecommendationSummary (Prelude.Maybe [InferredWorkloadSaving])
+recommendationSummary_inferredWorkloadSavings = Lens.lens (\RecommendationSummary' {inferredWorkloadSavings} -> inferredWorkloadSavings) (\s@RecommendationSummary' {} a -> s {inferredWorkloadSavings = a} :: RecommendationSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The resource type that the recommendation summary applies to.
 recommendationSummary_recommendationResourceType :: Lens.Lens' RecommendationSummary (Prelude.Maybe RecommendationSourceType)
@@ -110,6 +129,10 @@ instance Data.FromJSON RecommendationSummary where
           RecommendationSummary'
             Prelude.<$> (x Data..:? "accountId")
             Prelude.<*> (x Data..:? "currentPerformanceRiskRatings")
+            Prelude.<*> ( x
+                            Data..:? "inferredWorkloadSavings"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "recommendationResourceType")
             Prelude.<*> (x Data..:? "savingsOpportunity")
             Prelude.<*> (x Data..:? "summaries" Data..!= Prelude.mempty)
@@ -117,8 +140,10 @@ instance Data.FromJSON RecommendationSummary where
 
 instance Prelude.Hashable RecommendationSummary where
   hashWithSalt _salt RecommendationSummary' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentPerformanceRiskRatings
+      `Prelude.hashWithSalt` inferredWorkloadSavings
       `Prelude.hashWithSalt` recommendationResourceType
       `Prelude.hashWithSalt` savingsOpportunity
       `Prelude.hashWithSalt` summaries
@@ -127,6 +152,7 @@ instance Prelude.NFData RecommendationSummary where
   rnf RecommendationSummary' {..} =
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf currentPerformanceRiskRatings
+      `Prelude.seq` Prelude.rnf inferredWorkloadSavings
       `Prelude.seq` Prelude.rnf recommendationResourceType
       `Prelude.seq` Prelude.rnf savingsOpportunity
       `Prelude.seq` Prelude.rnf summaries

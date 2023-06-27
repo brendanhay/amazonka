@@ -61,27 +61,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetECSServiceRecommendations' smart constructor.
 data GetECSServiceRecommendations = GetECSServiceRecommendations'
-  { -- | Return the ECS service recommendations to the specified Amazon Web
-    -- Services account IDs.
+  { -- | Return the Amazon ECS service recommendations to the specified Amazon
+    -- Web Services account IDs.
     --
     -- If your account is the management account or the delegated administrator
-    -- of an organization, use this parameter to return the ECS service
+    -- of an organization, use this parameter to return the Amazon ECS service
     -- recommendations to specific member accounts.
     --
     -- You can only specify one account ID per request.
     accountIds :: Prelude.Maybe [Prelude.Text],
     -- | An array of objects to specify a filter that returns a more specific
-    -- list of ECS service recommendations.
+    -- list of Amazon ECS service recommendations.
     filters :: Prelude.Maybe [ECSServiceRecommendationFilter],
-    -- | The maximum number of ECS service recommendations to return with a
-    -- single request.
+    -- | The maximum number of Amazon ECS service recommendations to return with
+    -- a single request.
     --
     -- To retrieve the remaining results, make another request with the
     -- returned @nextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to advance to the next page of ECS service recommendations.
+    -- | The token to advance to the next page of Amazon ECS service
+    -- recommendations.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARN that identifies the ECS service.
+    -- | The ARN that identifies the Amazon ECS service.
     --
     -- The following is the format of the ARN:
     --
@@ -98,27 +99,28 @@ data GetECSServiceRecommendations = GetECSServiceRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIds', 'getECSServiceRecommendations_accountIds' - Return the ECS service recommendations to the specified Amazon Web
--- Services account IDs.
+-- 'accountIds', 'getECSServiceRecommendations_accountIds' - Return the Amazon ECS service recommendations to the specified Amazon
+-- Web Services account IDs.
 --
 -- If your account is the management account or the delegated administrator
--- of an organization, use this parameter to return the ECS service
+-- of an organization, use this parameter to return the Amazon ECS service
 -- recommendations to specific member accounts.
 --
 -- You can only specify one account ID per request.
 --
 -- 'filters', 'getECSServiceRecommendations_filters' - An array of objects to specify a filter that returns a more specific
--- list of ECS service recommendations.
+-- list of Amazon ECS service recommendations.
 --
--- 'maxResults', 'getECSServiceRecommendations_maxResults' - The maximum number of ECS service recommendations to return with a
--- single request.
+-- 'maxResults', 'getECSServiceRecommendations_maxResults' - The maximum number of Amazon ECS service recommendations to return with
+-- a single request.
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
 --
--- 'nextToken', 'getECSServiceRecommendations_nextToken' - The token to advance to the next page of ECS service recommendations.
+-- 'nextToken', 'getECSServiceRecommendations_nextToken' - The token to advance to the next page of Amazon ECS service
+-- recommendations.
 --
--- 'serviceArns', 'getECSServiceRecommendations_serviceArns' - The ARN that identifies the ECS service.
+-- 'serviceArns', 'getECSServiceRecommendations_serviceArns' - The ARN that identifies the Amazon ECS service.
 --
 -- The following is the format of the ARN:
 --
@@ -135,11 +137,11 @@ newGetECSServiceRecommendations =
       serviceArns = Prelude.Nothing
     }
 
--- | Return the ECS service recommendations to the specified Amazon Web
--- Services account IDs.
+-- | Return the Amazon ECS service recommendations to the specified Amazon
+-- Web Services account IDs.
 --
 -- If your account is the management account or the delegated administrator
--- of an organization, use this parameter to return the ECS service
+-- of an organization, use this parameter to return the Amazon ECS service
 -- recommendations to specific member accounts.
 --
 -- You can only specify one account ID per request.
@@ -147,23 +149,24 @@ getECSServiceRecommendations_accountIds :: Lens.Lens' GetECSServiceRecommendatio
 getECSServiceRecommendations_accountIds = Lens.lens (\GetECSServiceRecommendations' {accountIds} -> accountIds) (\s@GetECSServiceRecommendations' {} a -> s {accountIds = a} :: GetECSServiceRecommendations) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects to specify a filter that returns a more specific
--- list of ECS service recommendations.
+-- list of Amazon ECS service recommendations.
 getECSServiceRecommendations_filters :: Lens.Lens' GetECSServiceRecommendations (Prelude.Maybe [ECSServiceRecommendationFilter])
 getECSServiceRecommendations_filters = Lens.lens (\GetECSServiceRecommendations' {filters} -> filters) (\s@GetECSServiceRecommendations' {} a -> s {filters = a} :: GetECSServiceRecommendations) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of ECS service recommendations to return with a
--- single request.
+-- | The maximum number of Amazon ECS service recommendations to return with
+-- a single request.
 --
 -- To retrieve the remaining results, make another request with the
 -- returned @nextToken@ value.
 getECSServiceRecommendations_maxResults :: Lens.Lens' GetECSServiceRecommendations (Prelude.Maybe Prelude.Natural)
 getECSServiceRecommendations_maxResults = Lens.lens (\GetECSServiceRecommendations' {maxResults} -> maxResults) (\s@GetECSServiceRecommendations' {} a -> s {maxResults = a} :: GetECSServiceRecommendations)
 
--- | The token to advance to the next page of ECS service recommendations.
+-- | The token to advance to the next page of Amazon ECS service
+-- recommendations.
 getECSServiceRecommendations_nextToken :: Lens.Lens' GetECSServiceRecommendations (Prelude.Maybe Prelude.Text)
 getECSServiceRecommendations_nextToken = Lens.lens (\GetECSServiceRecommendations' {nextToken} -> nextToken) (\s@GetECSServiceRecommendations' {} a -> s {nextToken = a} :: GetECSServiceRecommendations)
 
--- | The ARN that identifies the ECS service.
+-- | The ARN that identifies the Amazon ECS service.
 --
 -- The following is the format of the ARN:
 --
@@ -181,7 +184,8 @@ instance Core.AWSRequest GetECSServiceRecommendations where
     Response.receiveJSON
       ( \s h x ->
           GetECSServiceRecommendationsResponse'
-            Prelude.<$> ( x Data..?> "ecsServiceRecommendations"
+            Prelude.<$> ( x
+                            Data..?> "ecsServiceRecommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "errors" Core..!@ Prelude.mempty)
@@ -194,7 +198,8 @@ instance
     GetECSServiceRecommendations
   where
   hashWithSalt _salt GetECSServiceRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -243,11 +248,13 @@ instance Data.ToQuery GetECSServiceRecommendations where
 
 -- | /See:/ 'newGetECSServiceRecommendationsResponse' smart constructor.
 data GetECSServiceRecommendationsResponse = GetECSServiceRecommendationsResponse'
-  { -- | An array of objects that describe the ECS service recommendations.
+  { -- | An array of objects that describe the Amazon ECS service
+    -- recommendations.
     ecsServiceRecommendations :: Prelude.Maybe [ECSServiceRecommendation],
     -- | An array of objects that describe errors of the request.
     errors :: Prelude.Maybe [GetRecommendationError],
-    -- | The token to advance to the next page of ECS service recommendations.
+    -- | The token to advance to the next page of Amazon ECS service
+    -- recommendations.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -262,11 +269,13 @@ data GetECSServiceRecommendationsResponse = GetECSServiceRecommendationsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ecsServiceRecommendations', 'getECSServiceRecommendationsResponse_ecsServiceRecommendations' - An array of objects that describe the ECS service recommendations.
+-- 'ecsServiceRecommendations', 'getECSServiceRecommendationsResponse_ecsServiceRecommendations' - An array of objects that describe the Amazon ECS service
+-- recommendations.
 --
 -- 'errors', 'getECSServiceRecommendationsResponse_errors' - An array of objects that describe errors of the request.
 --
--- 'nextToken', 'getECSServiceRecommendationsResponse_nextToken' - The token to advance to the next page of ECS service recommendations.
+-- 'nextToken', 'getECSServiceRecommendationsResponse_nextToken' - The token to advance to the next page of Amazon ECS service
+-- recommendations.
 --
 -- 'httpStatus', 'getECSServiceRecommendationsResponse_httpStatus' - The response's http status code.
 newGetECSServiceRecommendationsResponse ::
@@ -282,7 +291,8 @@ newGetECSServiceRecommendationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of objects that describe the ECS service recommendations.
+-- | An array of objects that describe the Amazon ECS service
+-- recommendations.
 getECSServiceRecommendationsResponse_ecsServiceRecommendations :: Lens.Lens' GetECSServiceRecommendationsResponse (Prelude.Maybe [ECSServiceRecommendation])
 getECSServiceRecommendationsResponse_ecsServiceRecommendations = Lens.lens (\GetECSServiceRecommendationsResponse' {ecsServiceRecommendations} -> ecsServiceRecommendations) (\s@GetECSServiceRecommendationsResponse' {} a -> s {ecsServiceRecommendations = a} :: GetECSServiceRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -290,7 +300,8 @@ getECSServiceRecommendationsResponse_ecsServiceRecommendations = Lens.lens (\Get
 getECSServiceRecommendationsResponse_errors :: Lens.Lens' GetECSServiceRecommendationsResponse (Prelude.Maybe [GetRecommendationError])
 getECSServiceRecommendationsResponse_errors = Lens.lens (\GetECSServiceRecommendationsResponse' {errors} -> errors) (\s@GetECSServiceRecommendationsResponse' {} a -> s {errors = a} :: GetECSServiceRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to advance to the next page of ECS service recommendations.
+-- | The token to advance to the next page of Amazon ECS service
+-- recommendations.
 getECSServiceRecommendationsResponse_nextToken :: Lens.Lens' GetECSServiceRecommendationsResponse (Prelude.Maybe Prelude.Text)
 getECSServiceRecommendationsResponse_nextToken = Lens.lens (\GetECSServiceRecommendationsResponse' {nextToken} -> nextToken) (\s@GetECSServiceRecommendationsResponse' {} a -> s {nextToken = a} :: GetECSServiceRecommendationsResponse)
 

@@ -38,6 +38,23 @@ data ECSServiceRecommendationFilter = ECSServiceRecommendationFilter'
     --
     -- Specify @FindingReasonCode@ to return recommendations with a specific
     -- finding reason code.
+    --
+    -- You can filter your Amazon ECS service recommendations by @tag:key@ and
+    -- @tag-key@ tags.
+    --
+    -- A @tag:key@ is a key and value combination of a tag assigned to your
+    -- Amazon ECS service recommendations. Use the tag key in the filter name
+    -- and the tag value as the filter value. For example, to find all Amazon
+    -- ECS service recommendations that have a tag with the key of @Owner@ and
+    -- the value of @TeamA@, specify @tag:Owner@ for the filter name and
+    -- @TeamA@ for the filter value.
+    --
+    -- A @tag-key@ is the key of a tag assigned to your Amazon ECS service
+    -- recommendations. Use this filter to find all of your Amazon ECS service
+    -- recommendations that have a tag with a specific key. This doesn’t
+    -- consider the tag value. For example, you can find your Amazon ECS
+    -- service recommendations with a tag key value of @Owner@ or without any
+    -- tag keys assigned.
     name :: Prelude.Maybe ECSServiceRecommendationFilterName,
     -- | The value of the filter.
     --
@@ -69,6 +86,23 @@ data ECSServiceRecommendationFilter = ECSServiceRecommendationFilter'
 -- Specify @FindingReasonCode@ to return recommendations with a specific
 -- finding reason code.
 --
+-- You can filter your Amazon ECS service recommendations by @tag:key@ and
+-- @tag-key@ tags.
+--
+-- A @tag:key@ is a key and value combination of a tag assigned to your
+-- Amazon ECS service recommendations. Use the tag key in the filter name
+-- and the tag value as the filter value. For example, to find all Amazon
+-- ECS service recommendations that have a tag with the key of @Owner@ and
+-- the value of @TeamA@, specify @tag:Owner@ for the filter name and
+-- @TeamA@ for the filter value.
+--
+-- A @tag-key@ is the key of a tag assigned to your Amazon ECS service
+-- recommendations. Use this filter to find all of your Amazon ECS service
+-- recommendations that have a tag with a specific key. This doesn’t
+-- consider the tag value. For example, you can find your Amazon ECS
+-- service recommendations with a tag key value of @Owner@ or without any
+-- tag keys assigned.
+--
 -- 'values', 'eCSServiceRecommendationFilter_values' - The value of the filter.
 --
 -- The valid values for this parameter are as follows:
@@ -95,6 +129,23 @@ newECSServiceRecommendationFilter =
 --
 -- Specify @FindingReasonCode@ to return recommendations with a specific
 -- finding reason code.
+--
+-- You can filter your Amazon ECS service recommendations by @tag:key@ and
+-- @tag-key@ tags.
+--
+-- A @tag:key@ is a key and value combination of a tag assigned to your
+-- Amazon ECS service recommendations. Use the tag key in the filter name
+-- and the tag value as the filter value. For example, to find all Amazon
+-- ECS service recommendations that have a tag with the key of @Owner@ and
+-- the value of @TeamA@, specify @tag:Owner@ for the filter name and
+-- @TeamA@ for the filter value.
+--
+-- A @tag-key@ is the key of a tag assigned to your Amazon ECS service
+-- recommendations. Use this filter to find all of your Amazon ECS service
+-- recommendations that have a tag with a specific key. This doesn’t
+-- consider the tag value. For example, you can find your Amazon ECS
+-- service recommendations with a tag key value of @Owner@ or without any
+-- tag keys assigned.
 eCSServiceRecommendationFilter_name :: Lens.Lens' ECSServiceRecommendationFilter (Prelude.Maybe ECSServiceRecommendationFilterName)
 eCSServiceRecommendationFilter_name = Lens.lens (\ECSServiceRecommendationFilter' {name} -> name) (\s@ECSServiceRecommendationFilter' {} a -> s {name = a} :: ECSServiceRecommendationFilter)
 
@@ -118,7 +169,8 @@ instance
   hashWithSalt
     _salt
     ECSServiceRecommendationFilter' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` values
 
 instance

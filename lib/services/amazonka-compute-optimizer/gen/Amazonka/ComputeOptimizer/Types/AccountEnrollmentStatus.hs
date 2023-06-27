@@ -112,7 +112,8 @@ instance Data.FromJSON AccountEnrollmentStatus where
 
 instance Prelude.Hashable AccountEnrollmentStatus where
   hashWithSalt _salt AccountEnrollmentStatus' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` lastUpdatedTimestamp
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusReason

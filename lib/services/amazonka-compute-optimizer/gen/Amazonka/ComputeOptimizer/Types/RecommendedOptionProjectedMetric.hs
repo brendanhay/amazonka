@@ -107,7 +107,8 @@ instance
       "RecommendedOptionProjectedMetric"
       ( \x ->
           RecommendedOptionProjectedMetric'
-            Prelude.<$> ( x Data..:? "projectedMetrics"
+            Prelude.<$> ( x
+                            Data..:? "projectedMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "rank")
@@ -121,7 +122,8 @@ instance
   hashWithSalt
     _salt
     RecommendedOptionProjectedMetric' {..} =
-      _salt `Prelude.hashWithSalt` projectedMetrics
+      _salt
+        `Prelude.hashWithSalt` projectedMetrics
         `Prelude.hashWithSalt` rank
         `Prelude.hashWithSalt` recommendedInstanceType
 

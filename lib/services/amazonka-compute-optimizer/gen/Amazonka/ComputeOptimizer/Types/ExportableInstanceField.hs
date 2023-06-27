@@ -34,11 +34,14 @@ module Amazonka.ComputeOptimizer.Types.ExportableInstanceField
         ExportableInstanceField_EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics,
         ExportableInstanceField_EffectiveRecommendationPreferencesExternalMetricsSource,
         ExportableInstanceField_EffectiveRecommendationPreferencesInferredWorkloadTypes,
+        ExportableInstanceField_ExternalMetricStatusCode,
+        ExportableInstanceField_ExternalMetricStatusReason,
         ExportableInstanceField_Finding,
         ExportableInstanceField_FindingReasonCodes,
         ExportableInstanceField_InferredWorkloadTypes,
         ExportableInstanceField_InstanceArn,
         ExportableInstanceField_InstanceName,
+        ExportableInstanceField_InstanceState,
         ExportableInstanceField_LastRefreshTimestamp,
         ExportableInstanceField_LookbackPeriodInDays,
         ExportableInstanceField_RecommendationOptionsEstimatedMonthlySavingsCurrency,
@@ -59,6 +62,7 @@ module Amazonka.ComputeOptimizer.Types.ExportableInstanceField
         ExportableInstanceField_RecommendationOptionsVcpus,
         ExportableInstanceField_RecommendationsSourcesRecommendationSourceArn,
         ExportableInstanceField_RecommendationsSourcesRecommendationSourceType,
+        ExportableInstanceField_Tags,
         ExportableInstanceField_UtilizationMetricsCpuMaximum,
         ExportableInstanceField_UtilizationMetricsDiskReadBytesPerSecondMaximum,
         ExportableInstanceField_UtilizationMetricsDiskReadOpsPerSecondMaximum,
@@ -151,6 +155,12 @@ pattern ExportableInstanceField_EffectiveRecommendationPreferencesExternalMetric
 pattern ExportableInstanceField_EffectiveRecommendationPreferencesInferredWorkloadTypes :: ExportableInstanceField
 pattern ExportableInstanceField_EffectiveRecommendationPreferencesInferredWorkloadTypes = ExportableInstanceField' "EffectiveRecommendationPreferencesInferredWorkloadTypes"
 
+pattern ExportableInstanceField_ExternalMetricStatusCode :: ExportableInstanceField
+pattern ExportableInstanceField_ExternalMetricStatusCode = ExportableInstanceField' "ExternalMetricStatusCode"
+
+pattern ExportableInstanceField_ExternalMetricStatusReason :: ExportableInstanceField
+pattern ExportableInstanceField_ExternalMetricStatusReason = ExportableInstanceField' "ExternalMetricStatusReason"
+
 pattern ExportableInstanceField_Finding :: ExportableInstanceField
 pattern ExportableInstanceField_Finding = ExportableInstanceField' "Finding"
 
@@ -165,6 +175,9 @@ pattern ExportableInstanceField_InstanceArn = ExportableInstanceField' "Instance
 
 pattern ExportableInstanceField_InstanceName :: ExportableInstanceField
 pattern ExportableInstanceField_InstanceName = ExportableInstanceField' "InstanceName"
+
+pattern ExportableInstanceField_InstanceState :: ExportableInstanceField
+pattern ExportableInstanceField_InstanceState = ExportableInstanceField' "InstanceState"
 
 pattern ExportableInstanceField_LastRefreshTimestamp :: ExportableInstanceField
 pattern ExportableInstanceField_LastRefreshTimestamp = ExportableInstanceField' "LastRefreshTimestamp"
@@ -226,6 +239,9 @@ pattern ExportableInstanceField_RecommendationsSourcesRecommendationSourceArn = 
 pattern ExportableInstanceField_RecommendationsSourcesRecommendationSourceType :: ExportableInstanceField
 pattern ExportableInstanceField_RecommendationsSourcesRecommendationSourceType = ExportableInstanceField' "RecommendationsSourcesRecommendationSourceType"
 
+pattern ExportableInstanceField_Tags :: ExportableInstanceField
+pattern ExportableInstanceField_Tags = ExportableInstanceField' "Tags"
+
 pattern ExportableInstanceField_UtilizationMetricsCpuMaximum :: ExportableInstanceField
 pattern ExportableInstanceField_UtilizationMetricsCpuMaximum = ExportableInstanceField' "UtilizationMetricsCpuMaximum"
 
@@ -283,11 +299,14 @@ pattern ExportableInstanceField_UtilizationMetricsNetworkPacketsOutPerSecondMaxi
   ExportableInstanceField_EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics,
   ExportableInstanceField_EffectiveRecommendationPreferencesExternalMetricsSource,
   ExportableInstanceField_EffectiveRecommendationPreferencesInferredWorkloadTypes,
+  ExportableInstanceField_ExternalMetricStatusCode,
+  ExportableInstanceField_ExternalMetricStatusReason,
   ExportableInstanceField_Finding,
   ExportableInstanceField_FindingReasonCodes,
   ExportableInstanceField_InferredWorkloadTypes,
   ExportableInstanceField_InstanceArn,
   ExportableInstanceField_InstanceName,
+  ExportableInstanceField_InstanceState,
   ExportableInstanceField_LastRefreshTimestamp,
   ExportableInstanceField_LookbackPeriodInDays,
   ExportableInstanceField_RecommendationOptionsEstimatedMonthlySavingsCurrency,
@@ -308,6 +327,7 @@ pattern ExportableInstanceField_UtilizationMetricsNetworkPacketsOutPerSecondMaxi
   ExportableInstanceField_RecommendationOptionsVcpus,
   ExportableInstanceField_RecommendationsSourcesRecommendationSourceArn,
   ExportableInstanceField_RecommendationsSourcesRecommendationSourceType,
+  ExportableInstanceField_Tags,
   ExportableInstanceField_UtilizationMetricsCpuMaximum,
   ExportableInstanceField_UtilizationMetricsDiskReadBytesPerSecondMaximum,
   ExportableInstanceField_UtilizationMetricsDiskReadOpsPerSecondMaximum,

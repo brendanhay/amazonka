@@ -23,10 +23,12 @@ module Amazonka.ComputeOptimizer.Types.InferredWorkloadType
         InferredWorkloadType_AmazonEmr,
         InferredWorkloadType_ApacheCassandra,
         InferredWorkloadType_ApacheHadoop,
+        InferredWorkloadType_Kafka,
         InferredWorkloadType_Memcached,
         InferredWorkloadType_Nginx,
         InferredWorkloadType_PostgreSql,
-        InferredWorkloadType_Redis
+        InferredWorkloadType_Redis,
+        InferredWorkloadType_SQLServer
       ),
   )
 where
@@ -72,6 +74,9 @@ pattern InferredWorkloadType_ApacheCassandra = InferredWorkloadType' "ApacheCass
 pattern InferredWorkloadType_ApacheHadoop :: InferredWorkloadType
 pattern InferredWorkloadType_ApacheHadoop = InferredWorkloadType' "ApacheHadoop"
 
+pattern InferredWorkloadType_Kafka :: InferredWorkloadType
+pattern InferredWorkloadType_Kafka = InferredWorkloadType' "Kafka"
+
 pattern InferredWorkloadType_Memcached :: InferredWorkloadType
 pattern InferredWorkloadType_Memcached = InferredWorkloadType' "Memcached"
 
@@ -84,13 +89,18 @@ pattern InferredWorkloadType_PostgreSql = InferredWorkloadType' "PostgreSql"
 pattern InferredWorkloadType_Redis :: InferredWorkloadType
 pattern InferredWorkloadType_Redis = InferredWorkloadType' "Redis"
 
+pattern InferredWorkloadType_SQLServer :: InferredWorkloadType
+pattern InferredWorkloadType_SQLServer = InferredWorkloadType' "SQLServer"
+
 {-# COMPLETE
   InferredWorkloadType_AmazonEmr,
   InferredWorkloadType_ApacheCassandra,
   InferredWorkloadType_ApacheHadoop,
+  InferredWorkloadType_Kafka,
   InferredWorkloadType_Memcached,
   InferredWorkloadType_Nginx,
   InferredWorkloadType_PostgreSql,
   InferredWorkloadType_Redis,
+  InferredWorkloadType_SQLServer,
   InferredWorkloadType'
   #-}

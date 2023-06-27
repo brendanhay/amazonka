@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetECSServiceRecommendationProjectedMetrics' smart constructor.
 data GetECSServiceRecommendationProjectedMetrics = GetECSServiceRecommendationProjectedMetrics'
-  { -- | The ARN that identifies the ECS service.
+  { -- | The ARN that identifies the Amazon ECS service.
     --
     -- The following is the format of the ARN:
     --
@@ -78,7 +78,7 @@ data GetECSServiceRecommendationProjectedMetrics = GetECSServiceRecommendationPr
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceArn', 'getECSServiceRecommendationProjectedMetrics_serviceArn' - The ARN that identifies the ECS service.
+-- 'serviceArn', 'getECSServiceRecommendationProjectedMetrics_serviceArn' - The ARN that identifies the Amazon ECS service.
 --
 -- The following is the format of the ARN:
 --
@@ -121,7 +121,7 @@ newGetECSServiceRecommendationProjectedMetrics
           Data._Time Lens.# pEndTime_
       }
 
--- | The ARN that identifies the ECS service.
+-- | The ARN that identifies the Amazon ECS service.
 --
 -- The following is the format of the ARN:
 --
@@ -159,10 +159,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetECSServiceRecommendationProjectedMetricsResponse'
-            Prelude.<$> ( x Data..?> "recommendedOptionProjectedMetrics"
+            Prelude.<$> ( x
+                            Data..?> "recommendedOptionProjectedMetrics"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -172,7 +173,8 @@ instance
   hashWithSalt
     _salt
     GetECSServiceRecommendationProjectedMetrics' {..} =
-      _salt `Prelude.hashWithSalt` serviceArn
+      _salt
+        `Prelude.hashWithSalt` serviceArn
         `Prelude.hashWithSalt` stat
         `Prelude.hashWithSalt` period
         `Prelude.hashWithSalt` startTime

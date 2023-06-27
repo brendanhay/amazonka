@@ -39,13 +39,31 @@ data Filter = Filter'
   { -- | The name of the filter.
     --
     -- Specify @Finding@ to return recommendations with a specific finding
-    -- classification (for example, @Underprovisioned@).
+    -- classification. For example, @Underprovisioned@.
     --
     -- Specify @RecommendationSourceType@ to return recommendations of a
-    -- specific resource type (for example, @Ec2Instance@).
+    -- specific resource type. For example, @Ec2Instance@.
     --
     -- Specify @FindingReasonCodes@ to return recommendations with a specific
-    -- finding reason code (for example, @CPUUnderprovisioned@).
+    -- finding reason code. For example, @CPUUnderprovisioned@.
+    --
+    -- Specify @InferredWorkloadTypes@ to return recommendations of a specific
+    -- inferred workload. For example, @Redis@.
+    --
+    -- You can filter your EC2 instance recommendations by @tag:key@ and
+    -- @tag-key@ tags.
+    --
+    -- A @tag:key@ is a key and value combination of a tag assigned to your
+    -- recommendations. Use the tag key in the filter name and the tag value as
+    -- the filter value. For example, to find all recommendations that have a
+    -- tag with the key of @Owner@ and the value of @TeamA@, specify
+    -- @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+    --
+    -- A @tag-key@ is the key of a tag assigned to your recommendations. Use
+    -- this filter to find all of your recommendations that have a tag with a
+    -- specific key. This doesn’t consider the tag value. For example, you can
+    -- find your recommendations with a tag key value of @Owner@ or without any
+    -- tag keys assigned.
     name :: Prelude.Maybe FilterName,
     -- | The value of the filter.
     --
@@ -155,13 +173,31 @@ data Filter = Filter'
 -- 'name', 'filter_name' - The name of the filter.
 --
 -- Specify @Finding@ to return recommendations with a specific finding
--- classification (for example, @Underprovisioned@).
+-- classification. For example, @Underprovisioned@.
 --
 -- Specify @RecommendationSourceType@ to return recommendations of a
--- specific resource type (for example, @Ec2Instance@).
+-- specific resource type. For example, @Ec2Instance@.
 --
 -- Specify @FindingReasonCodes@ to return recommendations with a specific
--- finding reason code (for example, @CPUUnderprovisioned@).
+-- finding reason code. For example, @CPUUnderprovisioned@.
+--
+-- Specify @InferredWorkloadTypes@ to return recommendations of a specific
+-- inferred workload. For example, @Redis@.
+--
+-- You can filter your EC2 instance recommendations by @tag:key@ and
+-- @tag-key@ tags.
+--
+-- A @tag:key@ is a key and value combination of a tag assigned to your
+-- recommendations. Use the tag key in the filter name and the tag value as
+-- the filter value. For example, to find all recommendations that have a
+-- tag with the key of @Owner@ and the value of @TeamA@, specify
+-- @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+-- A @tag-key@ is the key of a tag assigned to your recommendations. Use
+-- this filter to find all of your recommendations that have a tag with a
+-- specific key. This doesn’t consider the tag value. For example, you can
+-- find your recommendations with a tag key value of @Owner@ or without any
+-- tag keys assigned.
 --
 -- 'values', 'filter_values' - The value of the filter.
 --
@@ -267,13 +303,31 @@ newFilter =
 -- | The name of the filter.
 --
 -- Specify @Finding@ to return recommendations with a specific finding
--- classification (for example, @Underprovisioned@).
+-- classification. For example, @Underprovisioned@.
 --
 -- Specify @RecommendationSourceType@ to return recommendations of a
--- specific resource type (for example, @Ec2Instance@).
+-- specific resource type. For example, @Ec2Instance@.
 --
 -- Specify @FindingReasonCodes@ to return recommendations with a specific
--- finding reason code (for example, @CPUUnderprovisioned@).
+-- finding reason code. For example, @CPUUnderprovisioned@.
+--
+-- Specify @InferredWorkloadTypes@ to return recommendations of a specific
+-- inferred workload. For example, @Redis@.
+--
+-- You can filter your EC2 instance recommendations by @tag:key@ and
+-- @tag-key@ tags.
+--
+-- A @tag:key@ is a key and value combination of a tag assigned to your
+-- recommendations. Use the tag key in the filter name and the tag value as
+-- the filter value. For example, to find all recommendations that have a
+-- tag with the key of @Owner@ and the value of @TeamA@, specify
+-- @tag:Owner@ for the filter name and @TeamA@ for the filter value.
+--
+-- A @tag-key@ is the key of a tag assigned to your recommendations. Use
+-- this filter to find all of your recommendations that have a tag with a
+-- specific key. This doesn’t consider the tag value. For example, you can
+-- find your recommendations with a tag key value of @Owner@ or without any
+-- tag keys assigned.
 filter_name :: Lens.Lens' Filter (Prelude.Maybe FilterName)
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
@@ -375,7 +429,8 @@ filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {v
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Filter where

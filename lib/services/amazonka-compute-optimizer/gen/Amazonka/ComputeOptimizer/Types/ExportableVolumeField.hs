@@ -43,6 +43,8 @@ module Amazonka.ComputeOptimizer.Types.ExportableVolumeField
         ExportableVolumeField_RecommendationOptionsMonthlyPrice,
         ExportableVolumeField_RecommendationOptionsPerformanceRisk,
         ExportableVolumeField_RecommendationOptionsSavingsOpportunityPercentage,
+        ExportableVolumeField_RootVolume,
+        ExportableVolumeField_Tags,
         ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum,
         ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum,
         ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum,
@@ -153,6 +155,12 @@ pattern ExportableVolumeField_RecommendationOptionsPerformanceRisk = ExportableV
 pattern ExportableVolumeField_RecommendationOptionsSavingsOpportunityPercentage :: ExportableVolumeField
 pattern ExportableVolumeField_RecommendationOptionsSavingsOpportunityPercentage = ExportableVolumeField' "RecommendationOptionsSavingsOpportunityPercentage"
 
+pattern ExportableVolumeField_RootVolume :: ExportableVolumeField
+pattern ExportableVolumeField_RootVolume = ExportableVolumeField' "RootVolume"
+
+pattern ExportableVolumeField_Tags :: ExportableVolumeField
+pattern ExportableVolumeField_Tags = ExportableVolumeField' "Tags"
+
 pattern ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum :: ExportableVolumeField
 pattern ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum = ExportableVolumeField' "UtilizationMetricsVolumeReadBytesPerSecondMaximum"
 
@@ -192,6 +200,8 @@ pattern ExportableVolumeField_VolumeArn = ExportableVolumeField' "VolumeArn"
   ExportableVolumeField_RecommendationOptionsMonthlyPrice,
   ExportableVolumeField_RecommendationOptionsPerformanceRisk,
   ExportableVolumeField_RecommendationOptionsSavingsOpportunityPercentage,
+  ExportableVolumeField_RootVolume,
+  ExportableVolumeField_Tags,
   ExportableVolumeField_UtilizationMetricsVolumeReadBytesPerSecondMaximum,
   ExportableVolumeField_UtilizationMetricsVolumeReadOpsPerSecondMaximum,
   ExportableVolumeField_UtilizationMetricsVolumeWriteBytesPerSecondMaximum,

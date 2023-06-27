@@ -41,6 +41,23 @@ data EBSFilter = EBSFilter'
     --
     -- Specify @Finding@ to return recommendations with a specific finding
     -- classification (for example, @NotOptimized@).
+    --
+    -- You can filter your Amazon EBS volume recommendations by @tag:key@ and
+    -- @tag-key@ tags.
+    --
+    -- A @tag:key@ is a key and value combination of a tag assigned to your
+    -- Amazon EBS volume recommendations. Use the tag key in the filter name
+    -- and the tag value as the filter value. For example, to find all Amazon
+    -- EBS volume recommendations that have a tag with the key of @Owner@ and
+    -- the value of @TeamA@, specify @tag:Owner@ for the filter name and
+    -- @TeamA@ for the filter value.
+    --
+    -- A @tag-key@ is the key of a tag assigned to your Amazon EBS volume
+    -- recommendations. Use this filter to find all of your Amazon EBS volume
+    -- recommendations that have a tag with a specific key. This doesn’t
+    -- consider the tag value. For example, you can find your Amazon EBS volume
+    -- recommendations with a tag key value of @Owner@ or without any tag keys
+    -- assigned.
     name :: Prelude.Maybe EBSFilterName,
     -- | The value of the filter.
     --
@@ -62,6 +79,23 @@ data EBSFilter = EBSFilter'
 -- Specify @Finding@ to return recommendations with a specific finding
 -- classification (for example, @NotOptimized@).
 --
+-- You can filter your Amazon EBS volume recommendations by @tag:key@ and
+-- @tag-key@ tags.
+--
+-- A @tag:key@ is a key and value combination of a tag assigned to your
+-- Amazon EBS volume recommendations. Use the tag key in the filter name
+-- and the tag value as the filter value. For example, to find all Amazon
+-- EBS volume recommendations that have a tag with the key of @Owner@ and
+-- the value of @TeamA@, specify @tag:Owner@ for the filter name and
+-- @TeamA@ for the filter value.
+--
+-- A @tag-key@ is the key of a tag assigned to your Amazon EBS volume
+-- recommendations. Use this filter to find all of your Amazon EBS volume
+-- recommendations that have a tag with a specific key. This doesn’t
+-- consider the tag value. For example, you can find your Amazon EBS volume
+-- recommendations with a tag key value of @Owner@ or without any tag keys
+-- assigned.
+--
 -- 'values', 'eBSFilter_values' - The value of the filter.
 --
 -- The valid values are @Optimized@, or @NotOptimized@.
@@ -77,6 +111,23 @@ newEBSFilter =
 --
 -- Specify @Finding@ to return recommendations with a specific finding
 -- classification (for example, @NotOptimized@).
+--
+-- You can filter your Amazon EBS volume recommendations by @tag:key@ and
+-- @tag-key@ tags.
+--
+-- A @tag:key@ is a key and value combination of a tag assigned to your
+-- Amazon EBS volume recommendations. Use the tag key in the filter name
+-- and the tag value as the filter value. For example, to find all Amazon
+-- EBS volume recommendations that have a tag with the key of @Owner@ and
+-- the value of @TeamA@, specify @tag:Owner@ for the filter name and
+-- @TeamA@ for the filter value.
+--
+-- A @tag-key@ is the key of a tag assigned to your Amazon EBS volume
+-- recommendations. Use this filter to find all of your Amazon EBS volume
+-- recommendations that have a tag with a specific key. This doesn’t
+-- consider the tag value. For example, you can find your Amazon EBS volume
+-- recommendations with a tag key value of @Owner@ or without any tag keys
+-- assigned.
 eBSFilter_name :: Lens.Lens' EBSFilter (Prelude.Maybe EBSFilterName)
 eBSFilter_name = Lens.lens (\EBSFilter' {name} -> name) (\s@EBSFilter' {} a -> s {name = a} :: EBSFilter)
 
@@ -88,7 +139,8 @@ eBSFilter_values = Lens.lens (\EBSFilter' {values} -> values) (\s@EBSFilter' {} 
 
 instance Prelude.Hashable EBSFilter where
   hashWithSalt _salt EBSFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData EBSFilter where

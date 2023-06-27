@@ -90,6 +90,11 @@ data AutoScalingGroupRecommendation = AutoScalingGroupRecommendation'
     --     instances.
     --
     -- -   @Redis@ - Infers that Redis might be running on the instances.
+    --
+    -- -   @Kafka@ - Infers that Kafka might be running on the instance.
+    --
+    -- -   @SQLServer@ - Infers that SQLServer might be running on the
+    --     instance.
     inferredWorkloadTypes :: Prelude.Maybe [InferredWorkloadType],
     -- | The timestamp of when the Auto Scaling group recommendation was last
     -- generated.
@@ -169,6 +174,11 @@ data AutoScalingGroupRecommendation = AutoScalingGroupRecommendation'
 --     instances.
 --
 -- -   @Redis@ - Infers that Redis might be running on the instances.
+--
+-- -   @Kafka@ - Infers that Kafka might be running on the instance.
+--
+-- -   @SQLServer@ - Infers that SQLServer might be running on the
+--     instance.
 --
 -- 'lastRefreshTimestamp', 'autoScalingGroupRecommendation_lastRefreshTimestamp' - The timestamp of when the Auto Scaling group recommendation was last
 -- generated.
@@ -270,6 +280,11 @@ autoScalingGroupRecommendation_finding = Lens.lens (\AutoScalingGroupRecommendat
 --     instances.
 --
 -- -   @Redis@ - Infers that Redis might be running on the instances.
+--
+-- -   @Kafka@ - Infers that Kafka might be running on the instance.
+--
+-- -   @SQLServer@ - Infers that SQLServer might be running on the
+--     instance.
 autoScalingGroupRecommendation_inferredWorkloadTypes :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe [InferredWorkloadType])
 autoScalingGroupRecommendation_inferredWorkloadTypes = Lens.lens (\AutoScalingGroupRecommendation' {inferredWorkloadTypes} -> inferredWorkloadTypes) (\s@AutoScalingGroupRecommendation' {} a -> s {inferredWorkloadTypes = a} :: AutoScalingGroupRecommendation) Prelude.. Lens.mapping Lens.coerced
 
@@ -306,15 +321,18 @@ instance Data.FromJSON AutoScalingGroupRecommendation where
             Prelude.<*> (x Data..:? "currentPerformanceRisk")
             Prelude.<*> (x Data..:? "effectiveRecommendationPreferences")
             Prelude.<*> (x Data..:? "finding")
-            Prelude.<*> ( x Data..:? "inferredWorkloadTypes"
+            Prelude.<*> ( x
+                            Data..:? "inferredWorkloadTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookBackPeriodInDays")
-            Prelude.<*> ( x Data..:? "recommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "recommendationOptions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
       )
@@ -326,7 +344,8 @@ instance
   hashWithSalt
     _salt
     AutoScalingGroupRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` autoScalingGroupArn
         `Prelude.hashWithSalt` autoScalingGroupName
         `Prelude.hashWithSalt` currentConfiguration

@@ -108,17 +108,21 @@ library
     Amazonka.ComputeOptimizer.Types.ExportDestination
     Amazonka.ComputeOptimizer.Types.ExternalMetricsPreference
     Amazonka.ComputeOptimizer.Types.ExternalMetricsSource
+    Amazonka.ComputeOptimizer.Types.ExternalMetricStatus
+    Amazonka.ComputeOptimizer.Types.ExternalMetricStatusCode
     Amazonka.ComputeOptimizer.Types.FileFormat
     Amazonka.ComputeOptimizer.Types.Filter
     Amazonka.ComputeOptimizer.Types.FilterName
     Amazonka.ComputeOptimizer.Types.Finding
     Amazonka.ComputeOptimizer.Types.FindingReasonCode
     Amazonka.ComputeOptimizer.Types.GetRecommendationError
+    Amazonka.ComputeOptimizer.Types.InferredWorkloadSaving
     Amazonka.ComputeOptimizer.Types.InferredWorkloadType
     Amazonka.ComputeOptimizer.Types.InferredWorkloadTypesPreference
     Amazonka.ComputeOptimizer.Types.InstanceRecommendation
     Amazonka.ComputeOptimizer.Types.InstanceRecommendationFindingReasonCode
     Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption
+    Amazonka.ComputeOptimizer.Types.InstanceState
     Amazonka.ComputeOptimizer.Types.JobFilter
     Amazonka.ComputeOptimizer.Types.JobFilterName
     Amazonka.ComputeOptimizer.Types.JobStatus
@@ -158,6 +162,7 @@ library
     Amazonka.ComputeOptimizer.Types.ServiceConfiguration
     Amazonka.ComputeOptimizer.Types.Status
     Amazonka.ComputeOptimizer.Types.Summary
+    Amazonka.ComputeOptimizer.Types.Tag
     Amazonka.ComputeOptimizer.Types.UtilizationMetric
     Amazonka.ComputeOptimizer.Types.VolumeConfiguration
     Amazonka.ComputeOptimizer.Types.VolumeRecommendation

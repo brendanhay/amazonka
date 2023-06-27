@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionUtilizationMetric' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` statistic
         `Prelude.hashWithSalt` value
 

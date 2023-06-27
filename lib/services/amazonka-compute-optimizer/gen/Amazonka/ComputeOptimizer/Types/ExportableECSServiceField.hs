@@ -41,6 +41,7 @@ module Amazonka.ComputeOptimizer.Types.ExportableECSServiceField
         ExportableECSServiceField_RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum,
         ExportableECSServiceField_RecommendationOptionsSavingsOpportunityPercentage,
         ExportableECSServiceField_ServiceArn,
+        ExportableECSServiceField_Tags,
         ExportableECSServiceField_UtilizationMetricsCpuMaximum,
         ExportableECSServiceField_UtilizationMetricsMemoryMaximum
       ),
@@ -142,6 +143,9 @@ pattern ExportableECSServiceField_RecommendationOptionsSavingsOpportunityPercent
 pattern ExportableECSServiceField_ServiceArn :: ExportableECSServiceField
 pattern ExportableECSServiceField_ServiceArn = ExportableECSServiceField' "ServiceArn"
 
+pattern ExportableECSServiceField_Tags :: ExportableECSServiceField
+pattern ExportableECSServiceField_Tags = ExportableECSServiceField' "Tags"
+
 pattern ExportableECSServiceField_UtilizationMetricsCpuMaximum :: ExportableECSServiceField
 pattern ExportableECSServiceField_UtilizationMetricsCpuMaximum = ExportableECSServiceField' "UtilizationMetricsCpuMaximum"
 
@@ -170,6 +174,7 @@ pattern ExportableECSServiceField_UtilizationMetricsMemoryMaximum = ExportableEC
   ExportableECSServiceField_RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum,
   ExportableECSServiceField_RecommendationOptionsSavingsOpportunityPercentage,
   ExportableECSServiceField_ServiceArn,
+  ExportableECSServiceField_Tags,
   ExportableECSServiceField_UtilizationMetricsCpuMaximum,
   ExportableECSServiceField_UtilizationMetricsMemoryMaximum,
   ExportableECSServiceField'

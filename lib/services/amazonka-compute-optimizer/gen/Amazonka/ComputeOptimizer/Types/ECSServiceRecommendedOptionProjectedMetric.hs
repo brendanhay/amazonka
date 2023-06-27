@@ -28,17 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes the projected metrics of an Amazon ECS service recommendation
 -- option.
 --
--- To determine the performance difference between your current ECS service
--- and the recommended option, compare the metric data of your service
--- against its projected metric data.
+-- To determine the performance difference between your current Amazon ECS
+-- service and the recommended option, compare the metric data of your
+-- service against its projected metric data.
 --
 -- /See:/ 'newECSServiceRecommendedOptionProjectedMetric' smart constructor.
 data ECSServiceRecommendedOptionProjectedMetric = ECSServiceRecommendedOptionProjectedMetric'
   { -- | An array of objects that describe the projected metric.
     projectedMetrics :: Prelude.Maybe [ECSServiceProjectedMetric],
-    -- | The recommended CPU size for the ECS service.
+    -- | The recommended CPU size for the Amazon ECS service.
     recommendedCpuUnits :: Prelude.Maybe Prelude.Int,
-    -- | The recommended memory size for the ECS service.
+    -- | The recommended memory size for the Amazon ECS service.
     recommendedMemorySize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,9 +53,9 @@ data ECSServiceRecommendedOptionProjectedMetric = ECSServiceRecommendedOptionPro
 --
 -- 'projectedMetrics', 'eCSServiceRecommendedOptionProjectedMetric_projectedMetrics' - An array of objects that describe the projected metric.
 --
--- 'recommendedCpuUnits', 'eCSServiceRecommendedOptionProjectedMetric_recommendedCpuUnits' - The recommended CPU size for the ECS service.
+-- 'recommendedCpuUnits', 'eCSServiceRecommendedOptionProjectedMetric_recommendedCpuUnits' - The recommended CPU size for the Amazon ECS service.
 --
--- 'recommendedMemorySize', 'eCSServiceRecommendedOptionProjectedMetric_recommendedMemorySize' - The recommended memory size for the ECS service.
+-- 'recommendedMemorySize', 'eCSServiceRecommendedOptionProjectedMetric_recommendedMemorySize' - The recommended memory size for the Amazon ECS service.
 newECSServiceRecommendedOptionProjectedMetric ::
   ECSServiceRecommendedOptionProjectedMetric
 newECSServiceRecommendedOptionProjectedMetric =
@@ -72,11 +72,11 @@ newECSServiceRecommendedOptionProjectedMetric =
 eCSServiceRecommendedOptionProjectedMetric_projectedMetrics :: Lens.Lens' ECSServiceRecommendedOptionProjectedMetric (Prelude.Maybe [ECSServiceProjectedMetric])
 eCSServiceRecommendedOptionProjectedMetric_projectedMetrics = Lens.lens (\ECSServiceRecommendedOptionProjectedMetric' {projectedMetrics} -> projectedMetrics) (\s@ECSServiceRecommendedOptionProjectedMetric' {} a -> s {projectedMetrics = a} :: ECSServiceRecommendedOptionProjectedMetric) Prelude.. Lens.mapping Lens.coerced
 
--- | The recommended CPU size for the ECS service.
+-- | The recommended CPU size for the Amazon ECS service.
 eCSServiceRecommendedOptionProjectedMetric_recommendedCpuUnits :: Lens.Lens' ECSServiceRecommendedOptionProjectedMetric (Prelude.Maybe Prelude.Int)
 eCSServiceRecommendedOptionProjectedMetric_recommendedCpuUnits = Lens.lens (\ECSServiceRecommendedOptionProjectedMetric' {recommendedCpuUnits} -> recommendedCpuUnits) (\s@ECSServiceRecommendedOptionProjectedMetric' {} a -> s {recommendedCpuUnits = a} :: ECSServiceRecommendedOptionProjectedMetric)
 
--- | The recommended memory size for the ECS service.
+-- | The recommended memory size for the Amazon ECS service.
 eCSServiceRecommendedOptionProjectedMetric_recommendedMemorySize :: Lens.Lens' ECSServiceRecommendedOptionProjectedMetric (Prelude.Maybe Prelude.Int)
 eCSServiceRecommendedOptionProjectedMetric_recommendedMemorySize = Lens.lens (\ECSServiceRecommendedOptionProjectedMetric' {recommendedMemorySize} -> recommendedMemorySize) (\s@ECSServiceRecommendedOptionProjectedMetric' {} a -> s {recommendedMemorySize = a} :: ECSServiceRecommendedOptionProjectedMetric)
 
@@ -89,11 +89,12 @@ instance
       "ECSServiceRecommendedOptionProjectedMetric"
       ( \x ->
           ECSServiceRecommendedOptionProjectedMetric'
-            Prelude.<$> ( x Data..:? "projectedMetrics"
+            Prelude.<$> ( x
+                            Data..:? "projectedMetrics"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> (x Data..:? "recommendedCpuUnits")
-              Prelude.<*> (x Data..:? "recommendedMemorySize")
+            Prelude.<*> (x Data..:? "recommendedCpuUnits")
+            Prelude.<*> (x Data..:? "recommendedMemorySize")
       )
 
 instance
@@ -103,7 +104,8 @@ instance
   hashWithSalt
     _salt
     ECSServiceRecommendedOptionProjectedMetric' {..} =
-      _salt `Prelude.hashWithSalt` projectedMetrics
+      _salt
+        `Prelude.hashWithSalt` projectedMetrics
         `Prelude.hashWithSalt` recommendedCpuUnits
         `Prelude.hashWithSalt` recommendedMemorySize
 

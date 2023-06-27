@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes the projected utilization metrics of an Amazon ECS service
 -- recommendation option.
 --
--- To determine the performance difference between your current ECS service
--- and the recommended option, compare the utilization metric data of your
--- service against its projected utilization metric data.
+-- To determine the performance difference between your current Amazon ECS
+-- service and the recommended option, compare the utilization metric data
+-- of your service against its projected utilization metric data.
 --
 -- /See:/ 'newECSServiceProjectedUtilizationMetric' smart constructor.
 data ECSServiceProjectedUtilizationMetric = ECSServiceProjectedUtilizationMetric'
@@ -41,11 +41,11 @@ data ECSServiceProjectedUtilizationMetric = ECSServiceProjectedUtilizationMetric
     --
     -- The following utilization metrics are available:
     --
-    -- -   @CPU@ — The percentage of allocated compute units that are currently
-    --     in use on the ECS service tasks.
+    -- -   @Cpu@ — The percentage of allocated compute units that are currently
+    --     in use on the service tasks.
     --
-    -- -   @Memory@ — The percentage of memory that is currently in use on the
-    --     ECS service tasks.
+    -- -   @Memory@ — The percentage of memory that\'s currently in use on the
+    --     service tasks.
     name :: Prelude.Maybe ECSServiceMetricName,
     -- | The statistic of the projected utilization metric.
     --
@@ -81,11 +81,11 @@ data ECSServiceProjectedUtilizationMetric = ECSServiceProjectedUtilizationMetric
 --
 -- The following utilization metrics are available:
 --
--- -   @CPU@ — The percentage of allocated compute units that are currently
---     in use on the ECS service tasks.
+-- -   @Cpu@ — The percentage of allocated compute units that are currently
+--     in use on the service tasks.
 --
--- -   @Memory@ — The percentage of memory that is currently in use on the
---     ECS service tasks.
+-- -   @Memory@ — The percentage of memory that\'s currently in use on the
+--     service tasks.
 --
 -- 'statistic', 'eCSServiceProjectedUtilizationMetric_statistic' - The statistic of the projected utilization metric.
 --
@@ -122,11 +122,11 @@ eCSServiceProjectedUtilizationMetric_lowerBoundValue = Lens.lens (\ECSServicePro
 --
 -- The following utilization metrics are available:
 --
--- -   @CPU@ — The percentage of allocated compute units that are currently
---     in use on the ECS service tasks.
+-- -   @Cpu@ — The percentage of allocated compute units that are currently
+--     in use on the service tasks.
 --
--- -   @Memory@ — The percentage of memory that is currently in use on the
---     ECS service tasks.
+-- -   @Memory@ — The percentage of memory that\'s currently in use on the
+--     service tasks.
 eCSServiceProjectedUtilizationMetric_name :: Lens.Lens' ECSServiceProjectedUtilizationMetric (Prelude.Maybe ECSServiceMetricName)
 eCSServiceProjectedUtilizationMetric_name = Lens.lens (\ECSServiceProjectedUtilizationMetric' {name} -> name) (\s@ECSServiceProjectedUtilizationMetric' {} a -> s {name = a} :: ECSServiceProjectedUtilizationMetric)
 
@@ -173,7 +173,8 @@ instance
   hashWithSalt
     _salt
     ECSServiceProjectedUtilizationMetric' {..} =
-      _salt `Prelude.hashWithSalt` lowerBoundValue
+      _salt
+        `Prelude.hashWithSalt` lowerBoundValue
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` statistic
         `Prelude.hashWithSalt` upperBoundValue

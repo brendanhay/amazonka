@@ -177,7 +177,8 @@ instance Data.FromJSON ProjectedMetric where
 
 instance Prelude.Hashable ProjectedMetric where
   hashWithSalt _salt ProjectedMetric' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timestamps
       `Prelude.hashWithSalt` values
 

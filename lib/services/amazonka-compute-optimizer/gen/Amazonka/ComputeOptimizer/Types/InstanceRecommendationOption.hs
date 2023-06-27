@@ -496,10 +496,12 @@ instance Data.FromJSON InstanceRecommendationOption where
             Prelude.<$> (x Data..:? "instanceType")
             Prelude.<*> (x Data..:? "migrationEffort")
             Prelude.<*> (x Data..:? "performanceRisk")
-            Prelude.<*> ( x Data..:? "platformDifferences"
+            Prelude.<*> ( x
+                            Data..:? "platformDifferences"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "projectedUtilizationMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "rank")
@@ -511,7 +513,8 @@ instance
     InstanceRecommendationOption
   where
   hashWithSalt _salt InstanceRecommendationOption' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` migrationEffort
       `Prelude.hashWithSalt` performanceRisk
       `Prelude.hashWithSalt` platformDifferences

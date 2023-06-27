@@ -32,14 +32,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newECSServiceRecommendationOption' smart constructor.
 data ECSServiceRecommendationOption = ECSServiceRecommendationOption'
   { -- | The CPU and memory size recommendations for the containers within the
-    -- task of your ECS service.
+    -- task of your Amazon ECS service.
     containerRecommendations :: Prelude.Maybe [ContainerRecommendation],
-    -- | The CPU size of the ECS service recommendation option.
+    -- | The CPU size of the Amazon ECS service recommendation option.
     cpu :: Prelude.Maybe Prelude.Int,
-    -- | The memory size of the ECS service recommendation option.
+    -- | The memory size of the Amazon ECS service recommendation option.
     memory :: Prelude.Maybe Prelude.Int,
     -- | An array of objects that describe the projected utilization metrics of
-    -- the ECS service recommendation option.
+    -- the Amazon ECS service recommendation option.
     projectedUtilizationMetrics :: Prelude.Maybe [ECSServiceProjectedUtilizationMetric],
     savingsOpportunity :: Prelude.Maybe SavingsOpportunity
   }
@@ -54,14 +54,14 @@ data ECSServiceRecommendationOption = ECSServiceRecommendationOption'
 -- for backwards compatibility:
 --
 -- 'containerRecommendations', 'eCSServiceRecommendationOption_containerRecommendations' - The CPU and memory size recommendations for the containers within the
--- task of your ECS service.
+-- task of your Amazon ECS service.
 --
--- 'cpu', 'eCSServiceRecommendationOption_cpu' - The CPU size of the ECS service recommendation option.
+-- 'cpu', 'eCSServiceRecommendationOption_cpu' - The CPU size of the Amazon ECS service recommendation option.
 --
--- 'memory', 'eCSServiceRecommendationOption_memory' - The memory size of the ECS service recommendation option.
+-- 'memory', 'eCSServiceRecommendationOption_memory' - The memory size of the Amazon ECS service recommendation option.
 --
 -- 'projectedUtilizationMetrics', 'eCSServiceRecommendationOption_projectedUtilizationMetrics' - An array of objects that describe the projected utilization metrics of
--- the ECS service recommendation option.
+-- the Amazon ECS service recommendation option.
 --
 -- 'savingsOpportunity', 'eCSServiceRecommendationOption_savingsOpportunity' - Undocumented member.
 newECSServiceRecommendationOption ::
@@ -78,20 +78,20 @@ newECSServiceRecommendationOption =
     }
 
 -- | The CPU and memory size recommendations for the containers within the
--- task of your ECS service.
+-- task of your Amazon ECS service.
 eCSServiceRecommendationOption_containerRecommendations :: Lens.Lens' ECSServiceRecommendationOption (Prelude.Maybe [ContainerRecommendation])
 eCSServiceRecommendationOption_containerRecommendations = Lens.lens (\ECSServiceRecommendationOption' {containerRecommendations} -> containerRecommendations) (\s@ECSServiceRecommendationOption' {} a -> s {containerRecommendations = a} :: ECSServiceRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
--- | The CPU size of the ECS service recommendation option.
+-- | The CPU size of the Amazon ECS service recommendation option.
 eCSServiceRecommendationOption_cpu :: Lens.Lens' ECSServiceRecommendationOption (Prelude.Maybe Prelude.Int)
 eCSServiceRecommendationOption_cpu = Lens.lens (\ECSServiceRecommendationOption' {cpu} -> cpu) (\s@ECSServiceRecommendationOption' {} a -> s {cpu = a} :: ECSServiceRecommendationOption)
 
--- | The memory size of the ECS service recommendation option.
+-- | The memory size of the Amazon ECS service recommendation option.
 eCSServiceRecommendationOption_memory :: Lens.Lens' ECSServiceRecommendationOption (Prelude.Maybe Prelude.Int)
 eCSServiceRecommendationOption_memory = Lens.lens (\ECSServiceRecommendationOption' {memory} -> memory) (\s@ECSServiceRecommendationOption' {} a -> s {memory = a} :: ECSServiceRecommendationOption)
 
 -- | An array of objects that describe the projected utilization metrics of
--- the ECS service recommendation option.
+-- the Amazon ECS service recommendation option.
 eCSServiceRecommendationOption_projectedUtilizationMetrics :: Lens.Lens' ECSServiceRecommendationOption (Prelude.Maybe [ECSServiceProjectedUtilizationMetric])
 eCSServiceRecommendationOption_projectedUtilizationMetrics = Lens.lens (\ECSServiceRecommendationOption' {projectedUtilizationMetrics} -> projectedUtilizationMetrics) (\s@ECSServiceRecommendationOption' {} a -> s {projectedUtilizationMetrics = a} :: ECSServiceRecommendationOption) Prelude.. Lens.mapping Lens.coerced
 
@@ -105,12 +105,14 @@ instance Data.FromJSON ECSServiceRecommendationOption where
       "ECSServiceRecommendationOption"
       ( \x ->
           ECSServiceRecommendationOption'
-            Prelude.<$> ( x Data..:? "containerRecommendations"
+            Prelude.<$> ( x
+                            Data..:? "containerRecommendations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "cpu")
             Prelude.<*> (x Data..:? "memory")
-            Prelude.<*> ( x Data..:? "projectedUtilizationMetrics"
+            Prelude.<*> ( x
+                            Data..:? "projectedUtilizationMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "savingsOpportunity")

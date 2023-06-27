@@ -64,7 +64,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newExportECSServiceRecommendations' smart constructor.
 data ExportECSServiceRecommendations = ExportECSServiceRecommendations'
-  { -- | The Amazon Web Services account IDs for the export ECS service
+  { -- | The Amazon Web Services account IDs for the export Amazon ECS service
     -- recommendations.
     --
     -- If your account is the management account or the delegated administrator
@@ -89,7 +89,7 @@ data ExportECSServiceRecommendations = ExportECSServiceRecommendations'
     -- The CSV file is the only export file format currently supported.
     fileFormat :: Prelude.Maybe FileFormat,
     -- | An array of objects to specify a filter that exports a more specific set
-    -- of ECS service recommendations.
+    -- of Amazon ECS service recommendations.
     filters :: Prelude.Maybe [ECSServiceRecommendationFilter],
     -- | If your account is the management account or the delegated administrator
     -- of an organization, this parameter indicates whether to include
@@ -120,7 +120,7 @@ data ExportECSServiceRecommendations = ExportECSServiceRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIds', 'exportECSServiceRecommendations_accountIds' - The Amazon Web Services account IDs for the export ECS service
+-- 'accountIds', 'exportECSServiceRecommendations_accountIds' - The Amazon Web Services account IDs for the export Amazon ECS service
 -- recommendations.
 --
 -- If your account is the management account or the delegated administrator
@@ -145,7 +145,7 @@ data ExportECSServiceRecommendations = ExportECSServiceRecommendations'
 -- The CSV file is the only export file format currently supported.
 --
 -- 'filters', 'exportECSServiceRecommendations_filters' - An array of objects to specify a filter that exports a more specific set
--- of ECS service recommendations.
+-- of Amazon ECS service recommendations.
 --
 -- 'includeMemberAccounts', 'exportECSServiceRecommendations_includeMemberAccounts' - If your account is the management account or the delegated administrator
 -- of an organization, this parameter indicates whether to include
@@ -182,7 +182,7 @@ newExportECSServiceRecommendations
           pS3DestinationConfig_
       }
 
--- | The Amazon Web Services account IDs for the export ECS service
+-- | The Amazon Web Services account IDs for the export Amazon ECS service
 -- recommendations.
 --
 -- If your account is the management account or the delegated administrator
@@ -213,7 +213,7 @@ exportECSServiceRecommendations_fileFormat :: Lens.Lens' ExportECSServiceRecomme
 exportECSServiceRecommendations_fileFormat = Lens.lens (\ExportECSServiceRecommendations' {fileFormat} -> fileFormat) (\s@ExportECSServiceRecommendations' {} a -> s {fileFormat = a} :: ExportECSServiceRecommendations)
 
 -- | An array of objects to specify a filter that exports a more specific set
--- of ECS service recommendations.
+-- of Amazon ECS service recommendations.
 exportECSServiceRecommendations_filters :: Lens.Lens' ExportECSServiceRecommendations (Prelude.Maybe [ECSServiceRecommendationFilter])
 exportECSServiceRecommendations_filters = Lens.lens (\ExportECSServiceRecommendations' {filters} -> filters) (\s@ExportECSServiceRecommendations' {} a -> s {filters = a} :: ExportECSServiceRecommendations) Prelude.. Lens.mapping Lens.coerced
 
@@ -265,7 +265,8 @@ instance
   hashWithSalt
     _salt
     ExportECSServiceRecommendations' {..} =
-      _salt `Prelude.hashWithSalt` accountIds
+      _salt
+        `Prelude.hashWithSalt` accountIds
         `Prelude.hashWithSalt` fieldsToExport
         `Prelude.hashWithSalt` fileFormat
         `Prelude.hashWithSalt` filters

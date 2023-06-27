@@ -24,6 +24,7 @@ import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFinding
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionRecommendationFindingReasonCode
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -116,6 +117,8 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
     -- | The number of times your function code was applied during the look-back
     -- period.
     numberOfInvocations :: Prelude.Maybe Prelude.Integer,
+    -- | A list of tags assigned to your Lambda function recommendations.
+    tags :: Prelude.Maybe [Tag],
     -- | An array of objects that describe the utilization metrics of the
     -- function.
     utilizationMetrics :: Prelude.Maybe [LambdaFunctionUtilizationMetric]
@@ -213,6 +216,8 @@ data LambdaFunctionRecommendation = LambdaFunctionRecommendation'
 -- 'numberOfInvocations', 'lambdaFunctionRecommendation_numberOfInvocations' - The number of times your function code was applied during the look-back
 -- period.
 --
+-- 'tags', 'lambdaFunctionRecommendation_tags' - A list of tags assigned to your Lambda function recommendations.
+--
 -- 'utilizationMetrics', 'lambdaFunctionRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the
 -- function.
 newLambdaFunctionRecommendation ::
@@ -232,6 +237,7 @@ newLambdaFunctionRecommendation =
       memorySizeRecommendationOptions =
         Prelude.Nothing,
       numberOfInvocations = Prelude.Nothing,
+      tags = Prelude.Nothing,
       utilizationMetrics = Prelude.Nothing
     }
 
@@ -340,6 +346,10 @@ lambdaFunctionRecommendation_memorySizeRecommendationOptions = Lens.lens (\Lambd
 lambdaFunctionRecommendation_numberOfInvocations :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe Prelude.Integer)
 lambdaFunctionRecommendation_numberOfInvocations = Lens.lens (\LambdaFunctionRecommendation' {numberOfInvocations} -> numberOfInvocations) (\s@LambdaFunctionRecommendation' {} a -> s {numberOfInvocations = a} :: LambdaFunctionRecommendation)
 
+-- | A list of tags assigned to your Lambda function recommendations.
+lambdaFunctionRecommendation_tags :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe [Tag])
+lambdaFunctionRecommendation_tags = Lens.lens (\LambdaFunctionRecommendation' {tags} -> tags) (\s@LambdaFunctionRecommendation' {} a -> s {tags = a} :: LambdaFunctionRecommendation) Prelude.. Lens.mapping Lens.coerced
+
 -- | An array of objects that describe the utilization metrics of the
 -- function.
 lambdaFunctionRecommendation_utilizationMetrics :: Lens.Lens' LambdaFunctionRecommendation (Prelude.Maybe [LambdaFunctionUtilizationMetric])
@@ -355,18 +365,22 @@ instance Data.FromJSON LambdaFunctionRecommendation where
             Prelude.<*> (x Data..:? "currentMemorySize")
             Prelude.<*> (x Data..:? "currentPerformanceRisk")
             Prelude.<*> (x Data..:? "finding")
-            Prelude.<*> ( x Data..:? "findingReasonCodes"
+            Prelude.<*> ( x
+                            Data..:? "findingReasonCodes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "functionArn")
             Prelude.<*> (x Data..:? "functionVersion")
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookbackPeriodInDays")
-            Prelude.<*> ( x Data..:? "memorySizeRecommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "memorySizeRecommendationOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "numberOfInvocations")
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
       )
@@ -376,7 +390,8 @@ instance
     LambdaFunctionRecommendation
   where
   hashWithSalt _salt LambdaFunctionRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentMemorySize
       `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` finding
@@ -387,6 +402,7 @@ instance
       `Prelude.hashWithSalt` lookbackPeriodInDays
       `Prelude.hashWithSalt` memorySizeRecommendationOptions
       `Prelude.hashWithSalt` numberOfInvocations
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` utilizationMetrics
 
 instance Prelude.NFData LambdaFunctionRecommendation where
@@ -402,4 +418,5 @@ instance Prelude.NFData LambdaFunctionRecommendation where
       `Prelude.seq` Prelude.rnf lookbackPeriodInDays
       `Prelude.seq` Prelude.rnf memorySizeRecommendationOptions
       `Prelude.seq` Prelude.rnf numberOfInvocations
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf utilizationMetrics

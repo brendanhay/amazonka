@@ -175,7 +175,8 @@ instance Core.AWSRequest UpdateEnrollmentStatus where
 
 instance Prelude.Hashable UpdateEnrollmentStatus where
   hashWithSalt _salt UpdateEnrollmentStatus' {..} =
-    _salt `Prelude.hashWithSalt` includeMemberAccounts
+    _salt
+      `Prelude.hashWithSalt` includeMemberAccounts
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData UpdateEnrollmentStatus where

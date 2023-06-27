@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes the projected metrics of an Amazon ECS service recommendation
 -- option.
 --
--- To determine the performance difference between your current ECS service
--- and the recommended option, compare the metric data of your service
--- against its projected metric data.
+-- To determine the performance difference between your current Amazon ECS
+-- service and the recommended option, compare the metric data of your
+-- service against its projected metric data.
 --
 -- /See:/ 'newECSServiceProjectedMetric' smart constructor.
 data ECSServiceProjectedMetric = ECSServiceProjectedMetric'
@@ -40,11 +40,11 @@ data ECSServiceProjectedMetric = ECSServiceProjectedMetric'
     --
     -- The following metrics are available:
     --
-    -- -   @CPU@ — The percentage of allocated compute units that are currently
-    --     in use on the ECS service tasks.
+    -- -   @Cpu@ — The percentage of allocated compute units that are currently
+    --     in use on the service tasks.
     --
-    -- -   @Memory@ — The percentage of memory that is currently in use on the
-    --     ECS service tasks.
+    -- -   @Memory@ — The percentage of memory that\'s currently in use on the
+    --     service tasks.
     name :: Prelude.Maybe ECSServiceMetricName,
     -- | The timestamps of the projected metric.
     timestamps :: Prelude.Maybe [Data.POSIX],
@@ -67,11 +67,11 @@ data ECSServiceProjectedMetric = ECSServiceProjectedMetric'
 --
 -- The following metrics are available:
 --
--- -   @CPU@ — The percentage of allocated compute units that are currently
---     in use on the ECS service tasks.
+-- -   @Cpu@ — The percentage of allocated compute units that are currently
+--     in use on the service tasks.
 --
--- -   @Memory@ — The percentage of memory that is currently in use on the
---     ECS service tasks.
+-- -   @Memory@ — The percentage of memory that\'s currently in use on the
+--     service tasks.
 --
 -- 'timestamps', 'eCSServiceProjectedMetric_timestamps' - The timestamps of the projected metric.
 --
@@ -95,11 +95,11 @@ eCSServiceProjectedMetric_lowerBoundValues = Lens.lens (\ECSServiceProjectedMetr
 --
 -- The following metrics are available:
 --
--- -   @CPU@ — The percentage of allocated compute units that are currently
---     in use on the ECS service tasks.
+-- -   @Cpu@ — The percentage of allocated compute units that are currently
+--     in use on the service tasks.
 --
--- -   @Memory@ — The percentage of memory that is currently in use on the
---     ECS service tasks.
+-- -   @Memory@ — The percentage of memory that\'s currently in use on the
+--     service tasks.
 eCSServiceProjectedMetric_name :: Lens.Lens' ECSServiceProjectedMetric (Prelude.Maybe ECSServiceMetricName)
 eCSServiceProjectedMetric_name = Lens.lens (\ECSServiceProjectedMetric' {name} -> name) (\s@ECSServiceProjectedMetric' {} a -> s {name = a} :: ECSServiceProjectedMetric)
 
@@ -117,19 +117,22 @@ instance Data.FromJSON ECSServiceProjectedMetric where
       "ECSServiceProjectedMetric"
       ( \x ->
           ECSServiceProjectedMetric'
-            Prelude.<$> ( x Data..:? "lowerBoundValues"
+            Prelude.<$> ( x
+                            Data..:? "lowerBoundValues"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "timestamps" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "upperBoundValues"
+            Prelude.<*> ( x
+                            Data..:? "upperBoundValues"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ECSServiceProjectedMetric where
   hashWithSalt _salt ECSServiceProjectedMetric' {..} =
-    _salt `Prelude.hashWithSalt` lowerBoundValues
+    _salt
+      `Prelude.hashWithSalt` lowerBoundValues
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timestamps
       `Prelude.hashWithSalt` upperBoundValues

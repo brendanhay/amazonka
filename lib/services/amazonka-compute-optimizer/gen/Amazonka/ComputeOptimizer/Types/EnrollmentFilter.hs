@@ -82,7 +82,8 @@ enrollmentFilter_values = Lens.lens (\EnrollmentFilter' {values} -> values) (\s@
 
 instance Prelude.Hashable EnrollmentFilter where
   hashWithSalt _salt EnrollmentFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData EnrollmentFilter where

@@ -47,9 +47,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsOpportunity' smart constructor.
 data SavingsOpportunity = SavingsOpportunity'
-  { -- | An object that describes the estimated monthly savings amount possible,
-    -- based on On-Demand instance pricing, by adopting Compute Optimizer
-    -- recommendations for a given resource.
+  { -- | An object that describes the estimated monthly savings amount possible
+    -- by adopting Compute Optimizer recommendations for a given resource. This
+    -- is based on the On-Demand instance pricing..
     estimatedMonthlySavings :: Prelude.Maybe EstimatedMonthlySavings,
     -- | The estimated monthly savings possible as a percentage of monthly cost
     -- by adopting Compute Optimizer recommendations for a given resource.
@@ -65,9 +65,9 @@ data SavingsOpportunity = SavingsOpportunity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'estimatedMonthlySavings', 'savingsOpportunity_estimatedMonthlySavings' - An object that describes the estimated monthly savings amount possible,
--- based on On-Demand instance pricing, by adopting Compute Optimizer
--- recommendations for a given resource.
+-- 'estimatedMonthlySavings', 'savingsOpportunity_estimatedMonthlySavings' - An object that describes the estimated monthly savings amount possible
+-- by adopting Compute Optimizer recommendations for a given resource. This
+-- is based on the On-Demand instance pricing..
 --
 -- 'savingsOpportunityPercentage', 'savingsOpportunity_savingsOpportunityPercentage' - The estimated monthly savings possible as a percentage of monthly cost
 -- by adopting Compute Optimizer recommendations for a given resource.
@@ -80,9 +80,9 @@ newSavingsOpportunity =
       savingsOpportunityPercentage = Prelude.Nothing
     }
 
--- | An object that describes the estimated monthly savings amount possible,
--- based on On-Demand instance pricing, by adopting Compute Optimizer
--- recommendations for a given resource.
+-- | An object that describes the estimated monthly savings amount possible
+-- by adopting Compute Optimizer recommendations for a given resource. This
+-- is based on the On-Demand instance pricing..
 savingsOpportunity_estimatedMonthlySavings :: Lens.Lens' SavingsOpportunity (Prelude.Maybe EstimatedMonthlySavings)
 savingsOpportunity_estimatedMonthlySavings = Lens.lens (\SavingsOpportunity' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@SavingsOpportunity' {} a -> s {estimatedMonthlySavings = a} :: SavingsOpportunity)
 

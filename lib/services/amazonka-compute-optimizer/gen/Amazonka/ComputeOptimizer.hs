@@ -254,6 +254,9 @@ module Amazonka.ComputeOptimizer
     -- ** ExportableVolumeField
     ExportableVolumeField (..),
 
+    -- ** ExternalMetricStatusCode
+    ExternalMetricStatusCode (..),
+
     -- ** ExternalMetricsSource
     ExternalMetricsSource (..),
 
@@ -277,6 +280,9 @@ module Amazonka.ComputeOptimizer
 
     -- ** InstanceRecommendationFindingReasonCode
     InstanceRecommendationFindingReasonCode (..),
+
+    -- ** InstanceState
+    InstanceState (..),
 
     -- ** JobFilterName
     JobFilterName (..),
@@ -412,6 +418,10 @@ module Amazonka.ComputeOptimizer
     ExportDestination (ExportDestination'),
     newExportDestination,
 
+    -- ** ExternalMetricStatus
+    ExternalMetricStatus (ExternalMetricStatus'),
+    newExternalMetricStatus,
+
     -- ** ExternalMetricsPreference
     ExternalMetricsPreference (ExternalMetricsPreference'),
     newExternalMetricsPreference,
@@ -423,6 +433,10 @@ module Amazonka.ComputeOptimizer
     -- ** GetRecommendationError
     GetRecommendationError (GetRecommendationError'),
     newGetRecommendationError,
+
+    -- ** InferredWorkloadSaving
+    InferredWorkloadSaving (InferredWorkloadSaving'),
+    newInferredWorkloadSaving,
 
     -- ** InstanceRecommendation
     InstanceRecommendation (InstanceRecommendation'),
@@ -515,6 +529,10 @@ module Amazonka.ComputeOptimizer
     -- ** Summary
     Summary (Summary'),
     newSummary,
+
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
 
     -- ** UtilizationMetric
     UtilizationMetric (UtilizationMetric'),

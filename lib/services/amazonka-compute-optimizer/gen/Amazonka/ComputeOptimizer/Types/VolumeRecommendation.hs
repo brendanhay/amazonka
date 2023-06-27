@@ -22,6 +22,7 @@ module Amazonka.ComputeOptimizer.Types.VolumeRecommendation where
 import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
 import Amazonka.ComputeOptimizer.Types.EBSFinding
 import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
+import Amazonka.ComputeOptimizer.Types.Tag
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
 import Amazonka.ComputeOptimizer.Types.VolumeRecommendationOption
 import qualified Amazonka.Core as Core
@@ -62,6 +63,8 @@ data VolumeRecommendation = VolumeRecommendation'
     -- | The number of days for which utilization metrics were analyzed for the
     -- volume.
     lookBackPeriodInDays :: Prelude.Maybe Prelude.Double,
+    -- | A list of tags assigned to your Amazon EBS volume recommendations.
+    tags :: Prelude.Maybe [Tag],
     -- | An array of objects that describe the utilization metrics of the volume.
     utilizationMetrics :: Prelude.Maybe [EBSUtilizationMetric],
     -- | The Amazon Resource Name (ARN) of the current volume.
@@ -108,6 +111,8 @@ data VolumeRecommendation = VolumeRecommendation'
 -- 'lookBackPeriodInDays', 'volumeRecommendation_lookBackPeriodInDays' - The number of days for which utilization metrics were analyzed for the
 -- volume.
 --
+-- 'tags', 'volumeRecommendation_tags' - A list of tags assigned to your Amazon EBS volume recommendations.
+--
 -- 'utilizationMetrics', 'volumeRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the volume.
 --
 -- 'volumeArn', 'volumeRecommendation_volumeArn' - The Amazon Resource Name (ARN) of the current volume.
@@ -124,6 +129,7 @@ newVolumeRecommendation =
       finding = Prelude.Nothing,
       lastRefreshTimestamp = Prelude.Nothing,
       lookBackPeriodInDays = Prelude.Nothing,
+      tags = Prelude.Nothing,
       utilizationMetrics = Prelude.Nothing,
       volumeArn = Prelude.Nothing,
       volumeRecommendationOptions = Prelude.Nothing
@@ -169,6 +175,10 @@ volumeRecommendation_lastRefreshTimestamp = Lens.lens (\VolumeRecommendation' {l
 volumeRecommendation_lookBackPeriodInDays :: Lens.Lens' VolumeRecommendation (Prelude.Maybe Prelude.Double)
 volumeRecommendation_lookBackPeriodInDays = Lens.lens (\VolumeRecommendation' {lookBackPeriodInDays} -> lookBackPeriodInDays) (\s@VolumeRecommendation' {} a -> s {lookBackPeriodInDays = a} :: VolumeRecommendation)
 
+-- | A list of tags assigned to your Amazon EBS volume recommendations.
+volumeRecommendation_tags :: Lens.Lens' VolumeRecommendation (Prelude.Maybe [Tag])
+volumeRecommendation_tags = Lens.lens (\VolumeRecommendation' {tags} -> tags) (\s@VolumeRecommendation' {} a -> s {tags = a} :: VolumeRecommendation) Prelude.. Lens.mapping Lens.coerced
+
 -- | An array of objects that describe the utilization metrics of the volume.
 volumeRecommendation_utilizationMetrics :: Lens.Lens' VolumeRecommendation (Prelude.Maybe [EBSUtilizationMetric])
 volumeRecommendation_utilizationMetrics = Lens.lens (\VolumeRecommendation' {utilizationMetrics} -> utilizationMetrics) (\s@VolumeRecommendation' {} a -> s {utilizationMetrics = a} :: VolumeRecommendation) Prelude.. Lens.mapping Lens.coerced
@@ -194,23 +204,28 @@ instance Data.FromJSON VolumeRecommendation where
             Prelude.<*> (x Data..:? "finding")
             Prelude.<*> (x Data..:? "lastRefreshTimestamp")
             Prelude.<*> (x Data..:? "lookBackPeriodInDays")
-            Prelude.<*> ( x Data..:? "utilizationMetrics"
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
+            Prelude.<*> ( x
+                            Data..:? "utilizationMetrics"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "volumeArn")
-            Prelude.<*> ( x Data..:? "volumeRecommendationOptions"
+            Prelude.<*> ( x
+                            Data..:? "volumeRecommendationOptions"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable VolumeRecommendation where
   hashWithSalt _salt VolumeRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` currentConfiguration
       `Prelude.hashWithSalt` currentPerformanceRisk
       `Prelude.hashWithSalt` finding
       `Prelude.hashWithSalt` lastRefreshTimestamp
       `Prelude.hashWithSalt` lookBackPeriodInDays
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` utilizationMetrics
       `Prelude.hashWithSalt` volumeArn
       `Prelude.hashWithSalt` volumeRecommendationOptions
@@ -223,6 +238,7 @@ instance Prelude.NFData VolumeRecommendation where
       `Prelude.seq` Prelude.rnf finding
       `Prelude.seq` Prelude.rnf lastRefreshTimestamp
       `Prelude.seq` Prelude.rnf lookBackPeriodInDays
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf utilizationMetrics
       `Prelude.seq` Prelude.rnf volumeArn
       `Prelude.seq` Prelude.rnf volumeRecommendationOptions

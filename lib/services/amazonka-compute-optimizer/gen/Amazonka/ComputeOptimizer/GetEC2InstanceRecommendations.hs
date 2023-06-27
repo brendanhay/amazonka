@@ -189,7 +189,8 @@ instance
       ( \s h x ->
           GetEC2InstanceRecommendationsResponse'
             Prelude.<$> (x Data..?> "errors" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "instanceRecommendations"
+            Prelude.<*> ( x
+                            Data..?> "instanceRecommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -201,7 +202,8 @@ instance
     GetEC2InstanceRecommendations
   where
   hashWithSalt _salt GetEC2InstanceRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` accountIds
+    _salt
+      `Prelude.hashWithSalt` accountIds
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceArns
       `Prelude.hashWithSalt` maxResults

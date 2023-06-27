@@ -125,7 +125,8 @@ instance Core.AWSRequest DeleteOrganization where
 
 instance Prelude.Hashable DeleteOrganization where
   hashWithSalt _salt DeleteOrganization' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` deleteDirectory
 

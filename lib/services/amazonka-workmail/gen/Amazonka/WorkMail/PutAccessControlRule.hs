@@ -226,7 +226,8 @@ instance Core.AWSRequest PutAccessControlRule where
 
 instance Prelude.Hashable PutAccessControlRule where
   hashWithSalt _salt PutAccessControlRule' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` impersonationRoleIds
       `Prelude.hashWithSalt` ipRanges
       `Prelude.hashWithSalt` notActions

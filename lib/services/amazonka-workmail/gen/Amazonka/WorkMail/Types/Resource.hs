@@ -126,7 +126,8 @@ instance Data.FromJSON Resource where
 
 instance Prelude.Hashable Resource where
   hashWithSalt _salt Resource' {..} =
-    _salt `Prelude.hashWithSalt` disabledDate
+    _salt
+      `Prelude.hashWithSalt` disabledDate
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` enabledDate
       `Prelude.hashWithSalt` id

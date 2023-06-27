@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteRetentionPolicy where
 
 instance Prelude.Hashable DeleteRetentionPolicy where
   hashWithSalt _salt DeleteRetentionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteRetentionPolicy where

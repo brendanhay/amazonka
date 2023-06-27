@@ -192,7 +192,8 @@ instance Core.AWSRequest StartMailboxExportJob where
 
 instance Prelude.Hashable StartMailboxExportJob where
   hashWithSalt _salt StartMailboxExportJob' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId

@@ -150,7 +150,8 @@ instance Data.FromJSON MailboxExportJob where
 
 instance Prelude.Hashable MailboxExportJob where
   hashWithSalt _salt MailboxExportJob' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` estimatedProgress

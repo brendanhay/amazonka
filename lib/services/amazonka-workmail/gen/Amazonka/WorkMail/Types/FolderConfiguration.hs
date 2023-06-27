@@ -94,7 +94,8 @@ instance Data.FromJSON FolderConfiguration where
 
 instance Prelude.Hashable FolderConfiguration where
   hashWithSalt _salt FolderConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` period
+    _salt
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` action
 

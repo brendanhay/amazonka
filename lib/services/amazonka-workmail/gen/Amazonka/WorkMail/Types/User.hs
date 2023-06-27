@@ -136,7 +136,8 @@ instance Data.FromJSON User where
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` disabledDate
+    _salt
+      `Prelude.hashWithSalt` disabledDate
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` enabledDate

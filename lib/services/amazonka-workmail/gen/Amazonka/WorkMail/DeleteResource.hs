@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteResource where
 
 instance Prelude.Hashable DeleteResource where
   hashWithSalt _salt DeleteResource' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` resourceId
 
 instance Prelude.NFData DeleteResource where

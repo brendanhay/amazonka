@@ -109,7 +109,8 @@ instance Core.AWSRequest DeregisterFromWorkMail where
 
 instance Prelude.Hashable DeregisterFromWorkMail where
   hashWithSalt _salt DeregisterFromWorkMail' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` entityId
 
 instance Prelude.NFData DeregisterFromWorkMail where

@@ -105,7 +105,8 @@ instance Core.AWSRequest PutInboundDmarcSettings where
 
 instance Prelude.Hashable PutInboundDmarcSettings where
   hashWithSalt _salt PutInboundDmarcSettings' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` enforced
 
 instance Prelude.NFData PutInboundDmarcSettings where

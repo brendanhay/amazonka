@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateMailboxQuota where
 
 instance Prelude.Hashable UpdateMailboxQuota where
   hashWithSalt _salt UpdateMailboxQuota' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` mailboxQuota
 

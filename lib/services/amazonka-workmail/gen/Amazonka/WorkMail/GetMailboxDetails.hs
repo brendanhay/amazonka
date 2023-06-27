@@ -111,7 +111,8 @@ instance Core.AWSRequest GetMailboxDetails where
 
 instance Prelude.Hashable GetMailboxDetails where
   hashWithSalt _salt GetMailboxDetails' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData GetMailboxDetails where

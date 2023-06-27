@@ -148,7 +148,8 @@ instance
     TestAvailabilityConfiguration
   where
   hashWithSalt _salt TestAvailabilityConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` ewsProvider
       `Prelude.hashWithSalt` lambdaProvider
       `Prelude.hashWithSalt` organizationId

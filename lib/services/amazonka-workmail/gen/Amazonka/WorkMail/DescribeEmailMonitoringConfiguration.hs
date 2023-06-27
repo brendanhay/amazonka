@@ -97,8 +97,8 @@ instance
       ( \s h x ->
           DescribeEmailMonitoringConfigurationResponse'
             Prelude.<$> (x Data..?> "LogGroupArn")
-              Prelude.<*> (x Data..?> "RoleArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "RoleArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

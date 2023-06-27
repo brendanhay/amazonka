@@ -119,7 +119,8 @@ instance Core.AWSRequest GetImpersonationRole where
 
 instance Prelude.Hashable GetImpersonationRole where
   hashWithSalt _salt GetImpersonationRole' {..} =
-    _salt `Prelude.hashWithSalt` organizationId
+    _salt
+      `Prelude.hashWithSalt` organizationId
       `Prelude.hashWithSalt` impersonationRoleId
 
 instance Prelude.NFData GetImpersonationRole where

@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     CreateAvailabilityConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` ewsProvider
         `Prelude.hashWithSalt` lambdaProvider
         `Prelude.hashWithSalt` organizationId

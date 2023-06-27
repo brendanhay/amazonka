@@ -571,7 +571,8 @@ rDSDataSpec_securityGroupIds = Lens.lens (\RDSDataSpec' {securityGroupIds} -> se
 
 instance Prelude.Hashable RDSDataSpec where
   hashWithSalt _salt RDSDataSpec' {..} =
-    _salt `Prelude.hashWithSalt` dataRearrangement
+    _salt
+      `Prelude.hashWithSalt` dataRearrangement
       `Prelude.hashWithSalt` dataSchema
       `Prelude.hashWithSalt` dataSchemaUri
       `Prelude.hashWithSalt` databaseInformation

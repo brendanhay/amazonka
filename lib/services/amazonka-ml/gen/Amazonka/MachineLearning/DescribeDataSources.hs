@@ -318,22 +318,22 @@ instance Core.AWSPager DescribeDataSources where
     | Core.stop
         ( rs
             Lens.^? describeDataSourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDataSourcesResponse_results
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDataSources_nextToken
           Lens..~ rs
           Lens.^? describeDataSourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDataSources where
   type
@@ -352,7 +352,8 @@ instance Core.AWSRequest DescribeDataSources where
 
 instance Prelude.Hashable DescribeDataSources where
   hashWithSalt _salt DescribeDataSources' {..} =
-    _salt `Prelude.hashWithSalt` eq
+    _salt
+      `Prelude.hashWithSalt` eq
       `Prelude.hashWithSalt` filterVariable
       `Prelude.hashWithSalt` ge
       `Prelude.hashWithSalt` gt

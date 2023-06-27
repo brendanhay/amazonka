@@ -67,7 +67,8 @@ redshiftDatabaseCredentials_password = Lens.lens (\RedshiftDatabaseCredentials' 
 
 instance Prelude.Hashable RedshiftDatabaseCredentials where
   hashWithSalt _salt RedshiftDatabaseCredentials' {..} =
-    _salt `Prelude.hashWithSalt` username
+    _salt
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` password
 
 instance Prelude.NFData RedshiftDatabaseCredentials where

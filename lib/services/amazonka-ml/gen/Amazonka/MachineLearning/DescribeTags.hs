@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeTags where
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData DescribeTags where

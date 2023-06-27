@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateDataSource where
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceId
+    _salt
+      `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` dataSourceName
 
 instance Prelude.NFData UpdateDataSource where

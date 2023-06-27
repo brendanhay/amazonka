@@ -487,7 +487,8 @@ redshiftDataSpec_s3StagingLocation = Lens.lens (\RedshiftDataSpec' {s3StagingLoc
 
 instance Prelude.Hashable RedshiftDataSpec where
   hashWithSalt _salt RedshiftDataSpec' {..} =
-    _salt `Prelude.hashWithSalt` dataRearrangement
+    _salt
+      `Prelude.hashWithSalt` dataRearrangement
       `Prelude.hashWithSalt` dataSchema
       `Prelude.hashWithSalt` dataSchemaUri
       `Prelude.hashWithSalt` databaseInformation

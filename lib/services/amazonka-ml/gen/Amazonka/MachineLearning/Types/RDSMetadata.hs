@@ -147,7 +147,8 @@ instance Data.FromJSON RDSMetadata where
 
 instance Prelude.Hashable RDSMetadata where
   hashWithSalt _salt RDSMetadata' {..} =
-    _salt `Prelude.hashWithSalt` dataPipelineId
+    _salt
+      `Prelude.hashWithSalt` dataPipelineId
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` databaseUserName
       `Prelude.hashWithSalt` resourceRole

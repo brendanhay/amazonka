@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateEvaluation where
 
 instance Prelude.Hashable UpdateEvaluation where
   hashWithSalt _salt UpdateEvaluation' {..} =
-    _salt `Prelude.hashWithSalt` evaluationId
+    _salt
+      `Prelude.hashWithSalt` evaluationId
       `Prelude.hashWithSalt` evaluationName
 
 instance Prelude.NFData UpdateEvaluation where

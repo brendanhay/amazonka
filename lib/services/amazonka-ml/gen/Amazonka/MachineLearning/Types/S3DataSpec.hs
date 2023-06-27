@@ -444,7 +444,8 @@ s3DataSpec_dataLocationS3 = Lens.lens (\S3DataSpec' {dataLocationS3} -> dataLoca
 
 instance Prelude.Hashable S3DataSpec where
   hashWithSalt _salt S3DataSpec' {..} =
-    _salt `Prelude.hashWithSalt` dataRearrangement
+    _salt
+      `Prelude.hashWithSalt` dataRearrangement
       `Prelude.hashWithSalt` dataSchema
       `Prelude.hashWithSalt` dataSchemaLocationS3
       `Prelude.hashWithSalt` dataLocationS3

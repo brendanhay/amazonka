@@ -72,7 +72,7 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
   { -- | The compute statistics for a @DataSource@. The statistics are generated
     -- from the observation data referenced by a @DataSource@. Amazon ML uses
     -- the statistics internally during @MLModel@ training. This parameter must
-    -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
+    -- be set to @true@ if the DataSource needs to be used for @MLModel@
     -- training.
     computeStatistics :: Prelude.Maybe Prelude.Bool,
     -- | A user-supplied name or description of the @DataSource@.
@@ -146,7 +146,7 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
 -- 'computeStatistics', 'createDataSourceFromRDS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
--- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
+-- be set to @true@ if the DataSource needs to be used for @MLModel@
 -- training.
 --
 -- 'dataSourceName', 'createDataSourceFromRDS_dataSourceName' - A user-supplied name or description of the @DataSource@.
@@ -229,7 +229,7 @@ newCreateDataSourceFromRDS
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
--- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
+-- be set to @true@ if the DataSource needs to be used for @MLModel@
 -- training.
 createDataSourceFromRDS_computeStatistics :: Lens.Lens' CreateDataSourceFromRDS (Prelude.Maybe Prelude.Bool)
 createDataSourceFromRDS_computeStatistics = Lens.lens (\CreateDataSourceFromRDS' {computeStatistics} -> computeStatistics) (\s@CreateDataSourceFromRDS' {} a -> s {computeStatistics = a} :: CreateDataSourceFromRDS)
@@ -315,7 +315,8 @@ instance Core.AWSRequest CreateDataSourceFromRDS where
 
 instance Prelude.Hashable CreateDataSourceFromRDS where
   hashWithSalt _salt CreateDataSourceFromRDS' {..} =
-    _salt `Prelude.hashWithSalt` computeStatistics
+    _salt
+      `Prelude.hashWithSalt` computeStatistics
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` rDSData

@@ -302,7 +302,8 @@ instance
     CreateDataSourceFromRedshift
   where
   hashWithSalt _salt CreateDataSourceFromRedshift' {..} =
-    _salt `Prelude.hashWithSalt` computeStatistics
+    _salt
+      `Prelude.hashWithSalt` computeStatistics
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` dataSpec

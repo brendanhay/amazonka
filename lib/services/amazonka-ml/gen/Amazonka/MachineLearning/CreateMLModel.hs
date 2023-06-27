@@ -348,7 +348,8 @@ instance Core.AWSRequest CreateMLModel where
 
 instance Prelude.Hashable CreateMLModel where
   hashWithSalt _salt CreateMLModel' {..} =
-    _salt `Prelude.hashWithSalt` mLModelName
+    _salt
+      `Prelude.hashWithSalt` mLModelName
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` recipe
       `Prelude.hashWithSalt` recipeUri

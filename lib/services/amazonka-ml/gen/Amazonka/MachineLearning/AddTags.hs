@@ -123,7 +123,8 @@ instance Core.AWSRequest AddTags where
 
 instance Prelude.Hashable AddTags where
   hashWithSalt _salt AddTags' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` resourceType
 

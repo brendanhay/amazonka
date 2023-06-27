@@ -78,7 +78,8 @@ instance Data.FromJSON RDSDatabase where
 
 instance Prelude.Hashable RDSDatabase where
   hashWithSalt _salt RDSDatabase' {..} =
-    _salt `Prelude.hashWithSalt` instanceIdentifier
+    _salt
+      `Prelude.hashWithSalt` instanceIdentifier
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData RDSDatabase where

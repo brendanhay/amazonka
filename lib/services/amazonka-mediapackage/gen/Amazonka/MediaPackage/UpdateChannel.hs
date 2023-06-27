@@ -36,6 +36,7 @@ module Amazonka.MediaPackage.UpdateChannel
 
     -- * Response Lenses
     updateChannelResponse_arn,
+    updateChannelResponse_createdAt,
     updateChannelResponse_description,
     updateChannelResponse_egressAccessLogs,
     updateChannelResponse_hlsIngest,
@@ -105,6 +106,7 @@ instance Core.AWSRequest UpdateChannel where
       ( \s h x ->
           UpdateChannelResponse'
             Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (x Data..?> "hlsIngest")
@@ -116,7 +118,8 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateChannel where
@@ -153,6 +156,8 @@ instance Data.ToQuery UpdateChannel where
 data UpdateChannelResponse = UpdateChannelResponse'
   { -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the Channel was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -176,6 +181,8 @@ data UpdateChannelResponse = UpdateChannelResponse'
 --
 -- 'arn', 'updateChannelResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
+-- 'createdAt', 'updateChannelResponse_createdAt' - The date and time the Channel was created.
+--
 -- 'description', 'updateChannelResponse_description' - A short text description of the Channel.
 --
 -- 'egressAccessLogs', 'updateChannelResponse_egressAccessLogs' - Undocumented member.
@@ -196,6 +203,7 @@ newUpdateChannelResponse ::
 newUpdateChannelResponse pHttpStatus_ =
   UpdateChannelResponse'
     { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       hlsIngest = Prelude.Nothing,
@@ -208,6 +216,10 @@ newUpdateChannelResponse pHttpStatus_ =
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 updateChannelResponse_arn :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
 updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s@UpdateChannelResponse' {} a -> s {arn = a} :: UpdateChannelResponse)
+
+-- | The date and time the Channel was created.
+updateChannelResponse_createdAt :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
+updateChannelResponse_createdAt = Lens.lens (\UpdateChannelResponse' {createdAt} -> createdAt) (\s@UpdateChannelResponse' {} a -> s {createdAt = a} :: UpdateChannelResponse)
 
 -- | A short text description of the Channel.
 updateChannelResponse_description :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
@@ -240,6 +252,7 @@ updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatu
 instance Prelude.NFData UpdateChannelResponse where
   rnf UpdateChannelResponse' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf hlsIngest

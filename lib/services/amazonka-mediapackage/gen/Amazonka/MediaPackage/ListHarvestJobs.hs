@@ -119,22 +119,22 @@ instance Core.AWSPager ListHarvestJobs where
     | Core.stop
         ( rs
             Lens.^? listHarvestJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listHarvestJobsResponse_harvestJobs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHarvestJobs_nextToken
           Lens..~ rs
           Lens.^? listHarvestJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHarvestJobs where
   type
@@ -153,7 +153,8 @@ instance Core.AWSRequest ListHarvestJobs where
 
 instance Prelude.Hashable ListHarvestJobs where
   hashWithSalt _salt ListHarvestJobs' {..} =
-    _salt `Prelude.hashWithSalt` includeChannelId
+    _salt
+      `Prelude.hashWithSalt` includeChannelId
       `Prelude.hashWithSalt` includeStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

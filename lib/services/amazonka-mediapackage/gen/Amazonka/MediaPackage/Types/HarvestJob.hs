@@ -34,7 +34,7 @@ data HarvestJob = HarvestJob'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel that the HarvestJob will harvest from.
     channelId :: Prelude.Maybe Prelude.Text,
-    -- | The time the HarvestJob was submitted
+    -- | The date and time the HarvestJob was submitted.
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The end of the time-window which will be harvested.
     endTime :: Prelude.Maybe Prelude.Text,
@@ -67,7 +67,7 @@ data HarvestJob = HarvestJob'
 --
 -- 'channelId', 'harvestJob_channelId' - The ID of the Channel that the HarvestJob will harvest from.
 --
--- 'createdAt', 'harvestJob_createdAt' - The time the HarvestJob was submitted
+-- 'createdAt', 'harvestJob_createdAt' - The date and time the HarvestJob was submitted.
 --
 -- 'endTime', 'harvestJob_endTime' - The end of the time-window which will be harvested.
 --
@@ -108,7 +108,7 @@ harvestJob_arn = Lens.lens (\HarvestJob' {arn} -> arn) (\s@HarvestJob' {} a -> s
 harvestJob_channelId :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
 harvestJob_channelId = Lens.lens (\HarvestJob' {channelId} -> channelId) (\s@HarvestJob' {} a -> s {channelId = a} :: HarvestJob)
 
--- | The time the HarvestJob was submitted
+-- | The date and time the HarvestJob was submitted.
 harvestJob_createdAt :: Lens.Lens' HarvestJob (Prelude.Maybe Prelude.Text)
 harvestJob_createdAt = Lens.lens (\HarvestJob' {createdAt} -> createdAt) (\s@HarvestJob' {} a -> s {createdAt = a} :: HarvestJob)
 
@@ -160,7 +160,8 @@ instance Data.FromJSON HarvestJob where
 
 instance Prelude.Hashable HarvestJob where
   hashWithSalt _salt HarvestJob' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` endTime

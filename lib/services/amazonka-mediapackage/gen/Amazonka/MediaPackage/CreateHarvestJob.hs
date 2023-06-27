@@ -168,7 +168,8 @@ instance Core.AWSRequest CreateHarvestJob where
 
 instance Prelude.Hashable CreateHarvestJob where
   hashWithSalt _salt CreateHarvestJob' {..} =
-    _salt `Prelude.hashWithSalt` s3Destination
+    _salt
+      `Prelude.hashWithSalt` s3Destination
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` originEndpointId
       `Prelude.hashWithSalt` startTime
@@ -219,7 +220,7 @@ data CreateHarvestJobResponse = CreateHarvestJobResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel that the HarvestJob will harvest from.
     channelId :: Prelude.Maybe Prelude.Text,
-    -- | The time the HarvestJob was submitted
+    -- | The date and time the HarvestJob was submitted.
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The end of the time-window which will be harvested.
     endTime :: Prelude.Maybe Prelude.Text,
@@ -254,7 +255,7 @@ data CreateHarvestJobResponse = CreateHarvestJobResponse'
 --
 -- 'channelId', 'createHarvestJobResponse_channelId' - The ID of the Channel that the HarvestJob will harvest from.
 --
--- 'createdAt', 'createHarvestJobResponse_createdAt' - The time the HarvestJob was submitted
+-- 'createdAt', 'createHarvestJobResponse_createdAt' - The date and time the HarvestJob was submitted.
 --
 -- 'endTime', 'createHarvestJobResponse_endTime' - The end of the time-window which will be harvested.
 --
@@ -300,7 +301,7 @@ createHarvestJobResponse_arn = Lens.lens (\CreateHarvestJobResponse' {arn} -> ar
 createHarvestJobResponse_channelId :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
 createHarvestJobResponse_channelId = Lens.lens (\CreateHarvestJobResponse' {channelId} -> channelId) (\s@CreateHarvestJobResponse' {} a -> s {channelId = a} :: CreateHarvestJobResponse)
 
--- | The time the HarvestJob was submitted
+-- | The date and time the HarvestJob was submitted.
 createHarvestJobResponse_createdAt :: Lens.Lens' CreateHarvestJobResponse (Prelude.Maybe Prelude.Text)
 createHarvestJobResponse_createdAt = Lens.lens (\CreateHarvestJobResponse' {createdAt} -> createdAt) (\s@CreateHarvestJobResponse' {} a -> s {createdAt = a} :: CreateHarvestJobResponse)
 

@@ -37,6 +37,7 @@ module Amazonka.MediaPackage.ConfigureLogs
 
     -- * Response Lenses
     configureLogsResponse_arn,
+    configureLogsResponse_createdAt,
     configureLogsResponse_description,
     configureLogsResponse_egressAccessLogs,
     configureLogsResponse_hlsIngest,
@@ -113,6 +114,7 @@ instance Core.AWSRequest ConfigureLogs where
       ( \s h x ->
           ConfigureLogsResponse'
             Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (x Data..?> "hlsIngest")
@@ -124,7 +126,8 @@ instance Core.AWSRequest ConfigureLogs where
 
 instance Prelude.Hashable ConfigureLogs where
   hashWithSalt _salt ConfigureLogs' {..} =
-    _salt `Prelude.hashWithSalt` egressAccessLogs
+    _salt
+      `Prelude.hashWithSalt` egressAccessLogs
       `Prelude.hashWithSalt` ingressAccessLogs
       `Prelude.hashWithSalt` id
 
@@ -168,6 +171,8 @@ instance Data.ToQuery ConfigureLogs where
 data ConfigureLogsResponse = ConfigureLogsResponse'
   { -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the Channel was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -191,6 +196,8 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
 --
 -- 'arn', 'configureLogsResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
+-- 'createdAt', 'configureLogsResponse_createdAt' - The date and time the Channel was created.
+--
 -- 'description', 'configureLogsResponse_description' - A short text description of the Channel.
 --
 -- 'egressAccessLogs', 'configureLogsResponse_egressAccessLogs' - Undocumented member.
@@ -211,6 +218,7 @@ newConfigureLogsResponse ::
 newConfigureLogsResponse pHttpStatus_ =
   ConfigureLogsResponse'
     { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       hlsIngest = Prelude.Nothing,
@@ -223,6 +231,10 @@ newConfigureLogsResponse pHttpStatus_ =
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 configureLogsResponse_arn :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
 configureLogsResponse_arn = Lens.lens (\ConfigureLogsResponse' {arn} -> arn) (\s@ConfigureLogsResponse' {} a -> s {arn = a} :: ConfigureLogsResponse)
+
+-- | The date and time the Channel was created.
+configureLogsResponse_createdAt :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
+configureLogsResponse_createdAt = Lens.lens (\ConfigureLogsResponse' {createdAt} -> createdAt) (\s@ConfigureLogsResponse' {} a -> s {createdAt = a} :: ConfigureLogsResponse)
 
 -- | A short text description of the Channel.
 configureLogsResponse_description :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
@@ -255,6 +267,7 @@ configureLogsResponse_httpStatus = Lens.lens (\ConfigureLogsResponse' {httpStatu
 instance Prelude.NFData ConfigureLogsResponse where
   rnf ConfigureLogsResponse' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf hlsIngest

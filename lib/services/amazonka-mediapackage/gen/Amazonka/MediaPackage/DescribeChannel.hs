@@ -35,6 +35,7 @@ module Amazonka.MediaPackage.DescribeChannel
 
     -- * Response Lenses
     describeChannelResponse_arn,
+    describeChannelResponse_createdAt,
     describeChannelResponse_description,
     describeChannelResponse_egressAccessLogs,
     describeChannelResponse_hlsIngest,
@@ -90,6 +91,7 @@ instance Core.AWSRequest DescribeChannel where
       ( \s h x ->
           DescribeChannelResponse'
             Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (x Data..?> "hlsIngest")
@@ -128,6 +130,8 @@ instance Data.ToQuery DescribeChannel where
 data DescribeChannelResponse = DescribeChannelResponse'
   { -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the Channel was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -151,6 +155,8 @@ data DescribeChannelResponse = DescribeChannelResponse'
 --
 -- 'arn', 'describeChannelResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
+-- 'createdAt', 'describeChannelResponse_createdAt' - The date and time the Channel was created.
+--
 -- 'description', 'describeChannelResponse_description' - A short text description of the Channel.
 --
 -- 'egressAccessLogs', 'describeChannelResponse_egressAccessLogs' - Undocumented member.
@@ -171,6 +177,7 @@ newDescribeChannelResponse ::
 newDescribeChannelResponse pHttpStatus_ =
   DescribeChannelResponse'
     { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       hlsIngest = Prelude.Nothing,
@@ -183,6 +190,10 @@ newDescribeChannelResponse pHttpStatus_ =
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 describeChannelResponse_arn :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
 describeChannelResponse_arn = Lens.lens (\DescribeChannelResponse' {arn} -> arn) (\s@DescribeChannelResponse' {} a -> s {arn = a} :: DescribeChannelResponse)
+
+-- | The date and time the Channel was created.
+describeChannelResponse_createdAt :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
+describeChannelResponse_createdAt = Lens.lens (\DescribeChannelResponse' {createdAt} -> createdAt) (\s@DescribeChannelResponse' {} a -> s {createdAt = a} :: DescribeChannelResponse)
 
 -- | A short text description of the Channel.
 describeChannelResponse_description :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
@@ -215,6 +226,7 @@ describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpS
 instance Prelude.NFData DescribeChannelResponse where
   rnf DescribeChannelResponse' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf hlsIngest

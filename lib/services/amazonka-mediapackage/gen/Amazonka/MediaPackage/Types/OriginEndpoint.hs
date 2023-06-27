@@ -40,6 +40,8 @@ data OriginEndpoint = OriginEndpoint'
     -- | The ID of the Channel the OriginEndpoint is associated with.
     channelId :: Prelude.Maybe Prelude.Text,
     cmafPackage :: Prelude.Maybe CmafPackage,
+    -- | The date and time the OriginEndpoint was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     dashPackage :: Prelude.Maybe DashPackage,
     -- | A short text description of the OriginEndpoint.
     description :: Prelude.Maybe Prelude.Text,
@@ -88,6 +90,8 @@ data OriginEndpoint = OriginEndpoint'
 --
 -- 'cmafPackage', 'originEndpoint_cmafPackage' - Undocumented member.
 --
+-- 'createdAt', 'originEndpoint_createdAt' - The date and time the OriginEndpoint was created.
+--
 -- 'dashPackage', 'originEndpoint_dashPackage' - Undocumented member.
 --
 -- 'description', 'originEndpoint_description' - A short text description of the OriginEndpoint.
@@ -128,6 +132,7 @@ newOriginEndpoint =
       authorization = Prelude.Nothing,
       channelId = Prelude.Nothing,
       cmafPackage = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       dashPackage = Prelude.Nothing,
       description = Prelude.Nothing,
       hlsPackage = Prelude.Nothing,
@@ -157,6 +162,10 @@ originEndpoint_channelId = Lens.lens (\OriginEndpoint' {channelId} -> channelId)
 -- | Undocumented member.
 originEndpoint_cmafPackage :: Lens.Lens' OriginEndpoint (Prelude.Maybe CmafPackage)
 originEndpoint_cmafPackage = Lens.lens (\OriginEndpoint' {cmafPackage} -> cmafPackage) (\s@OriginEndpoint' {} a -> s {cmafPackage = a} :: OriginEndpoint)
+
+-- | The date and time the OriginEndpoint was created.
+originEndpoint_createdAt :: Lens.Lens' OriginEndpoint (Prelude.Maybe Prelude.Text)
+originEndpoint_createdAt = Lens.lens (\OriginEndpoint' {createdAt} -> createdAt) (\s@OriginEndpoint' {} a -> s {createdAt = a} :: OriginEndpoint)
 
 -- | Undocumented member.
 originEndpoint_dashPackage :: Lens.Lens' OriginEndpoint (Prelude.Maybe DashPackage)
@@ -225,6 +234,7 @@ instance Data.FromJSON OriginEndpoint where
             Prelude.<*> (x Data..:? "authorization")
             Prelude.<*> (x Data..:? "channelId")
             Prelude.<*> (x Data..:? "cmafPackage")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "dashPackage")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "hlsPackage")
@@ -241,10 +251,12 @@ instance Data.FromJSON OriginEndpoint where
 
 instance Prelude.Hashable OriginEndpoint where
   hashWithSalt _salt OriginEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` authorization
       `Prelude.hashWithSalt` channelId
       `Prelude.hashWithSalt` cmafPackage
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dashPackage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` hlsPackage
@@ -264,6 +276,7 @@ instance Prelude.NFData OriginEndpoint where
       `Prelude.seq` Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dashPackage
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf hlsPackage

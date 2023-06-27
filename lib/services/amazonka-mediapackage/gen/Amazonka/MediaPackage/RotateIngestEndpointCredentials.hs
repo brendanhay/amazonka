@@ -37,6 +37,7 @@ module Amazonka.MediaPackage.RotateIngestEndpointCredentials
 
     -- * Response Lenses
     rotateIngestEndpointCredentialsResponse_arn,
+    rotateIngestEndpointCredentialsResponse_createdAt,
     rotateIngestEndpointCredentialsResponse_description,
     rotateIngestEndpointCredentialsResponse_egressAccessLogs,
     rotateIngestEndpointCredentialsResponse_hlsIngest,
@@ -112,6 +113,7 @@ instance
       ( \s h x ->
           RotateIngestEndpointCredentialsResponse'
             Prelude.<$> (x Data..?> "arn")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "egressAccessLogs")
             Prelude.<*> (x Data..?> "hlsIngest")
@@ -128,7 +130,8 @@ instance
   hashWithSalt
     _salt
     RotateIngestEndpointCredentials' {..} =
-      _salt `Prelude.hashWithSalt` ingestEndpointId
+      _salt
+        `Prelude.hashWithSalt` ingestEndpointId
         `Prelude.hashWithSalt` id
 
 instance
@@ -173,6 +176,8 @@ instance Data.ToQuery RotateIngestEndpointCredentials where
 data RotateIngestEndpointCredentialsResponse = RotateIngestEndpointCredentialsResponse'
   { -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the Channel was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -196,6 +201,8 @@ data RotateIngestEndpointCredentialsResponse = RotateIngestEndpointCredentialsRe
 --
 -- 'arn', 'rotateIngestEndpointCredentialsResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
+-- 'createdAt', 'rotateIngestEndpointCredentialsResponse_createdAt' - The date and time the Channel was created.
+--
 -- 'description', 'rotateIngestEndpointCredentialsResponse_description' - A short text description of the Channel.
 --
 -- 'egressAccessLogs', 'rotateIngestEndpointCredentialsResponse_egressAccessLogs' - Undocumented member.
@@ -218,6 +225,7 @@ newRotateIngestEndpointCredentialsResponse
     RotateIngestEndpointCredentialsResponse'
       { arn =
           Prelude.Nothing,
+        createdAt = Prelude.Nothing,
         description = Prelude.Nothing,
         egressAccessLogs = Prelude.Nothing,
         hlsIngest = Prelude.Nothing,
@@ -231,6 +239,10 @@ newRotateIngestEndpointCredentialsResponse
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 rotateIngestEndpointCredentialsResponse_arn :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe Prelude.Text)
 rotateIngestEndpointCredentialsResponse_arn = Lens.lens (\RotateIngestEndpointCredentialsResponse' {arn} -> arn) (\s@RotateIngestEndpointCredentialsResponse' {} a -> s {arn = a} :: RotateIngestEndpointCredentialsResponse)
+
+-- | The date and time the Channel was created.
+rotateIngestEndpointCredentialsResponse_createdAt :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe Prelude.Text)
+rotateIngestEndpointCredentialsResponse_createdAt = Lens.lens (\RotateIngestEndpointCredentialsResponse' {createdAt} -> createdAt) (\s@RotateIngestEndpointCredentialsResponse' {} a -> s {createdAt = a} :: RotateIngestEndpointCredentialsResponse)
 
 -- | A short text description of the Channel.
 rotateIngestEndpointCredentialsResponse_description :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe Prelude.Text)
@@ -266,6 +278,7 @@ instance
   where
   rnf RotateIngestEndpointCredentialsResponse' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf hlsIngest

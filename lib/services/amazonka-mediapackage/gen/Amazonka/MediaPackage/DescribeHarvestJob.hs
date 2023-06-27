@@ -135,7 +135,7 @@ data DescribeHarvestJobResponse = DescribeHarvestJobResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel that the HarvestJob will harvest from.
     channelId :: Prelude.Maybe Prelude.Text,
-    -- | The time the HarvestJob was submitted
+    -- | The date and time the HarvestJob was submitted.
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The end of the time-window which will be harvested.
     endTime :: Prelude.Maybe Prelude.Text,
@@ -170,7 +170,7 @@ data DescribeHarvestJobResponse = DescribeHarvestJobResponse'
 --
 -- 'channelId', 'describeHarvestJobResponse_channelId' - The ID of the Channel that the HarvestJob will harvest from.
 --
--- 'createdAt', 'describeHarvestJobResponse_createdAt' - The time the HarvestJob was submitted
+-- 'createdAt', 'describeHarvestJobResponse_createdAt' - The date and time the HarvestJob was submitted.
 --
 -- 'endTime', 'describeHarvestJobResponse_endTime' - The end of the time-window which will be harvested.
 --
@@ -216,7 +216,7 @@ describeHarvestJobResponse_arn = Lens.lens (\DescribeHarvestJobResponse' {arn} -
 describeHarvestJobResponse_channelId :: Lens.Lens' DescribeHarvestJobResponse (Prelude.Maybe Prelude.Text)
 describeHarvestJobResponse_channelId = Lens.lens (\DescribeHarvestJobResponse' {channelId} -> channelId) (\s@DescribeHarvestJobResponse' {} a -> s {channelId = a} :: DescribeHarvestJobResponse)
 
--- | The time the HarvestJob was submitted
+-- | The date and time the HarvestJob was submitted.
 describeHarvestJobResponse_createdAt :: Lens.Lens' DescribeHarvestJobResponse (Prelude.Maybe Prelude.Text)
 describeHarvestJobResponse_createdAt = Lens.lens (\DescribeHarvestJobResponse' {createdAt} -> createdAt) (\s@DescribeHarvestJobResponse' {} a -> s {createdAt = a} :: DescribeHarvestJobResponse)
 

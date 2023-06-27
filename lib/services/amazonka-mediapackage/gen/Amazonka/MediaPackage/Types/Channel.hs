@@ -33,6 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 data Channel = Channel'
   { -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the Channel was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     -- | A short text description of the Channel.
     description :: Prelude.Maybe Prelude.Text,
     egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
@@ -54,6 +56,8 @@ data Channel = Channel'
 --
 -- 'arn', 'channel_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
+-- 'createdAt', 'channel_createdAt' - The date and time the Channel was created.
+--
 -- 'description', 'channel_description' - A short text description of the Channel.
 --
 -- 'egressAccessLogs', 'channel_egressAccessLogs' - Undocumented member.
@@ -70,6 +74,7 @@ newChannel ::
 newChannel =
   Channel'
     { arn = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       description = Prelude.Nothing,
       egressAccessLogs = Prelude.Nothing,
       hlsIngest = Prelude.Nothing,
@@ -81,6 +86,10 @@ newChannel =
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 channel_arn :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_arn = Lens.lens (\Channel' {arn} -> arn) (\s@Channel' {} a -> s {arn = a} :: Channel)
+
+-- | The date and time the Channel was created.
+channel_createdAt :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
+channel_createdAt = Lens.lens (\Channel' {createdAt} -> createdAt) (\s@Channel' {} a -> s {createdAt = a} :: Channel)
 
 -- | A short text description of the Channel.
 channel_description :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
@@ -113,6 +122,7 @@ instance Data.FromJSON Channel where
       ( \x ->
           Channel'
             Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "createdAt")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "egressAccessLogs")
             Prelude.<*> (x Data..:? "hlsIngest")
@@ -123,7 +133,9 @@ instance Data.FromJSON Channel where
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` egressAccessLogs
       `Prelude.hashWithSalt` hlsIngest
@@ -134,6 +146,7 @@ instance Prelude.Hashable Channel where
 instance Prelude.NFData Channel where
   rnf Channel' {..} =
     Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf egressAccessLogs
       `Prelude.seq` Prelude.rnf hlsIngest

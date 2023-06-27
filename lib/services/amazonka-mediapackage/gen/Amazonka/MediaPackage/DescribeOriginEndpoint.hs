@@ -38,6 +38,7 @@ module Amazonka.MediaPackage.DescribeOriginEndpoint
     describeOriginEndpointResponse_authorization,
     describeOriginEndpointResponse_channelId,
     describeOriginEndpointResponse_cmafPackage,
+    describeOriginEndpointResponse_createdAt,
     describeOriginEndpointResponse_dashPackage,
     describeOriginEndpointResponse_description,
     describeOriginEndpointResponse_hlsPackage,
@@ -103,6 +104,7 @@ instance Core.AWSRequest DescribeOriginEndpoint where
             Prelude.<*> (x Data..?> "authorization")
             Prelude.<*> (x Data..?> "channelId")
             Prelude.<*> (x Data..?> "cmafPackage")
+            Prelude.<*> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "dashPackage")
             Prelude.<*> (x Data..?> "description")
             Prelude.<*> (x Data..?> "hlsPackage")
@@ -152,6 +154,8 @@ data DescribeOriginEndpointResponse = DescribeOriginEndpointResponse'
     -- | The ID of the Channel the OriginEndpoint is associated with.
     channelId :: Prelude.Maybe Prelude.Text,
     cmafPackage :: Prelude.Maybe CmafPackage,
+    -- | The date and time the OriginEndpoint was created.
+    createdAt :: Prelude.Maybe Prelude.Text,
     dashPackage :: Prelude.Maybe DashPackage,
     -- | A short text description of the OriginEndpoint.
     description :: Prelude.Maybe Prelude.Text,
@@ -202,6 +206,8 @@ data DescribeOriginEndpointResponse = DescribeOriginEndpointResponse'
 --
 -- 'cmafPackage', 'describeOriginEndpointResponse_cmafPackage' - Undocumented member.
 --
+-- 'createdAt', 'describeOriginEndpointResponse_createdAt' - The date and time the OriginEndpoint was created.
+--
 -- 'dashPackage', 'describeOriginEndpointResponse_dashPackage' - Undocumented member.
 --
 -- 'description', 'describeOriginEndpointResponse_description' - A short text description of the OriginEndpoint.
@@ -247,6 +253,7 @@ newDescribeOriginEndpointResponse pHttpStatus_ =
       authorization = Prelude.Nothing,
       channelId = Prelude.Nothing,
       cmafPackage = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       dashPackage = Prelude.Nothing,
       description = Prelude.Nothing,
       hlsPackage = Prelude.Nothing,
@@ -277,6 +284,10 @@ describeOriginEndpointResponse_channelId = Lens.lens (\DescribeOriginEndpointRes
 -- | Undocumented member.
 describeOriginEndpointResponse_cmafPackage :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe CmafPackage)
 describeOriginEndpointResponse_cmafPackage = Lens.lens (\DescribeOriginEndpointResponse' {cmafPackage} -> cmafPackage) (\s@DescribeOriginEndpointResponse' {} a -> s {cmafPackage = a} :: DescribeOriginEndpointResponse)
+
+-- | The date and time the OriginEndpoint was created.
+describeOriginEndpointResponse_createdAt :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe Prelude.Text)
+describeOriginEndpointResponse_createdAt = Lens.lens (\DescribeOriginEndpointResponse' {createdAt} -> createdAt) (\s@DescribeOriginEndpointResponse' {} a -> s {createdAt = a} :: DescribeOriginEndpointResponse)
 
 -- | Undocumented member.
 describeOriginEndpointResponse_dashPackage :: Lens.Lens' DescribeOriginEndpointResponse (Prelude.Maybe DashPackage)
@@ -348,6 +359,7 @@ instance
       `Prelude.seq` Prelude.rnf authorization
       `Prelude.seq` Prelude.rnf channelId
       `Prelude.seq` Prelude.rnf cmafPackage
+      `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dashPackage
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf hlsPackage

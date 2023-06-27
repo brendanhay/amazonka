@@ -24,11 +24,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The structure representing a Geometry in terms of Type and Coordinates
+-- as per GeoJson spec.
 --
 -- /See:/ 'newGeometry' smart constructor.
 data Geometry = Geometry'
-  { coordinates :: Prelude.NonEmpty (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double))),
+  { -- | The coordinates of the GeoJson Geometry.
+    coordinates :: Prelude.NonEmpty (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double))),
+    -- | GeoJson Geometry types like Polygon and MultiPolygon.
     type' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -41,9 +44,9 @@ data Geometry = Geometry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'coordinates', 'geometry_coordinates' -
+-- 'coordinates', 'geometry_coordinates' - The coordinates of the GeoJson Geometry.
 --
--- 'type'', 'geometry_type' -
+-- 'type'', 'geometry_type' - GeoJson Geometry types like Polygon and MultiPolygon.
 newGeometry ::
   -- | 'coordinates'
   Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double)) ->
@@ -57,11 +60,11 @@ newGeometry pCoordinates_ pType_ =
       type' = pType_
     }
 
--- |
+-- | The coordinates of the GeoJson Geometry.
 geometry_coordinates :: Lens.Lens' Geometry (Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double)))
 geometry_coordinates = Lens.lens (\Geometry' {coordinates} -> coordinates) (\s@Geometry' {} a -> s {coordinates = a} :: Geometry) Prelude.. Lens.coerced
 
--- |
+-- | GeoJson Geometry types like Polygon and MultiPolygon.
 geometry_type :: Lens.Lens' Geometry Prelude.Text
 geometry_type = Lens.lens (\Geometry' {type'} -> type') (\s@Geometry' {} a -> s {type' = a} :: Geometry)
 
@@ -77,7 +80,8 @@ instance Data.FromJSON Geometry where
 
 instance Prelude.Hashable Geometry where
   hashWithSalt _salt Geometry' {..} =
-    _salt `Prelude.hashWithSalt` coordinates
+    _salt
+      `Prelude.hashWithSalt` coordinates
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Geometry where

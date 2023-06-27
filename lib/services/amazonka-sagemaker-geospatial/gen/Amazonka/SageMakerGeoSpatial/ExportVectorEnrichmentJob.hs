@@ -20,14 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this operation to copy results of a Vector Enrichment job to an S3
--- location.
+-- Use this operation to copy results of a Vector Enrichment job to an
+-- Amazon S3 location.
 module Amazonka.SageMakerGeoSpatial.ExportVectorEnrichmentJob
   ( -- * Creating a Request
     ExportVectorEnrichmentJob (..),
     newExportVectorEnrichmentJob,
 
     -- * Request Lenses
+    exportVectorEnrichmentJob_clientToken,
     exportVectorEnrichmentJob_arn,
     exportVectorEnrichmentJob_executionRoleArn,
     exportVectorEnrichmentJob_outputConfig,
@@ -56,7 +57,9 @@ import Amazonka.SageMakerGeoSpatial.Types
 
 -- | /See:/ 'newExportVectorEnrichmentJob' smart constructor.
 data ExportVectorEnrichmentJob = ExportVectorEnrichmentJob'
-  { -- | The Amazon Resource Name (ARN) of the Vector Enrichment job.
+  { -- | A unique token that guarantees that the call to this API is idempotent.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Vector Enrichment job.
     arn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM rolewith permission to upload
     -- to the location in OutputConfig.
@@ -73,6 +76,8 @@ data ExportVectorEnrichmentJob = ExportVectorEnrichmentJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'exportVectorEnrichmentJob_clientToken' - A unique token that guarantees that the call to this API is idempotent.
 --
 -- 'arn', 'exportVectorEnrichmentJob_arn' - The Amazon Resource Name (ARN) of the Vector Enrichment job.
 --
@@ -93,10 +98,16 @@ newExportVectorEnrichmentJob
   pExecutionRoleArn_
   pOutputConfig_ =
     ExportVectorEnrichmentJob'
-      { arn = pArn_,
+      { clientToken =
+          Prelude.Nothing,
+        arn = pArn_,
         executionRoleArn = pExecutionRoleArn_,
         outputConfig = pOutputConfig_
       }
+
+-- | A unique token that guarantees that the call to this API is idempotent.
+exportVectorEnrichmentJob_clientToken :: Lens.Lens' ExportVectorEnrichmentJob (Prelude.Maybe Prelude.Text)
+exportVectorEnrichmentJob_clientToken = Lens.lens (\ExportVectorEnrichmentJob' {clientToken} -> clientToken) (\s@ExportVectorEnrichmentJob' {} a -> s {clientToken = a} :: ExportVectorEnrichmentJob)
 
 -- | The Amazon Resource Name (ARN) of the Vector Enrichment job.
 exportVectorEnrichmentJob_arn :: Lens.Lens' ExportVectorEnrichmentJob Prelude.Text
@@ -131,13 +142,16 @@ instance Core.AWSRequest ExportVectorEnrichmentJob where
 
 instance Prelude.Hashable ExportVectorEnrichmentJob where
   hashWithSalt _salt ExportVectorEnrichmentJob' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` outputConfig
 
 instance Prelude.NFData ExportVectorEnrichmentJob where
   rnf ExportVectorEnrichmentJob' {..} =
-    Prelude.rnf arn
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf outputConfig
 
@@ -156,7 +170,8 @@ instance Data.ToJSON ExportVectorEnrichmentJob where
   toJSON ExportVectorEnrichmentJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Arn" Data..= arn),
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
               ("ExecutionRoleArn" Data..= executionRoleArn),
             Prelude.Just ("OutputConfig" Data..= outputConfig)
@@ -178,7 +193,7 @@ data ExportVectorEnrichmentJobResponse = ExportVectorEnrichmentJobResponse'
     -- exported.
     arn :: Prelude.Text,
     -- | The creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the IAM role with permission to upload
     -- to the location in OutputConfig.
     executionRoleArn :: Prelude.Text,

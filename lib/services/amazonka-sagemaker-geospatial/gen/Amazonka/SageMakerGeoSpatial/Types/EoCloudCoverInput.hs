@@ -24,11 +24,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The structure representing the EoCloudCover filter.
 --
 -- /See:/ 'newEoCloudCoverInput' smart constructor.
 data EoCloudCoverInput = EoCloudCoverInput'
-  { lowerBound :: Prelude.Double,
+  { -- | Lower bound for EoCloudCover.
+    lowerBound :: Prelude.Double,
+    -- | Upper bound for EoCloudCover.
     upperBound :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,9 +43,9 @@ data EoCloudCoverInput = EoCloudCoverInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lowerBound', 'eoCloudCoverInput_lowerBound' -
+-- 'lowerBound', 'eoCloudCoverInput_lowerBound' - Lower bound for EoCloudCover.
 --
--- 'upperBound', 'eoCloudCoverInput_upperBound' -
+-- 'upperBound', 'eoCloudCoverInput_upperBound' - Upper bound for EoCloudCover.
 newEoCloudCoverInput ::
   -- | 'lowerBound'
   Prelude.Double ->
@@ -56,11 +58,11 @@ newEoCloudCoverInput pLowerBound_ pUpperBound_ =
       upperBound = pUpperBound_
     }
 
--- |
+-- | Lower bound for EoCloudCover.
 eoCloudCoverInput_lowerBound :: Lens.Lens' EoCloudCoverInput Prelude.Double
 eoCloudCoverInput_lowerBound = Lens.lens (\EoCloudCoverInput' {lowerBound} -> lowerBound) (\s@EoCloudCoverInput' {} a -> s {lowerBound = a} :: EoCloudCoverInput)
 
--- |
+-- | Upper bound for EoCloudCover.
 eoCloudCoverInput_upperBound :: Lens.Lens' EoCloudCoverInput Prelude.Double
 eoCloudCoverInput_upperBound = Lens.lens (\EoCloudCoverInput' {upperBound} -> upperBound) (\s@EoCloudCoverInput' {} a -> s {upperBound = a} :: EoCloudCoverInput)
 
@@ -76,7 +78,8 @@ instance Data.FromJSON EoCloudCoverInput where
 
 instance Prelude.Hashable EoCloudCoverInput where
   hashWithSalt _salt EoCloudCoverInput' {..} =
-    _salt `Prelude.hashWithSalt` lowerBound
+    _salt
+      `Prelude.hashWithSalt` lowerBound
       `Prelude.hashWithSalt` upperBound
 
 instance Prelude.NFData EoCloudCoverInput where

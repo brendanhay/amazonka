@@ -23,6 +23,7 @@ module Amazonka.SageMakerGeoSpatial.Lens
     deleteVectorEnrichmentJobResponse_httpStatus,
 
     -- ** ExportEarthObservationJob
+    exportEarthObservationJob_clientToken,
     exportEarthObservationJob_exportSourceImages,
     exportEarthObservationJob_arn,
     exportEarthObservationJob_executionRoleArn,
@@ -36,6 +37,7 @@ module Amazonka.SageMakerGeoSpatial.Lens
     exportEarthObservationJobResponse_outputConfig,
 
     -- ** ExportVectorEnrichmentJob
+    exportVectorEnrichmentJob_clientToken,
     exportVectorEnrichmentJob_arn,
     exportVectorEnrichmentJob_executionRoleArn,
     exportVectorEnrichmentJob_outputConfig,
@@ -77,6 +79,7 @@ module Amazonka.SageMakerGeoSpatial.Lens
     getRasterDataCollectionResponse_type,
 
     -- ** GetTile
+    getTile_executionRoleArn,
     getTile_imageMask,
     getTile_outputDataType,
     getTile_outputFormat,
@@ -152,13 +155,12 @@ module Amazonka.SageMakerGeoSpatial.Lens
 
     -- ** StartEarthObservationJob
     startEarthObservationJob_clientToken,
-    startEarthObservationJob_executionRoleArn,
     startEarthObservationJob_kmsKeyId,
     startEarthObservationJob_tags,
+    startEarthObservationJob_executionRoleArn,
     startEarthObservationJob_inputConfig,
     startEarthObservationJob_jobConfig,
     startEarthObservationJob_name,
-    startEarthObservationJobResponse_executionRoleArn,
     startEarthObservationJobResponse_inputConfig,
     startEarthObservationJobResponse_kmsKeyId,
     startEarthObservationJobResponse_tags,
@@ -166,6 +168,7 @@ module Amazonka.SageMakerGeoSpatial.Lens
     startEarthObservationJobResponse_arn,
     startEarthObservationJobResponse_creationTime,
     startEarthObservationJobResponse_durationInSeconds,
+    startEarthObservationJobResponse_executionRoleArn,
     startEarthObservationJobResponse_jobConfig,
     startEarthObservationJobResponse_name,
     startEarthObservationJobResponse_status,
@@ -243,9 +246,6 @@ module Amazonka.SageMakerGeoSpatial.Lens
     eoCloudCoverInput_lowerBound,
     eoCloudCoverInput_upperBound,
 
-    -- ** EojDataSourceConfigInput
-    eojDataSourceConfigInput_s3Data,
-
     -- ** ExportErrorDetails
     exportErrorDetails_exportResults,
     exportErrorDetails_exportSourceImages,
@@ -276,12 +276,10 @@ module Amazonka.SageMakerGeoSpatial.Lens
     geometry_type,
 
     -- ** InputConfigInput
-    inputConfigInput_dataSourceConfig,
     inputConfigInput_previousEarthObservationJobArn,
     inputConfigInput_rasterDataCollectionQuery,
 
     -- ** InputConfigOutput
-    inputConfigOutput_dataSourceConfig,
     inputConfigOutput_previousEarthObservationJobArn,
     inputConfigOutput_rasterDataCollectionQuery,
 
@@ -422,11 +420,6 @@ module Amazonka.SageMakerGeoSpatial.Lens
     reverseGeocodingConfig_xAttributeName,
     reverseGeocodingConfig_yAttributeName,
 
-    -- ** S3DataInput
-    s3DataInput_kmsKeyId,
-    s3DataInput_metadataProvider,
-    s3DataInput_s3Uri,
-
     -- ** StackConfigInput
     stackConfigInput_outputResolution,
     stackConfigInput_targetBands,
@@ -439,6 +432,10 @@ module Amazonka.SageMakerGeoSpatial.Lens
     -- ** TimeRangeFilterInput
     timeRangeFilterInput_endTime,
     timeRangeFilterInput_startTime,
+
+    -- ** TimeRangeFilterOutput
+    timeRangeFilterOutput_endTime,
+    timeRangeFilterOutput_startTime,
 
     -- ** UserDefined
     userDefined_unit,
@@ -481,6 +478,7 @@ module Amazonka.SageMakerGeoSpatial.Lens
 
     -- ** ZonalStatisticsConfigInput
     zonalStatisticsConfigInput_targetBands,
+    zonalStatisticsConfigInput_zoneS3PathKmsKeyId,
     zonalStatisticsConfigInput_statistics,
     zonalStatisticsConfigInput_zoneS3Path,
   )
@@ -513,7 +511,6 @@ import Amazonka.SageMakerGeoSpatial.Types.CloudRemovalConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.CustomIndicesInput
 import Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobErrorDetails
 import Amazonka.SageMakerGeoSpatial.Types.EoCloudCoverInput
-import Amazonka.SageMakerGeoSpatial.Types.EojDataSourceConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetails
 import Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetailsOutput
 import Amazonka.SageMakerGeoSpatial.Types.ExportS3DataInput
@@ -548,10 +545,10 @@ import Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryOutput
 import Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryWithBandFilterInput
 import Amazonka.SageMakerGeoSpatial.Types.ResamplingConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.ReverseGeocodingConfig
-import Amazonka.SageMakerGeoSpatial.Types.S3DataInput
 import Amazonka.SageMakerGeoSpatial.Types.StackConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.TemporalStatisticsConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterInput
+import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterOutput
 import Amazonka.SageMakerGeoSpatial.Types.UserDefined
 import Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobConfig
 import Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobDataSourceConfigInput

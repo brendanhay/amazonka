@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The input structure for Land Cover Operation type.
 --
 -- /See:/ 'newLandCoverSegmentationConfigInput' smart constructor.
 data LandCoverSegmentationConfigInput = LandCoverSegmentationConfigInput'

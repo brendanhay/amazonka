@@ -25,11 +25,15 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.ExportErrorType
 
--- |
+-- | The structure representing the errors in an export EarthObservationJob
+-- operation.
 --
 -- /See:/ 'newExportErrorDetailsOutput' smart constructor.
 data ExportErrorDetailsOutput = ExportErrorDetailsOutput'
-  { message :: Prelude.Maybe Prelude.Text,
+  { -- | A detailed message describing the error in an export EarthObservationJob
+    -- operation.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of error in an export EarthObservationJob operation.
     type' :: Prelude.Maybe ExportErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +46,10 @@ data ExportErrorDetailsOutput = ExportErrorDetailsOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'exportErrorDetailsOutput_message' -
+-- 'message', 'exportErrorDetailsOutput_message' - A detailed message describing the error in an export EarthObservationJob
+-- operation.
 --
--- 'type'', 'exportErrorDetailsOutput_type' -
+-- 'type'', 'exportErrorDetailsOutput_type' - The type of error in an export EarthObservationJob operation.
 newExportErrorDetailsOutput ::
   ExportErrorDetailsOutput
 newExportErrorDetailsOutput =
@@ -54,11 +59,12 @@ newExportErrorDetailsOutput =
       type' = Prelude.Nothing
     }
 
--- |
+-- | A detailed message describing the error in an export EarthObservationJob
+-- operation.
 exportErrorDetailsOutput_message :: Lens.Lens' ExportErrorDetailsOutput (Prelude.Maybe Prelude.Text)
 exportErrorDetailsOutput_message = Lens.lens (\ExportErrorDetailsOutput' {message} -> message) (\s@ExportErrorDetailsOutput' {} a -> s {message = a} :: ExportErrorDetailsOutput)
 
--- |
+-- | The type of error in an export EarthObservationJob operation.
 exportErrorDetailsOutput_type :: Lens.Lens' ExportErrorDetailsOutput (Prelude.Maybe ExportErrorType)
 exportErrorDetailsOutput_type = Lens.lens (\ExportErrorDetailsOutput' {type'} -> type') (\s@ExportErrorDetailsOutput' {} a -> s {type' = a} :: ExportErrorDetailsOutput)
 
@@ -74,7 +80,8 @@ instance Data.FromJSON ExportErrorDetailsOutput where
 
 instance Prelude.Hashable ExportErrorDetailsOutput where
   hashWithSalt _salt ExportErrorDetailsOutput' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ExportErrorDetailsOutput where

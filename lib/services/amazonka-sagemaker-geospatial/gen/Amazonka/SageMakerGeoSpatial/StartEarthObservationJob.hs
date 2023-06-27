@@ -28,9 +28,9 @@ module Amazonka.SageMakerGeoSpatial.StartEarthObservationJob
 
     -- * Request Lenses
     startEarthObservationJob_clientToken,
-    startEarthObservationJob_executionRoleArn,
     startEarthObservationJob_kmsKeyId,
     startEarthObservationJob_tags,
+    startEarthObservationJob_executionRoleArn,
     startEarthObservationJob_inputConfig,
     startEarthObservationJob_jobConfig,
     startEarthObservationJob_name,
@@ -40,7 +40,6 @@ module Amazonka.SageMakerGeoSpatial.StartEarthObservationJob
     newStartEarthObservationJobResponse,
 
     -- * Response Lenses
-    startEarthObservationJobResponse_executionRoleArn,
     startEarthObservationJobResponse_inputConfig,
     startEarthObservationJobResponse_kmsKeyId,
     startEarthObservationJobResponse_tags,
@@ -48,6 +47,7 @@ module Amazonka.SageMakerGeoSpatial.StartEarthObservationJob
     startEarthObservationJobResponse_arn,
     startEarthObservationJobResponse_creationTime,
     startEarthObservationJobResponse_durationInSeconds,
+    startEarthObservationJobResponse_executionRoleArn,
     startEarthObservationJobResponse_jobConfig,
     startEarthObservationJobResponse_name,
     startEarthObservationJobResponse_status,
@@ -66,14 +66,13 @@ import Amazonka.SageMakerGeoSpatial.Types
 data StartEarthObservationJob = StartEarthObservationJob'
   { -- | A unique token that guarantees that the call to this API is idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
-    -- the job.
-    executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+    -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Each tag consists of a key and a value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
+    -- the job.
+    executionRoleArn :: Prelude.Text,
     -- | Input configuration information for the Earth Observation job.
     inputConfig :: InputConfigInput,
     -- | An object containing information about the job configuration.
@@ -93,13 +92,12 @@ data StartEarthObservationJob = StartEarthObservationJob'
 --
 -- 'clientToken', 'startEarthObservationJob_clientToken' - A unique token that guarantees that the call to this API is idempotent.
 --
--- 'executionRoleArn', 'startEarthObservationJob_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role that you specified for
--- the job.
---
--- 'kmsKeyId', 'startEarthObservationJob_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'startEarthObservationJob_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
 -- 'tags', 'startEarthObservationJob_tags' - Each tag consists of a key and a value.
+--
+-- 'executionRoleArn', 'startEarthObservationJob_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role that you specified for
+-- the job.
 --
 -- 'inputConfig', 'startEarthObservationJob_inputConfig' - Input configuration information for the Earth Observation job.
 --
@@ -107,6 +105,8 @@ data StartEarthObservationJob = StartEarthObservationJob'
 --
 -- 'name', 'startEarthObservationJob_name' - The name of the Earth Observation job.
 newStartEarthObservationJob ::
+  -- | 'executionRoleArn'
+  Prelude.Text ->
   -- | 'inputConfig'
   InputConfigInput ->
   -- | 'jobConfig'
@@ -115,15 +115,16 @@ newStartEarthObservationJob ::
   Prelude.Text ->
   StartEarthObservationJob
 newStartEarthObservationJob
+  pExecutionRoleArn_
   pInputConfig_
   pJobConfig_
   pName_ =
     StartEarthObservationJob'
       { clientToken =
           Prelude.Nothing,
-        executionRoleArn = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         tags = Prelude.Nothing,
+        executionRoleArn = pExecutionRoleArn_,
         inputConfig = pInputConfig_,
         jobConfig = pJobConfig_,
         name = pName_
@@ -133,19 +134,18 @@ newStartEarthObservationJob
 startEarthObservationJob_clientToken :: Lens.Lens' StartEarthObservationJob (Prelude.Maybe Prelude.Text)
 startEarthObservationJob_clientToken = Lens.lens (\StartEarthObservationJob' {clientToken} -> clientToken) (\s@StartEarthObservationJob' {} a -> s {clientToken = a} :: StartEarthObservationJob)
 
--- | The Amazon Resource Name (ARN) of the IAM role that you specified for
--- the job.
-startEarthObservationJob_executionRoleArn :: Lens.Lens' StartEarthObservationJob (Prelude.Maybe Prelude.Text)
-startEarthObservationJob_executionRoleArn = Lens.lens (\StartEarthObservationJob' {executionRoleArn} -> executionRoleArn) (\s@StartEarthObservationJob' {} a -> s {executionRoleArn = a} :: StartEarthObservationJob)
-
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 startEarthObservationJob_kmsKeyId :: Lens.Lens' StartEarthObservationJob (Prelude.Maybe Prelude.Text)
 startEarthObservationJob_kmsKeyId = Lens.lens (\StartEarthObservationJob' {kmsKeyId} -> kmsKeyId) (\s@StartEarthObservationJob' {} a -> s {kmsKeyId = a} :: StartEarthObservationJob)
 
 -- | Each tag consists of a key and a value.
 startEarthObservationJob_tags :: Lens.Lens' StartEarthObservationJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startEarthObservationJob_tags = Lens.lens (\StartEarthObservationJob' {tags} -> tags) (\s@StartEarthObservationJob' {} a -> s {tags = a} :: StartEarthObservationJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Amazon Resource Name (ARN) of the IAM role that you specified for
+-- the job.
+startEarthObservationJob_executionRoleArn :: Lens.Lens' StartEarthObservationJob Prelude.Text
+startEarthObservationJob_executionRoleArn = Lens.lens (\StartEarthObservationJob' {executionRoleArn} -> executionRoleArn) (\s@StartEarthObservationJob' {} a -> s {executionRoleArn = a} :: StartEarthObservationJob)
 
 -- | Input configuration information for the Earth Observation job.
 startEarthObservationJob_inputConfig :: Lens.Lens' StartEarthObservationJob InputConfigInput
@@ -169,14 +169,14 @@ instance Core.AWSRequest StartEarthObservationJob where
     Response.receiveJSON
       ( \s h x ->
           StartEarthObservationJobResponse'
-            Prelude.<$> (x Data..?> "ExecutionRoleArn")
-            Prelude.<*> (x Data..?> "InputConfig")
+            Prelude.<$> (x Data..?> "InputConfig")
             Prelude.<*> (x Data..?> "KmsKeyId")
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "Arn")
             Prelude.<*> (x Data..:> "CreationTime")
             Prelude.<*> (x Data..:> "DurationInSeconds")
+            Prelude.<*> (x Data..:> "ExecutionRoleArn")
             Prelude.<*> (x Data..:> "JobConfig")
             Prelude.<*> (x Data..:> "Name")
             Prelude.<*> (x Data..:> "Status")
@@ -184,10 +184,11 @@ instance Core.AWSRequest StartEarthObservationJob where
 
 instance Prelude.Hashable StartEarthObservationJob where
   hashWithSalt _salt StartEarthObservationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` executionRoleArn
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` inputConfig
       `Prelude.hashWithSalt` jobConfig
       `Prelude.hashWithSalt` name
@@ -195,9 +196,9 @@ instance Prelude.Hashable StartEarthObservationJob where
 instance Prelude.NFData StartEarthObservationJob where
   rnf StartEarthObservationJob' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf inputConfig
       `Prelude.seq` Prelude.rnf jobConfig
       `Prelude.seq` Prelude.rnf name
@@ -218,10 +219,10 @@ instance Data.ToJSON StartEarthObservationJob where
     Data.object
       ( Prelude.catMaybes
           [ ("ClientToken" Data..=) Prelude.<$> clientToken,
-            ("ExecutionRoleArn" Data..=)
-              Prelude.<$> executionRoleArn,
             ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just
+              ("ExecutionRoleArn" Data..= executionRoleArn),
             Prelude.Just ("InputConfig" Data..= inputConfig),
             Prelude.Just ("JobConfig" Data..= jobConfig),
             Prelude.Just ("Name" Data..= name)
@@ -236,13 +237,9 @@ instance Data.ToQuery StartEarthObservationJob where
 
 -- | /See:/ 'newStartEarthObservationJobResponse' smart constructor.
 data StartEarthObservationJobResponse = StartEarthObservationJobResponse'
-  { -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
-    -- the job.
-    executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Input configuration information for the Earth Observation job.
+  { -- | Input configuration information for the Earth Observation job.
     inputConfig :: Prelude.Maybe InputConfigOutput,
-    -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+    -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Each tag consists of a key and a value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -251,9 +248,12 @@ data StartEarthObservationJobResponse = StartEarthObservationJobResponse'
     -- | The Amazon Resource Name (ARN) of the Earth Observation job.
     arn :: Prelude.Text,
     -- | The creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The duration of the session, in seconds.
     durationInSeconds :: Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
+    -- the job.
+    executionRoleArn :: Prelude.Text,
     -- | An object containing information about the job configuration.
     jobConfig :: JobConfigInput,
     -- | The name of the Earth Observation job.
@@ -271,13 +271,9 @@ data StartEarthObservationJobResponse = StartEarthObservationJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionRoleArn', 'startEarthObservationJobResponse_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role that you specified for
--- the job.
---
 -- 'inputConfig', 'startEarthObservationJobResponse_inputConfig' - Input configuration information for the Earth Observation job.
 --
--- 'kmsKeyId', 'startEarthObservationJobResponse_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'startEarthObservationJobResponse_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
 -- 'tags', 'startEarthObservationJobResponse_tags' - Each tag consists of a key and a value.
 --
@@ -288,6 +284,9 @@ data StartEarthObservationJobResponse = StartEarthObservationJobResponse'
 -- 'creationTime', 'startEarthObservationJobResponse_creationTime' - The creation time.
 --
 -- 'durationInSeconds', 'startEarthObservationJobResponse_durationInSeconds' - The duration of the session, in seconds.
+--
+-- 'executionRoleArn', 'startEarthObservationJobResponse_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role that you specified for
+-- the job.
 --
 -- 'jobConfig', 'startEarthObservationJobResponse_jobConfig' - An object containing information about the job configuration.
 --
@@ -303,6 +302,8 @@ newStartEarthObservationJobResponse ::
   Prelude.UTCTime ->
   -- | 'durationInSeconds'
   Prelude.Int ->
+  -- | 'executionRoleArn'
+  Prelude.Text ->
   -- | 'jobConfig'
   JobConfigInput ->
   -- | 'name'
@@ -315,13 +316,13 @@ newStartEarthObservationJobResponse
   pArn_
   pCreationTime_
   pDurationInSeconds_
+  pExecutionRoleArn_
   pJobConfig_
   pName_
   pStatus_ =
     StartEarthObservationJobResponse'
-      { executionRoleArn =
+      { inputConfig =
           Prelude.Nothing,
-        inputConfig = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -329,22 +330,17 @@ newStartEarthObservationJobResponse
         creationTime =
           Data._Time Lens.# pCreationTime_,
         durationInSeconds = pDurationInSeconds_,
+        executionRoleArn = pExecutionRoleArn_,
         jobConfig = pJobConfig_,
         name = pName_,
         status = pStatus_
       }
 
--- | The Amazon Resource Name (ARN) of the IAM role that you specified for
--- the job.
-startEarthObservationJobResponse_executionRoleArn :: Lens.Lens' StartEarthObservationJobResponse (Prelude.Maybe Prelude.Text)
-startEarthObservationJobResponse_executionRoleArn = Lens.lens (\StartEarthObservationJobResponse' {executionRoleArn} -> executionRoleArn) (\s@StartEarthObservationJobResponse' {} a -> s {executionRoleArn = a} :: StartEarthObservationJobResponse)
-
 -- | Input configuration information for the Earth Observation job.
 startEarthObservationJobResponse_inputConfig :: Lens.Lens' StartEarthObservationJobResponse (Prelude.Maybe InputConfigOutput)
 startEarthObservationJobResponse_inputConfig = Lens.lens (\StartEarthObservationJobResponse' {inputConfig} -> inputConfig) (\s@StartEarthObservationJobResponse' {} a -> s {inputConfig = a} :: StartEarthObservationJobResponse)
 
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 startEarthObservationJobResponse_kmsKeyId :: Lens.Lens' StartEarthObservationJobResponse (Prelude.Maybe Prelude.Text)
 startEarthObservationJobResponse_kmsKeyId = Lens.lens (\StartEarthObservationJobResponse' {kmsKeyId} -> kmsKeyId) (\s@StartEarthObservationJobResponse' {} a -> s {kmsKeyId = a} :: StartEarthObservationJobResponse)
 
@@ -368,6 +364,11 @@ startEarthObservationJobResponse_creationTime = Lens.lens (\StartEarthObservatio
 startEarthObservationJobResponse_durationInSeconds :: Lens.Lens' StartEarthObservationJobResponse Prelude.Int
 startEarthObservationJobResponse_durationInSeconds = Lens.lens (\StartEarthObservationJobResponse' {durationInSeconds} -> durationInSeconds) (\s@StartEarthObservationJobResponse' {} a -> s {durationInSeconds = a} :: StartEarthObservationJobResponse)
 
+-- | The Amazon Resource Name (ARN) of the IAM role that you specified for
+-- the job.
+startEarthObservationJobResponse_executionRoleArn :: Lens.Lens' StartEarthObservationJobResponse Prelude.Text
+startEarthObservationJobResponse_executionRoleArn = Lens.lens (\StartEarthObservationJobResponse' {executionRoleArn} -> executionRoleArn) (\s@StartEarthObservationJobResponse' {} a -> s {executionRoleArn = a} :: StartEarthObservationJobResponse)
+
 -- | An object containing information about the job configuration.
 startEarthObservationJobResponse_jobConfig :: Lens.Lens' StartEarthObservationJobResponse JobConfigInput
 startEarthObservationJobResponse_jobConfig = Lens.lens (\StartEarthObservationJobResponse' {jobConfig} -> jobConfig) (\s@StartEarthObservationJobResponse' {} a -> s {jobConfig = a} :: StartEarthObservationJobResponse)
@@ -385,14 +386,14 @@ instance
     StartEarthObservationJobResponse
   where
   rnf StartEarthObservationJobResponse' {..} =
-    Prelude.rnf executionRoleArn
-      `Prelude.seq` Prelude.rnf inputConfig
+    Prelude.rnf inputConfig
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf durationInSeconds
+      `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf jobConfig
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf status

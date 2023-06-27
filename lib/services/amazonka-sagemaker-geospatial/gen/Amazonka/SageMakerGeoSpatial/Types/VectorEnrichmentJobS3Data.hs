@@ -28,8 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVectorEnrichmentJobS3Data' smart constructor.
 data VectorEnrichmentJobS3Data = VectorEnrichmentJobS3Data'
-  { -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+  { -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The URL to the Amazon S3 data for the Vector Enrichment job.
     s3Uri :: Prelude.Text
@@ -44,8 +43,7 @@ data VectorEnrichmentJobS3Data = VectorEnrichmentJobS3Data'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'vectorEnrichmentJobS3Data_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'vectorEnrichmentJobS3Data_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
 -- 's3Uri', 'vectorEnrichmentJobS3Data_s3Uri' - The URL to the Amazon S3 data for the Vector Enrichment job.
 newVectorEnrichmentJobS3Data ::
@@ -59,8 +57,7 @@ newVectorEnrichmentJobS3Data pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 vectorEnrichmentJobS3Data_kmsKeyId :: Lens.Lens' VectorEnrichmentJobS3Data (Prelude.Maybe Prelude.Text)
 vectorEnrichmentJobS3Data_kmsKeyId = Lens.lens (\VectorEnrichmentJobS3Data' {kmsKeyId} -> kmsKeyId) (\s@VectorEnrichmentJobS3Data' {} a -> s {kmsKeyId = a} :: VectorEnrichmentJobS3Data)
 
@@ -80,7 +77,8 @@ instance Data.FromJSON VectorEnrichmentJobS3Data where
 
 instance Prelude.Hashable VectorEnrichmentJobS3Data where
   hashWithSalt _salt VectorEnrichmentJobS3Data' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData VectorEnrichmentJobS3Data where

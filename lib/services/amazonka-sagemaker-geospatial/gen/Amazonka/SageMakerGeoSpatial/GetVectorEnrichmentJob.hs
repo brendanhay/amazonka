@@ -149,8 +149,7 @@ data GetVectorEnrichmentJobResponse = GetVectorEnrichmentJobResponse'
     exportErrorDetails :: Prelude.Maybe VectorEnrichmentJobExportErrorDetails,
     -- | The export status of the Vector Enrichment job being initiated.
     exportStatus :: Prelude.Maybe VectorEnrichmentJobExportStatus,
-    -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+    -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Each tag consists of a key and a value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -159,7 +158,7 @@ data GetVectorEnrichmentJobResponse = GetVectorEnrichmentJobResponse'
     -- | The Amazon Resource Name (ARN) of the Vector Enrichment job.
     arn :: Prelude.Text,
     -- | The creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The duration of the Vector Enrichment job, in seconds.
     durationInSeconds :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
@@ -192,8 +191,7 @@ data GetVectorEnrichmentJobResponse = GetVectorEnrichmentJobResponse'
 --
 -- 'exportStatus', 'getVectorEnrichmentJobResponse_exportStatus' - The export status of the Vector Enrichment job being initiated.
 --
--- 'kmsKeyId', 'getVectorEnrichmentJobResponse_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'getVectorEnrichmentJobResponse_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
 -- 'tags', 'getVectorEnrichmentJobResponse_tags' - Each tag consists of a key and a value.
 --
@@ -282,8 +280,7 @@ getVectorEnrichmentJobResponse_exportErrorDetails = Lens.lens (\GetVectorEnrichm
 getVectorEnrichmentJobResponse_exportStatus :: Lens.Lens' GetVectorEnrichmentJobResponse (Prelude.Maybe VectorEnrichmentJobExportStatus)
 getVectorEnrichmentJobResponse_exportStatus = Lens.lens (\GetVectorEnrichmentJobResponse' {exportStatus} -> exportStatus) (\s@GetVectorEnrichmentJobResponse' {} a -> s {exportStatus = a} :: GetVectorEnrichmentJobResponse)
 
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 getVectorEnrichmentJobResponse_kmsKeyId :: Lens.Lens' GetVectorEnrichmentJobResponse (Prelude.Maybe Prelude.Text)
 getVectorEnrichmentJobResponse_kmsKeyId = Lens.lens (\GetVectorEnrichmentJobResponse' {kmsKeyId} -> kmsKeyId) (\s@GetVectorEnrichmentJobResponse' {} a -> s {kmsKeyId = a} :: GetVectorEnrichmentJobResponse)
 

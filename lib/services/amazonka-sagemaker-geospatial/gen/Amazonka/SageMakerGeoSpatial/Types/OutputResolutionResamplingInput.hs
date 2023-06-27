@@ -25,11 +25,14 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.UserDefined
 
--- |
+-- | OutputResolution Configuration indicating the target resolution for the
+-- output of Resampling operation.
 --
 -- /See:/ 'newOutputResolutionResamplingInput' smart constructor.
 data OutputResolutionResamplingInput = OutputResolutionResamplingInput'
-  { userDefined :: UserDefined
+  { -- | User Defined Resolution for the output of Resampling operation defined
+    -- by value and unit.
+    userDefined :: UserDefined
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +44,8 @@ data OutputResolutionResamplingInput = OutputResolutionResamplingInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userDefined', 'outputResolutionResamplingInput_userDefined' -
+-- 'userDefined', 'outputResolutionResamplingInput_userDefined' - User Defined Resolution for the output of Resampling operation defined
+-- by value and unit.
 newOutputResolutionResamplingInput ::
   -- | 'userDefined'
   UserDefined ->
@@ -52,7 +56,8 @@ newOutputResolutionResamplingInput pUserDefined_ =
         pUserDefined_
     }
 
--- |
+-- | User Defined Resolution for the output of Resampling operation defined
+-- by value and unit.
 outputResolutionResamplingInput_userDefined :: Lens.Lens' OutputResolutionResamplingInput UserDefined
 outputResolutionResamplingInput_userDefined = Lens.lens (\OutputResolutionResamplingInput' {userDefined} -> userDefined) (\s@OutputResolutionResamplingInput' {} a -> s {userDefined = a} :: OutputResolutionResamplingInput)
 

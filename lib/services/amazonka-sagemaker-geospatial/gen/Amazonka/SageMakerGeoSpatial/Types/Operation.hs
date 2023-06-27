@@ -25,12 +25,14 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.OutputType
 
--- |
+-- | Represents an arithmetic operation to compute spectral index.
 --
 -- /See:/ 'newOperation' smart constructor.
 data Operation = Operation'
   { -- | The type of the operation.
     outputType :: Prelude.Maybe OutputType,
+    -- | Textual representation of the math operation; Equation used to compute
+    -- the spectral index.
     equation :: Prelude.Text,
     -- | The name of the operation.
     name :: Prelude.Text
@@ -47,7 +49,8 @@ data Operation = Operation'
 --
 -- 'outputType', 'operation_outputType' - The type of the operation.
 --
--- 'equation', 'operation_equation' -
+-- 'equation', 'operation_equation' - Textual representation of the math operation; Equation used to compute
+-- the spectral index.
 --
 -- 'name', 'operation_name' - The name of the operation.
 newOperation ::
@@ -67,7 +70,8 @@ newOperation pEquation_ pName_ =
 operation_outputType :: Lens.Lens' Operation (Prelude.Maybe OutputType)
 operation_outputType = Lens.lens (\Operation' {outputType} -> outputType) (\s@Operation' {} a -> s {outputType = a} :: Operation)
 
--- |
+-- | Textual representation of the math operation; Equation used to compute
+-- the spectral index.
 operation_equation :: Lens.Lens' Operation Prelude.Text
 operation_equation = Lens.lens (\Operation' {equation} -> equation) (\s@Operation' {} a -> s {equation = a} :: Operation)
 
@@ -88,7 +92,8 @@ instance Data.FromJSON Operation where
 
 instance Prelude.Hashable Operation where
   hashWithSalt _salt Operation' {..} =
-    _salt `Prelude.hashWithSalt` outputType
+    _salt
+      `Prelude.hashWithSalt` outputType
       `Prelude.hashWithSalt` equation
       `Prelude.hashWithSalt` name
 

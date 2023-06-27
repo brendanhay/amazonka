@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | Input structure for CloudMasking operation type.
 --
 -- /See:/ 'newCloudMaskingConfigInput' smart constructor.
 data CloudMaskingConfigInput = CloudMaskingConfigInput'

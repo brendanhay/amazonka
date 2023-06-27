@@ -30,7 +30,11 @@ import Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetailsOutput
 --
 -- /See:/ 'newExportErrorDetails' smart constructor.
 data ExportErrorDetails = ExportErrorDetails'
-  { exportResults :: Prelude.Maybe ExportErrorDetailsOutput,
+  { -- | The structure for returning the export error details while exporting
+    -- results of an Earth Observation job.
+    exportResults :: Prelude.Maybe ExportErrorDetailsOutput,
+    -- | The structure for returning the export error details while exporting the
+    -- source images of an Earth Observation job.
     exportSourceImages :: Prelude.Maybe ExportErrorDetailsOutput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +47,11 @@ data ExportErrorDetails = ExportErrorDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exportResults', 'exportErrorDetails_exportResults' -
+-- 'exportResults', 'exportErrorDetails_exportResults' - The structure for returning the export error details while exporting
+-- results of an Earth Observation job.
 --
--- 'exportSourceImages', 'exportErrorDetails_exportSourceImages' -
+-- 'exportSourceImages', 'exportErrorDetails_exportSourceImages' - The structure for returning the export error details while exporting the
+-- source images of an Earth Observation job.
 newExportErrorDetails ::
   ExportErrorDetails
 newExportErrorDetails =
@@ -55,11 +61,13 @@ newExportErrorDetails =
       exportSourceImages = Prelude.Nothing
     }
 
--- |
+-- | The structure for returning the export error details while exporting
+-- results of an Earth Observation job.
 exportErrorDetails_exportResults :: Lens.Lens' ExportErrorDetails (Prelude.Maybe ExportErrorDetailsOutput)
 exportErrorDetails_exportResults = Lens.lens (\ExportErrorDetails' {exportResults} -> exportResults) (\s@ExportErrorDetails' {} a -> s {exportResults = a} :: ExportErrorDetails)
 
--- |
+-- | The structure for returning the export error details while exporting the
+-- source images of an Earth Observation job.
 exportErrorDetails_exportSourceImages :: Lens.Lens' ExportErrorDetails (Prelude.Maybe ExportErrorDetailsOutput)
 exportErrorDetails_exportSourceImages = Lens.lens (\ExportErrorDetails' {exportSourceImages} -> exportSourceImages) (\s@ExportErrorDetails' {} a -> s {exportSourceImages = a} :: ExportErrorDetails)
 
@@ -75,7 +83,8 @@ instance Data.FromJSON ExportErrorDetails where
 
 instance Prelude.Hashable ExportErrorDetails where
   hashWithSalt _salt ExportErrorDetails' {..} =
-    _salt `Prelude.hashWithSalt` exportResults
+    _salt
+      `Prelude.hashWithSalt` exportResults
       `Prelude.hashWithSalt` exportSourceImages
 
 instance Prelude.NFData ExportErrorDetails where

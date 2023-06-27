@@ -81,7 +81,6 @@ library
     Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobExportStatus
     Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobStatus
     Amazonka.SageMakerGeoSpatial.Types.EoCloudCoverInput
-    Amazonka.SageMakerGeoSpatial.Types.EojDataSourceConfigInput
     Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetails
     Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetailsOutput
     Amazonka.SageMakerGeoSpatial.Types.ExportErrorType
@@ -101,7 +100,6 @@ library
     Amazonka.SageMakerGeoSpatial.Types.ListVectorEnrichmentJobOutputConfig
     Amazonka.SageMakerGeoSpatial.Types.LogicalOperator
     Amazonka.SageMakerGeoSpatial.Types.MapMatchingConfig
-    Amazonka.SageMakerGeoSpatial.Types.MetadataProvider
     Amazonka.SageMakerGeoSpatial.Types.MultiPolygonGeometryInput
     Amazonka.SageMakerGeoSpatial.Types.Operation
     Amazonka.SageMakerGeoSpatial.Types.OutputBand
@@ -122,13 +120,13 @@ library
     Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryWithBandFilterInput
     Amazonka.SageMakerGeoSpatial.Types.ResamplingConfigInput
     Amazonka.SageMakerGeoSpatial.Types.ReverseGeocodingConfig
-    Amazonka.SageMakerGeoSpatial.Types.S3DataInput
     Amazonka.SageMakerGeoSpatial.Types.SortOrder
     Amazonka.SageMakerGeoSpatial.Types.StackConfigInput
     Amazonka.SageMakerGeoSpatial.Types.TargetOptions
     Amazonka.SageMakerGeoSpatial.Types.TemporalStatistics
     Amazonka.SageMakerGeoSpatial.Types.TemporalStatisticsConfigInput
     Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterInput
+    Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterOutput
     Amazonka.SageMakerGeoSpatial.Types.Unit
     Amazonka.SageMakerGeoSpatial.Types.UserDefined
     Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobConfig

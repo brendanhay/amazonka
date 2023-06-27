@@ -26,11 +26,16 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.PredefinedResolution
 import Amazonka.SageMakerGeoSpatial.Types.UserDefined
 
--- |
+-- | The input structure representing Output Resolution for Stacking
+-- Operation.
 --
 -- /See:/ 'newOutputResolutionStackInput' smart constructor.
 data OutputResolutionStackInput = OutputResolutionStackInput'
-  { predefined :: Prelude.Maybe PredefinedResolution,
+  { -- | A string value representing Predefined Output Resolution for a stacking
+    -- operation. Allowed values are @HIGHEST@, @LOWEST@, and @AVERAGE@.
+    predefined :: Prelude.Maybe PredefinedResolution,
+    -- | The structure representing User Output Resolution for a Stacking
+    -- operation defined as a value and unit.
     userDefined :: Prelude.Maybe UserDefined
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +48,11 @@ data OutputResolutionStackInput = OutputResolutionStackInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'predefined', 'outputResolutionStackInput_predefined' -
+-- 'predefined', 'outputResolutionStackInput_predefined' - A string value representing Predefined Output Resolution for a stacking
+-- operation. Allowed values are @HIGHEST@, @LOWEST@, and @AVERAGE@.
 --
--- 'userDefined', 'outputResolutionStackInput_userDefined' -
+-- 'userDefined', 'outputResolutionStackInput_userDefined' - The structure representing User Output Resolution for a Stacking
+-- operation defined as a value and unit.
 newOutputResolutionStackInput ::
   OutputResolutionStackInput
 newOutputResolutionStackInput =
@@ -55,11 +62,13 @@ newOutputResolutionStackInput =
       userDefined = Prelude.Nothing
     }
 
--- |
+-- | A string value representing Predefined Output Resolution for a stacking
+-- operation. Allowed values are @HIGHEST@, @LOWEST@, and @AVERAGE@.
 outputResolutionStackInput_predefined :: Lens.Lens' OutputResolutionStackInput (Prelude.Maybe PredefinedResolution)
 outputResolutionStackInput_predefined = Lens.lens (\OutputResolutionStackInput' {predefined} -> predefined) (\s@OutputResolutionStackInput' {} a -> s {predefined = a} :: OutputResolutionStackInput)
 
--- |
+-- | The structure representing User Output Resolution for a Stacking
+-- operation defined as a value and unit.
 outputResolutionStackInput_userDefined :: Lens.Lens' OutputResolutionStackInput (Prelude.Maybe UserDefined)
 outputResolutionStackInput_userDefined = Lens.lens (\OutputResolutionStackInput' {userDefined} -> userDefined) (\s@OutputResolutionStackInput' {} a -> s {userDefined = a} :: OutputResolutionStackInput)
 
@@ -75,7 +84,8 @@ instance Data.FromJSON OutputResolutionStackInput where
 
 instance Prelude.Hashable OutputResolutionStackInput where
   hashWithSalt _salt OutputResolutionStackInput' {..} =
-    _salt `Prelude.hashWithSalt` predefined
+    _salt
+      `Prelude.hashWithSalt` predefined
       `Prelude.hashWithSalt` userDefined
 
 instance Prelude.NFData OutputResolutionStackInput where

@@ -59,9 +59,6 @@ module Amazonka.SageMakerGeoSpatial.Types
     -- * LogicalOperator
     LogicalOperator (..),
 
-    -- * MetadataProvider
-    MetadataProvider (..),
-
     -- * OutputType
     OutputType (..),
 
@@ -151,11 +148,6 @@ module Amazonka.SageMakerGeoSpatial.Types
     eoCloudCoverInput_lowerBound,
     eoCloudCoverInput_upperBound,
 
-    -- * EojDataSourceConfigInput
-    EojDataSourceConfigInput (..),
-    newEojDataSourceConfigInput,
-    eojDataSourceConfigInput_s3Data,
-
     -- * ExportErrorDetails
     ExportErrorDetails (..),
     newExportErrorDetails,
@@ -202,14 +194,12 @@ module Amazonka.SageMakerGeoSpatial.Types
     -- * InputConfigInput
     InputConfigInput (..),
     newInputConfigInput,
-    inputConfigInput_dataSourceConfig,
     inputConfigInput_previousEarthObservationJobArn,
     inputConfigInput_rasterDataCollectionQuery,
 
     -- * InputConfigOutput
     InputConfigOutput (..),
     newInputConfigOutput,
-    inputConfigOutput_dataSourceConfig,
     inputConfigOutput_previousEarthObservationJobArn,
     inputConfigOutput_rasterDataCollectionQuery,
 
@@ -400,13 +390,6 @@ module Amazonka.SageMakerGeoSpatial.Types
     reverseGeocodingConfig_xAttributeName,
     reverseGeocodingConfig_yAttributeName,
 
-    -- * S3DataInput
-    S3DataInput (..),
-    newS3DataInput,
-    s3DataInput_kmsKeyId,
-    s3DataInput_metadataProvider,
-    s3DataInput_s3Uri,
-
     -- * StackConfigInput
     StackConfigInput (..),
     newStackConfigInput,
@@ -425,6 +408,12 @@ module Amazonka.SageMakerGeoSpatial.Types
     newTimeRangeFilterInput,
     timeRangeFilterInput_endTime,
     timeRangeFilterInput_startTime,
+
+    -- * TimeRangeFilterOutput
+    TimeRangeFilterOutput (..),
+    newTimeRangeFilterOutput,
+    timeRangeFilterOutput_endTime,
+    timeRangeFilterOutput_startTime,
 
     -- * UserDefined
     UserDefined (..),
@@ -489,6 +478,7 @@ module Amazonka.SageMakerGeoSpatial.Types
     ZonalStatisticsConfigInput (..),
     newZonalStatisticsConfigInput,
     zonalStatisticsConfigInput_targetBands,
+    zonalStatisticsConfigInput_zoneS3PathKmsKeyId,
     zonalStatisticsConfigInput_statistics,
     zonalStatisticsConfigInput_zoneS3Path,
   )
@@ -514,7 +504,6 @@ import Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobErrorType
 import Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobExportStatus
 import Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobStatus
 import Amazonka.SageMakerGeoSpatial.Types.EoCloudCoverInput
-import Amazonka.SageMakerGeoSpatial.Types.EojDataSourceConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetails
 import Amazonka.SageMakerGeoSpatial.Types.ExportErrorDetailsOutput
 import Amazonka.SageMakerGeoSpatial.Types.ExportErrorType
@@ -534,7 +523,6 @@ import Amazonka.SageMakerGeoSpatial.Types.ListEarthObservationJobOutputConfig
 import Amazonka.SageMakerGeoSpatial.Types.ListVectorEnrichmentJobOutputConfig
 import Amazonka.SageMakerGeoSpatial.Types.LogicalOperator
 import Amazonka.SageMakerGeoSpatial.Types.MapMatchingConfig
-import Amazonka.SageMakerGeoSpatial.Types.MetadataProvider
 import Amazonka.SageMakerGeoSpatial.Types.MultiPolygonGeometryInput
 import Amazonka.SageMakerGeoSpatial.Types.Operation
 import Amazonka.SageMakerGeoSpatial.Types.OutputBand
@@ -555,13 +543,13 @@ import Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryOutput
 import Amazonka.SageMakerGeoSpatial.Types.RasterDataCollectionQueryWithBandFilterInput
 import Amazonka.SageMakerGeoSpatial.Types.ResamplingConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.ReverseGeocodingConfig
-import Amazonka.SageMakerGeoSpatial.Types.S3DataInput
 import Amazonka.SageMakerGeoSpatial.Types.SortOrder
 import Amazonka.SageMakerGeoSpatial.Types.StackConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.TargetOptions
 import Amazonka.SageMakerGeoSpatial.Types.TemporalStatistics
 import Amazonka.SageMakerGeoSpatial.Types.TemporalStatisticsConfigInput
 import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterInput
+import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterOutput
 import Amazonka.SageMakerGeoSpatial.Types.Unit
 import Amazonka.SageMakerGeoSpatial.Types.UserDefined
 import Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobConfig
@@ -610,60 +598,60 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- |
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | Updating or deleting a resource can cause an inconsistent state.
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -672,15 +660,15 @@ _ConflictException =
 
 -- | The request processing has failed because of an unknown error,
 -- exception, or failure.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- |
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The request references a resource which does not exist.
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -688,7 +676,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | You have exceeded the service quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +684,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -705,7 +693,7 @@ _ThrottlingException =
 
 -- | The input fails to satisfy the constraints specified by an Amazon Web
 -- Services service.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

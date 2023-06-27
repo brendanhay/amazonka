@@ -24,11 +24,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The structure representing Polygon Geometry based on the
+-- <https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6 GeoJson spec>.
 --
 -- /See:/ 'newPolygonGeometryInput' smart constructor.
 data PolygonGeometryInput = PolygonGeometryInput'
-  { coordinates :: Prelude.NonEmpty (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double)))
+  { -- | Coordinates representing a Polygon based on the
+    -- <https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6 GeoJson spec>.
+    coordinates :: Prelude.NonEmpty (Prelude.NonEmpty (Data.Sensitive (Prelude.NonEmpty Prelude.Double)))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -40,7 +43,8 @@ data PolygonGeometryInput = PolygonGeometryInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'coordinates', 'polygonGeometryInput_coordinates' -
+-- 'coordinates', 'polygonGeometryInput_coordinates' - Coordinates representing a Polygon based on the
+-- <https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6 GeoJson spec>.
 newPolygonGeometryInput ::
   -- | 'coordinates'
   Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double)) ->
@@ -51,7 +55,8 @@ newPolygonGeometryInput pCoordinates_ =
         Lens.coerced Lens.# pCoordinates_
     }
 
--- |
+-- | Coordinates representing a Polygon based on the
+-- <https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6 GeoJson spec>.
 polygonGeometryInput_coordinates :: Lens.Lens' PolygonGeometryInput (Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double)))
 polygonGeometryInput_coordinates = Lens.lens (\PolygonGeometryInput' {coordinates} -> coordinates) (\s@PolygonGeometryInput' {} a -> s {coordinates = a} :: PolygonGeometryInput) Prelude.. Lens.coerced
 

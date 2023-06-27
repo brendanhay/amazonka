@@ -29,7 +29,9 @@ import Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobS3Data
 --
 -- /See:/ 'newExportVectorEnrichmentJobOutputConfig' smart constructor.
 data ExportVectorEnrichmentJobOutputConfig = ExportVectorEnrichmentJobOutputConfig'
-  { s3Data :: VectorEnrichmentJobS3Data
+  { -- | The input structure for Amazon S3 data; representing the Amazon S3
+    -- location of the input data objects.
+    s3Data :: VectorEnrichmentJobS3Data
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +43,8 @@ data ExportVectorEnrichmentJobOutputConfig = ExportVectorEnrichmentJobOutputConf
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Data', 'exportVectorEnrichmentJobOutputConfig_s3Data' -
+-- 's3Data', 'exportVectorEnrichmentJobOutputConfig_s3Data' - The input structure for Amazon S3 data; representing the Amazon S3
+-- location of the input data objects.
 newExportVectorEnrichmentJobOutputConfig ::
   -- | 's3Data'
   VectorEnrichmentJobS3Data ->
@@ -52,7 +55,8 @@ newExportVectorEnrichmentJobOutputConfig pS3Data_ =
         pS3Data_
     }
 
--- |
+-- | The input structure for Amazon S3 data; representing the Amazon S3
+-- location of the input data objects.
 exportVectorEnrichmentJobOutputConfig_s3Data :: Lens.Lens' ExportVectorEnrichmentJobOutputConfig VectorEnrichmentJobS3Data
 exportVectorEnrichmentJobOutputConfig_s3Data = Lens.lens (\ExportVectorEnrichmentJobOutputConfig' {s3Data} -> s3Data) (\s@ExportVectorEnrichmentJobOutputConfig' {} a -> s {s3Data = a} :: ExportVectorEnrichmentJobOutputConfig)
 

@@ -24,15 +24,30 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | Properties associated with the Item.
 --
 -- /See:/ 'newProperties' smart constructor.
 data Properties = Properties'
-  { eoCloudCover :: Prelude.Maybe Prelude.Double,
+  { -- | Estimate of cloud cover.
+    eoCloudCover :: Prelude.Maybe Prelude.Double,
+    -- | Land cloud cover for Landsat Data Collection.
     landsatCloudCoverLand :: Prelude.Maybe Prelude.Double,
+    -- | Platform property. Platform refers to the unique name of the specific
+    -- platform the instrument is attached to. For satellites it is the name of
+    -- the satellite, eg. landsat-8 (Landsat-8), sentinel-2a.
     platform :: Prelude.Maybe Prelude.Text,
+    -- | The angle from the sensor between nadir (straight down) and the scene
+    -- center. Measured in degrees (0-90).
     viewOffNadir :: Prelude.Maybe Prelude.Double,
+    -- | The sun azimuth angle. From the scene center point on the ground, this
+    -- is the angle between truth north and the sun. Measured clockwise in
+    -- degrees (0-360).
     viewSunAzimuth :: Prelude.Maybe Prelude.Double,
+    -- | The sun elevation angle. The angle from the tangent of the scene center
+    -- point to the sun. Measured from the horizon in degrees (-90-90).
+    -- Negative values indicate the sun is below the horizon, e.g. sun
+    -- elevation of -10° means the data was captured during
+    -- <https://www.timeanddate.com/astronomy/different-types-twilight.html nautical twilight>.
     viewSunElevation :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,17 +60,26 @@ data Properties = Properties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eoCloudCover', 'properties_eoCloudCover' -
+-- 'eoCloudCover', 'properties_eoCloudCover' - Estimate of cloud cover.
 --
--- 'landsatCloudCoverLand', 'properties_landsatCloudCoverLand' -
+-- 'landsatCloudCoverLand', 'properties_landsatCloudCoverLand' - Land cloud cover for Landsat Data Collection.
 --
--- 'platform', 'properties_platform' -
+-- 'platform', 'properties_platform' - Platform property. Platform refers to the unique name of the specific
+-- platform the instrument is attached to. For satellites it is the name of
+-- the satellite, eg. landsat-8 (Landsat-8), sentinel-2a.
 --
--- 'viewOffNadir', 'properties_viewOffNadir' -
+-- 'viewOffNadir', 'properties_viewOffNadir' - The angle from the sensor between nadir (straight down) and the scene
+-- center. Measured in degrees (0-90).
 --
--- 'viewSunAzimuth', 'properties_viewSunAzimuth' -
+-- 'viewSunAzimuth', 'properties_viewSunAzimuth' - The sun azimuth angle. From the scene center point on the ground, this
+-- is the angle between truth north and the sun. Measured clockwise in
+-- degrees (0-360).
 --
--- 'viewSunElevation', 'properties_viewSunElevation' -
+-- 'viewSunElevation', 'properties_viewSunElevation' - The sun elevation angle. The angle from the tangent of the scene center
+-- point to the sun. Measured from the horizon in degrees (-90-90).
+-- Negative values indicate the sun is below the horizon, e.g. sun
+-- elevation of -10° means the data was captured during
+-- <https://www.timeanddate.com/astronomy/different-types-twilight.html nautical twilight>.
 newProperties ::
   Properties
 newProperties =
@@ -68,27 +92,36 @@ newProperties =
       viewSunElevation = Prelude.Nothing
     }
 
--- |
+-- | Estimate of cloud cover.
 properties_eoCloudCover :: Lens.Lens' Properties (Prelude.Maybe Prelude.Double)
 properties_eoCloudCover = Lens.lens (\Properties' {eoCloudCover} -> eoCloudCover) (\s@Properties' {} a -> s {eoCloudCover = a} :: Properties)
 
--- |
+-- | Land cloud cover for Landsat Data Collection.
 properties_landsatCloudCoverLand :: Lens.Lens' Properties (Prelude.Maybe Prelude.Double)
 properties_landsatCloudCoverLand = Lens.lens (\Properties' {landsatCloudCoverLand} -> landsatCloudCoverLand) (\s@Properties' {} a -> s {landsatCloudCoverLand = a} :: Properties)
 
--- |
+-- | Platform property. Platform refers to the unique name of the specific
+-- platform the instrument is attached to. For satellites it is the name of
+-- the satellite, eg. landsat-8 (Landsat-8), sentinel-2a.
 properties_platform :: Lens.Lens' Properties (Prelude.Maybe Prelude.Text)
 properties_platform = Lens.lens (\Properties' {platform} -> platform) (\s@Properties' {} a -> s {platform = a} :: Properties)
 
--- |
+-- | The angle from the sensor between nadir (straight down) and the scene
+-- center. Measured in degrees (0-90).
 properties_viewOffNadir :: Lens.Lens' Properties (Prelude.Maybe Prelude.Double)
 properties_viewOffNadir = Lens.lens (\Properties' {viewOffNadir} -> viewOffNadir) (\s@Properties' {} a -> s {viewOffNadir = a} :: Properties)
 
--- |
+-- | The sun azimuth angle. From the scene center point on the ground, this
+-- is the angle between truth north and the sun. Measured clockwise in
+-- degrees (0-360).
 properties_viewSunAzimuth :: Lens.Lens' Properties (Prelude.Maybe Prelude.Double)
 properties_viewSunAzimuth = Lens.lens (\Properties' {viewSunAzimuth} -> viewSunAzimuth) (\s@Properties' {} a -> s {viewSunAzimuth = a} :: Properties)
 
--- |
+-- | The sun elevation angle. The angle from the tangent of the scene center
+-- point to the sun. Measured from the horizon in degrees (-90-90).
+-- Negative values indicate the sun is below the horizon, e.g. sun
+-- elevation of -10° means the data was captured during
+-- <https://www.timeanddate.com/astronomy/different-types-twilight.html nautical twilight>.
 properties_viewSunElevation :: Lens.Lens' Properties (Prelude.Maybe Prelude.Double)
 properties_viewSunElevation = Lens.lens (\Properties' {viewSunElevation} -> viewSunElevation) (\s@Properties' {} a -> s {viewSunElevation = a} :: Properties)
 
@@ -108,7 +141,8 @@ instance Data.FromJSON Properties where
 
 instance Prelude.Hashable Properties where
   hashWithSalt _salt Properties' {..} =
-    _salt `Prelude.hashWithSalt` eoCloudCover
+    _salt
+      `Prelude.hashWithSalt` eoCloudCover
       `Prelude.hashWithSalt` landsatCloudCoverLand
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` viewOffNadir

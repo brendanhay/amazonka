@@ -36,7 +36,7 @@ data ListVectorEnrichmentJobOutputConfig = ListVectorEnrichmentJobOutputConfig'
     -- jobs.
     arn :: Prelude.Text,
     -- | The creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The duration of the session, in seconds.
     durationInSeconds :: Prelude.Int,
     -- | The names of the Vector Enrichment jobs in the list.
@@ -158,7 +158,8 @@ instance
   hashWithSalt
     _salt
     ListVectorEnrichmentJobOutputConfig' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` durationInSeconds

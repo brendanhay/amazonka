@@ -24,7 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The structure representing Polygon Geometry based on the
+-- <https://www.rfc-editor.org/rfc/rfc7946#section-3.1.6 GeoJson spec>.
 --
 -- /See:/ 'newMultiPolygonGeometryInput' smart constructor.
 data MultiPolygonGeometryInput = MultiPolygonGeometryInput'

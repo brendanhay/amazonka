@@ -27,6 +27,7 @@ module Amazonka.SageMakerGeoSpatial.GetTile
     newGetTile,
 
     -- * Request Lenses
+    getTile_executionRoleArn,
     getTile_imageMask,
     getTile_outputDataType,
     getTile_outputFormat,
@@ -59,7 +60,9 @@ import Amazonka.SageMakerGeoSpatial.Types
 
 -- | /See:/ 'newGetTile' smart constructor.
 data GetTile = GetTile'
-  { -- | Determines whether or not to return a valid data mask.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that you specify.
+    executionRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | Determines whether or not to return a valid data mask.
     imageMask :: Prelude.Maybe Prelude.Bool,
     -- | The output data type of the tile operation.
     outputDataType :: Prelude.Maybe OutputType,
@@ -93,6 +96,8 @@ data GetTile = GetTile'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'executionRoleArn', 'getTile_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role that you specify.
 --
 -- 'imageMask', 'getTile_imageMask' - Determines whether or not to return a valid data mask.
 --
@@ -133,7 +138,8 @@ newGetTile ::
   GetTile
 newGetTile pArn_ pImageAssets_ pTarget_ pX_ pY_ pZ_ =
   GetTile'
-    { imageMask = Prelude.Nothing,
+    { executionRoleArn = Prelude.Nothing,
+      imageMask = Prelude.Nothing,
       outputDataType = Prelude.Nothing,
       outputFormat = Prelude.Nothing,
       propertyFilters = Prelude.Nothing,
@@ -145,6 +151,10 @@ newGetTile pArn_ pImageAssets_ pTarget_ pX_ pY_ pZ_ =
       y = pY_,
       z = pZ_
     }
+
+-- | The Amazon Resource Name (ARN) of the IAM role that you specify.
+getTile_executionRoleArn :: Lens.Lens' GetTile (Prelude.Maybe Prelude.Text)
+getTile_executionRoleArn = Lens.lens (\GetTile' {executionRoleArn} -> executionRoleArn) (\s@GetTile' {} a -> s {executionRoleArn = a} :: GetTile)
 
 -- | Determines whether or not to return a valid data mask.
 getTile_imageMask :: Lens.Lens' GetTile (Prelude.Maybe Prelude.Bool)
@@ -206,7 +216,9 @@ instance Core.AWSRequest GetTile where
 
 instance Prelude.Hashable GetTile where
   hashWithSalt _salt GetTile' {..} =
-    _salt `Prelude.hashWithSalt` imageMask
+    _salt
+      `Prelude.hashWithSalt` executionRoleArn
+      `Prelude.hashWithSalt` imageMask
       `Prelude.hashWithSalt` outputDataType
       `Prelude.hashWithSalt` outputFormat
       `Prelude.hashWithSalt` propertyFilters
@@ -220,7 +232,8 @@ instance Prelude.Hashable GetTile where
 
 instance Prelude.NFData GetTile where
   rnf GetTile' {..} =
-    Prelude.rnf imageMask
+    Prelude.rnf executionRoleArn
+      `Prelude.seq` Prelude.rnf imageMask
       `Prelude.seq` Prelude.rnf outputDataType
       `Prelude.seq` Prelude.rnf outputFormat
       `Prelude.seq` Prelude.rnf propertyFilters
@@ -257,7 +270,8 @@ instance Data.ToPath GetTile where
 instance Data.ToQuery GetTile where
   toQuery GetTile' {..} =
     Prelude.mconcat
-      [ "ImageMask" Data.=: imageMask,
+      [ "ExecutionRoleArn" Data.=: executionRoleArn,
+        "ImageMask" Data.=: imageMask,
         "OutputDataType" Data.=: outputDataType,
         "OutputFormat" Data.=: outputFormat,
         "PropertyFilters" Data.=: propertyFilters,

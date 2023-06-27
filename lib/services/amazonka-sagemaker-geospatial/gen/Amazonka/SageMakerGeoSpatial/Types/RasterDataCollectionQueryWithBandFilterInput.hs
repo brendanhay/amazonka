@@ -32,9 +32,13 @@ import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterInput
 --
 -- /See:/ 'newRasterDataCollectionQueryWithBandFilterInput' smart constructor.
 data RasterDataCollectionQueryWithBandFilterInput = RasterDataCollectionQueryWithBandFilterInput'
-  { areaOfInterest :: Prelude.Maybe AreaOfInterest,
+  { -- | The Area of interest to be used in the search query.
+    areaOfInterest :: Prelude.Maybe AreaOfInterest,
+    -- | The list of Bands to be displayed in the result for each item.
     bandFilter :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The Property Filters used in the search query.
     propertyFilters :: Prelude.Maybe PropertyFilters,
+    -- | The TimeRange Filter used in the search query.
     timeRangeFilter :: Data.Sensitive TimeRangeFilterInput
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -47,13 +51,13 @@ data RasterDataCollectionQueryWithBandFilterInput = RasterDataCollectionQueryWit
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'areaOfInterest', 'rasterDataCollectionQueryWithBandFilterInput_areaOfInterest' -
+-- 'areaOfInterest', 'rasterDataCollectionQueryWithBandFilterInput_areaOfInterest' - The Area of interest to be used in the search query.
 --
--- 'bandFilter', 'rasterDataCollectionQueryWithBandFilterInput_bandFilter' -
+-- 'bandFilter', 'rasterDataCollectionQueryWithBandFilterInput_bandFilter' - The list of Bands to be displayed in the result for each item.
 --
--- 'propertyFilters', 'rasterDataCollectionQueryWithBandFilterInput_propertyFilters' -
+-- 'propertyFilters', 'rasterDataCollectionQueryWithBandFilterInput_propertyFilters' - The Property Filters used in the search query.
 --
--- 'timeRangeFilter', 'rasterDataCollectionQueryWithBandFilterInput_timeRangeFilter' -
+-- 'timeRangeFilter', 'rasterDataCollectionQueryWithBandFilterInput_timeRangeFilter' - The TimeRange Filter used in the search query.
 newRasterDataCollectionQueryWithBandFilterInput ::
   -- | 'timeRangeFilter'
   TimeRangeFilterInput ->
@@ -71,19 +75,19 @@ newRasterDataCollectionQueryWithBandFilterInput
             Lens.# pTimeRangeFilter_
       }
 
--- |
+-- | The Area of interest to be used in the search query.
 rasterDataCollectionQueryWithBandFilterInput_areaOfInterest :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput (Prelude.Maybe AreaOfInterest)
 rasterDataCollectionQueryWithBandFilterInput_areaOfInterest = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {areaOfInterest} -> areaOfInterest) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {areaOfInterest = a} :: RasterDataCollectionQueryWithBandFilterInput)
 
--- |
+-- | The list of Bands to be displayed in the result for each item.
 rasterDataCollectionQueryWithBandFilterInput_bandFilter :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 rasterDataCollectionQueryWithBandFilterInput_bandFilter = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {bandFilter} -> bandFilter) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {bandFilter = a} :: RasterDataCollectionQueryWithBandFilterInput) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The Property Filters used in the search query.
 rasterDataCollectionQueryWithBandFilterInput_propertyFilters :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput (Prelude.Maybe PropertyFilters)
 rasterDataCollectionQueryWithBandFilterInput_propertyFilters = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {propertyFilters} -> propertyFilters) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {propertyFilters = a} :: RasterDataCollectionQueryWithBandFilterInput)
 
--- |
+-- | The TimeRange Filter used in the search query.
 rasterDataCollectionQueryWithBandFilterInput_timeRangeFilter :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput TimeRangeFilterInput
 rasterDataCollectionQueryWithBandFilterInput_timeRangeFilter = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {timeRangeFilter} -> timeRangeFilter) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {timeRangeFilter = a} :: RasterDataCollectionQueryWithBandFilterInput) Prelude.. Data._Sensitive
 
@@ -94,7 +98,8 @@ instance
   hashWithSalt
     _salt
     RasterDataCollectionQueryWithBandFilterInput' {..} =
-      _salt `Prelude.hashWithSalt` areaOfInterest
+      _salt
+        `Prelude.hashWithSalt` areaOfInterest
         `Prelude.hashWithSalt` bandFilter
         `Prelude.hashWithSalt` propertyFilters
         `Prelude.hashWithSalt` timeRangeFilter

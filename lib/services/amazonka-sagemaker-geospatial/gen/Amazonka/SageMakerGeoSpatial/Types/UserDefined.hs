@@ -25,11 +25,14 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.Unit
 
--- |
+-- | The output resolution (in target georeferenced units) of the result of
+-- the operation
 --
 -- /See:/ 'newUserDefined' smart constructor.
 data UserDefined = UserDefined'
-  { unit :: Unit,
+  { -- | The units for output resolution of the result.
+    unit :: Unit,
+    -- | The value for output resolution of the result.
     value :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +45,9 @@ data UserDefined = UserDefined'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unit', 'userDefined_unit' -
+-- 'unit', 'userDefined_unit' - The units for output resolution of the result.
 --
--- 'value', 'userDefined_value' -
+-- 'value', 'userDefined_value' - The value for output resolution of the result.
 newUserDefined ::
   -- | 'unit'
   Unit ->
@@ -54,11 +57,11 @@ newUserDefined ::
 newUserDefined pUnit_ pValue_ =
   UserDefined' {unit = pUnit_, value = pValue_}
 
--- |
+-- | The units for output resolution of the result.
 userDefined_unit :: Lens.Lens' UserDefined Unit
 userDefined_unit = Lens.lens (\UserDefined' {unit} -> unit) (\s@UserDefined' {} a -> s {unit = a} :: UserDefined)
 
--- |
+-- | The value for output resolution of the result.
 userDefined_value :: Lens.Lens' UserDefined Prelude.Double
 userDefined_value = Lens.lens (\UserDefined' {value} -> value) (\s@UserDefined' {} a -> s {value = a} :: UserDefined)
 
@@ -68,12 +71,14 @@ instance Data.FromJSON UserDefined where
       "UserDefined"
       ( \x ->
           UserDefined'
-            Prelude.<$> (x Data..: "Unit") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Unit")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable UserDefined where
   hashWithSalt _salt UserDefined' {..} =
-    _salt `Prelude.hashWithSalt` unit
+    _salt
+      `Prelude.hashWithSalt` unit
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData UserDefined where

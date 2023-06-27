@@ -26,12 +26,16 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.GroupBy
 import Amazonka.SageMakerGeoSpatial.Types.TemporalStatistics
 
--- |
+-- | The structure representing the configuration for Temporal Statistics
+-- operation.
 --
 -- /See:/ 'newTemporalStatisticsConfigInput' smart constructor.
 data TemporalStatisticsConfigInput = TemporalStatisticsConfigInput'
-  { groupBy :: Prelude.Maybe GroupBy,
+  { -- | The input for the temporal statistics grouping by time frequency option.
+    groupBy :: Prelude.Maybe GroupBy,
+    -- | The list of target band names for the temporal statistic to calculate.
     targetBands :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The list of the statistics method options.
     statistics :: Prelude.NonEmpty TemporalStatistics
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,11 +48,11 @@ data TemporalStatisticsConfigInput = TemporalStatisticsConfigInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groupBy', 'temporalStatisticsConfigInput_groupBy' -
+-- 'groupBy', 'temporalStatisticsConfigInput_groupBy' - The input for the temporal statistics grouping by time frequency option.
 --
--- 'targetBands', 'temporalStatisticsConfigInput_targetBands' -
+-- 'targetBands', 'temporalStatisticsConfigInput_targetBands' - The list of target band names for the temporal statistic to calculate.
 --
--- 'statistics', 'temporalStatisticsConfigInput_statistics' -
+-- 'statistics', 'temporalStatisticsConfigInput_statistics' - The list of the statistics method options.
 newTemporalStatisticsConfigInput ::
   -- | 'statistics'
   Prelude.NonEmpty TemporalStatistics ->
@@ -62,15 +66,15 @@ newTemporalStatisticsConfigInput pStatistics_ =
         Lens.coerced Lens.# pStatistics_
     }
 
--- |
+-- | The input for the temporal statistics grouping by time frequency option.
 temporalStatisticsConfigInput_groupBy :: Lens.Lens' TemporalStatisticsConfigInput (Prelude.Maybe GroupBy)
 temporalStatisticsConfigInput_groupBy = Lens.lens (\TemporalStatisticsConfigInput' {groupBy} -> groupBy) (\s@TemporalStatisticsConfigInput' {} a -> s {groupBy = a} :: TemporalStatisticsConfigInput)
 
--- |
+-- | The list of target band names for the temporal statistic to calculate.
 temporalStatisticsConfigInput_targetBands :: Lens.Lens' TemporalStatisticsConfigInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 temporalStatisticsConfigInput_targetBands = Lens.lens (\TemporalStatisticsConfigInput' {targetBands} -> targetBands) (\s@TemporalStatisticsConfigInput' {} a -> s {targetBands = a} :: TemporalStatisticsConfigInput) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The list of the statistics method options.
 temporalStatisticsConfigInput_statistics :: Lens.Lens' TemporalStatisticsConfigInput (Prelude.NonEmpty TemporalStatistics)
 temporalStatisticsConfigInput_statistics = Lens.lens (\TemporalStatisticsConfigInput' {statistics} -> statistics) (\s@TemporalStatisticsConfigInput' {} a -> s {statistics = a} :: TemporalStatisticsConfigInput) Prelude.. Lens.coerced
 
@@ -90,7 +94,8 @@ instance
     TemporalStatisticsConfigInput
   where
   hashWithSalt _salt TemporalStatisticsConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` groupBy
+    _salt
+      `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` targetBands
       `Prelude.hashWithSalt` statistics
 

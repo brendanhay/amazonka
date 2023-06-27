@@ -24,11 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The structure containing the asset properties.
 --
 -- /See:/ 'newAssetValue' smart constructor.
 data AssetValue = AssetValue'
-  { href :: Prelude.Maybe Prelude.Text
+  { -- | Link to the asset object.
+    href :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -40,12 +41,12 @@ data AssetValue = AssetValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'href', 'assetValue_href' -
+-- 'href', 'assetValue_href' - Link to the asset object.
 newAssetValue ::
   AssetValue
 newAssetValue = AssetValue' {href = Prelude.Nothing}
 
--- |
+-- | Link to the asset object.
 assetValue_href :: Lens.Lens' AssetValue (Prelude.Maybe Prelude.Text)
 assetValue_href = Lens.lens (\AssetValue' {href} -> href) (\s@AssetValue' {} a -> s {href = a} :: AssetValue)
 

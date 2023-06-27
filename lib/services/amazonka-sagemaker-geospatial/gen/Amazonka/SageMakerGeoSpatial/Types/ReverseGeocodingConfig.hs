@@ -24,11 +24,15 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The input structure for Reverse Geocoding operation type.
 --
 -- /See:/ 'newReverseGeocodingConfig' smart constructor.
 data ReverseGeocodingConfig = ReverseGeocodingConfig'
-  { xAttributeName :: Prelude.Text,
+  { -- | The field name for the data that describes x-axis coordinate, eg.
+    -- longitude of a point.
+    xAttributeName :: Prelude.Text,
+    -- | The field name for the data that describes y-axis coordinate, eg.
+    -- latitude of a point.
     yAttributeName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,9 +45,11 @@ data ReverseGeocodingConfig = ReverseGeocodingConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'xAttributeName', 'reverseGeocodingConfig_xAttributeName' -
+-- 'xAttributeName', 'reverseGeocodingConfig_xAttributeName' - The field name for the data that describes x-axis coordinate, eg.
+-- longitude of a point.
 --
--- 'yAttributeName', 'reverseGeocodingConfig_yAttributeName' -
+-- 'yAttributeName', 'reverseGeocodingConfig_yAttributeName' - The field name for the data that describes y-axis coordinate, eg.
+-- latitude of a point.
 newReverseGeocodingConfig ::
   -- | 'xAttributeName'
   Prelude.Text ->
@@ -59,11 +65,13 @@ newReverseGeocodingConfig
         yAttributeName = pYAttributeName_
       }
 
--- |
+-- | The field name for the data that describes x-axis coordinate, eg.
+-- longitude of a point.
 reverseGeocodingConfig_xAttributeName :: Lens.Lens' ReverseGeocodingConfig Prelude.Text
 reverseGeocodingConfig_xAttributeName = Lens.lens (\ReverseGeocodingConfig' {xAttributeName} -> xAttributeName) (\s@ReverseGeocodingConfig' {} a -> s {xAttributeName = a} :: ReverseGeocodingConfig)
 
--- |
+-- | The field name for the data that describes y-axis coordinate, eg.
+-- latitude of a point.
 reverseGeocodingConfig_yAttributeName :: Lens.Lens' ReverseGeocodingConfig Prelude.Text
 reverseGeocodingConfig_yAttributeName = Lens.lens (\ReverseGeocodingConfig' {yAttributeName} -> yAttributeName) (\s@ReverseGeocodingConfig' {} a -> s {yAttributeName = a} :: ReverseGeocodingConfig)
 
@@ -79,7 +87,8 @@ instance Data.FromJSON ReverseGeocodingConfig where
 
 instance Prelude.Hashable ReverseGeocodingConfig where
   hashWithSalt _salt ReverseGeocodingConfig' {..} =
-    _salt `Prelude.hashWithSalt` xAttributeName
+    _salt
+      `Prelude.hashWithSalt` xAttributeName
       `Prelude.hashWithSalt` yAttributeName
 
 instance Prelude.NFData ReverseGeocodingConfig where

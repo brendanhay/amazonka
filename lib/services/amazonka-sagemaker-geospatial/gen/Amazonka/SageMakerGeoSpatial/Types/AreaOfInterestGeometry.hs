@@ -26,11 +26,14 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.MultiPolygonGeometryInput
 import Amazonka.SageMakerGeoSpatial.Types.PolygonGeometryInput
 
--- |
+-- | A GeoJSON object representing the geographic extent in the coordinate
+-- space.
 --
 -- /See:/ 'newAreaOfInterestGeometry' smart constructor.
 data AreaOfInterestGeometry = AreaOfInterestGeometry'
-  { multiPolygonGeometry :: Prelude.Maybe MultiPolygonGeometryInput,
+  { -- | The structure representing the MultiPolygon Geometry.
+    multiPolygonGeometry :: Prelude.Maybe MultiPolygonGeometryInput,
+    -- | The structure representing Polygon Geometry.
     polygonGeometry :: Prelude.Maybe PolygonGeometryInput
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -43,9 +46,9 @@ data AreaOfInterestGeometry = AreaOfInterestGeometry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiPolygonGeometry', 'areaOfInterestGeometry_multiPolygonGeometry' -
+-- 'multiPolygonGeometry', 'areaOfInterestGeometry_multiPolygonGeometry' - The structure representing the MultiPolygon Geometry.
 --
--- 'polygonGeometry', 'areaOfInterestGeometry_polygonGeometry' -
+-- 'polygonGeometry', 'areaOfInterestGeometry_polygonGeometry' - The structure representing Polygon Geometry.
 newAreaOfInterestGeometry ::
   AreaOfInterestGeometry
 newAreaOfInterestGeometry =
@@ -55,11 +58,11 @@ newAreaOfInterestGeometry =
       polygonGeometry = Prelude.Nothing
     }
 
--- |
+-- | The structure representing the MultiPolygon Geometry.
 areaOfInterestGeometry_multiPolygonGeometry :: Lens.Lens' AreaOfInterestGeometry (Prelude.Maybe MultiPolygonGeometryInput)
 areaOfInterestGeometry_multiPolygonGeometry = Lens.lens (\AreaOfInterestGeometry' {multiPolygonGeometry} -> multiPolygonGeometry) (\s@AreaOfInterestGeometry' {} a -> s {multiPolygonGeometry = a} :: AreaOfInterestGeometry)
 
--- |
+-- | The structure representing Polygon Geometry.
 areaOfInterestGeometry_polygonGeometry :: Lens.Lens' AreaOfInterestGeometry (Prelude.Maybe PolygonGeometryInput)
 areaOfInterestGeometry_polygonGeometry = Lens.lens (\AreaOfInterestGeometry' {polygonGeometry} -> polygonGeometry) (\s@AreaOfInterestGeometry' {} a -> s {polygonGeometry = a} :: AreaOfInterestGeometry)
 
@@ -75,7 +78,8 @@ instance Data.FromJSON AreaOfInterestGeometry where
 
 instance Prelude.Hashable AreaOfInterestGeometry where
   hashWithSalt _salt AreaOfInterestGeometry' {..} =
-    _salt `Prelude.hashWithSalt` multiPolygonGeometry
+    _salt
+      `Prelude.hashWithSalt` multiPolygonGeometry
       `Prelude.hashWithSalt` polygonGeometry
 
 instance Prelude.NFData AreaOfInterestGeometry where

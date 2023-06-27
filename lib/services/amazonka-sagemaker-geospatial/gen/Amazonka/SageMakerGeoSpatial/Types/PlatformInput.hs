@@ -25,11 +25,15 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.ComparisonOperator
 
--- |
+-- | The input structure for specifying Platform. Platform refers to the
+-- unique name of the specific platform the instrument is attached to. For
+-- satellites it is the name of the satellite, eg. landsat-8 (Landsat-8),
+-- sentinel-2a.
 --
 -- /See:/ 'newPlatformInput' smart constructor.
 data PlatformInput = PlatformInput'
-  { comparisonOperator :: Prelude.Maybe ComparisonOperator,
+  { -- | The ComparisonOperator to use with PlatformInput.
+    comparisonOperator :: Prelude.Maybe ComparisonOperator,
     -- | The value of the platform.
     value :: Prelude.Text
   }
@@ -43,7 +47,7 @@ data PlatformInput = PlatformInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comparisonOperator', 'platformInput_comparisonOperator' -
+-- 'comparisonOperator', 'platformInput_comparisonOperator' - The ComparisonOperator to use with PlatformInput.
 --
 -- 'value', 'platformInput_value' - The value of the platform.
 newPlatformInput ::
@@ -57,7 +61,7 @@ newPlatformInput pValue_ =
       value = pValue_
     }
 
--- |
+-- | The ComparisonOperator to use with PlatformInput.
 platformInput_comparisonOperator :: Lens.Lens' PlatformInput (Prelude.Maybe ComparisonOperator)
 platformInput_comparisonOperator = Lens.lens (\PlatformInput' {comparisonOperator} -> comparisonOperator) (\s@PlatformInput' {} a -> s {comparisonOperator = a} :: PlatformInput)
 
@@ -77,7 +81,8 @@ instance Data.FromJSON PlatformInput where
 
 instance Prelude.Hashable PlatformInput where
   hashWithSalt _salt PlatformInput' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PlatformInput where

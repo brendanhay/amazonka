@@ -76,7 +76,8 @@ instance Data.FromJSON GeoMosaicConfigInput where
 
 instance Prelude.Hashable GeoMosaicConfigInput where
   hashWithSalt _salt GeoMosaicConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` algorithmName
+    _salt
+      `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` targetBands
 
 instance Prelude.NFData GeoMosaicConfigInput where

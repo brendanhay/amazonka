@@ -25,11 +25,13 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.Property
 
--- |
+-- | The structure representing a single PropertyFilter.
 --
 -- /See:/ 'newPropertyFilter' smart constructor.
 data PropertyFilter = PropertyFilter'
-  { property :: Property
+  { -- | Represents a single property to match with when searching a raster data
+    -- collection.
+    property :: Property
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +43,8 @@ data PropertyFilter = PropertyFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'property', 'propertyFilter_property' -
+-- 'property', 'propertyFilter_property' - Represents a single property to match with when searching a raster data
+-- collection.
 newPropertyFilter ::
   -- | 'property'
   Property ->
@@ -49,7 +52,8 @@ newPropertyFilter ::
 newPropertyFilter pProperty_ =
   PropertyFilter' {property = pProperty_}
 
--- |
+-- | Represents a single property to match with when searching a raster data
+-- collection.
 propertyFilter_property :: Lens.Lens' PropertyFilter Property
 propertyFilter_property = Lens.lens (\PropertyFilter' {property} -> property) (\s@PropertyFilter' {} a -> s {property = a} :: PropertyFilter)
 

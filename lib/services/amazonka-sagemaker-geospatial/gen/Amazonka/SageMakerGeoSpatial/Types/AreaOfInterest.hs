@@ -25,11 +25,13 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.AreaOfInterestGeometry
 
--- |
+-- | The geographic extent of the Earth Observation job.
 --
 -- /See:/ 'newAreaOfInterest' smart constructor.
 data AreaOfInterest = AreaOfInterest'
-  { areaOfInterestGeometry :: Prelude.Maybe AreaOfInterestGeometry
+  { -- | A GeoJSON object representing the geographic extent in the coordinate
+    -- space.
+    areaOfInterestGeometry :: Prelude.Maybe AreaOfInterestGeometry
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +43,8 @@ data AreaOfInterest = AreaOfInterest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'areaOfInterestGeometry', 'areaOfInterest_areaOfInterestGeometry' -
+-- 'areaOfInterestGeometry', 'areaOfInterest_areaOfInterestGeometry' - A GeoJSON object representing the geographic extent in the coordinate
+-- space.
 newAreaOfInterest ::
   AreaOfInterest
 newAreaOfInterest =
@@ -50,7 +53,8 @@ newAreaOfInterest =
         Prelude.Nothing
     }
 
--- |
+-- | A GeoJSON object representing the geographic extent in the coordinate
+-- space.
 areaOfInterest_areaOfInterestGeometry :: Lens.Lens' AreaOfInterest (Prelude.Maybe AreaOfInterestGeometry)
 areaOfInterest_areaOfInterestGeometry = Lens.lens (\AreaOfInterest' {areaOfInterestGeometry} -> areaOfInterestGeometry) (\s@AreaOfInterest' {} a -> s {areaOfInterestGeometry = a} :: AreaOfInterest)
 

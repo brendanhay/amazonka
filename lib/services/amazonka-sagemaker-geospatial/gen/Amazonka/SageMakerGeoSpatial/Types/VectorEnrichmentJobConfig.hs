@@ -31,7 +31,9 @@ import Amazonka.SageMakerGeoSpatial.Types.ReverseGeocodingConfig
 --
 -- /See:/ 'newVectorEnrichmentJobConfig' smart constructor.
 data VectorEnrichmentJobConfig = VectorEnrichmentJobConfig'
-  { mapMatchingConfig :: Prelude.Maybe MapMatchingConfig,
+  { -- | The input structure for Map Matching operation type.
+    mapMatchingConfig :: Prelude.Maybe MapMatchingConfig,
+    -- | The input structure for Reverse Geocoding operation type.
     reverseGeocodingConfig :: Prelude.Maybe ReverseGeocodingConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +46,9 @@ data VectorEnrichmentJobConfig = VectorEnrichmentJobConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'mapMatchingConfig', 'vectorEnrichmentJobConfig_mapMatchingConfig' -
+-- 'mapMatchingConfig', 'vectorEnrichmentJobConfig_mapMatchingConfig' - The input structure for Map Matching operation type.
 --
--- 'reverseGeocodingConfig', 'vectorEnrichmentJobConfig_reverseGeocodingConfig' -
+-- 'reverseGeocodingConfig', 'vectorEnrichmentJobConfig_reverseGeocodingConfig' - The input structure for Reverse Geocoding operation type.
 newVectorEnrichmentJobConfig ::
   VectorEnrichmentJobConfig
 newVectorEnrichmentJobConfig =
@@ -56,11 +58,11 @@ newVectorEnrichmentJobConfig =
       reverseGeocodingConfig = Prelude.Nothing
     }
 
--- |
+-- | The input structure for Map Matching operation type.
 vectorEnrichmentJobConfig_mapMatchingConfig :: Lens.Lens' VectorEnrichmentJobConfig (Prelude.Maybe MapMatchingConfig)
 vectorEnrichmentJobConfig_mapMatchingConfig = Lens.lens (\VectorEnrichmentJobConfig' {mapMatchingConfig} -> mapMatchingConfig) (\s@VectorEnrichmentJobConfig' {} a -> s {mapMatchingConfig = a} :: VectorEnrichmentJobConfig)
 
--- |
+-- | The input structure for Reverse Geocoding operation type.
 vectorEnrichmentJobConfig_reverseGeocodingConfig :: Lens.Lens' VectorEnrichmentJobConfig (Prelude.Maybe ReverseGeocodingConfig)
 vectorEnrichmentJobConfig_reverseGeocodingConfig = Lens.lens (\VectorEnrichmentJobConfig' {reverseGeocodingConfig} -> reverseGeocodingConfig) (\s@VectorEnrichmentJobConfig' {} a -> s {reverseGeocodingConfig = a} :: VectorEnrichmentJobConfig)
 
@@ -76,7 +78,8 @@ instance Data.FromJSON VectorEnrichmentJobConfig where
 
 instance Prelude.Hashable VectorEnrichmentJobConfig where
   hashWithSalt _salt VectorEnrichmentJobConfig' {..} =
-    _salt `Prelude.hashWithSalt` mapMatchingConfig
+    _salt
+      `Prelude.hashWithSalt` mapMatchingConfig
       `Prelude.hashWithSalt` reverseGeocodingConfig
 
 instance Prelude.NFData VectorEnrichmentJobConfig where

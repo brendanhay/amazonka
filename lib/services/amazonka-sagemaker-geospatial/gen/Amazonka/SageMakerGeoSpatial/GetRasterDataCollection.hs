@@ -96,11 +96,13 @@ instance Core.AWSRequest GetRasterDataCollection where
             Prelude.<*> (x Data..:> "Arn")
             Prelude.<*> (x Data..:> "Description")
             Prelude.<*> (x Data..:> "DescriptionPageUrl")
-            Prelude.<*> ( x Data..?> "ImageSourceBands"
+            Prelude.<*> ( x
+                            Data..?> "ImageSourceBands"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "Name")
-            Prelude.<*> ( x Data..?> "SupportedFilters"
+            Prelude.<*> ( x
+                            Data..?> "SupportedFilters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..:> "Type")
@@ -144,6 +146,7 @@ data GetRasterDataCollectionResponse = GetRasterDataCollectionResponse'
     description :: Prelude.Text,
     -- | The URL of the description page.
     descriptionPageUrl :: Prelude.Text,
+    -- | The list of image source bands in the raster data collection.
     imageSourceBands :: [Prelude.Text],
     -- | The name of the raster data collection.
     name :: Prelude.Text,
@@ -172,7 +175,7 @@ data GetRasterDataCollectionResponse = GetRasterDataCollectionResponse'
 --
 -- 'descriptionPageUrl', 'getRasterDataCollectionResponse_descriptionPageUrl' - The URL of the description page.
 --
--- 'imageSourceBands', 'getRasterDataCollectionResponse_imageSourceBands' -
+-- 'imageSourceBands', 'getRasterDataCollectionResponse_imageSourceBands' - The list of image source bands in the raster data collection.
 --
 -- 'name', 'getRasterDataCollectionResponse_name' - The name of the raster data collection.
 --
@@ -233,7 +236,7 @@ getRasterDataCollectionResponse_description = Lens.lens (\GetRasterDataCollectio
 getRasterDataCollectionResponse_descriptionPageUrl :: Lens.Lens' GetRasterDataCollectionResponse Prelude.Text
 getRasterDataCollectionResponse_descriptionPageUrl = Lens.lens (\GetRasterDataCollectionResponse' {descriptionPageUrl} -> descriptionPageUrl) (\s@GetRasterDataCollectionResponse' {} a -> s {descriptionPageUrl = a} :: GetRasterDataCollectionResponse)
 
--- |
+-- | The list of image source bands in the raster data collection.
 getRasterDataCollectionResponse_imageSourceBands :: Lens.Lens' GetRasterDataCollectionResponse [Prelude.Text]
 getRasterDataCollectionResponse_imageSourceBands = Lens.lens (\GetRasterDataCollectionResponse' {imageSourceBands} -> imageSourceBands) (\s@GetRasterDataCollectionResponse' {} a -> s {imageSourceBands = a} :: GetRasterDataCollectionResponse) Prelude.. Lens.coerced
 

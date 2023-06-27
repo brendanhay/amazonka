@@ -24,7 +24,8 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The input structure for specifying ViewSunElevation angle property
+-- filter.
 --
 -- /See:/ 'newViewSunElevationInput' smart constructor.
 data ViewSunElevationInput = ViewSunElevationInput'
@@ -78,7 +79,8 @@ instance Data.FromJSON ViewSunElevationInput where
 
 instance Prelude.Hashable ViewSunElevationInput where
   hashWithSalt _salt ViewSunElevationInput' {..} =
-    _salt `Prelude.hashWithSalt` lowerBound
+    _salt
+      `Prelude.hashWithSalt` lowerBound
       `Prelude.hashWithSalt` upperBound
 
 instance Prelude.NFData ViewSunElevationInput where

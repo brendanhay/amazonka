@@ -24,11 +24,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The input structure for Map Matching operation type.
 --
 -- /See:/ 'newMapMatchingConfig' smart constructor.
 data MapMatchingConfig = MapMatchingConfig'
-  { idAttributeName :: Prelude.Text,
+  { -- | The field name for the data that describes the identifier representing a
+    -- collection of GPS points belonging to an individual trace.
+    idAttributeName :: Prelude.Text,
     -- | The name of the timestamp attribute.
     timestampAttributeName :: Prelude.Text,
     -- | The name of the X-attribute
@@ -46,7 +48,8 @@ data MapMatchingConfig = MapMatchingConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'idAttributeName', 'mapMatchingConfig_idAttributeName' -
+-- 'idAttributeName', 'mapMatchingConfig_idAttributeName' - The field name for the data that describes the identifier representing a
+-- collection of GPS points belonging to an individual trace.
 --
 -- 'timestampAttributeName', 'mapMatchingConfig_timestampAttributeName' - The name of the timestamp attribute.
 --
@@ -76,7 +79,8 @@ newMapMatchingConfig
         yAttributeName = pYAttributeName_
       }
 
--- |
+-- | The field name for the data that describes the identifier representing a
+-- collection of GPS points belonging to an individual trace.
 mapMatchingConfig_idAttributeName :: Lens.Lens' MapMatchingConfig Prelude.Text
 mapMatchingConfig_idAttributeName = Lens.lens (\MapMatchingConfig' {idAttributeName} -> idAttributeName) (\s@MapMatchingConfig' {} a -> s {idAttributeName = a} :: MapMatchingConfig)
 
@@ -106,7 +110,8 @@ instance Data.FromJSON MapMatchingConfig where
 
 instance Prelude.Hashable MapMatchingConfig where
   hashWithSalt _salt MapMatchingConfig' {..} =
-    _salt `Prelude.hashWithSalt` idAttributeName
+    _salt
+      `Prelude.hashWithSalt` idAttributeName
       `Prelude.hashWithSalt` timestampAttributeName
       `Prelude.hashWithSalt` xAttributeName
       `Prelude.hashWithSalt` yAttributeName

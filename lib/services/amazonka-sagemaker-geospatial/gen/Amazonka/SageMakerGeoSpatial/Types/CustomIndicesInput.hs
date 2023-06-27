@@ -25,11 +25,12 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.Operation
 
--- |
+-- | Input object defining the custom BandMath indices to compute.
 --
 -- /See:/ 'newCustomIndicesInput' smart constructor.
 data CustomIndicesInput = CustomIndicesInput'
-  { operations :: Prelude.Maybe (Prelude.NonEmpty Operation)
+  { -- | A list of BandMath indices to compute.
+    operations :: Prelude.Maybe (Prelude.NonEmpty Operation)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,13 +42,13 @@ data CustomIndicesInput = CustomIndicesInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operations', 'customIndicesInput_operations' -
+-- 'operations', 'customIndicesInput_operations' - A list of BandMath indices to compute.
 newCustomIndicesInput ::
   CustomIndicesInput
 newCustomIndicesInput =
   CustomIndicesInput' {operations = Prelude.Nothing}
 
--- |
+-- | A list of BandMath indices to compute.
 customIndicesInput_operations :: Lens.Lens' CustomIndicesInput (Prelude.Maybe (Prelude.NonEmpty Operation))
 customIndicesInput_operations = Lens.lens (\CustomIndicesInput' {operations} -> operations) (\s@CustomIndicesInput' {} a -> s {operations = a} :: CustomIndicesInput) Prelude.. Lens.mapping Lens.coerced
 

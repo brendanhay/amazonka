@@ -24,12 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The structure containing the Amazon S3 path to export the Earth
+-- Observation job output.
 --
 -- /See:/ 'newExportS3DataInput' smart constructor.
 data ExportS3DataInput = ExportS3DataInput'
-  { -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+  { -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The URL to the Amazon S3 data input.
     s3Uri :: Prelude.Text
@@ -44,8 +44,7 @@ data ExportS3DataInput = ExportS3DataInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'exportS3DataInput_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'exportS3DataInput_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
 -- 's3Uri', 'exportS3DataInput_s3Uri' - The URL to the Amazon S3 data input.
 newExportS3DataInput ::
@@ -58,8 +57,7 @@ newExportS3DataInput pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 exportS3DataInput_kmsKeyId :: Lens.Lens' ExportS3DataInput (Prelude.Maybe Prelude.Text)
 exportS3DataInput_kmsKeyId = Lens.lens (\ExportS3DataInput' {kmsKeyId} -> kmsKeyId) (\s@ExportS3DataInput' {} a -> s {kmsKeyId = a} :: ExportS3DataInput)
 
@@ -79,7 +77,8 @@ instance Data.FromJSON ExportS3DataInput where
 
 instance Prelude.Hashable ExportS3DataInput where
   hashWithSalt _salt ExportS3DataInput' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData ExportS3DataInput where

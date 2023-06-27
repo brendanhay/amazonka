@@ -30,15 +30,27 @@ import Amazonka.SageMakerGeoSpatial.Types.ViewOffNadirInput
 import Amazonka.SageMakerGeoSpatial.Types.ViewSunAzimuthInput
 import Amazonka.SageMakerGeoSpatial.Types.ViewSunElevationInput
 
--- |
+-- | Represents a single searchable property to search on.
 --
 -- /See:/ 'newProperty' smart constructor.
 data Property = Property'
-  { eoCloudCover :: Prelude.Maybe EoCloudCoverInput,
+  { -- | The structure representing EoCloudCover property filter containing a
+    -- lower bound and upper bound.
+    eoCloudCover :: Prelude.Maybe EoCloudCoverInput,
+    -- | The structure representing Land Cloud Cover property filter for Landsat
+    -- collection containing a lower bound and upper bound.
     landsatCloudCoverLand :: Prelude.Maybe LandsatCloudCoverLandInput,
+    -- | The structure representing Platform property filter consisting of value
+    -- and comparison operator.
     platform :: Prelude.Maybe PlatformInput,
+    -- | The structure representing ViewOffNadir property filter containing a
+    -- lower bound and upper bound.
     viewOffNadir :: Prelude.Maybe ViewOffNadirInput,
+    -- | The structure representing ViewSunAzimuth property filter containing a
+    -- lower bound and upper bound.
     viewSunAzimuth :: Prelude.Maybe ViewSunAzimuthInput,
+    -- | The structure representing ViewSunElevation property filter containing a
+    -- lower bound and upper bound.
     viewSunElevation :: Prelude.Maybe ViewSunElevationInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,17 +63,23 @@ data Property = Property'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eoCloudCover', 'property_eoCloudCover' -
+-- 'eoCloudCover', 'property_eoCloudCover' - The structure representing EoCloudCover property filter containing a
+-- lower bound and upper bound.
 --
--- 'landsatCloudCoverLand', 'property_landsatCloudCoverLand' -
+-- 'landsatCloudCoverLand', 'property_landsatCloudCoverLand' - The structure representing Land Cloud Cover property filter for Landsat
+-- collection containing a lower bound and upper bound.
 --
--- 'platform', 'property_platform' -
+-- 'platform', 'property_platform' - The structure representing Platform property filter consisting of value
+-- and comparison operator.
 --
--- 'viewOffNadir', 'property_viewOffNadir' -
+-- 'viewOffNadir', 'property_viewOffNadir' - The structure representing ViewOffNadir property filter containing a
+-- lower bound and upper bound.
 --
--- 'viewSunAzimuth', 'property_viewSunAzimuth' -
+-- 'viewSunAzimuth', 'property_viewSunAzimuth' - The structure representing ViewSunAzimuth property filter containing a
+-- lower bound and upper bound.
 --
--- 'viewSunElevation', 'property_viewSunElevation' -
+-- 'viewSunElevation', 'property_viewSunElevation' - The structure representing ViewSunElevation property filter containing a
+-- lower bound and upper bound.
 newProperty ::
   Property
 newProperty =
@@ -74,27 +92,33 @@ newProperty =
       viewSunElevation = Prelude.Nothing
     }
 
--- |
+-- | The structure representing EoCloudCover property filter containing a
+-- lower bound and upper bound.
 property_eoCloudCover :: Lens.Lens' Property (Prelude.Maybe EoCloudCoverInput)
 property_eoCloudCover = Lens.lens (\Property' {eoCloudCover} -> eoCloudCover) (\s@Property' {} a -> s {eoCloudCover = a} :: Property)
 
--- |
+-- | The structure representing Land Cloud Cover property filter for Landsat
+-- collection containing a lower bound and upper bound.
 property_landsatCloudCoverLand :: Lens.Lens' Property (Prelude.Maybe LandsatCloudCoverLandInput)
 property_landsatCloudCoverLand = Lens.lens (\Property' {landsatCloudCoverLand} -> landsatCloudCoverLand) (\s@Property' {} a -> s {landsatCloudCoverLand = a} :: Property)
 
--- |
+-- | The structure representing Platform property filter consisting of value
+-- and comparison operator.
 property_platform :: Lens.Lens' Property (Prelude.Maybe PlatformInput)
 property_platform = Lens.lens (\Property' {platform} -> platform) (\s@Property' {} a -> s {platform = a} :: Property)
 
--- |
+-- | The structure representing ViewOffNadir property filter containing a
+-- lower bound and upper bound.
 property_viewOffNadir :: Lens.Lens' Property (Prelude.Maybe ViewOffNadirInput)
 property_viewOffNadir = Lens.lens (\Property' {viewOffNadir} -> viewOffNadir) (\s@Property' {} a -> s {viewOffNadir = a} :: Property)
 
--- |
+-- | The structure representing ViewSunAzimuth property filter containing a
+-- lower bound and upper bound.
 property_viewSunAzimuth :: Lens.Lens' Property (Prelude.Maybe ViewSunAzimuthInput)
 property_viewSunAzimuth = Lens.lens (\Property' {viewSunAzimuth} -> viewSunAzimuth) (\s@Property' {} a -> s {viewSunAzimuth = a} :: Property)
 
--- |
+-- | The structure representing ViewSunElevation property filter containing a
+-- lower bound and upper bound.
 property_viewSunElevation :: Lens.Lens' Property (Prelude.Maybe ViewSunElevationInput)
 property_viewSunElevation = Lens.lens (\Property' {viewSunElevation} -> viewSunElevation) (\s@Property' {} a -> s {viewSunElevation = a} :: Property)
 
@@ -114,7 +138,8 @@ instance Data.FromJSON Property where
 
 instance Prelude.Hashable Property where
   hashWithSalt _salt Property' {..} =
-    _salt `Prelude.hashWithSalt` eoCloudCover
+    _salt
+      `Prelude.hashWithSalt` eoCloudCover
       `Prelude.hashWithSalt` landsatCloudCoverLand
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` viewOffNadir

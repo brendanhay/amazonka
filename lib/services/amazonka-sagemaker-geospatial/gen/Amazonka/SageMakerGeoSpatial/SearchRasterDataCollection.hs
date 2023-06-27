@@ -59,6 +59,13 @@ data SearchRasterDataCollection = SearchRasterDataCollection'
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon Resource Name (ARN) of the raster data collection.
     arn :: Prelude.Text,
+    -- | RasterDataCollectionQuery consisting of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html AreaOfInterest(AOI)>,
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html PropertyFilters>
+    -- and
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html TimeRangeFilterInput>
+    -- used in
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html SearchRasterDataCollection>.
     rasterDataCollectionQuery :: RasterDataCollectionQueryWithBandFilterInput
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -76,7 +83,13 @@ data SearchRasterDataCollection = SearchRasterDataCollection'
 --
 -- 'arn', 'searchRasterDataCollection_arn' - The Amazon Resource Name (ARN) of the raster data collection.
 --
--- 'rasterDataCollectionQuery', 'searchRasterDataCollection_rasterDataCollectionQuery' -
+-- 'rasterDataCollectionQuery', 'searchRasterDataCollection_rasterDataCollectionQuery' - RasterDataCollectionQuery consisting of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html AreaOfInterest(AOI)>,
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html PropertyFilters>
+-- and
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html TimeRangeFilterInput>
+-- used in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html SearchRasterDataCollection>.
 newSearchRasterDataCollection ::
   -- | 'arn'
   Prelude.Text ->
@@ -103,7 +116,13 @@ searchRasterDataCollection_nextToken = Lens.lens (\SearchRasterDataCollection' {
 searchRasterDataCollection_arn :: Lens.Lens' SearchRasterDataCollection Prelude.Text
 searchRasterDataCollection_arn = Lens.lens (\SearchRasterDataCollection' {arn} -> arn) (\s@SearchRasterDataCollection' {} a -> s {arn = a} :: SearchRasterDataCollection)
 
--- |
+-- | RasterDataCollectionQuery consisting of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_AreaOfInterest.html AreaOfInterest(AOI)>,
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_PropertyFilter.html PropertyFilters>
+-- and
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_TimeRangeFilterInput.html TimeRangeFilterInput>
+-- used in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_geospatial_SearchRasterDataCollection.html SearchRasterDataCollection>.
 searchRasterDataCollection_rasterDataCollectionQuery :: Lens.Lens' SearchRasterDataCollection RasterDataCollectionQueryWithBandFilterInput
 searchRasterDataCollection_rasterDataCollectionQuery = Lens.lens (\SearchRasterDataCollection' {rasterDataCollectionQuery} -> rasterDataCollectionQuery) (\s@SearchRasterDataCollection' {} a -> s {rasterDataCollectionQuery = a} :: SearchRasterDataCollection)
 
@@ -125,7 +144,8 @@ instance Core.AWSRequest SearchRasterDataCollection where
 
 instance Prelude.Hashable SearchRasterDataCollection where
   hashWithSalt _salt SearchRasterDataCollection' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` rasterDataCollectionQuery
 
@@ -168,12 +188,14 @@ instance Data.ToQuery SearchRasterDataCollection where
 
 -- | /See:/ 'newSearchRasterDataCollectionResponse' smart constructor.
 data SearchRasterDataCollectionResponse = SearchRasterDataCollectionResponse'
-  { items :: Prelude.Maybe [ItemSource],
+  { -- | List of items matching the Raster DataCollectionQuery.
+    items :: Prelude.Maybe [ItemSource],
     -- | If the previous response was truncated, you receive this token. Use it
     -- in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | Approximate number of results in the response.
     approximateResultCount :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -186,14 +208,14 @@ data SearchRasterDataCollectionResponse = SearchRasterDataCollectionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'searchRasterDataCollectionResponse_items' -
+-- 'items', 'searchRasterDataCollectionResponse_items' - List of items matching the Raster DataCollectionQuery.
 --
 -- 'nextToken', 'searchRasterDataCollectionResponse_nextToken' - If the previous response was truncated, you receive this token. Use it
 -- in your next request to receive the next set of results.
 --
 -- 'httpStatus', 'searchRasterDataCollectionResponse_httpStatus' - The response's http status code.
 --
--- 'approximateResultCount', 'searchRasterDataCollectionResponse_approximateResultCount' -
+-- 'approximateResultCount', 'searchRasterDataCollectionResponse_approximateResultCount' - Approximate number of results in the response.
 newSearchRasterDataCollectionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -212,7 +234,7 @@ newSearchRasterDataCollectionResponse
           pApproximateResultCount_
       }
 
--- |
+-- | List of items matching the Raster DataCollectionQuery.
 searchRasterDataCollectionResponse_items :: Lens.Lens' SearchRasterDataCollectionResponse (Prelude.Maybe [ItemSource])
 searchRasterDataCollectionResponse_items = Lens.lens (\SearchRasterDataCollectionResponse' {items} -> items) (\s@SearchRasterDataCollectionResponse' {} a -> s {items = a} :: SearchRasterDataCollectionResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -225,7 +247,7 @@ searchRasterDataCollectionResponse_nextToken = Lens.lens (\SearchRasterDataColle
 searchRasterDataCollectionResponse_httpStatus :: Lens.Lens' SearchRasterDataCollectionResponse Prelude.Int
 searchRasterDataCollectionResponse_httpStatus = Lens.lens (\SearchRasterDataCollectionResponse' {httpStatus} -> httpStatus) (\s@SearchRasterDataCollectionResponse' {} a -> s {httpStatus = a} :: SearchRasterDataCollectionResponse)
 
--- |
+-- | Approximate number of results in the response.
 searchRasterDataCollectionResponse_approximateResultCount :: Lens.Lens' SearchRasterDataCollectionResponse Prelude.Int
 searchRasterDataCollectionResponse_approximateResultCount = Lens.lens (\SearchRasterDataCollectionResponse' {approximateResultCount} -> approximateResultCount) (\s@SearchRasterDataCollectionResponse' {} a -> s {approximateResultCount = a} :: SearchRasterDataCollectionResponse)
 

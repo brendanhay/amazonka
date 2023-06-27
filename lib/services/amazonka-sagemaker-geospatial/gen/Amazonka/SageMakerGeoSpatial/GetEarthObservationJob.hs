@@ -151,9 +151,9 @@ data GetEarthObservationJobResponse = GetEarthObservationJobResponse'
     exportErrorDetails :: Prelude.Maybe ExportErrorDetails,
     -- | The status of the Earth Observation job.
     exportStatus :: Prelude.Maybe EarthObservationJobExportStatus,
-    -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+    -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Bands available in the output of an operation.
     outputBands :: Prelude.Maybe [OutputBand],
     -- | Each tag consists of a key and a value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -162,7 +162,7 @@ data GetEarthObservationJobResponse = GetEarthObservationJobResponse'
     -- | The Amazon Resource Name (ARN) of the Earth Observation job.
     arn :: Prelude.Text,
     -- | The creation time of the initiated Earth Observation job.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The duration of Earth Observation job, in seconds.
     durationInSeconds :: Prelude.Int,
     -- | Input data for the Earth Observation job.
@@ -193,10 +193,9 @@ data GetEarthObservationJobResponse = GetEarthObservationJobResponse'
 --
 -- 'exportStatus', 'getEarthObservationJobResponse_exportStatus' - The status of the Earth Observation job.
 --
--- 'kmsKeyId', 'getEarthObservationJobResponse_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'getEarthObservationJobResponse_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
--- 'outputBands', 'getEarthObservationJobResponse_outputBands' -
+-- 'outputBands', 'getEarthObservationJobResponse_outputBands' - Bands available in the output of an operation.
 --
 -- 'tags', 'getEarthObservationJobResponse_tags' - Each tag consists of a key and a value.
 --
@@ -279,12 +278,11 @@ getEarthObservationJobResponse_exportErrorDetails = Lens.lens (\GetEarthObservat
 getEarthObservationJobResponse_exportStatus :: Lens.Lens' GetEarthObservationJobResponse (Prelude.Maybe EarthObservationJobExportStatus)
 getEarthObservationJobResponse_exportStatus = Lens.lens (\GetEarthObservationJobResponse' {exportStatus} -> exportStatus) (\s@GetEarthObservationJobResponse' {} a -> s {exportStatus = a} :: GetEarthObservationJobResponse)
 
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 getEarthObservationJobResponse_kmsKeyId :: Lens.Lens' GetEarthObservationJobResponse (Prelude.Maybe Prelude.Text)
 getEarthObservationJobResponse_kmsKeyId = Lens.lens (\GetEarthObservationJobResponse' {kmsKeyId} -> kmsKeyId) (\s@GetEarthObservationJobResponse' {} a -> s {kmsKeyId = a} :: GetEarthObservationJobResponse)
 
--- |
+-- | Bands available in the output of an operation.
 getEarthObservationJobResponse_outputBands :: Lens.Lens' GetEarthObservationJobResponse (Prelude.Maybe [OutputBand])
 getEarthObservationJobResponse_outputBands = Lens.lens (\GetEarthObservationJobResponse' {outputBands} -> outputBands) (\s@GetEarthObservationJobResponse' {} a -> s {outputBands = a} :: GetEarthObservationJobResponse) Prelude.. Lens.mapping Lens.coerced
 

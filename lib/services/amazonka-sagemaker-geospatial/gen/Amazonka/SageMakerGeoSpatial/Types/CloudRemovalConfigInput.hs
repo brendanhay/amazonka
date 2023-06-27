@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.AlgorithmNameCloudRemoval
 
--- |
+-- | Input structure for Cloud Removal Operation type
 --
 -- /See:/ 'newCloudRemovalConfigInput' smart constructor.
 data CloudRemovalConfigInput = CloudRemovalConfigInput'
@@ -33,6 +33,7 @@ data CloudRemovalConfigInput = CloudRemovalConfigInput'
     algorithmName :: Prelude.Maybe AlgorithmNameCloudRemoval,
     -- | The interpolation value you provide for cloud removal.
     interpolationValue :: Prelude.Maybe Prelude.Text,
+    -- | TargetBands to be returned in the output of CloudRemoval operation.
     targetBands :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +50,7 @@ data CloudRemovalConfigInput = CloudRemovalConfigInput'
 --
 -- 'interpolationValue', 'cloudRemovalConfigInput_interpolationValue' - The interpolation value you provide for cloud removal.
 --
--- 'targetBands', 'cloudRemovalConfigInput_targetBands' -
+-- 'targetBands', 'cloudRemovalConfigInput_targetBands' - TargetBands to be returned in the output of CloudRemoval operation.
 newCloudRemovalConfigInput ::
   CloudRemovalConfigInput
 newCloudRemovalConfigInput =
@@ -68,7 +69,7 @@ cloudRemovalConfigInput_algorithmName = Lens.lens (\CloudRemovalConfigInput' {al
 cloudRemovalConfigInput_interpolationValue :: Lens.Lens' CloudRemovalConfigInput (Prelude.Maybe Prelude.Text)
 cloudRemovalConfigInput_interpolationValue = Lens.lens (\CloudRemovalConfigInput' {interpolationValue} -> interpolationValue) (\s@CloudRemovalConfigInput' {} a -> s {interpolationValue = a} :: CloudRemovalConfigInput)
 
--- |
+-- | TargetBands to be returned in the output of CloudRemoval operation.
 cloudRemovalConfigInput_targetBands :: Lens.Lens' CloudRemovalConfigInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 cloudRemovalConfigInput_targetBands = Lens.lens (\CloudRemovalConfigInput' {targetBands} -> targetBands) (\s@CloudRemovalConfigInput' {} a -> s {targetBands = a} :: CloudRemovalConfigInput) Prelude.. Lens.mapping Lens.coerced
 
@@ -85,7 +86,8 @@ instance Data.FromJSON CloudRemovalConfigInput where
 
 instance Prelude.Hashable CloudRemovalConfigInput where
   hashWithSalt _salt CloudRemovalConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` algorithmName
+    _salt
+      `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` interpolationValue
       `Prelude.hashWithSalt` targetBands
 

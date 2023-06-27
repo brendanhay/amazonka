@@ -79,7 +79,8 @@ instance Data.FromJSON OutputBand where
 
 instance Prelude.Hashable OutputBand where
   hashWithSalt _salt OutputBand' {..} =
-    _salt `Prelude.hashWithSalt` bandName
+    _salt
+      `Prelude.hashWithSalt` bandName
       `Prelude.hashWithSalt` outputDataType
 
 instance Prelude.NFData OutputBand where

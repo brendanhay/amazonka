@@ -24,11 +24,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The structure representing Land Cloud Cover property for Landsat data
+-- collection.
 --
 -- /See:/ 'newLandsatCloudCoverLandInput' smart constructor.
 data LandsatCloudCoverLandInput = LandsatCloudCoverLandInput'
-  { lowerBound :: Prelude.Double,
+  { -- | The minimum value for Land Cloud Cover property filter. This will filter
+    -- items having Land Cloud Cover greater than or equal to this value.
+    lowerBound :: Prelude.Double,
+    -- | The maximum value for Land Cloud Cover property filter. This will filter
+    -- items having Land Cloud Cover less than or equal to this value.
     upperBound :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,9 +46,11 @@ data LandsatCloudCoverLandInput = LandsatCloudCoverLandInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lowerBound', 'landsatCloudCoverLandInput_lowerBound' -
+-- 'lowerBound', 'landsatCloudCoverLandInput_lowerBound' - The minimum value for Land Cloud Cover property filter. This will filter
+-- items having Land Cloud Cover greater than or equal to this value.
 --
--- 'upperBound', 'landsatCloudCoverLandInput_upperBound' -
+-- 'upperBound', 'landsatCloudCoverLandInput_upperBound' - The maximum value for Land Cloud Cover property filter. This will filter
+-- items having Land Cloud Cover less than or equal to this value.
 newLandsatCloudCoverLandInput ::
   -- | 'lowerBound'
   Prelude.Double ->
@@ -59,11 +66,13 @@ newLandsatCloudCoverLandInput
         upperBound = pUpperBound_
       }
 
--- |
+-- | The minimum value for Land Cloud Cover property filter. This will filter
+-- items having Land Cloud Cover greater than or equal to this value.
 landsatCloudCoverLandInput_lowerBound :: Lens.Lens' LandsatCloudCoverLandInput Prelude.Double
 landsatCloudCoverLandInput_lowerBound = Lens.lens (\LandsatCloudCoverLandInput' {lowerBound} -> lowerBound) (\s@LandsatCloudCoverLandInput' {} a -> s {lowerBound = a} :: LandsatCloudCoverLandInput)
 
--- |
+-- | The maximum value for Land Cloud Cover property filter. This will filter
+-- items having Land Cloud Cover less than or equal to this value.
 landsatCloudCoverLandInput_upperBound :: Lens.Lens' LandsatCloudCoverLandInput Prelude.Double
 landsatCloudCoverLandInput_upperBound = Lens.lens (\LandsatCloudCoverLandInput' {upperBound} -> upperBound) (\s@LandsatCloudCoverLandInput' {} a -> s {upperBound = a} :: LandsatCloudCoverLandInput)
 
@@ -79,7 +88,8 @@ instance Data.FromJSON LandsatCloudCoverLandInput where
 
 instance Prelude.Hashable LandsatCloudCoverLandInput where
   hashWithSalt _salt LandsatCloudCoverLandInput' {..} =
-    _salt `Prelude.hashWithSalt` lowerBound
+    _salt
+      `Prelude.hashWithSalt` lowerBound
       `Prelude.hashWithSalt` upperBound
 
 instance Prelude.NFData LandsatCloudCoverLandInput where

@@ -24,11 +24,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The input structure for specifying ViewOffNadir property filter.
+-- ViewOffNadir refers to the angle from the sensor between nadir (straight
+-- down) and the scene center. Measured in degrees (0-90).
 --
 -- /See:/ 'newViewOffNadirInput' smart constructor.
 data ViewOffNadirInput = ViewOffNadirInput'
-  { lowerBound :: Prelude.Double,
+  { -- | The minimum value for ViewOffNadir property filter. This filters items
+    -- having ViewOffNadir greater than or equal to this value.
+    lowerBound :: Prelude.Double,
+    -- | The maximum value for ViewOffNadir property filter. This filters items
+    -- having ViewOffNadir lesser than or equal to this value.
     upperBound :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,9 +47,11 @@ data ViewOffNadirInput = ViewOffNadirInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lowerBound', 'viewOffNadirInput_lowerBound' -
+-- 'lowerBound', 'viewOffNadirInput_lowerBound' - The minimum value for ViewOffNadir property filter. This filters items
+-- having ViewOffNadir greater than or equal to this value.
 --
--- 'upperBound', 'viewOffNadirInput_upperBound' -
+-- 'upperBound', 'viewOffNadirInput_upperBound' - The maximum value for ViewOffNadir property filter. This filters items
+-- having ViewOffNadir lesser than or equal to this value.
 newViewOffNadirInput ::
   -- | 'lowerBound'
   Prelude.Double ->
@@ -56,11 +64,13 @@ newViewOffNadirInput pLowerBound_ pUpperBound_ =
       upperBound = pUpperBound_
     }
 
--- |
+-- | The minimum value for ViewOffNadir property filter. This filters items
+-- having ViewOffNadir greater than or equal to this value.
 viewOffNadirInput_lowerBound :: Lens.Lens' ViewOffNadirInput Prelude.Double
 viewOffNadirInput_lowerBound = Lens.lens (\ViewOffNadirInput' {lowerBound} -> lowerBound) (\s@ViewOffNadirInput' {} a -> s {lowerBound = a} :: ViewOffNadirInput)
 
--- |
+-- | The maximum value for ViewOffNadir property filter. This filters items
+-- having ViewOffNadir lesser than or equal to this value.
 viewOffNadirInput_upperBound :: Lens.Lens' ViewOffNadirInput Prelude.Double
 viewOffNadirInput_upperBound = Lens.lens (\ViewOffNadirInput' {upperBound} -> upperBound) (\s@ViewOffNadirInput' {} a -> s {upperBound = a} :: ViewOffNadirInput)
 
@@ -76,7 +86,8 @@ instance Data.FromJSON ViewOffNadirInput where
 
 instance Prelude.Hashable ViewOffNadirInput where
   hashWithSalt _salt ViewOffNadirInput' {..} =
-    _salt `Prelude.hashWithSalt` lowerBound
+    _salt
+      `Prelude.hashWithSalt` lowerBound
       `Prelude.hashWithSalt` upperBound
 
 instance Prelude.NFData ViewOffNadirInput where

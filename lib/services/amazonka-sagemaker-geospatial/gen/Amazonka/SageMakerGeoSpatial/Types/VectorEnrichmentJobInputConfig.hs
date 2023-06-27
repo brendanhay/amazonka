@@ -30,7 +30,10 @@ import Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobDocumentType
 --
 -- /See:/ 'newVectorEnrichmentJobInputConfig' smart constructor.
 data VectorEnrichmentJobInputConfig = VectorEnrichmentJobInputConfig'
-  { dataSourceConfig :: VectorEnrichmentJobDataSourceConfigInput,
+  { -- | The input structure for the data source that represents the storage type
+    -- of the input data objects.
+    dataSourceConfig :: VectorEnrichmentJobDataSourceConfigInput,
+    -- | The input structure that defines the data source file type.
     documentType :: VectorEnrichmentJobDocumentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +46,10 @@ data VectorEnrichmentJobInputConfig = VectorEnrichmentJobInputConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataSourceConfig', 'vectorEnrichmentJobInputConfig_dataSourceConfig' -
+-- 'dataSourceConfig', 'vectorEnrichmentJobInputConfig_dataSourceConfig' - The input structure for the data source that represents the storage type
+-- of the input data objects.
 --
--- 'documentType', 'vectorEnrichmentJobInputConfig_documentType' -
+-- 'documentType', 'vectorEnrichmentJobInputConfig_documentType' - The input structure that defines the data source file type.
 newVectorEnrichmentJobInputConfig ::
   -- | 'dataSourceConfig'
   VectorEnrichmentJobDataSourceConfigInput ->
@@ -61,11 +65,12 @@ newVectorEnrichmentJobInputConfig
         documentType = pDocumentType_
       }
 
--- |
+-- | The input structure for the data source that represents the storage type
+-- of the input data objects.
 vectorEnrichmentJobInputConfig_dataSourceConfig :: Lens.Lens' VectorEnrichmentJobInputConfig VectorEnrichmentJobDataSourceConfigInput
 vectorEnrichmentJobInputConfig_dataSourceConfig = Lens.lens (\VectorEnrichmentJobInputConfig' {dataSourceConfig} -> dataSourceConfig) (\s@VectorEnrichmentJobInputConfig' {} a -> s {dataSourceConfig = a} :: VectorEnrichmentJobInputConfig)
 
--- |
+-- | The input structure that defines the data source file type.
 vectorEnrichmentJobInputConfig_documentType :: Lens.Lens' VectorEnrichmentJobInputConfig VectorEnrichmentJobDocumentType
 vectorEnrichmentJobInputConfig_documentType = Lens.lens (\VectorEnrichmentJobInputConfig' {documentType} -> documentType) (\s@VectorEnrichmentJobInputConfig' {} a -> s {documentType = a} :: VectorEnrichmentJobInputConfig)
 
@@ -86,7 +91,8 @@ instance
   hashWithSalt
     _salt
     VectorEnrichmentJobInputConfig' {..} =
-      _salt `Prelude.hashWithSalt` dataSourceConfig
+      _salt
+        `Prelude.hashWithSalt` dataSourceConfig
         `Prelude.hashWithSalt` documentType
 
 instance

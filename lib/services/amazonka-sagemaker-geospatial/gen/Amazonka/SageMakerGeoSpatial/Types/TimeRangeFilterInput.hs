@@ -67,19 +67,10 @@ timeRangeFilterInput_endTime = Lens.lens (\TimeRangeFilterInput' {endTime} -> en
 timeRangeFilterInput_startTime :: Lens.Lens' TimeRangeFilterInput Prelude.UTCTime
 timeRangeFilterInput_startTime = Lens.lens (\TimeRangeFilterInput' {startTime} -> startTime) (\s@TimeRangeFilterInput' {} a -> s {startTime = a} :: TimeRangeFilterInput) Prelude.. Data._Time
 
-instance Data.FromJSON TimeRangeFilterInput where
-  parseJSON =
-    Data.withObject
-      "TimeRangeFilterInput"
-      ( \x ->
-          TimeRangeFilterInput'
-            Prelude.<$> (x Data..: "EndTime")
-            Prelude.<*> (x Data..: "StartTime")
-      )
-
 instance Prelude.Hashable TimeRangeFilterInput where
   hashWithSalt _salt TimeRangeFilterInput' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData TimeRangeFilterInput where

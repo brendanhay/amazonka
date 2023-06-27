@@ -195,9 +195,6 @@ module Amazonka.SageMakerGeoSpatial
     -- ** LogicalOperator
     LogicalOperator (..),
 
-    -- ** MetadataProvider
-    MetadataProvider (..),
-
     -- ** OutputType
     OutputType (..),
 
@@ -272,10 +269,6 @@ module Amazonka.SageMakerGeoSpatial
     -- ** EoCloudCoverInput
     EoCloudCoverInput (EoCloudCoverInput'),
     newEoCloudCoverInput,
-
-    -- ** EojDataSourceConfigInput
-    EojDataSourceConfigInput (EojDataSourceConfigInput'),
-    newEojDataSourceConfigInput,
 
     -- ** ExportErrorDetails
     ExportErrorDetails (ExportErrorDetails'),
@@ -413,10 +406,6 @@ module Amazonka.SageMakerGeoSpatial
     ReverseGeocodingConfig (ReverseGeocodingConfig'),
     newReverseGeocodingConfig,
 
-    -- ** S3DataInput
-    S3DataInput (S3DataInput'),
-    newS3DataInput,
-
     -- ** StackConfigInput
     StackConfigInput (StackConfigInput'),
     newStackConfigInput,
@@ -428,6 +417,10 @@ module Amazonka.SageMakerGeoSpatial
     -- ** TimeRangeFilterInput
     TimeRangeFilterInput (TimeRangeFilterInput'),
     newTimeRangeFilterInput,
+
+    -- ** TimeRangeFilterOutput
+    TimeRangeFilterOutput (TimeRangeFilterOutput'),
+    newTimeRangeFilterOutput,
 
     -- ** UserDefined
     UserDefined (UserDefined'),

@@ -40,6 +40,7 @@ data RasterDataCollectionMetadata = RasterDataCollectionMetadata'
     description :: Prelude.Text,
     -- | The name of the raster data collection.
     name :: Prelude.Text,
+    -- | The list of filters supported by the raster data collection.
     supportedFilters :: [Filter],
     -- | The type of raster data collection.
     type' :: DataCollectionType
@@ -64,7 +65,7 @@ data RasterDataCollectionMetadata = RasterDataCollectionMetadata'
 --
 -- 'name', 'rasterDataCollectionMetadata_name' - The name of the raster data collection.
 --
--- 'supportedFilters', 'rasterDataCollectionMetadata_supportedFilters' -
+-- 'supportedFilters', 'rasterDataCollectionMetadata_supportedFilters' - The list of filters supported by the raster data collection.
 --
 -- 'type'', 'rasterDataCollectionMetadata_type' - The type of raster data collection.
 newRasterDataCollectionMetadata ::
@@ -113,7 +114,7 @@ rasterDataCollectionMetadata_description = Lens.lens (\RasterDataCollectionMetad
 rasterDataCollectionMetadata_name :: Lens.Lens' RasterDataCollectionMetadata Prelude.Text
 rasterDataCollectionMetadata_name = Lens.lens (\RasterDataCollectionMetadata' {name} -> name) (\s@RasterDataCollectionMetadata' {} a -> s {name = a} :: RasterDataCollectionMetadata)
 
--- |
+-- | The list of filters supported by the raster data collection.
 rasterDataCollectionMetadata_supportedFilters :: Lens.Lens' RasterDataCollectionMetadata [Filter]
 rasterDataCollectionMetadata_supportedFilters = Lens.lens (\RasterDataCollectionMetadata' {supportedFilters} -> supportedFilters) (\s@RasterDataCollectionMetadata' {} a -> s {supportedFilters = a} :: RasterDataCollectionMetadata) Prelude.. Lens.coerced
 
@@ -132,7 +133,8 @@ instance Data.FromJSON RasterDataCollectionMetadata where
             Prelude.<*> (x Data..: "Arn")
             Prelude.<*> (x Data..: "Description")
             Prelude.<*> (x Data..: "Name")
-            Prelude.<*> ( x Data..:? "SupportedFilters"
+            Prelude.<*> ( x
+                            Data..:? "SupportedFilters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Type")
@@ -143,7 +145,8 @@ instance
     RasterDataCollectionMetadata
   where
   hashWithSalt _salt RasterDataCollectionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` descriptionPageUrl
+    _salt
+      `Prelude.hashWithSalt` descriptionPageUrl
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description

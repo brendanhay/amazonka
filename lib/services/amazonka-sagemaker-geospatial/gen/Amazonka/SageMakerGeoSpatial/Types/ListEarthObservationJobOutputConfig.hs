@@ -35,11 +35,12 @@ data ListEarthObservationJobOutputConfig = ListEarthObservationJobOutputConfig'
     -- jobs.
     arn :: Prelude.Text,
     -- | The creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The duration of the session, in seconds.
     durationInSeconds :: Prelude.Int,
     -- | The names of the Earth Observation jobs in the list.
     name :: Prelude.Text,
+    -- | The operation type for an Earth Observation job.
     operationType :: Prelude.Text,
     -- | The status of the list of the Earth Observation jobs.
     status :: EarthObservationJobStatus
@@ -65,7 +66,7 @@ data ListEarthObservationJobOutputConfig = ListEarthObservationJobOutputConfig'
 --
 -- 'name', 'listEarthObservationJobOutputConfig_name' - The names of the Earth Observation jobs in the list.
 --
--- 'operationType', 'listEarthObservationJobOutputConfig_operationType' -
+-- 'operationType', 'listEarthObservationJobOutputConfig_operationType' - The operation type for an Earth Observation job.
 --
 -- 'status', 'listEarthObservationJobOutputConfig_status' - The status of the list of the Earth Observation jobs.
 newListEarthObservationJobOutputConfig ::
@@ -123,7 +124,7 @@ listEarthObservationJobOutputConfig_durationInSeconds = Lens.lens (\ListEarthObs
 listEarthObservationJobOutputConfig_name :: Lens.Lens' ListEarthObservationJobOutputConfig Prelude.Text
 listEarthObservationJobOutputConfig_name = Lens.lens (\ListEarthObservationJobOutputConfig' {name} -> name) (\s@ListEarthObservationJobOutputConfig' {} a -> s {name = a} :: ListEarthObservationJobOutputConfig)
 
--- |
+-- | The operation type for an Earth Observation job.
 listEarthObservationJobOutputConfig_operationType :: Lens.Lens' ListEarthObservationJobOutputConfig Prelude.Text
 listEarthObservationJobOutputConfig_operationType = Lens.lens (\ListEarthObservationJobOutputConfig' {operationType} -> operationType) (\s@ListEarthObservationJobOutputConfig' {} a -> s {operationType = a} :: ListEarthObservationJobOutputConfig)
 
@@ -156,7 +157,8 @@ instance
   hashWithSalt
     _salt
     ListEarthObservationJobOutputConfig' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` durationInSeconds

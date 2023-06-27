@@ -37,7 +37,9 @@ import Amazonka.SageMakerGeoSpatial.Types.ZonalStatisticsConfigInput
 --
 -- /See:/ 'newJobConfigInput' smart constructor.
 data JobConfigInput = JobConfigInput'
-  { bandMathConfig :: Prelude.Maybe BandMathConfigInput,
+  { -- | An object containing information about the job configuration for
+    -- BandMath.
+    bandMathConfig :: Prelude.Maybe BandMathConfigInput,
     -- | An object containing information about the job configuration for cloud
     -- masking.
     cloudMaskingConfig :: Prelude.Maybe CloudMaskingConfigInput,
@@ -53,6 +55,8 @@ data JobConfigInput = JobConfigInput'
     -- | An object containing information about the job configuration for
     -- resampling.
     resamplingConfig :: Prelude.Maybe ResamplingConfigInput,
+    -- | An object containing information about the job configuration for a
+    -- Stacking Earth Observation job.
     stackConfig :: Prelude.Maybe StackConfigInput,
     -- | An object containing information about the job configuration for
     -- temporal statistics.
@@ -71,7 +75,8 @@ data JobConfigInput = JobConfigInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bandMathConfig', 'jobConfigInput_bandMathConfig' -
+-- 'bandMathConfig', 'jobConfigInput_bandMathConfig' - An object containing information about the job configuration for
+-- BandMath.
 --
 -- 'cloudMaskingConfig', 'jobConfigInput_cloudMaskingConfig' - An object containing information about the job configuration for cloud
 -- masking.
@@ -88,7 +93,8 @@ data JobConfigInput = JobConfigInput'
 -- 'resamplingConfig', 'jobConfigInput_resamplingConfig' - An object containing information about the job configuration for
 -- resampling.
 --
--- 'stackConfig', 'jobConfigInput_stackConfig' -
+-- 'stackConfig', 'jobConfigInput_stackConfig' - An object containing information about the job configuration for a
+-- Stacking Earth Observation job.
 --
 -- 'temporalStatisticsConfig', 'jobConfigInput_temporalStatisticsConfig' - An object containing information about the job configuration for
 -- temporal statistics.
@@ -110,7 +116,8 @@ newJobConfigInput =
       zonalStatisticsConfig = Prelude.Nothing
     }
 
--- |
+-- | An object containing information about the job configuration for
+-- BandMath.
 jobConfigInput_bandMathConfig :: Lens.Lens' JobConfigInput (Prelude.Maybe BandMathConfigInput)
 jobConfigInput_bandMathConfig = Lens.lens (\JobConfigInput' {bandMathConfig} -> bandMathConfig) (\s@JobConfigInput' {} a -> s {bandMathConfig = a} :: JobConfigInput)
 
@@ -139,7 +146,8 @@ jobConfigInput_landCoverSegmentationConfig = Lens.lens (\JobConfigInput' {landCo
 jobConfigInput_resamplingConfig :: Lens.Lens' JobConfigInput (Prelude.Maybe ResamplingConfigInput)
 jobConfigInput_resamplingConfig = Lens.lens (\JobConfigInput' {resamplingConfig} -> resamplingConfig) (\s@JobConfigInput' {} a -> s {resamplingConfig = a} :: JobConfigInput)
 
--- |
+-- | An object containing information about the job configuration for a
+-- Stacking Earth Observation job.
 jobConfigInput_stackConfig :: Lens.Lens' JobConfigInput (Prelude.Maybe StackConfigInput)
 jobConfigInput_stackConfig = Lens.lens (\JobConfigInput' {stackConfig} -> stackConfig) (\s@JobConfigInput' {} a -> s {stackConfig = a} :: JobConfigInput)
 
@@ -172,7 +180,8 @@ instance Data.FromJSON JobConfigInput where
 
 instance Prelude.Hashable JobConfigInput where
   hashWithSalt _salt JobConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` bandMathConfig
+    _salt
+      `Prelude.hashWithSalt` bandMathConfig
       `Prelude.hashWithSalt` cloudMaskingConfig
       `Prelude.hashWithSalt` cloudRemovalConfig
       `Prelude.hashWithSalt` geoMosaicConfig

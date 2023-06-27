@@ -29,7 +29,9 @@ import Amazonka.SageMakerGeoSpatial.Types.EarthObservationJobErrorType
 --
 -- /See:/ 'newEarthObservationJobErrorDetails' smart constructor.
 data EarthObservationJobErrorDetails = EarthObservationJobErrorDetails'
-  { message :: Prelude.Maybe Prelude.Text,
+  { -- | A detailed message describing the error in an Earth Observation job.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The type of error in an Earth Observation job.
     type' :: Prelude.Maybe EarthObservationJobErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +44,9 @@ data EarthObservationJobErrorDetails = EarthObservationJobErrorDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'earthObservationJobErrorDetails_message' -
+-- 'message', 'earthObservationJobErrorDetails_message' - A detailed message describing the error in an Earth Observation job.
 --
--- 'type'', 'earthObservationJobErrorDetails_type' -
+-- 'type'', 'earthObservationJobErrorDetails_type' - The type of error in an Earth Observation job.
 newEarthObservationJobErrorDetails ::
   EarthObservationJobErrorDetails
 newEarthObservationJobErrorDetails =
@@ -54,11 +56,11 @@ newEarthObservationJobErrorDetails =
       type' = Prelude.Nothing
     }
 
--- |
+-- | A detailed message describing the error in an Earth Observation job.
 earthObservationJobErrorDetails_message :: Lens.Lens' EarthObservationJobErrorDetails (Prelude.Maybe Prelude.Text)
 earthObservationJobErrorDetails_message = Lens.lens (\EarthObservationJobErrorDetails' {message} -> message) (\s@EarthObservationJobErrorDetails' {} a -> s {message = a} :: EarthObservationJobErrorDetails)
 
--- |
+-- | The type of error in an Earth Observation job.
 earthObservationJobErrorDetails_type :: Lens.Lens' EarthObservationJobErrorDetails (Prelude.Maybe EarthObservationJobErrorType)
 earthObservationJobErrorDetails_type = Lens.lens (\EarthObservationJobErrorDetails' {type'} -> type') (\s@EarthObservationJobErrorDetails' {} a -> s {type' = a} :: EarthObservationJobErrorDetails)
 
@@ -82,7 +84,8 @@ instance
   hashWithSalt
     _salt
     EarthObservationJobErrorDetails' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` type'
 
 instance

@@ -24,11 +24,18 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The input structure for specifying ViewSunAzimuth property filter.
+-- ViewSunAzimuth refers to the Sun azimuth angle. From the scene center
+-- point on the ground, this is the angle between truth north and the sun.
+-- Measured clockwise in degrees (0-360).
 --
 -- /See:/ 'newViewSunAzimuthInput' smart constructor.
 data ViewSunAzimuthInput = ViewSunAzimuthInput'
-  { lowerBound :: Prelude.Double,
+  { -- | The minimum value for ViewSunAzimuth property filter. This filters items
+    -- having ViewSunAzimuth greater than or equal to this value.
+    lowerBound :: Prelude.Double,
+    -- | The maximum value for ViewSunAzimuth property filter. This filters items
+    -- having ViewSunAzimuth lesser than or equal to this value.
     upperBound :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,9 +48,11 @@ data ViewSunAzimuthInput = ViewSunAzimuthInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lowerBound', 'viewSunAzimuthInput_lowerBound' -
+-- 'lowerBound', 'viewSunAzimuthInput_lowerBound' - The minimum value for ViewSunAzimuth property filter. This filters items
+-- having ViewSunAzimuth greater than or equal to this value.
 --
--- 'upperBound', 'viewSunAzimuthInput_upperBound' -
+-- 'upperBound', 'viewSunAzimuthInput_upperBound' - The maximum value for ViewSunAzimuth property filter. This filters items
+-- having ViewSunAzimuth lesser than or equal to this value.
 newViewSunAzimuthInput ::
   -- | 'lowerBound'
   Prelude.Double ->
@@ -56,11 +65,13 @@ newViewSunAzimuthInput pLowerBound_ pUpperBound_ =
       upperBound = pUpperBound_
     }
 
--- |
+-- | The minimum value for ViewSunAzimuth property filter. This filters items
+-- having ViewSunAzimuth greater than or equal to this value.
 viewSunAzimuthInput_lowerBound :: Lens.Lens' ViewSunAzimuthInput Prelude.Double
 viewSunAzimuthInput_lowerBound = Lens.lens (\ViewSunAzimuthInput' {lowerBound} -> lowerBound) (\s@ViewSunAzimuthInput' {} a -> s {lowerBound = a} :: ViewSunAzimuthInput)
 
--- |
+-- | The maximum value for ViewSunAzimuth property filter. This filters items
+-- having ViewSunAzimuth lesser than or equal to this value.
 viewSunAzimuthInput_upperBound :: Lens.Lens' ViewSunAzimuthInput Prelude.Double
 viewSunAzimuthInput_upperBound = Lens.lens (\ViewSunAzimuthInput' {upperBound} -> upperBound) (\s@ViewSunAzimuthInput' {} a -> s {upperBound = a} :: ViewSunAzimuthInput)
 
@@ -76,7 +87,8 @@ instance Data.FromJSON ViewSunAzimuthInput where
 
 instance Prelude.Hashable ViewSunAzimuthInput where
   hashWithSalt _salt ViewSunAzimuthInput' {..} =
-    _salt `Prelude.hashWithSalt` lowerBound
+    _salt
+      `Prelude.hashWithSalt` lowerBound
       `Prelude.hashWithSalt` upperBound
 
 instance Prelude.NFData ViewSunAzimuthInput where

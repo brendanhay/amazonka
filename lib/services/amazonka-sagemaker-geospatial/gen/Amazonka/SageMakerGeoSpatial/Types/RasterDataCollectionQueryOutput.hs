@@ -25,18 +25,23 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.AreaOfInterest
 import Amazonka.SageMakerGeoSpatial.Types.PropertyFilters
-import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterInput
+import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterOutput
 
--- |
+-- | The output structure contains the Raster Data Collection Query input
+-- along with some additional metadata.
 --
 -- /See:/ 'newRasterDataCollectionQueryOutput' smart constructor.
 data RasterDataCollectionQueryOutput = RasterDataCollectionQueryOutput'
-  { areaOfInterest :: Prelude.Maybe AreaOfInterest,
+  { -- | The Area of Interest used in the search.
+    areaOfInterest :: Prelude.Maybe AreaOfInterest,
+    -- | Property filters used in the search.
     propertyFilters :: Prelude.Maybe PropertyFilters,
+    -- | The ARN of the Raster Data Collection against which the search is done.
     rasterDataCollectionArn :: Prelude.Text,
     -- | The name of the raster data collection.
     rasterDataCollectionName :: Prelude.Text,
-    timeRangeFilter :: Data.Sensitive TimeRangeFilterInput
+    -- | The TimeRange filter used in the search.
+    timeRangeFilter :: Data.Sensitive TimeRangeFilterOutput
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,22 +53,22 @@ data RasterDataCollectionQueryOutput = RasterDataCollectionQueryOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'areaOfInterest', 'rasterDataCollectionQueryOutput_areaOfInterest' -
+-- 'areaOfInterest', 'rasterDataCollectionQueryOutput_areaOfInterest' - The Area of Interest used in the search.
 --
--- 'propertyFilters', 'rasterDataCollectionQueryOutput_propertyFilters' -
+-- 'propertyFilters', 'rasterDataCollectionQueryOutput_propertyFilters' - Property filters used in the search.
 --
--- 'rasterDataCollectionArn', 'rasterDataCollectionQueryOutput_rasterDataCollectionArn' -
+-- 'rasterDataCollectionArn', 'rasterDataCollectionQueryOutput_rasterDataCollectionArn' - The ARN of the Raster Data Collection against which the search is done.
 --
 -- 'rasterDataCollectionName', 'rasterDataCollectionQueryOutput_rasterDataCollectionName' - The name of the raster data collection.
 --
--- 'timeRangeFilter', 'rasterDataCollectionQueryOutput_timeRangeFilter' -
+-- 'timeRangeFilter', 'rasterDataCollectionQueryOutput_timeRangeFilter' - The TimeRange filter used in the search.
 newRasterDataCollectionQueryOutput ::
   -- | 'rasterDataCollectionArn'
   Prelude.Text ->
   -- | 'rasterDataCollectionName'
   Prelude.Text ->
   -- | 'timeRangeFilter'
-  TimeRangeFilterInput ->
+  TimeRangeFilterOutput ->
   RasterDataCollectionQueryOutput
 newRasterDataCollectionQueryOutput
   pRasterDataCollectionArn_
@@ -81,15 +86,15 @@ newRasterDataCollectionQueryOutput
           Data._Sensitive Lens.# pTimeRangeFilter_
       }
 
--- |
+-- | The Area of Interest used in the search.
 rasterDataCollectionQueryOutput_areaOfInterest :: Lens.Lens' RasterDataCollectionQueryOutput (Prelude.Maybe AreaOfInterest)
 rasterDataCollectionQueryOutput_areaOfInterest = Lens.lens (\RasterDataCollectionQueryOutput' {areaOfInterest} -> areaOfInterest) (\s@RasterDataCollectionQueryOutput' {} a -> s {areaOfInterest = a} :: RasterDataCollectionQueryOutput)
 
--- |
+-- | Property filters used in the search.
 rasterDataCollectionQueryOutput_propertyFilters :: Lens.Lens' RasterDataCollectionQueryOutput (Prelude.Maybe PropertyFilters)
 rasterDataCollectionQueryOutput_propertyFilters = Lens.lens (\RasterDataCollectionQueryOutput' {propertyFilters} -> propertyFilters) (\s@RasterDataCollectionQueryOutput' {} a -> s {propertyFilters = a} :: RasterDataCollectionQueryOutput)
 
--- |
+-- | The ARN of the Raster Data Collection against which the search is done.
 rasterDataCollectionQueryOutput_rasterDataCollectionArn :: Lens.Lens' RasterDataCollectionQueryOutput Prelude.Text
 rasterDataCollectionQueryOutput_rasterDataCollectionArn = Lens.lens (\RasterDataCollectionQueryOutput' {rasterDataCollectionArn} -> rasterDataCollectionArn) (\s@RasterDataCollectionQueryOutput' {} a -> s {rasterDataCollectionArn = a} :: RasterDataCollectionQueryOutput)
 
@@ -97,8 +102,8 @@ rasterDataCollectionQueryOutput_rasterDataCollectionArn = Lens.lens (\RasterData
 rasterDataCollectionQueryOutput_rasterDataCollectionName :: Lens.Lens' RasterDataCollectionQueryOutput Prelude.Text
 rasterDataCollectionQueryOutput_rasterDataCollectionName = Lens.lens (\RasterDataCollectionQueryOutput' {rasterDataCollectionName} -> rasterDataCollectionName) (\s@RasterDataCollectionQueryOutput' {} a -> s {rasterDataCollectionName = a} :: RasterDataCollectionQueryOutput)
 
--- |
-rasterDataCollectionQueryOutput_timeRangeFilter :: Lens.Lens' RasterDataCollectionQueryOutput TimeRangeFilterInput
+-- | The TimeRange filter used in the search.
+rasterDataCollectionQueryOutput_timeRangeFilter :: Lens.Lens' RasterDataCollectionQueryOutput TimeRangeFilterOutput
 rasterDataCollectionQueryOutput_timeRangeFilter = Lens.lens (\RasterDataCollectionQueryOutput' {timeRangeFilter} -> timeRangeFilter) (\s@RasterDataCollectionQueryOutput' {} a -> s {timeRangeFilter = a} :: RasterDataCollectionQueryOutput) Prelude.. Data._Sensitive
 
 instance
@@ -124,7 +129,8 @@ instance
   hashWithSalt
     _salt
     RasterDataCollectionQueryOutput' {..} =
-      _salt `Prelude.hashWithSalt` areaOfInterest
+      _salt
+        `Prelude.hashWithSalt` areaOfInterest
         `Prelude.hashWithSalt` propertyFilters
         `Prelude.hashWithSalt` rasterDataCollectionArn
         `Prelude.hashWithSalt` rasterDataCollectionName

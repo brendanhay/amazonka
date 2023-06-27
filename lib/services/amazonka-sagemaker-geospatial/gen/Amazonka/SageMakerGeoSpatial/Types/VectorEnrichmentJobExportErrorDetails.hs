@@ -33,6 +33,8 @@ data VectorEnrichmentJobExportErrorDetails = VectorEnrichmentJobExportErrorDetai
   { -- | The message providing details about the errors generated during the
     -- Vector Enrichment job.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The output error details for an Export operation on a Vector Enrichment
+    -- job.
     type' :: Prelude.Maybe VectorEnrichmentJobExportErrorType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +50,8 @@ data VectorEnrichmentJobExportErrorDetails = VectorEnrichmentJobExportErrorDetai
 -- 'message', 'vectorEnrichmentJobExportErrorDetails_message' - The message providing details about the errors generated during the
 -- Vector Enrichment job.
 --
--- 'type'', 'vectorEnrichmentJobExportErrorDetails_type' -
+-- 'type'', 'vectorEnrichmentJobExportErrorDetails_type' - The output error details for an Export operation on a Vector Enrichment
+-- job.
 newVectorEnrichmentJobExportErrorDetails ::
   VectorEnrichmentJobExportErrorDetails
 newVectorEnrichmentJobExportErrorDetails =
@@ -63,7 +66,8 @@ newVectorEnrichmentJobExportErrorDetails =
 vectorEnrichmentJobExportErrorDetails_message :: Lens.Lens' VectorEnrichmentJobExportErrorDetails (Prelude.Maybe Prelude.Text)
 vectorEnrichmentJobExportErrorDetails_message = Lens.lens (\VectorEnrichmentJobExportErrorDetails' {message} -> message) (\s@VectorEnrichmentJobExportErrorDetails' {} a -> s {message = a} :: VectorEnrichmentJobExportErrorDetails)
 
--- |
+-- | The output error details for an Export operation on a Vector Enrichment
+-- job.
 vectorEnrichmentJobExportErrorDetails_type :: Lens.Lens' VectorEnrichmentJobExportErrorDetails (Prelude.Maybe VectorEnrichmentJobExportErrorType)
 vectorEnrichmentJobExportErrorDetails_type = Lens.lens (\VectorEnrichmentJobExportErrorDetails' {type'} -> type') (\s@VectorEnrichmentJobExportErrorDetails' {} a -> s {type' = a} :: VectorEnrichmentJobExportErrorDetails)
 
@@ -87,7 +91,8 @@ instance
   hashWithSalt
     _salt
     VectorEnrichmentJobExportErrorDetails' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` type'
 
 instance

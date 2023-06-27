@@ -26,13 +26,17 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.AlgorithmNameResampling
 import Amazonka.SageMakerGeoSpatial.Types.OutputResolutionResamplingInput
 
--- |
+-- | The structure representing input for resampling operation.
 --
 -- /See:/ 'newResamplingConfigInput' smart constructor.
 data ResamplingConfigInput = ResamplingConfigInput'
   { -- | The name of the algorithm used for resampling.
     algorithmName :: Prelude.Maybe AlgorithmNameResampling,
+    -- | Bands used in the operation. If no target bands are specified, it uses
+    -- all bands available in the input.
     targetBands :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The structure representing output resolution (in target georeferenced
+    -- units) of the result of resampling operation.
     outputResolution :: OutputResolutionResamplingInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,9 +51,11 @@ data ResamplingConfigInput = ResamplingConfigInput'
 --
 -- 'algorithmName', 'resamplingConfigInput_algorithmName' - The name of the algorithm used for resampling.
 --
--- 'targetBands', 'resamplingConfigInput_targetBands' -
+-- 'targetBands', 'resamplingConfigInput_targetBands' - Bands used in the operation. If no target bands are specified, it uses
+-- all bands available in the input.
 --
--- 'outputResolution', 'resamplingConfigInput_outputResolution' -
+-- 'outputResolution', 'resamplingConfigInput_outputResolution' - The structure representing output resolution (in target georeferenced
+-- units) of the result of resampling operation.
 newResamplingConfigInput ::
   -- | 'outputResolution'
   OutputResolutionResamplingInput ->
@@ -66,11 +72,13 @@ newResamplingConfigInput pOutputResolution_ =
 resamplingConfigInput_algorithmName :: Lens.Lens' ResamplingConfigInput (Prelude.Maybe AlgorithmNameResampling)
 resamplingConfigInput_algorithmName = Lens.lens (\ResamplingConfigInput' {algorithmName} -> algorithmName) (\s@ResamplingConfigInput' {} a -> s {algorithmName = a} :: ResamplingConfigInput)
 
--- |
+-- | Bands used in the operation. If no target bands are specified, it uses
+-- all bands available in the input.
 resamplingConfigInput_targetBands :: Lens.Lens' ResamplingConfigInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 resamplingConfigInput_targetBands = Lens.lens (\ResamplingConfigInput' {targetBands} -> targetBands) (\s@ResamplingConfigInput' {} a -> s {targetBands = a} :: ResamplingConfigInput) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | The structure representing output resolution (in target georeferenced
+-- units) of the result of resampling operation.
 resamplingConfigInput_outputResolution :: Lens.Lens' ResamplingConfigInput OutputResolutionResamplingInput
 resamplingConfigInput_outputResolution = Lens.lens (\ResamplingConfigInput' {outputResolution} -> outputResolution) (\s@ResamplingConfigInput' {} a -> s {outputResolution = a} :: ResamplingConfigInput)
 
@@ -87,7 +95,8 @@ instance Data.FromJSON ResamplingConfigInput where
 
 instance Prelude.Hashable ResamplingConfigInput where
   hashWithSalt _salt ResamplingConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` algorithmName
+    _salt
+      `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` targetBands
       `Prelude.hashWithSalt` outputResolution
 

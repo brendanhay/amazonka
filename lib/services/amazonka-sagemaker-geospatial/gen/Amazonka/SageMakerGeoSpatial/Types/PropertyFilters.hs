@@ -26,11 +26,13 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.LogicalOperator
 import Amazonka.SageMakerGeoSpatial.Types.PropertyFilter
 
--- |
+-- | A list of PropertyFilter objects.
 --
 -- /See:/ 'newPropertyFilters' smart constructor.
 data PropertyFilters = PropertyFilters'
-  { logicalOperator :: Prelude.Maybe LogicalOperator,
+  { -- | The Logical Operator used to combine the Property Filters.
+    logicalOperator :: Prelude.Maybe LogicalOperator,
+    -- | A list of Property Filters.
     properties :: Prelude.Maybe [PropertyFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +45,9 @@ data PropertyFilters = PropertyFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logicalOperator', 'propertyFilters_logicalOperator' -
+-- 'logicalOperator', 'propertyFilters_logicalOperator' - The Logical Operator used to combine the Property Filters.
 --
--- 'properties', 'propertyFilters_properties' -
+-- 'properties', 'propertyFilters_properties' - A list of Property Filters.
 newPropertyFilters ::
   PropertyFilters
 newPropertyFilters =
@@ -54,11 +56,11 @@ newPropertyFilters =
       properties = Prelude.Nothing
     }
 
--- |
+-- | The Logical Operator used to combine the Property Filters.
 propertyFilters_logicalOperator :: Lens.Lens' PropertyFilters (Prelude.Maybe LogicalOperator)
 propertyFilters_logicalOperator = Lens.lens (\PropertyFilters' {logicalOperator} -> logicalOperator) (\s@PropertyFilters' {} a -> s {logicalOperator = a} :: PropertyFilters)
 
--- |
+-- | A list of Property Filters.
 propertyFilters_properties :: Lens.Lens' PropertyFilters (Prelude.Maybe [PropertyFilter])
 propertyFilters_properties = Lens.lens (\PropertyFilters' {properties} -> properties) (\s@PropertyFilters' {} a -> s {properties = a} :: PropertyFilters) Prelude.. Lens.mapping Lens.coerced
 
@@ -74,7 +76,8 @@ instance Data.FromJSON PropertyFilters where
 
 instance Prelude.Hashable PropertyFilters where
   hashWithSalt _salt PropertyFilters' {..} =
-    _salt `Prelude.hashWithSalt` logicalOperator
+    _salt
+      `Prelude.hashWithSalt` logicalOperator
       `Prelude.hashWithSalt` properties
 
 instance Prelude.NFData PropertyFilters where

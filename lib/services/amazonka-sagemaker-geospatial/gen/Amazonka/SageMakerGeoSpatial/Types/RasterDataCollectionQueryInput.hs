@@ -27,15 +27,18 @@ import Amazonka.SageMakerGeoSpatial.Types.AreaOfInterest
 import Amazonka.SageMakerGeoSpatial.Types.PropertyFilters
 import Amazonka.SageMakerGeoSpatial.Types.TimeRangeFilterInput
 
--- |
+-- | The input structure for Raster Data Collection Query containing the Area
+-- of Interest, TimeRange Filters, and Property Filters.
 --
 -- /See:/ 'newRasterDataCollectionQueryInput' smart constructor.
 data RasterDataCollectionQueryInput = RasterDataCollectionQueryInput'
   { -- | The area of interest being queried for the raster data collection.
     areaOfInterest :: Prelude.Maybe AreaOfInterest,
+    -- | The list of Property filters used in the Raster Data Collection Query.
     propertyFilters :: Prelude.Maybe PropertyFilters,
     -- | The Amazon Resource Name (ARN) of the raster data collection.
     rasterDataCollectionArn :: Prelude.Text,
+    -- | The TimeRange Filter used in the RasterDataCollection Query.
     timeRangeFilter :: Data.Sensitive TimeRangeFilterInput
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -50,11 +53,11 @@ data RasterDataCollectionQueryInput = RasterDataCollectionQueryInput'
 --
 -- 'areaOfInterest', 'rasterDataCollectionQueryInput_areaOfInterest' - The area of interest being queried for the raster data collection.
 --
--- 'propertyFilters', 'rasterDataCollectionQueryInput_propertyFilters' -
+-- 'propertyFilters', 'rasterDataCollectionQueryInput_propertyFilters' - The list of Property filters used in the Raster Data Collection Query.
 --
 -- 'rasterDataCollectionArn', 'rasterDataCollectionQueryInput_rasterDataCollectionArn' - The Amazon Resource Name (ARN) of the raster data collection.
 --
--- 'timeRangeFilter', 'rasterDataCollectionQueryInput_timeRangeFilter' -
+-- 'timeRangeFilter', 'rasterDataCollectionQueryInput_timeRangeFilter' - The TimeRange Filter used in the RasterDataCollection Query.
 newRasterDataCollectionQueryInput ::
   -- | 'rasterDataCollectionArn'
   Prelude.Text ->
@@ -78,7 +81,7 @@ newRasterDataCollectionQueryInput
 rasterDataCollectionQueryInput_areaOfInterest :: Lens.Lens' RasterDataCollectionQueryInput (Prelude.Maybe AreaOfInterest)
 rasterDataCollectionQueryInput_areaOfInterest = Lens.lens (\RasterDataCollectionQueryInput' {areaOfInterest} -> areaOfInterest) (\s@RasterDataCollectionQueryInput' {} a -> s {areaOfInterest = a} :: RasterDataCollectionQueryInput)
 
--- |
+-- | The list of Property filters used in the Raster Data Collection Query.
 rasterDataCollectionQueryInput_propertyFilters :: Lens.Lens' RasterDataCollectionQueryInput (Prelude.Maybe PropertyFilters)
 rasterDataCollectionQueryInput_propertyFilters = Lens.lens (\RasterDataCollectionQueryInput' {propertyFilters} -> propertyFilters) (\s@RasterDataCollectionQueryInput' {} a -> s {propertyFilters = a} :: RasterDataCollectionQueryInput)
 
@@ -86,7 +89,7 @@ rasterDataCollectionQueryInput_propertyFilters = Lens.lens (\RasterDataCollectio
 rasterDataCollectionQueryInput_rasterDataCollectionArn :: Lens.Lens' RasterDataCollectionQueryInput Prelude.Text
 rasterDataCollectionQueryInput_rasterDataCollectionArn = Lens.lens (\RasterDataCollectionQueryInput' {rasterDataCollectionArn} -> rasterDataCollectionArn) (\s@RasterDataCollectionQueryInput' {} a -> s {rasterDataCollectionArn = a} :: RasterDataCollectionQueryInput)
 
--- |
+-- | The TimeRange Filter used in the RasterDataCollection Query.
 rasterDataCollectionQueryInput_timeRangeFilter :: Lens.Lens' RasterDataCollectionQueryInput TimeRangeFilterInput
 rasterDataCollectionQueryInput_timeRangeFilter = Lens.lens (\RasterDataCollectionQueryInput' {timeRangeFilter} -> timeRangeFilter) (\s@RasterDataCollectionQueryInput' {} a -> s {timeRangeFilter = a} :: RasterDataCollectionQueryInput) Prelude.. Data._Sensitive
 
@@ -97,7 +100,8 @@ instance
   hashWithSalt
     _salt
     RasterDataCollectionQueryInput' {..} =
-      _salt `Prelude.hashWithSalt` areaOfInterest
+      _salt
+        `Prelude.hashWithSalt` areaOfInterest
         `Prelude.hashWithSalt` propertyFilters
         `Prelude.hashWithSalt` rasterDataCollectionArn
         `Prelude.hashWithSalt` timeRangeFilter

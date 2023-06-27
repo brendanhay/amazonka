@@ -25,11 +25,14 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.VectorEnrichmentJobS3Data
 
--- |
+-- | The input structure for the data source that represents the storage type
+-- of the input data objects.
 --
 -- /See:/ 'newVectorEnrichmentJobDataSourceConfigInput' smart constructor.
 data VectorEnrichmentJobDataSourceConfigInput = VectorEnrichmentJobDataSourceConfigInput'
-  { s3Data :: Prelude.Maybe VectorEnrichmentJobS3Data
+  { -- | The input structure for the Amazon S3 data that represents the Amazon S3
+    -- location of the input data objects.
+    s3Data :: Prelude.Maybe VectorEnrichmentJobS3Data
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,7 +44,8 @@ data VectorEnrichmentJobDataSourceConfigInput = VectorEnrichmentJobDataSourceCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3Data', 'vectorEnrichmentJobDataSourceConfigInput_s3Data' -
+-- 's3Data', 'vectorEnrichmentJobDataSourceConfigInput_s3Data' - The input structure for the Amazon S3 data that represents the Amazon S3
+-- location of the input data objects.
 newVectorEnrichmentJobDataSourceConfigInput ::
   VectorEnrichmentJobDataSourceConfigInput
 newVectorEnrichmentJobDataSourceConfigInput =
@@ -50,7 +54,8 @@ newVectorEnrichmentJobDataSourceConfigInput =
         Prelude.Nothing
     }
 
--- |
+-- | The input structure for the Amazon S3 data that represents the Amazon S3
+-- location of the input data objects.
 vectorEnrichmentJobDataSourceConfigInput_s3Data :: Lens.Lens' VectorEnrichmentJobDataSourceConfigInput (Prelude.Maybe VectorEnrichmentJobS3Data)
 vectorEnrichmentJobDataSourceConfigInput_s3Data = Lens.lens (\VectorEnrichmentJobDataSourceConfigInput' {s3Data} -> s3Data) (\s@VectorEnrichmentJobDataSourceConfigInput' {} a -> s {s3Data = a} :: VectorEnrichmentJobDataSourceConfigInput)
 

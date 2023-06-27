@@ -68,8 +68,7 @@ import Amazonka.SageMakerGeoSpatial.Types
 data StartVectorEnrichmentJob = StartVectorEnrichmentJob'
   { -- | A unique token that guarantees that the call to this API is idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+    -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Each tag consists of a key and a value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -95,8 +94,7 @@ data StartVectorEnrichmentJob = StartVectorEnrichmentJob'
 --
 -- 'clientToken', 'startVectorEnrichmentJob_clientToken' - A unique token that guarantees that the call to this API is idempotent.
 --
--- 'kmsKeyId', 'startVectorEnrichmentJob_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'startVectorEnrichmentJob_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
 -- 'tags', 'startVectorEnrichmentJob_tags' - Each tag consists of a key and a value.
 --
@@ -138,8 +136,7 @@ newStartVectorEnrichmentJob
 startVectorEnrichmentJob_clientToken :: Lens.Lens' StartVectorEnrichmentJob (Prelude.Maybe Prelude.Text)
 startVectorEnrichmentJob_clientToken = Lens.lens (\StartVectorEnrichmentJob' {clientToken} -> clientToken) (\s@StartVectorEnrichmentJob' {} a -> s {clientToken = a} :: StartVectorEnrichmentJob)
 
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 startVectorEnrichmentJob_kmsKeyId :: Lens.Lens' StartVectorEnrichmentJob (Prelude.Maybe Prelude.Text)
 startVectorEnrichmentJob_kmsKeyId = Lens.lens (\StartVectorEnrichmentJob' {kmsKeyId} -> kmsKeyId) (\s@StartVectorEnrichmentJob' {} a -> s {kmsKeyId = a} :: StartVectorEnrichmentJob)
 
@@ -190,7 +187,8 @@ instance Core.AWSRequest StartVectorEnrichmentJob where
 
 instance Prelude.Hashable StartVectorEnrichmentJob where
   hashWithSalt _salt StartVectorEnrichmentJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` executionRoleArn
@@ -242,8 +240,7 @@ instance Data.ToQuery StartVectorEnrichmentJob where
 
 -- | /See:/ 'newStartVectorEnrichmentJobResponse' smart constructor.
 data StartVectorEnrichmentJobResponse = StartVectorEnrichmentJobResponse'
-  { -- | The Amazon Key Management Service (KMS) key ID for server-side
-    -- encryption.
+  { -- | The Key Management Service key ID for server-side encryption.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Each tag consists of a key and a value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -252,7 +249,7 @@ data StartVectorEnrichmentJobResponse = StartVectorEnrichmentJobResponse'
     -- | The Amazon Resource Name (ARN) of the Vector Enrichment job.
     arn :: Prelude.Text,
     -- | The creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The duration of the Vector Enrichment job, in seconds.
     durationInSeconds :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
@@ -279,8 +276,7 @@ data StartVectorEnrichmentJobResponse = StartVectorEnrichmentJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'startVectorEnrichmentJobResponse_kmsKeyId' - The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- 'kmsKeyId', 'startVectorEnrichmentJobResponse_kmsKeyId' - The Key Management Service key ID for server-side encryption.
 --
 -- 'tags', 'startVectorEnrichmentJobResponse_tags' - Each tag consists of a key and a value.
 --
@@ -354,8 +350,7 @@ newStartVectorEnrichmentJobResponse
         type' = pType_
       }
 
--- | The Amazon Key Management Service (KMS) key ID for server-side
--- encryption.
+-- | The Key Management Service key ID for server-side encryption.
 startVectorEnrichmentJobResponse_kmsKeyId :: Lens.Lens' StartVectorEnrichmentJobResponse (Prelude.Maybe Prelude.Text)
 startVectorEnrichmentJobResponse_kmsKeyId = Lens.lens (\StartVectorEnrichmentJobResponse' {kmsKeyId} -> kmsKeyId) (\s@StartVectorEnrichmentJobResponse' {} a -> s {kmsKeyId = a} :: StartVectorEnrichmentJobResponse)
 

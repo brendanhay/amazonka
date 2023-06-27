@@ -27,14 +27,19 @@ import Amazonka.SageMakerGeoSpatial.Types.AssetValue
 import Amazonka.SageMakerGeoSpatial.Types.Geometry
 import Amazonka.SageMakerGeoSpatial.Types.Properties
 
--- | Structure representing the items in the response for
+-- | The structure representing the items in the response for
 -- SearchRasterDataCollection.
 --
 -- /See:/ 'newItemSource' smart constructor.
 data ItemSource = ItemSource'
-  { assets :: Prelude.Maybe (Prelude.HashMap Prelude.Text AssetValue),
+  { -- | This is a dictionary of Asset Objects data associated with the Item that
+    -- can be downloaded or streamed, each with a unique key.
+    assets :: Prelude.Maybe (Prelude.HashMap Prelude.Text AssetValue),
+    -- | This field contains additional properties of the item.
     properties :: Prelude.Maybe Properties,
+    -- | The searchable date and time of the item, in UTC.
     dateTime :: Data.POSIX,
+    -- | The item Geometry in GeoJson format.
     geometry :: Geometry,
     -- | A unique Id for the source item.
     id :: Prelude.Text
@@ -49,13 +54,14 @@ data ItemSource = ItemSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assets', 'itemSource_assets' -
+-- 'assets', 'itemSource_assets' - This is a dictionary of Asset Objects data associated with the Item that
+-- can be downloaded or streamed, each with a unique key.
 --
--- 'properties', 'itemSource_properties' -
+-- 'properties', 'itemSource_properties' - This field contains additional properties of the item.
 --
--- 'dateTime', 'itemSource_dateTime' -
+-- 'dateTime', 'itemSource_dateTime' - The searchable date and time of the item, in UTC.
 --
--- 'geometry', 'itemSource_geometry' -
+-- 'geometry', 'itemSource_geometry' - The item Geometry in GeoJson format.
 --
 -- 'id', 'itemSource_id' - A unique Id for the source item.
 newItemSource ::
@@ -75,19 +81,20 @@ newItemSource pDateTime_ pGeometry_ pId_ =
       id = pId_
     }
 
--- |
+-- | This is a dictionary of Asset Objects data associated with the Item that
+-- can be downloaded or streamed, each with a unique key.
 itemSource_assets :: Lens.Lens' ItemSource (Prelude.Maybe (Prelude.HashMap Prelude.Text AssetValue))
 itemSource_assets = Lens.lens (\ItemSource' {assets} -> assets) (\s@ItemSource' {} a -> s {assets = a} :: ItemSource) Prelude.. Lens.mapping Lens.coerced
 
--- |
+-- | This field contains additional properties of the item.
 itemSource_properties :: Lens.Lens' ItemSource (Prelude.Maybe Properties)
 itemSource_properties = Lens.lens (\ItemSource' {properties} -> properties) (\s@ItemSource' {} a -> s {properties = a} :: ItemSource)
 
--- |
+-- | The searchable date and time of the item, in UTC.
 itemSource_dateTime :: Lens.Lens' ItemSource Prelude.UTCTime
 itemSource_dateTime = Lens.lens (\ItemSource' {dateTime} -> dateTime) (\s@ItemSource' {} a -> s {dateTime = a} :: ItemSource) Prelude.. Data._Time
 
--- |
+-- | The item Geometry in GeoJson format.
 itemSource_geometry :: Lens.Lens' ItemSource Geometry
 itemSource_geometry = Lens.lens (\ItemSource' {geometry} -> geometry) (\s@ItemSource' {} a -> s {geometry = a} :: ItemSource)
 
@@ -110,7 +117,8 @@ instance Data.FromJSON ItemSource where
 
 instance Prelude.Hashable ItemSource where
   hashWithSalt _salt ItemSource' {..} =
-    _salt `Prelude.hashWithSalt` assets
+    _salt
+      `Prelude.hashWithSalt` assets
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` dateTime
       `Prelude.hashWithSalt` geometry

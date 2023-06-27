@@ -25,11 +25,15 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.CustomIndicesInput
 
--- |
+-- | Input structure for the BandMath operation type. Defines Predefined and
+-- CustomIndices to be computed using BandMath.
 --
 -- /See:/ 'newBandMathConfigInput' smart constructor.
 data BandMathConfigInput = BandMathConfigInput'
-  { customIndices :: Prelude.Maybe CustomIndicesInput,
+  { -- | CustomIndices that are computed.
+    customIndices :: Prelude.Maybe CustomIndicesInput,
+    -- | One or many of the supported predefined indices to compute. Allowed
+    -- values: @NDVI@, @EVI2@, @MSAVI@, @NDWI@, @NDMI@, @NDSI@, and @WDRVI@.
     predefinedIndices :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +46,10 @@ data BandMathConfigInput = BandMathConfigInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customIndices', 'bandMathConfigInput_customIndices' -
+-- 'customIndices', 'bandMathConfigInput_customIndices' - CustomIndices that are computed.
 --
--- 'predefinedIndices', 'bandMathConfigInput_predefinedIndices' -
+-- 'predefinedIndices', 'bandMathConfigInput_predefinedIndices' - One or many of the supported predefined indices to compute. Allowed
+-- values: @NDVI@, @EVI2@, @MSAVI@, @NDWI@, @NDMI@, @NDSI@, and @WDRVI@.
 newBandMathConfigInput ::
   BandMathConfigInput
 newBandMathConfigInput =
@@ -54,11 +59,12 @@ newBandMathConfigInput =
       predefinedIndices = Prelude.Nothing
     }
 
--- |
+-- | CustomIndices that are computed.
 bandMathConfigInput_customIndices :: Lens.Lens' BandMathConfigInput (Prelude.Maybe CustomIndicesInput)
 bandMathConfigInput_customIndices = Lens.lens (\BandMathConfigInput' {customIndices} -> customIndices) (\s@BandMathConfigInput' {} a -> s {customIndices = a} :: BandMathConfigInput)
 
--- |
+-- | One or many of the supported predefined indices to compute. Allowed
+-- values: @NDVI@, @EVI2@, @MSAVI@, @NDWI@, @NDMI@, @NDSI@, and @WDRVI@.
 bandMathConfigInput_predefinedIndices :: Lens.Lens' BandMathConfigInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 bandMathConfigInput_predefinedIndices = Lens.lens (\BandMathConfigInput' {predefinedIndices} -> predefinedIndices) (\s@BandMathConfigInput' {} a -> s {predefinedIndices = a} :: BandMathConfigInput) Prelude.. Lens.mapping Lens.coerced
 
@@ -74,7 +80,8 @@ instance Data.FromJSON BandMathConfigInput where
 
 instance Prelude.Hashable BandMathConfigInput where
   hashWithSalt _salt BandMathConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` customIndices
+    _salt
+      `Prelude.hashWithSalt` customIndices
       `Prelude.hashWithSalt` predefinedIndices
 
 instance Prelude.NFData BandMathConfigInput where

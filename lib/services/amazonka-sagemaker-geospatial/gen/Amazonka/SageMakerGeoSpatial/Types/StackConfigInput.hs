@@ -25,11 +25,16 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMakerGeoSpatial.Types.OutputResolutionStackInput
 
--- |
+-- | The input structure for Stacking Operation.
 --
 -- /See:/ 'newStackConfigInput' smart constructor.
 data StackConfigInput = StackConfigInput'
-  { outputResolution :: Prelude.Maybe OutputResolutionStackInput,
+  { -- | The structure representing output resolution (in target georeferenced
+    -- units) of the result of stacking operation.
+    outputResolution :: Prelude.Maybe OutputResolutionStackInput,
+    -- | A list of bands to be stacked in the specified order. When the parameter
+    -- is not provided, all the available bands in the data collection are
+    -- stacked in the alphabetical order of their asset names.
     targetBands :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +47,12 @@ data StackConfigInput = StackConfigInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outputResolution', 'stackConfigInput_outputResolution' -
+-- 'outputResolution', 'stackConfigInput_outputResolution' - The structure representing output resolution (in target georeferenced
+-- units) of the result of stacking operation.
 --
--- 'targetBands', 'stackConfigInput_targetBands' -
+-- 'targetBands', 'stackConfigInput_targetBands' - A list of bands to be stacked in the specified order. When the parameter
+-- is not provided, all the available bands in the data collection are
+-- stacked in the alphabetical order of their asset names.
 newStackConfigInput ::
   StackConfigInput
 newStackConfigInput =
@@ -54,11 +62,14 @@ newStackConfigInput =
       targetBands = Prelude.Nothing
     }
 
--- |
+-- | The structure representing output resolution (in target georeferenced
+-- units) of the result of stacking operation.
 stackConfigInput_outputResolution :: Lens.Lens' StackConfigInput (Prelude.Maybe OutputResolutionStackInput)
 stackConfigInput_outputResolution = Lens.lens (\StackConfigInput' {outputResolution} -> outputResolution) (\s@StackConfigInput' {} a -> s {outputResolution = a} :: StackConfigInput)
 
--- |
+-- | A list of bands to be stacked in the specified order. When the parameter
+-- is not provided, all the available bands in the data collection are
+-- stacked in the alphabetical order of their asset names.
 stackConfigInput_targetBands :: Lens.Lens' StackConfigInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 stackConfigInput_targetBands = Lens.lens (\StackConfigInput' {targetBands} -> targetBands) (\s@StackConfigInput' {} a -> s {targetBands = a} :: StackConfigInput) Prelude.. Lens.mapping Lens.coerced
 
@@ -74,7 +85,8 @@ instance Data.FromJSON StackConfigInput where
 
 instance Prelude.Hashable StackConfigInput where
   hashWithSalt _salt StackConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` outputResolution
+    _salt
+      `Prelude.hashWithSalt` outputResolution
       `Prelude.hashWithSalt` targetBands
 
 instance Prelude.NFData StackConfigInput where

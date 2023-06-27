@@ -21,13 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Use this operation to export results of an Earth Observation job and
--- optionally source images used as input to the EOJ to an S3 location.
+-- optionally source images used as input to the EOJ to an Amazon S3
+-- location.
 module Amazonka.SageMakerGeoSpatial.ExportEarthObservationJob
   ( -- * Creating a Request
     ExportEarthObservationJob (..),
     newExportEarthObservationJob,
 
     -- * Request Lenses
+    exportEarthObservationJob_clientToken,
     exportEarthObservationJob_exportSourceImages,
     exportEarthObservationJob_arn,
     exportEarthObservationJob_executionRoleArn,
@@ -58,7 +60,9 @@ import Amazonka.SageMakerGeoSpatial.Types
 
 -- | /See:/ 'newExportEarthObservationJob' smart constructor.
 data ExportEarthObservationJob = ExportEarthObservationJob'
-  { -- | The source images provided to the Earth Observation job being exported.
+  { -- | A unique token that guarantees that the call to this API is idempotent.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The source images provided to the Earth Observation job being exported.
     exportSourceImages :: Prelude.Maybe Prelude.Bool,
     -- | The input Amazon Resource Name (ARN) of the Earth Observation job being
     -- exported.
@@ -78,6 +82,8 @@ data ExportEarthObservationJob = ExportEarthObservationJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'clientToken', 'exportEarthObservationJob_clientToken' - A unique token that guarantees that the call to this API is idempotent.
 --
 -- 'exportSourceImages', 'exportEarthObservationJob_exportSourceImages' - The source images provided to the Earth Observation job being exported.
 --
@@ -101,12 +107,17 @@ newExportEarthObservationJob
   pExecutionRoleArn_
   pOutputConfig_ =
     ExportEarthObservationJob'
-      { exportSourceImages =
+      { clientToken =
           Prelude.Nothing,
+        exportSourceImages = Prelude.Nothing,
         arn = pArn_,
         executionRoleArn = pExecutionRoleArn_,
         outputConfig = pOutputConfig_
       }
+
+-- | A unique token that guarantees that the call to this API is idempotent.
+exportEarthObservationJob_clientToken :: Lens.Lens' ExportEarthObservationJob (Prelude.Maybe Prelude.Text)
+exportEarthObservationJob_clientToken = Lens.lens (\ExportEarthObservationJob' {clientToken} -> clientToken) (\s@ExportEarthObservationJob' {} a -> s {clientToken = a} :: ExportEarthObservationJob)
 
 -- | The source images provided to the Earth Observation job being exported.
 exportEarthObservationJob_exportSourceImages :: Lens.Lens' ExportEarthObservationJob (Prelude.Maybe Prelude.Bool)
@@ -147,14 +158,17 @@ instance Core.AWSRequest ExportEarthObservationJob where
 
 instance Prelude.Hashable ExportEarthObservationJob where
   hashWithSalt _salt ExportEarthObservationJob' {..} =
-    _salt `Prelude.hashWithSalt` exportSourceImages
+    _salt
+      `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` exportSourceImages
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` outputConfig
 
 instance Prelude.NFData ExportEarthObservationJob where
   rnf ExportEarthObservationJob' {..} =
-    Prelude.rnf exportSourceImages
+    Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf exportSourceImages
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf outputConfig
@@ -174,7 +188,8 @@ instance Data.ToJSON ExportEarthObservationJob where
   toJSON ExportEarthObservationJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ExportSourceImages" Data..=)
+          [ ("ClientToken" Data..=) Prelude.<$> clientToken,
+            ("ExportSourceImages" Data..=)
               Prelude.<$> exportSourceImages,
             Prelude.Just ("Arn" Data..= arn),
             Prelude.Just
@@ -200,7 +215,7 @@ data ExportEarthObservationJobResponse = ExportEarthObservationJobResponse'
     -- exported.
     arn :: Prelude.Text,
     -- | The creation time.
-    creationTime :: Data.POSIX,
+    creationTime :: Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
     -- the job.
     executionRoleArn :: Prelude.Text,

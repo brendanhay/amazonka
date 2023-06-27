@@ -167,7 +167,8 @@ instance Core.AWSRequest RecordActivityTaskHeartbeat where
 
 instance Prelude.Hashable RecordActivityTaskHeartbeat where
   hashWithSalt _salt RecordActivityTaskHeartbeat' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` taskToken
 
 instance Prelude.NFData RecordActivityTaskHeartbeat where

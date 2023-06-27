@@ -53,10 +53,9 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
     control :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the timer.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- contain the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     timerId :: Prelude.Text,
     -- | The duration to wait before firing the timer.
     --
@@ -79,10 +78,9 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
 --
 -- 'timerId', 'startTimerDecisionAttributes_timerId' - The unique ID of the timer.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 --
 -- 'startToFireTimeout', 'startTimerDecisionAttributes_startToFireTimeout' - The duration to wait before firing the timer.
 --
@@ -111,10 +109,9 @@ startTimerDecisionAttributes_control = Lens.lens (\StartTimerDecisionAttributes'
 
 -- | The unique ID of the timer.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 startTimerDecisionAttributes_timerId :: Lens.Lens' StartTimerDecisionAttributes Prelude.Text
 startTimerDecisionAttributes_timerId = Lens.lens (\StartTimerDecisionAttributes' {timerId} -> timerId) (\s@StartTimerDecisionAttributes' {} a -> s {timerId = a} :: StartTimerDecisionAttributes)
 
@@ -130,7 +127,8 @@ instance
     StartTimerDecisionAttributes
   where
   hashWithSalt _salt StartTimerDecisionAttributes' {..} =
-    _salt `Prelude.hashWithSalt` control
+    _salt
+      `Prelude.hashWithSalt` control
       `Prelude.hashWithSalt` timerId
       `Prelude.hashWithSalt` startToFireTimeout
 

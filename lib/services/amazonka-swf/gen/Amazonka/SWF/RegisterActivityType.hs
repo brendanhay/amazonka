@@ -142,20 +142,18 @@ data RegisterActivityType = RegisterActivityType'
     domain :: Prelude.Text,
     -- | The name of the activity type within the domain.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     name :: Prelude.Text,
     -- | The version of the activity type.
     --
     -- The activity type consists of the name and version, the combination of
     -- which must be unique within the domain.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     version :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -223,20 +221,18 @@ data RegisterActivityType = RegisterActivityType'
 --
 -- 'name', 'registerActivityType_name' - The name of the activity type within the domain.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 --
 -- 'version', 'registerActivityType_version' - The version of the activity type.
 --
 -- The activity type consists of the name and version, the combination of
 -- which must be unique within the domain.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 newRegisterActivityType ::
   -- | 'domain'
   Prelude.Text ->
@@ -331,10 +327,9 @@ registerActivityType_domain = Lens.lens (\RegisterActivityType' {domain} -> doma
 
 -- | The name of the activity type within the domain.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 registerActivityType_name :: Lens.Lens' RegisterActivityType Prelude.Text
 registerActivityType_name = Lens.lens (\RegisterActivityType' {name} -> name) (\s@RegisterActivityType' {} a -> s {name = a} :: RegisterActivityType)
 
@@ -343,10 +338,9 @@ registerActivityType_name = Lens.lens (\RegisterActivityType' {name} -> name) (\
 -- The activity type consists of the name and version, the combination of
 -- which must be unique within the domain.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 registerActivityType_version :: Lens.Lens' RegisterActivityType Prelude.Text
 registerActivityType_version = Lens.lens (\RegisterActivityType' {version} -> version) (\s@RegisterActivityType' {} a -> s {version = a} :: RegisterActivityType)
 

@@ -129,7 +129,8 @@ instance Core.AWSRequest DeprecateWorkflowType where
 
 instance Prelude.Hashable DeprecateWorkflowType where
   hashWithSalt _salt DeprecateWorkflowType' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` workflowType
 
 instance Prelude.NFData DeprecateWorkflowType where

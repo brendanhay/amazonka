@@ -142,9 +142,9 @@ instance
       ( \x ->
           ScheduleActivityTaskFailedEventAttributes'
             Prelude.<$> (x Data..: "activityType")
-              Prelude.<*> (x Data..: "activityId")
-              Prelude.<*> (x Data..: "cause")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..: "activityId")
+            Prelude.<*> (x Data..: "cause")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance
@@ -154,7 +154,8 @@ instance
   hashWithSalt
     _salt
     ScheduleActivityTaskFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` activityType
+      _salt
+        `Prelude.hashWithSalt` activityType
         `Prelude.hashWithSalt` activityId
         `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` decisionTaskCompletedEventId

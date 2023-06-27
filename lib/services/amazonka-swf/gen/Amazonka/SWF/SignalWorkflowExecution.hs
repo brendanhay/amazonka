@@ -168,7 +168,8 @@ instance Core.AWSRequest SignalWorkflowExecution where
 
 instance Prelude.Hashable SignalWorkflowExecution where
   hashWithSalt _salt SignalWorkflowExecution' {..} =
-    _salt `Prelude.hashWithSalt` input
+    _salt
+      `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` workflowId

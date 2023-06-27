@@ -82,7 +82,8 @@ instance Data.FromJSON PendingTaskCount where
 
 instance Prelude.Hashable PendingTaskCount where
   hashWithSalt _salt PendingTaskCount' {..} =
-    _salt `Prelude.hashWithSalt` truncated
+    _salt
+      `Prelude.hashWithSalt` truncated
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData PendingTaskCount where

@@ -176,6 +176,7 @@ module Amazonka.SWF.Lens
     pollForDecisionTask_maximumPageSize,
     pollForDecisionTask_nextPageToken,
     pollForDecisionTask_reverseOrder,
+    pollForDecisionTask_startAtPreviousStartedEvent,
     pollForDecisionTask_domain,
     pollForDecisionTask_taskList,
     pollForDecisionTaskResponse_events,

@@ -37,8 +37,9 @@ data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAt
     input :: Prelude.Maybe Prelude.Text,
     -- | The timeout value, in seconds, after which the Lambda function is
     -- considered to be failed once it has started. This can be any integer
-    -- from 1-300 (1s-5m). If no value is supplied, than a default value of
-    -- 300s is assumed.
+    -- from 1-900 (1s-15m).
+    --
+    -- If no value is supplied, then a default value of 900s is assumed.
     startToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | A string that identifies the Lambda function execution in the event
     -- history.
@@ -63,8 +64,9 @@ data ScheduleLambdaFunctionDecisionAttributes = ScheduleLambdaFunctionDecisionAt
 --
 -- 'startToCloseTimeout', 'scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout' - The timeout value, in seconds, after which the Lambda function is
 -- considered to be failed once it has started. This can be any integer
--- from 1-300 (1s-5m). If no value is supplied, than a default value of
--- 300s is assumed.
+-- from 1-900 (1s-15m).
+--
+-- If no value is supplied, then a default value of 900s is assumed.
 --
 -- 'id', 'scheduleLambdaFunctionDecisionAttributes_id' - A string that identifies the Lambda function execution in the event
 -- history.
@@ -100,8 +102,9 @@ scheduleLambdaFunctionDecisionAttributes_input = Lens.lens (\ScheduleLambdaFunct
 
 -- | The timeout value, in seconds, after which the Lambda function is
 -- considered to be failed once it has started. This can be any integer
--- from 1-300 (1s-5m). If no value is supplied, than a default value of
--- 300s is assumed.
+-- from 1-900 (1s-15m).
+--
+-- If no value is supplied, then a default value of 900s is assumed.
 scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout :: Lens.Lens' ScheduleLambdaFunctionDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleLambdaFunctionDecisionAttributes_startToCloseTimeout = Lens.lens (\ScheduleLambdaFunctionDecisionAttributes' {startToCloseTimeout} -> startToCloseTimeout) (\s@ScheduleLambdaFunctionDecisionAttributes' {} a -> s {startToCloseTimeout = a} :: ScheduleLambdaFunctionDecisionAttributes)
 
@@ -121,7 +124,8 @@ instance
   hashWithSalt
     _salt
     ScheduleLambdaFunctionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` startToCloseTimeout
         `Prelude.hashWithSalt` id

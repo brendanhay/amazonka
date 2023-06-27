@@ -128,7 +128,8 @@ instance Core.AWSRequest DeprecateActivityType where
 
 instance Prelude.Hashable DeprecateActivityType where
   hashWithSalt _salt DeprecateActivityType' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` activityType
 
 instance Prelude.NFData DeprecateActivityType where

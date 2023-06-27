@@ -86,7 +86,8 @@ instance Data.FromJSON TimerFiredEventAttributes where
 
 instance Prelude.Hashable TimerFiredEventAttributes where
   hashWithSalt _salt TimerFiredEventAttributes' {..} =
-    _salt `Prelude.hashWithSalt` timerId
+    _salt
+      `Prelude.hashWithSalt` timerId
       `Prelude.hashWithSalt` startedEventId
 
 instance Prelude.NFData TimerFiredEventAttributes where

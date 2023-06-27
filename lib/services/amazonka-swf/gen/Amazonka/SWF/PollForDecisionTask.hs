@@ -77,6 +77,7 @@ module Amazonka.SWF.PollForDecisionTask
     pollForDecisionTask_maximumPageSize,
     pollForDecisionTask_nextPageToken,
     pollForDecisionTask_reverseOrder,
+    pollForDecisionTask_startAtPreviousStartedEvent,
     pollForDecisionTask_domain,
     pollForDecisionTask_taskList,
 
@@ -121,7 +122,7 @@ data PollForDecisionTask = PollForDecisionTask'
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
     -- Keep all other arguments unchanged. Each pagination token expires after
-    -- 60 seconds. Using an expired pagination token will return a @400@ error:
+    -- 24 hours. Using an expired pagination token will return a @400@ error:
     -- \"@Specified token has exceeded its maximum lifetime@\".
     --
     -- The configured @maximumPageSize@ determines how many results can be
@@ -137,14 +138,18 @@ data PollForDecisionTask = PollForDecisionTask'
     -- results are returned in ascending order of the @eventTimestamp@ of the
     -- events.
     reverseOrder :: Prelude.Maybe Prelude.Bool,
+    -- | When set to @true@, returns the events with @eventTimestamp@ greater
+    -- than or equal to @eventTimestamp@ of the most recent
+    -- @DecisionTaskStarted@ event. By default, this parameter is set to
+    -- @false@.
+    startAtPreviousStartedEvent :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain containing the task lists to poll.
     domain :: Prelude.Text,
     -- | Specifies the task list to poll for decision tasks.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     taskList :: TaskList
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -172,7 +177,7 @@ data PollForDecisionTask = PollForDecisionTask'
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
 -- Keep all other arguments unchanged. Each pagination token expires after
--- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- 24 hours. Using an expired pagination token will return a @400@ error:
 -- \"@Specified token has exceeded its maximum lifetime@\".
 --
 -- The configured @maximumPageSize@ determines how many results can be
@@ -188,14 +193,18 @@ data PollForDecisionTask = PollForDecisionTask'
 -- results are returned in ascending order of the @eventTimestamp@ of the
 -- events.
 --
+-- 'startAtPreviousStartedEvent', 'pollForDecisionTask_startAtPreviousStartedEvent' - When set to @true@, returns the events with @eventTimestamp@ greater
+-- than or equal to @eventTimestamp@ of the most recent
+-- @DecisionTaskStarted@ event. By default, this parameter is set to
+-- @false@.
+--
 -- 'domain', 'pollForDecisionTask_domain' - The name of the domain containing the task lists to poll.
 --
 -- 'taskList', 'pollForDecisionTask_taskList' - Specifies the task list to poll for decision tasks.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 newPollForDecisionTask ::
   -- | 'domain'
   Prelude.Text ->
@@ -208,6 +217,7 @@ newPollForDecisionTask pDomain_ pTaskList_ =
       maximumPageSize = Prelude.Nothing,
       nextPageToken = Prelude.Nothing,
       reverseOrder = Prelude.Nothing,
+      startAtPreviousStartedEvent = Prelude.Nothing,
       domain = pDomain_,
       taskList = pTaskList_
     }
@@ -231,7 +241,7 @@ pollForDecisionTask_maximumPageSize = Lens.lens (\PollForDecisionTask' {maximumP
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
 -- Keep all other arguments unchanged. Each pagination token expires after
--- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- 24 hours. Using an expired pagination token will return a @400@ error:
 -- \"@Specified token has exceeded its maximum lifetime@\".
 --
 -- The configured @maximumPageSize@ determines how many results can be
@@ -251,16 +261,22 @@ pollForDecisionTask_nextPageToken = Lens.lens (\PollForDecisionTask' {nextPageTo
 pollForDecisionTask_reverseOrder :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Bool)
 pollForDecisionTask_reverseOrder = Lens.lens (\PollForDecisionTask' {reverseOrder} -> reverseOrder) (\s@PollForDecisionTask' {} a -> s {reverseOrder = a} :: PollForDecisionTask)
 
+-- | When set to @true@, returns the events with @eventTimestamp@ greater
+-- than or equal to @eventTimestamp@ of the most recent
+-- @DecisionTaskStarted@ event. By default, this parameter is set to
+-- @false@.
+pollForDecisionTask_startAtPreviousStartedEvent :: Lens.Lens' PollForDecisionTask (Prelude.Maybe Prelude.Bool)
+pollForDecisionTask_startAtPreviousStartedEvent = Lens.lens (\PollForDecisionTask' {startAtPreviousStartedEvent} -> startAtPreviousStartedEvent) (\s@PollForDecisionTask' {} a -> s {startAtPreviousStartedEvent = a} :: PollForDecisionTask)
+
 -- | The name of the domain containing the task lists to poll.
 pollForDecisionTask_domain :: Lens.Lens' PollForDecisionTask Prelude.Text
 pollForDecisionTask_domain = Lens.lens (\PollForDecisionTask' {domain} -> domain) (\s@PollForDecisionTask' {} a -> s {domain = a} :: PollForDecisionTask)
 
 -- | Specifies the task list to poll for decision tasks.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 pollForDecisionTask_taskList :: Lens.Lens' PollForDecisionTask TaskList
 pollForDecisionTask_taskList = Lens.lens (\PollForDecisionTask' {taskList} -> taskList) (\s@PollForDecisionTask' {} a -> s {taskList = a} :: PollForDecisionTask)
 
@@ -269,22 +285,22 @@ instance Core.AWSPager PollForDecisionTask where
     | Core.stop
         ( rs
             Lens.^? pollForDecisionTaskResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? pollForDecisionTaskResponse_events
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& pollForDecisionTask_nextPageToken
           Lens..~ rs
           Lens.^? pollForDecisionTaskResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest PollForDecisionTask where
   type
@@ -308,10 +324,12 @@ instance Core.AWSRequest PollForDecisionTask where
 
 instance Prelude.Hashable PollForDecisionTask where
   hashWithSalt _salt PollForDecisionTask' {..} =
-    _salt `Prelude.hashWithSalt` identity
+    _salt
+      `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` maximumPageSize
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder
+      `Prelude.hashWithSalt` startAtPreviousStartedEvent
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` taskList
 
@@ -321,6 +339,7 @@ instance Prelude.NFData PollForDecisionTask where
       `Prelude.seq` Prelude.rnf maximumPageSize
       `Prelude.seq` Prelude.rnf nextPageToken
       `Prelude.seq` Prelude.rnf reverseOrder
+      `Prelude.seq` Prelude.rnf startAtPreviousStartedEvent
       `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf taskList
 
@@ -348,6 +367,8 @@ instance Data.ToJSON PollForDecisionTask where
               Prelude.<$> maximumPageSize,
             ("nextPageToken" Data..=) Prelude.<$> nextPageToken,
             ("reverseOrder" Data..=) Prelude.<$> reverseOrder,
+            ("startAtPreviousStartedEvent" Data..=)
+              Prelude.<$> startAtPreviousStartedEvent,
             Prelude.Just ("domain" Data..= domain),
             Prelude.Just ("taskList" Data..= taskList)
           ]

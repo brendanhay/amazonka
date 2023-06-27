@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     DecisionTaskTimedOutEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` timeoutType
+      _salt
+        `Prelude.hashWithSalt` timeoutType
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId
 

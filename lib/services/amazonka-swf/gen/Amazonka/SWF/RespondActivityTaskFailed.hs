@@ -150,7 +150,8 @@ instance Core.AWSRequest RespondActivityTaskFailed where
 
 instance Prelude.Hashable RespondActivityTaskFailed where
   hashWithSalt _salt RespondActivityTaskFailed' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` taskToken
 

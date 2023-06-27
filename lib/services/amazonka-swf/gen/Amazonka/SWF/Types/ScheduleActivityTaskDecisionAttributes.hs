@@ -119,10 +119,9 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     -- set nor a default task list was specified at registration time then a
     -- fault is returned.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- contain the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     taskList :: Prelude.Maybe TaskList,
     -- | If set, specifies the priority with which the activity task is to be
     -- assigned to a worker. This overrides the defaultTaskPriority specified
@@ -139,10 +138,9 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     activityType :: ActivityType,
     -- | The @activityId@ of the activity task.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- contain the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     activityId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -215,10 +213,9 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 -- set nor a default task list was specified at registration time then a
 -- fault is returned.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 --
 -- 'taskPriority', 'scheduleActivityTaskDecisionAttributes_taskPriority' - If set, specifies the priority with which the activity task is to be
 -- assigned to a worker. This overrides the defaultTaskPriority specified
@@ -235,10 +232,9 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 --
 -- 'activityId', 'scheduleActivityTaskDecisionAttributes_activityId' - The @activityId@ of the activity task.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 newScheduleActivityTaskDecisionAttributes ::
   -- | 'activityType'
   ActivityType ->
@@ -337,10 +333,9 @@ scheduleActivityTaskDecisionAttributes_startToCloseTimeout = Lens.lens (\Schedul
 -- set nor a default task list was specified at registration time then a
 -- fault is returned.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 scheduleActivityTaskDecisionAttributes_taskList :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe TaskList)
 scheduleActivityTaskDecisionAttributes_taskList = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {taskList} -> taskList) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {taskList = a} :: ScheduleActivityTaskDecisionAttributes)
 
@@ -363,10 +358,9 @@ scheduleActivityTaskDecisionAttributes_activityType = Lens.lens (\ScheduleActivi
 
 -- | The @activityId@ of the activity task.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 scheduleActivityTaskDecisionAttributes_activityId :: Lens.Lens' ScheduleActivityTaskDecisionAttributes Prelude.Text
 scheduleActivityTaskDecisionAttributes_activityId = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {activityId} -> activityId) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {activityId = a} :: ScheduleActivityTaskDecisionAttributes)
 
@@ -377,7 +371,8 @@ instance
   hashWithSalt
     _salt
     ScheduleActivityTaskDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` heartbeatTimeout
         `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` scheduleToCloseTimeout

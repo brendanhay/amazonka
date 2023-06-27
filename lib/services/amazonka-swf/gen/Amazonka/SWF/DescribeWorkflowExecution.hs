@@ -136,7 +136,8 @@ instance Core.AWSRequest DescribeWorkflowExecution where
 
 instance Prelude.Hashable DescribeWorkflowExecution where
   hashWithSalt _salt DescribeWorkflowExecution' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` execution
 
 instance Prelude.NFData DescribeWorkflowExecution where

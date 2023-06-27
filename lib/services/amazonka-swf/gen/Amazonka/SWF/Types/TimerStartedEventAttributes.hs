@@ -126,7 +126,8 @@ instance Data.FromJSON TimerStartedEventAttributes where
 
 instance Prelude.Hashable TimerStartedEventAttributes where
   hashWithSalt _salt TimerStartedEventAttributes' {..} =
-    _salt `Prelude.hashWithSalt` control
+    _salt
+      `Prelude.hashWithSalt` control
       `Prelude.hashWithSalt` timerId
       `Prelude.hashWithSalt` startToFireTimeout
       `Prelude.hashWithSalt` decisionTaskCompletedEventId

@@ -289,7 +289,8 @@ instance Data.FromJSON WorkflowTypeConfiguration where
 
 instance Prelude.Hashable WorkflowTypeConfiguration where
   hashWithSalt _salt WorkflowTypeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` defaultChildPolicy
+    _salt
+      `Prelude.hashWithSalt` defaultChildPolicy
       `Prelude.hashWithSalt` defaultExecutionStartToCloseTimeout
       `Prelude.hashWithSalt` defaultLambdaRole
       `Prelude.hashWithSalt` defaultTaskList

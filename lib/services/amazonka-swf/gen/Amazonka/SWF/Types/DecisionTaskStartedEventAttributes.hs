@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     DecisionTaskStartedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` identity
+      _salt
+        `Prelude.hashWithSalt` identity
         `Prelude.hashWithSalt` scheduledEventId
 
 instance

@@ -167,10 +167,9 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- parameter is set nor a default task list was specified at registration
     -- time then a fault is returned.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     taskList :: Prelude.Maybe TaskList,
     -- | The task priority to use for this workflow execution. This overrides any
     -- default priority that was assigned when the workflow type was
@@ -197,6 +196,10 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- is returned.
     taskStartToCloseTimeout :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain in which the workflow execution is created.
+    --
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     domain :: Prelude.Text,
     -- | The user defined identifier associated with the workflow execution. You
     -- can use this to associate a custom identifier with the workflow
@@ -205,10 +208,9 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- open workflow executions with the same @workflowId@ at the same time
     -- within the same domain.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     workflowId :: Prelude.Text,
     -- | The type of the workflow to start.
     workflowType :: WorkflowType
@@ -289,10 +291,9 @@ data StartWorkflowExecution = StartWorkflowExecution'
 -- parameter is set nor a default task list was specified at registration
 -- time then a fault is returned.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 --
 -- 'taskPriority', 'startWorkflowExecution_taskPriority' - The task priority to use for this workflow execution. This overrides any
 -- default priority that was assigned when the workflow type was
@@ -320,6 +321,10 @@ data StartWorkflowExecution = StartWorkflowExecution'
 --
 -- 'domain', 'startWorkflowExecution_domain' - The name of the domain in which the workflow execution is created.
 --
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
+--
 -- 'workflowId', 'startWorkflowExecution_workflowId' - The user defined identifier associated with the workflow execution. You
 -- can use this to associate a custom identifier with the workflow
 -- execution. You may specify the same identifier if a workflow execution
@@ -327,10 +332,9 @@ data StartWorkflowExecution = StartWorkflowExecution'
 -- open workflow executions with the same @workflowId@ at the same time
 -- within the same domain.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 --
 -- 'workflowType', 'startWorkflowExecution_workflowType' - The type of the workflow to start.
 newStartWorkflowExecution ::
@@ -436,10 +440,9 @@ startWorkflowExecution_tagList = Lens.lens (\StartWorkflowExecution' {tagList} -
 -- parameter is set nor a default task list was specified at registration
 -- time then a fault is returned.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 startWorkflowExecution_taskList :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe TaskList)
 startWorkflowExecution_taskList = Lens.lens (\StartWorkflowExecution' {taskList} -> taskList) (\s@StartWorkflowExecution' {} a -> s {taskList = a} :: StartWorkflowExecution)
 
@@ -472,6 +475,10 @@ startWorkflowExecution_taskStartToCloseTimeout :: Lens.Lens' StartWorkflowExecut
 startWorkflowExecution_taskStartToCloseTimeout = Lens.lens (\StartWorkflowExecution' {taskStartToCloseTimeout} -> taskStartToCloseTimeout) (\s@StartWorkflowExecution' {} a -> s {taskStartToCloseTimeout = a} :: StartWorkflowExecution)
 
 -- | The name of the domain in which the workflow execution is created.
+--
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 startWorkflowExecution_domain :: Lens.Lens' StartWorkflowExecution Prelude.Text
 startWorkflowExecution_domain = Lens.lens (\StartWorkflowExecution' {domain} -> domain) (\s@StartWorkflowExecution' {} a -> s {domain = a} :: StartWorkflowExecution)
 
@@ -482,10 +489,9 @@ startWorkflowExecution_domain = Lens.lens (\StartWorkflowExecution' {domain} -> 
 -- open workflow executions with the same @workflowId@ at the same time
 -- within the same domain.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 startWorkflowExecution_workflowId :: Lens.Lens' StartWorkflowExecution Prelude.Text
 startWorkflowExecution_workflowId = Lens.lens (\StartWorkflowExecution' {workflowId} -> workflowId) (\s@StartWorkflowExecution' {} a -> s {workflowId = a} :: StartWorkflowExecution)
 
@@ -509,7 +515,8 @@ instance Core.AWSRequest StartWorkflowExecution where
 
 instance Prelude.Hashable StartWorkflowExecution where
   hashWithSalt _salt StartWorkflowExecution' {..} =
-    _salt `Prelude.hashWithSalt` childPolicy
+    _salt
+      `Prelude.hashWithSalt` childPolicy
       `Prelude.hashWithSalt` executionStartToCloseTimeout
       `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` lambdaRole

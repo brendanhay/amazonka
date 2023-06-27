@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionScheduledEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` startToCloseTimeout
         `Prelude.hashWithSalt` id

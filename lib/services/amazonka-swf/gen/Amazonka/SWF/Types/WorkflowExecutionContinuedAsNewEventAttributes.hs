@@ -256,16 +256,16 @@ instance
       ( \x ->
           WorkflowExecutionContinuedAsNewEventAttributes'
             Prelude.<$> (x Data..:? "executionStartToCloseTimeout")
-              Prelude.<*> (x Data..:? "input")
-              Prelude.<*> (x Data..:? "lambdaRole")
-              Prelude.<*> (x Data..:? "tagList" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "taskPriority")
-              Prelude.<*> (x Data..:? "taskStartToCloseTimeout")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
-              Prelude.<*> (x Data..: "newExecutionRunId")
-              Prelude.<*> (x Data..: "taskList")
-              Prelude.<*> (x Data..: "childPolicy")
-              Prelude.<*> (x Data..: "workflowType")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "lambdaRole")
+            Prelude.<*> (x Data..:? "tagList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "taskPriority")
+            Prelude.<*> (x Data..:? "taskStartToCloseTimeout")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..: "newExecutionRunId")
+            Prelude.<*> (x Data..: "taskList")
+            Prelude.<*> (x Data..: "childPolicy")
+            Prelude.<*> (x Data..: "workflowType")
       )
 
 instance

@@ -337,7 +337,8 @@ instance
   hashWithSalt
     _salt
     ContinueAsNewWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` childPolicy
+      _salt
+        `Prelude.hashWithSalt` childPolicy
         `Prelude.hashWithSalt` executionStartToCloseTimeout
         `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` lambdaRole

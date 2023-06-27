@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     CancelTimerFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` timerId
+      _salt
+        `Prelude.hashWithSalt` timerId
         `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` decisionTaskCompletedEventId
 

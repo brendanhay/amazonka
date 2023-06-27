@@ -81,8 +81,8 @@ data RegisterDomain = RegisterDomain'
     --
     -- The specified string must not start or end with whitespace. It must not
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+    -- be the literal string @arn@.
     name :: Prelude.Text,
     -- | The duration (in days) that records and histories of workflow executions
     -- on the domain should be kept by the service. After the retention period,
@@ -121,8 +121,8 @@ data RegisterDomain = RegisterDomain'
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+-- be the literal string @arn@.
 --
 -- 'workflowExecutionRetentionPeriodInDays', 'registerDomain_workflowExecutionRetentionPeriodInDays' - The duration (in days) that records and histories of workflow executions
 -- on the domain should be kept by the service. After the retention period,
@@ -170,8 +170,8 @@ registerDomain_tags = Lens.lens (\RegisterDomain' {tags} -> tags) (\s@RegisterDo
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+-- be the literal string @arn@.
 registerDomain_name :: Lens.Lens' RegisterDomain Prelude.Text
 registerDomain_name = Lens.lens (\RegisterDomain' {name} -> name) (\s@RegisterDomain' {} a -> s {name = a} :: RegisterDomain)
 
@@ -202,7 +202,8 @@ instance Core.AWSRequest RegisterDomain where
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workflowExecutionRetentionPeriodInDays

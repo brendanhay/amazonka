@@ -123,7 +123,8 @@ instance Data.FromJSON DomainInfo where
 
 instance Prelude.Hashable DomainInfo where
   hashWithSalt _salt DomainInfo' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

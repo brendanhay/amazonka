@@ -126,9 +126,9 @@ instance
       ( \x ->
           ChildWorkflowExecutionTerminatedEventAttributes'
             Prelude.<$> (x Data..: "workflowExecution")
-              Prelude.<*> (x Data..: "workflowType")
-              Prelude.<*> (x Data..: "initiatedEventId")
-              Prelude.<*> (x Data..: "startedEventId")
+            Prelude.<*> (x Data..: "workflowType")
+            Prelude.<*> (x Data..: "initiatedEventId")
+            Prelude.<*> (x Data..: "startedEventId")
       )
 
 instance
@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     ChildWorkflowExecutionTerminatedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` workflowExecution
+      _salt
+        `Prelude.hashWithSalt` workflowExecution
         `Prelude.hashWithSalt` workflowType
         `Prelude.hashWithSalt` initiatedEventId
         `Prelude.hashWithSalt` startedEventId

@@ -122,8 +122,8 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     --
     -- The specified string must not start or end with whitespace. It must not
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- contain the literal string @arn@.
+    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+    -- be the literal string @arn@.
     taskList :: Prelude.Maybe TaskList,
     -- | A task priority that, if set, specifies the priority for a decision task
     -- of this workflow execution. This overrides the defaultTaskPriority
@@ -153,10 +153,9 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     workflowType :: WorkflowType,
     -- | The @workflowId@ of the workflow execution.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- contain the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     workflowId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -228,8 +227,8 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+-- be the literal string @arn@.
 --
 -- 'taskPriority', 'startChildWorkflowExecutionDecisionAttributes_taskPriority' - A task priority that, if set, specifies the priority for a decision task
 -- of this workflow execution. This overrides the defaultTaskPriority
@@ -259,10 +258,9 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 --
 -- 'workflowId', 'startChildWorkflowExecutionDecisionAttributes_workflowId' - The @workflowId@ of the workflow execution.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 newStartChildWorkflowExecutionDecisionAttributes ::
   -- | 'workflowType'
   WorkflowType ->
@@ -362,8 +360,8 @@ startChildWorkflowExecutionDecisionAttributes_tagList = Lens.lens (\StartChildWo
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+-- be the literal string @arn@.
 startChildWorkflowExecutionDecisionAttributes_taskList :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes (Prelude.Maybe TaskList)
 startChildWorkflowExecutionDecisionAttributes_taskList = Lens.lens (\StartChildWorkflowExecutionDecisionAttributes' {taskList} -> taskList) (\s@StartChildWorkflowExecutionDecisionAttributes' {} a -> s {taskList = a} :: StartChildWorkflowExecutionDecisionAttributes)
 
@@ -401,10 +399,9 @@ startChildWorkflowExecutionDecisionAttributes_workflowType = Lens.lens (\StartCh
 
 -- | The @workflowId@ of the workflow execution.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- contain the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 startChildWorkflowExecutionDecisionAttributes_workflowId :: Lens.Lens' StartChildWorkflowExecutionDecisionAttributes Prelude.Text
 startChildWorkflowExecutionDecisionAttributes_workflowId = Lens.lens (\StartChildWorkflowExecutionDecisionAttributes' {workflowId} -> workflowId) (\s@StartChildWorkflowExecutionDecisionAttributes' {} a -> s {workflowId = a} :: StartChildWorkflowExecutionDecisionAttributes)
 
@@ -415,7 +412,8 @@ instance
   hashWithSalt
     _salt
     StartChildWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` childPolicy
+      _salt
+        `Prelude.hashWithSalt` childPolicy
         `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` executionStartToCloseTimeout
         `Prelude.hashWithSalt` input

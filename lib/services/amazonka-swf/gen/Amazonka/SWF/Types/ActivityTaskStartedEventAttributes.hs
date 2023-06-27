@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     ActivityTaskStartedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` identity
+      _salt
+        `Prelude.hashWithSalt` identity
         `Prelude.hashWithSalt` scheduledEventId
 
 instance

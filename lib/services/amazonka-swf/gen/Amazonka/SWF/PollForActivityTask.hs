@@ -101,8 +101,8 @@ data PollForActivityTask = PollForActivityTask'
     --
     -- The specified string must not start or end with whitespace. It must not
     -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+    -- be the literal string @arn@.
     taskList :: TaskList
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -126,8 +126,8 @@ data PollForActivityTask = PollForActivityTask'
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+-- be the literal string @arn@.
 newPollForActivityTask ::
   -- | 'domain'
   Prelude.Text ->
@@ -156,8 +156,8 @@ pollForActivityTask_domain = Lens.lens (\PollForActivityTask' {domain} -> domain
 --
 -- The specified string must not start or end with whitespace. It must not
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must /not/
+-- be the literal string @arn@.
 pollForActivityTask_taskList :: Lens.Lens' PollForActivityTask TaskList
 pollForActivityTask_taskList = Lens.lens (\PollForActivityTask' {taskList} -> taskList) (\s@PollForActivityTask' {} a -> s {taskList = a} :: PollForActivityTask)
 
@@ -182,7 +182,8 @@ instance Core.AWSRequest PollForActivityTask where
 
 instance Prelude.Hashable PollForActivityTask where
   hashWithSalt _salt PollForActivityTask' {..} =
-    _salt `Prelude.hashWithSalt` identity
+    _salt
+      `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` taskList
 

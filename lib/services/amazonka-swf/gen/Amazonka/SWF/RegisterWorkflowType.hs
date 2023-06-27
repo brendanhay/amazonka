@@ -158,10 +158,9 @@ data RegisterWorkflowType = RegisterWorkflowType'
     domain :: Prelude.Text,
     -- | The name of the workflow type.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     name :: Prelude.Text,
     -- | The version of the workflow type.
     --
@@ -169,10 +168,9 @@ data RegisterWorkflowType = RegisterWorkflowType'
     -- which must be unique within the domain. To get a list of all currently
     -- registered workflow types, use the ListWorkflowTypes action.
     --
-    -- The specified string must not start or end with whitespace. It must not
-    -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
-    -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
-    -- /be/ the literal string @arn@.
+    -- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+    -- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+    -- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
     version :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -253,10 +251,9 @@ data RegisterWorkflowType = RegisterWorkflowType'
 --
 -- 'name', 'registerWorkflowType_name' - The name of the workflow type.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 --
 -- 'version', 'registerWorkflowType_version' - The version of the workflow type.
 --
@@ -264,10 +261,9 @@ data RegisterWorkflowType = RegisterWorkflowType'
 -- which must be unique within the domain. To get a list of all currently
 -- registered workflow types, use the ListWorkflowTypes action.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 newRegisterWorkflowType ::
   -- | 'domain'
   Prelude.Text ->
@@ -376,10 +372,9 @@ registerWorkflowType_domain = Lens.lens (\RegisterWorkflowType' {domain} -> doma
 
 -- | The name of the workflow type.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 registerWorkflowType_name :: Lens.Lens' RegisterWorkflowType Prelude.Text
 registerWorkflowType_name = Lens.lens (\RegisterWorkflowType' {name} -> name) (\s@RegisterWorkflowType' {} a -> s {name = a} :: RegisterWorkflowType)
 
@@ -389,10 +384,9 @@ registerWorkflowType_name = Lens.lens (\RegisterWorkflowType' {name} -> name) (\
 -- which must be unique within the domain. To get a list of all currently
 -- registered workflow types, use the ListWorkflowTypes action.
 --
--- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
--- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
--- /be/ the literal string @arn@.
+-- The specified string must not contain a @:@ (colon), @\/@ (slash), @|@
+-- (vertical bar), or any control characters (@\\u0000-\\u001f@ |
+-- @\\u007f-\\u009f@). Also, it must /not/ be the literal string @arn@.
 registerWorkflowType_version :: Lens.Lens' RegisterWorkflowType Prelude.Text
 registerWorkflowType_version = Lens.lens (\RegisterWorkflowType' {version} -> version) (\s@RegisterWorkflowType' {} a -> s {version = a} :: RegisterWorkflowType)
 
@@ -407,7 +401,8 @@ instance Core.AWSRequest RegisterWorkflowType where
 
 instance Prelude.Hashable RegisterWorkflowType where
   hashWithSalt _salt RegisterWorkflowType' {..} =
-    _salt `Prelude.hashWithSalt` defaultChildPolicy
+    _salt
+      `Prelude.hashWithSalt` defaultChildPolicy
       `Prelude.hashWithSalt` defaultExecutionStartToCloseTimeout
       `Prelude.hashWithSalt` defaultLambdaRole
       `Prelude.hashWithSalt` defaultTaskList

@@ -124,7 +124,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
     -- Keep all other arguments unchanged. Each pagination token expires after
-    -- 60 seconds. Using an expired pagination token will return a @400@ error:
+    -- 24 hours. Using an expired pagination token will return a @400@ error:
     -- \"@Specified token has exceeded its maximum lifetime@\".
     --
     -- The configured @maximumPageSize@ determines how many results can be
@@ -194,7 +194,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
 -- Keep all other arguments unchanged. Each pagination token expires after
--- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- 24 hours. Using an expired pagination token will return a @400@ error:
 -- \"@Specified token has exceeded its maximum lifetime@\".
 --
 -- The configured @maximumPageSize@ determines how many results can be
@@ -279,7 +279,7 @@ listClosedWorkflowExecutions_maximumPageSize = Lens.lens (\ListClosedWorkflowExe
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
 -- Keep all other arguments unchanged. Each pagination token expires after
--- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- 24 hours. Using an expired pagination token will return a @400@ error:
 -- \"@Specified token has exceeded its maximum lifetime@\".
 --
 -- The configured @maximumPageSize@ determines how many results can be
@@ -327,19 +327,19 @@ instance Core.AWSPager ListClosedWorkflowExecutions where
     | Core.stop
         ( rs
             Lens.^? workflowExecutionInfos_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. workflowExecutionInfos_executionInfos) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listClosedWorkflowExecutions_nextPageToken
           Lens..~ rs
           Lens.^? workflowExecutionInfos_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClosedWorkflowExecutions where
   type
@@ -356,7 +356,8 @@ instance
     ListClosedWorkflowExecutions
   where
   hashWithSalt _salt ListClosedWorkflowExecutions' {..} =
-    _salt `Prelude.hashWithSalt` closeStatusFilter
+    _salt
+      `Prelude.hashWithSalt` closeStatusFilter
       `Prelude.hashWithSalt` closeTimeFilter
       `Prelude.hashWithSalt` executionFilter
       `Prelude.hashWithSalt` maximumPageSize

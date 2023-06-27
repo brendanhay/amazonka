@@ -89,7 +89,7 @@ data ListDomains = ListDomains'
     -- value of @NextPageToken@ is a unique pagination token for each page.
     -- Make the call again using the returned token to retrieve the next page.
     -- Keep all other arguments unchanged. Each pagination token expires after
-    -- 60 seconds. Using an expired pagination token will return a @400@ error:
+    -- 24 hours. Using an expired pagination token will return a @400@ error:
     -- \"@Specified token has exceeded its maximum lifetime@\".
     --
     -- The configured @maximumPageSize@ determines how many results can be
@@ -119,7 +119,7 @@ data ListDomains = ListDomains'
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
 -- Keep all other arguments unchanged. Each pagination token expires after
--- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- 24 hours. Using an expired pagination token will return a @400@ error:
 -- \"@Specified token has exceeded its maximum lifetime@\".
 --
 -- The configured @maximumPageSize@ determines how many results can be
@@ -151,7 +151,7 @@ listDomains_maximumPageSize = Lens.lens (\ListDomains' {maximumPageSize} -> maxi
 -- value of @NextPageToken@ is a unique pagination token for each page.
 -- Make the call again using the returned token to retrieve the next page.
 -- Keep all other arguments unchanged. Each pagination token expires after
--- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- 24 hours. Using an expired pagination token will return a @400@ error:
 -- \"@Specified token has exceeded its maximum lifetime@\".
 --
 -- The configured @maximumPageSize@ determines how many results can be
@@ -174,19 +174,19 @@ instance Core.AWSPager ListDomains where
     | Core.stop
         ( rs
             Lens.^? listDomainsResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listDomainsResponse_domainInfos) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDomains_nextPageToken
           Lens..~ rs
           Lens.^? listDomainsResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -203,7 +203,8 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` maximumPageSize
+    _salt
+      `Prelude.hashWithSalt` maximumPageSize
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder
       `Prelude.hashWithSalt` registrationStatus

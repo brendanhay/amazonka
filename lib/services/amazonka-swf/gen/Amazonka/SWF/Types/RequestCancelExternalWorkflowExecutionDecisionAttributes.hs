@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     RequestCancelExternalWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` runId
         `Prelude.hashWithSalt` workflowId
 

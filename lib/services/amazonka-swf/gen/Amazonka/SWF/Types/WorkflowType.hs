@@ -87,12 +87,14 @@ instance Data.FromJSON WorkflowType where
       "WorkflowType"
       ( \x ->
           WorkflowType'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "version")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "version")
       )
 
 instance Prelude.Hashable WorkflowType where
   hashWithSalt _salt WorkflowType' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData WorkflowType where

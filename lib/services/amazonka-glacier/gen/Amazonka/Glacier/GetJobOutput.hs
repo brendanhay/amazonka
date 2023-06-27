@@ -285,7 +285,8 @@ instance Core.AWSRequest GetJobOutput where
 
 instance Prelude.Hashable GetJobOutput where
   hashWithSalt _salt GetJobOutput' {..} =
-    _salt `Prelude.hashWithSalt` range
+    _salt
+      `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
       `Prelude.hashWithSalt` jobId

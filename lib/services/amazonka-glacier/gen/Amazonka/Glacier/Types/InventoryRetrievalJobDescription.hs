@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     InventoryRetrievalJobDescription' {..} =
-      _salt `Prelude.hashWithSalt` endDate
+      _salt
+        `Prelude.hashWithSalt` endDate
         `Prelude.hashWithSalt` format
         `Prelude.hashWithSalt` limit
         `Prelude.hashWithSalt` marker

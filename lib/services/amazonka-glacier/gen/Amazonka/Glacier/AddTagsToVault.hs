@@ -129,7 +129,8 @@ instance Core.AWSRequest AddTagsToVault where
 
 instance Prelude.Hashable AddTagsToVault where
   hashWithSalt _salt AddTagsToVault' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 

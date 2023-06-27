@@ -114,7 +114,8 @@ instance Data.FromJSON UploadListElement where
 
 instance Prelude.Hashable UploadListElement where
   hashWithSalt _salt UploadListElement' {..} =
-    _salt `Prelude.hashWithSalt` archiveDescription
+    _salt
+      `Prelude.hashWithSalt` archiveDescription
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` multipartUploadId
       `Prelude.hashWithSalt` partSizeInBytes

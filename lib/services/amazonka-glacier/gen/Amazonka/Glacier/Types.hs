@@ -322,60 +322,60 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has
           ( Core.hasCode "RequestTimeoutException"
               Prelude.. Core.hasStatus 408
           )
           e =
-        Prelude.Just "timeouts"
+          Prelude.Just "timeouts"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Returned if there is insufficient capacity to process this expedited
 -- request. This error only applies to expedited retrievals and not to
 -- standard or bulk retrievals.
-_InsufficientCapacityException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InsufficientCapacityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InsufficientCapacityException =
   Core._MatchServiceError
     defaultService
@@ -383,7 +383,7 @@ _InsufficientCapacityException =
     Prelude.. Core.hasStatus 400
 
 -- | Returned if a parameter of the request is incorrectly specified.
-_InvalidParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -392,7 +392,7 @@ _InvalidParameterValueException =
 
 -- | Returned if the request results in a vault or account limit being
 -- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -400,7 +400,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | Returned if a required header or parameter is missing from the request.
-_MissingParameterValueException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MissingParameterValueException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MissingParameterValueException =
   Core._MatchServiceError
     defaultService
@@ -410,7 +410,7 @@ _MissingParameterValueException =
 -- | Returned if a retrieval job would exceed the current data policy\'s
 -- retrieval rate limit. For more information about data retrieval
 -- policies,
-_PolicyEnforcedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PolicyEnforcedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PolicyEnforcedException =
   Core._MatchServiceError
     defaultService
@@ -419,7 +419,7 @@ _PolicyEnforcedException =
 
 -- | Returned if, when uploading an archive, Amazon S3 Glacier times out
 -- while receiving the upload.
-_RequestTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestTimeoutException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestTimeoutException =
   Core._MatchServiceError
     defaultService
@@ -428,7 +428,7 @@ _RequestTimeoutException =
 
 -- | Returned if the specified resource (such as a vault, upload ID, or job
 -- ID) doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -436,7 +436,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Returned if the service cannot complete the request.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService

@@ -131,7 +131,8 @@ instance Data.FromJSON CSVInput where
 
 instance Prelude.Hashable CSVInput where
   hashWithSalt _salt CSVInput' {..} =
-    _salt `Prelude.hashWithSalt` comments
+    _salt
+      `Prelude.hashWithSalt` comments
       `Prelude.hashWithSalt` fieldDelimiter
       `Prelude.hashWithSalt` fileHeaderInfo
       `Prelude.hashWithSalt` quoteCharacter

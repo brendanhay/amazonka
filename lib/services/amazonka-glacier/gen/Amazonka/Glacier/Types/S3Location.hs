@@ -130,7 +130,8 @@ instance Data.FromJSON S3Location where
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> ( x Data..:? "AccessControlList"
+            Prelude.<$> ( x
+                            Data..:? "AccessControlList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BucketName")
@@ -144,7 +145,8 @@ instance Data.FromJSON S3Location where
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` accessControlList
+    _salt
+      `Prelude.hashWithSalt` accessControlList
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` cannedACL
       `Prelude.hashWithSalt` encryption

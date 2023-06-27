@@ -131,7 +131,8 @@ instance Core.AWSRequest DeleteVault where
 
 instance Prelude.Hashable DeleteVault where
   hashWithSalt _salt DeleteVault' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData DeleteVault where

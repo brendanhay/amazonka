@@ -167,7 +167,8 @@ instance Core.AWSRequest InitiateVaultLock where
 
 instance Prelude.Hashable InitiateVaultLock where
   hashWithSalt _salt InitiateVaultLock' {..} =
-    _salt `Prelude.hashWithSalt` policy
+    _salt
+      `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 

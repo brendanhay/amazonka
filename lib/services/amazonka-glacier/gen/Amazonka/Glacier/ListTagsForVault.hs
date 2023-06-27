@@ -122,7 +122,8 @@ instance Core.AWSRequest ListTagsForVault where
 
 instance Prelude.Hashable ListTagsForVault where
   hashWithSalt _salt ListTagsForVault' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData ListTagsForVault where

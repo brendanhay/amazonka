@@ -92,7 +92,8 @@ instance Data.FromJSON DataRetrievalRule where
 
 instance Prelude.Hashable DataRetrievalRule where
   hashWithSalt _salt DataRetrievalRule' {..} =
-    _salt `Prelude.hashWithSalt` bytesPerHour
+    _salt
+      `Prelude.hashWithSalt` bytesPerHour
       `Prelude.hashWithSalt` strategy
 
 instance Prelude.NFData DataRetrievalRule where

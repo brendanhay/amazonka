@@ -120,7 +120,8 @@ instance Core.AWSRequest DeleteVaultAccessPolicy where
 
 instance Prelude.Hashable DeleteVaultAccessPolicy where
   hashWithSalt _salt DeleteVaultAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData DeleteVaultAccessPolicy where

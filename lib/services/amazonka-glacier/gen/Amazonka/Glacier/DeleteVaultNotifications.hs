@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteVaultNotifications where
 
 instance Prelude.Hashable DeleteVaultNotifications where
   hashWithSalt _salt DeleteVaultNotifications' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData DeleteVaultNotifications where

@@ -92,7 +92,8 @@ instance Data.FromJSON ArchiveCreationOutput where
 
 instance Prelude.Hashable ArchiveCreationOutput where
   hashWithSalt _salt ArchiveCreationOutput' {..} =
-    _salt `Prelude.hashWithSalt` archiveId
+    _salt
+      `Prelude.hashWithSalt` archiveId
       `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` location
 

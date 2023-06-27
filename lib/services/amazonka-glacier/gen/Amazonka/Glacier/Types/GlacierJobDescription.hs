@@ -386,7 +386,8 @@ instance Data.FromJSON GlacierJobDescription where
 
 instance Prelude.Hashable GlacierJobDescription where
   hashWithSalt _salt GlacierJobDescription' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` archiveId
       `Prelude.hashWithSalt` archiveSHA256TreeHash
       `Prelude.hashWithSalt` archiveSizeInBytes

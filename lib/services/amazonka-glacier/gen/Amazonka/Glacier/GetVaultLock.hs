@@ -146,7 +146,8 @@ instance Core.AWSRequest GetVaultLock where
 
 instance Prelude.Hashable GetVaultLock where
   hashWithSalt _salt GetVaultLock' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData GetVaultLock where

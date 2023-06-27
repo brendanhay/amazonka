@@ -105,7 +105,8 @@ instance Core.AWSRequest ImportDecoderManifest where
 
 instance Prelude.Hashable ImportDecoderManifest where
   hashWithSalt _salt ImportDecoderManifest' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` networkFileDefinitions
 
 instance Prelude.NFData ImportDecoderManifest where

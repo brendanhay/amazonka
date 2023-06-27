@@ -131,7 +131,8 @@ instance Core.AWSRequest ImportSignalCatalog where
 
 instance Prelude.Hashable ImportSignalCatalog where
   hashWithSalt _salt ImportSignalCatalog' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vss
       `Prelude.hashWithSalt` name

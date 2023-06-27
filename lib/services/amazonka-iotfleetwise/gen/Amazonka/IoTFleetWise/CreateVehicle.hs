@@ -24,7 +24,7 @@
 -- manifest). Vehicles created from the same vehicle model consist of the
 -- same signals inherited from the vehicle model.
 --
--- If you have an existing Amazon Web Services IoT Thing, you can use
+-- If you have an existing Amazon Web Services IoT thing, you can use
 -- Amazon Web Services IoT FleetWise to create a vehicle and collect data
 -- from your thing.
 --
@@ -70,10 +70,13 @@ data CreateVehicle = CreateVehicle'
     -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
     -- vehicle.
     --
-    -- Default: @@
+    -- Default:
     associationBehavior :: Prelude.Maybe VehicleAssociationBehavior,
     -- | Static information about a vehicle in a key-value pair. For example:
     -- @\"engineType\"@ : @\"1.3 L R2\"@
+    --
+    -- A campaign must include the keys (attribute names) in
+    -- @dataExtraDimensions@ for them to display in Amazon Timestream.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Metadata that can be used to manage the vehicle.
     tags :: Prelude.Maybe [Tag],
@@ -98,10 +101,13 @@ data CreateVehicle = CreateVehicle'
 -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
 -- vehicle.
 --
--- Default: @@
+-- Default:
 --
 -- 'attributes', 'createVehicle_attributes' - Static information about a vehicle in a key-value pair. For example:
 -- @\"engineType\"@ : @\"1.3 L R2\"@
+--
+-- A campaign must include the keys (attribute names) in
+-- @dataExtraDimensions@ for them to display in Amazon Timestream.
 --
 -- 'tags', 'createVehicle_tags' - Metadata that can be used to manage the vehicle.
 --
@@ -136,12 +142,15 @@ newCreateVehicle
 -- vehicle, or to validate an existing Amazon Web Services IoT thing as a
 -- vehicle.
 --
--- Default: @@
+-- Default:
 createVehicle_associationBehavior :: Lens.Lens' CreateVehicle (Prelude.Maybe VehicleAssociationBehavior)
 createVehicle_associationBehavior = Lens.lens (\CreateVehicle' {associationBehavior} -> associationBehavior) (\s@CreateVehicle' {} a -> s {associationBehavior = a} :: CreateVehicle)
 
 -- | Static information about a vehicle in a key-value pair. For example:
 -- @\"engineType\"@ : @\"1.3 L R2\"@
+--
+-- A campaign must include the keys (attribute names) in
+-- @dataExtraDimensions@ for them to display in Amazon Timestream.
 createVehicle_attributes :: Lens.Lens' CreateVehicle (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createVehicle_attributes = Lens.lens (\CreateVehicle' {attributes} -> attributes) (\s@CreateVehicle' {} a -> s {attributes = a} :: CreateVehicle) Prelude.. Lens.mapping Lens.coerced
 
@@ -179,7 +188,8 @@ instance Core.AWSRequest CreateVehicle where
 
 instance Prelude.Hashable CreateVehicle where
   hashWithSalt _salt CreateVehicle' {..} =
-    _salt `Prelude.hashWithSalt` associationBehavior
+    _salt
+      `Prelude.hashWithSalt` associationBehavior
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vehicleName

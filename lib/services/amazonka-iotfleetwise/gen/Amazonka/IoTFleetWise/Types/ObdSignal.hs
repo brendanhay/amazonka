@@ -41,7 +41,8 @@ data ObdSignal = ObdSignal'
     pid :: Prelude.Natural,
     -- | A multiplier used to decode the message.
     scaling :: Prelude.Double,
-    -- | Indicates where data appears in the message.
+    -- | The offset used to calculate the signal value. Combined with scaling,
+    -- the calculation is @value = raw_value * scaling + offset@.
     offset :: Prelude.Double,
     -- | Indicates the beginning of the message.
     startByte :: Prelude.Natural,
@@ -70,7 +71,8 @@ data ObdSignal = ObdSignal'
 --
 -- 'scaling', 'obdSignal_scaling' - A multiplier used to decode the message.
 --
--- 'offset', 'obdSignal_offset' - Indicates where data appears in the message.
+-- 'offset', 'obdSignal_offset' - The offset used to calculate the signal value. Combined with scaling,
+-- the calculation is @value = raw_value * scaling + offset@.
 --
 -- 'startByte', 'obdSignal_startByte' - Indicates the beginning of the message.
 --
@@ -135,7 +137,8 @@ obdSignal_pid = Lens.lens (\ObdSignal' {pid} -> pid) (\s@ObdSignal' {} a -> s {p
 obdSignal_scaling :: Lens.Lens' ObdSignal Prelude.Double
 obdSignal_scaling = Lens.lens (\ObdSignal' {scaling} -> scaling) (\s@ObdSignal' {} a -> s {scaling = a} :: ObdSignal)
 
--- | Indicates where data appears in the message.
+-- | The offset used to calculate the signal value. Combined with scaling,
+-- the calculation is @value = raw_value * scaling + offset@.
 obdSignal_offset :: Lens.Lens' ObdSignal Prelude.Double
 obdSignal_offset = Lens.lens (\ObdSignal' {offset} -> offset) (\s@ObdSignal' {} a -> s {offset = a} :: ObdSignal)
 
@@ -166,7 +169,8 @@ instance Data.FromJSON ObdSignal where
 
 instance Prelude.Hashable ObdSignal where
   hashWithSalt _salt ObdSignal' {..} =
-    _salt `Prelude.hashWithSalt` bitMaskLength
+    _salt
+      `Prelude.hashWithSalt` bitMaskLength
       `Prelude.hashWithSalt` bitRightShift
       `Prelude.hashWithSalt` pidResponseLength
       `Prelude.hashWithSalt` serviceMode

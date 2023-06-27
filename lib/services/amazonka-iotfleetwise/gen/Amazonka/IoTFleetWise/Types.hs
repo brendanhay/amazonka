@@ -35,6 +35,9 @@ module Amazonka.IoTFleetWise.Types
     -- * Compression
     Compression (..),
 
+    -- * DataFormat
+    DataFormat (..),
+
     -- * DiagnosticsMode
     DiagnosticsMode (..),
 
@@ -59,6 +62,9 @@ module Amazonka.IoTFleetWise.Types
     -- * SpoolingMode
     SpoolingMode (..),
 
+    -- * StorageCompressionFormat
+    StorageCompressionFormat (..),
+
     -- * TriggerMode
     TriggerMode (..),
 
@@ -79,6 +85,8 @@ module Amazonka.IoTFleetWise.Types
     newActuator,
     actuator_allowedValues,
     actuator_assignedValue,
+    actuator_comment,
+    actuator_deprecationMessage,
     actuator_description,
     actuator_max,
     actuator_min,
@@ -91,7 +99,9 @@ module Amazonka.IoTFleetWise.Types
     newAttribute,
     attribute_allowedValues,
     attribute_assignedValue,
+    attribute_comment,
     attribute_defaultValue,
+    attribute_deprecationMessage,
     attribute_description,
     attribute_max,
     attribute_min,
@@ -102,6 +112,8 @@ module Amazonka.IoTFleetWise.Types
     -- * Branch
     Branch (..),
     newBranch,
+    branch_comment,
+    branch_deprecationMessage,
     branch_description,
     branch_fullyQualifiedName,
 
@@ -186,6 +198,12 @@ module Amazonka.IoTFleetWise.Types
     createVehicleResponseItem_arn,
     createVehicleResponseItem_thingArn,
     createVehicleResponseItem_vehicleName,
+
+    -- * DataDestinationConfig
+    DataDestinationConfig (..),
+    newDataDestinationConfig,
+    dataDestinationConfig_s3Config,
+    dataDestinationConfig_timestreamConfig,
 
     -- * DecoderManifestSummary
     DecoderManifestSummary (..),
@@ -290,10 +308,20 @@ module Amazonka.IoTFleetWise.Types
     obdSignal_startByte,
     obdSignal_byteLength,
 
+    -- * S3Config
+    S3Config (..),
+    newS3Config,
+    s3Config_dataFormat,
+    s3Config_prefix,
+    s3Config_storageCompressionFormat,
+    s3Config_bucketArn,
+
     -- * Sensor
     Sensor (..),
     newSensor,
     sensor_allowedValues,
+    sensor_comment,
+    sensor_deprecationMessage,
     sensor_description,
     sensor_max,
     sensor_min,
@@ -335,6 +363,12 @@ module Amazonka.IoTFleetWise.Types
     TimeBasedCollectionScheme (..),
     newTimeBasedCollectionScheme,
     timeBasedCollectionScheme_periodMs,
+
+    -- * TimestreamConfig
+    TimestreamConfig (..),
+    newTimestreamConfig,
+    timestreamConfig_timestreamTableArn,
+    timestreamConfig_executionRoleArn,
 
     -- * TimestreamRegistrationResponse
     TimestreamRegistrationResponse (..),
@@ -410,6 +444,8 @@ import Amazonka.IoTFleetWise.Types.ConditionBasedCollectionScheme
 import Amazonka.IoTFleetWise.Types.CreateVehicleError
 import Amazonka.IoTFleetWise.Types.CreateVehicleRequestItem
 import Amazonka.IoTFleetWise.Types.CreateVehicleResponseItem
+import Amazonka.IoTFleetWise.Types.DataDestinationConfig
+import Amazonka.IoTFleetWise.Types.DataFormat
 import Amazonka.IoTFleetWise.Types.DecoderManifestSummary
 import Amazonka.IoTFleetWise.Types.DiagnosticsMode
 import Amazonka.IoTFleetWise.Types.FleetSummary
@@ -428,14 +464,17 @@ import Amazonka.IoTFleetWise.Types.NodeDataType
 import Amazonka.IoTFleetWise.Types.ObdInterface
 import Amazonka.IoTFleetWise.Types.ObdSignal
 import Amazonka.IoTFleetWise.Types.RegistrationStatus
+import Amazonka.IoTFleetWise.Types.S3Config
 import Amazonka.IoTFleetWise.Types.Sensor
 import Amazonka.IoTFleetWise.Types.SignalCatalogSummary
 import Amazonka.IoTFleetWise.Types.SignalDecoder
 import Amazonka.IoTFleetWise.Types.SignalDecoderType
 import Amazonka.IoTFleetWise.Types.SignalInformation
 import Amazonka.IoTFleetWise.Types.SpoolingMode
+import Amazonka.IoTFleetWise.Types.StorageCompressionFormat
 import Amazonka.IoTFleetWise.Types.Tag
 import Amazonka.IoTFleetWise.Types.TimeBasedCollectionScheme
+import Amazonka.IoTFleetWise.Types.TimestreamConfig
 import Amazonka.IoTFleetWise.Types.TimestreamRegistrationResponse
 import Amazonka.IoTFleetWise.Types.TimestreamResources
 import Amazonka.IoTFleetWise.Types.TriggerMode
@@ -477,52 +516,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have sufficient permission to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -531,7 +570,7 @@ _AccessDeniedException =
 -- | The request has conflicting operations. This can occur if you\'re trying
 -- to perform more than one operation on the same resource at the same
 -- time.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -539,7 +578,7 @@ _ConflictException =
 
 -- | The request couldn\'t be completed because it contains signal decoders
 -- with one or more validation errors.
-_DecoderManifestValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DecoderManifestValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DecoderManifestValidationException =
   Core._MatchServiceError
     defaultService
@@ -547,7 +586,7 @@ _DecoderManifestValidationException =
 
 -- | The request couldn\'t be completed because the server temporarily
 -- failed.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -556,7 +595,7 @@ _InternalServerException =
 -- | The specified node type doesn\'t match the expected node type for a
 -- node. You can specify the node type as branch, sensor, actuator, or
 -- attribute.
-_InvalidNodeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNodeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNodeException =
   Core._MatchServiceError
     defaultService
@@ -564,28 +603,28 @@ _InvalidNodeException =
 
 -- | The request couldn\'t be completed because it contains signals that
 -- aren\'t valid.
-_InvalidSignalsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidSignalsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidSignalsException =
   Core._MatchServiceError
     defaultService
     "InvalidSignalsException"
 
 -- | A service quota was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The resource wasn\'t found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The request couldn\'t be completed due to throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -593,7 +632,7 @@ _ThrottlingException =
 
 -- | The input fails to satisfy the constraints specified by an Amazon Web
 -- Services service.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

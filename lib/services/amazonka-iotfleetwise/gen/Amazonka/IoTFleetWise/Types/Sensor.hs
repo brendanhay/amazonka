@@ -35,6 +35,11 @@ import qualified Amazonka.Prelude as Prelude
 data Sensor = Sensor'
   { -- | A list of possible values a sensor can take.
     allowedValues :: Prelude.Maybe [Prelude.Text],
+    -- | A comment in addition to the description.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | The deprecation message for the node or the branch that was moved or
+    -- deleted.
+    deprecationMessage :: Prelude.Maybe Prelude.Text,
     -- | A brief description of a sensor.
     description :: Prelude.Maybe Prelude.Text,
     -- | The specified possible maximum value of the sensor.
@@ -61,6 +66,11 @@ data Sensor = Sensor'
 --
 -- 'allowedValues', 'sensor_allowedValues' - A list of possible values a sensor can take.
 --
+-- 'comment', 'sensor_comment' - A comment in addition to the description.
+--
+-- 'deprecationMessage', 'sensor_deprecationMessage' - The deprecation message for the node or the branch that was moved or
+-- deleted.
+--
 -- 'description', 'sensor_description' - A brief description of a sensor.
 --
 -- 'max', 'sensor_max' - The specified possible maximum value of the sensor.
@@ -82,6 +92,8 @@ newSensor ::
 newSensor pFullyQualifiedName_ pDataType_ =
   Sensor'
     { allowedValues = Prelude.Nothing,
+      comment = Prelude.Nothing,
+      deprecationMessage = Prelude.Nothing,
       description = Prelude.Nothing,
       max = Prelude.Nothing,
       min = Prelude.Nothing,
@@ -93,6 +105,15 @@ newSensor pFullyQualifiedName_ pDataType_ =
 -- | A list of possible values a sensor can take.
 sensor_allowedValues :: Lens.Lens' Sensor (Prelude.Maybe [Prelude.Text])
 sensor_allowedValues = Lens.lens (\Sensor' {allowedValues} -> allowedValues) (\s@Sensor' {} a -> s {allowedValues = a} :: Sensor) Prelude.. Lens.mapping Lens.coerced
+
+-- | A comment in addition to the description.
+sensor_comment :: Lens.Lens' Sensor (Prelude.Maybe Prelude.Text)
+sensor_comment = Lens.lens (\Sensor' {comment} -> comment) (\s@Sensor' {} a -> s {comment = a} :: Sensor)
+
+-- | The deprecation message for the node or the branch that was moved or
+-- deleted.
+sensor_deprecationMessage :: Lens.Lens' Sensor (Prelude.Maybe Prelude.Text)
+sensor_deprecationMessage = Lens.lens (\Sensor' {deprecationMessage} -> deprecationMessage) (\s@Sensor' {} a -> s {deprecationMessage = a} :: Sensor)
 
 -- | A brief description of a sensor.
 sensor_description :: Lens.Lens' Sensor (Prelude.Maybe Prelude.Text)
@@ -126,6 +147,8 @@ instance Data.FromJSON Sensor where
       ( \x ->
           Sensor'
             Prelude.<$> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "deprecationMessage")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "max")
             Prelude.<*> (x Data..:? "min")
@@ -136,7 +159,10 @@ instance Data.FromJSON Sensor where
 
 instance Prelude.Hashable Sensor where
   hashWithSalt _salt Sensor' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` deprecationMessage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
@@ -147,6 +173,8 @@ instance Prelude.Hashable Sensor where
 instance Prelude.NFData Sensor where
   rnf Sensor' {..} =
     Prelude.rnf allowedValues
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf deprecationMessage
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf max
       `Prelude.seq` Prelude.rnf min
@@ -159,6 +187,9 @@ instance Data.ToJSON Sensor where
     Data.object
       ( Prelude.catMaybes
           [ ("allowedValues" Data..=) Prelude.<$> allowedValues,
+            ("comment" Data..=) Prelude.<$> comment,
+            ("deprecationMessage" Data..=)
+              Prelude.<$> deprecationMessage,
             ("description" Data..=) Prelude.<$> description,
             ("max" Data..=) Prelude.<$> max,
             ("min" Data..=) Prelude.<$> min,

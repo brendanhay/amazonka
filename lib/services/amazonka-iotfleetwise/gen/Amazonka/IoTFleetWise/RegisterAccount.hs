@@ -20,22 +20,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers your Amazon Web Services account, IAM, and Amazon Timestream
--- resources so Amazon Web Services IoT FleetWise can transfer your vehicle
--- data to the Amazon Web Services Cloud. For more information, including
--- step-by-step procedures, see
--- <https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html Setting up Amazon Web Services IoT FleetWise>.
+-- This API operation contains deprecated parameters. Register your account
+-- again without the Timestream resources parameter so that Amazon Web
+-- Services IoT FleetWise can remove the Timestream metadata stored. You
+-- should then pass the data destination into the
+-- <https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html CreateCampaign>
+-- API operation.
 --
--- An Amazon Web Services account is __not__ the same thing as a \"user
--- account\". An
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users Amazon Web Services user>
--- is an identity that you create using Identity and Access Management
--- (IAM) and takes the form of either an
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html IAM user>
--- or an
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM role, both with credentials>.
--- A single Amazon Web Services account can, and typically does, contain
--- many users and roles.
+-- You must delete any existing campaigns that include an empty data
+-- destination before you register your account again. For more
+-- information, see the
+-- <https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteCampaign.html DeleteCampaign>
+-- API operation.
+--
+-- If you want to delete the Timestream inline policy from the
+-- service-linked role, such as to mitigate an overly permissive policy,
+-- you must first delete any existing campaigns. Then delete the
+-- service-linked role and register your account again to enable CloudWatch
+-- metrics. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html DeleteServiceLinkedRole>
+-- in the /Identity and Access Management API Reference/.
+--
+-- >  <p>Registers your Amazon Web Services account, IAM, and Amazon Timestream resources so Amazon Web Services IoT FleetWise can transfer your vehicle data to the Amazon Web Services Cloud. For more information, including step-by-step procedures, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/setting-up.html">Setting up Amazon Web Services IoT FleetWise</a>. </p> <note> <p>An Amazon Web Services account is <b>not</b> the same thing as a "user." An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_identity-management.html#intro-identity-users">Amazon Web Services user</a> is an identity that you create using Identity and Access Management (IAM) and takes the form of either an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html">IAM user</a> or an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM role, both with credentials</a>. A single Amazon Web Services account can, and typically does, contain many users and roles.</p> </note>
 module Amazonka.IoTFleetWise.RegisterAccount
   ( -- * Creating a Request
     RegisterAccount (..),
@@ -50,9 +56,9 @@ module Amazonka.IoTFleetWise.RegisterAccount
     newRegisterAccountResponse,
 
     -- * Response Lenses
+    registerAccountResponse_timestreamResources,
     registerAccountResponse_httpStatus,
     registerAccountResponse_registerAccountStatus,
-    registerAccountResponse_timestreamResources,
     registerAccountResponse_iamResources,
     registerAccountResponse_creationTime,
     registerAccountResponse_lastModificationTime,
@@ -72,7 +78,7 @@ data RegisterAccount = RegisterAccount'
   { -- | The IAM resource that allows Amazon Web Services IoT FleetWise to send
     -- data to Amazon Timestream.
     iamResources :: Prelude.Maybe IamResources,
-    timestreamResources :: TimestreamResources
+    timestreamResources :: Prelude.Maybe TimestreamResources
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,13 +95,11 @@ data RegisterAccount = RegisterAccount'
 --
 -- 'timestreamResources', 'registerAccount_timestreamResources' - Undocumented member.
 newRegisterAccount ::
-  -- | 'timestreamResources'
-  TimestreamResources ->
   RegisterAccount
-newRegisterAccount pTimestreamResources_ =
+newRegisterAccount =
   RegisterAccount'
     { iamResources = Prelude.Nothing,
-      timestreamResources = pTimestreamResources_
+      timestreamResources = Prelude.Nothing
     }
 
 -- | The IAM resource that allows Amazon Web Services IoT FleetWise to send
@@ -104,7 +108,7 @@ registerAccount_iamResources :: Lens.Lens' RegisterAccount (Prelude.Maybe IamRes
 registerAccount_iamResources = Lens.lens (\RegisterAccount' {iamResources} -> iamResources) (\s@RegisterAccount' {} a -> s {iamResources = a} :: RegisterAccount)
 
 -- | Undocumented member.
-registerAccount_timestreamResources :: Lens.Lens' RegisterAccount TimestreamResources
+registerAccount_timestreamResources :: Lens.Lens' RegisterAccount (Prelude.Maybe TimestreamResources)
 registerAccount_timestreamResources = Lens.lens (\RegisterAccount' {timestreamResources} -> timestreamResources) (\s@RegisterAccount' {} a -> s {timestreamResources = a} :: RegisterAccount)
 
 instance Core.AWSRequest RegisterAccount where
@@ -117,9 +121,9 @@ instance Core.AWSRequest RegisterAccount where
     Response.receiveJSON
       ( \s h x ->
           RegisterAccountResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "timestreamResources")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "registerAccountStatus")
-            Prelude.<*> (x Data..:> "timestreamResources")
             Prelude.<*> (x Data..:> "iamResources")
             Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "lastModificationTime")
@@ -127,7 +131,8 @@ instance Core.AWSRequest RegisterAccount where
 
 instance Prelude.Hashable RegisterAccount where
   hashWithSalt _salt RegisterAccount' {..} =
-    _salt `Prelude.hashWithSalt` iamResources
+    _salt
+      `Prelude.hashWithSalt` iamResources
       `Prelude.hashWithSalt` timestreamResources
 
 instance Prelude.NFData RegisterAccount where
@@ -155,8 +160,8 @@ instance Data.ToJSON RegisterAccount where
     Data.object
       ( Prelude.catMaybes
           [ ("iamResources" Data..=) Prelude.<$> iamResources,
-            Prelude.Just
-              ("timestreamResources" Data..= timestreamResources)
+            ("timestreamResources" Data..=)
+              Prelude.<$> timestreamResources
           ]
       )
 
@@ -168,12 +173,12 @@ instance Data.ToQuery RegisterAccount where
 
 -- | /See:/ 'newRegisterAccountResponse' smart constructor.
 data RegisterAccountResponse = RegisterAccountResponse'
-  { -- | The response's http status code.
+  { timestreamResources :: Prelude.Maybe TimestreamResources,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The status of registering your Amazon Web Services account, IAM role,
     -- and Timestream resources.
     registerAccountStatus :: RegistrationStatus,
-    timestreamResources :: TimestreamResources,
     -- | The registered IAM resource that allows Amazon Web Services IoT
     -- FleetWise to send data to Amazon Timestream.
     iamResources :: IamResources,
@@ -194,12 +199,12 @@ data RegisterAccountResponse = RegisterAccountResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timestreamResources', 'registerAccountResponse_timestreamResources' - Undocumented member.
+--
 -- 'httpStatus', 'registerAccountResponse_httpStatus' - The response's http status code.
 --
 -- 'registerAccountStatus', 'registerAccountResponse_registerAccountStatus' - The status of registering your Amazon Web Services account, IAM role,
 -- and Timestream resources.
---
--- 'timestreamResources', 'registerAccountResponse_timestreamResources' - Undocumented member.
 --
 -- 'iamResources', 'registerAccountResponse_iamResources' - The registered IAM resource that allows Amazon Web Services IoT
 -- FleetWise to send data to Amazon Timestream.
@@ -214,8 +219,6 @@ newRegisterAccountResponse ::
   Prelude.Int ->
   -- | 'registerAccountStatus'
   RegistrationStatus ->
-  -- | 'timestreamResources'
-  TimestreamResources ->
   -- | 'iamResources'
   IamResources ->
   -- | 'creationTime'
@@ -226,19 +229,23 @@ newRegisterAccountResponse ::
 newRegisterAccountResponse
   pHttpStatus_
   pRegisterAccountStatus_
-  pTimestreamResources_
   pIamResources_
   pCreationTime_
   pLastModificationTime_ =
     RegisterAccountResponse'
-      { httpStatus = pHttpStatus_,
+      { timestreamResources =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         registerAccountStatus = pRegisterAccountStatus_,
-        timestreamResources = pTimestreamResources_,
         iamResources = pIamResources_,
         creationTime = Data._Time Lens.# pCreationTime_,
         lastModificationTime =
           Data._Time Lens.# pLastModificationTime_
       }
+
+-- | Undocumented member.
+registerAccountResponse_timestreamResources :: Lens.Lens' RegisterAccountResponse (Prelude.Maybe TimestreamResources)
+registerAccountResponse_timestreamResources = Lens.lens (\RegisterAccountResponse' {timestreamResources} -> timestreamResources) (\s@RegisterAccountResponse' {} a -> s {timestreamResources = a} :: RegisterAccountResponse)
 
 -- | The response's http status code.
 registerAccountResponse_httpStatus :: Lens.Lens' RegisterAccountResponse Prelude.Int
@@ -248,10 +255,6 @@ registerAccountResponse_httpStatus = Lens.lens (\RegisterAccountResponse' {httpS
 -- and Timestream resources.
 registerAccountResponse_registerAccountStatus :: Lens.Lens' RegisterAccountResponse RegistrationStatus
 registerAccountResponse_registerAccountStatus = Lens.lens (\RegisterAccountResponse' {registerAccountStatus} -> registerAccountStatus) (\s@RegisterAccountResponse' {} a -> s {registerAccountStatus = a} :: RegisterAccountResponse)
-
--- | Undocumented member.
-registerAccountResponse_timestreamResources :: Lens.Lens' RegisterAccountResponse TimestreamResources
-registerAccountResponse_timestreamResources = Lens.lens (\RegisterAccountResponse' {timestreamResources} -> timestreamResources) (\s@RegisterAccountResponse' {} a -> s {timestreamResources = a} :: RegisterAccountResponse)
 
 -- | The registered IAM resource that allows Amazon Web Services IoT
 -- FleetWise to send data to Amazon Timestream.
@@ -270,9 +273,9 @@ registerAccountResponse_lastModificationTime = Lens.lens (\RegisterAccountRespon
 
 instance Prelude.NFData RegisterAccountResponse where
   rnf RegisterAccountResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf timestreamResources
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf registerAccountStatus
-      `Prelude.seq` Prelude.rnf timestreamResources
       `Prelude.seq` Prelude.rnf iamResources
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModificationTime

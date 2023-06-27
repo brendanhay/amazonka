@@ -39,10 +39,10 @@ module Amazonka.IoTFleetWise.GetRegisterAccountStatus
     newGetRegisterAccountStatusResponse,
 
     -- * Response Lenses
+    getRegisterAccountStatusResponse_timestreamRegistrationResponse,
     getRegisterAccountStatusResponse_httpStatus,
     getRegisterAccountStatusResponse_customerAccountId,
     getRegisterAccountStatusResponse_accountStatus,
-    getRegisterAccountStatusResponse_timestreamRegistrationResponse,
     getRegisterAccountStatusResponse_iamRegistrationResponse,
     getRegisterAccountStatusResponse_creationTime,
     getRegisterAccountStatusResponse_lastModificationTime,
@@ -82,10 +82,10 @@ instance Core.AWSRequest GetRegisterAccountStatus where
     Response.receiveJSON
       ( \s h x ->
           GetRegisterAccountStatusResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Data..?> "timestreamRegistrationResponse")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "customerAccountId")
             Prelude.<*> (x Data..:> "accountStatus")
-            Prelude.<*> (x Data..:> "timestreamRegistrationResponse")
             Prelude.<*> (x Data..:> "iamRegistrationResponse")
             Prelude.<*> (x Data..:> "creationTime")
             Prelude.<*> (x Data..:> "lastModificationTime")
@@ -124,7 +124,10 @@ instance Data.ToQuery GetRegisterAccountStatus where
 
 -- | /See:/ 'newGetRegisterAccountStatusResponse' smart constructor.
 data GetRegisterAccountStatusResponse = GetRegisterAccountStatusResponse'
-  { -- | The response's http status code.
+  { -- | Information about the registered Amazon Timestream resources or errors,
+    -- if any.
+    timestreamRegistrationResponse :: Prelude.Maybe TimestreamRegistrationResponse,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique ID of the Amazon Web Services account, provided at account
     -- creation.
@@ -142,9 +145,6 @@ data GetRegisterAccountStatusResponse = GetRegisterAccountStatusResponse'
     -- -   @REGISTRATION_FAILURE@ - Amazon Web Services IoT FleetWise can\'t
     --     register the AWS resource. Try again later.
     accountStatus :: RegistrationStatus,
-    -- | Information about the registered Amazon Timestream resources or errors,
-    -- if any.
-    timestreamRegistrationResponse :: TimestreamRegistrationResponse,
     -- | Information about the registered IAM resources or errors, if any.
     iamRegistrationResponse :: IamRegistrationResponse,
     -- | The time the account was registered, in seconds since epoch (January 1,
@@ -164,6 +164,9 @@ data GetRegisterAccountStatusResponse = GetRegisterAccountStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timestreamRegistrationResponse', 'getRegisterAccountStatusResponse_timestreamRegistrationResponse' - Information about the registered Amazon Timestream resources or errors,
+-- if any.
+--
 -- 'httpStatus', 'getRegisterAccountStatusResponse_httpStatus' - The response's http status code.
 --
 -- 'customerAccountId', 'getRegisterAccountStatusResponse_customerAccountId' - The unique ID of the Amazon Web Services account, provided at account
@@ -182,9 +185,6 @@ data GetRegisterAccountStatusResponse = GetRegisterAccountStatusResponse'
 -- -   @REGISTRATION_FAILURE@ - Amazon Web Services IoT FleetWise can\'t
 --     register the AWS resource. Try again later.
 --
--- 'timestreamRegistrationResponse', 'getRegisterAccountStatusResponse_timestreamRegistrationResponse' - Information about the registered Amazon Timestream resources or errors,
--- if any.
---
 -- 'iamRegistrationResponse', 'getRegisterAccountStatusResponse_iamRegistrationResponse' - Information about the registered IAM resources or errors, if any.
 --
 -- 'creationTime', 'getRegisterAccountStatusResponse_creationTime' - The time the account was registered, in seconds since epoch (January 1,
@@ -199,8 +199,6 @@ newGetRegisterAccountStatusResponse ::
   Prelude.Text ->
   -- | 'accountStatus'
   RegistrationStatus ->
-  -- | 'timestreamRegistrationResponse'
-  TimestreamRegistrationResponse ->
   -- | 'iamRegistrationResponse'
   IamRegistrationResponse ->
   -- | 'creationTime'
@@ -212,17 +210,15 @@ newGetRegisterAccountStatusResponse
   pHttpStatus_
   pCustomerAccountId_
   pAccountStatus_
-  pTimestreamRegistrationResponse_
   pIamRegistrationResponse_
   pCreationTime_
   pLastModificationTime_ =
     GetRegisterAccountStatusResponse'
-      { httpStatus =
-          pHttpStatus_,
+      { timestreamRegistrationResponse =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         customerAccountId = pCustomerAccountId_,
         accountStatus = pAccountStatus_,
-        timestreamRegistrationResponse =
-          pTimestreamRegistrationResponse_,
         iamRegistrationResponse =
           pIamRegistrationResponse_,
         creationTime =
@@ -231,6 +227,11 @@ newGetRegisterAccountStatusResponse
           Data._Time
             Lens.# pLastModificationTime_
       }
+
+-- | Information about the registered Amazon Timestream resources or errors,
+-- if any.
+getRegisterAccountStatusResponse_timestreamRegistrationResponse :: Lens.Lens' GetRegisterAccountStatusResponse (Prelude.Maybe TimestreamRegistrationResponse)
+getRegisterAccountStatusResponse_timestreamRegistrationResponse = Lens.lens (\GetRegisterAccountStatusResponse' {timestreamRegistrationResponse} -> timestreamRegistrationResponse) (\s@GetRegisterAccountStatusResponse' {} a -> s {timestreamRegistrationResponse = a} :: GetRegisterAccountStatusResponse)
 
 -- | The response's http status code.
 getRegisterAccountStatusResponse_httpStatus :: Lens.Lens' GetRegisterAccountStatusResponse Prelude.Int
@@ -256,11 +257,6 @@ getRegisterAccountStatusResponse_customerAccountId = Lens.lens (\GetRegisterAcco
 getRegisterAccountStatusResponse_accountStatus :: Lens.Lens' GetRegisterAccountStatusResponse RegistrationStatus
 getRegisterAccountStatusResponse_accountStatus = Lens.lens (\GetRegisterAccountStatusResponse' {accountStatus} -> accountStatus) (\s@GetRegisterAccountStatusResponse' {} a -> s {accountStatus = a} :: GetRegisterAccountStatusResponse)
 
--- | Information about the registered Amazon Timestream resources or errors,
--- if any.
-getRegisterAccountStatusResponse_timestreamRegistrationResponse :: Lens.Lens' GetRegisterAccountStatusResponse TimestreamRegistrationResponse
-getRegisterAccountStatusResponse_timestreamRegistrationResponse = Lens.lens (\GetRegisterAccountStatusResponse' {timestreamRegistrationResponse} -> timestreamRegistrationResponse) (\s@GetRegisterAccountStatusResponse' {} a -> s {timestreamRegistrationResponse = a} :: GetRegisterAccountStatusResponse)
-
 -- | Information about the registered IAM resources or errors, if any.
 getRegisterAccountStatusResponse_iamRegistrationResponse :: Lens.Lens' GetRegisterAccountStatusResponse IamRegistrationResponse
 getRegisterAccountStatusResponse_iamRegistrationResponse = Lens.lens (\GetRegisterAccountStatusResponse' {iamRegistrationResponse} -> iamRegistrationResponse) (\s@GetRegisterAccountStatusResponse' {} a -> s {iamRegistrationResponse = a} :: GetRegisterAccountStatusResponse)
@@ -280,10 +276,10 @@ instance
     GetRegisterAccountStatusResponse
   where
   rnf GetRegisterAccountStatusResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf timestreamRegistrationResponse
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf customerAccountId
       `Prelude.seq` Prelude.rnf accountStatus
-      `Prelude.seq` Prelude.rnf timestreamRegistrationResponse
       `Prelude.seq` Prelude.rnf iamRegistrationResponse
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModificationTime

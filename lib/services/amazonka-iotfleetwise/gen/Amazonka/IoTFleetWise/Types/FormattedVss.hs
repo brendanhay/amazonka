@@ -24,9 +24,9 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Vehicle Signal Specification (VSS) is a precise language used to
--- describe and model signals in vehicle networks. The JSON file collects
--- signal specificiations in a VSS format.
+-- | <https://www.w3.org/auto/wg/wiki/Vehicle_Signal_Specification_(VSS)/Vehicle_Data_Spec Vehicle Signal Specification (VSS)>
+-- is a precise language used to describe and model signals in vehicle
+-- networks. The JSON file collects signal specificiations in a VSS format.
 --
 -- /See:/ 'newFormattedVss' smart constructor.
 data FormattedVss = FormattedVss'

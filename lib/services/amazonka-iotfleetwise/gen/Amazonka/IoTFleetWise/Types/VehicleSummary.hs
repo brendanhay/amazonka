@@ -142,7 +142,8 @@ instance Data.FromJSON VehicleSummary where
 
 instance Prelude.Hashable VehicleSummary where
   hashWithSalt _salt VehicleSummary' {..} =
-    _salt `Prelude.hashWithSalt` vehicleName
+    _salt
+      `Prelude.hashWithSalt` vehicleName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` modelManifestArn
       `Prelude.hashWithSalt` decoderManifestArn

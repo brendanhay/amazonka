@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     TimestreamRegistrationResponse' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
+      _salt
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` timestreamDatabaseArn
         `Prelude.hashWithSalt` timestreamTableArn
         `Prelude.hashWithSalt` timestreamDatabaseName

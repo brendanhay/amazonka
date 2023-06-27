@@ -101,7 +101,8 @@ instance Data.FromJSON SignalCatalogSummary where
 
 instance Prelude.Hashable SignalCatalogSummary where
   hashWithSalt _salt SignalCatalogSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` name

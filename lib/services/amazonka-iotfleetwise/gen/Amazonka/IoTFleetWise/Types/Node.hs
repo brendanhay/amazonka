@@ -116,7 +116,8 @@ instance Data.FromJSON Node where
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` actuator
+    _salt
+      `Prelude.hashWithSalt` actuator
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` branch
       `Prelude.hashWithSalt` sensor

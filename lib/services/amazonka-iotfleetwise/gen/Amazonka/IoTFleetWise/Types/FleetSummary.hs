@@ -135,7 +135,8 @@ instance Data.FromJSON FleetSummary where
 
 instance Prelude.Hashable FleetSummary where
   hashWithSalt _salt FleetSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn

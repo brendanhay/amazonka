@@ -151,7 +151,8 @@ instance Data.FromJSON DecoderManifestSummary where
 
 instance Prelude.Hashable DecoderManifestSummary where
   hashWithSalt _salt DecoderManifestSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modelManifestArn
       `Prelude.hashWithSalt` name

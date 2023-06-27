@@ -126,22 +126,22 @@ instance Core.AWSPager ListDecoderManifests where
     | Core.stop
         ( rs
             Lens.^? listDecoderManifestsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDecoderManifestsResponse_summaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDecoderManifests_nextToken
           Lens..~ rs
           Lens.^? listDecoderManifestsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDecoderManifests where
   type
@@ -160,7 +160,8 @@ instance Core.AWSRequest ListDecoderManifests where
 
 instance Prelude.Hashable ListDecoderManifests where
   hashWithSalt _salt ListDecoderManifests' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelManifestArn
       `Prelude.hashWithSalt` nextToken
 

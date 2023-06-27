@@ -68,9 +68,13 @@ data UpdateCampaign = UpdateCampaign'
     -- -   @APPROVE@ - To approve delivering a data collection scheme to
     --     vehicles.
     --
-    -- -   @SUSPEND@ - To suspend collecting signal data.
+    -- -   @SUSPEND@ - To suspend collecting signal data. The campaign is
+    --     deleted from vehicles and all vehicles in the suspended campaign
+    --     will stop sending data.
     --
-    -- -   @RESUME@ - To resume collecting signal data.
+    -- -   @RESUME@ - To reactivate the @SUSPEND@ campaign. The campaign is
+    --     redeployed to all vehicles and the vehicles will resume sending
+    --     data.
     --
     -- -   @UPDATE@ - To update a campaign.
     action :: UpdateCampaignAction
@@ -99,9 +103,13 @@ data UpdateCampaign = UpdateCampaign'
 -- -   @APPROVE@ - To approve delivering a data collection scheme to
 --     vehicles.
 --
--- -   @SUSPEND@ - To suspend collecting signal data.
+-- -   @SUSPEND@ - To suspend collecting signal data. The campaign is
+--     deleted from vehicles and all vehicles in the suspended campaign
+--     will stop sending data.
 --
--- -   @RESUME@ - To resume collecting signal data.
+-- -   @RESUME@ - To reactivate the @SUSPEND@ campaign. The campaign is
+--     redeployed to all vehicles and the vehicles will resume sending
+--     data.
 --
 -- -   @UPDATE@ - To update a campaign.
 newUpdateCampaign ::
@@ -139,9 +147,13 @@ updateCampaign_name = Lens.lens (\UpdateCampaign' {name} -> name) (\s@UpdateCamp
 -- -   @APPROVE@ - To approve delivering a data collection scheme to
 --     vehicles.
 --
--- -   @SUSPEND@ - To suspend collecting signal data.
+-- -   @SUSPEND@ - To suspend collecting signal data. The campaign is
+--     deleted from vehicles and all vehicles in the suspended campaign
+--     will stop sending data.
 --
--- -   @RESUME@ - To resume collecting signal data.
+-- -   @RESUME@ - To reactivate the @SUSPEND@ campaign. The campaign is
+--     redeployed to all vehicles and the vehicles will resume sending
+--     data.
 --
 -- -   @UPDATE@ - To update a campaign.
 updateCampaign_action :: Lens.Lens' UpdateCampaign UpdateCampaignAction
@@ -165,7 +177,8 @@ instance Core.AWSRequest UpdateCampaign where
 
 instance Prelude.Hashable UpdateCampaign where
   hashWithSalt _salt UpdateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` dataExtraDimensions
+    _salt
+      `Prelude.hashWithSalt` dataExtraDimensions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` action

@@ -34,8 +34,13 @@ data Attribute = Attribute'
     allowedValues :: Prelude.Maybe [Prelude.Text],
     -- | A specified value for the attribute.
     assignedValue :: Prelude.Maybe Prelude.Text,
+    -- | A comment in addition to the description.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The default value of the attribute.
     defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | The deprecation message for the node or the branch that was moved or
+    -- deleted.
+    deprecationMessage :: Prelude.Maybe Prelude.Text,
     -- | A brief description of the attribute.
     description :: Prelude.Maybe Prelude.Text,
     -- | The specified possible maximum value of the attribute.
@@ -64,7 +69,12 @@ data Attribute = Attribute'
 --
 -- 'assignedValue', 'attribute_assignedValue' - A specified value for the attribute.
 --
+-- 'comment', 'attribute_comment' - A comment in addition to the description.
+--
 -- 'defaultValue', 'attribute_defaultValue' - The default value of the attribute.
+--
+-- 'deprecationMessage', 'attribute_deprecationMessage' - The deprecation message for the node or the branch that was moved or
+-- deleted.
 --
 -- 'description', 'attribute_description' - A brief description of the attribute.
 --
@@ -88,7 +98,9 @@ newAttribute pFullyQualifiedName_ pDataType_ =
   Attribute'
     { allowedValues = Prelude.Nothing,
       assignedValue = Prelude.Nothing,
+      comment = Prelude.Nothing,
       defaultValue = Prelude.Nothing,
+      deprecationMessage = Prelude.Nothing,
       description = Prelude.Nothing,
       max = Prelude.Nothing,
       min = Prelude.Nothing,
@@ -105,9 +117,18 @@ attribute_allowedValues = Lens.lens (\Attribute' {allowedValues} -> allowedValue
 attribute_assignedValue :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_assignedValue = Lens.lens (\Attribute' {assignedValue} -> assignedValue) (\s@Attribute' {} a -> s {assignedValue = a} :: Attribute)
 
+-- | A comment in addition to the description.
+attribute_comment :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_comment = Lens.lens (\Attribute' {comment} -> comment) (\s@Attribute' {} a -> s {comment = a} :: Attribute)
+
 -- | The default value of the attribute.
 attribute_defaultValue :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
 attribute_defaultValue = Lens.lens (\Attribute' {defaultValue} -> defaultValue) (\s@Attribute' {} a -> s {defaultValue = a} :: Attribute)
+
+-- | The deprecation message for the node or the branch that was moved or
+-- deleted.
+attribute_deprecationMessage :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
+attribute_deprecationMessage = Lens.lens (\Attribute' {deprecationMessage} -> deprecationMessage) (\s@Attribute' {} a -> s {deprecationMessage = a} :: Attribute)
 
 -- | A brief description of the attribute.
 attribute_description :: Lens.Lens' Attribute (Prelude.Maybe Prelude.Text)
@@ -142,7 +163,9 @@ instance Data.FromJSON Attribute where
           Attribute'
             Prelude.<$> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "assignedValue")
+            Prelude.<*> (x Data..:? "comment")
             Prelude.<*> (x Data..:? "defaultValue")
+            Prelude.<*> (x Data..:? "deprecationMessage")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "max")
             Prelude.<*> (x Data..:? "min")
@@ -153,9 +176,12 @@ instance Data.FromJSON Attribute where
 
 instance Prelude.Hashable Attribute where
   hashWithSalt _salt Attribute' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` assignedValue
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` defaultValue
+      `Prelude.hashWithSalt` deprecationMessage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
@@ -167,7 +193,9 @@ instance Prelude.NFData Attribute where
   rnf Attribute' {..} =
     Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf assignedValue
+      `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf defaultValue
+      `Prelude.seq` Prelude.rnf deprecationMessage
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf max
       `Prelude.seq` Prelude.rnf min
@@ -181,7 +209,10 @@ instance Data.ToJSON Attribute where
       ( Prelude.catMaybes
           [ ("allowedValues" Data..=) Prelude.<$> allowedValues,
             ("assignedValue" Data..=) Prelude.<$> assignedValue,
+            ("comment" Data..=) Prelude.<$> comment,
             ("defaultValue" Data..=) Prelude.<$> defaultValue,
+            ("deprecationMessage" Data..=)
+              Prelude.<$> deprecationMessage,
             ("description" Data..=) Prelude.<$> description,
             ("max" Data..=) Prelude.<$> max,
             ("min" Data..=) Prelude.<$> min,

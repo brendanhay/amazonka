@@ -104,6 +104,8 @@ library
     Amazonka.IoTFleetWise.Types.CreateVehicleError
     Amazonka.IoTFleetWise.Types.CreateVehicleRequestItem
     Amazonka.IoTFleetWise.Types.CreateVehicleResponseItem
+    Amazonka.IoTFleetWise.Types.DataDestinationConfig
+    Amazonka.IoTFleetWise.Types.DataFormat
     Amazonka.IoTFleetWise.Types.DecoderManifestSummary
     Amazonka.IoTFleetWise.Types.DiagnosticsMode
     Amazonka.IoTFleetWise.Types.FleetSummary
@@ -122,14 +124,17 @@ library
     Amazonka.IoTFleetWise.Types.ObdInterface
     Amazonka.IoTFleetWise.Types.ObdSignal
     Amazonka.IoTFleetWise.Types.RegistrationStatus
+    Amazonka.IoTFleetWise.Types.S3Config
     Amazonka.IoTFleetWise.Types.Sensor
     Amazonka.IoTFleetWise.Types.SignalCatalogSummary
     Amazonka.IoTFleetWise.Types.SignalDecoder
     Amazonka.IoTFleetWise.Types.SignalDecoderType
     Amazonka.IoTFleetWise.Types.SignalInformation
     Amazonka.IoTFleetWise.Types.SpoolingMode
+    Amazonka.IoTFleetWise.Types.StorageCompressionFormat
     Amazonka.IoTFleetWise.Types.Tag
     Amazonka.IoTFleetWise.Types.TimeBasedCollectionScheme
+    Amazonka.IoTFleetWise.Types.TimestreamConfig
     Amazonka.IoTFleetWise.Types.TimestreamRegistrationResponse
     Amazonka.IoTFleetWise.Types.TimestreamResources
     Amazonka.IoTFleetWise.Types.TriggerMode

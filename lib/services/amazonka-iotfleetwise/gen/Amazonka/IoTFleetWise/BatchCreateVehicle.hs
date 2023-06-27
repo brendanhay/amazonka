@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 data BatchCreateVehicle = BatchCreateVehicle'
   { -- | A list of information about each vehicle to create. For more
     -- information, see the API data type.
-    vehicles :: [CreateVehicleRequestItem]
+    vehicles :: Prelude.NonEmpty CreateVehicleRequestItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,13 +74,18 @@ data BatchCreateVehicle = BatchCreateVehicle'
 -- 'vehicles', 'batchCreateVehicle_vehicles' - A list of information about each vehicle to create. For more
 -- information, see the API data type.
 newBatchCreateVehicle ::
+  -- | 'vehicles'
+  Prelude.NonEmpty CreateVehicleRequestItem ->
   BatchCreateVehicle
-newBatchCreateVehicle =
-  BatchCreateVehicle' {vehicles = Prelude.mempty}
+newBatchCreateVehicle pVehicles_ =
+  BatchCreateVehicle'
+    { vehicles =
+        Lens.coerced Lens.# pVehicles_
+    }
 
 -- | A list of information about each vehicle to create. For more
 -- information, see the API data type.
-batchCreateVehicle_vehicles :: Lens.Lens' BatchCreateVehicle [CreateVehicleRequestItem]
+batchCreateVehicle_vehicles :: Lens.Lens' BatchCreateVehicle (Prelude.NonEmpty CreateVehicleRequestItem)
 batchCreateVehicle_vehicles = Lens.lens (\BatchCreateVehicle' {vehicles} -> vehicles) (\s@BatchCreateVehicle' {} a -> s {vehicles = a} :: BatchCreateVehicle) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchCreateVehicle where

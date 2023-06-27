@@ -38,6 +38,11 @@ data Actuator = Actuator'
     allowedValues :: Prelude.Maybe [Prelude.Text],
     -- | A specified value for the actuator.
     assignedValue :: Prelude.Maybe Prelude.Text,
+    -- | A comment in addition to the description.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | The deprecation message for the node or the branch that was moved or
+    -- deleted.
+    deprecationMessage :: Prelude.Maybe Prelude.Text,
     -- | A brief description of the actuator.
     description :: Prelude.Maybe Prelude.Text,
     -- | The specified possible maximum value of an actuator.
@@ -66,6 +71,11 @@ data Actuator = Actuator'
 --
 -- 'assignedValue', 'actuator_assignedValue' - A specified value for the actuator.
 --
+-- 'comment', 'actuator_comment' - A comment in addition to the description.
+--
+-- 'deprecationMessage', 'actuator_deprecationMessage' - The deprecation message for the node or the branch that was moved or
+-- deleted.
+--
 -- 'description', 'actuator_description' - A brief description of the actuator.
 --
 -- 'max', 'actuator_max' - The specified possible maximum value of an actuator.
@@ -88,6 +98,8 @@ newActuator pFullyQualifiedName_ pDataType_ =
   Actuator'
     { allowedValues = Prelude.Nothing,
       assignedValue = Prelude.Nothing,
+      comment = Prelude.Nothing,
+      deprecationMessage = Prelude.Nothing,
       description = Prelude.Nothing,
       max = Prelude.Nothing,
       min = Prelude.Nothing,
@@ -103,6 +115,15 @@ actuator_allowedValues = Lens.lens (\Actuator' {allowedValues} -> allowedValues)
 -- | A specified value for the actuator.
 actuator_assignedValue :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
 actuator_assignedValue = Lens.lens (\Actuator' {assignedValue} -> assignedValue) (\s@Actuator' {} a -> s {assignedValue = a} :: Actuator)
+
+-- | A comment in addition to the description.
+actuator_comment :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
+actuator_comment = Lens.lens (\Actuator' {comment} -> comment) (\s@Actuator' {} a -> s {comment = a} :: Actuator)
+
+-- | The deprecation message for the node or the branch that was moved or
+-- deleted.
+actuator_deprecationMessage :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
+actuator_deprecationMessage = Lens.lens (\Actuator' {deprecationMessage} -> deprecationMessage) (\s@Actuator' {} a -> s {deprecationMessage = a} :: Actuator)
 
 -- | A brief description of the actuator.
 actuator_description :: Lens.Lens' Actuator (Prelude.Maybe Prelude.Text)
@@ -137,6 +158,8 @@ instance Data.FromJSON Actuator where
           Actuator'
             Prelude.<$> (x Data..:? "allowedValues" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "assignedValue")
+            Prelude.<*> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "deprecationMessage")
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "max")
             Prelude.<*> (x Data..:? "min")
@@ -147,8 +170,11 @@ instance Data.FromJSON Actuator where
 
 instance Prelude.Hashable Actuator where
   hashWithSalt _salt Actuator' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` assignedValue
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` deprecationMessage
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
@@ -160,6 +186,8 @@ instance Prelude.NFData Actuator where
   rnf Actuator' {..} =
     Prelude.rnf allowedValues
       `Prelude.seq` Prelude.rnf assignedValue
+      `Prelude.seq` Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf deprecationMessage
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf max
       `Prelude.seq` Prelude.rnf min
@@ -173,6 +201,9 @@ instance Data.ToJSON Actuator where
       ( Prelude.catMaybes
           [ ("allowedValues" Data..=) Prelude.<$> allowedValues,
             ("assignedValue" Data..=) Prelude.<$> assignedValue,
+            ("comment" Data..=) Prelude.<$> comment,
+            ("deprecationMessage" Data..=)
+              Prelude.<$> deprecationMessage,
             ("description" Data..=) Prelude.<$> description,
             ("max" Data..=) Prelude.<$> max,
             ("min" Data..=) Prelude.<$> min,

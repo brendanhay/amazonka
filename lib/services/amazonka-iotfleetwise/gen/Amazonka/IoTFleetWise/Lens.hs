@@ -33,6 +33,7 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** CreateCampaign
     createCampaign_compression,
+    createCampaign_dataDestinationConfigs,
     createCampaign_dataExtraDimensions,
     createCampaign_description,
     createCampaign_diagnosticsMode,
@@ -149,6 +150,7 @@ module Amazonka.IoTFleetWise.Lens
     getCampaignResponse_collectionScheme,
     getCampaignResponse_compression,
     getCampaignResponse_creationTime,
+    getCampaignResponse_dataDestinationConfigs,
     getCampaignResponse_dataExtraDimensions,
     getCampaignResponse_description,
     getCampaignResponse_diagnosticsMode,
@@ -202,10 +204,10 @@ module Amazonka.IoTFleetWise.Lens
     getModelManifestResponse_lastModificationTime,
 
     -- ** GetRegisterAccountStatus
+    getRegisterAccountStatusResponse_timestreamRegistrationResponse,
     getRegisterAccountStatusResponse_httpStatus,
     getRegisterAccountStatusResponse_customerAccountId,
     getRegisterAccountStatusResponse_accountStatus,
-    getRegisterAccountStatusResponse_timestreamRegistrationResponse,
     getRegisterAccountStatusResponse_iamRegistrationResponse,
     getRegisterAccountStatusResponse_creationTime,
     getRegisterAccountStatusResponse_lastModificationTime,
@@ -361,9 +363,9 @@ module Amazonka.IoTFleetWise.Lens
     -- ** RegisterAccount
     registerAccount_iamResources,
     registerAccount_timestreamResources,
+    registerAccountResponse_timestreamResources,
     registerAccountResponse_httpStatus,
     registerAccountResponse_registerAccountStatus,
-    registerAccountResponse_timestreamResources,
     registerAccountResponse_iamResources,
     registerAccountResponse_creationTime,
     registerAccountResponse_lastModificationTime,
@@ -444,6 +446,8 @@ module Amazonka.IoTFleetWise.Lens
     -- ** Actuator
     actuator_allowedValues,
     actuator_assignedValue,
+    actuator_comment,
+    actuator_deprecationMessage,
     actuator_description,
     actuator_max,
     actuator_min,
@@ -454,7 +458,9 @@ module Amazonka.IoTFleetWise.Lens
     -- ** Attribute
     attribute_allowedValues,
     attribute_assignedValue,
+    attribute_comment,
     attribute_defaultValue,
+    attribute_deprecationMessage,
     attribute_description,
     attribute_max,
     attribute_min,
@@ -463,6 +469,8 @@ module Amazonka.IoTFleetWise.Lens
     attribute_dataType,
 
     -- ** Branch
+    branch_comment,
+    branch_deprecationMessage,
     branch_description,
     branch_fullyQualifiedName,
 
@@ -527,6 +535,10 @@ module Amazonka.IoTFleetWise.Lens
     createVehicleResponseItem_arn,
     createVehicleResponseItem_thingArn,
     createVehicleResponseItem_vehicleName,
+
+    -- ** DataDestinationConfig
+    dataDestinationConfig_s3Config,
+    dataDestinationConfig_timestreamConfig,
 
     -- ** DecoderManifestSummary
     decoderManifestSummary_arn,
@@ -607,8 +619,16 @@ module Amazonka.IoTFleetWise.Lens
     obdSignal_startByte,
     obdSignal_byteLength,
 
+    -- ** S3Config
+    s3Config_dataFormat,
+    s3Config_prefix,
+    s3Config_storageCompressionFormat,
+    s3Config_bucketArn,
+
     -- ** Sensor
     sensor_allowedValues,
+    sensor_comment,
+    sensor_deprecationMessage,
     sensor_description,
     sensor_max,
     sensor_min,
@@ -640,6 +660,10 @@ module Amazonka.IoTFleetWise.Lens
 
     -- ** TimeBasedCollectionScheme
     timeBasedCollectionScheme_periodMs,
+
+    -- ** TimestreamConfig
+    timestreamConfig_timestreamTableArn,
+    timestreamConfig_executionRoleArn,
 
     -- ** TimestreamRegistrationResponse
     timestreamRegistrationResponse_errorMessage,
@@ -740,6 +764,7 @@ import Amazonka.IoTFleetWise.Types.ConditionBasedCollectionScheme
 import Amazonka.IoTFleetWise.Types.CreateVehicleError
 import Amazonka.IoTFleetWise.Types.CreateVehicleRequestItem
 import Amazonka.IoTFleetWise.Types.CreateVehicleResponseItem
+import Amazonka.IoTFleetWise.Types.DataDestinationConfig
 import Amazonka.IoTFleetWise.Types.DecoderManifestSummary
 import Amazonka.IoTFleetWise.Types.FleetSummary
 import Amazonka.IoTFleetWise.Types.FormattedVss
@@ -752,12 +777,14 @@ import Amazonka.IoTFleetWise.Types.Node
 import Amazonka.IoTFleetWise.Types.NodeCounts
 import Amazonka.IoTFleetWise.Types.ObdInterface
 import Amazonka.IoTFleetWise.Types.ObdSignal
+import Amazonka.IoTFleetWise.Types.S3Config
 import Amazonka.IoTFleetWise.Types.Sensor
 import Amazonka.IoTFleetWise.Types.SignalCatalogSummary
 import Amazonka.IoTFleetWise.Types.SignalDecoder
 import Amazonka.IoTFleetWise.Types.SignalInformation
 import Amazonka.IoTFleetWise.Types.Tag
 import Amazonka.IoTFleetWise.Types.TimeBasedCollectionScheme
+import Amazonka.IoTFleetWise.Types.TimestreamConfig
 import Amazonka.IoTFleetWise.Types.TimestreamRegistrationResponse
 import Amazonka.IoTFleetWise.Types.TimestreamResources
 import Amazonka.IoTFleetWise.Types.UpdateVehicleError

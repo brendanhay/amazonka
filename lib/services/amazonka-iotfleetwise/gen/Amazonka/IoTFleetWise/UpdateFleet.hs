@@ -105,7 +105,8 @@ instance Core.AWSRequest UpdateFleet where
 
 instance Prelude.Hashable UpdateFleet where
   hashWithSalt _salt UpdateFleet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData UpdateFleet where

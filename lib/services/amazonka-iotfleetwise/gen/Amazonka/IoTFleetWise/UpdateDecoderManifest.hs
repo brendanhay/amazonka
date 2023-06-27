@@ -196,7 +196,8 @@ instance Core.AWSRequest UpdateDecoderManifest where
 
 instance Prelude.Hashable UpdateDecoderManifest where
   hashWithSalt _salt UpdateDecoderManifest' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkInterfacesToAdd
       `Prelude.hashWithSalt` networkInterfacesToRemove
       `Prelude.hashWithSalt` networkInterfacesToUpdate

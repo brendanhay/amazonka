@@ -119,7 +119,8 @@ updateVehicleRequestItem_vehicleName = Lens.lens (\UpdateVehicleRequestItem' {ve
 
 instance Prelude.Hashable UpdateVehicleRequestItem where
   hashWithSalt _salt UpdateVehicleRequestItem' {..} =
-    _salt `Prelude.hashWithSalt` attributeUpdateMode
+    _salt
+      `Prelude.hashWithSalt` attributeUpdateMode
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` decoderManifestArn
       `Prelude.hashWithSalt` modelManifestArn

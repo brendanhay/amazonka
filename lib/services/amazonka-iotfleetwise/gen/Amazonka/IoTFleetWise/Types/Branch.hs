@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBranch' smart constructor.
 data Branch = Branch'
-  { -- | A brief description of the branch.
+  { -- | A comment in addition to the description.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | The deprecation message for the node or the branch that was moved or
+    -- deleted.
+    deprecationMessage :: Prelude.Maybe Prelude.Text,
+    -- | A brief description of the branch.
     description :: Prelude.Maybe Prelude.Text,
     -- | The fully qualified name of the branch. For example, the fully qualified
     -- name of a branch might be @Vehicle.Body.Engine@.
@@ -44,6 +49,11 @@ data Branch = Branch'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'comment', 'branch_comment' - A comment in addition to the description.
+--
+-- 'deprecationMessage', 'branch_deprecationMessage' - The deprecation message for the node or the branch that was moved or
+-- deleted.
+--
 -- 'description', 'branch_description' - A brief description of the branch.
 --
 -- 'fullyQualifiedName', 'branch_fullyQualifiedName' - The fully qualified name of the branch. For example, the fully qualified
@@ -54,9 +64,20 @@ newBranch ::
   Branch
 newBranch pFullyQualifiedName_ =
   Branch'
-    { description = Prelude.Nothing,
+    { comment = Prelude.Nothing,
+      deprecationMessage = Prelude.Nothing,
+      description = Prelude.Nothing,
       fullyQualifiedName = pFullyQualifiedName_
     }
+
+-- | A comment in addition to the description.
+branch_comment :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_comment = Lens.lens (\Branch' {comment} -> comment) (\s@Branch' {} a -> s {comment = a} :: Branch)
+
+-- | The deprecation message for the node or the branch that was moved or
+-- deleted.
+branch_deprecationMessage :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
+branch_deprecationMessage = Lens.lens (\Branch' {deprecationMessage} -> deprecationMessage) (\s@Branch' {} a -> s {deprecationMessage = a} :: Branch)
 
 -- | A brief description of the branch.
 branch_description :: Lens.Lens' Branch (Prelude.Maybe Prelude.Text)
@@ -73,25 +94,35 @@ instance Data.FromJSON Branch where
       "Branch"
       ( \x ->
           Branch'
-            Prelude.<$> (x Data..:? "description")
+            Prelude.<$> (x Data..:? "comment")
+            Prelude.<*> (x Data..:? "deprecationMessage")
+            Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..: "fullyQualifiedName")
       )
 
 instance Prelude.Hashable Branch where
   hashWithSalt _salt Branch' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` comment
+      `Prelude.hashWithSalt` deprecationMessage
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fullyQualifiedName
 
 instance Prelude.NFData Branch where
   rnf Branch' {..} =
-    Prelude.rnf description
+    Prelude.rnf comment
+      `Prelude.seq` Prelude.rnf deprecationMessage
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf fullyQualifiedName
 
 instance Data.ToJSON Branch where
   toJSON Branch' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("description" Data..=) Prelude.<$> description,
+          [ ("comment" Data..=) Prelude.<$> comment,
+            ("deprecationMessage" Data..=)
+              Prelude.<$> deprecationMessage,
+            ("description" Data..=) Prelude.<$> description,
             Prelude.Just
               ("fullyQualifiedName" Data..= fullyQualifiedName)
           ]

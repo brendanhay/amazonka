@@ -37,6 +37,7 @@ module Amazonka.IoTFleetWise.CreateCampaign
 
     -- * Request Lenses
     createCampaign_compression,
+    createCampaign_dataDestinationConfigs,
     createCampaign_dataExtraDimensions,
     createCampaign_description,
     createCampaign_diagnosticsMode,
@@ -79,6 +80,17 @@ data CreateCampaign = CreateCampaign'
     --
     -- Default: @SNAPPY@
     compression :: Prelude.Maybe Compression,
+    -- | The destination where the campaign sends data. You can choose to send
+    -- data to be stored in Amazon S3 or Amazon Timestream.
+    --
+    -- Amazon S3 optimizes the cost of data storage and provides additional
+    -- mechanisms to use vehicle data, such as data lakes, centralized data
+    -- storage, data processing pipelines, and analytics.
+    --
+    -- You can use Amazon Timestream to access and analyze time series data,
+    -- and Timestream to query vehicle data so that you can identify trends and
+    -- patterns.
+    dataDestinationConfigs :: Prelude.Maybe (Prelude.NonEmpty DataDestinationConfig),
     -- | (Optional) A list of vehicle attributes to associate with a campaign.
     --
     -- Enrich the data with specified vehicle attributes. For example, add
@@ -99,7 +111,7 @@ data CreateCampaign = CreateCampaign'
     -- Default: @OFF@
     diagnosticsMode :: Prelude.Maybe DiagnosticsMode,
     -- | (Optional) The time the campaign expires, in seconds since epoch
-    -- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
+    -- (January 1, 1970 at midnight UTC time). Vehicle data isn\'t collected
     -- after the campaign expires.
     --
     -- Default: 253402214400 (December 31, 9999, 00:00:00 UTC)
@@ -161,6 +173,17 @@ data CreateCampaign = CreateCampaign'
 --
 -- Default: @SNAPPY@
 --
+-- 'dataDestinationConfigs', 'createCampaign_dataDestinationConfigs' - The destination where the campaign sends data. You can choose to send
+-- data to be stored in Amazon S3 or Amazon Timestream.
+--
+-- Amazon S3 optimizes the cost of data storage and provides additional
+-- mechanisms to use vehicle data, such as data lakes, centralized data
+-- storage, data processing pipelines, and analytics.
+--
+-- You can use Amazon Timestream to access and analyze time series data,
+-- and Timestream to query vehicle data so that you can identify trends and
+-- patterns.
+--
 -- 'dataExtraDimensions', 'createCampaign_dataExtraDimensions' - (Optional) A list of vehicle attributes to associate with a campaign.
 --
 -- Enrich the data with specified vehicle attributes. For example, add
@@ -181,7 +204,7 @@ data CreateCampaign = CreateCampaign'
 -- Default: @OFF@
 --
 -- 'expiryTime', 'createCampaign_expiryTime' - (Optional) The time the campaign expires, in seconds since epoch
--- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
+-- (January 1, 1970 at midnight UTC time). Vehicle data isn\'t collected
 -- after the campaign expires.
 --
 -- Default: 253402214400 (December 31, 9999, 00:00:00 UTC)
@@ -242,6 +265,7 @@ newCreateCampaign
   pCollectionScheme_ =
     CreateCampaign'
       { compression = Prelude.Nothing,
+        dataDestinationConfigs = Prelude.Nothing,
         dataExtraDimensions = Prelude.Nothing,
         description = Prelude.Nothing,
         diagnosticsMode = Prelude.Nothing,
@@ -265,6 +289,19 @@ newCreateCampaign
 -- Default: @SNAPPY@
 createCampaign_compression :: Lens.Lens' CreateCampaign (Prelude.Maybe Compression)
 createCampaign_compression = Lens.lens (\CreateCampaign' {compression} -> compression) (\s@CreateCampaign' {} a -> s {compression = a} :: CreateCampaign)
+
+-- | The destination where the campaign sends data. You can choose to send
+-- data to be stored in Amazon S3 or Amazon Timestream.
+--
+-- Amazon S3 optimizes the cost of data storage and provides additional
+-- mechanisms to use vehicle data, such as data lakes, centralized data
+-- storage, data processing pipelines, and analytics.
+--
+-- You can use Amazon Timestream to access and analyze time series data,
+-- and Timestream to query vehicle data so that you can identify trends and
+-- patterns.
+createCampaign_dataDestinationConfigs :: Lens.Lens' CreateCampaign (Prelude.Maybe (Prelude.NonEmpty DataDestinationConfig))
+createCampaign_dataDestinationConfigs = Lens.lens (\CreateCampaign' {dataDestinationConfigs} -> dataDestinationConfigs) (\s@CreateCampaign' {} a -> s {dataDestinationConfigs = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional) A list of vehicle attributes to associate with a campaign.
 --
@@ -292,7 +329,7 @@ createCampaign_diagnosticsMode :: Lens.Lens' CreateCampaign (Prelude.Maybe Diagn
 createCampaign_diagnosticsMode = Lens.lens (\CreateCampaign' {diagnosticsMode} -> diagnosticsMode) (\s@CreateCampaign' {} a -> s {diagnosticsMode = a} :: CreateCampaign)
 
 -- | (Optional) The time the campaign expires, in seconds since epoch
--- (January 1, 1970 at midnight UTC time). Vehicle data won\'t be collected
+-- (January 1, 1970 at midnight UTC time). Vehicle data isn\'t collected
 -- after the campaign expires.
 --
 -- Default: 253402214400 (December 31, 9999, 00:00:00 UTC)
@@ -376,7 +413,9 @@ instance Core.AWSRequest CreateCampaign where
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` compression
+    _salt
+      `Prelude.hashWithSalt` compression
+      `Prelude.hashWithSalt` dataDestinationConfigs
       `Prelude.hashWithSalt` dataExtraDimensions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` diagnosticsMode
@@ -395,6 +434,7 @@ instance Prelude.Hashable CreateCampaign where
 instance Prelude.NFData CreateCampaign where
   rnf CreateCampaign' {..} =
     Prelude.rnf compression
+      `Prelude.seq` Prelude.rnf dataDestinationConfigs
       `Prelude.seq` Prelude.rnf dataExtraDimensions
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf diagnosticsMode
@@ -430,6 +470,8 @@ instance Data.ToJSON CreateCampaign where
     Data.object
       ( Prelude.catMaybes
           [ ("compression" Data..=) Prelude.<$> compression,
+            ("dataDestinationConfigs" Data..=)
+              Prelude.<$> dataDestinationConfigs,
             ("dataExtraDimensions" Data..=)
               Prelude.<$> dataExtraDimensions,
             ("description" Data..=) Prelude.<$> description,

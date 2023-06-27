@@ -372,6 +372,9 @@ module Amazonka.IoTFleetWise
     -- ** Compression
     Compression (..),
 
+    -- ** DataFormat
+    DataFormat (..),
+
     -- ** DiagnosticsMode
     DiagnosticsMode (..),
 
@@ -395,6 +398,9 @@ module Amazonka.IoTFleetWise
 
     -- ** SpoolingMode
     SpoolingMode (..),
+
+    -- ** StorageCompressionFormat
+    StorageCompressionFormat (..),
 
     -- ** TriggerMode
     TriggerMode (..),
@@ -463,6 +469,10 @@ module Amazonka.IoTFleetWise
     CreateVehicleResponseItem (CreateVehicleResponseItem'),
     newCreateVehicleResponseItem,
 
+    -- ** DataDestinationConfig
+    DataDestinationConfig (DataDestinationConfig'),
+    newDataDestinationConfig,
+
     -- ** DecoderManifestSummary
     DecoderManifestSummary (DecoderManifestSummary'),
     newDecoderManifestSummary,
@@ -511,6 +521,10 @@ module Amazonka.IoTFleetWise
     ObdSignal (ObdSignal'),
     newObdSignal,
 
+    -- ** S3Config
+    S3Config (S3Config'),
+    newS3Config,
+
     -- ** Sensor
     Sensor (Sensor'),
     newSensor,
@@ -534,6 +548,10 @@ module Amazonka.IoTFleetWise
     -- ** TimeBasedCollectionScheme
     TimeBasedCollectionScheme (TimeBasedCollectionScheme'),
     newTimeBasedCollectionScheme,
+
+    -- ** TimestreamConfig
+    TimestreamConfig (TimestreamConfig'),
+    newTimestreamConfig,
 
     -- ** TimestreamRegistrationResponse
     TimestreamRegistrationResponse (TimestreamRegistrationResponse'),

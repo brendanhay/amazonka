@@ -137,7 +137,8 @@ instance Data.FromJSON SignalDecoder where
 
 instance Prelude.Hashable SignalDecoder where
   hashWithSalt _salt SignalDecoder' {..} =
-    _salt `Prelude.hashWithSalt` canSignal
+    _salt
+      `Prelude.hashWithSalt` canSignal
       `Prelude.hashWithSalt` obdSignal
       `Prelude.hashWithSalt` fullyQualifiedName
       `Prelude.hashWithSalt` type'

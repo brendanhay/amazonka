@@ -125,7 +125,8 @@ instance Data.FromJSON VehicleStatus where
 
 instance Prelude.Hashable VehicleStatus where
   hashWithSalt _salt VehicleStatus' {..} =
-    _salt `Prelude.hashWithSalt` campaignName
+    _salt
+      `Prelude.hashWithSalt` campaignName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` vehicleName
 

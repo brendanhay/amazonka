@@ -108,7 +108,8 @@ instance Core.AWSRequest DisassociateVehicleFleet where
 
 instance Prelude.Hashable DisassociateVehicleFleet where
   hashWithSalt _salt DisassociateVehicleFleet' {..} =
-    _salt `Prelude.hashWithSalt` vehicleName
+    _salt
+      `Prelude.hashWithSalt` vehicleName
       `Prelude.hashWithSalt` fleetId
 
 instance Prelude.NFData DisassociateVehicleFleet where

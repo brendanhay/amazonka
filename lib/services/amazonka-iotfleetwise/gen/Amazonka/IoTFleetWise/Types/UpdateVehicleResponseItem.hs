@@ -74,7 +74,8 @@ instance Data.FromJSON UpdateVehicleResponseItem where
 
 instance Prelude.Hashable UpdateVehicleResponseItem where
   hashWithSalt _salt UpdateVehicleResponseItem' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` vehicleName
 
 instance Prelude.NFData UpdateVehicleResponseItem where

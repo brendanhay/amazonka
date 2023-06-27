@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 data BatchUpdateVehicle = BatchUpdateVehicle'
   { -- | A list of information about the vehicles to update. For more
     -- information, see the API data type.
-    vehicles :: [UpdateVehicleRequestItem]
+    vehicles :: Prelude.NonEmpty UpdateVehicleRequestItem
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,13 +74,18 @@ data BatchUpdateVehicle = BatchUpdateVehicle'
 -- 'vehicles', 'batchUpdateVehicle_vehicles' - A list of information about the vehicles to update. For more
 -- information, see the API data type.
 newBatchUpdateVehicle ::
+  -- | 'vehicles'
+  Prelude.NonEmpty UpdateVehicleRequestItem ->
   BatchUpdateVehicle
-newBatchUpdateVehicle =
-  BatchUpdateVehicle' {vehicles = Prelude.mempty}
+newBatchUpdateVehicle pVehicles_ =
+  BatchUpdateVehicle'
+    { vehicles =
+        Lens.coerced Lens.# pVehicles_
+    }
 
 -- | A list of information about the vehicles to update. For more
 -- information, see the API data type.
-batchUpdateVehicle_vehicles :: Lens.Lens' BatchUpdateVehicle [UpdateVehicleRequestItem]
+batchUpdateVehicle_vehicles :: Lens.Lens' BatchUpdateVehicle (Prelude.NonEmpty UpdateVehicleRequestItem)
 batchUpdateVehicle_vehicles = Lens.lens (\BatchUpdateVehicle' {vehicles} -> vehicles) (\s@BatchUpdateVehicle' {} a -> s {vehicles = a} :: BatchUpdateVehicle) Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchUpdateVehicle where

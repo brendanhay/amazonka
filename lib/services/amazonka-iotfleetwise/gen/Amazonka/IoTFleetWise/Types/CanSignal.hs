@@ -37,9 +37,17 @@ data CanSignal = CanSignal'
     isBigEndian :: Prelude.Bool,
     -- | Whether the message data is specified as a signed value.
     isSigned :: Prelude.Bool,
-    -- | Indicates the beginning of the CAN message.
+    -- | Indicates the beginning of the CAN signal. This should always be the
+    -- least significant bit (LSB).
+    --
+    -- This value might be different from the value in a DBC file. For little
+    -- endian signals, @startBit@ is the same value as in the DBC file. For big
+    -- endian signals in a DBC file, the start bit is the most significant bit
+    -- (MSB). You will have to calculate the LSB instead and pass it as the
+    -- @startBit@.
     startBit :: Prelude.Natural,
-    -- | Indicates where data appears in the CAN message.
+    -- | The offset used to calculate the signal value. Combined with factor, the
+    -- calculation is @value = raw_value * factor + offset@.
     offset :: Prelude.Double,
     -- | A multiplier used to decode the CAN message.
     factor :: Prelude.Double,
@@ -64,9 +72,17 @@ data CanSignal = CanSignal'
 --
 -- 'isSigned', 'canSignal_isSigned' - Whether the message data is specified as a signed value.
 --
--- 'startBit', 'canSignal_startBit' - Indicates the beginning of the CAN message.
+-- 'startBit', 'canSignal_startBit' - Indicates the beginning of the CAN signal. This should always be the
+-- least significant bit (LSB).
 --
--- 'offset', 'canSignal_offset' - Indicates where data appears in the CAN message.
+-- This value might be different from the value in a DBC file. For little
+-- endian signals, @startBit@ is the same value as in the DBC file. For big
+-- endian signals in a DBC file, the start bit is the most significant bit
+-- (MSB). You will have to calculate the LSB instead and pass it as the
+-- @startBit@.
+--
+-- 'offset', 'canSignal_offset' - The offset used to calculate the signal value. Combined with factor, the
+-- calculation is @value = raw_value * factor + offset@.
 --
 -- 'factor', 'canSignal_factor' - A multiplier used to decode the CAN message.
 --
@@ -122,11 +138,19 @@ canSignal_isBigEndian = Lens.lens (\CanSignal' {isBigEndian} -> isBigEndian) (\s
 canSignal_isSigned :: Lens.Lens' CanSignal Prelude.Bool
 canSignal_isSigned = Lens.lens (\CanSignal' {isSigned} -> isSigned) (\s@CanSignal' {} a -> s {isSigned = a} :: CanSignal)
 
--- | Indicates the beginning of the CAN message.
+-- | Indicates the beginning of the CAN signal. This should always be the
+-- least significant bit (LSB).
+--
+-- This value might be different from the value in a DBC file. For little
+-- endian signals, @startBit@ is the same value as in the DBC file. For big
+-- endian signals in a DBC file, the start bit is the most significant bit
+-- (MSB). You will have to calculate the LSB instead and pass it as the
+-- @startBit@.
 canSignal_startBit :: Lens.Lens' CanSignal Prelude.Natural
 canSignal_startBit = Lens.lens (\CanSignal' {startBit} -> startBit) (\s@CanSignal' {} a -> s {startBit = a} :: CanSignal)
 
--- | Indicates where data appears in the CAN message.
+-- | The offset used to calculate the signal value. Combined with factor, the
+-- calculation is @value = raw_value * factor + offset@.
 canSignal_offset :: Lens.Lens' CanSignal Prelude.Double
 canSignal_offset = Lens.lens (\CanSignal' {offset} -> offset) (\s@CanSignal' {} a -> s {offset = a} :: CanSignal)
 
@@ -156,7 +180,8 @@ instance Data.FromJSON CanSignal where
 
 instance Prelude.Hashable CanSignal where
   hashWithSalt _salt CanSignal' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` isBigEndian
       `Prelude.hashWithSalt` isSigned

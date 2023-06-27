@@ -38,6 +38,7 @@ module Amazonka.IoTFleetWise.GetCampaign
     getCampaignResponse_collectionScheme,
     getCampaignResponse_compression,
     getCampaignResponse_creationTime,
+    getCampaignResponse_dataDestinationConfigs,
     getCampaignResponse_dataExtraDimensions,
     getCampaignResponse_description,
     getCampaignResponse_diagnosticsMode,
@@ -102,7 +103,9 @@ instance Core.AWSRequest GetCampaign where
             Prelude.<*> (x Data..?> "collectionScheme")
             Prelude.<*> (x Data..?> "compression")
             Prelude.<*> (x Data..?> "creationTime")
-            Prelude.<*> ( x Data..?> "dataExtraDimensions"
+            Prelude.<*> (x Data..?> "dataDestinationConfigs")
+            Prelude.<*> ( x
+                            Data..?> "dataExtraDimensions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "description")
@@ -113,7 +116,8 @@ instance Core.AWSRequest GetCampaign where
             Prelude.<*> (x Data..?> "postTriggerCollectionDuration")
             Prelude.<*> (x Data..?> "priority")
             Prelude.<*> (x Data..?> "signalCatalogArn")
-            Prelude.<*> ( x Data..?> "signalsToCollect"
+            Prelude.<*> ( x
+                            Data..?> "signalsToCollect"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "spoolingMode")
@@ -172,6 +176,17 @@ data GetCampaignResponse = GetCampaignResponse'
     -- | The time the campaign was created in seconds since epoch (January 1,
     -- 1970 at midnight UTC time).
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | The destination where the campaign sends data. You can choose to send
+    -- data to be stored in Amazon S3 or Amazon Timestream.
+    --
+    -- Amazon S3 optimizes the cost of data storage and provides additional
+    -- mechanisms to use vehicle data, such as data lakes, centralized data
+    -- storage, data processing pipelines, and analytics.
+    --
+    -- You can use Amazon Timestream to access and analyze time series data,
+    -- and Timestream to query vehicle data so that you can identify trends and
+    -- patterns.
+    dataDestinationConfigs :: Prelude.Maybe (Prelude.NonEmpty DataDestinationConfig),
     -- | A list of vehicle attributes associated with the campaign.
     dataExtraDimensions :: Prelude.Maybe [Prelude.Text],
     -- | The description of the campaign.
@@ -234,6 +249,17 @@ data GetCampaignResponse = GetCampaignResponse'
 -- 'creationTime', 'getCampaignResponse_creationTime' - The time the campaign was created in seconds since epoch (January 1,
 -- 1970 at midnight UTC time).
 --
+-- 'dataDestinationConfigs', 'getCampaignResponse_dataDestinationConfigs' - The destination where the campaign sends data. You can choose to send
+-- data to be stored in Amazon S3 or Amazon Timestream.
+--
+-- Amazon S3 optimizes the cost of data storage and provides additional
+-- mechanisms to use vehicle data, such as data lakes, centralized data
+-- storage, data processing pipelines, and analytics.
+--
+-- You can use Amazon Timestream to access and analyze time series data,
+-- and Timestream to query vehicle data so that you can identify trends and
+-- patterns.
+--
 -- 'dataExtraDimensions', 'getCampaignResponse_dataExtraDimensions' - A list of vehicle attributes associated with the campaign.
 --
 -- 'description', 'getCampaignResponse_description' - The description of the campaign.
@@ -282,6 +308,7 @@ newGetCampaignResponse pHttpStatus_ =
       collectionScheme = Prelude.Nothing,
       compression = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      dataDestinationConfigs = Prelude.Nothing,
       dataExtraDimensions = Prelude.Nothing,
       description = Prelude.Nothing,
       diagnosticsMode = Prelude.Nothing,
@@ -318,6 +345,19 @@ getCampaignResponse_compression = Lens.lens (\GetCampaignResponse' {compression}
 -- 1970 at midnight UTC time).
 getCampaignResponse_creationTime :: Lens.Lens' GetCampaignResponse (Prelude.Maybe Prelude.UTCTime)
 getCampaignResponse_creationTime = Lens.lens (\GetCampaignResponse' {creationTime} -> creationTime) (\s@GetCampaignResponse' {} a -> s {creationTime = a} :: GetCampaignResponse) Prelude.. Lens.mapping Data._Time
+
+-- | The destination where the campaign sends data. You can choose to send
+-- data to be stored in Amazon S3 or Amazon Timestream.
+--
+-- Amazon S3 optimizes the cost of data storage and provides additional
+-- mechanisms to use vehicle data, such as data lakes, centralized data
+-- storage, data processing pipelines, and analytics.
+--
+-- You can use Amazon Timestream to access and analyze time series data,
+-- and Timestream to query vehicle data so that you can identify trends and
+-- patterns.
+getCampaignResponse_dataDestinationConfigs :: Lens.Lens' GetCampaignResponse (Prelude.Maybe (Prelude.NonEmpty DataDestinationConfig))
+getCampaignResponse_dataDestinationConfigs = Lens.lens (\GetCampaignResponse' {dataDestinationConfigs} -> dataDestinationConfigs) (\s@GetCampaignResponse' {} a -> s {dataDestinationConfigs = a} :: GetCampaignResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of vehicle attributes associated with the campaign.
 getCampaignResponse_dataExtraDimensions :: Lens.Lens' GetCampaignResponse (Prelude.Maybe [Prelude.Text])
@@ -394,6 +434,7 @@ instance Prelude.NFData GetCampaignResponse where
       `Prelude.seq` Prelude.rnf collectionScheme
       `Prelude.seq` Prelude.rnf compression
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf dataDestinationConfigs
       `Prelude.seq` Prelude.rnf dataExtraDimensions
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf diagnosticsMode

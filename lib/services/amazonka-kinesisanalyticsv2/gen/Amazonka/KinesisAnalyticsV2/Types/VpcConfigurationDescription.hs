@@ -120,7 +120,8 @@ instance Data.FromJSON VpcConfigurationDescription where
 
 instance Prelude.Hashable VpcConfigurationDescription where
   hashWithSalt _salt VpcConfigurationDescription' {..} =
-    _salt `Prelude.hashWithSalt` vpcConfigurationId
+    _salt
+      `Prelude.hashWithSalt` vpcConfigurationId
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` securityGroupIds

@@ -99,7 +99,8 @@ referenceDataSource_referenceSchema = Lens.lens (\ReferenceDataSource' {referenc
 
 instance Prelude.Hashable ReferenceDataSource where
   hashWithSalt _salt ReferenceDataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3ReferenceDataSource
+    _salt
+      `Prelude.hashWithSalt` s3ReferenceDataSource
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` referenceSchema
 

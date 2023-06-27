@@ -132,7 +132,8 @@ instance Data.FromJSON OutputDescription where
 
 instance Prelude.Hashable OutputDescription where
   hashWithSalt _salt OutputDescription' {..} =
-    _salt `Prelude.hashWithSalt` destinationSchema
+    _salt
+      `Prelude.hashWithSalt` destinationSchema
       `Prelude.hashWithSalt` kinesisFirehoseOutputDescription
       `Prelude.hashWithSalt` kinesisStreamsOutputDescription
       `Prelude.hashWithSalt` lambdaOutputDescription

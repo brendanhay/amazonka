@@ -105,7 +105,8 @@ instance Core.AWSRequest CreateApplicationSnapshot where
 
 instance Prelude.Hashable CreateApplicationSnapshot where
   hashWithSalt _salt CreateApplicationSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` snapshotName
 
 instance Prelude.NFData CreateApplicationSnapshot where

@@ -137,7 +137,8 @@ instance Core.AWSRequest AddApplicationInput where
           AddApplicationInputResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
             Prelude.<*> (x Data..?> "ApplicationVersionId")
-            Prelude.<*> ( x Data..?> "InputDescriptions"
+            Prelude.<*> ( x
+                            Data..?> "InputDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,7 +146,8 @@ instance Core.AWSRequest AddApplicationInput where
 
 instance Prelude.Hashable AddApplicationInput where
   hashWithSalt _salt AddApplicationInput' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` currentApplicationVersionId
       `Prelude.hashWithSalt` input
 

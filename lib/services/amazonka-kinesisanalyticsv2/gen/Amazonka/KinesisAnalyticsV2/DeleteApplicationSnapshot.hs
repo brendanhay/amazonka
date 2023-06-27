@@ -122,7 +122,8 @@ instance Core.AWSRequest DeleteApplicationSnapshot where
 
 instance Prelude.Hashable DeleteApplicationSnapshot where
   hashWithSalt _salt DeleteApplicationSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` snapshotName
       `Prelude.hashWithSalt` snapshotCreationTimestamp
 

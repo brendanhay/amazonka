@@ -69,7 +69,8 @@ s3ReferenceDataSource_fileKey = Lens.lens (\S3ReferenceDataSource' {fileKey} -> 
 
 instance Prelude.Hashable S3ReferenceDataSource where
   hashWithSalt _salt S3ReferenceDataSource' {..} =
-    _salt `Prelude.hashWithSalt` bucketARN
+    _salt
+      `Prelude.hashWithSalt` bucketARN
       `Prelude.hashWithSalt` fileKey
 
 instance Prelude.NFData S3ReferenceDataSource where

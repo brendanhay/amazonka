@@ -113,22 +113,22 @@ instance Core.AWSPager ListApplicationSnapshots where
     | Core.stop
         ( rs
             Lens.^? listApplicationSnapshotsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listApplicationSnapshotsResponse_snapshotSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApplicationSnapshots_nextToken
           Lens..~ rs
           Lens.^? listApplicationSnapshotsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApplicationSnapshots where
   type
@@ -141,7 +141,8 @@ instance Core.AWSRequest ListApplicationSnapshots where
       ( \s h x ->
           ListApplicationSnapshotsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SnapshotSummaries"
+            Prelude.<*> ( x
+                            Data..?> "SnapshotSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -149,7 +150,8 @@ instance Core.AWSRequest ListApplicationSnapshots where
 
 instance Prelude.Hashable ListApplicationSnapshots where
   hashWithSalt _salt ListApplicationSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationName
 

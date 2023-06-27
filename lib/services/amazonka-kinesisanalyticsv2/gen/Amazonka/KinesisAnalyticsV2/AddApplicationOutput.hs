@@ -160,7 +160,8 @@ instance Core.AWSRequest AddApplicationOutput where
           AddApplicationOutputResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
             Prelude.<*> (x Data..?> "ApplicationVersionId")
-            Prelude.<*> ( x Data..?> "OutputDescriptions"
+            Prelude.<*> ( x
+                            Data..?> "OutputDescriptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -168,7 +169,8 @@ instance Core.AWSRequest AddApplicationOutput where
 
 instance Prelude.Hashable AddApplicationOutput where
   hashWithSalt _salt AddApplicationOutput' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` currentApplicationVersionId
       `Prelude.hashWithSalt` output
 

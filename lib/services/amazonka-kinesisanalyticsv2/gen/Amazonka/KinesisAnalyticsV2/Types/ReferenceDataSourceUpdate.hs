@@ -107,7 +107,8 @@ referenceDataSourceUpdate_referenceId = Lens.lens (\ReferenceDataSourceUpdate' {
 
 instance Prelude.Hashable ReferenceDataSourceUpdate where
   hashWithSalt _salt ReferenceDataSourceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` referenceSchemaUpdate
+    _salt
+      `Prelude.hashWithSalt` referenceSchemaUpdate
       `Prelude.hashWithSalt` s3ReferenceDataSourceUpdate
       `Prelude.hashWithSalt` tableNameUpdate
       `Prelude.hashWithSalt` referenceId

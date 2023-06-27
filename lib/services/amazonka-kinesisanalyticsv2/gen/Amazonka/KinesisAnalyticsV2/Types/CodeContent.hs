@@ -92,7 +92,8 @@ codeContent_zipFileContent = Lens.lens (\CodeContent' {zipFileContent} -> zipFil
 
 instance Prelude.Hashable CodeContent where
   hashWithSalt _salt CodeContent' {..} =
-    _salt `Prelude.hashWithSalt` s3ContentLocation
+    _salt
+      `Prelude.hashWithSalt` s3ContentLocation
       `Prelude.hashWithSalt` textContent
       `Prelude.hashWithSalt` zipFileContent
 

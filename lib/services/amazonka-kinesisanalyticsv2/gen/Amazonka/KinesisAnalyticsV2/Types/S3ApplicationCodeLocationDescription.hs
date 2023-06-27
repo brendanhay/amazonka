@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     S3ApplicationCodeLocationDescription' {..} =
-      _salt `Prelude.hashWithSalt` objectVersion
+      _salt
+        `Prelude.hashWithSalt` objectVersion
         `Prelude.hashWithSalt` bucketARN
         `Prelude.hashWithSalt` fileKey
 

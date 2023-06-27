@@ -76,7 +76,8 @@ instance Data.FromJSON PropertyGroup where
 
 instance Prelude.Hashable PropertyGroup where
   hashWithSalt _salt PropertyGroup' {..} =
-    _salt `Prelude.hashWithSalt` propertyGroupId
+    _salt
+      `Prelude.hashWithSalt` propertyGroupId
       `Prelude.hashWithSalt` propertyMap
 
 instance Prelude.NFData PropertyGroup where

@@ -71,7 +71,8 @@ s3Configuration_fileKey = Lens.lens (\S3Configuration' {fileKey} -> fileKey) (\s
 
 instance Prelude.Hashable S3Configuration where
   hashWithSalt _salt S3Configuration' {..} =
-    _salt `Prelude.hashWithSalt` bucketARN
+    _salt
+      `Prelude.hashWithSalt` bucketARN
       `Prelude.hashWithSalt` fileKey
 
 instance Prelude.NFData S3Configuration where

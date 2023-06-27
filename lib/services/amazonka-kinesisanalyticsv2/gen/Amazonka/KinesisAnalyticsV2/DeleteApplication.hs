@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteApplication where
 
 instance Prelude.Hashable DeleteApplication where
   hashWithSalt _salt DeleteApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` createTimestamp
 
 instance Prelude.NFData DeleteApplication where

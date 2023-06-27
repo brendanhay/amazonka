@@ -94,7 +94,8 @@ instance Data.FromJSON S3ContentLocation where
 
 instance Prelude.Hashable S3ContentLocation where
   hashWithSalt _salt S3ContentLocation' {..} =
-    _salt `Prelude.hashWithSalt` objectVersion
+    _salt
+      `Prelude.hashWithSalt` objectVersion
       `Prelude.hashWithSalt` bucketARN
       `Prelude.hashWithSalt` fileKey
 

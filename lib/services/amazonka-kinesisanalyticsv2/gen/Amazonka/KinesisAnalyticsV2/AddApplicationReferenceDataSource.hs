@@ -148,11 +148,12 @@ instance
       ( \s h x ->
           AddApplicationReferenceDataSourceResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
-              Prelude.<*> (x Data..?> "ApplicationVersionId")
-              Prelude.<*> ( x Data..?> "ReferenceDataSourceDescriptions"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
+            Prelude.<*> ( x
+                            Data..?> "ReferenceDataSourceDescriptions"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -162,7 +163,8 @@ instance
   hashWithSalt
     _salt
     AddApplicationReferenceDataSource' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` referenceDataSource
 

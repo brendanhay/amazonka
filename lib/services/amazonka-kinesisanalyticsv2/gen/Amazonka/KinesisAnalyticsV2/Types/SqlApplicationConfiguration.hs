@@ -87,7 +87,8 @@ sqlApplicationConfiguration_referenceDataSources = Lens.lens (\SqlApplicationCon
 
 instance Prelude.Hashable SqlApplicationConfiguration where
   hashWithSalt _salt SqlApplicationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inputs
+    _salt
+      `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` referenceDataSources
 

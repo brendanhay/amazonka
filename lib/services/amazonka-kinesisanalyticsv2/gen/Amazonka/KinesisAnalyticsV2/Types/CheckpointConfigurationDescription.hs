@@ -184,7 +184,8 @@ instance
   hashWithSalt
     _salt
     CheckpointConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` checkpointInterval
+      _salt
+        `Prelude.hashWithSalt` checkpointInterval
         `Prelude.hashWithSalt` checkpointingEnabled
         `Prelude.hashWithSalt` configurationType
         `Prelude.hashWithSalt` minPauseBetweenCheckpoints

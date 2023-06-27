@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     KinesisStreamsInputDescription' {..} =
-      _salt `Prelude.hashWithSalt` roleARN
+      _salt
+        `Prelude.hashWithSalt` roleARN
         `Prelude.hashWithSalt` resourceARN
 
 instance

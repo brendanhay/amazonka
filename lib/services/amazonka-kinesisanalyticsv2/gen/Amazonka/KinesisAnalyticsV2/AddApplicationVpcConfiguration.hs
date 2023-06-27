@@ -181,7 +181,8 @@ instance
   hashWithSalt
     _salt
     AddApplicationVpcConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` conditionalToken
+      _salt
+        `Prelude.hashWithSalt` conditionalToken
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` vpcConfiguration

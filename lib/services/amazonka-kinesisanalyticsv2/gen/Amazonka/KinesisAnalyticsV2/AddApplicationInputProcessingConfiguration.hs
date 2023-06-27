@@ -159,12 +159,12 @@ instance
       ( \s h x ->
           AddApplicationInputProcessingConfigurationResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
-              Prelude.<*> (x Data..?> "ApplicationVersionId")
-              Prelude.<*> (x Data..?> "InputId")
-              Prelude.<*> ( x
-                              Data..?> "InputProcessingConfigurationDescription"
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ApplicationVersionId")
+            Prelude.<*> (x Data..?> "InputId")
+            Prelude.<*> ( x
+                            Data..?> "InputProcessingConfigurationDescription"
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     AddApplicationInputProcessingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` inputId
         `Prelude.hashWithSalt` inputProcessingConfiguration

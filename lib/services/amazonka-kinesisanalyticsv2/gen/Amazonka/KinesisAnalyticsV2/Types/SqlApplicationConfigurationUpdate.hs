@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     SqlApplicationConfigurationUpdate' {..} =
-      _salt `Prelude.hashWithSalt` inputUpdates
+      _salt
+        `Prelude.hashWithSalt` inputUpdates
         `Prelude.hashWithSalt` outputUpdates
         `Prelude.hashWithSalt` referenceDataSourceUpdates
 

@@ -133,10 +133,10 @@ instance
       ( \s h x ->
           UpdateApplicationMaintenanceConfigurationResponse'
             Prelude.<$> (x Data..?> "ApplicationARN")
-              Prelude.<*> ( x
-                              Data..?> "ApplicationMaintenanceConfigurationDescription"
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ApplicationMaintenanceConfigurationDescription"
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -146,7 +146,8 @@ instance
   hashWithSalt
     _salt
     UpdateApplicationMaintenanceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` applicationMaintenanceConfigurationUpdate
 
 instance

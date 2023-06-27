@@ -108,7 +108,8 @@ instance Core.AWSRequest ListSNOMEDCTInferenceJobs where
     Response.receiveJSON
       ( \s h x ->
           ListSNOMEDCTInferenceJobsResponse'
-            Prelude.<$> ( x Data..?> "ComprehendMedicalAsyncJobPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "ComprehendMedicalAsyncJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -117,7 +118,8 @@ instance Core.AWSRequest ListSNOMEDCTInferenceJobs where
 
 instance Prelude.Hashable ListSNOMEDCTInferenceJobs where
   hashWithSalt _salt ListSNOMEDCTInferenceJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

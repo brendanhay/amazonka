@@ -32,6 +32,7 @@ module Amazonka.ComprehendMedical.Types.RelationshipType
         RelationshipType_FREQUENCY,
         RelationshipType_NEGATIVE,
         RelationshipType_OVERLAP,
+        RelationshipType_QUALITY,
         RelationshipType_RATE,
         RelationshipType_ROUTE_OR_MODE,
         RelationshipType_STRENGTH,
@@ -39,6 +40,7 @@ module Amazonka.ComprehendMedical.Types.RelationshipType
         RelationshipType_TEST_UNIT,
         RelationshipType_TEST_UNITS,
         RelationshipType_TEST_VALUE,
+        RelationshipType_USAGE,
         RelationshipType_WITH_DOSAGE
       ),
   )
@@ -112,6 +114,9 @@ pattern RelationshipType_NEGATIVE = RelationshipType' "NEGATIVE"
 pattern RelationshipType_OVERLAP :: RelationshipType
 pattern RelationshipType_OVERLAP = RelationshipType' "OVERLAP"
 
+pattern RelationshipType_QUALITY :: RelationshipType
+pattern RelationshipType_QUALITY = RelationshipType' "QUALITY"
+
 pattern RelationshipType_RATE :: RelationshipType
 pattern RelationshipType_RATE = RelationshipType' "RATE"
 
@@ -133,6 +138,9 @@ pattern RelationshipType_TEST_UNITS = RelationshipType' "TEST_UNITS"
 pattern RelationshipType_TEST_VALUE :: RelationshipType
 pattern RelationshipType_TEST_VALUE = RelationshipType' "TEST_VALUE"
 
+pattern RelationshipType_USAGE :: RelationshipType
+pattern RelationshipType_USAGE = RelationshipType' "USAGE"
+
 pattern RelationshipType_WITH_DOSAGE :: RelationshipType
 pattern RelationshipType_WITH_DOSAGE = RelationshipType' "WITH_DOSAGE"
 
@@ -149,6 +157,7 @@ pattern RelationshipType_WITH_DOSAGE = RelationshipType' "WITH_DOSAGE"
   RelationshipType_FREQUENCY,
   RelationshipType_NEGATIVE,
   RelationshipType_OVERLAP,
+  RelationshipType_QUALITY,
   RelationshipType_RATE,
   RelationshipType_ROUTE_OR_MODE,
   RelationshipType_STRENGTH,
@@ -156,6 +165,7 @@ pattern RelationshipType_WITH_DOSAGE = RelationshipType' "WITH_DOSAGE"
   RelationshipType_TEST_UNIT,
   RelationshipType_TEST_UNITS,
   RelationshipType_TEST_VALUE,
+  RelationshipType_USAGE,
   RelationshipType_WITH_DOSAGE,
   RelationshipType'
   #-}

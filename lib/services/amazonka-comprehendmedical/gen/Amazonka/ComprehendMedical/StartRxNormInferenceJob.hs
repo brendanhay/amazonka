@@ -183,7 +183,8 @@ instance Core.AWSRequest StartRxNormInferenceJob where
 
 instance Prelude.Hashable StartRxNormInferenceJob where
   hashWithSalt _salt StartRxNormInferenceJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig

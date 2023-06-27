@@ -165,7 +165,8 @@ instance Data.FromJSON RxNormAttribute where
 
 instance Prelude.Hashable RxNormAttribute where
   hashWithSalt _salt RxNormAttribute' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` relationshipScore

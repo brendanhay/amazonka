@@ -21,6 +21,7 @@ module Amazonka.ComprehendMedical.Types.ICD10CMRelationshipType
   ( ICD10CMRelationshipType
       ( ..,
         ICD10CMRelationshipType_OVERLAP,
+        ICD10CMRelationshipType_QUALITY,
         ICD10CMRelationshipType_SYSTEM_ORGAN_SITE
       ),
   )
@@ -61,11 +62,15 @@ newtype ICD10CMRelationshipType = ICD10CMRelationshipType'
 pattern ICD10CMRelationshipType_OVERLAP :: ICD10CMRelationshipType
 pattern ICD10CMRelationshipType_OVERLAP = ICD10CMRelationshipType' "OVERLAP"
 
+pattern ICD10CMRelationshipType_QUALITY :: ICD10CMRelationshipType
+pattern ICD10CMRelationshipType_QUALITY = ICD10CMRelationshipType' "QUALITY"
+
 pattern ICD10CMRelationshipType_SYSTEM_ORGAN_SITE :: ICD10CMRelationshipType
 pattern ICD10CMRelationshipType_SYSTEM_ORGAN_SITE = ICD10CMRelationshipType' "SYSTEM_ORGAN_SITE"
 
 {-# COMPLETE
   ICD10CMRelationshipType_OVERLAP,
+  ICD10CMRelationshipType_QUALITY,
   ICD10CMRelationshipType_SYSTEM_ORGAN_SITE,
   ICD10CMRelationshipType'
   #-}

@@ -91,7 +91,8 @@ instance Data.FromJSON ICD10CMConcept where
 
 instance Prelude.Hashable ICD10CMConcept where
   hashWithSalt _salt ICD10CMConcept' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` score
 

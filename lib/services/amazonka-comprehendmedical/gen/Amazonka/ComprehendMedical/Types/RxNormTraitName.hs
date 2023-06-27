@@ -20,7 +20,8 @@
 module Amazonka.ComprehendMedical.Types.RxNormTraitName
   ( RxNormTraitName
       ( ..,
-        RxNormTraitName_NEGATION
+        RxNormTraitName_NEGATION,
+        RxNormTraitName_PAST_HISTORY
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype RxNormTraitName = RxNormTraitName'
 pattern RxNormTraitName_NEGATION :: RxNormTraitName
 pattern RxNormTraitName_NEGATION = RxNormTraitName' "NEGATION"
 
+pattern RxNormTraitName_PAST_HISTORY :: RxNormTraitName
+pattern RxNormTraitName_PAST_HISTORY = RxNormTraitName' "PAST_HISTORY"
+
 {-# COMPLETE
   RxNormTraitName_NEGATION,
+  RxNormTraitName_PAST_HISTORY,
   RxNormTraitName'
   #-}

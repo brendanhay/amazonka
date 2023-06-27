@@ -183,7 +183,8 @@ instance Core.AWSRequest StartICD10CMInferenceJob where
 
 instance Prelude.Hashable StartICD10CMInferenceJob where
   hashWithSalt _salt StartICD10CMInferenceJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig

@@ -24,6 +24,7 @@ module Amazonka.ComprehendMedical.Types.SNOMEDCTRelationshipType
         SNOMEDCTRelationshipType_DIRECTION,
         SNOMEDCTRelationshipType_QUALITY,
         SNOMEDCTRelationshipType_SYSTEM_ORGAN_SITE,
+        SNOMEDCTRelationshipType_TEST_UNIT,
         SNOMEDCTRelationshipType_TEST_UNITS,
         SNOMEDCTRelationshipType_TEST_VALUE
       ),
@@ -74,6 +75,9 @@ pattern SNOMEDCTRelationshipType_QUALITY = SNOMEDCTRelationshipType' "QUALITY"
 pattern SNOMEDCTRelationshipType_SYSTEM_ORGAN_SITE :: SNOMEDCTRelationshipType
 pattern SNOMEDCTRelationshipType_SYSTEM_ORGAN_SITE = SNOMEDCTRelationshipType' "SYSTEM_ORGAN_SITE"
 
+pattern SNOMEDCTRelationshipType_TEST_UNIT :: SNOMEDCTRelationshipType
+pattern SNOMEDCTRelationshipType_TEST_UNIT = SNOMEDCTRelationshipType' "TEST_UNIT"
+
 pattern SNOMEDCTRelationshipType_TEST_UNITS :: SNOMEDCTRelationshipType
 pattern SNOMEDCTRelationshipType_TEST_UNITS = SNOMEDCTRelationshipType' "TEST_UNITS"
 
@@ -85,6 +89,7 @@ pattern SNOMEDCTRelationshipType_TEST_VALUE = SNOMEDCTRelationshipType' "TEST_VA
   SNOMEDCTRelationshipType_DIRECTION,
   SNOMEDCTRelationshipType_QUALITY,
   SNOMEDCTRelationshipType_SYSTEM_ORGAN_SITE,
+  SNOMEDCTRelationshipType_TEST_UNIT,
   SNOMEDCTRelationshipType_TEST_UNITS,
   SNOMEDCTRelationshipType_TEST_VALUE,
   SNOMEDCTRelationshipType'

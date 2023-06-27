@@ -106,7 +106,8 @@ instance Core.AWSRequest DetectEntitiesV2 where
       ( \s h x ->
           DetectEntitiesV2Response'
             Prelude.<$> (x Data..?> "PaginationToken")
-            Prelude.<*> ( x Data..?> "UnmappedAttributes"
+            Prelude.<*> ( x
+                            Data..?> "UnmappedAttributes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

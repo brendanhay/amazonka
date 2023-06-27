@@ -121,7 +121,8 @@ instance Core.AWSRequest ReportTaskProgress where
 
 instance Prelude.Hashable ReportTaskProgress where
   hashWithSalt _salt ReportTaskProgress' {..} =
-    _salt `Prelude.hashWithSalt` fields
+    _salt
+      `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` taskId
 
 instance Prelude.NFData ReportTaskProgress where

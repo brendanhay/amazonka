@@ -118,7 +118,8 @@ instance Core.AWSRequest SetStatus where
 
 instance Prelude.Hashable SetStatus where
   hashWithSalt _salt SetStatus' {..} =
-    _salt `Prelude.hashWithSalt` pipelineId
+    _salt
+      `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` objectIds
       `Prelude.hashWithSalt` status
 

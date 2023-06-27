@@ -162,7 +162,8 @@ operator_values = Lens.lens (\Operator' {values} -> values) (\s@Operator' {} a -
 
 instance Prelude.Hashable Operator where
   hashWithSalt _salt Operator' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Operator where

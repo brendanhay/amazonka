@@ -78,7 +78,8 @@ instance Data.FromJSON ParameterValue where
 
 instance Prelude.Hashable ParameterValue where
   hashWithSalt _salt ParameterValue' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData ParameterValue where

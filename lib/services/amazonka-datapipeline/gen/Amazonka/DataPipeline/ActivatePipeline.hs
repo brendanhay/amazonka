@@ -123,7 +123,8 @@ instance Core.AWSRequest ActivatePipeline where
 
 instance Prelude.Hashable ActivatePipeline where
   hashWithSalt _salt ActivatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` parameterValues
+    _salt
+      `Prelude.hashWithSalt` parameterValues
       `Prelude.hashWithSalt` startTimestamp
       `Prelude.hashWithSalt` pipelineId
 

@@ -71,12 +71,14 @@ instance Data.FromJSON PipelineIdName where
       "PipelineIdName"
       ( \x ->
           PipelineIdName'
-            Prelude.<$> (x Data..:? "id") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "id")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable PipelineIdName where
   hashWithSalt _salt PipelineIdName' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData PipelineIdName where

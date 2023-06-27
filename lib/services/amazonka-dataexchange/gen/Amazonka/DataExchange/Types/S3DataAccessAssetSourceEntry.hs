@@ -22,6 +22,7 @@ module Amazonka.DataExchange.Types.S3DataAccessAssetSourceEntry where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.DataExchange.Types.KmsKeyToGrant
 import qualified Amazonka.Prelude as Prelude
 
 -- | Source details for an Amazon S3 data access asset.
@@ -32,6 +33,10 @@ data S3DataAccessAssetSourceEntry = S3DataAccessAssetSourceEntry'
     keyPrefixes :: Prelude.Maybe [Prelude.Text],
     -- | The keys used to create the Amazon S3 data access.
     keys :: Prelude.Maybe [Prelude.Text],
+    -- | List of AWS KMS CMKs (Key Management System Customer Managed Keys) and
+    -- ARNs used to encrypt S3 objects being shared in this S3 Data Access
+    -- asset.
+    kmsKeysToGrant :: Prelude.Maybe (Prelude.NonEmpty KmsKeyToGrant),
     -- | The Amazon S3 bucket used for hosting shared data in the Amazon S3 data
     -- access.
     bucket :: Prelude.Text
@@ -50,6 +55,10 @@ data S3DataAccessAssetSourceEntry = S3DataAccessAssetSourceEntry'
 --
 -- 'keys', 's3DataAccessAssetSourceEntry_keys' - The keys used to create the Amazon S3 data access.
 --
+-- 'kmsKeysToGrant', 's3DataAccessAssetSourceEntry_kmsKeysToGrant' - List of AWS KMS CMKs (Key Management System Customer Managed Keys) and
+-- ARNs used to encrypt S3 objects being shared in this S3 Data Access
+-- asset.
+--
 -- 'bucket', 's3DataAccessAssetSourceEntry_bucket' - The Amazon S3 bucket used for hosting shared data in the Amazon S3 data
 -- access.
 newS3DataAccessAssetSourceEntry ::
@@ -61,6 +70,7 @@ newS3DataAccessAssetSourceEntry pBucket_ =
     { keyPrefixes =
         Prelude.Nothing,
       keys = Prelude.Nothing,
+      kmsKeysToGrant = Prelude.Nothing,
       bucket = pBucket_
     }
 
@@ -71,6 +81,12 @@ s3DataAccessAssetSourceEntry_keyPrefixes = Lens.lens (\S3DataAccessAssetSourceEn
 -- | The keys used to create the Amazon S3 data access.
 s3DataAccessAssetSourceEntry_keys :: Lens.Lens' S3DataAccessAssetSourceEntry (Prelude.Maybe [Prelude.Text])
 s3DataAccessAssetSourceEntry_keys = Lens.lens (\S3DataAccessAssetSourceEntry' {keys} -> keys) (\s@S3DataAccessAssetSourceEntry' {} a -> s {keys = a} :: S3DataAccessAssetSourceEntry) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of AWS KMS CMKs (Key Management System Customer Managed Keys) and
+-- ARNs used to encrypt S3 objects being shared in this S3 Data Access
+-- asset.
+s3DataAccessAssetSourceEntry_kmsKeysToGrant :: Lens.Lens' S3DataAccessAssetSourceEntry (Prelude.Maybe (Prelude.NonEmpty KmsKeyToGrant))
+s3DataAccessAssetSourceEntry_kmsKeysToGrant = Lens.lens (\S3DataAccessAssetSourceEntry' {kmsKeysToGrant} -> kmsKeysToGrant) (\s@S3DataAccessAssetSourceEntry' {} a -> s {kmsKeysToGrant = a} :: S3DataAccessAssetSourceEntry) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon S3 bucket used for hosting shared data in the Amazon S3 data
 -- access.
@@ -85,6 +101,7 @@ instance Data.FromJSON S3DataAccessAssetSourceEntry where
           S3DataAccessAssetSourceEntry'
             Prelude.<$> (x Data..:? "KeyPrefixes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Keys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "KmsKeysToGrant")
             Prelude.<*> (x Data..: "Bucket")
       )
 
@@ -93,14 +110,17 @@ instance
     S3DataAccessAssetSourceEntry
   where
   hashWithSalt _salt S3DataAccessAssetSourceEntry' {..} =
-    _salt `Prelude.hashWithSalt` keyPrefixes
+    _salt
+      `Prelude.hashWithSalt` keyPrefixes
       `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` kmsKeysToGrant
       `Prelude.hashWithSalt` bucket
 
 instance Prelude.NFData S3DataAccessAssetSourceEntry where
   rnf S3DataAccessAssetSourceEntry' {..} =
     Prelude.rnf keyPrefixes
       `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf kmsKeysToGrant
       `Prelude.seq` Prelude.rnf bucket
 
 instance Data.ToJSON S3DataAccessAssetSourceEntry where
@@ -109,6 +129,8 @@ instance Data.ToJSON S3DataAccessAssetSourceEntry where
       ( Prelude.catMaybes
           [ ("KeyPrefixes" Data..=) Prelude.<$> keyPrefixes,
             ("Keys" Data..=) Prelude.<$> keys,
+            ("KmsKeysToGrant" Data..=)
+              Prelude.<$> kmsKeysToGrant,
             Prelude.Just ("Bucket" Data..= bucket)
           ]
       )

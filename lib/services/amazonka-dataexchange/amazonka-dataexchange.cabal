@@ -111,6 +111,7 @@ library
     Amazonka.DataExchange.Types.JobError
     Amazonka.DataExchange.Types.JobErrorLimitName
     Amazonka.DataExchange.Types.JobErrorResourceTypes
+    Amazonka.DataExchange.Types.KmsKeyToGrant
     Amazonka.DataExchange.Types.LakeFormationDataPermissionAsset
     Amazonka.DataExchange.Types.LakeFormationDataPermissionDetails
     Amazonka.DataExchange.Types.LakeFormationDataPermissionType

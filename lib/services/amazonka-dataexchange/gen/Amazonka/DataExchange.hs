@@ -431,6 +431,10 @@ module Amazonka.DataExchange
     JobError (JobError'),
     newJobError,
 
+    -- ** KmsKeyToGrant
+    KmsKeyToGrant (KmsKeyToGrant'),
+    newKmsKeyToGrant,
+
     -- ** LFResourceDetails
     LFResourceDetails (LFResourceDetails'),
     newLFResourceDetails,

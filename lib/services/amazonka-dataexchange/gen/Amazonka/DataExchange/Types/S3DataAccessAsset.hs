@@ -22,6 +22,7 @@ module Amazonka.DataExchange.Types.S3DataAccessAsset where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.DataExchange.Types.KmsKeyToGrant
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon S3 data access that is the asset.
@@ -33,6 +34,11 @@ data S3DataAccessAsset = S3DataAccessAsset'
     keyPrefixes :: Prelude.Maybe [Prelude.Text],
     -- | S3 keys made available using this asset.
     keys :: Prelude.Maybe [Prelude.Text],
+    -- | List of AWS KMS CMKs (Key Management System Customer Managed Keys) and
+    -- ARNs used to encrypt S3 objects being shared in this S3 Data Access
+    -- asset. Providers must include all AWS KMS keys used to encrypt these
+    -- shared S3 objects.
+    kmsKeysToGrant :: Prelude.Maybe (Prelude.NonEmpty KmsKeyToGrant),
     -- | The automatically-generated bucket-style alias for your Amazon S3 Access
     -- Point. Customers can access their entitled data using the S3 Access
     -- Point alias.
@@ -58,6 +64,11 @@ data S3DataAccessAsset = S3DataAccessAsset'
 --
 -- 'keys', 's3DataAccessAsset_keys' - S3 keys made available using this asset.
 --
+-- 'kmsKeysToGrant', 's3DataAccessAsset_kmsKeysToGrant' - List of AWS KMS CMKs (Key Management System Customer Managed Keys) and
+-- ARNs used to encrypt S3 objects being shared in this S3 Data Access
+-- asset. Providers must include all AWS KMS keys used to encrypt these
+-- shared S3 objects.
+--
 -- 's3AccessPointAlias', 's3DataAccessAsset_s3AccessPointAlias' - The automatically-generated bucket-style alias for your Amazon S3 Access
 -- Point. Customers can access their entitled data using the S3 Access
 -- Point alias.
@@ -74,6 +85,7 @@ newS3DataAccessAsset pBucket_ =
   S3DataAccessAsset'
     { keyPrefixes = Prelude.Nothing,
       keys = Prelude.Nothing,
+      kmsKeysToGrant = Prelude.Nothing,
       s3AccessPointAlias = Prelude.Nothing,
       s3AccessPointArn = Prelude.Nothing,
       bucket = pBucket_
@@ -87,6 +99,13 @@ s3DataAccessAsset_keyPrefixes = Lens.lens (\S3DataAccessAsset' {keyPrefixes} -> 
 -- | S3 keys made available using this asset.
 s3DataAccessAsset_keys :: Lens.Lens' S3DataAccessAsset (Prelude.Maybe [Prelude.Text])
 s3DataAccessAsset_keys = Lens.lens (\S3DataAccessAsset' {keys} -> keys) (\s@S3DataAccessAsset' {} a -> s {keys = a} :: S3DataAccessAsset) Prelude.. Lens.mapping Lens.coerced
+
+-- | List of AWS KMS CMKs (Key Management System Customer Managed Keys) and
+-- ARNs used to encrypt S3 objects being shared in this S3 Data Access
+-- asset. Providers must include all AWS KMS keys used to encrypt these
+-- shared S3 objects.
+s3DataAccessAsset_kmsKeysToGrant :: Lens.Lens' S3DataAccessAsset (Prelude.Maybe (Prelude.NonEmpty KmsKeyToGrant))
+s3DataAccessAsset_kmsKeysToGrant = Lens.lens (\S3DataAccessAsset' {kmsKeysToGrant} -> kmsKeysToGrant) (\s@S3DataAccessAsset' {} a -> s {kmsKeysToGrant = a} :: S3DataAccessAsset) Prelude.. Lens.mapping Lens.coerced
 
 -- | The automatically-generated bucket-style alias for your Amazon S3 Access
 -- Point. Customers can access their entitled data using the S3 Access
@@ -111,6 +130,7 @@ instance Data.FromJSON S3DataAccessAsset where
           S3DataAccessAsset'
             Prelude.<$> (x Data..:? "KeyPrefixes" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Keys" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "KmsKeysToGrant")
             Prelude.<*> (x Data..:? "S3AccessPointAlias")
             Prelude.<*> (x Data..:? "S3AccessPointArn")
             Prelude.<*> (x Data..: "Bucket")
@@ -118,8 +138,10 @@ instance Data.FromJSON S3DataAccessAsset where
 
 instance Prelude.Hashable S3DataAccessAsset where
   hashWithSalt _salt S3DataAccessAsset' {..} =
-    _salt `Prelude.hashWithSalt` keyPrefixes
+    _salt
+      `Prelude.hashWithSalt` keyPrefixes
       `Prelude.hashWithSalt` keys
+      `Prelude.hashWithSalt` kmsKeysToGrant
       `Prelude.hashWithSalt` s3AccessPointAlias
       `Prelude.hashWithSalt` s3AccessPointArn
       `Prelude.hashWithSalt` bucket
@@ -128,6 +150,7 @@ instance Prelude.NFData S3DataAccessAsset where
   rnf S3DataAccessAsset' {..} =
     Prelude.rnf keyPrefixes
       `Prelude.seq` Prelude.rnf keys
+      `Prelude.seq` Prelude.rnf kmsKeysToGrant
       `Prelude.seq` Prelude.rnf s3AccessPointAlias
       `Prelude.seq` Prelude.rnf s3AccessPointArn
       `Prelude.seq` Prelude.rnf bucket

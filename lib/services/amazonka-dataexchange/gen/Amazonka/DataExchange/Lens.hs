@@ -544,6 +544,9 @@ module Amazonka.DataExchange.Lens
     jobError_code,
     jobError_message,
 
+    -- ** KmsKeyToGrant
+    kmsKeyToGrant_kmsKeyArn,
+
     -- ** LFResourceDetails
     lFResourceDetails_database,
     lFResourceDetails_table,
@@ -621,6 +624,7 @@ module Amazonka.DataExchange.Lens
     -- ** S3DataAccessAsset
     s3DataAccessAsset_keyPrefixes,
     s3DataAccessAsset_keys,
+    s3DataAccessAsset_kmsKeysToGrant,
     s3DataAccessAsset_s3AccessPointAlias,
     s3DataAccessAsset_s3AccessPointArn,
     s3DataAccessAsset_bucket,
@@ -628,6 +632,7 @@ module Amazonka.DataExchange.Lens
     -- ** S3DataAccessAssetSourceEntry
     s3DataAccessAssetSourceEntry_keyPrefixes,
     s3DataAccessAssetSourceEntry_keys,
+    s3DataAccessAssetSourceEntry_kmsKeysToGrant,
     s3DataAccessAssetSourceEntry_bucket,
 
     -- ** S3SnapshotAsset
@@ -702,6 +707,7 @@ import Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails
 import Amazonka.DataExchange.Types.JobEntry
 import Amazonka.DataExchange.Types.JobError
+import Amazonka.DataExchange.Types.KmsKeyToGrant
 import Amazonka.DataExchange.Types.LFResourceDetails
 import Amazonka.DataExchange.Types.LFTag
 import Amazonka.DataExchange.Types.LFTagPolicyDetails

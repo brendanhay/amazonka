@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetsFromLakeFormationTagPolicyRequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` database
+      _salt
+        `Prelude.hashWithSalt` database
         `Prelude.hashWithSalt` table
         `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` roleArn

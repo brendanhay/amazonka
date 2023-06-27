@@ -147,7 +147,8 @@ instance Data.FromJSON ApiGatewayApiAsset where
 
 instance Prelude.Hashable ApiGatewayApiAsset where
   hashWithSalt _salt ApiGatewayApiAsset' {..} =
-    _salt `Prelude.hashWithSalt` apiDescription
+    _salt
+      `Prelude.hashWithSalt` apiDescription
       `Prelude.hashWithSalt` apiEndpoint
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` apiKey

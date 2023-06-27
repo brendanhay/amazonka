@@ -102,7 +102,8 @@ instance
       ( \x ->
           ExportAssetsToS3ResponseDetails'
             Prelude.<$> (x Data..:? "Encryption")
-            Prelude.<*> ( x Data..:? "AssetDestinations"
+            Prelude.<*> ( x
+                            Data..:? "AssetDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "DataSetId")
@@ -116,7 +117,8 @@ instance
   hashWithSalt
     _salt
     ExportAssetsToS3ResponseDetails' {..} =
-      _salt `Prelude.hashWithSalt` encryption
+      _salt
+        `Prelude.hashWithSalt` encryption
         `Prelude.hashWithSalt` assetDestinations
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId

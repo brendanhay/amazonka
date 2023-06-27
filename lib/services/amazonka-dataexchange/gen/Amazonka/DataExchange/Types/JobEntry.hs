@@ -165,7 +165,8 @@ instance Data.FromJSON JobEntry where
 
 instance Prelude.Hashable JobEntry where
   hashWithSalt _salt JobEntry' {..} =
-    _salt `Prelude.hashWithSalt` errors
+    _salt
+      `Prelude.hashWithSalt` errors
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` details

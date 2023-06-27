@@ -74,7 +74,8 @@ instance Data.FromJSON Details where
             Prelude.<$> ( x
                             Data..:? "ImportAssetFromSignedUrlJobErrorDetails"
                         )
-            Prelude.<*> ( x Data..:? "ImportAssetsFromS3JobErrorDetails"
+            Prelude.<*> ( x
+                            Data..:? "ImportAssetsFromS3JobErrorDetails"
                             Data..!= Prelude.mempty
                         )
       )

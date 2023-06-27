@@ -369,6 +369,11 @@ module Amazonka.DataExchange.Types
     jobError_code,
     jobError_message,
 
+    -- * KmsKeyToGrant
+    KmsKeyToGrant (..),
+    newKmsKeyToGrant,
+    kmsKeyToGrant_kmsKeyArn,
+
     -- * LFResourceDetails
     LFResourceDetails (..),
     newLFResourceDetails,
@@ -474,6 +479,7 @@ module Amazonka.DataExchange.Types
     newS3DataAccessAsset,
     s3DataAccessAsset_keyPrefixes,
     s3DataAccessAsset_keys,
+    s3DataAccessAsset_kmsKeysToGrant,
     s3DataAccessAsset_s3AccessPointAlias,
     s3DataAccessAsset_s3AccessPointArn,
     s3DataAccessAsset_bucket,
@@ -483,6 +489,7 @@ module Amazonka.DataExchange.Types
     newS3DataAccessAssetSourceEntry,
     s3DataAccessAssetSourceEntry_keyPrefixes,
     s3DataAccessAssetSourceEntry_keys,
+    s3DataAccessAssetSourceEntry_kmsKeysToGrant,
     s3DataAccessAssetSourceEntry_bucket,
 
     -- * S3SnapshotAsset
@@ -546,6 +553,7 @@ import Amazonka.DataExchange.Types.JobEntry
 import Amazonka.DataExchange.Types.JobError
 import Amazonka.DataExchange.Types.JobErrorLimitName
 import Amazonka.DataExchange.Types.JobErrorResourceTypes
+import Amazonka.DataExchange.Types.KmsKeyToGrant
 import Amazonka.DataExchange.Types.LFPermission
 import Amazonka.DataExchange.Types.LFResourceDetails
 import Amazonka.DataExchange.Types.LFResourceType
@@ -602,52 +610,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to the resource is denied.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -656,7 +664,7 @@ _AccessDeniedException =
 
 -- | The request couldn\'t be completed because it conflicted with the
 -- current state of the resource.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -664,7 +672,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | An exception occurred with the service.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -672,7 +680,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The resource couldn\'t be found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -680,7 +688,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The request has exceeded the quotas imposed by the service.
-_ServiceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -688,7 +696,7 @@ _ServiceLimitExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The limit on the number of requests per second was exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -696,7 +704,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The request was invalid.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

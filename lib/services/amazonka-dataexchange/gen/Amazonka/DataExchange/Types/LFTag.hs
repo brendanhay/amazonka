@@ -77,7 +77,8 @@ instance Data.FromJSON LFTag where
 
 instance Prelude.Hashable LFTag where
   hashWithSalt _salt LFTag' {..} =
-    _salt `Prelude.hashWithSalt` tagKey
+    _salt
+      `Prelude.hashWithSalt` tagKey
       `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData LFTag where

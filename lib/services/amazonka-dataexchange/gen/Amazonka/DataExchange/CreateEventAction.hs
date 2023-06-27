@@ -114,7 +114,8 @@ instance Core.AWSRequest CreateEventAction where
 
 instance Prelude.Hashable CreateEventAction where
   hashWithSalt _salt CreateEventAction' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` event
 
 instance Prelude.NFData CreateEventAction where

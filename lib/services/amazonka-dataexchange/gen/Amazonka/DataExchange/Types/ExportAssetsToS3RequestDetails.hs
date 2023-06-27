@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     ExportAssetsToS3RequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` encryption
+      _salt
+        `Prelude.hashWithSalt` encryption
         `Prelude.hashWithSalt` assetDestinations
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId

@@ -56,9 +56,9 @@
 -- -   ec2:DescribeVpcs
 --
 -- For more information, see
--- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user Create an IAM User and Get Your AWS Credentials>
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/amazon-mq-setting-up.html#create-iam-user Create an IAM User and Get Your Amazon Web Services Credentials>
 -- and
--- <https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface Never Modify or Delete the Amazon MQ Elastic Network Interface>
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/connecting-to-amazon-mq.html#never-modify-delete-elastic-network-interface Never Modify or Delete the Amazon MQ Elastic Network Interface>
 -- in the /Amazon MQ Developer Guide/.
 module Amazonka.MQ.CreateBroker
   ( -- * Creating a Request
@@ -69,6 +69,8 @@ module Amazonka.MQ.CreateBroker
     createBroker_authenticationStrategy,
     createBroker_configuration,
     createBroker_creatorRequestId,
+    createBroker_dataReplicationMode,
+    createBroker_dataReplicationPrimaryBrokerArn,
     createBroker_encryptionOptions,
     createBroker_ldapServerMetadata,
     createBroker_logs,
@@ -115,12 +117,19 @@ data CreateBroker = CreateBroker'
     -- | A list of information about the configuration.
     configuration :: Prelude.Maybe ConfigurationId,
     -- | The unique ID that the requester receives for the created broker. Amazon
-    -- MQ passes your ID with the API action. Note: We recommend using a
-    -- Universally Unique Identifier (UUID) for the creatorRequestId. You may
-    -- omit the creatorRequestId if your application doesn\'t require
-    -- idempotency.
+    -- MQ passes your ID with the API action.
+    --
+    -- We recommend using a Universally Unique Identifier (UUID) for the
+    -- creatorRequestId. You may omit the creatorRequestId if your application
+    -- doesn\'t require idempotency.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
-    -- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
+    -- | Defines whether this broker is a part of a data replication pair.
+    dataReplicationMode :: Prelude.Maybe DataReplicationMode,
+    -- | The Amazon Resource Name (ARN) of the primary broker that is used to
+    -- replicate data from in a data replication pair, and is applied to the
+    -- replica broker. Must be set when dataReplicationMode is set to CRDR.
+    dataReplicationPrimaryBrokerArn :: Prelude.Maybe Prelude.Text,
+    -- | Encryption options for the broker.
     encryptionOptions :: Prelude.Maybe EncryptionOptions,
     -- | Optional. The metadata of the LDAP server used to authenticate and
     -- authorize connections to the broker. Does not apply to RabbitMQ brokers.
@@ -148,8 +157,9 @@ data CreateBroker = CreateBroker'
     -- If you specify subnets in a
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html shared VPC>
     -- for a RabbitMQ broker, the associated VPC to which the specified subnets
-    -- belong must be owned by your AWS account. Amazon MQ will not be able to
-    -- create VPC endpoints in VPCs that are not owned by your AWS account.
+    -- belong must be owned by your Amazon Web Services account. Amazon MQ will
+    -- not be able to create VPC endpoints in VPCs that are not owned by your
+    -- Amazon Web Services account.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | Create tags when creating the broker.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -164,22 +174,22 @@ data CreateBroker = CreateBroker'
     -- occur during the scheduled maintenance window of the broker or after a
     -- manual broker reboot. Set to true by default, if no value is specified.
     autoMinorVersionUpgrade :: Prelude.Bool,
-    -- | Required. The list of broker users (persons or applications) who can
-    -- access queues and topics. This value can contain only alphanumeric
-    -- characters, dashes, periods, underscores, and tildes (- . _ ~). This
-    -- value must be 2-100 characters long.
-    --
-    -- Amazon MQ for RabbitMQ
-    --
-    -- When you create an Amazon MQ for RabbitMQ broker, one and only one
+    -- | The list of broker users (persons or applications) who can access queues
+    -- and topics. For Amazon MQ for RabbitMQ brokers, one and only one
     -- administrative user is accepted and created when a broker is first
     -- provisioned. All subsequent broker users are created by making RabbitMQ
     -- API calls directly to brokers or via the RabbitMQ web console.
     users :: [User],
-    -- | Required. The broker\'s name. This value must be unique in your AWS
-    -- account, 1-50 characters long, must contain only letters, numbers,
-    -- dashes, and underscores, and must not contain white spaces, brackets,
-    -- wildcard characters, or special characters.
+    -- | Required. The broker\'s name. This value must be unique in your Amazon
+    -- Web Services account, 1-50 characters long, must contain only letters,
+    -- numbers, dashes, and underscores, and must not contain white spaces,
+    -- brackets, wildcard characters, or special characters.
+    --
+    -- Do not add personally identifiable information (PII) or other
+    -- confidential or sensitive information in broker names. Broker names are
+    -- accessible to other Amazon Web Services services, including CloudWatch
+    -- Logs. Broker names are not intended to be used for private or sensitive
+    -- data.
     brokerName :: Prelude.Text,
     -- | Required. The broker\'s deployment mode.
     deploymentMode :: DeploymentMode,
@@ -206,12 +216,19 @@ data CreateBroker = CreateBroker'
 -- 'configuration', 'createBroker_configuration' - A list of information about the configuration.
 --
 -- 'creatorRequestId', 'createBroker_creatorRequestId' - The unique ID that the requester receives for the created broker. Amazon
--- MQ passes your ID with the API action. Note: We recommend using a
--- Universally Unique Identifier (UUID) for the creatorRequestId. You may
--- omit the creatorRequestId if your application doesn\'t require
--- idempotency.
+-- MQ passes your ID with the API action.
 --
--- 'encryptionOptions', 'createBroker_encryptionOptions' - Encryption options for the broker. Does not apply to RabbitMQ brokers.
+-- We recommend using a Universally Unique Identifier (UUID) for the
+-- creatorRequestId. You may omit the creatorRequestId if your application
+-- doesn\'t require idempotency.
+--
+-- 'dataReplicationMode', 'createBroker_dataReplicationMode' - Defines whether this broker is a part of a data replication pair.
+--
+-- 'dataReplicationPrimaryBrokerArn', 'createBroker_dataReplicationPrimaryBrokerArn' - The Amazon Resource Name (ARN) of the primary broker that is used to
+-- replicate data from in a data replication pair, and is applied to the
+-- replica broker. Must be set when dataReplicationMode is set to CRDR.
+--
+-- 'encryptionOptions', 'createBroker_encryptionOptions' - Encryption options for the broker.
 --
 -- 'ldapServerMetadata', 'createBroker_ldapServerMetadata' - Optional. The metadata of the LDAP server used to authenticate and
 -- authorize connections to the broker. Does not apply to RabbitMQ brokers.
@@ -239,8 +256,9 @@ data CreateBroker = CreateBroker'
 -- If you specify subnets in a
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html shared VPC>
 -- for a RabbitMQ broker, the associated VPC to which the specified subnets
--- belong must be owned by your AWS account. Amazon MQ will not be able to
--- create VPC endpoints in VPCs that are not owned by your AWS account.
+-- belong must be owned by your Amazon Web Services account. Amazon MQ will
+-- not be able to create VPC endpoints in VPCs that are not owned by your
+-- Amazon Web Services account.
 --
 -- 'tags', 'createBroker_tags' - Create tags when creating the broker.
 --
@@ -255,22 +273,22 @@ data CreateBroker = CreateBroker'
 -- occur during the scheduled maintenance window of the broker or after a
 -- manual broker reboot. Set to true by default, if no value is specified.
 --
--- 'users', 'createBroker_users' - Required. The list of broker users (persons or applications) who can
--- access queues and topics. This value can contain only alphanumeric
--- characters, dashes, periods, underscores, and tildes (- . _ ~). This
--- value must be 2-100 characters long.
---
--- Amazon MQ for RabbitMQ
---
--- When you create an Amazon MQ for RabbitMQ broker, one and only one
+-- 'users', 'createBroker_users' - The list of broker users (persons or applications) who can access queues
+-- and topics. For Amazon MQ for RabbitMQ brokers, one and only one
 -- administrative user is accepted and created when a broker is first
 -- provisioned. All subsequent broker users are created by making RabbitMQ
 -- API calls directly to brokers or via the RabbitMQ web console.
 --
--- 'brokerName', 'createBroker_brokerName' - Required. The broker\'s name. This value must be unique in your AWS
--- account, 1-50 characters long, must contain only letters, numbers,
--- dashes, and underscores, and must not contain white spaces, brackets,
--- wildcard characters, or special characters.
+-- 'brokerName', 'createBroker_brokerName' - Required. The broker\'s name. This value must be unique in your Amazon
+-- Web Services account, 1-50 characters long, must contain only letters,
+-- numbers, dashes, and underscores, and must not contain white spaces,
+-- brackets, wildcard characters, or special characters.
+--
+-- Do not add personally identifiable information (PII) or other
+-- confidential or sensitive information in broker names. Broker names are
+-- accessible to other Amazon Web Services services, including CloudWatch
+-- Logs. Broker names are not intended to be used for private or sensitive
+-- data.
 --
 -- 'deploymentMode', 'createBroker_deploymentMode' - Required. The broker\'s deployment mode.
 --
@@ -308,6 +326,8 @@ newCreateBroker
           Prelude.Nothing,
         configuration = Prelude.Nothing,
         creatorRequestId = Prelude.Nothing,
+        dataReplicationMode = Prelude.Nothing,
+        dataReplicationPrimaryBrokerArn = Prelude.Nothing,
         encryptionOptions = Prelude.Nothing,
         ldapServerMetadata = Prelude.Nothing,
         logs = Prelude.Nothing,
@@ -336,14 +356,25 @@ createBroker_configuration :: Lens.Lens' CreateBroker (Prelude.Maybe Configurati
 createBroker_configuration = Lens.lens (\CreateBroker' {configuration} -> configuration) (\s@CreateBroker' {} a -> s {configuration = a} :: CreateBroker)
 
 -- | The unique ID that the requester receives for the created broker. Amazon
--- MQ passes your ID with the API action. Note: We recommend using a
--- Universally Unique Identifier (UUID) for the creatorRequestId. You may
--- omit the creatorRequestId if your application doesn\'t require
--- idempotency.
+-- MQ passes your ID with the API action.
+--
+-- We recommend using a Universally Unique Identifier (UUID) for the
+-- creatorRequestId. You may omit the creatorRequestId if your application
+-- doesn\'t require idempotency.
 createBroker_creatorRequestId :: Lens.Lens' CreateBroker (Prelude.Maybe Prelude.Text)
 createBroker_creatorRequestId = Lens.lens (\CreateBroker' {creatorRequestId} -> creatorRequestId) (\s@CreateBroker' {} a -> s {creatorRequestId = a} :: CreateBroker)
 
--- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
+-- | Defines whether this broker is a part of a data replication pair.
+createBroker_dataReplicationMode :: Lens.Lens' CreateBroker (Prelude.Maybe DataReplicationMode)
+createBroker_dataReplicationMode = Lens.lens (\CreateBroker' {dataReplicationMode} -> dataReplicationMode) (\s@CreateBroker' {} a -> s {dataReplicationMode = a} :: CreateBroker)
+
+-- | The Amazon Resource Name (ARN) of the primary broker that is used to
+-- replicate data from in a data replication pair, and is applied to the
+-- replica broker. Must be set when dataReplicationMode is set to CRDR.
+createBroker_dataReplicationPrimaryBrokerArn :: Lens.Lens' CreateBroker (Prelude.Maybe Prelude.Text)
+createBroker_dataReplicationPrimaryBrokerArn = Lens.lens (\CreateBroker' {dataReplicationPrimaryBrokerArn} -> dataReplicationPrimaryBrokerArn) (\s@CreateBroker' {} a -> s {dataReplicationPrimaryBrokerArn = a} :: CreateBroker)
+
+-- | Encryption options for the broker.
 createBroker_encryptionOptions :: Lens.Lens' CreateBroker (Prelude.Maybe EncryptionOptions)
 createBroker_encryptionOptions = Lens.lens (\CreateBroker' {encryptionOptions} -> encryptionOptions) (\s@CreateBroker' {} a -> s {encryptionOptions = a} :: CreateBroker)
 
@@ -383,8 +414,9 @@ createBroker_storageType = Lens.lens (\CreateBroker' {storageType} -> storageTyp
 -- If you specify subnets in a
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html shared VPC>
 -- for a RabbitMQ broker, the associated VPC to which the specified subnets
--- belong must be owned by your AWS account. Amazon MQ will not be able to
--- create VPC endpoints in VPCs that are not owned by your AWS account.
+-- belong must be owned by your Amazon Web Services account. Amazon MQ will
+-- not be able to create VPC endpoints in VPCs that are not owned by your
+-- Amazon Web Services account.
 createBroker_subnetIds :: Lens.Lens' CreateBroker (Prelude.Maybe [Prelude.Text])
 createBroker_subnetIds = Lens.lens (\CreateBroker' {subnetIds} -> subnetIds) (\s@CreateBroker' {} a -> s {subnetIds = a} :: CreateBroker) Prelude.. Lens.mapping Lens.coerced
 
@@ -409,24 +441,24 @@ createBroker_hostInstanceType = Lens.lens (\CreateBroker' {hostInstanceType} -> 
 createBroker_autoMinorVersionUpgrade :: Lens.Lens' CreateBroker Prelude.Bool
 createBroker_autoMinorVersionUpgrade = Lens.lens (\CreateBroker' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateBroker' {} a -> s {autoMinorVersionUpgrade = a} :: CreateBroker)
 
--- | Required. The list of broker users (persons or applications) who can
--- access queues and topics. This value can contain only alphanumeric
--- characters, dashes, periods, underscores, and tildes (- . _ ~). This
--- value must be 2-100 characters long.
---
--- Amazon MQ for RabbitMQ
---
--- When you create an Amazon MQ for RabbitMQ broker, one and only one
+-- | The list of broker users (persons or applications) who can access queues
+-- and topics. For Amazon MQ for RabbitMQ brokers, one and only one
 -- administrative user is accepted and created when a broker is first
 -- provisioned. All subsequent broker users are created by making RabbitMQ
 -- API calls directly to brokers or via the RabbitMQ web console.
 createBroker_users :: Lens.Lens' CreateBroker [User]
 createBroker_users = Lens.lens (\CreateBroker' {users} -> users) (\s@CreateBroker' {} a -> s {users = a} :: CreateBroker) Prelude.. Lens.coerced
 
--- | Required. The broker\'s name. This value must be unique in your AWS
--- account, 1-50 characters long, must contain only letters, numbers,
--- dashes, and underscores, and must not contain white spaces, brackets,
--- wildcard characters, or special characters.
+-- | Required. The broker\'s name. This value must be unique in your Amazon
+-- Web Services account, 1-50 characters long, must contain only letters,
+-- numbers, dashes, and underscores, and must not contain white spaces,
+-- brackets, wildcard characters, or special characters.
+--
+-- Do not add personally identifiable information (PII) or other
+-- confidential or sensitive information in broker names. Broker names are
+-- accessible to other Amazon Web Services services, including CloudWatch
+-- Logs. Broker names are not intended to be used for private or sensitive
+-- data.
 createBroker_brokerName :: Lens.Lens' CreateBroker Prelude.Text
 createBroker_brokerName = Lens.lens (\CreateBroker' {brokerName} -> brokerName) (\s@CreateBroker' {} a -> s {brokerName = a} :: CreateBroker)
 
@@ -459,9 +491,12 @@ instance Core.AWSRequest CreateBroker where
 
 instance Prelude.Hashable CreateBroker where
   hashWithSalt _salt CreateBroker' {..} =
-    _salt `Prelude.hashWithSalt` authenticationStrategy
+    _salt
+      `Prelude.hashWithSalt` authenticationStrategy
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` creatorRequestId
+      `Prelude.hashWithSalt` dataReplicationMode
+      `Prelude.hashWithSalt` dataReplicationPrimaryBrokerArn
       `Prelude.hashWithSalt` encryptionOptions
       `Prelude.hashWithSalt` ldapServerMetadata
       `Prelude.hashWithSalt` logs
@@ -484,6 +519,8 @@ instance Prelude.NFData CreateBroker where
     Prelude.rnf authenticationStrategy
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf creatorRequestId
+      `Prelude.seq` Prelude.rnf dataReplicationMode
+      `Prelude.seq` Prelude.rnf dataReplicationPrimaryBrokerArn
       `Prelude.seq` Prelude.rnf encryptionOptions
       `Prelude.seq` Prelude.rnf ldapServerMetadata
       `Prelude.seq` Prelude.rnf logs
@@ -499,7 +536,8 @@ instance Prelude.NFData CreateBroker where
       `Prelude.seq` Prelude.rnf brokerName
       `Prelude.seq` Prelude.rnf deploymentMode
       `Prelude.seq` Prelude.rnf engineType
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf
+        publiclyAccessible
 
 instance Data.ToHeaders CreateBroker where
   toHeaders =
@@ -521,6 +559,10 @@ instance Data.ToJSON CreateBroker where
             ("configuration" Data..=) Prelude.<$> configuration,
             ("creatorRequestId" Data..=)
               Prelude.<$> creatorRequestId,
+            ("dataReplicationMode" Data..=)
+              Prelude.<$> dataReplicationMode,
+            ("dataReplicationPrimaryBrokerArn" Data..=)
+              Prelude.<$> dataReplicationPrimaryBrokerArn,
             ("encryptionOptions" Data..=)
               Prelude.<$> encryptionOptions,
             ("ldapServerMetadata" Data..=)

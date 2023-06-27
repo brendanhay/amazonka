@@ -120,7 +120,8 @@ instance
     DescribeConfigurationRevision
   where
   hashWithSalt _salt DescribeConfigurationRevision' {..} =
-    _salt `Prelude.hashWithSalt` configurationRevision
+    _salt
+      `Prelude.hashWithSalt` configurationRevision
       `Prelude.hashWithSalt` configurationId
 
 instance Prelude.NFData DescribeConfigurationRevision where
@@ -157,7 +158,8 @@ data DescribeConfigurationRevisionResponse = DescribeConfigurationRevisionRespon
     configurationId :: Prelude.Maybe Prelude.Text,
     -- | Required. The date and time of the configuration.
     created :: Prelude.Maybe Data.ISO8601,
-    -- | Required. The base64-encoded XML configuration.
+    -- | Amazon MQ for ActiveMQ: the base64-encoded XML configuration. Amazon MQ
+    -- for RabbitMQ: base64-encoded Cuttlefish.
     data' :: Prelude.Maybe Prelude.Text,
     -- | The description of the configuration.
     description :: Prelude.Maybe Prelude.Text,
@@ -178,7 +180,8 @@ data DescribeConfigurationRevisionResponse = DescribeConfigurationRevisionRespon
 --
 -- 'created', 'describeConfigurationRevisionResponse_created' - Required. The date and time of the configuration.
 --
--- 'data'', 'describeConfigurationRevisionResponse_data' - Required. The base64-encoded XML configuration.
+-- 'data'', 'describeConfigurationRevisionResponse_data' - Amazon MQ for ActiveMQ: the base64-encoded XML configuration. Amazon MQ
+-- for RabbitMQ: base64-encoded Cuttlefish.
 --
 -- 'description', 'describeConfigurationRevisionResponse_description' - The description of the configuration.
 --
@@ -205,7 +208,8 @@ describeConfigurationRevisionResponse_configurationId = Lens.lens (\DescribeConf
 describeConfigurationRevisionResponse_created :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.UTCTime)
 describeConfigurationRevisionResponse_created = Lens.lens (\DescribeConfigurationRevisionResponse' {created} -> created) (\s@DescribeConfigurationRevisionResponse' {} a -> s {created = a} :: DescribeConfigurationRevisionResponse) Prelude.. Lens.mapping Data._Time
 
--- | Required. The base64-encoded XML configuration.
+-- | Amazon MQ for ActiveMQ: the base64-encoded XML configuration. Amazon MQ
+-- for RabbitMQ: base64-encoded Cuttlefish.
 describeConfigurationRevisionResponse_data :: Lens.Lens' DescribeConfigurationRevisionResponse (Prelude.Maybe Prelude.Text)
 describeConfigurationRevisionResponse_data = Lens.lens (\DescribeConfigurationRevisionResponse' {data'} -> data') (\s@DescribeConfigurationRevisionResponse' {} a -> s {data' = a} :: DescribeConfigurationRevisionResponse)
 

@@ -30,6 +30,7 @@ module Amazonka.MQ.UpdateUser
     updateUser_consoleAccess,
     updateUser_groups,
     updateUser_password,
+    updateUser_replicationUser,
     updateUser_username,
     updateUser_brokerId,
 
@@ -65,6 +66,8 @@ data UpdateUser = UpdateUser'
     -- long, must contain at least 4 unique characters, and must not contain
     -- commas, colons, or equal signs (,:=).
     password :: Prelude.Maybe Prelude.Text,
+    -- | Defines whether the user is intended for data replication.
+    replicationUser :: Prelude.Maybe Prelude.Bool,
     -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
@@ -93,6 +96,8 @@ data UpdateUser = UpdateUser'
 -- long, must contain at least 4 unique characters, and must not contain
 -- commas, colons, or equal signs (,:=).
 --
+-- 'replicationUser', 'updateUser_replicationUser' - Defines whether the user is intended for data replication.
+--
 -- 'username', 'updateUser_username' - The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
@@ -109,6 +114,7 @@ newUpdateUser pUsername_ pBrokerId_ =
     { consoleAccess = Prelude.Nothing,
       groups = Prelude.Nothing,
       password = Prelude.Nothing,
+      replicationUser = Prelude.Nothing,
       username = pUsername_,
       brokerId = pBrokerId_
     }
@@ -129,6 +135,10 @@ updateUser_groups = Lens.lens (\UpdateUser' {groups} -> groups) (\s@UpdateUser' 
 -- commas, colons, or equal signs (,:=).
 updateUser_password :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_password = Lens.lens (\UpdateUser' {password} -> password) (\s@UpdateUser' {} a -> s {password = a} :: UpdateUser)
+
+-- | Defines whether the user is intended for data replication.
+updateUser_replicationUser :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Bool)
+updateUser_replicationUser = Lens.lens (\UpdateUser' {replicationUser} -> replicationUser) (\s@UpdateUser' {} a -> s {replicationUser = a} :: UpdateUser)
 
 -- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -153,9 +163,11 @@ instance Core.AWSRequest UpdateUser where
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =
-    _salt `Prelude.hashWithSalt` consoleAccess
+    _salt
+      `Prelude.hashWithSalt` consoleAccess
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` password
+      `Prelude.hashWithSalt` replicationUser
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId
 
@@ -164,6 +176,7 @@ instance Prelude.NFData UpdateUser where
     Prelude.rnf consoleAccess
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf password
+      `Prelude.seq` Prelude.rnf replicationUser
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf brokerId
 
@@ -184,7 +197,9 @@ instance Data.ToJSON UpdateUser where
       ( Prelude.catMaybes
           [ ("consoleAccess" Data..=) Prelude.<$> consoleAccess,
             ("groups" Data..=) Prelude.<$> groups,
-            ("password" Data..=) Prelude.<$> password
+            ("password" Data..=) Prelude.<$> password,
+            ("replicationUser" Data..=)
+              Prelude.<$> replicationUser
           ]
       )
 

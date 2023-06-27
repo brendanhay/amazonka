@@ -113,7 +113,8 @@ instance Core.AWSRequest DescribeBrokerEngineTypes where
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerEngineTypesResponse'
-            Prelude.<$> ( x Data..?> "brokerEngineTypes"
+            Prelude.<$> ( x
+                            Data..?> "brokerEngineTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "maxResults")
@@ -123,7 +124,8 @@ instance Core.AWSRequest DescribeBrokerEngineTypes where
 
 instance Prelude.Hashable DescribeBrokerEngineTypes where
   hashWithSalt _salt DescribeBrokerEngineTypes' {..} =
-    _salt `Prelude.hashWithSalt` engineType
+    _salt
+      `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

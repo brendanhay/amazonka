@@ -24,10 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A user associated with the broker. For RabbitMQ brokers, one and only
--- one administrative user is accepted and created when a broker is first
--- provisioned. All subsequent broker users are created by making RabbitMQ
--- API calls directly to brokers or via the RabbitMQ web console.
+-- | A user associated with the broker. For Amazon MQ for RabbitMQ brokers,
+-- one and only one administrative user is accepted and created when a
+-- broker is first provisioned. All subsequent broker users are created by
+-- making RabbitMQ API calls directly to brokers or via the RabbitMQ web
+-- console.
 --
 -- /See:/ 'newUser' smart constructor.
 data User = User'
@@ -39,22 +40,26 @@ data User = User'
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long. Does not apply to RabbitMQ brokers.
     groups :: Prelude.Maybe [Prelude.Text],
-    -- | important>
+    -- | Defines if this user is intended for CRDR replication purposes.
+    replicationUser :: Prelude.Maybe Prelude.Bool,
+    -- | The username of the broker user. The following restrictions apply to
+    -- broker usernames:
     --
-    -- Amazon MQ for ActiveMQ
+    -- -   For Amazon MQ for ActiveMQ brokers, this value can contain only
+    --     alphanumeric characters, dashes, periods, underscores, and tildes (-
+    --     . _ ~). This value must be 2-100 characters long.
     --
-    -- For ActiveMQ brokers, this value can contain only alphanumeric
-    -- characters, dashes, periods, underscores, and tildes (- . _ ~). This
-    -- value must be 2-100 characters long.
+    -- -   para>For Amazon MQ for RabbitMQ brokers, this value can contain only
+    --     alphanumeric characters, dashes, periods, underscores (- . _). This
+    --     value must not contain a tilde (~) character. Amazon MQ prohibts
+    --     using guest as a valid usename. This value must be 2-100 characters
+    --     long.
     --
-    -- \/important>
-    --
-    -- Amazon MQ for RabbitMQ
-    --
-    -- For RabbitMQ brokers, this value can contain only alphanumeric
-    -- characters, dashes, periods, underscores (- . _). This value must not
-    -- contain a tilde (~) character. Amazon MQ prohibts using guest as a valid
-    -- usename. This value must be 2-100 characters long.
+    -- Do not add personally identifiable information (PII) or other
+    -- confidential or sensitive information in broker usernames. Broker
+    -- usernames are accessible to other Amazon Web Services services,
+    -- including CloudWatch Logs. Broker usernames are not intended to be used
+    -- for private or sensitive data.
     username :: Prelude.Text,
     -- | Required. The password of the user. This value must be at least 12
     -- characters long, must contain at least 4 unique characters, and must not
@@ -79,22 +84,26 @@ data User = User'
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long. Does not apply to RabbitMQ brokers.
 --
--- 'username', 'user_username' - important>
+-- 'replicationUser', 'user_replicationUser' - Defines if this user is intended for CRDR replication purposes.
 --
--- Amazon MQ for ActiveMQ
+-- 'username', 'user_username' - The username of the broker user. The following restrictions apply to
+-- broker usernames:
 --
--- For ActiveMQ brokers, this value can contain only alphanumeric
--- characters, dashes, periods, underscores, and tildes (- . _ ~). This
--- value must be 2-100 characters long.
+-- -   For Amazon MQ for ActiveMQ brokers, this value can contain only
+--     alphanumeric characters, dashes, periods, underscores, and tildes (-
+--     . _ ~). This value must be 2-100 characters long.
 --
--- \/important>
+-- -   para>For Amazon MQ for RabbitMQ brokers, this value can contain only
+--     alphanumeric characters, dashes, periods, underscores (- . _). This
+--     value must not contain a tilde (~) character. Amazon MQ prohibts
+--     using guest as a valid usename. This value must be 2-100 characters
+--     long.
 --
--- Amazon MQ for RabbitMQ
---
--- For RabbitMQ brokers, this value can contain only alphanumeric
--- characters, dashes, periods, underscores (- . _). This value must not
--- contain a tilde (~) character. Amazon MQ prohibts using guest as a valid
--- usename. This value must be 2-100 characters long.
+-- Do not add personally identifiable information (PII) or other
+-- confidential or sensitive information in broker usernames. Broker
+-- usernames are accessible to other Amazon Web Services services,
+-- including CloudWatch Logs. Broker usernames are not intended to be used
+-- for private or sensitive data.
 --
 -- 'password', 'user_password' - Required. The password of the user. This value must be at least 12
 -- characters long, must contain at least 4 unique characters, and must not
@@ -109,6 +118,7 @@ newUser pUsername_ pPassword_ =
   User'
     { consoleAccess = Prelude.Nothing,
       groups = Prelude.Nothing,
+      replicationUser = Prelude.Nothing,
       username = pUsername_,
       password = pPassword_
     }
@@ -125,22 +135,28 @@ user_consoleAccess = Lens.lens (\User' {consoleAccess} -> consoleAccess) (\s@Use
 user_groups :: Lens.Lens' User (Prelude.Maybe [Prelude.Text])
 user_groups = Lens.lens (\User' {groups} -> groups) (\s@User' {} a -> s {groups = a} :: User) Prelude.. Lens.mapping Lens.coerced
 
--- | important>
+-- | Defines if this user is intended for CRDR replication purposes.
+user_replicationUser :: Lens.Lens' User (Prelude.Maybe Prelude.Bool)
+user_replicationUser = Lens.lens (\User' {replicationUser} -> replicationUser) (\s@User' {} a -> s {replicationUser = a} :: User)
+
+-- | The username of the broker user. The following restrictions apply to
+-- broker usernames:
 --
--- Amazon MQ for ActiveMQ
+-- -   For Amazon MQ for ActiveMQ brokers, this value can contain only
+--     alphanumeric characters, dashes, periods, underscores, and tildes (-
+--     . _ ~). This value must be 2-100 characters long.
 --
--- For ActiveMQ brokers, this value can contain only alphanumeric
--- characters, dashes, periods, underscores, and tildes (- . _ ~). This
--- value must be 2-100 characters long.
+-- -   para>For Amazon MQ for RabbitMQ brokers, this value can contain only
+--     alphanumeric characters, dashes, periods, underscores (- . _). This
+--     value must not contain a tilde (~) character. Amazon MQ prohibts
+--     using guest as a valid usename. This value must be 2-100 characters
+--     long.
 --
--- \/important>
---
--- Amazon MQ for RabbitMQ
---
--- For RabbitMQ brokers, this value can contain only alphanumeric
--- characters, dashes, periods, underscores (- . _). This value must not
--- contain a tilde (~) character. Amazon MQ prohibts using guest as a valid
--- usename. This value must be 2-100 characters long.
+-- Do not add personally identifiable information (PII) or other
+-- confidential or sensitive information in broker usernames. Broker
+-- usernames are accessible to other Amazon Web Services services,
+-- including CloudWatch Logs. Broker usernames are not intended to be used
+-- for private or sensitive data.
 user_username :: Lens.Lens' User Prelude.Text
 user_username = Lens.lens (\User' {username} -> username) (\s@User' {} a -> s {username = a} :: User)
 
@@ -152,8 +168,10 @@ user_password = Lens.lens (\User' {password} -> password) (\s@User' {} a -> s {p
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` consoleAccess
+    _salt
+      `Prelude.hashWithSalt` consoleAccess
       `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` replicationUser
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` password
 
@@ -161,6 +179,7 @@ instance Prelude.NFData User where
   rnf User' {..} =
     Prelude.rnf consoleAccess
       `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf replicationUser
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf password
 
@@ -170,6 +189,8 @@ instance Data.ToJSON User where
       ( Prelude.catMaybes
           [ ("consoleAccess" Data..=) Prelude.<$> consoleAccess,
             ("groups" Data..=) Prelude.<$> groups,
+            ("replicationUser" Data..=)
+              Prelude.<$> replicationUser,
             Prelude.Just ("username" Data..= username),
             Prelude.Just ("password" Data..= password)
           ]

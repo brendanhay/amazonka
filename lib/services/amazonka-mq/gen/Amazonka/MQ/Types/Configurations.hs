@@ -85,7 +85,8 @@ instance Data.FromJSON Configurations where
 
 instance Prelude.Hashable Configurations where
   hashWithSalt _salt Configurations' {..} =
-    _salt `Prelude.hashWithSalt` current
+    _salt
+      `Prelude.hashWithSalt` current
       `Prelude.hashWithSalt` history
       `Prelude.hashWithSalt` pending
 

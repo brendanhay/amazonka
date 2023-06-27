@@ -155,6 +155,12 @@ module Amazonka.MQ
     ListUsersResponse (ListUsersResponse'),
     newListUsersResponse,
 
+    -- ** Promote
+    Promote (Promote'),
+    newPromote,
+    PromoteResponse (PromoteResponse'),
+    newPromoteResponse,
+
     -- ** RebootBroker
     RebootBroker (RebootBroker'),
     newRebootBroker,
@@ -193,6 +199,9 @@ module Amazonka.MQ
     -- ** ChangeType
     ChangeType (..),
 
+    -- ** DataReplicationMode
+    DataReplicationMode (..),
+
     -- ** DayOfWeek
     DayOfWeek (..),
 
@@ -201,6 +210,9 @@ module Amazonka.MQ
 
     -- ** EngineType
     EngineType (..),
+
+    -- ** PromoteMode
+    PromoteMode (..),
 
     -- ** SanitizationWarningReason
     SanitizationWarningReason (..),
@@ -244,6 +256,14 @@ module Amazonka.MQ
     -- ** Configurations
     Configurations (Configurations'),
     newConfigurations,
+
+    -- ** DataReplicationCounterpart
+    DataReplicationCounterpart (DataReplicationCounterpart'),
+    newDataReplicationCounterpart,
+
+    -- ** DataReplicationMetadataOutput
+    DataReplicationMetadataOutput (DataReplicationMetadataOutput'),
+    newDataReplicationMetadataOutput,
 
     -- ** EncryptionOptions
     EncryptionOptions (EncryptionOptions'),
@@ -314,6 +334,7 @@ import Amazonka.MQ.ListConfigurationRevisions
 import Amazonka.MQ.ListConfigurations
 import Amazonka.MQ.ListTags
 import Amazonka.MQ.ListUsers
+import Amazonka.MQ.Promote
 import Amazonka.MQ.RebootBroker
 import Amazonka.MQ.Types
 import Amazonka.MQ.UpdateBroker

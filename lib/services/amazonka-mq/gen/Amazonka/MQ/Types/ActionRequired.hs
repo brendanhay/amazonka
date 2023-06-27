@@ -24,21 +24,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The action required to resolve a broker issue when the broker is in a
--- CRITICAL_ACTION_REQUIRED state.
+-- | Action required for a broker.
 --
 -- /See:/ 'newActionRequired' smart constructor.
 data ActionRequired = ActionRequired'
-  { -- | The code you can use to resolve your broker issue when the broker is in
-    -- a CRITICAL_ACTION_REQUIRED state. You can find instructions by choosing
-    -- the link for your code from the list of action required codes in
-    -- <https://docs.aws.amazon.com//latest/developer-guide/troubleshooting-action-required-codes.html Amazon MQ action required codes>.
-    -- Each code references a topic with detailed information, instructions,
-    -- and recommendations for how to resolve the issue and prevent future
-    -- occurrences.
+  { -- | The code you can use to find instructions on the action required to
+    -- resolve your broker issue.
     actionRequiredCode :: Prelude.Maybe Prelude.Text,
-    -- | Information about the action required to resolve your broker issue when
-    -- the broker is in a CRITICAL_ACTION_REQUIRED state.
+    -- | Information about the action required to resolve your broker issue.
     actionRequiredInfo :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,16 +44,10 @@ data ActionRequired = ActionRequired'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionRequiredCode', 'actionRequired_actionRequiredCode' - The code you can use to resolve your broker issue when the broker is in
--- a CRITICAL_ACTION_REQUIRED state. You can find instructions by choosing
--- the link for your code from the list of action required codes in
--- <https://docs.aws.amazon.com//latest/developer-guide/troubleshooting-action-required-codes.html Amazon MQ action required codes>.
--- Each code references a topic with detailed information, instructions,
--- and recommendations for how to resolve the issue and prevent future
--- occurrences.
+-- 'actionRequiredCode', 'actionRequired_actionRequiredCode' - The code you can use to find instructions on the action required to
+-- resolve your broker issue.
 --
--- 'actionRequiredInfo', 'actionRequired_actionRequiredInfo' - Information about the action required to resolve your broker issue when
--- the broker is in a CRITICAL_ACTION_REQUIRED state.
+-- 'actionRequiredInfo', 'actionRequired_actionRequiredInfo' - Information about the action required to resolve your broker issue.
 newActionRequired ::
   ActionRequired
 newActionRequired =
@@ -70,18 +57,12 @@ newActionRequired =
       actionRequiredInfo = Prelude.Nothing
     }
 
--- | The code you can use to resolve your broker issue when the broker is in
--- a CRITICAL_ACTION_REQUIRED state. You can find instructions by choosing
--- the link for your code from the list of action required codes in
--- <https://docs.aws.amazon.com//latest/developer-guide/troubleshooting-action-required-codes.html Amazon MQ action required codes>.
--- Each code references a topic with detailed information, instructions,
--- and recommendations for how to resolve the issue and prevent future
--- occurrences.
+-- | The code you can use to find instructions on the action required to
+-- resolve your broker issue.
 actionRequired_actionRequiredCode :: Lens.Lens' ActionRequired (Prelude.Maybe Prelude.Text)
 actionRequired_actionRequiredCode = Lens.lens (\ActionRequired' {actionRequiredCode} -> actionRequiredCode) (\s@ActionRequired' {} a -> s {actionRequiredCode = a} :: ActionRequired)
 
--- | Information about the action required to resolve your broker issue when
--- the broker is in a CRITICAL_ACTION_REQUIRED state.
+-- | Information about the action required to resolve your broker issue.
 actionRequired_actionRequiredInfo :: Lens.Lens' ActionRequired (Prelude.Maybe Prelude.Text)
 actionRequired_actionRequiredInfo = Lens.lens (\ActionRequired' {actionRequiredInfo} -> actionRequiredInfo) (\s@ActionRequired' {} a -> s {actionRequiredInfo = a} :: ActionRequired)
 
@@ -97,7 +78,8 @@ instance Data.FromJSON ActionRequired where
 
 instance Prelude.Hashable ActionRequired where
   hashWithSalt _salt ActionRequired' {..} =
-    _salt `Prelude.hashWithSalt` actionRequiredCode
+    _salt
+      `Prelude.hashWithSalt` actionRequiredCode
       `Prelude.hashWithSalt` actionRequiredInfo
 
 instance Prelude.NFData ActionRequired where

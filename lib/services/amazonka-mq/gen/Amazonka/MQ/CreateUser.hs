@@ -21,6 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an ActiveMQ user.
+--
+-- Do not add personally identifiable information (PII) or other
+-- confidential or sensitive information in broker usernames. Broker
+-- usernames are accessible to other Amazon Web Services services,
+-- including CloudWatch Logs. Broker usernames are not intended to be used
+-- for private or sensitive data.
 module Amazonka.MQ.CreateUser
   ( -- * Creating a Request
     CreateUser (..),
@@ -29,6 +35,7 @@ module Amazonka.MQ.CreateUser
     -- * Request Lenses
     createUser_consoleAccess,
     createUser_groups,
+    createUser_replicationUser,
     createUser_username,
     createUser_brokerId,
     createUser_password,
@@ -61,6 +68,8 @@ data CreateUser = CreateUser'
     -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
     -- long.
     groups :: Prelude.Maybe [Prelude.Text],
+    -- | Defines if this user is intended for CRDR replication purposes.
+    replicationUser :: Prelude.Maybe Prelude.Bool,
     -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
@@ -89,6 +98,8 @@ data CreateUser = CreateUser'
 -- underscores, and tildes (- . _ ~). This value must be 2-100 characters
 -- long.
 --
+-- 'replicationUser', 'createUser_replicationUser' - Defines if this user is intended for CRDR replication purposes.
+--
 -- 'username', 'createUser_username' - The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
@@ -110,6 +121,7 @@ newCreateUser pUsername_ pBrokerId_ pPassword_ =
   CreateUser'
     { consoleAccess = Prelude.Nothing,
       groups = Prelude.Nothing,
+      replicationUser = Prelude.Nothing,
       username = pUsername_,
       brokerId = pBrokerId_,
       password = pPassword_
@@ -125,6 +137,10 @@ createUser_consoleAccess = Lens.lens (\CreateUser' {consoleAccess} -> consoleAcc
 -- long.
 createUser_groups :: Lens.Lens' CreateUser (Prelude.Maybe [Prelude.Text])
 createUser_groups = Lens.lens (\CreateUser' {groups} -> groups) (\s@CreateUser' {} a -> s {groups = a} :: CreateUser) Prelude.. Lens.mapping Lens.coerced
+
+-- | Defines if this user is intended for CRDR replication purposes.
+createUser_replicationUser :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Bool)
+createUser_replicationUser = Lens.lens (\CreateUser' {replicationUser} -> replicationUser) (\s@CreateUser' {} a -> s {replicationUser = a} :: CreateUser)
 
 -- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
@@ -155,8 +171,10 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` consoleAccess
+    _salt
+      `Prelude.hashWithSalt` consoleAccess
       `Prelude.hashWithSalt` groups
+      `Prelude.hashWithSalt` replicationUser
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId
       `Prelude.hashWithSalt` password
@@ -165,6 +183,7 @@ instance Prelude.NFData CreateUser where
   rnf CreateUser' {..} =
     Prelude.rnf consoleAccess
       `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf replicationUser
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf brokerId
       `Prelude.seq` Prelude.rnf password
@@ -186,6 +205,8 @@ instance Data.ToJSON CreateUser where
       ( Prelude.catMaybes
           [ ("consoleAccess" Data..=) Prelude.<$> consoleAccess,
             ("groups" Data..=) Prelude.<$> groups,
+            ("replicationUser" Data..=)
+              Prelude.<$> replicationUser,
             Prelude.Just ("password" Data..= password)
           ]
       )

@@ -172,7 +172,8 @@ instance Core.AWSRequest CreateConfiguration where
 
 instance Prelude.Hashable CreateConfiguration where
   hashWithSalt _salt CreateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authenticationStrategy
+    _salt
+      `Prelude.hashWithSalt` authenticationStrategy
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` engineType

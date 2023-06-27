@@ -125,7 +125,8 @@ instance Core.AWSRequest ListConfigurationRevisions where
 
 instance Prelude.Hashable ListConfigurationRevisions where
   hashWithSalt _salt ListConfigurationRevisions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` configurationId
 

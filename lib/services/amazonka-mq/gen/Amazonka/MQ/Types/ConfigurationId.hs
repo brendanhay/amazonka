@@ -26,8 +26,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A list of information about the configuration.
 --
--- Does not apply to RabbitMQ brokers.
---
 -- /See:/ 'newConfigurationId' smart constructor.
 data ConfigurationId = ConfigurationId'
   { -- | The revision number of the configuration.
@@ -72,12 +70,14 @@ instance Data.FromJSON ConfigurationId where
       "ConfigurationId"
       ( \x ->
           ConfigurationId'
-            Prelude.<$> (x Data..:? "revision") Prelude.<*> (x Data..: "id")
+            Prelude.<$> (x Data..:? "revision")
+            Prelude.<*> (x Data..: "id")
       )
 
 instance Prelude.Hashable ConfigurationId where
   hashWithSalt _salt ConfigurationId' {..} =
-    _salt `Prelude.hashWithSalt` revision
+    _salt
+      `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData ConfigurationId where

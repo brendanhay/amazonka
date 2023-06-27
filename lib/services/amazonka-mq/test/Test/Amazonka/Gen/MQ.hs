@@ -81,6 +81,9 @@ import Test.Tasty
 --         , requestListUsers $
 --             newListUsers
 --
+--         , requestPromote $
+--             newPromote
+--
 --         , requestRebootBroker $
 --             newRebootBroker
 --
@@ -149,6 +152,9 @@ import Test.Tasty
 --
 --         , responseListUsers $
 --             newListUsersResponse
+--
+--         , responsePromote $
+--             newPromoteResponse
 --
 --         , responseRebootBroker $
 --             newRebootBrokerResponse
@@ -274,6 +280,12 @@ requestListUsers =
   req
     "ListUsers"
     "fixture/ListUsers.yaml"
+
+requestPromote :: Promote -> TestTree
+requestPromote =
+  req
+    "Promote"
+    "fixture/Promote.yaml"
 
 requestRebootBroker :: RebootBroker -> TestTree
 requestRebootBroker =
@@ -444,6 +456,14 @@ responseListUsers =
     "fixture/ListUsersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListUsers)
+
+responsePromote :: PromoteResponse -> TestTree
+responsePromote =
+  res
+    "PromoteResponse"
+    "fixture/PromoteResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy Promote)
 
 responseRebootBroker :: RebootBrokerResponse -> TestTree
 responseRebootBroker =

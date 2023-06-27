@@ -78,7 +78,8 @@ instance Data.FromJSON Logs where
 
 instance Prelude.Hashable Logs where
   hashWithSalt _salt Logs' {..} =
-    _salt `Prelude.hashWithSalt` audit
+    _salt
+      `Prelude.hashWithSalt` audit
       `Prelude.hashWithSalt` general
 
 instance Prelude.NFData Logs where

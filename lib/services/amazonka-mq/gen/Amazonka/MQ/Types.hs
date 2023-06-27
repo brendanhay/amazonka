@@ -37,6 +37,9 @@ module Amazonka.MQ.Types
     -- * ChangeType
     ChangeType (..),
 
+    -- * DataReplicationMode
+    DataReplicationMode (..),
+
     -- * DayOfWeek
     DayOfWeek (..),
 
@@ -45,6 +48,9 @@ module Amazonka.MQ.Types
 
     -- * EngineType
     EngineType (..),
+
+    -- * PromoteMode
+    PromoteMode (..),
 
     -- * SanitizationWarningReason
     SanitizationWarningReason (..),
@@ -129,6 +135,18 @@ module Amazonka.MQ.Types
     configurations_history,
     configurations_pending,
 
+    -- * DataReplicationCounterpart
+    DataReplicationCounterpart (..),
+    newDataReplicationCounterpart,
+    dataReplicationCounterpart_brokerId,
+    dataReplicationCounterpart_region,
+
+    -- * DataReplicationMetadataOutput
+    DataReplicationMetadataOutput (..),
+    newDataReplicationMetadataOutput,
+    dataReplicationMetadataOutput_dataReplicationCounterpart,
+    dataReplicationMetadataOutput_dataReplicationRole,
+
     -- * EncryptionOptions
     EncryptionOptions (..),
     newEncryptionOptions,
@@ -202,6 +220,7 @@ module Amazonka.MQ.Types
     newUser,
     user_consoleAccess,
     user_groups,
+    user_replicationUser,
     user_username,
     user_password,
 
@@ -243,6 +262,9 @@ import Amazonka.MQ.Types.Configuration
 import Amazonka.MQ.Types.ConfigurationId
 import Amazonka.MQ.Types.ConfigurationRevision
 import Amazonka.MQ.Types.Configurations
+import Amazonka.MQ.Types.DataReplicationCounterpart
+import Amazonka.MQ.Types.DataReplicationMetadataOutput
+import Amazonka.MQ.Types.DataReplicationMode
 import Amazonka.MQ.Types.DayOfWeek
 import Amazonka.MQ.Types.DeploymentMode
 import Amazonka.MQ.Types.EncryptionOptions
@@ -253,6 +275,7 @@ import Amazonka.MQ.Types.LdapServerMetadataOutput
 import Amazonka.MQ.Types.Logs
 import Amazonka.MQ.Types.LogsSummary
 import Amazonka.MQ.Types.PendingLogs
+import Amazonka.MQ.Types.PromoteMode
 import Amazonka.MQ.Types.SanitizationWarning
 import Amazonka.MQ.Types.SanitizationWarningReason
 import Amazonka.MQ.Types.User
@@ -288,52 +311,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Returns information about an error.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -341,7 +364,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Returns information about an error.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -349,7 +372,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Returns information about an error.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -357,7 +380,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | Returns information about an error.
-_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -365,7 +388,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | Returns information about an error.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -373,7 +396,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Returns information about an error.
-_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

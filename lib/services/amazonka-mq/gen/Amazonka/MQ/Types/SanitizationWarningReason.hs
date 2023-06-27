@@ -31,7 +31,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The reason for which the XML elements or attributes were sanitized.
+-- | The reason for which the configuration elements or attributes were
+-- sanitized.
 newtype SanitizationWarningReason = SanitizationWarningReason'
   { fromSanitizationWarningReason ::
       Data.Text

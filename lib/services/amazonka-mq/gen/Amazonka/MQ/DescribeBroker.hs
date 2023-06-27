@@ -44,6 +44,8 @@ module Amazonka.MQ.DescribeBroker
     describeBrokerResponse_brokerState,
     describeBrokerResponse_configurations,
     describeBrokerResponse_created,
+    describeBrokerResponse_dataReplicationMetadata,
+    describeBrokerResponse_dataReplicationMode,
     describeBrokerResponse_deploymentMode,
     describeBrokerResponse_encryptionOptions,
     describeBrokerResponse_engineType,
@@ -53,6 +55,8 @@ module Amazonka.MQ.DescribeBroker
     describeBrokerResponse_logs,
     describeBrokerResponse_maintenanceWindowStartTime,
     describeBrokerResponse_pendingAuthenticationStrategy,
+    describeBrokerResponse_pendingDataReplicationMetadata,
+    describeBrokerResponse_pendingDataReplicationMode,
     describeBrokerResponse_pendingEngineVersion,
     describeBrokerResponse_pendingHostInstanceType,
     describeBrokerResponse_pendingLdapServerMetadata,
@@ -112,20 +116,24 @@ instance Core.AWSRequest DescribeBroker where
     Response.receiveJSON
       ( \s h x ->
           DescribeBrokerResponse'
-            Prelude.<$> ( x Data..?> "actionsRequired"
+            Prelude.<$> ( x
+                            Data..?> "actionsRequired"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "authenticationStrategy")
             Prelude.<*> (x Data..?> "autoMinorVersionUpgrade")
             Prelude.<*> (x Data..?> "brokerArn")
             Prelude.<*> (x Data..?> "brokerId")
-            Prelude.<*> ( x Data..?> "brokerInstances"
+            Prelude.<*> ( x
+                            Data..?> "brokerInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "brokerName")
             Prelude.<*> (x Data..?> "brokerState")
             Prelude.<*> (x Data..?> "configurations")
             Prelude.<*> (x Data..?> "created")
+            Prelude.<*> (x Data..?> "dataReplicationMetadata")
+            Prelude.<*> (x Data..?> "dataReplicationMode")
             Prelude.<*> (x Data..?> "deploymentMode")
             Prelude.<*> (x Data..?> "encryptionOptions")
             Prelude.<*> (x Data..?> "engineType")
@@ -135,10 +143,13 @@ instance Core.AWSRequest DescribeBroker where
             Prelude.<*> (x Data..?> "logs")
             Prelude.<*> (x Data..?> "maintenanceWindowStartTime")
             Prelude.<*> (x Data..?> "pendingAuthenticationStrategy")
+            Prelude.<*> (x Data..?> "pendingDataReplicationMetadata")
+            Prelude.<*> (x Data..?> "pendingDataReplicationMode")
             Prelude.<*> (x Data..?> "pendingEngineVersion")
             Prelude.<*> (x Data..?> "pendingHostInstanceType")
             Prelude.<*> (x Data..?> "pendingLdapServerMetadata")
-            Prelude.<*> ( x Data..?> "pendingSecurityGroups"
+            Prelude.<*> ( x
+                            Data..?> "pendingSecurityGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "publiclyAccessible")
@@ -178,7 +189,7 @@ instance Data.ToQuery DescribeBroker where
 
 -- | /See:/ 'newDescribeBrokerResponse' smart constructor.
 data DescribeBrokerResponse = DescribeBrokerResponse'
-  { -- | A list of actions required for a broker.
+  { -- | Actions required for a broker.
     actionsRequired :: Prelude.Maybe [ActionRequired],
     -- | The authentication strategy used to secure the broker. The default is
     -- SIMPLE.
@@ -194,10 +205,10 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
     brokerId :: Prelude.Maybe Prelude.Text,
     -- | A list of information about allocated brokers.
     brokerInstances :: Prelude.Maybe [BrokerInstance],
-    -- | The broker\'s name. This value must be unique in your AWS account, 1-50
-    -- characters long, must contain only letters, numbers, dashes, and
-    -- underscores, and must not contain white spaces, brackets, wildcard
-    -- characters, or special characters.
+    -- | The broker\'s name. This value must be unique in your Amazon Web
+    -- Services account account, 1-50 characters long, must contain only
+    -- letters, numbers, dashes, and underscores, and must not contain white
+    -- spaces, brackets, wildcard characters, or special characters.
     brokerName :: Prelude.Maybe Prelude.Text,
     -- | The broker\'s status.
     brokerState :: Prelude.Maybe BrokerState,
@@ -205,9 +216,14 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
     configurations :: Prelude.Maybe Configurations,
     -- | The time when the broker was created.
     created :: Prelude.Maybe Data.ISO8601,
+    -- | The replication details of the data replication-enabled broker. Only
+    -- returned if dataReplicationMode is set to CRDR.
+    dataReplicationMetadata :: Prelude.Maybe DataReplicationMetadataOutput,
+    -- | Describes whether this broker is a part of a data replication pair.
+    dataReplicationMode :: Prelude.Maybe DataReplicationMode,
     -- | The broker\'s deployment mode.
     deploymentMode :: Prelude.Maybe DeploymentMode,
-    -- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
+    -- | Encryption options for the broker.
     encryptionOptions :: Prelude.Maybe EncryptionOptions,
     -- | The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and
     -- RABBITMQ.
@@ -229,6 +245,12 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
     -- | The authentication strategy that will be applied when the broker is
     -- rebooted. The default is SIMPLE.
     pendingAuthenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
+    -- | The pending replication details of the data replication-enabled broker.
+    -- Only returned if pendingDataReplicationMode is set to CRDR.
+    pendingDataReplicationMetadata :: Prelude.Maybe DataReplicationMetadataOutput,
+    -- | Describes whether this broker will be a part of a data replication pair
+    -- after reboot.
+    pendingDataReplicationMode :: Prelude.Maybe DataReplicationMode,
     -- | The broker engine version to upgrade to. For a list of supported engine
     -- versions, see
     -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
@@ -270,7 +292,7 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'actionsRequired', 'describeBrokerResponse_actionsRequired' - A list of actions required for a broker.
+-- 'actionsRequired', 'describeBrokerResponse_actionsRequired' - Actions required for a broker.
 --
 -- 'authenticationStrategy', 'describeBrokerResponse_authenticationStrategy' - The authentication strategy used to secure the broker. The default is
 -- SIMPLE.
@@ -286,10 +308,10 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 --
 -- 'brokerInstances', 'describeBrokerResponse_brokerInstances' - A list of information about allocated brokers.
 --
--- 'brokerName', 'describeBrokerResponse_brokerName' - The broker\'s name. This value must be unique in your AWS account, 1-50
--- characters long, must contain only letters, numbers, dashes, and
--- underscores, and must not contain white spaces, brackets, wildcard
--- characters, or special characters.
+-- 'brokerName', 'describeBrokerResponse_brokerName' - The broker\'s name. This value must be unique in your Amazon Web
+-- Services account account, 1-50 characters long, must contain only
+-- letters, numbers, dashes, and underscores, and must not contain white
+-- spaces, brackets, wildcard characters, or special characters.
 --
 -- 'brokerState', 'describeBrokerResponse_brokerState' - The broker\'s status.
 --
@@ -297,9 +319,14 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 --
 -- 'created', 'describeBrokerResponse_created' - The time when the broker was created.
 --
+-- 'dataReplicationMetadata', 'describeBrokerResponse_dataReplicationMetadata' - The replication details of the data replication-enabled broker. Only
+-- returned if dataReplicationMode is set to CRDR.
+--
+-- 'dataReplicationMode', 'describeBrokerResponse_dataReplicationMode' - Describes whether this broker is a part of a data replication pair.
+--
 -- 'deploymentMode', 'describeBrokerResponse_deploymentMode' - The broker\'s deployment mode.
 --
--- 'encryptionOptions', 'describeBrokerResponse_encryptionOptions' - Encryption options for the broker. Does not apply to RabbitMQ brokers.
+-- 'encryptionOptions', 'describeBrokerResponse_encryptionOptions' - Encryption options for the broker.
 --
 -- 'engineType', 'describeBrokerResponse_engineType' - The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and
 -- RABBITMQ.
@@ -320,6 +347,12 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 --
 -- 'pendingAuthenticationStrategy', 'describeBrokerResponse_pendingAuthenticationStrategy' - The authentication strategy that will be applied when the broker is
 -- rebooted. The default is SIMPLE.
+--
+-- 'pendingDataReplicationMetadata', 'describeBrokerResponse_pendingDataReplicationMetadata' - The pending replication details of the data replication-enabled broker.
+-- Only returned if pendingDataReplicationMode is set to CRDR.
+--
+-- 'pendingDataReplicationMode', 'describeBrokerResponse_pendingDataReplicationMode' - Describes whether this broker will be a part of a data replication pair
+-- after reboot.
 --
 -- 'pendingEngineVersion', 'describeBrokerResponse_pendingEngineVersion' - The broker engine version to upgrade to. For a list of supported engine
 -- versions, see
@@ -367,6 +400,8 @@ newDescribeBrokerResponse pHttpStatus_ =
       brokerState = Prelude.Nothing,
       configurations = Prelude.Nothing,
       created = Prelude.Nothing,
+      dataReplicationMetadata = Prelude.Nothing,
+      dataReplicationMode = Prelude.Nothing,
       deploymentMode = Prelude.Nothing,
       encryptionOptions = Prelude.Nothing,
       engineType = Prelude.Nothing,
@@ -376,6 +411,8 @@ newDescribeBrokerResponse pHttpStatus_ =
       logs = Prelude.Nothing,
       maintenanceWindowStartTime = Prelude.Nothing,
       pendingAuthenticationStrategy = Prelude.Nothing,
+      pendingDataReplicationMetadata = Prelude.Nothing,
+      pendingDataReplicationMode = Prelude.Nothing,
       pendingEngineVersion = Prelude.Nothing,
       pendingHostInstanceType = Prelude.Nothing,
       pendingLdapServerMetadata = Prelude.Nothing,
@@ -389,7 +426,7 @@ newDescribeBrokerResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of actions required for a broker.
+-- | Actions required for a broker.
 describeBrokerResponse_actionsRequired :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [ActionRequired])
 describeBrokerResponse_actionsRequired = Lens.lens (\DescribeBrokerResponse' {actionsRequired} -> actionsRequired) (\s@DescribeBrokerResponse' {} a -> s {actionsRequired = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -417,10 +454,10 @@ describeBrokerResponse_brokerId = Lens.lens (\DescribeBrokerResponse' {brokerId}
 describeBrokerResponse_brokerInstances :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [BrokerInstance])
 describeBrokerResponse_brokerInstances = Lens.lens (\DescribeBrokerResponse' {brokerInstances} -> brokerInstances) (\s@DescribeBrokerResponse' {} a -> s {brokerInstances = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The broker\'s name. This value must be unique in your AWS account, 1-50
--- characters long, must contain only letters, numbers, dashes, and
--- underscores, and must not contain white spaces, brackets, wildcard
--- characters, or special characters.
+-- | The broker\'s name. This value must be unique in your Amazon Web
+-- Services account account, 1-50 characters long, must contain only
+-- letters, numbers, dashes, and underscores, and must not contain white
+-- spaces, brackets, wildcard characters, or special characters.
 describeBrokerResponse_brokerName :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_brokerName = Lens.lens (\DescribeBrokerResponse' {brokerName} -> brokerName) (\s@DescribeBrokerResponse' {} a -> s {brokerName = a} :: DescribeBrokerResponse)
 
@@ -436,11 +473,20 @@ describeBrokerResponse_configurations = Lens.lens (\DescribeBrokerResponse' {con
 describeBrokerResponse_created :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.UTCTime)
 describeBrokerResponse_created = Lens.lens (\DescribeBrokerResponse' {created} -> created) (\s@DescribeBrokerResponse' {} a -> s {created = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Data._Time
 
+-- | The replication details of the data replication-enabled broker. Only
+-- returned if dataReplicationMode is set to CRDR.
+describeBrokerResponse_dataReplicationMetadata :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe DataReplicationMetadataOutput)
+describeBrokerResponse_dataReplicationMetadata = Lens.lens (\DescribeBrokerResponse' {dataReplicationMetadata} -> dataReplicationMetadata) (\s@DescribeBrokerResponse' {} a -> s {dataReplicationMetadata = a} :: DescribeBrokerResponse)
+
+-- | Describes whether this broker is a part of a data replication pair.
+describeBrokerResponse_dataReplicationMode :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe DataReplicationMode)
+describeBrokerResponse_dataReplicationMode = Lens.lens (\DescribeBrokerResponse' {dataReplicationMode} -> dataReplicationMode) (\s@DescribeBrokerResponse' {} a -> s {dataReplicationMode = a} :: DescribeBrokerResponse)
+
 -- | The broker\'s deployment mode.
 describeBrokerResponse_deploymentMode :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe DeploymentMode)
 describeBrokerResponse_deploymentMode = Lens.lens (\DescribeBrokerResponse' {deploymentMode} -> deploymentMode) (\s@DescribeBrokerResponse' {} a -> s {deploymentMode = a} :: DescribeBrokerResponse)
 
--- | Encryption options for the broker. Does not apply to RabbitMQ brokers.
+-- | Encryption options for the broker.
 describeBrokerResponse_encryptionOptions :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe EncryptionOptions)
 describeBrokerResponse_encryptionOptions = Lens.lens (\DescribeBrokerResponse' {encryptionOptions} -> encryptionOptions) (\s@DescribeBrokerResponse' {} a -> s {encryptionOptions = a} :: DescribeBrokerResponse)
 
@@ -477,6 +523,16 @@ describeBrokerResponse_maintenanceWindowStartTime = Lens.lens (\DescribeBrokerRe
 -- rebooted. The default is SIMPLE.
 describeBrokerResponse_pendingAuthenticationStrategy :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe AuthenticationStrategy)
 describeBrokerResponse_pendingAuthenticationStrategy = Lens.lens (\DescribeBrokerResponse' {pendingAuthenticationStrategy} -> pendingAuthenticationStrategy) (\s@DescribeBrokerResponse' {} a -> s {pendingAuthenticationStrategy = a} :: DescribeBrokerResponse)
+
+-- | The pending replication details of the data replication-enabled broker.
+-- Only returned if pendingDataReplicationMode is set to CRDR.
+describeBrokerResponse_pendingDataReplicationMetadata :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe DataReplicationMetadataOutput)
+describeBrokerResponse_pendingDataReplicationMetadata = Lens.lens (\DescribeBrokerResponse' {pendingDataReplicationMetadata} -> pendingDataReplicationMetadata) (\s@DescribeBrokerResponse' {} a -> s {pendingDataReplicationMetadata = a} :: DescribeBrokerResponse)
+
+-- | Describes whether this broker will be a part of a data replication pair
+-- after reboot.
+describeBrokerResponse_pendingDataReplicationMode :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe DataReplicationMode)
+describeBrokerResponse_pendingDataReplicationMode = Lens.lens (\DescribeBrokerResponse' {pendingDataReplicationMode} -> pendingDataReplicationMode) (\s@DescribeBrokerResponse' {} a -> s {pendingDataReplicationMode = a} :: DescribeBrokerResponse)
 
 -- | The broker engine version to upgrade to. For a list of supported engine
 -- versions, see
@@ -542,6 +598,8 @@ instance Prelude.NFData DescribeBrokerResponse where
       `Prelude.seq` Prelude.rnf brokerState
       `Prelude.seq` Prelude.rnf configurations
       `Prelude.seq` Prelude.rnf created
+      `Prelude.seq` Prelude.rnf dataReplicationMetadata
+      `Prelude.seq` Prelude.rnf dataReplicationMode
       `Prelude.seq` Prelude.rnf deploymentMode
       `Prelude.seq` Prelude.rnf encryptionOptions
       `Prelude.seq` Prelude.rnf engineType
@@ -553,6 +611,10 @@ instance Prelude.NFData DescribeBrokerResponse where
         maintenanceWindowStartTime
       `Prelude.seq` Prelude.rnf
         pendingAuthenticationStrategy
+      `Prelude.seq` Prelude.rnf
+        pendingDataReplicationMetadata
+      `Prelude.seq` Prelude.rnf
+        pendingDataReplicationMode
       `Prelude.seq` Prelude.rnf
         pendingEngineVersion
       `Prelude.seq` Prelude.rnf

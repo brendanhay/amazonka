@@ -39,6 +39,7 @@ module Amazonka.MQ.DescribeUser
     describeUserResponse_consoleAccess,
     describeUserResponse_groups,
     describeUserResponse_pending,
+    describeUserResponse_replicationUser,
     describeUserResponse_username,
     describeUserResponse_httpStatus,
   )
@@ -110,13 +111,15 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (x Data..?> "consoleAccess")
             Prelude.<*> (x Data..?> "groups" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "pending")
+            Prelude.<*> (x Data..?> "replicationUser")
             Prelude.<*> (x Data..?> "username")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =
-    _salt `Prelude.hashWithSalt` username
+    _salt
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` brokerId
 
 instance Prelude.NFData DescribeUser where
@@ -160,6 +163,8 @@ data DescribeUserResponse = DescribeUserResponse'
     groups :: Prelude.Maybe [Prelude.Text],
     -- | The status of the changes pending for the ActiveMQ user.
     pending :: Prelude.Maybe UserPendingChanges,
+    -- | Describes whether the user is intended for data replication
+    replicationUser :: Prelude.Maybe Prelude.Bool,
     -- | Required. The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
@@ -188,6 +193,8 @@ data DescribeUserResponse = DescribeUserResponse'
 --
 -- 'pending', 'describeUserResponse_pending' - The status of the changes pending for the ActiveMQ user.
 --
+-- 'replicationUser', 'describeUserResponse_replicationUser' - Describes whether the user is intended for data replication
+--
 -- 'username', 'describeUserResponse_username' - Required. The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
@@ -203,6 +210,7 @@ newDescribeUserResponse pHttpStatus_ =
       consoleAccess = Prelude.Nothing,
       groups = Prelude.Nothing,
       pending = Prelude.Nothing,
+      replicationUser = Prelude.Nothing,
       username = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -226,6 +234,10 @@ describeUserResponse_groups = Lens.lens (\DescribeUserResponse' {groups} -> grou
 describeUserResponse_pending :: Lens.Lens' DescribeUserResponse (Prelude.Maybe UserPendingChanges)
 describeUserResponse_pending = Lens.lens (\DescribeUserResponse' {pending} -> pending) (\s@DescribeUserResponse' {} a -> s {pending = a} :: DescribeUserResponse)
 
+-- | Describes whether the user is intended for data replication
+describeUserResponse_replicationUser :: Lens.Lens' DescribeUserResponse (Prelude.Maybe Prelude.Bool)
+describeUserResponse_replicationUser = Lens.lens (\DescribeUserResponse' {replicationUser} -> replicationUser) (\s@DescribeUserResponse' {} a -> s {replicationUser = a} :: DescribeUserResponse)
+
 -- | Required. The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
@@ -242,5 +254,6 @@ instance Prelude.NFData DescribeUserResponse where
       `Prelude.seq` Prelude.rnf consoleAccess
       `Prelude.seq` Prelude.rnf groups
       `Prelude.seq` Prelude.rnf pending
+      `Prelude.seq` Prelude.rnf replicationUser
       `Prelude.seq` Prelude.rnf username
       `Prelude.seq` Prelude.rnf httpStatus

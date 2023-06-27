@@ -30,6 +30,7 @@ module Amazonka.MQ.UpdateBroker
     updateBroker_authenticationStrategy,
     updateBroker_autoMinorVersionUpgrade,
     updateBroker_configuration,
+    updateBroker_dataReplicationMode,
     updateBroker_engineVersion,
     updateBroker_hostInstanceType,
     updateBroker_ldapServerMetadata,
@@ -47,11 +48,15 @@ module Amazonka.MQ.UpdateBroker
     updateBrokerResponse_autoMinorVersionUpgrade,
     updateBrokerResponse_brokerId,
     updateBrokerResponse_configuration,
+    updateBrokerResponse_dataReplicationMetadata,
+    updateBrokerResponse_dataReplicationMode,
     updateBrokerResponse_engineVersion,
     updateBrokerResponse_hostInstanceType,
     updateBrokerResponse_ldapServerMetadata,
     updateBrokerResponse_logs,
     updateBrokerResponse_maintenanceWindowStartTime,
+    updateBrokerResponse_pendingDataReplicationMetadata,
+    updateBrokerResponse_pendingDataReplicationMode,
     updateBrokerResponse_securityGroups,
     updateBrokerResponse_httpStatus,
   )
@@ -79,6 +84,8 @@ data UpdateBroker = UpdateBroker'
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | A list of information about the configuration.
     configuration :: Prelude.Maybe ConfigurationId,
+    -- | Defines whether this broker is a part of a data replication pair.
+    dataReplicationMode :: Prelude.Maybe DataReplicationMode,
     -- | The broker engine version. For a list of supported engine versions, see
     -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
     engineVersion :: Prelude.Maybe Prelude.Text,
@@ -119,6 +126,8 @@ data UpdateBroker = UpdateBroker'
 --
 -- 'configuration', 'updateBroker_configuration' - A list of information about the configuration.
 --
+-- 'dataReplicationMode', 'updateBroker_dataReplicationMode' - Defines whether this broker is a part of a data replication pair.
+--
 -- 'engineVersion', 'updateBroker_engineVersion' - The broker engine version. For a list of supported engine versions, see
 -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
 --
@@ -147,6 +156,7 @@ newUpdateBroker pBrokerId_ =
         Prelude.Nothing,
       autoMinorVersionUpgrade = Prelude.Nothing,
       configuration = Prelude.Nothing,
+      dataReplicationMode = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing,
       ldapServerMetadata = Prelude.Nothing,
@@ -171,6 +181,10 @@ updateBroker_autoMinorVersionUpgrade = Lens.lens (\UpdateBroker' {autoMinorVersi
 -- | A list of information about the configuration.
 updateBroker_configuration :: Lens.Lens' UpdateBroker (Prelude.Maybe ConfigurationId)
 updateBroker_configuration = Lens.lens (\UpdateBroker' {configuration} -> configuration) (\s@UpdateBroker' {} a -> s {configuration = a} :: UpdateBroker)
+
+-- | Defines whether this broker is a part of a data replication pair.
+updateBroker_dataReplicationMode :: Lens.Lens' UpdateBroker (Prelude.Maybe DataReplicationMode)
+updateBroker_dataReplicationMode = Lens.lens (\UpdateBroker' {dataReplicationMode} -> dataReplicationMode) (\s@UpdateBroker' {} a -> s {dataReplicationMode = a} :: UpdateBroker)
 
 -- | The broker engine version. For a list of supported engine versions, see
 -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
@@ -217,20 +231,26 @@ instance Core.AWSRequest UpdateBroker where
             Prelude.<*> (x Data..?> "autoMinorVersionUpgrade")
             Prelude.<*> (x Data..?> "brokerId")
             Prelude.<*> (x Data..?> "configuration")
+            Prelude.<*> (x Data..?> "dataReplicationMetadata")
+            Prelude.<*> (x Data..?> "dataReplicationMode")
             Prelude.<*> (x Data..?> "engineVersion")
             Prelude.<*> (x Data..?> "hostInstanceType")
             Prelude.<*> (x Data..?> "ldapServerMetadata")
             Prelude.<*> (x Data..?> "logs")
             Prelude.<*> (x Data..?> "maintenanceWindowStartTime")
+            Prelude.<*> (x Data..?> "pendingDataReplicationMetadata")
+            Prelude.<*> (x Data..?> "pendingDataReplicationMode")
             Prelude.<*> (x Data..?> "securityGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable UpdateBroker where
   hashWithSalt _salt UpdateBroker' {..} =
-    _salt `Prelude.hashWithSalt` authenticationStrategy
+    _salt
+      `Prelude.hashWithSalt` authenticationStrategy
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` configuration
+      `Prelude.hashWithSalt` dataReplicationMode
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` hostInstanceType
       `Prelude.hashWithSalt` ldapServerMetadata
@@ -244,6 +264,7 @@ instance Prelude.NFData UpdateBroker where
     Prelude.rnf authenticationStrategy
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf dataReplicationMode
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf hostInstanceType
       `Prelude.seq` Prelude.rnf ldapServerMetadata
@@ -272,6 +293,8 @@ instance Data.ToJSON UpdateBroker where
             ("autoMinorVersionUpgrade" Data..=)
               Prelude.<$> autoMinorVersionUpgrade,
             ("configuration" Data..=) Prelude.<$> configuration,
+            ("dataReplicationMode" Data..=)
+              Prelude.<$> dataReplicationMode,
             ("engineVersion" Data..=) Prelude.<$> engineVersion,
             ("hostInstanceType" Data..=)
               Prelude.<$> hostInstanceType,
@@ -306,6 +329,11 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
     brokerId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the updated configuration.
     configuration :: Prelude.Maybe ConfigurationId,
+    -- | The replication details of the data replication-enabled broker. Only
+    -- returned if dataReplicationMode is set to CRDR.
+    dataReplicationMetadata :: Prelude.Maybe DataReplicationMetadataOutput,
+    -- | Describes whether this broker is a part of a data replication pair.
+    dataReplicationMode :: Prelude.Maybe DataReplicationMode,
     -- | The broker engine version to upgrade to. For a list of supported engine
     -- versions, see
     -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
@@ -322,6 +350,12 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
     logs :: Prelude.Maybe Logs,
     -- | The parameters that determine the WeeklyStartTime.
     maintenanceWindowStartTime :: Prelude.Maybe WeeklyStartTime,
+    -- | The pending replication details of the data replication-enabled broker.
+    -- Only returned if pendingDataReplicationMode is set to CRDR.
+    pendingDataReplicationMetadata :: Prelude.Maybe DataReplicationMetadataOutput,
+    -- | Describes whether this broker will be a part of a data replication pair
+    -- after reboot.
+    pendingDataReplicationMode :: Prelude.Maybe DataReplicationMode,
     -- | The list of security groups (1 minimum, 5 maximum) that authorizes
     -- connections to brokers.
     securityGroups :: Prelude.Maybe [Prelude.Text],
@@ -349,6 +383,11 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
 --
 -- 'configuration', 'updateBrokerResponse_configuration' - The ID of the updated configuration.
 --
+-- 'dataReplicationMetadata', 'updateBrokerResponse_dataReplicationMetadata' - The replication details of the data replication-enabled broker. Only
+-- returned if dataReplicationMode is set to CRDR.
+--
+-- 'dataReplicationMode', 'updateBrokerResponse_dataReplicationMode' - Describes whether this broker is a part of a data replication pair.
+--
 -- 'engineVersion', 'updateBrokerResponse_engineVersion' - The broker engine version to upgrade to. For a list of supported engine
 -- versions, see
 -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
@@ -365,6 +404,12 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
 --
 -- 'maintenanceWindowStartTime', 'updateBrokerResponse_maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
 --
+-- 'pendingDataReplicationMetadata', 'updateBrokerResponse_pendingDataReplicationMetadata' - The pending replication details of the data replication-enabled broker.
+-- Only returned if pendingDataReplicationMode is set to CRDR.
+--
+-- 'pendingDataReplicationMode', 'updateBrokerResponse_pendingDataReplicationMode' - Describes whether this broker will be a part of a data replication pair
+-- after reboot.
+--
 -- 'securityGroups', 'updateBrokerResponse_securityGroups' - The list of security groups (1 minimum, 5 maximum) that authorizes
 -- connections to brokers.
 --
@@ -380,11 +425,15 @@ newUpdateBrokerResponse pHttpStatus_ =
       autoMinorVersionUpgrade = Prelude.Nothing,
       brokerId = Prelude.Nothing,
       configuration = Prelude.Nothing,
+      dataReplicationMetadata = Prelude.Nothing,
+      dataReplicationMode = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing,
       ldapServerMetadata = Prelude.Nothing,
       logs = Prelude.Nothing,
       maintenanceWindowStartTime = Prelude.Nothing,
+      pendingDataReplicationMetadata = Prelude.Nothing,
+      pendingDataReplicationMode = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -407,6 +456,15 @@ updateBrokerResponse_brokerId = Lens.lens (\UpdateBrokerResponse' {brokerId} -> 
 -- | The ID of the updated configuration.
 updateBrokerResponse_configuration :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe ConfigurationId)
 updateBrokerResponse_configuration = Lens.lens (\UpdateBrokerResponse' {configuration} -> configuration) (\s@UpdateBrokerResponse' {} a -> s {configuration = a} :: UpdateBrokerResponse)
+
+-- | The replication details of the data replication-enabled broker. Only
+-- returned if dataReplicationMode is set to CRDR.
+updateBrokerResponse_dataReplicationMetadata :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe DataReplicationMetadataOutput)
+updateBrokerResponse_dataReplicationMetadata = Lens.lens (\UpdateBrokerResponse' {dataReplicationMetadata} -> dataReplicationMetadata) (\s@UpdateBrokerResponse' {} a -> s {dataReplicationMetadata = a} :: UpdateBrokerResponse)
+
+-- | Describes whether this broker is a part of a data replication pair.
+updateBrokerResponse_dataReplicationMode :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe DataReplicationMode)
+updateBrokerResponse_dataReplicationMode = Lens.lens (\UpdateBrokerResponse' {dataReplicationMode} -> dataReplicationMode) (\s@UpdateBrokerResponse' {} a -> s {dataReplicationMode = a} :: UpdateBrokerResponse)
 
 -- | The broker engine version to upgrade to. For a list of supported engine
 -- versions, see
@@ -434,6 +492,16 @@ updateBrokerResponse_logs = Lens.lens (\UpdateBrokerResponse' {logs} -> logs) (\
 updateBrokerResponse_maintenanceWindowStartTime :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe WeeklyStartTime)
 updateBrokerResponse_maintenanceWindowStartTime = Lens.lens (\UpdateBrokerResponse' {maintenanceWindowStartTime} -> maintenanceWindowStartTime) (\s@UpdateBrokerResponse' {} a -> s {maintenanceWindowStartTime = a} :: UpdateBrokerResponse)
 
+-- | The pending replication details of the data replication-enabled broker.
+-- Only returned if pendingDataReplicationMode is set to CRDR.
+updateBrokerResponse_pendingDataReplicationMetadata :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe DataReplicationMetadataOutput)
+updateBrokerResponse_pendingDataReplicationMetadata = Lens.lens (\UpdateBrokerResponse' {pendingDataReplicationMetadata} -> pendingDataReplicationMetadata) (\s@UpdateBrokerResponse' {} a -> s {pendingDataReplicationMetadata = a} :: UpdateBrokerResponse)
+
+-- | Describes whether this broker will be a part of a data replication pair
+-- after reboot.
+updateBrokerResponse_pendingDataReplicationMode :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe DataReplicationMode)
+updateBrokerResponse_pendingDataReplicationMode = Lens.lens (\UpdateBrokerResponse' {pendingDataReplicationMode} -> pendingDataReplicationMode) (\s@UpdateBrokerResponse' {} a -> s {pendingDataReplicationMode = a} :: UpdateBrokerResponse)
+
 -- | The list of security groups (1 minimum, 5 maximum) that authorizes
 -- connections to brokers.
 updateBrokerResponse_securityGroups :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe [Prelude.Text])
@@ -449,10 +517,14 @@ instance Prelude.NFData UpdateBrokerResponse where
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
       `Prelude.seq` Prelude.rnf brokerId
       `Prelude.seq` Prelude.rnf configuration
+      `Prelude.seq` Prelude.rnf dataReplicationMetadata
+      `Prelude.seq` Prelude.rnf dataReplicationMode
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf hostInstanceType
       `Prelude.seq` Prelude.rnf ldapServerMetadata
       `Prelude.seq` Prelude.rnf logs
       `Prelude.seq` Prelude.rnf maintenanceWindowStartTime
+      `Prelude.seq` Prelude.rnf pendingDataReplicationMetadata
+      `Prelude.seq` Prelude.rnf pendingDataReplicationMode
       `Prelude.seq` Prelude.rnf securityGroups
       `Prelude.seq` Prelude.rnf httpStatus

@@ -25,6 +25,7 @@ module Amazonka.MQ.Types.BrokerState
         BrokerState_CRITICAL_ACTION_REQUIRED,
         BrokerState_DELETION_IN_PROGRESS,
         BrokerState_REBOOT_IN_PROGRESS,
+        BrokerState_REPLICA,
         BrokerState_RUNNING
       ),
   )
@@ -78,6 +79,9 @@ pattern BrokerState_DELETION_IN_PROGRESS = BrokerState' "DELETION_IN_PROGRESS"
 pattern BrokerState_REBOOT_IN_PROGRESS :: BrokerState
 pattern BrokerState_REBOOT_IN_PROGRESS = BrokerState' "REBOOT_IN_PROGRESS"
 
+pattern BrokerState_REPLICA :: BrokerState
+pattern BrokerState_REPLICA = BrokerState' "REPLICA"
+
 pattern BrokerState_RUNNING :: BrokerState
 pattern BrokerState_RUNNING = BrokerState' "RUNNING"
 
@@ -87,6 +91,7 @@ pattern BrokerState_RUNNING = BrokerState' "RUNNING"
   BrokerState_CRITICAL_ACTION_REQUIRED,
   BrokerState_DELETION_IN_PROGRESS,
   BrokerState_REBOOT_IN_PROGRESS,
+  BrokerState_REPLICA,
   BrokerState_RUNNING,
   BrokerState'
   #-}

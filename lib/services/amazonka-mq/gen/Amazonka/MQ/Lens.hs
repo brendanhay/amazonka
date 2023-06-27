@@ -18,6 +18,8 @@ module Amazonka.MQ.Lens
     createBroker_authenticationStrategy,
     createBroker_configuration,
     createBroker_creatorRequestId,
+    createBroker_dataReplicationMode,
+    createBroker_dataReplicationPrimaryBrokerArn,
     createBroker_encryptionOptions,
     createBroker_ldapServerMetadata,
     createBroker_logs,
@@ -59,6 +61,7 @@ module Amazonka.MQ.Lens
     -- ** CreateUser
     createUser_consoleAccess,
     createUser_groups,
+    createUser_replicationUser,
     createUser_username,
     createUser_brokerId,
     createUser_password,
@@ -90,6 +93,8 @@ module Amazonka.MQ.Lens
     describeBrokerResponse_brokerState,
     describeBrokerResponse_configurations,
     describeBrokerResponse_created,
+    describeBrokerResponse_dataReplicationMetadata,
+    describeBrokerResponse_dataReplicationMode,
     describeBrokerResponse_deploymentMode,
     describeBrokerResponse_encryptionOptions,
     describeBrokerResponse_engineType,
@@ -99,6 +104,8 @@ module Amazonka.MQ.Lens
     describeBrokerResponse_logs,
     describeBrokerResponse_maintenanceWindowStartTime,
     describeBrokerResponse_pendingAuthenticationStrategy,
+    describeBrokerResponse_pendingDataReplicationMetadata,
+    describeBrokerResponse_pendingDataReplicationMode,
     describeBrokerResponse_pendingEngineVersion,
     describeBrokerResponse_pendingHostInstanceType,
     describeBrokerResponse_pendingLdapServerMetadata,
@@ -161,6 +168,7 @@ module Amazonka.MQ.Lens
     describeUserResponse_consoleAccess,
     describeUserResponse_groups,
     describeUserResponse_pending,
+    describeUserResponse_replicationUser,
     describeUserResponse_username,
     describeUserResponse_httpStatus,
 
@@ -204,6 +212,12 @@ module Amazonka.MQ.Lens
     listUsersResponse_users,
     listUsersResponse_httpStatus,
 
+    -- ** Promote
+    promote_brokerId,
+    promote_mode,
+    promoteResponse_brokerId,
+    promoteResponse_httpStatus,
+
     -- ** RebootBroker
     rebootBroker_brokerId,
     rebootBrokerResponse_httpStatus,
@@ -212,6 +226,7 @@ module Amazonka.MQ.Lens
     updateBroker_authenticationStrategy,
     updateBroker_autoMinorVersionUpgrade,
     updateBroker_configuration,
+    updateBroker_dataReplicationMode,
     updateBroker_engineVersion,
     updateBroker_hostInstanceType,
     updateBroker_ldapServerMetadata,
@@ -223,11 +238,15 @@ module Amazonka.MQ.Lens
     updateBrokerResponse_autoMinorVersionUpgrade,
     updateBrokerResponse_brokerId,
     updateBrokerResponse_configuration,
+    updateBrokerResponse_dataReplicationMetadata,
+    updateBrokerResponse_dataReplicationMode,
     updateBrokerResponse_engineVersion,
     updateBrokerResponse_hostInstanceType,
     updateBrokerResponse_ldapServerMetadata,
     updateBrokerResponse_logs,
     updateBrokerResponse_maintenanceWindowStartTime,
+    updateBrokerResponse_pendingDataReplicationMetadata,
+    updateBrokerResponse_pendingDataReplicationMode,
     updateBrokerResponse_securityGroups,
     updateBrokerResponse_httpStatus,
 
@@ -247,6 +266,7 @@ module Amazonka.MQ.Lens
     updateUser_consoleAccess,
     updateUser_groups,
     updateUser_password,
+    updateUser_replicationUser,
     updateUser_username,
     updateUser_brokerId,
     updateUserResponse_httpStatus,
@@ -313,6 +333,14 @@ module Amazonka.MQ.Lens
     configurations_history,
     configurations_pending,
 
+    -- ** DataReplicationCounterpart
+    dataReplicationCounterpart_brokerId,
+    dataReplicationCounterpart_region,
+
+    -- ** DataReplicationMetadataOutput
+    dataReplicationMetadataOutput_dataReplicationCounterpart,
+    dataReplicationMetadataOutput_dataReplicationRole,
+
     -- ** EncryptionOptions
     encryptionOptions_kmsKeyId,
     encryptionOptions_useAwsOwnedKey,
@@ -368,6 +396,7 @@ module Amazonka.MQ.Lens
     -- ** User
     user_consoleAccess,
     user_groups,
+    user_replicationUser,
     user_username,
     user_password,
 
@@ -405,6 +434,7 @@ import Amazonka.MQ.ListConfigurationRevisions
 import Amazonka.MQ.ListConfigurations
 import Amazonka.MQ.ListTags
 import Amazonka.MQ.ListUsers
+import Amazonka.MQ.Promote
 import Amazonka.MQ.RebootBroker
 import Amazonka.MQ.Types.ActionRequired
 import Amazonka.MQ.Types.AvailabilityZone
@@ -416,6 +446,8 @@ import Amazonka.MQ.Types.Configuration
 import Amazonka.MQ.Types.ConfigurationId
 import Amazonka.MQ.Types.ConfigurationRevision
 import Amazonka.MQ.Types.Configurations
+import Amazonka.MQ.Types.DataReplicationCounterpart
+import Amazonka.MQ.Types.DataReplicationMetadataOutput
 import Amazonka.MQ.Types.EncryptionOptions
 import Amazonka.MQ.Types.EngineVersion
 import Amazonka.MQ.Types.LdapServerMetadataInput

@@ -63,6 +63,7 @@ library
     Amazonka.MQ.ListConfigurations
     Amazonka.MQ.ListTags
     Amazonka.MQ.ListUsers
+    Amazonka.MQ.Promote
     Amazonka.MQ.RebootBroker
     Amazonka.MQ.Types
     Amazonka.MQ.Types.ActionRequired
@@ -79,6 +80,9 @@ library
     Amazonka.MQ.Types.ConfigurationId
     Amazonka.MQ.Types.ConfigurationRevision
     Amazonka.MQ.Types.Configurations
+    Amazonka.MQ.Types.DataReplicationCounterpart
+    Amazonka.MQ.Types.DataReplicationMetadataOutput
+    Amazonka.MQ.Types.DataReplicationMode
     Amazonka.MQ.Types.DayOfWeek
     Amazonka.MQ.Types.DeploymentMode
     Amazonka.MQ.Types.EncryptionOptions
@@ -89,6 +93,7 @@ library
     Amazonka.MQ.Types.Logs
     Amazonka.MQ.Types.LogsSummary
     Amazonka.MQ.Types.PendingLogs
+    Amazonka.MQ.Types.PromoteMode
     Amazonka.MQ.Types.SanitizationWarning
     Amazonka.MQ.Types.SanitizationWarningReason
     Amazonka.MQ.Types.User

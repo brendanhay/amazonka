@@ -35,10 +35,10 @@ data BrokerSummary = BrokerSummary'
     brokerArn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Prelude.Maybe Prelude.Text,
-    -- | The broker\'s name. This value is unique in your AWS account, 1-50
-    -- characters long, and containing only letters, numbers, dashes, and
-    -- underscores, and must not contain white spaces, brackets, wildcard
-    -- characters, or special characters.
+    -- | The broker\'s name. This value is unique in your Amazon Web Services
+    -- account, 1-50 characters long, and containing only letters, numbers,
+    -- dashes, and underscores, and must not contain white spaces, brackets,
+    -- wildcard characters, or special characters.
     brokerName :: Prelude.Maybe Prelude.Text,
     -- | The broker\'s status.
     brokerState :: Prelude.Maybe BrokerState,
@@ -65,10 +65,10 @@ data BrokerSummary = BrokerSummary'
 --
 -- 'brokerId', 'brokerSummary_brokerId' - The unique ID that Amazon MQ generates for the broker.
 --
--- 'brokerName', 'brokerSummary_brokerName' - The broker\'s name. This value is unique in your AWS account, 1-50
--- characters long, and containing only letters, numbers, dashes, and
--- underscores, and must not contain white spaces, brackets, wildcard
--- characters, or special characters.
+-- 'brokerName', 'brokerSummary_brokerName' - The broker\'s name. This value is unique in your Amazon Web Services
+-- account, 1-50 characters long, and containing only letters, numbers,
+-- dashes, and underscores, and must not contain white spaces, brackets,
+-- wildcard characters, or special characters.
 --
 -- 'brokerState', 'brokerSummary_brokerState' - The broker\'s status.
 --
@@ -105,10 +105,10 @@ brokerSummary_brokerArn = Lens.lens (\BrokerSummary' {brokerArn} -> brokerArn) (
 brokerSummary_brokerId :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_brokerId = Lens.lens (\BrokerSummary' {brokerId} -> brokerId) (\s@BrokerSummary' {} a -> s {brokerId = a} :: BrokerSummary)
 
--- | The broker\'s name. This value is unique in your AWS account, 1-50
--- characters long, and containing only letters, numbers, dashes, and
--- underscores, and must not contain white spaces, brackets, wildcard
--- characters, or special characters.
+-- | The broker\'s name. This value is unique in your Amazon Web Services
+-- account, 1-50 characters long, and containing only letters, numbers,
+-- dashes, and underscores, and must not contain white spaces, brackets,
+-- wildcard characters, or special characters.
 brokerSummary_brokerName :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_brokerName = Lens.lens (\BrokerSummary' {brokerName} -> brokerName) (\s@BrokerSummary' {} a -> s {brokerName = a} :: BrokerSummary)
 
@@ -150,7 +150,8 @@ instance Data.FromJSON BrokerSummary where
 
 instance Prelude.Hashable BrokerSummary where
   hashWithSalt _salt BrokerSummary' {..} =
-    _salt `Prelude.hashWithSalt` brokerArn
+    _salt
+      `Prelude.hashWithSalt` brokerArn
       `Prelude.hashWithSalt` brokerId
       `Prelude.hashWithSalt` brokerName
       `Prelude.hashWithSalt` brokerState

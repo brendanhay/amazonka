@@ -42,8 +42,8 @@ data LdapServerMetadataInput = LdapServerMetadataInput'
     -- | The directory search scope for the user. If set to true, scope is to
     -- search the entire subtree.
     userSearchSubtree :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the location of the LDAP server such as AWS Directory Service
-    -- for Microsoft Active Directory . Optional failover server.
+    -- | Specifies the location of the LDAP server such as Directory Service for
+    -- Microsoft Active Directory. Optional failover server.
     hosts :: [Prelude.Text],
     -- | The LDAP search filter used to find users within the userBase. The
     -- client\'s username is substituted into the {0} placeholder in the search
@@ -102,8 +102,8 @@ data LdapServerMetadataInput = LdapServerMetadataInput'
 -- 'userSearchSubtree', 'ldapServerMetadataInput_userSearchSubtree' - The directory search scope for the user. If set to true, scope is to
 -- search the entire subtree.
 --
--- 'hosts', 'ldapServerMetadataInput_hosts' - Specifies the location of the LDAP server such as AWS Directory Service
--- for Microsoft Active Directory . Optional failover server.
+-- 'hosts', 'ldapServerMetadataInput_hosts' - Specifies the location of the LDAP server such as Directory Service for
+-- Microsoft Active Directory. Optional failover server.
 --
 -- 'userSearchMatching', 'ldapServerMetadataInput_userSearchMatching' - The LDAP search filter used to find users within the userBase. The
 -- client\'s username is substituted into the {0} placeholder in the search
@@ -194,8 +194,8 @@ ldapServerMetadataInput_userRoleName = Lens.lens (\LdapServerMetadataInput' {use
 ldapServerMetadataInput_userSearchSubtree :: Lens.Lens' LdapServerMetadataInput (Prelude.Maybe Prelude.Bool)
 ldapServerMetadataInput_userSearchSubtree = Lens.lens (\LdapServerMetadataInput' {userSearchSubtree} -> userSearchSubtree) (\s@LdapServerMetadataInput' {} a -> s {userSearchSubtree = a} :: LdapServerMetadataInput)
 
--- | Specifies the location of the LDAP server such as AWS Directory Service
--- for Microsoft Active Directory . Optional failover server.
+-- | Specifies the location of the LDAP server such as Directory Service for
+-- Microsoft Active Directory. Optional failover server.
 ldapServerMetadataInput_hosts :: Lens.Lens' LdapServerMetadataInput [Prelude.Text]
 ldapServerMetadataInput_hosts = Lens.lens (\LdapServerMetadataInput' {hosts} -> hosts) (\s@LdapServerMetadataInput' {} a -> s {hosts = a} :: LdapServerMetadataInput) Prelude.. Lens.coerced
 
@@ -248,7 +248,8 @@ ldapServerMetadataInput_serviceAccountPassword = Lens.lens (\LdapServerMetadataI
 
 instance Prelude.Hashable LdapServerMetadataInput where
   hashWithSalt _salt LdapServerMetadataInput' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` roleSearchSubtree
       `Prelude.hashWithSalt` userRoleName
       `Prelude.hashWithSalt` userSearchSubtree

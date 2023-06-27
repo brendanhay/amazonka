@@ -24,6 +24,10 @@
 -- table, when it was created, the primary key schema, and any indexes on
 -- the table.
 --
+-- This operation only applies to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
+-- of global tables.
+--
 -- If you issue a @DescribeTable@ request immediately after a @CreateTable@
 -- request, DynamoDB might return a @ResourceNotFoundException@. This is
 -- because @DescribeTable@ uses an eventually consistent query, and the

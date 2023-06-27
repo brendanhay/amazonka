@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     EnableKinesisStreamingDestination' {..} =
-      _salt `Prelude.hashWithSalt` tableName
+      _salt
+        `Prelude.hashWithSalt` tableName
         `Prelude.hashWithSalt` streamArn
 
 instance

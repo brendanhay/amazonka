@@ -331,7 +331,8 @@ instance Core.AWSRequest GetItem where
 
 instance Prelude.Hashable GetItem where
   hashWithSalt _salt GetItem' {..} =
-    _salt `Prelude.hashWithSalt` attributesToGet
+    _salt
+      `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` projectionExpression
@@ -396,7 +397,7 @@ data GetItemResponse = GetItemResponse'
     -- statistics for the table and any indexes involved in the operation.
     -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
     -- parameter was specified. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | A map of attribute names to @AttributeValue@ objects, as specified by
@@ -420,7 +421,7 @@ data GetItemResponse = GetItemResponse'
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'item', 'getItemResponse_item' - A map of attribute names to @AttributeValue@ objects, as specified by
@@ -444,7 +445,7 @@ newGetItemResponse pHttpStatus_ =
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 getItemResponse_consumedCapacity :: Lens.Lens' GetItemResponse (Prelude.Maybe ConsumedCapacity)
 getItemResponse_consumedCapacity = Lens.lens (\GetItemResponse' {consumedCapacity} -> consumedCapacity) (\s@GetItemResponse' {} a -> s {consumedCapacity = a} :: GetItemResponse)

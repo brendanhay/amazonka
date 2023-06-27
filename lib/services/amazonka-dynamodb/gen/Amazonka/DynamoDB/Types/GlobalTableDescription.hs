@@ -128,14 +128,16 @@ instance Data.FromJSON GlobalTableDescription where
             Prelude.<*> (x Data..:? "GlobalTableArn")
             Prelude.<*> (x Data..:? "GlobalTableName")
             Prelude.<*> (x Data..:? "GlobalTableStatus")
-            Prelude.<*> ( x Data..:? "ReplicationGroup"
+            Prelude.<*> ( x
+                            Data..:? "ReplicationGroup"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GlobalTableDescription where
   hashWithSalt _salt GlobalTableDescription' {..} =
-    _salt `Prelude.hashWithSalt` creationDateTime
+    _salt
+      `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` globalTableArn
       `Prelude.hashWithSalt` globalTableName
       `Prelude.hashWithSalt` globalTableStatus

@@ -125,7 +125,8 @@ instance Data.FromJSON ReplicaAutoScalingDescription where
       "ReplicaAutoScalingDescription"
       ( \x ->
           ReplicaAutoScalingDescription'
-            Prelude.<$> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<$> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RegionName")
@@ -143,7 +144,8 @@ instance
     ReplicaAutoScalingDescription
   where
   hashWithSalt _salt ReplicaAutoScalingDescription' {..} =
-    _salt `Prelude.hashWithSalt` globalSecondaryIndexes
+    _salt
+      `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` replicaProvisionedReadCapacityAutoScalingSettings
       `Prelude.hashWithSalt` replicaProvisionedWriteCapacityAutoScalingSettings

@@ -23,6 +23,10 @@
 -- Modifies the provisioned throughput settings, global secondary indexes,
 -- or DynamoDB Streams settings for a given table.
 --
+-- This operation only applies to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
+-- of global tables.
+--
 -- You can only perform one of the following operations at once:
 --
 -- -   Modify the provisioned throughput settings of the table.
@@ -46,6 +50,7 @@ module Amazonka.DynamoDB.UpdateTable
     -- * Request Lenses
     updateTable_attributeDefinitions,
     updateTable_billingMode,
+    updateTable_deletionProtectionEnabled,
     updateTable_globalSecondaryIndexUpdates,
     updateTable_provisionedThroughput,
     updateTable_replicaUpdates,
@@ -95,6 +100,9 @@ data UpdateTable = UpdateTable'
     --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
     --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
     billingMode :: Prelude.Maybe BillingMode,
+    -- | Indicates whether deletion protection is to be enabled (true) or
+    -- disabled (false) on the table.
+    deletionProtectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | An array of one or more global secondary indexes for the table. For each
     -- index in the array, you can request one action:
     --
@@ -119,7 +127,7 @@ data UpdateTable = UpdateTable'
     -- table.
     --
     -- This property only applies to
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
     -- of global tables.
     replicaUpdates :: Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate),
     -- | The new server-side encryption settings for the specified table.
@@ -165,6 +173,9 @@ data UpdateTable = UpdateTable'
 --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
 --
+-- 'deletionProtectionEnabled', 'updateTable_deletionProtectionEnabled' - Indicates whether deletion protection is to be enabled (true) or
+-- disabled (false) on the table.
+--
 -- 'globalSecondaryIndexUpdates', 'updateTable_globalSecondaryIndexUpdates' - An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
 --
@@ -189,7 +200,7 @@ data UpdateTable = UpdateTable'
 -- table.
 --
 -- This property only applies to
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
 -- of global tables.
 --
 -- 'sSESpecification', 'updateTable_sSESpecification' - The new server-side encryption settings for the specified table.
@@ -213,6 +224,7 @@ newUpdateTable pTableName_ =
     { attributeDefinitions =
         Prelude.Nothing,
       billingMode = Prelude.Nothing,
+      deletionProtectionEnabled = Prelude.Nothing,
       globalSecondaryIndexUpdates = Prelude.Nothing,
       provisionedThroughput = Prelude.Nothing,
       replicaUpdates = Prelude.Nothing,
@@ -245,6 +257,11 @@ updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinition
 updateTable_billingMode :: Lens.Lens' UpdateTable (Prelude.Maybe BillingMode)
 updateTable_billingMode = Lens.lens (\UpdateTable' {billingMode} -> billingMode) (\s@UpdateTable' {} a -> s {billingMode = a} :: UpdateTable)
 
+-- | Indicates whether deletion protection is to be enabled (true) or
+-- disabled (false) on the table.
+updateTable_deletionProtectionEnabled :: Lens.Lens' UpdateTable (Prelude.Maybe Prelude.Bool)
+updateTable_deletionProtectionEnabled = Lens.lens (\UpdateTable' {deletionProtectionEnabled} -> deletionProtectionEnabled) (\s@UpdateTable' {} a -> s {deletionProtectionEnabled = a} :: UpdateTable)
+
 -- | An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
 --
@@ -273,7 +290,7 @@ updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThrough
 -- table.
 --
 -- This property only applies to
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
 -- of global tables.
 updateTable_replicaUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate))
 updateTable_replicaUpdates = Lens.lens (\UpdateTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateTable' {} a -> s {replicaUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Lens.coerced
@@ -313,8 +330,10 @@ instance Core.AWSRequest UpdateTable where
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =
-    _salt `Prelude.hashWithSalt` attributeDefinitions
+    _salt
+      `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` deletionProtectionEnabled
       `Prelude.hashWithSalt` globalSecondaryIndexUpdates
       `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` replicaUpdates
@@ -327,6 +346,7 @@ instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
     Prelude.rnf attributeDefinitions
       `Prelude.seq` Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
       `Prelude.seq` Prelude.rnf globalSecondaryIndexUpdates
       `Prelude.seq` Prelude.rnf provisionedThroughput
       `Prelude.seq` Prelude.rnf replicaUpdates
@@ -357,6 +377,8 @@ instance Data.ToJSON UpdateTable where
           [ ("AttributeDefinitions" Data..=)
               Prelude.<$> attributeDefinitions,
             ("BillingMode" Data..=) Prelude.<$> billingMode,
+            ("DeletionProtectionEnabled" Data..=)
+              Prelude.<$> deletionProtectionEnabled,
             ("GlobalSecondaryIndexUpdates" Data..=)
               Prelude.<$> globalSecondaryIndexUpdates,
             ("ProvisionedThroughput" Data..=)

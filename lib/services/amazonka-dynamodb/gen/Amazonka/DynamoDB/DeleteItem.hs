@@ -191,7 +191,7 @@ data DeleteItem = DeleteItem'
     -- | A map of attribute names to @AttributeValue@ objects, representing the
     -- primary key of the item to delete.
     --
-    -- For the primary key, you must provide all of the attributes. For
+    -- For the primary key, you must provide all of the key attributes. For
     -- example, with a simple primary key, you only need to provide a value for
     -- the partition key. For a composite primary key, you must provide values
     -- for both the partition key and the sort key.
@@ -323,7 +323,7 @@ data DeleteItem = DeleteItem'
 -- 'key', 'deleteItem_key' - A map of attribute names to @AttributeValue@ objects, representing the
 -- primary key of the item to delete.
 --
--- For the primary key, you must provide all of the attributes. For
+-- For the primary key, you must provide all of the key attributes. For
 -- example, with a simple primary key, you only need to provide a value for
 -- the partition key. For a composite primary key, you must provide values
 -- for both the partition key and the sort key.
@@ -479,7 +479,7 @@ deleteItem_tableName = Lens.lens (\DeleteItem' {tableName} -> tableName) (\s@Del
 -- | A map of attribute names to @AttributeValue@ objects, representing the
 -- primary key of the item to delete.
 --
--- For the primary key, you must provide all of the attributes. For
+-- For the primary key, you must provide all of the key attributes. For
 -- example, with a simple primary key, you only need to provide a value for
 -- the partition key. For a composite primary key, you must provide values
 -- for both the partition key and the sort key.
@@ -502,7 +502,8 @@ instance Core.AWSRequest DeleteItem where
 
 instance Prelude.Hashable DeleteItem where
   hashWithSalt _salt DeleteItem' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpression
+    _salt
+      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` expected
       `Prelude.hashWithSalt` expressionAttributeNames
@@ -584,7 +585,7 @@ data DeleteItemResponse = DeleteItemResponse'
     -- statistics for the table and any indexes involved in the operation.
     -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
     -- parameter was specified. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode>
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | Information about item collections, if any, that were affected by the
@@ -633,7 +634,7 @@ data DeleteItemResponse = DeleteItemResponse'
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'itemCollectionMetrics', 'deleteItemResponse_itemCollectionMetrics' - Information about item collections, if any, that were affected by the
@@ -684,7 +685,7 @@ deleteItemResponse_attributes = Lens.lens (\DeleteItemResponse' {attributes} -> 
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Mode>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 deleteItemResponse_consumedCapacity :: Lens.Lens' DeleteItemResponse (Prelude.Maybe ConsumedCapacity)
 deleteItemResponse_consumedCapacity = Lens.lens (\DeleteItemResponse' {consumedCapacity} -> consumedCapacity) (\s@DeleteItemResponse' {} a -> s {consumedCapacity = a} :: DeleteItemResponse)

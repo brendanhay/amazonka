@@ -34,7 +34,8 @@
 -- of items (if using the Limit parameter) or a maximum of 1 MB of data
 -- (and then apply any filtering to the results using @WHERE@ clause). If
 -- @LastEvaluatedKey@ is present in the response, you need to paginate the
--- result set.
+-- result set. If @NextToken@ is present, you need to paginate the result
+-- set and include @NextToken@.
 module Amazonka.DynamoDB.ExecuteStatement
   ( -- * Creating a Request
     ExecuteStatement (..),
@@ -187,7 +188,8 @@ instance Core.AWSRequest ExecuteStatement where
           ExecuteStatementResponse'
             Prelude.<$> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "LastEvaluatedKey"
+            Prelude.<*> ( x
+                            Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -196,7 +198,8 @@ instance Core.AWSRequest ExecuteStatement where
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` consistentRead
+    _salt
+      `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` parameters

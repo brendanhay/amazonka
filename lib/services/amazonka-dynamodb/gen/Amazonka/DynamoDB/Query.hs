@@ -375,7 +375,9 @@ data Query = Query'
     --     is equivalent to specifying @ALL_ATTRIBUTES@.
     --
     -- -   @COUNT@ - Returns the number of matching items, rather than the
-    --     matching items themselves.
+    --     matching items themselves. Note that this uses the same quantity of
+    --     read capacity units as getting the items, and is subject to the same
+    --     item size calculations.
     --
     -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
     --     @ProjectionExpression@. This return value is equivalent to
@@ -666,7 +668,9 @@ data Query = Query'
 --     is equivalent to specifying @ALL_ATTRIBUTES@.
 --
 -- -   @COUNT@ - Returns the number of matching items, rather than the
---     matching items themselves.
+--     matching items themselves. Note that this uses the same quantity of
+--     read capacity units as getting the items, and is subject to the same
+--     item size calculations.
 --
 -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
 --     @ProjectionExpression@. This return value is equivalent to
@@ -1000,7 +1004,9 @@ query_scanIndexForward = Lens.lens (\Query' {scanIndexForward} -> scanIndexForwa
 --     is equivalent to specifying @ALL_ATTRIBUTES@.
 --
 -- -   @COUNT@ - Returns the number of matching items, rather than the
---     matching items themselves.
+--     matching items themselves. Note that this uses the same quantity of
+--     read capacity units as getting the items, and is subject to the same
+--     item size calculations.
 --
 -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
 --     @ProjectionExpression@. This return value is equivalent to
@@ -1040,15 +1046,17 @@ instance Core.AWSPager Query where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? queryResponse_lastEvaluatedKey Prelude.. Lens._Just
+            Lens.^? queryResponse_lastEvaluatedKey
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& query_exclusiveStartKey
           Lens..~ rs
-          Lens.^? queryResponse_lastEvaluatedKey Prelude.. Lens._Just
+          Lens.^? queryResponse_lastEvaluatedKey
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
@@ -1060,7 +1068,8 @@ instance Core.AWSRequest Query where
           QueryResponse'
             Prelude.<$> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (x Data..?> "Count")
-            Prelude.<*> ( x Data..?> "LastEvaluatedKey"
+            Prelude.<*> ( x
+                            Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ScannedCount")
@@ -1070,7 +1079,8 @@ instance Core.AWSRequest Query where
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =
-    _salt `Prelude.hashWithSalt` attributesToGet
+    _salt
+      `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` exclusiveStartKey

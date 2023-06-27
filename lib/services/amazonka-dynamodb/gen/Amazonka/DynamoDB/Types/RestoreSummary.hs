@@ -106,7 +106,8 @@ instance Data.FromJSON RestoreSummary where
 
 instance Prelude.Hashable RestoreSummary where
   hashWithSalt _salt RestoreSummary' {..} =
-    _salt `Prelude.hashWithSalt` sourceBackupArn
+    _salt
+      `Prelude.hashWithSalt` sourceBackupArn
       `Prelude.hashWithSalt` sourceTableArn
       `Prelude.hashWithSalt` restoreDateTime
       `Prelude.hashWithSalt` restoreInProgress

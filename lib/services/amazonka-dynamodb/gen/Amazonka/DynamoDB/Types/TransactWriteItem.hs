@@ -90,7 +90,8 @@ transactWriteItem_update = Lens.lens (\TransactWriteItem' {update} -> update) (\
 
 instance Prelude.Hashable TransactWriteItem where
   hashWithSalt _salt TransactWriteItem' {..} =
-    _salt `Prelude.hashWithSalt` conditionCheck
+    _salt
+      `Prelude.hashWithSalt` conditionCheck
       `Prelude.hashWithSalt` delete'
       `Prelude.hashWithSalt` put
       `Prelude.hashWithSalt` update

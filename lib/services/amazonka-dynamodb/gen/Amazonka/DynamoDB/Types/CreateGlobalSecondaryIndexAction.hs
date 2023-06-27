@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     CreateGlobalSecondaryIndexAction' {..} =
-      _salt `Prelude.hashWithSalt` provisionedThroughput
+      _salt
+        `Prelude.hashWithSalt` provisionedThroughput
         `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` keySchema
         `Prelude.hashWithSalt` projection

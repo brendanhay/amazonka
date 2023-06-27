@@ -106,21 +106,22 @@ instance Core.AWSPager ListTables where
     | Core.stop
         ( rs
             Lens.^? listTablesResponse_lastEvaluatedTableName
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTablesResponse_tableNames Prelude.. Lens._Just
+            Lens.^? listTablesResponse_tableNames
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTables_exclusiveStartTableName
           Lens..~ rs
           Lens.^? listTablesResponse_lastEvaluatedTableName
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse

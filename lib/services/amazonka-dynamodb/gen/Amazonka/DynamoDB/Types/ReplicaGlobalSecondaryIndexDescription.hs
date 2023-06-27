@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     ReplicaGlobalSecondaryIndexDescription' {..} =
-      _salt `Prelude.hashWithSalt` indexName
+      _salt
+        `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` provisionedThroughputOverride
 
 instance

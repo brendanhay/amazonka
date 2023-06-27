@@ -24,7 +24,7 @@
 -- once.
 --
 -- This operation only applies to
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
 -- of global tables.
 module Amazonka.DynamoDB.DescribeTableReplicaAutoScaling
   ( -- * Creating a Request

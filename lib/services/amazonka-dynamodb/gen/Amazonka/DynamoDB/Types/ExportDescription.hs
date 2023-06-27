@@ -286,7 +286,8 @@ instance Data.FromJSON ExportDescription where
 
 instance Prelude.Hashable ExportDescription where
   hashWithSalt _salt ExportDescription' {..} =
-    _salt `Prelude.hashWithSalt` billedSizeBytes
+    _salt
+      `Prelude.hashWithSalt` billedSizeBytes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` exportArn

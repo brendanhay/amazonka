@@ -87,7 +87,8 @@ instance Data.FromJSON TimeToLiveSpecification where
 
 instance Prelude.Hashable TimeToLiveSpecification where
   hashWithSalt _salt TimeToLiveSpecification' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` attributeName
 
 instance Prelude.NFData TimeToLiveSpecification where

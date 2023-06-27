@@ -134,13 +134,15 @@ instance Data.FromJSON TableCreationParameters where
       ( \x ->
           TableCreationParameters'
             Prelude.<$> (x Data..:? "BillingMode")
-            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProvisionedThroughput")
             Prelude.<*> (x Data..:? "SSESpecification")
             Prelude.<*> (x Data..: "TableName")
-            Prelude.<*> ( x Data..:? "AttributeDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "AttributeDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "KeySchema")
@@ -148,7 +150,8 @@ instance Data.FromJSON TableCreationParameters where
 
 instance Prelude.Hashable TableCreationParameters where
   hashWithSalt _salt TableCreationParameters' {..} =
-    _salt `Prelude.hashWithSalt` billingMode
+    _salt
+      `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` sSESpecification

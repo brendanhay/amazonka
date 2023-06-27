@@ -72,14 +72,16 @@ instance Data.FromJSON GlobalTable where
       ( \x ->
           GlobalTable'
             Prelude.<$> (x Data..:? "GlobalTableName")
-            Prelude.<*> ( x Data..:? "ReplicationGroup"
+            Prelude.<*> ( x
+                            Data..:? "ReplicationGroup"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable GlobalTable where
   hashWithSalt _salt GlobalTable' {..} =
-    _salt `Prelude.hashWithSalt` globalTableName
+    _salt
+      `Prelude.hashWithSalt` globalTableName
       `Prelude.hashWithSalt` replicationGroup
 
 instance Prelude.NFData GlobalTable where

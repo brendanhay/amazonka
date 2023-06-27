@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new table from an existing backup. Any number of users can
--- execute up to 4 concurrent restores (any type of restore) in a given
+-- execute up to 50 concurrent restores (any type of restore) in a given
 -- account.
 --
 -- You can call @RestoreTableFromBackup@ at a maximum rate of 10 times per
@@ -188,7 +188,8 @@ instance Core.AWSRequest RestoreTableFromBackup where
 
 instance Prelude.Hashable RestoreTableFromBackup where
   hashWithSalt _salt RestoreTableFromBackup' {..} =
-    _salt `Prelude.hashWithSalt` billingModeOverride
+    _salt
+      `Prelude.hashWithSalt` billingModeOverride
       `Prelude.hashWithSalt` globalSecondaryIndexOverride
       `Prelude.hashWithSalt` localSecondaryIndexOverride
       `Prelude.hashWithSalt` provisionedThroughputOverride

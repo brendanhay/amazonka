@@ -110,7 +110,8 @@ instance Data.FromJSON BillingModeSummary where
 
 instance Prelude.Hashable BillingModeSummary where
   hashWithSalt _salt BillingModeSummary' {..} =
-    _salt `Prelude.hashWithSalt` billingMode
+    _salt
+      `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` lastUpdateToPayPerRequestDateTime
 
 instance Prelude.NFData BillingModeSummary where

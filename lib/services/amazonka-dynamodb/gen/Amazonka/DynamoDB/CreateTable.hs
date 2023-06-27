@@ -45,6 +45,7 @@ module Amazonka.DynamoDB.CreateTable
 
     -- * Request Lenses
     createTable_billingMode,
+    createTable_deletionProtectionEnabled,
     createTable_globalSecondaryIndexes,
     createTable_localSecondaryIndexes,
     createTable_provisionedThroughput,
@@ -89,6 +90,9 @@ data CreateTable = CreateTable'
     --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
     --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
     billingMode :: Prelude.Maybe BillingMode,
+    -- | Indicates whether deletion protection is to be enabled (true) or
+    -- disabled (false) on the table.
+    deletionProtectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | One or more global secondary indexes (the maximum is 20) to be created
     -- on the table. Each global secondary index in the array includes the
     -- following:
@@ -271,6 +275,9 @@ data CreateTable = CreateTable'
 --     unpredictable workloads. @PAY_PER_REQUEST@ sets the billing mode to
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
 --
+-- 'deletionProtectionEnabled', 'createTable_deletionProtectionEnabled' - Indicates whether deletion protection is to be enabled (true) or
+-- disabled (false) on the table.
+--
 -- 'globalSecondaryIndexes', 'createTable_globalSecondaryIndexes' - One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
 -- following:
@@ -439,6 +446,7 @@ newCreateTable ::
 newCreateTable pTableName_ pKeySchema_ =
   CreateTable'
     { billingMode = Prelude.Nothing,
+      deletionProtectionEnabled = Prelude.Nothing,
       globalSecondaryIndexes = Prelude.Nothing,
       localSecondaryIndexes = Prelude.Nothing,
       provisionedThroughput = Prelude.Nothing,
@@ -463,6 +471,11 @@ newCreateTable pTableName_ pKeySchema_ =
 --     <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand On-Demand Mode>.
 createTable_billingMode :: Lens.Lens' CreateTable (Prelude.Maybe BillingMode)
 createTable_billingMode = Lens.lens (\CreateTable' {billingMode} -> billingMode) (\s@CreateTable' {} a -> s {billingMode = a} :: CreateTable)
+
+-- | Indicates whether deletion protection is to be enabled (true) or
+-- disabled (false) on the table.
+createTable_deletionProtectionEnabled :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Bool)
+createTable_deletionProtectionEnabled = Lens.lens (\CreateTable' {deletionProtectionEnabled} -> deletionProtectionEnabled) (\s@CreateTable' {} a -> s {deletionProtectionEnabled = a} :: CreateTable)
 
 -- | One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
@@ -658,7 +671,9 @@ instance Core.AWSRequest CreateTable where
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
-    _salt `Prelude.hashWithSalt` billingMode
+    _salt
+      `Prelude.hashWithSalt` billingMode
+      `Prelude.hashWithSalt` deletionProtectionEnabled
       `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` localSecondaryIndexes
       `Prelude.hashWithSalt` provisionedThroughput
@@ -673,6 +688,7 @@ instance Prelude.Hashable CreateTable where
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
     Prelude.rnf billingMode
+      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf localSecondaryIndexes
       `Prelude.seq` Prelude.rnf provisionedThroughput
@@ -704,6 +720,8 @@ instance Data.ToJSON CreateTable where
     Data.object
       ( Prelude.catMaybes
           [ ("BillingMode" Data..=) Prelude.<$> billingMode,
+            ("DeletionProtectionEnabled" Data..=)
+              Prelude.<$> deletionProtectionEnabled,
             ("GlobalSecondaryIndexes" Data..=)
               Prelude.<$> globalSecondaryIndexes,
             ("LocalSecondaryIndexes" Data..=)

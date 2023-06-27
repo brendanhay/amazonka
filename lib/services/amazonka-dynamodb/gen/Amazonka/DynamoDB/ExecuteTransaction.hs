@@ -135,7 +135,8 @@ instance Core.AWSRequest ExecuteTransaction where
     Response.receiveJSON
       ( \s h x ->
           ExecuteTransactionResponse'
-            Prelude.<$> ( x Data..?> "ConsumedCapacity"
+            Prelude.<$> ( x
+                            Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Responses")
@@ -144,7 +145,8 @@ instance Core.AWSRequest ExecuteTransaction where
 
 instance Prelude.Hashable ExecuteTransaction where
   hashWithSalt _salt ExecuteTransaction' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` returnConsumedCapacity
       `Prelude.hashWithSalt` transactStatements
 

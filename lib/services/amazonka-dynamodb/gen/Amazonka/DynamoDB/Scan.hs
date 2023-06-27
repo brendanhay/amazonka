@@ -280,7 +280,9 @@ data Scan = Scan'
     --     is equivalent to specifying @ALL_ATTRIBUTES@.
     --
     -- -   @COUNT@ - Returns the number of matching items, rather than the
-    --     matching items themselves.
+    --     matching items themselves. Note that this uses the same quantity of
+    --     read capacity units as getting the items, and is subject to the same
+    --     item size calculations.
     --
     -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
     --     @ProjectionExpression@. This return value is equivalent to
@@ -517,7 +519,9 @@ data Scan = Scan'
 --     is equivalent to specifying @ALL_ATTRIBUTES@.
 --
 -- -   @COUNT@ - Returns the number of matching items, rather than the
---     matching items themselves.
+--     matching items themselves. Note that this uses the same quantity of
+--     read capacity units as getting the items, and is subject to the same
+--     item size calculations.
 --
 -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
 --     @ProjectionExpression@. This return value is equivalent to
@@ -792,7 +796,9 @@ scan_segment = Lens.lens (\Scan' {segment} -> segment) (\s@Scan' {} a -> s {segm
 --     is equivalent to specifying @ALL_ATTRIBUTES@.
 --
 -- -   @COUNT@ - Returns the number of matching items, rather than the
---     matching items themselves.
+--     matching items themselves. Note that this uses the same quantity of
+--     read capacity units as getting the items, and is subject to the same
+--     item size calculations.
 --
 -- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
 --     @ProjectionExpression@. This return value is equivalent to
@@ -848,15 +854,17 @@ instance Core.AWSPager Scan where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? scanResponse_lastEvaluatedKey Prelude.. Lens._Just
+            Lens.^? scanResponse_lastEvaluatedKey
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& scan_exclusiveStartKey
           Lens..~ rs
-          Lens.^? scanResponse_lastEvaluatedKey Prelude.. Lens._Just
+          Lens.^? scanResponse_lastEvaluatedKey
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest Scan where
   type AWSResponse Scan = ScanResponse
@@ -869,7 +877,8 @@ instance Core.AWSRequest Scan where
             Prelude.<$> (x Data..?> "ConsumedCapacity")
             Prelude.<*> (x Data..?> "Count")
             Prelude.<*> (x Data..?> "Items" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "LastEvaluatedKey"
+            Prelude.<*> ( x
+                            Data..?> "LastEvaluatedKey"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ScannedCount")
@@ -878,7 +887,8 @@ instance Core.AWSRequest Scan where
 
 instance Prelude.Hashable Scan where
   hashWithSalt _salt Scan' {..} =
-    _salt `Prelude.hashWithSalt` attributesToGet
+    _salt
+      `Prelude.hashWithSalt` attributesToGet
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` exclusiveStartKey
@@ -974,7 +984,7 @@ data ScanResponse = ScanResponse'
     -- statistics for the table and any indexes involved in the operation.
     -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
     -- parameter was specified. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | The number of items in the response.
@@ -1028,7 +1038,7 @@ data ScanResponse = ScanResponse'
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'count', 'scanResponse_count' - The number of items in the response.
@@ -1084,7 +1094,7 @@ newScanResponse pHttpStatus_ =
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 scanResponse_consumedCapacity :: Lens.Lens' ScanResponse (Prelude.Maybe ConsumedCapacity)
 scanResponse_consumedCapacity = Lens.lens (\ScanResponse' {consumedCapacity} -> consumedCapacity) (\s@ScanResponse' {} a -> s {consumedCapacity = a} :: ScanResponse)

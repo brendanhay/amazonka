@@ -21,6 +21,18 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates settings for a global table.
+--
+-- This operation only applies to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html Version 2017.11.29 (Legacy)>
+-- of global tables. We recommend using
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
+-- when creating new global tables, as it provides greater flexibility,
+-- higher efficiency and consumes less write capacity than 2017.11.29
+-- (Legacy). To determine which version you are using, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html Determining the version>.
+-- To update existing global tables from version 2017.11.29 (Legacy) to
+-- version 2019.11.21 (Current), see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html Updating global tables>.
 module Amazonka.DynamoDB.UpdateGlobalTableSettings
   ( -- * Creating a Request
     UpdateGlobalTableSettings (..),
@@ -184,7 +196,8 @@ instance Core.AWSRequest UpdateGlobalTableSettings where
       ( \s h x ->
           UpdateGlobalTableSettingsResponse'
             Prelude.<$> (x Data..?> "GlobalTableName")
-            Prelude.<*> ( x Data..?> "ReplicaSettings"
+            Prelude.<*> ( x
+                            Data..?> "ReplicaSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -192,7 +205,8 @@ instance Core.AWSRequest UpdateGlobalTableSettings where
 
 instance Prelude.Hashable UpdateGlobalTableSettings where
   hashWithSalt _salt UpdateGlobalTableSettings' {..} =
-    _salt `Prelude.hashWithSalt` globalTableBillingMode
+    _salt
+      `Prelude.hashWithSalt` globalTableBillingMode
       `Prelude.hashWithSalt` globalTableGlobalSecondaryIndexSettingsUpdate
       `Prelude.hashWithSalt` globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate
       `Prelude.hashWithSalt` globalTableProvisionedWriteCapacityUnits

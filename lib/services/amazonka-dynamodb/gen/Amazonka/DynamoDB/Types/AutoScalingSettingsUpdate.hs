@@ -105,7 +105,8 @@ autoScalingSettingsUpdate_scalingPolicyUpdate = Lens.lens (\AutoScalingSettingsU
 
 instance Prelude.Hashable AutoScalingSettingsUpdate where
   hashWithSalt _salt AutoScalingSettingsUpdate' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingDisabled
+    _salt
+      `Prelude.hashWithSalt` autoScalingDisabled
       `Prelude.hashWithSalt` autoScalingRoleArn
       `Prelude.hashWithSalt` maximumUnits
       `Prelude.hashWithSalt` minimumUnits

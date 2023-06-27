@@ -93,7 +93,8 @@ replicationGroupUpdate_update = Lens.lens (\ReplicationGroupUpdate' {update} -> 
 
 instance Prelude.Hashable ReplicationGroupUpdate where
   hashWithSalt _salt ReplicationGroupUpdate' {..} =
-    _salt `Prelude.hashWithSalt` create
+    _salt
+      `Prelude.hashWithSalt` create
       `Prelude.hashWithSalt` delete'
       `Prelude.hashWithSalt` update
 

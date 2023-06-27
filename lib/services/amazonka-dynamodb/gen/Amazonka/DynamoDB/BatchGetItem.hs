@@ -26,10 +26,10 @@
 -- A single operation can retrieve up to 16 MB of data, which can contain
 -- as many as 100 items. @BatchGetItem@ returns a partial result if the
 -- response size limit is exceeded, the table\'s provisioned throughput is
--- exceeded, or an internal processing failure occurs. If a partial result
--- is returned, the operation returns a value for @UnprocessedKeys@. You
--- can use this value to retry the operation starting with the next item to
--- get.
+-- exceeded, more than 1MB per partition is requested, or an internal
+-- processing failure occurs. If a partial result is returned, the
+-- operation returns a value for @UnprocessedKeys@. You can use this value
+-- to retry the operation starting with the next item to get.
 --
 -- If you request more than 100 items, @BatchGetItem@ returns a
 -- @ValidationException@ with the message \"Too many items requested for
@@ -64,8 +64,8 @@
 -- table in the request. If you want strongly consistent reads instead, you
 -- can set @ConsistentRead@ to @true@ for any or all tables.
 --
--- In order to minimize response latency, @BatchGetItem@ retrieves items in
--- parallel.
+-- In order to minimize response latency, @BatchGetItem@ may retrieve items
+-- in parallel.
 --
 -- When designing your application, keep in mind that DynamoDB does not
 -- return items in any particular order. To help parse the response by
@@ -365,19 +365,22 @@ instance Core.AWSRequest BatchGetItem where
     Response.receiveJSON
       ( \s h x ->
           BatchGetItemResponse'
-            Prelude.<$> ( x Data..?> "ConsumedCapacity"
+            Prelude.<$> ( x
+                            Data..?> "ConsumedCapacity"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "Responses" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "UnprocessedKeys"
+            Prelude.<*> ( x
+                            Data..?> "UnprocessedKeys"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BatchGetItem where
   hashWithSalt _salt BatchGetItem' {..} =
-    _salt `Prelude.hashWithSalt` returnConsumedCapacity
+    _salt
+      `Prelude.hashWithSalt` returnConsumedCapacity
       `Prelude.hashWithSalt` requestItems
 
 instance Prelude.NFData BatchGetItem where

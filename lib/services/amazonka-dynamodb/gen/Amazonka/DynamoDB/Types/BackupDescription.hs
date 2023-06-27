@@ -92,7 +92,8 @@ instance Data.FromJSON BackupDescription where
 
 instance Prelude.Hashable BackupDescription where
   hashWithSalt _salt BackupDescription' {..} =
-    _salt `Prelude.hashWithSalt` backupDetails
+    _salt
+      `Prelude.hashWithSalt` backupDetails
       `Prelude.hashWithSalt` sourceTableDetails
       `Prelude.hashWithSalt` sourceTableFeatureDetails
 

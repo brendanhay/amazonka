@@ -141,7 +141,8 @@ instance Data.FromJSON LocalSecondaryIndexInfo where
 
 instance Prelude.Hashable LocalSecondaryIndexInfo where
   hashWithSalt _salt LocalSecondaryIndexInfo' {..} =
-    _salt `Prelude.hashWithSalt` indexName
+    _salt
+      `Prelude.hashWithSalt` indexName
       `Prelude.hashWithSalt` keySchema
       `Prelude.hashWithSalt` projection
 

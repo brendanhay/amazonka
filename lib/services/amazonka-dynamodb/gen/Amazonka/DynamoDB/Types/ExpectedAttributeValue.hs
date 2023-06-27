@@ -689,7 +689,8 @@ expectedAttributeValue_value = Lens.lens (\ExpectedAttributeValue' {value} -> va
 
 instance Prelude.Hashable ExpectedAttributeValue where
   hashWithSalt _salt ExpectedAttributeValue' {..} =
-    _salt `Prelude.hashWithSalt` attributeValueList
+    _salt
+      `Prelude.hashWithSalt` attributeValueList
       `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` exists
       `Prelude.hashWithSalt` value

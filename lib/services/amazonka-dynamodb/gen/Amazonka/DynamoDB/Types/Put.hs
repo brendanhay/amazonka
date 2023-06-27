@@ -130,7 +130,8 @@ put_tableName = Lens.lens (\Put' {tableName} -> tableName) (\s@Put' {} a -> s {t
 
 instance Prelude.Hashable Put where
   hashWithSalt _salt Put' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpression
+    _salt
+      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` expressionAttributeNames
       `Prelude.hashWithSalt` expressionAttributeValues
       `Prelude.hashWithSalt` returnValuesOnConditionCheckFailure

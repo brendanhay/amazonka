@@ -570,7 +570,8 @@ instance Core.AWSRequest PutItem where
 
 instance Prelude.Hashable PutItem where
   hashWithSalt _salt PutItem' {..} =
-    _salt `Prelude.hashWithSalt` conditionExpression
+    _salt
+      `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` expected
       `Prelude.hashWithSalt` expressionAttributeNames
@@ -649,7 +650,7 @@ data PutItemResponse = PutItemResponse'
     -- statistics for the table and any indexes involved in the operation.
     -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
     -- parameter was specified. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | Information about item collections, if any, that were affected by the
@@ -697,7 +698,7 @@ data PutItemResponse = PutItemResponse'
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'itemCollectionMetrics', 'putItemResponse_itemCollectionMetrics' - Information about item collections, if any, that were affected by the
@@ -747,7 +748,7 @@ putItemResponse_attributes = Lens.lens (\PutItemResponse' {attributes} -> attrib
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Read\/Write Capacity Mode>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 putItemResponse_consumedCapacity :: Lens.Lens' PutItemResponse (Prelude.Maybe ConsumedCapacity)
 putItemResponse_consumedCapacity = Lens.lens (\PutItemResponse' {consumedCapacity} -> consumedCapacity) (\s@PutItemResponse' {} a -> s {consumedCapacity = a} :: PutItemResponse)

@@ -101,17 +101,20 @@ instance Data.FromJSON ItemCollectionMetrics where
       "ItemCollectionMetrics"
       ( \x ->
           ItemCollectionMetrics'
-            Prelude.<$> ( x Data..:? "ItemCollectionKey"
+            Prelude.<$> ( x
+                            Data..:? "ItemCollectionKey"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SizeEstimateRangeGB"
+            Prelude.<*> ( x
+                            Data..:? "SizeEstimateRangeGB"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ItemCollectionMetrics where
   hashWithSalt _salt ItemCollectionMetrics' {..} =
-    _salt `Prelude.hashWithSalt` itemCollectionKey
+    _salt
+      `Prelude.hashWithSalt` itemCollectionKey
       `Prelude.hashWithSalt` sizeEstimateRangeGB
 
 instance Prelude.NFData ItemCollectionMetrics where

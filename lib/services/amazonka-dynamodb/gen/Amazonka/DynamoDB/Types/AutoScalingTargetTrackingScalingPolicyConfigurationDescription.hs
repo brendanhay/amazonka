@@ -147,9 +147,9 @@ instance
       ( \x ->
           AutoScalingTargetTrackingScalingPolicyConfigurationDescription'
             Prelude.<$> (x Data..:? "DisableScaleIn")
-              Prelude.<*> (x Data..:? "ScaleInCooldown")
-              Prelude.<*> (x Data..:? "ScaleOutCooldown")
-              Prelude.<*> (x Data..: "TargetValue")
+            Prelude.<*> (x Data..:? "ScaleInCooldown")
+            Prelude.<*> (x Data..:? "ScaleOutCooldown")
+            Prelude.<*> (x Data..: "TargetValue")
       )
 
 instance
@@ -159,7 +159,8 @@ instance
   hashWithSalt
     _salt
     AutoScalingTargetTrackingScalingPolicyConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` disableScaleIn
+      _salt
+        `Prelude.hashWithSalt` disableScaleIn
         `Prelude.hashWithSalt` scaleInCooldown
         `Prelude.hashWithSalt` scaleOutCooldown
         `Prelude.hashWithSalt` targetValue

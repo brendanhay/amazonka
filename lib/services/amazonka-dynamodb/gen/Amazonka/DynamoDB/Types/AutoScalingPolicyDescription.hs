@@ -84,7 +84,8 @@ instance
     AutoScalingPolicyDescription
   where
   hashWithSalt _salt AutoScalingPolicyDescription' {..} =
-    _salt `Prelude.hashWithSalt` policyName
+    _salt
+      `Prelude.hashWithSalt` policyName
       `Prelude.hashWithSalt` targetTrackingScalingPolicyConfiguration
 
 instance Prelude.NFData AutoScalingPolicyDescription where

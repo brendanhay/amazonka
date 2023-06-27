@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the regional endpoint information.
+-- Returns the regional endpoint information. For more information on
+-- policy permissions, please see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints Internetwork traffic privacy>.
 module Amazonka.DynamoDB.DescribeEndpoints
   ( -- * Creating a Request
     DescribeEndpoints (..),

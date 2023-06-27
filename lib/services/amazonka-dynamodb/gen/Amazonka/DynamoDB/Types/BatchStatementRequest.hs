@@ -78,7 +78,8 @@ batchStatementRequest_statement = Lens.lens (\BatchStatementRequest' {statement}
 
 instance Prelude.Hashable BatchStatementRequest where
   hashWithSalt _salt BatchStatementRequest' {..} =
-    _salt `Prelude.hashWithSalt` consistentRead
+    _salt
+      `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` statement
 

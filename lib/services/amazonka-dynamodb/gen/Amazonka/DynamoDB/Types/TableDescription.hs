@@ -59,6 +59,9 @@ data TableDescription = TableDescription'
     -- | The date and time when the table was created, in
     -- <http://www.epochconverter.com/ UNIX epoch time> format.
     creationDateTime :: Prelude.Maybe Data.POSIX,
+    -- | Indicates whether deletion protection is enabled (true) or disabled
+    -- (false) on the table.
+    deletionProtectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The global secondary indexes, if any, on the table. Each index is scoped
     -- to a given partition key value. Each element is composed of:
     --
@@ -303,6 +306,9 @@ data TableDescription = TableDescription'
 -- 'creationDateTime', 'tableDescription_creationDateTime' - The date and time when the table was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
 --
+-- 'deletionProtectionEnabled', 'tableDescription_deletionProtectionEnabled' - Indicates whether deletion protection is enabled (true) or disabled
+-- (false) on the table.
+--
 -- 'globalSecondaryIndexes', 'tableDescription_globalSecondaryIndexes' - The global secondary indexes, if any, on the table. Each index is scoped
 -- to a given partition key value. Each element is composed of:
 --
@@ -528,6 +534,7 @@ newTableDescription =
       attributeDefinitions = Prelude.Nothing,
       billingModeSummary = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      deletionProtectionEnabled = Prelude.Nothing,
       globalSecondaryIndexes = Prelude.Nothing,
       globalTableVersion = Prelude.Nothing,
       itemCount = Prelude.Nothing,
@@ -571,6 +578,11 @@ tableDescription_billingModeSummary = Lens.lens (\TableDescription' {billingMode
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
 tableDescription_creationDateTime :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.UTCTime)
 tableDescription_creationDateTime = Lens.lens (\TableDescription' {creationDateTime} -> creationDateTime) (\s@TableDescription' {} a -> s {creationDateTime = a} :: TableDescription) Prelude.. Lens.mapping Data._Time
+
+-- | Indicates whether deletion protection is enabled (true) or disabled
+-- (false) on the table.
+tableDescription_deletionProtectionEnabled :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Bool)
+tableDescription_deletionProtectionEnabled = Lens.lens (\TableDescription' {deletionProtectionEnabled} -> deletionProtectionEnabled) (\s@TableDescription' {} a -> s {deletionProtectionEnabled = a} :: TableDescription)
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
 -- to a given partition key value. Each element is composed of:
@@ -832,12 +844,15 @@ instance Data.FromJSON TableDescription where
       ( \x ->
           TableDescription'
             Prelude.<$> (x Data..:? "ArchivalSummary")
-            Prelude.<*> ( x Data..:? "AttributeDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "AttributeDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BillingModeSummary")
             Prelude.<*> (x Data..:? "CreationDateTime")
-            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<*> (x Data..:? "DeletionProtectionEnabled")
+            Prelude.<*> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "GlobalTableVersion")
@@ -845,7 +860,8 @@ instance Data.FromJSON TableDescription where
             Prelude.<*> (x Data..:? "KeySchema")
             Prelude.<*> (x Data..:? "LatestStreamArn")
             Prelude.<*> (x Data..:? "LatestStreamLabel")
-            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "LocalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProvisionedThroughput")
@@ -863,10 +879,12 @@ instance Data.FromJSON TableDescription where
 
 instance Prelude.Hashable TableDescription where
   hashWithSalt _salt TableDescription' {..} =
-    _salt `Prelude.hashWithSalt` archivalSummary
+    _salt
+      `Prelude.hashWithSalt` archivalSummary
       `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` billingModeSummary
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` deletionProtectionEnabled
       `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` globalTableVersion
       `Prelude.hashWithSalt` itemCount
@@ -892,6 +910,7 @@ instance Prelude.NFData TableDescription where
       `Prelude.seq` Prelude.rnf attributeDefinitions
       `Prelude.seq` Prelude.rnf billingModeSummary
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf deletionProtectionEnabled
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf globalTableVersion
       `Prelude.seq` Prelude.rnf itemCount

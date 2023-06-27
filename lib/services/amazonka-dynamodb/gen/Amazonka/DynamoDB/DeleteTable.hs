@@ -29,6 +29,10 @@
 -- @ResourceNotFoundException@. If table is already in the @DELETING@
 -- state, no error is returned.
 --
+-- This operation only applies to
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
+-- of global tables.
+--
 -- DynamoDB might continue to accept data read and write operations, such
 -- as @GetItem@ and @PutItem@, on a table in the @DELETING@ state until the
 -- table deletion is complete.

@@ -169,8 +169,8 @@ data UpdateItem = UpdateItem'
     -- set to @NONE@ (the default), no statistics are returned.
     returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
     -- | Use @ReturnValues@ if you want to get the item attributes as they appear
-    -- before or after they are updated. For @UpdateItem@, the valid values
-    -- are:
+    -- before or after they are successfully updated. For @UpdateItem@, the
+    -- valid values are:
     --
     -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
     --     @NONE@, then nothing is returned. (This setting is the default for
@@ -398,8 +398,8 @@ data UpdateItem = UpdateItem'
 -- set to @NONE@ (the default), no statistics are returned.
 --
 -- 'returnValues', 'updateItem_returnValues' - Use @ReturnValues@ if you want to get the item attributes as they appear
--- before or after they are updated. For @UpdateItem@, the valid values
--- are:
+-- before or after they are successfully updated. For @UpdateItem@, the
+-- valid values are:
 --
 -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
 --     @NONE@, then nothing is returned. (This setting is the default for
@@ -651,8 +651,8 @@ updateItem_returnItemCollectionMetrics :: Lens.Lens' UpdateItem (Prelude.Maybe R
 updateItem_returnItemCollectionMetrics = Lens.lens (\UpdateItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@UpdateItem' {} a -> s {returnItemCollectionMetrics = a} :: UpdateItem)
 
 -- | Use @ReturnValues@ if you want to get the item attributes as they appear
--- before or after they are updated. For @UpdateItem@, the valid values
--- are:
+-- before or after they are successfully updated. For @UpdateItem@, the
+-- valid values are:
 --
 -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
 --     @NONE@, then nothing is returned. (This setting is the default for
@@ -794,7 +794,8 @@ instance Core.AWSRequest UpdateItem where
 
 instance Prelude.Hashable UpdateItem where
   hashWithSalt _salt UpdateItem' {..} =
-    _salt `Prelude.hashWithSalt` attributeUpdates
+    _salt
+      `Prelude.hashWithSalt` attributeUpdates
       `Prelude.hashWithSalt` conditionExpression
       `Prelude.hashWithSalt` conditionalOperator
       `Prelude.hashWithSalt` expected
@@ -877,16 +878,16 @@ data UpdateItemResponse = UpdateItemResponse'
   { -- | A map of attribute values as they appear before or after the
     -- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
     --
-    -- The @Attributes@ map is only present if @ReturnValues@ was specified as
-    -- something other than @NONE@ in the request. Each element represents one
-    -- attribute.
+    -- The @Attributes@ map is only present if the update was successful and
+    -- @ReturnValues@ was specified as something other than @NONE@ in the
+    -- request. Each element represents one attribute.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The capacity units consumed by the @UpdateItem@ operation. The data
     -- returned includes the total provisioned throughput consumed, along with
     -- statistics for the table and any indexes involved in the operation.
     -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
     -- parameter was specified. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
     -- in the /Amazon DynamoDB Developer Guide/.
     consumedCapacity :: Prelude.Maybe ConsumedCapacity,
     -- | Information about item collections, if any, that were affected by the
@@ -928,16 +929,16 @@ data UpdateItemResponse = UpdateItemResponse'
 -- 'attributes', 'updateItemResponse_attributes' - A map of attribute values as they appear before or after the
 -- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
 --
--- The @Attributes@ map is only present if @ReturnValues@ was specified as
--- something other than @NONE@ in the request. Each element represents one
--- attribute.
+-- The @Attributes@ map is only present if the update was successful and
+-- @ReturnValues@ was specified as something other than @NONE@ in the
+-- request. Each element represents one attribute.
 --
 -- 'consumedCapacity', 'updateItemResponse_consumedCapacity' - The capacity units consumed by the @UpdateItem@ operation. The data
 -- returned includes the total provisioned throughput consumed, along with
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'itemCollectionMetrics', 'updateItemResponse_itemCollectionMetrics' - Information about item collections, if any, that were affected by the
@@ -979,9 +980,9 @@ newUpdateItemResponse pHttpStatus_ =
 -- | A map of attribute values as they appear before or after the
 -- @UpdateItem@ operation, as determined by the @ReturnValues@ parameter.
 --
--- The @Attributes@ map is only present if @ReturnValues@ was specified as
--- something other than @NONE@ in the request. Each element represents one
--- attribute.
+-- The @Attributes@ map is only present if the update was successful and
+-- @ReturnValues@ was specified as something other than @NONE@ in the
+-- request. Each element represents one attribute.
 updateItemResponse_attributes :: Lens.Lens' UpdateItemResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> attributes) (\s@UpdateItemResponse' {} a -> s {attributes = a} :: UpdateItemResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -990,7 +991,7 @@ updateItemResponse_attributes = Lens.lens (\UpdateItemResponse' {attributes} -> 
 -- statistics for the table and any indexes involved in the operation.
 -- @ConsumedCapacity@ is only returned if the @ReturnConsumedCapacity@
 -- parameter was specified. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html Provisioned Throughput>
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html#ItemSizeCalculations.Reads Provisioned Throughput>
 -- in the /Amazon DynamoDB Developer Guide/.
 updateItemResponse_consumedCapacity :: Lens.Lens' UpdateItemResponse (Prelude.Maybe ConsumedCapacity)
 updateItemResponse_consumedCapacity = Lens.lens (\UpdateItemResponse' {consumedCapacity} -> consumedCapacity) (\s@UpdateItemResponse' {} a -> s {consumedCapacity = a} :: UpdateItemResponse)

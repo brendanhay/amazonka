@@ -52,6 +52,7 @@ module Amazonka.DynamoDB.Lens
 
     -- ** CreateTable
     createTable_billingMode,
+    createTable_deletionProtectionEnabled,
     createTable_globalSecondaryIndexes,
     createTable_localSecondaryIndexes,
     createTable_provisionedThroughput,
@@ -459,6 +460,7 @@ module Amazonka.DynamoDB.Lens
     -- ** UpdateTable
     updateTable_attributeDefinitions,
     updateTable_billingMode,
+    updateTable_deletionProtectionEnabled,
     updateTable_globalSecondaryIndexUpdates,
     updateTable_provisionedThroughput,
     updateTable_replicaUpdates,
@@ -1014,6 +1016,7 @@ module Amazonka.DynamoDB.Lens
     tableDescription_attributeDefinitions,
     tableDescription_billingModeSummary,
     tableDescription_creationDateTime,
+    tableDescription_deletionProtectionEnabled,
     tableDescription_globalSecondaryIndexes,
     tableDescription_globalTableVersion,
     tableDescription_itemCount,

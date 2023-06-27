@@ -124,7 +124,8 @@ instance Data.FromJSON Projection where
 
 instance Prelude.Hashable Projection where
   hashWithSalt _salt Projection' {..} =
-    _salt `Prelude.hashWithSalt` nonKeyAttributes
+    _salt
+      `Prelude.hashWithSalt` nonKeyAttributes
       `Prelude.hashWithSalt` projectionType
 
 instance Prelude.NFData Projection where

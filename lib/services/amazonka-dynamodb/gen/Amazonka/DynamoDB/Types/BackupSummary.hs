@@ -197,7 +197,8 @@ instance Data.FromJSON BackupSummary where
 
 instance Prelude.Hashable BackupSummary where
   hashWithSalt _salt BackupSummary' {..} =
-    _salt `Prelude.hashWithSalt` backupArn
+    _salt
+      `Prelude.hashWithSalt` backupArn
       `Prelude.hashWithSalt` backupCreationDateTime
       `Prelude.hashWithSalt` backupExpiryDateTime
       `Prelude.hashWithSalt` backupName

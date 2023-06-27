@@ -187,7 +187,8 @@ instance
   hashWithSalt
     _salt
     LocalSecondaryIndexDescription' {..} =
-      _salt `Prelude.hashWithSalt` indexArn
+      _salt
+        `Prelude.hashWithSalt` indexArn
         `Prelude.hashWithSalt` indexName
         `Prelude.hashWithSalt` indexSizeBytes
         `Prelude.hashWithSalt` itemCount

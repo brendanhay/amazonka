@@ -33,8 +33,14 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConditionCheck' smart constructor.
 data ConditionCheck = ConditionCheck'
   { -- | One or more substitution tokens for attribute names in an expression.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html Expression attribute names>
+    -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | One or more values that can be substituted in an expression.
+    -- | One or more values that can be substituted in an expression. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html Condition expressions>
+    -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @ConditionCheck@ condition fails. For
@@ -47,7 +53,9 @@ data ConditionCheck = ConditionCheck'
     -- | Name of the table for the check item request.
     tableName :: Prelude.Text,
     -- | A condition that must be satisfied in order for a conditional update to
-    -- succeed.
+    -- succeed. For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html Condition expressions>
+    -- in the /Amazon DynamoDB Developer Guide/.
     conditionExpression :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +69,14 @@ data ConditionCheck = ConditionCheck'
 -- for backwards compatibility:
 --
 -- 'expressionAttributeNames', 'conditionCheck_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html Expression attribute names>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression.
+-- 'expressionAttributeValues', 'conditionCheck_expressionAttributeValues' - One or more values that can be substituted in an expression. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html Condition expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'returnValuesOnConditionCheckFailure', 'conditionCheck_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @ConditionCheck@ condition fails. For
@@ -75,7 +89,9 @@ data ConditionCheck = ConditionCheck'
 -- 'tableName', 'conditionCheck_tableName' - Name of the table for the check item request.
 --
 -- 'conditionExpression', 'conditionCheck_conditionExpression' - A condition that must be satisfied in order for a conditional update to
--- succeed.
+-- succeed. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html Condition expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
 newConditionCheck ::
   -- | 'tableName'
   Prelude.Text ->
@@ -95,10 +111,16 @@ newConditionCheck pTableName_ pConditionExpression_ =
     }
 
 -- | One or more substitution tokens for attribute names in an expression.
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html Expression attribute names>
+-- in the /Amazon DynamoDB Developer Guide/.
 conditionCheck_expressionAttributeNames :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 conditionCheck_expressionAttributeNames = Lens.lens (\ConditionCheck' {expressionAttributeNames} -> expressionAttributeNames) (\s@ConditionCheck' {} a -> s {expressionAttributeNames = a} :: ConditionCheck) Prelude.. Lens.mapping Lens.coerced
 
--- | One or more values that can be substituted in an expression.
+-- | One or more values that can be substituted in an expression. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html Condition expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
 conditionCheck_expressionAttributeValues :: Lens.Lens' ConditionCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 conditionCheck_expressionAttributeValues = Lens.lens (\ConditionCheck' {expressionAttributeValues} -> expressionAttributeValues) (\s@ConditionCheck' {} a -> s {expressionAttributeValues = a} :: ConditionCheck) Prelude.. Lens.mapping Lens.coerced
 
@@ -119,7 +141,9 @@ conditionCheck_tableName :: Lens.Lens' ConditionCheck Prelude.Text
 conditionCheck_tableName = Lens.lens (\ConditionCheck' {tableName} -> tableName) (\s@ConditionCheck' {} a -> s {tableName = a} :: ConditionCheck)
 
 -- | A condition that must be satisfied in order for a conditional update to
--- succeed.
+-- succeed. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html Condition expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
 conditionCheck_conditionExpression :: Lens.Lens' ConditionCheck Prelude.Text
 conditionCheck_conditionExpression = Lens.lens (\ConditionCheck' {conditionExpression} -> conditionExpression) (\s@ConditionCheck' {} a -> s {conditionExpression = a} :: ConditionCheck)
 

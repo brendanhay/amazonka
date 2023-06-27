@@ -131,10 +131,12 @@ instance Data.FromJSON ConsumedCapacity where
       ( \x ->
           ConsumedCapacity'
             Prelude.<$> (x Data..:? "CapacityUnits")
-            Prelude.<*> ( x Data..:? "GlobalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "GlobalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "LocalSecondaryIndexes"
+            Prelude.<*> ( x
+                            Data..:? "LocalSecondaryIndexes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ReadCapacityUnits")
@@ -145,7 +147,8 @@ instance Data.FromJSON ConsumedCapacity where
 
 instance Prelude.Hashable ConsumedCapacity where
   hashWithSalt _salt ConsumedCapacity' {..} =
-    _salt `Prelude.hashWithSalt` capacityUnits
+    _salt
+      `Prelude.hashWithSalt` capacityUnits
       `Prelude.hashWithSalt` globalSecondaryIndexes
       `Prelude.hashWithSalt` localSecondaryIndexes
       `Prelude.hashWithSalt` readCapacityUnits

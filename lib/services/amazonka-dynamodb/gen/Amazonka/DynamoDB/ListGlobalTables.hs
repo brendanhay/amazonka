@@ -23,8 +23,16 @@
 -- Lists all global tables that have a replica in the specified Region.
 --
 -- This operation only applies to
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html Version 2017.11.29>
--- of global tables.
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html Version 2017.11.29 (Legacy)>
+-- of global tables. We recommend using
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21 (Current)>
+-- when creating new global tables, as it provides greater flexibility,
+-- higher efficiency and consumes less write capacity than 2017.11.29
+-- (Legacy). To determine which version you are using, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html Determining the version>.
+-- To update existing global tables from version 2017.11.29 (Legacy) to
+-- version 2019.11.21 (Current), see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html Updating global tables>.
 module Amazonka.DynamoDB.ListGlobalTables
   ( -- * Creating a Request
     ListGlobalTables (..),

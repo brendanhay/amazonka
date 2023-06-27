@@ -111,7 +111,8 @@ instance Data.FromJSON Image where
 
 instance Prelude.Hashable Image where
   hashWithSalt _salt Image' {..} =
-    _salt `Prelude.hashWithSalt` imageId
+    _salt
+      `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` imageManifest
       `Prelude.hashWithSalt` imageManifestMediaType
       `Prelude.hashWithSalt` registryId

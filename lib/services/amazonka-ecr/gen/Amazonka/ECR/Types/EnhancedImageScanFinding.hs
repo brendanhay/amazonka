@@ -210,7 +210,8 @@ instance Data.FromJSON EnhancedImageScanFinding where
 
 instance Prelude.Hashable EnhancedImageScanFinding where
   hashWithSalt _salt EnhancedImageScanFinding' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` findingArn
       `Prelude.hashWithSalt` firstObservedAt

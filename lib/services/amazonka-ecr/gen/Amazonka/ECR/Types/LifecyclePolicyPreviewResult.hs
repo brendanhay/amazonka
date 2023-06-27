@@ -112,7 +112,8 @@ instance
     LifecyclePolicyPreviewResult
   where
   hashWithSalt _salt LifecyclePolicyPreviewResult' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` appliedRulePriority
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` imagePushedAt

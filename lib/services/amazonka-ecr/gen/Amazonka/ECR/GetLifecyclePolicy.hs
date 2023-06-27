@@ -114,7 +114,8 @@ instance Core.AWSRequest GetLifecyclePolicy where
 
 instance Prelude.Hashable GetLifecyclePolicy where
   hashWithSalt _salt GetLifecyclePolicy' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 
 instance Prelude.NFData GetLifecyclePolicy where

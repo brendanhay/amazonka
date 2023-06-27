@@ -99,10 +99,12 @@ instance Data.FromJSON ImageScanFindings where
       "ImageScanFindings"
       ( \x ->
           ImageScanFindings'
-            Prelude.<$> ( x Data..:? "enhancedFindings"
+            Prelude.<$> ( x
+                            Data..:? "enhancedFindings"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "findingSeverityCounts"
+            Prelude.<*> ( x
+                            Data..:? "findingSeverityCounts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "findings" Data..!= Prelude.mempty)
@@ -112,7 +114,8 @@ instance Data.FromJSON ImageScanFindings where
 
 instance Prelude.Hashable ImageScanFindings where
   hashWithSalt _salt ImageScanFindings' {..} =
-    _salt `Prelude.hashWithSalt` enhancedFindings
+    _salt
+      `Prelude.hashWithSalt` enhancedFindings
       `Prelude.hashWithSalt` findingSeverityCounts
       `Prelude.hashWithSalt` findings
       `Prelude.hashWithSalt` imageScanCompletedAt

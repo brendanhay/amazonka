@@ -89,14 +89,16 @@ instance Data.FromJSON RegistryScanningRule where
       ( \x ->
           RegistryScanningRule'
             Prelude.<$> (x Data..: "scanFrequency")
-            Prelude.<*> ( x Data..:? "repositoryFilters"
+            Prelude.<*> ( x
+                            Data..:? "repositoryFilters"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable RegistryScanningRule where
   hashWithSalt _salt RegistryScanningRule' {..} =
-    _salt `Prelude.hashWithSalt` scanFrequency
+    _salt
+      `Prelude.hashWithSalt` scanFrequency
       `Prelude.hashWithSalt` repositoryFilters
 
 instance Prelude.NFData RegistryScanningRule where

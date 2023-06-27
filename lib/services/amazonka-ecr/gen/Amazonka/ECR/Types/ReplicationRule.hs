@@ -84,7 +84,8 @@ instance Data.FromJSON ReplicationRule where
 
 instance Prelude.Hashable ReplicationRule where
   hashWithSalt _salt ReplicationRule' {..} =
-    _salt `Prelude.hashWithSalt` repositoryFilters
+    _salt
+      `Prelude.hashWithSalt` repositoryFilters
       `Prelude.hashWithSalt` destinations
 
 instance Prelude.NFData ReplicationRule where

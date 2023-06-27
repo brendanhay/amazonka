@@ -178,22 +178,22 @@ instance Core.AWSPager DescribeRepositories where
     | Core.stop
         ( rs
             Lens.^? describeRepositoriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeRepositoriesResponse_repositories
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRepositories_nextToken
           Lens..~ rs
           Lens.^? describeRepositoriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRepositories where
   type
@@ -212,7 +212,8 @@ instance Core.AWSRequest DescribeRepositories where
 
 instance Prelude.Hashable DescribeRepositories where
   hashWithSalt _salt DescribeRepositories' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryNames

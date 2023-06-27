@@ -100,7 +100,8 @@ instance Data.FromJSON PullThroughCacheRule where
 
 instance Prelude.Hashable PullThroughCacheRule where
   hashWithSalt _salt PullThroughCacheRule' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` ecrRepositoryPrefix
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` upstreamRegistryUrl

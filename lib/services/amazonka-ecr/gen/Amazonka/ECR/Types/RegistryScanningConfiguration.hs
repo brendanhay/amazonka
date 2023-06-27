@@ -80,7 +80,8 @@ instance
     RegistryScanningConfiguration
   where
   hashWithSalt _salt RegistryScanningConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` rules
+    _salt
+      `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` scanType
 
 instance Prelude.NFData RegistryScanningConfiguration where

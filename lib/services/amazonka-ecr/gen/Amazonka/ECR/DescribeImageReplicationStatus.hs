@@ -119,7 +119,8 @@ instance
       ( \s h x ->
           DescribeImageReplicationStatusResponse'
             Prelude.<$> (x Data..?> "imageId")
-            Prelude.<*> ( x Data..?> "replicationStatuses"
+            Prelude.<*> ( x
+                            Data..?> "replicationStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "repositoryName")
@@ -133,7 +134,8 @@ instance
   hashWithSalt
     _salt
     DescribeImageReplicationStatus' {..} =
-      _salt `Prelude.hashWithSalt` registryId
+      _salt
+        `Prelude.hashWithSalt` registryId
         `Prelude.hashWithSalt` repositoryName
         `Prelude.hashWithSalt` imageId
 

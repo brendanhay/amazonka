@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateChannel where
 
 instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelStorage
+    _salt
+      `Prelude.hashWithSalt` channelStorage
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` channelName

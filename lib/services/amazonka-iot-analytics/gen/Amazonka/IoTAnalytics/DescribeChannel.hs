@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeChannel where
 
 instance Prelude.Hashable DescribeChannel where
   hashWithSalt _salt DescribeChannel' {..} =
-    _salt `Prelude.hashWithSalt` includeStatistics
+    _salt
+      `Prelude.hashWithSalt` includeStatistics
       `Prelude.hashWithSalt` channelName
 
 instance Prelude.NFData DescribeChannel where

@@ -108,7 +108,8 @@ instance Core.AWSRequest CancelPipelineReprocessing where
 
 instance Prelude.Hashable CancelPipelineReprocessing where
   hashWithSalt _salt CancelPipelineReprocessing' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` reprocessingId
 
 instance Prelude.NFData CancelPipelineReprocessing where

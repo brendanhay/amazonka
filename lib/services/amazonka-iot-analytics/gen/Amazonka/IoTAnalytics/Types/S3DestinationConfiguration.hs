@@ -172,7 +172,8 @@ instance Data.FromJSON S3DestinationConfiguration where
 
 instance Prelude.Hashable S3DestinationConfiguration where
   hashWithSalt _salt S3DestinationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` glueConfiguration
+    _salt
+      `Prelude.hashWithSalt` glueConfiguration
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` roleArn

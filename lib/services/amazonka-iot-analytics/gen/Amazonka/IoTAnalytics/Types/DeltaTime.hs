@@ -109,7 +109,8 @@ instance Data.FromJSON DeltaTime where
 
 instance Prelude.Hashable DeltaTime where
   hashWithSalt _salt DeltaTime' {..} =
-    _salt `Prelude.hashWithSalt` offsetSeconds
+    _salt
+      `Prelude.hashWithSalt` offsetSeconds
       `Prelude.hashWithSalt` timeExpression
 
 instance Prelude.NFData DeltaTime where

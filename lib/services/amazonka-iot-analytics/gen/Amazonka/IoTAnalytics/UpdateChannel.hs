@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelStorage
+    _salt
+      `Prelude.hashWithSalt` channelStorage
       `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` channelName
 

@@ -77,7 +77,8 @@ instance Data.FromJSON ChannelStorageSummary where
 
 instance Prelude.Hashable ChannelStorageSummary where
   hashWithSalt _salt ChannelStorageSummary' {..} =
-    _salt `Prelude.hashWithSalt` customerManagedS3
+    _salt
+      `Prelude.hashWithSalt` customerManagedS3
       `Prelude.hashWithSalt` serviceManagedS3
 
 instance Prelude.NFData ChannelStorageSummary where

@@ -82,7 +82,8 @@ instance Data.FromJSON FileFormatConfiguration where
 
 instance Prelude.Hashable FileFormatConfiguration where
   hashWithSalt _salt FileFormatConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` jsonConfiguration
+    _salt
+      `Prelude.hashWithSalt` jsonConfiguration
       `Prelude.hashWithSalt` parquetConfiguration
 
 instance Prelude.NFData FileFormatConfiguration where

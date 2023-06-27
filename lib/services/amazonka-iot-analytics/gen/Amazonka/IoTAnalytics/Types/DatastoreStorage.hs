@@ -109,7 +109,8 @@ instance Data.FromJSON DatastoreStorage where
 
 instance Prelude.Hashable DatastoreStorage where
   hashWithSalt _salt DatastoreStorage' {..} =
-    _salt `Prelude.hashWithSalt` customerManagedS3
+    _salt
+      `Prelude.hashWithSalt` customerManagedS3
       `Prelude.hashWithSalt` iotSiteWiseMultiLayerStorage
       `Prelude.hashWithSalt` serviceManagedS3
 

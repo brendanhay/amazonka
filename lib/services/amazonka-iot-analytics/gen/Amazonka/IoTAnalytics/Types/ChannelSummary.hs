@@ -134,7 +134,8 @@ instance Data.FromJSON ChannelSummary where
 
 instance Prelude.Hashable ChannelSummary where
   hashWithSalt _salt ChannelSummary' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` channelStorage
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastMessageArrivalTime

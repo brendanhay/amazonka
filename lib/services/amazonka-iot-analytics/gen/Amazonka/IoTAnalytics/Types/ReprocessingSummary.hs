@@ -86,7 +86,8 @@ instance Data.FromJSON ReprocessingSummary where
 
 instance Prelude.Hashable ReprocessingSummary where
   hashWithSalt _salt ReprocessingSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
 

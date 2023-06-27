@@ -78,7 +78,8 @@ instance Data.FromJSON DatasetContentStatus where
 
 instance Prelude.Hashable DatasetContentStatus where
   hashWithSalt _salt DatasetContentStatus' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData DatasetContentStatus where

@@ -107,7 +107,8 @@ instance Data.FromJSON MathActivity where
 
 instance Prelude.Hashable MathActivity where
   hashWithSalt _salt MathActivity' {..} =
-    _salt `Prelude.hashWithSalt` next
+    _salt
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` math

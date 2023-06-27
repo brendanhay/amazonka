@@ -78,7 +78,8 @@ instance Data.FromJSON DatastoreActivity where
 
 instance Prelude.Hashable DatastoreActivity where
   hashWithSalt _salt DatastoreActivity' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` datastoreName
 
 instance Prelude.NFData DatastoreActivity where

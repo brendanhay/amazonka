@@ -97,21 +97,23 @@ instance Core.AWSPager ListChannels where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listChannelsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listChannelsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listChannelsResponse_channelSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listChannels_nextToken
           Lens..~ rs
-          Lens.^? listChannelsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listChannelsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
@@ -121,7 +123,8 @@ instance Core.AWSRequest ListChannels where
     Response.receiveJSON
       ( \s h x ->
           ListChannelsResponse'
-            Prelude.<$> ( x Data..?> "channelSummaries"
+            Prelude.<$> ( x
+                            Data..?> "channelSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListChannels where
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListChannels where

@@ -153,7 +153,8 @@ instance Core.AWSRequest StartPipelineReprocessing where
 
 instance Prelude.Hashable StartPipelineReprocessing where
   hashWithSalt _salt StartPipelineReprocessing' {..} =
-    _salt `Prelude.hashWithSalt` channelMessages
+    _salt
+      `Prelude.hashWithSalt` channelMessages
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` pipelineName

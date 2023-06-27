@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteDatasetContent where
 
 instance Prelude.Hashable DeleteDatasetContent where
   hashWithSalt _salt DeleteDatasetContent' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` datasetName
 
 instance Prelude.NFData DeleteDatasetContent where

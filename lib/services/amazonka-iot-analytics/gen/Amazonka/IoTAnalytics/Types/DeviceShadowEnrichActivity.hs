@@ -120,7 +120,8 @@ instance Data.FromJSON DeviceShadowEnrichActivity where
 
 instance Prelude.Hashable DeviceShadowEnrichActivity where
   hashWithSalt _salt DeviceShadowEnrichActivity' {..} =
-    _salt `Prelude.hashWithSalt` next
+    _salt
+      `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` thingName

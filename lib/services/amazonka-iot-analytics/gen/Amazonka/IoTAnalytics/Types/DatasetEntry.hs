@@ -74,7 +74,8 @@ instance Data.FromJSON DatasetEntry where
 
 instance Prelude.Hashable DatasetEntry where
   hashWithSalt _salt DatasetEntry' {..} =
-    _salt `Prelude.hashWithSalt` dataURI
+    _salt
+      `Prelude.hashWithSalt` dataURI
       `Prelude.hashWithSalt` entryName
 
 instance Prelude.NFData DatasetEntry where

@@ -191,7 +191,8 @@ instance Data.FromJSON Dataset where
           Dataset'
             Prelude.<$> (x Data..:? "actions")
             Prelude.<*> (x Data..:? "arn")
-            Prelude.<*> ( x Data..:? "contentDeliveryRules"
+            Prelude.<*> ( x
+                            Data..:? "contentDeliveryRules"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "creationTime")
@@ -206,7 +207,8 @@ instance Data.FromJSON Dataset where
 
 instance Prelude.Hashable Dataset where
   hashWithSalt _salt Dataset' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` contentDeliveryRules
       `Prelude.hashWithSalt` creationTime

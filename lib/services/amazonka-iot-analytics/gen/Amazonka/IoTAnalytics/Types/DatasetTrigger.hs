@@ -80,7 +80,8 @@ instance Data.FromJSON DatasetTrigger where
 
 instance Prelude.Hashable DatasetTrigger where
   hashWithSalt _salt DatasetTrigger' {..} =
-    _salt `Prelude.hashWithSalt` dataset
+    _salt
+      `Prelude.hashWithSalt` dataset
       `Prelude.hashWithSalt` schedule
 
 instance Prelude.NFData DatasetTrigger where

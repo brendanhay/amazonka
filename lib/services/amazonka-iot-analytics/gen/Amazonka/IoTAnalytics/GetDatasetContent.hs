@@ -115,7 +115,8 @@ instance Core.AWSRequest GetDatasetContent where
 
 instance Prelude.Hashable GetDatasetContent where
   hashWithSalt _salt GetDatasetContent' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` datasetName
 
 instance Prelude.NFData GetDatasetContent where

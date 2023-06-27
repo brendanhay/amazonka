@@ -112,7 +112,8 @@ instance Core.AWSRequest CreateDatasetContent where
 
 instance Prelude.Hashable CreateDatasetContent where
   hashWithSalt _salt CreateDatasetContent' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` datasetName
 
 instance Prelude.NFData CreateDatasetContent where

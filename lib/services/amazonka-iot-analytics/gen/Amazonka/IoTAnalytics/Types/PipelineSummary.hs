@@ -90,14 +90,16 @@ instance Data.FromJSON PipelineSummary where
             Prelude.<$> (x Data..:? "creationTime")
             Prelude.<*> (x Data..:? "lastUpdateTime")
             Prelude.<*> (x Data..:? "pipelineName")
-            Prelude.<*> ( x Data..:? "reprocessingSummaries"
+            Prelude.<*> ( x
+                            Data..:? "reprocessingSummaries"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PipelineSummary where
   hashWithSalt _salt PipelineSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` reprocessingSummaries

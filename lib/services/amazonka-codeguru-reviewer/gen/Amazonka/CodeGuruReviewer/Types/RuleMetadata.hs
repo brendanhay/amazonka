@@ -107,7 +107,8 @@ instance Data.FromJSON RuleMetadata where
 
 instance Prelude.Hashable RuleMetadata where
   hashWithSalt _salt RuleMetadata' {..} =
-    _salt `Prelude.hashWithSalt` longDescription
+    _salt
+      `Prelude.hashWithSalt` longDescription
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` ruleTags

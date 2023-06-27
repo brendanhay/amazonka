@@ -110,7 +110,8 @@ instance
     RecommendationFeedbackSummary
   where
   hashWithSalt _salt RecommendationFeedbackSummary' {..} =
-    _salt `Prelude.hashWithSalt` reactions
+    _salt
+      `Prelude.hashWithSalt` reactions
       `Prelude.hashWithSalt` recommendationId
       `Prelude.hashWithSalt` userId
 

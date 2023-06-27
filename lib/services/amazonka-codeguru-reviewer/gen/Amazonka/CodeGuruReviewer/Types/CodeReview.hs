@@ -303,7 +303,8 @@ instance Data.FromJSON CodeReview where
 
 instance Prelude.Hashable CodeReview where
   hashWithSalt _salt CodeReview' {..} =
-    _salt `Prelude.hashWithSalt` analysisTypes
+    _salt
+      `Prelude.hashWithSalt` analysisTypes
       `Prelude.hashWithSalt` associationArn
       `Prelude.hashWithSalt` codeReviewArn
       `Prelude.hashWithSalt` configFileState

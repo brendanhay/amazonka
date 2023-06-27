@@ -71,7 +71,8 @@ s3Repository_bucketName = Lens.lens (\S3Repository' {bucketName} -> bucketName) 
 
 instance Prelude.Hashable S3Repository where
   hashWithSalt _salt S3Repository' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` bucketName
 
 instance Prelude.NFData S3Repository where

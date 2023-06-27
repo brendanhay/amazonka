@@ -330,7 +330,8 @@ instance Data.FromJSON RepositoryAssociation where
 
 instance Prelude.Hashable RepositoryAssociation where
   hashWithSalt _salt RepositoryAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationArn
+    _salt
+      `Prelude.hashWithSalt` associationArn
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` createdTimeStamp

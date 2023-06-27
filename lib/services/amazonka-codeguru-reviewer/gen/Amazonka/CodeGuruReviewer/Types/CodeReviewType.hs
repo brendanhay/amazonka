@@ -91,7 +91,8 @@ codeReviewType_repositoryAnalysis = Lens.lens (\CodeReviewType' {repositoryAnaly
 
 instance Prelude.Hashable CodeReviewType where
   hashWithSalt _salt CodeReviewType' {..} =
-    _salt `Prelude.hashWithSalt` analysisTypes
+    _salt
+      `Prelude.hashWithSalt` analysisTypes
       `Prelude.hashWithSalt` repositoryAnalysis
 
 instance Prelude.NFData CodeReviewType where

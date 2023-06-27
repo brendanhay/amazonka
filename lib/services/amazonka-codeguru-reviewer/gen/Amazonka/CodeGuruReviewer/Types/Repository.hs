@@ -88,7 +88,8 @@ repository_s3Bucket = Lens.lens (\Repository' {s3Bucket} -> s3Bucket) (\s@Reposi
 
 instance Prelude.Hashable Repository where
   hashWithSalt _salt Repository' {..} =
-    _salt `Prelude.hashWithSalt` bitbucket
+    _salt
+      `Prelude.hashWithSalt` bitbucket
       `Prelude.hashWithSalt` codeCommit
       `Prelude.hashWithSalt` gitHubEnterpriseServer
       `Prelude.hashWithSalt` s3Bucket

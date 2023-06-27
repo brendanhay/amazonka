@@ -129,7 +129,8 @@ instance Core.AWSRequest PutRecommendationFeedback where
 
 instance Prelude.Hashable PutRecommendationFeedback where
   hashWithSalt _salt PutRecommendationFeedback' {..} =
-    _salt `Prelude.hashWithSalt` codeReviewArn
+    _salt
+      `Prelude.hashWithSalt` codeReviewArn
       `Prelude.hashWithSalt` recommendationId
       `Prelude.hashWithSalt` reactions
 

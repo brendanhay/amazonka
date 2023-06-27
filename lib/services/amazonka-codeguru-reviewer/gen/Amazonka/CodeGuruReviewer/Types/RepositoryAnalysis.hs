@@ -75,7 +75,8 @@ repositoryAnalysis_sourceCodeType = Lens.lens (\RepositoryAnalysis' {sourceCodeT
 
 instance Prelude.Hashable RepositoryAnalysis where
   hashWithSalt _salt RepositoryAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` repositoryHead
+    _salt
+      `Prelude.hashWithSalt` repositoryHead
       `Prelude.hashWithSalt` sourceCodeType
 
 instance Prelude.NFData RepositoryAnalysis where

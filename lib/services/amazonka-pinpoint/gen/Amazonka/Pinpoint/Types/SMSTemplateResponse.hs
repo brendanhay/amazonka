@@ -212,7 +212,8 @@ instance Data.FromJSON SMSTemplateResponse where
 
 instance Prelude.Hashable SMSTemplateResponse where
   hashWithSalt _salt SMSTemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` recommenderId

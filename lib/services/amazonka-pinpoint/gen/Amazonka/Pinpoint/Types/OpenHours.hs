@@ -26,20 +26,19 @@ import Amazonka.Pinpoint.Types.DayOfWeek
 import Amazonka.Pinpoint.Types.OpenHoursRule
 import qualified Amazonka.Prelude as Prelude
 
--- | The time when journey allow to send messages. QuietTime should be
--- configured first and SendingSchedule should be set to true.
+-- | Specifies the times when message are allowed to be sent to endpoints.
 --
 -- /See:/ 'newOpenHours' smart constructor.
 data OpenHours = OpenHours'
-  { -- | Rules for Custom Channel.
+  { -- | Specifies the schedule settings for the custom channel.
     custom :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
-    -- | Rules for Email Channel.
+    -- | Specifies the schedule settings for the email channel.
     email :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
-    -- | Rules for Push Channel.
+    -- | Specifies the schedule settings for the push channel.
     push :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
-    -- | Rules for SMS Channel.
+    -- | Specifies the schedule settings for the SMS channel.
     sms :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]),
-    -- | Rules for Voice Channel.
+    -- | Specifies the schedule settings for the voice channel.
     voice :: Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule])
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,15 +51,15 @@ data OpenHours = OpenHours'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'custom', 'openHours_custom' - Rules for Custom Channel.
+-- 'custom', 'openHours_custom' - Specifies the schedule settings for the custom channel.
 --
--- 'email', 'openHours_email' - Rules for Email Channel.
+-- 'email', 'openHours_email' - Specifies the schedule settings for the email channel.
 --
--- 'push', 'openHours_push' - Rules for Push Channel.
+-- 'push', 'openHours_push' - Specifies the schedule settings for the push channel.
 --
--- 'sms', 'openHours_sms' - Rules for SMS Channel.
+-- 'sms', 'openHours_sms' - Specifies the schedule settings for the SMS channel.
 --
--- 'voice', 'openHours_voice' - Rules for Voice Channel.
+-- 'voice', 'openHours_voice' - Specifies the schedule settings for the voice channel.
 newOpenHours ::
   OpenHours
 newOpenHours =
@@ -72,23 +71,23 @@ newOpenHours =
       voice = Prelude.Nothing
     }
 
--- | Rules for Custom Channel.
+-- | Specifies the schedule settings for the custom channel.
 openHours_custom :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
 openHours_custom = Lens.lens (\OpenHours' {custom} -> custom) (\s@OpenHours' {} a -> s {custom = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
--- | Rules for Email Channel.
+-- | Specifies the schedule settings for the email channel.
 openHours_email :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
 openHours_email = Lens.lens (\OpenHours' {email} -> email) (\s@OpenHours' {} a -> s {email = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
--- | Rules for Push Channel.
+-- | Specifies the schedule settings for the push channel.
 openHours_push :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
 openHours_push = Lens.lens (\OpenHours' {push} -> push) (\s@OpenHours' {} a -> s {push = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
--- | Rules for SMS Channel.
+-- | Specifies the schedule settings for the SMS channel.
 openHours_sms :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
 openHours_sms = Lens.lens (\OpenHours' {sms} -> sms) (\s@OpenHours' {} a -> s {sms = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
--- | Rules for Voice Channel.
+-- | Specifies the schedule settings for the voice channel.
 openHours_voice :: Lens.Lens' OpenHours (Prelude.Maybe (Prelude.HashMap DayOfWeek [OpenHoursRule]))
 openHours_voice = Lens.lens (\OpenHours' {voice} -> voice) (\s@OpenHours' {} a -> s {voice = a} :: OpenHours) Prelude.. Lens.mapping Lens.coerced
 
@@ -107,7 +106,8 @@ instance Data.FromJSON OpenHours where
 
 instance Prelude.Hashable OpenHours where
   hashWithSalt _salt OpenHours' {..} =
-    _salt `Prelude.hashWithSalt` custom
+    _salt
+      `Prelude.hashWithSalt` custom
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` push
       `Prelude.hashWithSalt` sms

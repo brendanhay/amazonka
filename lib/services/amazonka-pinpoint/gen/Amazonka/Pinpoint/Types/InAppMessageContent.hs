@@ -118,7 +118,8 @@ instance Data.FromJSON InAppMessageContent where
 
 instance Prelude.Hashable InAppMessageContent where
   hashWithSalt _salt InAppMessageContent' {..} =
-    _salt `Prelude.hashWithSalt` backgroundColor
+    _salt
+      `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` bodyConfig
       `Prelude.hashWithSalt` headerConfig
       `Prelude.hashWithSalt` imageUrl

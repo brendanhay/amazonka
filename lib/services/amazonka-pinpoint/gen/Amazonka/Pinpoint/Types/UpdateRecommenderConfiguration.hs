@@ -349,7 +349,8 @@ instance
   hashWithSalt
     _salt
     UpdateRecommenderConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` attributes
+      _salt
+        `Prelude.hashWithSalt` attributes
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` recommendationProviderIdType

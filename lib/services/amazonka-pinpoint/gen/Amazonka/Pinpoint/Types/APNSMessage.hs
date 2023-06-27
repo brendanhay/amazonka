@@ -588,7 +588,8 @@ aPNSMessage_url = Lens.lens (\APNSMessage' {url} -> url) (\s@APNSMessage' {} a -
 
 instance Prelude.Hashable APNSMessage where
   hashWithSalt _salt APNSMessage' {..} =
-    _salt `Prelude.hashWithSalt` aPNSPushType
+    _salt
+      `Prelude.hashWithSalt` aPNSPushType
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` badge
       `Prelude.hashWithSalt` body

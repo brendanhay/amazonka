@@ -146,7 +146,8 @@ instance Data.FromJSON AttributeDimension where
 
 instance Prelude.Hashable AttributeDimension where
   hashWithSalt _salt AttributeDimension' {..} =
-    _salt `Prelude.hashWithSalt` attributeType
+    _salt
+      `Prelude.hashWithSalt` attributeType
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData AttributeDimension where

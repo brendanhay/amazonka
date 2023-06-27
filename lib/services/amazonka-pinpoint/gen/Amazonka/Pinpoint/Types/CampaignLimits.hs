@@ -142,7 +142,8 @@ instance Data.FromJSON CampaignLimits where
 
 instance Prelude.Hashable CampaignLimits where
   hashWithSalt _salt CampaignLimits' {..} =
-    _salt `Prelude.hashWithSalt` daily
+    _salt
+      `Prelude.hashWithSalt` daily
       `Prelude.hashWithSalt` maximumDuration
       `Prelude.hashWithSalt` messagesPerSecond
       `Prelude.hashWithSalt` session

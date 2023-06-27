@@ -188,7 +188,8 @@ instance Data.FromJSON MessageResult where
 
 instance Prelude.Hashable MessageResult where
   hashWithSalt _salt MessageResult' {..} =
-    _salt `Prelude.hashWithSalt` messageId
+    _salt
+      `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` updatedToken
       `Prelude.hashWithSalt` deliveryStatus

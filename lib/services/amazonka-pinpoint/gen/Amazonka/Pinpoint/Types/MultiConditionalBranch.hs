@@ -79,7 +79,8 @@ instance Data.FromJSON MultiConditionalBranch where
 
 instance Prelude.Hashable MultiConditionalBranch where
   hashWithSalt _salt MultiConditionalBranch' {..} =
-    _salt `Prelude.hashWithSalt` condition
+    _salt
+      `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` nextActivity
 
 instance Prelude.NFData MultiConditionalBranch where

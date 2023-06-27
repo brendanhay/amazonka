@@ -108,7 +108,8 @@ instance Core.AWSRequest SendUsersMessages where
 
 instance Prelude.Hashable SendUsersMessages where
   hashWithSalt _salt SendUsersMessages' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` sendUsersMessageRequest
 
 instance Prelude.NFData SendUsersMessages where

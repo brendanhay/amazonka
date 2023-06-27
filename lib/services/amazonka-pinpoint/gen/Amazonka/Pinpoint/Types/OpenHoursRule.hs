@@ -24,13 +24,15 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | List of OpenHours Rules.
+-- | Specifies the start and end time for OpenHours.
 --
 -- /See:/ 'newOpenHoursRule' smart constructor.
 data OpenHoursRule = OpenHoursRule'
-  { -- | Local start time in ISO 8601 format.
+  { -- | The end of the scheduled time, in ISO 8601 format, when the channel
+    -- can\'t send messages.
     endTime :: Prelude.Maybe Prelude.Text,
-    -- | Local start time in ISO 8601 format.
+    -- | The start of the scheduled time, in ISO 8601 format, when the channel
+    -- can send messages.
     startTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +45,11 @@ data OpenHoursRule = OpenHoursRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endTime', 'openHoursRule_endTime' - Local start time in ISO 8601 format.
+-- 'endTime', 'openHoursRule_endTime' - The end of the scheduled time, in ISO 8601 format, when the channel
+-- can\'t send messages.
 --
--- 'startTime', 'openHoursRule_startTime' - Local start time in ISO 8601 format.
+-- 'startTime', 'openHoursRule_startTime' - The start of the scheduled time, in ISO 8601 format, when the channel
+-- can send messages.
 newOpenHoursRule ::
   OpenHoursRule
 newOpenHoursRule =
@@ -54,11 +58,13 @@ newOpenHoursRule =
       startTime = Prelude.Nothing
     }
 
--- | Local start time in ISO 8601 format.
+-- | The end of the scheduled time, in ISO 8601 format, when the channel
+-- can\'t send messages.
 openHoursRule_endTime :: Lens.Lens' OpenHoursRule (Prelude.Maybe Prelude.Text)
 openHoursRule_endTime = Lens.lens (\OpenHoursRule' {endTime} -> endTime) (\s@OpenHoursRule' {} a -> s {endTime = a} :: OpenHoursRule)
 
--- | Local start time in ISO 8601 format.
+-- | The start of the scheduled time, in ISO 8601 format, when the channel
+-- can send messages.
 openHoursRule_startTime :: Lens.Lens' OpenHoursRule (Prelude.Maybe Prelude.Text)
 openHoursRule_startTime = Lens.lens (\OpenHoursRule' {startTime} -> startTime) (\s@OpenHoursRule' {} a -> s {startTime = a} :: OpenHoursRule)
 
@@ -74,7 +80,8 @@ instance Data.FromJSON OpenHoursRule where
 
 instance Prelude.Hashable OpenHoursRule where
   hashWithSalt _salt OpenHoursRule' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData OpenHoursRule where

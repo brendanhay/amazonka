@@ -173,7 +173,8 @@ instance Data.FromJSON VoiceChannelResponse where
 
 instance Prelude.Hashable VoiceChannelResponse where
   hashWithSalt _salt VoiceChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` hasCredential

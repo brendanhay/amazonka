@@ -31,6 +31,12 @@ data ActivityResponse = ActivityResponse'
   { -- | The actual time, in ISO 8601 format, when the activity was marked
     -- CANCELLED or COMPLETED.
     end :: Prelude.Maybe Prelude.Text,
+    -- | A JSON object that contains metrics relating to the campaign execution
+    -- for this campaign activity. For information about the structure and
+    -- contents of the results, see
+    -- <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Standard Amazon Pinpoint analytics metrics>
+    -- in the /Amazon Pinpoint Developer Guide/.
+    executionMetrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies whether the activity succeeded. Possible values are SUCCESS
     -- and FAIL.
     result :: Prelude.Maybe Prelude.Text,
@@ -76,6 +82,12 @@ data ActivityResponse = ActivityResponse'
 -- 'end', 'activityResponse_end' - The actual time, in ISO 8601 format, when the activity was marked
 -- CANCELLED or COMPLETED.
 --
+-- 'executionMetrics', 'activityResponse_executionMetrics' - A JSON object that contains metrics relating to the campaign execution
+-- for this campaign activity. For information about the structure and
+-- contents of the results, see
+-- <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Standard Amazon Pinpoint analytics metrics>
+-- in the /Amazon Pinpoint Developer Guide/.
+--
 -- 'result', 'activityResponse_result' - Specifies whether the activity succeeded. Possible values are SUCCESS
 -- and FAIL.
 --
@@ -117,6 +129,7 @@ newActivityResponse ::
 newActivityResponse pCampaignId_ pId_ pApplicationId_ =
   ActivityResponse'
     { end = Prelude.Nothing,
+      executionMetrics = Prelude.Nothing,
       result = Prelude.Nothing,
       scheduledStart = Prelude.Nothing,
       start = Prelude.Nothing,
@@ -135,6 +148,14 @@ newActivityResponse pCampaignId_ pId_ pApplicationId_ =
 -- CANCELLED or COMPLETED.
 activityResponse_end :: Lens.Lens' ActivityResponse (Prelude.Maybe Prelude.Text)
 activityResponse_end = Lens.lens (\ActivityResponse' {end} -> end) (\s@ActivityResponse' {} a -> s {end = a} :: ActivityResponse)
+
+-- | A JSON object that contains metrics relating to the campaign execution
+-- for this campaign activity. For information about the structure and
+-- contents of the results, see
+-- <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Standard Amazon Pinpoint analytics metrics>
+-- in the /Amazon Pinpoint Developer Guide/.
+activityResponse_executionMetrics :: Lens.Lens' ActivityResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+activityResponse_executionMetrics = Lens.lens (\ActivityResponse' {executionMetrics} -> executionMetrics) (\s@ActivityResponse' {} a -> s {executionMetrics = a} :: ActivityResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies whether the activity succeeded. Possible values are SUCCESS
 -- and FAIL.
@@ -198,6 +219,10 @@ instance Data.FromJSON ActivityResponse where
       ( \x ->
           ActivityResponse'
             Prelude.<$> (x Data..:? "End")
+            Prelude.<*> ( x
+                            Data..:? "ExecutionMetrics"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "Result")
             Prelude.<*> (x Data..:? "ScheduledStart")
             Prelude.<*> (x Data..:? "Start")
@@ -214,7 +239,9 @@ instance Data.FromJSON ActivityResponse where
 
 instance Prelude.Hashable ActivityResponse where
   hashWithSalt _salt ActivityResponse' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
+      `Prelude.hashWithSalt` executionMetrics
       `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` scheduledStart
       `Prelude.hashWithSalt` start
@@ -231,6 +258,7 @@ instance Prelude.Hashable ActivityResponse where
 instance Prelude.NFData ActivityResponse where
   rnf ActivityResponse' {..} =
     Prelude.rnf end
+      `Prelude.seq` Prelude.rnf executionMetrics
       `Prelude.seq` Prelude.rnf result
       `Prelude.seq` Prelude.rnf scheduledStart
       `Prelude.seq` Prelude.rnf start

@@ -138,7 +138,8 @@ instance Data.FromJSON SegmentGroup where
 
 instance Prelude.Hashable SegmentGroup where
   hashWithSalt _salt SegmentGroup' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` sourceSegments
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` type'

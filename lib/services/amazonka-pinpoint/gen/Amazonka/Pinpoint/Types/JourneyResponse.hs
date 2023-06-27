@@ -31,6 +31,7 @@ import Amazonka.Pinpoint.Types.OpenHours
 import Amazonka.Pinpoint.Types.QuietTime
 import Amazonka.Pinpoint.Types.StartCondition
 import Amazonka.Pinpoint.Types.State
+import Amazonka.Pinpoint.Types.TimezoneEstimationMethodsElement
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the status, configuration, and other settings
@@ -43,7 +44,7 @@ data JourneyResponse = JourneyResponse'
     -- identifier (string) for an activity and the value is the settings for
     -- the activity.
     activities :: Prelude.Maybe (Prelude.HashMap Prelude.Text Activity),
-    -- | The time when journey will stop sending messages. QuietTime should be
+    -- | The time when a journey will not send messages. QuietTime should be
     -- configured first and SendingSchedule should be set to true.
     closedDays :: Prelude.Maybe ClosedDays,
     -- | The date, in ISO 8601 format, when the journey was created.
@@ -58,7 +59,7 @@ data JourneyResponse = JourneyResponse'
     -- participant\'s local time. If this value is true, the schedule uses each
     -- participant\'s local time.
     localTime :: Prelude.Maybe Prelude.Bool,
-    -- | The time when journey allow to send messages. QuietTime should be
+    -- | The time when a journey can send messages. QuietTime should be
     -- configured first and SendingSchedule should be set to true.
     openHours :: Prelude.Maybe OpenHours,
     -- | The quiet time settings for the journey. Quiet time is a specific time
@@ -82,13 +83,13 @@ data JourneyResponse = JourneyResponse'
     -- | The frequency with which Amazon Pinpoint evaluates segment and event
     -- data for the journey, as a duration in ISO 8601 format.
     refreshFrequency :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether a journey should be refreshed on segment update.
+    -- | Indicates whether the journey participants should be refreshed when a
+    -- segment is updated.
     refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
     -- | The schedule settings for the journey.
     schedule :: Prelude.Maybe JourneySchedule,
-    -- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
-    -- This flag should be set to true in order to allow (OpenHours and
-    -- ClosedDays)
+    -- | Indicates if journey has Advance Quiet Time enabled. This flag should be
+    -- set to true in order to allow using OpenHours and ClosedDays.
     sendingSchedule :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier for the first activity in the journey.
     startActivity :: Prelude.Maybe Prelude.Text,
@@ -120,8 +121,24 @@ data JourneyResponse = JourneyResponse'
     --     time. However, any existing participants who are currently waiting
     --     to start an activity may continue the journey.
     state :: Prelude.Maybe State,
-    -- | Specifies whether endpoints in quiet hours should enter a wait till the
-    -- end of their quiet hours.
+    -- | An array of time zone estimation methods, if any, to use for determining
+    -- an
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html Endpoints>
+    -- time zone if the Endpoint does not have a value for the
+    -- Demographic.Timezone attribute.
+    --
+    -- -   PHONE_NUMBER - A time zone is determined based on the
+    --     Endpoint.Address and Endpoint.Location.Country.
+    --
+    -- -   POSTAL_CODE - A time zone is determined based on the
+    --     Endpoint.Location.PostalCode and Endpoint.Location.Country.
+    --
+    --     POSTAL_CODE detection is only supported in the United States, United
+    --     Kingdom, Australia, New Zealand, Canada, France, Italy, Spain,
+    --     Germany and in regions where Amazon Pinpoint is available.
+    timezoneEstimationMethods :: Prelude.Maybe [TimezoneEstimationMethodsElement],
+    -- | Indicates whether endpoints in quiet hours should enter a wait activity
+    -- until quiet hours have elapsed.
     waitForQuietTime :: Prelude.Maybe Prelude.Bool,
     -- | This object is not used or supported.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -147,7 +164,7 @@ data JourneyResponse = JourneyResponse'
 -- identifier (string) for an activity and the value is the settings for
 -- the activity.
 --
--- 'closedDays', 'journeyResponse_closedDays' - The time when journey will stop sending messages. QuietTime should be
+-- 'closedDays', 'journeyResponse_closedDays' - The time when a journey will not send messages. QuietTime should be
 -- configured first and SendingSchedule should be set to true.
 --
 -- 'creationDate', 'journeyResponse_creationDate' - The date, in ISO 8601 format, when the journey was created.
@@ -162,7 +179,7 @@ data JourneyResponse = JourneyResponse'
 -- participant\'s local time. If this value is true, the schedule uses each
 -- participant\'s local time.
 --
--- 'openHours', 'journeyResponse_openHours' - The time when journey allow to send messages. QuietTime should be
+-- 'openHours', 'journeyResponse_openHours' - The time when a journey can send messages. QuietTime should be
 -- configured first and SendingSchedule should be set to true.
 --
 -- 'quietTime', 'journeyResponse_quietTime' - The quiet time settings for the journey. Quiet time is a specific time
@@ -186,13 +203,13 @@ data JourneyResponse = JourneyResponse'
 -- 'refreshFrequency', 'journeyResponse_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
 -- data for the journey, as a duration in ISO 8601 format.
 --
--- 'refreshOnSegmentUpdate', 'journeyResponse_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
+-- 'refreshOnSegmentUpdate', 'journeyResponse_refreshOnSegmentUpdate' - Indicates whether the journey participants should be refreshed when a
+-- segment is updated.
 --
 -- 'schedule', 'journeyResponse_schedule' - The schedule settings for the journey.
 --
--- 'sendingSchedule', 'journeyResponse_sendingSchedule' - Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
--- This flag should be set to true in order to allow (OpenHours and
--- ClosedDays)
+-- 'sendingSchedule', 'journeyResponse_sendingSchedule' - Indicates if journey has Advance Quiet Time enabled. This flag should be
+-- set to true in order to allow using OpenHours and ClosedDays.
 --
 -- 'startActivity', 'journeyResponse_startActivity' - The unique identifier for the first activity in the journey.
 --
@@ -224,8 +241,24 @@ data JourneyResponse = JourneyResponse'
 --     time. However, any existing participants who are currently waiting
 --     to start an activity may continue the journey.
 --
--- 'waitForQuietTime', 'journeyResponse_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
--- end of their quiet hours.
+-- 'timezoneEstimationMethods', 'journeyResponse_timezoneEstimationMethods' - An array of time zone estimation methods, if any, to use for determining
+-- an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html Endpoints>
+-- time zone if the Endpoint does not have a value for the
+-- Demographic.Timezone attribute.
+--
+-- -   PHONE_NUMBER - A time zone is determined based on the
+--     Endpoint.Address and Endpoint.Location.Country.
+--
+-- -   POSTAL_CODE - A time zone is determined based on the
+--     Endpoint.Location.PostalCode and Endpoint.Location.Country.
+--
+--     POSTAL_CODE detection is only supported in the United States, United
+--     Kingdom, Australia, New Zealand, Canada, France, Italy, Spain,
+--     Germany and in regions where Amazon Pinpoint is available.
+--
+-- 'waitForQuietTime', 'journeyResponse_waitForQuietTime' - Indicates whether endpoints in quiet hours should enter a wait activity
+-- until quiet hours have elapsed.
 --
 -- 'tags', 'journeyResponse_tags' - This object is not used or supported.
 --
@@ -260,6 +293,7 @@ newJourneyResponse pName_ pId_ pApplicationId_ =
       startActivity = Prelude.Nothing,
       startCondition = Prelude.Nothing,
       state = Prelude.Nothing,
+      timezoneEstimationMethods = Prelude.Nothing,
       waitForQuietTime = Prelude.Nothing,
       tags = Prelude.Nothing,
       name = pName_,
@@ -274,7 +308,7 @@ newJourneyResponse pName_ pId_ pApplicationId_ =
 journeyResponse_activities :: Lens.Lens' JourneyResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Activity))
 journeyResponse_activities = Lens.lens (\JourneyResponse' {activities} -> activities) (\s@JourneyResponse' {} a -> s {activities = a} :: JourneyResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The time when journey will stop sending messages. QuietTime should be
+-- | The time when a journey will not send messages. QuietTime should be
 -- configured first and SendingSchedule should be set to true.
 journeyResponse_closedDays :: Lens.Lens' JourneyResponse (Prelude.Maybe ClosedDays)
 journeyResponse_closedDays = Lens.lens (\JourneyResponse' {closedDays} -> closedDays) (\s@JourneyResponse' {} a -> s {closedDays = a} :: JourneyResponse)
@@ -301,7 +335,7 @@ journeyResponse_limits = Lens.lens (\JourneyResponse' {limits} -> limits) (\s@Jo
 journeyResponse_localTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
 journeyResponse_localTime = Lens.lens (\JourneyResponse' {localTime} -> localTime) (\s@JourneyResponse' {} a -> s {localTime = a} :: JourneyResponse)
 
--- | The time when journey allow to send messages. QuietTime should be
+-- | The time when a journey can send messages. QuietTime should be
 -- configured first and SendingSchedule should be set to true.
 journeyResponse_openHours :: Lens.Lens' JourneyResponse (Prelude.Maybe OpenHours)
 journeyResponse_openHours = Lens.lens (\JourneyResponse' {openHours} -> openHours) (\s@JourneyResponse' {} a -> s {openHours = a} :: JourneyResponse)
@@ -331,7 +365,8 @@ journeyResponse_quietTime = Lens.lens (\JourneyResponse' {quietTime} -> quietTim
 journeyResponse_refreshFrequency :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Text)
 journeyResponse_refreshFrequency = Lens.lens (\JourneyResponse' {refreshFrequency} -> refreshFrequency) (\s@JourneyResponse' {} a -> s {refreshFrequency = a} :: JourneyResponse)
 
--- | Specifies whether a journey should be refreshed on segment update.
+-- | Indicates whether the journey participants should be refreshed when a
+-- segment is updated.
 journeyResponse_refreshOnSegmentUpdate :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
 journeyResponse_refreshOnSegmentUpdate = Lens.lens (\JourneyResponse' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@JourneyResponse' {} a -> s {refreshOnSegmentUpdate = a} :: JourneyResponse)
 
@@ -339,9 +374,8 @@ journeyResponse_refreshOnSegmentUpdate = Lens.lens (\JourneyResponse' {refreshOn
 journeyResponse_schedule :: Lens.Lens' JourneyResponse (Prelude.Maybe JourneySchedule)
 journeyResponse_schedule = Lens.lens (\JourneyResponse' {schedule} -> schedule) (\s@JourneyResponse' {} a -> s {schedule = a} :: JourneyResponse)
 
--- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
--- This flag should be set to true in order to allow (OpenHours and
--- ClosedDays)
+-- | Indicates if journey has Advance Quiet Time enabled. This flag should be
+-- set to true in order to allow using OpenHours and ClosedDays.
 journeyResponse_sendingSchedule :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
 journeyResponse_sendingSchedule = Lens.lens (\JourneyResponse' {sendingSchedule} -> sendingSchedule) (\s@JourneyResponse' {} a -> s {sendingSchedule = a} :: JourneyResponse)
 
@@ -381,8 +415,26 @@ journeyResponse_startCondition = Lens.lens (\JourneyResponse' {startCondition} -
 journeyResponse_state :: Lens.Lens' JourneyResponse (Prelude.Maybe State)
 journeyResponse_state = Lens.lens (\JourneyResponse' {state} -> state) (\s@JourneyResponse' {} a -> s {state = a} :: JourneyResponse)
 
--- | Specifies whether endpoints in quiet hours should enter a wait till the
--- end of their quiet hours.
+-- | An array of time zone estimation methods, if any, to use for determining
+-- an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html Endpoints>
+-- time zone if the Endpoint does not have a value for the
+-- Demographic.Timezone attribute.
+--
+-- -   PHONE_NUMBER - A time zone is determined based on the
+--     Endpoint.Address and Endpoint.Location.Country.
+--
+-- -   POSTAL_CODE - A time zone is determined based on the
+--     Endpoint.Location.PostalCode and Endpoint.Location.Country.
+--
+--     POSTAL_CODE detection is only supported in the United States, United
+--     Kingdom, Australia, New Zealand, Canada, France, Italy, Spain,
+--     Germany and in regions where Amazon Pinpoint is available.
+journeyResponse_timezoneEstimationMethods :: Lens.Lens' JourneyResponse (Prelude.Maybe [TimezoneEstimationMethodsElement])
+journeyResponse_timezoneEstimationMethods = Lens.lens (\JourneyResponse' {timezoneEstimationMethods} -> timezoneEstimationMethods) (\s@JourneyResponse' {} a -> s {timezoneEstimationMethods = a} :: JourneyResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether endpoints in quiet hours should enter a wait activity
+-- until quiet hours have elapsed.
 journeyResponse_waitForQuietTime :: Lens.Lens' JourneyResponse (Prelude.Maybe Prelude.Bool)
 journeyResponse_waitForQuietTime = Lens.lens (\JourneyResponse' {waitForQuietTime} -> waitForQuietTime) (\s@JourneyResponse' {} a -> s {waitForQuietTime = a} :: JourneyResponse)
 
@@ -424,6 +476,10 @@ instance Data.FromJSON JourneyResponse where
             Prelude.<*> (x Data..:? "StartActivity")
             Prelude.<*> (x Data..:? "StartCondition")
             Prelude.<*> (x Data..:? "State")
+            Prelude.<*> ( x
+                            Data..:? "TimezoneEstimationMethods"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "WaitForQuietTime")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..: "Name")
@@ -433,7 +489,8 @@ instance Data.FromJSON JourneyResponse where
 
 instance Prelude.Hashable JourneyResponse where
   hashWithSalt _salt JourneyResponse' {..} =
-    _salt `Prelude.hashWithSalt` activities
+    _salt
+      `Prelude.hashWithSalt` activities
       `Prelude.hashWithSalt` closedDays
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` journeyChannelSettings
@@ -449,6 +506,7 @@ instance Prelude.Hashable JourneyResponse where
       `Prelude.hashWithSalt` startActivity
       `Prelude.hashWithSalt` startCondition
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` timezoneEstimationMethods
       `Prelude.hashWithSalt` waitForQuietTime
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
@@ -473,6 +531,8 @@ instance Prelude.NFData JourneyResponse where
       `Prelude.seq` Prelude.rnf startActivity
       `Prelude.seq` Prelude.rnf startCondition
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf
+        timezoneEstimationMethods
       `Prelude.seq` Prelude.rnf waitForQuietTime
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name

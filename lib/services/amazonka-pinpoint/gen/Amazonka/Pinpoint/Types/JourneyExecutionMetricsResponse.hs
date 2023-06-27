@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     JourneyExecutionMetricsResponse' {..} =
-      _salt `Prelude.hashWithSalt` metrics
+      _salt
+        `Prelude.hashWithSalt` metrics
         `Prelude.hashWithSalt` journeyId
         `Prelude.hashWithSalt` lastEvaluatedTime
         `Prelude.hashWithSalt` applicationId

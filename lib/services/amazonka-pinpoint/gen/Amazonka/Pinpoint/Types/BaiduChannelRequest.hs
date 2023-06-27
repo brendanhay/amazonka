@@ -84,7 +84,8 @@ baiduChannelRequest_apiKey = Lens.lens (\BaiduChannelRequest' {apiKey} -> apiKey
 
 instance Prelude.Hashable BaiduChannelRequest where
   hashWithSalt _salt BaiduChannelRequest' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` secretKey
       `Prelude.hashWithSalt` apiKey
 

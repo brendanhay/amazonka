@@ -85,7 +85,8 @@ instance Data.FromJSON ActivitiesResponse where
 
 instance Prelude.Hashable ActivitiesResponse where
   hashWithSalt _salt ActivitiesResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` item
 
 instance Prelude.NFData ActivitiesResponse where

@@ -48,9 +48,19 @@ data SMSTemplateRequest = SMSTemplateRequest'
     recommenderId :: Prelude.Maybe Prelude.Text,
     -- | A custom description of the message template.
     templateDescription :: Prelude.Maybe Prelude.Text,
-    -- | A string-to-string map of key-value pairs that defines the tags to
-    -- associate with the message template. Each tag consists of a required tag
-    -- key and an associated tag value.
+    -- | As of __22-05-2023__ tags has been deprecated for update operations.
+    -- After this date any value in tags is not processed and an error code is
+    -- not returned. To manage tags we recommend using either
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+    -- in the /API Reference for Amazon Pinpoint/,
+    -- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+    -- commands in the /AWS Command Line Interface Documentation/ or
+    -- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+    -- in the /AWS SDK/.
+    --
+    -- (Deprecated) A string-to-string map of key-value pairs that defines the
+    -- tags to associate with the message template. Each tag consists of a
+    -- required tag key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,9 +92,19 @@ data SMSTemplateRequest = SMSTemplateRequest'
 --
 -- 'templateDescription', 'sMSTemplateRequest_templateDescription' - A custom description of the message template.
 --
--- 'tags', 'sMSTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- 'tags', 'sMSTemplateRequest_tags' - As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 newSMSTemplateRequest ::
   SMSTemplateRequest
 newSMSTemplateRequest =
@@ -123,15 +143,26 @@ sMSTemplateRequest_recommenderId = Lens.lens (\SMSTemplateRequest' {recommenderI
 sMSTemplateRequest_templateDescription :: Lens.Lens' SMSTemplateRequest (Prelude.Maybe Prelude.Text)
 sMSTemplateRequest_templateDescription = Lens.lens (\SMSTemplateRequest' {templateDescription} -> templateDescription) (\s@SMSTemplateRequest' {} a -> s {templateDescription = a} :: SMSTemplateRequest)
 
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- | As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 sMSTemplateRequest_tags :: Lens.Lens' SMSTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sMSTemplateRequest_tags = Lens.lens (\SMSTemplateRequest' {tags} -> tags) (\s@SMSTemplateRequest' {} a -> s {tags = a} :: SMSTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable SMSTemplateRequest where
   hashWithSalt _salt SMSTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` recommenderId
       `Prelude.hashWithSalt` templateDescription

@@ -101,7 +101,8 @@ instance Data.FromJSON SendUsersMessageResponse where
 
 instance Prelude.Hashable SendUsersMessageResponse where
   hashWithSalt _salt SendUsersMessageResponse' {..} =
-    _salt `Prelude.hashWithSalt` requestId
+    _salt
+      `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` applicationId
 

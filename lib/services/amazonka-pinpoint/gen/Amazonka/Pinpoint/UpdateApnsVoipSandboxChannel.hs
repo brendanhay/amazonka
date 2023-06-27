@@ -114,7 +114,8 @@ instance
     UpdateApnsVoipSandboxChannel
   where
   hashWithSalt _salt UpdateApnsVoipSandboxChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` aPNSVoipSandboxChannelRequest
 
 instance Prelude.NFData UpdateApnsVoipSandboxChannel where

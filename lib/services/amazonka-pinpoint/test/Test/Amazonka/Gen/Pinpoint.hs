@@ -228,6 +228,15 @@ import Test.Tasty
 --         , requestGetJourneyExecutionMetrics $
 --             newGetJourneyExecutionMetrics
 --
+--         , requestGetJourneyRunExecutionActivityMetrics $
+--             newGetJourneyRunExecutionActivityMetrics
+--
+--         , requestGetJourneyRunExecutionMetrics $
+--             newGetJourneyRunExecutionMetrics
+--
+--         , requestGetJourneyRuns $
+--             newGetJourneyRuns
+--
 --         , requestGetPushTemplate $
 --             newGetPushTemplate
 --
@@ -587,6 +596,15 @@ import Test.Tasty
 --
 --         , responseGetJourneyExecutionMetrics $
 --             newGetJourneyExecutionMetricsResponse
+--
+--         , responseGetJourneyRunExecutionActivityMetrics $
+--             newGetJourneyRunExecutionActivityMetricsResponse
+--
+--         , responseGetJourneyRunExecutionMetrics $
+--             newGetJourneyRunExecutionMetricsResponse
+--
+--         , responseGetJourneyRuns $
+--             newGetJourneyRunsResponse
 --
 --         , responseGetPushTemplate $
 --             newGetPushTemplateResponse
@@ -1150,6 +1168,24 @@ requestGetJourneyExecutionMetrics =
   req
     "GetJourneyExecutionMetrics"
     "fixture/GetJourneyExecutionMetrics.yaml"
+
+requestGetJourneyRunExecutionActivityMetrics :: GetJourneyRunExecutionActivityMetrics -> TestTree
+requestGetJourneyRunExecutionActivityMetrics =
+  req
+    "GetJourneyRunExecutionActivityMetrics"
+    "fixture/GetJourneyRunExecutionActivityMetrics.yaml"
+
+requestGetJourneyRunExecutionMetrics :: GetJourneyRunExecutionMetrics -> TestTree
+requestGetJourneyRunExecutionMetrics =
+  req
+    "GetJourneyRunExecutionMetrics"
+    "fixture/GetJourneyRunExecutionMetrics.yaml"
+
+requestGetJourneyRuns :: GetJourneyRuns -> TestTree
+requestGetJourneyRuns =
+  req
+    "GetJourneyRuns"
+    "fixture/GetJourneyRuns.yaml"
 
 requestGetPushTemplate :: GetPushTemplate -> TestTree
 requestGetPushTemplate =
@@ -2000,6 +2036,30 @@ responseGetJourneyExecutionMetrics =
     "fixture/GetJourneyExecutionMetricsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetJourneyExecutionMetrics)
+
+responseGetJourneyRunExecutionActivityMetrics :: GetJourneyRunExecutionActivityMetricsResponse -> TestTree
+responseGetJourneyRunExecutionActivityMetrics =
+  res
+    "GetJourneyRunExecutionActivityMetricsResponse"
+    "fixture/GetJourneyRunExecutionActivityMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetJourneyRunExecutionActivityMetrics)
+
+responseGetJourneyRunExecutionMetrics :: GetJourneyRunExecutionMetricsResponse -> TestTree
+responseGetJourneyRunExecutionMetrics =
+  res
+    "GetJourneyRunExecutionMetricsResponse"
+    "fixture/GetJourneyRunExecutionMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetJourneyRunExecutionMetrics)
+
+responseGetJourneyRuns :: GetJourneyRunsResponse -> TestTree
+responseGetJourneyRuns =
+  res
+    "GetJourneyRunsResponse"
+    "fixture/GetJourneyRunsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetJourneyRuns)
 
 responseGetPushTemplate :: GetPushTemplateResponse -> TestTree
 responseGetPushTemplate =

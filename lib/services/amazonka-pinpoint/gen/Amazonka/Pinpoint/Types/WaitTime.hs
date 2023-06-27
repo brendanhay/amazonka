@@ -88,7 +88,8 @@ instance Data.FromJSON WaitTime where
 
 instance Prelude.Hashable WaitTime where
   hashWithSalt _salt WaitTime' {..} =
-    _salt `Prelude.hashWithSalt` waitFor
+    _salt
+      `Prelude.hashWithSalt` waitFor
       `Prelude.hashWithSalt` waitUntil
 
 instance Prelude.NFData WaitTime where

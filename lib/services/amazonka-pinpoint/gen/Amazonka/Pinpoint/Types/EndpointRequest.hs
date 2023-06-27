@@ -248,7 +248,8 @@ endpointRequest_user = Lens.lens (\EndpointRequest' {user} -> user) (\s@Endpoint
 
 instance Prelude.Hashable EndpointRequest where
   hashWithSalt _salt EndpointRequest' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` channelType
       `Prelude.hashWithSalt` demographic

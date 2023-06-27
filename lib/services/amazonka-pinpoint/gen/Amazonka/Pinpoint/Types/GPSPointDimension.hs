@@ -79,7 +79,8 @@ instance Data.FromJSON GPSPointDimension where
 
 instance Prelude.Hashable GPSPointDimension where
   hashWithSalt _salt GPSPointDimension' {..} =
-    _salt `Prelude.hashWithSalt` rangeInKilometers
+    _salt
+      `Prelude.hashWithSalt` rangeInKilometers
       `Prelude.hashWithSalt` coordinates
 
 instance Prelude.NFData GPSPointDimension where

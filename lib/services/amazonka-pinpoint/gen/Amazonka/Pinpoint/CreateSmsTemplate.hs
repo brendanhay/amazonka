@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateSmsTemplate where
 
 instance Prelude.Hashable CreateSmsTemplate where
   hashWithSalt _salt CreateSmsTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` sMSTemplateRequest
 
 instance Prelude.NFData CreateSmsTemplate where

@@ -108,7 +108,8 @@ instance Data.FromJSON EndpointUser where
 
 instance Prelude.Hashable EndpointUser where
   hashWithSalt _salt EndpointUser' {..} =
-    _salt `Prelude.hashWithSalt` userAttributes
+    _salt
+      `Prelude.hashWithSalt` userAttributes
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData EndpointUser where

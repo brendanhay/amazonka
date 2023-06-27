@@ -31,6 +31,7 @@ import Amazonka.Pinpoint.Types.OpenHours
 import Amazonka.Pinpoint.Types.QuietTime
 import Amazonka.Pinpoint.Types.StartCondition
 import Amazonka.Pinpoint.Types.State
+import Amazonka.Pinpoint.Types.TimezoneEstimationMethodsElement
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the configuration and other settings for a journey.
@@ -82,13 +83,13 @@ data WriteJourneyRequest = WriteJourneyRequest'
     -- | The frequency with which Amazon Pinpoint evaluates segment and event
     -- data for the journey, as a duration in ISO 8601 format.
     refreshFrequency :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether a journey should be refreshed on segment update.
+    -- | Indicates whether the journey participants should be refreshed when a
+    -- segment is updated.
     refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
     -- | The schedule settings for the journey.
     schedule :: Prelude.Maybe JourneySchedule,
-    -- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
-    -- This flag should be set to true in order to allow (OpenHours and
-    -- ClosedDays)
+    -- | Indicates if journey has Advance Quiet Time enabled. This flag should be
+    -- set to true in order to allow using OpenHours and ClosedDays.
     sendingSchedule :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier for the first activity in the journey. The
     -- identifier for this activity can contain a maximum of 128 characters.
@@ -109,6 +110,22 @@ data WriteJourneyRequest = WriteJourneyRequest'
     -- requests to create or update a journey. To cancel, pause, or resume a
     -- journey, use the Journey State resource.
     state :: Prelude.Maybe State,
+    -- | An array of time zone estimation methods, if any, to use for determining
+    -- an
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html Endpoints>
+    -- time zone if the Endpoint does not have a value for the
+    -- Demographic.Timezone attribute.
+    --
+    -- -   PHONE_NUMBER - A time zone is determined based on the
+    --     Endpoint.Address and Endpoint.Location.Country.
+    --
+    -- -   POSTAL_CODE - A time zone is determined based on the
+    --     Endpoint.Location.PostalCode and Endpoint.Location.Country.
+    --
+    --     POSTAL_CODE detection is only supported in the United States, United
+    --     Kingdom, Australia, New Zealand, Canada, France, Italy, Spain,
+    --     Germany and in regions where Amazon Pinpoint is available.
+    timezoneEstimationMethods :: Prelude.Maybe [TimezoneEstimationMethodsElement],
     -- | Specifies whether endpoints in quiet hours should enter a wait till the
     -- end of their quiet hours.
     waitForQuietTime :: Prelude.Maybe Prelude.Bool,
@@ -173,13 +190,13 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- 'refreshFrequency', 'writeJourneyRequest_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
 -- data for the journey, as a duration in ISO 8601 format.
 --
--- 'refreshOnSegmentUpdate', 'writeJourneyRequest_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
+-- 'refreshOnSegmentUpdate', 'writeJourneyRequest_refreshOnSegmentUpdate' - Indicates whether the journey participants should be refreshed when a
+-- segment is updated.
 --
 -- 'schedule', 'writeJourneyRequest_schedule' - The schedule settings for the journey.
 --
--- 'sendingSchedule', 'writeJourneyRequest_sendingSchedule' - Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
--- This flag should be set to true in order to allow (OpenHours and
--- ClosedDays)
+-- 'sendingSchedule', 'writeJourneyRequest_sendingSchedule' - Indicates if journey has Advance Quiet Time enabled. This flag should be
+-- set to true in order to allow using OpenHours and ClosedDays.
 --
 -- 'startActivity', 'writeJourneyRequest_startActivity' - The unique identifier for the first activity in the journey. The
 -- identifier for this activity can contain a maximum of 128 characters.
@@ -199,6 +216,22 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in
 -- requests to create or update a journey. To cancel, pause, or resume a
 -- journey, use the Journey State resource.
+--
+-- 'timezoneEstimationMethods', 'writeJourneyRequest_timezoneEstimationMethods' - An array of time zone estimation methods, if any, to use for determining
+-- an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html Endpoints>
+-- time zone if the Endpoint does not have a value for the
+-- Demographic.Timezone attribute.
+--
+-- -   PHONE_NUMBER - A time zone is determined based on the
+--     Endpoint.Address and Endpoint.Location.Country.
+--
+-- -   POSTAL_CODE - A time zone is determined based on the
+--     Endpoint.Location.PostalCode and Endpoint.Location.Country.
+--
+--     POSTAL_CODE detection is only supported in the United States, United
+--     Kingdom, Australia, New Zealand, Canada, France, Italy, Spain,
+--     Germany and in regions where Amazon Pinpoint is available.
 --
 -- 'waitForQuietTime', 'writeJourneyRequest_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
 -- end of their quiet hours.
@@ -229,6 +262,7 @@ newWriteJourneyRequest pName_ =
       startActivity = Prelude.Nothing,
       startCondition = Prelude.Nothing,
       state = Prelude.Nothing,
+      timezoneEstimationMethods = Prelude.Nothing,
       waitForQuietTime = Prelude.Nothing,
       name = pName_
     }
@@ -298,7 +332,8 @@ writeJourneyRequest_quietTime = Lens.lens (\WriteJourneyRequest' {quietTime} -> 
 writeJourneyRequest_refreshFrequency :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
 writeJourneyRequest_refreshFrequency = Lens.lens (\WriteJourneyRequest' {refreshFrequency} -> refreshFrequency) (\s@WriteJourneyRequest' {} a -> s {refreshFrequency = a} :: WriteJourneyRequest)
 
--- | Specifies whether a journey should be refreshed on segment update.
+-- | Indicates whether the journey participants should be refreshed when a
+-- segment is updated.
 writeJourneyRequest_refreshOnSegmentUpdate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
 writeJourneyRequest_refreshOnSegmentUpdate = Lens.lens (\WriteJourneyRequest' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@WriteJourneyRequest' {} a -> s {refreshOnSegmentUpdate = a} :: WriteJourneyRequest)
 
@@ -306,9 +341,8 @@ writeJourneyRequest_refreshOnSegmentUpdate = Lens.lens (\WriteJourneyRequest' {r
 writeJourneyRequest_schedule :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe JourneySchedule)
 writeJourneyRequest_schedule = Lens.lens (\WriteJourneyRequest' {schedule} -> schedule) (\s@WriteJourneyRequest' {} a -> s {schedule = a} :: WriteJourneyRequest)
 
--- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
--- This flag should be set to true in order to allow (OpenHours and
--- ClosedDays)
+-- | Indicates if journey has Advance Quiet Time enabled. This flag should be
+-- set to true in order to allow using OpenHours and ClosedDays.
 writeJourneyRequest_sendingSchedule :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
 writeJourneyRequest_sendingSchedule = Lens.lens (\WriteJourneyRequest' {sendingSchedule} -> sendingSchedule) (\s@WriteJourneyRequest' {} a -> s {sendingSchedule = a} :: WriteJourneyRequest)
 
@@ -337,6 +371,24 @@ writeJourneyRequest_startCondition = Lens.lens (\WriteJourneyRequest' {startCond
 writeJourneyRequest_state :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe State)
 writeJourneyRequest_state = Lens.lens (\WriteJourneyRequest' {state} -> state) (\s@WriteJourneyRequest' {} a -> s {state = a} :: WriteJourneyRequest)
 
+-- | An array of time zone estimation methods, if any, to use for determining
+-- an
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html Endpoints>
+-- time zone if the Endpoint does not have a value for the
+-- Demographic.Timezone attribute.
+--
+-- -   PHONE_NUMBER - A time zone is determined based on the
+--     Endpoint.Address and Endpoint.Location.Country.
+--
+-- -   POSTAL_CODE - A time zone is determined based on the
+--     Endpoint.Location.PostalCode and Endpoint.Location.Country.
+--
+--     POSTAL_CODE detection is only supported in the United States, United
+--     Kingdom, Australia, New Zealand, Canada, France, Italy, Spain,
+--     Germany and in regions where Amazon Pinpoint is available.
+writeJourneyRequest_timezoneEstimationMethods :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe [TimezoneEstimationMethodsElement])
+writeJourneyRequest_timezoneEstimationMethods = Lens.lens (\WriteJourneyRequest' {timezoneEstimationMethods} -> timezoneEstimationMethods) (\s@WriteJourneyRequest' {} a -> s {timezoneEstimationMethods = a} :: WriteJourneyRequest) Prelude.. Lens.mapping Lens.coerced
+
 -- | Specifies whether endpoints in quiet hours should enter a wait till the
 -- end of their quiet hours.
 writeJourneyRequest_waitForQuietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
@@ -351,7 +403,8 @@ writeJourneyRequest_name = Lens.lens (\WriteJourneyRequest' {name} -> name) (\s@
 
 instance Prelude.Hashable WriteJourneyRequest where
   hashWithSalt _salt WriteJourneyRequest' {..} =
-    _salt `Prelude.hashWithSalt` activities
+    _salt
+      `Prelude.hashWithSalt` activities
       `Prelude.hashWithSalt` closedDays
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` journeyChannelSettings
@@ -367,6 +420,7 @@ instance Prelude.Hashable WriteJourneyRequest where
       `Prelude.hashWithSalt` startActivity
       `Prelude.hashWithSalt` startCondition
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` timezoneEstimationMethods
       `Prelude.hashWithSalt` waitForQuietTime
       `Prelude.hashWithSalt` name
 
@@ -388,6 +442,8 @@ instance Prelude.NFData WriteJourneyRequest where
       `Prelude.seq` Prelude.rnf startActivity
       `Prelude.seq` Prelude.rnf startCondition
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf
+        timezoneEstimationMethods
       `Prelude.seq` Prelude.rnf waitForQuietTime
       `Prelude.seq` Prelude.rnf name
 
@@ -417,6 +473,8 @@ instance Data.ToJSON WriteJourneyRequest where
             ("StartCondition" Data..=)
               Prelude.<$> startCondition,
             ("State" Data..=) Prelude.<$> state,
+            ("TimezoneEstimationMethods" Data..=)
+              Prelude.<$> timezoneEstimationMethods,
             ("WaitForQuietTime" Data..=)
               Prelude.<$> waitForQuietTime,
             Prelude.Just ("Name" Data..= name)

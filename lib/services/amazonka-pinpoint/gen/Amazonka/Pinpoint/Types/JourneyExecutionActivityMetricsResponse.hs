@@ -45,24 +45,24 @@ data JourneyExecutionActivityMetricsResponse = JourneyExecutionActivityMetricsRe
     journeyActivityId :: Prelude.Text,
     -- | The type of activity that the metric applies to. Possible values are:
     --
-    -- -   CONDITIONAL_SPLIT - For a yes\/no split activity, which is an
+    -- -   CONDITIONAL_SPLIT – For a yes\/no split activity, which is an
     --     activity that sends participants down one of two paths in a journey.
     --
-    -- -   HOLDOUT - For a holdout activity, which is an activity that stops a
+    -- -   HOLDOUT – For a holdout activity, which is an activity that stops a
     --     journey for a specified percentage of participants.
     --
-    -- -   MESSAGE - For an email activity, which is an activity that sends an
+    -- -   MESSAGE – For an email activity, which is an activity that sends an
     --     email message to participants.
     --
-    -- -   MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which
+    -- -   MULTI_CONDITIONAL_SPLIT – For a multivariate split activity, which
     --     is an activity that sends participants down one of as many as five
     --     paths in a journey.
     --
-    -- -   RANDOM_SPLIT - For a random split activity, which is an activity
+    -- -   RANDOM_SPLIT – For a random split activity, which is an activity
     --     that sends specified percentages of participants down one of as many
     --     as five paths in a journey.
     --
-    -- -   WAIT - For a wait activity, which is an activity that waits for a
+    -- -   WAIT – For a wait activity, which is an activity that waits for a
     --     certain amount of time or until a specific date and time before
     --     moving participants to the next activity in a journey.
     activityType :: Prelude.Text,
@@ -94,24 +94,24 @@ data JourneyExecutionActivityMetricsResponse = JourneyExecutionActivityMetricsRe
 --
 -- 'activityType', 'journeyExecutionActivityMetricsResponse_activityType' - The type of activity that the metric applies to. Possible values are:
 --
--- -   CONDITIONAL_SPLIT - For a yes\/no split activity, which is an
+-- -   CONDITIONAL_SPLIT – For a yes\/no split activity, which is an
 --     activity that sends participants down one of two paths in a journey.
 --
--- -   HOLDOUT - For a holdout activity, which is an activity that stops a
+-- -   HOLDOUT – For a holdout activity, which is an activity that stops a
 --     journey for a specified percentage of participants.
 --
--- -   MESSAGE - For an email activity, which is an activity that sends an
+-- -   MESSAGE – For an email activity, which is an activity that sends an
 --     email message to participants.
 --
--- -   MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which
+-- -   MULTI_CONDITIONAL_SPLIT – For a multivariate split activity, which
 --     is an activity that sends participants down one of as many as five
 --     paths in a journey.
 --
--- -   RANDOM_SPLIT - For a random split activity, which is an activity
+-- -   RANDOM_SPLIT – For a random split activity, which is an activity
 --     that sends specified percentages of participants down one of as many
 --     as five paths in a journey.
 --
--- -   WAIT - For a wait activity, which is an activity that waits for a
+-- -   WAIT – For a wait activity, which is an activity that waits for a
 --     certain amount of time or until a specific date and time before
 --     moving participants to the next activity in a journey.
 --
@@ -169,24 +169,24 @@ journeyExecutionActivityMetricsResponse_journeyActivityId = Lens.lens (\JourneyE
 
 -- | The type of activity that the metric applies to. Possible values are:
 --
--- -   CONDITIONAL_SPLIT - For a yes\/no split activity, which is an
+-- -   CONDITIONAL_SPLIT – For a yes\/no split activity, which is an
 --     activity that sends participants down one of two paths in a journey.
 --
--- -   HOLDOUT - For a holdout activity, which is an activity that stops a
+-- -   HOLDOUT – For a holdout activity, which is an activity that stops a
 --     journey for a specified percentage of participants.
 --
--- -   MESSAGE - For an email activity, which is an activity that sends an
+-- -   MESSAGE – For an email activity, which is an activity that sends an
 --     email message to participants.
 --
--- -   MULTI_CONDITIONAL_SPLIT - For a multivariate split activity, which
+-- -   MULTI_CONDITIONAL_SPLIT – For a multivariate split activity, which
 --     is an activity that sends participants down one of as many as five
 --     paths in a journey.
 --
--- -   RANDOM_SPLIT - For a random split activity, which is an activity
+-- -   RANDOM_SPLIT – For a random split activity, which is an activity
 --     that sends specified percentages of participants down one of as many
 --     as five paths in a journey.
 --
--- -   WAIT - For a wait activity, which is an activity that waits for a
+-- -   WAIT – For a wait activity, which is an activity that waits for a
 --     certain amount of time or until a specific date and time before
 --     moving participants to the next activity in a journey.
 journeyExecutionActivityMetricsResponse_activityType :: Lens.Lens' JourneyExecutionActivityMetricsResponse Prelude.Text
@@ -220,7 +220,8 @@ instance
   hashWithSalt
     _salt
     JourneyExecutionActivityMetricsResponse' {..} =
-      _salt `Prelude.hashWithSalt` metrics
+      _salt
+        `Prelude.hashWithSalt` metrics
         `Prelude.hashWithSalt` journeyId
         `Prelude.hashWithSalt` lastEvaluatedTime
         `Prelude.hashWithSalt` journeyActivityId

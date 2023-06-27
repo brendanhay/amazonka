@@ -123,7 +123,8 @@ instance Core.AWSRequest GetCampaigns where
 
 instance Prelude.Hashable GetCampaigns where
   hashWithSalt _salt GetCampaigns' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` token
       `Prelude.hashWithSalt` applicationId
 

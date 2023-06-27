@@ -129,7 +129,8 @@ instance Data.FromJSON ExportJobResource where
 
 instance Prelude.Hashable ExportJobResource where
   hashWithSalt _salt ExportJobResource' {..} =
-    _salt `Prelude.hashWithSalt` segmentId
+    _salt
+      `Prelude.hashWithSalt` segmentId
       `Prelude.hashWithSalt` segmentVersion
       `Prelude.hashWithSalt` s3UrlPrefix
       `Prelude.hashWithSalt` roleArn

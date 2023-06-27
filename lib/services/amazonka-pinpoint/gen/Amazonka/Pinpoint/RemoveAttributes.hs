@@ -158,7 +158,8 @@ instance Core.AWSRequest RemoveAttributes where
 
 instance Prelude.Hashable RemoveAttributes where
   hashWithSalt _salt RemoveAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeType
+    _salt
+      `Prelude.hashWithSalt` attributeType
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` updateAttributesRequest
 

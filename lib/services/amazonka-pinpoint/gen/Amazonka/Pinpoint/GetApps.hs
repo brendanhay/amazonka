@@ -108,7 +108,8 @@ instance Core.AWSRequest GetApps where
 
 instance Prelude.Hashable GetApps where
   hashWithSalt _salt GetApps' {..} =
-    _salt `Prelude.hashWithSalt` pageSize
+    _salt
+      `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` token
 
 instance Prelude.NFData GetApps where

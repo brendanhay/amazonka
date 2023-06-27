@@ -111,6 +111,9 @@ library
     Amazonka.Pinpoint.GetJourneyDateRangeKpi
     Amazonka.Pinpoint.GetJourneyExecutionActivityMetrics
     Amazonka.Pinpoint.GetJourneyExecutionMetrics
+    Amazonka.Pinpoint.GetJourneyRunExecutionActivityMetrics
+    Amazonka.Pinpoint.GetJourneyRunExecutionMetrics
+    Amazonka.Pinpoint.GetJourneyRuns
     Amazonka.Pinpoint.GetPushTemplate
     Amazonka.Pinpoint.GetRecommenderConfiguration
     Amazonka.Pinpoint.GetRecommenderConfigurations
@@ -272,6 +275,11 @@ library
     Amazonka.Pinpoint.Types.JourneyLimits
     Amazonka.Pinpoint.Types.JourneyPushMessage
     Amazonka.Pinpoint.Types.JourneyResponse
+    Amazonka.Pinpoint.Types.JourneyRunExecutionActivityMetricsResponse
+    Amazonka.Pinpoint.Types.JourneyRunExecutionMetricsResponse
+    Amazonka.Pinpoint.Types.JourneyRunResponse
+    Amazonka.Pinpoint.Types.JourneyRunsResponse
+    Amazonka.Pinpoint.Types.JourneyRunStatus
     Amazonka.Pinpoint.Types.JourneySchedule
     Amazonka.Pinpoint.Types.JourneySMSMessage
     Amazonka.Pinpoint.Types.JourneysResponse
@@ -348,6 +356,7 @@ library
     Amazonka.Pinpoint.Types.TemplateType
     Amazonka.Pinpoint.Types.TemplateVersionResponse
     Amazonka.Pinpoint.Types.TemplateVersionsResponse
+    Amazonka.Pinpoint.Types.TimezoneEstimationMethodsElement
     Amazonka.Pinpoint.Types.TreatmentResource
     Amazonka.Pinpoint.Types.Type
     Amazonka.Pinpoint.Types.UpdateAttributesRequest

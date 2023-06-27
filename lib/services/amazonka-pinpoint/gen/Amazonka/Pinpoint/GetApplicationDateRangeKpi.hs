@@ -202,7 +202,8 @@ instance Core.AWSRequest GetApplicationDateRangeKpi where
 
 instance Prelude.Hashable GetApplicationDateRangeKpi where
   hashWithSalt _salt GetApplicationDateRangeKpi' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` startTime

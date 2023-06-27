@@ -92,7 +92,8 @@ instance Data.FromJSON InAppCampaignSchedule where
 
 instance Prelude.Hashable InAppCampaignSchedule where
   hashWithSalt _salt InAppCampaignSchedule' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` eventFilter
       `Prelude.hashWithSalt` quietTime
 

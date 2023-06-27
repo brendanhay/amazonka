@@ -95,7 +95,8 @@ instance Data.FromJSON HoldoutActivity where
 
 instance Prelude.Hashable HoldoutActivity where
   hashWithSalt _salt HoldoutActivity' {..} =
-    _salt `Prelude.hashWithSalt` nextActivity
+    _salt
+      `Prelude.hashWithSalt` nextActivity
       `Prelude.hashWithSalt` percentage
 
 instance Prelude.NFData HoldoutActivity where

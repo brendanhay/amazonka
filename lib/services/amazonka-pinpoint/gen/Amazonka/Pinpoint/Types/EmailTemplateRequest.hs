@@ -58,9 +58,19 @@ data EmailTemplateRequest = EmailTemplateRequest'
     -- for email clients that don\'t render HTML content and clients that are
     -- connected to high-latency networks, such as mobile devices.
     textPart :: Prelude.Maybe Prelude.Text,
-    -- | A string-to-string map of key-value pairs that defines the tags to
-    -- associate with the message template. Each tag consists of a required tag
-    -- key and an associated tag value.
+    -- | As of __22-05-2023__ tags has been deprecated for update operations.
+    -- After this date any value in tags is not processed and an error code is
+    -- not returned. To manage tags we recommend using either
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+    -- in the /API Reference for Amazon Pinpoint/,
+    -- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+    -- commands in the /AWS Command Line Interface Documentation/ or
+    -- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+    -- in the /AWS SDK/.
+    --
+    -- (Deprecated) A string-to-string map of key-value pairs that defines the
+    -- tags to associate with the message template. Each tag consists of a
+    -- required tag key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,9 +112,19 @@ data EmailTemplateRequest = EmailTemplateRequest'
 -- for email clients that don\'t render HTML content and clients that are
 -- connected to high-latency networks, such as mobile devices.
 --
--- 'tags', 'emailTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- 'tags', 'emailTemplateRequest_tags' - As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 newEmailTemplateRequest ::
   EmailTemplateRequest
 newEmailTemplateRequest =
@@ -160,15 +180,26 @@ emailTemplateRequest_templateDescription = Lens.lens (\EmailTemplateRequest' {te
 emailTemplateRequest_textPart :: Lens.Lens' EmailTemplateRequest (Prelude.Maybe Prelude.Text)
 emailTemplateRequest_textPart = Lens.lens (\EmailTemplateRequest' {textPart} -> textPart) (\s@EmailTemplateRequest' {} a -> s {textPart = a} :: EmailTemplateRequest)
 
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- | As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 emailTemplateRequest_tags :: Lens.Lens' EmailTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 emailTemplateRequest_tags = Lens.lens (\EmailTemplateRequest' {tags} -> tags) (\s@EmailTemplateRequest' {} a -> s {tags = a} :: EmailTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable EmailTemplateRequest where
   hashWithSalt _salt EmailTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` defaultSubstitutions
+    _salt
+      `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` htmlPart
       `Prelude.hashWithSalt` recommenderId
       `Prelude.hashWithSalt` subject

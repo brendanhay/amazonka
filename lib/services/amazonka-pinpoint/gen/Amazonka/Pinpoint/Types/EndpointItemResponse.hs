@@ -81,7 +81,8 @@ instance Data.FromJSON EndpointItemResponse where
 
 instance Prelude.Hashable EndpointItemResponse where
   hashWithSalt _salt EndpointItemResponse' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData EndpointItemResponse where

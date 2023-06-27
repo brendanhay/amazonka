@@ -236,7 +236,8 @@ instance Data.FromJSON SegmentResponse where
 
 instance Prelude.Hashable SegmentResponse where
   hashWithSalt _salt SegmentResponse' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` importDefinition
       `Prelude.hashWithSalt` lastModifiedDate
       `Prelude.hashWithSalt` name

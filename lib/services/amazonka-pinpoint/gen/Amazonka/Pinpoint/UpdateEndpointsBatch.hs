@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateEndpointsBatch where
 
 instance Prelude.Hashable UpdateEndpointsBatch where
   hashWithSalt _salt UpdateEndpointsBatch' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` endpointBatchRequest
 
 instance Prelude.NFData UpdateEndpointsBatch where

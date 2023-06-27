@@ -116,7 +116,8 @@ instance Core.AWSRequest CreatePushTemplate where
 
 instance Prelude.Hashable CreatePushTemplate where
   hashWithSalt _salt CreatePushTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` pushNotificationTemplateRequest
 
 instance Prelude.NFData CreatePushTemplate where

@@ -106,7 +106,8 @@ instance Core.AWSRequest VerifyOTPMessage where
 
 instance Prelude.Hashable VerifyOTPMessage where
   hashWithSalt _salt VerifyOTPMessage' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` verifyOTPMessageRequestParameters
 
 instance Prelude.NFData VerifyOTPMessage where

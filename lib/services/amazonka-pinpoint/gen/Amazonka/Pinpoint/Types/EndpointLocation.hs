@@ -129,7 +129,8 @@ instance Data.FromJSON EndpointLocation where
 
 instance Prelude.Hashable EndpointLocation where
   hashWithSalt _salt EndpointLocation' {..} =
-    _salt `Prelude.hashWithSalt` city
+    _salt
+      `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` latitude
       `Prelude.hashWithSalt` longitude

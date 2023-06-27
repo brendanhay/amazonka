@@ -124,7 +124,8 @@ emailMessage_substitutions = Lens.lens (\EmailMessage' {substitutions} -> substi
 
 instance Prelude.Hashable EmailMessage where
   hashWithSalt _salt EmailMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` feedbackForwardingAddress
       `Prelude.hashWithSalt` fromAddress
       `Prelude.hashWithSalt` rawEmail

@@ -244,7 +244,8 @@ instance Data.FromJSON EmailChannelResponse where
 
 instance Prelude.Hashable EmailChannelResponse where
   hashWithSalt _salt EmailChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` configurationSet
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` enabled

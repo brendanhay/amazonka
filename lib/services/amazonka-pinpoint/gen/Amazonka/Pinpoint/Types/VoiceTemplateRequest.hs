@@ -51,9 +51,19 @@ data VoiceTemplateRequest = VoiceTemplateRequest'
     -- the message template. For a list of supported voices, see the
     -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
     voiceId :: Prelude.Maybe Prelude.Text,
-    -- | A string-to-string map of key-value pairs that defines the tags to
-    -- associate with the message template. Each tag consists of a required tag
-    -- key and an associated tag value.
+    -- | As of __22-05-2023__ tags has been deprecated for update operations.
+    -- After this date any value in tags is not processed and an error code is
+    -- not returned. To manage tags we recommend using either
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+    -- in the /API Reference for Amazon Pinpoint/,
+    -- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+    -- commands in the /AWS Command Line Interface Documentation/ or
+    -- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+    -- in the /AWS SDK/.
+    --
+    -- (Deprecated) A string-to-string map of key-value pairs that defines the
+    -- tags to associate with the message template. Each tag consists of a
+    -- required tag key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,9 +98,19 @@ data VoiceTemplateRequest = VoiceTemplateRequest'
 -- the message template. For a list of supported voices, see the
 -- <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide>.
 --
--- 'tags', 'voiceTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- 'tags', 'voiceTemplateRequest_tags' - As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 newVoiceTemplateRequest ::
   VoiceTemplateRequest
 newVoiceTemplateRequest =
@@ -135,15 +155,26 @@ voiceTemplateRequest_templateDescription = Lens.lens (\VoiceTemplateRequest' {te
 voiceTemplateRequest_voiceId :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe Prelude.Text)
 voiceTemplateRequest_voiceId = Lens.lens (\VoiceTemplateRequest' {voiceId} -> voiceId) (\s@VoiceTemplateRequest' {} a -> s {voiceId = a} :: VoiceTemplateRequest)
 
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- | As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 voiceTemplateRequest_tags :: Lens.Lens' VoiceTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 voiceTemplateRequest_tags = Lens.lens (\VoiceTemplateRequest' {tags} -> tags) (\s@VoiceTemplateRequest' {} a -> s {tags = a} :: VoiceTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable VoiceTemplateRequest where
   hashWithSalt _salt VoiceTemplateRequest' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` templateDescription

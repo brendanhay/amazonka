@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateJourney where
 
 instance Prelude.Hashable UpdateJourney where
   hashWithSalt _salt UpdateJourney' {..} =
-    _salt `Prelude.hashWithSalt` journeyId
+    _salt
+      `Prelude.hashWithSalt` journeyId
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` writeJourneyRequest
 

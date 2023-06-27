@@ -180,7 +180,8 @@ instance
   hashWithSalt
     _salt
     DefaultPushNotificationMessage' {..} =
-      _salt `Prelude.hashWithSalt` action
+      _salt
+        `Prelude.hashWithSalt` action
         `Prelude.hashWithSalt` body
         `Prelude.hashWithSalt` data'
         `Prelude.hashWithSalt` silentPush

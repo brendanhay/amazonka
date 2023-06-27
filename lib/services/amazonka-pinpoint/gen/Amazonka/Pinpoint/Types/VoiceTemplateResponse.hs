@@ -234,7 +234,8 @@ instance Data.FromJSON VoiceTemplateResponse where
 
 instance Prelude.Hashable VoiceTemplateResponse where
   hashWithSalt _salt VoiceTemplateResponse' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` defaultSubstitutions
       `Prelude.hashWithSalt` languageCode

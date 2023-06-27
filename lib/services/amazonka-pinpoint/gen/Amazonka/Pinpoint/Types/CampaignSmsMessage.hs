@@ -146,7 +146,8 @@ instance Data.FromJSON CampaignSmsMessage where
 
 instance Prelude.Hashable CampaignSmsMessage where
   hashWithSalt _salt CampaignSmsMessage' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` entityId
       `Prelude.hashWithSalt` messageType
       `Prelude.hashWithSalt` originationNumber

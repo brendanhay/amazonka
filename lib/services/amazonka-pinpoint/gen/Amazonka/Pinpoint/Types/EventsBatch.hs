@@ -71,7 +71,8 @@ eventsBatch_events = Lens.lens (\EventsBatch' {events} -> events) (\s@EventsBatc
 
 instance Prelude.Hashable EventsBatch where
   hashWithSalt _salt EventsBatch' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` events
 
 instance Prelude.NFData EventsBatch where

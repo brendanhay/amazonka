@@ -24,15 +24,15 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Closed Days Rule. Part of Journey sending schedule.
+-- | Specifies the rule settings for when messages can\'t be sent.
 --
 -- /See:/ 'newClosedDaysRule' smart constructor.
 data ClosedDaysRule = ClosedDaysRule'
-  { -- | End Datetime in ISO 8601 format.
+  { -- | End DateTime ISO 8601 format
     endDateTime :: Prelude.Maybe Prelude.Text,
-    -- | Name of the rule.
+    -- | The name of the closed day rule.
     name :: Prelude.Maybe Prelude.Text,
-    -- | Start Datetime in ISO 8601 format.
+    -- | Start DateTime ISO 8601 format
     startDateTime :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data ClosedDaysRule = ClosedDaysRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endDateTime', 'closedDaysRule_endDateTime' - End Datetime in ISO 8601 format.
+-- 'endDateTime', 'closedDaysRule_endDateTime' - End DateTime ISO 8601 format
 --
--- 'name', 'closedDaysRule_name' - Name of the rule.
+-- 'name', 'closedDaysRule_name' - The name of the closed day rule.
 --
--- 'startDateTime', 'closedDaysRule_startDateTime' - Start Datetime in ISO 8601 format.
+-- 'startDateTime', 'closedDaysRule_startDateTime' - Start DateTime ISO 8601 format
 newClosedDaysRule ::
   ClosedDaysRule
 newClosedDaysRule =
@@ -59,15 +59,15 @@ newClosedDaysRule =
       startDateTime = Prelude.Nothing
     }
 
--- | End Datetime in ISO 8601 format.
+-- | End DateTime ISO 8601 format
 closedDaysRule_endDateTime :: Lens.Lens' ClosedDaysRule (Prelude.Maybe Prelude.Text)
 closedDaysRule_endDateTime = Lens.lens (\ClosedDaysRule' {endDateTime} -> endDateTime) (\s@ClosedDaysRule' {} a -> s {endDateTime = a} :: ClosedDaysRule)
 
--- | Name of the rule.
+-- | The name of the closed day rule.
 closedDaysRule_name :: Lens.Lens' ClosedDaysRule (Prelude.Maybe Prelude.Text)
 closedDaysRule_name = Lens.lens (\ClosedDaysRule' {name} -> name) (\s@ClosedDaysRule' {} a -> s {name = a} :: ClosedDaysRule)
 
--- | Start Datetime in ISO 8601 format.
+-- | Start DateTime ISO 8601 format
 closedDaysRule_startDateTime :: Lens.Lens' ClosedDaysRule (Prelude.Maybe Prelude.Text)
 closedDaysRule_startDateTime = Lens.lens (\ClosedDaysRule' {startDateTime} -> startDateTime) (\s@ClosedDaysRule' {} a -> s {startDateTime = a} :: ClosedDaysRule)
 
@@ -84,7 +84,8 @@ instance Data.FromJSON ClosedDaysRule where
 
 instance Prelude.Hashable ClosedDaysRule where
   hashWithSalt _salt ClosedDaysRule' {..} =
-    _salt `Prelude.hashWithSalt` endDateTime
+    _salt
+      `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` startDateTime
 

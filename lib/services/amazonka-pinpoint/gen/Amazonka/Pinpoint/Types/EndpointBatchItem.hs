@@ -258,7 +258,8 @@ endpointBatchItem_user = Lens.lens (\EndpointBatchItem' {user} -> user) (\s@Endp
 
 instance Prelude.Hashable EndpointBatchItem where
   hashWithSalt _salt EndpointBatchItem' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` channelType
       `Prelude.hashWithSalt` demographic

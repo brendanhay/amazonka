@@ -107,7 +107,8 @@ instance Core.AWSRequest DeleteJourney where
 
 instance Prelude.Hashable DeleteJourney where
   hashWithSalt _salt DeleteJourney' {..} =
-    _salt `Prelude.hashWithSalt` journeyId
+    _salt
+      `Prelude.hashWithSalt` journeyId
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData DeleteJourney where

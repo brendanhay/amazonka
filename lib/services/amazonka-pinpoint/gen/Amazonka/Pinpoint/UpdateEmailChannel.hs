@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateEmailChannel where
 
 instance Prelude.Hashable UpdateEmailChannel where
   hashWithSalt _salt UpdateEmailChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` emailChannelRequest
 
 instance Prelude.NFData UpdateEmailChannel where

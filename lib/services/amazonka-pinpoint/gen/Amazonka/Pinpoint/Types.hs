@@ -75,6 +75,9 @@ module Amazonka.Pinpoint.Types
     -- * JobStatus
     JobStatus (..),
 
+    -- * JourneyRunStatus
+    JourneyRunStatus (..),
+
     -- * Layout
     Layout (..),
 
@@ -101,6 +104,9 @@ module Amazonka.Pinpoint.Types
 
     -- * TemplateType
     TemplateType (..),
+
+    -- * TimezoneEstimationMethodsElement
+    TimezoneEstimationMethodsElement (..),
 
     -- * Type
     Type (..),
@@ -316,6 +322,7 @@ module Amazonka.Pinpoint.Types
     ActivityResponse (..),
     newActivityResponse,
     activityResponse_end,
+    activityResponse_executionMetrics,
     activityResponse_result,
     activityResponse_scheduledStart,
     activityResponse_start,
@@ -1267,11 +1274,46 @@ module Amazonka.Pinpoint.Types
     journeyResponse_startActivity,
     journeyResponse_startCondition,
     journeyResponse_state,
+    journeyResponse_timezoneEstimationMethods,
     journeyResponse_waitForQuietTime,
     journeyResponse_tags,
     journeyResponse_name,
     journeyResponse_id,
     journeyResponse_applicationId,
+
+    -- * JourneyRunExecutionActivityMetricsResponse
+    JourneyRunExecutionActivityMetricsResponse (..),
+    newJourneyRunExecutionActivityMetricsResponse,
+    journeyRunExecutionActivityMetricsResponse_metrics,
+    journeyRunExecutionActivityMetricsResponse_journeyId,
+    journeyRunExecutionActivityMetricsResponse_lastEvaluatedTime,
+    journeyRunExecutionActivityMetricsResponse_journeyActivityId,
+    journeyRunExecutionActivityMetricsResponse_activityType,
+    journeyRunExecutionActivityMetricsResponse_runId,
+    journeyRunExecutionActivityMetricsResponse_applicationId,
+
+    -- * JourneyRunExecutionMetricsResponse
+    JourneyRunExecutionMetricsResponse (..),
+    newJourneyRunExecutionMetricsResponse,
+    journeyRunExecutionMetricsResponse_metrics,
+    journeyRunExecutionMetricsResponse_journeyId,
+    journeyRunExecutionMetricsResponse_lastEvaluatedTime,
+    journeyRunExecutionMetricsResponse_runId,
+    journeyRunExecutionMetricsResponse_applicationId,
+
+    -- * JourneyRunResponse
+    JourneyRunResponse (..),
+    newJourneyRunResponse,
+    journeyRunResponse_status,
+    journeyRunResponse_lastUpdateTime,
+    journeyRunResponse_creationTime,
+    journeyRunResponse_runId,
+
+    -- * JourneyRunsResponse
+    JourneyRunsResponse (..),
+    newJourneyRunsResponse,
+    journeyRunsResponse_nextToken,
+    journeyRunsResponse_item,
 
     -- * JourneySMSMessage
     JourneySMSMessage (..),
@@ -2018,6 +2060,7 @@ module Amazonka.Pinpoint.Types
     writeJourneyRequest_startActivity,
     writeJourneyRequest_startCondition,
     writeJourneyRequest_state,
+    writeJourneyRequest_timezoneEstimationMethods,
     writeJourneyRequest_waitForQuietTime,
     writeJourneyRequest_name,
 
@@ -2177,6 +2220,11 @@ import Amazonka.Pinpoint.Types.JourneyExecutionMetricsResponse
 import Amazonka.Pinpoint.Types.JourneyLimits
 import Amazonka.Pinpoint.Types.JourneyPushMessage
 import Amazonka.Pinpoint.Types.JourneyResponse
+import Amazonka.Pinpoint.Types.JourneyRunExecutionActivityMetricsResponse
+import Amazonka.Pinpoint.Types.JourneyRunExecutionMetricsResponse
+import Amazonka.Pinpoint.Types.JourneyRunResponse
+import Amazonka.Pinpoint.Types.JourneyRunStatus
+import Amazonka.Pinpoint.Types.JourneyRunsResponse
 import Amazonka.Pinpoint.Types.JourneySMSMessage
 import Amazonka.Pinpoint.Types.JourneySchedule
 import Amazonka.Pinpoint.Types.JourneyStateRequest
@@ -2253,6 +2301,7 @@ import Amazonka.Pinpoint.Types.TemplateType
 import Amazonka.Pinpoint.Types.TemplateVersionResponse
 import Amazonka.Pinpoint.Types.TemplateVersionsResponse
 import Amazonka.Pinpoint.Types.TemplatesResponse
+import Amazonka.Pinpoint.Types.TimezoneEstimationMethodsElement
 import Amazonka.Pinpoint.Types.TreatmentResource
 import Amazonka.Pinpoint.Types.Type
 import Amazonka.Pinpoint.Types.UpdateAttributesRequest
@@ -2301,52 +2350,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Provides information about an API request or response.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -2354,7 +2403,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | Provides information about an API request or response.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -2362,7 +2411,7 @@ _ConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | Provides information about an API request or response.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
@@ -2370,7 +2419,7 @@ _ForbiddenException =
     Prelude.. Core.hasStatus 403
 
 -- | Provides information about an API request or response.
-_InternalServerErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerErrorException =
   Core._MatchServiceError
     defaultService
@@ -2378,7 +2427,7 @@ _InternalServerErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | Provides information about an API request or response.
-_MethodNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MethodNotAllowedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MethodNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -2386,7 +2435,7 @@ _MethodNotAllowedException =
     Prelude.. Core.hasStatus 405
 
 -- | Provides information about an API request or response.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -2394,7 +2443,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | Provides information about an API request or response.
-_PayloadTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PayloadTooLargeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PayloadTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -2402,7 +2451,7 @@ _PayloadTooLargeException =
     Prelude.. Core.hasStatus 413
 
 -- | Provides information about an API request or response.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

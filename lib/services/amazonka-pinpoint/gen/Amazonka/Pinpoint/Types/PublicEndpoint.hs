@@ -207,7 +207,8 @@ publicEndpoint_user = Lens.lens (\PublicEndpoint' {user} -> user) (\s@PublicEndp
 
 instance Prelude.Hashable PublicEndpoint where
   hashWithSalt _salt PublicEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` channelType
       `Prelude.hashWithSalt` demographic

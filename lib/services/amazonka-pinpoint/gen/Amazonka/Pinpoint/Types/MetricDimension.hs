@@ -87,7 +87,8 @@ instance Data.FromJSON MetricDimension where
 
 instance Prelude.Hashable MetricDimension where
   hashWithSalt _salt MetricDimension' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData MetricDimension where

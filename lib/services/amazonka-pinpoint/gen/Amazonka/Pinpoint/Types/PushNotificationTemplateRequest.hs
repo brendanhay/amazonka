@@ -68,9 +68,19 @@ data PushNotificationTemplateRequest = PushNotificationTemplateRequest'
     recommenderId :: Prelude.Maybe Prelude.Text,
     -- | A custom description of the message template.
     templateDescription :: Prelude.Maybe Prelude.Text,
-    -- | A string-to-string map of key-value pairs that defines the tags to
-    -- associate with the message template. Each tag consists of a required tag
-    -- key and an associated tag value.
+    -- | As of __22-05-2023__ tags has been deprecated for update operations.
+    -- After this date any value in tags is not processed and an error code is
+    -- not returned. To manage tags we recommend using either
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+    -- in the /API Reference for Amazon Pinpoint/,
+    -- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+    -- commands in the /AWS Command Line Interface Documentation/ or
+    -- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+    -- in the /AWS SDK/.
+    --
+    -- (Deprecated) A string-to-string map of key-value pairs that defines the
+    -- tags to associate with the message template. Each tag consists of a
+    -- required tag key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -119,9 +129,19 @@ data PushNotificationTemplateRequest = PushNotificationTemplateRequest'
 --
 -- 'templateDescription', 'pushNotificationTemplateRequest_templateDescription' - A custom description of the message template.
 --
--- 'tags', 'pushNotificationTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- 'tags', 'pushNotificationTemplateRequest_tags' - As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 newPushNotificationTemplateRequest ::
   PushNotificationTemplateRequest
 newPushNotificationTemplateRequest =
@@ -190,9 +210,19 @@ pushNotificationTemplateRequest_recommenderId = Lens.lens (\PushNotificationTemp
 pushNotificationTemplateRequest_templateDescription :: Lens.Lens' PushNotificationTemplateRequest (Prelude.Maybe Prelude.Text)
 pushNotificationTemplateRequest_templateDescription = Lens.lens (\PushNotificationTemplateRequest' {templateDescription} -> templateDescription) (\s@PushNotificationTemplateRequest' {} a -> s {templateDescription = a} :: PushNotificationTemplateRequest)
 
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
+-- | As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
 pushNotificationTemplateRequest_tags :: Lens.Lens' PushNotificationTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 pushNotificationTemplateRequest_tags = Lens.lens (\PushNotificationTemplateRequest' {tags} -> tags) (\s@PushNotificationTemplateRequest' {} a -> s {tags = a} :: PushNotificationTemplateRequest) Prelude.. Lens.mapping Lens.coerced
 
@@ -203,7 +233,8 @@ instance
   hashWithSalt
     _salt
     PushNotificationTemplateRequest' {..} =
-      _salt `Prelude.hashWithSalt` adm
+      _salt
+        `Prelude.hashWithSalt` adm
         `Prelude.hashWithSalt` apns
         `Prelude.hashWithSalt` baidu
         `Prelude.hashWithSalt` default'

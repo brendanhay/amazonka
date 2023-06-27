@@ -179,7 +179,8 @@ instance Data.FromJSON JourneyDateRangeKpiResponse where
 
 instance Prelude.Hashable JourneyDateRangeKpiResponse where
   hashWithSalt _salt JourneyDateRangeKpiResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` kpiResult
       `Prelude.hashWithSalt` kpiName
       `Prelude.hashWithSalt` journeyId

@@ -175,7 +175,8 @@ instance Core.AWSRequest DeleteVoiceTemplate where
 
 instance Prelude.Hashable DeleteVoiceTemplate where
   hashWithSalt _salt DeleteVoiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
 
 instance Prelude.NFData DeleteVoiceTemplate where

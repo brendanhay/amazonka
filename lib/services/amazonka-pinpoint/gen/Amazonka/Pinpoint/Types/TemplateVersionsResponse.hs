@@ -109,7 +109,8 @@ instance Data.FromJSON TemplateVersionsResponse where
 
 instance Prelude.Hashable TemplateVersionsResponse where
   hashWithSalt _salt TemplateVersionsResponse' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` requestID
       `Prelude.hashWithSalt` item

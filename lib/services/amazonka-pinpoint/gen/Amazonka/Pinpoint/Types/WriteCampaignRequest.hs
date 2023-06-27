@@ -78,9 +78,19 @@ data WriteCampaignRequest = WriteCampaignRequest'
     -- has multiple treatments. A /treatment/ is a variation of a campaign
     -- that\'s used for A\/B testing.
     treatmentName :: Prelude.Maybe Prelude.Text,
-    -- | A string-to-string map of key-value pairs that defines the tags to
-    -- associate with the campaign. Each tag consists of a required tag key and
-    -- an associated tag value.
+    -- | As of __22-05-2023__ tags has been deprecated for update operations.
+    -- After this date any value in tags is not processed and an error code is
+    -- not returned. To manage tags we recommend using either
+    -- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+    -- in the /API Reference for Amazon Pinpoint/,
+    -- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+    -- commands in the /AWS Command Line Interface Documentation/ or
+    -- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+    -- in the /AWS SDK/.
+    --
+    -- (Deprecated) A string-to-string map of key-value pairs that defines the
+    -- tags to associate with the campaign. Each tag consists of a required tag
+    -- key and an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -136,9 +146,19 @@ data WriteCampaignRequest = WriteCampaignRequest'
 -- has multiple treatments. A /treatment/ is a variation of a campaign
 -- that\'s used for A\/B testing.
 --
--- 'tags', 'writeCampaignRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the campaign. Each tag consists of a required tag key and
--- an associated tag value.
+-- 'tags', 'writeCampaignRequest_tags' - As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the campaign. Each tag consists of a required tag
+-- key and an associated tag value.
 newWriteCampaignRequest ::
   WriteCampaignRequest
 newWriteCampaignRequest =
@@ -238,15 +258,26 @@ writeCampaignRequest_treatmentDescription = Lens.lens (\WriteCampaignRequest' {t
 writeCampaignRequest_treatmentName :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_treatmentName = Lens.lens (\WriteCampaignRequest' {treatmentName} -> treatmentName) (\s@WriteCampaignRequest' {} a -> s {treatmentName = a} :: WriteCampaignRequest)
 
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the campaign. Each tag consists of a required tag key and
--- an associated tag value.
+-- | As of __22-05-2023__ tags has been deprecated for update operations.
+-- After this date any value in tags is not processed and an error code is
+-- not returned. To manage tags we recommend using either
+-- <https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html Tags>
+-- in the /API Reference for Amazon Pinpoint/,
+-- <https://docs.aws.amazon.com/cli/latest/reference/resourcegroupstaggingapi/index.html resourcegroupstaggingapi>
+-- commands in the /AWS Command Line Interface Documentation/ or
+-- <https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/resourcegroupstaggingapi/package-summary.html resourcegroupstaggingapi>
+-- in the /AWS SDK/.
+--
+-- (Deprecated) A string-to-string map of key-value pairs that defines the
+-- tags to associate with the campaign. Each tag consists of a required tag
+-- key and an associated tag value.
 writeCampaignRequest_tags :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 writeCampaignRequest_tags = Lens.lens (\WriteCampaignRequest' {tags} -> tags) (\s@WriteCampaignRequest' {} a -> s {tags = a} :: WriteCampaignRequest) Prelude.. Lens.mapping Lens.coerced
 
 instance Prelude.Hashable WriteCampaignRequest where
   hashWithSalt _salt WriteCampaignRequest' {..} =
-    _salt `Prelude.hashWithSalt` additionalTreatments
+    _salt
+      `Prelude.hashWithSalt` additionalTreatments
       `Prelude.hashWithSalt` customDeliveryConfiguration
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` holdoutPercent

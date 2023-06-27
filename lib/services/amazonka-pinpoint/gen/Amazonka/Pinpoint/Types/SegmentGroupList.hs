@@ -89,7 +89,8 @@ instance Data.FromJSON SegmentGroupList where
 
 instance Prelude.Hashable SegmentGroupList where
   hashWithSalt _salt SegmentGroupList' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` include
 
 instance Prelude.NFData SegmentGroupList where

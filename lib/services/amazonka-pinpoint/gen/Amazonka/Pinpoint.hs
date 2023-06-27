@@ -474,6 +474,24 @@ module Amazonka.Pinpoint
     GetJourneyExecutionMetricsResponse (GetJourneyExecutionMetricsResponse'),
     newGetJourneyExecutionMetricsResponse,
 
+    -- ** GetJourneyRunExecutionActivityMetrics
+    GetJourneyRunExecutionActivityMetrics (GetJourneyRunExecutionActivityMetrics'),
+    newGetJourneyRunExecutionActivityMetrics,
+    GetJourneyRunExecutionActivityMetricsResponse (GetJourneyRunExecutionActivityMetricsResponse'),
+    newGetJourneyRunExecutionActivityMetricsResponse,
+
+    -- ** GetJourneyRunExecutionMetrics
+    GetJourneyRunExecutionMetrics (GetJourneyRunExecutionMetrics'),
+    newGetJourneyRunExecutionMetrics,
+    GetJourneyRunExecutionMetricsResponse (GetJourneyRunExecutionMetricsResponse'),
+    newGetJourneyRunExecutionMetricsResponse,
+
+    -- ** GetJourneyRuns
+    GetJourneyRuns (GetJourneyRuns'),
+    newGetJourneyRuns,
+    GetJourneyRunsResponse (GetJourneyRunsResponse'),
+    newGetJourneyRunsResponse,
+
     -- ** GetPushTemplate
     GetPushTemplate (GetPushTemplate'),
     newGetPushTemplate,
@@ -836,6 +854,9 @@ module Amazonka.Pinpoint
     -- ** JobStatus
     JobStatus (..),
 
+    -- ** JourneyRunStatus
+    JourneyRunStatus (..),
+
     -- ** Layout
     Layout (..),
 
@@ -862,6 +883,9 @@ module Amazonka.Pinpoint
 
     -- ** TemplateType
     TemplateType (..),
+
+    -- ** TimezoneEstimationMethodsElement
+    TimezoneEstimationMethodsElement (..),
 
     -- ** Type
     Type (..),
@@ -1334,6 +1358,22 @@ module Amazonka.Pinpoint
     JourneyResponse (JourneyResponse'),
     newJourneyResponse,
 
+    -- ** JourneyRunExecutionActivityMetricsResponse
+    JourneyRunExecutionActivityMetricsResponse (JourneyRunExecutionActivityMetricsResponse'),
+    newJourneyRunExecutionActivityMetricsResponse,
+
+    -- ** JourneyRunExecutionMetricsResponse
+    JourneyRunExecutionMetricsResponse (JourneyRunExecutionMetricsResponse'),
+    newJourneyRunExecutionMetricsResponse,
+
+    -- ** JourneyRunResponse
+    JourneyRunResponse (JourneyRunResponse'),
+    newJourneyRunResponse,
+
+    -- ** JourneyRunsResponse
+    JourneyRunsResponse (JourneyRunsResponse'),
+    newJourneyRunsResponse,
+
     -- ** JourneySMSMessage
     JourneySMSMessage (JourneySMSMessage'),
     newJourneySMSMessage,
@@ -1743,6 +1783,9 @@ import Amazonka.Pinpoint.GetJourney
 import Amazonka.Pinpoint.GetJourneyDateRangeKpi
 import Amazonka.Pinpoint.GetJourneyExecutionActivityMetrics
 import Amazonka.Pinpoint.GetJourneyExecutionMetrics
+import Amazonka.Pinpoint.GetJourneyRunExecutionActivityMetrics
+import Amazonka.Pinpoint.GetJourneyRunExecutionMetrics
+import Amazonka.Pinpoint.GetJourneyRuns
 import Amazonka.Pinpoint.GetPushTemplate
 import Amazonka.Pinpoint.GetRecommenderConfiguration
 import Amazonka.Pinpoint.GetRecommenderConfigurations

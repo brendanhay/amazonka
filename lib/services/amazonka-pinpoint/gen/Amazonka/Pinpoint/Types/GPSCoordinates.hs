@@ -78,7 +78,8 @@ instance Data.FromJSON GPSCoordinates where
 
 instance Prelude.Hashable GPSCoordinates where
   hashWithSalt _salt GPSCoordinates' {..} =
-    _salt `Prelude.hashWithSalt` latitude
+    _salt
+      `Prelude.hashWithSalt` latitude
       `Prelude.hashWithSalt` longitude
 
 instance Prelude.NFData GPSCoordinates where

@@ -139,7 +139,8 @@ instance Data.FromJSON PushMessageActivity where
 
 instance Prelude.Hashable PushMessageActivity where
   hashWithSalt _salt PushMessageActivity' {..} =
-    _salt `Prelude.hashWithSalt` messageConfig
+    _salt
+      `Prelude.hashWithSalt` messageConfig
       `Prelude.hashWithSalt` nextActivity
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateVersion

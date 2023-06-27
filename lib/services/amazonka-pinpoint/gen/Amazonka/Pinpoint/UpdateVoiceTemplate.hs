@@ -223,7 +223,8 @@ instance Core.AWSRequest UpdateVoiceTemplate where
 
 instance Prelude.Hashable UpdateVoiceTemplate where
   hashWithSalt _salt UpdateVoiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` createNewVersion
+    _salt
+      `Prelude.hashWithSalt` createNewVersion
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` voiceTemplateRequest

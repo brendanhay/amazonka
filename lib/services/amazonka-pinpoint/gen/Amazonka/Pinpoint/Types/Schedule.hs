@@ -213,7 +213,8 @@ instance Data.FromJSON Schedule where
 
 instance Prelude.Hashable Schedule where
   hashWithSalt _salt Schedule' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventFilter
       `Prelude.hashWithSalt` frequency
       `Prelude.hashWithSalt` isLocalTime

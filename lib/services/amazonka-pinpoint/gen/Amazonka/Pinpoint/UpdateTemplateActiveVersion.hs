@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateTemplateActiveVersion where
 
 instance Prelude.Hashable UpdateTemplateActiveVersion where
   hashWithSalt _salt UpdateTemplateActiveVersion' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` templateType
       `Prelude.hashWithSalt` templateActiveVersionRequest
 

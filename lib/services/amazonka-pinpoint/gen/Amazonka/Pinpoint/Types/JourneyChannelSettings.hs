@@ -78,7 +78,8 @@ instance Data.FromJSON JourneyChannelSettings where
 
 instance Prelude.Hashable JourneyChannelSettings where
   hashWithSalt _salt JourneyChannelSettings' {..} =
-    _salt `Prelude.hashWithSalt` connectCampaignArn
+    _salt
+      `Prelude.hashWithSalt` connectCampaignArn
       `Prelude.hashWithSalt` connectCampaignExecutionRoleArn
 
 instance Prelude.NFData JourneyChannelSettings where

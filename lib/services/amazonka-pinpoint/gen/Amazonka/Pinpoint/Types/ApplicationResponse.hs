@@ -123,7 +123,8 @@ instance Data.FromJSON ApplicationResponse where
 
 instance Prelude.Hashable ApplicationResponse where
   hashWithSalt _salt ApplicationResponse' {..} =
-    _salt `Prelude.hashWithSalt` creationDate
+    _salt
+      `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn

@@ -83,7 +83,8 @@ instance Data.FromJSON Condition where
 
 instance Prelude.Hashable Condition where
   hashWithSalt _salt Condition' {..} =
-    _salt `Prelude.hashWithSalt` conditions
+    _salt
+      `Prelude.hashWithSalt` conditions
       `Prelude.hashWithSalt` operator
 
 instance Prelude.NFData Condition where

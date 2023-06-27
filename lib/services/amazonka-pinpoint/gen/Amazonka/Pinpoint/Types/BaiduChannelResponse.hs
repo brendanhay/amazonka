@@ -182,7 +182,8 @@ instance Data.FromJSON BaiduChannelResponse where
 
 instance Prelude.Hashable BaiduChannelResponse where
   hashWithSalt _salt BaiduChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` hasCredential

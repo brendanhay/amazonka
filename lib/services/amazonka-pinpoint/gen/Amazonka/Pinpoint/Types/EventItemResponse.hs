@@ -84,7 +84,8 @@ instance Data.FromJSON EventItemResponse where
 
 instance Prelude.Hashable EventItemResponse where
   hashWithSalt _salt EventItemResponse' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData EventItemResponse where

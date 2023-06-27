@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateVoiceTemplate where
 
 instance Prelude.Hashable CreateVoiceTemplate where
   hashWithSalt _salt CreateVoiceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` templateName
+    _salt
+      `Prelude.hashWithSalt` templateName
       `Prelude.hashWithSalt` voiceTemplateRequest
 
 instance Prelude.NFData CreateVoiceTemplate where

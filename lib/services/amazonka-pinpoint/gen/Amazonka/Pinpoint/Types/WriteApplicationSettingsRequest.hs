@@ -192,7 +192,8 @@ instance
   hashWithSalt
     _salt
     WriteApplicationSettingsRequest' {..} =
-      _salt `Prelude.hashWithSalt` campaignHook
+      _salt
+        `Prelude.hashWithSalt` campaignHook
         `Prelude.hashWithSalt` cloudWatchMetricsEnabled
         `Prelude.hashWithSalt` eventTaggingEnabled
         `Prelude.hashWithSalt` limits

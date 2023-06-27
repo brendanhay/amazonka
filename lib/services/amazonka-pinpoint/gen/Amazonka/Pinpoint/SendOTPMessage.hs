@@ -106,7 +106,8 @@ instance Core.AWSRequest SendOTPMessage where
 
 instance Prelude.Hashable SendOTPMessage where
   hashWithSalt _salt SendOTPMessage' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` sendOTPMessageRequestParameters
 
 instance Prelude.NFData SendOTPMessage where

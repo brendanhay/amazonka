@@ -196,7 +196,8 @@ instance Data.FromJSON APNSVoipChannelResponse where
 
 instance Prelude.Hashable APNSVoipChannelResponse where
   hashWithSalt _salt APNSVoipChannelResponse' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` defaultAuthenticationMethod
       `Prelude.hashWithSalt` enabled

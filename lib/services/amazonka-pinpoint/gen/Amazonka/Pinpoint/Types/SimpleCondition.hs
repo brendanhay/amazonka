@@ -93,7 +93,8 @@ instance Data.FromJSON SimpleCondition where
 
 instance Prelude.Hashable SimpleCondition where
   hashWithSalt _salt SimpleCondition' {..} =
-    _salt `Prelude.hashWithSalt` eventCondition
+    _salt
+      `Prelude.hashWithSalt` eventCondition
       `Prelude.hashWithSalt` segmentCondition
       `Prelude.hashWithSalt` segmentDimensions
 

@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateCampaign where
 
 instance Prelude.Hashable UpdateCampaign where
   hashWithSalt _salt UpdateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignId
+    _salt
+      `Prelude.hashWithSalt` campaignId
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` writeCampaignRequest
 

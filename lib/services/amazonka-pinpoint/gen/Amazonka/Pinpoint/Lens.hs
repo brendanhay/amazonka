@@ -416,6 +416,33 @@ module Amazonka.Pinpoint.Lens
     getJourneyExecutionMetricsResponse_httpStatus,
     getJourneyExecutionMetricsResponse_journeyExecutionMetricsResponse,
 
+    -- ** GetJourneyRunExecutionActivityMetrics
+    getJourneyRunExecutionActivityMetrics_nextToken,
+    getJourneyRunExecutionActivityMetrics_pageSize,
+    getJourneyRunExecutionActivityMetrics_runId,
+    getJourneyRunExecutionActivityMetrics_journeyActivityId,
+    getJourneyRunExecutionActivityMetrics_journeyId,
+    getJourneyRunExecutionActivityMetrics_applicationId,
+    getJourneyRunExecutionActivityMetricsResponse_httpStatus,
+    getJourneyRunExecutionActivityMetricsResponse_journeyRunExecutionActivityMetricsResponse,
+
+    -- ** GetJourneyRunExecutionMetrics
+    getJourneyRunExecutionMetrics_nextToken,
+    getJourneyRunExecutionMetrics_pageSize,
+    getJourneyRunExecutionMetrics_runId,
+    getJourneyRunExecutionMetrics_applicationId,
+    getJourneyRunExecutionMetrics_journeyId,
+    getJourneyRunExecutionMetricsResponse_httpStatus,
+    getJourneyRunExecutionMetricsResponse_journeyRunExecutionMetricsResponse,
+
+    -- ** GetJourneyRuns
+    getJourneyRuns_pageSize,
+    getJourneyRuns_token,
+    getJourneyRuns_applicationId,
+    getJourneyRuns_journeyId,
+    getJourneyRunsResponse_httpStatus,
+    getJourneyRunsResponse_journeyRunsResponse,
+
     -- ** GetPushTemplate
     getPushTemplate_version,
     getPushTemplate_templateName,
@@ -930,6 +957,7 @@ module Amazonka.Pinpoint.Lens
 
     -- ** ActivityResponse
     activityResponse_end,
+    activityResponse_executionMetrics,
     activityResponse_result,
     activityResponse_scheduledStart,
     activityResponse_start,
@@ -1679,11 +1707,38 @@ module Amazonka.Pinpoint.Lens
     journeyResponse_startActivity,
     journeyResponse_startCondition,
     journeyResponse_state,
+    journeyResponse_timezoneEstimationMethods,
     journeyResponse_waitForQuietTime,
     journeyResponse_tags,
     journeyResponse_name,
     journeyResponse_id,
     journeyResponse_applicationId,
+
+    -- ** JourneyRunExecutionActivityMetricsResponse
+    journeyRunExecutionActivityMetricsResponse_metrics,
+    journeyRunExecutionActivityMetricsResponse_journeyId,
+    journeyRunExecutionActivityMetricsResponse_lastEvaluatedTime,
+    journeyRunExecutionActivityMetricsResponse_journeyActivityId,
+    journeyRunExecutionActivityMetricsResponse_activityType,
+    journeyRunExecutionActivityMetricsResponse_runId,
+    journeyRunExecutionActivityMetricsResponse_applicationId,
+
+    -- ** JourneyRunExecutionMetricsResponse
+    journeyRunExecutionMetricsResponse_metrics,
+    journeyRunExecutionMetricsResponse_journeyId,
+    journeyRunExecutionMetricsResponse_lastEvaluatedTime,
+    journeyRunExecutionMetricsResponse_runId,
+    journeyRunExecutionMetricsResponse_applicationId,
+
+    -- ** JourneyRunResponse
+    journeyRunResponse_status,
+    journeyRunResponse_lastUpdateTime,
+    journeyRunResponse_creationTime,
+    journeyRunResponse_runId,
+
+    -- ** JourneyRunsResponse
+    journeyRunsResponse_nextToken,
+    journeyRunsResponse_item,
 
     -- ** JourneySMSMessage
     journeySMSMessage_entityId,
@@ -2264,6 +2319,7 @@ module Amazonka.Pinpoint.Lens
     writeJourneyRequest_startActivity,
     writeJourneyRequest_startCondition,
     writeJourneyRequest_state,
+    writeJourneyRequest_timezoneEstimationMethods,
     writeJourneyRequest_waitForQuietTime,
     writeJourneyRequest_name,
 
@@ -2351,6 +2407,9 @@ import Amazonka.Pinpoint.GetJourney
 import Amazonka.Pinpoint.GetJourneyDateRangeKpi
 import Amazonka.Pinpoint.GetJourneyExecutionActivityMetrics
 import Amazonka.Pinpoint.GetJourneyExecutionMetrics
+import Amazonka.Pinpoint.GetJourneyRunExecutionActivityMetrics
+import Amazonka.Pinpoint.GetJourneyRunExecutionMetrics
+import Amazonka.Pinpoint.GetJourneyRuns
 import Amazonka.Pinpoint.GetPushTemplate
 import Amazonka.Pinpoint.GetRecommenderConfiguration
 import Amazonka.Pinpoint.GetRecommenderConfigurations
@@ -2494,6 +2553,10 @@ import Amazonka.Pinpoint.Types.JourneyExecutionMetricsResponse
 import Amazonka.Pinpoint.Types.JourneyLimits
 import Amazonka.Pinpoint.Types.JourneyPushMessage
 import Amazonka.Pinpoint.Types.JourneyResponse
+import Amazonka.Pinpoint.Types.JourneyRunExecutionActivityMetricsResponse
+import Amazonka.Pinpoint.Types.JourneyRunExecutionMetricsResponse
+import Amazonka.Pinpoint.Types.JourneyRunResponse
+import Amazonka.Pinpoint.Types.JourneyRunsResponse
 import Amazonka.Pinpoint.Types.JourneySMSMessage
 import Amazonka.Pinpoint.Types.JourneySchedule
 import Amazonka.Pinpoint.Types.JourneyStateRequest

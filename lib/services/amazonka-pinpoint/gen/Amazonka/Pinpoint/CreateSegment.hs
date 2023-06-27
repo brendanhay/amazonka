@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateSegment where
 
 instance Prelude.Hashable CreateSegment where
   hashWithSalt _salt CreateSegment' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` writeSegmentRequest
 
 instance Prelude.NFData CreateSegment where

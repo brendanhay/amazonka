@@ -182,7 +182,8 @@ instance
     CampaignDateRangeKpiResponse
   where
   hashWithSalt _salt CampaignDateRangeKpiResponse' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` kpiResult
       `Prelude.hashWithSalt` kpiName
       `Prelude.hashWithSalt` endTime

@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateBaiduChannel where
 
 instance Prelude.Hashable UpdateBaiduChannel where
   hashWithSalt _salt UpdateBaiduChannel' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` baiduChannelRequest
 
 instance Prelude.NFData UpdateBaiduChannel where

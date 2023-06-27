@@ -117,6 +117,8 @@ Released: **?**, Compare: [2.0.0-rc1](https://github.com/brendanhay/amazonka/com
 
 ### Changed
 
+- `amazonka-core`: Use `crypton` instead of `cryptonite` to provide cryptographic primitives
+[\#920](https://github.com/brendanhay/amazonka/pull/920)
 - `amazonka-core`/`amazonka-redshift`/`amazonka-route53`/`amazonka-s3`: Support Melbourne region (`ap-southeast-4`).
 [\#897](https://github.com/brendanhay/amazonka/pull/897)
 - `amazonka`: Presigning functions do not require `MonadIO`.

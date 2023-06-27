@@ -111,6 +111,9 @@ module Amazonka.Pi
     -- ** FeatureStatus
     FeatureStatus (..),
 
+    -- ** PeriodAlignment
+    PeriodAlignment (..),
+
     -- ** ServiceType
     ServiceType (..),
 

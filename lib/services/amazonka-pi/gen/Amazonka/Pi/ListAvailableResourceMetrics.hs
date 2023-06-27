@@ -203,7 +203,8 @@ instance
     ListAvailableResourceMetrics
   where
   hashWithSalt _salt ListAvailableResourceMetrics' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` identifier

@@ -34,6 +34,7 @@ module Amazonka.Pi.GetResourceMetrics
     -- * Request Lenses
     getResourceMetrics_maxResults,
     getResourceMetrics_nextToken,
+    getResourceMetrics_periodAlignment,
     getResourceMetrics_periodInSeconds,
     getResourceMetrics_serviceType,
     getResourceMetrics_identifier,
@@ -73,6 +74,9 @@ data GetResourceMetrics = GetResourceMetrics'
     -- parameter is specified, the response includes only records beyond the
     -- token, up to the value specified by @MaxRecords@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The returned timestamp which is the start or end time of the time
+    -- periods. The default value is @END_TIME@.
+    periodAlignment :: Prelude.Maybe PeriodAlignment,
     -- | The granularity, in seconds, of the data points returned from
     -- Performance Insights. A period can be as short as one second, or as long
     -- as one day (86400 seconds). Valid values are:
@@ -144,6 +148,9 @@ data GetResourceMetrics = GetResourceMetrics'
 -- 'nextToken', 'getResourceMetrics_nextToken' - An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- token, up to the value specified by @MaxRecords@.
+--
+-- 'periodAlignment', 'getResourceMetrics_periodAlignment' - The returned timestamp which is the start or end time of the time
+-- periods. The default value is @END_TIME@.
 --
 -- 'periodInSeconds', 'getResourceMetrics_periodInSeconds' - The granularity, in seconds, of the data points returned from
 -- Performance Insights. A period can be as short as one second, or as long
@@ -218,6 +225,7 @@ newGetResourceMetrics
     GetResourceMetrics'
       { maxResults = Prelude.Nothing,
         nextToken = Prelude.Nothing,
+        periodAlignment = Prelude.Nothing,
         periodInSeconds = Prelude.Nothing,
         serviceType = pServiceType_,
         identifier = pIdentifier_,
@@ -237,6 +245,11 @@ getResourceMetrics_maxResults = Lens.lens (\GetResourceMetrics' {maxResults} -> 
 -- token, up to the value specified by @MaxRecords@.
 getResourceMetrics_nextToken :: Lens.Lens' GetResourceMetrics (Prelude.Maybe Prelude.Text)
 getResourceMetrics_nextToken = Lens.lens (\GetResourceMetrics' {nextToken} -> nextToken) (\s@GetResourceMetrics' {} a -> s {nextToken = a} :: GetResourceMetrics)
+
+-- | The returned timestamp which is the start or end time of the time
+-- periods. The default value is @END_TIME@.
+getResourceMetrics_periodAlignment :: Lens.Lens' GetResourceMetrics (Prelude.Maybe PeriodAlignment)
+getResourceMetrics_periodAlignment = Lens.lens (\GetResourceMetrics' {periodAlignment} -> periodAlignment) (\s@GetResourceMetrics' {} a -> s {periodAlignment = a} :: GetResourceMetrics)
 
 -- | The granularity, in seconds, of the data points returned from
 -- Performance Insights. A period can be as short as one second, or as long
@@ -323,8 +336,10 @@ instance Core.AWSRequest GetResourceMetrics where
 
 instance Prelude.Hashable GetResourceMetrics where
   hashWithSalt _salt GetResourceMetrics' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` periodAlignment
       `Prelude.hashWithSalt` periodInSeconds
       `Prelude.hashWithSalt` serviceType
       `Prelude.hashWithSalt` identifier
@@ -336,6 +351,7 @@ instance Prelude.NFData GetResourceMetrics where
   rnf GetResourceMetrics' {..} =
     Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf periodAlignment
       `Prelude.seq` Prelude.rnf periodInSeconds
       `Prelude.seq` Prelude.rnf serviceType
       `Prelude.seq` Prelude.rnf identifier
@@ -364,6 +380,8 @@ instance Data.ToJSON GetResourceMetrics where
       ( Prelude.catMaybes
           [ ("MaxResults" Data..=) Prelude.<$> maxResults,
             ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("PeriodAlignment" Data..=)
+              Prelude.<$> periodAlignment,
             ("PeriodInSeconds" Data..=)
               Prelude.<$> periodInSeconds,
             Prelude.Just ("ServiceType" Data..= serviceType),

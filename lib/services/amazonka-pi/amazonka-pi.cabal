@@ -64,6 +64,7 @@ library
     Amazonka.Pi.Types.MetricDimensionGroups
     Amazonka.Pi.Types.MetricKeyDataPoints
     Amazonka.Pi.Types.MetricQuery
+    Amazonka.Pi.Types.PeriodAlignment
     Amazonka.Pi.Types.ResponsePartitionKey
     Amazonka.Pi.Types.ResponseResourceMetric
     Amazonka.Pi.Types.ResponseResourceMetricKey

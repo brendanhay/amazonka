@@ -53,6 +53,7 @@ module Amazonka.Pi.Lens
     -- ** GetResourceMetrics
     getResourceMetrics_maxResults,
     getResourceMetrics_nextToken,
+    getResourceMetrics_periodAlignment,
     getResourceMetrics_periodInSeconds,
     getResourceMetrics_serviceType,
     getResourceMetrics_identifier,

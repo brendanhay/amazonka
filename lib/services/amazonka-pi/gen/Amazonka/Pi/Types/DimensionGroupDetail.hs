@@ -75,7 +75,8 @@ instance Data.FromJSON DimensionGroupDetail where
 
 instance Prelude.Hashable DimensionGroupDetail where
   hashWithSalt _salt DimensionGroupDetail' {..} =
-    _salt `Prelude.hashWithSalt` dimensions
+    _salt
+      `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` group'
 
 instance Prelude.NFData DimensionGroupDetail where

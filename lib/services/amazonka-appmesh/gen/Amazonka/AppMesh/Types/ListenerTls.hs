@@ -119,7 +119,8 @@ instance Data.FromJSON ListenerTls where
 
 instance Prelude.Hashable ListenerTls where
   hashWithSalt _salt ListenerTls' {..} =
-    _salt `Prelude.hashWithSalt` validation
+    _salt
+      `Prelude.hashWithSalt` validation
       `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` mode
 

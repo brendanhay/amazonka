@@ -186,7 +186,8 @@ instance Data.FromJSON VirtualGatewayRef where
 
 instance Prelude.Hashable VirtualGatewayRef where
   hashWithSalt _salt VirtualGatewayRef' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` meshName

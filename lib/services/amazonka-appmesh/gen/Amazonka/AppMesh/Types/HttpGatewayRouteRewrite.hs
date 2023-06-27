@@ -88,7 +88,8 @@ instance Data.FromJSON HttpGatewayRouteRewrite where
 
 instance Prelude.Hashable HttpGatewayRouteRewrite where
   hashWithSalt _salt HttpGatewayRouteRewrite' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` prefix
 

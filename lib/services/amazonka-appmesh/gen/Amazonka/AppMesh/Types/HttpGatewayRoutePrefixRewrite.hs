@@ -82,7 +82,8 @@ instance
     HttpGatewayRoutePrefixRewrite
   where
   hashWithSalt _salt HttpGatewayRoutePrefixRewrite' {..} =
-    _salt `Prelude.hashWithSalt` defaultPrefix
+    _salt
+      `Prelude.hashWithSalt` defaultPrefix
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData HttpGatewayRoutePrefixRewrite where

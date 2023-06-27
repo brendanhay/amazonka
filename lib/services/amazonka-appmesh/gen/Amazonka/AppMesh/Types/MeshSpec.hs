@@ -75,7 +75,8 @@ instance Data.FromJSON MeshSpec where
 
 instance Prelude.Hashable MeshSpec where
   hashWithSalt _salt MeshSpec' {..} =
-    _salt `Prelude.hashWithSalt` egressFilter
+    _salt
+      `Prelude.hashWithSalt` egressFilter
       `Prelude.hashWithSalt` serviceDiscovery
 
 instance Prelude.NFData MeshSpec where

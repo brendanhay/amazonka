@@ -165,7 +165,8 @@ instance Data.FromJSON HealthCheckPolicy where
 
 instance Prelude.Hashable HealthCheckPolicy where
   hashWithSalt _salt HealthCheckPolicy' {..} =
-    _salt `Prelude.hashWithSalt` path
+    _salt
+      `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` healthyThreshold
       `Prelude.hashWithSalt` intervalMillis

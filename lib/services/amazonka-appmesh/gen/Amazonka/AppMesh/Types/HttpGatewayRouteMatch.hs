@@ -144,7 +144,8 @@ instance Data.FromJSON HttpGatewayRouteMatch where
 
 instance Prelude.Hashable HttpGatewayRouteMatch where
   hashWithSalt _salt HttpGatewayRouteMatch' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` method
       `Prelude.hashWithSalt` path

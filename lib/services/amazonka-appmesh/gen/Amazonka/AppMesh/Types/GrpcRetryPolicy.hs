@@ -149,7 +149,8 @@ instance Data.FromJSON GrpcRetryPolicy where
 
 instance Prelude.Hashable GrpcRetryPolicy where
   hashWithSalt _salt GrpcRetryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` grpcRetryEvents
+    _salt
+      `Prelude.hashWithSalt` grpcRetryEvents
       `Prelude.hashWithSalt` httpRetryEvents
       `Prelude.hashWithSalt` tcpRetryEvents
       `Prelude.hashWithSalt` maxRetries

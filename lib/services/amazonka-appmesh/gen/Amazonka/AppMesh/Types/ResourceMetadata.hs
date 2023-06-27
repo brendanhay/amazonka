@@ -172,7 +172,8 @@ instance Data.FromJSON ResourceMetadata where
 
 instance Prelude.Hashable ResourceMetadata where
   hashWithSalt _salt ResourceMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` meshOwner

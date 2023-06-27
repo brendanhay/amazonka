@@ -168,7 +168,8 @@ instance Core.AWSRequest UpdateRoute where
 
 instance Prelude.Hashable UpdateRoute where
   hashWithSalt _salt UpdateRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` routeName

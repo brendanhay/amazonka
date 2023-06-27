@@ -81,7 +81,8 @@ instance Data.FromJSON GrpcGatewayRouteAction where
 
 instance Prelude.Hashable GrpcGatewayRouteAction where
   hashWithSalt _salt GrpcGatewayRouteAction' {..} =
-    _salt `Prelude.hashWithSalt` rewrite
+    _salt
+      `Prelude.hashWithSalt` rewrite
       `Prelude.hashWithSalt` target
 
 instance Prelude.NFData GrpcGatewayRouteAction where

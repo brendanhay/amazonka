@@ -106,7 +106,8 @@ instance Data.FromJSON MeshData where
 
 instance Prelude.Hashable MeshData where
   hashWithSalt _salt MeshData' {..} =
-    _salt `Prelude.hashWithSalt` meshName
+    _salt
+      `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` status

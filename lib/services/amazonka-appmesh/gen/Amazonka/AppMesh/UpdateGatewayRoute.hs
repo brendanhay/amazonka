@@ -174,7 +174,8 @@ instance Core.AWSRequest UpdateGatewayRoute where
 
 instance Prelude.Hashable UpdateGatewayRoute where
   hashWithSalt _salt UpdateGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` gatewayRouteName
       `Prelude.hashWithSalt` meshName

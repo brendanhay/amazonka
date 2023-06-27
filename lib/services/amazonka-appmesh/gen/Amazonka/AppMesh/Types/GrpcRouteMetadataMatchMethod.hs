@@ -110,7 +110,8 @@ instance
     GrpcRouteMetadataMatchMethod
   where
   hashWithSalt _salt GrpcRouteMetadataMatchMethod' {..} =
-    _salt `Prelude.hashWithSalt` exact
+    _salt
+      `Prelude.hashWithSalt` exact
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` regex

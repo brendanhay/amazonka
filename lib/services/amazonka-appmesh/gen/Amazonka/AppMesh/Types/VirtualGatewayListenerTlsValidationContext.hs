@@ -84,7 +84,7 @@ instance
       ( \x ->
           VirtualGatewayListenerTlsValidationContext'
             Prelude.<$> (x Data..:? "subjectAlternativeNames")
-              Prelude.<*> (x Data..: "trust")
+            Prelude.<*> (x Data..: "trust")
       )
 
 instance

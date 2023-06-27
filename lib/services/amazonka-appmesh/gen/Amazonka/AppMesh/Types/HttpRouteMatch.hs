@@ -148,7 +148,8 @@ instance Data.FromJSON HttpRouteMatch where
 
 instance Prelude.Hashable HttpRouteMatch where
   hashWithSalt _salt HttpRouteMatch' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` method
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` port

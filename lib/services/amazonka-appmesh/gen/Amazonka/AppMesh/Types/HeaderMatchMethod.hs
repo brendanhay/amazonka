@@ -106,7 +106,8 @@ instance Data.FromJSON HeaderMatchMethod where
 
 instance Prelude.Hashable HeaderMatchMethod where
   hashWithSalt _salt HeaderMatchMethod' {..} =
-    _salt `Prelude.hashWithSalt` exact
+    _salt
+      `Prelude.hashWithSalt` exact
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` regex

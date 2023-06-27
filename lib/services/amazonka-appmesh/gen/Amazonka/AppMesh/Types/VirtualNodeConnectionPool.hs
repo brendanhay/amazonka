@@ -104,7 +104,8 @@ instance Data.FromJSON VirtualNodeConnectionPool where
 
 instance Prelude.Hashable VirtualNodeConnectionPool where
   hashWithSalt _salt VirtualNodeConnectionPool' {..} =
-    _salt `Prelude.hashWithSalt` grpc
+    _salt
+      `Prelude.hashWithSalt` grpc
       `Prelude.hashWithSalt` http
       `Prelude.hashWithSalt` http2
       `Prelude.hashWithSalt` tcp

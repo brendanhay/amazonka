@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteVirtualNode where
 
 instance Prelude.Hashable DeleteVirtualNode where
   hashWithSalt _salt DeleteVirtualNode' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualNodeName
 

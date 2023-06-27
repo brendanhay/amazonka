@@ -198,7 +198,8 @@ instance Data.FromJSON RouteRef where
 
 instance Prelude.Hashable RouteRef where
   hashWithSalt _salt RouteRef' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` meshName

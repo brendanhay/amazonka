@@ -121,7 +121,8 @@ instance Data.FromJSON AwsCloudMapServiceDiscovery where
 
 instance Prelude.Hashable AwsCloudMapServiceDiscovery where
   hashWithSalt _salt AwsCloudMapServiceDiscovery' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` ipPreference
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` serviceName

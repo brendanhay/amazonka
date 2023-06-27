@@ -112,7 +112,8 @@ instance
     VirtualGatewayClientPolicyTls
   where
   hashWithSalt _salt VirtualGatewayClientPolicyTls' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` enforce
       `Prelude.hashWithSalt` ports
       `Prelude.hashWithSalt` validation

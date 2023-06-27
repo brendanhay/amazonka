@@ -205,7 +205,8 @@ instance Core.AWSRequest CreateGatewayRoute where
 
 instance Prelude.Hashable CreateGatewayRoute where
   hashWithSalt _salt CreateGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` gatewayRouteName

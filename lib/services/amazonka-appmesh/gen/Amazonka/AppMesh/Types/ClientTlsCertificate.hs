@@ -82,12 +82,14 @@ instance Data.FromJSON ClientTlsCertificate where
       "ClientTlsCertificate"
       ( \x ->
           ClientTlsCertificate'
-            Prelude.<$> (x Data..:? "file") Prelude.<*> (x Data..:? "sds")
+            Prelude.<$> (x Data..:? "file")
+            Prelude.<*> (x Data..:? "sds")
       )
 
 instance Prelude.Hashable ClientTlsCertificate where
   hashWithSalt _salt ClientTlsCertificate' {..} =
-    _salt `Prelude.hashWithSalt` file
+    _salt
+      `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` sds
 
 instance Prelude.NFData ClientTlsCertificate where

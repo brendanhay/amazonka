@@ -74,7 +74,8 @@ instance Data.FromJSON HttpPathMatch where
 
 instance Prelude.Hashable HttpPathMatch where
   hashWithSalt _salt HttpPathMatch' {..} =
-    _salt `Prelude.hashWithSalt` exact
+    _salt
+      `Prelude.hashWithSalt` exact
       `Prelude.hashWithSalt` regex
 
 instance Prelude.NFData HttpPathMatch where

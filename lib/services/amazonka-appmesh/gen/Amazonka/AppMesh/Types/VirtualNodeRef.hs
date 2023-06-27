@@ -185,7 +185,8 @@ instance Data.FromJSON VirtualNodeRef where
 
 instance Prelude.Hashable VirtualNodeRef where
   hashWithSalt _salt VirtualNodeRef' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` meshName

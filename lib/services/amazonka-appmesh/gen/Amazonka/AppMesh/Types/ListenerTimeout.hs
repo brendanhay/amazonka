@@ -97,7 +97,8 @@ instance Data.FromJSON ListenerTimeout where
 
 instance Prelude.Hashable ListenerTimeout where
   hashWithSalt _salt ListenerTimeout' {..} =
-    _salt `Prelude.hashWithSalt` grpc
+    _salt
+      `Prelude.hashWithSalt` grpc
       `Prelude.hashWithSalt` http
       `Prelude.hashWithSalt` http2
       `Prelude.hashWithSalt` tcp

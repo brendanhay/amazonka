@@ -90,7 +90,8 @@ instance Data.FromJSON VirtualGatewaySpec where
 
 instance Prelude.Hashable VirtualGatewaySpec where
   hashWithSalt _salt VirtualGatewaySpec' {..} =
-    _salt `Prelude.hashWithSalt` backendDefaults
+    _salt
+      `Prelude.hashWithSalt` backendDefaults
       `Prelude.hashWithSalt` logging
       `Prelude.hashWithSalt` listeners
 

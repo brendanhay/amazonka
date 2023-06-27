@@ -102,7 +102,8 @@ instance Data.FromJSON GrpcRoute where
 
 instance Prelude.Hashable GrpcRoute where
   hashWithSalt _salt GrpcRoute' {..} =
-    _salt `Prelude.hashWithSalt` retryPolicy
+    _salt
+      `Prelude.hashWithSalt` retryPolicy
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` match

@@ -102,7 +102,8 @@ instance Data.FromJSON HttpRoute where
 
 instance Prelude.Hashable HttpRoute where
   hashWithSalt _salt HttpRoute' {..} =
-    _salt `Prelude.hashWithSalt` retryPolicy
+    _salt
+      `Prelude.hashWithSalt` retryPolicy
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` match

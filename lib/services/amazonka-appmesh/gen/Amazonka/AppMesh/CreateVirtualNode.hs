@@ -211,7 +211,8 @@ instance Core.AWSRequest CreateVirtualNode where
 
 instance Prelude.Hashable CreateVirtualNode where
   hashWithSalt _salt CreateVirtualNode' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName

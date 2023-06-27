@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayListenerTlsCertificate' {..} =
-      _salt `Prelude.hashWithSalt` acm
+      _salt
+        `Prelude.hashWithSalt` acm
         `Prelude.hashWithSalt` file
         `Prelude.hashWithSalt` sds
 

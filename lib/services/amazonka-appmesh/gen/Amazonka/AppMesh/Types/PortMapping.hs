@@ -76,7 +76,8 @@ instance Data.FromJSON PortMapping where
 
 instance Prelude.Hashable PortMapping where
   hashWithSalt _salt PortMapping' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` protocol
 
 instance Prelude.NFData PortMapping where

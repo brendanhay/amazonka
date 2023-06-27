@@ -90,7 +90,8 @@ instance Data.FromJSON GrpcGatewayRouteMetadata where
 
 instance Prelude.Hashable GrpcGatewayRouteMetadata where
   hashWithSalt _salt GrpcGatewayRouteMetadata' {..} =
-    _salt `Prelude.hashWithSalt` invert
+    _salt
+      `Prelude.hashWithSalt` invert
       `Prelude.hashWithSalt` match
       `Prelude.hashWithSalt` name
 

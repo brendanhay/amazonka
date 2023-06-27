@@ -137,7 +137,8 @@ instance Core.AWSRequest ListConnections where
 
 instance Prelude.Hashable ListConnections where
   hashWithSalt _salt ListConnections' {..} =
-    _salt `Prelude.hashWithSalt` hostArnFilter
+    _salt
+      `Prelude.hashWithSalt` hostArnFilter
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` providerTypeFilter

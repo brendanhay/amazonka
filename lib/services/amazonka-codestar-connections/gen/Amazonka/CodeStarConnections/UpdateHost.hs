@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateHost where
 
 instance Prelude.Hashable UpdateHost where
   hashWithSalt _salt UpdateHost' {..} =
-    _salt `Prelude.hashWithSalt` providerEndpoint
+    _salt
+      `Prelude.hashWithSalt` providerEndpoint
       `Prelude.hashWithSalt` vpcConfiguration
       `Prelude.hashWithSalt` hostArn
 

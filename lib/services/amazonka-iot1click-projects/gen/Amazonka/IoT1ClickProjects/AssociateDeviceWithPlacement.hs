@@ -143,7 +143,8 @@ instance
     AssociateDeviceWithPlacement
   where
   hashWithSalt _salt AssociateDeviceWithPlacement' {..} =
-    _salt `Prelude.hashWithSalt` projectName
+    _salt
+      `Prelude.hashWithSalt` projectName
       `Prelude.hashWithSalt` placementName
       `Prelude.hashWithSalt` deviceId
       `Prelude.hashWithSalt` deviceTemplateName

@@ -76,17 +76,20 @@ instance Data.FromJSON PlacementTemplate where
       "PlacementTemplate"
       ( \x ->
           PlacementTemplate'
-            Prelude.<$> ( x Data..:? "defaultAttributes"
+            Prelude.<$> ( x
+                            Data..:? "defaultAttributes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "deviceTemplates"
+            Prelude.<*> ( x
+                            Data..:? "deviceTemplates"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PlacementTemplate where
   hashWithSalt _salt PlacementTemplate' {..} =
-    _salt `Prelude.hashWithSalt` defaultAttributes
+    _salt
+      `Prelude.hashWithSalt` defaultAttributes
       `Prelude.hashWithSalt` deviceTemplates
 
 instance Prelude.NFData PlacementTemplate where

@@ -73,7 +73,8 @@ instance Data.FromJSON DeviceTemplate where
       "DeviceTemplate"
       ( \x ->
           DeviceTemplate'
-            Prelude.<$> ( x Data..:? "callbackOverrides"
+            Prelude.<$> ( x
+                            Data..:? "callbackOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "deviceType")
@@ -81,7 +82,8 @@ instance Data.FromJSON DeviceTemplate where
 
 instance Prelude.Hashable DeviceTemplate where
   hashWithSalt _salt DeviceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` callbackOverrides
+    _salt
+      `Prelude.hashWithSalt` callbackOverrides
       `Prelude.hashWithSalt` deviceType
 
 instance Prelude.NFData DeviceTemplate where

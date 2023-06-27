@@ -86,7 +86,8 @@ instance Data.FromJSON ResourceDescription where
 
 instance Prelude.Hashable ResourceDescription where
   hashWithSalt _salt ResourceDescription' {..} =
-    _salt `Prelude.hashWithSalt` identifier
+    _salt
+      `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` properties
 
 instance Prelude.NFData ResourceDescription where

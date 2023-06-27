@@ -181,7 +181,8 @@ newImportCertificate pCertificate_ pPrivateKey_ =
       tags = Prelude.Nothing,
       certificate = Data._Base64 Lens.# pCertificate_,
       privateKey =
-        Data._Sensitive Prelude.. Data._Base64
+        Data._Sensitive
+          Prelude.. Data._Base64
           Lens.# pPrivateKey_
     }
 
@@ -238,7 +239,8 @@ instance Core.AWSRequest ImportCertificate where
 
 instance Prelude.Hashable ImportCertificate where
   hashWithSalt _salt ImportCertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` certificate

@@ -119,7 +119,8 @@ domainValidationOption_validationDomain = Lens.lens (\DomainValidationOption' {v
 
 instance Prelude.Hashable DomainValidationOption where
   hashWithSalt _salt DomainValidationOption' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` validationDomain
 
 instance Prelude.NFData DomainValidationOption where

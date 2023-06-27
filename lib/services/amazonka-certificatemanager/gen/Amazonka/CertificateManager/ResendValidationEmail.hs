@@ -191,7 +191,8 @@ instance Core.AWSRequest ResendValidationEmail where
 
 instance Prelude.Hashable ResendValidationEmail where
   hashWithSalt _salt ResendValidationEmail' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` validationDomain
 

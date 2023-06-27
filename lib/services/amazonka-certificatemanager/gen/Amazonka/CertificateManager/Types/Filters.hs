@@ -95,7 +95,8 @@ filters_keyUsage = Lens.lens (\Filters' {keyUsage} -> keyUsage) (\s@Filters' {} 
 
 instance Prelude.Hashable Filters where
   hashWithSalt _salt Filters' {..} =
-    _salt `Prelude.hashWithSalt` extendedKeyUsage
+    _salt
+      `Prelude.hashWithSalt` extendedKeyUsage
       `Prelude.hashWithSalt` keyTypes
       `Prelude.hashWithSalt` keyUsage
 

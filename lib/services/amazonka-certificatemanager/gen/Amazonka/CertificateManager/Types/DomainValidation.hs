@@ -54,9 +54,9 @@ data DomainValidation = DomainValidation'
     --
     -- -   @PENDING_VALIDATION@
     --
-    -- -   @@SUCCESS
+    -- -   SUCCESS
     --
-    -- -   @@FAILED
+    -- -   FAILED
     validationStatus :: Prelude.Maybe DomainStatus,
     -- | A fully qualified domain name (FQDN) in the certificate. For example,
     -- @www.example.com@ or @example.com@.
@@ -94,9 +94,9 @@ data DomainValidation = DomainValidation'
 --
 -- -   @PENDING_VALIDATION@
 --
--- -   @@SUCCESS
+-- -   SUCCESS
 --
--- -   @@FAILED
+-- -   FAILED
 --
 -- 'domainName', 'domainValidation_domainName' - A fully qualified domain name (FQDN) in the certificate. For example,
 -- @www.example.com@ or @example.com@.
@@ -144,9 +144,9 @@ domainValidation_validationMethod = Lens.lens (\DomainValidation' {validationMet
 --
 -- -   @PENDING_VALIDATION@
 --
--- -   @@SUCCESS
+-- -   SUCCESS
 --
--- -   @@FAILED
+-- -   FAILED
 domainValidation_validationStatus :: Lens.Lens' DomainValidation (Prelude.Maybe DomainStatus)
 domainValidation_validationStatus = Lens.lens (\DomainValidation' {validationStatus} -> validationStatus) (\s@DomainValidation' {} a -> s {validationStatus = a} :: DomainValidation)
 
@@ -163,7 +163,8 @@ instance Data.FromJSON DomainValidation where
           DomainValidation'
             Prelude.<$> (x Data..:? "ResourceRecord")
             Prelude.<*> (x Data..:? "ValidationDomain")
-            Prelude.<*> ( x Data..:? "ValidationEmails"
+            Prelude.<*> ( x
+                            Data..:? "ValidationEmails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ValidationMethod")
@@ -173,7 +174,8 @@ instance Data.FromJSON DomainValidation where
 
 instance Prelude.Hashable DomainValidation where
   hashWithSalt _salt DomainValidation' {..} =
-    _salt `Prelude.hashWithSalt` resourceRecord
+    _salt
+      `Prelude.hashWithSalt` resourceRecord
       `Prelude.hashWithSalt` validationDomain
       `Prelude.hashWithSalt` validationEmails
       `Prelude.hashWithSalt` validationMethod

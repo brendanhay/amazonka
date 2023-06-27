@@ -123,7 +123,8 @@ instance Core.AWSRequest RemoveTagsFromCertificate where
 
 instance Prelude.Hashable RemoveTagsFromCertificate where
   hashWithSalt _salt RemoveTagsFromCertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData RemoveTagsFromCertificate where

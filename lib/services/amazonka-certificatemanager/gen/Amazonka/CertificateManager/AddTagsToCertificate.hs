@@ -132,7 +132,8 @@ instance Core.AWSRequest AddTagsToCertificate where
 
 instance Prelude.Hashable AddTagsToCertificate where
   hashWithSalt _salt AddTagsToCertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData AddTagsToCertificate where

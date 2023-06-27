@@ -106,6 +106,7 @@ library
     Amazonka.Batch.Types.EksContainerVolumeMount
     Amazonka.Batch.Types.EksEmptyDir
     Amazonka.Batch.Types.EksHostPath
+    Amazonka.Batch.Types.EksMetadata
     Amazonka.Batch.Types.EksPodProperties
     Amazonka.Batch.Types.EksPodPropertiesDetail
     Amazonka.Batch.Types.EksPodPropertiesOverride
@@ -114,6 +115,7 @@ library
     Amazonka.Batch.Types.EksPropertiesOverride
     Amazonka.Batch.Types.EksSecret
     Amazonka.Batch.Types.EksVolume
+    Amazonka.Batch.Types.EphemeralStorage
     Amazonka.Batch.Types.EvaluateOnExit
     Amazonka.Batch.Types.FairsharePolicy
     Amazonka.Batch.Types.FargatePlatformConfiguration

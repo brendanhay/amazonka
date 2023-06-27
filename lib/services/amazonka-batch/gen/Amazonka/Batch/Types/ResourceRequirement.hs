@@ -92,7 +92,7 @@ data ResourceRequirement = ResourceRequirement'
     --         @VCPU@ = 1 or 2
     --
     --     [value = 8192]
-    --         @VCPU@ = 1, 2, 4, or 8
+    --         @VCPU@ = 1, 2, or 4
     --
     --     [value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360]
     --         @VCPU@ = 2 or 4
@@ -239,7 +239,7 @@ data ResourceRequirement = ResourceRequirement'
 --         @VCPU@ = 1 or 2
 --
 --     [value = 8192]
---         @VCPU@ = 1, 2, 4, or 8
+--         @VCPU@ = 1, 2, or 4
 --
 --     [value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360]
 --         @VCPU@ = 2 or 4
@@ -386,7 +386,7 @@ newResourceRequirement pValue_ pType_ =
 --         @VCPU@ = 1 or 2
 --
 --     [value = 8192]
---         @VCPU@ = 1, 2, 4, or 8
+--         @VCPU@ = 1, 2, or 4
 --
 --     [value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360]
 --         @VCPU@ = 2 or 4
@@ -470,12 +470,14 @@ instance Data.FromJSON ResourceRequirement where
       "ResourceRequirement"
       ( \x ->
           ResourceRequirement'
-            Prelude.<$> (x Data..: "value") Prelude.<*> (x Data..: "type")
+            Prelude.<$> (x Data..: "value")
+            Prelude.<*> (x Data..: "type")
       )
 
 instance Prelude.Hashable ResourceRequirement where
   hashWithSalt _salt ResourceRequirement' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ResourceRequirement where

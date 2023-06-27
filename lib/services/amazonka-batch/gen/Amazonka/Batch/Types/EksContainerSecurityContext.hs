@@ -179,7 +179,8 @@ instance Data.FromJSON EksContainerSecurityContext where
 
 instance Prelude.Hashable EksContainerSecurityContext where
   hashWithSalt _salt EksContainerSecurityContext' {..} =
-    _salt `Prelude.hashWithSalt` privileged
+    _salt
+      `Prelude.hashWithSalt` privileged
       `Prelude.hashWithSalt` readOnlyRootFilesystem
       `Prelude.hashWithSalt` runAsGroup
       `Prelude.hashWithSalt` runAsNonRoot

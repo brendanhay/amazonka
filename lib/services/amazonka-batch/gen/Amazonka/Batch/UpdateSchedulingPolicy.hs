@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateSchedulingPolicy where
 
 instance Prelude.Hashable UpdateSchedulingPolicy where
   hashWithSalt _salt UpdateSchedulingPolicy' {..} =
-    _salt `Prelude.hashWithSalt` fairsharePolicy
+    _salt
+      `Prelude.hashWithSalt` fairsharePolicy
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData UpdateSchedulingPolicy where

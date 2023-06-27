@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEksConfiguration' smart constructor.
 data EksConfiguration = EksConfiguration'
   { -- | The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is
-    -- @arn:aws:eks:us-east-1:123456789012:cluster\/ClusterForBatch @.
+    -- @arn:@/@aws@/@:eks:@/@us-east-1@/@:@/@123456789012@/@:cluster\/@/@ClusterForBatch@/@ @.
     eksClusterArn :: Prelude.Text,
     -- | The namespace of the Amazon EKS cluster. Batch manages pods in this
     -- namespace. The value can\'t left empty or null. It must be fewer than 64
@@ -53,7 +53,7 @@ data EksConfiguration = EksConfiguration'
 -- for backwards compatibility:
 --
 -- 'eksClusterArn', 'eksConfiguration_eksClusterArn' - The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is
--- @arn:aws:eks:us-east-1:123456789012:cluster\/ClusterForBatch @.
+-- @arn:@/@aws@/@:eks:@/@us-east-1@/@:@/@123456789012@/@:cluster\/@/@ClusterForBatch@/@ @.
 --
 -- 'kubernetesNamespace', 'eksConfiguration_kubernetesNamespace' - The namespace of the Amazon EKS cluster. Batch manages pods in this
 -- namespace. The value can\'t left empty or null. It must be fewer than 64
@@ -77,7 +77,7 @@ newEksConfiguration
       }
 
 -- | The Amazon Resource Name (ARN) of the Amazon EKS cluster. An example is
--- @arn:aws:eks:us-east-1:123456789012:cluster\/ClusterForBatch @.
+-- @arn:@/@aws@/@:eks:@/@us-east-1@/@:@/@123456789012@/@:cluster\/@/@ClusterForBatch@/@ @.
 eksConfiguration_eksClusterArn :: Lens.Lens' EksConfiguration Prelude.Text
 eksConfiguration_eksClusterArn = Lens.lens (\EksConfiguration' {eksClusterArn} -> eksClusterArn) (\s@EksConfiguration' {} a -> s {eksClusterArn = a} :: EksConfiguration)
 
@@ -103,7 +103,8 @@ instance Data.FromJSON EksConfiguration where
 
 instance Prelude.Hashable EksConfiguration where
   hashWithSalt _salt EksConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` eksClusterArn
+    _salt
+      `Prelude.hashWithSalt` eksClusterArn
       `Prelude.hashWithSalt` kubernetesNamespace
 
 instance Prelude.NFData EksConfiguration where

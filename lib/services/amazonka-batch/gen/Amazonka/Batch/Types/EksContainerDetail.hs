@@ -298,7 +298,8 @@ instance Data.FromJSON EksContainerDetail where
 
 instance Prelude.Hashable EksContainerDetail where
   hashWithSalt _salt EksContainerDetail' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` env
       `Prelude.hashWithSalt` exitCode

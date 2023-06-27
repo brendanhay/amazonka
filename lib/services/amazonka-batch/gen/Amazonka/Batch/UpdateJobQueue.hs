@@ -80,8 +80,8 @@ data UpdateJobQueue = UpdateJobQueue'
     -- | Amazon Resource Name (ARN) of the fair share scheduling policy. Once a
     -- job queue is created, the fair share scheduling policy can be replaced
     -- but not removed. The format is
-    -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
-    -- example,
+    -- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+    -- For example,
     -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
     -- | Describes the queue\'s ability to accept new jobs. If the job queue
@@ -126,8 +126,8 @@ data UpdateJobQueue = UpdateJobQueue'
 -- 'schedulingPolicyArn', 'updateJobQueue_schedulingPolicyArn' - Amazon Resource Name (ARN) of the fair share scheduling policy. Once a
 -- job queue is created, the fair share scheduling policy can be replaced
 -- but not removed. The format is
--- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
--- example,
+-- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+-- For example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 --
 -- 'state', 'updateJobQueue_state' - Describes the queue\'s ability to accept new jobs. If the job queue
@@ -178,8 +178,8 @@ updateJobQueue_priority = Lens.lens (\UpdateJobQueue' {priority} -> priority) (\
 -- | Amazon Resource Name (ARN) of the fair share scheduling policy. Once a
 -- job queue is created, the fair share scheduling policy can be replaced
 -- but not removed. The format is
--- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
--- example,
+-- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+-- For example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 updateJobQueue_schedulingPolicyArn :: Lens.Lens' UpdateJobQueue (Prelude.Maybe Prelude.Text)
 updateJobQueue_schedulingPolicyArn = Lens.lens (\UpdateJobQueue' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@UpdateJobQueue' {} a -> s {schedulingPolicyArn = a} :: UpdateJobQueue)

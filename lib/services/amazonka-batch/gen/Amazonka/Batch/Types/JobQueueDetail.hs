@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newJobQueueDetail' smart constructor.
 data JobQueueDetail = JobQueueDetail'
   { -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
-    -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
-    -- example,
+    -- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+    -- For example,
     -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
     schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the job queue (for example, @CREATING@ or @VALID@).
@@ -79,8 +79,8 @@ data JobQueueDetail = JobQueueDetail'
 -- for backwards compatibility:
 --
 -- 'schedulingPolicyArn', 'jobQueueDetail_schedulingPolicyArn' - The Amazon Resource Name (ARN) of the scheduling policy. The format is
--- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
--- example,
+-- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+-- For example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 --
 -- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
@@ -142,8 +142,8 @@ newJobQueueDetail
       }
 
 -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
--- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
--- example,
+-- @aws:@/@Partition@/@:batch:@/@Region@/@:@/@Account@/@:scheduling-policy\/@/@Name@/@ @.
+-- For example,
 -- @aws:aws:batch:us-west-2:123456789012:scheduling-policy\/MySchedulingPolicy@.
 jobQueueDetail_schedulingPolicyArn :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
 jobQueueDetail_schedulingPolicyArn = Lens.lens (\JobQueueDetail' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@JobQueueDetail' {} a -> s {schedulingPolicyArn = a} :: JobQueueDetail)
@@ -209,14 +209,16 @@ instance Data.FromJSON JobQueueDetail where
             Prelude.<*> (x Data..: "jobQueueArn")
             Prelude.<*> (x Data..: "state")
             Prelude.<*> (x Data..: "priority")
-            Prelude.<*> ( x Data..:? "computeEnvironmentOrder"
+            Prelude.<*> ( x
+                            Data..:? "computeEnvironmentOrder"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable JobQueueDetail where
   hashWithSalt _salt JobQueueDetail' {..} =
-    _salt `Prelude.hashWithSalt` schedulingPolicyArn
+    _salt
+      `Prelude.hashWithSalt` schedulingPolicyArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` tags

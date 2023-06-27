@@ -370,6 +370,10 @@ module Amazonka.Batch
     EksHostPath (EksHostPath'),
     newEksHostPath,
 
+    -- ** EksMetadata
+    EksMetadata (EksMetadata'),
+    newEksMetadata,
+
     -- ** EksPodProperties
     EksPodProperties (EksPodProperties'),
     newEksPodProperties,
@@ -401,6 +405,10 @@ module Amazonka.Batch
     -- ** EksVolume
     EksVolume (EksVolume'),
     newEksVolume,
+
+    -- ** EphemeralStorage
+    EphemeralStorage (EphemeralStorage'),
+    newEphemeralStorage,
 
     -- ** EvaluateOnExit
     EvaluateOnExit (EvaluateOnExit'),

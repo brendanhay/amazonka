@@ -69,12 +69,14 @@ instance Data.FromJSON JobDependency where
       "JobDependency"
       ( \x ->
           JobDependency'
-            Prelude.<$> (x Data..:? "jobId") Prelude.<*> (x Data..:? "type")
+            Prelude.<$> (x Data..:? "jobId")
+            Prelude.<*> (x Data..:? "type")
       )
 
 instance Prelude.Hashable JobDependency where
   hashWithSalt _salt JobDependency' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData JobDependency where

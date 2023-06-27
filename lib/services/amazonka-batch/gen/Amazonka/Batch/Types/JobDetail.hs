@@ -444,7 +444,8 @@ instance Data.FromJSON JobDetail where
             Prelude.<*> (x Data..:? "nodeDetails")
             Prelude.<*> (x Data..:? "nodeProperties")
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "platformCapabilities"
+            Prelude.<*> ( x
+                            Data..:? "platformCapabilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "propagateTags")
@@ -465,7 +466,8 @@ instance Data.FromJSON JobDetail where
 
 instance Prelude.Hashable JobDetail where
   hashWithSalt _salt JobDetail' {..} =
-    _salt `Prelude.hashWithSalt` arrayProperties
+    _salt
+      `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` attempts
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` createdAt

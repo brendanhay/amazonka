@@ -82,7 +82,8 @@ instance Data.FromJSON EksAttemptContainerDetail where
 
 instance Prelude.Hashable EksAttemptContainerDetail where
   hashWithSalt _salt EksAttemptContainerDetail' {..} =
-    _salt `Prelude.hashWithSalt` exitCode
+    _salt
+      `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData EksAttemptContainerDetail where

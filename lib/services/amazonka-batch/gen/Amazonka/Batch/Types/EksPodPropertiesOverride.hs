@@ -20,6 +20,7 @@
 module Amazonka.Batch.Types.EksPodPropertiesOverride where
 
 import Amazonka.Batch.Types.EksContainerOverride
+import Amazonka.Batch.Types.EksMetadata
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
@@ -31,7 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEksPodPropertiesOverride' smart constructor.
 data EksPodPropertiesOverride = EksPodPropertiesOverride'
   { -- | The overrides for the container that\'s used on the Amazon EKS pod.
-    containers :: Prelude.Maybe [EksContainerOverride]
+    containers :: Prelude.Maybe [EksContainerOverride],
+    -- | Metadata about the overrides for the container that\'s used on the
+    -- Amazon EKS pod.
+    metadata :: Prelude.Maybe EksMetadata
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,29 +48,43 @@ data EksPodPropertiesOverride = EksPodPropertiesOverride'
 -- for backwards compatibility:
 --
 -- 'containers', 'eksPodPropertiesOverride_containers' - The overrides for the container that\'s used on the Amazon EKS pod.
+--
+-- 'metadata', 'eksPodPropertiesOverride_metadata' - Metadata about the overrides for the container that\'s used on the
+-- Amazon EKS pod.
 newEksPodPropertiesOverride ::
   EksPodPropertiesOverride
 newEksPodPropertiesOverride =
   EksPodPropertiesOverride'
     { containers =
-        Prelude.Nothing
+        Prelude.Nothing,
+      metadata = Prelude.Nothing
     }
 
 -- | The overrides for the container that\'s used on the Amazon EKS pod.
 eksPodPropertiesOverride_containers :: Lens.Lens' EksPodPropertiesOverride (Prelude.Maybe [EksContainerOverride])
 eksPodPropertiesOverride_containers = Lens.lens (\EksPodPropertiesOverride' {containers} -> containers) (\s@EksPodPropertiesOverride' {} a -> s {containers = a} :: EksPodPropertiesOverride) Prelude.. Lens.mapping Lens.coerced
 
+-- | Metadata about the overrides for the container that\'s used on the
+-- Amazon EKS pod.
+eksPodPropertiesOverride_metadata :: Lens.Lens' EksPodPropertiesOverride (Prelude.Maybe EksMetadata)
+eksPodPropertiesOverride_metadata = Lens.lens (\EksPodPropertiesOverride' {metadata} -> metadata) (\s@EksPodPropertiesOverride' {} a -> s {metadata = a} :: EksPodPropertiesOverride)
+
 instance Prelude.Hashable EksPodPropertiesOverride where
   hashWithSalt _salt EksPodPropertiesOverride' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
+      `Prelude.hashWithSalt` metadata
 
 instance Prelude.NFData EksPodPropertiesOverride where
   rnf EksPodPropertiesOverride' {..} =
     Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf metadata
 
 instance Data.ToJSON EksPodPropertiesOverride where
   toJSON EksPodPropertiesOverride' {..} =
     Data.object
       ( Prelude.catMaybes
-          [("containers" Data..=) Prelude.<$> containers]
+          [ ("containers" Data..=) Prelude.<$> containers,
+            ("metadata" Data..=) Prelude.<$> metadata
+          ]
       )

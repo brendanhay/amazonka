@@ -107,7 +107,8 @@ nodeOverrides_numNodes = Lens.lens (\NodeOverrides' {numNodes} -> numNodes) (\s@
 
 instance Prelude.Hashable NodeOverrides where
   hashWithSalt _salt NodeOverrides' {..} =
-    _salt `Prelude.hashWithSalt` nodePropertyOverrides
+    _salt
+      `Prelude.hashWithSalt` nodePropertyOverrides
       `Prelude.hashWithSalt` numNodes
 
 instance Prelude.NFData NodeOverrides where

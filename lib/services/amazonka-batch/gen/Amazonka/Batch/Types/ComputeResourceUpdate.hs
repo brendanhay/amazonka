@@ -101,6 +101,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- Batch doesn\'t support changing the desired number of vCPUs of an
     -- existing compute environment. Don\'t specify this parameter for compute
     -- environments using Amazon EKS clusters.
+    --
+    -- When you update the @desiredvCpus@ setting, the value must be between
+    -- the @minvCpus@ and @maxvCpus@ values.
+    --
+    -- Additionally, the updated @desiredvCpus@ value must be greater than or
+    -- equal to the current @desiredvCpus@ value. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update Troubleshooting Batch>
+    -- in the /Batch User Guide/.
     desiredvCpus :: Prelude.Maybe Prelude.Int,
     -- | Provides information used to select Amazon Machine Images (AMIs) for EC2
     -- instances in the compute environment. If @Ec2Configuration@ isn\'t
@@ -160,9 +168,9 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
     -- compute environment. You can specify the short name or full Amazon
     -- Resource Name (ARN) of an instance profile. For example,
-    -- @ ecsInstanceRole @ or
-    -- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
-    -- more information, see
+    -- @ @/@ecsInstanceRole@/@ @ or
+    -- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+    -- For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
     -- in the /Batch User Guide/.
     --
@@ -426,6 +434,14 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- existing compute environment. Don\'t specify this parameter for compute
 -- environments using Amazon EKS clusters.
 --
+-- When you update the @desiredvCpus@ setting, the value must be between
+-- the @minvCpus@ and @maxvCpus@ values.
+--
+-- Additionally, the updated @desiredvCpus@ value must be greater than or
+-- equal to the current @desiredvCpus@ value. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update Troubleshooting Batch>
+-- in the /Batch User Guide/.
+--
 -- 'ec2Configuration', 'computeResourceUpdate_ec2Configuration' - Provides information used to select Amazon Machine Images (AMIs) for EC2
 -- instances in the compute environment. If @Ec2Configuration@ isn\'t
 -- specified, the default is @ECS_AL2@.
@@ -484,9 +500,9 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- 'instanceRole', 'computeResourceUpdate_instanceRole' - The Amazon ECS instance profile applied to Amazon EC2 instances in a
 -- compute environment. You can specify the short name or full Amazon
 -- Resource Name (ARN) of an instance profile. For example,
--- @ ecsInstanceRole @ or
--- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
--- more information, see
+-- @ @/@ecsInstanceRole@/@ @ or
+-- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+-- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
@@ -765,6 +781,14 @@ computeResourceUpdate_bidPercentage = Lens.lens (\ComputeResourceUpdate' {bidPer
 -- Batch doesn\'t support changing the desired number of vCPUs of an
 -- existing compute environment. Don\'t specify this parameter for compute
 -- environments using Amazon EKS clusters.
+--
+-- When you update the @desiredvCpus@ setting, the value must be between
+-- the @minvCpus@ and @maxvCpus@ values.
+--
+-- Additionally, the updated @desiredvCpus@ value must be greater than or
+-- equal to the current @desiredvCpus@ value. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update Troubleshooting Batch>
+-- in the /Batch User Guide/.
 computeResourceUpdate_desiredvCpus :: Lens.Lens' ComputeResourceUpdate (Prelude.Maybe Prelude.Int)
 computeResourceUpdate_desiredvCpus = Lens.lens (\ComputeResourceUpdate' {desiredvCpus} -> desiredvCpus) (\s@ComputeResourceUpdate' {} a -> s {desiredvCpus = a} :: ComputeResourceUpdate)
 
@@ -832,9 +856,9 @@ computeResourceUpdate_imageId = Lens.lens (\ComputeResourceUpdate' {imageId} -> 
 -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
 -- compute environment. You can specify the short name or full Amazon
 -- Resource Name (ARN) of an instance profile. For example,
--- @ ecsInstanceRole @ or
--- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
--- more information, see
+-- @ @/@ecsInstanceRole@/@ @ or
+-- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+-- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
@@ -1044,7 +1068,8 @@ computeResourceUpdate_updateToLatestImageVersion = Lens.lens (\ComputeResourceUp
 
 instance Prelude.Hashable ComputeResourceUpdate where
   hashWithSalt _salt ComputeResourceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` bidPercentage
       `Prelude.hashWithSalt` desiredvCpus
       `Prelude.hashWithSalt` ec2Configuration

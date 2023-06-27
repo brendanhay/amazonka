@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Batch.Types.ContainerDetail where
 
+import Amazonka.Batch.Types.EphemeralStorage
 import Amazonka.Batch.Types.FargatePlatformConfiguration
 import Amazonka.Batch.Types.KeyValuePair
 import Amazonka.Batch.Types.LinuxParameters
@@ -50,6 +51,10 @@ data ContainerDetail = ContainerDetail'
     -- Environment variables cannot start with \"@AWS_BATCH@\". This naming
     -- convention is reserved for variables that Batch sets.
     environment :: Prelude.Maybe [KeyValuePair],
+    -- | The amount of ephemeral storage allocated for the task. This parameter
+    -- is used to expand the total amount of ephemeral storage available,
+    -- beyond the default amount, for tasks hosted on Fargate.
+    ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The Amazon Resource Name (ARN) of the execution role that Batch can
     -- assume. For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html Batch execution IAM role>
@@ -218,6 +223,10 @@ data ContainerDetail = ContainerDetail'
 -- Environment variables cannot start with \"@AWS_BATCH@\". This naming
 -- convention is reserved for variables that Batch sets.
 --
+-- 'ephemeralStorage', 'containerDetail_ephemeralStorage' - The amount of ephemeral storage allocated for the task. This parameter
+-- is used to expand the total amount of ephemeral storage available,
+-- beyond the default amount, for tasks hosted on Fargate.
+--
 -- 'executionRoleArn', 'containerDetail_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role that Batch can
 -- assume. For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html Batch execution IAM role>
@@ -371,6 +380,7 @@ newContainerDetail =
     { command = Prelude.Nothing,
       containerInstanceArn = Prelude.Nothing,
       environment = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
       executionRoleArn = Prelude.Nothing,
       exitCode = Prelude.Nothing,
       fargatePlatformConfiguration = Prelude.Nothing,
@@ -411,6 +421,12 @@ containerDetail_containerInstanceArn = Lens.lens (\ContainerDetail' {containerIn
 -- convention is reserved for variables that Batch sets.
 containerDetail_environment :: Lens.Lens' ContainerDetail (Prelude.Maybe [KeyValuePair])
 containerDetail_environment = Lens.lens (\ContainerDetail' {environment} -> environment) (\s@ContainerDetail' {} a -> s {environment = a} :: ContainerDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The amount of ephemeral storage allocated for the task. This parameter
+-- is used to expand the total amount of ephemeral storage available,
+-- beyond the default amount, for tasks hosted on Fargate.
+containerDetail_ephemeralStorage :: Lens.Lens' ContainerDetail (Prelude.Maybe EphemeralStorage)
+containerDetail_ephemeralStorage = Lens.lens (\ContainerDetail' {ephemeralStorage} -> ephemeralStorage) (\s@ContainerDetail' {} a -> s {ephemeralStorage = a} :: ContainerDetail)
 
 -- | The Amazon Resource Name (ARN) of the execution role that Batch can
 -- assume. For more information, see
@@ -614,6 +630,7 @@ instance Data.FromJSON ContainerDetail where
             Prelude.<$> (x Data..:? "command" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "containerInstanceArn")
             Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ephemeralStorage")
             Prelude.<*> (x Data..:? "executionRoleArn")
             Prelude.<*> (x Data..:? "exitCode")
             Prelude.<*> (x Data..:? "fargatePlatformConfiguration")
@@ -626,13 +643,15 @@ instance Data.FromJSON ContainerDetail where
             Prelude.<*> (x Data..:? "memory")
             Prelude.<*> (x Data..:? "mountPoints" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "networkConfiguration")
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "privileged")
             Prelude.<*> (x Data..:? "readonlyRootFilesystem")
             Prelude.<*> (x Data..:? "reason")
-            Prelude.<*> ( x Data..:? "resourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "resourceRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
@@ -645,9 +664,11 @@ instance Data.FromJSON ContainerDetail where
 
 instance Prelude.Hashable ContainerDetail where
   hashWithSalt _salt ContainerDetail' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` containerInstanceArn
       `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` fargatePlatformConfiguration
@@ -677,6 +698,7 @@ instance Prelude.NFData ContainerDetail where
     Prelude.rnf command
       `Prelude.seq` Prelude.rnf containerInstanceArn
       `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf ephemeralStorage
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf exitCode
       `Prelude.seq` Prelude.rnf fargatePlatformConfiguration
@@ -691,7 +713,8 @@ instance Prelude.NFData ContainerDetail where
       `Prelude.seq` Prelude.rnf networkConfiguration
       `Prelude.seq` Prelude.rnf networkInterfaces
       `Prelude.seq` Prelude.rnf privileged
-      `Prelude.seq` Prelude.rnf readonlyRootFilesystem
+      `Prelude.seq` Prelude.rnf
+        readonlyRootFilesystem
       `Prelude.seq` Prelude.rnf reason
       `Prelude.seq` Prelude.rnf
         resourceRequirements

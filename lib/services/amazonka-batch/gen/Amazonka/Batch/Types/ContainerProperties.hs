@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Batch.Types.ContainerProperties where
 
+import Amazonka.Batch.Types.EphemeralStorage
 import Amazonka.Batch.Types.FargatePlatformConfiguration
 import Amazonka.Batch.Types.KeyValuePair
 import Amazonka.Batch.Types.LinuxParameters
@@ -64,6 +65,10 @@ data ContainerProperties = ContainerProperties'
     -- Environment variables cannot start with \"@AWS_BATCH@\". This naming
     -- convention is reserved for variables that Batch sets.
     environment :: Prelude.Maybe [KeyValuePair],
+    -- | The amount of ephemeral storage to allocate for the task. This parameter
+    -- is used to expand the total amount of ephemeral storage available,
+    -- beyond the default amount, for tasks hosted on Fargate.
+    ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The Amazon Resource Name (ARN) of the execution role that Batch can
     -- assume. For jobs that run on Fargate resources, you must provide an
     -- execution role. For more information, see
@@ -77,10 +82,11 @@ data ContainerProperties = ContainerProperties'
     -- | The image used to start a container. This string is passed directly to
     -- the Docker daemon. Images in the Docker Hub registry are available by
     -- default. Other repositories are specified with
-    -- @ repository-url\/image:tag @. It can be 255 characters long. It can
-    -- contain uppercase and lowercase letters, numbers, hyphens (-),
-    -- underscores (_), colons (:), periods (.), forward slashes (\/), and
-    -- number signs (#). This parameter maps to @Image@ in the
+    -- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @. It can be 255
+    -- characters long. It can contain uppercase and lowercase letters,
+    -- numbers, hyphens (-), underscores (_), colons (:), periods (.), forward
+    -- slashes (\/), and number signs (#). This parameter maps to @Image@ in
+    -- the
     -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -94,7 +100,7 @@ data ContainerProperties = ContainerProperties'
     -- -   Images in Amazon ECR Public repositories use the full
     --     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
     --     naming conventions. For example,
-    --     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
+    --     @public.ecr.aws\/@/@registry_alias@/@\/@/@my-web-app@/@:@/@latest@/@ @.
     --
     -- -   Images in Amazon ECR repositories use the full registry and
     --     repository URI (for example,
@@ -276,6 +282,10 @@ data ContainerProperties = ContainerProperties'
 -- Environment variables cannot start with \"@AWS_BATCH@\". This naming
 -- convention is reserved for variables that Batch sets.
 --
+-- 'ephemeralStorage', 'containerProperties_ephemeralStorage' - The amount of ephemeral storage to allocate for the task. This parameter
+-- is used to expand the total amount of ephemeral storage available,
+-- beyond the default amount, for tasks hosted on Fargate.
+--
 -- 'executionRoleArn', 'containerProperties_executionRoleArn' - The Amazon Resource Name (ARN) of the execution role that Batch can
 -- assume. For jobs that run on Fargate resources, you must provide an
 -- execution role. For more information, see
@@ -289,10 +299,11 @@ data ContainerProperties = ContainerProperties'
 -- 'image', 'containerProperties_image' - The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
 -- default. Other repositories are specified with
--- @ repository-url\/image:tag @. It can be 255 characters long. It can
--- contain uppercase and lowercase letters, numbers, hyphens (-),
--- underscores (_), colons (:), periods (.), forward slashes (\/), and
--- number signs (#). This parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @. It can be 255
+-- characters long. It can contain uppercase and lowercase letters,
+-- numbers, hyphens (-), underscores (_), colons (:), periods (.), forward
+-- slashes (\/), and number signs (#). This parameter maps to @Image@ in
+-- the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -306,7 +317,7 @@ data ContainerProperties = ContainerProperties'
 -- -   Images in Amazon ECR Public repositories use the full
 --     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
 --     naming conventions. For example,
---     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
+--     @public.ecr.aws\/@/@registry_alias@/@\/@/@my-web-app@/@:@/@latest@/@ @.
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,
@@ -458,6 +469,7 @@ newContainerProperties =
   ContainerProperties'
     { command = Prelude.Nothing,
       environment = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
       executionRoleArn = Prelude.Nothing,
       fargatePlatformConfiguration = Prelude.Nothing,
       image = Prelude.Nothing,
@@ -506,6 +518,12 @@ containerProperties_command = Lens.lens (\ContainerProperties' {command} -> comm
 containerProperties_environment :: Lens.Lens' ContainerProperties (Prelude.Maybe [KeyValuePair])
 containerProperties_environment = Lens.lens (\ContainerProperties' {environment} -> environment) (\s@ContainerProperties' {} a -> s {environment = a} :: ContainerProperties) Prelude.. Lens.mapping Lens.coerced
 
+-- | The amount of ephemeral storage to allocate for the task. This parameter
+-- is used to expand the total amount of ephemeral storage available,
+-- beyond the default amount, for tasks hosted on Fargate.
+containerProperties_ephemeralStorage :: Lens.Lens' ContainerProperties (Prelude.Maybe EphemeralStorage)
+containerProperties_ephemeralStorage = Lens.lens (\ContainerProperties' {ephemeralStorage} -> ephemeralStorage) (\s@ContainerProperties' {} a -> s {ephemeralStorage = a} :: ContainerProperties)
+
 -- | The Amazon Resource Name (ARN) of the execution role that Batch can
 -- assume. For jobs that run on Fargate resources, you must provide an
 -- execution role. For more information, see
@@ -523,10 +541,11 @@ containerProperties_fargatePlatformConfiguration = Lens.lens (\ContainerProperti
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
 -- default. Other repositories are specified with
--- @ repository-url\/image:tag @. It can be 255 characters long. It can
--- contain uppercase and lowercase letters, numbers, hyphens (-),
--- underscores (_), colons (:), periods (.), forward slashes (\/), and
--- number signs (#). This parameter maps to @Image@ in the
+-- @ @/@repository-url@/@\/@/@image@/@:@/@tag@/@ @. It can be 255
+-- characters long. It can contain uppercase and lowercase letters,
+-- numbers, hyphens (-), underscores (_), colons (:), periods (.), forward
+-- slashes (\/), and number signs (#). This parameter maps to @Image@ in
+-- the
 -- <https://docs.docker.com/engine/api/v1.23/#create-a-container Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.23/ Docker Remote API> and the
@@ -540,7 +559,7 @@ containerProperties_fargatePlatformConfiguration = Lens.lens (\ContainerProperti
 -- -   Images in Amazon ECR Public repositories use the full
 --     @registry\/repository[:tag]@ or @registry\/repository[\@digest]@
 --     naming conventions. For example,
---     @public.ecr.aws\/registry_alias\/my-web-app:latest @.
+--     @public.ecr.aws\/@/@registry_alias@/@\/@/@my-web-app@/@:@/@latest@/@ @.
 --
 -- -   Images in Amazon ECR repositories use the full registry and
 --     repository URI (for example,
@@ -727,6 +746,7 @@ instance Data.FromJSON ContainerProperties where
           ContainerProperties'
             Prelude.<$> (x Data..:? "command" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "environment" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "ephemeralStorage")
             Prelude.<*> (x Data..:? "executionRoleArn")
             Prelude.<*> (x Data..:? "fargatePlatformConfiguration")
             Prelude.<*> (x Data..:? "image")
@@ -739,7 +759,8 @@ instance Data.FromJSON ContainerProperties where
             Prelude.<*> (x Data..:? "networkConfiguration")
             Prelude.<*> (x Data..:? "privileged")
             Prelude.<*> (x Data..:? "readonlyRootFilesystem")
-            Prelude.<*> ( x Data..:? "resourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "resourceRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
@@ -751,8 +772,10 @@ instance Data.FromJSON ContainerProperties where
 
 instance Prelude.Hashable ContainerProperties where
   hashWithSalt _salt ContainerProperties' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` environment
+      `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` fargatePlatformConfiguration
       `Prelude.hashWithSalt` image
@@ -776,6 +799,7 @@ instance Prelude.NFData ContainerProperties where
   rnf ContainerProperties' {..} =
     Prelude.rnf command
       `Prelude.seq` Prelude.rnf environment
+      `Prelude.seq` Prelude.rnf ephemeralStorage
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf fargatePlatformConfiguration
       `Prelude.seq` Prelude.rnf image
@@ -801,6 +825,8 @@ instance Data.ToJSON ContainerProperties where
       ( Prelude.catMaybes
           [ ("command" Data..=) Prelude.<$> command,
             ("environment" Data..=) Prelude.<$> environment,
+            ("ephemeralStorage" Data..=)
+              Prelude.<$> ephemeralStorage,
             ("executionRoleArn" Data..=)
               Prelude.<$> executionRoleArn,
             ("fargatePlatformConfiguration" Data..=)

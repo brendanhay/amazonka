@@ -99,7 +99,8 @@ instance Data.FromJSON Device where
 
 instance Prelude.Hashable Device where
   hashWithSalt _salt Device' {..} =
-    _salt `Prelude.hashWithSalt` containerPath
+    _salt
+      `Prelude.hashWithSalt` containerPath
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` hostPath
 

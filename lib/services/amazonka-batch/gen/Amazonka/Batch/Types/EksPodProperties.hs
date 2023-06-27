@@ -20,6 +20,7 @@
 module Amazonka.Batch.Types.EksPodProperties where
 
 import Amazonka.Batch.Types.EksContainer
+import Amazonka.Batch.Types.EksMetadata
 import Amazonka.Batch.Types.EksVolume
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -53,6 +54,10 @@ data EksPodProperties = EksPodProperties'
     -- <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking Pod networking>
     -- in the /Kubernetes documentation/.
     hostNetwork :: Prelude.Maybe Prelude.Bool,
+    -- | Metadata about the Kubernetes pod. For more information, see
+    -- <https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/ Understanding Kubernetes Objects>
+    -- in the /Kubernetes documentation/.
+    metadata :: Prelude.Maybe EksMetadata,
     -- | The name of the service account that\'s used to run the pod. For more
     -- information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
@@ -99,6 +104,10 @@ data EksPodProperties = EksPodProperties'
 -- <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking Pod networking>
 -- in the /Kubernetes documentation/.
 --
+-- 'metadata', 'eksPodProperties_metadata' - Metadata about the Kubernetes pod. For more information, see
+-- <https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/ Understanding Kubernetes Objects>
+-- in the /Kubernetes documentation/.
+--
 -- 'serviceAccountName', 'eksPodProperties_serviceAccountName' - The name of the service account that\'s used to run the pod. For more
 -- information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
@@ -117,6 +126,7 @@ newEksPodProperties =
     { containers = Prelude.Nothing,
       dnsPolicy = Prelude.Nothing,
       hostNetwork = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       serviceAccountName = Prelude.Nothing,
       volumes = Prelude.Nothing
     }
@@ -150,6 +160,12 @@ eksPodProperties_dnsPolicy = Lens.lens (\EksPodProperties' {dnsPolicy} -> dnsPol
 eksPodProperties_hostNetwork :: Lens.Lens' EksPodProperties (Prelude.Maybe Prelude.Bool)
 eksPodProperties_hostNetwork = Lens.lens (\EksPodProperties' {hostNetwork} -> hostNetwork) (\s@EksPodProperties' {} a -> s {hostNetwork = a} :: EksPodProperties)
 
+-- | Metadata about the Kubernetes pod. For more information, see
+-- <https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/ Understanding Kubernetes Objects>
+-- in the /Kubernetes documentation/.
+eksPodProperties_metadata :: Lens.Lens' EksPodProperties (Prelude.Maybe EksMetadata)
+eksPodProperties_metadata = Lens.lens (\EksPodProperties' {metadata} -> metadata) (\s@EksPodProperties' {} a -> s {metadata = a} :: EksPodProperties)
+
 -- | The name of the service account that\'s used to run the pod. For more
 -- information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html Kubernetes service accounts>
@@ -175,15 +191,18 @@ instance Data.FromJSON EksPodProperties where
             Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "dnsPolicy")
             Prelude.<*> (x Data..:? "hostNetwork")
+            Prelude.<*> (x Data..:? "metadata")
             Prelude.<*> (x Data..:? "serviceAccountName")
             Prelude.<*> (x Data..:? "volumes" Data..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable EksPodProperties where
   hashWithSalt _salt EksPodProperties' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` dnsPolicy
       `Prelude.hashWithSalt` hostNetwork
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` serviceAccountName
       `Prelude.hashWithSalt` volumes
 
@@ -192,6 +211,7 @@ instance Prelude.NFData EksPodProperties where
     Prelude.rnf containers
       `Prelude.seq` Prelude.rnf dnsPolicy
       `Prelude.seq` Prelude.rnf hostNetwork
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf serviceAccountName
       `Prelude.seq` Prelude.rnf volumes
 
@@ -202,6 +222,7 @@ instance Data.ToJSON EksPodProperties where
           [ ("containers" Data..=) Prelude.<$> containers,
             ("dnsPolicy" Data..=) Prelude.<$> dnsPolicy,
             ("hostNetwork" Data..=) Prelude.<$> hostNetwork,
+            ("metadata" Data..=) Prelude.<$> metadata,
             ("serviceAccountName" Data..=)
               Prelude.<$> serviceAccountName,
             ("volumes" Data..=) Prelude.<$> volumes

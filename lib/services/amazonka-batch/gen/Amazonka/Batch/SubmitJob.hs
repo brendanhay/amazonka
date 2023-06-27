@@ -167,10 +167,15 @@ data SubmitJob = SubmitJob'
     -- | The job queue where the job is submitted. You can specify either the
     -- name or the Amazon Resource Name (ARN) of the queue.
     jobQueue :: Prelude.Text,
-    -- | The job definition used by this job. This value can be one of @name@,
-    -- @name:revision@, or the Amazon Resource Name (ARN) for the job
-    -- definition. If @name@ is specified without a revision then the latest
-    -- active revision is used.
+    -- | The job definition used by this job. This value can be one of
+    -- @definition-name@, @definition-name:revision@, or the Amazon Resource
+    -- Name (ARN) for the job definition, with or without the revision
+    -- (@arn:aws:batch:@/@region@/@:@/@account@/@:job-definition\/@/@definition-name@/@:@/@revision@/@ @,
+    -- or
+    -- @arn:aws:batch:@/@region@/@:@/@account@/@:job-definition\/@/@definition-name@/@ @).
+    --
+    -- If the revision is not specified, then the latest active revision is
+    -- used.
     jobDefinition :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -269,10 +274,15 @@ data SubmitJob = SubmitJob'
 -- 'jobQueue', 'submitJob_jobQueue' - The job queue where the job is submitted. You can specify either the
 -- name or the Amazon Resource Name (ARN) of the queue.
 --
--- 'jobDefinition', 'submitJob_jobDefinition' - The job definition used by this job. This value can be one of @name@,
--- @name:revision@, or the Amazon Resource Name (ARN) for the job
--- definition. If @name@ is specified without a revision then the latest
--- active revision is used.
+-- 'jobDefinition', 'submitJob_jobDefinition' - The job definition used by this job. This value can be one of
+-- @definition-name@, @definition-name:revision@, or the Amazon Resource
+-- Name (ARN) for the job definition, with or without the revision
+-- (@arn:aws:batch:@/@region@/@:@/@account@/@:job-definition\/@/@definition-name@/@:@/@revision@/@ @,
+-- or
+-- @arn:aws:batch:@/@region@/@:@/@account@/@:job-definition\/@/@definition-name@/@ @).
+--
+-- If the revision is not specified, then the latest active revision is
+-- used.
 newSubmitJob ::
   -- | 'jobName'
   Prelude.Text ->
@@ -414,10 +424,15 @@ submitJob_jobName = Lens.lens (\SubmitJob' {jobName} -> jobName) (\s@SubmitJob' 
 submitJob_jobQueue :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobQueue = Lens.lens (\SubmitJob' {jobQueue} -> jobQueue) (\s@SubmitJob' {} a -> s {jobQueue = a} :: SubmitJob)
 
--- | The job definition used by this job. This value can be one of @name@,
--- @name:revision@, or the Amazon Resource Name (ARN) for the job
--- definition. If @name@ is specified without a revision then the latest
--- active revision is used.
+-- | The job definition used by this job. This value can be one of
+-- @definition-name@, @definition-name:revision@, or the Amazon Resource
+-- Name (ARN) for the job definition, with or without the revision
+-- (@arn:aws:batch:@/@region@/@:@/@account@/@:job-definition\/@/@definition-name@/@:@/@revision@/@ @,
+-- or
+-- @arn:aws:batch:@/@region@/@:@/@account@/@:job-definition\/@/@definition-name@/@ @).
+--
+-- If the revision is not specified, then the latest active revision is
+-- used.
 submitJob_jobDefinition :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobDefinition = Lens.lens (\SubmitJob' {jobDefinition} -> jobDefinition) (\s@SubmitJob' {} a -> s {jobDefinition = a} :: SubmitJob)
 
@@ -437,7 +452,8 @@ instance Core.AWSRequest SubmitJob where
 
 instance Prelude.Hashable SubmitJob where
   hashWithSalt _salt SubmitJob' {..} =
-    _salt `Prelude.hashWithSalt` arrayProperties
+    _salt
+      `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` containerOverrides
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` eksPropertiesOverride

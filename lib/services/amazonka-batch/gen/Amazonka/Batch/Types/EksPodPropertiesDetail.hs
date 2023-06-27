@@ -20,6 +20,7 @@
 module Amazonka.Batch.Types.EksPodPropertiesDetail where
 
 import Amazonka.Batch.Types.EksContainerDetail
+import Amazonka.Batch.Types.EksMetadata
 import Amazonka.Batch.Types.EksVolume
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
@@ -62,6 +63,7 @@ data EksPodPropertiesDetail = EksPodPropertiesDetail'
     -- <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking Pod networking>
     -- in the /Kubernetes documentation/.
     hostNetwork :: Prelude.Maybe Prelude.Bool,
+    metadata :: Prelude.Maybe EksMetadata,
     -- | The name of the node for this job.
     nodeName :: Prelude.Maybe Prelude.Text,
     -- | The name of the pod for this job.
@@ -120,6 +122,8 @@ data EksPodPropertiesDetail = EksPodPropertiesDetail'
 -- <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking Pod networking>
 -- in the /Kubernetes documentation/.
 --
+-- 'metadata', 'eksPodPropertiesDetail_metadata' - Undocumented member.
+--
 -- 'nodeName', 'eksPodPropertiesDetail_nodeName' - The name of the node for this job.
 --
 -- 'podName', 'eksPodPropertiesDetail_podName' - The name of the pod for this job.
@@ -142,6 +146,7 @@ newEksPodPropertiesDetail =
         Prelude.Nothing,
       dnsPolicy = Prelude.Nothing,
       hostNetwork = Prelude.Nothing,
+      metadata = Prelude.Nothing,
       nodeName = Prelude.Nothing,
       podName = Prelude.Nothing,
       serviceAccountName = Prelude.Nothing,
@@ -186,6 +191,10 @@ eksPodPropertiesDetail_dnsPolicy = Lens.lens (\EksPodPropertiesDetail' {dnsPolic
 eksPodPropertiesDetail_hostNetwork :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Bool)
 eksPodPropertiesDetail_hostNetwork = Lens.lens (\EksPodPropertiesDetail' {hostNetwork} -> hostNetwork) (\s@EksPodPropertiesDetail' {} a -> s {hostNetwork = a} :: EksPodPropertiesDetail)
 
+-- | Undocumented member.
+eksPodPropertiesDetail_metadata :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe EksMetadata)
+eksPodPropertiesDetail_metadata = Lens.lens (\EksPodPropertiesDetail' {metadata} -> metadata) (\s@EksPodPropertiesDetail' {} a -> s {metadata = a} :: EksPodPropertiesDetail)
+
 -- | The name of the node for this job.
 eksPodPropertiesDetail_nodeName :: Lens.Lens' EksPodPropertiesDetail (Prelude.Maybe Prelude.Text)
 eksPodPropertiesDetail_nodeName = Lens.lens (\EksPodPropertiesDetail' {nodeName} -> nodeName) (\s@EksPodPropertiesDetail' {} a -> s {nodeName = a} :: EksPodPropertiesDetail)
@@ -218,6 +227,7 @@ instance Data.FromJSON EksPodPropertiesDetail where
             Prelude.<$> (x Data..:? "containers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "dnsPolicy")
             Prelude.<*> (x Data..:? "hostNetwork")
+            Prelude.<*> (x Data..:? "metadata")
             Prelude.<*> (x Data..:? "nodeName")
             Prelude.<*> (x Data..:? "podName")
             Prelude.<*> (x Data..:? "serviceAccountName")
@@ -226,9 +236,11 @@ instance Data.FromJSON EksPodPropertiesDetail where
 
 instance Prelude.Hashable EksPodPropertiesDetail where
   hashWithSalt _salt EksPodPropertiesDetail' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` dnsPolicy
       `Prelude.hashWithSalt` hostNetwork
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` nodeName
       `Prelude.hashWithSalt` podName
       `Prelude.hashWithSalt` serviceAccountName
@@ -239,6 +251,7 @@ instance Prelude.NFData EksPodPropertiesDetail where
     Prelude.rnf containers
       `Prelude.seq` Prelude.rnf dnsPolicy
       `Prelude.seq` Prelude.rnf hostNetwork
+      `Prelude.seq` Prelude.rnf metadata
       `Prelude.seq` Prelude.rnf nodeName
       `Prelude.seq` Prelude.rnf podName
       `Prelude.seq` Prelude.rnf serviceAccountName

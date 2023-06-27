@@ -100,8 +100,19 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
     -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
     -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
     -- state continue to progress normally. Managed compute environments in the
-    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
-    -- value after instances become idle.
+    -- @DISABLED@ state don\'t scale out.
+    --
+    -- Compute environments in a @DISABLED@ state may continue to incur billing
+    -- charges. To prevent additional charges, turn off and then delete the
+    -- compute environment. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state State>
+    -- in the /Batch User Guide/.
+    --
+    -- When an instance is idle, the instance scales down to the @minvCpus@
+    -- value. However, the instance size doesn\'t change. For example, consider
+    -- a @c5.8xlarge@ instance with a @minvCpus@ value of @4@ and a
+    -- @desiredvCpus@ value of @36@. This instance doesn\'t scale down to a
+    -- @c5.large@ instance.
     state :: Prelude.Maybe CEState,
     -- | The maximum number of vCPUs expected to be used for an unmanaged compute
     -- environment. Don\'t specify this parameter for a managed compute
@@ -172,8 +183,19 @@ data UpdateComputeEnvironment = UpdateComputeEnvironment'
 -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
 -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
 -- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
+-- @DISABLED@ state don\'t scale out.
+--
+-- Compute environments in a @DISABLED@ state may continue to incur billing
+-- charges. To prevent additional charges, turn off and then delete the
+-- compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state State>
+-- in the /Batch User Guide/.
+--
+-- When an instance is idle, the instance scales down to the @minvCpus@
+-- value. However, the instance size doesn\'t change. For example, consider
+-- a @c5.8xlarge@ instance with a @minvCpus@ value of @4@ and a
+-- @desiredvCpus@ value of @36@. This instance doesn\'t scale down to a
+-- @c5.large@ instance.
 --
 -- 'unmanagedvCpus', 'updateComputeEnvironment_unmanagedvCpus' - The maximum number of vCPUs expected to be used for an unmanaged compute
 -- environment. Don\'t specify this parameter for a managed compute
@@ -251,8 +273,19 @@ updateComputeEnvironment_serviceRole = Lens.lens (\UpdateComputeEnvironment' {se
 -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
 -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
 -- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
+-- @DISABLED@ state don\'t scale out.
+--
+-- Compute environments in a @DISABLED@ state may continue to incur billing
+-- charges. To prevent additional charges, turn off and then delete the
+-- compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state State>
+-- in the /Batch User Guide/.
+--
+-- When an instance is idle, the instance scales down to the @minvCpus@
+-- value. However, the instance size doesn\'t change. For example, consider
+-- a @c5.8xlarge@ instance with a @minvCpus@ value of @4@ and a
+-- @desiredvCpus@ value of @36@. This instance doesn\'t scale down to a
+-- @c5.large@ instance.
 updateComputeEnvironment_state :: Lens.Lens' UpdateComputeEnvironment (Prelude.Maybe CEState)
 updateComputeEnvironment_state = Lens.lens (\UpdateComputeEnvironment' {state} -> state) (\s@UpdateComputeEnvironment' {} a -> s {state = a} :: UpdateComputeEnvironment)
 
@@ -294,7 +327,8 @@ instance Core.AWSRequest UpdateComputeEnvironment where
 
 instance Prelude.Hashable UpdateComputeEnvironment where
   hashWithSalt _salt UpdateComputeEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` computeResources
+    _salt
+      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` serviceRole
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` unmanagedvCpus

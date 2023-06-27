@@ -67,8 +67,19 @@ data ComputeEnvironmentDetail = ComputeEnvironmentDetail'
     -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
     -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
     -- state continue to progress normally. Managed compute environments in the
-    -- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
-    -- value after instances become idle.
+    -- @DISABLED@ state don\'t scale out.
+    --
+    -- Compute environments in a @DISABLED@ state may continue to incur billing
+    -- charges. To prevent additional charges, turn off and then delete the
+    -- compute environment. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state State>
+    -- in the /Batch User Guide/.
+    --
+    -- When an instance is idle, the instance scales down to the @minvCpus@
+    -- value. However, the instance size doesn\'t change. For example, consider
+    -- a @c5.8xlarge@ instance with a @minvCpus@ value of @4@ and a
+    -- @desiredvCpus@ value of @36@. This instance doesn\'t scale down to a
+    -- @c5.large@ instance.
     state :: Prelude.Maybe CEState,
     -- | The current status of the compute environment (for example, @CREATING@
     -- or @VALID@).
@@ -142,8 +153,19 @@ data ComputeEnvironmentDetail = ComputeEnvironmentDetail'
 -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
 -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
 -- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
+-- @DISABLED@ state don\'t scale out.
+--
+-- Compute environments in a @DISABLED@ state may continue to incur billing
+-- charges. To prevent additional charges, turn off and then delete the
+-- compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state State>
+-- in the /Batch User Guide/.
+--
+-- When an instance is idle, the instance scales down to the @minvCpus@
+-- value. However, the instance size doesn\'t change. For example, consider
+-- a @c5.8xlarge@ instance with a @minvCpus@ value of @4@ and a
+-- @desiredvCpus@ value of @36@. This instance doesn\'t scale down to a
+-- @c5.large@ instance.
 --
 -- 'status', 'computeEnvironmentDetail_status' - The current status of the compute environment (for example, @CREATING@
 -- or @VALID@).
@@ -243,8 +265,19 @@ computeEnvironmentDetail_serviceRole = Lens.lens (\ComputeEnvironmentDetail' {se
 -- If the state is @DISABLED@, then the Batch scheduler doesn\'t attempt to
 -- place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@
 -- state continue to progress normally. Managed compute environments in the
--- @DISABLED@ state don\'t scale out. However, they scale in to @minvCpus@
--- value after instances become idle.
+-- @DISABLED@ state don\'t scale out.
+--
+-- Compute environments in a @DISABLED@ state may continue to incur billing
+-- charges. To prevent additional charges, turn off and then delete the
+-- compute environment. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/compute_environment_parameters.html#compute_environment_state State>
+-- in the /Batch User Guide/.
+--
+-- When an instance is idle, the instance scales down to the @minvCpus@
+-- value. However, the instance size doesn\'t change. For example, consider
+-- a @c5.8xlarge@ instance with a @minvCpus@ value of @4@ and a
+-- @desiredvCpus@ value of @36@. This instance doesn\'t scale down to a
+-- @c5.large@ instance.
 computeEnvironmentDetail_state :: Lens.Lens' ComputeEnvironmentDetail (Prelude.Maybe CEState)
 computeEnvironmentDetail_state = Lens.lens (\ComputeEnvironmentDetail' {state} -> state) (\s@ComputeEnvironmentDetail' {} a -> s {state = a} :: ComputeEnvironmentDetail)
 
@@ -320,7 +353,8 @@ instance Data.FromJSON ComputeEnvironmentDetail where
 
 instance Prelude.Hashable ComputeEnvironmentDetail where
   hashWithSalt _salt ComputeEnvironmentDetail' {..} =
-    _salt `Prelude.hashWithSalt` computeResources
+    _salt
+      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` containerOrchestrationType
       `Prelude.hashWithSalt` ecsClusterArn
       `Prelude.hashWithSalt` eksConfiguration

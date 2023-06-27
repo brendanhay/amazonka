@@ -298,6 +298,7 @@ module Amazonka.Batch.Lens
     containerDetail_command,
     containerDetail_containerInstanceArn,
     containerDetail_environment,
+    containerDetail_ephemeralStorage,
     containerDetail_executionRoleArn,
     containerDetail_exitCode,
     containerDetail_fargatePlatformConfiguration,
@@ -333,6 +334,7 @@ module Amazonka.Batch.Lens
     -- ** ContainerProperties
     containerProperties_command,
     containerProperties_environment,
+    containerProperties_ephemeralStorage,
     containerProperties_executionRoleArn,
     containerProperties_fargatePlatformConfiguration,
     containerProperties_image,
@@ -451,10 +453,14 @@ module Amazonka.Batch.Lens
     -- ** EksHostPath
     eksHostPath_path,
 
+    -- ** EksMetadata
+    eksMetadata_labels,
+
     -- ** EksPodProperties
     eksPodProperties_containers,
     eksPodProperties_dnsPolicy,
     eksPodProperties_hostNetwork,
+    eksPodProperties_metadata,
     eksPodProperties_serviceAccountName,
     eksPodProperties_volumes,
 
@@ -462,6 +468,7 @@ module Amazonka.Batch.Lens
     eksPodPropertiesDetail_containers,
     eksPodPropertiesDetail_dnsPolicy,
     eksPodPropertiesDetail_hostNetwork,
+    eksPodPropertiesDetail_metadata,
     eksPodPropertiesDetail_nodeName,
     eksPodPropertiesDetail_podName,
     eksPodPropertiesDetail_serviceAccountName,
@@ -469,6 +476,7 @@ module Amazonka.Batch.Lens
 
     -- ** EksPodPropertiesOverride
     eksPodPropertiesOverride_containers,
+    eksPodPropertiesOverride_metadata,
 
     -- ** EksProperties
     eksProperties_podProperties,
@@ -488,6 +496,9 @@ module Amazonka.Batch.Lens
     eksVolume_hostPath,
     eksVolume_secret,
     eksVolume_name,
+
+    -- ** EphemeralStorage
+    ephemeralStorage_sizeInGiB,
 
     -- ** EvaluateOnExit
     evaluateOnExit_onExitCode,
@@ -746,6 +757,7 @@ import Amazonka.Batch.Types.EksContainerSecurityContext
 import Amazonka.Batch.Types.EksContainerVolumeMount
 import Amazonka.Batch.Types.EksEmptyDir
 import Amazonka.Batch.Types.EksHostPath
+import Amazonka.Batch.Types.EksMetadata
 import Amazonka.Batch.Types.EksPodProperties
 import Amazonka.Batch.Types.EksPodPropertiesDetail
 import Amazonka.Batch.Types.EksPodPropertiesOverride
@@ -754,6 +766,7 @@ import Amazonka.Batch.Types.EksPropertiesDetail
 import Amazonka.Batch.Types.EksPropertiesOverride
 import Amazonka.Batch.Types.EksSecret
 import Amazonka.Batch.Types.EksVolume
+import Amazonka.Batch.Types.EphemeralStorage
 import Amazonka.Batch.Types.EvaluateOnExit
 import Amazonka.Batch.Types.FairsharePolicy
 import Amazonka.Batch.Types.FargatePlatformConfiguration

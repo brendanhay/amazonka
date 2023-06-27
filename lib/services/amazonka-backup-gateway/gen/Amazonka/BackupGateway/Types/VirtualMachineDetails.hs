@@ -135,7 +135,8 @@ instance Data.FromJSON VirtualMachineDetails where
 
 instance Prelude.Hashable VirtualMachineDetails where
   hashWithSalt _salt VirtualMachineDetails' {..} =
-    _salt `Prelude.hashWithSalt` hostName
+    _salt
+      `Prelude.hashWithSalt` hostName
       `Prelude.hashWithSalt` hypervisorId
       `Prelude.hashWithSalt` lastBackupDate
       `Prelude.hashWithSalt` name

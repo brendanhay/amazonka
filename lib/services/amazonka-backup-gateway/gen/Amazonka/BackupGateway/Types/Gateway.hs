@@ -116,7 +116,8 @@ instance Data.FromJSON Gateway where
 
 instance Prelude.Hashable Gateway where
   hashWithSalt _salt Gateway' {..} =
-    _salt `Prelude.hashWithSalt` gatewayArn
+    _salt
+      `Prelude.hashWithSalt` gatewayArn
       `Prelude.hashWithSalt` gatewayDisplayName
       `Prelude.hashWithSalt` gatewayType
       `Prelude.hashWithSalt` hypervisorId

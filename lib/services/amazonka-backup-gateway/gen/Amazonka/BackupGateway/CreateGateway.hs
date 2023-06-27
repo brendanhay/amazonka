@@ -133,7 +133,8 @@ instance Core.AWSRequest CreateGateway where
 
 instance Prelude.Hashable CreateGateway where
   hashWithSalt _salt CreateGateway' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` activationKey
       `Prelude.hashWithSalt` gatewayDisplayName
       `Prelude.hashWithSalt` gatewayType

@@ -97,7 +97,8 @@ instance
           GetHypervisorPropertyMappingsResponse'
             Prelude.<$> (x Data..?> "HypervisorArn")
             Prelude.<*> (x Data..?> "IamRoleArn")
-            Prelude.<*> ( x Data..?> "VmwareToAwsTagMappings"
+            Prelude.<*> ( x
+                            Data..?> "VmwareToAwsTagMappings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

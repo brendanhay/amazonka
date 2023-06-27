@@ -89,7 +89,8 @@ instance Data.FromJSON VmwareTag where
 
 instance Prelude.Hashable VmwareTag where
   hashWithSalt _salt VmwareTag' {..} =
-    _salt `Prelude.hashWithSalt` vmwareCategory
+    _salt
+      `Prelude.hashWithSalt` vmwareCategory
       `Prelude.hashWithSalt` vmwareTagDescription
       `Prelude.hashWithSalt` vmwareTagName
 

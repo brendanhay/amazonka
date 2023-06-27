@@ -129,7 +129,8 @@ instance
     PutHypervisorPropertyMappings
   where
   hashWithSalt _salt PutHypervisorPropertyMappings' {..} =
-    _salt `Prelude.hashWithSalt` hypervisorArn
+    _salt
+      `Prelude.hashWithSalt` hypervisorArn
       `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` vmwareToAwsTagMappings
 

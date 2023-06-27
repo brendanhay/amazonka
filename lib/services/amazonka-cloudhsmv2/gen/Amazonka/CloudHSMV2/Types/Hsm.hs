@@ -138,7 +138,8 @@ instance Data.FromJSON Hsm where
 
 instance Prelude.Hashable Hsm where
   hashWithSalt _salt Hsm' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` eniId
       `Prelude.hashWithSalt` eniIp

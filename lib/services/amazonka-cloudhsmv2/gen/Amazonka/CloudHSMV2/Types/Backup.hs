@@ -191,7 +191,8 @@ instance Data.FromJSON Backup where
 
 instance Prelude.Hashable Backup where
   hashWithSalt _salt Backup' {..} =
-    _salt `Prelude.hashWithSalt` backupState
+    _salt
+      `Prelude.hashWithSalt` backupState
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` copyTimestamp
       `Prelude.hashWithSalt` createTimestamp

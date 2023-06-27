@@ -122,17 +122,19 @@ instance Core.AWSPager ListTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTagsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listTagsResponse_tagList) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTags_nextToken
           Lens..~ rs
-          Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTagsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTags where
   type AWSResponse ListTags = ListTagsResponse
@@ -149,7 +151,8 @@ instance Core.AWSRequest ListTags where
 
 instance Prelude.Hashable ListTags where
   hashWithSalt _salt ListTags' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceId
 

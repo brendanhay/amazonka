@@ -162,7 +162,8 @@ instance Core.AWSRequest CreateCluster where
 
 instance Prelude.Hashable CreateCluster where
   hashWithSalt _salt CreateCluster' {..} =
-    _salt `Prelude.hashWithSalt` backupRetentionPolicy
+    _salt
+      `Prelude.hashWithSalt` backupRetentionPolicy
       `Prelude.hashWithSalt` sourceBackupId
       `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` hsmType

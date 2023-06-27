@@ -120,7 +120,8 @@ instance Core.AWSRequest CreateApiKey where
 
 instance Prelude.Hashable CreateApiKey where
   hashWithSalt _salt CreateApiKey' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expires
       `Prelude.hashWithSalt` apiId
 

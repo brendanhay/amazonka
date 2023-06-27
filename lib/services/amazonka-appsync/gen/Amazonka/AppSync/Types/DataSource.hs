@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.DataSource where
 import Amazonka.AppSync.Types.DataSourceType
 import Amazonka.AppSync.Types.DynamodbDataSourceConfig
 import Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
+import Amazonka.AppSync.Types.EventBridgeDataSourceConfig
 import Amazonka.AppSync.Types.HttpDataSourceConfig
 import Amazonka.AppSync.Types.LambdaDataSourceConfig
 import Amazonka.AppSync.Types.OpenSearchServiceDataSourceConfig
@@ -43,6 +44,8 @@ data DataSource = DataSource'
     dynamodbConfig :: Prelude.Maybe DynamodbDataSourceConfig,
     -- | Amazon OpenSearch Service settings.
     elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
+    -- | Amazon EventBridge settings.
+    eventBridgeConfig :: Prelude.Maybe EventBridgeDataSourceConfig,
     -- | HTTP endpoint settings.
     httpConfig :: Prelude.Maybe HttpDataSourceConfig,
     -- | Lambda settings.
@@ -68,6 +71,9 @@ data DataSource = DataSource'
     --
     -- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon
     --     OpenSearch Service domain.
+    --
+    -- -   __AMAZON_EVENTBRIDGE__: The data source is an Amazon EventBridge
+    --     configuration.
     --
     -- -   __NONE__: There is no data source. Use this type when you want to
     --     invoke a GraphQL operation without connecting to a data source, such
@@ -97,6 +103,8 @@ data DataSource = DataSource'
 --
 -- 'elasticsearchConfig', 'dataSource_elasticsearchConfig' - Amazon OpenSearch Service settings.
 --
+-- 'eventBridgeConfig', 'dataSource_eventBridgeConfig' - Amazon EventBridge settings.
+--
 -- 'httpConfig', 'dataSource_httpConfig' - HTTP endpoint settings.
 --
 -- 'lambdaConfig', 'dataSource_lambdaConfig' - Lambda settings.
@@ -123,6 +131,9 @@ data DataSource = DataSource'
 -- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon
 --     OpenSearch Service domain.
 --
+-- -   __AMAZON_EVENTBRIDGE__: The data source is an Amazon EventBridge
+--     configuration.
+--
 -- -   __NONE__: There is no data source. Use this type when you want to
 --     invoke a GraphQL operation without connecting to a data source, such
 --     as when you\'re performing data transformation with resolvers or
@@ -139,6 +150,7 @@ newDataSource =
       description = Prelude.Nothing,
       dynamodbConfig = Prelude.Nothing,
       elasticsearchConfig = Prelude.Nothing,
+      eventBridgeConfig = Prelude.Nothing,
       httpConfig = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
       name = Prelude.Nothing,
@@ -163,6 +175,10 @@ dataSource_dynamodbConfig = Lens.lens (\DataSource' {dynamodbConfig} -> dynamodb
 -- | Amazon OpenSearch Service settings.
 dataSource_elasticsearchConfig :: Lens.Lens' DataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 dataSource_elasticsearchConfig = Lens.lens (\DataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@DataSource' {} a -> s {elasticsearchConfig = a} :: DataSource)
+
+-- | Amazon EventBridge settings.
+dataSource_eventBridgeConfig :: Lens.Lens' DataSource (Prelude.Maybe EventBridgeDataSourceConfig)
+dataSource_eventBridgeConfig = Lens.lens (\DataSource' {eventBridgeConfig} -> eventBridgeConfig) (\s@DataSource' {} a -> s {eventBridgeConfig = a} :: DataSource)
 
 -- | HTTP endpoint settings.
 dataSource_httpConfig :: Lens.Lens' DataSource (Prelude.Maybe HttpDataSourceConfig)
@@ -202,6 +218,9 @@ dataSource_serviceRoleArn = Lens.lens (\DataSource' {serviceRoleArn} -> serviceR
 -- -   __AMAZON_OPENSEARCH_SERVICE__: The data source is an Amazon
 --     OpenSearch Service domain.
 --
+-- -   __AMAZON_EVENTBRIDGE__: The data source is an Amazon EventBridge
+--     configuration.
+--
 -- -   __NONE__: There is no data source. Use this type when you want to
 --     invoke a GraphQL operation without connecting to a data source, such
 --     as when you\'re performing data transformation with resolvers or
@@ -223,6 +242,7 @@ instance Data.FromJSON DataSource where
             Prelude.<*> (x Data..:? "description")
             Prelude.<*> (x Data..:? "dynamodbConfig")
             Prelude.<*> (x Data..:? "elasticsearchConfig")
+            Prelude.<*> (x Data..:? "eventBridgeConfig")
             Prelude.<*> (x Data..:? "httpConfig")
             Prelude.<*> (x Data..:? "lambdaConfig")
             Prelude.<*> (x Data..:? "name")
@@ -234,10 +254,12 @@ instance Data.FromJSON DataSource where
 
 instance Prelude.Hashable DataSource where
   hashWithSalt _salt DataSource' {..} =
-    _salt `Prelude.hashWithSalt` dataSourceArn
+    _salt
+      `Prelude.hashWithSalt` dataSourceArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dynamodbConfig
       `Prelude.hashWithSalt` elasticsearchConfig
+      `Prelude.hashWithSalt` eventBridgeConfig
       `Prelude.hashWithSalt` httpConfig
       `Prelude.hashWithSalt` lambdaConfig
       `Prelude.hashWithSalt` name
@@ -252,6 +274,7 @@ instance Prelude.NFData DataSource where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dynamodbConfig
       `Prelude.seq` Prelude.rnf elasticsearchConfig
+      `Prelude.seq` Prelude.rnf eventBridgeConfig
       `Prelude.seq` Prelude.rnf httpConfig
       `Prelude.seq` Prelude.rnf lambdaConfig
       `Prelude.seq` Prelude.rnf name

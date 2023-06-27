@@ -22,6 +22,7 @@ module Amazonka.AppSync.Types.DataSourceType
       ( ..,
         DataSourceType_AMAZON_DYNAMODB,
         DataSourceType_AMAZON_ELASTICSEARCH,
+        DataSourceType_AMAZON_EVENTBRIDGE,
         DataSourceType_AMAZON_OPENSEARCH_SERVICE,
         DataSourceType_AWS_LAMBDA,
         DataSourceType_HTTP,
@@ -69,6 +70,9 @@ pattern DataSourceType_AMAZON_DYNAMODB = DataSourceType' "AMAZON_DYNAMODB"
 pattern DataSourceType_AMAZON_ELASTICSEARCH :: DataSourceType
 pattern DataSourceType_AMAZON_ELASTICSEARCH = DataSourceType' "AMAZON_ELASTICSEARCH"
 
+pattern DataSourceType_AMAZON_EVENTBRIDGE :: DataSourceType
+pattern DataSourceType_AMAZON_EVENTBRIDGE = DataSourceType' "AMAZON_EVENTBRIDGE"
+
 pattern DataSourceType_AMAZON_OPENSEARCH_SERVICE :: DataSourceType
 pattern DataSourceType_AMAZON_OPENSEARCH_SERVICE = DataSourceType' "AMAZON_OPENSEARCH_SERVICE"
 
@@ -87,6 +91,7 @@ pattern DataSourceType_RELATIONAL_DATABASE = DataSourceType' "RELATIONAL_DATABAS
 {-# COMPLETE
   DataSourceType_AMAZON_DYNAMODB,
   DataSourceType_AMAZON_ELASTICSEARCH,
+  DataSourceType_AMAZON_EVENTBRIDGE,
   DataSourceType_AMAZON_OPENSEARCH_SERVICE,
   DataSourceType_AWS_LAMBDA,
   DataSourceType_HTTP,

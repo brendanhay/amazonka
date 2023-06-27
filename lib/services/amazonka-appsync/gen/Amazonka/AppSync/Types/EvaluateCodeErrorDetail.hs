@@ -76,7 +76,8 @@ instance Data.FromJSON EvaluateCodeErrorDetail where
 
 instance Prelude.Hashable EvaluateCodeErrorDetail where
   hashWithSalt _salt EvaluateCodeErrorDetail' {..} =
-    _salt `Prelude.hashWithSalt` codeErrors
+    _salt
+      `Prelude.hashWithSalt` codeErrors
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData EvaluateCodeErrorDetail where

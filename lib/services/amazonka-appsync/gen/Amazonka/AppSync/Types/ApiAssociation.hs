@@ -122,7 +122,8 @@ instance Data.FromJSON ApiAssociation where
 
 instance Prelude.Hashable ApiAssociation where
   hashWithSalt _salt ApiAssociation' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` associationStatus
       `Prelude.hashWithSalt` deploymentDetail
       `Prelude.hashWithSalt` domainName

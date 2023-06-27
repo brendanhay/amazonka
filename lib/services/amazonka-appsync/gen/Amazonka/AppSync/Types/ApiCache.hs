@@ -285,7 +285,8 @@ instance Data.FromJSON ApiCache where
 
 instance Prelude.Hashable ApiCache where
   hashWithSalt _salt ApiCache' {..} =
-    _salt `Prelude.hashWithSalt` apiCachingBehavior
+    _salt
+      `Prelude.hashWithSalt` apiCachingBehavior
       `Prelude.hashWithSalt` atRestEncryptionEnabled
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` transitEncryptionEnabled

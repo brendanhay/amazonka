@@ -91,7 +91,8 @@ instance Data.FromJSON CachingConfig where
 
 instance Prelude.Hashable CachingConfig where
   hashWithSalt _salt CachingConfig' {..} =
-    _salt `Prelude.hashWithSalt` cachingKeys
+    _salt
+      `Prelude.hashWithSalt` cachingKeys
       `Prelude.hashWithSalt` ttl
 
 instance Prelude.NFData CachingConfig where

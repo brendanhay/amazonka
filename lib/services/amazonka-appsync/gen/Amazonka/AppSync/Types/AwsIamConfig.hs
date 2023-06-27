@@ -74,7 +74,8 @@ instance Data.FromJSON AwsIamConfig where
 
 instance Prelude.Hashable AwsIamConfig where
   hashWithSalt _salt AwsIamConfig' {..} =
-    _salt `Prelude.hashWithSalt` signingRegion
+    _salt
+      `Prelude.hashWithSalt` signingRegion
       `Prelude.hashWithSalt` signingServiceName
 
 instance Prelude.NFData AwsIamConfig where

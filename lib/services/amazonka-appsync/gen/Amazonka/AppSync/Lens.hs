@@ -20,6 +20,22 @@ module Amazonka.AppSync.Lens
     associateApiResponse_apiAssociation,
     associateApiResponse_httpStatus,
 
+    -- ** AssociateMergedGraphqlApi
+    associateMergedGraphqlApi_description,
+    associateMergedGraphqlApi_sourceApiAssociationConfig,
+    associateMergedGraphqlApi_sourceApiIdentifier,
+    associateMergedGraphqlApi_mergedApiIdentifier,
+    associateMergedGraphqlApiResponse_sourceApiAssociation,
+    associateMergedGraphqlApiResponse_httpStatus,
+
+    -- ** AssociateSourceGraphqlApi
+    associateSourceGraphqlApi_description,
+    associateSourceGraphqlApi_sourceApiAssociationConfig,
+    associateSourceGraphqlApi_mergedApiIdentifier,
+    associateSourceGraphqlApi_sourceApiIdentifier,
+    associateSourceGraphqlApiResponse_sourceApiAssociation,
+    associateSourceGraphqlApiResponse_httpStatus,
+
     -- ** CreateApiCache
     createApiCache_atRestEncryptionEnabled,
     createApiCache_transitEncryptionEnabled,
@@ -41,6 +57,7 @@ module Amazonka.AppSync.Lens
     createDataSource_description,
     createDataSource_dynamodbConfig,
     createDataSource_elasticsearchConfig,
+    createDataSource_eventBridgeConfig,
     createDataSource_httpConfig,
     createDataSource_lambdaConfig,
     createDataSource_openSearchServiceConfig,
@@ -76,11 +93,15 @@ module Amazonka.AppSync.Lens
 
     -- ** CreateGraphqlApi
     createGraphqlApi_additionalAuthenticationProviders,
+    createGraphqlApi_apiType,
     createGraphqlApi_lambdaAuthorizerConfig,
     createGraphqlApi_logConfig,
+    createGraphqlApi_mergedApiExecutionRoleArn,
     createGraphqlApi_openIDConnectConfig,
+    createGraphqlApi_ownerContact,
     createGraphqlApi_tags,
     createGraphqlApi_userPoolConfig,
+    createGraphqlApi_visibility,
     createGraphqlApi_xrayEnabled,
     createGraphqlApi_name,
     createGraphqlApi_authenticationType,
@@ -152,6 +173,18 @@ module Amazonka.AppSync.Lens
     -- ** DisassociateApi
     disassociateApi_domainName,
     disassociateApiResponse_httpStatus,
+
+    -- ** DisassociateMergedGraphqlApi
+    disassociateMergedGraphqlApi_sourceApiIdentifier,
+    disassociateMergedGraphqlApi_associationId,
+    disassociateMergedGraphqlApiResponse_sourceApiAssociationStatus,
+    disassociateMergedGraphqlApiResponse_httpStatus,
+
+    -- ** DisassociateSourceGraphqlApi
+    disassociateSourceGraphqlApi_mergedApiIdentifier,
+    disassociateSourceGraphqlApi_associationId,
+    disassociateSourceGraphqlApiResponse_sourceApiAssociationStatus,
+    disassociateSourceGraphqlApiResponse_httpStatus,
 
     -- ** EvaluateCode
     evaluateCode_function,
@@ -227,6 +260,12 @@ module Amazonka.AppSync.Lens
     getSchemaCreationStatusResponse_status,
     getSchemaCreationStatusResponse_httpStatus,
 
+    -- ** GetSourceApiAssociation
+    getSourceApiAssociation_mergedApiIdentifier,
+    getSourceApiAssociation_associationId,
+    getSourceApiAssociationResponse_sourceApiAssociation,
+    getSourceApiAssociationResponse_httpStatus,
+
     -- ** GetType
     getType_apiId,
     getType_typeName,
@@ -266,8 +305,10 @@ module Amazonka.AppSync.Lens
     listFunctionsResponse_httpStatus,
 
     -- ** ListGraphqlApis
+    listGraphqlApis_apiType,
     listGraphqlApis_maxResults,
     listGraphqlApis_nextToken,
+    listGraphqlApis_owner,
     listGraphqlApisResponse_graphqlApis,
     listGraphqlApisResponse_nextToken,
     listGraphqlApisResponse_httpStatus,
@@ -290,6 +331,14 @@ module Amazonka.AppSync.Lens
     listResolversByFunctionResponse_resolvers,
     listResolversByFunctionResponse_httpStatus,
 
+    -- ** ListSourceApiAssociations
+    listSourceApiAssociations_maxResults,
+    listSourceApiAssociations_nextToken,
+    listSourceApiAssociations_apiId,
+    listSourceApiAssociationsResponse_nextToken,
+    listSourceApiAssociationsResponse_sourceApiAssociationSummaries,
+    listSourceApiAssociationsResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
@@ -304,11 +353,27 @@ module Amazonka.AppSync.Lens
     listTypesResponse_types,
     listTypesResponse_httpStatus,
 
+    -- ** ListTypesByAssociation
+    listTypesByAssociation_maxResults,
+    listTypesByAssociation_nextToken,
+    listTypesByAssociation_mergedApiIdentifier,
+    listTypesByAssociation_associationId,
+    listTypesByAssociation_format,
+    listTypesByAssociationResponse_nextToken,
+    listTypesByAssociationResponse_types,
+    listTypesByAssociationResponse_httpStatus,
+
     -- ** StartSchemaCreation
     startSchemaCreation_apiId,
     startSchemaCreation_definition,
     startSchemaCreationResponse_status,
     startSchemaCreationResponse_httpStatus,
+
+    -- ** StartSchemaMerge
+    startSchemaMerge_associationId,
+    startSchemaMerge_mergedApiIdentifier,
+    startSchemaMergeResponse_sourceApiAssociationStatus,
+    startSchemaMergeResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -340,6 +405,7 @@ module Amazonka.AppSync.Lens
     updateDataSource_description,
     updateDataSource_dynamodbConfig,
     updateDataSource_elasticsearchConfig,
+    updateDataSource_eventBridgeConfig,
     updateDataSource_httpConfig,
     updateDataSource_lambdaConfig,
     updateDataSource_openSearchServiceConfig,
@@ -378,7 +444,9 @@ module Amazonka.AppSync.Lens
     updateGraphqlApi_authenticationType,
     updateGraphqlApi_lambdaAuthorizerConfig,
     updateGraphqlApi_logConfig,
+    updateGraphqlApi_mergedApiExecutionRoleArn,
     updateGraphqlApi_openIDConnectConfig,
+    updateGraphqlApi_ownerContact,
     updateGraphqlApi_userPoolConfig,
     updateGraphqlApi_xrayEnabled,
     updateGraphqlApi_apiId,
@@ -402,6 +470,14 @@ module Amazonka.AppSync.Lens
     updateResolver_fieldName,
     updateResolverResponse_resolver,
     updateResolverResponse_httpStatus,
+
+    -- ** UpdateSourceApiAssociation
+    updateSourceApiAssociation_description,
+    updateSourceApiAssociation_sourceApiAssociationConfig,
+    updateSourceApiAssociation_associationId,
+    updateSourceApiAssociation_mergedApiIdentifier,
+    updateSourceApiAssociationResponse_sourceApiAssociation,
+    updateSourceApiAssociationResponse_httpStatus,
 
     -- ** UpdateType
     updateType_definition,
@@ -475,6 +551,7 @@ module Amazonka.AppSync.Lens
     dataSource_description,
     dataSource_dynamodbConfig,
     dataSource_elasticsearchConfig,
+    dataSource_eventBridgeConfig,
     dataSource_httpConfig,
     dataSource_lambdaConfig,
     dataSource_name,
@@ -513,6 +590,9 @@ module Amazonka.AppSync.Lens
     evaluateCodeErrorDetail_codeErrors,
     evaluateCodeErrorDetail_message,
 
+    -- ** EventBridgeDataSourceConfig
+    eventBridgeDataSourceConfig_eventBusArn,
+
     -- ** FunctionConfiguration
     functionConfiguration_code,
     functionConfiguration_dataSourceName,
@@ -530,15 +610,21 @@ module Amazonka.AppSync.Lens
     -- ** GraphqlApi
     graphqlApi_additionalAuthenticationProviders,
     graphqlApi_apiId,
+    graphqlApi_apiType,
     graphqlApi_arn,
     graphqlApi_authenticationType,
+    graphqlApi_dns,
     graphqlApi_lambdaAuthorizerConfig,
     graphqlApi_logConfig,
+    graphqlApi_mergedApiExecutionRoleArn,
     graphqlApi_name,
     graphqlApi_openIDConnectConfig,
+    graphqlApi_owner,
+    graphqlApi_ownerContact,
     graphqlApi_tags,
     graphqlApi_uris,
     graphqlApi_userPoolConfig,
+    graphqlApi_visibility,
     graphqlApi_wafWebAclArn,
     graphqlApi_xrayEnabled,
 
@@ -601,6 +687,31 @@ module Amazonka.AppSync.Lens
     resolver_syncConfig,
     resolver_typeName,
 
+    -- ** SourceApiAssociation
+    sourceApiAssociation_associationArn,
+    sourceApiAssociation_associationId,
+    sourceApiAssociation_description,
+    sourceApiAssociation_lastSuccessfulMergeDate,
+    sourceApiAssociation_mergedApiArn,
+    sourceApiAssociation_mergedApiId,
+    sourceApiAssociation_sourceApiArn,
+    sourceApiAssociation_sourceApiAssociationConfig,
+    sourceApiAssociation_sourceApiAssociationStatus,
+    sourceApiAssociation_sourceApiAssociationStatusDetail,
+    sourceApiAssociation_sourceApiId,
+
+    -- ** SourceApiAssociationConfig
+    sourceApiAssociationConfig_mergeType,
+
+    -- ** SourceApiAssociationSummary
+    sourceApiAssociationSummary_associationArn,
+    sourceApiAssociationSummary_associationId,
+    sourceApiAssociationSummary_description,
+    sourceApiAssociationSummary_mergedApiArn,
+    sourceApiAssociationSummary_mergedApiId,
+    sourceApiAssociationSummary_sourceApiArn,
+    sourceApiAssociationSummary_sourceApiId,
+
     -- ** SyncConfig
     syncConfig_conflictDetection,
     syncConfig_conflictHandler,
@@ -622,6 +733,8 @@ module Amazonka.AppSync.Lens
 where
 
 import Amazonka.AppSync.AssociateApi
+import Amazonka.AppSync.AssociateMergedGraphqlApi
+import Amazonka.AppSync.AssociateSourceGraphqlApi
 import Amazonka.AppSync.CreateApiCache
 import Amazonka.AppSync.CreateApiKey
 import Amazonka.AppSync.CreateDataSource
@@ -639,6 +752,8 @@ import Amazonka.AppSync.DeleteGraphqlApi
 import Amazonka.AppSync.DeleteResolver
 import Amazonka.AppSync.DeleteType
 import Amazonka.AppSync.DisassociateApi
+import Amazonka.AppSync.DisassociateMergedGraphqlApi
+import Amazonka.AppSync.DisassociateSourceGraphqlApi
 import Amazonka.AppSync.EvaluateCode
 import Amazonka.AppSync.EvaluateMappingTemplate
 import Amazonka.AppSync.FlushApiCache
@@ -651,6 +766,7 @@ import Amazonka.AppSync.GetGraphqlApi
 import Amazonka.AppSync.GetIntrospectionSchema
 import Amazonka.AppSync.GetResolver
 import Amazonka.AppSync.GetSchemaCreationStatus
+import Amazonka.AppSync.GetSourceApiAssociation
 import Amazonka.AppSync.GetType
 import Amazonka.AppSync.ListApiKeys
 import Amazonka.AppSync.ListDataSources
@@ -659,9 +775,12 @@ import Amazonka.AppSync.ListFunctions
 import Amazonka.AppSync.ListGraphqlApis
 import Amazonka.AppSync.ListResolvers
 import Amazonka.AppSync.ListResolversByFunction
+import Amazonka.AppSync.ListSourceApiAssociations
 import Amazonka.AppSync.ListTagsForResource
 import Amazonka.AppSync.ListTypes
+import Amazonka.AppSync.ListTypesByAssociation
 import Amazonka.AppSync.StartSchemaCreation
+import Amazonka.AppSync.StartSchemaMerge
 import Amazonka.AppSync.TagResource
 import Amazonka.AppSync.Types.AdditionalAuthenticationProvider
 import Amazonka.AppSync.Types.ApiAssociation
@@ -681,6 +800,7 @@ import Amazonka.AppSync.Types.DynamodbDataSourceConfig
 import Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
 import Amazonka.AppSync.Types.ErrorDetail
 import Amazonka.AppSync.Types.EvaluateCodeErrorDetail
+import Amazonka.AppSync.Types.EventBridgeDataSourceConfig
 import Amazonka.AppSync.Types.FunctionConfiguration
 import Amazonka.AppSync.Types.GraphqlApi
 import Amazonka.AppSync.Types.HttpDataSourceConfig
@@ -694,6 +814,9 @@ import Amazonka.AppSync.Types.PipelineConfig
 import Amazonka.AppSync.Types.RdsHttpEndpointConfig
 import Amazonka.AppSync.Types.RelationalDatabaseDataSourceConfig
 import Amazonka.AppSync.Types.Resolver
+import Amazonka.AppSync.Types.SourceApiAssociation
+import Amazonka.AppSync.Types.SourceApiAssociationConfig
+import Amazonka.AppSync.Types.SourceApiAssociationSummary
 import Amazonka.AppSync.Types.SyncConfig
 import Amazonka.AppSync.Types.Type
 import Amazonka.AppSync.Types.UserPoolConfig
@@ -705,4 +828,5 @@ import Amazonka.AppSync.UpdateDomainName
 import Amazonka.AppSync.UpdateFunction
 import Amazonka.AppSync.UpdateGraphqlApi
 import Amazonka.AppSync.UpdateResolver
+import Amazonka.AppSync.UpdateSourceApiAssociation
 import Amazonka.AppSync.UpdateType

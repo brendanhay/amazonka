@@ -30,6 +30,7 @@ module Amazonka.AppSync.CreateDataSource
     createDataSource_description,
     createDataSource_dynamodbConfig,
     createDataSource_elasticsearchConfig,
+    createDataSource_eventBridgeConfig,
     createDataSource_httpConfig,
     createDataSource_lambdaConfig,
     createDataSource_openSearchServiceConfig,
@@ -70,6 +71,8 @@ data CreateDataSource = CreateDataSource'
     -- CreateDataSourceRequest$openSearchServiceConfig to create an OpenSearch
     -- data source.
     elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
+    -- | Amazon EventBridge settings.
+    eventBridgeConfig :: Prelude.Maybe EventBridgeDataSourceConfig,
     -- | HTTP endpoint settings.
     httpConfig :: Prelude.Maybe HttpDataSourceConfig,
     -- | Lambda settings.
@@ -110,6 +113,8 @@ data CreateDataSource = CreateDataSource'
 -- CreateDataSourceRequest$openSearchServiceConfig to create an OpenSearch
 -- data source.
 --
+-- 'eventBridgeConfig', 'createDataSource_eventBridgeConfig' - Amazon EventBridge settings.
+--
 -- 'httpConfig', 'createDataSource_httpConfig' - HTTP endpoint settings.
 --
 -- 'lambdaConfig', 'createDataSource_lambdaConfig' - Lambda settings.
@@ -140,6 +145,7 @@ newCreateDataSource pApiId_ pName_ pType_ =
     { description = Prelude.Nothing,
       dynamodbConfig = Prelude.Nothing,
       elasticsearchConfig = Prelude.Nothing,
+      eventBridgeConfig = Prelude.Nothing,
       httpConfig = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
       openSearchServiceConfig = Prelude.Nothing,
@@ -166,6 +172,10 @@ createDataSource_dynamodbConfig = Lens.lens (\CreateDataSource' {dynamodbConfig}
 -- data source.
 createDataSource_elasticsearchConfig :: Lens.Lens' CreateDataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 createDataSource_elasticsearchConfig = Lens.lens (\CreateDataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@CreateDataSource' {} a -> s {elasticsearchConfig = a} :: CreateDataSource)
+
+-- | Amazon EventBridge settings.
+createDataSource_eventBridgeConfig :: Lens.Lens' CreateDataSource (Prelude.Maybe EventBridgeDataSourceConfig)
+createDataSource_eventBridgeConfig = Lens.lens (\CreateDataSource' {eventBridgeConfig} -> eventBridgeConfig) (\s@CreateDataSource' {} a -> s {eventBridgeConfig = a} :: CreateDataSource)
 
 -- | HTTP endpoint settings.
 createDataSource_httpConfig :: Lens.Lens' CreateDataSource (Prelude.Maybe HttpDataSourceConfig)
@@ -217,9 +227,11 @@ instance Core.AWSRequest CreateDataSource where
 
 instance Prelude.Hashable CreateDataSource where
   hashWithSalt _salt CreateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dynamodbConfig
       `Prelude.hashWithSalt` elasticsearchConfig
+      `Prelude.hashWithSalt` eventBridgeConfig
       `Prelude.hashWithSalt` httpConfig
       `Prelude.hashWithSalt` lambdaConfig
       `Prelude.hashWithSalt` openSearchServiceConfig
@@ -234,6 +246,7 @@ instance Prelude.NFData CreateDataSource where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf dynamodbConfig
       `Prelude.seq` Prelude.rnf elasticsearchConfig
+      `Prelude.seq` Prelude.rnf eventBridgeConfig
       `Prelude.seq` Prelude.rnf httpConfig
       `Prelude.seq` Prelude.rnf lambdaConfig
       `Prelude.seq` Prelude.rnf openSearchServiceConfig
@@ -263,6 +276,8 @@ instance Data.ToJSON CreateDataSource where
               Prelude.<$> dynamodbConfig,
             ("elasticsearchConfig" Data..=)
               Prelude.<$> elasticsearchConfig,
+            ("eventBridgeConfig" Data..=)
+              Prelude.<$> eventBridgeConfig,
             ("httpConfig" Data..=) Prelude.<$> httpConfig,
             ("lambdaConfig" Data..=) Prelude.<$> lambdaConfig,
             ("openSearchServiceConfig" Data..=)

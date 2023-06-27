@@ -30,6 +30,12 @@ import Test.Tasty
 --         [ requestAssociateApi $
 --             newAssociateApi
 --
+--         , requestAssociateMergedGraphqlApi $
+--             newAssociateMergedGraphqlApi
+--
+--         , requestAssociateSourceGraphqlApi $
+--             newAssociateSourceGraphqlApi
+--
 --         , requestCreateApiCache $
 --             newCreateApiCache
 --
@@ -81,6 +87,12 @@ import Test.Tasty
 --         , requestDisassociateApi $
 --             newDisassociateApi
 --
+--         , requestDisassociateMergedGraphqlApi $
+--             newDisassociateMergedGraphqlApi
+--
+--         , requestDisassociateSourceGraphqlApi $
+--             newDisassociateSourceGraphqlApi
+--
 --         , requestEvaluateCode $
 --             newEvaluateCode
 --
@@ -117,6 +129,9 @@ import Test.Tasty
 --         , requestGetSchemaCreationStatus $
 --             newGetSchemaCreationStatus
 --
+--         , requestGetSourceApiAssociation $
+--             newGetSourceApiAssociation
+--
 --         , requestGetType $
 --             newGetType
 --
@@ -141,14 +156,23 @@ import Test.Tasty
 --         , requestListResolversByFunction $
 --             newListResolversByFunction
 --
+--         , requestListSourceApiAssociations $
+--             newListSourceApiAssociations
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
 --         , requestListTypes $
 --             newListTypes
 --
+--         , requestListTypesByAssociation $
+--             newListTypesByAssociation
+--
 --         , requestStartSchemaCreation $
 --             newStartSchemaCreation
+--
+--         , requestStartSchemaMerge $
+--             newStartSchemaMerge
 --
 --         , requestTagResource $
 --             newTagResource
@@ -177,6 +201,9 @@ import Test.Tasty
 --         , requestUpdateResolver $
 --             newUpdateResolver
 --
+--         , requestUpdateSourceApiAssociation $
+--             newUpdateSourceApiAssociation
+--
 --         , requestUpdateType $
 --             newUpdateType
 --
@@ -185,6 +212,12 @@ import Test.Tasty
 --     , testGroup "response"
 --         [ responseAssociateApi $
 --             newAssociateApiResponse
+--
+--         , responseAssociateMergedGraphqlApi $
+--             newAssociateMergedGraphqlApiResponse
+--
+--         , responseAssociateSourceGraphqlApi $
+--             newAssociateSourceGraphqlApiResponse
 --
 --         , responseCreateApiCache $
 --             newCreateApiCacheResponse
@@ -237,6 +270,12 @@ import Test.Tasty
 --         , responseDisassociateApi $
 --             newDisassociateApiResponse
 --
+--         , responseDisassociateMergedGraphqlApi $
+--             newDisassociateMergedGraphqlApiResponse
+--
+--         , responseDisassociateSourceGraphqlApi $
+--             newDisassociateSourceGraphqlApiResponse
+--
 --         , responseEvaluateCode $
 --             newEvaluateCodeResponse
 --
@@ -273,6 +312,9 @@ import Test.Tasty
 --         , responseGetSchemaCreationStatus $
 --             newGetSchemaCreationStatusResponse
 --
+--         , responseGetSourceApiAssociation $
+--             newGetSourceApiAssociationResponse
+--
 --         , responseGetType $
 --             newGetTypeResponse
 --
@@ -297,14 +339,23 @@ import Test.Tasty
 --         , responseListResolversByFunction $
 --             newListResolversByFunctionResponse
 --
+--         , responseListSourceApiAssociations $
+--             newListSourceApiAssociationsResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
 --         , responseListTypes $
 --             newListTypesResponse
 --
+--         , responseListTypesByAssociation $
+--             newListTypesByAssociationResponse
+--
 --         , responseStartSchemaCreation $
 --             newStartSchemaCreationResponse
+--
+--         , responseStartSchemaMerge $
+--             newStartSchemaMergeResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -333,6 +384,9 @@ import Test.Tasty
 --         , responseUpdateResolver $
 --             newUpdateResolverResponse
 --
+--         , responseUpdateSourceApiAssociation $
+--             newUpdateSourceApiAssociationResponse
+--
 --         , responseUpdateType $
 --             newUpdateTypeResponse
 --
@@ -346,6 +400,18 @@ requestAssociateApi =
   req
     "AssociateApi"
     "fixture/AssociateApi.yaml"
+
+requestAssociateMergedGraphqlApi :: AssociateMergedGraphqlApi -> TestTree
+requestAssociateMergedGraphqlApi =
+  req
+    "AssociateMergedGraphqlApi"
+    "fixture/AssociateMergedGraphqlApi.yaml"
+
+requestAssociateSourceGraphqlApi :: AssociateSourceGraphqlApi -> TestTree
+requestAssociateSourceGraphqlApi =
+  req
+    "AssociateSourceGraphqlApi"
+    "fixture/AssociateSourceGraphqlApi.yaml"
 
 requestCreateApiCache :: CreateApiCache -> TestTree
 requestCreateApiCache =
@@ -449,6 +515,18 @@ requestDisassociateApi =
     "DisassociateApi"
     "fixture/DisassociateApi.yaml"
 
+requestDisassociateMergedGraphqlApi :: DisassociateMergedGraphqlApi -> TestTree
+requestDisassociateMergedGraphqlApi =
+  req
+    "DisassociateMergedGraphqlApi"
+    "fixture/DisassociateMergedGraphqlApi.yaml"
+
+requestDisassociateSourceGraphqlApi :: DisassociateSourceGraphqlApi -> TestTree
+requestDisassociateSourceGraphqlApi =
+  req
+    "DisassociateSourceGraphqlApi"
+    "fixture/DisassociateSourceGraphqlApi.yaml"
+
 requestEvaluateCode :: EvaluateCode -> TestTree
 requestEvaluateCode =
   req
@@ -521,6 +599,12 @@ requestGetSchemaCreationStatus =
     "GetSchemaCreationStatus"
     "fixture/GetSchemaCreationStatus.yaml"
 
+requestGetSourceApiAssociation :: GetSourceApiAssociation -> TestTree
+requestGetSourceApiAssociation =
+  req
+    "GetSourceApiAssociation"
+    "fixture/GetSourceApiAssociation.yaml"
+
 requestGetType :: GetType -> TestTree
 requestGetType =
   req
@@ -569,6 +653,12 @@ requestListResolversByFunction =
     "ListResolversByFunction"
     "fixture/ListResolversByFunction.yaml"
 
+requestListSourceApiAssociations :: ListSourceApiAssociations -> TestTree
+requestListSourceApiAssociations =
+  req
+    "ListSourceApiAssociations"
+    "fixture/ListSourceApiAssociations.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -581,11 +671,23 @@ requestListTypes =
     "ListTypes"
     "fixture/ListTypes.yaml"
 
+requestListTypesByAssociation :: ListTypesByAssociation -> TestTree
+requestListTypesByAssociation =
+  req
+    "ListTypesByAssociation"
+    "fixture/ListTypesByAssociation.yaml"
+
 requestStartSchemaCreation :: StartSchemaCreation -> TestTree
 requestStartSchemaCreation =
   req
     "StartSchemaCreation"
     "fixture/StartSchemaCreation.yaml"
+
+requestStartSchemaMerge :: StartSchemaMerge -> TestTree
+requestStartSchemaMerge =
+  req
+    "StartSchemaMerge"
+    "fixture/StartSchemaMerge.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -641,6 +743,12 @@ requestUpdateResolver =
     "UpdateResolver"
     "fixture/UpdateResolver.yaml"
 
+requestUpdateSourceApiAssociation :: UpdateSourceApiAssociation -> TestTree
+requestUpdateSourceApiAssociation =
+  req
+    "UpdateSourceApiAssociation"
+    "fixture/UpdateSourceApiAssociation.yaml"
+
 requestUpdateType :: UpdateType -> TestTree
 requestUpdateType =
   req
@@ -656,6 +764,22 @@ responseAssociateApi =
     "fixture/AssociateApiResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateApi)
+
+responseAssociateMergedGraphqlApi :: AssociateMergedGraphqlApiResponse -> TestTree
+responseAssociateMergedGraphqlApi =
+  res
+    "AssociateMergedGraphqlApiResponse"
+    "fixture/AssociateMergedGraphqlApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateMergedGraphqlApi)
+
+responseAssociateSourceGraphqlApi :: AssociateSourceGraphqlApiResponse -> TestTree
+responseAssociateSourceGraphqlApi =
+  res
+    "AssociateSourceGraphqlApiResponse"
+    "fixture/AssociateSourceGraphqlApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateSourceGraphqlApi)
 
 responseCreateApiCache :: CreateApiCacheResponse -> TestTree
 responseCreateApiCache =
@@ -793,6 +917,22 @@ responseDisassociateApi =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateApi)
 
+responseDisassociateMergedGraphqlApi :: DisassociateMergedGraphqlApiResponse -> TestTree
+responseDisassociateMergedGraphqlApi =
+  res
+    "DisassociateMergedGraphqlApiResponse"
+    "fixture/DisassociateMergedGraphqlApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateMergedGraphqlApi)
+
+responseDisassociateSourceGraphqlApi :: DisassociateSourceGraphqlApiResponse -> TestTree
+responseDisassociateSourceGraphqlApi =
+  res
+    "DisassociateSourceGraphqlApiResponse"
+    "fixture/DisassociateSourceGraphqlApiResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateSourceGraphqlApi)
+
 responseEvaluateCode :: EvaluateCodeResponse -> TestTree
 responseEvaluateCode =
   res
@@ -889,6 +1029,14 @@ responseGetSchemaCreationStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSchemaCreationStatus)
 
+responseGetSourceApiAssociation :: GetSourceApiAssociationResponse -> TestTree
+responseGetSourceApiAssociation =
+  res
+    "GetSourceApiAssociationResponse"
+    "fixture/GetSourceApiAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSourceApiAssociation)
+
 responseGetType :: GetTypeResponse -> TestTree
 responseGetType =
   res
@@ -953,6 +1101,14 @@ responseListResolversByFunction =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListResolversByFunction)
 
+responseListSourceApiAssociations :: ListSourceApiAssociationsResponse -> TestTree
+responseListSourceApiAssociations =
+  res
+    "ListSourceApiAssociationsResponse"
+    "fixture/ListSourceApiAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSourceApiAssociations)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -969,6 +1125,14 @@ responseListTypes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTypes)
 
+responseListTypesByAssociation :: ListTypesByAssociationResponse -> TestTree
+responseListTypesByAssociation =
+  res
+    "ListTypesByAssociationResponse"
+    "fixture/ListTypesByAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTypesByAssociation)
+
 responseStartSchemaCreation :: StartSchemaCreationResponse -> TestTree
 responseStartSchemaCreation =
   res
@@ -976,6 +1140,14 @@ responseStartSchemaCreation =
     "fixture/StartSchemaCreationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartSchemaCreation)
+
+responseStartSchemaMerge :: StartSchemaMergeResponse -> TestTree
+responseStartSchemaMerge =
+  res
+    "StartSchemaMergeResponse"
+    "fixture/StartSchemaMergeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSchemaMerge)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -1048,6 +1220,14 @@ responseUpdateResolver =
     "fixture/UpdateResolverResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateResolver)
+
+responseUpdateSourceApiAssociation :: UpdateSourceApiAssociationResponse -> TestTree
+responseUpdateSourceApiAssociation =
+  res
+    "UpdateSourceApiAssociationResponse"
+    "fixture/UpdateSourceApiAssociationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSourceApiAssociation)
 
 responseUpdateType :: UpdateTypeResponse -> TestTree
 responseUpdateType =

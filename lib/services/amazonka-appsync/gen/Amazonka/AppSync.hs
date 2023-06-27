@@ -65,6 +65,18 @@ module Amazonka.AppSync
     AssociateApiResponse (AssociateApiResponse'),
     newAssociateApiResponse,
 
+    -- ** AssociateMergedGraphqlApi
+    AssociateMergedGraphqlApi (AssociateMergedGraphqlApi'),
+    newAssociateMergedGraphqlApi,
+    AssociateMergedGraphqlApiResponse (AssociateMergedGraphqlApiResponse'),
+    newAssociateMergedGraphqlApiResponse,
+
+    -- ** AssociateSourceGraphqlApi
+    AssociateSourceGraphqlApi (AssociateSourceGraphqlApi'),
+    newAssociateSourceGraphqlApi,
+    AssociateSourceGraphqlApiResponse (AssociateSourceGraphqlApiResponse'),
+    newAssociateSourceGraphqlApiResponse,
+
     -- ** CreateApiCache
     CreateApiCache (CreateApiCache'),
     newCreateApiCache,
@@ -167,6 +179,18 @@ module Amazonka.AppSync
     DisassociateApiResponse (DisassociateApiResponse'),
     newDisassociateApiResponse,
 
+    -- ** DisassociateMergedGraphqlApi
+    DisassociateMergedGraphqlApi (DisassociateMergedGraphqlApi'),
+    newDisassociateMergedGraphqlApi,
+    DisassociateMergedGraphqlApiResponse (DisassociateMergedGraphqlApiResponse'),
+    newDisassociateMergedGraphqlApiResponse,
+
+    -- ** DisassociateSourceGraphqlApi
+    DisassociateSourceGraphqlApi (DisassociateSourceGraphqlApi'),
+    newDisassociateSourceGraphqlApi,
+    DisassociateSourceGraphqlApiResponse (DisassociateSourceGraphqlApiResponse'),
+    newDisassociateSourceGraphqlApiResponse,
+
     -- ** EvaluateCode
     EvaluateCode (EvaluateCode'),
     newEvaluateCode,
@@ -239,6 +263,12 @@ module Amazonka.AppSync
     GetSchemaCreationStatusResponse (GetSchemaCreationStatusResponse'),
     newGetSchemaCreationStatusResponse,
 
+    -- ** GetSourceApiAssociation
+    GetSourceApiAssociation (GetSourceApiAssociation'),
+    newGetSourceApiAssociation,
+    GetSourceApiAssociationResponse (GetSourceApiAssociationResponse'),
+    newGetSourceApiAssociationResponse,
+
     -- ** GetType
     GetType (GetType'),
     newGetType,
@@ -287,6 +317,12 @@ module Amazonka.AppSync
     ListResolversByFunctionResponse (ListResolversByFunctionResponse'),
     newListResolversByFunctionResponse,
 
+    -- ** ListSourceApiAssociations
+    ListSourceApiAssociations (ListSourceApiAssociations'),
+    newListSourceApiAssociations,
+    ListSourceApiAssociationsResponse (ListSourceApiAssociationsResponse'),
+    newListSourceApiAssociationsResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -299,11 +335,23 @@ module Amazonka.AppSync
     ListTypesResponse (ListTypesResponse'),
     newListTypesResponse,
 
+    -- ** ListTypesByAssociation
+    ListTypesByAssociation (ListTypesByAssociation'),
+    newListTypesByAssociation,
+    ListTypesByAssociationResponse (ListTypesByAssociationResponse'),
+    newListTypesByAssociationResponse,
+
     -- ** StartSchemaCreation
     StartSchemaCreation (StartSchemaCreation'),
     newStartSchemaCreation,
     StartSchemaCreationResponse (StartSchemaCreationResponse'),
     newStartSchemaCreationResponse,
+
+    -- ** StartSchemaMerge
+    StartSchemaMerge (StartSchemaMerge'),
+    newStartSchemaMerge,
+    StartSchemaMergeResponse (StartSchemaMergeResponse'),
+    newStartSchemaMergeResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -359,6 +407,12 @@ module Amazonka.AppSync
     UpdateResolverResponse (UpdateResolverResponse'),
     newUpdateResolverResponse,
 
+    -- ** UpdateSourceApiAssociation
+    UpdateSourceApiAssociation (UpdateSourceApiAssociation'),
+    newUpdateSourceApiAssociation,
+    UpdateSourceApiAssociationResponse (UpdateSourceApiAssociationResponse'),
+    newUpdateSourceApiAssociationResponse,
+
     -- ** UpdateType
     UpdateType (UpdateType'),
     newUpdateType,
@@ -400,8 +454,20 @@ module Amazonka.AppSync
     -- ** FieldLogLevel
     FieldLogLevel (..),
 
+    -- ** GraphQLApiType
+    GraphQLApiType (..),
+
+    -- ** GraphQLApiVisibility
+    GraphQLApiVisibility (..),
+
+    -- ** MergeType
+    MergeType (..),
+
     -- ** OutputType
     OutputType (..),
+
+    -- ** Ownership
+    Ownership (..),
 
     -- ** RelationalDatabaseSourceType
     RelationalDatabaseSourceType (..),
@@ -414,6 +480,9 @@ module Amazonka.AppSync
 
     -- ** SchemaStatus
     SchemaStatus (..),
+
+    -- ** SourceApiAssociationStatus
+    SourceApiAssociationStatus (..),
 
     -- ** TypeDefinitionFormat
     TypeDefinitionFormat (..),
@@ -490,6 +559,10 @@ module Amazonka.AppSync
     EvaluateCodeErrorDetail (EvaluateCodeErrorDetail'),
     newEvaluateCodeErrorDetail,
 
+    -- ** EventBridgeDataSourceConfig
+    EventBridgeDataSourceConfig (EventBridgeDataSourceConfig'),
+    newEventBridgeDataSourceConfig,
+
     -- ** FunctionConfiguration
     FunctionConfiguration (FunctionConfiguration'),
     newFunctionConfiguration,
@@ -542,6 +615,18 @@ module Amazonka.AppSync
     Resolver (Resolver'),
     newResolver,
 
+    -- ** SourceApiAssociation
+    SourceApiAssociation (SourceApiAssociation'),
+    newSourceApiAssociation,
+
+    -- ** SourceApiAssociationConfig
+    SourceApiAssociationConfig (SourceApiAssociationConfig'),
+    newSourceApiAssociationConfig,
+
+    -- ** SourceApiAssociationSummary
+    SourceApiAssociationSummary (SourceApiAssociationSummary'),
+    newSourceApiAssociationSummary,
+
     -- ** SyncConfig
     SyncConfig (SyncConfig'),
     newSyncConfig,
@@ -557,6 +642,8 @@ module Amazonka.AppSync
 where
 
 import Amazonka.AppSync.AssociateApi
+import Amazonka.AppSync.AssociateMergedGraphqlApi
+import Amazonka.AppSync.AssociateSourceGraphqlApi
 import Amazonka.AppSync.CreateApiCache
 import Amazonka.AppSync.CreateApiKey
 import Amazonka.AppSync.CreateDataSource
@@ -574,6 +661,8 @@ import Amazonka.AppSync.DeleteGraphqlApi
 import Amazonka.AppSync.DeleteResolver
 import Amazonka.AppSync.DeleteType
 import Amazonka.AppSync.DisassociateApi
+import Amazonka.AppSync.DisassociateMergedGraphqlApi
+import Amazonka.AppSync.DisassociateSourceGraphqlApi
 import Amazonka.AppSync.EvaluateCode
 import Amazonka.AppSync.EvaluateMappingTemplate
 import Amazonka.AppSync.FlushApiCache
@@ -586,6 +675,7 @@ import Amazonka.AppSync.GetGraphqlApi
 import Amazonka.AppSync.GetIntrospectionSchema
 import Amazonka.AppSync.GetResolver
 import Amazonka.AppSync.GetSchemaCreationStatus
+import Amazonka.AppSync.GetSourceApiAssociation
 import Amazonka.AppSync.GetType
 import Amazonka.AppSync.Lens
 import Amazonka.AppSync.ListApiKeys
@@ -595,9 +685,12 @@ import Amazonka.AppSync.ListFunctions
 import Amazonka.AppSync.ListGraphqlApis
 import Amazonka.AppSync.ListResolvers
 import Amazonka.AppSync.ListResolversByFunction
+import Amazonka.AppSync.ListSourceApiAssociations
 import Amazonka.AppSync.ListTagsForResource
 import Amazonka.AppSync.ListTypes
+import Amazonka.AppSync.ListTypesByAssociation
 import Amazonka.AppSync.StartSchemaCreation
+import Amazonka.AppSync.StartSchemaMerge
 import Amazonka.AppSync.TagResource
 import Amazonka.AppSync.Types
 import Amazonka.AppSync.UntagResource
@@ -608,6 +701,7 @@ import Amazonka.AppSync.UpdateDomainName
 import Amazonka.AppSync.UpdateFunction
 import Amazonka.AppSync.UpdateGraphqlApi
 import Amazonka.AppSync.UpdateResolver
+import Amazonka.AppSync.UpdateSourceApiAssociation
 import Amazonka.AppSync.UpdateType
 import Amazonka.AppSync.Waiters
 

@@ -88,7 +88,8 @@ instance Data.FromJSON AppSyncRuntime where
 
 instance Prelude.Hashable AppSyncRuntime where
   hashWithSalt _salt AppSyncRuntime' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` runtimeVersion
 
 instance Prelude.NFData AppSyncRuntime where

@@ -45,6 +45,8 @@ library
   exposed-modules:
     Amazonka.AppSync
     Amazonka.AppSync.AssociateApi
+    Amazonka.AppSync.AssociateMergedGraphqlApi
+    Amazonka.AppSync.AssociateSourceGraphqlApi
     Amazonka.AppSync.CreateApiCache
     Amazonka.AppSync.CreateApiKey
     Amazonka.AppSync.CreateDataSource
@@ -62,6 +64,8 @@ library
     Amazonka.AppSync.DeleteResolver
     Amazonka.AppSync.DeleteType
     Amazonka.AppSync.DisassociateApi
+    Amazonka.AppSync.DisassociateMergedGraphqlApi
+    Amazonka.AppSync.DisassociateSourceGraphqlApi
     Amazonka.AppSync.EvaluateCode
     Amazonka.AppSync.EvaluateMappingTemplate
     Amazonka.AppSync.FlushApiCache
@@ -74,6 +78,7 @@ library
     Amazonka.AppSync.GetIntrospectionSchema
     Amazonka.AppSync.GetResolver
     Amazonka.AppSync.GetSchemaCreationStatus
+    Amazonka.AppSync.GetSourceApiAssociation
     Amazonka.AppSync.GetType
     Amazonka.AppSync.Lens
     Amazonka.AppSync.ListApiKeys
@@ -83,9 +88,12 @@ library
     Amazonka.AppSync.ListGraphqlApis
     Amazonka.AppSync.ListResolvers
     Amazonka.AppSync.ListResolversByFunction
+    Amazonka.AppSync.ListSourceApiAssociations
     Amazonka.AppSync.ListTagsForResource
     Amazonka.AppSync.ListTypes
+    Amazonka.AppSync.ListTypesByAssociation
     Amazonka.AppSync.StartSchemaCreation
+    Amazonka.AppSync.StartSchemaMerge
     Amazonka.AppSync.TagResource
     Amazonka.AppSync.Types
     Amazonka.AppSync.Types.AdditionalAuthenticationProvider
@@ -116,17 +124,22 @@ library
     Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
     Amazonka.AppSync.Types.ErrorDetail
     Amazonka.AppSync.Types.EvaluateCodeErrorDetail
+    Amazonka.AppSync.Types.EventBridgeDataSourceConfig
     Amazonka.AppSync.Types.FieldLogLevel
     Amazonka.AppSync.Types.FunctionConfiguration
     Amazonka.AppSync.Types.GraphqlApi
+    Amazonka.AppSync.Types.GraphQLApiType
+    Amazonka.AppSync.Types.GraphQLApiVisibility
     Amazonka.AppSync.Types.HttpDataSourceConfig
     Amazonka.AppSync.Types.LambdaAuthorizerConfig
     Amazonka.AppSync.Types.LambdaConflictHandlerConfig
     Amazonka.AppSync.Types.LambdaDataSourceConfig
     Amazonka.AppSync.Types.LogConfig
+    Amazonka.AppSync.Types.MergeType
     Amazonka.AppSync.Types.OpenIDConnectConfig
     Amazonka.AppSync.Types.OpenSearchServiceDataSourceConfig
     Amazonka.AppSync.Types.OutputType
+    Amazonka.AppSync.Types.Ownership
     Amazonka.AppSync.Types.PipelineConfig
     Amazonka.AppSync.Types.RdsHttpEndpointConfig
     Amazonka.AppSync.Types.RelationalDatabaseDataSourceConfig
@@ -135,6 +148,10 @@ library
     Amazonka.AppSync.Types.ResolverKind
     Amazonka.AppSync.Types.RuntimeName
     Amazonka.AppSync.Types.SchemaStatus
+    Amazonka.AppSync.Types.SourceApiAssociation
+    Amazonka.AppSync.Types.SourceApiAssociationConfig
+    Amazonka.AppSync.Types.SourceApiAssociationStatus
+    Amazonka.AppSync.Types.SourceApiAssociationSummary
     Amazonka.AppSync.Types.SyncConfig
     Amazonka.AppSync.Types.Type
     Amazonka.AppSync.Types.TypeDefinitionFormat
@@ -147,6 +164,7 @@ library
     Amazonka.AppSync.UpdateFunction
     Amazonka.AppSync.UpdateGraphqlApi
     Amazonka.AppSync.UpdateResolver
+    Amazonka.AppSync.UpdateSourceApiAssociation
     Amazonka.AppSync.UpdateType
     Amazonka.AppSync.Waiters
 

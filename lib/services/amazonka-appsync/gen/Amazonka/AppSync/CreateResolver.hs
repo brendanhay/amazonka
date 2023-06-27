@@ -275,7 +275,8 @@ instance Core.AWSRequest CreateResolver where
 
 instance Prelude.Hashable CreateResolver where
   hashWithSalt _salt CreateResolver' {..} =
-    _salt `Prelude.hashWithSalt` cachingConfig
+    _salt
+      `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` kind

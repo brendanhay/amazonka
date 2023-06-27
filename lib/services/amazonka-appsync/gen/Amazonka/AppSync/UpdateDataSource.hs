@@ -30,6 +30,7 @@ module Amazonka.AppSync.UpdateDataSource
     updateDataSource_description,
     updateDataSource_dynamodbConfig,
     updateDataSource_elasticsearchConfig,
+    updateDataSource_eventBridgeConfig,
     updateDataSource_httpConfig,
     updateDataSource_lambdaConfig,
     updateDataSource_openSearchServiceConfig,
@@ -70,6 +71,8 @@ data UpdateDataSource = UpdateDataSource'
     -- UpdateDataSourceRequest$openSearchServiceConfig to update an OpenSearch
     -- data source.
     elasticsearchConfig :: Prelude.Maybe ElasticsearchDataSourceConfig,
+    -- | The new Amazon EventBridge settings.
+    eventBridgeConfig :: Prelude.Maybe EventBridgeDataSourceConfig,
     -- | The new HTTP endpoint configuration.
     httpConfig :: Prelude.Maybe HttpDataSourceConfig,
     -- | The new Lambda configuration.
@@ -108,6 +111,8 @@ data UpdateDataSource = UpdateDataSource'
 -- UpdateDataSourceRequest$openSearchServiceConfig to update an OpenSearch
 -- data source.
 --
+-- 'eventBridgeConfig', 'updateDataSource_eventBridgeConfig' - The new Amazon EventBridge settings.
+--
 -- 'httpConfig', 'updateDataSource_httpConfig' - The new HTTP endpoint configuration.
 --
 -- 'lambdaConfig', 'updateDataSource_lambdaConfig' - The new Lambda configuration.
@@ -136,6 +141,7 @@ newUpdateDataSource pApiId_ pName_ pType_ =
     { description = Prelude.Nothing,
       dynamodbConfig = Prelude.Nothing,
       elasticsearchConfig = Prelude.Nothing,
+      eventBridgeConfig = Prelude.Nothing,
       httpConfig = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
       openSearchServiceConfig = Prelude.Nothing,
@@ -162,6 +168,10 @@ updateDataSource_dynamodbConfig = Lens.lens (\UpdateDataSource' {dynamodbConfig}
 -- data source.
 updateDataSource_elasticsearchConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe ElasticsearchDataSourceConfig)
 updateDataSource_elasticsearchConfig = Lens.lens (\UpdateDataSource' {elasticsearchConfig} -> elasticsearchConfig) (\s@UpdateDataSource' {} a -> s {elasticsearchConfig = a} :: UpdateDataSource)
+
+-- | The new Amazon EventBridge settings.
+updateDataSource_eventBridgeConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe EventBridgeDataSourceConfig)
+updateDataSource_eventBridgeConfig = Lens.lens (\UpdateDataSource' {eventBridgeConfig} -> eventBridgeConfig) (\s@UpdateDataSource' {} a -> s {eventBridgeConfig = a} :: UpdateDataSource)
 
 -- | The new HTTP endpoint configuration.
 updateDataSource_httpConfig :: Lens.Lens' UpdateDataSource (Prelude.Maybe HttpDataSourceConfig)
@@ -211,9 +221,11 @@ instance Core.AWSRequest UpdateDataSource where
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dynamodbConfig
       `Prelude.hashWithSalt` elasticsearchConfig
+      `Prelude.hashWithSalt` eventBridgeConfig
       `Prelude.hashWithSalt` httpConfig
       `Prelude.hashWithSalt` lambdaConfig
       `Prelude.hashWithSalt` openSearchServiceConfig
@@ -228,6 +240,7 @@ instance Prelude.NFData UpdateDataSource where
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf dynamodbConfig
       `Prelude.seq` Prelude.rnf elasticsearchConfig
+      `Prelude.seq` Prelude.rnf eventBridgeConfig
       `Prelude.seq` Prelude.rnf httpConfig
       `Prelude.seq` Prelude.rnf lambdaConfig
       `Prelude.seq` Prelude.rnf openSearchServiceConfig
@@ -257,6 +270,8 @@ instance Data.ToJSON UpdateDataSource where
               Prelude.<$> dynamodbConfig,
             ("elasticsearchConfig" Data..=)
               Prelude.<$> elasticsearchConfig,
+            ("eventBridgeConfig" Data..=)
+              Prelude.<$> eventBridgeConfig,
             ("httpConfig" Data..=) Prelude.<$> httpConfig,
             ("lambdaConfig" Data..=) Prelude.<$> lambdaConfig,
             ("openSearchServiceConfig" Data..=)

@@ -221,7 +221,8 @@ instance Data.FromJSON Resolver where
 
 instance Prelude.Hashable Resolver where
   hashWithSalt _salt Resolver' {..} =
-    _salt `Prelude.hashWithSalt` cachingConfig
+    _salt
+      `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` fieldName

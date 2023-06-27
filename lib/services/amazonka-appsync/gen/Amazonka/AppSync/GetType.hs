@@ -114,7 +114,8 @@ instance Core.AWSRequest GetType where
 
 instance Prelude.Hashable GetType where
   hashWithSalt _salt GetType' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` typeName
       `Prelude.hashWithSalt` format
 

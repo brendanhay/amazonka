@@ -87,7 +87,8 @@ instance Data.FromJSON DeltaSyncConfig where
 
 instance Prelude.Hashable DeltaSyncConfig where
   hashWithSalt _salt DeltaSyncConfig' {..} =
-    _salt `Prelude.hashWithSalt` baseTableTTL
+    _salt
+      `Prelude.hashWithSalt` baseTableTTL
       `Prelude.hashWithSalt` deltaSyncTableName
       `Prelude.hashWithSalt` deltaSyncTableTTL
 

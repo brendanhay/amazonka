@@ -53,7 +53,9 @@ import qualified Amazonka.Response as Response
 data ListDomainNames = ListDomainNames'
   { -- | The maximum number of results that you want the request to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The API token.
+    -- | An identifier that was returned from the previous call to this
+    -- operation, which you can use to return the next set of items in the
+    -- list.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +70,9 @@ data ListDomainNames = ListDomainNames'
 --
 -- 'maxResults', 'listDomainNames_maxResults' - The maximum number of results that you want the request to return.
 --
--- 'nextToken', 'listDomainNames_nextToken' - The API token.
+-- 'nextToken', 'listDomainNames_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which you can use to return the next set of items in the
+-- list.
 newListDomainNames ::
   ListDomainNames
 newListDomainNames =
@@ -81,7 +85,9 @@ newListDomainNames =
 listDomainNames_maxResults :: Lens.Lens' ListDomainNames (Prelude.Maybe Prelude.Natural)
 listDomainNames_maxResults = Lens.lens (\ListDomainNames' {maxResults} -> maxResults) (\s@ListDomainNames' {} a -> s {maxResults = a} :: ListDomainNames)
 
--- | The API token.
+-- | An identifier that was returned from the previous call to this
+-- operation, which you can use to return the next set of items in the
+-- list.
 listDomainNames_nextToken :: Lens.Lens' ListDomainNames (Prelude.Maybe Prelude.Text)
 listDomainNames_nextToken = Lens.lens (\ListDomainNames' {nextToken} -> nextToken) (\s@ListDomainNames' {} a -> s {nextToken = a} :: ListDomainNames)
 
@@ -95,7 +101,8 @@ instance Core.AWSRequest ListDomainNames where
     Response.receiveJSON
       ( \s h x ->
           ListDomainNamesResponse'
-            Prelude.<$> ( x Data..?> "domainNameConfigs"
+            Prelude.<$> ( x
+                            Data..?> "domainNameConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -104,7 +111,8 @@ instance Core.AWSRequest ListDomainNames where
 
 instance Prelude.Hashable ListDomainNames where
   hashWithSalt _salt ListDomainNames' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomainNames where
@@ -137,7 +145,9 @@ instance Data.ToQuery ListDomainNames where
 data ListDomainNamesResponse = ListDomainNamesResponse'
   { -- | Lists configurations for multiple domain names.
     domainNameConfigs :: Prelude.Maybe [DomainNameConfig],
-    -- | The API token.
+    -- | An identifier that was returned from the previous call to this
+    -- operation, which you can use to return the next set of items in the
+    -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -154,7 +164,9 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 --
 -- 'domainNameConfigs', 'listDomainNamesResponse_domainNameConfigs' - Lists configurations for multiple domain names.
 --
--- 'nextToken', 'listDomainNamesResponse_nextToken' - The API token.
+-- 'nextToken', 'listDomainNamesResponse_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which you can use to return the next set of items in the
+-- list.
 --
 -- 'httpStatus', 'listDomainNamesResponse_httpStatus' - The response's http status code.
 newListDomainNamesResponse ::
@@ -173,7 +185,9 @@ newListDomainNamesResponse pHttpStatus_ =
 listDomainNamesResponse_domainNameConfigs :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe [DomainNameConfig])
 listDomainNamesResponse_domainNameConfigs = Lens.lens (\ListDomainNamesResponse' {domainNameConfigs} -> domainNameConfigs) (\s@ListDomainNamesResponse' {} a -> s {domainNameConfigs = a} :: ListDomainNamesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The API token.
+-- | An identifier that was returned from the previous call to this
+-- operation, which you can use to return the next set of items in the
+-- list.
 listDomainNamesResponse_nextToken :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe Prelude.Text)
 listDomainNamesResponse_nextToken = Lens.lens (\ListDomainNamesResponse' {nextToken} -> nextToken) (\s@ListDomainNamesResponse' {} a -> s {nextToken = a} :: ListDomainNamesResponse)
 

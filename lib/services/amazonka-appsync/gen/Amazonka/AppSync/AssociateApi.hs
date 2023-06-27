@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 data AssociateApi = AssociateApi'
   { -- | The domain name.
     domainName :: Prelude.Text,
-    -- | The API ID.
+    -- | The API ID. Private APIs can not be associated with custom domains.
     apiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +67,7 @@ data AssociateApi = AssociateApi'
 --
 -- 'domainName', 'associateApi_domainName' - The domain name.
 --
--- 'apiId', 'associateApi_apiId' - The API ID.
+-- 'apiId', 'associateApi_apiId' - The API ID. Private APIs can not be associated with custom domains.
 newAssociateApi ::
   -- | 'domainName'
   Prelude.Text ->
@@ -84,7 +84,7 @@ newAssociateApi pDomainName_ pApiId_ =
 associateApi_domainName :: Lens.Lens' AssociateApi Prelude.Text
 associateApi_domainName = Lens.lens (\AssociateApi' {domainName} -> domainName) (\s@AssociateApi' {} a -> s {domainName = a} :: AssociateApi)
 
--- | The API ID.
+-- | The API ID. Private APIs can not be associated with custom domains.
 associateApi_apiId :: Lens.Lens' AssociateApi Prelude.Text
 associateApi_apiId = Lens.lens (\AssociateApi' {apiId} -> apiId) (\s@AssociateApi' {} a -> s {apiId = a} :: AssociateApi)
 
@@ -102,7 +102,8 @@ instance Core.AWSRequest AssociateApi where
 
 instance Prelude.Hashable AssociateApi where
   hashWithSalt _salt AssociateApi' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` apiId
 
 instance Prelude.NFData AssociateApi where

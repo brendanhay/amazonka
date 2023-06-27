@@ -31,7 +31,9 @@ module Amazonka.AppSync.UpdateGraphqlApi
     updateGraphqlApi_authenticationType,
     updateGraphqlApi_lambdaAuthorizerConfig,
     updateGraphqlApi_logConfig,
+    updateGraphqlApi_mergedApiExecutionRoleArn,
     updateGraphqlApi_openIDConnectConfig,
+    updateGraphqlApi_ownerContact,
     updateGraphqlApi_userPoolConfig,
     updateGraphqlApi_xrayEnabled,
     updateGraphqlApi_apiId,
@@ -65,8 +67,18 @@ data UpdateGraphqlApi = UpdateGraphqlApi'
     lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
     -- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
     logConfig :: Prelude.Maybe LogConfig,
+    -- | The Identity and Access Management service role ARN for a merged API.
+    -- The AppSync service assumes this role on behalf of the Merged API to
+    -- validate access to source APIs at runtime and to prompt the @AUTO_MERGE@
+    -- to update the merged API endpoint with the source API changes
+    -- automatically.
+    mergedApiExecutionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The OpenID Connect configuration for the @GraphqlApi@ object.
     openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
+    -- | The owner contact information for an API resource.
+    --
+    -- This field accepts any string input with a length of 0 - 256 characters.
+    ownerContact :: Prelude.Maybe Prelude.Text,
     -- | The new Amazon Cognito user pool configuration for the @~GraphqlApi@
     -- object.
     userPoolConfig :: Prelude.Maybe UserPoolConfig,
@@ -95,7 +107,17 @@ data UpdateGraphqlApi = UpdateGraphqlApi'
 --
 -- 'logConfig', 'updateGraphqlApi_logConfig' - The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.
 --
+-- 'mergedApiExecutionRoleArn', 'updateGraphqlApi_mergedApiExecutionRoleArn' - The Identity and Access Management service role ARN for a merged API.
+-- The AppSync service assumes this role on behalf of the Merged API to
+-- validate access to source APIs at runtime and to prompt the @AUTO_MERGE@
+-- to update the merged API endpoint with the source API changes
+-- automatically.
+--
 -- 'openIDConnectConfig', 'updateGraphqlApi_openIDConnectConfig' - The OpenID Connect configuration for the @GraphqlApi@ object.
+--
+-- 'ownerContact', 'updateGraphqlApi_ownerContact' - The owner contact information for an API resource.
+--
+-- This field accepts any string input with a length of 0 - 256 characters.
 --
 -- 'userPoolConfig', 'updateGraphqlApi_userPoolConfig' - The new Amazon Cognito user pool configuration for the @~GraphqlApi@
 -- object.
@@ -118,7 +140,9 @@ newUpdateGraphqlApi pApiId_ pName_ =
       authenticationType = Prelude.Nothing,
       lambdaAuthorizerConfig = Prelude.Nothing,
       logConfig = Prelude.Nothing,
+      mergedApiExecutionRoleArn = Prelude.Nothing,
       openIDConnectConfig = Prelude.Nothing,
+      ownerContact = Prelude.Nothing,
       userPoolConfig = Prelude.Nothing,
       xrayEnabled = Prelude.Nothing,
       apiId = pApiId_,
@@ -141,9 +165,23 @@ updateGraphqlApi_lambdaAuthorizerConfig = Lens.lens (\UpdateGraphqlApi' {lambdaA
 updateGraphqlApi_logConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe LogConfig)
 updateGraphqlApi_logConfig = Lens.lens (\UpdateGraphqlApi' {logConfig} -> logConfig) (\s@UpdateGraphqlApi' {} a -> s {logConfig = a} :: UpdateGraphqlApi)
 
+-- | The Identity and Access Management service role ARN for a merged API.
+-- The AppSync service assumes this role on behalf of the Merged API to
+-- validate access to source APIs at runtime and to prompt the @AUTO_MERGE@
+-- to update the merged API endpoint with the source API changes
+-- automatically.
+updateGraphqlApi_mergedApiExecutionRoleArn :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe Prelude.Text)
+updateGraphqlApi_mergedApiExecutionRoleArn = Lens.lens (\UpdateGraphqlApi' {mergedApiExecutionRoleArn} -> mergedApiExecutionRoleArn) (\s@UpdateGraphqlApi' {} a -> s {mergedApiExecutionRoleArn = a} :: UpdateGraphqlApi)
+
 -- | The OpenID Connect configuration for the @GraphqlApi@ object.
 updateGraphqlApi_openIDConnectConfig :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe OpenIDConnectConfig)
 updateGraphqlApi_openIDConnectConfig = Lens.lens (\UpdateGraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@UpdateGraphqlApi' {} a -> s {openIDConnectConfig = a} :: UpdateGraphqlApi)
+
+-- | The owner contact information for an API resource.
+--
+-- This field accepts any string input with a length of 0 - 256 characters.
+updateGraphqlApi_ownerContact :: Lens.Lens' UpdateGraphqlApi (Prelude.Maybe Prelude.Text)
+updateGraphqlApi_ownerContact = Lens.lens (\UpdateGraphqlApi' {ownerContact} -> ownerContact) (\s@UpdateGraphqlApi' {} a -> s {ownerContact = a} :: UpdateGraphqlApi)
 
 -- | The new Amazon Cognito user pool configuration for the @~GraphqlApi@
 -- object.
@@ -183,7 +221,9 @@ instance Prelude.Hashable UpdateGraphqlApi where
       `Prelude.hashWithSalt` authenticationType
       `Prelude.hashWithSalt` lambdaAuthorizerConfig
       `Prelude.hashWithSalt` logConfig
+      `Prelude.hashWithSalt` mergedApiExecutionRoleArn
       `Prelude.hashWithSalt` openIDConnectConfig
+      `Prelude.hashWithSalt` ownerContact
       `Prelude.hashWithSalt` userPoolConfig
       `Prelude.hashWithSalt` xrayEnabled
       `Prelude.hashWithSalt` apiId
@@ -195,7 +235,9 @@ instance Prelude.NFData UpdateGraphqlApi where
       `Prelude.seq` Prelude.rnf authenticationType
       `Prelude.seq` Prelude.rnf lambdaAuthorizerConfig
       `Prelude.seq` Prelude.rnf logConfig
+      `Prelude.seq` Prelude.rnf mergedApiExecutionRoleArn
       `Prelude.seq` Prelude.rnf openIDConnectConfig
+      `Prelude.seq` Prelude.rnf ownerContact
       `Prelude.seq` Prelude.rnf userPoolConfig
       `Prelude.seq` Prelude.rnf xrayEnabled
       `Prelude.seq` Prelude.rnf apiId
@@ -223,8 +265,11 @@ instance Data.ToJSON UpdateGraphqlApi where
             ("lambdaAuthorizerConfig" Data..=)
               Prelude.<$> lambdaAuthorizerConfig,
             ("logConfig" Data..=) Prelude.<$> logConfig,
+            ("mergedApiExecutionRoleArn" Data..=)
+              Prelude.<$> mergedApiExecutionRoleArn,
             ("openIDConnectConfig" Data..=)
               Prelude.<$> openIDConnectConfig,
+            ("ownerContact" Data..=) Prelude.<$> ownerContact,
             ("userPoolConfig" Data..=)
               Prelude.<$> userPoolConfig,
             ("xrayEnabled" Data..=) Prelude.<$> xrayEnabled,

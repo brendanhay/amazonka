@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteFunction where
 
 instance Prelude.Hashable DeleteFunction where
   hashWithSalt _salt DeleteFunction' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` functionId
 
 instance Prelude.NFData DeleteFunction where

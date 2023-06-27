@@ -29,8 +29,10 @@ module Amazonka.AppSync.ListGraphqlApis
     newListGraphqlApis,
 
     -- * Request Lenses
+    listGraphqlApis_apiType,
     listGraphqlApis_maxResults,
     listGraphqlApis_nextToken,
+    listGraphqlApis_owner,
 
     -- * Destructuring the Response
     ListGraphqlApisResponse (..),
@@ -53,12 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListGraphqlApis' smart constructor.
 data ListGraphqlApis = ListGraphqlApis'
-  { -- | The maximum number of results that you want the request to return.
+  { -- | The value that indicates whether the GraphQL API is a standard API
+    -- (@GRAPHQL@) or merged API (@MERGED@).
+    apiType :: Prelude.Maybe GraphQLApiType,
+    -- | The maximum number of results that you want the request to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An identifier that was returned from the previous call to this
     -- operation, which you can use to return the next set of items in the
     -- list.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The account owner of the GraphQL API.
+    owner :: Prelude.Maybe Ownership
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,18 +77,30 @@ data ListGraphqlApis = ListGraphqlApis'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'apiType', 'listGraphqlApis_apiType' - The value that indicates whether the GraphQL API is a standard API
+-- (@GRAPHQL@) or merged API (@MERGED@).
+--
 -- 'maxResults', 'listGraphqlApis_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'nextToken', 'listGraphqlApis_nextToken' - An identifier that was returned from the previous call to this
 -- operation, which you can use to return the next set of items in the
 -- list.
+--
+-- 'owner', 'listGraphqlApis_owner' - The account owner of the GraphQL API.
 newListGraphqlApis ::
   ListGraphqlApis
 newListGraphqlApis =
   ListGraphqlApis'
-    { maxResults = Prelude.Nothing,
-      nextToken = Prelude.Nothing
+    { apiType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      owner = Prelude.Nothing
     }
+
+-- | The value that indicates whether the GraphQL API is a standard API
+-- (@GRAPHQL@) or merged API (@MERGED@).
+listGraphqlApis_apiType :: Lens.Lens' ListGraphqlApis (Prelude.Maybe GraphQLApiType)
+listGraphqlApis_apiType = Lens.lens (\ListGraphqlApis' {apiType} -> apiType) (\s@ListGraphqlApis' {} a -> s {apiType = a} :: ListGraphqlApis)
 
 -- | The maximum number of results that you want the request to return.
 listGraphqlApis_maxResults :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Natural)
@@ -93,27 +112,31 @@ listGraphqlApis_maxResults = Lens.lens (\ListGraphqlApis' {maxResults} -> maxRes
 listGraphqlApis_nextToken :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Prelude.Text)
 listGraphqlApis_nextToken = Lens.lens (\ListGraphqlApis' {nextToken} -> nextToken) (\s@ListGraphqlApis' {} a -> s {nextToken = a} :: ListGraphqlApis)
 
+-- | The account owner of the GraphQL API.
+listGraphqlApis_owner :: Lens.Lens' ListGraphqlApis (Prelude.Maybe Ownership)
+listGraphqlApis_owner = Lens.lens (\ListGraphqlApis' {owner} -> owner) (\s@ListGraphqlApis' {} a -> s {owner = a} :: ListGraphqlApis)
+
 instance Core.AWSPager ListGraphqlApis where
   page rq rs
     | Core.stop
         ( rs
             Lens.^? listGraphqlApisResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGraphqlApisResponse_graphqlApis
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGraphqlApis_nextToken
           Lens..~ rs
           Lens.^? listGraphqlApisResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGraphqlApis where
   type
@@ -132,13 +155,18 @@ instance Core.AWSRequest ListGraphqlApis where
 
 instance Prelude.Hashable ListGraphqlApis where
   hashWithSalt _salt ListGraphqlApis' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` apiType
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` owner
 
 instance Prelude.NFData ListGraphqlApis where
   rnf ListGraphqlApis' {..} =
-    Prelude.rnf maxResults
+    Prelude.rnf apiType
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf owner
 
 instance Data.ToHeaders ListGraphqlApis where
   toHeaders =
@@ -157,8 +185,10 @@ instance Data.ToPath ListGraphqlApis where
 instance Data.ToQuery ListGraphqlApis where
   toQuery ListGraphqlApis' {..} =
     Prelude.mconcat
-      [ "maxResults" Data.=: maxResults,
-        "nextToken" Data.=: nextToken
+      [ "apiType" Data.=: apiType,
+        "maxResults" Data.=: maxResults,
+        "nextToken" Data.=: nextToken,
+        "owner" Data.=: owner
       ]
 
 -- | /See:/ 'newListGraphqlApisResponse' smart constructor.

@@ -187,7 +187,8 @@ instance Data.FromJSON FunctionConfiguration where
 
 instance Prelude.Hashable FunctionConfiguration where
   hashWithSalt _salt FunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` functionArn

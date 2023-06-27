@@ -86,7 +86,8 @@ instance Data.FromJSON AuthorizationConfig where
 
 instance Prelude.Hashable AuthorizationConfig where
   hashWithSalt _salt AuthorizationConfig' {..} =
-    _salt `Prelude.hashWithSalt` awsIamConfig
+    _salt
+      `Prelude.hashWithSalt` awsIamConfig
       `Prelude.hashWithSalt` authorizationType
 
 instance Prelude.NFData AuthorizationConfig where

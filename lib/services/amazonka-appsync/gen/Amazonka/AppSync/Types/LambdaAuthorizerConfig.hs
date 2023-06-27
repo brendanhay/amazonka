@@ -30,10 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLambdaAuthorizerConfig' smart constructor.
 data LambdaAuthorizerConfig = LambdaAuthorizerConfig'
-  { -- | The number of seconds a response should be cached for. The default is 5
-    -- minutes (300 seconds). The Lambda function can override this by
-    -- returning a @ttlOverride@ key in its response. A value of 0 disables
-    -- caching of responses.
+  { -- | The number of seconds a response should be cached for. The default is 0
+    -- seconds, which disables caching. If you don\'t specify a value for
+    -- @authorizerResultTtlInSeconds@, the default value is used. The maximum
+    -- value is one hour (3600 seconds). The Lambda function can override this
+    -- by returning a @ttlOverride@ key in its response.
     authorizerResultTtlInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A regular expression for validation of tokens before the Lambda function
     -- is called.
@@ -60,10 +61,11 @@ data LambdaAuthorizerConfig = LambdaAuthorizerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizerResultTtlInSeconds', 'lambdaAuthorizerConfig_authorizerResultTtlInSeconds' - The number of seconds a response should be cached for. The default is 5
--- minutes (300 seconds). The Lambda function can override this by
--- returning a @ttlOverride@ key in its response. A value of 0 disables
--- caching of responses.
+-- 'authorizerResultTtlInSeconds', 'lambdaAuthorizerConfig_authorizerResultTtlInSeconds' - The number of seconds a response should be cached for. The default is 0
+-- seconds, which disables caching. If you don\'t specify a value for
+-- @authorizerResultTtlInSeconds@, the default value is used. The maximum
+-- value is one hour (3600 seconds). The Lambda function can override this
+-- by returning a @ttlOverride@ key in its response.
 --
 -- 'identityValidationExpression', 'lambdaAuthorizerConfig_identityValidationExpression' - A regular expression for validation of tokens before the Lambda function
 -- is called.
@@ -90,10 +92,11 @@ newLambdaAuthorizerConfig pAuthorizerUri_ =
       authorizerUri = pAuthorizerUri_
     }
 
--- | The number of seconds a response should be cached for. The default is 5
--- minutes (300 seconds). The Lambda function can override this by
--- returning a @ttlOverride@ key in its response. A value of 0 disables
--- caching of responses.
+-- | The number of seconds a response should be cached for. The default is 0
+-- seconds, which disables caching. If you don\'t specify a value for
+-- @authorizerResultTtlInSeconds@, the default value is used. The maximum
+-- value is one hour (3600 seconds). The Lambda function can override this
+-- by returning a @ttlOverride@ key in its response.
 lambdaAuthorizerConfig_authorizerResultTtlInSeconds :: Lens.Lens' LambdaAuthorizerConfig (Prelude.Maybe Prelude.Natural)
 lambdaAuthorizerConfig_authorizerResultTtlInSeconds = Lens.lens (\LambdaAuthorizerConfig' {authorizerResultTtlInSeconds} -> authorizerResultTtlInSeconds) (\s@LambdaAuthorizerConfig' {} a -> s {authorizerResultTtlInSeconds = a} :: LambdaAuthorizerConfig)
 

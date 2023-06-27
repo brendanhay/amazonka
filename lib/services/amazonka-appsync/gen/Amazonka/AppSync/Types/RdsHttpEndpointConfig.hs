@@ -108,7 +108,8 @@ instance Data.FromJSON RdsHttpEndpointConfig where
 
 instance Prelude.Hashable RdsHttpEndpointConfig where
   hashWithSalt _salt RdsHttpEndpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` awsSecretStoreArn
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` dbClusterIdentifier

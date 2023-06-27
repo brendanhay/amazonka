@@ -272,7 +272,8 @@ instance Core.AWSRequest UpdateResolver where
 
 instance Prelude.Hashable UpdateResolver where
   hashWithSalt _salt UpdateResolver' {..} =
-    _salt `Prelude.hashWithSalt` cachingConfig
+    _salt
+      `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` dataSourceName
       `Prelude.hashWithSalt` kind

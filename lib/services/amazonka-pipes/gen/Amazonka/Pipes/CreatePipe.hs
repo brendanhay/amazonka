@@ -207,7 +207,8 @@ instance Core.AWSRequest CreatePipe where
 
 instance Prelude.Hashable CreatePipe where
   hashWithSalt _salt CreatePipe' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` enrichment
       `Prelude.hashWithSalt` enrichmentParameters

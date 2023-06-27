@@ -146,7 +146,8 @@ instance
       "PipeSourceSelfManagedKafkaParameters"
       ( \x ->
           PipeSourceSelfManagedKafkaParameters'
-            Prelude.<$> ( x Data..:? "AdditionalBootstrapServers"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalBootstrapServers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "BatchSize")

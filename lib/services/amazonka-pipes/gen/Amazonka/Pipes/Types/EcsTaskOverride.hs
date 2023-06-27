@@ -159,13 +159,15 @@ instance Data.FromJSON EcsTaskOverride where
       "EcsTaskOverride"
       ( \x ->
           EcsTaskOverride'
-            Prelude.<$> ( x Data..:? "ContainerOverrides"
+            Prelude.<$> ( x
+                            Data..:? "ContainerOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Cpu")
             Prelude.<*> (x Data..:? "EphemeralStorage")
             Prelude.<*> (x Data..:? "ExecutionRoleArn")
-            Prelude.<*> ( x Data..:? "InferenceAcceleratorOverrides"
+            Prelude.<*> ( x
+                            Data..:? "InferenceAcceleratorOverrides"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Memory")
@@ -174,7 +176,8 @@ instance Data.FromJSON EcsTaskOverride where
 
 instance Prelude.Hashable EcsTaskOverride where
   hashWithSalt _salt EcsTaskOverride' {..} =
-    _salt `Prelude.hashWithSalt` containerOverrides
+    _salt
+      `Prelude.hashWithSalt` containerOverrides
       `Prelude.hashWithSalt` cpu
       `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` executionRoleArn

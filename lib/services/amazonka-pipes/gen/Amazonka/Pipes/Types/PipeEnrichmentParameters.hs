@@ -106,7 +106,8 @@ instance Data.FromJSON PipeEnrichmentParameters where
 
 instance Prelude.Hashable PipeEnrichmentParameters where
   hashWithSalt _salt PipeEnrichmentParameters' {..} =
-    _salt `Prelude.hashWithSalt` httpParameters
+    _salt
+      `Prelude.hashWithSalt` httpParameters
       `Prelude.hashWithSalt` inputTemplate
 
 instance Prelude.NFData PipeEnrichmentParameters where

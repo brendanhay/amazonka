@@ -84,7 +84,8 @@ instance
     PipeTargetSqsQueueParameters
   where
   hashWithSalt _salt PipeTargetSqsQueueParameters' {..} =
-    _salt `Prelude.hashWithSalt` messageDeduplicationId
+    _salt
+      `Prelude.hashWithSalt` messageDeduplicationId
       `Prelude.hashWithSalt` messageGroupId
 
 instance Prelude.NFData PipeTargetSqsQueueParameters where

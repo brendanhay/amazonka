@@ -71,7 +71,8 @@ instance
   hashWithSalt
     _salt
     UpdatePipeSourceSqsQueueParameters' {..} =
-      _salt `Prelude.hashWithSalt` batchSize
+      _salt
+        `Prelude.hashWithSalt` batchSize
         `Prelude.hashWithSalt` maximumBatchingWindowInSeconds
 
 instance

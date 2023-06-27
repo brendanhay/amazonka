@@ -162,20 +162,23 @@ instance Core.AWSPager ListPipes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listPipesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listPipesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPipesResponse_pipes Prelude.. Lens._Just
+            Lens.^? listPipesResponse_pipes
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPipes_nextToken
           Lens..~ rs
-          Lens.^? listPipesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listPipesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipes where
   type AWSResponse ListPipes = ListPipesResponse
@@ -192,7 +195,8 @@ instance Core.AWSRequest ListPipes where
 
 instance Prelude.Hashable ListPipes where
   hashWithSalt _salt ListPipes' {..} =
-    _salt `Prelude.hashWithSalt` currentState
+    _salt
+      `Prelude.hashWithSalt` currentState
       `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` namePrefix

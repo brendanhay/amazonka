@@ -98,12 +98,14 @@ instance Data.FromJSON EcsEnvironmentFile where
       "EcsEnvironmentFile"
       ( \x ->
           EcsEnvironmentFile'
-            Prelude.<$> (x Data..: "type") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "type")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance Prelude.Hashable EcsEnvironmentFile where
   hashWithSalt _salt EcsEnvironmentFile' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData EcsEnvironmentFile where

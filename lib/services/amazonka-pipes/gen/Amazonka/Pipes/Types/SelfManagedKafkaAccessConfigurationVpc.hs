@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     SelfManagedKafkaAccessConfigurationVpc' {..} =
-      _salt `Prelude.hashWithSalt` securityGroup
+      _salt
+        `Prelude.hashWithSalt` securityGroup
         `Prelude.hashWithSalt` subnets
 
 instance

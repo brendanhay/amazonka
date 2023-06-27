@@ -80,12 +80,14 @@ instance Data.FromJSON BatchEnvironmentVariable where
       "BatchEnvironmentVariable"
       ( \x ->
           BatchEnvironmentVariable'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable BatchEnvironmentVariable where
   hashWithSalt _salt BatchEnvironmentVariable' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData BatchEnvironmentVariable where

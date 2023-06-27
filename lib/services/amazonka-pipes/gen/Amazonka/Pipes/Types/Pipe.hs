@@ -164,7 +164,8 @@ instance Data.FromJSON Pipe where
 
 instance Prelude.Hashable Pipe where
   hashWithSalt _salt Pipe' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` currentState
       `Prelude.hashWithSalt` desiredState

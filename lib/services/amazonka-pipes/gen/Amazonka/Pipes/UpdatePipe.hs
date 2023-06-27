@@ -30,7 +30,9 @@
 -- Parameters objects, that field will be set to its system-default value
 -- after the update.
 --
--- >  <p>For more information about pipes, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html"> Amazon EventBridge Pipes</a> in the Amazon EventBridge User Guide.</p>
+-- For more information about pipes, see
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html Amazon EventBridge Pipes>
+-- in the Amazon EventBridge User Guide.
 module Amazonka.Pipes.UpdatePipe
   ( -- * Creating a Request
     UpdatePipe (..),
@@ -192,7 +194,8 @@ instance Core.AWSRequest UpdatePipe where
 
 instance Prelude.Hashable UpdatePipe where
   hashWithSalt _salt UpdatePipe' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` enrichment
       `Prelude.hashWithSalt` enrichmentParameters

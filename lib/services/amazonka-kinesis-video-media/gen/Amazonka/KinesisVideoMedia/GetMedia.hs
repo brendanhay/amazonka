@@ -164,7 +164,8 @@ instance Core.AWSRequest GetMedia where
 
 instance Prelude.Hashable GetMedia where
   hashWithSalt _salt GetMedia' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` startSelector
 

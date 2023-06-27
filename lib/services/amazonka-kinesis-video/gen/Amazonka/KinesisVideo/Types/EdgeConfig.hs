@@ -121,7 +121,8 @@ instance Data.FromJSON EdgeConfig where
 
 instance Prelude.Hashable EdgeConfig where
   hashWithSalt _salt EdgeConfig' {..} =
-    _salt `Prelude.hashWithSalt` deletionConfig
+    _salt
+      `Prelude.hashWithSalt` deletionConfig
       `Prelude.hashWithSalt` uploaderConfig
       `Prelude.hashWithSalt` hubDeviceArn
       `Prelude.hashWithSalt` recorderConfig

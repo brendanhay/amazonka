@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     UpdateMediaStorageConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` channelARN
+      _salt
+        `Prelude.hashWithSalt` channelARN
         `Prelude.hashWithSalt` mediaStorageConfiguration
 
 instance

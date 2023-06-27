@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateSignalingChannel where
 
 instance Prelude.Hashable CreateSignalingChannel where
   hashWithSalt _salt CreateSignalingChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelType
+    _salt
+      `Prelude.hashWithSalt` channelType
       `Prelude.hashWithSalt` singleMasterConfiguration
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` channelName

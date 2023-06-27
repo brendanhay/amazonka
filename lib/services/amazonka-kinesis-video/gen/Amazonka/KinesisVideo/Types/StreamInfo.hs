@@ -148,7 +148,8 @@ instance Data.FromJSON StreamInfo where
 
 instance Prelude.Hashable StreamInfo where
   hashWithSalt _salt StreamInfo' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataRetentionInHours
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` kmsKeyId

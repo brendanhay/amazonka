@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeEdgeConfiguration where
 
 instance Prelude.Hashable DescribeEdgeConfiguration where
   hashWithSalt _salt DescribeEdgeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData DescribeEdgeConfiguration where

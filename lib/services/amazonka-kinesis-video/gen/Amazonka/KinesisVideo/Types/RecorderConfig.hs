@@ -98,7 +98,8 @@ instance Data.FromJSON RecorderConfig where
 
 instance Prelude.Hashable RecorderConfig where
   hashWithSalt _salt RecorderConfig' {..} =
-    _salt `Prelude.hashWithSalt` scheduleConfig
+    _salt
+      `Prelude.hashWithSalt` scheduleConfig
       `Prelude.hashWithSalt` mediaSourceConfig
 
 instance Prelude.NFData RecorderConfig where

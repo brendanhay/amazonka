@@ -117,7 +117,8 @@ instance Core.AWSRequest GetSignalingChannelEndpoint where
     Response.receiveJSON
       ( \s h x ->
           GetSignalingChannelEndpointResponse'
-            Prelude.<$> ( x Data..?> "ResourceEndpointList"
+            Prelude.<$> ( x
+                            Data..?> "ResourceEndpointList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

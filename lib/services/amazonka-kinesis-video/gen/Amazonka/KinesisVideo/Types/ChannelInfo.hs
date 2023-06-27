@@ -131,7 +131,8 @@ instance Data.FromJSON ChannelInfo where
 
 instance Prelude.Hashable ChannelInfo where
   hashWithSalt _salt ChannelInfo' {..} =
-    _salt `Prelude.hashWithSalt` channelARN
+    _salt
+      `Prelude.hashWithSalt` channelARN
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` channelStatus
       `Prelude.hashWithSalt` channelType

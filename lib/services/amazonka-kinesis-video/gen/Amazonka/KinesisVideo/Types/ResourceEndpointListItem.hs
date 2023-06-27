@@ -83,7 +83,8 @@ instance Data.FromJSON ResourceEndpointListItem where
 
 instance Prelude.Hashable ResourceEndpointListItem where
   hashWithSalt _salt ResourceEndpointListItem' {..} =
-    _salt `Prelude.hashWithSalt` protocol
+    _salt
+      `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` resourceEndpoint
 
 instance Prelude.NFData ResourceEndpointListItem where

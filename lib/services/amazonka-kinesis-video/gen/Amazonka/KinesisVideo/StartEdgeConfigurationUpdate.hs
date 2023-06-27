@@ -148,7 +148,8 @@ instance
     StartEdgeConfigurationUpdate
   where
   hashWithSalt _salt StartEdgeConfigurationUpdate' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` edgeConfig
 

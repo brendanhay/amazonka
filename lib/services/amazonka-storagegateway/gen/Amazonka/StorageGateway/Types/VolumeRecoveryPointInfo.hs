@@ -104,7 +104,8 @@ instance Data.FromJSON VolumeRecoveryPointInfo where
 
 instance Prelude.Hashable VolumeRecoveryPointInfo where
   hashWithSalt _salt VolumeRecoveryPointInfo' {..} =
-    _salt `Prelude.hashWithSalt` volumeARN
+    _salt
+      `Prelude.hashWithSalt` volumeARN
       `Prelude.hashWithSalt` volumeRecoveryPointTime
       `Prelude.hashWithSalt` volumeSizeInBytes
       `Prelude.hashWithSalt` volumeUsageInBytes

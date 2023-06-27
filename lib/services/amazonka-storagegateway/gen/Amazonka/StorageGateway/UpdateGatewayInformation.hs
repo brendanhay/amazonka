@@ -151,7 +151,8 @@ instance Core.AWSRequest UpdateGatewayInformation where
 
 instance Prelude.Hashable UpdateGatewayInformation where
   hashWithSalt _salt UpdateGatewayInformation' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogGroupARN
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogGroupARN
       `Prelude.hashWithSalt` gatewayCapacity
       `Prelude.hashWithSalt` gatewayName
       `Prelude.hashWithSalt` gatewayTimezone

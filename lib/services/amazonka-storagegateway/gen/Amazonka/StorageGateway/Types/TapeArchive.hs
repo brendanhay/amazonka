@@ -229,7 +229,8 @@ instance Data.FromJSON TapeArchive where
 
 instance Prelude.Hashable TapeArchive where
   hashWithSalt _salt TapeArchive' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` poolEntryDate
       `Prelude.hashWithSalt` poolId

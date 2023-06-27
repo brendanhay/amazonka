@@ -96,7 +96,8 @@ instance Core.AWSRequest DescribeChapCredentials where
     Response.receiveJSON
       ( \s h x ->
           DescribeChapCredentialsResponse'
-            Prelude.<$> ( x Data..?> "ChapCredentials"
+            Prelude.<$> ( x
+                            Data..?> "ChapCredentials"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

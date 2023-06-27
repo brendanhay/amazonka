@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteBandwidthRateLimit where
 
 instance Prelude.Hashable DeleteBandwidthRateLimit where
   hashWithSalt _salt DeleteBandwidthRateLimit' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` bandwidthType
 
 instance Prelude.NFData DeleteBandwidthRateLimit where

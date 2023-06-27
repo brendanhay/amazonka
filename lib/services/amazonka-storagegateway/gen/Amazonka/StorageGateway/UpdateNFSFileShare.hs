@@ -422,7 +422,8 @@ instance Core.AWSRequest UpdateNFSFileShare where
 
 instance Prelude.Hashable UpdateNFSFileShare where
   hashWithSalt _salt UpdateNFSFileShare' {..} =
-    _salt `Prelude.hashWithSalt` auditDestinationARN
+    _salt
+      `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` cacheAttributes
       `Prelude.hashWithSalt` clientList
       `Prelude.hashWithSalt` defaultStorageClass

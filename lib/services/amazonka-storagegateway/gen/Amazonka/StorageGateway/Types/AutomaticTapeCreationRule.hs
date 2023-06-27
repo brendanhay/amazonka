@@ -164,7 +164,8 @@ instance Data.FromJSON AutomaticTapeCreationRule where
 
 instance Prelude.Hashable AutomaticTapeCreationRule where
   hashWithSalt _salt AutomaticTapeCreationRule' {..} =
-    _salt `Prelude.hashWithSalt` worm
+    _salt
+      `Prelude.hashWithSalt` worm
       `Prelude.hashWithSalt` tapeBarcodePrefix
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` tapeSizeInBytes

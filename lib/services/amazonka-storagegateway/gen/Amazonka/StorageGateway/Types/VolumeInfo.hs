@@ -186,7 +186,8 @@ instance Data.FromJSON VolumeInfo where
 
 instance Prelude.Hashable VolumeInfo where
   hashWithSalt _salt VolumeInfo' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` volumeARN
       `Prelude.hashWithSalt` volumeAttachmentStatus

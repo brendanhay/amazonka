@@ -457,7 +457,8 @@ instance Data.FromJSON NFSFileShareInfo where
 
 instance Prelude.Hashable NFSFileShareInfo where
   hashWithSalt _salt NFSFileShareInfo' {..} =
-    _salt `Prelude.hashWithSalt` auditDestinationARN
+    _salt
+      `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` bucketRegion
       `Prelude.hashWithSalt` cacheAttributes
       `Prelude.hashWithSalt` clientList

@@ -96,7 +96,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeFileSystemAssociationsResponse'
-            Prelude.<$> ( x Data..?> "FileSystemAssociationInfoList"
+            Prelude.<$> ( x
+                            Data..?> "FileSystemAssociationInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -120,7 +120,8 @@ instance Core.AWSRequest DescribeGatewayInformation where
             Prelude.<*> (x Data..?> "GatewayCapacity")
             Prelude.<*> (x Data..?> "GatewayId")
             Prelude.<*> (x Data..?> "GatewayName")
-            Prelude.<*> ( x Data..?> "GatewayNetworkInterfaces"
+            Prelude.<*> ( x
+                            Data..?> "GatewayNetworkInterfaces"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "GatewayState")
@@ -131,7 +132,8 @@ instance Core.AWSRequest DescribeGatewayInformation where
             Prelude.<*> (x Data..?> "LastSoftwareUpdate")
             Prelude.<*> (x Data..?> "NextUpdateAvailabilityDate")
             Prelude.<*> (x Data..?> "SoftwareUpdatesEndDate")
-            Prelude.<*> ( x Data..?> "SupportedGatewayCapacities"
+            Prelude.<*> ( x
+                            Data..?> "SupportedGatewayCapacities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)

@@ -743,7 +743,8 @@ instance Core.AWSRequest CreateSMBFileShare where
 
 instance Prelude.Hashable CreateSMBFileShare where
   hashWithSalt _salt CreateSMBFileShare' {..} =
-    _salt `Prelude.hashWithSalt` accessBasedEnumeration
+    _salt
+      `Prelude.hashWithSalt` accessBasedEnumeration
       `Prelude.hashWithSalt` adminUserList
       `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` authentication

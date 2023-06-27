@@ -113,7 +113,8 @@ instance Core.AWSRequest AddUploadBuffer where
 
 instance Prelude.Hashable AddUploadBuffer where
   hashWithSalt _salt AddUploadBuffer' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` diskIds
 
 instance Prelude.NFData AddUploadBuffer where

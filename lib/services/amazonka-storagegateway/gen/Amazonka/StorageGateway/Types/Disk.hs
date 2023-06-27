@@ -137,7 +137,8 @@ instance Data.FromJSON Disk where
           Disk'
             Prelude.<$> (x Data..:? "DiskAllocationResource")
             Prelude.<*> (x Data..:? "DiskAllocationType")
-            Prelude.<*> ( x Data..:? "DiskAttributeList"
+            Prelude.<*> ( x
+                            Data..:? "DiskAttributeList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DiskId")
@@ -149,7 +150,8 @@ instance Data.FromJSON Disk where
 
 instance Prelude.Hashable Disk where
   hashWithSalt _salt Disk' {..} =
-    _salt `Prelude.hashWithSalt` diskAllocationResource
+    _salt
+      `Prelude.hashWithSalt` diskAllocationResource
       `Prelude.hashWithSalt` diskAllocationType
       `Prelude.hashWithSalt` diskAttributeList
       `Prelude.hashWithSalt` diskId

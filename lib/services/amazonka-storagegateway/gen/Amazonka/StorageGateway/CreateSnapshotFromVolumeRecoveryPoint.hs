@@ -174,9 +174,9 @@ instance
       ( \s h x ->
           CreateSnapshotFromVolumeRecoveryPointResponse'
             Prelude.<$> (x Data..?> "SnapshotId")
-              Prelude.<*> (x Data..?> "VolumeARN")
-              Prelude.<*> (x Data..?> "VolumeRecoveryPointTime")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "VolumeARN")
+            Prelude.<*> (x Data..?> "VolumeRecoveryPointTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -186,7 +186,8 @@ instance
   hashWithSalt
     _salt
     CreateSnapshotFromVolumeRecoveryPoint' {..} =
-      _salt `Prelude.hashWithSalt` tags
+      _salt
+        `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` volumeARN
         `Prelude.hashWithSalt` snapshotDescription
 

@@ -255,7 +255,8 @@ instance Core.AWSRequest CreateTapeWithBarcode where
 
 instance Prelude.Hashable CreateTapeWithBarcode where
   hashWithSalt _salt CreateTapeWithBarcode' {..} =
-    _salt `Prelude.hashWithSalt` kmsEncrypted
+    _salt
+      `Prelude.hashWithSalt` kmsEncrypted
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` tags

@@ -192,7 +192,8 @@ instance Core.AWSRequest RefreshCache where
 
 instance Prelude.Hashable RefreshCache where
   hashWithSalt _salt RefreshCache' {..} =
-    _salt `Prelude.hashWithSalt` folderList
+    _salt
+      `Prelude.hashWithSalt` folderList
       `Prelude.hashWithSalt` recursive
       `Prelude.hashWithSalt` fileShareARN
 

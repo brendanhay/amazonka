@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteFileShare where
 
 instance Prelude.Hashable DeleteFileShare where
   hashWithSalt _salt DeleteFileShare' {..} =
-    _salt `Prelude.hashWithSalt` forceDelete
+    _salt
+      `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` fileShareARN
 
 instance Prelude.NFData DeleteFileShare where

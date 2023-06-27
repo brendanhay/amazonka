@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateVTLDeviceType where
 
 instance Prelude.Hashable UpdateVTLDeviceType where
   hashWithSalt _salt UpdateVTLDeviceType' {..} =
-    _salt `Prelude.hashWithSalt` vTLDeviceARN
+    _salt
+      `Prelude.hashWithSalt` vTLDeviceARN
       `Prelude.hashWithSalt` deviceType
 
 instance Prelude.NFData UpdateVTLDeviceType where

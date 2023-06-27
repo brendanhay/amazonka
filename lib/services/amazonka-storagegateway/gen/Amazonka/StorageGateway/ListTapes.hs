@@ -125,20 +125,23 @@ instance Core.AWSPager ListTapes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTapesResponse_marker Prelude.. Lens._Just
+            Lens.^? listTapesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTapesResponse_tapeInfos Prelude.. Lens._Just
+            Lens.^? listTapesResponse_tapeInfos
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTapes_marker
           Lens..~ rs
-          Lens.^? listTapesResponse_marker Prelude.. Lens._Just
+          Lens.^? listTapesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTapes where
   type AWSResponse ListTapes = ListTapesResponse
@@ -155,7 +158,8 @@ instance Core.AWSRequest ListTapes where
 
 instance Prelude.Hashable ListTapes where
   hashWithSalt _salt ListTapes' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` tapeARNs
 

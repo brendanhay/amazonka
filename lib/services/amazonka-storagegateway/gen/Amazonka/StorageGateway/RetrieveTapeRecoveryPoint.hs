@@ -117,7 +117,8 @@ instance Core.AWSRequest RetrieveTapeRecoveryPoint where
 
 instance Prelude.Hashable RetrieveTapeRecoveryPoint where
   hashWithSalt _salt RetrieveTapeRecoveryPoint' {..} =
-    _salt `Prelude.hashWithSalt` tapeARN
+    _salt
+      `Prelude.hashWithSalt` tapeARN
       `Prelude.hashWithSalt` gatewayARN
 
 instance Prelude.NFData RetrieveTapeRecoveryPoint where

@@ -201,7 +201,8 @@ instance Core.AWSRequest JoinDomain where
 
 instance Prelude.Hashable JoinDomain where
   hashWithSalt _salt JoinDomain' {..} =
-    _salt `Prelude.hashWithSalt` domainControllers
+    _salt
+      `Prelude.hashWithSalt` domainControllers
       `Prelude.hashWithSalt` organizationalUnit
       `Prelude.hashWithSalt` timeoutInSeconds
       `Prelude.hashWithSalt` gatewayARN

@@ -297,7 +297,8 @@ instance Data.FromJSON StorediSCSIVolume where
 
 instance Prelude.Hashable StorediSCSIVolume where
   hashWithSalt _salt StorediSCSIVolume' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` preservedExistingData
       `Prelude.hashWithSalt` sourceSnapshotId

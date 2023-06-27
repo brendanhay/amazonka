@@ -105,7 +105,8 @@ instance Data.FromJSON VolumeiSCSIAttributes where
 
 instance Prelude.Hashable VolumeiSCSIAttributes where
   hashWithSalt _salt VolumeiSCSIAttributes' {..} =
-    _salt `Prelude.hashWithSalt` chapEnabled
+    _salt
+      `Prelude.hashWithSalt` chapEnabled
       `Prelude.hashWithSalt` lunNumber
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` networkInterfacePort

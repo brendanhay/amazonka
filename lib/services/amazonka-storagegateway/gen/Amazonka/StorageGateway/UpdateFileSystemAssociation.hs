@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateFileSystemAssociation where
 
 instance Prelude.Hashable UpdateFileSystemAssociation where
   hashWithSalt _salt UpdateFileSystemAssociation' {..} =
-    _salt `Prelude.hashWithSalt` auditDestinationARN
+    _salt
+      `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` cacheAttributes
       `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` userName

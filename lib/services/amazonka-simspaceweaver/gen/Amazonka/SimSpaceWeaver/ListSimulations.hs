@@ -54,13 +54,13 @@ import Amazonka.SimSpaceWeaver.Types
 data ListSimulations = ListSimulations'
   { -- | The maximum number of simulations to list.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | If SimSpace Weaver returns @nextToken@, there are more results
+    -- | If SimSpace Weaver returns @nextToken@, then there are more results
     -- available. The value of @nextToken@ is a unique pagination token for
     -- each page. To retrieve the next page, call the operation again using the
     -- returned token. Keep all other arguments unchanged. If no results
-    -- remain, @nextToken@ is set to @null@. Each pagination token expires
-    -- after 24 hours. If you provide a token that isn\'t valid, you receive an
-    -- /HTTP 400 ValidationException/ error.
+    -- remain, then @nextToken@ is set to @null@. Each pagination token expires
+    -- after 24 hours. If you provide a token that isn\'t valid, then you
+    -- receive an /HTTP 400 ValidationException/ error.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,13 +75,13 @@ data ListSimulations = ListSimulations'
 --
 -- 'maxResults', 'listSimulations_maxResults' - The maximum number of simulations to list.
 --
--- 'nextToken', 'listSimulations_nextToken' - If SimSpace Weaver returns @nextToken@, there are more results
+-- 'nextToken', 'listSimulations_nextToken' - If SimSpace Weaver returns @nextToken@, then there are more results
 -- available. The value of @nextToken@ is a unique pagination token for
 -- each page. To retrieve the next page, call the operation again using the
 -- returned token. Keep all other arguments unchanged. If no results
--- remain, @nextToken@ is set to @null@. Each pagination token expires
--- after 24 hours. If you provide a token that isn\'t valid, you receive an
--- /HTTP 400 ValidationException/ error.
+-- remain, then @nextToken@ is set to @null@. Each pagination token expires
+-- after 24 hours. If you provide a token that isn\'t valid, then you
+-- receive an /HTTP 400 ValidationException/ error.
 newListSimulations ::
   ListSimulations
 newListSimulations =
@@ -94,13 +94,13 @@ newListSimulations =
 listSimulations_maxResults :: Lens.Lens' ListSimulations (Prelude.Maybe Prelude.Natural)
 listSimulations_maxResults = Lens.lens (\ListSimulations' {maxResults} -> maxResults) (\s@ListSimulations' {} a -> s {maxResults = a} :: ListSimulations)
 
--- | If SimSpace Weaver returns @nextToken@, there are more results
+-- | If SimSpace Weaver returns @nextToken@, then there are more results
 -- available. The value of @nextToken@ is a unique pagination token for
 -- each page. To retrieve the next page, call the operation again using the
 -- returned token. Keep all other arguments unchanged. If no results
--- remain, @nextToken@ is set to @null@. Each pagination token expires
--- after 24 hours. If you provide a token that isn\'t valid, you receive an
--- /HTTP 400 ValidationException/ error.
+-- remain, then @nextToken@ is set to @null@. Each pagination token expires
+-- after 24 hours. If you provide a token that isn\'t valid, then you
+-- receive an /HTTP 400 ValidationException/ error.
 listSimulations_nextToken :: Lens.Lens' ListSimulations (Prelude.Maybe Prelude.Text)
 listSimulations_nextToken = Lens.lens (\ListSimulations' {nextToken} -> nextToken) (\s@ListSimulations' {} a -> s {nextToken = a} :: ListSimulations)
 
@@ -121,7 +121,8 @@ instance Core.AWSRequest ListSimulations where
 
 instance Prelude.Hashable ListSimulations where
   hashWithSalt _salt ListSimulations' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListSimulations where
@@ -152,13 +153,13 @@ instance Data.ToQuery ListSimulations where
 
 -- | /See:/ 'newListSimulationsResponse' smart constructor.
 data ListSimulationsResponse = ListSimulationsResponse'
-  { -- | If SimSpace Weaver returns @nextToken@, there are more results
+  { -- | If SimSpace Weaver returns @nextToken@, then there are more results
     -- available. The value of @nextToken@ is a unique pagination token for
     -- each page. To retrieve the next page, call the operation again using the
     -- returned token. Keep all other arguments unchanged. If no results
-    -- remain, @nextToken@ is set to @null@. Each pagination token expires
-    -- after 24 hours. If you provide a token that isn\'t valid, you receive an
-    -- /HTTP 400 ValidationException/ error.
+    -- remain, then @nextToken@ is set to @null@. Each pagination token expires
+    -- after 24 hours. If you provide a token that isn\'t valid, then you
+    -- receive an /HTTP 400 ValidationException/ error.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of simulations.
     simulations :: Prelude.Maybe [SimulationMetadata],
@@ -175,13 +176,13 @@ data ListSimulationsResponse = ListSimulationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSimulationsResponse_nextToken' - If SimSpace Weaver returns @nextToken@, there are more results
+-- 'nextToken', 'listSimulationsResponse_nextToken' - If SimSpace Weaver returns @nextToken@, then there are more results
 -- available. The value of @nextToken@ is a unique pagination token for
 -- each page. To retrieve the next page, call the operation again using the
 -- returned token. Keep all other arguments unchanged. If no results
--- remain, @nextToken@ is set to @null@. Each pagination token expires
--- after 24 hours. If you provide a token that isn\'t valid, you receive an
--- /HTTP 400 ValidationException/ error.
+-- remain, then @nextToken@ is set to @null@. Each pagination token expires
+-- after 24 hours. If you provide a token that isn\'t valid, then you
+-- receive an /HTTP 400 ValidationException/ error.
 --
 -- 'simulations', 'listSimulationsResponse_simulations' - The list of simulations.
 --
@@ -198,13 +199,13 @@ newListSimulationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If SimSpace Weaver returns @nextToken@, there are more results
+-- | If SimSpace Weaver returns @nextToken@, then there are more results
 -- available. The value of @nextToken@ is a unique pagination token for
 -- each page. To retrieve the next page, call the operation again using the
 -- returned token. Keep all other arguments unchanged. If no results
--- remain, @nextToken@ is set to @null@. Each pagination token expires
--- after 24 hours. If you provide a token that isn\'t valid, you receive an
--- /HTTP 400 ValidationException/ error.
+-- remain, then @nextToken@ is set to @null@. Each pagination token expires
+-- after 24 hours. If you provide a token that isn\'t valid, then you
+-- receive an /HTTP 400 ValidationException/ error.
 listSimulationsResponse_nextToken :: Lens.Lens' ListSimulationsResponse (Prelude.Maybe Prelude.Text)
 listSimulationsResponse_nextToken = Lens.lens (\ListSimulationsResponse' {nextToken} -> nextToken) (\s@ListSimulationsResponse' {} a -> s {nextToken = a} :: ListSimulationsResponse)
 

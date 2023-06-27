@@ -29,28 +29,25 @@ import Amazonka.SimSpaceWeaver.Types.LifecycleManagementStrategy
 -- have the same launch options and commands.
 --
 -- For more information about domains, see
--- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html Key concepts>
--- in the /Amazon Web Services SimSpace Weaver User Guide/.
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains Key concepts: Domains>
+-- in the /SimSpace Weaver User Guide/.
 --
 -- /See:/ 'newDomain' smart constructor.
 data Domain = Domain'
-  { -- | The type of lifecycle management for apps in the domain. This value
-    -- indicates whether apps in this domain are /managed/ (SimSpace Weaver
-    -- starts and stops the apps) or /unmanaged/ (you must start and stop the
-    -- apps).
+  { -- | The type of lifecycle management for apps in the domain. Indicates
+    -- whether apps in this domain are /managed/ (SimSpace Weaver starts and
+    -- stops the apps) or /unmanaged/ (you must start and stop the apps).
     --
     -- __Lifecycle types__
     --
-    -- -   @PerWorker@ – Managed: SimSpace Weaver starts 1 app on each worker
+    -- -   @PerWorker@ – Managed: SimSpace Weaver starts one app on each
+    --     worker.
     --
-    -- -   @BySpatialSubdivision@ – Managed: SimSpace Weaver starts 1 app for
-    --     each spatial partition
+    -- -   @BySpatialSubdivision@ – Managed: SimSpace Weaver starts one app for
+    --     each spatial partition.
     --
-    -- -   @ByRequest@ – Unmanaged: You use the __StartApp__ API to start the
-    --     apps and use the __StopApp__ API to stop the apps.
-    --
-    -- The lifecycle types will change when the service is released for general
-    -- availability (GA).
+    -- -   @ByRequest@ – Unmanaged: You use the @StartApp@ API to start the
+    --     apps and use the @StopApp@ API to stop the apps.
     lifecycle :: Prelude.Maybe LifecycleManagementStrategy,
     -- | The name of the domain.
     name :: Prelude.Maybe Prelude.Text
@@ -65,23 +62,20 @@ data Domain = Domain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lifecycle', 'domain_lifecycle' - The type of lifecycle management for apps in the domain. This value
--- indicates whether apps in this domain are /managed/ (SimSpace Weaver
--- starts and stops the apps) or /unmanaged/ (you must start and stop the
--- apps).
+-- 'lifecycle', 'domain_lifecycle' - The type of lifecycle management for apps in the domain. Indicates
+-- whether apps in this domain are /managed/ (SimSpace Weaver starts and
+-- stops the apps) or /unmanaged/ (you must start and stop the apps).
 --
 -- __Lifecycle types__
 --
--- -   @PerWorker@ – Managed: SimSpace Weaver starts 1 app on each worker
+-- -   @PerWorker@ – Managed: SimSpace Weaver starts one app on each
+--     worker.
 --
--- -   @BySpatialSubdivision@ – Managed: SimSpace Weaver starts 1 app for
---     each spatial partition
+-- -   @BySpatialSubdivision@ – Managed: SimSpace Weaver starts one app for
+--     each spatial partition.
 --
--- -   @ByRequest@ – Unmanaged: You use the __StartApp__ API to start the
---     apps and use the __StopApp__ API to stop the apps.
---
--- The lifecycle types will change when the service is released for general
--- availability (GA).
+-- -   @ByRequest@ – Unmanaged: You use the @StartApp@ API to start the
+--     apps and use the @StopApp@ API to stop the apps.
 --
 -- 'name', 'domain_name' - The name of the domain.
 newDomain ::
@@ -92,23 +86,20 @@ newDomain =
       name = Prelude.Nothing
     }
 
--- | The type of lifecycle management for apps in the domain. This value
--- indicates whether apps in this domain are /managed/ (SimSpace Weaver
--- starts and stops the apps) or /unmanaged/ (you must start and stop the
--- apps).
+-- | The type of lifecycle management for apps in the domain. Indicates
+-- whether apps in this domain are /managed/ (SimSpace Weaver starts and
+-- stops the apps) or /unmanaged/ (you must start and stop the apps).
 --
 -- __Lifecycle types__
 --
--- -   @PerWorker@ – Managed: SimSpace Weaver starts 1 app on each worker
+-- -   @PerWorker@ – Managed: SimSpace Weaver starts one app on each
+--     worker.
 --
--- -   @BySpatialSubdivision@ – Managed: SimSpace Weaver starts 1 app for
---     each spatial partition
+-- -   @BySpatialSubdivision@ – Managed: SimSpace Weaver starts one app for
+--     each spatial partition.
 --
--- -   @ByRequest@ – Unmanaged: You use the __StartApp__ API to start the
---     apps and use the __StopApp__ API to stop the apps.
---
--- The lifecycle types will change when the service is released for general
--- availability (GA).
+-- -   @ByRequest@ – Unmanaged: You use the @StartApp@ API to start the
+--     apps and use the @StopApp@ API to stop the apps.
 domain_lifecycle :: Lens.Lens' Domain (Prelude.Maybe LifecycleManagementStrategy)
 domain_lifecycle = Lens.lens (\Domain' {lifecycle} -> lifecycle) (\s@Domain' {} a -> s {lifecycle = a} :: Domain)
 
@@ -128,7 +119,8 @@ instance Data.FromJSON Domain where
 
 instance Prelude.Hashable Domain where
   hashWithSalt _salt Domain' {..} =
-    _salt `Prelude.hashWithSalt` lifecycle
+    _salt
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Domain where

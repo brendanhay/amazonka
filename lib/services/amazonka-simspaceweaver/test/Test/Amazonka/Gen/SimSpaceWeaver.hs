@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteApp $
+--         [ requestCreateSnapshot $
+--             newCreateSnapshot
+--
+--         , requestDeleteApp $
 --             newDeleteApp
 --
 --         , requestDeleteSimulation $
@@ -75,7 +78,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteApp $
+--         [ responseCreateSnapshot $
+--             newCreateSnapshotResponse
+--
+--         , responseDeleteApp $
 --             newDeleteAppResponse
 --
 --         , responseDeleteSimulation $
@@ -124,6 +130,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestCreateSnapshot :: CreateSnapshot -> TestTree
+requestCreateSnapshot =
+  req
+    "CreateSnapshot"
+    "fixture/CreateSnapshot.yaml"
 
 requestDeleteApp :: DeleteApp -> TestTree
 requestDeleteApp =
@@ -216,6 +228,14 @@ requestUntagResource =
     "fixture/UntagResource.yaml"
 
 -- Responses
+
+responseCreateSnapshot :: CreateSnapshotResponse -> TestTree
+responseCreateSnapshot =
+  res
+    "CreateSnapshotResponse"
+    "fixture/CreateSnapshotResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateSnapshot)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
 responseDeleteApp =

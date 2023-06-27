@@ -20,7 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a simulation with the given name and schema.
+-- Starts a simulation with the given name. You must choose to start your
+-- simulation from a schema or from a snapshot. For more information about
+-- the schema, see the
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/schema-reference.html schema reference>
+-- in the /SimSpace Weaver User Guide/. For more information about
+-- snapshots, see
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/working-with_snapshots.html Snapshots>
+-- in the /SimSpace Weaver User Guide/.
 module Amazonka.SimSpaceWeaver.StartSimulation
   ( -- * Creating a Request
     StartSimulation (..),
@@ -30,10 +37,11 @@ module Amazonka.SimSpaceWeaver.StartSimulation
     startSimulation_clientToken,
     startSimulation_description,
     startSimulation_maximumDuration,
+    startSimulation_schemaS3Location,
+    startSimulation_snapshotS3Location,
     startSimulation_tags,
     startSimulation_name,
     startSimulation_roleArn,
-    startSimulation_schemaS3Location,
 
     -- * Destructuring the Response
     StartSimulationResponse (..),
@@ -65,9 +73,35 @@ data StartSimulation = StartSimulation'
     -- | The description of the simulation.
     description :: Prelude.Maybe Prelude.Text,
     -- | The maximum running time of the simulation, specified as a number of
-    -- months (m or M), hours (h or H), or days (d or D). The simulation stops
-    -- when it reaches this limit.
+    -- minutes (m or M), hours (h or H), or days (d or D). The simulation stops
+    -- when it reaches this limit. The maximum value is @14D@, or its
+    -- equivalent in the other units. The default value is @14D@. A value
+    -- equivalent to @0@ makes the simulation immediately transition to
+    -- @Stopping@ as soon as it reaches @Started@.
     maximumDuration :: Prelude.Maybe Prelude.Text,
+    -- | The location of the simulation schema in Amazon Simple Storage Service
+    -- (Amazon S3). For more information about Amazon S3, see the
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
+    -- .
+    --
+    -- Provide a @SchemaS3Location@ to start your simulation from a schema.
+    --
+    -- If you provide a @SchemaS3Location@ then you can\'t provide a
+    -- @SnapshotS3Location@.
+    schemaS3Location :: Prelude.Maybe S3Location,
+    -- | The location of the snapshot .zip file in Amazon Simple Storage Service
+    -- (Amazon S3). For more information about Amazon S3, see the
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
+    -- .
+    --
+    -- Provide a @SnapshotS3Location@ to start your simulation from a snapshot.
+    --
+    -- The Amazon S3 bucket must be in the same Amazon Web Services Region as
+    -- the simulation.
+    --
+    -- If you provide a @SnapshotS3Location@ then you can\'t provide a
+    -- @SchemaS3Location@.
+    snapshotS3Location :: Prelude.Maybe S3Location,
     -- | A list of tags for the simulation. For more information about tags, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
     -- in the /Amazon Web Services General Reference/.
@@ -82,12 +116,7 @@ data StartSimulation = StartSimulation'
     -- about IAM roles, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM roles>
     -- in the /Identity and Access Management User Guide/.
-    roleArn :: Prelude.Text,
-    -- | The location of the simulation schema in Amazon Simple Storage Service
-    -- (Amazon S3). For more information about Amazon S3, see the
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
-    -- .
-    schemaS3Location :: S3Location
+    roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -107,8 +136,34 @@ data StartSimulation = StartSimulation'
 -- 'description', 'startSimulation_description' - The description of the simulation.
 --
 -- 'maximumDuration', 'startSimulation_maximumDuration' - The maximum running time of the simulation, specified as a number of
--- months (m or M), hours (h or H), or days (d or D). The simulation stops
--- when it reaches this limit.
+-- minutes (m or M), hours (h or H), or days (d or D). The simulation stops
+-- when it reaches this limit. The maximum value is @14D@, or its
+-- equivalent in the other units. The default value is @14D@. A value
+-- equivalent to @0@ makes the simulation immediately transition to
+-- @Stopping@ as soon as it reaches @Started@.
+--
+-- 'schemaS3Location', 'startSimulation_schemaS3Location' - The location of the simulation schema in Amazon Simple Storage Service
+-- (Amazon S3). For more information about Amazon S3, see the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
+-- .
+--
+-- Provide a @SchemaS3Location@ to start your simulation from a schema.
+--
+-- If you provide a @SchemaS3Location@ then you can\'t provide a
+-- @SnapshotS3Location@.
+--
+-- 'snapshotS3Location', 'startSimulation_snapshotS3Location' - The location of the snapshot .zip file in Amazon Simple Storage Service
+-- (Amazon S3). For more information about Amazon S3, see the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
+-- .
+--
+-- Provide a @SnapshotS3Location@ to start your simulation from a snapshot.
+--
+-- The Amazon S3 bucket must be in the same Amazon Web Services Region as
+-- the simulation.
+--
+-- If you provide a @SnapshotS3Location@ then you can\'t provide a
+-- @SchemaS3Location@.
 --
 -- 'tags', 'startSimulation_tags' - A list of tags for the simulation. For more information about tags, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
@@ -124,32 +179,23 @@ data StartSimulation = StartSimulation'
 -- about IAM roles, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM roles>
 -- in the /Identity and Access Management User Guide/.
---
--- 'schemaS3Location', 'startSimulation_schemaS3Location' - The location of the simulation schema in Amazon Simple Storage Service
--- (Amazon S3). For more information about Amazon S3, see the
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
--- .
 newStartSimulation ::
   -- | 'name'
   Prelude.Text ->
   -- | 'roleArn'
   Prelude.Text ->
-  -- | 'schemaS3Location'
-  S3Location ->
   StartSimulation
-newStartSimulation
-  pName_
-  pRoleArn_
-  pSchemaS3Location_ =
-    StartSimulation'
-      { clientToken = Prelude.Nothing,
-        description = Prelude.Nothing,
-        maximumDuration = Prelude.Nothing,
-        tags = Prelude.Nothing,
-        name = pName_,
-        roleArn = pRoleArn_,
-        schemaS3Location = pSchemaS3Location_
-      }
+newStartSimulation pName_ pRoleArn_ =
+  StartSimulation'
+    { clientToken = Prelude.Nothing,
+      description = Prelude.Nothing,
+      maximumDuration = Prelude.Nothing,
+      schemaS3Location = Prelude.Nothing,
+      snapshotS3Location = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      name = pName_,
+      roleArn = pRoleArn_
+    }
 
 -- | A value that you provide to ensure that repeated calls to this API
 -- operation using the same parameters complete only once. A @ClientToken@
@@ -163,10 +209,40 @@ startSimulation_description :: Lens.Lens' StartSimulation (Prelude.Maybe Prelude
 startSimulation_description = Lens.lens (\StartSimulation' {description} -> description) (\s@StartSimulation' {} a -> s {description = a} :: StartSimulation)
 
 -- | The maximum running time of the simulation, specified as a number of
--- months (m or M), hours (h or H), or days (d or D). The simulation stops
--- when it reaches this limit.
+-- minutes (m or M), hours (h or H), or days (d or D). The simulation stops
+-- when it reaches this limit. The maximum value is @14D@, or its
+-- equivalent in the other units. The default value is @14D@. A value
+-- equivalent to @0@ makes the simulation immediately transition to
+-- @Stopping@ as soon as it reaches @Started@.
 startSimulation_maximumDuration :: Lens.Lens' StartSimulation (Prelude.Maybe Prelude.Text)
 startSimulation_maximumDuration = Lens.lens (\StartSimulation' {maximumDuration} -> maximumDuration) (\s@StartSimulation' {} a -> s {maximumDuration = a} :: StartSimulation)
+
+-- | The location of the simulation schema in Amazon Simple Storage Service
+-- (Amazon S3). For more information about Amazon S3, see the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
+-- .
+--
+-- Provide a @SchemaS3Location@ to start your simulation from a schema.
+--
+-- If you provide a @SchemaS3Location@ then you can\'t provide a
+-- @SnapshotS3Location@.
+startSimulation_schemaS3Location :: Lens.Lens' StartSimulation (Prelude.Maybe S3Location)
+startSimulation_schemaS3Location = Lens.lens (\StartSimulation' {schemaS3Location} -> schemaS3Location) (\s@StartSimulation' {} a -> s {schemaS3Location = a} :: StartSimulation)
+
+-- | The location of the snapshot .zip file in Amazon Simple Storage Service
+-- (Amazon S3). For more information about Amazon S3, see the
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
+-- .
+--
+-- Provide a @SnapshotS3Location@ to start your simulation from a snapshot.
+--
+-- The Amazon S3 bucket must be in the same Amazon Web Services Region as
+-- the simulation.
+--
+-- If you provide a @SnapshotS3Location@ then you can\'t provide a
+-- @SchemaS3Location@.
+startSimulation_snapshotS3Location :: Lens.Lens' StartSimulation (Prelude.Maybe S3Location)
+startSimulation_snapshotS3Location = Lens.lens (\StartSimulation' {snapshotS3Location} -> snapshotS3Location) (\s@StartSimulation' {} a -> s {snapshotS3Location = a} :: StartSimulation)
 
 -- | A list of tags for the simulation. For more information about tags, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
@@ -189,13 +265,6 @@ startSimulation_name = Lens.lens (\StartSimulation' {name} -> name) (\s@StartSim
 startSimulation_roleArn :: Lens.Lens' StartSimulation Prelude.Text
 startSimulation_roleArn = Lens.lens (\StartSimulation' {roleArn} -> roleArn) (\s@StartSimulation' {} a -> s {roleArn = a} :: StartSimulation)
 
--- | The location of the simulation schema in Amazon Simple Storage Service
--- (Amazon S3). For more information about Amazon S3, see the
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
--- .
-startSimulation_schemaS3Location :: Lens.Lens' StartSimulation S3Location
-startSimulation_schemaS3Location = Lens.lens (\StartSimulation' {schemaS3Location} -> schemaS3Location) (\s@StartSimulation' {} a -> s {schemaS3Location = a} :: StartSimulation)
-
 instance Core.AWSRequest StartSimulation where
   type
     AWSResponse StartSimulation =
@@ -214,23 +283,26 @@ instance Core.AWSRequest StartSimulation where
 
 instance Prelude.Hashable StartSimulation where
   hashWithSalt _salt StartSimulation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maximumDuration
+      `Prelude.hashWithSalt` schemaS3Location
+      `Prelude.hashWithSalt` snapshotS3Location
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` schemaS3Location
 
 instance Prelude.NFData StartSimulation where
   rnf StartSimulation' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf maximumDuration
+      `Prelude.seq` Prelude.rnf schemaS3Location
+      `Prelude.seq` Prelude.rnf snapshotS3Location
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf schemaS3Location
 
 instance Data.ToHeaders StartSimulation where
   toHeaders =
@@ -251,11 +323,13 @@ instance Data.ToJSON StartSimulation where
             ("Description" Data..=) Prelude.<$> description,
             ("MaximumDuration" Data..=)
               Prelude.<$> maximumDuration,
+            ("SchemaS3Location" Data..=)
+              Prelude.<$> schemaS3Location,
+            ("SnapshotS3Location" Data..=)
+              Prelude.<$> snapshotS3Location,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
-            Prelude.Just ("RoleArn" Data..= roleArn),
-            Prelude.Just
-              ("SchemaS3Location" Data..= schemaS3Location)
+            Prelude.Just ("RoleArn" Data..= roleArn)
           ]
       )
 

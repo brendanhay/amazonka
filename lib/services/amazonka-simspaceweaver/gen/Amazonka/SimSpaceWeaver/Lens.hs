@@ -14,6 +14,11 @@
 module Amazonka.SimSpaceWeaver.Lens
   ( -- * Operations
 
+    -- ** CreateSnapshot
+    createSnapshot_destination,
+    createSnapshot_simulation,
+    createSnapshotResponse_httpStatus,
+
     -- ** DeleteApp
     deleteApp_app,
     deleteApp_domain,
@@ -51,6 +56,8 @@ module Amazonka.SimSpaceWeaver.Lens
     describeSimulationResponse_roleArn,
     describeSimulationResponse_schemaError,
     describeSimulationResponse_schemaS3Location,
+    describeSimulationResponse_snapshotS3Location,
+    describeSimulationResponse_startError,
     describeSimulationResponse_status,
     describeSimulationResponse_targetStatus,
     describeSimulationResponse_httpStatus,
@@ -96,10 +103,11 @@ module Amazonka.SimSpaceWeaver.Lens
     startSimulation_clientToken,
     startSimulation_description,
     startSimulation_maximumDuration,
+    startSimulation_schemaS3Location,
+    startSimulation_snapshotS3Location,
     startSimulation_tags,
     startSimulation_name,
     startSimulation_roleArn,
-    startSimulation_schemaS3Location,
     startSimulationResponse_arn,
     startSimulationResponse_creationTime,
     startSimulationResponse_executionId,
@@ -151,6 +159,10 @@ module Amazonka.SimSpaceWeaver.Lens
     -- ** LoggingConfiguration
     loggingConfiguration_destinations,
 
+    -- ** S3Destination
+    s3Destination_bucketName,
+    s3Destination_objectKeyPrefix,
+
     -- ** S3Location
     s3Location_bucketName,
     s3Location_objectKey,
@@ -183,6 +195,7 @@ module Amazonka.SimSpaceWeaver.Lens
   )
 where
 
+import Amazonka.SimSpaceWeaver.CreateSnapshot
 import Amazonka.SimSpaceWeaver.DeleteApp
 import Amazonka.SimSpaceWeaver.DeleteSimulation
 import Amazonka.SimSpaceWeaver.DescribeApp
@@ -203,6 +216,7 @@ import Amazonka.SimSpaceWeaver.Types.LaunchOverrides
 import Amazonka.SimSpaceWeaver.Types.LiveSimulationState
 import Amazonka.SimSpaceWeaver.Types.LogDestination
 import Amazonka.SimSpaceWeaver.Types.LoggingConfiguration
+import Amazonka.SimSpaceWeaver.Types.S3Destination
 import Amazonka.SimSpaceWeaver.Types.S3Location
 import Amazonka.SimSpaceWeaver.Types.SimulationAppEndpointInfo
 import Amazonka.SimSpaceWeaver.Types.SimulationAppMetadata

@@ -26,13 +26,13 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SimSpaceWeaver.Types.SimulationAppStatus
 import Amazonka.SimSpaceWeaver.Types.SimulationAppTargetStatus
 
--- | A collection of metadata about an app.
+-- | A collection of metadata about the app.
 --
 -- /See:/ 'newSimulationAppMetadata' smart constructor.
 data SimulationAppMetadata = SimulationAppMetadata'
   { -- | The domain of the app. For more information about domains, see
-    -- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html Key concepts>
-    -- in the /Amazon Web Services SimSpace Weaver User Guide/.
+    -- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains Key concepts: Domains>
+    -- in the /SimSpace Weaver User Guide/.
     domain :: Prelude.Maybe Prelude.Text,
     -- | The name of the app.
     name :: Prelude.Maybe Prelude.Text,
@@ -54,8 +54,8 @@ data SimulationAppMetadata = SimulationAppMetadata'
 -- for backwards compatibility:
 --
 -- 'domain', 'simulationAppMetadata_domain' - The domain of the app. For more information about domains, see
--- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html Key concepts>
--- in the /Amazon Web Services SimSpace Weaver User Guide/.
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains Key concepts: Domains>
+-- in the /SimSpace Weaver User Guide/.
 --
 -- 'name', 'simulationAppMetadata_name' - The name of the app.
 --
@@ -76,8 +76,8 @@ newSimulationAppMetadata =
     }
 
 -- | The domain of the app. For more information about domains, see
--- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html Key concepts>
--- in the /Amazon Web Services SimSpace Weaver User Guide/.
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains Key concepts: Domains>
+-- in the /SimSpace Weaver User Guide/.
 simulationAppMetadata_domain :: Lens.Lens' SimulationAppMetadata (Prelude.Maybe Prelude.Text)
 simulationAppMetadata_domain = Lens.lens (\SimulationAppMetadata' {domain} -> domain) (\s@SimulationAppMetadata' {} a -> s {domain = a} :: SimulationAppMetadata)
 
@@ -112,7 +112,8 @@ instance Data.FromJSON SimulationAppMetadata where
 
 instance Prelude.Hashable SimulationAppMetadata where
   hashWithSalt _salt SimulationAppMetadata' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` simulation
       `Prelude.hashWithSalt` status

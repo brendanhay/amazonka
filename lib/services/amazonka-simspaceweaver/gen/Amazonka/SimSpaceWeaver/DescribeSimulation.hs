@@ -45,6 +45,8 @@ module Amazonka.SimSpaceWeaver.DescribeSimulation
     describeSimulationResponse_roleArn,
     describeSimulationResponse_schemaError,
     describeSimulationResponse_schemaS3Location,
+    describeSimulationResponse_snapshotS3Location,
+    describeSimulationResponse_startError,
     describeSimulationResponse_status,
     describeSimulationResponse_targetStatus,
     describeSimulationResponse_httpStatus,
@@ -107,6 +109,8 @@ instance Core.AWSRequest DescribeSimulation where
             Prelude.<*> (x Data..?> "RoleArn")
             Prelude.<*> (x Data..?> "SchemaError")
             Prelude.<*> (x Data..?> "SchemaS3Location")
+            Prelude.<*> (x Data..?> "SnapshotS3Location")
+            Prelude.<*> (x Data..?> "StartError")
             Prelude.<*> (x Data..?> "Status")
             Prelude.<*> (x Data..?> "TargetStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -159,8 +163,11 @@ data DescribeSimulationResponse = DescribeSimulationResponse'
     -- data.
     loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The maximum running time of the simulation, specified as a number of
-    -- months (m or M), hours (h or H), or days (d or D). The simulation stops
-    -- when it reaches this limit.
+    -- minutes (m or M), hours (h or H), or days (d or D). The simulation stops
+    -- when it reaches this limit. The maximum value is @14D@, or its
+    -- equivalent in the other units. The default value is @14D@. A value
+    -- equivalent to @0@ makes the simulation immediately transition to
+    -- @Stopping@ as soon as it reaches @Started@.
     maximumDuration :: Prelude.Maybe Prelude.Text,
     -- | The name of the simulation.
     name :: Prelude.Maybe Prelude.Text,
@@ -181,6 +188,10 @@ data DescribeSimulationResponse = DescribeSimulationResponse'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
     -- .
     schemaS3Location :: Prelude.Maybe S3Location,
+    snapshotS3Location :: Prelude.Maybe S3Location,
+    -- | An error message that SimSpace Weaver returns only if a problem occurs
+    -- when the simulation is in the @STARTING@ state.
+    startError :: Prelude.Maybe Prelude.Text,
     -- | The current lifecycle state of the simulation.
     status :: Prelude.Maybe SimulationStatus,
     -- | The desired lifecycle state of the simulation.
@@ -218,8 +229,11 @@ data DescribeSimulationResponse = DescribeSimulationResponse'
 -- data.
 --
 -- 'maximumDuration', 'describeSimulationResponse_maximumDuration' - The maximum running time of the simulation, specified as a number of
--- months (m or M), hours (h or H), or days (d or D). The simulation stops
--- when it reaches this limit.
+-- minutes (m or M), hours (h or H), or days (d or D). The simulation stops
+-- when it reaches this limit. The maximum value is @14D@, or its
+-- equivalent in the other units. The default value is @14D@. A value
+-- equivalent to @0@ makes the simulation immediately transition to
+-- @Stopping@ as soon as it reaches @Started@.
 --
 -- 'name', 'describeSimulationResponse_name' - The name of the simulation.
 --
@@ -239,6 +253,11 @@ data DescribeSimulationResponse = DescribeSimulationResponse'
 -- (Amazon S3). For more information about Amazon S3, see the
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
 -- .
+--
+-- 'snapshotS3Location', 'describeSimulationResponse_snapshotS3Location' - Undocumented member.
+--
+-- 'startError', 'describeSimulationResponse_startError' - An error message that SimSpace Weaver returns only if a problem occurs
+-- when the simulation is in the @STARTING@ state.
 --
 -- 'status', 'describeSimulationResponse_status' - The current lifecycle state of the simulation.
 --
@@ -262,6 +281,8 @@ newDescribeSimulationResponse pHttpStatus_ =
       roleArn = Prelude.Nothing,
       schemaError = Prelude.Nothing,
       schemaS3Location = Prelude.Nothing,
+      snapshotS3Location = Prelude.Nothing,
+      startError = Prelude.Nothing,
       status = Prelude.Nothing,
       targetStatus = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -299,8 +320,11 @@ describeSimulationResponse_loggingConfiguration :: Lens.Lens' DescribeSimulation
 describeSimulationResponse_loggingConfiguration = Lens.lens (\DescribeSimulationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@DescribeSimulationResponse' {} a -> s {loggingConfiguration = a} :: DescribeSimulationResponse)
 
 -- | The maximum running time of the simulation, specified as a number of
--- months (m or M), hours (h or H), or days (d or D). The simulation stops
--- when it reaches this limit.
+-- minutes (m or M), hours (h or H), or days (d or D). The simulation stops
+-- when it reaches this limit. The maximum value is @14D@, or its
+-- equivalent in the other units. The default value is @14D@. A value
+-- equivalent to @0@ makes the simulation immediately transition to
+-- @Stopping@ as soon as it reaches @Started@.
 describeSimulationResponse_maximumDuration :: Lens.Lens' DescribeSimulationResponse (Prelude.Maybe Prelude.Text)
 describeSimulationResponse_maximumDuration = Lens.lens (\DescribeSimulationResponse' {maximumDuration} -> maximumDuration) (\s@DescribeSimulationResponse' {} a -> s {maximumDuration = a} :: DescribeSimulationResponse)
 
@@ -331,6 +355,15 @@ describeSimulationResponse_schemaError = Lens.lens (\DescribeSimulationResponse'
 describeSimulationResponse_schemaS3Location :: Lens.Lens' DescribeSimulationResponse (Prelude.Maybe S3Location)
 describeSimulationResponse_schemaS3Location = Lens.lens (\DescribeSimulationResponse' {schemaS3Location} -> schemaS3Location) (\s@DescribeSimulationResponse' {} a -> s {schemaS3Location = a} :: DescribeSimulationResponse)
 
+-- | Undocumented member.
+describeSimulationResponse_snapshotS3Location :: Lens.Lens' DescribeSimulationResponse (Prelude.Maybe S3Location)
+describeSimulationResponse_snapshotS3Location = Lens.lens (\DescribeSimulationResponse' {snapshotS3Location} -> snapshotS3Location) (\s@DescribeSimulationResponse' {} a -> s {snapshotS3Location = a} :: DescribeSimulationResponse)
+
+-- | An error message that SimSpace Weaver returns only if a problem occurs
+-- when the simulation is in the @STARTING@ state.
+describeSimulationResponse_startError :: Lens.Lens' DescribeSimulationResponse (Prelude.Maybe Prelude.Text)
+describeSimulationResponse_startError = Lens.lens (\DescribeSimulationResponse' {startError} -> startError) (\s@DescribeSimulationResponse' {} a -> s {startError = a} :: DescribeSimulationResponse)
+
 -- | The current lifecycle state of the simulation.
 describeSimulationResponse_status :: Lens.Lens' DescribeSimulationResponse (Prelude.Maybe SimulationStatus)
 describeSimulationResponse_status = Lens.lens (\DescribeSimulationResponse' {status} -> status) (\s@DescribeSimulationResponse' {} a -> s {status = a} :: DescribeSimulationResponse)
@@ -356,6 +389,8 @@ instance Prelude.NFData DescribeSimulationResponse where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf schemaError
       `Prelude.seq` Prelude.rnf schemaS3Location
+      `Prelude.seq` Prelude.rnf snapshotS3Location
+      `Prelude.seq` Prelude.rnf startError
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf targetStatus
       `Prelude.seq` Prelude.rnf httpStatus

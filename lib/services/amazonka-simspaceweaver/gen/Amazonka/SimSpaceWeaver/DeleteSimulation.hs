@@ -22,9 +22,8 @@
 --
 -- Deletes all SimSpace Weaver resources assigned to the given simulation.
 --
--- Your simulation uses resources in other Amazon Web Services services.
--- This API operation doesn\'t delete resources in other Amazon Web
--- Services services.
+-- Your simulation uses resources in other Amazon Web Services. This API
+-- operation doesn\'t delete resources in other Amazon Web Services.
 module Amazonka.SimSpaceWeaver.DeleteSimulation
   ( -- * Creating a Request
     DeleteSimulation (..),

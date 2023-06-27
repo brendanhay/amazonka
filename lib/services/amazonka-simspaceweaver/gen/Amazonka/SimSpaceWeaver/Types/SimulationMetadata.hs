@@ -121,7 +121,8 @@ instance Data.FromJSON SimulationMetadata where
 
 instance Prelude.Hashable SimulationMetadata where
   hashWithSalt _salt SimulationMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

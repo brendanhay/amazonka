@@ -157,7 +157,8 @@ instance Core.AWSRequest StartApp where
 
 instance Prelude.Hashable StartApp where
   hashWithSalt _salt StartApp' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` launchOverrides
       `Prelude.hashWithSalt` domain

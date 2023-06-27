@@ -26,7 +26,10 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SimSpaceWeaver.Types.SimulationAppPortMapping
 
 -- | Information about the network endpoint that you can use to connect to
--- your custom or service app.
+-- your custom or service app. For more information about SimSpace Weaver
+-- apps, see
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_apps Key concepts: Apps>
+-- in the /SimSpace Weaver User Guide/..
 --
 -- /See:/ 'newSimulationAppEndpointInfo' smart constructor.
 data SimulationAppEndpointInfo = SimulationAppEndpointInfo'
@@ -78,14 +81,16 @@ instance Data.FromJSON SimulationAppEndpointInfo where
       ( \x ->
           SimulationAppEndpointInfo'
             Prelude.<$> (x Data..:? "Address")
-            Prelude.<*> ( x Data..:? "IngressPortMappings"
+            Prelude.<*> ( x
+                            Data..:? "IngressPortMappings"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable SimulationAppEndpointInfo where
   hashWithSalt _salt SimulationAppEndpointInfo' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` ingressPortMappings
 
 instance Prelude.NFData SimulationAppEndpointInfo where

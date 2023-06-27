@@ -11,14 +11,13 @@
 --
 -- Derived from API version @2022-10-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Web Services SimSpace Weaver (SimSpace Weaver) is a managed
--- service that you can use to build and operate large-scale spatial
--- simulations in the Amazon Web Services Cloud. For example, you can
--- create a digital twin of a city, crowd simulations with millions of
--- people and objects, and massilvely-multiplayer games with hundreds of
--- thousands of connected players. For more information about SimSpace
--- Weaver, see the
--- /<https://docs.aws.amazon.com/simspaceweaver/latest/userguide/ Amazon Web Services SimSpace Weaver User Guide>/
+-- SimSpace Weaver (SimSpace Weaver) is a managed service that you can use
+-- to build and operate large-scale spatial simulations in the Amazon Web
+-- Services Cloud. For example, you can create a digital twin of a city,
+-- crowd simulations with millions of people and objects, and massively
+-- multiplayer games with hundreds of thousands of connected players. For
+-- more information about SimSpace Weaver, see the
+-- /<https://docs.aws.amazon.com/simspaceweaver/latest/userguide/ SimSpace Weaver User Guide>/
 -- .
 --
 -- This API reference describes the API operations and data types that you
@@ -26,8 +25,9 @@
 --
 -- SimSpace Weaver also provides the SimSpace Weaver app SDK, which you use
 -- for app development. The SimSpace Weaver app SDK API reference is
--- included in the SimSpace Weaver app SDK documentation, which is part of
--- the SimSpace Weaver app SDK distributable package.
+-- included in the SimSpace Weaver app SDK documentation. This
+-- documentation is part of the SimSpace Weaver app SDK distributable
+-- package.
 module Amazonka.SimSpaceWeaver
   ( -- * Service Configuration
     defaultService,
@@ -61,6 +61,12 @@ module Amazonka.SimSpaceWeaver
 
     -- * Operations
     -- $operations
+
+    -- ** CreateSnapshot
+    CreateSnapshot (CreateSnapshot'),
+    newCreateSnapshot,
+    CreateSnapshotResponse (CreateSnapshotResponse'),
+    newCreateSnapshotResponse,
 
     -- ** DeleteApp
     DeleteApp (DeleteApp'),
@@ -199,6 +205,10 @@ module Amazonka.SimSpaceWeaver
     LoggingConfiguration (LoggingConfiguration'),
     newLoggingConfiguration,
 
+    -- ** S3Destination
+    S3Destination (S3Destination'),
+    newS3Destination,
+
     -- ** S3Location
     S3Location (S3Location'),
     newS3Location,
@@ -225,6 +235,7 @@ module Amazonka.SimSpaceWeaver
   )
 where
 
+import Amazonka.SimSpaceWeaver.CreateSnapshot
 import Amazonka.SimSpaceWeaver.DeleteApp
 import Amazonka.SimSpaceWeaver.DeleteSimulation
 import Amazonka.SimSpaceWeaver.DescribeApp

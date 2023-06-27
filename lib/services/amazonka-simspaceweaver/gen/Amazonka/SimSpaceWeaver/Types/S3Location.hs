@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A location in Amazon Simple Storage Service (Amazon S3) where SimSpace
--- Weaver stores simulation data, such as your app zip files and schema
+-- Weaver stores simulation data, such as your app .zip files and schema
 -- file. For more information about Amazon S3, see the
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html Amazon Simple Storage Service User Guide>
 -- .
@@ -93,7 +93,8 @@ instance Data.FromJSON S3Location where
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` objectKey
 
 instance Prelude.NFData S3Location where

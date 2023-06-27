@@ -89,7 +89,8 @@ instance Data.FromJSON SimulationAppPortMapping where
 
 instance Prelude.Hashable SimulationAppPortMapping where
   hashWithSalt _salt SimulationAppPortMapping' {..} =
-    _salt `Prelude.hashWithSalt` actual
+    _salt
+      `Prelude.hashWithSalt` actual
       `Prelude.hashWithSalt` declared
 
 instance Prelude.NFData SimulationAppPortMapping where

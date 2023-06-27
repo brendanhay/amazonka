@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Options that apply when the app starts. These optiAons override default
+-- | Options that apply when the app starts. These options override default
 -- behavior.
 --
 -- /See:/ 'newLaunchOverrides' smart constructor.
@@ -61,7 +61,8 @@ instance Data.FromJSON LaunchOverrides where
       "LaunchOverrides"
       ( \x ->
           LaunchOverrides'
-            Prelude.<$> ( x Data..:? "LaunchCommands"
+            Prelude.<$> ( x
+                            Data..:? "LaunchCommands"
                             Data..!= Prelude.mempty
                         )
       )

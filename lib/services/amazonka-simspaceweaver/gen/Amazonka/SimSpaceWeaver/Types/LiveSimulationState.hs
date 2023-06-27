@@ -37,8 +37,8 @@ data LiveSimulationState = LiveSimulationState'
     clocks :: Prelude.Maybe [SimulationClock],
     -- | A list of domains for the simulation. For more information about
     -- domains, see
-    -- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html Key concepts>
-    -- in the /Amazon Web Services SimSpace Weaver User Guide/.
+    -- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains Key concepts: Domains>
+    -- in the /SimSpace Weaver User Guide/.
     domains :: Prelude.Maybe [Domain]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,8 +57,8 @@ data LiveSimulationState = LiveSimulationState'
 --
 -- 'domains', 'liveSimulationState_domains' - A list of domains for the simulation. For more information about
 -- domains, see
--- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html Key concepts>
--- in the /Amazon Web Services SimSpace Weaver User Guide/.
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains Key concepts: Domains>
+-- in the /SimSpace Weaver User Guide/.
 newLiveSimulationState ::
   LiveSimulationState
 newLiveSimulationState =
@@ -75,8 +75,8 @@ liveSimulationState_clocks = Lens.lens (\LiveSimulationState' {clocks} -> clocks
 
 -- | A list of domains for the simulation. For more information about
 -- domains, see
--- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html Key concepts>
--- in the /Amazon Web Services SimSpace Weaver User Guide/.
+-- <https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains Key concepts: Domains>
+-- in the /SimSpace Weaver User Guide/.
 liveSimulationState_domains :: Lens.Lens' LiveSimulationState (Prelude.Maybe [Domain])
 liveSimulationState_domains = Lens.lens (\LiveSimulationState' {domains} -> domains) (\s@LiveSimulationState' {} a -> s {domains = a} :: LiveSimulationState) Prelude.. Lens.mapping Lens.coerced
 
@@ -92,7 +92,8 @@ instance Data.FromJSON LiveSimulationState where
 
 instance Prelude.Hashable LiveSimulationState where
   hashWithSalt _salt LiveSimulationState' {..} =
-    _salt `Prelude.hashWithSalt` clocks
+    _salt
+      `Prelude.hashWithSalt` clocks
       `Prelude.hashWithSalt` domains
 
 instance Prelude.NFData LiveSimulationState where

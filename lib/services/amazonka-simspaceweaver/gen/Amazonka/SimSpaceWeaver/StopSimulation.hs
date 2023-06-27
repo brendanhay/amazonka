@@ -22,8 +22,8 @@
 --
 -- Stops the given simulation.
 --
--- You can\'t restart a simulation after you stop it. If you need to
--- restart a simulation, you must stop it, delete it, and start a new
+-- You can\'t restart a simulation after you stop it. If you want to
+-- restart a simulation, then you must stop it, delete it, and start a new
 -- instance of it.
 module Amazonka.SimSpaceWeaver.StopSimulation
   ( -- * Creating a Request

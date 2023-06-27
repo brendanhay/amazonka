@@ -23,6 +23,7 @@ module Amazonka.SimSpaceWeaver.Types.SimulationStatus
         SimulationStatus_DELETED,
         SimulationStatus_DELETING,
         SimulationStatus_FAILED,
+        SimulationStatus_SNAPSHOT_IN_PROGRESS,
         SimulationStatus_STARTED,
         SimulationStatus_STARTING,
         SimulationStatus_STOPPED,
@@ -73,6 +74,9 @@ pattern SimulationStatus_DELETING = SimulationStatus' "DELETING"
 pattern SimulationStatus_FAILED :: SimulationStatus
 pattern SimulationStatus_FAILED = SimulationStatus' "FAILED"
 
+pattern SimulationStatus_SNAPSHOT_IN_PROGRESS :: SimulationStatus
+pattern SimulationStatus_SNAPSHOT_IN_PROGRESS = SimulationStatus' "SNAPSHOT_IN_PROGRESS"
+
 pattern SimulationStatus_STARTED :: SimulationStatus
 pattern SimulationStatus_STARTED = SimulationStatus' "STARTED"
 
@@ -92,6 +96,7 @@ pattern SimulationStatus_UNKNOWN = SimulationStatus' "UNKNOWN"
   SimulationStatus_DELETED,
   SimulationStatus_DELETING,
   SimulationStatus_FAILED,
+  SimulationStatus_SNAPSHOT_IN_PROGRESS,
   SimulationStatus_STARTED,
   SimulationStatus_STARTING,
   SimulationStatus_STOPPED,

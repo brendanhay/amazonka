@@ -44,6 +44,7 @@ library
 
   exposed-modules:
     Amazonka.SimSpaceWeaver
+    Amazonka.SimSpaceWeaver.CreateSnapshot
     Amazonka.SimSpaceWeaver.DeleteApp
     Amazonka.SimSpaceWeaver.DeleteSimulation
     Amazonka.SimSpaceWeaver.DescribeApp
@@ -69,6 +70,7 @@ library
     Amazonka.SimSpaceWeaver.Types.LiveSimulationState
     Amazonka.SimSpaceWeaver.Types.LogDestination
     Amazonka.SimSpaceWeaver.Types.LoggingConfiguration
+    Amazonka.SimSpaceWeaver.Types.S3Destination
     Amazonka.SimSpaceWeaver.Types.S3Location
     Amazonka.SimSpaceWeaver.Types.SimulationAppEndpointInfo
     Amazonka.SimSpaceWeaver.Types.SimulationAppMetadata

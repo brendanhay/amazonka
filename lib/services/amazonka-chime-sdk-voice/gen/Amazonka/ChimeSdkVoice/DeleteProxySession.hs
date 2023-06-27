@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes the specified proxy session from the specified Amazon Chime SDK
+-- Voice Connector.
 module Amazonka.ChimeSdkVoice.DeleteProxySession
   ( -- * Creating a Request
     DeleteProxySession (..),
@@ -46,7 +47,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteProxySession' smart constructor.
 data DeleteProxySession = DeleteProxySession'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The proxy session ID.
     proxySessionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,9 +62,9 @@ data DeleteProxySession = DeleteProxySession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'deleteProxySession_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteProxySession_voiceConnectorId' - The Voice Connector ID.
 --
--- 'proxySessionId', 'deleteProxySession_proxySessionId' - Undocumented member.
+-- 'proxySessionId', 'deleteProxySession_proxySessionId' - The proxy session ID.
 newDeleteProxySession ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -77,11 +80,11 @@ newDeleteProxySession
         proxySessionId = pProxySessionId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteProxySession_voiceConnectorId :: Lens.Lens' DeleteProxySession Prelude.Text
 deleteProxySession_voiceConnectorId = Lens.lens (\DeleteProxySession' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteProxySession' {} a -> s {voiceConnectorId = a} :: DeleteProxySession)
 
--- | Undocumented member.
+-- | The proxy session ID.
 deleteProxySession_proxySessionId :: Lens.Lens' DeleteProxySession Prelude.Text
 deleteProxySession_proxySessionId = Lens.lens (\DeleteProxySession' {proxySessionId} -> proxySessionId) (\s@DeleteProxySession' {} a -> s {proxySessionId = a} :: DeleteProxySession)
 
@@ -96,7 +99,8 @@ instance Core.AWSRequest DeleteProxySession where
 
 instance Prelude.Hashable DeleteProxySession where
   hashWithSalt _salt DeleteProxySession' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` proxySessionId
 
 instance Prelude.NFData DeleteProxySession where

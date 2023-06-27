@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the details of the specified SIP media application.
 module Amazonka.ChimeSdkVoice.UpdateSipMediaApplication
   ( -- * Creating a Request
     UpdateSipMediaApplication (..),
@@ -51,8 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSipMediaApplication' smart constructor.
 data UpdateSipMediaApplication = UpdateSipMediaApplication'
-  { endpoints :: Prelude.Maybe (Prelude.NonEmpty SipMediaApplicationEndpoint),
+  { -- | The new set of endpoints for the specified SIP media application.
+    endpoints :: Prelude.Maybe (Prelude.NonEmpty SipMediaApplicationEndpoint),
+    -- | The new name for the specified SIP media application.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The SIP media application ID.
     sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -65,11 +68,11 @@ data UpdateSipMediaApplication = UpdateSipMediaApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpoints', 'updateSipMediaApplication_endpoints' - Undocumented member.
+-- 'endpoints', 'updateSipMediaApplication_endpoints' - The new set of endpoints for the specified SIP media application.
 --
--- 'name', 'updateSipMediaApplication_name' - Undocumented member.
+-- 'name', 'updateSipMediaApplication_name' - The new name for the specified SIP media application.
 --
--- 'sipMediaApplicationId', 'updateSipMediaApplication_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'updateSipMediaApplication_sipMediaApplicationId' - The SIP media application ID.
 newUpdateSipMediaApplication ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -82,15 +85,15 @@ newUpdateSipMediaApplication pSipMediaApplicationId_ =
       sipMediaApplicationId = pSipMediaApplicationId_
     }
 
--- | Undocumented member.
+-- | The new set of endpoints for the specified SIP media application.
 updateSipMediaApplication_endpoints :: Lens.Lens' UpdateSipMediaApplication (Prelude.Maybe (Prelude.NonEmpty SipMediaApplicationEndpoint))
 updateSipMediaApplication_endpoints = Lens.lens (\UpdateSipMediaApplication' {endpoints} -> endpoints) (\s@UpdateSipMediaApplication' {} a -> s {endpoints = a} :: UpdateSipMediaApplication) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The new name for the specified SIP media application.
 updateSipMediaApplication_name :: Lens.Lens' UpdateSipMediaApplication (Prelude.Maybe Prelude.Text)
 updateSipMediaApplication_name = Lens.lens (\UpdateSipMediaApplication' {name} -> name) (\s@UpdateSipMediaApplication' {} a -> s {name = a} :: UpdateSipMediaApplication)
 
--- | Undocumented member.
+-- | The SIP media application ID.
 updateSipMediaApplication_sipMediaApplicationId :: Lens.Lens' UpdateSipMediaApplication Prelude.Text
 updateSipMediaApplication_sipMediaApplicationId = Lens.lens (\UpdateSipMediaApplication' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@UpdateSipMediaApplication' {} a -> s {sipMediaApplicationId = a} :: UpdateSipMediaApplication)
 
@@ -110,7 +113,8 @@ instance Core.AWSRequest UpdateSipMediaApplication where
 
 instance Prelude.Hashable UpdateSipMediaApplication where
   hashWithSalt _salt UpdateSipMediaApplication' {..} =
-    _salt `Prelude.hashWithSalt` endpoints
+    _salt
+      `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sipMediaApplicationId
 
@@ -144,7 +148,8 @@ instance Data.ToQuery UpdateSipMediaApplication where
 
 -- | /See:/ 'newUpdateSipMediaApplicationResponse' smart constructor.
 data UpdateSipMediaApplicationResponse = UpdateSipMediaApplicationResponse'
-  { sipMediaApplication :: Prelude.Maybe SipMediaApplication,
+  { -- | The updated SIP media application’s details.
+    sipMediaApplication :: Prelude.Maybe SipMediaApplication,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -158,7 +163,7 @@ data UpdateSipMediaApplicationResponse = UpdateSipMediaApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplication', 'updateSipMediaApplicationResponse_sipMediaApplication' - Undocumented member.
+-- 'sipMediaApplication', 'updateSipMediaApplicationResponse_sipMediaApplication' - The updated SIP media application’s details.
 --
 -- 'httpStatus', 'updateSipMediaApplicationResponse_httpStatus' - The response's http status code.
 newUpdateSipMediaApplicationResponse ::
@@ -172,7 +177,7 @@ newUpdateSipMediaApplicationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated SIP media application’s details.
 updateSipMediaApplicationResponse_sipMediaApplication :: Lens.Lens' UpdateSipMediaApplicationResponse (Prelude.Maybe SipMediaApplication)
 updateSipMediaApplicationResponse_sipMediaApplication = Lens.lens (\UpdateSipMediaApplicationResponse' {sipMediaApplication} -> sipMediaApplication) (\s@UpdateSipMediaApplicationResponse' {} a -> s {sipMediaApplication = a} :: UpdateSipMediaApplicationResponse)
 

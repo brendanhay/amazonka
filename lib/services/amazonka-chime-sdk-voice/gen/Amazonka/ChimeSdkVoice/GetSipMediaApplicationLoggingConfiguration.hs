@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the logging configuration for the specified SIP media
+-- application.
 module Amazonka.ChimeSdkVoice.GetSipMediaApplicationLoggingConfiguration
   ( -- * Creating a Request
     GetSipMediaApplicationLoggingConfiguration (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSipMediaApplicationLoggingConfiguration' smart constructor.
 data GetSipMediaApplicationLoggingConfiguration = GetSipMediaApplicationLoggingConfiguration'
-  { sipMediaApplicationId :: Prelude.Text
+  { -- | The SIP media application ID.
+    sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetSipMediaApplicationLoggingConfiguration = GetSipMediaApplicationLoggingC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationId', 'getSipMediaApplicationLoggingConfiguration_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'getSipMediaApplicationLoggingConfiguration_sipMediaApplicationId' - The SIP media application ID.
 newGetSipMediaApplicationLoggingConfiguration ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -73,7 +75,7 @@ newGetSipMediaApplicationLoggingConfiguration
           pSipMediaApplicationId_
       }
 
--- | Undocumented member.
+-- | The SIP media application ID.
 getSipMediaApplicationLoggingConfiguration_sipMediaApplicationId :: Lens.Lens' GetSipMediaApplicationLoggingConfiguration Prelude.Text
 getSipMediaApplicationLoggingConfiguration_sipMediaApplicationId = Lens.lens (\GetSipMediaApplicationLoggingConfiguration' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@GetSipMediaApplicationLoggingConfiguration' {} a -> s {sipMediaApplicationId = a} :: GetSipMediaApplicationLoggingConfiguration)
 
@@ -94,7 +96,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "SipMediaApplicationLoggingConfiguration"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -139,7 +141,8 @@ instance
 
 -- | /See:/ 'newGetSipMediaApplicationLoggingConfigurationResponse' smart constructor.
 data GetSipMediaApplicationLoggingConfigurationResponse = GetSipMediaApplicationLoggingConfigurationResponse'
-  { sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
+  { -- | The actual logging configuration.
+    sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,7 +156,7 @@ data GetSipMediaApplicationLoggingConfigurationResponse = GetSipMediaApplication
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationLoggingConfiguration', 'getSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration' - Undocumented member.
+-- 'sipMediaApplicationLoggingConfiguration', 'getSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration' - The actual logging configuration.
 --
 -- 'httpStatus', 'getSipMediaApplicationLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newGetSipMediaApplicationLoggingConfigurationResponse ::
@@ -169,7 +172,7 @@ newGetSipMediaApplicationLoggingConfigurationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The actual logging configuration.
 getSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration :: Lens.Lens' GetSipMediaApplicationLoggingConfigurationResponse (Prelude.Maybe SipMediaApplicationLoggingConfiguration)
 getSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration = Lens.lens (\GetSipMediaApplicationLoggingConfigurationResponse' {sipMediaApplicationLoggingConfiguration} -> sipMediaApplicationLoggingConfiguration) (\s@GetSipMediaApplicationLoggingConfigurationResponse' {} a -> s {sipMediaApplicationLoggingConfiguration = a} :: GetSipMediaApplicationLoggingConfigurationResponse)
 

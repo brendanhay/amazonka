@@ -24,9 +24,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newVoiceConnectorSettings' smart constructor.
+-- | The Amazon Chime SDK Voice Connector settings. Includes any Amazon S3
+-- buckets designated for storing call detail records.
+--
+-- /See:/ 'newVoiceConnectorSettings' smart constructor.
 data VoiceConnectorSettings = VoiceConnectorSettings'
-  { cdrBucket :: Prelude.Maybe Prelude.Text
+  { -- | The S3 bucket that stores the Voice Connector\'s call detail records.
+    cdrBucket :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -38,7 +42,7 @@ data VoiceConnectorSettings = VoiceConnectorSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cdrBucket', 'voiceConnectorSettings_cdrBucket' - Undocumented member.
+-- 'cdrBucket', 'voiceConnectorSettings_cdrBucket' - The S3 bucket that stores the Voice Connector\'s call detail records.
 newVoiceConnectorSettings ::
   VoiceConnectorSettings
 newVoiceConnectorSettings =
@@ -47,7 +51,7 @@ newVoiceConnectorSettings =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The S3 bucket that stores the Voice Connector\'s call detail records.
 voiceConnectorSettings_cdrBucket :: Lens.Lens' VoiceConnectorSettings (Prelude.Maybe Prelude.Text)
 voiceConnectorSettings_cdrBucket = Lens.lens (\VoiceConnectorSettings' {cdrBucket} -> cdrBucket) (\s@VoiceConnectorSettings' {} a -> s {cdrBucket = a} :: VoiceConnectorSettings)
 

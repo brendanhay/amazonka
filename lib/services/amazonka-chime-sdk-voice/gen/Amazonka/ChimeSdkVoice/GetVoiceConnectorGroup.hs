@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves details for the specified Amazon Chime SDK Voice Connector
+-- group, such as timestamps,name, and associated @VoiceConnectorItems@.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorGroup
   ( -- * Creating a Request
     GetVoiceConnectorGroup (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorGroup' smart constructor.
 data GetVoiceConnectorGroup = GetVoiceConnectorGroup'
-  { voiceConnectorGroupId :: Prelude.Text
+  { -- | The Voice Connector group ID.
+    voiceConnectorGroupId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetVoiceConnectorGroup = GetVoiceConnectorGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorGroupId', 'getVoiceConnectorGroup_voiceConnectorGroupId' - Undocumented member.
+-- 'voiceConnectorGroupId', 'getVoiceConnectorGroup_voiceConnectorGroupId' - The Voice Connector group ID.
 newGetVoiceConnectorGroup ::
   -- | 'voiceConnectorGroupId'
   Prelude.Text ->
@@ -72,7 +74,7 @@ newGetVoiceConnectorGroup pVoiceConnectorGroupId_ =
         pVoiceConnectorGroupId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector group ID.
 getVoiceConnectorGroup_voiceConnectorGroupId :: Lens.Lens' GetVoiceConnectorGroup Prelude.Text
 getVoiceConnectorGroup_voiceConnectorGroupId = Lens.lens (\GetVoiceConnectorGroup' {voiceConnectorGroupId} -> voiceConnectorGroupId) (\s@GetVoiceConnectorGroup' {} a -> s {voiceConnectorGroupId = a} :: GetVoiceConnectorGroup)
 
@@ -113,7 +115,8 @@ instance Data.ToQuery GetVoiceConnectorGroup where
 
 -- | /See:/ 'newGetVoiceConnectorGroupResponse' smart constructor.
 data GetVoiceConnectorGroupResponse = GetVoiceConnectorGroupResponse'
-  { voiceConnectorGroup :: Prelude.Maybe VoiceConnectorGroup,
+  { -- | The details of the Voice Connector group.
+    voiceConnectorGroup :: Prelude.Maybe VoiceConnectorGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -127,7 +130,7 @@ data GetVoiceConnectorGroupResponse = GetVoiceConnectorGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorGroup', 'getVoiceConnectorGroupResponse_voiceConnectorGroup' - Undocumented member.
+-- 'voiceConnectorGroup', 'getVoiceConnectorGroupResponse_voiceConnectorGroup' - The details of the Voice Connector group.
 --
 -- 'httpStatus', 'getVoiceConnectorGroupResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorGroupResponse ::
@@ -141,7 +144,7 @@ newGetVoiceConnectorGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The details of the Voice Connector group.
 getVoiceConnectorGroupResponse_voiceConnectorGroup :: Lens.Lens' GetVoiceConnectorGroupResponse (Prelude.Maybe VoiceConnectorGroup)
 getVoiceConnectorGroupResponse_voiceConnectorGroup = Lens.lens (\GetVoiceConnectorGroupResponse' {voiceConnectorGroup} -> voiceConnectorGroup) (\s@GetVoiceConnectorGroupResponse' {} a -> s {voiceConnectorGroup = a} :: GetVoiceConnectorGroupResponse)
 

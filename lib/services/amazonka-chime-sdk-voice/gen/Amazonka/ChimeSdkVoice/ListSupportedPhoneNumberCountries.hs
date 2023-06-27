@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists the countries that you can order phone numbers from.
 module Amazonka.ChimeSdkVoice.ListSupportedPhoneNumberCountries
   ( -- * Creating a Request
     ListSupportedPhoneNumberCountries (..),
@@ -49,7 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSupportedPhoneNumberCountries' smart constructor.
 data ListSupportedPhoneNumberCountries = ListSupportedPhoneNumberCountries'
-  { productType :: PhoneNumberProductType
+  { -- | The phone number product type.
+    productType :: PhoneNumberProductType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +62,7 @@ data ListSupportedPhoneNumberCountries = ListSupportedPhoneNumberCountries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productType', 'listSupportedPhoneNumberCountries_productType' - Undocumented member.
+-- 'productType', 'listSupportedPhoneNumberCountries_productType' - The phone number product type.
 newListSupportedPhoneNumberCountries ::
   -- | 'productType'
   PhoneNumberProductType ->
@@ -72,7 +73,7 @@ newListSupportedPhoneNumberCountries pProductType_ =
         pProductType_
     }
 
--- | Undocumented member.
+-- | The phone number product type.
 listSupportedPhoneNumberCountries_productType :: Lens.Lens' ListSupportedPhoneNumberCountries PhoneNumberProductType
 listSupportedPhoneNumberCountries_productType = Lens.lens (\ListSupportedPhoneNumberCountries' {productType} -> productType) (\s@ListSupportedPhoneNumberCountries' {} a -> s {productType = a} :: ListSupportedPhoneNumberCountries)
 
@@ -89,10 +90,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListSupportedPhoneNumberCountriesResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberCountries"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberCountries"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -133,7 +135,8 @@ instance
 
 -- | /See:/ 'newListSupportedPhoneNumberCountriesResponse' smart constructor.
 data ListSupportedPhoneNumberCountriesResponse = ListSupportedPhoneNumberCountriesResponse'
-  { phoneNumberCountries :: Prelude.Maybe [PhoneNumberCountry],
+  { -- | The supported phone number countries.
+    phoneNumberCountries :: Prelude.Maybe [PhoneNumberCountry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,7 +150,7 @@ data ListSupportedPhoneNumberCountriesResponse = ListSupportedPhoneNumberCountri
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberCountries', 'listSupportedPhoneNumberCountriesResponse_phoneNumberCountries' - Undocumented member.
+-- 'phoneNumberCountries', 'listSupportedPhoneNumberCountriesResponse_phoneNumberCountries' - The supported phone number countries.
 --
 -- 'httpStatus', 'listSupportedPhoneNumberCountriesResponse_httpStatus' - The response's http status code.
 newListSupportedPhoneNumberCountriesResponse ::
@@ -162,7 +165,7 @@ newListSupportedPhoneNumberCountriesResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The supported phone number countries.
 listSupportedPhoneNumberCountriesResponse_phoneNumberCountries :: Lens.Lens' ListSupportedPhoneNumberCountriesResponse (Prelude.Maybe [PhoneNumberCountry])
 listSupportedPhoneNumberCountriesResponse_phoneNumberCountries = Lens.lens (\ListSupportedPhoneNumberCountriesResponse' {phoneNumberCountries} -> phoneNumberCountries) (\s@ListSupportedPhoneNumberCountriesResponse' {} a -> s {phoneNumberCountries = a} :: ListSupportedPhoneNumberCountriesResponse) Prelude.. Lens.mapping Lens.coerced
 

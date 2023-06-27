@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the details of the specified SIP rule.
 module Amazonka.ChimeSdkVoice.UpdateSipRule
   ( -- * Creating a Request
     UpdateSipRule (..),
@@ -52,9 +52,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSipRule' smart constructor.
 data UpdateSipRule = UpdateSipRule'
-  { disabled :: Prelude.Maybe Prelude.Bool,
+  { -- | The new value that indicates whether the rule is disabled.
+    disabled :: Prelude.Maybe Prelude.Bool,
+    -- | The new list of target applications.
     targetApplications :: Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication),
+    -- | The SIP rule ID.
     sipRuleId :: Prelude.Text,
+    -- | The new name for the specified SIP rule.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,13 +71,13 @@ data UpdateSipRule = UpdateSipRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disabled', 'updateSipRule_disabled' - Undocumented member.
+-- 'disabled', 'updateSipRule_disabled' - The new value that indicates whether the rule is disabled.
 --
--- 'targetApplications', 'updateSipRule_targetApplications' - Undocumented member.
+-- 'targetApplications', 'updateSipRule_targetApplications' - The new list of target applications.
 --
--- 'sipRuleId', 'updateSipRule_sipRuleId' - Undocumented member.
+-- 'sipRuleId', 'updateSipRule_sipRuleId' - The SIP rule ID.
 --
--- 'name', 'updateSipRule_name' - Undocumented member.
+-- 'name', 'updateSipRule_name' - The new name for the specified SIP rule.
 newUpdateSipRule ::
   -- | 'sipRuleId'
   Prelude.Text ->
@@ -88,19 +92,19 @@ newUpdateSipRule pSipRuleId_ pName_ =
       name = pName_
     }
 
--- | Undocumented member.
+-- | The new value that indicates whether the rule is disabled.
 updateSipRule_disabled :: Lens.Lens' UpdateSipRule (Prelude.Maybe Prelude.Bool)
 updateSipRule_disabled = Lens.lens (\UpdateSipRule' {disabled} -> disabled) (\s@UpdateSipRule' {} a -> s {disabled = a} :: UpdateSipRule)
 
--- | Undocumented member.
+-- | The new list of target applications.
 updateSipRule_targetApplications :: Lens.Lens' UpdateSipRule (Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication))
 updateSipRule_targetApplications = Lens.lens (\UpdateSipRule' {targetApplications} -> targetApplications) (\s@UpdateSipRule' {} a -> s {targetApplications = a} :: UpdateSipRule) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The SIP rule ID.
 updateSipRule_sipRuleId :: Lens.Lens' UpdateSipRule Prelude.Text
 updateSipRule_sipRuleId = Lens.lens (\UpdateSipRule' {sipRuleId} -> sipRuleId) (\s@UpdateSipRule' {} a -> s {sipRuleId = a} :: UpdateSipRule)
 
--- | Undocumented member.
+-- | The new name for the specified SIP rule.
 updateSipRule_name :: Lens.Lens' UpdateSipRule Prelude.Text
 updateSipRule_name = Lens.lens (\UpdateSipRule' {name} -> name) (\s@UpdateSipRule' {} a -> s {name = a} :: UpdateSipRule)
 
@@ -120,7 +124,8 @@ instance Core.AWSRequest UpdateSipRule where
 
 instance Prelude.Hashable UpdateSipRule where
   hashWithSalt _salt UpdateSipRule' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` targetApplications
       `Prelude.hashWithSalt` sipRuleId
       `Prelude.hashWithSalt` name
@@ -156,7 +161,8 @@ instance Data.ToQuery UpdateSipRule where
 
 -- | /See:/ 'newUpdateSipRuleResponse' smart constructor.
 data UpdateSipRuleResponse = UpdateSipRuleResponse'
-  { sipRule :: Prelude.Maybe SipRule,
+  { -- | The updated SIP rule details.
+    sipRule :: Prelude.Maybe SipRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -170,7 +176,7 @@ data UpdateSipRuleResponse = UpdateSipRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipRule', 'updateSipRuleResponse_sipRule' - Undocumented member.
+-- 'sipRule', 'updateSipRuleResponse_sipRule' - The updated SIP rule details.
 --
 -- 'httpStatus', 'updateSipRuleResponse_httpStatus' - The response's http status code.
 newUpdateSipRuleResponse ::
@@ -183,7 +189,7 @@ newUpdateSipRuleResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated SIP rule details.
 updateSipRuleResponse_sipRule :: Lens.Lens' UpdateSipRuleResponse (Prelude.Maybe SipRule)
 updateSipRuleResponse_sipRule = Lens.lens (\UpdateSipRuleResponse' {sipRule} -> sipRule) (\s@UpdateSipRuleResponse' {} a -> s {sipRule = a} :: UpdateSipRuleResponse)
 

@@ -25,10 +25,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newPhoneNumberAssociation' smart constructor.
+-- | The phone number associations, such as an Amazon Chime SDK account ID,
+-- user ID, Voice Connector ID, or Voice Connector group ID.
+--
+-- /See:/ 'newPhoneNumberAssociation' smart constructor.
 data PhoneNumberAssociation = PhoneNumberAssociation'
-  { associatedTimestamp :: Prelude.Maybe Data.ISO8601,
+  { -- | The timestamp of the phone number association, in ISO 8601 format.
+    associatedTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | Defines the association with an Amazon Chime SDK account ID, user ID,
+    -- Voice Connector ID, or Voice Connector group ID.
     name :: Prelude.Maybe PhoneNumberAssociationName,
+    -- | Contains the ID for the entity specified in Name.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,11 +48,12 @@ data PhoneNumberAssociation = PhoneNumberAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associatedTimestamp', 'phoneNumberAssociation_associatedTimestamp' - Undocumented member.
+-- 'associatedTimestamp', 'phoneNumberAssociation_associatedTimestamp' - The timestamp of the phone number association, in ISO 8601 format.
 --
--- 'name', 'phoneNumberAssociation_name' - Undocumented member.
+-- 'name', 'phoneNumberAssociation_name' - Defines the association with an Amazon Chime SDK account ID, user ID,
+-- Voice Connector ID, or Voice Connector group ID.
 --
--- 'value', 'phoneNumberAssociation_value' - Undocumented member.
+-- 'value', 'phoneNumberAssociation_value' - Contains the ID for the entity specified in Name.
 newPhoneNumberAssociation ::
   PhoneNumberAssociation
 newPhoneNumberAssociation =
@@ -56,15 +64,16 @@ newPhoneNumberAssociation =
       value = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The timestamp of the phone number association, in ISO 8601 format.
 phoneNumberAssociation_associatedTimestamp :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.UTCTime)
 phoneNumberAssociation_associatedTimestamp = Lens.lens (\PhoneNumberAssociation' {associatedTimestamp} -> associatedTimestamp) (\s@PhoneNumberAssociation' {} a -> s {associatedTimestamp = a} :: PhoneNumberAssociation) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | Defines the association with an Amazon Chime SDK account ID, user ID,
+-- Voice Connector ID, or Voice Connector group ID.
 phoneNumberAssociation_name :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe PhoneNumberAssociationName)
 phoneNumberAssociation_name = Lens.lens (\PhoneNumberAssociation' {name} -> name) (\s@PhoneNumberAssociation' {} a -> s {name = a} :: PhoneNumberAssociation)
 
--- | Undocumented member.
+-- | Contains the ID for the entity specified in Name.
 phoneNumberAssociation_value :: Lens.Lens' PhoneNumberAssociation (Prelude.Maybe Prelude.Text)
 phoneNumberAssociation_value = Lens.lens (\PhoneNumberAssociation' {value} -> value) (\s@PhoneNumberAssociation' {} a -> s {value = a} :: PhoneNumberAssociation)
 
@@ -81,7 +90,8 @@ instance Data.FromJSON PhoneNumberAssociation where
 
 instance Prelude.Hashable PhoneNumberAssociation where
   hashWithSalt _salt PhoneNumberAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associatedTimestamp
+    _salt
+      `Prelude.hashWithSalt` associatedTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

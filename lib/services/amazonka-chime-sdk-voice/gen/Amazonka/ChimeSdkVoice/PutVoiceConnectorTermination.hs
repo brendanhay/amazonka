@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates a Voice Connector\'s termination settings.
 module Amazonka.ChimeSdkVoice.PutVoiceConnectorTermination
   ( -- * Creating a Request
     PutVoiceConnectorTermination (..),
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorTermination' smart constructor.
 data PutVoiceConnectorTermination = PutVoiceConnectorTermination'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The termination settings to be updated.
     termination :: Termination
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -63,9 +65,9 @@ data PutVoiceConnectorTermination = PutVoiceConnectorTermination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'putVoiceConnectorTermination_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'putVoiceConnectorTermination_voiceConnectorId' - The Voice Connector ID.
 --
--- 'termination', 'putVoiceConnectorTermination_termination' - Undocumented member.
+-- 'termination', 'putVoiceConnectorTermination_termination' - The termination settings to be updated.
 newPutVoiceConnectorTermination ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -81,11 +83,11 @@ newPutVoiceConnectorTermination
         termination = pTermination_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 putVoiceConnectorTermination_voiceConnectorId :: Lens.Lens' PutVoiceConnectorTermination Prelude.Text
 putVoiceConnectorTermination_voiceConnectorId = Lens.lens (\PutVoiceConnectorTermination' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorTermination' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorTermination)
 
--- | Undocumented member.
+-- | The termination settings to be updated.
 putVoiceConnectorTermination_termination :: Lens.Lens' PutVoiceConnectorTermination Termination
 putVoiceConnectorTermination_termination = Lens.lens (\PutVoiceConnectorTermination' {termination} -> termination) (\s@PutVoiceConnectorTermination' {} a -> s {termination = a} :: PutVoiceConnectorTermination)
 
@@ -108,7 +110,8 @@ instance
     PutVoiceConnectorTermination
   where
   hashWithSalt _salt PutVoiceConnectorTermination' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` termination
 
 instance Prelude.NFData PutVoiceConnectorTermination where
@@ -139,7 +142,8 @@ instance Data.ToQuery PutVoiceConnectorTermination where
 
 -- | /See:/ 'newPutVoiceConnectorTerminationResponse' smart constructor.
 data PutVoiceConnectorTerminationResponse = PutVoiceConnectorTerminationResponse'
-  { termination :: Prelude.Maybe Termination,
+  { -- | The updated termination settings.
+    termination :: Prelude.Maybe Termination,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,7 +157,7 @@ data PutVoiceConnectorTerminationResponse = PutVoiceConnectorTerminationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'termination', 'putVoiceConnectorTerminationResponse_termination' - Undocumented member.
+-- 'termination', 'putVoiceConnectorTerminationResponse_termination' - The updated termination settings.
 --
 -- 'httpStatus', 'putVoiceConnectorTerminationResponse_httpStatus' - The response's http status code.
 newPutVoiceConnectorTerminationResponse ::
@@ -167,7 +171,7 @@ newPutVoiceConnectorTerminationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated termination settings.
 putVoiceConnectorTerminationResponse_termination :: Lens.Lens' PutVoiceConnectorTerminationResponse (Prelude.Maybe Termination)
 putVoiceConnectorTerminationResponse_termination = Lens.lens (\PutVoiceConnectorTerminationResponse' {termination} -> termination) (\s@PutVoiceConnectorTerminationResponse' {} a -> s {termination = a} :: PutVoiceConnectorTerminationResponse)
 

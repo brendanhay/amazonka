@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates one or more phone numbers.
 module Amazonka.ChimeSdkVoice.BatchUpdatePhoneNumber
   ( -- * Creating a Request
     BatchUpdatePhoneNumber (..),
@@ -49,7 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchUpdatePhoneNumber' smart constructor.
 data BatchUpdatePhoneNumber = BatchUpdatePhoneNumber'
-  { updatePhoneNumberRequestItems :: [UpdatePhoneNumberRequestItem]
+  { -- | Lists the phone numbers in the update request.
+    updatePhoneNumberRequestItems :: [UpdatePhoneNumberRequestItem]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +62,7 @@ data BatchUpdatePhoneNumber = BatchUpdatePhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'updatePhoneNumberRequestItems', 'batchUpdatePhoneNumber_updatePhoneNumberRequestItems' - Undocumented member.
+-- 'updatePhoneNumberRequestItems', 'batchUpdatePhoneNumber_updatePhoneNumberRequestItems' - Lists the phone numbers in the update request.
 newBatchUpdatePhoneNumber ::
   BatchUpdatePhoneNumber
 newBatchUpdatePhoneNumber =
@@ -70,7 +71,7 @@ newBatchUpdatePhoneNumber =
         Prelude.mempty
     }
 
--- | Undocumented member.
+-- | Lists the phone numbers in the update request.
 batchUpdatePhoneNumber_updatePhoneNumberRequestItems :: Lens.Lens' BatchUpdatePhoneNumber [UpdatePhoneNumberRequestItem]
 batchUpdatePhoneNumber_updatePhoneNumberRequestItems = Lens.lens (\BatchUpdatePhoneNumber' {updatePhoneNumberRequestItems} -> updatePhoneNumberRequestItems) (\s@BatchUpdatePhoneNumber' {} a -> s {updatePhoneNumberRequestItems = a} :: BatchUpdatePhoneNumber) Prelude.. Lens.coerced
 
@@ -84,7 +85,8 @@ instance Core.AWSRequest BatchUpdatePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           BatchUpdatePhoneNumberResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -123,7 +125,8 @@ instance Data.ToQuery BatchUpdatePhoneNumber where
 
 -- | /See:/ 'newBatchUpdatePhoneNumberResponse' smart constructor.
 data BatchUpdatePhoneNumberResponse = BatchUpdatePhoneNumberResponse'
-  { phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
+  { -- | A list of failed phone numbers and their error messages.
+    phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -137,7 +140,7 @@ data BatchUpdatePhoneNumberResponse = BatchUpdatePhoneNumberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberErrors', 'batchUpdatePhoneNumberResponse_phoneNumberErrors' - Undocumented member.
+-- 'phoneNumberErrors', 'batchUpdatePhoneNumberResponse_phoneNumberErrors' - A list of failed phone numbers and their error messages.
 --
 -- 'httpStatus', 'batchUpdatePhoneNumberResponse_httpStatus' - The response's http status code.
 newBatchUpdatePhoneNumberResponse ::
@@ -151,7 +154,7 @@ newBatchUpdatePhoneNumberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | A list of failed phone numbers and their error messages.
 batchUpdatePhoneNumberResponse_phoneNumberErrors :: Lens.Lens' BatchUpdatePhoneNumberResponse (Prelude.Maybe [PhoneNumberError])
 batchUpdatePhoneNumberResponse_phoneNumberErrors = Lens.lens (\BatchUpdatePhoneNumberResponse' {phoneNumberErrors} -> phoneNumberErrors) (\s@BatchUpdatePhoneNumberResponse' {} a -> s {phoneNumberErrors = a} :: BatchUpdatePhoneNumberResponse) Prelude.. Lens.mapping Lens.coerced
 

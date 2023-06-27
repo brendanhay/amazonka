@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the origination settings for the specified Voice Connector.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorOrigination
   ( -- * Creating a Request
     GetVoiceConnectorOrigination (..),
@@ -49,7 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorOrigination' smart constructor.
 data GetVoiceConnectorOrigination = GetVoiceConnectorOrigination'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +62,7 @@ data GetVoiceConnectorOrigination = GetVoiceConnectorOrigination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnectorOrigination_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnectorOrigination_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnectorOrigination ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -72,7 +73,7 @@ newGetVoiceConnectorOrigination pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnectorOrigination_voiceConnectorId :: Lens.Lens' GetVoiceConnectorOrigination Prelude.Text
 getVoiceConnectorOrigination_voiceConnectorId = Lens.lens (\GetVoiceConnectorOrigination' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnectorOrigination' {} a -> s {voiceConnectorId = a} :: GetVoiceConnectorOrigination)
 
@@ -117,7 +118,8 @@ instance Data.ToQuery GetVoiceConnectorOrigination where
 
 -- | /See:/ 'newGetVoiceConnectorOriginationResponse' smart constructor.
 data GetVoiceConnectorOriginationResponse = GetVoiceConnectorOriginationResponse'
-  { origination :: Prelude.Maybe Origination,
+  { -- | The origination setting details.
+    origination :: Prelude.Maybe Origination,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -131,7 +133,7 @@ data GetVoiceConnectorOriginationResponse = GetVoiceConnectorOriginationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'origination', 'getVoiceConnectorOriginationResponse_origination' - Undocumented member.
+-- 'origination', 'getVoiceConnectorOriginationResponse_origination' - The origination setting details.
 --
 -- 'httpStatus', 'getVoiceConnectorOriginationResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorOriginationResponse ::
@@ -145,7 +147,7 @@ newGetVoiceConnectorOriginationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The origination setting details.
 getVoiceConnectorOriginationResponse_origination :: Lens.Lens' GetVoiceConnectorOriginationResponse (Prelude.Maybe Origination)
 getVoiceConnectorOriginationResponse_origination = Lens.lens (\GetVoiceConnectorOriginationResponse' {origination} -> origination) (\s@GetVoiceConnectorOriginationResponse' {} a -> s {origination = a} :: GetVoiceConnectorOriginationResponse)
 

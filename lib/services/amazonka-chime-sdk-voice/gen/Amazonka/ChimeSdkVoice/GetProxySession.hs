@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the specified proxy session details for the specified Amazon
+-- Chime SDK Voice Connector.
 module Amazonka.ChimeSdkVoice.GetProxySession
   ( -- * Creating a Request
     GetProxySession (..),
@@ -50,7 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetProxySession' smart constructor.
 data GetProxySession = GetProxySession'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The proxy session ID.
     proxySessionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +66,9 @@ data GetProxySession = GetProxySession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getProxySession_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getProxySession_voiceConnectorId' - The Voice Connector ID.
 --
--- 'proxySessionId', 'getProxySession_proxySessionId' - Undocumented member.
+-- 'proxySessionId', 'getProxySession_proxySessionId' - The proxy session ID.
 newGetProxySession ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -81,11 +84,11 @@ newGetProxySession
         proxySessionId = pProxySessionId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getProxySession_voiceConnectorId :: Lens.Lens' GetProxySession Prelude.Text
 getProxySession_voiceConnectorId = Lens.lens (\GetProxySession' {voiceConnectorId} -> voiceConnectorId) (\s@GetProxySession' {} a -> s {voiceConnectorId = a} :: GetProxySession)
 
--- | Undocumented member.
+-- | The proxy session ID.
 getProxySession_proxySessionId :: Lens.Lens' GetProxySession Prelude.Text
 getProxySession_proxySessionId = Lens.lens (\GetProxySession' {proxySessionId} -> proxySessionId) (\s@GetProxySession' {} a -> s {proxySessionId = a} :: GetProxySession)
 
@@ -105,7 +108,8 @@ instance Core.AWSRequest GetProxySession where
 
 instance Prelude.Hashable GetProxySession where
   hashWithSalt _salt GetProxySession' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` proxySessionId
 
 instance Prelude.NFData GetProxySession where
@@ -130,7 +134,8 @@ instance Data.ToQuery GetProxySession where
 
 -- | /See:/ 'newGetProxySessionResponse' smart constructor.
 data GetProxySessionResponse = GetProxySessionResponse'
-  { proxySession :: Prelude.Maybe ProxySession,
+  { -- | The proxy session details.
+    proxySession :: Prelude.Maybe ProxySession,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,7 +149,7 @@ data GetProxySessionResponse = GetProxySessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proxySession', 'getProxySessionResponse_proxySession' - Undocumented member.
+-- 'proxySession', 'getProxySessionResponse_proxySession' - The proxy session details.
 --
 -- 'httpStatus', 'getProxySessionResponse_httpStatus' - The response's http status code.
 newGetProxySessionResponse ::
@@ -158,7 +163,7 @@ newGetProxySessionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The proxy session details.
 getProxySessionResponse_proxySession :: Lens.Lens' GetProxySessionResponse (Prelude.Maybe ProxySession)
 getProxySessionResponse_proxySession = Lens.lens (\GetProxySessionResponse' {proxySession} -> proxySession) (\s@GetProxySessionResponse' {} a -> s {proxySession = a} :: GetProxySessionResponse)
 

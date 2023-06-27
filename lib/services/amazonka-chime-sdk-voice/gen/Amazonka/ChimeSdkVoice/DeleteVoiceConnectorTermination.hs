@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes the termination settings for the specified Amazon Chime SDK
+-- Voice Connector.
+--
+-- If emergency calling is configured for the Voice Connector, it must be
+-- deleted prior to deleting the termination settings.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnectorTermination
   ( -- * Creating a Request
     DeleteVoiceConnectorTermination (..),
@@ -45,7 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnectorTermination' smart constructor.
 data DeleteVoiceConnectorTermination = DeleteVoiceConnectorTermination'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +62,7 @@ data DeleteVoiceConnectorTermination = DeleteVoiceConnectorTermination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'deleteVoiceConnectorTermination_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteVoiceConnectorTermination_voiceConnectorId' - The Voice Connector ID.
 newDeleteVoiceConnectorTermination ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -68,7 +73,7 @@ newDeleteVoiceConnectorTermination pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteVoiceConnectorTermination_voiceConnectorId :: Lens.Lens' DeleteVoiceConnectorTermination Prelude.Text
 deleteVoiceConnectorTermination_voiceConnectorId = Lens.lens (\DeleteVoiceConnectorTermination' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteVoiceConnectorTermination' {} a -> s {voiceConnectorId = a} :: DeleteVoiceConnectorTermination)
 

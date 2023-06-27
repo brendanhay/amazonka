@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Invokes the AWS Lambda function associated with the SIP media
+-- application and transaction ID in an update request. The Lambda function
+-- can then return a new set of actions.
 module Amazonka.ChimeSdkVoice.UpdateSipMediaApplicationCall
   ( -- * Creating a Request
     UpdateSipMediaApplicationCall (..),
@@ -51,8 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSipMediaApplicationCall' smart constructor.
 data UpdateSipMediaApplicationCall = UpdateSipMediaApplicationCall'
-  { sipMediaApplicationId :: Prelude.Text,
+  { -- | The ID of the SIP media application handling the call.
+    sipMediaApplicationId :: Prelude.Text,
+    -- | The ID of the call transaction.
     transactionId :: Prelude.Text,
+    -- | Arguments made available to the Lambda function as part of the
+    -- @CALL_UPDATE_REQUESTED@ event. Can contain 0-20 key-value pairs.
     arguments :: Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -65,11 +71,12 @@ data UpdateSipMediaApplicationCall = UpdateSipMediaApplicationCall'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationId', 'updateSipMediaApplicationCall_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'updateSipMediaApplicationCall_sipMediaApplicationId' - The ID of the SIP media application handling the call.
 --
--- 'transactionId', 'updateSipMediaApplicationCall_transactionId' - Undocumented member.
+-- 'transactionId', 'updateSipMediaApplicationCall_transactionId' - The ID of the call transaction.
 --
--- 'arguments', 'updateSipMediaApplicationCall_arguments' - Undocumented member.
+-- 'arguments', 'updateSipMediaApplicationCall_arguments' - Arguments made available to the Lambda function as part of the
+-- @CALL_UPDATE_REQUESTED@ event. Can contain 0-20 key-value pairs.
 newUpdateSipMediaApplicationCall ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -86,15 +93,16 @@ newUpdateSipMediaApplicationCall
         arguments = Prelude.mempty
       }
 
--- | Undocumented member.
+-- | The ID of the SIP media application handling the call.
 updateSipMediaApplicationCall_sipMediaApplicationId :: Lens.Lens' UpdateSipMediaApplicationCall Prelude.Text
 updateSipMediaApplicationCall_sipMediaApplicationId = Lens.lens (\UpdateSipMediaApplicationCall' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@UpdateSipMediaApplicationCall' {} a -> s {sipMediaApplicationId = a} :: UpdateSipMediaApplicationCall)
 
--- | Undocumented member.
+-- | The ID of the call transaction.
 updateSipMediaApplicationCall_transactionId :: Lens.Lens' UpdateSipMediaApplicationCall Prelude.Text
 updateSipMediaApplicationCall_transactionId = Lens.lens (\UpdateSipMediaApplicationCall' {transactionId} -> transactionId) (\s@UpdateSipMediaApplicationCall' {} a -> s {transactionId = a} :: UpdateSipMediaApplicationCall)
 
--- | Undocumented member.
+-- | Arguments made available to the Lambda function as part of the
+-- @CALL_UPDATE_REQUESTED@ event. Can contain 0-20 key-value pairs.
 updateSipMediaApplicationCall_arguments :: Lens.Lens' UpdateSipMediaApplicationCall (Prelude.HashMap Prelude.Text Prelude.Text)
 updateSipMediaApplicationCall_arguments = Lens.lens (\UpdateSipMediaApplicationCall' {arguments} -> arguments) (\s@UpdateSipMediaApplicationCall' {} a -> s {arguments = a} :: UpdateSipMediaApplicationCall) Prelude.. Lens.coerced
 
@@ -120,7 +128,8 @@ instance
     UpdateSipMediaApplicationCall
   where
   hashWithSalt _salt UpdateSipMediaApplicationCall' {..} =
-    _salt `Prelude.hashWithSalt` sipMediaApplicationId
+    _salt
+      `Prelude.hashWithSalt` sipMediaApplicationId
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` arguments
 
@@ -154,7 +163,8 @@ instance Data.ToQuery UpdateSipMediaApplicationCall where
 
 -- | /See:/ 'newUpdateSipMediaApplicationCallResponse' smart constructor.
 data UpdateSipMediaApplicationCallResponse = UpdateSipMediaApplicationCallResponse'
-  { sipMediaApplicationCall :: Prelude.Maybe SipMediaApplicationCall,
+  { -- | A @Call@ instance for a SIP media application.
+    sipMediaApplicationCall :: Prelude.Maybe SipMediaApplicationCall,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -168,7 +178,7 @@ data UpdateSipMediaApplicationCallResponse = UpdateSipMediaApplicationCallRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationCall', 'updateSipMediaApplicationCallResponse_sipMediaApplicationCall' - Undocumented member.
+-- 'sipMediaApplicationCall', 'updateSipMediaApplicationCallResponse_sipMediaApplicationCall' - A @Call@ instance for a SIP media application.
 --
 -- 'httpStatus', 'updateSipMediaApplicationCallResponse_httpStatus' - The response's http status code.
 newUpdateSipMediaApplicationCallResponse ::
@@ -182,7 +192,7 @@ newUpdateSipMediaApplicationCallResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | A @Call@ instance for a SIP media application.
 updateSipMediaApplicationCallResponse_sipMediaApplicationCall :: Lens.Lens' UpdateSipMediaApplicationCallResponse (Prelude.Maybe SipMediaApplicationCall)
 updateSipMediaApplicationCallResponse_sipMediaApplicationCall = Lens.lens (\UpdateSipMediaApplicationCallResponse' {sipMediaApplicationCall} -> sipMediaApplicationCall) (\s@UpdateSipMediaApplicationCallResponse' {} a -> s {sipMediaApplicationCall = a} :: UpdateSipMediaApplicationCallResponse)
 

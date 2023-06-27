@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves details for the specified Amazon Chime SDK Voice Connector,
+-- such as timestamps,name, outbound host, and encryption requirements.
 module Amazonka.ChimeSdkVoice.GetVoiceConnector
   ( -- * Creating a Request
     GetVoiceConnector (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnector' smart constructor.
 data GetVoiceConnector = GetVoiceConnector'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetVoiceConnector = GetVoiceConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnector_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnector_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnector ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -72,7 +74,7 @@ newGetVoiceConnector pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnector_voiceConnectorId :: Lens.Lens' GetVoiceConnector Prelude.Text
 getVoiceConnector_voiceConnectorId = Lens.lens (\GetVoiceConnector' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnector' {} a -> s {voiceConnectorId = a} :: GetVoiceConnector)
 
@@ -111,7 +113,8 @@ instance Data.ToQuery GetVoiceConnector where
 
 -- | /See:/ 'newGetVoiceConnectorResponse' smart constructor.
 data GetVoiceConnectorResponse = GetVoiceConnectorResponse'
-  { voiceConnector :: Prelude.Maybe VoiceConnector,
+  { -- | The Voice Connector details.
+    voiceConnector :: Prelude.Maybe VoiceConnector,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -125,7 +128,7 @@ data GetVoiceConnectorResponse = GetVoiceConnectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnector', 'getVoiceConnectorResponse_voiceConnector' - Undocumented member.
+-- 'voiceConnector', 'getVoiceConnectorResponse_voiceConnector' - The Voice Connector details.
 --
 -- 'httpStatus', 'getVoiceConnectorResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorResponse ::
@@ -139,7 +142,7 @@ newGetVoiceConnectorResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The Voice Connector details.
 getVoiceConnectorResponse_voiceConnector :: Lens.Lens' GetVoiceConnectorResponse (Prelude.Maybe VoiceConnector)
 getVoiceConnectorResponse_voiceConnector = Lens.lens (\GetVoiceConnectorResponse' {voiceConnector} -> voiceConnector) (\s@GetVoiceConnectorResponse' {} a -> s {voiceConnector = a} :: GetVoiceConnectorResponse)
 

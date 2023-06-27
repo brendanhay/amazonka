@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Disassociates the specified phone numbers from the specified Amazon
+-- Chime SDK Voice Connector.
 module Amazonka.ChimeSdkVoice.DisassociatePhoneNumbersFromVoiceConnector
   ( -- * Creating a Request
     DisassociatePhoneNumbersFromVoiceConnector (..),
@@ -50,7 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociatePhoneNumbersFromVoiceConnector' smart constructor.
 data DisassociatePhoneNumbersFromVoiceConnector = DisassociatePhoneNumbersFromVoiceConnector'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | List of phone numbers, in E.164 format.
     e164PhoneNumbers :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -63,9 +66,9 @@ data DisassociatePhoneNumbersFromVoiceConnector = DisassociatePhoneNumbersFromVo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'disassociatePhoneNumbersFromVoiceConnector_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'disassociatePhoneNumbersFromVoiceConnector_voiceConnectorId' - The Voice Connector ID.
 --
--- 'e164PhoneNumbers', 'disassociatePhoneNumbersFromVoiceConnector_e164PhoneNumbers' - Undocumented member.
+-- 'e164PhoneNumbers', 'disassociatePhoneNumbersFromVoiceConnector_e164PhoneNumbers' - List of phone numbers, in E.164 format.
 newDisassociatePhoneNumbersFromVoiceConnector ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -79,11 +82,11 @@ newDisassociatePhoneNumbersFromVoiceConnector
           Prelude.mempty
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 disassociatePhoneNumbersFromVoiceConnector_voiceConnectorId :: Lens.Lens' DisassociatePhoneNumbersFromVoiceConnector Prelude.Text
 disassociatePhoneNumbersFromVoiceConnector_voiceConnectorId = Lens.lens (\DisassociatePhoneNumbersFromVoiceConnector' {voiceConnectorId} -> voiceConnectorId) (\s@DisassociatePhoneNumbersFromVoiceConnector' {} a -> s {voiceConnectorId = a} :: DisassociatePhoneNumbersFromVoiceConnector)
 
--- | Undocumented member.
+-- | List of phone numbers, in E.164 format.
 disassociatePhoneNumbersFromVoiceConnector_e164PhoneNumbers :: Lens.Lens' DisassociatePhoneNumbersFromVoiceConnector [Prelude.Text]
 disassociatePhoneNumbersFromVoiceConnector_e164PhoneNumbers = Lens.lens (\DisassociatePhoneNumbersFromVoiceConnector' {e164PhoneNumbers} -> e164PhoneNumbers) (\s@DisassociatePhoneNumbersFromVoiceConnector' {} a -> s {e164PhoneNumbers = a} :: DisassociatePhoneNumbersFromVoiceConnector) Prelude.. Lens.coerced
 
@@ -101,10 +104,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DisassociatePhoneNumbersFromVoiceConnectorResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -114,7 +118,8 @@ instance
   hashWithSalt
     _salt
     DisassociatePhoneNumbersFromVoiceConnector' {..} =
-      _salt `Prelude.hashWithSalt` voiceConnectorId
+      _salt
+        `Prelude.hashWithSalt` voiceConnectorId
         `Prelude.hashWithSalt` e164PhoneNumbers
 
 instance
@@ -165,7 +170,10 @@ instance
 
 -- | /See:/ 'newDisassociatePhoneNumbersFromVoiceConnectorResponse' smart constructor.
 data DisassociatePhoneNumbersFromVoiceConnectorResponse = DisassociatePhoneNumbersFromVoiceConnectorResponse'
-  { phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
+  { -- | If the action fails for one or more of the phone numbers in the request,
+    -- a list of the phone numbers is returned, along with error codes and
+    -- error messages.
+    phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,7 +187,9 @@ data DisassociatePhoneNumbersFromVoiceConnectorResponse = DisassociatePhoneNumbe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberErrors', 'disassociatePhoneNumbersFromVoiceConnectorResponse_phoneNumberErrors' - Undocumented member.
+-- 'phoneNumberErrors', 'disassociatePhoneNumbersFromVoiceConnectorResponse_phoneNumberErrors' - If the action fails for one or more of the phone numbers in the request,
+-- a list of the phone numbers is returned, along with error codes and
+-- error messages.
 --
 -- 'httpStatus', 'disassociatePhoneNumbersFromVoiceConnectorResponse_httpStatus' - The response's http status code.
 newDisassociatePhoneNumbersFromVoiceConnectorResponse ::
@@ -195,7 +205,9 @@ newDisassociatePhoneNumbersFromVoiceConnectorResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | If the action fails for one or more of the phone numbers in the request,
+-- a list of the phone numbers is returned, along with error codes and
+-- error messages.
 disassociatePhoneNumbersFromVoiceConnectorResponse_phoneNumberErrors :: Lens.Lens' DisassociatePhoneNumbersFromVoiceConnectorResponse (Prelude.Maybe [PhoneNumberError])
 disassociatePhoneNumbersFromVoiceConnectorResponse_phoneNumberErrors = Lens.lens (\DisassociatePhoneNumbersFromVoiceConnectorResponse' {phoneNumberErrors} -> phoneNumberErrors) (\s@DisassociatePhoneNumbersFromVoiceConnectorResponse' {} a -> s {phoneNumberErrors = a} :: DisassociatePhoneNumbersFromVoiceConnectorResponse) Prelude.. Lens.mapping Lens.coerced
 

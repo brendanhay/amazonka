@@ -20,7 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates phone number details, such as product type or calling name, for
+-- the specified phone number ID. You can update one phone number detail at
+-- a time. For example, you can update either the product type or the
+-- calling name in one action.
+--
+-- For numbers outside the U.S., you must use the Amazon Chime SDK SIP
+-- Media Application Dial-In product type.
+--
+-- Updates to outbound calling names can take 72 hours to complete. Pending
+-- updates to outbound calling names must be complete before you can
+-- request another update.
 module Amazonka.ChimeSdkVoice.UpdatePhoneNumber
   ( -- * Creating a Request
     UpdatePhoneNumber (..),
@@ -51,8 +61,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePhoneNumber' smart constructor.
 data UpdatePhoneNumber = UpdatePhoneNumber'
-  { callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The outbound calling name associated with the phone number.
+    callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The product type.
     productType :: Prelude.Maybe PhoneNumberProductType,
+    -- | The phone number ID.
     phoneNumberId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -65,11 +78,11 @@ data UpdatePhoneNumber = UpdatePhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callingName', 'updatePhoneNumber_callingName' - Undocumented member.
+-- 'callingName', 'updatePhoneNumber_callingName' - The outbound calling name associated with the phone number.
 --
--- 'productType', 'updatePhoneNumber_productType' - Undocumented member.
+-- 'productType', 'updatePhoneNumber_productType' - The product type.
 --
--- 'phoneNumberId', 'updatePhoneNumber_phoneNumberId' - Undocumented member.
+-- 'phoneNumberId', 'updatePhoneNumber_phoneNumberId' - The phone number ID.
 newUpdatePhoneNumber ::
   -- | 'phoneNumberId'
   Prelude.Text ->
@@ -82,15 +95,15 @@ newUpdatePhoneNumber pPhoneNumberId_ =
         Data._Sensitive Lens.# pPhoneNumberId_
     }
 
--- | Undocumented member.
+-- | The outbound calling name associated with the phone number.
 updatePhoneNumber_callingName :: Lens.Lens' UpdatePhoneNumber (Prelude.Maybe Prelude.Text)
 updatePhoneNumber_callingName = Lens.lens (\UpdatePhoneNumber' {callingName} -> callingName) (\s@UpdatePhoneNumber' {} a -> s {callingName = a} :: UpdatePhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The product type.
 updatePhoneNumber_productType :: Lens.Lens' UpdatePhoneNumber (Prelude.Maybe PhoneNumberProductType)
 updatePhoneNumber_productType = Lens.lens (\UpdatePhoneNumber' {productType} -> productType) (\s@UpdatePhoneNumber' {} a -> s {productType = a} :: UpdatePhoneNumber)
 
--- | Undocumented member.
+-- | The phone number ID.
 updatePhoneNumber_phoneNumberId :: Lens.Lens' UpdatePhoneNumber Prelude.Text
 updatePhoneNumber_phoneNumberId = Lens.lens (\UpdatePhoneNumber' {phoneNumberId} -> phoneNumberId) (\s@UpdatePhoneNumber' {} a -> s {phoneNumberId = a} :: UpdatePhoneNumber) Prelude.. Data._Sensitive
 
@@ -110,7 +123,8 @@ instance Core.AWSRequest UpdatePhoneNumber where
 
 instance Prelude.Hashable UpdatePhoneNumber where
   hashWithSalt _salt UpdatePhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` callingName
+    _salt
+      `Prelude.hashWithSalt` callingName
       `Prelude.hashWithSalt` productType
       `Prelude.hashWithSalt` phoneNumberId
 
@@ -142,7 +156,8 @@ instance Data.ToQuery UpdatePhoneNumber where
 
 -- | /See:/ 'newUpdatePhoneNumberResponse' smart constructor.
 data UpdatePhoneNumberResponse = UpdatePhoneNumberResponse'
-  { phoneNumber :: Prelude.Maybe PhoneNumber,
+  { -- | The updated phone number details.
+    phoneNumber :: Prelude.Maybe PhoneNumber,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,7 +171,7 @@ data UpdatePhoneNumberResponse = UpdatePhoneNumberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumber', 'updatePhoneNumberResponse_phoneNumber' - Undocumented member.
+-- 'phoneNumber', 'updatePhoneNumberResponse_phoneNumber' - The updated phone number details.
 --
 -- 'httpStatus', 'updatePhoneNumberResponse_httpStatus' - The response's http status code.
 newUpdatePhoneNumberResponse ::
@@ -170,7 +185,7 @@ newUpdatePhoneNumberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated phone number details.
 updatePhoneNumberResponse_phoneNumber :: Lens.Lens' UpdatePhoneNumberResponse (Prelude.Maybe PhoneNumber)
 updatePhoneNumberResponse_phoneNumber = Lens.lens (\UpdatePhoneNumberResponse' {phoneNumber} -> phoneNumber) (\s@UpdatePhoneNumberResponse' {} a -> s {phoneNumber = a} :: UpdatePhoneNumberResponse)
 

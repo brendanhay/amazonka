@@ -25,9 +25,21 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newOrigination' smart constructor.
+-- | Origination settings enable your SIP hosts to receive inbound calls
+-- using your Amazon Chime SDK Voice Connector.
+--
+-- The parameters listed below are not required, but you must use at least
+-- one.
+--
+-- /See:/ 'newOrigination' smart constructor.
 data Origination = Origination'
-  { disabled :: Prelude.Maybe Prelude.Bool,
+  { -- | When origination settings are disabled, inbound calls are not enabled
+    -- for your Amazon Chime SDK Voice Connector. This parameter is not
+    -- required, but you must specify this parameter or @Routes@.
+    disabled :: Prelude.Maybe Prelude.Bool,
+    -- | The call distribution properties defined for your SIP hosts. Valid
+    -- range: Minimum value of 1. Maximum value of 20. This parameter is not
+    -- required, but you must specify this parameter or @Disabled@.
     routes :: Prelude.Maybe [OriginationRoute]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,9 +52,13 @@ data Origination = Origination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disabled', 'origination_disabled' - Undocumented member.
+-- 'disabled', 'origination_disabled' - When origination settings are disabled, inbound calls are not enabled
+-- for your Amazon Chime SDK Voice Connector. This parameter is not
+-- required, but you must specify this parameter or @Routes@.
 --
--- 'routes', 'origination_routes' - Undocumented member.
+-- 'routes', 'origination_routes' - The call distribution properties defined for your SIP hosts. Valid
+-- range: Minimum value of 1. Maximum value of 20. This parameter is not
+-- required, but you must specify this parameter or @Disabled@.
 newOrigination ::
   Origination
 newOrigination =
@@ -51,11 +67,15 @@ newOrigination =
       routes = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | When origination settings are disabled, inbound calls are not enabled
+-- for your Amazon Chime SDK Voice Connector. This parameter is not
+-- required, but you must specify this parameter or @Routes@.
 origination_disabled :: Lens.Lens' Origination (Prelude.Maybe Prelude.Bool)
 origination_disabled = Lens.lens (\Origination' {disabled} -> disabled) (\s@Origination' {} a -> s {disabled = a} :: Origination)
 
--- | Undocumented member.
+-- | The call distribution properties defined for your SIP hosts. Valid
+-- range: Minimum value of 1. Maximum value of 20. This parameter is not
+-- required, but you must specify this parameter or @Disabled@.
 origination_routes :: Lens.Lens' Origination (Prelude.Maybe [OriginationRoute])
 origination_routes = Lens.lens (\Origination' {routes} -> routes) (\s@Origination' {} a -> s {routes = a} :: Origination) Prelude.. Lens.mapping Lens.coerced
 
@@ -71,7 +91,8 @@ instance Data.FromJSON Origination where
 
 instance Prelude.Hashable Origination where
   hashWithSalt _salt Origination' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` routes
 
 instance Prelude.NFData Origination where

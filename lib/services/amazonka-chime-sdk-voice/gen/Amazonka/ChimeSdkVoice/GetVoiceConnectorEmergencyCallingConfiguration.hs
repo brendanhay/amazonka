@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the emergency calling configuration details for the specified
+-- Voice Connector.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorEmergencyCallingConfiguration
   ( -- * Creating a Request
     GetVoiceConnectorEmergencyCallingConfiguration (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorEmergencyCallingConfiguration' smart constructor.
 data GetVoiceConnectorEmergencyCallingConfiguration = GetVoiceConnectorEmergencyCallingConfiguration'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetVoiceConnectorEmergencyCallingConfiguration = GetVoiceConnectorEmergency
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnectorEmergencyCallingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -73,7 +75,7 @@ newGetVoiceConnectorEmergencyCallingConfiguration
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId :: Lens.Lens' GetVoiceConnectorEmergencyCallingConfiguration Prelude.Text
 getVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId = Lens.lens (\GetVoiceConnectorEmergencyCallingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnectorEmergencyCallingConfiguration' {} a -> s {voiceConnectorId = a} :: GetVoiceConnectorEmergencyCallingConfiguration)
 
@@ -92,7 +94,7 @@ instance
       ( \s h x ->
           GetVoiceConnectorEmergencyCallingConfigurationResponse'
             Prelude.<$> (x Data..?> "EmergencyCallingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -138,7 +140,8 @@ instance
 
 -- | /See:/ 'newGetVoiceConnectorEmergencyCallingConfigurationResponse' smart constructor.
 data GetVoiceConnectorEmergencyCallingConfigurationResponse = GetVoiceConnectorEmergencyCallingConfigurationResponse'
-  { emergencyCallingConfiguration :: Prelude.Maybe EmergencyCallingConfiguration,
+  { -- | The details of the emergency calling configuration.
+    emergencyCallingConfiguration :: Prelude.Maybe EmergencyCallingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -152,7 +155,7 @@ data GetVoiceConnectorEmergencyCallingConfigurationResponse = GetVoiceConnectorE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emergencyCallingConfiguration', 'getVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration' - Undocumented member.
+-- 'emergencyCallingConfiguration', 'getVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration' - The details of the emergency calling configuration.
 --
 -- 'httpStatus', 'getVoiceConnectorEmergencyCallingConfigurationResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorEmergencyCallingConfigurationResponse ::
@@ -168,7 +171,7 @@ newGetVoiceConnectorEmergencyCallingConfigurationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The details of the emergency calling configuration.
 getVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration :: Lens.Lens' GetVoiceConnectorEmergencyCallingConfigurationResponse (Prelude.Maybe EmergencyCallingConfiguration)
 getVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration = Lens.lens (\GetVoiceConnectorEmergencyCallingConfigurationResponse' {emergencyCallingConfiguration} -> emergencyCallingConfiguration) (\s@GetVoiceConnectorEmergencyCallingConfigurationResponse' {} a -> s {emergencyCallingConfiguration = a} :: GetVoiceConnectorEmergencyCallingConfigurationResponse)
 

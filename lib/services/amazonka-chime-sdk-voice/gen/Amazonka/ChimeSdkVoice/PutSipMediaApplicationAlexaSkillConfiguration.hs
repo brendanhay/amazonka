@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the Alexa Skill configuration for the SIP media application.
 module Amazonka.ChimeSdkVoice.PutSipMediaApplicationAlexaSkillConfiguration
   ( -- * Creating a Request
     PutSipMediaApplicationAlexaSkillConfiguration (..),
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutSipMediaApplicationAlexaSkillConfiguration' smart constructor.
 data PutSipMediaApplicationAlexaSkillConfiguration = PutSipMediaApplicationAlexaSkillConfiguration'
-  { sipMediaApplicationAlexaSkillConfiguration :: Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration,
+  { -- | The Alexa Skill configuration.
+    sipMediaApplicationAlexaSkillConfiguration :: Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration,
+    -- | The SIP media application ID.
     sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -63,9 +65,9 @@ data PutSipMediaApplicationAlexaSkillConfiguration = PutSipMediaApplicationAlexa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationAlexaSkillConfiguration', 'putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationAlexaSkillConfiguration' - Undocumented member.
+-- 'sipMediaApplicationAlexaSkillConfiguration', 'putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationAlexaSkillConfiguration' - The Alexa Skill configuration.
 --
--- 'sipMediaApplicationId', 'putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId' - The SIP media application ID.
 newPutSipMediaApplicationAlexaSkillConfiguration ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -79,11 +81,11 @@ newPutSipMediaApplicationAlexaSkillConfiguration
           pSipMediaApplicationId_
       }
 
--- | Undocumented member.
+-- | The Alexa Skill configuration.
 putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationAlexaSkillConfiguration :: Lens.Lens' PutSipMediaApplicationAlexaSkillConfiguration (Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration)
 putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationAlexaSkillConfiguration = Lens.lens (\PutSipMediaApplicationAlexaSkillConfiguration' {sipMediaApplicationAlexaSkillConfiguration} -> sipMediaApplicationAlexaSkillConfiguration) (\s@PutSipMediaApplicationAlexaSkillConfiguration' {} a -> s {sipMediaApplicationAlexaSkillConfiguration = a} :: PutSipMediaApplicationAlexaSkillConfiguration)
 
--- | Undocumented member.
+-- | The SIP media application ID.
 putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId :: Lens.Lens' PutSipMediaApplicationAlexaSkillConfiguration Prelude.Text
 putSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId = Lens.lens (\PutSipMediaApplicationAlexaSkillConfiguration' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@PutSipMediaApplicationAlexaSkillConfiguration' {} a -> s {sipMediaApplicationId = a} :: PutSipMediaApplicationAlexaSkillConfiguration)
 
@@ -104,7 +106,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "SipMediaApplicationAlexaSkillConfiguration"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -169,7 +171,8 @@ instance
 
 -- | /See:/ 'newPutSipMediaApplicationAlexaSkillConfigurationResponse' smart constructor.
 data PutSipMediaApplicationAlexaSkillConfigurationResponse = PutSipMediaApplicationAlexaSkillConfigurationResponse'
-  { sipMediaApplicationAlexaSkillConfiguration :: Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration,
+  { -- | Returns the Alexa Skill configuration.
+    sipMediaApplicationAlexaSkillConfiguration :: Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,7 +186,7 @@ data PutSipMediaApplicationAlexaSkillConfigurationResponse = PutSipMediaApplicat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationAlexaSkillConfiguration', 'putSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration' - Undocumented member.
+-- 'sipMediaApplicationAlexaSkillConfiguration', 'putSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration' - Returns the Alexa Skill configuration.
 --
 -- 'httpStatus', 'putSipMediaApplicationAlexaSkillConfigurationResponse_httpStatus' - The response's http status code.
 newPutSipMediaApplicationAlexaSkillConfigurationResponse ::
@@ -199,7 +202,7 @@ newPutSipMediaApplicationAlexaSkillConfigurationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | Returns the Alexa Skill configuration.
 putSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration :: Lens.Lens' PutSipMediaApplicationAlexaSkillConfigurationResponse (Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration)
 putSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration = Lens.lens (\PutSipMediaApplicationAlexaSkillConfigurationResponse' {sipMediaApplicationAlexaSkillConfiguration} -> sipMediaApplicationAlexaSkillConfiguration) (\s@PutSipMediaApplicationAlexaSkillConfigurationResponse' {} a -> s {sipMediaApplicationAlexaSkillConfiguration = a} :: PutSipMediaApplicationAlexaSkillConfigurationResponse)
 

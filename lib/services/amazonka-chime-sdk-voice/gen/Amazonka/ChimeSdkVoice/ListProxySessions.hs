@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists the proxy sessions for the specified Amazon Chime SDK Voice
+-- Connector.
 module Amazonka.ChimeSdkVoice.ListProxySessions
   ( -- * Creating a Request
     ListProxySessions (..),
@@ -53,9 +54,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListProxySessions' smart constructor.
 data ListProxySessions = ListProxySessions'
-  { maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The proxy session status.
     status :: Prelude.Maybe ProxySessionStatus,
+    -- | The Voice Connector ID.
     voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,13 +73,13 @@ data ListProxySessions = ListProxySessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listProxySessions_maxResults' - Undocumented member.
+-- 'maxResults', 'listProxySessions_maxResults' - The maximum number of results to return in a single call.
 --
--- 'nextToken', 'listProxySessions_nextToken' - Undocumented member.
+-- 'nextToken', 'listProxySessions_nextToken' - The token used to retrieve the next page of results.
 --
--- 'status', 'listProxySessions_status' - Undocumented member.
+-- 'status', 'listProxySessions_status' - The proxy session status.
 --
--- 'voiceConnectorId', 'listProxySessions_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'listProxySessions_voiceConnectorId' - The Voice Connector ID.
 newListProxySessions ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -87,19 +92,19 @@ newListProxySessions pVoiceConnectorId_ =
       voiceConnectorId = pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The maximum number of results to return in a single call.
 listProxySessions_maxResults :: Lens.Lens' ListProxySessions (Prelude.Maybe Prelude.Natural)
 listProxySessions_maxResults = Lens.lens (\ListProxySessions' {maxResults} -> maxResults) (\s@ListProxySessions' {} a -> s {maxResults = a} :: ListProxySessions)
 
--- | Undocumented member.
+-- | The token used to retrieve the next page of results.
 listProxySessions_nextToken :: Lens.Lens' ListProxySessions (Prelude.Maybe Prelude.Text)
 listProxySessions_nextToken = Lens.lens (\ListProxySessions' {nextToken} -> nextToken) (\s@ListProxySessions' {} a -> s {nextToken = a} :: ListProxySessions)
 
--- | Undocumented member.
+-- | The proxy session status.
 listProxySessions_status :: Lens.Lens' ListProxySessions (Prelude.Maybe ProxySessionStatus)
 listProxySessions_status = Lens.lens (\ListProxySessions' {status} -> status) (\s@ListProxySessions' {} a -> s {status = a} :: ListProxySessions)
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 listProxySessions_voiceConnectorId :: Lens.Lens' ListProxySessions Prelude.Text
 listProxySessions_voiceConnectorId = Lens.lens (\ListProxySessions' {voiceConnectorId} -> voiceConnectorId) (\s@ListProxySessions' {} a -> s {voiceConnectorId = a} :: ListProxySessions)
 
@@ -120,7 +125,8 @@ instance Core.AWSRequest ListProxySessions where
 
 instance Prelude.Hashable ListProxySessions where
   hashWithSalt _salt ListProxySessions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` voiceConnectorId
@@ -153,7 +159,9 @@ instance Data.ToQuery ListProxySessions where
 
 -- | /See:/ 'newListProxySessionsResponse' smart constructor.
 data ListProxySessionsResponse = ListProxySessionsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The token used to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The proxy sessions\' details.
     proxySessions :: Prelude.Maybe [ProxySession],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -168,9 +176,9 @@ data ListProxySessionsResponse = ListProxySessionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProxySessionsResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'listProxySessionsResponse_nextToken' - The token used to retrieve the next page of results.
 --
--- 'proxySessions', 'listProxySessionsResponse_proxySessions' - Undocumented member.
+-- 'proxySessions', 'listProxySessionsResponse_proxySessions' - The proxy sessions\' details.
 --
 -- 'httpStatus', 'listProxySessionsResponse_httpStatus' - The response's http status code.
 newListProxySessionsResponse ::
@@ -185,11 +193,11 @@ newListProxySessionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The token used to retrieve the next page of results.
 listProxySessionsResponse_nextToken :: Lens.Lens' ListProxySessionsResponse (Prelude.Maybe Prelude.Text)
 listProxySessionsResponse_nextToken = Lens.lens (\ListProxySessionsResponse' {nextToken} -> nextToken) (\s@ListProxySessionsResponse' {} a -> s {nextToken = a} :: ListProxySessionsResponse)
 
--- | Undocumented member.
+-- | The proxy sessions\' details.
 listProxySessionsResponse_proxySessions :: Lens.Lens' ListProxySessionsResponse (Prelude.Maybe [ProxySession])
 listProxySessionsResponse_proxySessions = Lens.lens (\ListProxySessionsResponse' {proxySessions} -> proxySessions) (\s@ListProxySessionsResponse' {} a -> s {proxySessions = a} :: ListProxySessionsResponse) Prelude.. Lens.mapping Lens.coerced
 

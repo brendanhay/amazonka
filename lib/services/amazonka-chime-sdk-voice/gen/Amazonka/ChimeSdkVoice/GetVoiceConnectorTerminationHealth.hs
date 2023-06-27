@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves information about the last time a @SIP OPTIONS@ ping was
+-- received from your SIP infrastructure for the specified Amazon Chime SDK
+-- Voice Connector.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorTerminationHealth
   ( -- * Creating a Request
     GetVoiceConnectorTerminationHealth (..),
@@ -49,7 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorTerminationHealth' smart constructor.
 data GetVoiceConnectorTerminationHealth = GetVoiceConnectorTerminationHealth'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +64,7 @@ data GetVoiceConnectorTerminationHealth = GetVoiceConnectorTerminationHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnectorTerminationHealth_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnectorTerminationHealth_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnectorTerminationHealth ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -73,7 +76,7 @@ newGetVoiceConnectorTerminationHealth
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnectorTerminationHealth_voiceConnectorId :: Lens.Lens' GetVoiceConnectorTerminationHealth Prelude.Text
 getVoiceConnectorTerminationHealth_voiceConnectorId = Lens.lens (\GetVoiceConnectorTerminationHealth' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnectorTerminationHealth' {} a -> s {voiceConnectorId = a} :: GetVoiceConnectorTerminationHealth)
 
@@ -91,7 +94,7 @@ instance
       ( \s h x ->
           GetVoiceConnectorTerminationHealthResponse'
             Prelude.<$> (x Data..?> "TerminationHealth")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -135,7 +138,8 @@ instance
 
 -- | /See:/ 'newGetVoiceConnectorTerminationHealthResponse' smart constructor.
 data GetVoiceConnectorTerminationHealthResponse = GetVoiceConnectorTerminationHealthResponse'
-  { terminationHealth :: Prelude.Maybe TerminationHealth,
+  { -- | The termination health details.
+    terminationHealth :: Prelude.Maybe TerminationHealth,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -149,7 +153,7 @@ data GetVoiceConnectorTerminationHealthResponse = GetVoiceConnectorTerminationHe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'terminationHealth', 'getVoiceConnectorTerminationHealthResponse_terminationHealth' - Undocumented member.
+-- 'terminationHealth', 'getVoiceConnectorTerminationHealthResponse_terminationHealth' - The termination health details.
 --
 -- 'httpStatus', 'getVoiceConnectorTerminationHealthResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorTerminationHealthResponse ::
@@ -164,7 +168,7 @@ newGetVoiceConnectorTerminationHealthResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The termination health details.
 getVoiceConnectorTerminationHealthResponse_terminationHealth :: Lens.Lens' GetVoiceConnectorTerminationHealthResponse (Prelude.Maybe TerminationHealth)
 getVoiceConnectorTerminationHealthResponse_terminationHealth = Lens.lens (\GetVoiceConnectorTerminationHealthResponse' {terminationHealth} -> terminationHealth) (\s@GetVoiceConnectorTerminationHealthResponse' {} a -> s {terminationHealth = a} :: GetVoiceConnectorTerminationHealthResponse)
 

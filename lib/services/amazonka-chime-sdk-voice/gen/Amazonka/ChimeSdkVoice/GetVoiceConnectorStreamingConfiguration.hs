@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the streaming configuration details for the specified Amazon
+-- Chime SDK Voice Connector. Shows whether media streaming is enabled for
+-- sending to Amazon Kinesis. It also shows the retention period, in hours,
+-- for the Amazon Kinesis data.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorStreamingConfiguration
   ( -- * Creating a Request
     GetVoiceConnectorStreamingConfiguration (..),
@@ -49,7 +52,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorStreamingConfiguration' smart constructor.
 data GetVoiceConnectorStreamingConfiguration = GetVoiceConnectorStreamingConfiguration'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +65,7 @@ data GetVoiceConnectorStreamingConfiguration = GetVoiceConnectorStreamingConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnectorStreamingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnectorStreamingConfiguration_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnectorStreamingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -73,7 +77,7 @@ newGetVoiceConnectorStreamingConfiguration
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnectorStreamingConfiguration_voiceConnectorId :: Lens.Lens' GetVoiceConnectorStreamingConfiguration Prelude.Text
 getVoiceConnectorStreamingConfiguration_voiceConnectorId = Lens.lens (\GetVoiceConnectorStreamingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnectorStreamingConfiguration' {} a -> s {voiceConnectorId = a} :: GetVoiceConnectorStreamingConfiguration)
 
@@ -92,7 +96,7 @@ instance
       ( \s h x ->
           GetVoiceConnectorStreamingConfigurationResponse'
             Prelude.<$> (x Data..?> "StreamingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -136,11 +140,12 @@ instance
 
 -- | /See:/ 'newGetVoiceConnectorStreamingConfigurationResponse' smart constructor.
 data GetVoiceConnectorStreamingConfigurationResponse = GetVoiceConnectorStreamingConfigurationResponse'
-  { streamingConfiguration :: Prelude.Maybe StreamingConfiguration,
+  { -- | The details of the streaming configuration.
+    streamingConfiguration :: Prelude.Maybe StreamingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetVoiceConnectorStreamingConfigurationResponse' with all optional fields omitted.
@@ -150,7 +155,7 @@ data GetVoiceConnectorStreamingConfigurationResponse = GetVoiceConnectorStreamin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamingConfiguration', 'getVoiceConnectorStreamingConfigurationResponse_streamingConfiguration' - Undocumented member.
+-- 'streamingConfiguration', 'getVoiceConnectorStreamingConfigurationResponse_streamingConfiguration' - The details of the streaming configuration.
 --
 -- 'httpStatus', 'getVoiceConnectorStreamingConfigurationResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorStreamingConfigurationResponse ::
@@ -165,7 +170,7 @@ newGetVoiceConnectorStreamingConfigurationResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The details of the streaming configuration.
 getVoiceConnectorStreamingConfigurationResponse_streamingConfiguration :: Lens.Lens' GetVoiceConnectorStreamingConfigurationResponse (Prelude.Maybe StreamingConfiguration)
 getVoiceConnectorStreamingConfigurationResponse_streamingConfiguration = Lens.lens (\GetVoiceConnectorStreamingConfigurationResponse' {streamingConfiguration} -> streamingConfiguration) (\s@GetVoiceConnectorStreamingConfigurationResponse' {} a -> s {streamingConfiguration = a} :: GetVoiceConnectorStreamingConfigurationResponse)
 

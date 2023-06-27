@@ -24,10 +24,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newSipRuleTargetApplication' smart constructor.
+-- | A target SIP media application and other details, such as priority and
+-- AWS Region, to be specified in the SIP rule. Only one SIP rule per AWS
+-- Region can be provided.
+--
+-- /See:/ 'newSipRuleTargetApplication' smart constructor.
 data SipRuleTargetApplication = SipRuleTargetApplication'
-  { awsRegion :: Prelude.Maybe Prelude.Text,
+  { -- | The AWS Region of a rule\'s target SIP media application.
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The priority setting of a rule\'s target SIP media application.
     priority :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of a rule\'s target SIP media application.
     sipMediaApplicationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,11 +47,11 @@ data SipRuleTargetApplication = SipRuleTargetApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsRegion', 'sipRuleTargetApplication_awsRegion' - Undocumented member.
+-- 'awsRegion', 'sipRuleTargetApplication_awsRegion' - The AWS Region of a rule\'s target SIP media application.
 --
--- 'priority', 'sipRuleTargetApplication_priority' - Undocumented member.
+-- 'priority', 'sipRuleTargetApplication_priority' - The priority setting of a rule\'s target SIP media application.
 --
--- 'sipMediaApplicationId', 'sipRuleTargetApplication_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'sipRuleTargetApplication_sipMediaApplicationId' - The ID of a rule\'s target SIP media application.
 newSipRuleTargetApplication ::
   SipRuleTargetApplication
 newSipRuleTargetApplication =
@@ -55,15 +62,15 @@ newSipRuleTargetApplication =
       sipMediaApplicationId = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The AWS Region of a rule\'s target SIP media application.
 sipRuleTargetApplication_awsRegion :: Lens.Lens' SipRuleTargetApplication (Prelude.Maybe Prelude.Text)
 sipRuleTargetApplication_awsRegion = Lens.lens (\SipRuleTargetApplication' {awsRegion} -> awsRegion) (\s@SipRuleTargetApplication' {} a -> s {awsRegion = a} :: SipRuleTargetApplication)
 
--- | Undocumented member.
+-- | The priority setting of a rule\'s target SIP media application.
 sipRuleTargetApplication_priority :: Lens.Lens' SipRuleTargetApplication (Prelude.Maybe Prelude.Natural)
 sipRuleTargetApplication_priority = Lens.lens (\SipRuleTargetApplication' {priority} -> priority) (\s@SipRuleTargetApplication' {} a -> s {priority = a} :: SipRuleTargetApplication)
 
--- | Undocumented member.
+-- | The ID of a rule\'s target SIP media application.
 sipRuleTargetApplication_sipMediaApplicationId :: Lens.Lens' SipRuleTargetApplication (Prelude.Maybe Prelude.Text)
 sipRuleTargetApplication_sipMediaApplicationId = Lens.lens (\SipRuleTargetApplication' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@SipRuleTargetApplication' {} a -> s {sipMediaApplicationId = a} :: SipRuleTargetApplication)
 
@@ -80,7 +87,8 @@ instance Data.FromJSON SipRuleTargetApplication where
 
 instance Prelude.Hashable SipRuleTargetApplication where
   hashWithSalt _salt SipRuleTargetApplication' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` sipMediaApplicationId
 

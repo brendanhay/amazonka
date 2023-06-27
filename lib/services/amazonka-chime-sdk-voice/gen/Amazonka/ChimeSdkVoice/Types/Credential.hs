@@ -24,9 +24,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newCredential' smart constructor.
+-- | The SIP credentials used to authenticate requests to an Amazon Chime SDK
+-- Voice Connector.
+--
+-- /See:/ 'newCredential' smart constructor.
 data Credential = Credential'
-  { password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The RFC2617 compliant password associated with the SIP credentials, in
+    -- US-ASCII format.
+    password :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The RFC2617 compliant user name associated with the SIP credentials, in
+    -- US-ASCII format.
     username :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -39,9 +46,11 @@ data Credential = Credential'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'password', 'credential_password' - Undocumented member.
+-- 'password', 'credential_password' - The RFC2617 compliant password associated with the SIP credentials, in
+-- US-ASCII format.
 --
--- 'username', 'credential_username' - Undocumented member.
+-- 'username', 'credential_username' - The RFC2617 compliant user name associated with the SIP credentials, in
+-- US-ASCII format.
 newCredential ::
   Credential
 newCredential =
@@ -50,17 +59,20 @@ newCredential =
       username = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The RFC2617 compliant password associated with the SIP credentials, in
+-- US-ASCII format.
 credential_password :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
 credential_password = Lens.lens (\Credential' {password} -> password) (\s@Credential' {} a -> s {password = a} :: Credential) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The RFC2617 compliant user name associated with the SIP credentials, in
+-- US-ASCII format.
 credential_username :: Lens.Lens' Credential (Prelude.Maybe Prelude.Text)
 credential_username = Lens.lens (\Credential' {username} -> username) (\s@Credential' {} a -> s {username = a} :: Credential) Prelude.. Lens.mapping Data._Sensitive
 
 instance Prelude.Hashable Credential where
   hashWithSalt _salt Credential' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData Credential where

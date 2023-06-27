@@ -30,20 +30,37 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newProxySession' smart constructor.
+-- | The proxy session for an Amazon Chime SDK Voice Connector.
+--
+-- /See:/ 'newProxySession' smart constructor.
 data ProxySession = ProxySession'
-  { capabilities :: Prelude.Maybe [Capability],
+  { -- | The proxy session capabilities.
+    capabilities :: Prelude.Maybe [Capability],
+    -- | The created time stamp, in ISO 8601 format.
     createdTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The ended time stamp, in ISO 8601 format.
     endedTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The number of minutes allowed for the proxy session.
     expiryMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | The preference for matching the country or area code of the proxy phone
+    -- number with that of the first participant.
     geoMatchLevel :: Prelude.Maybe GeoMatchLevel,
+    -- | The country and area code for the proxy phone number.
     geoMatchParams :: Prelude.Maybe GeoMatchParams,
+    -- | The proxy session name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The preference for proxy phone number reuse, or stickiness, between the
+    -- same participants across sessions.
     numberSelectionBehavior :: Prelude.Maybe NumberSelectionBehavior,
+    -- | The proxy session participants.
     participants :: Prelude.Maybe [Participant],
+    -- | The proxy session ID.
     proxySessionId :: Prelude.Maybe Prelude.Text,
+    -- | The proxy session status.
     status :: Prelude.Maybe ProxySessionStatus,
+    -- | The updated time stamp, in ISO 8601 format.
     updatedTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The Voice Connector ID.
     voiceConnectorId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -56,31 +73,33 @@ data ProxySession = ProxySession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capabilities', 'proxySession_capabilities' - Undocumented member.
+-- 'capabilities', 'proxySession_capabilities' - The proxy session capabilities.
 --
--- 'createdTimestamp', 'proxySession_createdTimestamp' - Undocumented member.
+-- 'createdTimestamp', 'proxySession_createdTimestamp' - The created time stamp, in ISO 8601 format.
 --
--- 'endedTimestamp', 'proxySession_endedTimestamp' - Undocumented member.
+-- 'endedTimestamp', 'proxySession_endedTimestamp' - The ended time stamp, in ISO 8601 format.
 --
--- 'expiryMinutes', 'proxySession_expiryMinutes' - Undocumented member.
+-- 'expiryMinutes', 'proxySession_expiryMinutes' - The number of minutes allowed for the proxy session.
 --
--- 'geoMatchLevel', 'proxySession_geoMatchLevel' - Undocumented member.
+-- 'geoMatchLevel', 'proxySession_geoMatchLevel' - The preference for matching the country or area code of the proxy phone
+-- number with that of the first participant.
 --
--- 'geoMatchParams', 'proxySession_geoMatchParams' - Undocumented member.
+-- 'geoMatchParams', 'proxySession_geoMatchParams' - The country and area code for the proxy phone number.
 --
--- 'name', 'proxySession_name' - Undocumented member.
+-- 'name', 'proxySession_name' - The proxy session name.
 --
--- 'numberSelectionBehavior', 'proxySession_numberSelectionBehavior' - Undocumented member.
+-- 'numberSelectionBehavior', 'proxySession_numberSelectionBehavior' - The preference for proxy phone number reuse, or stickiness, between the
+-- same participants across sessions.
 --
--- 'participants', 'proxySession_participants' - Undocumented member.
+-- 'participants', 'proxySession_participants' - The proxy session participants.
 --
--- 'proxySessionId', 'proxySession_proxySessionId' - Undocumented member.
+-- 'proxySessionId', 'proxySession_proxySessionId' - The proxy session ID.
 --
--- 'status', 'proxySession_status' - Undocumented member.
+-- 'status', 'proxySession_status' - The proxy session status.
 --
--- 'updatedTimestamp', 'proxySession_updatedTimestamp' - Undocumented member.
+-- 'updatedTimestamp', 'proxySession_updatedTimestamp' - The updated time stamp, in ISO 8601 format.
 --
--- 'voiceConnectorId', 'proxySession_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'proxySession_voiceConnectorId' - The Voice Connector ID.
 newProxySession ::
   ProxySession
 newProxySession =
@@ -100,55 +119,57 @@ newProxySession =
       voiceConnectorId = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The proxy session capabilities.
 proxySession_capabilities :: Lens.Lens' ProxySession (Prelude.Maybe [Capability])
 proxySession_capabilities = Lens.lens (\ProxySession' {capabilities} -> capabilities) (\s@ProxySession' {} a -> s {capabilities = a} :: ProxySession) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The created time stamp, in ISO 8601 format.
 proxySession_createdTimestamp :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.UTCTime)
 proxySession_createdTimestamp = Lens.lens (\ProxySession' {createdTimestamp} -> createdTimestamp) (\s@ProxySession' {} a -> s {createdTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The ended time stamp, in ISO 8601 format.
 proxySession_endedTimestamp :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.UTCTime)
 proxySession_endedTimestamp = Lens.lens (\ProxySession' {endedTimestamp} -> endedTimestamp) (\s@ProxySession' {} a -> s {endedTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The number of minutes allowed for the proxy session.
 proxySession_expiryMinutes :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.Natural)
 proxySession_expiryMinutes = Lens.lens (\ProxySession' {expiryMinutes} -> expiryMinutes) (\s@ProxySession' {} a -> s {expiryMinutes = a} :: ProxySession)
 
--- | Undocumented member.
+-- | The preference for matching the country or area code of the proxy phone
+-- number with that of the first participant.
 proxySession_geoMatchLevel :: Lens.Lens' ProxySession (Prelude.Maybe GeoMatchLevel)
 proxySession_geoMatchLevel = Lens.lens (\ProxySession' {geoMatchLevel} -> geoMatchLevel) (\s@ProxySession' {} a -> s {geoMatchLevel = a} :: ProxySession)
 
--- | Undocumented member.
+-- | The country and area code for the proxy phone number.
 proxySession_geoMatchParams :: Lens.Lens' ProxySession (Prelude.Maybe GeoMatchParams)
 proxySession_geoMatchParams = Lens.lens (\ProxySession' {geoMatchParams} -> geoMatchParams) (\s@ProxySession' {} a -> s {geoMatchParams = a} :: ProxySession)
 
--- | Undocumented member.
+-- | The proxy session name.
 proxySession_name :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.Text)
 proxySession_name = Lens.lens (\ProxySession' {name} -> name) (\s@ProxySession' {} a -> s {name = a} :: ProxySession)
 
--- | Undocumented member.
+-- | The preference for proxy phone number reuse, or stickiness, between the
+-- same participants across sessions.
 proxySession_numberSelectionBehavior :: Lens.Lens' ProxySession (Prelude.Maybe NumberSelectionBehavior)
 proxySession_numberSelectionBehavior = Lens.lens (\ProxySession' {numberSelectionBehavior} -> numberSelectionBehavior) (\s@ProxySession' {} a -> s {numberSelectionBehavior = a} :: ProxySession)
 
--- | Undocumented member.
+-- | The proxy session participants.
 proxySession_participants :: Lens.Lens' ProxySession (Prelude.Maybe [Participant])
 proxySession_participants = Lens.lens (\ProxySession' {participants} -> participants) (\s@ProxySession' {} a -> s {participants = a} :: ProxySession) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The proxy session ID.
 proxySession_proxySessionId :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.Text)
 proxySession_proxySessionId = Lens.lens (\ProxySession' {proxySessionId} -> proxySessionId) (\s@ProxySession' {} a -> s {proxySessionId = a} :: ProxySession)
 
--- | Undocumented member.
+-- | The proxy session status.
 proxySession_status :: Lens.Lens' ProxySession (Prelude.Maybe ProxySessionStatus)
 proxySession_status = Lens.lens (\ProxySession' {status} -> status) (\s@ProxySession' {} a -> s {status = a} :: ProxySession)
 
--- | Undocumented member.
+-- | The updated time stamp, in ISO 8601 format.
 proxySession_updatedTimestamp :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.UTCTime)
 proxySession_updatedTimestamp = Lens.lens (\ProxySession' {updatedTimestamp} -> updatedTimestamp) (\s@ProxySession' {} a -> s {updatedTimestamp = a} :: ProxySession) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 proxySession_voiceConnectorId :: Lens.Lens' ProxySession (Prelude.Maybe Prelude.Text)
 proxySession_voiceConnectorId = Lens.lens (\ProxySession' {voiceConnectorId} -> voiceConnectorId) (\s@ProxySession' {} a -> s {voiceConnectorId = a} :: ProxySession)
 
@@ -175,7 +196,8 @@ instance Data.FromJSON ProxySession where
 
 instance Prelude.Hashable ProxySession where
   hashWithSalt _salt ProxySession' {..} =
-    _salt `Prelude.hashWithSalt` capabilities
+    _salt
+      `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` endedTimestamp
       `Prelude.hashWithSalt` expiryMinutes

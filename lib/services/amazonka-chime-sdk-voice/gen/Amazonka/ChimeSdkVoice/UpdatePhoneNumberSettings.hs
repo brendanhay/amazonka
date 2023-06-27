@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the phone number settings for the administrator\'s AWS account,
+-- such as the default outbound calling name. You can update the default
+-- outbound calling name once every seven days. Outbound calling names can
+-- take up to 72 hours to update.
 module Amazonka.ChimeSdkVoice.UpdatePhoneNumberSettings
   ( -- * Creating a Request
     UpdatePhoneNumberSettings (..),
@@ -45,7 +48,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdatePhoneNumberSettings' smart constructor.
 data UpdatePhoneNumberSettings = UpdatePhoneNumberSettings'
-  { callingName :: Data.Sensitive Prelude.Text
+  { -- | The default outbound calling name for the account.
+    callingName :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +61,7 @@ data UpdatePhoneNumberSettings = UpdatePhoneNumberSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callingName', 'updatePhoneNumberSettings_callingName' - Undocumented member.
+-- 'callingName', 'updatePhoneNumberSettings_callingName' - The default outbound calling name for the account.
 newUpdatePhoneNumberSettings ::
   -- | 'callingName'
   Prelude.Text ->
@@ -68,7 +72,7 @@ newUpdatePhoneNumberSettings pCallingName_ =
         Data._Sensitive Lens.# pCallingName_
     }
 
--- | Undocumented member.
+-- | The default outbound calling name for the account.
 updatePhoneNumberSettings_callingName :: Lens.Lens' UpdatePhoneNumberSettings Prelude.Text
 updatePhoneNumberSettings_callingName = Lens.lens (\UpdatePhoneNumberSettings' {callingName} -> callingName) (\s@UpdatePhoneNumberSettings' {} a -> s {callingName = a} :: UpdatePhoneNumberSettings) Prelude.. Data._Sensitive
 

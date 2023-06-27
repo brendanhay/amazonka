@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves details for the specified phone number order, such as the
+-- order creation timestamp, phone numbers in E.164 format, product type,
+-- and order status.
 module Amazonka.ChimeSdkVoice.GetPhoneNumberOrder
   ( -- * Creating a Request
     GetPhoneNumberOrder (..),
@@ -49,7 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPhoneNumberOrder' smart constructor.
 data GetPhoneNumberOrder = GetPhoneNumberOrder'
-  { phoneNumberOrderId :: Prelude.Text
+  { -- | The ID of the phone number order .
+    phoneNumberOrderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +64,7 @@ data GetPhoneNumberOrder = GetPhoneNumberOrder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberOrderId', 'getPhoneNumberOrder_phoneNumberOrderId' - Undocumented member.
+-- 'phoneNumberOrderId', 'getPhoneNumberOrder_phoneNumberOrderId' - The ID of the phone number order .
 newGetPhoneNumberOrder ::
   -- | 'phoneNumberOrderId'
   Prelude.Text ->
@@ -72,7 +75,7 @@ newGetPhoneNumberOrder pPhoneNumberOrderId_ =
         pPhoneNumberOrderId_
     }
 
--- | Undocumented member.
+-- | The ID of the phone number order .
 getPhoneNumberOrder_phoneNumberOrderId :: Lens.Lens' GetPhoneNumberOrder Prelude.Text
 getPhoneNumberOrder_phoneNumberOrderId = Lens.lens (\GetPhoneNumberOrder' {phoneNumberOrderId} -> phoneNumberOrderId) (\s@GetPhoneNumberOrder' {} a -> s {phoneNumberOrderId = a} :: GetPhoneNumberOrder)
 
@@ -113,7 +116,8 @@ instance Data.ToQuery GetPhoneNumberOrder where
 
 -- | /See:/ 'newGetPhoneNumberOrderResponse' smart constructor.
 data GetPhoneNumberOrderResponse = GetPhoneNumberOrderResponse'
-  { phoneNumberOrder :: Prelude.Maybe PhoneNumberOrder,
+  { -- | The phone number order details.
+    phoneNumberOrder :: Prelude.Maybe PhoneNumberOrder,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -127,7 +131,7 @@ data GetPhoneNumberOrderResponse = GetPhoneNumberOrderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberOrder', 'getPhoneNumberOrderResponse_phoneNumberOrder' - Undocumented member.
+-- 'phoneNumberOrder', 'getPhoneNumberOrderResponse_phoneNumberOrder' - The phone number order details.
 --
 -- 'httpStatus', 'getPhoneNumberOrderResponse_httpStatus' - The response's http status code.
 newGetPhoneNumberOrderResponse ::
@@ -141,7 +145,7 @@ newGetPhoneNumberOrderResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The phone number order details.
 getPhoneNumberOrderResponse_phoneNumberOrder :: Lens.Lens' GetPhoneNumberOrderResponse (Prelude.Maybe PhoneNumberOrder)
 getPhoneNumberOrderResponse_phoneNumberOrder = Lens.lens (\GetPhoneNumberOrderResponse' {phoneNumberOrder} -> phoneNumberOrder) (\s@GetPhoneNumberOrderResponse' {} a -> s {phoneNumberOrder = a} :: GetPhoneNumberOrderResponse)
 

@@ -24,9 +24,15 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newTerminationHealth' smart constructor.
+-- | The termination health details, including the source IP address and
+-- timestamp of the last successful @SIP OPTIONS@ message from your SIP
+-- infrastructure.
+--
+-- /See:/ 'newTerminationHealth' smart constructor.
 data TerminationHealth = TerminationHealth'
-  { source :: Prelude.Maybe Prelude.Text,
+  { -- | The source IP address.
+    source :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp, in ISO 8601 format.
     timestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -39,9 +45,9 @@ data TerminationHealth = TerminationHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'source', 'terminationHealth_source' - Undocumented member.
+-- 'source', 'terminationHealth_source' - The source IP address.
 --
--- 'timestamp', 'terminationHealth_timestamp' - Undocumented member.
+-- 'timestamp', 'terminationHealth_timestamp' - The timestamp, in ISO 8601 format.
 newTerminationHealth ::
   TerminationHealth
 newTerminationHealth =
@@ -50,11 +56,11 @@ newTerminationHealth =
       timestamp = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The source IP address.
 terminationHealth_source :: Lens.Lens' TerminationHealth (Prelude.Maybe Prelude.Text)
 terminationHealth_source = Lens.lens (\TerminationHealth' {source} -> source) (\s@TerminationHealth' {} a -> s {source = a} :: TerminationHealth)
 
--- | Undocumented member.
+-- | The timestamp, in ISO 8601 format.
 terminationHealth_timestamp :: Lens.Lens' TerminationHealth (Prelude.Maybe Prelude.UTCTime)
 terminationHealth_timestamp = Lens.lens (\TerminationHealth' {timestamp} -> timestamp) (\s@TerminationHealth' {} a -> s {timestamp = a} :: TerminationHealth) Prelude.. Lens.mapping Data._Time
 
@@ -70,7 +76,8 @@ instance Data.FromJSON TerminationHealth where
 
 instance Prelude.Hashable TerminationHealth where
   hashWithSalt _salt TerminationHealth' {..} =
-    _salt `Prelude.hashWithSalt` source
+    _salt
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData TerminationHealth where

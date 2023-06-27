@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Associates phone numbers with the specified Amazon Chime SDK Voice
+-- Connector group.
 module Amazonka.ChimeSdkVoice.AssociatePhoneNumbersWithVoiceConnectorGroup
   ( -- * Creating a Request
     AssociatePhoneNumbersWithVoiceConnectorGroup (..),
@@ -51,8 +52,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociatePhoneNumbersWithVoiceConnectorGroup' smart constructor.
 data AssociatePhoneNumbersWithVoiceConnectorGroup = AssociatePhoneNumbersWithVoiceConnectorGroup'
-  { forceAssociate :: Prelude.Maybe Prelude.Bool,
+  { -- | If true, associates the provided phone numbers with the provided Amazon
+    -- Chime SDK Voice Connector Group and removes any previously existing
+    -- associations. If false, does not associate any phone numbers that have
+    -- previously existing associations.
+    forceAssociate :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Chime SDK Voice Connector group ID.
     voiceConnectorGroupId :: Prelude.Text,
+    -- | List of phone numbers, in E.164 format.
     e164PhoneNumbers :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -65,11 +72,14 @@ data AssociatePhoneNumbersWithVoiceConnectorGroup = AssociatePhoneNumbersWithVoi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'forceAssociate', 'associatePhoneNumbersWithVoiceConnectorGroup_forceAssociate' - Undocumented member.
+-- 'forceAssociate', 'associatePhoneNumbersWithVoiceConnectorGroup_forceAssociate' - If true, associates the provided phone numbers with the provided Amazon
+-- Chime SDK Voice Connector Group and removes any previously existing
+-- associations. If false, does not associate any phone numbers that have
+-- previously existing associations.
 --
--- 'voiceConnectorGroupId', 'associatePhoneNumbersWithVoiceConnectorGroup_voiceConnectorGroupId' - Undocumented member.
+-- 'voiceConnectorGroupId', 'associatePhoneNumbersWithVoiceConnectorGroup_voiceConnectorGroupId' - The Amazon Chime SDK Voice Connector group ID.
 --
--- 'e164PhoneNumbers', 'associatePhoneNumbersWithVoiceConnectorGroup_e164PhoneNumbers' - Undocumented member.
+-- 'e164PhoneNumbers', 'associatePhoneNumbersWithVoiceConnectorGroup_e164PhoneNumbers' - List of phone numbers, in E.164 format.
 newAssociatePhoneNumbersWithVoiceConnectorGroup ::
   -- | 'voiceConnectorGroupId'
   Prelude.Text ->
@@ -85,15 +95,18 @@ newAssociatePhoneNumbersWithVoiceConnectorGroup
           Prelude.mempty
       }
 
--- | Undocumented member.
+-- | If true, associates the provided phone numbers with the provided Amazon
+-- Chime SDK Voice Connector Group and removes any previously existing
+-- associations. If false, does not associate any phone numbers that have
+-- previously existing associations.
 associatePhoneNumbersWithVoiceConnectorGroup_forceAssociate :: Lens.Lens' AssociatePhoneNumbersWithVoiceConnectorGroup (Prelude.Maybe Prelude.Bool)
 associatePhoneNumbersWithVoiceConnectorGroup_forceAssociate = Lens.lens (\AssociatePhoneNumbersWithVoiceConnectorGroup' {forceAssociate} -> forceAssociate) (\s@AssociatePhoneNumbersWithVoiceConnectorGroup' {} a -> s {forceAssociate = a} :: AssociatePhoneNumbersWithVoiceConnectorGroup)
 
--- | Undocumented member.
+-- | The Amazon Chime SDK Voice Connector group ID.
 associatePhoneNumbersWithVoiceConnectorGroup_voiceConnectorGroupId :: Lens.Lens' AssociatePhoneNumbersWithVoiceConnectorGroup Prelude.Text
 associatePhoneNumbersWithVoiceConnectorGroup_voiceConnectorGroupId = Lens.lens (\AssociatePhoneNumbersWithVoiceConnectorGroup' {voiceConnectorGroupId} -> voiceConnectorGroupId) (\s@AssociatePhoneNumbersWithVoiceConnectorGroup' {} a -> s {voiceConnectorGroupId = a} :: AssociatePhoneNumbersWithVoiceConnectorGroup)
 
--- | Undocumented member.
+-- | List of phone numbers, in E.164 format.
 associatePhoneNumbersWithVoiceConnectorGroup_e164PhoneNumbers :: Lens.Lens' AssociatePhoneNumbersWithVoiceConnectorGroup [Prelude.Text]
 associatePhoneNumbersWithVoiceConnectorGroup_e164PhoneNumbers = Lens.lens (\AssociatePhoneNumbersWithVoiceConnectorGroup' {e164PhoneNumbers} -> e164PhoneNumbers) (\s@AssociatePhoneNumbersWithVoiceConnectorGroup' {} a -> s {e164PhoneNumbers = a} :: AssociatePhoneNumbersWithVoiceConnectorGroup) Prelude.. Lens.coerced
 
@@ -111,10 +124,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           AssociatePhoneNumbersWithVoiceConnectorGroupResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -124,7 +138,8 @@ instance
   hashWithSalt
     _salt
     AssociatePhoneNumbersWithVoiceConnectorGroup' {..} =
-      _salt `Prelude.hashWithSalt` forceAssociate
+      _salt
+        `Prelude.hashWithSalt` forceAssociate
         `Prelude.hashWithSalt` voiceConnectorGroupId
         `Prelude.hashWithSalt` e164PhoneNumbers
 
@@ -181,7 +196,10 @@ instance
 
 -- | /See:/ 'newAssociatePhoneNumbersWithVoiceConnectorGroupResponse' smart constructor.
 data AssociatePhoneNumbersWithVoiceConnectorGroupResponse = AssociatePhoneNumbersWithVoiceConnectorGroupResponse'
-  { phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
+  { -- | If the action fails for one or more of the phone numbers in the request,
+    -- a list of the phone numbers is returned, along with error codes and
+    -- error messages.
+    phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -195,7 +213,9 @@ data AssociatePhoneNumbersWithVoiceConnectorGroupResponse = AssociatePhoneNumber
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberErrors', 'associatePhoneNumbersWithVoiceConnectorGroupResponse_phoneNumberErrors' - Undocumented member.
+-- 'phoneNumberErrors', 'associatePhoneNumbersWithVoiceConnectorGroupResponse_phoneNumberErrors' - If the action fails for one or more of the phone numbers in the request,
+-- a list of the phone numbers is returned, along with error codes and
+-- error messages.
 --
 -- 'httpStatus', 'associatePhoneNumbersWithVoiceConnectorGroupResponse_httpStatus' - The response's http status code.
 newAssociatePhoneNumbersWithVoiceConnectorGroupResponse ::
@@ -211,7 +231,9 @@ newAssociatePhoneNumbersWithVoiceConnectorGroupResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | If the action fails for one or more of the phone numbers in the request,
+-- a list of the phone numbers is returned, along with error codes and
+-- error messages.
 associatePhoneNumbersWithVoiceConnectorGroupResponse_phoneNumberErrors :: Lens.Lens' AssociatePhoneNumbersWithVoiceConnectorGroupResponse (Prelude.Maybe [PhoneNumberError])
 associatePhoneNumbersWithVoiceConnectorGroupResponse_phoneNumberErrors = Lens.lens (\AssociatePhoneNumbersWithVoiceConnectorGroupResponse' {phoneNumberErrors} -> phoneNumberErrors) (\s@AssociatePhoneNumbersWithVoiceConnectorGroupResponse' {} a -> s {phoneNumberErrors = a} :: AssociatePhoneNumbersWithVoiceConnectorGroupResponse) Prelude.. Lens.mapping Lens.coerced
 

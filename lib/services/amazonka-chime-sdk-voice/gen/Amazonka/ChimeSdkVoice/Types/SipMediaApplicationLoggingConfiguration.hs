@@ -24,9 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newSipMediaApplicationLoggingConfiguration' smart constructor.
+-- | The logging configuration of a SIP media application.
+--
+-- /See:/ 'newSipMediaApplicationLoggingConfiguration' smart constructor.
 data SipMediaApplicationLoggingConfiguration = SipMediaApplicationLoggingConfiguration'
-  { enableSipMediaApplicationMessageLogs :: Prelude.Maybe Prelude.Bool
+  { -- | Enables message logging for the specified SIP media application.
+    enableSipMediaApplicationMessageLogs :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -38,7 +41,7 @@ data SipMediaApplicationLoggingConfiguration = SipMediaApplicationLoggingConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableSipMediaApplicationMessageLogs', 'sipMediaApplicationLoggingConfiguration_enableSipMediaApplicationMessageLogs' - Undocumented member.
+-- 'enableSipMediaApplicationMessageLogs', 'sipMediaApplicationLoggingConfiguration_enableSipMediaApplicationMessageLogs' - Enables message logging for the specified SIP media application.
 newSipMediaApplicationLoggingConfiguration ::
   SipMediaApplicationLoggingConfiguration
 newSipMediaApplicationLoggingConfiguration =
@@ -47,7 +50,7 @@ newSipMediaApplicationLoggingConfiguration =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Enables message logging for the specified SIP media application.
 sipMediaApplicationLoggingConfiguration_enableSipMediaApplicationMessageLogs :: Lens.Lens' SipMediaApplicationLoggingConfiguration (Prelude.Maybe Prelude.Bool)
 sipMediaApplicationLoggingConfiguration_enableSipMediaApplicationMessageLogs = Lens.lens (\SipMediaApplicationLoggingConfiguration' {enableSipMediaApplicationMessageLogs} -> enableSipMediaApplicationMessageLogs) (\s@SipMediaApplicationLoggingConfiguration' {} a -> s {enableSipMediaApplicationMessageLogs = a} :: SipMediaApplicationLoggingConfiguration)
 

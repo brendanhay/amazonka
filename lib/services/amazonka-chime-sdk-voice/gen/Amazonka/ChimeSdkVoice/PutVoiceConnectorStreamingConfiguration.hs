@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates a Voice Connector\'s streaming configuration settings.
 module Amazonka.ChimeSdkVoice.PutVoiceConnectorStreamingConfiguration
   ( -- * Creating a Request
     PutVoiceConnectorStreamingConfiguration (..),
@@ -50,10 +50,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorStreamingConfiguration' smart constructor.
 data PutVoiceConnectorStreamingConfiguration = PutVoiceConnectorStreamingConfiguration'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The streaming settings being updated.
     streamingConfiguration :: StreamingConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutVoiceConnectorStreamingConfiguration' with all optional fields omitted.
@@ -63,9 +65,9 @@ data PutVoiceConnectorStreamingConfiguration = PutVoiceConnectorStreamingConfigu
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'putVoiceConnectorStreamingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'putVoiceConnectorStreamingConfiguration_voiceConnectorId' - The Voice Connector ID.
 --
--- 'streamingConfiguration', 'putVoiceConnectorStreamingConfiguration_streamingConfiguration' - Undocumented member.
+-- 'streamingConfiguration', 'putVoiceConnectorStreamingConfiguration_streamingConfiguration' - The streaming settings being updated.
 newPutVoiceConnectorStreamingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -82,11 +84,11 @@ newPutVoiceConnectorStreamingConfiguration
           pStreamingConfiguration_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 putVoiceConnectorStreamingConfiguration_voiceConnectorId :: Lens.Lens' PutVoiceConnectorStreamingConfiguration Prelude.Text
 putVoiceConnectorStreamingConfiguration_voiceConnectorId = Lens.lens (\PutVoiceConnectorStreamingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorStreamingConfiguration' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorStreamingConfiguration)
 
--- | Undocumented member.
+-- | The streaming settings being updated.
 putVoiceConnectorStreamingConfiguration_streamingConfiguration :: Lens.Lens' PutVoiceConnectorStreamingConfiguration StreamingConfiguration
 putVoiceConnectorStreamingConfiguration_streamingConfiguration = Lens.lens (\PutVoiceConnectorStreamingConfiguration' {streamingConfiguration} -> streamingConfiguration) (\s@PutVoiceConnectorStreamingConfiguration' {} a -> s {streamingConfiguration = a} :: PutVoiceConnectorStreamingConfiguration)
 
@@ -105,7 +107,7 @@ instance
       ( \s h x ->
           PutVoiceConnectorStreamingConfigurationResponse'
             Prelude.<$> (x Data..?> "StreamingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -115,7 +117,8 @@ instance
   hashWithSalt
     _salt
     PutVoiceConnectorStreamingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` voiceConnectorId
+      _salt
+        `Prelude.hashWithSalt` voiceConnectorId
         `Prelude.hashWithSalt` streamingConfiguration
 
 instance
@@ -165,11 +168,12 @@ instance
 
 -- | /See:/ 'newPutVoiceConnectorStreamingConfigurationResponse' smart constructor.
 data PutVoiceConnectorStreamingConfigurationResponse = PutVoiceConnectorStreamingConfigurationResponse'
-  { streamingConfiguration :: Prelude.Maybe StreamingConfiguration,
+  { -- | The updated streaming settings.
+    streamingConfiguration :: Prelude.Maybe StreamingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'PutVoiceConnectorStreamingConfigurationResponse' with all optional fields omitted.
@@ -179,7 +183,7 @@ data PutVoiceConnectorStreamingConfigurationResponse = PutVoiceConnectorStreamin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamingConfiguration', 'putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration' - Undocumented member.
+-- 'streamingConfiguration', 'putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration' - The updated streaming settings.
 --
 -- 'httpStatus', 'putVoiceConnectorStreamingConfigurationResponse_httpStatus' - The response's http status code.
 newPutVoiceConnectorStreamingConfigurationResponse ::
@@ -194,7 +198,7 @@ newPutVoiceConnectorStreamingConfigurationResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The updated streaming settings.
 putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration :: Lens.Lens' PutVoiceConnectorStreamingConfigurationResponse (Prelude.Maybe StreamingConfiguration)
 putVoiceConnectorStreamingConfigurationResponse_streamingConfiguration = Lens.lens (\PutVoiceConnectorStreamingConfigurationResponse' {streamingConfiguration} -> streamingConfiguration) (\s@PutVoiceConnectorStreamingConfigurationResponse' {} a -> s {streamingConfiguration = a} :: PutVoiceConnectorStreamingConfigurationResponse)
 

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the phone number settings for the administrator\'s AWS
+-- account, such as the default outbound calling name.
 module Amazonka.ChimeSdkVoice.GetPhoneNumberSettings
   ( -- * Creating a Request
     GetPhoneNumberSettings (..),
@@ -92,7 +93,9 @@ instance Data.ToQuery GetPhoneNumberSettings where
 
 -- | /See:/ 'newGetPhoneNumberSettingsResponse' smart constructor.
 data GetPhoneNumberSettingsResponse = GetPhoneNumberSettingsResponse'
-  { callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The default outbound calling name for the account.
+    callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The updated outbound calling name timestamp, in ISO 8601 format.
     callingNameUpdatedTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -107,9 +110,9 @@ data GetPhoneNumberSettingsResponse = GetPhoneNumberSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callingName', 'getPhoneNumberSettingsResponse_callingName' - Undocumented member.
+-- 'callingName', 'getPhoneNumberSettingsResponse_callingName' - The default outbound calling name for the account.
 --
--- 'callingNameUpdatedTimestamp', 'getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp' - Undocumented member.
+-- 'callingNameUpdatedTimestamp', 'getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp' - The updated outbound calling name timestamp, in ISO 8601 format.
 --
 -- 'httpStatus', 'getPhoneNumberSettingsResponse_httpStatus' - The response's http status code.
 newGetPhoneNumberSettingsResponse ::
@@ -125,11 +128,11 @@ newGetPhoneNumberSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The default outbound calling name for the account.
 getPhoneNumberSettingsResponse_callingName :: Lens.Lens' GetPhoneNumberSettingsResponse (Prelude.Maybe Prelude.Text)
 getPhoneNumberSettingsResponse_callingName = Lens.lens (\GetPhoneNumberSettingsResponse' {callingName} -> callingName) (\s@GetPhoneNumberSettingsResponse' {} a -> s {callingName = a} :: GetPhoneNumberSettingsResponse) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The updated outbound calling name timestamp, in ISO 8601 format.
 getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp :: Lens.Lens' GetPhoneNumberSettingsResponse (Prelude.Maybe Prelude.UTCTime)
 getPhoneNumberSettingsResponse_callingNameUpdatedTimestamp = Lens.lens (\GetPhoneNumberSettingsResponse' {callingNameUpdatedTimestamp} -> callingNameUpdatedTimestamp) (\s@GetPhoneNumberSettingsResponse' {} a -> s {callingNameUpdatedTimestamp = a} :: GetPhoneNumberSettingsResponse) Prelude.. Lens.mapping Data._Time
 

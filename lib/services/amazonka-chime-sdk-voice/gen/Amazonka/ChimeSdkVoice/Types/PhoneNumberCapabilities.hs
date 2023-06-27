@@ -24,13 +24,22 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newPhoneNumberCapabilities' smart constructor.
+-- | The phone number capabilities for Amazon Chime SDK phone numbers, such
+-- as enabled inbound and outbound calling, and text messaging.
+--
+-- /See:/ 'newPhoneNumberCapabilities' smart constructor.
 data PhoneNumberCapabilities = PhoneNumberCapabilities'
-  { inboundCall :: Prelude.Maybe Prelude.Bool,
+  { -- | Allows or denies inbound calling for the specified phone number.
+    inboundCall :: Prelude.Maybe Prelude.Bool,
+    -- | Allows or denies inbound MMS messaging for the specified phone number.
     inboundMMS :: Prelude.Maybe Prelude.Bool,
+    -- | Allows or denies inbound SMS messaging for the specified phone number.
     inboundSMS :: Prelude.Maybe Prelude.Bool,
+    -- | Allows or denies outbound calling for the specified phone number.
     outboundCall :: Prelude.Maybe Prelude.Bool,
+    -- | Allows or denies inbound MMS messaging for the specified phone number.
     outboundMMS :: Prelude.Maybe Prelude.Bool,
+    -- | Allows or denies outbound SMS messaging for the specified phone number.
     outboundSMS :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,17 +52,17 @@ data PhoneNumberCapabilities = PhoneNumberCapabilities'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inboundCall', 'phoneNumberCapabilities_inboundCall' - Undocumented member.
+-- 'inboundCall', 'phoneNumberCapabilities_inboundCall' - Allows or denies inbound calling for the specified phone number.
 --
--- 'inboundMMS', 'phoneNumberCapabilities_inboundMMS' - Undocumented member.
+-- 'inboundMMS', 'phoneNumberCapabilities_inboundMMS' - Allows or denies inbound MMS messaging for the specified phone number.
 --
--- 'inboundSMS', 'phoneNumberCapabilities_inboundSMS' - Undocumented member.
+-- 'inboundSMS', 'phoneNumberCapabilities_inboundSMS' - Allows or denies inbound SMS messaging for the specified phone number.
 --
--- 'outboundCall', 'phoneNumberCapabilities_outboundCall' - Undocumented member.
+-- 'outboundCall', 'phoneNumberCapabilities_outboundCall' - Allows or denies outbound calling for the specified phone number.
 --
--- 'outboundMMS', 'phoneNumberCapabilities_outboundMMS' - Undocumented member.
+-- 'outboundMMS', 'phoneNumberCapabilities_outboundMMS' - Allows or denies inbound MMS messaging for the specified phone number.
 --
--- 'outboundSMS', 'phoneNumberCapabilities_outboundSMS' - Undocumented member.
+-- 'outboundSMS', 'phoneNumberCapabilities_outboundSMS' - Allows or denies outbound SMS messaging for the specified phone number.
 newPhoneNumberCapabilities ::
   PhoneNumberCapabilities
 newPhoneNumberCapabilities =
@@ -67,27 +76,27 @@ newPhoneNumberCapabilities =
       outboundSMS = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Allows or denies inbound calling for the specified phone number.
 phoneNumberCapabilities_inboundCall :: Lens.Lens' PhoneNumberCapabilities (Prelude.Maybe Prelude.Bool)
 phoneNumberCapabilities_inboundCall = Lens.lens (\PhoneNumberCapabilities' {inboundCall} -> inboundCall) (\s@PhoneNumberCapabilities' {} a -> s {inboundCall = a} :: PhoneNumberCapabilities)
 
--- | Undocumented member.
+-- | Allows or denies inbound MMS messaging for the specified phone number.
 phoneNumberCapabilities_inboundMMS :: Lens.Lens' PhoneNumberCapabilities (Prelude.Maybe Prelude.Bool)
 phoneNumberCapabilities_inboundMMS = Lens.lens (\PhoneNumberCapabilities' {inboundMMS} -> inboundMMS) (\s@PhoneNumberCapabilities' {} a -> s {inboundMMS = a} :: PhoneNumberCapabilities)
 
--- | Undocumented member.
+-- | Allows or denies inbound SMS messaging for the specified phone number.
 phoneNumberCapabilities_inboundSMS :: Lens.Lens' PhoneNumberCapabilities (Prelude.Maybe Prelude.Bool)
 phoneNumberCapabilities_inboundSMS = Lens.lens (\PhoneNumberCapabilities' {inboundSMS} -> inboundSMS) (\s@PhoneNumberCapabilities' {} a -> s {inboundSMS = a} :: PhoneNumberCapabilities)
 
--- | Undocumented member.
+-- | Allows or denies outbound calling for the specified phone number.
 phoneNumberCapabilities_outboundCall :: Lens.Lens' PhoneNumberCapabilities (Prelude.Maybe Prelude.Bool)
 phoneNumberCapabilities_outboundCall = Lens.lens (\PhoneNumberCapabilities' {outboundCall} -> outboundCall) (\s@PhoneNumberCapabilities' {} a -> s {outboundCall = a} :: PhoneNumberCapabilities)
 
--- | Undocumented member.
+-- | Allows or denies inbound MMS messaging for the specified phone number.
 phoneNumberCapabilities_outboundMMS :: Lens.Lens' PhoneNumberCapabilities (Prelude.Maybe Prelude.Bool)
 phoneNumberCapabilities_outboundMMS = Lens.lens (\PhoneNumberCapabilities' {outboundMMS} -> outboundMMS) (\s@PhoneNumberCapabilities' {} a -> s {outboundMMS = a} :: PhoneNumberCapabilities)
 
--- | Undocumented member.
+-- | Allows or denies outbound SMS messaging for the specified phone number.
 phoneNumberCapabilities_outboundSMS :: Lens.Lens' PhoneNumberCapabilities (Prelude.Maybe Prelude.Bool)
 phoneNumberCapabilities_outboundSMS = Lens.lens (\PhoneNumberCapabilities' {outboundSMS} -> outboundSMS) (\s@PhoneNumberCapabilities' {} a -> s {outboundSMS = a} :: PhoneNumberCapabilities)
 
@@ -107,7 +116,8 @@ instance Data.FromJSON PhoneNumberCapabilities where
 
 instance Prelude.Hashable PhoneNumberCapabilities where
   hashWithSalt _salt PhoneNumberCapabilities' {..} =
-    _salt `Prelude.hashWithSalt` inboundCall
+    _salt
+      `Prelude.hashWithSalt` inboundCall
       `Prelude.hashWithSalt` inboundMMS
       `Prelude.hashWithSalt` inboundSMS
       `Prelude.hashWithSalt` outboundCall

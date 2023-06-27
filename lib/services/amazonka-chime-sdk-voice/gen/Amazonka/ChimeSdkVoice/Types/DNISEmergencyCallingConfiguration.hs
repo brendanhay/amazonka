@@ -24,10 +24,20 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newDNISEmergencyCallingConfiguration' smart constructor.
+-- | The Dialed Number Identification Service (DNIS) emergency calling
+-- configuration details associated with an Amazon Chime SDK Voice
+-- Connector\'s emergency calling configuration.
+--
+-- /See:/ 'newDNISEmergencyCallingConfiguration' smart constructor.
 data DNISEmergencyCallingConfiguration = DNISEmergencyCallingConfiguration'
-  { testPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The DNIS phone number for routing test emergency calls to, in E.164
+    -- format.
+    testPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The DNIS phone number that you route emergency calls to, in E.164
+    -- format.
     emergencyPhoneNumber :: Data.Sensitive Prelude.Text,
+    -- | The country from which emergency calls are allowed, in ISO 3166-1
+    -- alpha-2 format.
     callingCountry :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -40,11 +50,14 @@ data DNISEmergencyCallingConfiguration = DNISEmergencyCallingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'testPhoneNumber', 'dNISEmergencyCallingConfiguration_testPhoneNumber' - Undocumented member.
+-- 'testPhoneNumber', 'dNISEmergencyCallingConfiguration_testPhoneNumber' - The DNIS phone number for routing test emergency calls to, in E.164
+-- format.
 --
--- 'emergencyPhoneNumber', 'dNISEmergencyCallingConfiguration_emergencyPhoneNumber' - Undocumented member.
+-- 'emergencyPhoneNumber', 'dNISEmergencyCallingConfiguration_emergencyPhoneNumber' - The DNIS phone number that you route emergency calls to, in E.164
+-- format.
 --
--- 'callingCountry', 'dNISEmergencyCallingConfiguration_callingCountry' - Undocumented member.
+-- 'callingCountry', 'dNISEmergencyCallingConfiguration_callingCountry' - The country from which emergency calls are allowed, in ISO 3166-1
+-- alpha-2 format.
 newDNISEmergencyCallingConfiguration ::
   -- | 'emergencyPhoneNumber'
   Prelude.Text ->
@@ -63,15 +76,18 @@ newDNISEmergencyCallingConfiguration
         callingCountry = pCallingCountry_
       }
 
--- | Undocumented member.
+-- | The DNIS phone number for routing test emergency calls to, in E.164
+-- format.
 dNISEmergencyCallingConfiguration_testPhoneNumber :: Lens.Lens' DNISEmergencyCallingConfiguration (Prelude.Maybe Prelude.Text)
 dNISEmergencyCallingConfiguration_testPhoneNumber = Lens.lens (\DNISEmergencyCallingConfiguration' {testPhoneNumber} -> testPhoneNumber) (\s@DNISEmergencyCallingConfiguration' {} a -> s {testPhoneNumber = a} :: DNISEmergencyCallingConfiguration) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The DNIS phone number that you route emergency calls to, in E.164
+-- format.
 dNISEmergencyCallingConfiguration_emergencyPhoneNumber :: Lens.Lens' DNISEmergencyCallingConfiguration Prelude.Text
 dNISEmergencyCallingConfiguration_emergencyPhoneNumber = Lens.lens (\DNISEmergencyCallingConfiguration' {emergencyPhoneNumber} -> emergencyPhoneNumber) (\s@DNISEmergencyCallingConfiguration' {} a -> s {emergencyPhoneNumber = a} :: DNISEmergencyCallingConfiguration) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The country from which emergency calls are allowed, in ISO 3166-1
+-- alpha-2 format.
 dNISEmergencyCallingConfiguration_callingCountry :: Lens.Lens' DNISEmergencyCallingConfiguration Prelude.Text
 dNISEmergencyCallingConfiguration_callingCountry = Lens.lens (\DNISEmergencyCallingConfiguration' {callingCountry} -> callingCountry) (\s@DNISEmergencyCallingConfiguration' {} a -> s {callingCountry = a} :: DNISEmergencyCallingConfiguration)
 
@@ -96,7 +112,8 @@ instance
   hashWithSalt
     _salt
     DNISEmergencyCallingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` testPhoneNumber
+      _salt
+        `Prelude.hashWithSalt` testPhoneNumber
         `Prelude.hashWithSalt` emergencyPhoneNumber
         `Prelude.hashWithSalt` callingCountry
 

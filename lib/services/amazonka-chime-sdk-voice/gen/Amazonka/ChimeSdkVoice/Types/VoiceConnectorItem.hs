@@ -24,9 +24,19 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newVoiceConnectorItem' smart constructor.
+-- | For Amazon Chime SDK Voice Connector groups, the Amazon Chime SDK Voice
+-- Connectors to which you route inbound calls. Includes priority
+-- configuration settings. Limit: 3 VoiceConnectorItems per Voice Connector
+-- group.
+--
+-- /See:/ 'newVoiceConnectorItem' smart constructor.
 data VoiceConnectorItem = VoiceConnectorItem'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The priority setting of a Voice Connector item. Calls are routed to
+    -- hosts in priority order, with 1 as the highest priority. When hosts have
+    -- equal priority, the system distributes calls among them based on their
+    -- relative weight.
     priority :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -39,9 +49,12 @@ data VoiceConnectorItem = VoiceConnectorItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'voiceConnectorItem_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'voiceConnectorItem_voiceConnectorId' - The Voice Connector ID.
 --
--- 'priority', 'voiceConnectorItem_priority' - Undocumented member.
+-- 'priority', 'voiceConnectorItem_priority' - The priority setting of a Voice Connector item. Calls are routed to
+-- hosts in priority order, with 1 as the highest priority. When hosts have
+-- equal priority, the system distributes calls among them based on their
+-- relative weight.
 newVoiceConnectorItem ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -55,11 +68,14 @@ newVoiceConnectorItem pVoiceConnectorId_ pPriority_ =
       priority = pPriority_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 voiceConnectorItem_voiceConnectorId :: Lens.Lens' VoiceConnectorItem Prelude.Text
 voiceConnectorItem_voiceConnectorId = Lens.lens (\VoiceConnectorItem' {voiceConnectorId} -> voiceConnectorId) (\s@VoiceConnectorItem' {} a -> s {voiceConnectorId = a} :: VoiceConnectorItem)
 
--- | Undocumented member.
+-- | The priority setting of a Voice Connector item. Calls are routed to
+-- hosts in priority order, with 1 as the highest priority. When hosts have
+-- equal priority, the system distributes calls among them based on their
+-- relative weight.
 voiceConnectorItem_priority :: Lens.Lens' VoiceConnectorItem Prelude.Natural
 voiceConnectorItem_priority = Lens.lens (\VoiceConnectorItem' {priority} -> priority) (\s@VoiceConnectorItem' {} a -> s {priority = a} :: VoiceConnectorItem)
 
@@ -75,7 +91,8 @@ instance Data.FromJSON VoiceConnectorItem where
 
 instance Prelude.Hashable VoiceConnectorItem where
   hashWithSalt _salt VoiceConnectorItem' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` priority
 
 instance Prelude.NFData VoiceConnectorItem where

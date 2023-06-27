@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the settings for the specified Amazon Chime SDK Voice Connector
+-- group.
 module Amazonka.ChimeSdkVoice.UpdateVoiceConnectorGroup
   ( -- * Creating a Request
     UpdateVoiceConnectorGroup (..),
@@ -51,8 +52,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVoiceConnectorGroup' smart constructor.
 data UpdateVoiceConnectorGroup = UpdateVoiceConnectorGroup'
-  { voiceConnectorGroupId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorGroupId :: Prelude.Text,
+    -- | The name of the Voice Connector group.
     name :: Prelude.Text,
+    -- | The @VoiceConnectorItems@ to associate with the Voice Connector group.
     voiceConnectorItems :: [VoiceConnectorItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,11 +69,11 @@ data UpdateVoiceConnectorGroup = UpdateVoiceConnectorGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorGroupId', 'updateVoiceConnectorGroup_voiceConnectorGroupId' - Undocumented member.
+-- 'voiceConnectorGroupId', 'updateVoiceConnectorGroup_voiceConnectorGroupId' - The Voice Connector ID.
 --
--- 'name', 'updateVoiceConnectorGroup_name' - Undocumented member.
+-- 'name', 'updateVoiceConnectorGroup_name' - The name of the Voice Connector group.
 --
--- 'voiceConnectorItems', 'updateVoiceConnectorGroup_voiceConnectorItems' - Undocumented member.
+-- 'voiceConnectorItems', 'updateVoiceConnectorGroup_voiceConnectorItems' - The @VoiceConnectorItems@ to associate with the Voice Connector group.
 newUpdateVoiceConnectorGroup ::
   -- | 'voiceConnectorGroupId'
   Prelude.Text ->
@@ -86,15 +90,15 @@ newUpdateVoiceConnectorGroup
         voiceConnectorItems = Prelude.mempty
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 updateVoiceConnectorGroup_voiceConnectorGroupId :: Lens.Lens' UpdateVoiceConnectorGroup Prelude.Text
 updateVoiceConnectorGroup_voiceConnectorGroupId = Lens.lens (\UpdateVoiceConnectorGroup' {voiceConnectorGroupId} -> voiceConnectorGroupId) (\s@UpdateVoiceConnectorGroup' {} a -> s {voiceConnectorGroupId = a} :: UpdateVoiceConnectorGroup)
 
--- | Undocumented member.
+-- | The name of the Voice Connector group.
 updateVoiceConnectorGroup_name :: Lens.Lens' UpdateVoiceConnectorGroup Prelude.Text
 updateVoiceConnectorGroup_name = Lens.lens (\UpdateVoiceConnectorGroup' {name} -> name) (\s@UpdateVoiceConnectorGroup' {} a -> s {name = a} :: UpdateVoiceConnectorGroup)
 
--- | Undocumented member.
+-- | The @VoiceConnectorItems@ to associate with the Voice Connector group.
 updateVoiceConnectorGroup_voiceConnectorItems :: Lens.Lens' UpdateVoiceConnectorGroup [VoiceConnectorItem]
 updateVoiceConnectorGroup_voiceConnectorItems = Lens.lens (\UpdateVoiceConnectorGroup' {voiceConnectorItems} -> voiceConnectorItems) (\s@UpdateVoiceConnectorGroup' {} a -> s {voiceConnectorItems = a} :: UpdateVoiceConnectorGroup) Prelude.. Lens.coerced
 
@@ -114,7 +118,8 @@ instance Core.AWSRequest UpdateVoiceConnectorGroup where
 
 instance Prelude.Hashable UpdateVoiceConnectorGroup where
   hashWithSalt _salt UpdateVoiceConnectorGroup' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorGroupId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorGroupId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` voiceConnectorItems
 
@@ -149,7 +154,8 @@ instance Data.ToQuery UpdateVoiceConnectorGroup where
 
 -- | /See:/ 'newUpdateVoiceConnectorGroupResponse' smart constructor.
 data UpdateVoiceConnectorGroupResponse = UpdateVoiceConnectorGroupResponse'
-  { voiceConnectorGroup :: Prelude.Maybe VoiceConnectorGroup,
+  { -- | The updated Voice Connector group.
+    voiceConnectorGroup :: Prelude.Maybe VoiceConnectorGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -163,7 +169,7 @@ data UpdateVoiceConnectorGroupResponse = UpdateVoiceConnectorGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorGroup', 'updateVoiceConnectorGroupResponse_voiceConnectorGroup' - Undocumented member.
+-- 'voiceConnectorGroup', 'updateVoiceConnectorGroupResponse_voiceConnectorGroup' - The updated Voice Connector group.
 --
 -- 'httpStatus', 'updateVoiceConnectorGroupResponse_httpStatus' - The response's http status code.
 newUpdateVoiceConnectorGroupResponse ::
@@ -177,7 +183,7 @@ newUpdateVoiceConnectorGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated Voice Connector group.
 updateVoiceConnectorGroupResponse_voiceConnectorGroup :: Lens.Lens' UpdateVoiceConnectorGroupResponse (Prelude.Maybe VoiceConnectorGroup)
 updateVoiceConnectorGroupResponse_voiceConnectorGroup = Lens.lens (\UpdateVoiceConnectorGroupResponse' {voiceConnectorGroup} -> voiceConnectorGroup) (\s@UpdateVoiceConnectorGroupResponse' {} a -> s {voiceConnectorGroup = a} :: UpdateVoiceConnectorGroupResponse)
 

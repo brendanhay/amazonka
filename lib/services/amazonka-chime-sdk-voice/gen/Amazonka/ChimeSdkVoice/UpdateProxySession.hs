@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the specified proxy session details, such as voice or SMS
+-- capabilities.
 module Amazonka.ChimeSdkVoice.UpdateProxySession
   ( -- * Creating a Request
     UpdateProxySession (..),
@@ -52,9 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateProxySession' smart constructor.
 data UpdateProxySession = UpdateProxySession'
-  { expiryMinutes :: Prelude.Maybe Prelude.Natural,
+  { -- | The number of minutes allowed for the proxy session.
+    expiryMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | The proxy session capabilities.
     capabilities :: [Capability],
+    -- | The Voice Connector ID.
     voiceConnectorId :: Prelude.Text,
+    -- | The proxy session ID.
     proxySessionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,13 +72,13 @@ data UpdateProxySession = UpdateProxySession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiryMinutes', 'updateProxySession_expiryMinutes' - Undocumented member.
+-- 'expiryMinutes', 'updateProxySession_expiryMinutes' - The number of minutes allowed for the proxy session.
 --
--- 'capabilities', 'updateProxySession_capabilities' - Undocumented member.
+-- 'capabilities', 'updateProxySession_capabilities' - The proxy session capabilities.
 --
--- 'voiceConnectorId', 'updateProxySession_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'updateProxySession_voiceConnectorId' - The Voice Connector ID.
 --
--- 'proxySessionId', 'updateProxySession_proxySessionId' - Undocumented member.
+-- 'proxySessionId', 'updateProxySession_proxySessionId' - The proxy session ID.
 newUpdateProxySession ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -91,19 +96,19 @@ newUpdateProxySession
         proxySessionId = pProxySessionId_
       }
 
--- | Undocumented member.
+-- | The number of minutes allowed for the proxy session.
 updateProxySession_expiryMinutes :: Lens.Lens' UpdateProxySession (Prelude.Maybe Prelude.Natural)
 updateProxySession_expiryMinutes = Lens.lens (\UpdateProxySession' {expiryMinutes} -> expiryMinutes) (\s@UpdateProxySession' {} a -> s {expiryMinutes = a} :: UpdateProxySession)
 
--- | Undocumented member.
+-- | The proxy session capabilities.
 updateProxySession_capabilities :: Lens.Lens' UpdateProxySession [Capability]
 updateProxySession_capabilities = Lens.lens (\UpdateProxySession' {capabilities} -> capabilities) (\s@UpdateProxySession' {} a -> s {capabilities = a} :: UpdateProxySession) Prelude.. Lens.coerced
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 updateProxySession_voiceConnectorId :: Lens.Lens' UpdateProxySession Prelude.Text
 updateProxySession_voiceConnectorId = Lens.lens (\UpdateProxySession' {voiceConnectorId} -> voiceConnectorId) (\s@UpdateProxySession' {} a -> s {voiceConnectorId = a} :: UpdateProxySession)
 
--- | Undocumented member.
+-- | The proxy session ID.
 updateProxySession_proxySessionId :: Lens.Lens' UpdateProxySession Prelude.Text
 updateProxySession_proxySessionId = Lens.lens (\UpdateProxySession' {proxySessionId} -> proxySessionId) (\s@UpdateProxySession' {} a -> s {proxySessionId = a} :: UpdateProxySession)
 
@@ -123,7 +128,8 @@ instance Core.AWSRequest UpdateProxySession where
 
 instance Prelude.Hashable UpdateProxySession where
   hashWithSalt _salt UpdateProxySession' {..} =
-    _salt `Prelude.hashWithSalt` expiryMinutes
+    _salt
+      `Prelude.hashWithSalt` expiryMinutes
       `Prelude.hashWithSalt` capabilities
       `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` proxySessionId
@@ -161,7 +167,8 @@ instance Data.ToQuery UpdateProxySession where
 
 -- | /See:/ 'newUpdateProxySessionResponse' smart constructor.
 data UpdateProxySessionResponse = UpdateProxySessionResponse'
-  { proxySession :: Prelude.Maybe ProxySession,
+  { -- | The updated proxy session details.
+    proxySession :: Prelude.Maybe ProxySession,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,7 +182,7 @@ data UpdateProxySessionResponse = UpdateProxySessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proxySession', 'updateProxySessionResponse_proxySession' - Undocumented member.
+-- 'proxySession', 'updateProxySessionResponse_proxySession' - The updated proxy session details.
 --
 -- 'httpStatus', 'updateProxySessionResponse_httpStatus' - The response's http status code.
 newUpdateProxySessionResponse ::
@@ -189,7 +196,7 @@ newUpdateProxySessionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated proxy session details.
 updateProxySessionResponse_proxySession :: Lens.Lens' UpdateProxySessionResponse (Prelude.Maybe ProxySession)
 updateProxySessionResponse_proxySession = Lens.lens (\UpdateProxySessionResponse' {proxySession} -> proxySession) (\s@UpdateProxySessionResponse' {} a -> s {proxySession = a} :: UpdateProxySessionResponse)
 

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the details of a SIP rule, such as the rule ID, name,
+-- triggers, and target endpoints.
 module Amazonka.ChimeSdkVoice.GetSipRule
   ( -- * Creating a Request
     GetSipRule (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSipRule' smart constructor.
 data GetSipRule = GetSipRule'
-  { sipRuleId :: Prelude.Text
+  { -- | The SIP rule ID.
+    sipRuleId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetSipRule = GetSipRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipRuleId', 'getSipRule_sipRuleId' - Undocumented member.
+-- 'sipRuleId', 'getSipRule_sipRuleId' - The SIP rule ID.
 newGetSipRule ::
   -- | 'sipRuleId'
   Prelude.Text ->
@@ -69,7 +71,7 @@ newGetSipRule ::
 newGetSipRule pSipRuleId_ =
   GetSipRule' {sipRuleId = pSipRuleId_}
 
--- | Undocumented member.
+-- | The SIP rule ID.
 getSipRule_sipRuleId :: Lens.Lens' GetSipRule Prelude.Text
 getSipRule_sipRuleId = Lens.lens (\GetSipRule' {sipRuleId} -> sipRuleId) (\s@GetSipRule' {} a -> s {sipRuleId = a} :: GetSipRule)
 
@@ -105,7 +107,8 @@ instance Data.ToQuery GetSipRule where
 
 -- | /See:/ 'newGetSipRuleResponse' smart constructor.
 data GetSipRuleResponse = GetSipRuleResponse'
-  { sipRule :: Prelude.Maybe SipRule,
+  { -- | The SIP rule details.
+    sipRule :: Prelude.Maybe SipRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -119,7 +122,7 @@ data GetSipRuleResponse = GetSipRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipRule', 'getSipRuleResponse_sipRule' - Undocumented member.
+-- 'sipRule', 'getSipRuleResponse_sipRule' - The SIP rule details.
 --
 -- 'httpStatus', 'getSipRuleResponse_httpStatus' - The response's http status code.
 newGetSipRuleResponse ::
@@ -132,7 +135,7 @@ newGetSipRuleResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The SIP rule details.
 getSipRuleResponse_sipRule :: Lens.Lens' GetSipRuleResponse (Prelude.Maybe SipRule)
 getSipRuleResponse_sipRule = Lens.lens (\GetSipRuleResponse' {sipRule} -> sipRule) (\s@GetSipRuleResponse' {} a -> s {sipRule = a} :: GetSipRuleResponse)
 

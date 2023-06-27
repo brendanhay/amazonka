@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the proxy configuration details for the specified Amazon Chime
+-- SDK Voice Connector.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorProxy
   ( -- * Creating a Request
     GetVoiceConnectorProxy (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorProxy' smart constructor.
 data GetVoiceConnectorProxy = GetVoiceConnectorProxy'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetVoiceConnectorProxy = GetVoiceConnectorProxy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnectorProxy_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnectorProxy_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnectorProxy ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -72,7 +74,7 @@ newGetVoiceConnectorProxy pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnectorProxy_voiceConnectorId :: Lens.Lens' GetVoiceConnectorProxy Prelude.Text
 getVoiceConnectorProxy_voiceConnectorId = Lens.lens (\GetVoiceConnectorProxy' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnectorProxy' {} a -> s {voiceConnectorId = a} :: GetVoiceConnectorProxy)
 
@@ -114,7 +116,8 @@ instance Data.ToQuery GetVoiceConnectorProxy where
 
 -- | /See:/ 'newGetVoiceConnectorProxyResponse' smart constructor.
 data GetVoiceConnectorProxyResponse = GetVoiceConnectorProxyResponse'
-  { proxy :: Prelude.Maybe Proxy,
+  { -- | The proxy configuration details.
+    proxy :: Prelude.Maybe Proxy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -128,7 +131,7 @@ data GetVoiceConnectorProxyResponse = GetVoiceConnectorProxyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proxy', 'getVoiceConnectorProxyResponse_proxy' - Undocumented member.
+-- 'proxy', 'getVoiceConnectorProxyResponse_proxy' - The proxy configuration details.
 --
 -- 'httpStatus', 'getVoiceConnectorProxyResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorProxyResponse ::
@@ -142,7 +145,7 @@ newGetVoiceConnectorProxyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The proxy configuration details.
 getVoiceConnectorProxyResponse_proxy :: Lens.Lens' GetVoiceConnectorProxyResponse (Prelude.Maybe Proxy)
 getVoiceConnectorProxyResponse_proxy = Lens.lens (\GetVoiceConnectorProxyResponse' {proxy} -> proxy) (\s@GetVoiceConnectorProxyResponse' {} a -> s {proxy = a} :: GetVoiceConnectorProxyResponse)
 

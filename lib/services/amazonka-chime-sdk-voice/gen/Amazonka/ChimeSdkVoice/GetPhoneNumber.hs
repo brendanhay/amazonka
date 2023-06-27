@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves details for the specified phone number ID, such as
+-- associations, capabilities, and product type.
 module Amazonka.ChimeSdkVoice.GetPhoneNumber
   ( -- * Creating a Request
     GetPhoneNumber (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPhoneNumber' smart constructor.
 data GetPhoneNumber = GetPhoneNumber'
-  { phoneNumberId :: Data.Sensitive Prelude.Text
+  { -- | The phone number ID.
+    phoneNumberId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetPhoneNumber = GetPhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberId', 'getPhoneNumber_phoneNumberId' - Undocumented member.
+-- 'phoneNumberId', 'getPhoneNumber_phoneNumberId' - The phone number ID.
 newGetPhoneNumber ::
   -- | 'phoneNumberId'
   Prelude.Text ->
@@ -72,7 +74,7 @@ newGetPhoneNumber pPhoneNumberId_ =
         Data._Sensitive Lens.# pPhoneNumberId_
     }
 
--- | Undocumented member.
+-- | The phone number ID.
 getPhoneNumber_phoneNumberId :: Lens.Lens' GetPhoneNumber Prelude.Text
 getPhoneNumber_phoneNumberId = Lens.lens (\GetPhoneNumber' {phoneNumberId} -> phoneNumberId) (\s@GetPhoneNumber' {} a -> s {phoneNumberId = a} :: GetPhoneNumber) Prelude.. Data._Sensitive
 
@@ -110,7 +112,8 @@ instance Data.ToQuery GetPhoneNumber where
 
 -- | /See:/ 'newGetPhoneNumberResponse' smart constructor.
 data GetPhoneNumberResponse = GetPhoneNumberResponse'
-  { phoneNumber :: Prelude.Maybe PhoneNumber,
+  { -- | The phone number details.
+    phoneNumber :: Prelude.Maybe PhoneNumber,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -124,7 +127,7 @@ data GetPhoneNumberResponse = GetPhoneNumberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumber', 'getPhoneNumberResponse_phoneNumber' - Undocumented member.
+-- 'phoneNumber', 'getPhoneNumberResponse_phoneNumber' - The phone number details.
 --
 -- 'httpStatus', 'getPhoneNumberResponse_httpStatus' - The response's http status code.
 newGetPhoneNumberResponse ::
@@ -138,7 +141,7 @@ newGetPhoneNumberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The phone number details.
 getPhoneNumberResponse_phoneNumber :: Lens.Lens' GetPhoneNumberResponse (Prelude.Maybe PhoneNumber)
 getPhoneNumberResponse_phoneNumber = Lens.lens (\GetPhoneNumberResponse' {phoneNumber} -> phoneNumber) (\s@GetPhoneNumberResponse' {} a -> s {phoneNumber = a} :: GetPhoneNumberResponse)
 

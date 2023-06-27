@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates an order for phone numbers to be provisioned. For numbers
+-- outside the U.S., you must use the Amazon Chime SDK SIP media
+-- application dial-in product type.
 module Amazonka.ChimeSdkVoice.CreatePhoneNumberOrder
   ( -- * Creating a Request
     CreatePhoneNumberOrder (..),
@@ -50,7 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreatePhoneNumberOrder' smart constructor.
 data CreatePhoneNumberOrder = CreatePhoneNumberOrder'
-  { productType :: PhoneNumberProductType,
+  { -- | The phone number product type.
+    productType :: PhoneNumberProductType,
+    -- | List of phone numbers, in E.164 format.
     e164PhoneNumbers :: [Data.Sensitive Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -63,9 +67,9 @@ data CreatePhoneNumberOrder = CreatePhoneNumberOrder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productType', 'createPhoneNumberOrder_productType' - Undocumented member.
+-- 'productType', 'createPhoneNumberOrder_productType' - The phone number product type.
 --
--- 'e164PhoneNumbers', 'createPhoneNumberOrder_e164PhoneNumbers' - Undocumented member.
+-- 'e164PhoneNumbers', 'createPhoneNumberOrder_e164PhoneNumbers' - List of phone numbers, in E.164 format.
 newCreatePhoneNumberOrder ::
   -- | 'productType'
   PhoneNumberProductType ->
@@ -77,11 +81,11 @@ newCreatePhoneNumberOrder pProductType_ =
       e164PhoneNumbers = Prelude.mempty
     }
 
--- | Undocumented member.
+-- | The phone number product type.
 createPhoneNumberOrder_productType :: Lens.Lens' CreatePhoneNumberOrder PhoneNumberProductType
 createPhoneNumberOrder_productType = Lens.lens (\CreatePhoneNumberOrder' {productType} -> productType) (\s@CreatePhoneNumberOrder' {} a -> s {productType = a} :: CreatePhoneNumberOrder)
 
--- | Undocumented member.
+-- | List of phone numbers, in E.164 format.
 createPhoneNumberOrder_e164PhoneNumbers :: Lens.Lens' CreatePhoneNumberOrder [Prelude.Text]
 createPhoneNumberOrder_e164PhoneNumbers = Lens.lens (\CreatePhoneNumberOrder' {e164PhoneNumbers} -> e164PhoneNumbers) (\s@CreatePhoneNumberOrder' {} a -> s {e164PhoneNumbers = a} :: CreatePhoneNumberOrder) Prelude.. Lens.coerced
 
@@ -101,7 +105,8 @@ instance Core.AWSRequest CreatePhoneNumberOrder where
 
 instance Prelude.Hashable CreatePhoneNumberOrder where
   hashWithSalt _salt CreatePhoneNumberOrder' {..} =
-    _salt `Prelude.hashWithSalt` productType
+    _salt
+      `Prelude.hashWithSalt` productType
       `Prelude.hashWithSalt` e164PhoneNumbers
 
 instance Prelude.NFData CreatePhoneNumberOrder where
@@ -130,7 +135,8 @@ instance Data.ToQuery CreatePhoneNumberOrder where
 
 -- | /See:/ 'newCreatePhoneNumberOrderResponse' smart constructor.
 data CreatePhoneNumberOrderResponse = CreatePhoneNumberOrderResponse'
-  { phoneNumberOrder :: Prelude.Maybe PhoneNumberOrder,
+  { -- | The phone number order details.
+    phoneNumberOrder :: Prelude.Maybe PhoneNumberOrder,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,7 +150,7 @@ data CreatePhoneNumberOrderResponse = CreatePhoneNumberOrderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberOrder', 'createPhoneNumberOrderResponse_phoneNumberOrder' - Undocumented member.
+-- 'phoneNumberOrder', 'createPhoneNumberOrderResponse_phoneNumberOrder' - The phone number order details.
 --
 -- 'httpStatus', 'createPhoneNumberOrderResponse_httpStatus' - The response's http status code.
 newCreatePhoneNumberOrderResponse ::
@@ -158,7 +164,7 @@ newCreatePhoneNumberOrderResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The phone number order details.
 createPhoneNumberOrderResponse_phoneNumberOrder :: Lens.Lens' CreatePhoneNumberOrderResponse (Prelude.Maybe PhoneNumberOrder)
 createPhoneNumberOrderResponse_phoneNumberOrder = Lens.lens (\CreatePhoneNumberOrderResponse' {phoneNumberOrder} -> phoneNumberOrder) (\s@CreatePhoneNumberOrderResponse' {} a -> s {phoneNumberOrder = a} :: CreatePhoneNumberOrderResponse)
 

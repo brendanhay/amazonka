@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists the Amazon Chime SDK Voice Connector groups in the
+-- administrator\'s AWS account.
 module Amazonka.ChimeSdkVoice.ListVoiceConnectorGroups
   ( -- * Creating a Request
     ListVoiceConnectorGroups (..),
@@ -51,7 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVoiceConnectorGroups' smart constructor.
 data ListVoiceConnectorGroups = ListVoiceConnectorGroups'
-  { maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to return the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +67,9 @@ data ListVoiceConnectorGroups = ListVoiceConnectorGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listVoiceConnectorGroups_maxResults' - Undocumented member.
+-- 'maxResults', 'listVoiceConnectorGroups_maxResults' - The maximum number of results to return in a single call.
 --
--- 'nextToken', 'listVoiceConnectorGroups_nextToken' - Undocumented member.
+-- 'nextToken', 'listVoiceConnectorGroups_nextToken' - The token used to return the next page of results.
 newListVoiceConnectorGroups ::
   ListVoiceConnectorGroups
 newListVoiceConnectorGroups =
@@ -76,11 +79,11 @@ newListVoiceConnectorGroups =
       nextToken = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The maximum number of results to return in a single call.
 listVoiceConnectorGroups_maxResults :: Lens.Lens' ListVoiceConnectorGroups (Prelude.Maybe Prelude.Natural)
 listVoiceConnectorGroups_maxResults = Lens.lens (\ListVoiceConnectorGroups' {maxResults} -> maxResults) (\s@ListVoiceConnectorGroups' {} a -> s {maxResults = a} :: ListVoiceConnectorGroups)
 
--- | Undocumented member.
+-- | The token used to return the next page of results.
 listVoiceConnectorGroups_nextToken :: Lens.Lens' ListVoiceConnectorGroups (Prelude.Maybe Prelude.Text)
 listVoiceConnectorGroups_nextToken = Lens.lens (\ListVoiceConnectorGroups' {nextToken} -> nextToken) (\s@ListVoiceConnectorGroups' {} a -> s {nextToken = a} :: ListVoiceConnectorGroups)
 
@@ -95,7 +98,8 @@ instance Core.AWSRequest ListVoiceConnectorGroups where
       ( \s h x ->
           ListVoiceConnectorGroupsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "VoiceConnectorGroups"
+            Prelude.<*> ( x
+                            Data..?> "VoiceConnectorGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -103,7 +107,8 @@ instance Core.AWSRequest ListVoiceConnectorGroups where
 
 instance Prelude.Hashable ListVoiceConnectorGroups where
   hashWithSalt _salt ListVoiceConnectorGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVoiceConnectorGroups where
@@ -126,7 +131,9 @@ instance Data.ToQuery ListVoiceConnectorGroups where
 
 -- | /See:/ 'newListVoiceConnectorGroupsResponse' smart constructor.
 data ListVoiceConnectorGroupsResponse = ListVoiceConnectorGroupsResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The token used to return the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The details of the Voice Connector groups.
     voiceConnectorGroups :: Prelude.Maybe [VoiceConnectorGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -141,9 +148,9 @@ data ListVoiceConnectorGroupsResponse = ListVoiceConnectorGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listVoiceConnectorGroupsResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'listVoiceConnectorGroupsResponse_nextToken' - The token used to return the next page of results.
 --
--- 'voiceConnectorGroups', 'listVoiceConnectorGroupsResponse_voiceConnectorGroups' - Undocumented member.
+-- 'voiceConnectorGroups', 'listVoiceConnectorGroupsResponse_voiceConnectorGroups' - The details of the Voice Connector groups.
 --
 -- 'httpStatus', 'listVoiceConnectorGroupsResponse_httpStatus' - The response's http status code.
 newListVoiceConnectorGroupsResponse ::
@@ -158,11 +165,11 @@ newListVoiceConnectorGroupsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The token used to return the next page of results.
 listVoiceConnectorGroupsResponse_nextToken :: Lens.Lens' ListVoiceConnectorGroupsResponse (Prelude.Maybe Prelude.Text)
 listVoiceConnectorGroupsResponse_nextToken = Lens.lens (\ListVoiceConnectorGroupsResponse' {nextToken} -> nextToken) (\s@ListVoiceConnectorGroupsResponse' {} a -> s {nextToken = a} :: ListVoiceConnectorGroupsResponse)
 
--- | Undocumented member.
+-- | The details of the Voice Connector groups.
 listVoiceConnectorGroupsResponse_voiceConnectorGroups :: Lens.Lens' ListVoiceConnectorGroupsResponse (Prelude.Maybe [VoiceConnectorGroup])
 listVoiceConnectorGroupsResponse_voiceConnectorGroups = Lens.lens (\ListVoiceConnectorGroupsResponse' {voiceConnectorGroups} -> voiceConnectorGroups) (\s@ListVoiceConnectorGroupsResponse' {} a -> s {voiceConnectorGroups = a} :: ListVoiceConnectorGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 

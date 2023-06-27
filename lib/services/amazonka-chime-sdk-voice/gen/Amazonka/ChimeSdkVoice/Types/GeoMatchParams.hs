@@ -24,9 +24,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newGeoMatchParams' smart constructor.
+-- | The country and area code for a proxy phone number in a proxy phone
+-- session.
+--
+-- /See:/ 'newGeoMatchParams' smart constructor.
 data GeoMatchParams = GeoMatchParams'
-  { country :: Prelude.Text,
+  { -- | The country.
+    country :: Prelude.Text,
+    -- | The area code.
     areaCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -39,9 +44,9 @@ data GeoMatchParams = GeoMatchParams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'country', 'geoMatchParams_country' - Undocumented member.
+-- 'country', 'geoMatchParams_country' - The country.
 --
--- 'areaCode', 'geoMatchParams_areaCode' - Undocumented member.
+-- 'areaCode', 'geoMatchParams_areaCode' - The area code.
 newGeoMatchParams ::
   -- | 'country'
   Prelude.Text ->
@@ -54,11 +59,11 @@ newGeoMatchParams pCountry_ pAreaCode_ =
       areaCode = pAreaCode_
     }
 
--- | Undocumented member.
+-- | The country.
 geoMatchParams_country :: Lens.Lens' GeoMatchParams Prelude.Text
 geoMatchParams_country = Lens.lens (\GeoMatchParams' {country} -> country) (\s@GeoMatchParams' {} a -> s {country = a} :: GeoMatchParams)
 
--- | Undocumented member.
+-- | The area code.
 geoMatchParams_areaCode :: Lens.Lens' GeoMatchParams Prelude.Text
 geoMatchParams_areaCode = Lens.lens (\GeoMatchParams' {areaCode} -> areaCode) (\s@GeoMatchParams' {} a -> s {areaCode = a} :: GeoMatchParams)
 
@@ -74,7 +79,8 @@ instance Data.FromJSON GeoMatchParams where
 
 instance Prelude.Hashable GeoMatchParams where
   hashWithSalt _salt GeoMatchParams' {..} =
-    _salt `Prelude.hashWithSalt` country
+    _salt
+      `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` areaCode
 
 instance Prelude.NFData GeoMatchParams where

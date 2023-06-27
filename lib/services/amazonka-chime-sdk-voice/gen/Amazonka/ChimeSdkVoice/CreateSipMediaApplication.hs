@@ -20,13 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates a SIP media application. For more information about SIP media
+-- applications, see
+-- <https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html Managing SIP media applications and rules>
+-- in the /Amazon Chime SDK Administrator Guide/.
 module Amazonka.ChimeSdkVoice.CreateSipMediaApplication
   ( -- * Creating a Request
     CreateSipMediaApplication (..),
     newCreateSipMediaApplication,
 
     -- * Request Lenses
+    createSipMediaApplication_tags,
     createSipMediaApplication_awsRegion,
     createSipMediaApplication_name,
     createSipMediaApplication_endpoints,
@@ -51,8 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSipMediaApplication' smart constructor.
 data CreateSipMediaApplication = CreateSipMediaApplication'
-  { awsRegion :: Prelude.Text,
+  { -- | The tags assigned to the SIP media application.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The AWS Region assigned to the SIP media application.
+    awsRegion :: Prelude.Text,
+    -- | The SIP media application\'s name.
     name :: Prelude.Text,
+    -- | List of endpoints (Lambda ARNs) specified for the SIP media application.
     endpoints :: Prelude.NonEmpty SipMediaApplicationEndpoint
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -65,11 +74,13 @@ data CreateSipMediaApplication = CreateSipMediaApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsRegion', 'createSipMediaApplication_awsRegion' - Undocumented member.
+-- 'tags', 'createSipMediaApplication_tags' - The tags assigned to the SIP media application.
 --
--- 'name', 'createSipMediaApplication_name' - Undocumented member.
+-- 'awsRegion', 'createSipMediaApplication_awsRegion' - The AWS Region assigned to the SIP media application.
 --
--- 'endpoints', 'createSipMediaApplication_endpoints' - Undocumented member.
+-- 'name', 'createSipMediaApplication_name' - The SIP media application\'s name.
+--
+-- 'endpoints', 'createSipMediaApplication_endpoints' - List of endpoints (Lambda ARNs) specified for the SIP media application.
 newCreateSipMediaApplication ::
   -- | 'awsRegion'
   Prelude.Text ->
@@ -83,20 +94,25 @@ newCreateSipMediaApplication
   pName_
   pEndpoints_ =
     CreateSipMediaApplication'
-      { awsRegion = pAwsRegion_,
+      { tags = Prelude.Nothing,
+        awsRegion = pAwsRegion_,
         name = pName_,
         endpoints = Lens.coerced Lens.# pEndpoints_
       }
 
--- | Undocumented member.
+-- | The tags assigned to the SIP media application.
+createSipMediaApplication_tags :: Lens.Lens' CreateSipMediaApplication (Prelude.Maybe (Prelude.NonEmpty Tag))
+createSipMediaApplication_tags = Lens.lens (\CreateSipMediaApplication' {tags} -> tags) (\s@CreateSipMediaApplication' {} a -> s {tags = a} :: CreateSipMediaApplication) Prelude.. Lens.mapping Lens.coerced
+
+-- | The AWS Region assigned to the SIP media application.
 createSipMediaApplication_awsRegion :: Lens.Lens' CreateSipMediaApplication Prelude.Text
 createSipMediaApplication_awsRegion = Lens.lens (\CreateSipMediaApplication' {awsRegion} -> awsRegion) (\s@CreateSipMediaApplication' {} a -> s {awsRegion = a} :: CreateSipMediaApplication)
 
--- | Undocumented member.
+-- | The SIP media application\'s name.
 createSipMediaApplication_name :: Lens.Lens' CreateSipMediaApplication Prelude.Text
 createSipMediaApplication_name = Lens.lens (\CreateSipMediaApplication' {name} -> name) (\s@CreateSipMediaApplication' {} a -> s {name = a} :: CreateSipMediaApplication)
 
--- | Undocumented member.
+-- | List of endpoints (Lambda ARNs) specified for the SIP media application.
 createSipMediaApplication_endpoints :: Lens.Lens' CreateSipMediaApplication (Prelude.NonEmpty SipMediaApplicationEndpoint)
 createSipMediaApplication_endpoints = Lens.lens (\CreateSipMediaApplication' {endpoints} -> endpoints) (\s@CreateSipMediaApplication' {} a -> s {endpoints = a} :: CreateSipMediaApplication) Prelude.. Lens.coerced
 
@@ -116,13 +132,16 @@ instance Core.AWSRequest CreateSipMediaApplication where
 
 instance Prelude.Hashable CreateSipMediaApplication where
   hashWithSalt _salt CreateSipMediaApplication' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` endpoints
 
 instance Prelude.NFData CreateSipMediaApplication where
   rnf CreateSipMediaApplication' {..} =
-    Prelude.rnf awsRegion
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf awsRegion
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf endpoints
 
@@ -133,7 +152,8 @@ instance Data.ToJSON CreateSipMediaApplication where
   toJSON CreateSipMediaApplication' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("AwsRegion" Data..= awsRegion),
+          [ ("Tags" Data..=) Prelude.<$> tags,
+            Prelude.Just ("AwsRegion" Data..= awsRegion),
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("Endpoints" Data..= endpoints)
           ]
@@ -147,7 +167,8 @@ instance Data.ToQuery CreateSipMediaApplication where
 
 -- | /See:/ 'newCreateSipMediaApplicationResponse' smart constructor.
 data CreateSipMediaApplicationResponse = CreateSipMediaApplicationResponse'
-  { sipMediaApplication :: Prelude.Maybe SipMediaApplication,
+  { -- | The SIP media application details.
+    sipMediaApplication :: Prelude.Maybe SipMediaApplication,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -161,7 +182,7 @@ data CreateSipMediaApplicationResponse = CreateSipMediaApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplication', 'createSipMediaApplicationResponse_sipMediaApplication' - Undocumented member.
+-- 'sipMediaApplication', 'createSipMediaApplicationResponse_sipMediaApplication' - The SIP media application details.
 --
 -- 'httpStatus', 'createSipMediaApplicationResponse_httpStatus' - The response's http status code.
 newCreateSipMediaApplicationResponse ::
@@ -175,7 +196,7 @@ newCreateSipMediaApplicationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The SIP media application details.
 createSipMediaApplicationResponse_sipMediaApplication :: Lens.Lens' CreateSipMediaApplicationResponse (Prelude.Maybe SipMediaApplication)
 createSipMediaApplicationResponse_sipMediaApplication = Lens.lens (\CreateSipMediaApplicationResponse' {sipMediaApplication} -> sipMediaApplication) (\s@CreateSipMediaApplicationResponse' {} a -> s {sipMediaApplication = a} :: CreateSipMediaApplicationResponse)
 

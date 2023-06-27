@@ -24,9 +24,16 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newLoggingConfiguration' smart constructor.
+-- | The logging configuration associated with an Amazon Chime SDK Voice
+-- Connector. Specifies whether SIP message logs can be sent to Amazon
+-- CloudWatch Logs.
+--
+-- /See:/ 'newLoggingConfiguration' smart constructor.
 data LoggingConfiguration = LoggingConfiguration'
-  { enableSIPLogs :: Prelude.Maybe Prelude.Bool
+  { -- | Enables or disables media metrics logging.
+    enableMediaMetricLogs :: Prelude.Maybe Prelude.Bool,
+    -- | Boolean that enables sending SIP message logs to Amazon CloudWatch.
+    enableSIPLogs :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -38,16 +45,23 @@ data LoggingConfiguration = LoggingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enableSIPLogs', 'loggingConfiguration_enableSIPLogs' - Undocumented member.
+-- 'enableMediaMetricLogs', 'loggingConfiguration_enableMediaMetricLogs' - Enables or disables media metrics logging.
+--
+-- 'enableSIPLogs', 'loggingConfiguration_enableSIPLogs' - Boolean that enables sending SIP message logs to Amazon CloudWatch.
 newLoggingConfiguration ::
   LoggingConfiguration
 newLoggingConfiguration =
   LoggingConfiguration'
-    { enableSIPLogs =
-        Prelude.Nothing
+    { enableMediaMetricLogs =
+        Prelude.Nothing,
+      enableSIPLogs = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Enables or disables media metrics logging.
+loggingConfiguration_enableMediaMetricLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
+loggingConfiguration_enableMediaMetricLogs = Lens.lens (\LoggingConfiguration' {enableMediaMetricLogs} -> enableMediaMetricLogs) (\s@LoggingConfiguration' {} a -> s {enableMediaMetricLogs = a} :: LoggingConfiguration)
+
+-- | Boolean that enables sending SIP message logs to Amazon CloudWatch.
 loggingConfiguration_enableSIPLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
 loggingConfiguration_enableSIPLogs = Lens.lens (\LoggingConfiguration' {enableSIPLogs} -> enableSIPLogs) (\s@LoggingConfiguration' {} a -> s {enableSIPLogs = a} :: LoggingConfiguration)
 
@@ -57,22 +71,27 @@ instance Data.FromJSON LoggingConfiguration where
       "LoggingConfiguration"
       ( \x ->
           LoggingConfiguration'
-            Prelude.<$> (x Data..:? "EnableSIPLogs")
+            Prelude.<$> (x Data..:? "EnableMediaMetricLogs")
+            Prelude.<*> (x Data..:? "EnableSIPLogs")
       )
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` enableSIPLogs
+    _salt
+      `Prelude.hashWithSalt` enableMediaMetricLogs
+      `Prelude.hashWithSalt` enableSIPLogs
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
-    Prelude.rnf enableSIPLogs
+    Prelude.rnf enableMediaMetricLogs
+      `Prelude.seq` Prelude.rnf enableSIPLogs
 
 instance Data.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("EnableSIPLogs" Data..=)
-              Prelude.<$> enableSIPLogs
+          [ ("EnableMediaMetricLogs" Data..=)
+              Prelude.<$> enableMediaMetricLogs,
+            ("EnableSIPLogs" Data..=) Prelude.<$> enableSIPLogs
           ]
       )

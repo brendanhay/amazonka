@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates global settings for the Amazon Chime SDK Voice Connectors in an
+-- AWS account.
 module Amazonka.ChimeSdkVoice.UpdateGlobalSettings
   ( -- * Creating a Request
     UpdateGlobalSettings (..),
@@ -45,7 +46,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateGlobalSettings' smart constructor.
 data UpdateGlobalSettings = UpdateGlobalSettings'
-  { voiceConnector :: Prelude.Maybe VoiceConnectorSettings
+  { -- | The Voice Connector settings.
+    voiceConnector :: Prelude.Maybe VoiceConnectorSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +59,7 @@ data UpdateGlobalSettings = UpdateGlobalSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnector', 'updateGlobalSettings_voiceConnector' - Undocumented member.
+-- 'voiceConnector', 'updateGlobalSettings_voiceConnector' - The Voice Connector settings.
 newUpdateGlobalSettings ::
   UpdateGlobalSettings
 newUpdateGlobalSettings =
@@ -66,7 +68,7 @@ newUpdateGlobalSettings =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The Voice Connector settings.
 updateGlobalSettings_voiceConnector :: Lens.Lens' UpdateGlobalSettings (Prelude.Maybe VoiceConnectorSettings)
 updateGlobalSettings_voiceConnector = Lens.lens (\UpdateGlobalSettings' {voiceConnector} -> voiceConnector) (\s@UpdateGlobalSettings' {} a -> s {voiceConnector = a} :: UpdateGlobalSettings)
 

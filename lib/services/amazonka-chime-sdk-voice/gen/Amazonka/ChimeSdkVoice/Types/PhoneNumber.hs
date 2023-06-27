@@ -30,21 +30,37 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newPhoneNumber' smart constructor.
+-- | A phone number used to call an Amazon Chime SDK Voice Connector.
+--
+-- /See:/ 'newPhoneNumber' smart constructor.
 data PhoneNumber = PhoneNumber'
-  { associations :: Prelude.Maybe [PhoneNumberAssociation],
+  { -- | The phone number\'s associations.
+    associations :: Prelude.Maybe [PhoneNumberAssociation],
+    -- | The outbound calling name associated with the phone number.
     callingName :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The outbound calling name status.
     callingNameStatus :: Prelude.Maybe CallingNameStatus,
+    -- | The phone number\'s capabilities.
     capabilities :: Prelude.Maybe PhoneNumberCapabilities,
+    -- | The phone number\'s country. Format: ISO 3166-1 alpha-2.
     country :: Prelude.Maybe Prelude.Text,
+    -- | The phone number creation timestamp, in ISO 8601 format.
     createdTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The deleted phone number timestamp, in ISO 8601 format.
     deletionTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The phone number, in E.164 format.
     e164PhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The phone number\'s order ID.
     orderId :: Prelude.Maybe Prelude.Text,
+    -- | The phone number\'s ID.
     phoneNumberId :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The phone number\'s product type.
     productType :: Prelude.Maybe PhoneNumberProductType,
+    -- | The phone number\'s status.
     status :: Prelude.Maybe PhoneNumberStatus,
+    -- | The phone number\'s type.
     type' :: Prelude.Maybe PhoneNumberType,
+    -- | The updated phone number timestamp, in ISO 8601 format.
     updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -57,33 +73,33 @@ data PhoneNumber = PhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associations', 'phoneNumber_associations' - Undocumented member.
+-- 'associations', 'phoneNumber_associations' - The phone number\'s associations.
 --
--- 'callingName', 'phoneNumber_callingName' - Undocumented member.
+-- 'callingName', 'phoneNumber_callingName' - The outbound calling name associated with the phone number.
 --
--- 'callingNameStatus', 'phoneNumber_callingNameStatus' - Undocumented member.
+-- 'callingNameStatus', 'phoneNumber_callingNameStatus' - The outbound calling name status.
 --
--- 'capabilities', 'phoneNumber_capabilities' - Undocumented member.
+-- 'capabilities', 'phoneNumber_capabilities' - The phone number\'s capabilities.
 --
--- 'country', 'phoneNumber_country' - Undocumented member.
+-- 'country', 'phoneNumber_country' - The phone number\'s country. Format: ISO 3166-1 alpha-2.
 --
--- 'createdTimestamp', 'phoneNumber_createdTimestamp' - Undocumented member.
+-- 'createdTimestamp', 'phoneNumber_createdTimestamp' - The phone number creation timestamp, in ISO 8601 format.
 --
--- 'deletionTimestamp', 'phoneNumber_deletionTimestamp' - Undocumented member.
+-- 'deletionTimestamp', 'phoneNumber_deletionTimestamp' - The deleted phone number timestamp, in ISO 8601 format.
 --
--- 'e164PhoneNumber', 'phoneNumber_e164PhoneNumber' - Undocumented member.
+-- 'e164PhoneNumber', 'phoneNumber_e164PhoneNumber' - The phone number, in E.164 format.
 --
--- 'orderId', 'phoneNumber_orderId' - Undocumented member.
+-- 'orderId', 'phoneNumber_orderId' - The phone number\'s order ID.
 --
--- 'phoneNumberId', 'phoneNumber_phoneNumberId' - Undocumented member.
+-- 'phoneNumberId', 'phoneNumber_phoneNumberId' - The phone number\'s ID.
 --
--- 'productType', 'phoneNumber_productType' - Undocumented member.
+-- 'productType', 'phoneNumber_productType' - The phone number\'s product type.
 --
--- 'status', 'phoneNumber_status' - Undocumented member.
+-- 'status', 'phoneNumber_status' - The phone number\'s status.
 --
--- 'type'', 'phoneNumber_type' - Undocumented member.
+-- 'type'', 'phoneNumber_type' - The phone number\'s type.
 --
--- 'updatedTimestamp', 'phoneNumber_updatedTimestamp' - Undocumented member.
+-- 'updatedTimestamp', 'phoneNumber_updatedTimestamp' - The updated phone number timestamp, in ISO 8601 format.
 newPhoneNumber ::
   PhoneNumber
 newPhoneNumber =
@@ -104,59 +120,59 @@ newPhoneNumber =
       updatedTimestamp = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The phone number\'s associations.
 phoneNumber_associations :: Lens.Lens' PhoneNumber (Prelude.Maybe [PhoneNumberAssociation])
 phoneNumber_associations = Lens.lens (\PhoneNumber' {associations} -> associations) (\s@PhoneNumber' {} a -> s {associations = a} :: PhoneNumber) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The outbound calling name associated with the phone number.
 phoneNumber_callingName :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
 phoneNumber_callingName = Lens.lens (\PhoneNumber' {callingName} -> callingName) (\s@PhoneNumber' {} a -> s {callingName = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The outbound calling name status.
 phoneNumber_callingNameStatus :: Lens.Lens' PhoneNumber (Prelude.Maybe CallingNameStatus)
 phoneNumber_callingNameStatus = Lens.lens (\PhoneNumber' {callingNameStatus} -> callingNameStatus) (\s@PhoneNumber' {} a -> s {callingNameStatus = a} :: PhoneNumber)
 
--- | Undocumented member.
+-- | The phone number\'s capabilities.
 phoneNumber_capabilities :: Lens.Lens' PhoneNumber (Prelude.Maybe PhoneNumberCapabilities)
 phoneNumber_capabilities = Lens.lens (\PhoneNumber' {capabilities} -> capabilities) (\s@PhoneNumber' {} a -> s {capabilities = a} :: PhoneNumber)
 
--- | Undocumented member.
+-- | The phone number\'s country. Format: ISO 3166-1 alpha-2.
 phoneNumber_country :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
 phoneNumber_country = Lens.lens (\PhoneNumber' {country} -> country) (\s@PhoneNumber' {} a -> s {country = a} :: PhoneNumber)
 
--- | Undocumented member.
+-- | The phone number creation timestamp, in ISO 8601 format.
 phoneNumber_createdTimestamp :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.UTCTime)
 phoneNumber_createdTimestamp = Lens.lens (\PhoneNumber' {createdTimestamp} -> createdTimestamp) (\s@PhoneNumber' {} a -> s {createdTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The deleted phone number timestamp, in ISO 8601 format.
 phoneNumber_deletionTimestamp :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.UTCTime)
 phoneNumber_deletionTimestamp = Lens.lens (\PhoneNumber' {deletionTimestamp} -> deletionTimestamp) (\s@PhoneNumber' {} a -> s {deletionTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The phone number, in E.164 format.
 phoneNumber_e164PhoneNumber :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
 phoneNumber_e164PhoneNumber = Lens.lens (\PhoneNumber' {e164PhoneNumber} -> e164PhoneNumber) (\s@PhoneNumber' {} a -> s {e164PhoneNumber = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The phone number\'s order ID.
 phoneNumber_orderId :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
 phoneNumber_orderId = Lens.lens (\PhoneNumber' {orderId} -> orderId) (\s@PhoneNumber' {} a -> s {orderId = a} :: PhoneNumber)
 
--- | Undocumented member.
+-- | The phone number\'s ID.
 phoneNumber_phoneNumberId :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.Text)
 phoneNumber_phoneNumberId = Lens.lens (\PhoneNumber' {phoneNumberId} -> phoneNumberId) (\s@PhoneNumber' {} a -> s {phoneNumberId = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The phone number\'s product type.
 phoneNumber_productType :: Lens.Lens' PhoneNumber (Prelude.Maybe PhoneNumberProductType)
 phoneNumber_productType = Lens.lens (\PhoneNumber' {productType} -> productType) (\s@PhoneNumber' {} a -> s {productType = a} :: PhoneNumber)
 
--- | Undocumented member.
+-- | The phone number\'s status.
 phoneNumber_status :: Lens.Lens' PhoneNumber (Prelude.Maybe PhoneNumberStatus)
 phoneNumber_status = Lens.lens (\PhoneNumber' {status} -> status) (\s@PhoneNumber' {} a -> s {status = a} :: PhoneNumber)
 
--- | Undocumented member.
+-- | The phone number\'s type.
 phoneNumber_type :: Lens.Lens' PhoneNumber (Prelude.Maybe PhoneNumberType)
 phoneNumber_type = Lens.lens (\PhoneNumber' {type'} -> type') (\s@PhoneNumber' {} a -> s {type' = a} :: PhoneNumber)
 
--- | Undocumented member.
+-- | The updated phone number timestamp, in ISO 8601 format.
 phoneNumber_updatedTimestamp :: Lens.Lens' PhoneNumber (Prelude.Maybe Prelude.UTCTime)
 phoneNumber_updatedTimestamp = Lens.lens (\PhoneNumber' {updatedTimestamp} -> updatedTimestamp) (\s@PhoneNumber' {} a -> s {updatedTimestamp = a} :: PhoneNumber) Prelude.. Lens.mapping Data._Time
 
@@ -184,7 +200,8 @@ instance Data.FromJSON PhoneNumber where
 
 instance Prelude.Hashable PhoneNumber where
   hashWithSalt _salt PhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` associations
+    _salt
+      `Prelude.hashWithSalt` associations
       `Prelude.hashWithSalt` callingName
       `Prelude.hashWithSalt` callingNameStatus
       `Prelude.hashWithSalt` capabilities

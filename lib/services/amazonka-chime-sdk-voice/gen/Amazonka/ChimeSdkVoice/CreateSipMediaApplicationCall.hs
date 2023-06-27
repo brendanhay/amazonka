@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates an outbound call to a phone number from the phone number
+-- specified in the request, and it invokes the endpoint of the specified
+-- @sipMediaApplicationId@.
 module Amazonka.ChimeSdkVoice.CreateSipMediaApplicationCall
   ( -- * Creating a Request
     CreateSipMediaApplicationCall (..),
@@ -53,10 +55,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSipMediaApplicationCall' smart constructor.
 data CreateSipMediaApplicationCall = CreateSipMediaApplicationCall'
-  { argumentsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
+  { -- | Context passed to a CreateSipMediaApplication API call. For example, you
+    -- could pass key-value pairs such as:
+    -- @\"FirstName\": \"John\", \"LastName\": \"Doe\"@
+    argumentsMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
+    -- | The SIP headers added to an outbound call leg.
     sipHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text (Data.Sensitive Prelude.Text)),
+    -- | The phone number that a user calls from. This is a phone number in your
+    -- Amazon Chime SDK phone number inventory.
     fromPhoneNumber :: Data.Sensitive Prelude.Text,
+    -- | The phone number that the service should call.
     toPhoneNumber :: Data.Sensitive Prelude.Text,
+    -- | The ID of the SIP media application.
     sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -69,15 +79,18 @@ data CreateSipMediaApplicationCall = CreateSipMediaApplicationCall'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'argumentsMap', 'createSipMediaApplicationCall_argumentsMap' - Undocumented member.
+-- 'argumentsMap', 'createSipMediaApplicationCall_argumentsMap' - Context passed to a CreateSipMediaApplication API call. For example, you
+-- could pass key-value pairs such as:
+-- @\"FirstName\": \"John\", \"LastName\": \"Doe\"@
 --
--- 'sipHeaders', 'createSipMediaApplicationCall_sipHeaders' - Undocumented member.
+-- 'sipHeaders', 'createSipMediaApplicationCall_sipHeaders' - The SIP headers added to an outbound call leg.
 --
--- 'fromPhoneNumber', 'createSipMediaApplicationCall_fromPhoneNumber' - Undocumented member.
+-- 'fromPhoneNumber', 'createSipMediaApplicationCall_fromPhoneNumber' - The phone number that a user calls from. This is a phone number in your
+-- Amazon Chime SDK phone number inventory.
 --
--- 'toPhoneNumber', 'createSipMediaApplicationCall_toPhoneNumber' - Undocumented member.
+-- 'toPhoneNumber', 'createSipMediaApplicationCall_toPhoneNumber' - The phone number that the service should call.
 --
--- 'sipMediaApplicationId', 'createSipMediaApplicationCall_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'createSipMediaApplicationCall_sipMediaApplicationId' - The ID of the SIP media application.
 newCreateSipMediaApplicationCall ::
   -- | 'fromPhoneNumber'
   Prelude.Text ->
@@ -102,23 +115,26 @@ newCreateSipMediaApplicationCall
           pSipMediaApplicationId_
       }
 
--- | Undocumented member.
+-- | Context passed to a CreateSipMediaApplication API call. For example, you
+-- could pass key-value pairs such as:
+-- @\"FirstName\": \"John\", \"LastName\": \"Doe\"@
 createSipMediaApplicationCall_argumentsMap :: Lens.Lens' CreateSipMediaApplicationCall (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSipMediaApplicationCall_argumentsMap = Lens.lens (\CreateSipMediaApplicationCall' {argumentsMap} -> argumentsMap) (\s@CreateSipMediaApplicationCall' {} a -> s {argumentsMap = a} :: CreateSipMediaApplicationCall) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The SIP headers added to an outbound call leg.
 createSipMediaApplicationCall_sipHeaders :: Lens.Lens' CreateSipMediaApplicationCall (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSipMediaApplicationCall_sipHeaders = Lens.lens (\CreateSipMediaApplicationCall' {sipHeaders} -> sipHeaders) (\s@CreateSipMediaApplicationCall' {} a -> s {sipHeaders = a} :: CreateSipMediaApplicationCall) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The phone number that a user calls from. This is a phone number in your
+-- Amazon Chime SDK phone number inventory.
 createSipMediaApplicationCall_fromPhoneNumber :: Lens.Lens' CreateSipMediaApplicationCall Prelude.Text
 createSipMediaApplicationCall_fromPhoneNumber = Lens.lens (\CreateSipMediaApplicationCall' {fromPhoneNumber} -> fromPhoneNumber) (\s@CreateSipMediaApplicationCall' {} a -> s {fromPhoneNumber = a} :: CreateSipMediaApplicationCall) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The phone number that the service should call.
 createSipMediaApplicationCall_toPhoneNumber :: Lens.Lens' CreateSipMediaApplicationCall Prelude.Text
 createSipMediaApplicationCall_toPhoneNumber = Lens.lens (\CreateSipMediaApplicationCall' {toPhoneNumber} -> toPhoneNumber) (\s@CreateSipMediaApplicationCall' {} a -> s {toPhoneNumber = a} :: CreateSipMediaApplicationCall) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The ID of the SIP media application.
 createSipMediaApplicationCall_sipMediaApplicationId :: Lens.Lens' CreateSipMediaApplicationCall Prelude.Text
 createSipMediaApplicationCall_sipMediaApplicationId = Lens.lens (\CreateSipMediaApplicationCall' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@CreateSipMediaApplicationCall' {} a -> s {sipMediaApplicationId = a} :: CreateSipMediaApplicationCall)
 
@@ -144,7 +160,8 @@ instance
     CreateSipMediaApplicationCall
   where
   hashWithSalt _salt CreateSipMediaApplicationCall' {..} =
-    _salt `Prelude.hashWithSalt` argumentsMap
+    _salt
+      `Prelude.hashWithSalt` argumentsMap
       `Prelude.hashWithSalt` sipHeaders
       `Prelude.hashWithSalt` fromPhoneNumber
       `Prelude.hashWithSalt` toPhoneNumber
@@ -187,7 +204,8 @@ instance Data.ToQuery CreateSipMediaApplicationCall where
 
 -- | /See:/ 'newCreateSipMediaApplicationCallResponse' smart constructor.
 data CreateSipMediaApplicationCallResponse = CreateSipMediaApplicationCallResponse'
-  { sipMediaApplicationCall :: Prelude.Maybe SipMediaApplicationCall,
+  { -- | The actual call.
+    sipMediaApplicationCall :: Prelude.Maybe SipMediaApplicationCall,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -201,7 +219,7 @@ data CreateSipMediaApplicationCallResponse = CreateSipMediaApplicationCallRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationCall', 'createSipMediaApplicationCallResponse_sipMediaApplicationCall' - Undocumented member.
+-- 'sipMediaApplicationCall', 'createSipMediaApplicationCallResponse_sipMediaApplicationCall' - The actual call.
 --
 -- 'httpStatus', 'createSipMediaApplicationCallResponse_httpStatus' - The response's http status code.
 newCreateSipMediaApplicationCallResponse ::
@@ -215,7 +233,7 @@ newCreateSipMediaApplicationCallResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The actual call.
 createSipMediaApplicationCallResponse_sipMediaApplicationCall :: Lens.Lens' CreateSipMediaApplicationCallResponse (Prelude.Maybe SipMediaApplicationCall)
 createSipMediaApplicationCallResponse_sipMediaApplicationCall = Lens.lens (\CreateSipMediaApplicationCallResponse' {sipMediaApplicationCall} -> sipMediaApplicationCall) (\s@CreateSipMediaApplicationCallResponse' {} a -> s {sipMediaApplicationCall = a} :: CreateSipMediaApplicationCallResponse)
 

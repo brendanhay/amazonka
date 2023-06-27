@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates a Voice Connector\'s logging configuration.
 module Amazonka.ChimeSdkVoice.PutVoiceConnectorLoggingConfiguration
   ( -- * Creating a Request
     PutVoiceConnectorLoggingConfiguration (..),
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorLoggingConfiguration' smart constructor.
 data PutVoiceConnectorLoggingConfiguration = PutVoiceConnectorLoggingConfiguration'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The logging configuration being updated.
     loggingConfiguration :: LoggingConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +65,9 @@ data PutVoiceConnectorLoggingConfiguration = PutVoiceConnectorLoggingConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'putVoiceConnectorLoggingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'putVoiceConnectorLoggingConfiguration_voiceConnectorId' - The Voice Connector ID.
 --
--- 'loggingConfiguration', 'putVoiceConnectorLoggingConfiguration_loggingConfiguration' - Undocumented member.
+-- 'loggingConfiguration', 'putVoiceConnectorLoggingConfiguration_loggingConfiguration' - The logging configuration being updated.
 newPutVoiceConnectorLoggingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -82,11 +84,11 @@ newPutVoiceConnectorLoggingConfiguration
           pLoggingConfiguration_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 putVoiceConnectorLoggingConfiguration_voiceConnectorId :: Lens.Lens' PutVoiceConnectorLoggingConfiguration Prelude.Text
 putVoiceConnectorLoggingConfiguration_voiceConnectorId = Lens.lens (\PutVoiceConnectorLoggingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorLoggingConfiguration' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorLoggingConfiguration)
 
--- | Undocumented member.
+-- | The logging configuration being updated.
 putVoiceConnectorLoggingConfiguration_loggingConfiguration :: Lens.Lens' PutVoiceConnectorLoggingConfiguration LoggingConfiguration
 putVoiceConnectorLoggingConfiguration_loggingConfiguration = Lens.lens (\PutVoiceConnectorLoggingConfiguration' {loggingConfiguration} -> loggingConfiguration) (\s@PutVoiceConnectorLoggingConfiguration' {} a -> s {loggingConfiguration = a} :: PutVoiceConnectorLoggingConfiguration)
 
@@ -105,7 +107,7 @@ instance
       ( \s h x ->
           PutVoiceConnectorLoggingConfigurationResponse'
             Prelude.<$> (x Data..?> "LoggingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -115,7 +117,8 @@ instance
   hashWithSalt
     _salt
     PutVoiceConnectorLoggingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` voiceConnectorId
+      _salt
+        `Prelude.hashWithSalt` voiceConnectorId
         `Prelude.hashWithSalt` loggingConfiguration
 
 instance
@@ -165,7 +168,8 @@ instance
 
 -- | /See:/ 'newPutVoiceConnectorLoggingConfigurationResponse' smart constructor.
 data PutVoiceConnectorLoggingConfigurationResponse = PutVoiceConnectorLoggingConfigurationResponse'
-  { loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+  { -- | The updated logging configuration.
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,7 +183,7 @@ data PutVoiceConnectorLoggingConfigurationResponse = PutVoiceConnectorLoggingCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingConfiguration', 'putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration' - Undocumented member.
+-- 'loggingConfiguration', 'putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration' - The updated logging configuration.
 --
 -- 'httpStatus', 'putVoiceConnectorLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newPutVoiceConnectorLoggingConfigurationResponse ::
@@ -194,7 +198,7 @@ newPutVoiceConnectorLoggingConfigurationResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The updated logging configuration.
 putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' PutVoiceConnectorLoggingConfigurationResponse (Prelude.Maybe LoggingConfiguration)
 putVoiceConnectorLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\PutVoiceConnectorLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@PutVoiceConnectorLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: PutVoiceConnectorLoggingConfigurationResponse)
 

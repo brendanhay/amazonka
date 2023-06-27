@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists the available AWS Regions in which you can create an Amazon Chime
+-- SDK Voice Connector.
 module Amazonka.ChimeSdkVoice.ListAvailableVoiceConnectorRegions
   ( -- * Creating a Request
     ListAvailableVoiceConnectorRegions (..),
@@ -72,10 +73,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListAvailableVoiceConnectorRegionsResponse'
-            Prelude.<$> ( x Data..?> "VoiceConnectorRegions"
+            Prelude.<$> ( x
+                            Data..?> "VoiceConnectorRegions"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -111,7 +113,8 @@ instance
 
 -- | /See:/ 'newListAvailableVoiceConnectorRegionsResponse' smart constructor.
 data ListAvailableVoiceConnectorRegionsResponse = ListAvailableVoiceConnectorRegionsResponse'
-  { voiceConnectorRegions :: Prelude.Maybe [VoiceConnectorAwsRegion],
+  { -- | The list of AWS Regions.
+    voiceConnectorRegions :: Prelude.Maybe [VoiceConnectorAwsRegion],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -125,7 +128,7 @@ data ListAvailableVoiceConnectorRegionsResponse = ListAvailableVoiceConnectorReg
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorRegions', 'listAvailableVoiceConnectorRegionsResponse_voiceConnectorRegions' - Undocumented member.
+-- 'voiceConnectorRegions', 'listAvailableVoiceConnectorRegionsResponse_voiceConnectorRegions' - The list of AWS Regions.
 --
 -- 'httpStatus', 'listAvailableVoiceConnectorRegionsResponse_httpStatus' - The response's http status code.
 newListAvailableVoiceConnectorRegionsResponse ::
@@ -140,7 +143,7 @@ newListAvailableVoiceConnectorRegionsResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The list of AWS Regions.
 listAvailableVoiceConnectorRegionsResponse_voiceConnectorRegions :: Lens.Lens' ListAvailableVoiceConnectorRegionsResponse (Prelude.Maybe [VoiceConnectorAwsRegion])
 listAvailableVoiceConnectorRegionsResponse_voiceConnectorRegions = Lens.lens (\ListAvailableVoiceConnectorRegionsResponse' {voiceConnectorRegions} -> voiceConnectorRegions) (\s@ListAvailableVoiceConnectorRegionsResponse' {} a -> s {voiceConnectorRegions = a} :: ListAvailableVoiceConnectorRegionsResponse) Prelude.. Lens.mapping Lens.coerced
 

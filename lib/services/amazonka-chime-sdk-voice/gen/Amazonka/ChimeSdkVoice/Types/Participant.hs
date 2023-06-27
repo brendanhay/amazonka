@@ -24,9 +24,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newParticipant' smart constructor.
+-- | The phone number and proxy phone number for a participant in an Amazon
+-- Chime SDK Voice Connector proxy session.
+--
+-- /See:/ 'newParticipant' smart constructor.
 data Participant = Participant'
-  { phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The participant\'s phone number.
+    phoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The participant\'s proxy phone number.
     proxyPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -39,9 +44,9 @@ data Participant = Participant'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumber', 'participant_phoneNumber' - Undocumented member.
+-- 'phoneNumber', 'participant_phoneNumber' - The participant\'s phone number.
 --
--- 'proxyPhoneNumber', 'participant_proxyPhoneNumber' - Undocumented member.
+-- 'proxyPhoneNumber', 'participant_proxyPhoneNumber' - The participant\'s proxy phone number.
 newParticipant ::
   Participant
 newParticipant =
@@ -50,11 +55,11 @@ newParticipant =
       proxyPhoneNumber = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The participant\'s phone number.
 participant_phoneNumber :: Lens.Lens' Participant (Prelude.Maybe Prelude.Text)
 participant_phoneNumber = Lens.lens (\Participant' {phoneNumber} -> phoneNumber) (\s@Participant' {} a -> s {phoneNumber = a} :: Participant) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The participant\'s proxy phone number.
 participant_proxyPhoneNumber :: Lens.Lens' Participant (Prelude.Maybe Prelude.Text)
 participant_proxyPhoneNumber = Lens.lens (\Participant' {proxyPhoneNumber} -> proxyPhoneNumber) (\s@Participant' {} a -> s {proxyPhoneNumber = a} :: Participant) Prelude.. Lens.mapping Data._Sensitive
 
@@ -70,7 +75,8 @@ instance Data.FromJSON Participant where
 
 instance Prelude.Hashable Participant where
   hashWithSalt _salt Participant' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumber
+    _salt
+      `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` proxyPhoneNumber
 
 instance Prelude.NFData Participant where

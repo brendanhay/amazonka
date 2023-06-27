@@ -20,7 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates an Amazon Chime SDK Voice Connector group under the
+-- administrator\'s AWS account. You can associate Amazon Chime SDK Voice
+-- Connectors with the Voice Connector group by including
+-- @VoiceConnectorItems@ in the request.
+--
+-- You can include Voice Connectors from different AWS Regions in your
+-- group. This creates a fault tolerant mechanism for fallback in case of
+-- availability events.
 module Amazonka.ChimeSdkVoice.CreateVoiceConnectorGroup
   ( -- * Creating a Request
     CreateVoiceConnectorGroup (..),
@@ -50,7 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVoiceConnectorGroup' smart constructor.
 data CreateVoiceConnectorGroup = CreateVoiceConnectorGroup'
-  { voiceConnectorItems :: Prelude.Maybe [VoiceConnectorItem],
+  { -- | Lists the Voice Connectors that inbound calls are routed to.
+    voiceConnectorItems :: Prelude.Maybe [VoiceConnectorItem],
+    -- | The name of the Voice Connector group.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +72,9 @@ data CreateVoiceConnectorGroup = CreateVoiceConnectorGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorItems', 'createVoiceConnectorGroup_voiceConnectorItems' - Undocumented member.
+-- 'voiceConnectorItems', 'createVoiceConnectorGroup_voiceConnectorItems' - Lists the Voice Connectors that inbound calls are routed to.
 --
--- 'name', 'createVoiceConnectorGroup_name' - Undocumented member.
+-- 'name', 'createVoiceConnectorGroup_name' - The name of the Voice Connector group.
 newCreateVoiceConnectorGroup ::
   -- | 'name'
   Prelude.Text ->
@@ -77,11 +86,11 @@ newCreateVoiceConnectorGroup pName_ =
       name = pName_
     }
 
--- | Undocumented member.
+-- | Lists the Voice Connectors that inbound calls are routed to.
 createVoiceConnectorGroup_voiceConnectorItems :: Lens.Lens' CreateVoiceConnectorGroup (Prelude.Maybe [VoiceConnectorItem])
 createVoiceConnectorGroup_voiceConnectorItems = Lens.lens (\CreateVoiceConnectorGroup' {voiceConnectorItems} -> voiceConnectorItems) (\s@CreateVoiceConnectorGroup' {} a -> s {voiceConnectorItems = a} :: CreateVoiceConnectorGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The name of the Voice Connector group.
 createVoiceConnectorGroup_name :: Lens.Lens' CreateVoiceConnectorGroup Prelude.Text
 createVoiceConnectorGroup_name = Lens.lens (\CreateVoiceConnectorGroup' {name} -> name) (\s@CreateVoiceConnectorGroup' {} a -> s {name = a} :: CreateVoiceConnectorGroup)
 
@@ -101,7 +110,8 @@ instance Core.AWSRequest CreateVoiceConnectorGroup where
 
 instance Prelude.Hashable CreateVoiceConnectorGroup where
   hashWithSalt _salt CreateVoiceConnectorGroup' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorItems
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorItems
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CreateVoiceConnectorGroup where
@@ -130,7 +140,8 @@ instance Data.ToQuery CreateVoiceConnectorGroup where
 
 -- | /See:/ 'newCreateVoiceConnectorGroupResponse' smart constructor.
 data CreateVoiceConnectorGroupResponse = CreateVoiceConnectorGroupResponse'
-  { voiceConnectorGroup :: Prelude.Maybe VoiceConnectorGroup,
+  { -- | The details of the Voice Connector group.
+    voiceConnectorGroup :: Prelude.Maybe VoiceConnectorGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -144,7 +155,7 @@ data CreateVoiceConnectorGroupResponse = CreateVoiceConnectorGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorGroup', 'createVoiceConnectorGroupResponse_voiceConnectorGroup' - Undocumented member.
+-- 'voiceConnectorGroup', 'createVoiceConnectorGroupResponse_voiceConnectorGroup' - The details of the Voice Connector group.
 --
 -- 'httpStatus', 'createVoiceConnectorGroupResponse_httpStatus' - The response's http status code.
 newCreateVoiceConnectorGroupResponse ::
@@ -158,7 +169,7 @@ newCreateVoiceConnectorGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The details of the Voice Connector group.
 createVoiceConnectorGroupResponse_voiceConnectorGroup :: Lens.Lens' CreateVoiceConnectorGroupResponse (Prelude.Maybe VoiceConnectorGroup)
 createVoiceConnectorGroupResponse_voiceConnectorGroup = Lens.lens (\CreateVoiceConnectorGroupResponse' {voiceConnectorGroup} -> voiceConnectorGroup) (\s@CreateVoiceConnectorGroupResponse' {} a -> s {voiceConnectorGroup = a} :: CreateVoiceConnectorGroupResponse)
 

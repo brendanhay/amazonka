@@ -55,6 +55,8 @@ library
     Amazonka.ChimeSdkVoice.CreateSipRule
     Amazonka.ChimeSdkVoice.CreateVoiceConnector
     Amazonka.ChimeSdkVoice.CreateVoiceConnectorGroup
+    Amazonka.ChimeSdkVoice.CreateVoiceProfile
+    Amazonka.ChimeSdkVoice.CreateVoiceProfileDomain
     Amazonka.ChimeSdkVoice.DeletePhoneNumber
     Amazonka.ChimeSdkVoice.DeleteProxySession
     Amazonka.ChimeSdkVoice.DeleteSipMediaApplication
@@ -67,6 +69,8 @@ library
     Amazonka.ChimeSdkVoice.DeleteVoiceConnectorStreamingConfiguration
     Amazonka.ChimeSdkVoice.DeleteVoiceConnectorTermination
     Amazonka.ChimeSdkVoice.DeleteVoiceConnectorTerminationCredentials
+    Amazonka.ChimeSdkVoice.DeleteVoiceProfile
+    Amazonka.ChimeSdkVoice.DeleteVoiceProfileDomain
     Amazonka.ChimeSdkVoice.DisassociatePhoneNumbersFromVoiceConnector
     Amazonka.ChimeSdkVoice.DisassociatePhoneNumbersFromVoiceConnectorGroup
     Amazonka.ChimeSdkVoice.GetGlobalSettings
@@ -78,6 +82,7 @@ library
     Amazonka.ChimeSdkVoice.GetSipMediaApplicationAlexaSkillConfiguration
     Amazonka.ChimeSdkVoice.GetSipMediaApplicationLoggingConfiguration
     Amazonka.ChimeSdkVoice.GetSipRule
+    Amazonka.ChimeSdkVoice.GetSpeakerSearchTask
     Amazonka.ChimeSdkVoice.GetVoiceConnector
     Amazonka.ChimeSdkVoice.GetVoiceConnectorEmergencyCallingConfiguration
     Amazonka.ChimeSdkVoice.GetVoiceConnectorGroup
@@ -87,6 +92,9 @@ library
     Amazonka.ChimeSdkVoice.GetVoiceConnectorStreamingConfiguration
     Amazonka.ChimeSdkVoice.GetVoiceConnectorTermination
     Amazonka.ChimeSdkVoice.GetVoiceConnectorTerminationHealth
+    Amazonka.ChimeSdkVoice.GetVoiceProfile
+    Amazonka.ChimeSdkVoice.GetVoiceProfileDomain
+    Amazonka.ChimeSdkVoice.GetVoiceToneAnalysisTask
     Amazonka.ChimeSdkVoice.Lens
     Amazonka.ChimeSdkVoice.ListAvailableVoiceConnectorRegions
     Amazonka.ChimeSdkVoice.ListPhoneNumberOrders
@@ -95,9 +103,12 @@ library
     Amazonka.ChimeSdkVoice.ListSipMediaApplications
     Amazonka.ChimeSdkVoice.ListSipRules
     Amazonka.ChimeSdkVoice.ListSupportedPhoneNumberCountries
+    Amazonka.ChimeSdkVoice.ListTagsForResource
     Amazonka.ChimeSdkVoice.ListVoiceConnectorGroups
     Amazonka.ChimeSdkVoice.ListVoiceConnectors
     Amazonka.ChimeSdkVoice.ListVoiceConnectorTerminationCredentials
+    Amazonka.ChimeSdkVoice.ListVoiceProfileDomains
+    Amazonka.ChimeSdkVoice.ListVoiceProfiles
     Amazonka.ChimeSdkVoice.PutSipMediaApplicationAlexaSkillConfiguration
     Amazonka.ChimeSdkVoice.PutSipMediaApplicationLoggingConfiguration
     Amazonka.ChimeSdkVoice.PutVoiceConnectorEmergencyCallingConfiguration
@@ -109,10 +120,17 @@ library
     Amazonka.ChimeSdkVoice.PutVoiceConnectorTerminationCredentials
     Amazonka.ChimeSdkVoice.RestorePhoneNumber
     Amazonka.ChimeSdkVoice.SearchAvailablePhoneNumbers
+    Amazonka.ChimeSdkVoice.StartSpeakerSearchTask
+    Amazonka.ChimeSdkVoice.StartVoiceToneAnalysisTask
+    Amazonka.ChimeSdkVoice.StopSpeakerSearchTask
+    Amazonka.ChimeSdkVoice.StopVoiceToneAnalysisTask
+    Amazonka.ChimeSdkVoice.TagResource
     Amazonka.ChimeSdkVoice.Types
     Amazonka.ChimeSdkVoice.Types.Address
     Amazonka.ChimeSdkVoice.Types.AlexaSkillStatus
+    Amazonka.ChimeSdkVoice.Types.CallDetails
     Amazonka.ChimeSdkVoice.Types.CallingNameStatus
+    Amazonka.ChimeSdkVoice.Types.CallLegType
     Amazonka.ChimeSdkVoice.Types.CandidateAddress
     Amazonka.ChimeSdkVoice.Types.Capability
     Amazonka.ChimeSdkVoice.Types.Credential
@@ -121,7 +139,9 @@ library
     Amazonka.ChimeSdkVoice.Types.ErrorCode
     Amazonka.ChimeSdkVoice.Types.GeoMatchLevel
     Amazonka.ChimeSdkVoice.Types.GeoMatchParams
+    Amazonka.ChimeSdkVoice.Types.LanguageCode
     Amazonka.ChimeSdkVoice.Types.LoggingConfiguration
+    Amazonka.ChimeSdkVoice.Types.MediaInsightsConfiguration
     Amazonka.ChimeSdkVoice.Types.NotificationTarget
     Amazonka.ChimeSdkVoice.Types.NumberSelectionBehavior
     Amazonka.ChimeSdkVoice.Types.OrderedPhoneNumber
@@ -145,6 +165,7 @@ library
     Amazonka.ChimeSdkVoice.Types.Proxy
     Amazonka.ChimeSdkVoice.Types.ProxySession
     Amazonka.ChimeSdkVoice.Types.ProxySessionStatus
+    Amazonka.ChimeSdkVoice.Types.ServerSideEncryptionConfiguration
     Amazonka.ChimeSdkVoice.Types.SipMediaApplication
     Amazonka.ChimeSdkVoice.Types.SipMediaApplicationAlexaSkillConfiguration
     Amazonka.ChimeSdkVoice.Types.SipMediaApplicationCall
@@ -153,8 +174,12 @@ library
     Amazonka.ChimeSdkVoice.Types.SipRule
     Amazonka.ChimeSdkVoice.Types.SipRuleTargetApplication
     Amazonka.ChimeSdkVoice.Types.SipRuleTriggerType
+    Amazonka.ChimeSdkVoice.Types.SpeakerSearchDetails
+    Amazonka.ChimeSdkVoice.Types.SpeakerSearchResult
+    Amazonka.ChimeSdkVoice.Types.SpeakerSearchTask
     Amazonka.ChimeSdkVoice.Types.StreamingConfiguration
     Amazonka.ChimeSdkVoice.Types.StreamingNotificationTarget
+    Amazonka.ChimeSdkVoice.Types.Tag
     Amazonka.ChimeSdkVoice.Types.Termination
     Amazonka.ChimeSdkVoice.Types.TerminationHealth
     Amazonka.ChimeSdkVoice.Types.UpdatePhoneNumberRequestItem
@@ -163,6 +188,12 @@ library
     Amazonka.ChimeSdkVoice.Types.VoiceConnectorGroup
     Amazonka.ChimeSdkVoice.Types.VoiceConnectorItem
     Amazonka.ChimeSdkVoice.Types.VoiceConnectorSettings
+    Amazonka.ChimeSdkVoice.Types.VoiceProfile
+    Amazonka.ChimeSdkVoice.Types.VoiceProfileDomain
+    Amazonka.ChimeSdkVoice.Types.VoiceProfileDomainSummary
+    Amazonka.ChimeSdkVoice.Types.VoiceProfileSummary
+    Amazonka.ChimeSdkVoice.Types.VoiceToneAnalysisTask
+    Amazonka.ChimeSdkVoice.UntagResource
     Amazonka.ChimeSdkVoice.UpdateGlobalSettings
     Amazonka.ChimeSdkVoice.UpdatePhoneNumber
     Amazonka.ChimeSdkVoice.UpdatePhoneNumberSettings
@@ -172,6 +203,8 @@ library
     Amazonka.ChimeSdkVoice.UpdateSipRule
     Amazonka.ChimeSdkVoice.UpdateVoiceConnector
     Amazonka.ChimeSdkVoice.UpdateVoiceConnectorGroup
+    Amazonka.ChimeSdkVoice.UpdateVoiceProfile
+    Amazonka.ChimeSdkVoice.UpdateVoiceProfileDomain
     Amazonka.ChimeSdkVoice.ValidateE911Address
     Amazonka.ChimeSdkVoice.Waiters
 

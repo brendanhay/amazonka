@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates a SIP rule, which can be used to run a SIP media application as
+-- a target for a specific trigger type. For more information about SIP
+-- rules, see
+-- <https://docs.aws.amazon.com/chime-sdk/latest/ag/manage-sip-applications.html Managing SIP media applications and rules>
+-- in the /Amazon Chime SDK Administrator Guide/.
 module Amazonka.ChimeSdkVoice.CreateSipRule
   ( -- * Creating a Request
     CreateSipRule (..),
@@ -53,10 +57,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSipRule' smart constructor.
 data CreateSipRule = CreateSipRule'
-  { disabled :: Prelude.Maybe Prelude.Bool,
+  { -- | Disables or enables a SIP rule. You must disable SIP rules before you
+    -- can delete them.
+    disabled :: Prelude.Maybe Prelude.Bool,
+    -- | List of SIP media applications, with priority and AWS Region. Only one
+    -- SIP application per AWS Region can be used.
     targetApplications :: Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication),
+    -- | The name of the SIP rule.
     name :: Prelude.Text,
+    -- | The type of trigger assigned to the SIP rule in @TriggerValue@,
+    -- currently @RequestUriHostname@ or @ToPhoneNumber@.
     triggerType :: SipRuleTriggerType,
+    -- | If @TriggerType@ is @RequestUriHostname@, the value can be the outbound
+    -- host name of a Voice Connector. If @TriggerType@ is @ToPhoneNumber@, the
+    -- value can be a customer-owned phone number in the E164 format. The
+    -- @SipMediaApplication@ specified in the @SipRule@ is triggered if the
+    -- request URI in an incoming SIP request matches the @RequestUriHostname@,
+    -- or if the @To@ header in the incoming SIP request matches the
+    -- @ToPhoneNumber@ value.
     triggerValue :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,15 +87,24 @@ data CreateSipRule = CreateSipRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disabled', 'createSipRule_disabled' - Undocumented member.
+-- 'disabled', 'createSipRule_disabled' - Disables or enables a SIP rule. You must disable SIP rules before you
+-- can delete them.
 --
--- 'targetApplications', 'createSipRule_targetApplications' - Undocumented member.
+-- 'targetApplications', 'createSipRule_targetApplications' - List of SIP media applications, with priority and AWS Region. Only one
+-- SIP application per AWS Region can be used.
 --
--- 'name', 'createSipRule_name' - Undocumented member.
+-- 'name', 'createSipRule_name' - The name of the SIP rule.
 --
--- 'triggerType', 'createSipRule_triggerType' - Undocumented member.
+-- 'triggerType', 'createSipRule_triggerType' - The type of trigger assigned to the SIP rule in @TriggerValue@,
+-- currently @RequestUriHostname@ or @ToPhoneNumber@.
 --
--- 'triggerValue', 'createSipRule_triggerValue' - Undocumented member.
+-- 'triggerValue', 'createSipRule_triggerValue' - If @TriggerType@ is @RequestUriHostname@, the value can be the outbound
+-- host name of a Voice Connector. If @TriggerType@ is @ToPhoneNumber@, the
+-- value can be a customer-owned phone number in the E164 format. The
+-- @SipMediaApplication@ specified in the @SipRule@ is triggered if the
+-- request URI in an incoming SIP request matches the @RequestUriHostname@,
+-- or if the @To@ header in the incoming SIP request matches the
+-- @ToPhoneNumber@ value.
 newCreateSipRule ::
   -- | 'name'
   Prelude.Text ->
@@ -95,23 +122,32 @@ newCreateSipRule pName_ pTriggerType_ pTriggerValue_ =
       triggerValue = pTriggerValue_
     }
 
--- | Undocumented member.
+-- | Disables or enables a SIP rule. You must disable SIP rules before you
+-- can delete them.
 createSipRule_disabled :: Lens.Lens' CreateSipRule (Prelude.Maybe Prelude.Bool)
 createSipRule_disabled = Lens.lens (\CreateSipRule' {disabled} -> disabled) (\s@CreateSipRule' {} a -> s {disabled = a} :: CreateSipRule)
 
--- | Undocumented member.
+-- | List of SIP media applications, with priority and AWS Region. Only one
+-- SIP application per AWS Region can be used.
 createSipRule_targetApplications :: Lens.Lens' CreateSipRule (Prelude.Maybe (Prelude.NonEmpty SipRuleTargetApplication))
 createSipRule_targetApplications = Lens.lens (\CreateSipRule' {targetApplications} -> targetApplications) (\s@CreateSipRule' {} a -> s {targetApplications = a} :: CreateSipRule) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The name of the SIP rule.
 createSipRule_name :: Lens.Lens' CreateSipRule Prelude.Text
 createSipRule_name = Lens.lens (\CreateSipRule' {name} -> name) (\s@CreateSipRule' {} a -> s {name = a} :: CreateSipRule)
 
--- | Undocumented member.
+-- | The type of trigger assigned to the SIP rule in @TriggerValue@,
+-- currently @RequestUriHostname@ or @ToPhoneNumber@.
 createSipRule_triggerType :: Lens.Lens' CreateSipRule SipRuleTriggerType
 createSipRule_triggerType = Lens.lens (\CreateSipRule' {triggerType} -> triggerType) (\s@CreateSipRule' {} a -> s {triggerType = a} :: CreateSipRule)
 
--- | Undocumented member.
+-- | If @TriggerType@ is @RequestUriHostname@, the value can be the outbound
+-- host name of a Voice Connector. If @TriggerType@ is @ToPhoneNumber@, the
+-- value can be a customer-owned phone number in the E164 format. The
+-- @SipMediaApplication@ specified in the @SipRule@ is triggered if the
+-- request URI in an incoming SIP request matches the @RequestUriHostname@,
+-- or if the @To@ header in the incoming SIP request matches the
+-- @ToPhoneNumber@ value.
 createSipRule_triggerValue :: Lens.Lens' CreateSipRule Prelude.Text
 createSipRule_triggerValue = Lens.lens (\CreateSipRule' {triggerValue} -> triggerValue) (\s@CreateSipRule' {} a -> s {triggerValue = a} :: CreateSipRule)
 
@@ -131,7 +167,8 @@ instance Core.AWSRequest CreateSipRule where
 
 instance Prelude.Hashable CreateSipRule where
   hashWithSalt _salt CreateSipRule' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` targetApplications
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` triggerType
@@ -169,7 +206,9 @@ instance Data.ToQuery CreateSipRule where
 
 -- | /See:/ 'newCreateSipRuleResponse' smart constructor.
 data CreateSipRuleResponse = CreateSipRuleResponse'
-  { sipRule :: Prelude.Maybe SipRule,
+  { -- | The SIP rule information, including the rule ID, triggers, and target
+    -- applications.
+    sipRule :: Prelude.Maybe SipRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -183,7 +222,8 @@ data CreateSipRuleResponse = CreateSipRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipRule', 'createSipRuleResponse_sipRule' - Undocumented member.
+-- 'sipRule', 'createSipRuleResponse_sipRule' - The SIP rule information, including the rule ID, triggers, and target
+-- applications.
 --
 -- 'httpStatus', 'createSipRuleResponse_httpStatus' - The response's http status code.
 newCreateSipRuleResponse ::
@@ -196,7 +236,8 @@ newCreateSipRuleResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The SIP rule information, including the rule ID, triggers, and target
+-- applications.
 createSipRuleResponse_sipRule :: Lens.Lens' CreateSipRuleResponse (Prelude.Maybe SipRule)
 createSipRuleResponse_sipRule = Lens.lens (\CreateSipRuleResponse' {sipRule} -> sipRule) (\s@CreateSipRuleResponse' {} a -> s {sipRule = a} :: CreateSipRuleResponse)
 

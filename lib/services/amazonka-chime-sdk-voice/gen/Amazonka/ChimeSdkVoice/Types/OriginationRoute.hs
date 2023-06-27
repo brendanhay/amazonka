@@ -25,12 +25,28 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newOriginationRoute' smart constructor.
+-- | Origination routes define call distribution properties for your SIP
+-- hosts to receive inbound calls using an Amazon Chime SDK Voice
+-- Connector. Limit: Ten origination routes for each Voice Connector.
+--
+-- The parameters listed below are not required, but you must use at least
+-- one.
+--
+-- /See:/ 'newOriginationRoute' smart constructor.
 data OriginationRoute = OriginationRoute'
-  { host :: Prelude.Maybe Prelude.Text,
+  { -- | The FQDN or IP address to contact for origination traffic.
+    host :: Prelude.Maybe Prelude.Text,
+    -- | The designated origination route port. Defaults to 5060.
     port :: Prelude.Maybe Prelude.Natural,
+    -- | The priority associated with the host, with 1 being the highest
+    -- priority. Higher priority hosts are attempted first.
     priority :: Prelude.Maybe Prelude.Natural,
+    -- | The protocol to use for the origination route. Encryption-enabled Amazon
+    -- Chime SDK Voice Connectors use TCP protocol by default.
     protocol :: Prelude.Maybe OriginationRouteProtocol,
+    -- | The weight assigned to an origination route. When hosts have equal
+    -- priority, calls are distributed between them based on their relative
+    -- weights.
     weight :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,15 +59,19 @@ data OriginationRoute = OriginationRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'host', 'originationRoute_host' - Undocumented member.
+-- 'host', 'originationRoute_host' - The FQDN or IP address to contact for origination traffic.
 --
--- 'port', 'originationRoute_port' - Undocumented member.
+-- 'port', 'originationRoute_port' - The designated origination route port. Defaults to 5060.
 --
--- 'priority', 'originationRoute_priority' - Undocumented member.
+-- 'priority', 'originationRoute_priority' - The priority associated with the host, with 1 being the highest
+-- priority. Higher priority hosts are attempted first.
 --
--- 'protocol', 'originationRoute_protocol' - Undocumented member.
+-- 'protocol', 'originationRoute_protocol' - The protocol to use for the origination route. Encryption-enabled Amazon
+-- Chime SDK Voice Connectors use TCP protocol by default.
 --
--- 'weight', 'originationRoute_weight' - Undocumented member.
+-- 'weight', 'originationRoute_weight' - The weight assigned to an origination route. When hosts have equal
+-- priority, calls are distributed between them based on their relative
+-- weights.
 newOriginationRoute ::
   OriginationRoute
 newOriginationRoute =
@@ -63,23 +83,27 @@ newOriginationRoute =
       weight = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The FQDN or IP address to contact for origination traffic.
 originationRoute_host :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Text)
 originationRoute_host = Lens.lens (\OriginationRoute' {host} -> host) (\s@OriginationRoute' {} a -> s {host = a} :: OriginationRoute)
 
--- | Undocumented member.
+-- | The designated origination route port. Defaults to 5060.
 originationRoute_port :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Natural)
 originationRoute_port = Lens.lens (\OriginationRoute' {port} -> port) (\s@OriginationRoute' {} a -> s {port = a} :: OriginationRoute)
 
--- | Undocumented member.
+-- | The priority associated with the host, with 1 being the highest
+-- priority. Higher priority hosts are attempted first.
 originationRoute_priority :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Natural)
 originationRoute_priority = Lens.lens (\OriginationRoute' {priority} -> priority) (\s@OriginationRoute' {} a -> s {priority = a} :: OriginationRoute)
 
--- | Undocumented member.
+-- | The protocol to use for the origination route. Encryption-enabled Amazon
+-- Chime SDK Voice Connectors use TCP protocol by default.
 originationRoute_protocol :: Lens.Lens' OriginationRoute (Prelude.Maybe OriginationRouteProtocol)
 originationRoute_protocol = Lens.lens (\OriginationRoute' {protocol} -> protocol) (\s@OriginationRoute' {} a -> s {protocol = a} :: OriginationRoute)
 
--- | Undocumented member.
+-- | The weight assigned to an origination route. When hosts have equal
+-- priority, calls are distributed between them based on their relative
+-- weights.
 originationRoute_weight :: Lens.Lens' OriginationRoute (Prelude.Maybe Prelude.Natural)
 originationRoute_weight = Lens.lens (\OriginationRoute' {weight} -> weight) (\s@OriginationRoute' {} a -> s {weight = a} :: OriginationRoute)
 
@@ -98,7 +122,8 @@ instance Data.FromJSON OriginationRoute where
 
 instance Prelude.Hashable OriginationRoute where
   hashWithSalt _salt OriginationRoute' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` protocol

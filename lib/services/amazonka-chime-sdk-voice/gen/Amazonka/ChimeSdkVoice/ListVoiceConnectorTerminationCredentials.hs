@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists the SIP credentials for the specified Amazon Chime SDK Voice
+-- Connector.
 module Amazonka.ChimeSdkVoice.ListVoiceConnectorTerminationCredentials
   ( -- * Creating a Request
     ListVoiceConnectorTerminationCredentials (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListVoiceConnectorTerminationCredentials' smart constructor.
 data ListVoiceConnectorTerminationCredentials = ListVoiceConnectorTerminationCredentials'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data ListVoiceConnectorTerminationCredentials = ListVoiceConnectorTerminationCre
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'listVoiceConnectorTerminationCredentials_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'listVoiceConnectorTerminationCredentials_voiceConnectorId' - The Voice Connector ID.
 newListVoiceConnectorTerminationCredentials ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -73,7 +75,7 @@ newListVoiceConnectorTerminationCredentials
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 listVoiceConnectorTerminationCredentials_voiceConnectorId :: Lens.Lens' ListVoiceConnectorTerminationCredentials Prelude.Text
 listVoiceConnectorTerminationCredentials_voiceConnectorId = Lens.lens (\ListVoiceConnectorTerminationCredentials' {voiceConnectorId} -> voiceConnectorId) (\s@ListVoiceConnectorTerminationCredentials' {} a -> s {voiceConnectorId = a} :: ListVoiceConnectorTerminationCredentials)
 
@@ -92,7 +94,7 @@ instance
       ( \s h x ->
           ListVoiceConnectorTerminationCredentialsResponse'
             Prelude.<$> (x Data..?> "Usernames" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -136,7 +138,8 @@ instance
 
 -- | /See:/ 'newListVoiceConnectorTerminationCredentialsResponse' smart constructor.
 data ListVoiceConnectorTerminationCredentialsResponse = ListVoiceConnectorTerminationCredentialsResponse'
-  { usernames :: Prelude.Maybe [Data.Sensitive Prelude.Text],
+  { -- | A list of user names.
+    usernames :: Prelude.Maybe [Data.Sensitive Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,7 +153,7 @@ data ListVoiceConnectorTerminationCredentialsResponse = ListVoiceConnectorTermin
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usernames', 'listVoiceConnectorTerminationCredentialsResponse_usernames' - Undocumented member.
+-- 'usernames', 'listVoiceConnectorTerminationCredentialsResponse_usernames' - A list of user names.
 --
 -- 'httpStatus', 'listVoiceConnectorTerminationCredentialsResponse_httpStatus' - The response's http status code.
 newListVoiceConnectorTerminationCredentialsResponse ::
@@ -165,7 +168,7 @@ newListVoiceConnectorTerminationCredentialsResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | A list of user names.
 listVoiceConnectorTerminationCredentialsResponse_usernames :: Lens.Lens' ListVoiceConnectorTerminationCredentialsResponse (Prelude.Maybe [Prelude.Text])
 listVoiceConnectorTerminationCredentialsResponse_usernames = Lens.lens (\ListVoiceConnectorTerminationCredentialsResponse' {usernames} -> usernames) (\s@ListVoiceConnectorTerminationCredentialsResponse' {} a -> s {usernames = a} :: ListVoiceConnectorTerminationCredentialsResponse) Prelude.. Lens.mapping Lens.coerced
 

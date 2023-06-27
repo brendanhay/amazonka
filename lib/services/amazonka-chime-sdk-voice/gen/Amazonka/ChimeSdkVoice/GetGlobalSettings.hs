@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the global settings for the Amazon Chime SDK Voice Connectors
+-- in an AWS account.
 module Amazonka.ChimeSdkVoice.GetGlobalSettings
   ( -- * Creating a Request
     GetGlobalSettings (..),
@@ -90,7 +91,8 @@ instance Data.ToQuery GetGlobalSettings where
 
 -- | /See:/ 'newGetGlobalSettingsResponse' smart constructor.
 data GetGlobalSettingsResponse = GetGlobalSettingsResponse'
-  { voiceConnector :: Prelude.Maybe VoiceConnectorSettings,
+  { -- | The Voice Connector settings.
+    voiceConnector :: Prelude.Maybe VoiceConnectorSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -104,7 +106,7 @@ data GetGlobalSettingsResponse = GetGlobalSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnector', 'getGlobalSettingsResponse_voiceConnector' - Undocumented member.
+-- 'voiceConnector', 'getGlobalSettingsResponse_voiceConnector' - The Voice Connector settings.
 --
 -- 'httpStatus', 'getGlobalSettingsResponse_httpStatus' - The response's http status code.
 newGetGlobalSettingsResponse ::
@@ -118,7 +120,7 @@ newGetGlobalSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The Voice Connector settings.
 getGlobalSettingsResponse_voiceConnector :: Lens.Lens' GetGlobalSettingsResponse (Prelude.Maybe VoiceConnectorSettings)
 getGlobalSettingsResponse_voiceConnector = Lens.lens (\GetGlobalSettingsResponse' {voiceConnector} -> voiceConnector) (\s@GetGlobalSettingsResponse' {} a -> s {voiceConnector = a} :: GetGlobalSettingsResponse)
 

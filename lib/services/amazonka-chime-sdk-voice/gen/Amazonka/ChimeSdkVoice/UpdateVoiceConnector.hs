@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the details for the specified Amazon Chime SDK Voice Connector.
 module Amazonka.ChimeSdkVoice.UpdateVoiceConnector
   ( -- * Creating a Request
     UpdateVoiceConnector (..),
@@ -51,8 +51,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateVoiceConnector' smart constructor.
 data UpdateVoiceConnector = UpdateVoiceConnector'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The name of the Voice Connector.
     name :: Prelude.Text,
+    -- | When enabled, requires encryption for the Voice Connector.
     requireEncryption :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,11 +68,11 @@ data UpdateVoiceConnector = UpdateVoiceConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'updateVoiceConnector_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'updateVoiceConnector_voiceConnectorId' - The Voice Connector ID.
 --
--- 'name', 'updateVoiceConnector_name' - Undocumented member.
+-- 'name', 'updateVoiceConnector_name' - The name of the Voice Connector.
 --
--- 'requireEncryption', 'updateVoiceConnector_requireEncryption' - Undocumented member.
+-- 'requireEncryption', 'updateVoiceConnector_requireEncryption' - When enabled, requires encryption for the Voice Connector.
 newUpdateVoiceConnector ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -89,15 +92,15 @@ newUpdateVoiceConnector
         requireEncryption = pRequireEncryption_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 updateVoiceConnector_voiceConnectorId :: Lens.Lens' UpdateVoiceConnector Prelude.Text
 updateVoiceConnector_voiceConnectorId = Lens.lens (\UpdateVoiceConnector' {voiceConnectorId} -> voiceConnectorId) (\s@UpdateVoiceConnector' {} a -> s {voiceConnectorId = a} :: UpdateVoiceConnector)
 
--- | Undocumented member.
+-- | The name of the Voice Connector.
 updateVoiceConnector_name :: Lens.Lens' UpdateVoiceConnector Prelude.Text
 updateVoiceConnector_name = Lens.lens (\UpdateVoiceConnector' {name} -> name) (\s@UpdateVoiceConnector' {} a -> s {name = a} :: UpdateVoiceConnector)
 
--- | Undocumented member.
+-- | When enabled, requires encryption for the Voice Connector.
 updateVoiceConnector_requireEncryption :: Lens.Lens' UpdateVoiceConnector Prelude.Bool
 updateVoiceConnector_requireEncryption = Lens.lens (\UpdateVoiceConnector' {requireEncryption} -> requireEncryption) (\s@UpdateVoiceConnector' {} a -> s {requireEncryption = a} :: UpdateVoiceConnector)
 
@@ -117,7 +120,8 @@ instance Core.AWSRequest UpdateVoiceConnector where
 
 instance Prelude.Hashable UpdateVoiceConnector where
   hashWithSalt _salt UpdateVoiceConnector' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requireEncryption
 
@@ -150,7 +154,8 @@ instance Data.ToQuery UpdateVoiceConnector where
 
 -- | /See:/ 'newUpdateVoiceConnectorResponse' smart constructor.
 data UpdateVoiceConnectorResponse = UpdateVoiceConnectorResponse'
-  { voiceConnector :: Prelude.Maybe VoiceConnector,
+  { -- | The updated Voice Connector details.
+    voiceConnector :: Prelude.Maybe VoiceConnector,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -164,7 +169,7 @@ data UpdateVoiceConnectorResponse = UpdateVoiceConnectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnector', 'updateVoiceConnectorResponse_voiceConnector' - Undocumented member.
+-- 'voiceConnector', 'updateVoiceConnectorResponse_voiceConnector' - The updated Voice Connector details.
 --
 -- 'httpStatus', 'updateVoiceConnectorResponse_httpStatus' - The response's http status code.
 newUpdateVoiceConnectorResponse ::
@@ -178,7 +183,7 @@ newUpdateVoiceConnectorResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated Voice Connector details.
 updateVoiceConnectorResponse_voiceConnector :: Lens.Lens' UpdateVoiceConnectorResponse (Prelude.Maybe VoiceConnector)
 updateVoiceConnectorResponse_voiceConnector = Lens.lens (\UpdateVoiceConnectorResponse' {voiceConnector} -> voiceConnector) (\s@UpdateVoiceConnectorResponse' {} a -> s {voiceConnector = a} :: UpdateVoiceConnectorResponse)
 

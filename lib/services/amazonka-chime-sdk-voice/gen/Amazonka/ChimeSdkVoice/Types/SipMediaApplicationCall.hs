@@ -24,9 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newSipMediaApplicationCall' smart constructor.
+-- | A @Call@ instance for a SIP media application.
+--
+-- /See:/ 'newSipMediaApplicationCall' smart constructor.
 data SipMediaApplicationCall = SipMediaApplicationCall'
-  { transactionId :: Prelude.Maybe Prelude.Text
+  { -- | The call\'s transaction ID.
+    transactionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -38,7 +41,7 @@ data SipMediaApplicationCall = SipMediaApplicationCall'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transactionId', 'sipMediaApplicationCall_transactionId' - Undocumented member.
+-- 'transactionId', 'sipMediaApplicationCall_transactionId' - The call\'s transaction ID.
 newSipMediaApplicationCall ::
   SipMediaApplicationCall
 newSipMediaApplicationCall =
@@ -47,7 +50,7 @@ newSipMediaApplicationCall =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The call\'s transaction ID.
 sipMediaApplicationCall_transactionId :: Lens.Lens' SipMediaApplicationCall (Prelude.Maybe Prelude.Text)
 sipMediaApplicationCall_transactionId = Lens.lens (\SipMediaApplicationCall' {transactionId} -> transactionId) (\s@SipMediaApplicationCall' {} a -> s {transactionId = a} :: SipMediaApplicationCall)
 

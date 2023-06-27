@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes the emergency calling details from the specified Amazon Chime
+-- SDK Voice Connector.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnectorEmergencyCallingConfiguration
   ( -- * Creating a Request
     DeleteVoiceConnectorEmergencyCallingConfiguration (..),
@@ -45,7 +46,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnectorEmergencyCallingConfiguration' smart constructor.
 data DeleteVoiceConnectorEmergencyCallingConfiguration = DeleteVoiceConnectorEmergencyCallingConfiguration'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +59,7 @@ data DeleteVoiceConnectorEmergencyCallingConfiguration = DeleteVoiceConnectorEme
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'deleteVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId' - The Voice Connector ID.
 newDeleteVoiceConnectorEmergencyCallingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -69,7 +71,7 @@ newDeleteVoiceConnectorEmergencyCallingConfiguration
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId :: Lens.Lens' DeleteVoiceConnectorEmergencyCallingConfiguration Prelude.Text
 deleteVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId = Lens.lens (\DeleteVoiceConnectorEmergencyCallingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteVoiceConnectorEmergencyCallingConfiguration' {} a -> s {voiceConnectorId = a} :: DeleteVoiceConnectorEmergencyCallingConfiguration)
 

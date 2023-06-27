@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes a Voice Connector\'s streaming configuration.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnectorStreamingConfiguration
   ( -- * Creating a Request
     DeleteVoiceConnectorStreamingConfiguration (..),
@@ -45,7 +45,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnectorStreamingConfiguration' smart constructor.
 data DeleteVoiceConnectorStreamingConfiguration = DeleteVoiceConnectorStreamingConfiguration'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +58,7 @@ data DeleteVoiceConnectorStreamingConfiguration = DeleteVoiceConnectorStreamingC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'deleteVoiceConnectorStreamingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteVoiceConnectorStreamingConfiguration_voiceConnectorId' - The Voice Connector ID.
 newDeleteVoiceConnectorStreamingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -69,7 +70,7 @@ newDeleteVoiceConnectorStreamingConfiguration
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteVoiceConnectorStreamingConfiguration_voiceConnectorId :: Lens.Lens' DeleteVoiceConnectorStreamingConfiguration Prelude.Text
 deleteVoiceConnectorStreamingConfiguration_voiceConnectorId = Lens.lens (\DeleteVoiceConnectorStreamingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteVoiceConnectorStreamingConfiguration' {} a -> s {voiceConnectorId = a} :: DeleteVoiceConnectorStreamingConfiguration)
 

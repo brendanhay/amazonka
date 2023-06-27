@@ -25,15 +25,27 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newVoiceConnector' smart constructor.
+-- | The Amazon Chime SDK Voice Connector configuration, including outbound
+-- host name and encryption settings.
+--
+-- /See:/ 'newVoiceConnector' smart constructor.
 data VoiceConnector = VoiceConnector'
-  { awsRegion :: Prelude.Maybe VoiceConnectorAwsRegion,
+  { -- | The AWS Region in which the Voice Connector is created. Default:
+    -- us-east-1.
+    awsRegion :: Prelude.Maybe VoiceConnectorAwsRegion,
+    -- | The Voice Connector\'s creation timestamp, in ISO 8601 format.
     createdTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The Voice Connector\'s name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The outbound host name for the Voice Connector.
     outboundHostName :: Prelude.Maybe Prelude.Text,
+    -- | Enables or disables encryption for the Voice Connector.
     requireEncryption :: Prelude.Maybe Prelude.Bool,
+    -- | The Voice Connector\'s updated timestamp, in ISO 8601 format.
     updatedTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The ARN of the Voice Connector.
     voiceConnectorArn :: Prelude.Maybe Prelude.Text,
+    -- | The Voice Connector\'s ID.
     voiceConnectorId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,21 +58,22 @@ data VoiceConnector = VoiceConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsRegion', 'voiceConnector_awsRegion' - Undocumented member.
+-- 'awsRegion', 'voiceConnector_awsRegion' - The AWS Region in which the Voice Connector is created. Default:
+-- us-east-1.
 --
--- 'createdTimestamp', 'voiceConnector_createdTimestamp' - Undocumented member.
+-- 'createdTimestamp', 'voiceConnector_createdTimestamp' - The Voice Connector\'s creation timestamp, in ISO 8601 format.
 --
--- 'name', 'voiceConnector_name' - Undocumented member.
+-- 'name', 'voiceConnector_name' - The Voice Connector\'s name.
 --
--- 'outboundHostName', 'voiceConnector_outboundHostName' - Undocumented member.
+-- 'outboundHostName', 'voiceConnector_outboundHostName' - The outbound host name for the Voice Connector.
 --
--- 'requireEncryption', 'voiceConnector_requireEncryption' - Undocumented member.
+-- 'requireEncryption', 'voiceConnector_requireEncryption' - Enables or disables encryption for the Voice Connector.
 --
--- 'updatedTimestamp', 'voiceConnector_updatedTimestamp' - Undocumented member.
+-- 'updatedTimestamp', 'voiceConnector_updatedTimestamp' - The Voice Connector\'s updated timestamp, in ISO 8601 format.
 --
--- 'voiceConnectorArn', 'voiceConnector_voiceConnectorArn' - Undocumented member.
+-- 'voiceConnectorArn', 'voiceConnector_voiceConnectorArn' - The ARN of the Voice Connector.
 --
--- 'voiceConnectorId', 'voiceConnector_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'voiceConnector_voiceConnectorId' - The Voice Connector\'s ID.
 newVoiceConnector ::
   VoiceConnector
 newVoiceConnector =
@@ -75,35 +88,36 @@ newVoiceConnector =
       voiceConnectorId = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The AWS Region in which the Voice Connector is created. Default:
+-- us-east-1.
 voiceConnector_awsRegion :: Lens.Lens' VoiceConnector (Prelude.Maybe VoiceConnectorAwsRegion)
 voiceConnector_awsRegion = Lens.lens (\VoiceConnector' {awsRegion} -> awsRegion) (\s@VoiceConnector' {} a -> s {awsRegion = a} :: VoiceConnector)
 
--- | Undocumented member.
+-- | The Voice Connector\'s creation timestamp, in ISO 8601 format.
 voiceConnector_createdTimestamp :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.UTCTime)
 voiceConnector_createdTimestamp = Lens.lens (\VoiceConnector' {createdTimestamp} -> createdTimestamp) (\s@VoiceConnector' {} a -> s {createdTimestamp = a} :: VoiceConnector) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The Voice Connector\'s name.
 voiceConnector_name :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.Text)
 voiceConnector_name = Lens.lens (\VoiceConnector' {name} -> name) (\s@VoiceConnector' {} a -> s {name = a} :: VoiceConnector)
 
--- | Undocumented member.
+-- | The outbound host name for the Voice Connector.
 voiceConnector_outboundHostName :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.Text)
 voiceConnector_outboundHostName = Lens.lens (\VoiceConnector' {outboundHostName} -> outboundHostName) (\s@VoiceConnector' {} a -> s {outboundHostName = a} :: VoiceConnector)
 
--- | Undocumented member.
+-- | Enables or disables encryption for the Voice Connector.
 voiceConnector_requireEncryption :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.Bool)
 voiceConnector_requireEncryption = Lens.lens (\VoiceConnector' {requireEncryption} -> requireEncryption) (\s@VoiceConnector' {} a -> s {requireEncryption = a} :: VoiceConnector)
 
--- | Undocumented member.
+-- | The Voice Connector\'s updated timestamp, in ISO 8601 format.
 voiceConnector_updatedTimestamp :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.UTCTime)
 voiceConnector_updatedTimestamp = Lens.lens (\VoiceConnector' {updatedTimestamp} -> updatedTimestamp) (\s@VoiceConnector' {} a -> s {updatedTimestamp = a} :: VoiceConnector) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The ARN of the Voice Connector.
 voiceConnector_voiceConnectorArn :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.Text)
 voiceConnector_voiceConnectorArn = Lens.lens (\VoiceConnector' {voiceConnectorArn} -> voiceConnectorArn) (\s@VoiceConnector' {} a -> s {voiceConnectorArn = a} :: VoiceConnector)
 
--- | Undocumented member.
+-- | The Voice Connector\'s ID.
 voiceConnector_voiceConnectorId :: Lens.Lens' VoiceConnector (Prelude.Maybe Prelude.Text)
 voiceConnector_voiceConnectorId = Lens.lens (\VoiceConnector' {voiceConnectorId} -> voiceConnectorId) (\s@VoiceConnector' {} a -> s {voiceConnectorId = a} :: VoiceConnector)
 
@@ -125,7 +139,8 @@ instance Data.FromJSON VoiceConnector where
 
 instance Prelude.Hashable VoiceConnector where
   hashWithSalt _salt VoiceConnector' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` outboundHostName

@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates an Amazon Chime SDK Voice Connector. For more information about
+-- Voice Connectors, see
+-- <https://docs.aws.amazon.com/chime-sdk/latest/ag/voice-connector-groups.html Managing Amazon Chime SDK Voice Connector groups>
+-- in the /Amazon Chime SDK Administrator Guide/.
 module Amazonka.ChimeSdkVoice.CreateVoiceConnector
   ( -- * Creating a Request
     CreateVoiceConnector (..),
@@ -28,6 +31,7 @@ module Amazonka.ChimeSdkVoice.CreateVoiceConnector
 
     -- * Request Lenses
     createVoiceConnector_awsRegion,
+    createVoiceConnector_tags,
     createVoiceConnector_name,
     createVoiceConnector_requireEncryption,
 
@@ -51,11 +55,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateVoiceConnector' smart constructor.
 data CreateVoiceConnector = CreateVoiceConnector'
-  { awsRegion :: Prelude.Maybe VoiceConnectorAwsRegion,
+  { -- | The AWS Region in which the Amazon Chime SDK Voice Connector is created.
+    -- Default value: @us-east-1@ .
+    awsRegion :: Prelude.Maybe VoiceConnectorAwsRegion,
+    -- | The tags assigned to the Voice Connector.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The name of the Voice Connector.
     name :: Prelude.Text,
+    -- | Enables or disables encryption for the Voice Connector.
     requireEncryption :: Prelude.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVoiceConnector' with all optional fields omitted.
@@ -65,11 +75,14 @@ data CreateVoiceConnector = CreateVoiceConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsRegion', 'createVoiceConnector_awsRegion' - Undocumented member.
+-- 'awsRegion', 'createVoiceConnector_awsRegion' - The AWS Region in which the Amazon Chime SDK Voice Connector is created.
+-- Default value: @us-east-1@ .
 --
--- 'name', 'createVoiceConnector_name' - Undocumented member.
+-- 'tags', 'createVoiceConnector_tags' - The tags assigned to the Voice Connector.
 --
--- 'requireEncryption', 'createVoiceConnector_requireEncryption' - Undocumented member.
+-- 'name', 'createVoiceConnector_name' - The name of the Voice Connector.
+--
+-- 'requireEncryption', 'createVoiceConnector_requireEncryption' - Enables or disables encryption for the Voice Connector.
 newCreateVoiceConnector ::
   -- | 'name'
   Prelude.Text ->
@@ -79,19 +92,25 @@ newCreateVoiceConnector ::
 newCreateVoiceConnector pName_ pRequireEncryption_ =
   CreateVoiceConnector'
     { awsRegion = Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       requireEncryption = pRequireEncryption_
     }
 
--- | Undocumented member.
+-- | The AWS Region in which the Amazon Chime SDK Voice Connector is created.
+-- Default value: @us-east-1@ .
 createVoiceConnector_awsRegion :: Lens.Lens' CreateVoiceConnector (Prelude.Maybe VoiceConnectorAwsRegion)
 createVoiceConnector_awsRegion = Lens.lens (\CreateVoiceConnector' {awsRegion} -> awsRegion) (\s@CreateVoiceConnector' {} a -> s {awsRegion = a} :: CreateVoiceConnector)
 
--- | Undocumented member.
+-- | The tags assigned to the Voice Connector.
+createVoiceConnector_tags :: Lens.Lens' CreateVoiceConnector (Prelude.Maybe (Prelude.NonEmpty Tag))
+createVoiceConnector_tags = Lens.lens (\CreateVoiceConnector' {tags} -> tags) (\s@CreateVoiceConnector' {} a -> s {tags = a} :: CreateVoiceConnector) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the Voice Connector.
 createVoiceConnector_name :: Lens.Lens' CreateVoiceConnector Prelude.Text
 createVoiceConnector_name = Lens.lens (\CreateVoiceConnector' {name} -> name) (\s@CreateVoiceConnector' {} a -> s {name = a} :: CreateVoiceConnector)
 
--- | Undocumented member.
+-- | Enables or disables encryption for the Voice Connector.
 createVoiceConnector_requireEncryption :: Lens.Lens' CreateVoiceConnector Prelude.Bool
 createVoiceConnector_requireEncryption = Lens.lens (\CreateVoiceConnector' {requireEncryption} -> requireEncryption) (\s@CreateVoiceConnector' {} a -> s {requireEncryption = a} :: CreateVoiceConnector)
 
@@ -111,13 +130,16 @@ instance Core.AWSRequest CreateVoiceConnector where
 
 instance Prelude.Hashable CreateVoiceConnector where
   hashWithSalt _salt CreateVoiceConnector' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` requireEncryption
 
 instance Prelude.NFData CreateVoiceConnector where
   rnf CreateVoiceConnector' {..} =
     Prelude.rnf awsRegion
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf requireEncryption
 
@@ -129,6 +151,7 @@ instance Data.ToJSON CreateVoiceConnector where
     Data.object
       ( Prelude.catMaybes
           [ ("AwsRegion" Data..=) Prelude.<$> awsRegion,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just
               ("RequireEncryption" Data..= requireEncryption)
@@ -143,7 +166,8 @@ instance Data.ToQuery CreateVoiceConnector where
 
 -- | /See:/ 'newCreateVoiceConnectorResponse' smart constructor.
 data CreateVoiceConnectorResponse = CreateVoiceConnectorResponse'
-  { voiceConnector :: Prelude.Maybe VoiceConnector,
+  { -- | The details of the Voice Connector.
+    voiceConnector :: Prelude.Maybe VoiceConnector,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,7 +181,7 @@ data CreateVoiceConnectorResponse = CreateVoiceConnectorResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnector', 'createVoiceConnectorResponse_voiceConnector' - Undocumented member.
+-- 'voiceConnector', 'createVoiceConnectorResponse_voiceConnector' - The details of the Voice Connector.
 --
 -- 'httpStatus', 'createVoiceConnectorResponse_httpStatus' - The response's http status code.
 newCreateVoiceConnectorResponse ::
@@ -171,7 +195,7 @@ newCreateVoiceConnectorResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The details of the Voice Connector.
 createVoiceConnectorResponse_voiceConnector :: Lens.Lens' CreateVoiceConnectorResponse (Prelude.Maybe VoiceConnector)
 createVoiceConnectorResponse_voiceConnector = Lens.lens (\CreateVoiceConnectorResponse' {voiceConnector} -> voiceConnector) (\s@CreateVoiceConnectorResponse' {} a -> s {voiceConnector = a} :: CreateVoiceConnectorResponse)
 

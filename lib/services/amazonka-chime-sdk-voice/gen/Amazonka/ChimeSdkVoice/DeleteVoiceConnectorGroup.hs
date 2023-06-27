@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes an Amazon Chime SDK Voice Connector group. Any
+-- @VoiceConnectorItems@ and phone numbers associated with the group must
+-- be removed before it can be deleted.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnectorGroup
   ( -- * Creating a Request
     DeleteVoiceConnectorGroup (..),
@@ -45,7 +47,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnectorGroup' smart constructor.
 data DeleteVoiceConnectorGroup = DeleteVoiceConnectorGroup'
-  { voiceConnectorGroupId :: Prelude.Text
+  { -- | The Voice Connector Group ID.
+    voiceConnectorGroupId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +60,7 @@ data DeleteVoiceConnectorGroup = DeleteVoiceConnectorGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorGroupId', 'deleteVoiceConnectorGroup_voiceConnectorGroupId' - Undocumented member.
+-- 'voiceConnectorGroupId', 'deleteVoiceConnectorGroup_voiceConnectorGroupId' - The Voice Connector Group ID.
 newDeleteVoiceConnectorGroup ::
   -- | 'voiceConnectorGroupId'
   Prelude.Text ->
@@ -68,7 +71,7 @@ newDeleteVoiceConnectorGroup pVoiceConnectorGroupId_ =
         pVoiceConnectorGroupId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector Group ID.
 deleteVoiceConnectorGroup_voiceConnectorGroupId :: Lens.Lens' DeleteVoiceConnectorGroup Prelude.Text
 deleteVoiceConnectorGroup_voiceConnectorGroupId = Lens.lens (\DeleteVoiceConnectorGroup' {voiceConnectorGroupId} -> voiceConnectorGroupId) (\s@DeleteVoiceConnectorGroup' {} a -> s {voiceConnectorGroupId = a} :: DeleteVoiceConnectorGroup)
 

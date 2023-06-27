@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes an Amazon Chime SDK Voice Connector. Any phone numbers
+-- associated with the Amazon Chime SDK Voice Connector must be
+-- disassociated from it before it can be deleted.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnector
   ( -- * Creating a Request
     DeleteVoiceConnector (..),
@@ -45,7 +47,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnector' smart constructor.
 data DeleteVoiceConnector = DeleteVoiceConnector'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +60,7 @@ data DeleteVoiceConnector = DeleteVoiceConnector'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'deleteVoiceConnector_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteVoiceConnector_voiceConnectorId' - The Voice Connector ID.
 newDeleteVoiceConnector ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -68,7 +71,7 @@ newDeleteVoiceConnector pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteVoiceConnector_voiceConnectorId :: Lens.Lens' DeleteVoiceConnector Prelude.Text
 deleteVoiceConnector_voiceConnectorId = Lens.lens (\DeleteVoiceConnector' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteVoiceConnector' {} a -> s {voiceConnectorId = a} :: DeleteVoiceConnector)
 

@@ -25,9 +25,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newSipMediaApplicationAlexaSkillConfiguration' smart constructor.
+-- | The Alexa Skill configuration of a SIP media application.
+--
+-- /See:/ 'newSipMediaApplicationAlexaSkillConfiguration' smart constructor.
 data SipMediaApplicationAlexaSkillConfiguration = SipMediaApplicationAlexaSkillConfiguration'
-  { alexaSkillStatus :: AlexaSkillStatus,
+  { -- | The status of the Alexa Skill configuration.
+    alexaSkillStatus :: AlexaSkillStatus,
+    -- | The ID of the Alexa Skill configuration.
     alexaSkillIds :: Prelude.NonEmpty (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -40,9 +44,9 @@ data SipMediaApplicationAlexaSkillConfiguration = SipMediaApplicationAlexaSkillC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alexaSkillStatus', 'sipMediaApplicationAlexaSkillConfiguration_alexaSkillStatus' - Undocumented member.
+-- 'alexaSkillStatus', 'sipMediaApplicationAlexaSkillConfiguration_alexaSkillStatus' - The status of the Alexa Skill configuration.
 --
--- 'alexaSkillIds', 'sipMediaApplicationAlexaSkillConfiguration_alexaSkillIds' - Undocumented member.
+-- 'alexaSkillIds', 'sipMediaApplicationAlexaSkillConfiguration_alexaSkillIds' - The ID of the Alexa Skill configuration.
 newSipMediaApplicationAlexaSkillConfiguration ::
   -- | 'alexaSkillStatus'
   AlexaSkillStatus ->
@@ -60,11 +64,11 @@ newSipMediaApplicationAlexaSkillConfiguration
             Lens.# pAlexaSkillIds_
       }
 
--- | Undocumented member.
+-- | The status of the Alexa Skill configuration.
 sipMediaApplicationAlexaSkillConfiguration_alexaSkillStatus :: Lens.Lens' SipMediaApplicationAlexaSkillConfiguration AlexaSkillStatus
 sipMediaApplicationAlexaSkillConfiguration_alexaSkillStatus = Lens.lens (\SipMediaApplicationAlexaSkillConfiguration' {alexaSkillStatus} -> alexaSkillStatus) (\s@SipMediaApplicationAlexaSkillConfiguration' {} a -> s {alexaSkillStatus = a} :: SipMediaApplicationAlexaSkillConfiguration)
 
--- | Undocumented member.
+-- | The ID of the Alexa Skill configuration.
 sipMediaApplicationAlexaSkillConfiguration_alexaSkillIds :: Lens.Lens' SipMediaApplicationAlexaSkillConfiguration (Prelude.NonEmpty Prelude.Text)
 sipMediaApplicationAlexaSkillConfiguration_alexaSkillIds = Lens.lens (\SipMediaApplicationAlexaSkillConfiguration' {alexaSkillIds} -> alexaSkillIds) (\s@SipMediaApplicationAlexaSkillConfiguration' {} a -> s {alexaSkillIds = a} :: SipMediaApplicationAlexaSkillConfiguration) Prelude.. Lens.coerced
 
@@ -78,7 +82,7 @@ instance
       ( \x ->
           SipMediaApplicationAlexaSkillConfiguration'
             Prelude.<$> (x Data..: "AlexaSkillStatus")
-              Prelude.<*> (x Data..: "AlexaSkillIds")
+            Prelude.<*> (x Data..: "AlexaSkillIds")
       )
 
 instance
@@ -88,7 +92,8 @@ instance
   hashWithSalt
     _salt
     SipMediaApplicationAlexaSkillConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` alexaSkillStatus
+      _salt
+        `Prelude.hashWithSalt` alexaSkillStatus
         `Prelude.hashWithSalt` alexaSkillIds
 
 instance

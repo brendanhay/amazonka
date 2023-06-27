@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the information for a SIP media application, including name,
+-- AWS Region, and endpoints.
 module Amazonka.ChimeSdkVoice.GetSipMediaApplication
   ( -- * Creating a Request
     GetSipMediaApplication (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSipMediaApplication' smart constructor.
 data GetSipMediaApplication = GetSipMediaApplication'
-  { sipMediaApplicationId :: Prelude.Text
+  { -- | The SIP media application ID .
+    sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetSipMediaApplication = GetSipMediaApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationId', 'getSipMediaApplication_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'getSipMediaApplication_sipMediaApplicationId' - The SIP media application ID .
 newGetSipMediaApplication ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -72,7 +74,7 @@ newGetSipMediaApplication pSipMediaApplicationId_ =
         pSipMediaApplicationId_
     }
 
--- | Undocumented member.
+-- | The SIP media application ID .
 getSipMediaApplication_sipMediaApplicationId :: Lens.Lens' GetSipMediaApplication Prelude.Text
 getSipMediaApplication_sipMediaApplicationId = Lens.lens (\GetSipMediaApplication' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@GetSipMediaApplication' {} a -> s {sipMediaApplicationId = a} :: GetSipMediaApplication)
 
@@ -113,7 +115,8 @@ instance Data.ToQuery GetSipMediaApplication where
 
 -- | /See:/ 'newGetSipMediaApplicationResponse' smart constructor.
 data GetSipMediaApplicationResponse = GetSipMediaApplicationResponse'
-  { sipMediaApplication :: Prelude.Maybe SipMediaApplication,
+  { -- | The details of the SIP media application.
+    sipMediaApplication :: Prelude.Maybe SipMediaApplication,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -127,7 +130,7 @@ data GetSipMediaApplicationResponse = GetSipMediaApplicationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplication', 'getSipMediaApplicationResponse_sipMediaApplication' - Undocumented member.
+-- 'sipMediaApplication', 'getSipMediaApplicationResponse_sipMediaApplication' - The details of the SIP media application.
 --
 -- 'httpStatus', 'getSipMediaApplicationResponse_httpStatus' - The response's http status code.
 newGetSipMediaApplicationResponse ::
@@ -141,7 +144,7 @@ newGetSipMediaApplicationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The details of the SIP media application.
 getSipMediaApplicationResponse_sipMediaApplication :: Lens.Lens' GetSipMediaApplicationResponse (Prelude.Maybe SipMediaApplication)
 getSipMediaApplicationResponse_sipMediaApplication = Lens.lens (\GetSipMediaApplicationResponse' {sipMediaApplication} -> sipMediaApplication) (\s@GetSipMediaApplicationResponse' {} a -> s {sipMediaApplication = a} :: GetSipMediaApplicationResponse)
 

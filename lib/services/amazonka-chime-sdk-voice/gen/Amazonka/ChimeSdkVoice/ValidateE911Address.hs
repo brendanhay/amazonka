@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Validates an address to be used for 911 calls made with Amazon Chime SDK
+-- Voice Connectors. You can use validated addresses in a Presence
+-- Information Data Format Location Object file that you include in SIP
+-- requests. That helps ensure that addresses are routed to the appropriate
+-- Public Safety Answering Point.
 module Amazonka.ChimeSdkVoice.ValidateE911Address
   ( -- * Creating a Request
     ValidateE911Address (..),
@@ -58,12 +62,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newValidateE911Address' smart constructor.
 data ValidateE911Address = ValidateE911Address'
-  { awsAccountId :: Prelude.Text,
+  { -- | The AWS account ID.
+    awsAccountId :: Prelude.Text,
+    -- | The address street number, such as @200@ or @2121@.
     streetNumber :: Data.Sensitive Prelude.Text,
+    -- | The address street information, such as @8th Avenue@.
     streetInfo :: Data.Sensitive Prelude.Text,
+    -- | The address city, such as @Portland@.
     city :: Data.Sensitive Prelude.Text,
+    -- | The address state, such as @ME@.
     state :: Data.Sensitive Prelude.Text,
+    -- | The country in the address being validated.
     country :: Data.Sensitive Prelude.Text,
+    -- | The dress postal code, such @04352@.
     postalCode :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -76,19 +87,19 @@ data ValidateE911Address = ValidateE911Address'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'validateE911Address_awsAccountId' - Undocumented member.
+-- 'awsAccountId', 'validateE911Address_awsAccountId' - The AWS account ID.
 --
--- 'streetNumber', 'validateE911Address_streetNumber' - Undocumented member.
+-- 'streetNumber', 'validateE911Address_streetNumber' - The address street number, such as @200@ or @2121@.
 --
--- 'streetInfo', 'validateE911Address_streetInfo' - Undocumented member.
+-- 'streetInfo', 'validateE911Address_streetInfo' - The address street information, such as @8th Avenue@.
 --
--- 'city', 'validateE911Address_city' - Undocumented member.
+-- 'city', 'validateE911Address_city' - The address city, such as @Portland@.
 --
--- 'state', 'validateE911Address_state' - Undocumented member.
+-- 'state', 'validateE911Address_state' - The address state, such as @ME@.
 --
--- 'country', 'validateE911Address_country' - Undocumented member.
+-- 'country', 'validateE911Address_country' - The country in the address being validated.
 --
--- 'postalCode', 'validateE911Address_postalCode' - Undocumented member.
+-- 'postalCode', 'validateE911Address_postalCode' - The dress postal code, such @04352@.
 newValidateE911Address ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -123,31 +134,31 @@ newValidateE911Address
         postalCode = Data._Sensitive Lens.# pPostalCode_
       }
 
--- | Undocumented member.
+-- | The AWS account ID.
 validateE911Address_awsAccountId :: Lens.Lens' ValidateE911Address Prelude.Text
 validateE911Address_awsAccountId = Lens.lens (\ValidateE911Address' {awsAccountId} -> awsAccountId) (\s@ValidateE911Address' {} a -> s {awsAccountId = a} :: ValidateE911Address)
 
--- | Undocumented member.
+-- | The address street number, such as @200@ or @2121@.
 validateE911Address_streetNumber :: Lens.Lens' ValidateE911Address Prelude.Text
 validateE911Address_streetNumber = Lens.lens (\ValidateE911Address' {streetNumber} -> streetNumber) (\s@ValidateE911Address' {} a -> s {streetNumber = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The address street information, such as @8th Avenue@.
 validateE911Address_streetInfo :: Lens.Lens' ValidateE911Address Prelude.Text
 validateE911Address_streetInfo = Lens.lens (\ValidateE911Address' {streetInfo} -> streetInfo) (\s@ValidateE911Address' {} a -> s {streetInfo = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The address city, such as @Portland@.
 validateE911Address_city :: Lens.Lens' ValidateE911Address Prelude.Text
 validateE911Address_city = Lens.lens (\ValidateE911Address' {city} -> city) (\s@ValidateE911Address' {} a -> s {city = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The address state, such as @ME@.
 validateE911Address_state :: Lens.Lens' ValidateE911Address Prelude.Text
 validateE911Address_state = Lens.lens (\ValidateE911Address' {state} -> state) (\s@ValidateE911Address' {} a -> s {state = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The country in the address being validated.
 validateE911Address_country :: Lens.Lens' ValidateE911Address Prelude.Text
 validateE911Address_country = Lens.lens (\ValidateE911Address' {country} -> country) (\s@ValidateE911Address' {} a -> s {country = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
--- | Undocumented member.
+-- | The dress postal code, such @04352@.
 validateE911Address_postalCode :: Lens.Lens' ValidateE911Address Prelude.Text
 validateE911Address_postalCode = Lens.lens (\ValidateE911Address' {postalCode} -> postalCode) (\s@ValidateE911Address' {} a -> s {postalCode = a} :: ValidateE911Address) Prelude.. Data._Sensitive
 
@@ -163,7 +174,8 @@ instance Core.AWSRequest ValidateE911Address where
           ValidateE911AddressResponse'
             Prelude.<$> (x Data..?> "Address")
             Prelude.<*> (x Data..?> "AddressExternalId")
-            Prelude.<*> ( x Data..?> "CandidateAddressList"
+            Prelude.<*> ( x
+                            Data..?> "CandidateAddressList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ValidationResult")
@@ -172,7 +184,8 @@ instance Core.AWSRequest ValidateE911Address where
 
 instance Prelude.Hashable ValidateE911Address where
   hashWithSalt _salt ValidateE911Address' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` streetNumber
       `Prelude.hashWithSalt` streetInfo
       `Prelude.hashWithSalt` city
@@ -215,9 +228,16 @@ instance Data.ToQuery ValidateE911Address where
 
 -- | /See:/ 'newValidateE911AddressResponse' smart constructor.
 data ValidateE911AddressResponse = ValidateE911AddressResponse'
-  { address :: Prelude.Maybe Address,
+  { -- | The validated address.
+    address :: Prelude.Maybe Address,
+    -- | The ID that represents the address.
     addressExternalId :: Prelude.Maybe Prelude.Text,
+    -- | The list of address suggestions..
     candidateAddressList :: Prelude.Maybe [CandidateAddress],
+    -- | Number indicating the result of address validation. @0@ means the
+    -- address was perfect as-is and successfully validated. @1@ means the
+    -- address was corrected. @2@ means the address sent was not close enough
+    -- and was not validated.
     validationResult :: Prelude.Maybe Prelude.Natural,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -232,13 +252,16 @@ data ValidateE911AddressResponse = ValidateE911AddressResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'address', 'validateE911AddressResponse_address' - Undocumented member.
+-- 'address', 'validateE911AddressResponse_address' - The validated address.
 --
--- 'addressExternalId', 'validateE911AddressResponse_addressExternalId' - Undocumented member.
+-- 'addressExternalId', 'validateE911AddressResponse_addressExternalId' - The ID that represents the address.
 --
--- 'candidateAddressList', 'validateE911AddressResponse_candidateAddressList' - Undocumented member.
+-- 'candidateAddressList', 'validateE911AddressResponse_candidateAddressList' - The list of address suggestions..
 --
--- 'validationResult', 'validateE911AddressResponse_validationResult' - Undocumented member.
+-- 'validationResult', 'validateE911AddressResponse_validationResult' - Number indicating the result of address validation. @0@ means the
+-- address was perfect as-is and successfully validated. @1@ means the
+-- address was corrected. @2@ means the address sent was not close enough
+-- and was not validated.
 --
 -- 'httpStatus', 'validateE911AddressResponse_httpStatus' - The response's http status code.
 newValidateE911AddressResponse ::
@@ -255,19 +278,22 @@ newValidateE911AddressResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The validated address.
 validateE911AddressResponse_address :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe Address)
 validateE911AddressResponse_address = Lens.lens (\ValidateE911AddressResponse' {address} -> address) (\s@ValidateE911AddressResponse' {} a -> s {address = a} :: ValidateE911AddressResponse)
 
--- | Undocumented member.
+-- | The ID that represents the address.
 validateE911AddressResponse_addressExternalId :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe Prelude.Text)
 validateE911AddressResponse_addressExternalId = Lens.lens (\ValidateE911AddressResponse' {addressExternalId} -> addressExternalId) (\s@ValidateE911AddressResponse' {} a -> s {addressExternalId = a} :: ValidateE911AddressResponse)
 
--- | Undocumented member.
+-- | The list of address suggestions..
 validateE911AddressResponse_candidateAddressList :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe [CandidateAddress])
 validateE911AddressResponse_candidateAddressList = Lens.lens (\ValidateE911AddressResponse' {candidateAddressList} -> candidateAddressList) (\s@ValidateE911AddressResponse' {} a -> s {candidateAddressList = a} :: ValidateE911AddressResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | Number indicating the result of address validation. @0@ means the
+-- address was perfect as-is and successfully validated. @1@ means the
+-- address was corrected. @2@ means the address sent was not close enough
+-- and was not validated.
 validateE911AddressResponse_validationResult :: Lens.Lens' ValidateE911AddressResponse (Prelude.Maybe Prelude.Natural)
 validateE911AddressResponse_validationResult = Lens.lens (\ValidateE911AddressResponse' {validationResult} -> validationResult) (\s@ValidateE911AddressResponse' {} a -> s {validationResult = a} :: ValidateE911AddressResponse)
 

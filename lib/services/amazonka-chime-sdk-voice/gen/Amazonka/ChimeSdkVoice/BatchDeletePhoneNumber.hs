@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Moves phone numbers into the __Deletion queue__. Phone numbers must be
+-- disassociated from any users or Amazon Chime SDK Voice Connectors before
+-- they can be deleted.
+--
+-- Phone numbers remain in the __Deletion queue__ for 7 days before they
+-- are deleted permanently.
 module Amazonka.ChimeSdkVoice.BatchDeletePhoneNumber
   ( -- * Creating a Request
     BatchDeletePhoneNumber (..),
@@ -49,7 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDeletePhoneNumber' smart constructor.
 data BatchDeletePhoneNumber = BatchDeletePhoneNumber'
-  { phoneNumberIds :: Prelude.NonEmpty Prelude.Text
+  { -- | List of phone number IDs.
+    phoneNumberIds :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +67,7 @@ data BatchDeletePhoneNumber = BatchDeletePhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberIds', 'batchDeletePhoneNumber_phoneNumberIds' - Undocumented member.
+-- 'phoneNumberIds', 'batchDeletePhoneNumber_phoneNumberIds' - List of phone number IDs.
 newBatchDeletePhoneNumber ::
   -- | 'phoneNumberIds'
   Prelude.NonEmpty Prelude.Text ->
@@ -72,7 +78,7 @@ newBatchDeletePhoneNumber pPhoneNumberIds_ =
         Lens.coerced Lens.# pPhoneNumberIds_
     }
 
--- | Undocumented member.
+-- | List of phone number IDs.
 batchDeletePhoneNumber_phoneNumberIds :: Lens.Lens' BatchDeletePhoneNumber (Prelude.NonEmpty Prelude.Text)
 batchDeletePhoneNumber_phoneNumberIds = Lens.lens (\BatchDeletePhoneNumber' {phoneNumberIds} -> phoneNumberIds) (\s@BatchDeletePhoneNumber' {} a -> s {phoneNumberIds = a} :: BatchDeletePhoneNumber) Prelude.. Lens.coerced
 
@@ -86,7 +92,8 @@ instance Core.AWSRequest BatchDeletePhoneNumber where
     Response.receiveJSON
       ( \s h x ->
           BatchDeletePhoneNumberResponse'
-            Prelude.<$> ( x Data..?> "PhoneNumberErrors"
+            Prelude.<$> ( x
+                            Data..?> "PhoneNumberErrors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -122,7 +129,10 @@ instance Data.ToQuery BatchDeletePhoneNumber where
 
 -- | /See:/ 'newBatchDeletePhoneNumberResponse' smart constructor.
 data BatchDeletePhoneNumberResponse = BatchDeletePhoneNumberResponse'
-  { phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
+  { -- | If the action fails for one or more of the phone numbers in the request,
+    -- a list of the phone numbers is returned, along with error codes and
+    -- error messages.
+    phoneNumberErrors :: Prelude.Maybe [PhoneNumberError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -136,7 +146,9 @@ data BatchDeletePhoneNumberResponse = BatchDeletePhoneNumberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberErrors', 'batchDeletePhoneNumberResponse_phoneNumberErrors' - Undocumented member.
+-- 'phoneNumberErrors', 'batchDeletePhoneNumberResponse_phoneNumberErrors' - If the action fails for one or more of the phone numbers in the request,
+-- a list of the phone numbers is returned, along with error codes and
+-- error messages.
 --
 -- 'httpStatus', 'batchDeletePhoneNumberResponse_httpStatus' - The response's http status code.
 newBatchDeletePhoneNumberResponse ::
@@ -150,7 +162,9 @@ newBatchDeletePhoneNumberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | If the action fails for one or more of the phone numbers in the request,
+-- a list of the phone numbers is returned, along with error codes and
+-- error messages.
 batchDeletePhoneNumberResponse_phoneNumberErrors :: Lens.Lens' BatchDeletePhoneNumberResponse (Prelude.Maybe [PhoneNumberError])
 batchDeletePhoneNumberResponse_phoneNumberErrors = Lens.lens (\BatchDeletePhoneNumberResponse' {phoneNumberErrors} -> phoneNumberErrors) (\s@BatchDeletePhoneNumberResponse' {} a -> s {phoneNumberErrors = a} :: BatchDeletePhoneNumberResponse) Prelude.. Lens.mapping Lens.coerced
 

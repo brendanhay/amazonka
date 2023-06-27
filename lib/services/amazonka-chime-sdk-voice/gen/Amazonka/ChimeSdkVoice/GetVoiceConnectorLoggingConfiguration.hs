@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the logging configuration settings for the specified Voice
+-- Connector. Shows whether SIP message logs are enabled for sending to
+-- Amazon CloudWatch Logs.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorLoggingConfiguration
   ( -- * Creating a Request
     GetVoiceConnectorLoggingConfiguration (..),
@@ -49,7 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorLoggingConfiguration' smart constructor.
 data GetVoiceConnectorLoggingConfiguration = GetVoiceConnectorLoggingConfiguration'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +64,7 @@ data GetVoiceConnectorLoggingConfiguration = GetVoiceConnectorLoggingConfigurati
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnectorLoggingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnectorLoggingConfiguration_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnectorLoggingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -73,7 +76,7 @@ newGetVoiceConnectorLoggingConfiguration
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnectorLoggingConfiguration_voiceConnectorId :: Lens.Lens' GetVoiceConnectorLoggingConfiguration Prelude.Text
 getVoiceConnectorLoggingConfiguration_voiceConnectorId = Lens.lens (\GetVoiceConnectorLoggingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnectorLoggingConfiguration' {} a -> s {voiceConnectorId = a} :: GetVoiceConnectorLoggingConfiguration)
 
@@ -92,7 +95,7 @@ instance
       ( \s h x ->
           GetVoiceConnectorLoggingConfigurationResponse'
             Prelude.<$> (x Data..?> "LoggingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -136,7 +139,8 @@ instance
 
 -- | /See:/ 'newGetVoiceConnectorLoggingConfigurationResponse' smart constructor.
 data GetVoiceConnectorLoggingConfigurationResponse = GetVoiceConnectorLoggingConfigurationResponse'
-  { loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
+  { -- | The logging configuration details .
+    loggingConfiguration :: Prelude.Maybe LoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -150,7 +154,7 @@ data GetVoiceConnectorLoggingConfigurationResponse = GetVoiceConnectorLoggingCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingConfiguration', 'getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration' - Undocumented member.
+-- 'loggingConfiguration', 'getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration' - The logging configuration details .
 --
 -- 'httpStatus', 'getVoiceConnectorLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorLoggingConfigurationResponse ::
@@ -165,7 +169,7 @@ newGetVoiceConnectorLoggingConfigurationResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The logging configuration details .
 getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' GetVoiceConnectorLoggingConfigurationResponse (Prelude.Maybe LoggingConfiguration)
 getVoiceConnectorLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\GetVoiceConnectorLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@GetVoiceConnectorLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: GetVoiceConnectorLoggingConfigurationResponse)
 

@@ -25,10 +25,17 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newPhoneNumberError' smart constructor.
+-- | If a phone number action fails for one or more of the phone numbers in a
+-- request, a list of the failed phone numbers is returned, along with
+-- error codes and error messages.
+--
+-- /See:/ 'newPhoneNumberError' smart constructor.
 data PhoneNumberError = PhoneNumberError'
-  { errorCode :: Prelude.Maybe ErrorCode,
+  { -- | The error code.
+    errorCode :: Prelude.Maybe ErrorCode,
+    -- | The error message.
     errorMessage :: Prelude.Maybe Prelude.Text,
+    -- | The phone number ID for which the action failed.
     phoneNumberId :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -41,11 +48,11 @@ data PhoneNumberError = PhoneNumberError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorCode', 'phoneNumberError_errorCode' - Undocumented member.
+-- 'errorCode', 'phoneNumberError_errorCode' - The error code.
 --
--- 'errorMessage', 'phoneNumberError_errorMessage' - Undocumented member.
+-- 'errorMessage', 'phoneNumberError_errorMessage' - The error message.
 --
--- 'phoneNumberId', 'phoneNumberError_phoneNumberId' - Undocumented member.
+-- 'phoneNumberId', 'phoneNumberError_phoneNumberId' - The phone number ID for which the action failed.
 newPhoneNumberError ::
   PhoneNumberError
 newPhoneNumberError =
@@ -55,15 +62,15 @@ newPhoneNumberError =
       phoneNumberId = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The error code.
 phoneNumberError_errorCode :: Lens.Lens' PhoneNumberError (Prelude.Maybe ErrorCode)
 phoneNumberError_errorCode = Lens.lens (\PhoneNumberError' {errorCode} -> errorCode) (\s@PhoneNumberError' {} a -> s {errorCode = a} :: PhoneNumberError)
 
--- | Undocumented member.
+-- | The error message.
 phoneNumberError_errorMessage :: Lens.Lens' PhoneNumberError (Prelude.Maybe Prelude.Text)
 phoneNumberError_errorMessage = Lens.lens (\PhoneNumberError' {errorMessage} -> errorMessage) (\s@PhoneNumberError' {} a -> s {errorMessage = a} :: PhoneNumberError)
 
--- | Undocumented member.
+-- | The phone number ID for which the action failed.
 phoneNumberError_phoneNumberId :: Lens.Lens' PhoneNumberError (Prelude.Maybe Prelude.Text)
 phoneNumberError_phoneNumberId = Lens.lens (\PhoneNumberError' {phoneNumberId} -> phoneNumberId) (\s@PhoneNumberError' {} a -> s {phoneNumberId = a} :: PhoneNumberError) Prelude.. Lens.mapping Data._Sensitive
 
@@ -80,7 +87,8 @@ instance Data.FromJSON PhoneNumberError where
 
 instance Prelude.Hashable PhoneNumberError where
   hashWithSalt _salt PhoneNumberError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` phoneNumberId
 

@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Moves the specified phone number into the __Deletion queue__. A phone
+-- number must be disassociated from any users or Amazon Chime SDK Voice
+-- Connectors before it can be deleted.
+--
+-- Deleted phone numbers remain in the __Deletion queue__ queue for 7 days
+-- before they are deleted permanently.
 module Amazonka.ChimeSdkVoice.DeletePhoneNumber
   ( -- * Creating a Request
     DeletePhoneNumber (..),
@@ -45,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeletePhoneNumber' smart constructor.
 data DeletePhoneNumber = DeletePhoneNumber'
-  { phoneNumberId :: Data.Sensitive Prelude.Text
+  { -- | The phone number ID.
+    phoneNumberId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +63,7 @@ data DeletePhoneNumber = DeletePhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberId', 'deletePhoneNumber_phoneNumberId' - Undocumented member.
+-- 'phoneNumberId', 'deletePhoneNumber_phoneNumberId' - The phone number ID.
 newDeletePhoneNumber ::
   -- | 'phoneNumberId'
   Prelude.Text ->
@@ -68,7 +74,7 @@ newDeletePhoneNumber pPhoneNumberId_ =
         Data._Sensitive Lens.# pPhoneNumberId_
     }
 
--- | Undocumented member.
+-- | The phone number ID.
 deletePhoneNumber_phoneNumberId :: Lens.Lens' DeletePhoneNumber Prelude.Text
 deletePhoneNumber_phoneNumberId = Lens.lens (\DeletePhoneNumber' {phoneNumberId} -> phoneNumberId) (\s@DeletePhoneNumber' {} a -> s {phoneNumberId = a} :: DeletePhoneNumber) Prelude.. Data._Sensitive
 

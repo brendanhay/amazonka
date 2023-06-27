@@ -60,6 +60,12 @@ import Test.Tasty
 --         , requestCreateVoiceConnectorGroup $
 --             newCreateVoiceConnectorGroup
 --
+--         , requestCreateVoiceProfile $
+--             newCreateVoiceProfile
+--
+--         , requestCreateVoiceProfileDomain $
+--             newCreateVoiceProfileDomain
+--
 --         , requestDeletePhoneNumber $
 --             newDeletePhoneNumber
 --
@@ -96,6 +102,12 @@ import Test.Tasty
 --         , requestDeleteVoiceConnectorTerminationCredentials $
 --             newDeleteVoiceConnectorTerminationCredentials
 --
+--         , requestDeleteVoiceProfile $
+--             newDeleteVoiceProfile
+--
+--         , requestDeleteVoiceProfileDomain $
+--             newDeleteVoiceProfileDomain
+--
 --         , requestDisassociatePhoneNumbersFromVoiceConnector $
 --             newDisassociatePhoneNumbersFromVoiceConnector
 --
@@ -129,6 +141,9 @@ import Test.Tasty
 --         , requestGetSipRule $
 --             newGetSipRule
 --
+--         , requestGetSpeakerSearchTask $
+--             newGetSpeakerSearchTask
+--
 --         , requestGetVoiceConnector $
 --             newGetVoiceConnector
 --
@@ -156,6 +171,15 @@ import Test.Tasty
 --         , requestGetVoiceConnectorTerminationHealth $
 --             newGetVoiceConnectorTerminationHealth
 --
+--         , requestGetVoiceProfile $
+--             newGetVoiceProfile
+--
+--         , requestGetVoiceProfileDomain $
+--             newGetVoiceProfileDomain
+--
+--         , requestGetVoiceToneAnalysisTask $
+--             newGetVoiceToneAnalysisTask
+--
 --         , requestListAvailableVoiceConnectorRegions $
 --             newListAvailableVoiceConnectorRegions
 --
@@ -177,6 +201,9 @@ import Test.Tasty
 --         , requestListSupportedPhoneNumberCountries $
 --             newListSupportedPhoneNumberCountries
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestListVoiceConnectorGroups $
 --             newListVoiceConnectorGroups
 --
@@ -185,6 +212,12 @@ import Test.Tasty
 --
 --         , requestListVoiceConnectors $
 --             newListVoiceConnectors
+--
+--         , requestListVoiceProfileDomains $
+--             newListVoiceProfileDomains
+--
+--         , requestListVoiceProfiles $
+--             newListVoiceProfiles
 --
 --         , requestPutSipMediaApplicationAlexaSkillConfiguration $
 --             newPutSipMediaApplicationAlexaSkillConfiguration
@@ -219,6 +252,24 @@ import Test.Tasty
 --         , requestSearchAvailablePhoneNumbers $
 --             newSearchAvailablePhoneNumbers
 --
+--         , requestStartSpeakerSearchTask $
+--             newStartSpeakerSearchTask
+--
+--         , requestStartVoiceToneAnalysisTask $
+--             newStartVoiceToneAnalysisTask
+--
+--         , requestStopSpeakerSearchTask $
+--             newStopSpeakerSearchTask
+--
+--         , requestStopVoiceToneAnalysisTask $
+--             newStopVoiceToneAnalysisTask
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
 --         , requestUpdateGlobalSettings $
 --             newUpdateGlobalSettings
 --
@@ -245,6 +296,12 @@ import Test.Tasty
 --
 --         , requestUpdateVoiceConnectorGroup $
 --             newUpdateVoiceConnectorGroup
+--
+--         , requestUpdateVoiceProfile $
+--             newUpdateVoiceProfile
+--
+--         , requestUpdateVoiceProfileDomain $
+--             newUpdateVoiceProfileDomain
 --
 --         , requestValidateE911Address $
 --             newValidateE911Address
@@ -285,6 +342,12 @@ import Test.Tasty
 --         , responseCreateVoiceConnectorGroup $
 --             newCreateVoiceConnectorGroupResponse
 --
+--         , responseCreateVoiceProfile $
+--             newCreateVoiceProfileResponse
+--
+--         , responseCreateVoiceProfileDomain $
+--             newCreateVoiceProfileDomainResponse
+--
 --         , responseDeletePhoneNumber $
 --             newDeletePhoneNumberResponse
 --
@@ -321,6 +384,12 @@ import Test.Tasty
 --         , responseDeleteVoiceConnectorTerminationCredentials $
 --             newDeleteVoiceConnectorTerminationCredentialsResponse
 --
+--         , responseDeleteVoiceProfile $
+--             newDeleteVoiceProfileResponse
+--
+--         , responseDeleteVoiceProfileDomain $
+--             newDeleteVoiceProfileDomainResponse
+--
 --         , responseDisassociatePhoneNumbersFromVoiceConnector $
 --             newDisassociatePhoneNumbersFromVoiceConnectorResponse
 --
@@ -354,6 +423,9 @@ import Test.Tasty
 --         , responseGetSipRule $
 --             newGetSipRuleResponse
 --
+--         , responseGetSpeakerSearchTask $
+--             newGetSpeakerSearchTaskResponse
+--
 --         , responseGetVoiceConnector $
 --             newGetVoiceConnectorResponse
 --
@@ -381,6 +453,15 @@ import Test.Tasty
 --         , responseGetVoiceConnectorTerminationHealth $
 --             newGetVoiceConnectorTerminationHealthResponse
 --
+--         , responseGetVoiceProfile $
+--             newGetVoiceProfileResponse
+--
+--         , responseGetVoiceProfileDomain $
+--             newGetVoiceProfileDomainResponse
+--
+--         , responseGetVoiceToneAnalysisTask $
+--             newGetVoiceToneAnalysisTaskResponse
+--
 --         , responseListAvailableVoiceConnectorRegions $
 --             newListAvailableVoiceConnectorRegionsResponse
 --
@@ -402,6 +483,9 @@ import Test.Tasty
 --         , responseListSupportedPhoneNumberCountries $
 --             newListSupportedPhoneNumberCountriesResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responseListVoiceConnectorGroups $
 --             newListVoiceConnectorGroupsResponse
 --
@@ -410,6 +494,12 @@ import Test.Tasty
 --
 --         , responseListVoiceConnectors $
 --             newListVoiceConnectorsResponse
+--
+--         , responseListVoiceProfileDomains $
+--             newListVoiceProfileDomainsResponse
+--
+--         , responseListVoiceProfiles $
+--             newListVoiceProfilesResponse
 --
 --         , responsePutSipMediaApplicationAlexaSkillConfiguration $
 --             newPutSipMediaApplicationAlexaSkillConfigurationResponse
@@ -444,6 +534,24 @@ import Test.Tasty
 --         , responseSearchAvailablePhoneNumbers $
 --             newSearchAvailablePhoneNumbersResponse
 --
+--         , responseStartSpeakerSearchTask $
+--             newStartSpeakerSearchTaskResponse
+--
+--         , responseStartVoiceToneAnalysisTask $
+--             newStartVoiceToneAnalysisTaskResponse
+--
+--         , responseStopSpeakerSearchTask $
+--             newStopSpeakerSearchTaskResponse
+--
+--         , responseStopVoiceToneAnalysisTask $
+--             newStopVoiceToneAnalysisTaskResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
 --         , responseUpdateGlobalSettings $
 --             newUpdateGlobalSettingsResponse
 --
@@ -470,6 +578,12 @@ import Test.Tasty
 --
 --         , responseUpdateVoiceConnectorGroup $
 --             newUpdateVoiceConnectorGroupResponse
+--
+--         , responseUpdateVoiceProfile $
+--             newUpdateVoiceProfileResponse
+--
+--         , responseUpdateVoiceProfileDomain $
+--             newUpdateVoiceProfileDomainResponse
 --
 --         , responseValidateE911Address $
 --             newValidateE911AddressResponse
@@ -545,6 +659,18 @@ requestCreateVoiceConnectorGroup =
     "CreateVoiceConnectorGroup"
     "fixture/CreateVoiceConnectorGroup.yaml"
 
+requestCreateVoiceProfile :: CreateVoiceProfile -> TestTree
+requestCreateVoiceProfile =
+  req
+    "CreateVoiceProfile"
+    "fixture/CreateVoiceProfile.yaml"
+
+requestCreateVoiceProfileDomain :: CreateVoiceProfileDomain -> TestTree
+requestCreateVoiceProfileDomain =
+  req
+    "CreateVoiceProfileDomain"
+    "fixture/CreateVoiceProfileDomain.yaml"
+
 requestDeletePhoneNumber :: DeletePhoneNumber -> TestTree
 requestDeletePhoneNumber =
   req
@@ -617,6 +743,18 @@ requestDeleteVoiceConnectorTerminationCredentials =
     "DeleteVoiceConnectorTerminationCredentials"
     "fixture/DeleteVoiceConnectorTerminationCredentials.yaml"
 
+requestDeleteVoiceProfile :: DeleteVoiceProfile -> TestTree
+requestDeleteVoiceProfile =
+  req
+    "DeleteVoiceProfile"
+    "fixture/DeleteVoiceProfile.yaml"
+
+requestDeleteVoiceProfileDomain :: DeleteVoiceProfileDomain -> TestTree
+requestDeleteVoiceProfileDomain =
+  req
+    "DeleteVoiceProfileDomain"
+    "fixture/DeleteVoiceProfileDomain.yaml"
+
 requestDisassociatePhoneNumbersFromVoiceConnector :: DisassociatePhoneNumbersFromVoiceConnector -> TestTree
 requestDisassociatePhoneNumbersFromVoiceConnector =
   req
@@ -683,6 +821,12 @@ requestGetSipRule =
     "GetSipRule"
     "fixture/GetSipRule.yaml"
 
+requestGetSpeakerSearchTask :: GetSpeakerSearchTask -> TestTree
+requestGetSpeakerSearchTask =
+  req
+    "GetSpeakerSearchTask"
+    "fixture/GetSpeakerSearchTask.yaml"
+
 requestGetVoiceConnector :: GetVoiceConnector -> TestTree
 requestGetVoiceConnector =
   req
@@ -737,6 +881,24 @@ requestGetVoiceConnectorTerminationHealth =
     "GetVoiceConnectorTerminationHealth"
     "fixture/GetVoiceConnectorTerminationHealth.yaml"
 
+requestGetVoiceProfile :: GetVoiceProfile -> TestTree
+requestGetVoiceProfile =
+  req
+    "GetVoiceProfile"
+    "fixture/GetVoiceProfile.yaml"
+
+requestGetVoiceProfileDomain :: GetVoiceProfileDomain -> TestTree
+requestGetVoiceProfileDomain =
+  req
+    "GetVoiceProfileDomain"
+    "fixture/GetVoiceProfileDomain.yaml"
+
+requestGetVoiceToneAnalysisTask :: GetVoiceToneAnalysisTask -> TestTree
+requestGetVoiceToneAnalysisTask =
+  req
+    "GetVoiceToneAnalysisTask"
+    "fixture/GetVoiceToneAnalysisTask.yaml"
+
 requestListAvailableVoiceConnectorRegions :: ListAvailableVoiceConnectorRegions -> TestTree
 requestListAvailableVoiceConnectorRegions =
   req
@@ -779,6 +941,12 @@ requestListSupportedPhoneNumberCountries =
     "ListSupportedPhoneNumberCountries"
     "fixture/ListSupportedPhoneNumberCountries.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestListVoiceConnectorGroups :: ListVoiceConnectorGroups -> TestTree
 requestListVoiceConnectorGroups =
   req
@@ -796,6 +964,18 @@ requestListVoiceConnectors =
   req
     "ListVoiceConnectors"
     "fixture/ListVoiceConnectors.yaml"
+
+requestListVoiceProfileDomains :: ListVoiceProfileDomains -> TestTree
+requestListVoiceProfileDomains =
+  req
+    "ListVoiceProfileDomains"
+    "fixture/ListVoiceProfileDomains.yaml"
+
+requestListVoiceProfiles :: ListVoiceProfiles -> TestTree
+requestListVoiceProfiles =
+  req
+    "ListVoiceProfiles"
+    "fixture/ListVoiceProfiles.yaml"
 
 requestPutSipMediaApplicationAlexaSkillConfiguration :: PutSipMediaApplicationAlexaSkillConfiguration -> TestTree
 requestPutSipMediaApplicationAlexaSkillConfiguration =
@@ -863,6 +1043,42 @@ requestSearchAvailablePhoneNumbers =
     "SearchAvailablePhoneNumbers"
     "fixture/SearchAvailablePhoneNumbers.yaml"
 
+requestStartSpeakerSearchTask :: StartSpeakerSearchTask -> TestTree
+requestStartSpeakerSearchTask =
+  req
+    "StartSpeakerSearchTask"
+    "fixture/StartSpeakerSearchTask.yaml"
+
+requestStartVoiceToneAnalysisTask :: StartVoiceToneAnalysisTask -> TestTree
+requestStartVoiceToneAnalysisTask =
+  req
+    "StartVoiceToneAnalysisTask"
+    "fixture/StartVoiceToneAnalysisTask.yaml"
+
+requestStopSpeakerSearchTask :: StopSpeakerSearchTask -> TestTree
+requestStopSpeakerSearchTask =
+  req
+    "StopSpeakerSearchTask"
+    "fixture/StopSpeakerSearchTask.yaml"
+
+requestStopVoiceToneAnalysisTask :: StopVoiceToneAnalysisTask -> TestTree
+requestStopVoiceToneAnalysisTask =
+  req
+    "StopVoiceToneAnalysisTask"
+    "fixture/StopVoiceToneAnalysisTask.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestUpdateGlobalSettings :: UpdateGlobalSettings -> TestTree
 requestUpdateGlobalSettings =
   req
@@ -916,6 +1132,18 @@ requestUpdateVoiceConnectorGroup =
   req
     "UpdateVoiceConnectorGroup"
     "fixture/UpdateVoiceConnectorGroup.yaml"
+
+requestUpdateVoiceProfile :: UpdateVoiceProfile -> TestTree
+requestUpdateVoiceProfile =
+  req
+    "UpdateVoiceProfile"
+    "fixture/UpdateVoiceProfile.yaml"
+
+requestUpdateVoiceProfileDomain :: UpdateVoiceProfileDomain -> TestTree
+requestUpdateVoiceProfileDomain =
+  req
+    "UpdateVoiceProfileDomain"
+    "fixture/UpdateVoiceProfileDomain.yaml"
 
 requestValidateE911Address :: ValidateE911Address -> TestTree
 requestValidateE911Address =
@@ -1013,6 +1241,22 @@ responseCreateVoiceConnectorGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateVoiceConnectorGroup)
 
+responseCreateVoiceProfile :: CreateVoiceProfileResponse -> TestTree
+responseCreateVoiceProfile =
+  res
+    "CreateVoiceProfileResponse"
+    "fixture/CreateVoiceProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVoiceProfile)
+
+responseCreateVoiceProfileDomain :: CreateVoiceProfileDomainResponse -> TestTree
+responseCreateVoiceProfileDomain =
+  res
+    "CreateVoiceProfileDomainResponse"
+    "fixture/CreateVoiceProfileDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateVoiceProfileDomain)
+
 responseDeletePhoneNumber :: DeletePhoneNumberResponse -> TestTree
 responseDeletePhoneNumber =
   res
@@ -1109,6 +1353,22 @@ responseDeleteVoiceConnectorTerminationCredentials =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteVoiceConnectorTerminationCredentials)
 
+responseDeleteVoiceProfile :: DeleteVoiceProfileResponse -> TestTree
+responseDeleteVoiceProfile =
+  res
+    "DeleteVoiceProfileResponse"
+    "fixture/DeleteVoiceProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceProfile)
+
+responseDeleteVoiceProfileDomain :: DeleteVoiceProfileDomainResponse -> TestTree
+responseDeleteVoiceProfileDomain =
+  res
+    "DeleteVoiceProfileDomainResponse"
+    "fixture/DeleteVoiceProfileDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVoiceProfileDomain)
+
 responseDisassociatePhoneNumbersFromVoiceConnector :: DisassociatePhoneNumbersFromVoiceConnectorResponse -> TestTree
 responseDisassociatePhoneNumbersFromVoiceConnector =
   res
@@ -1197,6 +1457,14 @@ responseGetSipRule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSipRule)
 
+responseGetSpeakerSearchTask :: GetSpeakerSearchTaskResponse -> TestTree
+responseGetSpeakerSearchTask =
+  res
+    "GetSpeakerSearchTaskResponse"
+    "fixture/GetSpeakerSearchTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSpeakerSearchTask)
+
 responseGetVoiceConnector :: GetVoiceConnectorResponse -> TestTree
 responseGetVoiceConnector =
   res
@@ -1269,6 +1537,30 @@ responseGetVoiceConnectorTerminationHealth =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetVoiceConnectorTerminationHealth)
 
+responseGetVoiceProfile :: GetVoiceProfileResponse -> TestTree
+responseGetVoiceProfile =
+  res
+    "GetVoiceProfileResponse"
+    "fixture/GetVoiceProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceProfile)
+
+responseGetVoiceProfileDomain :: GetVoiceProfileDomainResponse -> TestTree
+responseGetVoiceProfileDomain =
+  res
+    "GetVoiceProfileDomainResponse"
+    "fixture/GetVoiceProfileDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceProfileDomain)
+
+responseGetVoiceToneAnalysisTask :: GetVoiceToneAnalysisTaskResponse -> TestTree
+responseGetVoiceToneAnalysisTask =
+  res
+    "GetVoiceToneAnalysisTaskResponse"
+    "fixture/GetVoiceToneAnalysisTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVoiceToneAnalysisTask)
+
 responseListAvailableVoiceConnectorRegions :: ListAvailableVoiceConnectorRegionsResponse -> TestTree
 responseListAvailableVoiceConnectorRegions =
   res
@@ -1325,6 +1617,14 @@ responseListSupportedPhoneNumberCountries =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSupportedPhoneNumberCountries)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responseListVoiceConnectorGroups :: ListVoiceConnectorGroupsResponse -> TestTree
 responseListVoiceConnectorGroups =
   res
@@ -1348,6 +1648,22 @@ responseListVoiceConnectors =
     "fixture/ListVoiceConnectorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListVoiceConnectors)
+
+responseListVoiceProfileDomains :: ListVoiceProfileDomainsResponse -> TestTree
+responseListVoiceProfileDomains =
+  res
+    "ListVoiceProfileDomainsResponse"
+    "fixture/ListVoiceProfileDomainsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceProfileDomains)
+
+responseListVoiceProfiles :: ListVoiceProfilesResponse -> TestTree
+responseListVoiceProfiles =
+  res
+    "ListVoiceProfilesResponse"
+    "fixture/ListVoiceProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListVoiceProfiles)
 
 responsePutSipMediaApplicationAlexaSkillConfiguration :: PutSipMediaApplicationAlexaSkillConfigurationResponse -> TestTree
 responsePutSipMediaApplicationAlexaSkillConfiguration =
@@ -1437,6 +1753,54 @@ responseSearchAvailablePhoneNumbers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchAvailablePhoneNumbers)
 
+responseStartSpeakerSearchTask :: StartSpeakerSearchTaskResponse -> TestTree
+responseStartSpeakerSearchTask =
+  res
+    "StartSpeakerSearchTaskResponse"
+    "fixture/StartSpeakerSearchTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSpeakerSearchTask)
+
+responseStartVoiceToneAnalysisTask :: StartVoiceToneAnalysisTaskResponse -> TestTree
+responseStartVoiceToneAnalysisTask =
+  res
+    "StartVoiceToneAnalysisTaskResponse"
+    "fixture/StartVoiceToneAnalysisTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartVoiceToneAnalysisTask)
+
+responseStopSpeakerSearchTask :: StopSpeakerSearchTaskResponse -> TestTree
+responseStopSpeakerSearchTask =
+  res
+    "StopSpeakerSearchTaskResponse"
+    "fixture/StopSpeakerSearchTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopSpeakerSearchTask)
+
+responseStopVoiceToneAnalysisTask :: StopVoiceToneAnalysisTaskResponse -> TestTree
+responseStopVoiceToneAnalysisTask =
+  res
+    "StopVoiceToneAnalysisTaskResponse"
+    "fixture/StopVoiceToneAnalysisTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopVoiceToneAnalysisTask)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
 responseUpdateGlobalSettings :: UpdateGlobalSettingsResponse -> TestTree
 responseUpdateGlobalSettings =
   res
@@ -1508,6 +1872,22 @@ responseUpdateVoiceConnectorGroup =
     "fixture/UpdateVoiceConnectorGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnectorGroup)
+
+responseUpdateVoiceProfile :: UpdateVoiceProfileResponse -> TestTree
+responseUpdateVoiceProfile =
+  res
+    "UpdateVoiceProfileResponse"
+    "fixture/UpdateVoiceProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceProfile)
+
+responseUpdateVoiceProfileDomain :: UpdateVoiceProfileDomainResponse -> TestTree
+responseUpdateVoiceProfileDomain =
+  res
+    "UpdateVoiceProfileDomainResponse"
+    "fixture/UpdateVoiceProfileDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateVoiceProfileDomain)
 
 responseValidateE911Address :: ValidateE911AddressResponse -> TestTree
 responseValidateE911Address =

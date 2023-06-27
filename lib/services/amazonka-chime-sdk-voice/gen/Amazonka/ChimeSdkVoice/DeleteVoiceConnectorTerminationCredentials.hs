@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes the specified SIP credentials used by your equipment to
+-- authenticate during call termination.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnectorTerminationCredentials
   ( -- * Creating a Request
     DeleteVoiceConnectorTerminationCredentials (..),
@@ -46,7 +47,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnectorTerminationCredentials' smart constructor.
 data DeleteVoiceConnectorTerminationCredentials = DeleteVoiceConnectorTerminationCredentials'
-  { usernames :: [Data.Sensitive Prelude.Text],
+  { -- | The RFC2617 compliant username associated with the SIP credentials, in
+    -- US-ASCII format.
+    usernames :: [Data.Sensitive Prelude.Text],
+    -- | The Voice Connector ID.
     voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -59,9 +63,10 @@ data DeleteVoiceConnectorTerminationCredentials = DeleteVoiceConnectorTerminatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usernames', 'deleteVoiceConnectorTerminationCredentials_usernames' - Undocumented member.
+-- 'usernames', 'deleteVoiceConnectorTerminationCredentials_usernames' - The RFC2617 compliant username associated with the SIP credentials, in
+-- US-ASCII format.
 --
--- 'voiceConnectorId', 'deleteVoiceConnectorTerminationCredentials_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteVoiceConnectorTerminationCredentials_voiceConnectorId' - The Voice Connector ID.
 newDeleteVoiceConnectorTerminationCredentials ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -75,11 +80,12 @@ newDeleteVoiceConnectorTerminationCredentials
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The RFC2617 compliant username associated with the SIP credentials, in
+-- US-ASCII format.
 deleteVoiceConnectorTerminationCredentials_usernames :: Lens.Lens' DeleteVoiceConnectorTerminationCredentials [Prelude.Text]
 deleteVoiceConnectorTerminationCredentials_usernames = Lens.lens (\DeleteVoiceConnectorTerminationCredentials' {usernames} -> usernames) (\s@DeleteVoiceConnectorTerminationCredentials' {} a -> s {usernames = a} :: DeleteVoiceConnectorTerminationCredentials) Prelude.. Lens.coerced
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteVoiceConnectorTerminationCredentials_voiceConnectorId :: Lens.Lens' DeleteVoiceConnectorTerminationCredentials Prelude.Text
 deleteVoiceConnectorTerminationCredentials_voiceConnectorId = Lens.lens (\DeleteVoiceConnectorTerminationCredentials' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteVoiceConnectorTerminationCredentials' {} a -> s {voiceConnectorId = a} :: DeleteVoiceConnectorTerminationCredentials)
 
@@ -104,7 +110,8 @@ instance
   hashWithSalt
     _salt
     DeleteVoiceConnectorTerminationCredentials' {..} =
-      _salt `Prelude.hashWithSalt` usernames
+      _salt
+        `Prelude.hashWithSalt` usernames
         `Prelude.hashWithSalt` voiceConnectorId
 
 instance

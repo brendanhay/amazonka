@@ -25,9 +25,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newEmergencyCallingConfiguration' smart constructor.
+-- | The emergency calling configuration details associated with an Amazon
+-- Chime SDK Voice Connector.
+--
+-- /See:/ 'newEmergencyCallingConfiguration' smart constructor.
 data EmergencyCallingConfiguration = EmergencyCallingConfiguration'
-  { dnis :: Prelude.Maybe [DNISEmergencyCallingConfiguration]
+  { -- | The Dialed Number Identification Service (DNIS) emergency calling
+    -- configuration details.
+    dnis :: Prelude.Maybe [DNISEmergencyCallingConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -39,7 +44,8 @@ data EmergencyCallingConfiguration = EmergencyCallingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnis', 'emergencyCallingConfiguration_dnis' - Undocumented member.
+-- 'dnis', 'emergencyCallingConfiguration_dnis' - The Dialed Number Identification Service (DNIS) emergency calling
+-- configuration details.
 newEmergencyCallingConfiguration ::
   EmergencyCallingConfiguration
 newEmergencyCallingConfiguration =
@@ -48,7 +54,8 @@ newEmergencyCallingConfiguration =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The Dialed Number Identification Service (DNIS) emergency calling
+-- configuration details.
 emergencyCallingConfiguration_dnis :: Lens.Lens' EmergencyCallingConfiguration (Prelude.Maybe [DNISEmergencyCallingConfiguration])
 emergencyCallingConfiguration_dnis = Lens.lens (\EmergencyCallingConfiguration' {dnis} -> dnis) (\s@EmergencyCallingConfiguration' {} a -> s {dnis = a} :: EmergencyCallingConfiguration) Prelude.. Lens.mapping Lens.coerced
 

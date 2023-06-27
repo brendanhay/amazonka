@@ -35,6 +35,9 @@ module Amazonka.ChimeSdkVoice
     -- ** ForbiddenException
     _ForbiddenException,
 
+    -- ** GoneException
+    _GoneException,
+
     -- ** NotFoundException
     _NotFoundException,
 
@@ -52,6 +55,9 @@ module Amazonka.ChimeSdkVoice
 
     -- ** UnauthorizedClientException
     _UnauthorizedClientException,
+
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
 
     -- * Waiters
     -- $waiters
@@ -125,6 +131,18 @@ module Amazonka.ChimeSdkVoice
     CreateVoiceConnectorGroupResponse (CreateVoiceConnectorGroupResponse'),
     newCreateVoiceConnectorGroupResponse,
 
+    -- ** CreateVoiceProfile
+    CreateVoiceProfile (CreateVoiceProfile'),
+    newCreateVoiceProfile,
+    CreateVoiceProfileResponse (CreateVoiceProfileResponse'),
+    newCreateVoiceProfileResponse,
+
+    -- ** CreateVoiceProfileDomain
+    CreateVoiceProfileDomain (CreateVoiceProfileDomain'),
+    newCreateVoiceProfileDomain,
+    CreateVoiceProfileDomainResponse (CreateVoiceProfileDomainResponse'),
+    newCreateVoiceProfileDomainResponse,
+
     -- ** DeletePhoneNumber
     DeletePhoneNumber (DeletePhoneNumber'),
     newDeletePhoneNumber,
@@ -197,6 +215,18 @@ module Amazonka.ChimeSdkVoice
     DeleteVoiceConnectorTerminationCredentialsResponse (DeleteVoiceConnectorTerminationCredentialsResponse'),
     newDeleteVoiceConnectorTerminationCredentialsResponse,
 
+    -- ** DeleteVoiceProfile
+    DeleteVoiceProfile (DeleteVoiceProfile'),
+    newDeleteVoiceProfile,
+    DeleteVoiceProfileResponse (DeleteVoiceProfileResponse'),
+    newDeleteVoiceProfileResponse,
+
+    -- ** DeleteVoiceProfileDomain
+    DeleteVoiceProfileDomain (DeleteVoiceProfileDomain'),
+    newDeleteVoiceProfileDomain,
+    DeleteVoiceProfileDomainResponse (DeleteVoiceProfileDomainResponse'),
+    newDeleteVoiceProfileDomainResponse,
+
     -- ** DisassociatePhoneNumbersFromVoiceConnector
     DisassociatePhoneNumbersFromVoiceConnector (DisassociatePhoneNumbersFromVoiceConnector'),
     newDisassociatePhoneNumbersFromVoiceConnector,
@@ -263,6 +293,12 @@ module Amazonka.ChimeSdkVoice
     GetSipRuleResponse (GetSipRuleResponse'),
     newGetSipRuleResponse,
 
+    -- ** GetSpeakerSearchTask
+    GetSpeakerSearchTask (GetSpeakerSearchTask'),
+    newGetSpeakerSearchTask,
+    GetSpeakerSearchTaskResponse (GetSpeakerSearchTaskResponse'),
+    newGetSpeakerSearchTaskResponse,
+
     -- ** GetVoiceConnector
     GetVoiceConnector (GetVoiceConnector'),
     newGetVoiceConnector,
@@ -317,6 +353,24 @@ module Amazonka.ChimeSdkVoice
     GetVoiceConnectorTerminationHealthResponse (GetVoiceConnectorTerminationHealthResponse'),
     newGetVoiceConnectorTerminationHealthResponse,
 
+    -- ** GetVoiceProfile
+    GetVoiceProfile (GetVoiceProfile'),
+    newGetVoiceProfile,
+    GetVoiceProfileResponse (GetVoiceProfileResponse'),
+    newGetVoiceProfileResponse,
+
+    -- ** GetVoiceProfileDomain
+    GetVoiceProfileDomain (GetVoiceProfileDomain'),
+    newGetVoiceProfileDomain,
+    GetVoiceProfileDomainResponse (GetVoiceProfileDomainResponse'),
+    newGetVoiceProfileDomainResponse,
+
+    -- ** GetVoiceToneAnalysisTask
+    GetVoiceToneAnalysisTask (GetVoiceToneAnalysisTask'),
+    newGetVoiceToneAnalysisTask,
+    GetVoiceToneAnalysisTaskResponse (GetVoiceToneAnalysisTaskResponse'),
+    newGetVoiceToneAnalysisTaskResponse,
+
     -- ** ListAvailableVoiceConnectorRegions
     ListAvailableVoiceConnectorRegions (ListAvailableVoiceConnectorRegions'),
     newListAvailableVoiceConnectorRegions,
@@ -359,6 +413,12 @@ module Amazonka.ChimeSdkVoice
     ListSupportedPhoneNumberCountriesResponse (ListSupportedPhoneNumberCountriesResponse'),
     newListSupportedPhoneNumberCountriesResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** ListVoiceConnectorGroups
     ListVoiceConnectorGroups (ListVoiceConnectorGroups'),
     newListVoiceConnectorGroups,
@@ -376,6 +436,18 @@ module Amazonka.ChimeSdkVoice
     newListVoiceConnectors,
     ListVoiceConnectorsResponse (ListVoiceConnectorsResponse'),
     newListVoiceConnectorsResponse,
+
+    -- ** ListVoiceProfileDomains
+    ListVoiceProfileDomains (ListVoiceProfileDomains'),
+    newListVoiceProfileDomains,
+    ListVoiceProfileDomainsResponse (ListVoiceProfileDomainsResponse'),
+    newListVoiceProfileDomainsResponse,
+
+    -- ** ListVoiceProfiles
+    ListVoiceProfiles (ListVoiceProfiles'),
+    newListVoiceProfiles,
+    ListVoiceProfilesResponse (ListVoiceProfilesResponse'),
+    newListVoiceProfilesResponse,
 
     -- ** PutSipMediaApplicationAlexaSkillConfiguration
     PutSipMediaApplicationAlexaSkillConfiguration (PutSipMediaApplicationAlexaSkillConfiguration'),
@@ -443,6 +515,42 @@ module Amazonka.ChimeSdkVoice
     SearchAvailablePhoneNumbersResponse (SearchAvailablePhoneNumbersResponse'),
     newSearchAvailablePhoneNumbersResponse,
 
+    -- ** StartSpeakerSearchTask
+    StartSpeakerSearchTask (StartSpeakerSearchTask'),
+    newStartSpeakerSearchTask,
+    StartSpeakerSearchTaskResponse (StartSpeakerSearchTaskResponse'),
+    newStartSpeakerSearchTaskResponse,
+
+    -- ** StartVoiceToneAnalysisTask
+    StartVoiceToneAnalysisTask (StartVoiceToneAnalysisTask'),
+    newStartVoiceToneAnalysisTask,
+    StartVoiceToneAnalysisTaskResponse (StartVoiceToneAnalysisTaskResponse'),
+    newStartVoiceToneAnalysisTaskResponse,
+
+    -- ** StopSpeakerSearchTask
+    StopSpeakerSearchTask (StopSpeakerSearchTask'),
+    newStopSpeakerSearchTask,
+    StopSpeakerSearchTaskResponse (StopSpeakerSearchTaskResponse'),
+    newStopSpeakerSearchTaskResponse,
+
+    -- ** StopVoiceToneAnalysisTask
+    StopVoiceToneAnalysisTask (StopVoiceToneAnalysisTask'),
+    newStopVoiceToneAnalysisTask,
+    StopVoiceToneAnalysisTaskResponse (StopVoiceToneAnalysisTaskResponse'),
+    newStopVoiceToneAnalysisTaskResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
     -- ** UpdateGlobalSettings
     UpdateGlobalSettings (UpdateGlobalSettings'),
     newUpdateGlobalSettings,
@@ -497,6 +605,18 @@ module Amazonka.ChimeSdkVoice
     UpdateVoiceConnectorGroupResponse (UpdateVoiceConnectorGroupResponse'),
     newUpdateVoiceConnectorGroupResponse,
 
+    -- ** UpdateVoiceProfile
+    UpdateVoiceProfile (UpdateVoiceProfile'),
+    newUpdateVoiceProfile,
+    UpdateVoiceProfileResponse (UpdateVoiceProfileResponse'),
+    newUpdateVoiceProfileResponse,
+
+    -- ** UpdateVoiceProfileDomain
+    UpdateVoiceProfileDomain (UpdateVoiceProfileDomain'),
+    newUpdateVoiceProfileDomain,
+    UpdateVoiceProfileDomainResponse (UpdateVoiceProfileDomainResponse'),
+    newUpdateVoiceProfileDomainResponse,
+
     -- ** ValidateE911Address
     ValidateE911Address (ValidateE911Address'),
     newValidateE911Address,
@@ -507,6 +627,9 @@ module Amazonka.ChimeSdkVoice
 
     -- ** AlexaSkillStatus
     AlexaSkillStatus (..),
+
+    -- ** CallLegType
+    CallLegType (..),
 
     -- ** CallingNameStatus
     CallingNameStatus (..),
@@ -519,6 +642,9 @@ module Amazonka.ChimeSdkVoice
 
     -- ** GeoMatchLevel
     GeoMatchLevel (..),
+
+    -- ** LanguageCode
+    LanguageCode (..),
 
     -- ** NotificationTarget
     NotificationTarget (..),
@@ -563,6 +689,10 @@ module Amazonka.ChimeSdkVoice
     Address (Address'),
     newAddress,
 
+    -- ** CallDetails
+    CallDetails (CallDetails'),
+    newCallDetails,
+
     -- ** CandidateAddress
     CandidateAddress (CandidateAddress'),
     newCandidateAddress,
@@ -586,6 +716,10 @@ module Amazonka.ChimeSdkVoice
     -- ** LoggingConfiguration
     LoggingConfiguration (LoggingConfiguration'),
     newLoggingConfiguration,
+
+    -- ** MediaInsightsConfiguration
+    MediaInsightsConfiguration (MediaInsightsConfiguration'),
+    newMediaInsightsConfiguration,
 
     -- ** OrderedPhoneNumber
     OrderedPhoneNumber (OrderedPhoneNumber'),
@@ -635,6 +769,10 @@ module Amazonka.ChimeSdkVoice
     ProxySession (ProxySession'),
     newProxySession,
 
+    -- ** ServerSideEncryptionConfiguration
+    ServerSideEncryptionConfiguration (ServerSideEncryptionConfiguration'),
+    newServerSideEncryptionConfiguration,
+
     -- ** SipMediaApplication
     SipMediaApplication (SipMediaApplication'),
     newSipMediaApplication,
@@ -663,6 +801,18 @@ module Amazonka.ChimeSdkVoice
     SipRuleTargetApplication (SipRuleTargetApplication'),
     newSipRuleTargetApplication,
 
+    -- ** SpeakerSearchDetails
+    SpeakerSearchDetails (SpeakerSearchDetails'),
+    newSpeakerSearchDetails,
+
+    -- ** SpeakerSearchResult
+    SpeakerSearchResult (SpeakerSearchResult'),
+    newSpeakerSearchResult,
+
+    -- ** SpeakerSearchTask
+    SpeakerSearchTask (SpeakerSearchTask'),
+    newSpeakerSearchTask,
+
     -- ** StreamingConfiguration
     StreamingConfiguration (StreamingConfiguration'),
     newStreamingConfiguration,
@@ -670,6 +820,10 @@ module Amazonka.ChimeSdkVoice
     -- ** StreamingNotificationTarget
     StreamingNotificationTarget (StreamingNotificationTarget'),
     newStreamingNotificationTarget,
+
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
 
     -- ** Termination
     Termination (Termination'),
@@ -698,6 +852,26 @@ module Amazonka.ChimeSdkVoice
     -- ** VoiceConnectorSettings
     VoiceConnectorSettings (VoiceConnectorSettings'),
     newVoiceConnectorSettings,
+
+    -- ** VoiceProfile
+    VoiceProfile (VoiceProfile'),
+    newVoiceProfile,
+
+    -- ** VoiceProfileDomain
+    VoiceProfileDomain (VoiceProfileDomain'),
+    newVoiceProfileDomain,
+
+    -- ** VoiceProfileDomainSummary
+    VoiceProfileDomainSummary (VoiceProfileDomainSummary'),
+    newVoiceProfileDomainSummary,
+
+    -- ** VoiceProfileSummary
+    VoiceProfileSummary (VoiceProfileSummary'),
+    newVoiceProfileSummary,
+
+    -- ** VoiceToneAnalysisTask
+    VoiceToneAnalysisTask (VoiceToneAnalysisTask'),
+    newVoiceToneAnalysisTask,
   )
 where
 
@@ -712,6 +886,8 @@ import Amazonka.ChimeSdkVoice.CreateSipMediaApplicationCall
 import Amazonka.ChimeSdkVoice.CreateSipRule
 import Amazonka.ChimeSdkVoice.CreateVoiceConnector
 import Amazonka.ChimeSdkVoice.CreateVoiceConnectorGroup
+import Amazonka.ChimeSdkVoice.CreateVoiceProfile
+import Amazonka.ChimeSdkVoice.CreateVoiceProfileDomain
 import Amazonka.ChimeSdkVoice.DeletePhoneNumber
 import Amazonka.ChimeSdkVoice.DeleteProxySession
 import Amazonka.ChimeSdkVoice.DeleteSipMediaApplication
@@ -724,6 +900,8 @@ import Amazonka.ChimeSdkVoice.DeleteVoiceConnectorProxy
 import Amazonka.ChimeSdkVoice.DeleteVoiceConnectorStreamingConfiguration
 import Amazonka.ChimeSdkVoice.DeleteVoiceConnectorTermination
 import Amazonka.ChimeSdkVoice.DeleteVoiceConnectorTerminationCredentials
+import Amazonka.ChimeSdkVoice.DeleteVoiceProfile
+import Amazonka.ChimeSdkVoice.DeleteVoiceProfileDomain
 import Amazonka.ChimeSdkVoice.DisassociatePhoneNumbersFromVoiceConnector
 import Amazonka.ChimeSdkVoice.DisassociatePhoneNumbersFromVoiceConnectorGroup
 import Amazonka.ChimeSdkVoice.GetGlobalSettings
@@ -735,6 +913,7 @@ import Amazonka.ChimeSdkVoice.GetSipMediaApplication
 import Amazonka.ChimeSdkVoice.GetSipMediaApplicationAlexaSkillConfiguration
 import Amazonka.ChimeSdkVoice.GetSipMediaApplicationLoggingConfiguration
 import Amazonka.ChimeSdkVoice.GetSipRule
+import Amazonka.ChimeSdkVoice.GetSpeakerSearchTask
 import Amazonka.ChimeSdkVoice.GetVoiceConnector
 import Amazonka.ChimeSdkVoice.GetVoiceConnectorEmergencyCallingConfiguration
 import Amazonka.ChimeSdkVoice.GetVoiceConnectorGroup
@@ -744,6 +923,9 @@ import Amazonka.ChimeSdkVoice.GetVoiceConnectorProxy
 import Amazonka.ChimeSdkVoice.GetVoiceConnectorStreamingConfiguration
 import Amazonka.ChimeSdkVoice.GetVoiceConnectorTermination
 import Amazonka.ChimeSdkVoice.GetVoiceConnectorTerminationHealth
+import Amazonka.ChimeSdkVoice.GetVoiceProfile
+import Amazonka.ChimeSdkVoice.GetVoiceProfileDomain
+import Amazonka.ChimeSdkVoice.GetVoiceToneAnalysisTask
 import Amazonka.ChimeSdkVoice.Lens
 import Amazonka.ChimeSdkVoice.ListAvailableVoiceConnectorRegions
 import Amazonka.ChimeSdkVoice.ListPhoneNumberOrders
@@ -752,9 +934,12 @@ import Amazonka.ChimeSdkVoice.ListProxySessions
 import Amazonka.ChimeSdkVoice.ListSipMediaApplications
 import Amazonka.ChimeSdkVoice.ListSipRules
 import Amazonka.ChimeSdkVoice.ListSupportedPhoneNumberCountries
+import Amazonka.ChimeSdkVoice.ListTagsForResource
 import Amazonka.ChimeSdkVoice.ListVoiceConnectorGroups
 import Amazonka.ChimeSdkVoice.ListVoiceConnectorTerminationCredentials
 import Amazonka.ChimeSdkVoice.ListVoiceConnectors
+import Amazonka.ChimeSdkVoice.ListVoiceProfileDomains
+import Amazonka.ChimeSdkVoice.ListVoiceProfiles
 import Amazonka.ChimeSdkVoice.PutSipMediaApplicationAlexaSkillConfiguration
 import Amazonka.ChimeSdkVoice.PutSipMediaApplicationLoggingConfiguration
 import Amazonka.ChimeSdkVoice.PutVoiceConnectorEmergencyCallingConfiguration
@@ -766,7 +951,13 @@ import Amazonka.ChimeSdkVoice.PutVoiceConnectorTermination
 import Amazonka.ChimeSdkVoice.PutVoiceConnectorTerminationCredentials
 import Amazonka.ChimeSdkVoice.RestorePhoneNumber
 import Amazonka.ChimeSdkVoice.SearchAvailablePhoneNumbers
+import Amazonka.ChimeSdkVoice.StartSpeakerSearchTask
+import Amazonka.ChimeSdkVoice.StartVoiceToneAnalysisTask
+import Amazonka.ChimeSdkVoice.StopSpeakerSearchTask
+import Amazonka.ChimeSdkVoice.StopVoiceToneAnalysisTask
+import Amazonka.ChimeSdkVoice.TagResource
 import Amazonka.ChimeSdkVoice.Types
+import Amazonka.ChimeSdkVoice.UntagResource
 import Amazonka.ChimeSdkVoice.UpdateGlobalSettings
 import Amazonka.ChimeSdkVoice.UpdatePhoneNumber
 import Amazonka.ChimeSdkVoice.UpdatePhoneNumberSettings
@@ -776,6 +967,8 @@ import Amazonka.ChimeSdkVoice.UpdateSipMediaApplicationCall
 import Amazonka.ChimeSdkVoice.UpdateSipRule
 import Amazonka.ChimeSdkVoice.UpdateVoiceConnector
 import Amazonka.ChimeSdkVoice.UpdateVoiceConnectorGroup
+import Amazonka.ChimeSdkVoice.UpdateVoiceProfile
+import Amazonka.ChimeSdkVoice.UpdateVoiceProfileDomain
 import Amazonka.ChimeSdkVoice.ValidateE911Address
 import Amazonka.ChimeSdkVoice.Waiters
 

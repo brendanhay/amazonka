@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Gets the Alexa Skill configuration for the SIP media application.
 module Amazonka.ChimeSdkVoice.GetSipMediaApplicationAlexaSkillConfiguration
   ( -- * Creating a Request
     GetSipMediaApplicationAlexaSkillConfiguration (..),
@@ -49,7 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSipMediaApplicationAlexaSkillConfiguration' smart constructor.
 data GetSipMediaApplicationAlexaSkillConfiguration = GetSipMediaApplicationAlexaSkillConfiguration'
-  { sipMediaApplicationId :: Prelude.Text
+  { -- | The SIP media application ID.
+    sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +62,7 @@ data GetSipMediaApplicationAlexaSkillConfiguration = GetSipMediaApplicationAlexa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationId', 'getSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'getSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId' - The SIP media application ID.
 newGetSipMediaApplicationAlexaSkillConfiguration ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -73,7 +74,7 @@ newGetSipMediaApplicationAlexaSkillConfiguration
           pSipMediaApplicationId_
       }
 
--- | Undocumented member.
+-- | The SIP media application ID.
 getSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId :: Lens.Lens' GetSipMediaApplicationAlexaSkillConfiguration Prelude.Text
 getSipMediaApplicationAlexaSkillConfiguration_sipMediaApplicationId = Lens.lens (\GetSipMediaApplicationAlexaSkillConfiguration' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@GetSipMediaApplicationAlexaSkillConfiguration' {} a -> s {sipMediaApplicationId = a} :: GetSipMediaApplicationAlexaSkillConfiguration)
 
@@ -94,7 +95,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "SipMediaApplicationAlexaSkillConfiguration"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -140,7 +141,8 @@ instance
 
 -- | /See:/ 'newGetSipMediaApplicationAlexaSkillConfigurationResponse' smart constructor.
 data GetSipMediaApplicationAlexaSkillConfigurationResponse = GetSipMediaApplicationAlexaSkillConfigurationResponse'
-  { sipMediaApplicationAlexaSkillConfiguration :: Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration,
+  { -- | Returns the Alexa Skill configuration.
+    sipMediaApplicationAlexaSkillConfiguration :: Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -154,7 +156,7 @@ data GetSipMediaApplicationAlexaSkillConfigurationResponse = GetSipMediaApplicat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationAlexaSkillConfiguration', 'getSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration' - Undocumented member.
+-- 'sipMediaApplicationAlexaSkillConfiguration', 'getSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration' - Returns the Alexa Skill configuration.
 --
 -- 'httpStatus', 'getSipMediaApplicationAlexaSkillConfigurationResponse_httpStatus' - The response's http status code.
 newGetSipMediaApplicationAlexaSkillConfigurationResponse ::
@@ -170,7 +172,7 @@ newGetSipMediaApplicationAlexaSkillConfigurationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | Returns the Alexa Skill configuration.
 getSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration :: Lens.Lens' GetSipMediaApplicationAlexaSkillConfigurationResponse (Prelude.Maybe SipMediaApplicationAlexaSkillConfiguration)
 getSipMediaApplicationAlexaSkillConfigurationResponse_sipMediaApplicationAlexaSkillConfiguration = Lens.lens (\GetSipMediaApplicationAlexaSkillConfigurationResponse' {sipMediaApplicationAlexaSkillConfiguration} -> sipMediaApplicationAlexaSkillConfiguration) (\s@GetSipMediaApplicationAlexaSkillConfigurationResponse' {} a -> s {sipMediaApplicationAlexaSkillConfiguration = a} :: GetSipMediaApplicationAlexaSkillConfigurationResponse)
 

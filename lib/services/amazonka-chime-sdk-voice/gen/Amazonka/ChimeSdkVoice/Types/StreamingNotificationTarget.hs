@@ -25,9 +25,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newStreamingNotificationTarget' smart constructor.
+-- | The target recipient for a streaming configuration notification.
+--
+-- /See:/ 'newStreamingNotificationTarget' smart constructor.
 data StreamingNotificationTarget = StreamingNotificationTarget'
-  { notificationTarget :: Prelude.Maybe NotificationTarget
+  { -- | The streaming notification target.
+    notificationTarget :: Prelude.Maybe NotificationTarget
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -39,7 +42,7 @@ data StreamingNotificationTarget = StreamingNotificationTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationTarget', 'streamingNotificationTarget_notificationTarget' - Undocumented member.
+-- 'notificationTarget', 'streamingNotificationTarget_notificationTarget' - The streaming notification target.
 newStreamingNotificationTarget ::
   StreamingNotificationTarget
 newStreamingNotificationTarget =
@@ -48,7 +51,7 @@ newStreamingNotificationTarget =
         Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The streaming notification target.
 streamingNotificationTarget_notificationTarget :: Lens.Lens' StreamingNotificationTarget (Prelude.Maybe NotificationTarget)
 streamingNotificationTarget_notificationTarget = Lens.lens (\StreamingNotificationTarget' {notificationTarget} -> notificationTarget) (\s@StreamingNotificationTarget' {} a -> s {notificationTarget = a} :: StreamingNotificationTarget)
 

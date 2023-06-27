@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes the proxy configuration from the specified Amazon Chime SDK
+-- Voice Connector.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnectorProxy
   ( -- * Creating a Request
     DeleteVoiceConnectorProxy (..),
@@ -45,7 +46,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnectorProxy' smart constructor.
 data DeleteVoiceConnectorProxy = DeleteVoiceConnectorProxy'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +59,7 @@ data DeleteVoiceConnectorProxy = DeleteVoiceConnectorProxy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'deleteVoiceConnectorProxy_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteVoiceConnectorProxy_voiceConnectorId' - The Voice Connector ID.
 newDeleteVoiceConnectorProxy ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -68,7 +70,7 @@ newDeleteVoiceConnectorProxy pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteVoiceConnectorProxy_voiceConnectorId :: Lens.Lens' DeleteVoiceConnectorProxy Prelude.Text
 deleteVoiceConnectorProxy_voiceConnectorId = Lens.lens (\DeleteVoiceConnectorProxy' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteVoiceConnectorProxy' {} a -> s {voiceConnectorId = a} :: DeleteVoiceConnectorProxy)
 

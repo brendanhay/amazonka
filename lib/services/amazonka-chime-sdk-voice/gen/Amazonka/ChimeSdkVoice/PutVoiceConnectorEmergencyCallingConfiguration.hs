@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates a Voice Connector\'s emergency calling configuration.
 module Amazonka.ChimeSdkVoice.PutVoiceConnectorEmergencyCallingConfiguration
   ( -- * Creating a Request
     PutVoiceConnectorEmergencyCallingConfiguration (..),
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorEmergencyCallingConfiguration' smart constructor.
 data PutVoiceConnectorEmergencyCallingConfiguration = PutVoiceConnectorEmergencyCallingConfiguration'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The configuration being updated.
     emergencyCallingConfiguration :: EmergencyCallingConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -63,9 +65,9 @@ data PutVoiceConnectorEmergencyCallingConfiguration = PutVoiceConnectorEmergency
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'putVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'putVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId' - The Voice Connector ID.
 --
--- 'emergencyCallingConfiguration', 'putVoiceConnectorEmergencyCallingConfiguration_emergencyCallingConfiguration' - Undocumented member.
+-- 'emergencyCallingConfiguration', 'putVoiceConnectorEmergencyCallingConfiguration_emergencyCallingConfiguration' - The configuration being updated.
 newPutVoiceConnectorEmergencyCallingConfiguration ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -82,11 +84,11 @@ newPutVoiceConnectorEmergencyCallingConfiguration
           pEmergencyCallingConfiguration_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 putVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId :: Lens.Lens' PutVoiceConnectorEmergencyCallingConfiguration Prelude.Text
 putVoiceConnectorEmergencyCallingConfiguration_voiceConnectorId = Lens.lens (\PutVoiceConnectorEmergencyCallingConfiguration' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorEmergencyCallingConfiguration' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorEmergencyCallingConfiguration)
 
--- | Undocumented member.
+-- | The configuration being updated.
 putVoiceConnectorEmergencyCallingConfiguration_emergencyCallingConfiguration :: Lens.Lens' PutVoiceConnectorEmergencyCallingConfiguration EmergencyCallingConfiguration
 putVoiceConnectorEmergencyCallingConfiguration_emergencyCallingConfiguration = Lens.lens (\PutVoiceConnectorEmergencyCallingConfiguration' {emergencyCallingConfiguration} -> emergencyCallingConfiguration) (\s@PutVoiceConnectorEmergencyCallingConfiguration' {} a -> s {emergencyCallingConfiguration = a} :: PutVoiceConnectorEmergencyCallingConfiguration)
 
@@ -105,7 +107,7 @@ instance
       ( \s h x ->
           PutVoiceConnectorEmergencyCallingConfigurationResponse'
             Prelude.<$> (x Data..?> "EmergencyCallingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -115,7 +117,8 @@ instance
   hashWithSalt
     _salt
     PutVoiceConnectorEmergencyCallingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` voiceConnectorId
+      _salt
+        `Prelude.hashWithSalt` voiceConnectorId
         `Prelude.hashWithSalt` emergencyCallingConfiguration
 
 instance
@@ -168,7 +171,8 @@ instance
 
 -- | /See:/ 'newPutVoiceConnectorEmergencyCallingConfigurationResponse' smart constructor.
 data PutVoiceConnectorEmergencyCallingConfigurationResponse = PutVoiceConnectorEmergencyCallingConfigurationResponse'
-  { emergencyCallingConfiguration :: Prelude.Maybe EmergencyCallingConfiguration,
+  { -- | The updated configuration.
+    emergencyCallingConfiguration :: Prelude.Maybe EmergencyCallingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -182,7 +186,7 @@ data PutVoiceConnectorEmergencyCallingConfigurationResponse = PutVoiceConnectorE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emergencyCallingConfiguration', 'putVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration' - Undocumented member.
+-- 'emergencyCallingConfiguration', 'putVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration' - The updated configuration.
 --
 -- 'httpStatus', 'putVoiceConnectorEmergencyCallingConfigurationResponse_httpStatus' - The response's http status code.
 newPutVoiceConnectorEmergencyCallingConfigurationResponse ::
@@ -198,7 +202,7 @@ newPutVoiceConnectorEmergencyCallingConfigurationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The updated configuration.
 putVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration :: Lens.Lens' PutVoiceConnectorEmergencyCallingConfigurationResponse (Prelude.Maybe EmergencyCallingConfiguration)
 putVoiceConnectorEmergencyCallingConfigurationResponse_emergencyCallingConfiguration = Lens.lens (\PutVoiceConnectorEmergencyCallingConfigurationResponse' {emergencyCallingConfiguration} -> emergencyCallingConfiguration) (\s@PutVoiceConnectorEmergencyCallingConfigurationResponse' {} a -> s {emergencyCallingConfiguration = a} :: PutVoiceConnectorEmergencyCallingConfigurationResponse)
 

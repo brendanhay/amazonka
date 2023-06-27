@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes a SIP rule.
 module Amazonka.ChimeSdkVoice.DeleteSipRule
   ( -- * Creating a Request
     DeleteSipRule (..),
@@ -45,7 +45,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSipRule' smart constructor.
 data DeleteSipRule = DeleteSipRule'
-  { sipRuleId :: Prelude.Text
+  { -- | The SIP rule ID.
+    sipRuleId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +58,7 @@ data DeleteSipRule = DeleteSipRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipRuleId', 'deleteSipRule_sipRuleId' - Undocumented member.
+-- 'sipRuleId', 'deleteSipRule_sipRuleId' - The SIP rule ID.
 newDeleteSipRule ::
   -- | 'sipRuleId'
   Prelude.Text ->
@@ -65,7 +66,7 @@ newDeleteSipRule ::
 newDeleteSipRule pSipRuleId_ =
   DeleteSipRule' {sipRuleId = pSipRuleId_}
 
--- | Undocumented member.
+-- | The SIP rule ID.
 deleteSipRule_sipRuleId :: Lens.Lens' DeleteSipRule Prelude.Text
 deleteSipRule_sipRuleId = Lens.lens (\DeleteSipRule' {sipRuleId} -> sipRuleId) (\s@DeleteSipRule' {} a -> s {sipRuleId = a} :: DeleteSipRule)
 

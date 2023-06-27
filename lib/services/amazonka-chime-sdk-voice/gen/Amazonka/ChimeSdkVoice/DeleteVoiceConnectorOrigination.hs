@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes the origination settings for the specified Amazon Chime SDK
+-- Voice Connector.
+--
+-- If emergency calling is configured for the Voice Connector, it must be
+-- deleted prior to deleting the origination settings.
 module Amazonka.ChimeSdkVoice.DeleteVoiceConnectorOrigination
   ( -- * Creating a Request
     DeleteVoiceConnectorOrigination (..),
@@ -45,7 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteVoiceConnectorOrigination' smart constructor.
 data DeleteVoiceConnectorOrigination = DeleteVoiceConnectorOrigination'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +62,7 @@ data DeleteVoiceConnectorOrigination = DeleteVoiceConnectorOrigination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'deleteVoiceConnectorOrigination_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'deleteVoiceConnectorOrigination_voiceConnectorId' - The Voice Connector ID.
 newDeleteVoiceConnectorOrigination ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -68,7 +73,7 @@ newDeleteVoiceConnectorOrigination pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 deleteVoiceConnectorOrigination_voiceConnectorId :: Lens.Lens' DeleteVoiceConnectorOrigination Prelude.Text
 deleteVoiceConnectorOrigination_voiceConnectorId = Lens.lens (\DeleteVoiceConnectorOrigination' {voiceConnectorId} -> voiceConnectorId) (\s@DeleteVoiceConnectorOrigination' {} a -> s {voiceConnectorId = a} :: DeleteVoiceConnectorOrigination)
 

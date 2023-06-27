@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates a proxy session for the specified Amazon Chime SDK Voice
+-- Connector for the specified participant phone numbers.
 module Amazonka.ChimeSdkVoice.CreateProxySession
   ( -- * Creating a Request
     CreateProxySession (..),
@@ -56,13 +57,23 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateProxySession' smart constructor.
 data CreateProxySession = CreateProxySession'
-  { expiryMinutes :: Prelude.Maybe Prelude.Natural,
+  { -- | The number of minutes allowed for the proxy session.
+    expiryMinutes :: Prelude.Maybe Prelude.Natural,
+    -- | The preference for matching the country or area code of the proxy phone
+    -- number with that of the first participant.
     geoMatchLevel :: Prelude.Maybe GeoMatchLevel,
+    -- | The country and area code for the proxy phone number.
     geoMatchParams :: Prelude.Maybe GeoMatchParams,
+    -- | The name of the proxy session.
     name :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The preference for proxy phone number reuse, or stickiness, between the
+    -- same participants across sessions.
     numberSelectionBehavior :: Prelude.Maybe NumberSelectionBehavior,
+    -- | The participant phone numbers.
     participantPhoneNumbers :: Prelude.NonEmpty (Data.Sensitive Prelude.Text),
+    -- | The proxy session\'s capabilities.
     capabilities :: [Capability],
+    -- | The Voice Connector ID.
     voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -75,21 +86,23 @@ data CreateProxySession = CreateProxySession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiryMinutes', 'createProxySession_expiryMinutes' - Undocumented member.
+-- 'expiryMinutes', 'createProxySession_expiryMinutes' - The number of minutes allowed for the proxy session.
 --
--- 'geoMatchLevel', 'createProxySession_geoMatchLevel' - Undocumented member.
+-- 'geoMatchLevel', 'createProxySession_geoMatchLevel' - The preference for matching the country or area code of the proxy phone
+-- number with that of the first participant.
 --
--- 'geoMatchParams', 'createProxySession_geoMatchParams' - Undocumented member.
+-- 'geoMatchParams', 'createProxySession_geoMatchParams' - The country and area code for the proxy phone number.
 --
--- 'name', 'createProxySession_name' - Undocumented member.
+-- 'name', 'createProxySession_name' - The name of the proxy session.
 --
--- 'numberSelectionBehavior', 'createProxySession_numberSelectionBehavior' - Undocumented member.
+-- 'numberSelectionBehavior', 'createProxySession_numberSelectionBehavior' - The preference for proxy phone number reuse, or stickiness, between the
+-- same participants across sessions.
 --
--- 'participantPhoneNumbers', 'createProxySession_participantPhoneNumbers' - Undocumented member.
+-- 'participantPhoneNumbers', 'createProxySession_participantPhoneNumbers' - The participant phone numbers.
 --
--- 'capabilities', 'createProxySession_capabilities' - Undocumented member.
+-- 'capabilities', 'createProxySession_capabilities' - The proxy session\'s capabilities.
 --
--- 'voiceConnectorId', 'createProxySession_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'createProxySession_voiceConnectorId' - The Voice Connector ID.
 newCreateProxySession ::
   -- | 'participantPhoneNumbers'
   Prelude.NonEmpty Prelude.Text ->
@@ -112,35 +125,37 @@ newCreateProxySession
         voiceConnectorId = pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The number of minutes allowed for the proxy session.
 createProxySession_expiryMinutes :: Lens.Lens' CreateProxySession (Prelude.Maybe Prelude.Natural)
 createProxySession_expiryMinutes = Lens.lens (\CreateProxySession' {expiryMinutes} -> expiryMinutes) (\s@CreateProxySession' {} a -> s {expiryMinutes = a} :: CreateProxySession)
 
--- | Undocumented member.
+-- | The preference for matching the country or area code of the proxy phone
+-- number with that of the first participant.
 createProxySession_geoMatchLevel :: Lens.Lens' CreateProxySession (Prelude.Maybe GeoMatchLevel)
 createProxySession_geoMatchLevel = Lens.lens (\CreateProxySession' {geoMatchLevel} -> geoMatchLevel) (\s@CreateProxySession' {} a -> s {geoMatchLevel = a} :: CreateProxySession)
 
--- | Undocumented member.
+-- | The country and area code for the proxy phone number.
 createProxySession_geoMatchParams :: Lens.Lens' CreateProxySession (Prelude.Maybe GeoMatchParams)
 createProxySession_geoMatchParams = Lens.lens (\CreateProxySession' {geoMatchParams} -> geoMatchParams) (\s@CreateProxySession' {} a -> s {geoMatchParams = a} :: CreateProxySession)
 
--- | Undocumented member.
+-- | The name of the proxy session.
 createProxySession_name :: Lens.Lens' CreateProxySession (Prelude.Maybe Prelude.Text)
 createProxySession_name = Lens.lens (\CreateProxySession' {name} -> name) (\s@CreateProxySession' {} a -> s {name = a} :: CreateProxySession) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The preference for proxy phone number reuse, or stickiness, between the
+-- same participants across sessions.
 createProxySession_numberSelectionBehavior :: Lens.Lens' CreateProxySession (Prelude.Maybe NumberSelectionBehavior)
 createProxySession_numberSelectionBehavior = Lens.lens (\CreateProxySession' {numberSelectionBehavior} -> numberSelectionBehavior) (\s@CreateProxySession' {} a -> s {numberSelectionBehavior = a} :: CreateProxySession)
 
--- | Undocumented member.
+-- | The participant phone numbers.
 createProxySession_participantPhoneNumbers :: Lens.Lens' CreateProxySession (Prelude.NonEmpty Prelude.Text)
 createProxySession_participantPhoneNumbers = Lens.lens (\CreateProxySession' {participantPhoneNumbers} -> participantPhoneNumbers) (\s@CreateProxySession' {} a -> s {participantPhoneNumbers = a} :: CreateProxySession) Prelude.. Lens.coerced
 
--- | Undocumented member.
+-- | The proxy session\'s capabilities.
 createProxySession_capabilities :: Lens.Lens' CreateProxySession [Capability]
 createProxySession_capabilities = Lens.lens (\CreateProxySession' {capabilities} -> capabilities) (\s@CreateProxySession' {} a -> s {capabilities = a} :: CreateProxySession) Prelude.. Lens.coerced
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 createProxySession_voiceConnectorId :: Lens.Lens' CreateProxySession Prelude.Text
 createProxySession_voiceConnectorId = Lens.lens (\CreateProxySession' {voiceConnectorId} -> voiceConnectorId) (\s@CreateProxySession' {} a -> s {voiceConnectorId = a} :: CreateProxySession)
 
@@ -160,7 +175,8 @@ instance Core.AWSRequest CreateProxySession where
 
 instance Prelude.Hashable CreateProxySession where
   hashWithSalt _salt CreateProxySession' {..} =
-    _salt `Prelude.hashWithSalt` expiryMinutes
+    _salt
+      `Prelude.hashWithSalt` expiryMinutes
       `Prelude.hashWithSalt` geoMatchLevel
       `Prelude.hashWithSalt` geoMatchParams
       `Prelude.hashWithSalt` name
@@ -215,7 +231,8 @@ instance Data.ToQuery CreateProxySession where
 
 -- | /See:/ 'newCreateProxySessionResponse' smart constructor.
 data CreateProxySessionResponse = CreateProxySessionResponse'
-  { proxySession :: Prelude.Maybe ProxySession,
+  { -- | The proxy session details.
+    proxySession :: Prelude.Maybe ProxySession,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -229,7 +246,7 @@ data CreateProxySessionResponse = CreateProxySessionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proxySession', 'createProxySessionResponse_proxySession' - Undocumented member.
+-- 'proxySession', 'createProxySessionResponse_proxySession' - The proxy session details.
 --
 -- 'httpStatus', 'createProxySessionResponse_httpStatus' - The response's http status code.
 newCreateProxySessionResponse ::
@@ -243,7 +260,7 @@ newCreateProxySessionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The proxy session details.
 createProxySessionResponse_proxySession :: Lens.Lens' CreateProxySessionResponse (Prelude.Maybe ProxySession)
 createProxySessionResponse_proxySession = Lens.lens (\CreateProxySessionResponse' {proxySession} -> proxySession) (\s@CreateProxySessionResponse' {} a -> s {proxySession = a} :: CreateProxySessionResponse)
 

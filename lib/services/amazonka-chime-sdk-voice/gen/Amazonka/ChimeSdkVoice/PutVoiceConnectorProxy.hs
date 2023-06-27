@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Puts the specified proxy configuration to the specified Amazon Chime SDK
+-- Voice Connector.
 module Amazonka.ChimeSdkVoice.PutVoiceConnectorProxy
   ( -- * Creating a Request
     PutVoiceConnectorProxy (..),
@@ -53,10 +54,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorProxy' smart constructor.
 data PutVoiceConnectorProxy = PutVoiceConnectorProxy'
-  { disabled :: Prelude.Maybe Prelude.Bool,
+  { -- | When true, stops proxy sessions from being created on the specified
+    -- Amazon Chime SDK Voice Connector.
+    disabled :: Prelude.Maybe Prelude.Bool,
+    -- | The phone number to route calls to after a proxy session expires.
     fallBackPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The default number of minutes allowed for proxy session.
     defaultSessionExpiryMinutes :: Prelude.Int,
+    -- | The countries for proxy phone numbers to be selected from.
     phoneNumberPoolCountries :: Prelude.NonEmpty Prelude.Text,
+    -- | The Voice Connector ID.
     voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -69,15 +76,16 @@ data PutVoiceConnectorProxy = PutVoiceConnectorProxy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'disabled', 'putVoiceConnectorProxy_disabled' - Undocumented member.
+-- 'disabled', 'putVoiceConnectorProxy_disabled' - When true, stops proxy sessions from being created on the specified
+-- Amazon Chime SDK Voice Connector.
 --
--- 'fallBackPhoneNumber', 'putVoiceConnectorProxy_fallBackPhoneNumber' - Undocumented member.
+-- 'fallBackPhoneNumber', 'putVoiceConnectorProxy_fallBackPhoneNumber' - The phone number to route calls to after a proxy session expires.
 --
--- 'defaultSessionExpiryMinutes', 'putVoiceConnectorProxy_defaultSessionExpiryMinutes' - Undocumented member.
+-- 'defaultSessionExpiryMinutes', 'putVoiceConnectorProxy_defaultSessionExpiryMinutes' - The default number of minutes allowed for proxy session.
 --
--- 'phoneNumberPoolCountries', 'putVoiceConnectorProxy_phoneNumberPoolCountries' - Undocumented member.
+-- 'phoneNumberPoolCountries', 'putVoiceConnectorProxy_phoneNumberPoolCountries' - The countries for proxy phone numbers to be selected from.
 --
--- 'voiceConnectorId', 'putVoiceConnectorProxy_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'putVoiceConnectorProxy_voiceConnectorId' - The Voice Connector ID.
 newPutVoiceConnectorProxy ::
   -- | 'defaultSessionExpiryMinutes'
   Prelude.Int ->
@@ -100,23 +108,24 @@ newPutVoiceConnectorProxy
         voiceConnectorId = pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | When true, stops proxy sessions from being created on the specified
+-- Amazon Chime SDK Voice Connector.
 putVoiceConnectorProxy_disabled :: Lens.Lens' PutVoiceConnectorProxy (Prelude.Maybe Prelude.Bool)
 putVoiceConnectorProxy_disabled = Lens.lens (\PutVoiceConnectorProxy' {disabled} -> disabled) (\s@PutVoiceConnectorProxy' {} a -> s {disabled = a} :: PutVoiceConnectorProxy)
 
--- | Undocumented member.
+-- | The phone number to route calls to after a proxy session expires.
 putVoiceConnectorProxy_fallBackPhoneNumber :: Lens.Lens' PutVoiceConnectorProxy (Prelude.Maybe Prelude.Text)
 putVoiceConnectorProxy_fallBackPhoneNumber = Lens.lens (\PutVoiceConnectorProxy' {fallBackPhoneNumber} -> fallBackPhoneNumber) (\s@PutVoiceConnectorProxy' {} a -> s {fallBackPhoneNumber = a} :: PutVoiceConnectorProxy) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The default number of minutes allowed for proxy session.
 putVoiceConnectorProxy_defaultSessionExpiryMinutes :: Lens.Lens' PutVoiceConnectorProxy Prelude.Int
 putVoiceConnectorProxy_defaultSessionExpiryMinutes = Lens.lens (\PutVoiceConnectorProxy' {defaultSessionExpiryMinutes} -> defaultSessionExpiryMinutes) (\s@PutVoiceConnectorProxy' {} a -> s {defaultSessionExpiryMinutes = a} :: PutVoiceConnectorProxy)
 
--- | Undocumented member.
+-- | The countries for proxy phone numbers to be selected from.
 putVoiceConnectorProxy_phoneNumberPoolCountries :: Lens.Lens' PutVoiceConnectorProxy (Prelude.NonEmpty Prelude.Text)
 putVoiceConnectorProxy_phoneNumberPoolCountries = Lens.lens (\PutVoiceConnectorProxy' {phoneNumberPoolCountries} -> phoneNumberPoolCountries) (\s@PutVoiceConnectorProxy' {} a -> s {phoneNumberPoolCountries = a} :: PutVoiceConnectorProxy) Prelude.. Lens.coerced
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 putVoiceConnectorProxy_voiceConnectorId :: Lens.Lens' PutVoiceConnectorProxy Prelude.Text
 putVoiceConnectorProxy_voiceConnectorId = Lens.lens (\PutVoiceConnectorProxy' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorProxy' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorProxy)
 
@@ -136,7 +145,8 @@ instance Core.AWSRequest PutVoiceConnectorProxy where
 
 instance Prelude.Hashable PutVoiceConnectorProxy where
   hashWithSalt _salt PutVoiceConnectorProxy' {..} =
-    _salt `Prelude.hashWithSalt` disabled
+    _salt
+      `Prelude.hashWithSalt` disabled
       `Prelude.hashWithSalt` fallBackPhoneNumber
       `Prelude.hashWithSalt` defaultSessionExpiryMinutes
       `Prelude.hashWithSalt` phoneNumberPoolCountries
@@ -184,7 +194,8 @@ instance Data.ToQuery PutVoiceConnectorProxy where
 
 -- | /See:/ 'newPutVoiceConnectorProxyResponse' smart constructor.
 data PutVoiceConnectorProxyResponse = PutVoiceConnectorProxyResponse'
-  { proxy :: Prelude.Maybe Proxy,
+  { -- | The proxy configuration details.
+    proxy :: Prelude.Maybe Proxy,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -198,7 +209,7 @@ data PutVoiceConnectorProxyResponse = PutVoiceConnectorProxyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'proxy', 'putVoiceConnectorProxyResponse_proxy' - Undocumented member.
+-- 'proxy', 'putVoiceConnectorProxyResponse_proxy' - The proxy configuration details.
 --
 -- 'httpStatus', 'putVoiceConnectorProxyResponse_httpStatus' - The response's http status code.
 newPutVoiceConnectorProxyResponse ::
@@ -212,7 +223,7 @@ newPutVoiceConnectorProxyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The proxy configuration details.
 putVoiceConnectorProxyResponse_proxy :: Lens.Lens' PutVoiceConnectorProxyResponse (Prelude.Maybe Proxy)
 putVoiceConnectorProxyResponse_proxy = Lens.lens (\PutVoiceConnectorProxyResponse' {proxy} -> proxy) (\s@PutVoiceConnectorProxyResponse' {} a -> s {proxy = a} :: PutVoiceConnectorProxyResponse)
 

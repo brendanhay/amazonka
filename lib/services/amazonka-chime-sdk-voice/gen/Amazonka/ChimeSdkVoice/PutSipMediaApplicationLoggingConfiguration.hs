@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates the logging configuration for the specified SIP media
+-- application.
 module Amazonka.ChimeSdkVoice.PutSipMediaApplicationLoggingConfiguration
   ( -- * Creating a Request
     PutSipMediaApplicationLoggingConfiguration (..),
@@ -50,7 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutSipMediaApplicationLoggingConfiguration' smart constructor.
 data PutSipMediaApplicationLoggingConfiguration = PutSipMediaApplicationLoggingConfiguration'
-  { sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
+  { -- | The logging configuration for the specified SIP media application.
+    sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
+    -- | The SIP media application ID.
     sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +66,9 @@ data PutSipMediaApplicationLoggingConfiguration = PutSipMediaApplicationLoggingC
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationLoggingConfiguration', 'putSipMediaApplicationLoggingConfiguration_sipMediaApplicationLoggingConfiguration' - Undocumented member.
+-- 'sipMediaApplicationLoggingConfiguration', 'putSipMediaApplicationLoggingConfiguration_sipMediaApplicationLoggingConfiguration' - The logging configuration for the specified SIP media application.
 --
--- 'sipMediaApplicationId', 'putSipMediaApplicationLoggingConfiguration_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'putSipMediaApplicationLoggingConfiguration_sipMediaApplicationId' - The SIP media application ID.
 newPutSipMediaApplicationLoggingConfiguration ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -79,11 +82,11 @@ newPutSipMediaApplicationLoggingConfiguration
           pSipMediaApplicationId_
       }
 
--- | Undocumented member.
+-- | The logging configuration for the specified SIP media application.
 putSipMediaApplicationLoggingConfiguration_sipMediaApplicationLoggingConfiguration :: Lens.Lens' PutSipMediaApplicationLoggingConfiguration (Prelude.Maybe SipMediaApplicationLoggingConfiguration)
 putSipMediaApplicationLoggingConfiguration_sipMediaApplicationLoggingConfiguration = Lens.lens (\PutSipMediaApplicationLoggingConfiguration' {sipMediaApplicationLoggingConfiguration} -> sipMediaApplicationLoggingConfiguration) (\s@PutSipMediaApplicationLoggingConfiguration' {} a -> s {sipMediaApplicationLoggingConfiguration = a} :: PutSipMediaApplicationLoggingConfiguration)
 
--- | Undocumented member.
+-- | The SIP media application ID.
 putSipMediaApplicationLoggingConfiguration_sipMediaApplicationId :: Lens.Lens' PutSipMediaApplicationLoggingConfiguration Prelude.Text
 putSipMediaApplicationLoggingConfiguration_sipMediaApplicationId = Lens.lens (\PutSipMediaApplicationLoggingConfiguration' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@PutSipMediaApplicationLoggingConfiguration' {} a -> s {sipMediaApplicationId = a} :: PutSipMediaApplicationLoggingConfiguration)
 
@@ -104,7 +107,7 @@ instance
             Prelude.<$> ( x
                             Data..?> "SipMediaApplicationLoggingConfiguration"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -165,7 +168,9 @@ instance
 
 -- | /See:/ 'newPutSipMediaApplicationLoggingConfigurationResponse' smart constructor.
 data PutSipMediaApplicationLoggingConfigurationResponse = PutSipMediaApplicationLoggingConfigurationResponse'
-  { sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
+  { -- | The updated logging configuration for the specified SIP media
+    -- application.
+    sipMediaApplicationLoggingConfiguration :: Prelude.Maybe SipMediaApplicationLoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -179,7 +184,8 @@ data PutSipMediaApplicationLoggingConfigurationResponse = PutSipMediaApplication
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationLoggingConfiguration', 'putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration' - Undocumented member.
+-- 'sipMediaApplicationLoggingConfiguration', 'putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration' - The updated logging configuration for the specified SIP media
+-- application.
 --
 -- 'httpStatus', 'putSipMediaApplicationLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newPutSipMediaApplicationLoggingConfigurationResponse ::
@@ -195,7 +201,8 @@ newPutSipMediaApplicationLoggingConfigurationResponse
           pHttpStatus_
       }
 
--- | Undocumented member.
+-- | The updated logging configuration for the specified SIP media
+-- application.
 putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration :: Lens.Lens' PutSipMediaApplicationLoggingConfigurationResponse (Prelude.Maybe SipMediaApplicationLoggingConfiguration)
 putSipMediaApplicationLoggingConfigurationResponse_sipMediaApplicationLoggingConfiguration = Lens.lens (\PutSipMediaApplicationLoggingConfigurationResponse' {sipMediaApplicationLoggingConfiguration} -> sipMediaApplicationLoggingConfiguration) (\s@PutSipMediaApplicationLoggingConfigurationResponse' {} a -> s {sipMediaApplicationLoggingConfiguration = a} :: PutSipMediaApplicationLoggingConfigurationResponse)
 

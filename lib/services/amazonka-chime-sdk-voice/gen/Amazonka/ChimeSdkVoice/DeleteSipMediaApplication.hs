@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes a SIP media application.
 module Amazonka.ChimeSdkVoice.DeleteSipMediaApplication
   ( -- * Creating a Request
     DeleteSipMediaApplication (..),
@@ -45,7 +45,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSipMediaApplication' smart constructor.
 data DeleteSipMediaApplication = DeleteSipMediaApplication'
-  { sipMediaApplicationId :: Prelude.Text
+  { -- | The SIP media application ID.
+    sipMediaApplicationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,7 +58,7 @@ data DeleteSipMediaApplication = DeleteSipMediaApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sipMediaApplicationId', 'deleteSipMediaApplication_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'deleteSipMediaApplication_sipMediaApplicationId' - The SIP media application ID.
 newDeleteSipMediaApplication ::
   -- | 'sipMediaApplicationId'
   Prelude.Text ->
@@ -68,7 +69,7 @@ newDeleteSipMediaApplication pSipMediaApplicationId_ =
         pSipMediaApplicationId_
     }
 
--- | Undocumented member.
+-- | The SIP media application ID.
 deleteSipMediaApplication_sipMediaApplicationId :: Lens.Lens' DeleteSipMediaApplication Prelude.Text
 deleteSipMediaApplication_sipMediaApplicationId = Lens.lens (\DeleteSipMediaApplication' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@DeleteSipMediaApplication' {} a -> s {sipMediaApplicationId = a} :: DeleteSipMediaApplication)
 

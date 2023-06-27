@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves the termination setting details for the specified Voice
+-- Connector.
 module Amazonka.ChimeSdkVoice.GetVoiceConnectorTermination
   ( -- * Creating a Request
     GetVoiceConnectorTermination (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetVoiceConnectorTermination' smart constructor.
 data GetVoiceConnectorTermination = GetVoiceConnectorTermination'
-  { voiceConnectorId :: Prelude.Text
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +63,7 @@ data GetVoiceConnectorTermination = GetVoiceConnectorTermination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'getVoiceConnectorTermination_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'getVoiceConnectorTermination_voiceConnectorId' - The Voice Connector ID.
 newGetVoiceConnectorTermination ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -72,7 +74,7 @@ newGetVoiceConnectorTermination pVoiceConnectorId_ =
         pVoiceConnectorId_
     }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 getVoiceConnectorTermination_voiceConnectorId :: Lens.Lens' GetVoiceConnectorTermination Prelude.Text
 getVoiceConnectorTermination_voiceConnectorId = Lens.lens (\GetVoiceConnectorTermination' {voiceConnectorId} -> voiceConnectorId) (\s@GetVoiceConnectorTermination' {} a -> s {voiceConnectorId = a} :: GetVoiceConnectorTermination)
 
@@ -117,7 +119,8 @@ instance Data.ToQuery GetVoiceConnectorTermination where
 
 -- | /See:/ 'newGetVoiceConnectorTerminationResponse' smart constructor.
 data GetVoiceConnectorTerminationResponse = GetVoiceConnectorTerminationResponse'
-  { termination :: Prelude.Maybe Termination,
+  { -- | The termination setting details.
+    termination :: Prelude.Maybe Termination,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -131,7 +134,7 @@ data GetVoiceConnectorTerminationResponse = GetVoiceConnectorTerminationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'termination', 'getVoiceConnectorTerminationResponse_termination' - Undocumented member.
+-- 'termination', 'getVoiceConnectorTerminationResponse_termination' - The termination setting details.
 --
 -- 'httpStatus', 'getVoiceConnectorTerminationResponse_httpStatus' - The response's http status code.
 newGetVoiceConnectorTerminationResponse ::
@@ -145,7 +148,7 @@ newGetVoiceConnectorTerminationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The termination setting details.
 getVoiceConnectorTerminationResponse_termination :: Lens.Lens' GetVoiceConnectorTerminationResponse (Prelude.Maybe Termination)
 getVoiceConnectorTerminationResponse_termination = Lens.lens (\GetVoiceConnectorTerminationResponse' {termination} -> termination) (\s@GetVoiceConnectorTerminationResponse' {} a -> s {termination = a} :: GetVoiceConnectorTerminationResponse)
 

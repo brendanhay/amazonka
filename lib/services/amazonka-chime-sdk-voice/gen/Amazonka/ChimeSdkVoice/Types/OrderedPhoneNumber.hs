@@ -25,9 +25,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newOrderedPhoneNumber' smart constructor.
+-- | A phone number for which an order has been placed.
+--
+-- /See:/ 'newOrderedPhoneNumber' smart constructor.
 data OrderedPhoneNumber = OrderedPhoneNumber'
-  { e164PhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+  { -- | The phone number, in E.164 format.
+    e164PhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | The phone number status.
     status :: Prelude.Maybe OrderedPhoneNumberStatus
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -40,9 +44,9 @@ data OrderedPhoneNumber = OrderedPhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'e164PhoneNumber', 'orderedPhoneNumber_e164PhoneNumber' - Undocumented member.
+-- 'e164PhoneNumber', 'orderedPhoneNumber_e164PhoneNumber' - The phone number, in E.164 format.
 --
--- 'status', 'orderedPhoneNumber_status' - Undocumented member.
+-- 'status', 'orderedPhoneNumber_status' - The phone number status.
 newOrderedPhoneNumber ::
   OrderedPhoneNumber
 newOrderedPhoneNumber =
@@ -52,11 +56,11 @@ newOrderedPhoneNumber =
       status = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The phone number, in E.164 format.
 orderedPhoneNumber_e164PhoneNumber :: Lens.Lens' OrderedPhoneNumber (Prelude.Maybe Prelude.Text)
 orderedPhoneNumber_e164PhoneNumber = Lens.lens (\OrderedPhoneNumber' {e164PhoneNumber} -> e164PhoneNumber) (\s@OrderedPhoneNumber' {} a -> s {e164PhoneNumber = a} :: OrderedPhoneNumber) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | The phone number status.
 orderedPhoneNumber_status :: Lens.Lens' OrderedPhoneNumber (Prelude.Maybe OrderedPhoneNumberStatus)
 orderedPhoneNumber_status = Lens.lens (\OrderedPhoneNumber' {status} -> status) (\s@OrderedPhoneNumber' {} a -> s {status = a} :: OrderedPhoneNumber)
 
@@ -72,7 +76,8 @@ instance Data.FromJSON OrderedPhoneNumber where
 
 instance Prelude.Hashable OrderedPhoneNumber where
   hashWithSalt _salt OrderedPhoneNumber' {..} =
-    _salt `Prelude.hashWithSalt` e164PhoneNumber
+    _salt
+      `Prelude.hashWithSalt` e164PhoneNumber
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OrderedPhoneNumber where

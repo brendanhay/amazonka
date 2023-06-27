@@ -25,13 +25,25 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newSipMediaApplication' smart constructor.
+-- | The details of the SIP media application, including name and endpoints.
+-- An AWS account can have multiple SIP media applications.
+--
+-- /See:/ 'newSipMediaApplication' smart constructor.
 data SipMediaApplication = SipMediaApplication'
-  { awsRegion :: Prelude.Maybe Prelude.Text,
+  { -- | The AWS Region in which the SIP media application is created.
+    awsRegion :: Prelude.Maybe Prelude.Text,
+    -- | The SIP media application creation timestamp, in ISO 8601 format.
     createdTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | List of endpoints for a SIP media application. Currently, only one
+    -- endpoint per SIP media application is permitted.
     endpoints :: Prelude.Maybe (Prelude.NonEmpty SipMediaApplicationEndpoint),
+    -- | The SIP media application\'s name.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the SIP media application.
+    sipMediaApplicationArn :: Prelude.Maybe Prelude.Text,
+    -- | A SIP media application\'s ID.
     sipMediaApplicationId :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the SIP media application was updated.
     updatedTimestamp :: Prelude.Maybe Data.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -44,17 +56,20 @@ data SipMediaApplication = SipMediaApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsRegion', 'sipMediaApplication_awsRegion' - Undocumented member.
+-- 'awsRegion', 'sipMediaApplication_awsRegion' - The AWS Region in which the SIP media application is created.
 --
--- 'createdTimestamp', 'sipMediaApplication_createdTimestamp' - Undocumented member.
+-- 'createdTimestamp', 'sipMediaApplication_createdTimestamp' - The SIP media application creation timestamp, in ISO 8601 format.
 --
--- 'endpoints', 'sipMediaApplication_endpoints' - Undocumented member.
+-- 'endpoints', 'sipMediaApplication_endpoints' - List of endpoints for a SIP media application. Currently, only one
+-- endpoint per SIP media application is permitted.
 --
--- 'name', 'sipMediaApplication_name' - Undocumented member.
+-- 'name', 'sipMediaApplication_name' - The SIP media application\'s name.
 --
--- 'sipMediaApplicationId', 'sipMediaApplication_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationArn', 'sipMediaApplication_sipMediaApplicationArn' - The ARN of the SIP media application.
 --
--- 'updatedTimestamp', 'sipMediaApplication_updatedTimestamp' - Undocumented member.
+-- 'sipMediaApplicationId', 'sipMediaApplication_sipMediaApplicationId' - A SIP media application\'s ID.
+--
+-- 'updatedTimestamp', 'sipMediaApplication_updatedTimestamp' - The time at which the SIP media application was updated.
 newSipMediaApplication ::
   SipMediaApplication
 newSipMediaApplication =
@@ -63,31 +78,37 @@ newSipMediaApplication =
       createdTimestamp = Prelude.Nothing,
       endpoints = Prelude.Nothing,
       name = Prelude.Nothing,
+      sipMediaApplicationArn = Prelude.Nothing,
       sipMediaApplicationId = Prelude.Nothing,
       updatedTimestamp = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The AWS Region in which the SIP media application is created.
 sipMediaApplication_awsRegion :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.Text)
 sipMediaApplication_awsRegion = Lens.lens (\SipMediaApplication' {awsRegion} -> awsRegion) (\s@SipMediaApplication' {} a -> s {awsRegion = a} :: SipMediaApplication)
 
--- | Undocumented member.
+-- | The SIP media application creation timestamp, in ISO 8601 format.
 sipMediaApplication_createdTimestamp :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.UTCTime)
 sipMediaApplication_createdTimestamp = Lens.lens (\SipMediaApplication' {createdTimestamp} -> createdTimestamp) (\s@SipMediaApplication' {} a -> s {createdTimestamp = a} :: SipMediaApplication) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | List of endpoints for a SIP media application. Currently, only one
+-- endpoint per SIP media application is permitted.
 sipMediaApplication_endpoints :: Lens.Lens' SipMediaApplication (Prelude.Maybe (Prelude.NonEmpty SipMediaApplicationEndpoint))
 sipMediaApplication_endpoints = Lens.lens (\SipMediaApplication' {endpoints} -> endpoints) (\s@SipMediaApplication' {} a -> s {endpoints = a} :: SipMediaApplication) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The SIP media application\'s name.
 sipMediaApplication_name :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.Text)
 sipMediaApplication_name = Lens.lens (\SipMediaApplication' {name} -> name) (\s@SipMediaApplication' {} a -> s {name = a} :: SipMediaApplication)
 
--- | Undocumented member.
+-- | The ARN of the SIP media application.
+sipMediaApplication_sipMediaApplicationArn :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.Text)
+sipMediaApplication_sipMediaApplicationArn = Lens.lens (\SipMediaApplication' {sipMediaApplicationArn} -> sipMediaApplicationArn) (\s@SipMediaApplication' {} a -> s {sipMediaApplicationArn = a} :: SipMediaApplication)
+
+-- | A SIP media application\'s ID.
 sipMediaApplication_sipMediaApplicationId :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.Text)
 sipMediaApplication_sipMediaApplicationId = Lens.lens (\SipMediaApplication' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@SipMediaApplication' {} a -> s {sipMediaApplicationId = a} :: SipMediaApplication)
 
--- | Undocumented member.
+-- | The time at which the SIP media application was updated.
 sipMediaApplication_updatedTimestamp :: Lens.Lens' SipMediaApplication (Prelude.Maybe Prelude.UTCTime)
 sipMediaApplication_updatedTimestamp = Lens.lens (\SipMediaApplication' {updatedTimestamp} -> updatedTimestamp) (\s@SipMediaApplication' {} a -> s {updatedTimestamp = a} :: SipMediaApplication) Prelude.. Lens.mapping Data._Time
 
@@ -101,16 +122,19 @@ instance Data.FromJSON SipMediaApplication where
             Prelude.<*> (x Data..:? "CreatedTimestamp")
             Prelude.<*> (x Data..:? "Endpoints")
             Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "SipMediaApplicationArn")
             Prelude.<*> (x Data..:? "SipMediaApplicationId")
             Prelude.<*> (x Data..:? "UpdatedTimestamp")
       )
 
 instance Prelude.Hashable SipMediaApplication where
   hashWithSalt _salt SipMediaApplication' {..} =
-    _salt `Prelude.hashWithSalt` awsRegion
+    _salt
+      `Prelude.hashWithSalt` awsRegion
       `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sipMediaApplicationArn
       `Prelude.hashWithSalt` sipMediaApplicationId
       `Prelude.hashWithSalt` updatedTimestamp
 
@@ -120,5 +144,6 @@ instance Prelude.NFData SipMediaApplication where
       `Prelude.seq` Prelude.rnf createdTimestamp
       `Prelude.seq` Prelude.rnf endpoints
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sipMediaApplicationArn
       `Prelude.seq` Prelude.rnf sipMediaApplicationId
       `Prelude.seq` Prelude.rnf updatedTimestamp

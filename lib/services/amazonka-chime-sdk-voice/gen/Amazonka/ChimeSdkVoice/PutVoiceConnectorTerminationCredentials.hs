@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates a Voice Connector\'s termination credentials.
 module Amazonka.ChimeSdkVoice.PutVoiceConnectorTerminationCredentials
   ( -- * Creating a Request
     PutVoiceConnectorTerminationCredentials (..),
@@ -46,7 +46,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorTerminationCredentials' smart constructor.
 data PutVoiceConnectorTerminationCredentials = PutVoiceConnectorTerminationCredentials'
-  { credentials :: Prelude.Maybe [Credential],
+  { -- | The termination credentials being updated.
+    credentials :: Prelude.Maybe [Credential],
+    -- | The Voice Connector ID.
     voiceConnectorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -59,9 +61,9 @@ data PutVoiceConnectorTerminationCredentials = PutVoiceConnectorTerminationCrede
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'credentials', 'putVoiceConnectorTerminationCredentials_credentials' - Undocumented member.
+-- 'credentials', 'putVoiceConnectorTerminationCredentials_credentials' - The termination credentials being updated.
 --
--- 'voiceConnectorId', 'putVoiceConnectorTerminationCredentials_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'putVoiceConnectorTerminationCredentials_voiceConnectorId' - The Voice Connector ID.
 newPutVoiceConnectorTerminationCredentials ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -75,11 +77,11 @@ newPutVoiceConnectorTerminationCredentials
           pVoiceConnectorId_
       }
 
--- | Undocumented member.
+-- | The termination credentials being updated.
 putVoiceConnectorTerminationCredentials_credentials :: Lens.Lens' PutVoiceConnectorTerminationCredentials (Prelude.Maybe [Credential])
 putVoiceConnectorTerminationCredentials_credentials = Lens.lens (\PutVoiceConnectorTerminationCredentials' {credentials} -> credentials) (\s@PutVoiceConnectorTerminationCredentials' {} a -> s {credentials = a} :: PutVoiceConnectorTerminationCredentials) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 putVoiceConnectorTerminationCredentials_voiceConnectorId :: Lens.Lens' PutVoiceConnectorTerminationCredentials Prelude.Text
 putVoiceConnectorTerminationCredentials_voiceConnectorId = Lens.lens (\PutVoiceConnectorTerminationCredentials' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorTerminationCredentials' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorTerminationCredentials)
 
@@ -104,7 +106,8 @@ instance
   hashWithSalt
     _salt
     PutVoiceConnectorTerminationCredentials' {..} =
-      _salt `Prelude.hashWithSalt` credentials
+      _salt
+        `Prelude.hashWithSalt` credentials
         `Prelude.hashWithSalt` voiceConnectorId
 
 instance

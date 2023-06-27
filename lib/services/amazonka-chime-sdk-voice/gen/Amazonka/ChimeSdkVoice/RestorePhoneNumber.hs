@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Restores a deleted phone number.
 module Amazonka.ChimeSdkVoice.RestorePhoneNumber
   ( -- * Creating a Request
     RestorePhoneNumber (..),
@@ -49,7 +49,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newRestorePhoneNumber' smart constructor.
 data RestorePhoneNumber = RestorePhoneNumber'
-  { phoneNumberId :: Data.Sensitive Prelude.Text
+  { -- | The ID of the phone number being restored.
+    phoneNumberId :: Data.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -61,7 +62,7 @@ data RestorePhoneNumber = RestorePhoneNumber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumberId', 'restorePhoneNumber_phoneNumberId' - Undocumented member.
+-- 'phoneNumberId', 'restorePhoneNumber_phoneNumberId' - The ID of the phone number being restored.
 newRestorePhoneNumber ::
   -- | 'phoneNumberId'
   Prelude.Text ->
@@ -72,7 +73,7 @@ newRestorePhoneNumber pPhoneNumberId_ =
         Data._Sensitive Lens.# pPhoneNumberId_
     }
 
--- | Undocumented member.
+-- | The ID of the phone number being restored.
 restorePhoneNumber_phoneNumberId :: Lens.Lens' RestorePhoneNumber Prelude.Text
 restorePhoneNumber_phoneNumberId = Lens.lens (\RestorePhoneNumber' {phoneNumberId} -> phoneNumberId) (\s@RestorePhoneNumber' {} a -> s {phoneNumberId = a} :: RestorePhoneNumber) Prelude.. Data._Sensitive
 
@@ -116,7 +117,8 @@ instance Data.ToQuery RestorePhoneNumber where
 
 -- | /See:/ 'newRestorePhoneNumberResponse' smart constructor.
 data RestorePhoneNumberResponse = RestorePhoneNumberResponse'
-  { phoneNumber :: Prelude.Maybe PhoneNumber,
+  { -- | The restored phone number.
+    phoneNumber :: Prelude.Maybe PhoneNumber,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -130,7 +132,7 @@ data RestorePhoneNumberResponse = RestorePhoneNumberResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phoneNumber', 'restorePhoneNumberResponse_phoneNumber' - Undocumented member.
+-- 'phoneNumber', 'restorePhoneNumberResponse_phoneNumber' - The restored phone number.
 --
 -- 'httpStatus', 'restorePhoneNumberResponse_httpStatus' - The response's http status code.
 newRestorePhoneNumberResponse ::
@@ -144,7 +146,7 @@ newRestorePhoneNumberResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The restored phone number.
 restorePhoneNumberResponse_phoneNumber :: Lens.Lens' RestorePhoneNumberResponse (Prelude.Maybe PhoneNumber)
 restorePhoneNumberResponse_phoneNumber = Lens.lens (\RestorePhoneNumberResponse' {phoneNumber} -> phoneNumber) (\s@RestorePhoneNumberResponse' {} a -> s {phoneNumber = a} :: RestorePhoneNumberResponse)
 

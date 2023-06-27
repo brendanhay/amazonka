@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Updates a Voice Connector\'s origination settings.
 module Amazonka.ChimeSdkVoice.PutVoiceConnectorOrigination
   ( -- * Creating a Request
     PutVoiceConnectorOrigination (..),
@@ -50,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutVoiceConnectorOrigination' smart constructor.
 data PutVoiceConnectorOrigination = PutVoiceConnectorOrigination'
-  { voiceConnectorId :: Prelude.Text,
+  { -- | The Voice Connector ID.
+    voiceConnectorId :: Prelude.Text,
+    -- | The origination settings being updated.
     origination :: Origination
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +65,9 @@ data PutVoiceConnectorOrigination = PutVoiceConnectorOrigination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'voiceConnectorId', 'putVoiceConnectorOrigination_voiceConnectorId' - Undocumented member.
+-- 'voiceConnectorId', 'putVoiceConnectorOrigination_voiceConnectorId' - The Voice Connector ID.
 --
--- 'origination', 'putVoiceConnectorOrigination_origination' - Undocumented member.
+-- 'origination', 'putVoiceConnectorOrigination_origination' - The origination settings being updated.
 newPutVoiceConnectorOrigination ::
   -- | 'voiceConnectorId'
   Prelude.Text ->
@@ -81,11 +83,11 @@ newPutVoiceConnectorOrigination
         origination = pOrigination_
       }
 
--- | Undocumented member.
+-- | The Voice Connector ID.
 putVoiceConnectorOrigination_voiceConnectorId :: Lens.Lens' PutVoiceConnectorOrigination Prelude.Text
 putVoiceConnectorOrigination_voiceConnectorId = Lens.lens (\PutVoiceConnectorOrigination' {voiceConnectorId} -> voiceConnectorId) (\s@PutVoiceConnectorOrigination' {} a -> s {voiceConnectorId = a} :: PutVoiceConnectorOrigination)
 
--- | Undocumented member.
+-- | The origination settings being updated.
 putVoiceConnectorOrigination_origination :: Lens.Lens' PutVoiceConnectorOrigination Origination
 putVoiceConnectorOrigination_origination = Lens.lens (\PutVoiceConnectorOrigination' {origination} -> origination) (\s@PutVoiceConnectorOrigination' {} a -> s {origination = a} :: PutVoiceConnectorOrigination)
 
@@ -108,7 +110,8 @@ instance
     PutVoiceConnectorOrigination
   where
   hashWithSalt _salt PutVoiceConnectorOrigination' {..} =
-    _salt `Prelude.hashWithSalt` voiceConnectorId
+    _salt
+      `Prelude.hashWithSalt` voiceConnectorId
       `Prelude.hashWithSalt` origination
 
 instance Prelude.NFData PutVoiceConnectorOrigination where
@@ -139,7 +142,8 @@ instance Data.ToQuery PutVoiceConnectorOrigination where
 
 -- | /See:/ 'newPutVoiceConnectorOriginationResponse' smart constructor.
 data PutVoiceConnectorOriginationResponse = PutVoiceConnectorOriginationResponse'
-  { origination :: Prelude.Maybe Origination,
+  { -- | The updated origination settings.
+    origination :: Prelude.Maybe Origination,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -153,7 +157,7 @@ data PutVoiceConnectorOriginationResponse = PutVoiceConnectorOriginationResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'origination', 'putVoiceConnectorOriginationResponse_origination' - Undocumented member.
+-- 'origination', 'putVoiceConnectorOriginationResponse_origination' - The updated origination settings.
 --
 -- 'httpStatus', 'putVoiceConnectorOriginationResponse_httpStatus' - The response's http status code.
 newPutVoiceConnectorOriginationResponse ::
@@ -167,7 +171,7 @@ newPutVoiceConnectorOriginationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The updated origination settings.
 putVoiceConnectorOriginationResponse_origination :: Lens.Lens' PutVoiceConnectorOriginationResponse (Prelude.Maybe Origination)
 putVoiceConnectorOriginationResponse_origination = Lens.lens (\PutVoiceConnectorOriginationResponse' {origination} -> origination) (\s@PutVoiceConnectorOriginationResponse' {} a -> s {origination = a} :: PutVoiceConnectorOriginationResponse)
 

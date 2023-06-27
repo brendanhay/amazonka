@@ -25,13 +25,24 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newVoiceConnectorGroup' smart constructor.
+-- | The Amazon Chime SDK Voice Connector group configuration, including
+-- associated Voice Connectors. You can include Voice Connectors from
+-- different AWS Regions in a group. This creates a fault tolerant
+-- mechanism for fallback in case of availability events.
+--
+-- /See:/ 'newVoiceConnectorGroup' smart constructor.
 data VoiceConnectorGroup = VoiceConnectorGroup'
-  { createdTimestamp :: Prelude.Maybe Data.ISO8601,
+  { -- | The Voice Connector group\'s creation time stamp, in ISO 8601 format.
+    createdTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The name of a Voice Connector group.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Voice Connector group\'s creation time stamp, in ISO 8601 format.
     updatedTimestamp :: Prelude.Maybe Data.ISO8601,
+    -- | The ARN of the Voice Connector group.
     voiceConnectorGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a Voice Connector group.
     voiceConnectorGroupId :: Prelude.Maybe Prelude.Text,
+    -- | The Voice Connectors to which you route inbound calls.
     voiceConnectorItems :: Prelude.Maybe [VoiceConnectorItem]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,17 +55,17 @@ data VoiceConnectorGroup = VoiceConnectorGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdTimestamp', 'voiceConnectorGroup_createdTimestamp' - Undocumented member.
+-- 'createdTimestamp', 'voiceConnectorGroup_createdTimestamp' - The Voice Connector group\'s creation time stamp, in ISO 8601 format.
 --
--- 'name', 'voiceConnectorGroup_name' - Undocumented member.
+-- 'name', 'voiceConnectorGroup_name' - The name of a Voice Connector group.
 --
--- 'updatedTimestamp', 'voiceConnectorGroup_updatedTimestamp' - Undocumented member.
+-- 'updatedTimestamp', 'voiceConnectorGroup_updatedTimestamp' - The Voice Connector group\'s creation time stamp, in ISO 8601 format.
 --
--- 'voiceConnectorGroupArn', 'voiceConnectorGroup_voiceConnectorGroupArn' - Undocumented member.
+-- 'voiceConnectorGroupArn', 'voiceConnectorGroup_voiceConnectorGroupArn' - The ARN of the Voice Connector group.
 --
--- 'voiceConnectorGroupId', 'voiceConnectorGroup_voiceConnectorGroupId' - Undocumented member.
+-- 'voiceConnectorGroupId', 'voiceConnectorGroup_voiceConnectorGroupId' - The ID of a Voice Connector group.
 --
--- 'voiceConnectorItems', 'voiceConnectorGroup_voiceConnectorItems' - Undocumented member.
+-- 'voiceConnectorItems', 'voiceConnectorGroup_voiceConnectorItems' - The Voice Connectors to which you route inbound calls.
 newVoiceConnectorGroup ::
   VoiceConnectorGroup
 newVoiceConnectorGroup =
@@ -68,27 +79,27 @@ newVoiceConnectorGroup =
       voiceConnectorItems = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The Voice Connector group\'s creation time stamp, in ISO 8601 format.
 voiceConnectorGroup_createdTimestamp :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.UTCTime)
 voiceConnectorGroup_createdTimestamp = Lens.lens (\VoiceConnectorGroup' {createdTimestamp} -> createdTimestamp) (\s@VoiceConnectorGroup' {} a -> s {createdTimestamp = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The name of a Voice Connector group.
 voiceConnectorGroup_name :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.Text)
 voiceConnectorGroup_name = Lens.lens (\VoiceConnectorGroup' {name} -> name) (\s@VoiceConnectorGroup' {} a -> s {name = a} :: VoiceConnectorGroup)
 
--- | Undocumented member.
+-- | The Voice Connector group\'s creation time stamp, in ISO 8601 format.
 voiceConnectorGroup_updatedTimestamp :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.UTCTime)
 voiceConnectorGroup_updatedTimestamp = Lens.lens (\VoiceConnectorGroup' {updatedTimestamp} -> updatedTimestamp) (\s@VoiceConnectorGroup' {} a -> s {updatedTimestamp = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Data._Time
 
--- | Undocumented member.
+-- | The ARN of the Voice Connector group.
 voiceConnectorGroup_voiceConnectorGroupArn :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.Text)
 voiceConnectorGroup_voiceConnectorGroupArn = Lens.lens (\VoiceConnectorGroup' {voiceConnectorGroupArn} -> voiceConnectorGroupArn) (\s@VoiceConnectorGroup' {} a -> s {voiceConnectorGroupArn = a} :: VoiceConnectorGroup)
 
--- | Undocumented member.
+-- | The ID of a Voice Connector group.
 voiceConnectorGroup_voiceConnectorGroupId :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe Prelude.Text)
 voiceConnectorGroup_voiceConnectorGroupId = Lens.lens (\VoiceConnectorGroup' {voiceConnectorGroupId} -> voiceConnectorGroupId) (\s@VoiceConnectorGroup' {} a -> s {voiceConnectorGroupId = a} :: VoiceConnectorGroup)
 
--- | Undocumented member.
+-- | The Voice Connectors to which you route inbound calls.
 voiceConnectorGroup_voiceConnectorItems :: Lens.Lens' VoiceConnectorGroup (Prelude.Maybe [VoiceConnectorItem])
 voiceConnectorGroup_voiceConnectorItems = Lens.lens (\VoiceConnectorGroup' {voiceConnectorItems} -> voiceConnectorItems) (\s@VoiceConnectorGroup' {} a -> s {voiceConnectorItems = a} :: VoiceConnectorGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -103,14 +114,16 @@ instance Data.FromJSON VoiceConnectorGroup where
             Prelude.<*> (x Data..:? "UpdatedTimestamp")
             Prelude.<*> (x Data..:? "VoiceConnectorGroupArn")
             Prelude.<*> (x Data..:? "VoiceConnectorGroupId")
-            Prelude.<*> ( x Data..:? "VoiceConnectorItems"
+            Prelude.<*> ( x
+                            Data..:? "VoiceConnectorItems"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable VoiceConnectorGroup where
   hashWithSalt _salt VoiceConnectorGroup' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` updatedTimestamp
       `Prelude.hashWithSalt` voiceConnectorGroupArn

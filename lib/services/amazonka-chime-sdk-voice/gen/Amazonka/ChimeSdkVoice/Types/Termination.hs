@@ -24,12 +24,22 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newTermination' smart constructor.
+-- | Termination settings enable SIP hosts to make outbound calls using an
+-- Amazon Chime SDK Voice Connector.
+--
+-- /See:/ 'newTermination' smart constructor.
 data Termination = Termination'
-  { callingRegions :: Prelude.Maybe [Prelude.Text],
+  { -- | The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
+    -- Required.
+    callingRegions :: Prelude.Maybe [Prelude.Text],
+    -- | The IP addresses allowed to make calls, in CIDR format.
     cidrAllowedList :: Prelude.Maybe [Prelude.Text],
+    -- | The limit on calls per second. Max value based on account service quota.
+    -- Default value of 1.
     cpsLimit :: Prelude.Maybe Prelude.Natural,
+    -- | The default outbound calling number.
     defaultPhoneNumber :: Prelude.Maybe (Data.Sensitive Prelude.Text),
+    -- | When termination is disabled, outbound calls cannot be made.
     disabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -42,15 +52,17 @@ data Termination = Termination'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'callingRegions', 'termination_callingRegions' - Undocumented member.
+-- 'callingRegions', 'termination_callingRegions' - The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
+-- Required.
 --
--- 'cidrAllowedList', 'termination_cidrAllowedList' - Undocumented member.
+-- 'cidrAllowedList', 'termination_cidrAllowedList' - The IP addresses allowed to make calls, in CIDR format.
 --
--- 'cpsLimit', 'termination_cpsLimit' - Undocumented member.
+-- 'cpsLimit', 'termination_cpsLimit' - The limit on calls per second. Max value based on account service quota.
+-- Default value of 1.
 --
--- 'defaultPhoneNumber', 'termination_defaultPhoneNumber' - Undocumented member.
+-- 'defaultPhoneNumber', 'termination_defaultPhoneNumber' - The default outbound calling number.
 --
--- 'disabled', 'termination_disabled' - Undocumented member.
+-- 'disabled', 'termination_disabled' - When termination is disabled, outbound calls cannot be made.
 newTermination ::
   Termination
 newTermination =
@@ -62,23 +74,25 @@ newTermination =
       disabled = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
+-- Required.
 termination_callingRegions :: Lens.Lens' Termination (Prelude.Maybe [Prelude.Text])
 termination_callingRegions = Lens.lens (\Termination' {callingRegions} -> callingRegions) (\s@Termination' {} a -> s {callingRegions = a} :: Termination) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The IP addresses allowed to make calls, in CIDR format.
 termination_cidrAllowedList :: Lens.Lens' Termination (Prelude.Maybe [Prelude.Text])
 termination_cidrAllowedList = Lens.lens (\Termination' {cidrAllowedList} -> cidrAllowedList) (\s@Termination' {} a -> s {cidrAllowedList = a} :: Termination) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The limit on calls per second. Max value based on account service quota.
+-- Default value of 1.
 termination_cpsLimit :: Lens.Lens' Termination (Prelude.Maybe Prelude.Natural)
 termination_cpsLimit = Lens.lens (\Termination' {cpsLimit} -> cpsLimit) (\s@Termination' {} a -> s {cpsLimit = a} :: Termination)
 
--- | Undocumented member.
+-- | The default outbound calling number.
 termination_defaultPhoneNumber :: Lens.Lens' Termination (Prelude.Maybe Prelude.Text)
 termination_defaultPhoneNumber = Lens.lens (\Termination' {defaultPhoneNumber} -> defaultPhoneNumber) (\s@Termination' {} a -> s {defaultPhoneNumber = a} :: Termination) Prelude.. Lens.mapping Data._Sensitive
 
--- | Undocumented member.
+-- | When termination is disabled, outbound calls cannot be made.
 termination_disabled :: Lens.Lens' Termination (Prelude.Maybe Prelude.Bool)
 termination_disabled = Lens.lens (\Termination' {disabled} -> disabled) (\s@Termination' {} a -> s {disabled = a} :: Termination)
 
@@ -89,7 +103,8 @@ instance Data.FromJSON Termination where
       ( \x ->
           Termination'
             Prelude.<$> (x Data..:? "CallingRegions" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "CidrAllowedList"
+            Prelude.<*> ( x
+                            Data..:? "CidrAllowedList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CpsLimit")
@@ -99,7 +114,8 @@ instance Data.FromJSON Termination where
 
 instance Prelude.Hashable Termination where
   hashWithSalt _salt Termination' {..} =
-    _salt `Prelude.hashWithSalt` callingRegions
+    _salt
+      `Prelude.hashWithSalt` callingRegions
       `Prelude.hashWithSalt` cidrAllowedList
       `Prelude.hashWithSalt` cpsLimit
       `Prelude.hashWithSalt` defaultPhoneNumber

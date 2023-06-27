@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Searches the provisioned phone numbers in an organization.
 module Amazonka.ChimeSdkVoice.SearchAvailablePhoneNumbers
   ( -- * Creating a Request
     SearchAvailablePhoneNumbers (..),
@@ -57,13 +57,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchAvailablePhoneNumbers' smart constructor.
 data SearchAvailablePhoneNumbers = SearchAvailablePhoneNumbers'
-  { areaCode :: Prelude.Maybe Prelude.Text,
+  { -- | Confines a search to just the phone numbers associated with the
+    -- specified area code.
+    areaCode :: Prelude.Maybe Prelude.Text,
+    -- | Confines a search to just the phone numbers associated with the
+    -- specified city.
     city :: Prelude.Maybe Prelude.Text,
+    -- | Confines a search to just the phone numbers associated with the
+    -- specified country.
     country :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to return the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Confines a search to just the phone numbers associated with the
+    -- specified phone number type, either __local__ or __toll-free__.
     phoneNumberType :: Prelude.Maybe PhoneNumberType,
+    -- | Confines a search to just the phone numbers associated with the
+    -- specified state.
     state :: Prelude.Maybe Prelude.Text,
+    -- | Confines a search to just the phone numbers associated with the
+    -- specified toll-free prefix.
     tollFreePrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,21 +90,27 @@ data SearchAvailablePhoneNumbers = SearchAvailablePhoneNumbers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'areaCode', 'searchAvailablePhoneNumbers_areaCode' - Undocumented member.
+-- 'areaCode', 'searchAvailablePhoneNumbers_areaCode' - Confines a search to just the phone numbers associated with the
+-- specified area code.
 --
--- 'city', 'searchAvailablePhoneNumbers_city' - Undocumented member.
+-- 'city', 'searchAvailablePhoneNumbers_city' - Confines a search to just the phone numbers associated with the
+-- specified city.
 --
--- 'country', 'searchAvailablePhoneNumbers_country' - Undocumented member.
+-- 'country', 'searchAvailablePhoneNumbers_country' - Confines a search to just the phone numbers associated with the
+-- specified country.
 --
--- 'maxResults', 'searchAvailablePhoneNumbers_maxResults' - Undocumented member.
+-- 'maxResults', 'searchAvailablePhoneNumbers_maxResults' - The maximum number of results to return.
 --
--- 'nextToken', 'searchAvailablePhoneNumbers_nextToken' - Undocumented member.
+-- 'nextToken', 'searchAvailablePhoneNumbers_nextToken' - The token used to return the next page of results.
 --
--- 'phoneNumberType', 'searchAvailablePhoneNumbers_phoneNumberType' - Undocumented member.
+-- 'phoneNumberType', 'searchAvailablePhoneNumbers_phoneNumberType' - Confines a search to just the phone numbers associated with the
+-- specified phone number type, either __local__ or __toll-free__.
 --
--- 'state', 'searchAvailablePhoneNumbers_state' - Undocumented member.
+-- 'state', 'searchAvailablePhoneNumbers_state' - Confines a search to just the phone numbers associated with the
+-- specified state.
 --
--- 'tollFreePrefix', 'searchAvailablePhoneNumbers_tollFreePrefix' - Undocumented member.
+-- 'tollFreePrefix', 'searchAvailablePhoneNumbers_tollFreePrefix' - Confines a search to just the phone numbers associated with the
+-- specified toll-free prefix.
 newSearchAvailablePhoneNumbers ::
   SearchAvailablePhoneNumbers
 newSearchAvailablePhoneNumbers =
@@ -106,35 +126,41 @@ newSearchAvailablePhoneNumbers =
       tollFreePrefix = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Confines a search to just the phone numbers associated with the
+-- specified area code.
 searchAvailablePhoneNumbers_areaCode :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbers_areaCode = Lens.lens (\SearchAvailablePhoneNumbers' {areaCode} -> areaCode) (\s@SearchAvailablePhoneNumbers' {} a -> s {areaCode = a} :: SearchAvailablePhoneNumbers)
 
--- | Undocumented member.
+-- | Confines a search to just the phone numbers associated with the
+-- specified city.
 searchAvailablePhoneNumbers_city :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbers_city = Lens.lens (\SearchAvailablePhoneNumbers' {city} -> city) (\s@SearchAvailablePhoneNumbers' {} a -> s {city = a} :: SearchAvailablePhoneNumbers)
 
--- | Undocumented member.
+-- | Confines a search to just the phone numbers associated with the
+-- specified country.
 searchAvailablePhoneNumbers_country :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbers_country = Lens.lens (\SearchAvailablePhoneNumbers' {country} -> country) (\s@SearchAvailablePhoneNumbers' {} a -> s {country = a} :: SearchAvailablePhoneNumbers)
 
--- | Undocumented member.
+-- | The maximum number of results to return.
 searchAvailablePhoneNumbers_maxResults :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Natural)
 searchAvailablePhoneNumbers_maxResults = Lens.lens (\SearchAvailablePhoneNumbers' {maxResults} -> maxResults) (\s@SearchAvailablePhoneNumbers' {} a -> s {maxResults = a} :: SearchAvailablePhoneNumbers)
 
--- | Undocumented member.
+-- | The token used to return the next page of results.
 searchAvailablePhoneNumbers_nextToken :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbers_nextToken = Lens.lens (\SearchAvailablePhoneNumbers' {nextToken} -> nextToken) (\s@SearchAvailablePhoneNumbers' {} a -> s {nextToken = a} :: SearchAvailablePhoneNumbers)
 
--- | Undocumented member.
+-- | Confines a search to just the phone numbers associated with the
+-- specified phone number type, either __local__ or __toll-free__.
 searchAvailablePhoneNumbers_phoneNumberType :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe PhoneNumberType)
 searchAvailablePhoneNumbers_phoneNumberType = Lens.lens (\SearchAvailablePhoneNumbers' {phoneNumberType} -> phoneNumberType) (\s@SearchAvailablePhoneNumbers' {} a -> s {phoneNumberType = a} :: SearchAvailablePhoneNumbers)
 
--- | Undocumented member.
+-- | Confines a search to just the phone numbers associated with the
+-- specified state.
 searchAvailablePhoneNumbers_state :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbers_state = Lens.lens (\SearchAvailablePhoneNumbers' {state} -> state) (\s@SearchAvailablePhoneNumbers' {} a -> s {state = a} :: SearchAvailablePhoneNumbers)
 
--- | Undocumented member.
+-- | Confines a search to just the phone numbers associated with the
+-- specified toll-free prefix.
 searchAvailablePhoneNumbers_tollFreePrefix :: Lens.Lens' SearchAvailablePhoneNumbers (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbers_tollFreePrefix = Lens.lens (\SearchAvailablePhoneNumbers' {tollFreePrefix} -> tollFreePrefix) (\s@SearchAvailablePhoneNumbers' {} a -> s {tollFreePrefix = a} :: SearchAvailablePhoneNumbers)
 
@@ -148,7 +174,8 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
     Response.receiveJSON
       ( \s h x ->
           SearchAvailablePhoneNumbersResponse'
-            Prelude.<$> ( x Data..?> "E164PhoneNumbers"
+            Prelude.<$> ( x
+                            Data..?> "E164PhoneNumbers"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -157,7 +184,8 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
 
 instance Prelude.Hashable SearchAvailablePhoneNumbers where
   hashWithSalt _salt SearchAvailablePhoneNumbers' {..} =
-    _salt `Prelude.hashWithSalt` areaCode
+    _salt
+      `Prelude.hashWithSalt` areaCode
       `Prelude.hashWithSalt` city
       `Prelude.hashWithSalt` country
       `Prelude.hashWithSalt` maxResults
@@ -199,7 +227,9 @@ instance Data.ToQuery SearchAvailablePhoneNumbers where
 
 -- | /See:/ 'newSearchAvailablePhoneNumbersResponse' smart constructor.
 data SearchAvailablePhoneNumbersResponse = SearchAvailablePhoneNumbersResponse'
-  { e164PhoneNumbers :: Prelude.Maybe [Data.Sensitive Prelude.Text],
+  { -- | Confines a search to just the phone numbers in the E.164 format.
+    e164PhoneNumbers :: Prelude.Maybe [Data.Sensitive Prelude.Text],
+    -- | The token used to return the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -214,9 +244,9 @@ data SearchAvailablePhoneNumbersResponse = SearchAvailablePhoneNumbersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'e164PhoneNumbers', 'searchAvailablePhoneNumbersResponse_e164PhoneNumbers' - Undocumented member.
+-- 'e164PhoneNumbers', 'searchAvailablePhoneNumbersResponse_e164PhoneNumbers' - Confines a search to just the phone numbers in the E.164 format.
 --
--- 'nextToken', 'searchAvailablePhoneNumbersResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'searchAvailablePhoneNumbersResponse_nextToken' - The token used to return the next page of results.
 --
 -- 'httpStatus', 'searchAvailablePhoneNumbersResponse_httpStatus' - The response's http status code.
 newSearchAvailablePhoneNumbersResponse ::
@@ -231,11 +261,11 @@ newSearchAvailablePhoneNumbersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Confines a search to just the phone numbers in the E.164 format.
 searchAvailablePhoneNumbersResponse_e164PhoneNumbers :: Lens.Lens' SearchAvailablePhoneNumbersResponse (Prelude.Maybe [Prelude.Text])
 searchAvailablePhoneNumbersResponse_e164PhoneNumbers = Lens.lens (\SearchAvailablePhoneNumbersResponse' {e164PhoneNumbers} -> e164PhoneNumbers) (\s@SearchAvailablePhoneNumbersResponse' {} a -> s {e164PhoneNumbers = a} :: SearchAvailablePhoneNumbersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The token used to return the next page of results.
 searchAvailablePhoneNumbersResponse_nextToken :: Lens.Lens' SearchAvailablePhoneNumbersResponse (Prelude.Maybe Prelude.Text)
 searchAvailablePhoneNumbersResponse_nextToken = Lens.lens (\SearchAvailablePhoneNumbersResponse' {nextToken} -> nextToken) (\s@SearchAvailablePhoneNumbersResponse' {} a -> s {nextToken = a} :: SearchAvailablePhoneNumbersResponse)
 

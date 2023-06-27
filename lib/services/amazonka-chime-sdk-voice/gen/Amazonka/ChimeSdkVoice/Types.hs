@@ -22,15 +22,20 @@ module Amazonka.ChimeSdkVoice.Types
     _BadRequestException,
     _ConflictException,
     _ForbiddenException,
+    _GoneException,
     _NotFoundException,
     _ResourceLimitExceededException,
     _ServiceFailureException,
     _ServiceUnavailableException,
     _ThrottledClientException,
     _UnauthorizedClientException,
+    _UnprocessableEntityException,
 
     -- * AlexaSkillStatus
     AlexaSkillStatus (..),
+
+    -- * CallLegType
+    CallLegType (..),
 
     -- * CallingNameStatus
     CallingNameStatus (..),
@@ -43,6 +48,9 @@ module Amazonka.ChimeSdkVoice.Types
 
     -- * GeoMatchLevel
     GeoMatchLevel (..),
+
+    -- * LanguageCode
+    LanguageCode (..),
 
     -- * NotificationTarget
     NotificationTarget (..),
@@ -97,6 +105,13 @@ module Amazonka.ChimeSdkVoice.Types
     address_streetNumber,
     address_streetSuffix,
 
+    -- * CallDetails
+    CallDetails (..),
+    newCallDetails,
+    callDetails_isCaller,
+    callDetails_transactionId,
+    callDetails_voiceConnectorId,
+
     -- * CandidateAddress
     CandidateAddress (..),
     newCandidateAddress,
@@ -135,7 +150,14 @@ module Amazonka.ChimeSdkVoice.Types
     -- * LoggingConfiguration
     LoggingConfiguration (..),
     newLoggingConfiguration,
+    loggingConfiguration_enableMediaMetricLogs,
     loggingConfiguration_enableSIPLogs,
+
+    -- * MediaInsightsConfiguration
+    MediaInsightsConfiguration (..),
+    newMediaInsightsConfiguration,
+    mediaInsightsConfiguration_configurationArn,
+    mediaInsightsConfiguration_disabled,
 
     -- * OrderedPhoneNumber
     OrderedPhoneNumber (..),
@@ -248,6 +270,11 @@ module Amazonka.ChimeSdkVoice.Types
     proxySession_updatedTimestamp,
     proxySession_voiceConnectorId,
 
+    -- * ServerSideEncryptionConfiguration
+    ServerSideEncryptionConfiguration (..),
+    newServerSideEncryptionConfiguration,
+    serverSideEncryptionConfiguration_kmsKeyArn,
+
     -- * SipMediaApplication
     SipMediaApplication (..),
     newSipMediaApplication,
@@ -255,6 +282,7 @@ module Amazonka.ChimeSdkVoice.Types
     sipMediaApplication_createdTimestamp,
     sipMediaApplication_endpoints,
     sipMediaApplication_name,
+    sipMediaApplication_sipMediaApplicationArn,
     sipMediaApplication_sipMediaApplicationId,
     sipMediaApplication_updatedTimestamp,
 
@@ -298,9 +326,34 @@ module Amazonka.ChimeSdkVoice.Types
     sipRuleTargetApplication_priority,
     sipRuleTargetApplication_sipMediaApplicationId,
 
+    -- * SpeakerSearchDetails
+    SpeakerSearchDetails (..),
+    newSpeakerSearchDetails,
+    speakerSearchDetails_results,
+    speakerSearchDetails_voiceprintGenerationStatus,
+
+    -- * SpeakerSearchResult
+    SpeakerSearchResult (..),
+    newSpeakerSearchResult,
+    speakerSearchResult_confidenceScore,
+    speakerSearchResult_voiceProfileId,
+
+    -- * SpeakerSearchTask
+    SpeakerSearchTask (..),
+    newSpeakerSearchTask,
+    speakerSearchTask_callDetails,
+    speakerSearchTask_createdTimestamp,
+    speakerSearchTask_speakerSearchDetails,
+    speakerSearchTask_speakerSearchTaskId,
+    speakerSearchTask_speakerSearchTaskStatus,
+    speakerSearchTask_startedTimestamp,
+    speakerSearchTask_statusMessage,
+    speakerSearchTask_updatedTimestamp,
+
     -- * StreamingConfiguration
     StreamingConfiguration (..),
     newStreamingConfiguration,
+    streamingConfiguration_mediaInsightsConfiguration,
     streamingConfiguration_streamingNotificationTargets,
     streamingConfiguration_dataRetentionInHours,
     streamingConfiguration_disabled,
@@ -309,6 +362,12 @@ module Amazonka.ChimeSdkVoice.Types
     StreamingNotificationTarget (..),
     newStreamingNotificationTarget,
     streamingNotificationTarget_notificationTarget,
+
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
 
     -- * Termination
     Termination (..),
@@ -364,11 +423,65 @@ module Amazonka.ChimeSdkVoice.Types
     VoiceConnectorSettings (..),
     newVoiceConnectorSettings,
     voiceConnectorSettings_cdrBucket,
+
+    -- * VoiceProfile
+    VoiceProfile (..),
+    newVoiceProfile,
+    voiceProfile_createdTimestamp,
+    voiceProfile_expirationTimestamp,
+    voiceProfile_updatedTimestamp,
+    voiceProfile_voiceProfileArn,
+    voiceProfile_voiceProfileDomainId,
+    voiceProfile_voiceProfileId,
+
+    -- * VoiceProfileDomain
+    VoiceProfileDomain (..),
+    newVoiceProfileDomain,
+    voiceProfileDomain_createdTimestamp,
+    voiceProfileDomain_description,
+    voiceProfileDomain_name,
+    voiceProfileDomain_serverSideEncryptionConfiguration,
+    voiceProfileDomain_updatedTimestamp,
+    voiceProfileDomain_voiceProfileDomainArn,
+    voiceProfileDomain_voiceProfileDomainId,
+
+    -- * VoiceProfileDomainSummary
+    VoiceProfileDomainSummary (..),
+    newVoiceProfileDomainSummary,
+    voiceProfileDomainSummary_createdTimestamp,
+    voiceProfileDomainSummary_description,
+    voiceProfileDomainSummary_name,
+    voiceProfileDomainSummary_updatedTimestamp,
+    voiceProfileDomainSummary_voiceProfileDomainArn,
+    voiceProfileDomainSummary_voiceProfileDomainId,
+
+    -- * VoiceProfileSummary
+    VoiceProfileSummary (..),
+    newVoiceProfileSummary,
+    voiceProfileSummary_createdTimestamp,
+    voiceProfileSummary_expirationTimestamp,
+    voiceProfileSummary_updatedTimestamp,
+    voiceProfileSummary_voiceProfileArn,
+    voiceProfileSummary_voiceProfileDomainId,
+    voiceProfileSummary_voiceProfileId,
+
+    -- * VoiceToneAnalysisTask
+    VoiceToneAnalysisTask (..),
+    newVoiceToneAnalysisTask,
+    voiceToneAnalysisTask_callDetails,
+    voiceToneAnalysisTask_createdTimestamp,
+    voiceToneAnalysisTask_startedTimestamp,
+    voiceToneAnalysisTask_statusMessage,
+    voiceToneAnalysisTask_updatedTimestamp,
+    voiceToneAnalysisTask_voiceToneAnalysisTaskId,
+    voiceToneAnalysisTask_voiceToneAnalysisTaskStatus,
   )
 where
 
 import Amazonka.ChimeSdkVoice.Types.Address
 import Amazonka.ChimeSdkVoice.Types.AlexaSkillStatus
+import Amazonka.ChimeSdkVoice.Types.CallDetails
+import Amazonka.ChimeSdkVoice.Types.CallLegType
 import Amazonka.ChimeSdkVoice.Types.CallingNameStatus
 import Amazonka.ChimeSdkVoice.Types.CandidateAddress
 import Amazonka.ChimeSdkVoice.Types.Capability
@@ -378,7 +491,9 @@ import Amazonka.ChimeSdkVoice.Types.EmergencyCallingConfiguration
 import Amazonka.ChimeSdkVoice.Types.ErrorCode
 import Amazonka.ChimeSdkVoice.Types.GeoMatchLevel
 import Amazonka.ChimeSdkVoice.Types.GeoMatchParams
+import Amazonka.ChimeSdkVoice.Types.LanguageCode
 import Amazonka.ChimeSdkVoice.Types.LoggingConfiguration
+import Amazonka.ChimeSdkVoice.Types.MediaInsightsConfiguration
 import Amazonka.ChimeSdkVoice.Types.NotificationTarget
 import Amazonka.ChimeSdkVoice.Types.NumberSelectionBehavior
 import Amazonka.ChimeSdkVoice.Types.OrderedPhoneNumber
@@ -402,6 +517,7 @@ import Amazonka.ChimeSdkVoice.Types.PhoneNumberType
 import Amazonka.ChimeSdkVoice.Types.Proxy
 import Amazonka.ChimeSdkVoice.Types.ProxySession
 import Amazonka.ChimeSdkVoice.Types.ProxySessionStatus
+import Amazonka.ChimeSdkVoice.Types.ServerSideEncryptionConfiguration
 import Amazonka.ChimeSdkVoice.Types.SipMediaApplication
 import Amazonka.ChimeSdkVoice.Types.SipMediaApplicationAlexaSkillConfiguration
 import Amazonka.ChimeSdkVoice.Types.SipMediaApplicationCall
@@ -410,8 +526,12 @@ import Amazonka.ChimeSdkVoice.Types.SipMediaApplicationLoggingConfiguration
 import Amazonka.ChimeSdkVoice.Types.SipRule
 import Amazonka.ChimeSdkVoice.Types.SipRuleTargetApplication
 import Amazonka.ChimeSdkVoice.Types.SipRuleTriggerType
+import Amazonka.ChimeSdkVoice.Types.SpeakerSearchDetails
+import Amazonka.ChimeSdkVoice.Types.SpeakerSearchResult
+import Amazonka.ChimeSdkVoice.Types.SpeakerSearchTask
 import Amazonka.ChimeSdkVoice.Types.StreamingConfiguration
 import Amazonka.ChimeSdkVoice.Types.StreamingNotificationTarget
+import Amazonka.ChimeSdkVoice.Types.Tag
 import Amazonka.ChimeSdkVoice.Types.Termination
 import Amazonka.ChimeSdkVoice.Types.TerminationHealth
 import Amazonka.ChimeSdkVoice.Types.UpdatePhoneNumberRequestItem
@@ -420,6 +540,11 @@ import Amazonka.ChimeSdkVoice.Types.VoiceConnectorAwsRegion
 import Amazonka.ChimeSdkVoice.Types.VoiceConnectorGroup
 import Amazonka.ChimeSdkVoice.Types.VoiceConnectorItem
 import Amazonka.ChimeSdkVoice.Types.VoiceConnectorSettings
+import Amazonka.ChimeSdkVoice.Types.VoiceProfile
+import Amazonka.ChimeSdkVoice.Types.VoiceProfileDomain
+import Amazonka.ChimeSdkVoice.Types.VoiceProfileDomainSummary
+import Amazonka.ChimeSdkVoice.Types.VoiceProfileSummary
+import Amazonka.ChimeSdkVoice.Types.VoiceToneAnalysisTask
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -451,126 +576,143 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Prism for AccessDeniedException' errors.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | You don\'t have the permissions needed to run this action.
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | Prism for BadRequestException' errors.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The input parameters don\'t match the service\'s restrictions.
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
 
--- | Prism for ConflictException' errors.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | Multiple instances of the same request were made simultaneously.
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | Prism for ForbiddenException' errors.
-_ForbiddenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The client is permanently forbidden from making the request.
+_ForbiddenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ForbiddenException =
   Core._MatchServiceError
     defaultService
     "ForbiddenException"
     Prelude.. Core.hasStatus 403
 
--- | Prism for NotFoundException' errors.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | Access to the target resource is no longer available at the origin
+-- server. This condition is likely to be permanent.
+_GoneException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_GoneException =
+  Core._MatchServiceError
+    defaultService
+    "GoneException"
+    Prelude.. Core.hasStatus 410
+
+-- | The requested resource couldn\'t be found.
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
     "NotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | Prism for ResourceLimitExceededException' errors.
-_ResourceLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The request exceeds the resource limit.
+_ResourceLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceLimitExceededException"
     Prelude.. Core.hasStatus 400
 
--- | Prism for ServiceFailureException' errors.
-_ServiceFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The service encountered an unexpected error.
+_ServiceFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceFailureException =
   Core._MatchServiceError
     defaultService
     "ServiceFailureException"
     Prelude.. Core.hasStatus 500
 
--- | Prism for ServiceUnavailableException' errors.
-_ServiceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The service is currently unavailable.
+_ServiceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | Prism for ThrottledClientException' errors.
-_ThrottledClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The number of customer requests exceeds the request rate limit.
+_ThrottledClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottledClientException =
   Core._MatchServiceError
     defaultService
     "ThrottledClientException"
     Prelude.. Core.hasStatus 429
 
--- | Prism for UnauthorizedClientException' errors.
-_UnauthorizedClientException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The client isn\'t authorized to request a resource.
+_UnauthorizedClientException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedClientException =
   Core._MatchServiceError
     defaultService
     "UnauthorizedClientException"
     Prelude.. Core.hasStatus 401
+
+-- | A well-formed request couldn\'t be followed due to semantic errors.
+_UnprocessableEntityException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_UnprocessableEntityException =
+  Core._MatchServiceError
+    defaultService
+    "UnprocessableEntityException"
+    Prelude.. Core.hasStatus 422

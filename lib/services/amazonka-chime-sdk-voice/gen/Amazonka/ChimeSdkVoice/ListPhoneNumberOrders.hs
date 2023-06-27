@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists the phone numbers for an administrator\'s Amazon Chime SDK
+-- account.
 module Amazonka.ChimeSdkVoice.ListPhoneNumberOrders
   ( -- * Creating a Request
     ListPhoneNumberOrders (..),
@@ -51,7 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPhoneNumberOrders' smart constructor.
 data ListPhoneNumberOrders = ListPhoneNumberOrders'
-  { maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +67,9 @@ data ListPhoneNumberOrders = ListPhoneNumberOrders'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listPhoneNumberOrders_maxResults' - Undocumented member.
+-- 'maxResults', 'listPhoneNumberOrders_maxResults' - The maximum number of results to return in a single call.
 --
--- 'nextToken', 'listPhoneNumberOrders_nextToken' - Undocumented member.
+-- 'nextToken', 'listPhoneNumberOrders_nextToken' - The token used to retrieve the next page of results.
 newListPhoneNumberOrders ::
   ListPhoneNumberOrders
 newListPhoneNumberOrders =
@@ -76,11 +79,11 @@ newListPhoneNumberOrders =
       nextToken = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The maximum number of results to return in a single call.
 listPhoneNumberOrders_maxResults :: Lens.Lens' ListPhoneNumberOrders (Prelude.Maybe Prelude.Natural)
 listPhoneNumberOrders_maxResults = Lens.lens (\ListPhoneNumberOrders' {maxResults} -> maxResults) (\s@ListPhoneNumberOrders' {} a -> s {maxResults = a} :: ListPhoneNumberOrders)
 
--- | Undocumented member.
+-- | The token used to retrieve the next page of results.
 listPhoneNumberOrders_nextToken :: Lens.Lens' ListPhoneNumberOrders (Prelude.Maybe Prelude.Text)
 listPhoneNumberOrders_nextToken = Lens.lens (\ListPhoneNumberOrders' {nextToken} -> nextToken) (\s@ListPhoneNumberOrders' {} a -> s {nextToken = a} :: ListPhoneNumberOrders)
 
@@ -95,7 +98,8 @@ instance Core.AWSRequest ListPhoneNumberOrders where
       ( \s h x ->
           ListPhoneNumberOrdersResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PhoneNumberOrders"
+            Prelude.<*> ( x
+                            Data..?> "PhoneNumberOrders"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -103,7 +107,8 @@ instance Core.AWSRequest ListPhoneNumberOrders where
 
 instance Prelude.Hashable ListPhoneNumberOrders where
   hashWithSalt _salt ListPhoneNumberOrders' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPhoneNumberOrders where
@@ -126,7 +131,9 @@ instance Data.ToQuery ListPhoneNumberOrders where
 
 -- | /See:/ 'newListPhoneNumberOrdersResponse' smart constructor.
 data ListPhoneNumberOrdersResponse = ListPhoneNumberOrdersResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The token used to retrieve the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The phone number order details.
     phoneNumberOrders :: Prelude.Maybe [PhoneNumberOrder],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -141,9 +148,9 @@ data ListPhoneNumberOrdersResponse = ListPhoneNumberOrdersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPhoneNumberOrdersResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'listPhoneNumberOrdersResponse_nextToken' - The token used to retrieve the next page of results.
 --
--- 'phoneNumberOrders', 'listPhoneNumberOrdersResponse_phoneNumberOrders' - Undocumented member.
+-- 'phoneNumberOrders', 'listPhoneNumberOrdersResponse_phoneNumberOrders' - The phone number order details.
 --
 -- 'httpStatus', 'listPhoneNumberOrdersResponse_httpStatus' - The response's http status code.
 newListPhoneNumberOrdersResponse ::
@@ -158,11 +165,11 @@ newListPhoneNumberOrdersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The token used to retrieve the next page of results.
 listPhoneNumberOrdersResponse_nextToken :: Lens.Lens' ListPhoneNumberOrdersResponse (Prelude.Maybe Prelude.Text)
 listPhoneNumberOrdersResponse_nextToken = Lens.lens (\ListPhoneNumberOrdersResponse' {nextToken} -> nextToken) (\s@ListPhoneNumberOrdersResponse' {} a -> s {nextToken = a} :: ListPhoneNumberOrdersResponse)
 
--- | Undocumented member.
+-- | The phone number order details.
 listPhoneNumberOrdersResponse_phoneNumberOrders :: Lens.Lens' ListPhoneNumberOrdersResponse (Prelude.Maybe [PhoneNumberOrder])
 listPhoneNumberOrdersResponse_phoneNumberOrders = Lens.lens (\ListPhoneNumberOrdersResponse' {phoneNumberOrders} -> phoneNumberOrders) (\s@ListPhoneNumberOrdersResponse' {} a -> s {phoneNumberOrders = a} :: ListPhoneNumberOrdersResponse) Prelude.. Lens.mapping Lens.coerced
 

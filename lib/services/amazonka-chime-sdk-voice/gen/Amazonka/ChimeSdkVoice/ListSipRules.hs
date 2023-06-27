@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Lists the SIP rules under the administrator\'s AWS account.
 --
 -- This operation returns paginated results.
 module Amazonka.ChimeSdkVoice.ListSipRules
@@ -54,8 +54,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSipRules' smart constructor.
 data ListSipRules = ListSipRules'
-  { maxResults :: Prelude.Maybe Prelude.Natural,
+  { -- | The maximum number of results to return in a single call. Defaults to
+    -- 100.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The token used to return the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The SIP media application ID.
     sipMediaApplicationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,11 +72,12 @@ data ListSipRules = ListSipRules'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listSipRules_maxResults' - Undocumented member.
+-- 'maxResults', 'listSipRules_maxResults' - The maximum number of results to return in a single call. Defaults to
+-- 100.
 --
--- 'nextToken', 'listSipRules_nextToken' - Undocumented member.
+-- 'nextToken', 'listSipRules_nextToken' - The token used to return the next page of results.
 --
--- 'sipMediaApplicationId', 'listSipRules_sipMediaApplicationId' - Undocumented member.
+-- 'sipMediaApplicationId', 'listSipRules_sipMediaApplicationId' - The SIP media application ID.
 newListSipRules ::
   ListSipRules
 newListSipRules =
@@ -82,15 +87,16 @@ newListSipRules =
       sipMediaApplicationId = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The maximum number of results to return in a single call. Defaults to
+-- 100.
 listSipRules_maxResults :: Lens.Lens' ListSipRules (Prelude.Maybe Prelude.Natural)
 listSipRules_maxResults = Lens.lens (\ListSipRules' {maxResults} -> maxResults) (\s@ListSipRules' {} a -> s {maxResults = a} :: ListSipRules)
 
--- | Undocumented member.
+-- | The token used to return the next page of results.
 listSipRules_nextToken :: Lens.Lens' ListSipRules (Prelude.Maybe Prelude.Text)
 listSipRules_nextToken = Lens.lens (\ListSipRules' {nextToken} -> nextToken) (\s@ListSipRules' {} a -> s {nextToken = a} :: ListSipRules)
 
--- | Undocumented member.
+-- | The SIP media application ID.
 listSipRules_sipMediaApplicationId :: Lens.Lens' ListSipRules (Prelude.Maybe Prelude.Text)
 listSipRules_sipMediaApplicationId = Lens.lens (\ListSipRules' {sipMediaApplicationId} -> sipMediaApplicationId) (\s@ListSipRules' {} a -> s {sipMediaApplicationId = a} :: ListSipRules)
 
@@ -98,20 +104,23 @@ instance Core.AWSPager ListSipRules where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSipRulesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSipRulesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSipRulesResponse_sipRules Prelude.. Lens._Just
+            Lens.^? listSipRulesResponse_sipRules
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSipRules_nextToken
           Lens..~ rs
-          Lens.^? listSipRulesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSipRulesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSipRules where
   type AWSResponse ListSipRules = ListSipRulesResponse
@@ -128,7 +137,8 @@ instance Core.AWSRequest ListSipRules where
 
 instance Prelude.Hashable ListSipRules where
   hashWithSalt _salt ListSipRules' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sipMediaApplicationId
 
@@ -155,7 +165,9 @@ instance Data.ToQuery ListSipRules where
 
 -- | /See:/ 'newListSipRulesResponse' smart constructor.
 data ListSipRulesResponse = ListSipRulesResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | The token used to return the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of SIP rules and details.
     sipRules :: Prelude.Maybe [SipRule],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -170,9 +182,9 @@ data ListSipRulesResponse = ListSipRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSipRulesResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'listSipRulesResponse_nextToken' - The token used to return the next page of results.
 --
--- 'sipRules', 'listSipRulesResponse_sipRules' - Undocumented member.
+-- 'sipRules', 'listSipRulesResponse_sipRules' - The list of SIP rules and details.
 --
 -- 'httpStatus', 'listSipRulesResponse_httpStatus' - The response's http status code.
 newListSipRulesResponse ::
@@ -186,11 +198,11 @@ newListSipRulesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The token used to return the next page of results.
 listSipRulesResponse_nextToken :: Lens.Lens' ListSipRulesResponse (Prelude.Maybe Prelude.Text)
 listSipRulesResponse_nextToken = Lens.lens (\ListSipRulesResponse' {nextToken} -> nextToken) (\s@ListSipRulesResponse' {} a -> s {nextToken = a} :: ListSipRulesResponse)
 
--- | Undocumented member.
+-- | The list of SIP rules and details.
 listSipRulesResponse_sipRules :: Lens.Lens' ListSipRulesResponse (Prelude.Maybe [SipRule])
 listSipRulesResponse_sipRules = Lens.lens (\ListSipRulesResponse' {sipRules} -> sipRules) (\s@ListSipRulesResponse' {} a -> s {sipRules = a} :: ListSipRulesResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -116,17 +116,19 @@ instance Core.AWSPager ListRecipes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRecipesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listRecipesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop (rs Lens.^. listRecipesResponse_recipes) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRecipes_nextToken
           Lens..~ rs
-          Lens.^? listRecipesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listRecipesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecipes where
   type AWSResponse ListRecipes = ListRecipesResponse
@@ -143,7 +145,8 @@ instance Core.AWSRequest ListRecipes where
 
 instance Prelude.Hashable ListRecipes where
   hashWithSalt _salt ListRecipes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recipeVersion
 

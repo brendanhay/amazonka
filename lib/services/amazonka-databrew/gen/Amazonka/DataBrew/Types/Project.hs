@@ -214,7 +214,8 @@ instance Data.FromJSON Project where
 
 instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` datasetName

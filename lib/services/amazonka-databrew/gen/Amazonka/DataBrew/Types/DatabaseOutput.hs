@@ -103,7 +103,8 @@ instance Data.FromJSON DatabaseOutput where
 
 instance Prelude.Hashable DatabaseOutput where
   hashWithSalt _salt DatabaseOutput' {..} =
-    _salt `Prelude.hashWithSalt` databaseOutputMode
+    _salt
+      `Prelude.hashWithSalt` databaseOutputMode
       `Prelude.hashWithSalt` glueConnectionName
       `Prelude.hashWithSalt` databaseOptions
 

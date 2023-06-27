@@ -130,7 +130,8 @@ instance Core.AWSRequest DescribeRecipe where
 
 instance Prelude.Hashable DescribeRecipe where
   hashWithSalt _salt DescribeRecipe' {..} =
-    _salt `Prelude.hashWithSalt` recipeVersion
+    _salt
+      `Prelude.hashWithSalt` recipeVersion
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DescribeRecipe where

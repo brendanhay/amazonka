@@ -109,7 +109,8 @@ instance Core.AWSRequest StartProjectSession where
 
 instance Prelude.Hashable StartProjectSession where
   hashWithSalt _salt StartProjectSession' {..} =
-    _salt `Prelude.hashWithSalt` assumeControl
+    _salt
+      `Prelude.hashWithSalt` assumeControl
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData StartProjectSession where

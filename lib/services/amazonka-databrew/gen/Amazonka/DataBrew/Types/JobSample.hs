@@ -105,12 +105,14 @@ instance Data.FromJSON JobSample where
       "JobSample"
       ( \x ->
           JobSample'
-            Prelude.<$> (x Data..:? "Mode") Prelude.<*> (x Data..:? "Size")
+            Prelude.<$> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "Size")
       )
 
 instance Prelude.Hashable JobSample where
   hashWithSalt _salt JobSample' {..} =
-    _salt `Prelude.hashWithSalt` mode
+    _salt
+      `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` size
 
 instance Prelude.NFData JobSample where

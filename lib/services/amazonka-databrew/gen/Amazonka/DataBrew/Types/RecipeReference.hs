@@ -76,7 +76,8 @@ instance Data.FromJSON RecipeReference where
 
 instance Prelude.Hashable RecipeReference where
   hashWithSalt _salt RecipeReference' {..} =
-    _salt `Prelude.hashWithSalt` recipeVersion
+    _salt
+      `Prelude.hashWithSalt` recipeVersion
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RecipeReference where

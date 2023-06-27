@@ -140,7 +140,8 @@ instance Core.AWSRequest BatchDeleteRecipeVersion where
 
 instance Prelude.Hashable BatchDeleteRecipeVersion where
   hashWithSalt _salt BatchDeleteRecipeVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` recipeVersions
 
 instance Prelude.NFData BatchDeleteRecipeVersion where

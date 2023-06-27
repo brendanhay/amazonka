@@ -94,7 +94,8 @@ instance Data.FromJSON FilterExpression where
 
 instance Prelude.Hashable FilterExpression where
   hashWithSalt _salt FilterExpression' {..} =
-    _salt `Prelude.hashWithSalt` expression
+    _salt
+      `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` valuesMap
 
 instance Prelude.NFData FilterExpression where

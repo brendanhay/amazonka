@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` sample
+    _salt
+      `Prelude.hashWithSalt` sample
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` name
 

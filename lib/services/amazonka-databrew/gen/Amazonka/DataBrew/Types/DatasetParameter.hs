@@ -124,7 +124,8 @@ instance Data.FromJSON DatasetParameter where
 
 instance Prelude.Hashable DatasetParameter where
   hashWithSalt _salt DatasetParameter' {..} =
-    _salt `Prelude.hashWithSalt` createColumn
+    _salt
+      `Prelude.hashWithSalt` createColumn
       `Prelude.hashWithSalt` datetimeOptions
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` name

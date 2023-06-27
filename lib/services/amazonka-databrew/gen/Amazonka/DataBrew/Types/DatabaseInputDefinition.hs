@@ -103,7 +103,8 @@ instance Data.FromJSON DatabaseInputDefinition where
 
 instance Prelude.Hashable DatabaseInputDefinition where
   hashWithSalt _salt DatabaseInputDefinition' {..} =
-    _salt `Prelude.hashWithSalt` databaseTableName
+    _salt
+      `Prelude.hashWithSalt` databaseTableName
       `Prelude.hashWithSalt` queryString
       `Prelude.hashWithSalt` tempDirectory
       `Prelude.hashWithSalt` glueConnectionName

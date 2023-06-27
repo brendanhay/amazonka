@@ -174,7 +174,8 @@ instance Data.FromJSON RulesetItem where
 
 instance Prelude.Hashable RulesetItem where
   hashWithSalt _salt RulesetItem' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` description

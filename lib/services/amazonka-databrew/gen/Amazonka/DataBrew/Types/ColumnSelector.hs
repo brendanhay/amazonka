@@ -69,12 +69,14 @@ instance Data.FromJSON ColumnSelector where
       "ColumnSelector"
       ( \x ->
           ColumnSelector'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Regex")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Regex")
       )
 
 instance Prelude.Hashable ColumnSelector where
   hashWithSalt _salt ColumnSelector' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regex
 
 instance Prelude.NFData ColumnSelector where

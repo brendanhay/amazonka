@@ -76,7 +76,8 @@ instance Data.FromJSON StatisticOverride where
 
 instance Prelude.Hashable StatisticOverride where
   hashWithSalt _salt StatisticOverride' {..} =
-    _salt `Prelude.hashWithSalt` statistic
+    _salt
+      `Prelude.hashWithSalt` statistic
       `Prelude.hashWithSalt` parameters
 
 instance Prelude.NFData StatisticOverride where

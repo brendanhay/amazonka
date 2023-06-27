@@ -136,7 +136,8 @@ instance Data.FromJSON DataCatalogOutput where
 
 instance Prelude.Hashable DataCatalogOutput where
   hashWithSalt _salt DataCatalogOutput' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseOptions
       `Prelude.hashWithSalt` overwrite
       `Prelude.hashWithSalt` s3Options

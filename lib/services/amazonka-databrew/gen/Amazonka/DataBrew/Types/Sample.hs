@@ -69,12 +69,14 @@ instance Data.FromJSON Sample where
       "Sample"
       ( \x ->
           Sample'
-            Prelude.<$> (x Data..:? "Size") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..:? "Size")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable Sample where
   hashWithSalt _salt Sample' {..} =
-    _salt `Prelude.hashWithSalt` size
+    _salt
+      `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Sample where

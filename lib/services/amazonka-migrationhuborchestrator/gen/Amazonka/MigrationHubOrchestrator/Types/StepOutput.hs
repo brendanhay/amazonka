@@ -85,7 +85,8 @@ instance Data.FromJSON StepOutput where
 
 instance Prelude.Hashable StepOutput where
   hashWithSalt _salt StepOutput' {..} =
-    _salt `Prelude.hashWithSalt` dataType
+    _salt
+      `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` required
 

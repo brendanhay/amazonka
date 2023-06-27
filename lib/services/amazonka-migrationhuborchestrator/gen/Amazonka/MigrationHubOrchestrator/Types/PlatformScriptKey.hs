@@ -74,7 +74,8 @@ instance Data.FromJSON PlatformScriptKey where
 
 instance Prelude.Hashable PlatformScriptKey where
   hashWithSalt _salt PlatformScriptKey' {..} =
-    _salt `Prelude.hashWithSalt` linux
+    _salt
+      `Prelude.hashWithSalt` linux
       `Prelude.hashWithSalt` windows
 
 instance Prelude.NFData PlatformScriptKey where

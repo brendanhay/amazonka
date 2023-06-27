@@ -149,7 +149,8 @@ instance Core.AWSRequest CreateWorkflowStepGroup where
 
 instance Prelude.Hashable CreateWorkflowStepGroup where
   hashWithSalt _salt CreateWorkflowStepGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` previous
       `Prelude.hashWithSalt` workflowId

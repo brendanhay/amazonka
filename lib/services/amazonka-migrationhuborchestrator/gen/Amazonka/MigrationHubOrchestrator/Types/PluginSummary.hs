@@ -115,7 +115,8 @@ instance Data.FromJSON PluginSummary where
 
 instance Prelude.Hashable PluginSummary where
   hashWithSalt _salt PluginSummary' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` pluginId
       `Prelude.hashWithSalt` registeredTime

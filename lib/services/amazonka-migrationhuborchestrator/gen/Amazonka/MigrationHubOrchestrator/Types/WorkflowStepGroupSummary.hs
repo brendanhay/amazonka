@@ -116,7 +116,8 @@ instance Data.FromJSON WorkflowStepGroupSummary where
 
 instance Prelude.Hashable WorkflowStepGroupSummary where
   hashWithSalt _salt WorkflowStepGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` next
       `Prelude.hashWithSalt` owner

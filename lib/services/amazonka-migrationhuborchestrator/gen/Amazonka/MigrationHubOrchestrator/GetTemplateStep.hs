@@ -136,7 +136,8 @@ instance Core.AWSRequest GetTemplateStep where
 
 instance Prelude.Hashable GetTemplateStep where
   hashWithSalt _salt GetTemplateStep' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` stepGroupId
 

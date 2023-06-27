@@ -118,7 +118,8 @@ instance
   hashWithSalt
     _salt
     WorkflowStepAutomationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` command
+      _salt
+        `Prelude.hashWithSalt` command
         `Prelude.hashWithSalt` runEnvironment
         `Prelude.hashWithSalt` scriptLocationS3Bucket
         `Prelude.hashWithSalt` scriptLocationS3Key

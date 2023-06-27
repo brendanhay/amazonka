@@ -68,12 +68,14 @@ instance Data.FromJSON Tool where
       "Tool"
       ( \x ->
           Tool'
-            Prelude.<$> (x Data..:? "name") Prelude.<*> (x Data..:? "url")
+            Prelude.<$> (x Data..:? "name")
+            Prelude.<*> (x Data..:? "url")
       )
 
 instance Prelude.Hashable Tool where
   hashWithSalt _salt Tool' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData Tool where

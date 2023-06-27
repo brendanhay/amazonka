@@ -116,22 +116,22 @@ instance Core.AWSPager ListTemplateSteps where
     | Core.stop
         ( rs
             Lens.^? listTemplateStepsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTemplateStepsResponse_templateStepSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTemplateSteps_nextToken
           Lens..~ rs
           Lens.^? listTemplateStepsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTemplateSteps where
   type
@@ -144,7 +144,8 @@ instance Core.AWSRequest ListTemplateSteps where
       ( \s h x ->
           ListTemplateStepsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "templateStepSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "templateStepSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,7 +153,8 @@ instance Core.AWSRequest ListTemplateSteps where
 
 instance Prelude.Hashable ListTemplateSteps where
   hashWithSalt _salt ListTemplateSteps' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` stepGroupId

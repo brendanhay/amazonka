@@ -33,6 +33,7 @@ module Amazonka.Glue.CreateCustomEntityType
 
     -- * Request Lenses
     createCustomEntityType_contextWords,
+    createCustomEntityType_tags,
     createCustomEntityType_name,
     createCustomEntityType_regexString,
 
@@ -62,6 +63,8 @@ data CreateCustomEntityType = CreateCustomEntityType'
     --
     -- If no context words are passed only a regular expression is checked.
     contextWords :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of tags applied to the custom entity type.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A name for the custom pattern that allows it to be retrieved or deleted
     -- later. This name must be unique per Amazon Web Services account.
     name :: Prelude.Text,
@@ -85,6 +88,8 @@ data CreateCustomEntityType = CreateCustomEntityType'
 --
 -- If no context words are passed only a regular expression is checked.
 --
+-- 'tags', 'createCustomEntityType_tags' - A list of tags applied to the custom entity type.
+--
 -- 'name', 'createCustomEntityType_name' - A name for the custom pattern that allows it to be retrieved or deleted
 -- later. This name must be unique per Amazon Web Services account.
 --
@@ -100,6 +105,7 @@ newCreateCustomEntityType pName_ pRegexString_ =
   CreateCustomEntityType'
     { contextWords =
         Prelude.Nothing,
+      tags = Prelude.Nothing,
       name = pName_,
       regexString = pRegexString_
     }
@@ -111,6 +117,10 @@ newCreateCustomEntityType pName_ pRegexString_ =
 -- If no context words are passed only a regular expression is checked.
 createCustomEntityType_contextWords :: Lens.Lens' CreateCustomEntityType (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createCustomEntityType_contextWords = Lens.lens (\CreateCustomEntityType' {contextWords} -> contextWords) (\s@CreateCustomEntityType' {} a -> s {contextWords = a} :: CreateCustomEntityType) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of tags applied to the custom entity type.
+createCustomEntityType_tags :: Lens.Lens' CreateCustomEntityType (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCustomEntityType_tags = Lens.lens (\CreateCustomEntityType' {tags} -> tags) (\s@CreateCustomEntityType' {} a -> s {tags = a} :: CreateCustomEntityType) Prelude.. Lens.mapping Lens.coerced
 
 -- | A name for the custom pattern that allows it to be retrieved or deleted
 -- later. This name must be unique per Amazon Web Services account.
@@ -138,13 +148,16 @@ instance Core.AWSRequest CreateCustomEntityType where
 
 instance Prelude.Hashable CreateCustomEntityType where
   hashWithSalt _salt CreateCustomEntityType' {..} =
-    _salt `Prelude.hashWithSalt` contextWords
+    _salt
+      `Prelude.hashWithSalt` contextWords
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regexString
 
 instance Prelude.NFData CreateCustomEntityType where
   rnf CreateCustomEntityType' {..} =
     Prelude.rnf contextWords
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf regexString
 
@@ -168,6 +181,7 @@ instance Data.ToJSON CreateCustomEntityType where
     Data.object
       ( Prelude.catMaybes
           [ ("ContextWords" Data..=) Prelude.<$> contextWords,
+            ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("RegexString" Data..= regexString)
           ]

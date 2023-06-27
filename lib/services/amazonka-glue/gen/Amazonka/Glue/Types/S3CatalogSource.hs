@@ -118,7 +118,8 @@ instance Data.FromJSON S3CatalogSource where
 
 instance Prelude.Hashable S3CatalogSource where
   hashWithSalt _salt S3CatalogSource' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` partitionPredicate
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database

@@ -70,7 +70,8 @@ getConnectionsFilter_matchCriteria = Lens.lens (\GetConnectionsFilter' {matchCri
 
 instance Prelude.Hashable GetConnectionsFilter where
   hashWithSalt _salt GetConnectionsFilter' {..} =
-    _salt `Prelude.hashWithSalt` connectionType
+    _salt
+      `Prelude.hashWithSalt` connectionType
       `Prelude.hashWithSalt` matchCriteria
 
 instance Prelude.NFData GetConnectionsFilter where

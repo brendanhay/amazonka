@@ -128,7 +128,8 @@ instance
     ConnectionPasswordEncryption
   where
   hashWithSalt _salt ConnectionPasswordEncryption' {..} =
-    _salt `Prelude.hashWithSalt` awsKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` awsKmsKeyId
       `Prelude.hashWithSalt` returnConnectionPasswordEncrypted
 
 instance Prelude.NFData ConnectionPasswordEncryption where

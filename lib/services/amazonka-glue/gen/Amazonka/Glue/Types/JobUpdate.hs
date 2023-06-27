@@ -52,20 +52,30 @@ data JobUpdate = JobUpdate'
     command :: Prelude.Maybe JobCommand,
     -- | The connections used for this job.
     connections :: Prelude.Maybe ConnectionsList,
-    -- | The default arguments for this job.
+    -- | The default arguments for every run of this job, specified as name-value
+    -- pairs.
     --
     -- You can specify arguments here that your own job-execution script
     -- consumes, as well as arguments that Glue itself consumes.
+    --
+    -- Job arguments may be logged. Do not pass plaintext secrets as arguments.
+    -- Retrieve secrets from a Glue Connection, Secrets Manager or other secret
+    -- management mechanism if you intend to keep them within the Job.
     --
     -- For information about how to specify and consume your own Job arguments,
     -- see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
     -- topic in the developer guide.
     --
-    -- For information about the key-value pairs that Glue consumes to set up
-    -- your job, see the
+    -- For information about the arguments you can provide to this field when
+    -- configuring Spark jobs, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
+    --
+    -- For information about the arguments you can provide to this field when
+    -- configuring Ray jobs, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+    -- in the developer guide.
     defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Description of the job being defined.
     description :: Prelude.Maybe Prelude.Text,
@@ -83,14 +93,21 @@ data JobUpdate = JobUpdate'
     -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs
     -- allowed for this job.
     executionProperty :: Prelude.Maybe ExecutionProperty,
-    -- | Glue version determines the versions of Apache Spark and Python that
-    -- Glue supports. The Python version indicates the version supported for
-    -- jobs of type Spark.
+    -- | In Spark jobs, @GlueVersion@ determines the versions of Apache Spark and
+    -- Python that Glue available in a job. The Python version indicates the
+    -- version supported for jobs of type Spark.
+    --
+    -- Ray jobs should set @GlueVersion@ to @4.0@ or greater. However, the
+    -- versions of Ray, Python and additional libraries available in your Ray
+    -- job are determined by the @Runtime@ parameter of the Job command.
     --
     -- For more information about the available Glue versions and corresponding
     -- Spark and Python versions, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
     -- in the developer guide.
+    --
+    -- Jobs that are created without specifying a Glue version default to Glue
+    -- 0.9.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | This field is reserved for future use.
     logUri :: Prelude.Maybe Prelude.Text,
@@ -101,10 +118,14 @@ data JobUpdate = JobUpdate'
     -- information, see the
     -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
-    -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+    -- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+    -- Instead, you should specify a @Worker type@ and the @Number of workers@.
+    --
+    -- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
     --
     -- The value that can be allocated for @MaxCapacity@ depends on whether you
-    -- are running a Python shell job or an Apache Spark ETL job:
+    -- are running a Python shell job, an Apache Spark ETL job, or an Apache
+    -- Spark streaming ETL job:
     --
     -- -   When you specify a Python shell job
     --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
@@ -112,17 +133,14 @@ data JobUpdate = JobUpdate'
     --
     -- -   When you specify an Apache Spark ETL job
     --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
-    --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
-    --     2 DPUs. The default is 10 DPUs. This job type cannot have a
+    --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+    --     100 DPUs. The default is 10 DPUs. This job type cannot have a
     --     fractional DPU allocation.
-    --
-    -- For Glue version 2.0 jobs, you cannot instead specify a
-    -- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
-    -- @Number of workers@.
     maxCapacity :: Prelude.Maybe Prelude.Double,
     -- | The maximum number of times to retry this job if it fails.
     maxRetries :: Prelude.Maybe Prelude.Int,
-    -- | Non-overridable arguments for this job, specified as name-value pairs.
+    -- | Arguments for this job that are not overridden when providing job
+    -- arguments in a job run, specified as name-value pairs.
     nonOverridableArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the configuration properties of a job notification.
     notificationProperty :: Prelude.Maybe NotificationProperty,
@@ -143,7 +161,8 @@ data JobUpdate = JobUpdate'
     -- The default is 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
-    -- a value of Standard, G.1X, G.2X, or G.025X.
+    -- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+    -- value Z.2X for Ray jobs.
     --
     -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
     --     of memory and a 50GB disk, and 2 executors per worker.
@@ -160,6 +179,10 @@ data JobUpdate = JobUpdate'
     --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
     --     recommend this worker type for low volume streaming jobs. This
     --     worker type is only available for Glue version 3.0 streaming jobs.
+    --
+    -- -   For the @Z.2X@ worker type, each worker maps to 2 M-DPU (8vCPU, 64
+    --     GB of m emory, 128 GB disk), and provides up to 8 Ray workers based
+    --     on the autoscaler.
     workerType :: Prelude.Maybe WorkerType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -187,20 +210,30 @@ data JobUpdate = JobUpdate'
 --
 -- 'connections', 'jobUpdate_connections' - The connections used for this job.
 --
--- 'defaultArguments', 'jobUpdate_defaultArguments' - The default arguments for this job.
+-- 'defaultArguments', 'jobUpdate_defaultArguments' - The default arguments for every run of this job, specified as name-value
+-- pairs.
 --
 -- You can specify arguments here that your own job-execution script
 -- consumes, as well as arguments that Glue itself consumes.
+--
+-- Job arguments may be logged. Do not pass plaintext secrets as arguments.
+-- Retrieve secrets from a Glue Connection, Secrets Manager or other secret
+-- management mechanism if you intend to keep them within the Job.
 --
 -- For information about how to specify and consume your own Job arguments,
 -- see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that Glue consumes to set up
--- your job, see the
+-- For information about the arguments you can provide to this field when
+-- configuring Spark jobs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
+--
+-- For information about the arguments you can provide to this field when
+-- configuring Ray jobs, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+-- in the developer guide.
 --
 -- 'description', 'jobUpdate_description' - Description of the job being defined.
 --
@@ -218,14 +251,21 @@ data JobUpdate = JobUpdate'
 -- 'executionProperty', 'jobUpdate_executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs
 -- allowed for this job.
 --
--- 'glueVersion', 'jobUpdate_glueVersion' - Glue version determines the versions of Apache Spark and Python that
--- Glue supports. The Python version indicates the version supported for
--- jobs of type Spark.
+-- 'glueVersion', 'jobUpdate_glueVersion' - In Spark jobs, @GlueVersion@ determines the versions of Apache Spark and
+-- Python that Glue available in a job. The Python version indicates the
+-- version supported for jobs of type Spark.
+--
+-- Ray jobs should set @GlueVersion@ to @4.0@ or greater. However, the
+-- versions of Ray, Python and additional libraries available in your Ray
+-- job are determined by the @Runtime@ parameter of the Job command.
 --
 -- For more information about the available Glue versions and corresponding
 -- Spark and Python versions, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
 -- in the developer guide.
+--
+-- Jobs that are created without specifying a Glue version default to Glue
+-- 0.9.
 --
 -- 'logUri', 'jobUpdate_logUri' - This field is reserved for future use.
 --
@@ -236,10 +276,14 @@ data JobUpdate = JobUpdate'
 -- information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
--- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+-- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+-- Instead, you should specify a @Worker type@ and the @Number of workers@.
+--
+-- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
 -- The value that can be allocated for @MaxCapacity@ depends on whether you
--- are running a Python shell job or an Apache Spark ETL job:
+-- are running a Python shell job, an Apache Spark ETL job, or an Apache
+-- Spark streaming ETL job:
 --
 -- -   When you specify a Python shell job
 --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
@@ -247,17 +291,14 @@ data JobUpdate = JobUpdate'
 --
 -- -   When you specify an Apache Spark ETL job
 --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
---     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
---     2 DPUs. The default is 10 DPUs. This job type cannot have a
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+--     100 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
---
--- For Glue version 2.0 jobs, you cannot instead specify a
--- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
--- @Number of workers@.
 --
 -- 'maxRetries', 'jobUpdate_maxRetries' - The maximum number of times to retry this job if it fails.
 --
--- 'nonOverridableArguments', 'jobUpdate_nonOverridableArguments' - Non-overridable arguments for this job, specified as name-value pairs.
+-- 'nonOverridableArguments', 'jobUpdate_nonOverridableArguments' - Arguments for this job that are not overridden when providing job
+-- arguments in a job run, specified as name-value pairs.
 --
 -- 'notificationProperty', 'jobUpdate_notificationProperty' - Specifies the configuration properties of a job notification.
 --
@@ -278,7 +319,8 @@ data JobUpdate = JobUpdate'
 -- The default is 2,880 minutes (48 hours).
 --
 -- 'workerType', 'jobUpdate_workerType' - The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, G.2X, or G.025X.
+-- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+-- value Z.2X for Ray jobs.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -295,6 +337,10 @@ data JobUpdate = JobUpdate'
 --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for low volume streaming jobs. This
 --     worker type is only available for Glue version 3.0 streaming jobs.
+--
+-- -   For the @Z.2X@ worker type, each worker maps to 2 M-DPU (8vCPU, 64
+--     GB of m emory, 128 GB disk), and provides up to 8 Ray workers based
+--     on the autoscaler.
 newJobUpdate ::
   JobUpdate
 newJobUpdate =
@@ -344,20 +390,30 @@ jobUpdate_command = Lens.lens (\JobUpdate' {command} -> command) (\s@JobUpdate' 
 jobUpdate_connections :: Lens.Lens' JobUpdate (Prelude.Maybe ConnectionsList)
 jobUpdate_connections = Lens.lens (\JobUpdate' {connections} -> connections) (\s@JobUpdate' {} a -> s {connections = a} :: JobUpdate)
 
--- | The default arguments for this job.
+-- | The default arguments for every run of this job, specified as name-value
+-- pairs.
 --
 -- You can specify arguments here that your own job-execution script
 -- consumes, as well as arguments that Glue itself consumes.
+--
+-- Job arguments may be logged. Do not pass plaintext secrets as arguments.
+-- Retrieve secrets from a Glue Connection, Secrets Manager or other secret
+-- management mechanism if you intend to keep them within the Job.
 --
 -- For information about how to specify and consume your own Job arguments,
 -- see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that Glue consumes to set up
--- your job, see the
+-- For information about the arguments you can provide to this field when
+-- configuring Spark jobs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
+--
+-- For information about the arguments you can provide to this field when
+-- configuring Ray jobs, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+-- in the developer guide.
 jobUpdate_defaultArguments :: Lens.Lens' JobUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jobUpdate_defaultArguments = Lens.lens (\JobUpdate' {defaultArguments} -> defaultArguments) (\s@JobUpdate' {} a -> s {defaultArguments = a} :: JobUpdate) Prelude.. Lens.mapping Lens.coerced
 
@@ -383,14 +439,21 @@ jobUpdate_executionClass = Lens.lens (\JobUpdate' {executionClass} -> executionC
 jobUpdate_executionProperty :: Lens.Lens' JobUpdate (Prelude.Maybe ExecutionProperty)
 jobUpdate_executionProperty = Lens.lens (\JobUpdate' {executionProperty} -> executionProperty) (\s@JobUpdate' {} a -> s {executionProperty = a} :: JobUpdate)
 
--- | Glue version determines the versions of Apache Spark and Python that
--- Glue supports. The Python version indicates the version supported for
--- jobs of type Spark.
+-- | In Spark jobs, @GlueVersion@ determines the versions of Apache Spark and
+-- Python that Glue available in a job. The Python version indicates the
+-- version supported for jobs of type Spark.
+--
+-- Ray jobs should set @GlueVersion@ to @4.0@ or greater. However, the
+-- versions of Ray, Python and additional libraries available in your Ray
+-- job are determined by the @Runtime@ parameter of the Job command.
 --
 -- For more information about the available Glue versions and corresponding
 -- Spark and Python versions, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
 -- in the developer guide.
+--
+-- Jobs that are created without specifying a Glue version default to Glue
+-- 0.9.
 jobUpdate_glueVersion :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Text)
 jobUpdate_glueVersion = Lens.lens (\JobUpdate' {glueVersion} -> glueVersion) (\s@JobUpdate' {} a -> s {glueVersion = a} :: JobUpdate)
 
@@ -405,10 +468,14 @@ jobUpdate_logUri = Lens.lens (\JobUpdate' {logUri} -> logUri) (\s@JobUpdate' {} 
 -- information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
--- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+-- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+-- Instead, you should specify a @Worker type@ and the @Number of workers@.
+--
+-- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
 -- The value that can be allocated for @MaxCapacity@ depends on whether you
--- are running a Python shell job or an Apache Spark ETL job:
+-- are running a Python shell job, an Apache Spark ETL job, or an Apache
+-- Spark streaming ETL job:
 --
 -- -   When you specify a Python shell job
 --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
@@ -416,13 +483,9 @@ jobUpdate_logUri = Lens.lens (\JobUpdate' {logUri} -> logUri) (\s@JobUpdate' {} 
 --
 -- -   When you specify an Apache Spark ETL job
 --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
---     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
---     2 DPUs. The default is 10 DPUs. This job type cannot have a
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+--     100 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
---
--- For Glue version 2.0 jobs, you cannot instead specify a
--- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
--- @Number of workers@.
 jobUpdate_maxCapacity :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Double)
 jobUpdate_maxCapacity = Lens.lens (\JobUpdate' {maxCapacity} -> maxCapacity) (\s@JobUpdate' {} a -> s {maxCapacity = a} :: JobUpdate)
 
@@ -430,7 +493,8 @@ jobUpdate_maxCapacity = Lens.lens (\JobUpdate' {maxCapacity} -> maxCapacity) (\s
 jobUpdate_maxRetries :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Int)
 jobUpdate_maxRetries = Lens.lens (\JobUpdate' {maxRetries} -> maxRetries) (\s@JobUpdate' {} a -> s {maxRetries = a} :: JobUpdate)
 
--- | Non-overridable arguments for this job, specified as name-value pairs.
+-- | Arguments for this job that are not overridden when providing job
+-- arguments in a job run, specified as name-value pairs.
 jobUpdate_nonOverridableArguments :: Lens.Lens' JobUpdate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jobUpdate_nonOverridableArguments = Lens.lens (\JobUpdate' {nonOverridableArguments} -> nonOverridableArguments) (\s@JobUpdate' {} a -> s {nonOverridableArguments = a} :: JobUpdate) Prelude.. Lens.mapping Lens.coerced
 
@@ -465,7 +529,8 @@ jobUpdate_timeout :: Lens.Lens' JobUpdate (Prelude.Maybe Prelude.Natural)
 jobUpdate_timeout = Lens.lens (\JobUpdate' {timeout} -> timeout) (\s@JobUpdate' {} a -> s {timeout = a} :: JobUpdate)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, G.2X, or G.025X.
+-- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+-- value Z.2X for Ray jobs.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -482,12 +547,17 @@ jobUpdate_timeout = Lens.lens (\JobUpdate' {timeout} -> timeout) (\s@JobUpdate' 
 --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for low volume streaming jobs. This
 --     worker type is only available for Glue version 3.0 streaming jobs.
+--
+-- -   For the @Z.2X@ worker type, each worker maps to 2 M-DPU (8vCPU, 64
+--     GB of m emory, 128 GB disk), and provides up to 8 Ray workers based
+--     on the autoscaler.
 jobUpdate_workerType :: Lens.Lens' JobUpdate (Prelude.Maybe WorkerType)
 jobUpdate_workerType = Lens.lens (\JobUpdate' {workerType} -> workerType) (\s@JobUpdate' {} a -> s {workerType = a} :: JobUpdate)
 
 instance Prelude.Hashable JobUpdate where
   hashWithSalt _salt JobUpdate' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` connections

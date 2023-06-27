@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateCrawlerSchedule where
 
 instance Prelude.Hashable UpdateCrawlerSchedule where
   hashWithSalt _salt UpdateCrawlerSchedule' {..} =
-    _salt `Prelude.hashWithSalt` schedule
+    _salt
+      `Prelude.hashWithSalt` schedule
       `Prelude.hashWithSalt` crawlerName
 
 instance Prelude.NFData UpdateCrawlerSchedule where

@@ -69,12 +69,14 @@ instance Data.FromJSON Datatype where
       "Datatype"
       ( \x ->
           Datatype'
-            Prelude.<$> (x Data..: "Id") Prelude.<*> (x Data..: "Label")
+            Prelude.<$> (x Data..: "Id")
+            Prelude.<*> (x Data..: "Label")
       )
 
 instance Prelude.Hashable Datatype where
   hashWithSalt _salt Datatype' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` label
 
 instance Prelude.NFData Datatype where

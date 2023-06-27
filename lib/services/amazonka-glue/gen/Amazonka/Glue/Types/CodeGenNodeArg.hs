@@ -88,7 +88,8 @@ instance Data.FromJSON CodeGenNodeArg where
 
 instance Prelude.Hashable CodeGenNodeArg where
   hashWithSalt _salt CodeGenNodeArg' {..} =
-    _salt `Prelude.hashWithSalt` param
+    _salt
+      `Prelude.hashWithSalt` param
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 

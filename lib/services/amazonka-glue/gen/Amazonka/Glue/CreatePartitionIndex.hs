@@ -136,7 +136,8 @@ instance Core.AWSRequest CreatePartitionIndex where
 
 instance Prelude.Hashable CreatePartitionIndex where
   hashWithSalt _salt CreatePartitionIndex' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` partitionIndex

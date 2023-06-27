@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     DataQualityRulesetFilterCriteria' {..} =
-      _salt `Prelude.hashWithSalt` createdAfter
+      _salt
+        `Prelude.hashWithSalt` createdAfter
         `Prelude.hashWithSalt` createdBefore
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` lastModifiedAfter

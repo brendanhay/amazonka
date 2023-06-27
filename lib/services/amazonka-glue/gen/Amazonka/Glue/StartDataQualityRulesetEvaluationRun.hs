@@ -30,6 +30,7 @@ module Amazonka.Glue.StartDataQualityRulesetEvaluationRun
     newStartDataQualityRulesetEvaluationRun,
 
     -- * Request Lenses
+    startDataQualityRulesetEvaluationRun_additionalDataSources,
     startDataQualityRulesetEvaluationRun_additionalRunOptions,
     startDataQualityRulesetEvaluationRun_clientToken,
     startDataQualityRulesetEvaluationRun_numberOfWorkers,
@@ -58,7 +59,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStartDataQualityRulesetEvaluationRun' smart constructor.
 data StartDataQualityRulesetEvaluationRun = StartDataQualityRulesetEvaluationRun'
-  { -- | Additional run options you can specify for an evaluation run.
+  { -- | A map of reference strings to additional data sources you can specify
+    -- for an evaluation run.
+    additionalDataSources :: Prelude.Maybe (Prelude.HashMap Prelude.Text DataSource),
+    -- | Additional run options you can specify for an evaluation run.
     additionalRunOptions :: Prelude.Maybe DataQualityEvaluationRunAdditionalRunOptions,
     -- | Used for idempotency and is recommended to be set to a random ID (such
     -- as a UUID) to avoid creating or starting multiple instances of the same
@@ -86,6 +90,9 @@ data StartDataQualityRulesetEvaluationRun = StartDataQualityRulesetEvaluationRun
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'additionalDataSources', 'startDataQualityRulesetEvaluationRun_additionalDataSources' - A map of reference strings to additional data sources you can specify
+-- for an evaluation run.
 --
 -- 'additionalRunOptions', 'startDataQualityRulesetEvaluationRun_additionalRunOptions' - Additional run options you can specify for an evaluation run.
 --
@@ -117,7 +124,9 @@ newStartDataQualityRulesetEvaluationRun
   pRole_
   pRulesetNames_ =
     StartDataQualityRulesetEvaluationRun'
-      { additionalRunOptions =
+      { additionalDataSources =
+          Prelude.Nothing,
+        additionalRunOptions =
           Prelude.Nothing,
         clientToken = Prelude.Nothing,
         numberOfWorkers = Prelude.Nothing,
@@ -127,6 +136,11 @@ newStartDataQualityRulesetEvaluationRun
         rulesetNames =
           Lens.coerced Lens.# pRulesetNames_
       }
+
+-- | A map of reference strings to additional data sources you can specify
+-- for an evaluation run.
+startDataQualityRulesetEvaluationRun_additionalDataSources :: Lens.Lens' StartDataQualityRulesetEvaluationRun (Prelude.Maybe (Prelude.HashMap Prelude.Text DataSource))
+startDataQualityRulesetEvaluationRun_additionalDataSources = Lens.lens (\StartDataQualityRulesetEvaluationRun' {additionalDataSources} -> additionalDataSources) (\s@StartDataQualityRulesetEvaluationRun' {} a -> s {additionalDataSources = a} :: StartDataQualityRulesetEvaluationRun) Prelude.. Lens.mapping Lens.coerced
 
 -- | Additional run options you can specify for an evaluation run.
 startDataQualityRulesetEvaluationRun_additionalRunOptions :: Lens.Lens' StartDataQualityRulesetEvaluationRun (Prelude.Maybe DataQualityEvaluationRunAdditionalRunOptions)
@@ -174,7 +188,7 @@ instance
       ( \s h x ->
           StartDataQualityRulesetEvaluationRunResponse'
             Prelude.<$> (x Data..?> "RunId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -184,7 +198,9 @@ instance
   hashWithSalt
     _salt
     StartDataQualityRulesetEvaluationRun' {..} =
-      _salt `Prelude.hashWithSalt` additionalRunOptions
+      _salt
+        `Prelude.hashWithSalt` additionalDataSources
+        `Prelude.hashWithSalt` additionalRunOptions
         `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` numberOfWorkers
         `Prelude.hashWithSalt` timeout
@@ -197,7 +213,8 @@ instance
     StartDataQualityRulesetEvaluationRun
   where
   rnf StartDataQualityRulesetEvaluationRun' {..} =
-    Prelude.rnf additionalRunOptions
+    Prelude.rnf additionalDataSources
+      `Prelude.seq` Prelude.rnf additionalRunOptions
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf numberOfWorkers
       `Prelude.seq` Prelude.rnf timeout
@@ -230,7 +247,9 @@ instance
   toJSON StartDataQualityRulesetEvaluationRun' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("AdditionalRunOptions" Data..=)
+          [ ("AdditionalDataSources" Data..=)
+              Prelude.<$> additionalDataSources,
+            ("AdditionalRunOptions" Data..=)
               Prelude.<$> additionalRunOptions,
             ("ClientToken" Data..=) Prelude.<$> clientToken,
             ("NumberOfWorkers" Data..=)

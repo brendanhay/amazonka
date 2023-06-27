@@ -202,7 +202,8 @@ instance Data.FromJSON FindMatchesMetrics where
       ( \x ->
           FindMatchesMetrics'
             Prelude.<$> (x Data..:? "AreaUnderPRCurve")
-            Prelude.<*> ( x Data..:? "ColumnImportances"
+            Prelude.<*> ( x
+                            Data..:? "ColumnImportances"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConfusionMatrix")
@@ -213,7 +214,8 @@ instance Data.FromJSON FindMatchesMetrics where
 
 instance Prelude.Hashable FindMatchesMetrics where
   hashWithSalt _salt FindMatchesMetrics' {..} =
-    _salt `Prelude.hashWithSalt` areaUnderPRCurve
+    _salt
+      `Prelude.hashWithSalt` areaUnderPRCurve
       `Prelude.hashWithSalt` columnImportances
       `Prelude.hashWithSalt` confusionMatrix
       `Prelude.hashWithSalt` f1

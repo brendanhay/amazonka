@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.DatabaseIdentifier
+import Amazonka.Glue.Types.FederatedDatabase
 import Amazonka.Glue.Types.PrincipalPermissions
 import qualified Amazonka.Prelude as Prelude
 
@@ -33,12 +34,16 @@ import qualified Amazonka.Prelude as Prelude
 data Database = Database'
   { -- | The ID of the Data Catalog in which the database resides.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | Creates a set of default permissions on the table for principals.
+    -- | Creates a set of default permissions on the table for principals. Used
+    -- by Lake Formation. Not used in the normal course of Glue operations.
     createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
     -- | The time at which the metadata database was created in the catalog.
     createTime :: Prelude.Maybe Data.POSIX,
     -- | A description of the database.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A @FederatedDatabase@ structure that references an entity outside the
+    -- Glue Data Catalog.
+    federatedDatabase :: Prelude.Maybe FederatedDatabase,
     -- | The location of the database (for example, an HDFS path).
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define parameters and properties of the database.
@@ -62,11 +67,15 @@ data Database = Database'
 --
 -- 'catalogId', 'database_catalogId' - The ID of the Data Catalog in which the database resides.
 --
--- 'createTableDefaultPermissions', 'database_createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
+-- 'createTableDefaultPermissions', 'database_createTableDefaultPermissions' - Creates a set of default permissions on the table for principals. Used
+-- by Lake Formation. Not used in the normal course of Glue operations.
 --
 -- 'createTime', 'database_createTime' - The time at which the metadata database was created in the catalog.
 --
 -- 'description', 'database_description' - A description of the database.
+--
+-- 'federatedDatabase', 'database_federatedDatabase' - A @FederatedDatabase@ structure that references an entity outside the
+-- Glue Data Catalog.
 --
 -- 'locationUri', 'database_locationUri' - The location of the database (for example, an HDFS path).
 --
@@ -87,6 +96,7 @@ newDatabase pName_ =
       createTableDefaultPermissions = Prelude.Nothing,
       createTime = Prelude.Nothing,
       description = Prelude.Nothing,
+      federatedDatabase = Prelude.Nothing,
       locationUri = Prelude.Nothing,
       parameters = Prelude.Nothing,
       targetDatabase = Prelude.Nothing,
@@ -97,7 +107,8 @@ newDatabase pName_ =
 database_catalogId :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_catalogId = Lens.lens (\Database' {catalogId} -> catalogId) (\s@Database' {} a -> s {catalogId = a} :: Database)
 
--- | Creates a set of default permissions on the table for principals.
+-- | Creates a set of default permissions on the table for principals. Used
+-- by Lake Formation. Not used in the normal course of Glue operations.
 database_createTableDefaultPermissions :: Lens.Lens' Database (Prelude.Maybe [PrincipalPermissions])
 database_createTableDefaultPermissions = Lens.lens (\Database' {createTableDefaultPermissions} -> createTableDefaultPermissions) (\s@Database' {} a -> s {createTableDefaultPermissions = a} :: Database) Prelude.. Lens.mapping Lens.coerced
 
@@ -108,6 +119,11 @@ database_createTime = Lens.lens (\Database' {createTime} -> createTime) (\s@Data
 -- | A description of the database.
 database_description :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
 database_description = Lens.lens (\Database' {description} -> description) (\s@Database' {} a -> s {description = a} :: Database)
+
+-- | A @FederatedDatabase@ structure that references an entity outside the
+-- Glue Data Catalog.
+database_federatedDatabase :: Lens.Lens' Database (Prelude.Maybe FederatedDatabase)
+database_federatedDatabase = Lens.lens (\Database' {federatedDatabase} -> federatedDatabase) (\s@Database' {} a -> s {federatedDatabase = a} :: Database)
 
 -- | The location of the database (for example, an HDFS path).
 database_locationUri :: Lens.Lens' Database (Prelude.Maybe Prelude.Text)
@@ -134,11 +150,13 @@ instance Data.FromJSON Database where
       ( \x ->
           Database'
             Prelude.<$> (x Data..:? "CatalogId")
-            Prelude.<*> ( x Data..:? "CreateTableDefaultPermissions"
+            Prelude.<*> ( x
+                            Data..:? "CreateTableDefaultPermissions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreateTime")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FederatedDatabase")
             Prelude.<*> (x Data..:? "LocationUri")
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "TargetDatabase")
@@ -147,10 +165,12 @@ instance Data.FromJSON Database where
 
 instance Prelude.Hashable Database where
   hashWithSalt _salt Database' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` createTableDefaultPermissions
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` federatedDatabase
       `Prelude.hashWithSalt` locationUri
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` targetDatabase
@@ -162,6 +182,7 @@ instance Prelude.NFData Database where
       `Prelude.seq` Prelude.rnf createTableDefaultPermissions
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf federatedDatabase
       `Prelude.seq` Prelude.rnf locationUri
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf targetDatabase

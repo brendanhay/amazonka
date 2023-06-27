@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves partition metadata from the Data Catalog that contains
+-- unfiltered metadata.
+--
+-- For IAM authorization, the public IAM action associated with this API is
+-- @glue:GetPartitions@.
 module Amazonka.Glue.GetUnfilteredPartitionsMetadata
   ( -- * Creating a Request
     GetUnfilteredPartitionsMetadata (..),
@@ -58,14 +62,99 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetUnfilteredPartitionsMetadata' smart constructor.
 data GetUnfilteredPartitionsMetadata = GetUnfilteredPartitionsMetadata'
-  { auditContext :: Prelude.Maybe AuditContext,
+  { -- | A structure containing Lake Formation audit context information.
+    auditContext :: Prelude.Maybe AuditContext,
+    -- | An expression that filters the partitions to be returned.
+    --
+    -- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause.
+    -- The SQL statement parser
+    -- <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the
+    -- expression.
+    --
+    -- /Operators/: The following are the operators that you can use in the
+    -- @Expression@ API call:
+    --
+    -- [=]
+    --     Checks whether the values of the two operands are equal; if yes,
+    --     then the condition becomes true.
+    --
+    --     Example: Assume \'variable a\' holds 10 and \'variable b\' holds 20.
+    --
+    --     (a = b) is not true.
+    --
+    -- [\< >]
+    --     Checks whether the values of two operands are equal; if the values
+    --     are not equal, then the condition becomes true.
+    --
+    --     Example: (a \< > b) is true.
+    --
+    -- [>]
+    --     Checks whether the value of the left operand is greater than the
+    --     value of the right operand; if yes, then the condition becomes true.
+    --
+    --     Example: (a > b) is not true.
+    --
+    -- [\<]
+    --     Checks whether the value of the left operand is less than the value
+    --     of the right operand; if yes, then the condition becomes true.
+    --
+    --     Example: (a \< b) is true.
+    --
+    -- [>=]
+    --     Checks whether the value of the left operand is greater than or
+    --     equal to the value of the right operand; if yes, then the condition
+    --     becomes true.
+    --
+    --     Example: (a >= b) is not true.
+    --
+    -- [\<=]
+    --     Checks whether the value of the left operand is less than or equal
+    --     to the value of the right operand; if yes, then the condition
+    --     becomes true.
+    --
+    --     Example: (a \<= b) is true.
+    --
+    -- [AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL]
+    --     Logical operators.
+    --
+    -- /Supported Partition Key Types/: The following are the supported
+    -- partition keys.
+    --
+    -- -   @string@
+    --
+    -- -   @date@
+    --
+    -- -   @timestamp@
+    --
+    -- -   @int@
+    --
+    -- -   @bigint@
+    --
+    -- -   @long@
+    --
+    -- -   @tinyint@
+    --
+    -- -   @smallint@
+    --
+    -- -   @decimal@
+    --
+    -- If an type is encountered that is not valid, an exception is thrown.
     expression :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of partitions to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A continuation token, if this is not the first call to retrieve these
+    -- partitions.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The segment of the table\'s partitions to scan in this request.
     segment :: Prelude.Maybe Segment,
+    -- | The ID of the Data Catalog where the partitions in question reside. If
+    -- none is provided, the AWS account ID is used by default.
     catalogId :: Prelude.Text,
+    -- | The name of the catalog database where the partitions reside.
     databaseName :: Prelude.Text,
+    -- | The name of the table that contains the partition.
     tableName :: Prelude.Text,
+    -- | A list of supported permission types.
     supportedPermissionTypes :: Prelude.NonEmpty PermissionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,23 +167,99 @@ data GetUnfilteredPartitionsMetadata = GetUnfilteredPartitionsMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'auditContext', 'getUnfilteredPartitionsMetadata_auditContext' - Undocumented member.
+-- 'auditContext', 'getUnfilteredPartitionsMetadata_auditContext' - A structure containing Lake Formation audit context information.
 --
--- 'expression', 'getUnfilteredPartitionsMetadata_expression' - Undocumented member.
+-- 'expression', 'getUnfilteredPartitionsMetadata_expression' - An expression that filters the partitions to be returned.
 --
--- 'maxResults', 'getUnfilteredPartitionsMetadata_maxResults' - Undocumented member.
+-- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause.
+-- The SQL statement parser
+-- <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the
+-- expression.
 --
--- 'nextToken', 'getUnfilteredPartitionsMetadata_nextToken' - Undocumented member.
+-- /Operators/: The following are the operators that you can use in the
+-- @Expression@ API call:
 --
--- 'segment', 'getUnfilteredPartitionsMetadata_segment' - Undocumented member.
+-- [=]
+--     Checks whether the values of the two operands are equal; if yes,
+--     then the condition becomes true.
 --
--- 'catalogId', 'getUnfilteredPartitionsMetadata_catalogId' - Undocumented member.
+--     Example: Assume \'variable a\' holds 10 and \'variable b\' holds 20.
 --
--- 'databaseName', 'getUnfilteredPartitionsMetadata_databaseName' - Undocumented member.
+--     (a = b) is not true.
 --
--- 'tableName', 'getUnfilteredPartitionsMetadata_tableName' - Undocumented member.
+-- [\< >]
+--     Checks whether the values of two operands are equal; if the values
+--     are not equal, then the condition becomes true.
 --
--- 'supportedPermissionTypes', 'getUnfilteredPartitionsMetadata_supportedPermissionTypes' - Undocumented member.
+--     Example: (a \< > b) is true.
+--
+-- [>]
+--     Checks whether the value of the left operand is greater than the
+--     value of the right operand; if yes, then the condition becomes true.
+--
+--     Example: (a > b) is not true.
+--
+-- [\<]
+--     Checks whether the value of the left operand is less than the value
+--     of the right operand; if yes, then the condition becomes true.
+--
+--     Example: (a \< b) is true.
+--
+-- [>=]
+--     Checks whether the value of the left operand is greater than or
+--     equal to the value of the right operand; if yes, then the condition
+--     becomes true.
+--
+--     Example: (a >= b) is not true.
+--
+-- [\<=]
+--     Checks whether the value of the left operand is less than or equal
+--     to the value of the right operand; if yes, then the condition
+--     becomes true.
+--
+--     Example: (a \<= b) is true.
+--
+-- [AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL]
+--     Logical operators.
+--
+-- /Supported Partition Key Types/: The following are the supported
+-- partition keys.
+--
+-- -   @string@
+--
+-- -   @date@
+--
+-- -   @timestamp@
+--
+-- -   @int@
+--
+-- -   @bigint@
+--
+-- -   @long@
+--
+-- -   @tinyint@
+--
+-- -   @smallint@
+--
+-- -   @decimal@
+--
+-- If an type is encountered that is not valid, an exception is thrown.
+--
+-- 'maxResults', 'getUnfilteredPartitionsMetadata_maxResults' - The maximum number of partitions to return in a single response.
+--
+-- 'nextToken', 'getUnfilteredPartitionsMetadata_nextToken' - A continuation token, if this is not the first call to retrieve these
+-- partitions.
+--
+-- 'segment', 'getUnfilteredPartitionsMetadata_segment' - The segment of the table\'s partitions to scan in this request.
+--
+-- 'catalogId', 'getUnfilteredPartitionsMetadata_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
+-- none is provided, the AWS account ID is used by default.
+--
+-- 'databaseName', 'getUnfilteredPartitionsMetadata_databaseName' - The name of the catalog database where the partitions reside.
+--
+-- 'tableName', 'getUnfilteredPartitionsMetadata_tableName' - The name of the table that contains the partition.
+--
+-- 'supportedPermissionTypes', 'getUnfilteredPartitionsMetadata_supportedPermissionTypes' - A list of supported permission types.
 newGetUnfilteredPartitionsMetadata ::
   -- | 'catalogId'
   Prelude.Text ->
@@ -125,39 +290,115 @@ newGetUnfilteredPartitionsMetadata
             Lens.# pSupportedPermissionTypes_
       }
 
--- | Undocumented member.
+-- | A structure containing Lake Formation audit context information.
 getUnfilteredPartitionsMetadata_auditContext :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe AuditContext)
 getUnfilteredPartitionsMetadata_auditContext = Lens.lens (\GetUnfilteredPartitionsMetadata' {auditContext} -> auditContext) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {auditContext = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | An expression that filters the partitions to be returned.
+--
+-- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause.
+-- The SQL statement parser
+-- <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the
+-- expression.
+--
+-- /Operators/: The following are the operators that you can use in the
+-- @Expression@ API call:
+--
+-- [=]
+--     Checks whether the values of the two operands are equal; if yes,
+--     then the condition becomes true.
+--
+--     Example: Assume \'variable a\' holds 10 and \'variable b\' holds 20.
+--
+--     (a = b) is not true.
+--
+-- [\< >]
+--     Checks whether the values of two operands are equal; if the values
+--     are not equal, then the condition becomes true.
+--
+--     Example: (a \< > b) is true.
+--
+-- [>]
+--     Checks whether the value of the left operand is greater than the
+--     value of the right operand; if yes, then the condition becomes true.
+--
+--     Example: (a > b) is not true.
+--
+-- [\<]
+--     Checks whether the value of the left operand is less than the value
+--     of the right operand; if yes, then the condition becomes true.
+--
+--     Example: (a \< b) is true.
+--
+-- [>=]
+--     Checks whether the value of the left operand is greater than or
+--     equal to the value of the right operand; if yes, then the condition
+--     becomes true.
+--
+--     Example: (a >= b) is not true.
+--
+-- [\<=]
+--     Checks whether the value of the left operand is less than or equal
+--     to the value of the right operand; if yes, then the condition
+--     becomes true.
+--
+--     Example: (a \<= b) is true.
+--
+-- [AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL]
+--     Logical operators.
+--
+-- /Supported Partition Key Types/: The following are the supported
+-- partition keys.
+--
+-- -   @string@
+--
+-- -   @date@
+--
+-- -   @timestamp@
+--
+-- -   @int@
+--
+-- -   @bigint@
+--
+-- -   @long@
+--
+-- -   @tinyint@
+--
+-- -   @smallint@
+--
+-- -   @decimal@
+--
+-- If an type is encountered that is not valid, an exception is thrown.
 getUnfilteredPartitionsMetadata_expression :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Prelude.Text)
 getUnfilteredPartitionsMetadata_expression = Lens.lens (\GetUnfilteredPartitionsMetadata' {expression} -> expression) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {expression = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | The maximum number of partitions to return in a single response.
 getUnfilteredPartitionsMetadata_maxResults :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Prelude.Natural)
 getUnfilteredPartitionsMetadata_maxResults = Lens.lens (\GetUnfilteredPartitionsMetadata' {maxResults} -> maxResults) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {maxResults = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | A continuation token, if this is not the first call to retrieve these
+-- partitions.
 getUnfilteredPartitionsMetadata_nextToken :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Prelude.Text)
 getUnfilteredPartitionsMetadata_nextToken = Lens.lens (\GetUnfilteredPartitionsMetadata' {nextToken} -> nextToken) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {nextToken = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | The segment of the table\'s partitions to scan in this request.
 getUnfilteredPartitionsMetadata_segment :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.Maybe Segment)
 getUnfilteredPartitionsMetadata_segment = Lens.lens (\GetUnfilteredPartitionsMetadata' {segment} -> segment) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {segment = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | The ID of the Data Catalog where the partitions in question reside. If
+-- none is provided, the AWS account ID is used by default.
 getUnfilteredPartitionsMetadata_catalogId :: Lens.Lens' GetUnfilteredPartitionsMetadata Prelude.Text
 getUnfilteredPartitionsMetadata_catalogId = Lens.lens (\GetUnfilteredPartitionsMetadata' {catalogId} -> catalogId) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {catalogId = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | The name of the catalog database where the partitions reside.
 getUnfilteredPartitionsMetadata_databaseName :: Lens.Lens' GetUnfilteredPartitionsMetadata Prelude.Text
 getUnfilteredPartitionsMetadata_databaseName = Lens.lens (\GetUnfilteredPartitionsMetadata' {databaseName} -> databaseName) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {databaseName = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | The name of the table that contains the partition.
 getUnfilteredPartitionsMetadata_tableName :: Lens.Lens' GetUnfilteredPartitionsMetadata Prelude.Text
 getUnfilteredPartitionsMetadata_tableName = Lens.lens (\GetUnfilteredPartitionsMetadata' {tableName} -> tableName) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {tableName = a} :: GetUnfilteredPartitionsMetadata)
 
--- | Undocumented member.
+-- | A list of supported permission types.
 getUnfilteredPartitionsMetadata_supportedPermissionTypes :: Lens.Lens' GetUnfilteredPartitionsMetadata (Prelude.NonEmpty PermissionType)
 getUnfilteredPartitionsMetadata_supportedPermissionTypes = Lens.lens (\GetUnfilteredPartitionsMetadata' {supportedPermissionTypes} -> supportedPermissionTypes) (\s@GetUnfilteredPartitionsMetadata' {} a -> s {supportedPermissionTypes = a} :: GetUnfilteredPartitionsMetadata) Prelude.. Lens.coerced
 
@@ -175,7 +416,8 @@ instance
       ( \s h x ->
           GetUnfilteredPartitionsMetadataResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UnfilteredPartitions"
+            Prelude.<*> ( x
+                            Data..?> "UnfilteredPartitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -188,7 +430,8 @@ instance
   hashWithSalt
     _salt
     GetUnfilteredPartitionsMetadata' {..} =
-      _salt `Prelude.hashWithSalt` auditContext
+      _salt
+        `Prelude.hashWithSalt` auditContext
         `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -258,7 +501,10 @@ instance Data.ToQuery GetUnfilteredPartitionsMetadata where
 
 -- | /See:/ 'newGetUnfilteredPartitionsMetadataResponse' smart constructor.
 data GetUnfilteredPartitionsMetadataResponse = GetUnfilteredPartitionsMetadataResponse'
-  { nextToken :: Prelude.Maybe Prelude.Text,
+  { -- | A continuation token, if the returned list of partitions does not
+    -- include the last one.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of requested partitions.
     unfilteredPartitions :: Prelude.Maybe [UnfilteredPartition],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -273,9 +519,10 @@ data GetUnfilteredPartitionsMetadataResponse = GetUnfilteredPartitionsMetadataRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getUnfilteredPartitionsMetadataResponse_nextToken' - Undocumented member.
+-- 'nextToken', 'getUnfilteredPartitionsMetadataResponse_nextToken' - A continuation token, if the returned list of partitions does not
+-- include the last one.
 --
--- 'unfilteredPartitions', 'getUnfilteredPartitionsMetadataResponse_unfilteredPartitions' - Undocumented member.
+-- 'unfilteredPartitions', 'getUnfilteredPartitionsMetadataResponse_unfilteredPartitions' - A list of requested partitions.
 --
 -- 'httpStatus', 'getUnfilteredPartitionsMetadataResponse_httpStatus' - The response's http status code.
 newGetUnfilteredPartitionsMetadataResponse ::
@@ -292,11 +539,12 @@ newGetUnfilteredPartitionsMetadataResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | A continuation token, if the returned list of partitions does not
+-- include the last one.
 getUnfilteredPartitionsMetadataResponse_nextToken :: Lens.Lens' GetUnfilteredPartitionsMetadataResponse (Prelude.Maybe Prelude.Text)
 getUnfilteredPartitionsMetadataResponse_nextToken = Lens.lens (\GetUnfilteredPartitionsMetadataResponse' {nextToken} -> nextToken) (\s@GetUnfilteredPartitionsMetadataResponse' {} a -> s {nextToken = a} :: GetUnfilteredPartitionsMetadataResponse)
 
--- | Undocumented member.
+-- | A list of requested partitions.
 getUnfilteredPartitionsMetadataResponse_unfilteredPartitions :: Lens.Lens' GetUnfilteredPartitionsMetadataResponse (Prelude.Maybe [UnfilteredPartition])
 getUnfilteredPartitionsMetadataResponse_unfilteredPartitions = Lens.lens (\GetUnfilteredPartitionsMetadataResponse' {unfilteredPartitions} -> unfilteredPartitions) (\s@GetUnfilteredPartitionsMetadataResponse' {} a -> s {unfilteredPartitions = a} :: GetUnfilteredPartitionsMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 

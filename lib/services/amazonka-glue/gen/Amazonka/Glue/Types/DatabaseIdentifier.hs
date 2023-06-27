@@ -31,7 +31,9 @@ data DatabaseIdentifier = DatabaseIdentifier'
   { -- | The ID of the Data Catalog in which the database resides.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database.
-    databaseName :: Prelude.Maybe Prelude.Text
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | Region of the target database.
+    region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,12 +48,15 @@ data DatabaseIdentifier = DatabaseIdentifier'
 -- 'catalogId', 'databaseIdentifier_catalogId' - The ID of the Data Catalog in which the database resides.
 --
 -- 'databaseName', 'databaseIdentifier_databaseName' - The name of the catalog database.
+--
+-- 'region', 'databaseIdentifier_region' - Region of the target database.
 newDatabaseIdentifier ::
   DatabaseIdentifier
 newDatabaseIdentifier =
   DatabaseIdentifier'
     { catalogId = Prelude.Nothing,
-      databaseName = Prelude.Nothing
+      databaseName = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | The ID of the Data Catalog in which the database resides.
@@ -62,6 +67,10 @@ databaseIdentifier_catalogId = Lens.lens (\DatabaseIdentifier' {catalogId} -> ca
 databaseIdentifier_databaseName :: Lens.Lens' DatabaseIdentifier (Prelude.Maybe Prelude.Text)
 databaseIdentifier_databaseName = Lens.lens (\DatabaseIdentifier' {databaseName} -> databaseName) (\s@DatabaseIdentifier' {} a -> s {databaseName = a} :: DatabaseIdentifier)
 
+-- | Region of the target database.
+databaseIdentifier_region :: Lens.Lens' DatabaseIdentifier (Prelude.Maybe Prelude.Text)
+databaseIdentifier_region = Lens.lens (\DatabaseIdentifier' {region} -> region) (\s@DatabaseIdentifier' {} a -> s {region = a} :: DatabaseIdentifier)
+
 instance Data.FromJSON DatabaseIdentifier where
   parseJSON =
     Data.withObject
@@ -70,23 +79,28 @@ instance Data.FromJSON DatabaseIdentifier where
           DatabaseIdentifier'
             Prelude.<$> (x Data..:? "CatalogId")
             Prelude.<*> (x Data..:? "DatabaseName")
+            Prelude.<*> (x Data..:? "Region")
       )
 
 instance Prelude.Hashable DatabaseIdentifier where
   hashWithSalt _salt DatabaseIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
+      `Prelude.hashWithSalt` region
 
 instance Prelude.NFData DatabaseIdentifier where
   rnf DatabaseIdentifier' {..} =
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
+      `Prelude.seq` Prelude.rnf region
 
 instance Data.ToJSON DatabaseIdentifier where
   toJSON DatabaseIdentifier' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("CatalogId" Data..=) Prelude.<$> catalogId,
-            ("DatabaseName" Data..=) Prelude.<$> databaseName
+            ("DatabaseName" Data..=) Prelude.<$> databaseName,
+            ("Region" Data..=) Prelude.<$> region
           ]
       )

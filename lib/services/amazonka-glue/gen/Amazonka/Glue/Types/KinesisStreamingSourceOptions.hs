@@ -33,6 +33,11 @@ data KinesisStreamingSourceOptions = KinesisStreamingSourceOptions'
     -- default value is @\"False\"@. This option is only configurable for Glue
     -- version 2.0 and above.
     addIdleTimeBetweenReads :: Prelude.Maybe Prelude.Bool,
+    -- | When this option is set to \'true\', the data output will contain an
+    -- additional column named \"__src_timestamp\" that indicates the time when
+    -- the corresponding record received by the stream. The default value is
+    -- \'false\'. This option is supported in Glue version 4.0 or later.
+    addRecordTimestamp :: Prelude.Maybe Prelude.Text,
     -- | Avoids creating an empty microbatch job by checking for unread data in
     -- the Kinesis data stream before the batch is started. The default value
     -- is @\"False\"@.
@@ -44,6 +49,12 @@ data KinesisStreamingSourceOptions = KinesisStreamingSourceOptions'
     -- | The minimum time interval between two ListShards API calls for your
     -- script to consider resharding. The default value is @1s@.
     describeShardInterval :: Prelude.Maybe Prelude.Natural,
+    -- | When this option is set to \'true\', for each batch, it will emit the
+    -- metrics for the duration between the oldest record received by the
+    -- stream and the time it arrives in Glue to CloudWatch. The metric\'s name
+    -- is \"glue.driver.streaming.maxConsumerLagInMs\". The default value is
+    -- \'false\'. This option is supported in Glue version 4.0 or later.
+    emitConsumerLagMetrics :: Prelude.Maybe Prelude.Text,
     -- | The URL of the Kinesis endpoint.
     endpointUrl :: Prelude.Maybe Prelude.Text,
     -- | The minimum time delay between two consecutive getRecords operations,
@@ -80,9 +91,19 @@ data KinesisStreamingSourceOptions = KinesisStreamingSourceOptions'
     -- Used in conjunction with @\"awsSTSRoleARN\"@.
     roleSessionName :: Prelude.Maybe Prelude.Text,
     -- | The starting position in the Kinesis data stream to read data from. The
-    -- possible values are @\"latest\"@, @\"trim_horizon\"@, or @\"earliest\"@.
-    -- The default value is @\"latest\"@.
+    -- possible values are @\"latest\"@, @\"trim_horizon\"@, @\"earliest\"@, or
+    -- a timestamp string in UTC format in the pattern @yyyy-mm-ddTHH:MM:SSZ@
+    -- (where @Z@ represents a UTC timezone offset with a +\/-. For example:
+    -- \"2023-04-04T08:00:00-04:00\"). The default value is @\"latest\"@.
+    --
+    -- Note: Using a value that is a timestamp string in UTC format for
+    -- \"startingPosition\" is supported only for Glue version 4.0 or later.
     startingPosition :: Prelude.Maybe StartingPosition,
+    -- | The timestamp of the record in the Kinesis data stream to start reading
+    -- data from. The possible values are a timestamp string in UTC format of
+    -- the pattern @yyyy-mm-ddTHH:MM:SSZ@ (where Z represents a UTC timezone
+    -- offset with a +\/-. For example: \"2023-04-04T08:00:00+08:00\").
+    startingTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | The Amazon Resource Name (ARN) of the Kinesis data stream.
     streamArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Kinesis data stream.
@@ -102,6 +123,11 @@ data KinesisStreamingSourceOptions = KinesisStreamingSourceOptions'
 -- default value is @\"False\"@. This option is only configurable for Glue
 -- version 2.0 and above.
 --
+-- 'addRecordTimestamp', 'kinesisStreamingSourceOptions_addRecordTimestamp' - When this option is set to \'true\', the data output will contain an
+-- additional column named \"__src_timestamp\" that indicates the time when
+-- the corresponding record received by the stream. The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
+--
 -- 'avoidEmptyBatches', 'kinesisStreamingSourceOptions_avoidEmptyBatches' - Avoids creating an empty microbatch job by checking for unread data in
 -- the Kinesis data stream before the batch is started. The default value
 -- is @\"False\"@.
@@ -112,6 +138,12 @@ data KinesisStreamingSourceOptions = KinesisStreamingSourceOptions'
 --
 -- 'describeShardInterval', 'kinesisStreamingSourceOptions_describeShardInterval' - The minimum time interval between two ListShards API calls for your
 -- script to consider resharding. The default value is @1s@.
+--
+-- 'emitConsumerLagMetrics', 'kinesisStreamingSourceOptions_emitConsumerLagMetrics' - When this option is set to \'true\', for each batch, it will emit the
+-- metrics for the duration between the oldest record received by the
+-- stream and the time it arrives in Glue to CloudWatch. The metric\'s name
+-- is \"glue.driver.streaming.maxConsumerLagInMs\". The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
 --
 -- 'endpointUrl', 'kinesisStreamingSourceOptions_endpointUrl' - The URL of the Kinesis endpoint.
 --
@@ -149,8 +181,18 @@ data KinesisStreamingSourceOptions = KinesisStreamingSourceOptions'
 -- Used in conjunction with @\"awsSTSRoleARN\"@.
 --
 -- 'startingPosition', 'kinesisStreamingSourceOptions_startingPosition' - The starting position in the Kinesis data stream to read data from. The
--- possible values are @\"latest\"@, @\"trim_horizon\"@, or @\"earliest\"@.
--- The default value is @\"latest\"@.
+-- possible values are @\"latest\"@, @\"trim_horizon\"@, @\"earliest\"@, or
+-- a timestamp string in UTC format in the pattern @yyyy-mm-ddTHH:MM:SSZ@
+-- (where @Z@ represents a UTC timezone offset with a +\/-. For example:
+-- \"2023-04-04T08:00:00-04:00\"). The default value is @\"latest\"@.
+--
+-- Note: Using a value that is a timestamp string in UTC format for
+-- \"startingPosition\" is supported only for Glue version 4.0 or later.
+--
+-- 'startingTimestamp', 'kinesisStreamingSourceOptions_startingTimestamp' - The timestamp of the record in the Kinesis data stream to start reading
+-- data from. The possible values are a timestamp string in UTC format of
+-- the pattern @yyyy-mm-ddTHH:MM:SSZ@ (where Z represents a UTC timezone
+-- offset with a +\/-. For example: \"2023-04-04T08:00:00+08:00\").
 --
 -- 'streamArn', 'kinesisStreamingSourceOptions_streamArn' - The Amazon Resource Name (ARN) of the Kinesis data stream.
 --
@@ -161,10 +203,12 @@ newKinesisStreamingSourceOptions =
   KinesisStreamingSourceOptions'
     { addIdleTimeBetweenReads =
         Prelude.Nothing,
+      addRecordTimestamp = Prelude.Nothing,
       avoidEmptyBatches = Prelude.Nothing,
       classification = Prelude.Nothing,
       delimiter = Prelude.Nothing,
       describeShardInterval = Prelude.Nothing,
+      emitConsumerLagMetrics = Prelude.Nothing,
       endpointUrl = Prelude.Nothing,
       idleTimeBetweenReadsInMs = Prelude.Nothing,
       maxFetchRecordsPerShard = Prelude.Nothing,
@@ -176,6 +220,7 @@ newKinesisStreamingSourceOptions =
       roleArn = Prelude.Nothing,
       roleSessionName = Prelude.Nothing,
       startingPosition = Prelude.Nothing,
+      startingTimestamp = Prelude.Nothing,
       streamArn = Prelude.Nothing,
       streamName = Prelude.Nothing
     }
@@ -185,6 +230,13 @@ newKinesisStreamingSourceOptions =
 -- version 2.0 and above.
 kinesisStreamingSourceOptions_addIdleTimeBetweenReads :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.Bool)
 kinesisStreamingSourceOptions_addIdleTimeBetweenReads = Lens.lens (\KinesisStreamingSourceOptions' {addIdleTimeBetweenReads} -> addIdleTimeBetweenReads) (\s@KinesisStreamingSourceOptions' {} a -> s {addIdleTimeBetweenReads = a} :: KinesisStreamingSourceOptions)
+
+-- | When this option is set to \'true\', the data output will contain an
+-- additional column named \"__src_timestamp\" that indicates the time when
+-- the corresponding record received by the stream. The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
+kinesisStreamingSourceOptions_addRecordTimestamp :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.Text)
+kinesisStreamingSourceOptions_addRecordTimestamp = Lens.lens (\KinesisStreamingSourceOptions' {addRecordTimestamp} -> addRecordTimestamp) (\s@KinesisStreamingSourceOptions' {} a -> s {addRecordTimestamp = a} :: KinesisStreamingSourceOptions)
 
 -- | Avoids creating an empty microbatch job by checking for unread data in
 -- the Kinesis data stream before the batch is started. The default value
@@ -204,6 +256,14 @@ kinesisStreamingSourceOptions_delimiter = Lens.lens (\KinesisStreamingSourceOpti
 -- script to consider resharding. The default value is @1s@.
 kinesisStreamingSourceOptions_describeShardInterval :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.Natural)
 kinesisStreamingSourceOptions_describeShardInterval = Lens.lens (\KinesisStreamingSourceOptions' {describeShardInterval} -> describeShardInterval) (\s@KinesisStreamingSourceOptions' {} a -> s {describeShardInterval = a} :: KinesisStreamingSourceOptions)
+
+-- | When this option is set to \'true\', for each batch, it will emit the
+-- metrics for the duration between the oldest record received by the
+-- stream and the time it arrives in Glue to CloudWatch. The metric\'s name
+-- is \"glue.driver.streaming.maxConsumerLagInMs\". The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
+kinesisStreamingSourceOptions_emitConsumerLagMetrics :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.Text)
+kinesisStreamingSourceOptions_emitConsumerLagMetrics = Lens.lens (\KinesisStreamingSourceOptions' {emitConsumerLagMetrics} -> emitConsumerLagMetrics) (\s@KinesisStreamingSourceOptions' {} a -> s {emitConsumerLagMetrics = a} :: KinesisStreamingSourceOptions)
 
 -- | The URL of the Kinesis endpoint.
 kinesisStreamingSourceOptions_endpointUrl :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.Text)
@@ -261,10 +321,22 @@ kinesisStreamingSourceOptions_roleSessionName :: Lens.Lens' KinesisStreamingSour
 kinesisStreamingSourceOptions_roleSessionName = Lens.lens (\KinesisStreamingSourceOptions' {roleSessionName} -> roleSessionName) (\s@KinesisStreamingSourceOptions' {} a -> s {roleSessionName = a} :: KinesisStreamingSourceOptions)
 
 -- | The starting position in the Kinesis data stream to read data from. The
--- possible values are @\"latest\"@, @\"trim_horizon\"@, or @\"earliest\"@.
--- The default value is @\"latest\"@.
+-- possible values are @\"latest\"@, @\"trim_horizon\"@, @\"earliest\"@, or
+-- a timestamp string in UTC format in the pattern @yyyy-mm-ddTHH:MM:SSZ@
+-- (where @Z@ represents a UTC timezone offset with a +\/-. For example:
+-- \"2023-04-04T08:00:00-04:00\"). The default value is @\"latest\"@.
+--
+-- Note: Using a value that is a timestamp string in UTC format for
+-- \"startingPosition\" is supported only for Glue version 4.0 or later.
 kinesisStreamingSourceOptions_startingPosition :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe StartingPosition)
 kinesisStreamingSourceOptions_startingPosition = Lens.lens (\KinesisStreamingSourceOptions' {startingPosition} -> startingPosition) (\s@KinesisStreamingSourceOptions' {} a -> s {startingPosition = a} :: KinesisStreamingSourceOptions)
+
+-- | The timestamp of the record in the Kinesis data stream to start reading
+-- data from. The possible values are a timestamp string in UTC format of
+-- the pattern @yyyy-mm-ddTHH:MM:SSZ@ (where Z represents a UTC timezone
+-- offset with a +\/-. For example: \"2023-04-04T08:00:00+08:00\").
+kinesisStreamingSourceOptions_startingTimestamp :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.UTCTime)
+kinesisStreamingSourceOptions_startingTimestamp = Lens.lens (\KinesisStreamingSourceOptions' {startingTimestamp} -> startingTimestamp) (\s@KinesisStreamingSourceOptions' {} a -> s {startingTimestamp = a} :: KinesisStreamingSourceOptions) Prelude.. Lens.mapping Data._Time
 
 -- | The Amazon Resource Name (ARN) of the Kinesis data stream.
 kinesisStreamingSourceOptions_streamArn :: Lens.Lens' KinesisStreamingSourceOptions (Prelude.Maybe Prelude.Text)
@@ -281,10 +353,12 @@ instance Data.FromJSON KinesisStreamingSourceOptions where
       ( \x ->
           KinesisStreamingSourceOptions'
             Prelude.<$> (x Data..:? "AddIdleTimeBetweenReads")
+            Prelude.<*> (x Data..:? "AddRecordTimestamp")
             Prelude.<*> (x Data..:? "AvoidEmptyBatches")
             Prelude.<*> (x Data..:? "Classification")
             Prelude.<*> (x Data..:? "Delimiter")
             Prelude.<*> (x Data..:? "DescribeShardInterval")
+            Prelude.<*> (x Data..:? "EmitConsumerLagMetrics")
             Prelude.<*> (x Data..:? "EndpointUrl")
             Prelude.<*> (x Data..:? "IdleTimeBetweenReadsInMs")
             Prelude.<*> (x Data..:? "MaxFetchRecordsPerShard")
@@ -296,6 +370,7 @@ instance Data.FromJSON KinesisStreamingSourceOptions where
             Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "RoleSessionName")
             Prelude.<*> (x Data..:? "StartingPosition")
+            Prelude.<*> (x Data..:? "StartingTimestamp")
             Prelude.<*> (x Data..:? "StreamArn")
             Prelude.<*> (x Data..:? "StreamName")
       )
@@ -307,10 +382,12 @@ instance
   hashWithSalt _salt KinesisStreamingSourceOptions' {..} =
     _salt
       `Prelude.hashWithSalt` addIdleTimeBetweenReads
+      `Prelude.hashWithSalt` addRecordTimestamp
       `Prelude.hashWithSalt` avoidEmptyBatches
       `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` describeShardInterval
+      `Prelude.hashWithSalt` emitConsumerLagMetrics
       `Prelude.hashWithSalt` endpointUrl
       `Prelude.hashWithSalt` idleTimeBetweenReadsInMs
       `Prelude.hashWithSalt` maxFetchRecordsPerShard
@@ -322,16 +399,19 @@ instance
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` roleSessionName
       `Prelude.hashWithSalt` startingPosition
+      `Prelude.hashWithSalt` startingTimestamp
       `Prelude.hashWithSalt` streamArn
       `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData KinesisStreamingSourceOptions where
   rnf KinesisStreamingSourceOptions' {..} =
     Prelude.rnf addIdleTimeBetweenReads
+      `Prelude.seq` Prelude.rnf addRecordTimestamp
       `Prelude.seq` Prelude.rnf avoidEmptyBatches
       `Prelude.seq` Prelude.rnf classification
       `Prelude.seq` Prelude.rnf delimiter
       `Prelude.seq` Prelude.rnf describeShardInterval
+      `Prelude.seq` Prelude.rnf emitConsumerLagMetrics
       `Prelude.seq` Prelude.rnf endpointUrl
       `Prelude.seq` Prelude.rnf idleTimeBetweenReadsInMs
       `Prelude.seq` Prelude.rnf maxFetchRecordsPerShard
@@ -343,6 +423,7 @@ instance Prelude.NFData KinesisStreamingSourceOptions where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf roleSessionName
       `Prelude.seq` Prelude.rnf startingPosition
+      `Prelude.seq` Prelude.rnf startingTimestamp
       `Prelude.seq` Prelude.rnf streamArn
       `Prelude.seq` Prelude.rnf streamName
 
@@ -352,6 +433,8 @@ instance Data.ToJSON KinesisStreamingSourceOptions where
       ( Prelude.catMaybes
           [ ("AddIdleTimeBetweenReads" Data..=)
               Prelude.<$> addIdleTimeBetweenReads,
+            ("AddRecordTimestamp" Data..=)
+              Prelude.<$> addRecordTimestamp,
             ("AvoidEmptyBatches" Data..=)
               Prelude.<$> avoidEmptyBatches,
             ("Classification" Data..=)
@@ -359,6 +442,8 @@ instance Data.ToJSON KinesisStreamingSourceOptions where
             ("Delimiter" Data..=) Prelude.<$> delimiter,
             ("DescribeShardInterval" Data..=)
               Prelude.<$> describeShardInterval,
+            ("EmitConsumerLagMetrics" Data..=)
+              Prelude.<$> emitConsumerLagMetrics,
             ("EndpointUrl" Data..=) Prelude.<$> endpointUrl,
             ("IdleTimeBetweenReadsInMs" Data..=)
               Prelude.<$> idleTimeBetweenReadsInMs,
@@ -378,6 +463,8 @@ instance Data.ToJSON KinesisStreamingSourceOptions where
               Prelude.<$> roleSessionName,
             ("StartingPosition" Data..=)
               Prelude.<$> startingPosition,
+            ("StartingTimestamp" Data..=)
+              Prelude.<$> startingTimestamp,
             ("StreamArn" Data..=) Prelude.<$> streamArn,
             ("StreamName" Data..=) Prelude.<$> streamName
           ]

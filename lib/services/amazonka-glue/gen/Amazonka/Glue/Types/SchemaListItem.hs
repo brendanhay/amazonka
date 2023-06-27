@@ -125,7 +125,8 @@ instance Data.FromJSON SchemaListItem where
 
 instance Prelude.Hashable SchemaListItem where
   hashWithSalt _salt SchemaListItem' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registryName
       `Prelude.hashWithSalt` schemaArn

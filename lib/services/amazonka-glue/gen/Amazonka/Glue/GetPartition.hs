@@ -125,7 +125,8 @@ instance Core.AWSRequest GetPartition where
 
 instance Prelude.Hashable GetPartition where
   hashWithSalt _salt GetPartition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` partitionValues

@@ -155,7 +155,8 @@ instance Core.AWSRequest UpdateTable where
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` skipArchive
       `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` versionId

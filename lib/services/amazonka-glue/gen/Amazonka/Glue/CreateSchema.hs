@@ -344,7 +344,8 @@ instance Core.AWSRequest CreateSchema where
 
 instance Prelude.Hashable CreateSchema where
   hashWithSalt _salt CreateSchema' {..} =
-    _salt `Prelude.hashWithSalt` compatibility
+    _salt
+      `Prelude.hashWithSalt` compatibility
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` schemaDefinition

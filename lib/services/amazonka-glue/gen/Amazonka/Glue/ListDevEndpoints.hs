@@ -113,7 +113,8 @@ instance Core.AWSRequest ListDevEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListDevEndpointsResponse'
-            Prelude.<$> ( x Data..?> "DevEndpointNames"
+            Prelude.<$> ( x
+                            Data..?> "DevEndpointNames"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -122,7 +123,8 @@ instance Core.AWSRequest ListDevEndpoints where
 
 instance Prelude.Hashable ListDevEndpoints where
   hashWithSalt _salt ListDevEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` tags
 

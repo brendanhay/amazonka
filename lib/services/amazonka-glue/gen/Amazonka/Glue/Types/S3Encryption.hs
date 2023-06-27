@@ -79,7 +79,8 @@ instance Data.FromJSON S3Encryption where
 
 instance Prelude.Hashable S3Encryption where
   hashWithSalt _salt S3Encryption' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` s3EncryptionMode
 
 instance Prelude.NFData S3Encryption where

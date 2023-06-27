@@ -37,7 +37,8 @@ data TableInput = TableInput'
     lastAccessTime :: Prelude.Maybe Data.POSIX,
     -- | The last time that column statistics were computed for this table.
     lastAnalyzedTime :: Prelude.Maybe Data.POSIX,
-    -- | The table owner.
+    -- | The table owner. Included for Apache Hive compatibility. Not used in the
+    -- normal course of Glue operations.
     owner :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define properties associated with the table.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -55,14 +56,28 @@ data TableInput = TableInput'
     -- | A storage descriptor containing information about the physical storage
     -- of this table.
     storageDescriptor :: Prelude.Maybe StorageDescriptor,
-    -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
+    -- | The type of this table. Glue will create tables with the
+    -- @EXTERNAL_TABLE@ type. Other services, such as Athena, may create tables
+    -- with additional table types.
+    --
+    -- Glue related table types:
+    --
+    -- [EXTERNAL_TABLE]
+    --     Hive compatible attribute - indicates a non-Hive managed table.
+    --
+    -- [GOVERNED]
+    --     Used by Lake Formation. The Glue Data Catalog understands
+    --     @GOVERNED@.
     tableType :: Prelude.Maybe Prelude.Text,
     -- | A @TableIdentifier@ structure that describes a target table for resource
     -- linking.
     targetTable :: Prelude.Maybe TableIdentifier,
-    -- | If the table is a view, the expanded text of the view; otherwise @null@.
+    -- | Included for Apache Hive compatibility. Not used in the normal course of
+    -- Glue operations.
     viewExpandedText :: Prelude.Maybe Prelude.Text,
-    -- | If the table is a view, the original text of the view; otherwise @null@.
+    -- | Included for Apache Hive compatibility. Not used in the normal course of
+    -- Glue operations. If the table is a @VIRTUAL_VIEW@, certain Athena
+    -- configuration encoded in base64.
     viewOriginalText :: Prelude.Maybe Prelude.Text,
     -- | The table name. For Hive compatibility, this is folded to lowercase when
     -- it is stored.
@@ -84,7 +99,8 @@ data TableInput = TableInput'
 --
 -- 'lastAnalyzedTime', 'tableInput_lastAnalyzedTime' - The last time that column statistics were computed for this table.
 --
--- 'owner', 'tableInput_owner' - The table owner.
+-- 'owner', 'tableInput_owner' - The table owner. Included for Apache Hive compatibility. Not used in the
+-- normal course of Glue operations.
 --
 -- 'parameters', 'tableInput_parameters' - These key-value pairs define properties associated with the table.
 --
@@ -102,14 +118,28 @@ data TableInput = TableInput'
 -- 'storageDescriptor', 'tableInput_storageDescriptor' - A storage descriptor containing information about the physical storage
 -- of this table.
 --
--- 'tableType', 'tableInput_tableType' - The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
+-- 'tableType', 'tableInput_tableType' - The type of this table. Glue will create tables with the
+-- @EXTERNAL_TABLE@ type. Other services, such as Athena, may create tables
+-- with additional table types.
+--
+-- Glue related table types:
+--
+-- [EXTERNAL_TABLE]
+--     Hive compatible attribute - indicates a non-Hive managed table.
+--
+-- [GOVERNED]
+--     Used by Lake Formation. The Glue Data Catalog understands
+--     @GOVERNED@.
 --
 -- 'targetTable', 'tableInput_targetTable' - A @TableIdentifier@ structure that describes a target table for resource
 -- linking.
 --
--- 'viewExpandedText', 'tableInput_viewExpandedText' - If the table is a view, the expanded text of the view; otherwise @null@.
+-- 'viewExpandedText', 'tableInput_viewExpandedText' - Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations.
 --
--- 'viewOriginalText', 'tableInput_viewOriginalText' - If the table is a view, the original text of the view; otherwise @null@.
+-- 'viewOriginalText', 'tableInput_viewOriginalText' - Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations. If the table is a @VIRTUAL_VIEW@, certain Athena
+-- configuration encoded in base64.
 --
 -- 'name', 'tableInput_name' - The table name. For Hive compatibility, this is folded to lowercase when
 -- it is stored.
@@ -146,7 +176,8 @@ tableInput_lastAccessTime = Lens.lens (\TableInput' {lastAccessTime} -> lastAcce
 tableInput_lastAnalyzedTime :: Lens.Lens' TableInput (Prelude.Maybe Prelude.UTCTime)
 tableInput_lastAnalyzedTime = Lens.lens (\TableInput' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@TableInput' {} a -> s {lastAnalyzedTime = a} :: TableInput) Prelude.. Lens.mapping Data._Time
 
--- | The table owner.
+-- | The table owner. Included for Apache Hive compatibility. Not used in the
+-- normal course of Glue operations.
 tableInput_owner :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
 tableInput_owner = Lens.lens (\TableInput' {owner} -> owner) (\s@TableInput' {} a -> s {owner = a} :: TableInput)
 
@@ -174,7 +205,18 @@ tableInput_retention = Lens.lens (\TableInput' {retention} -> retention) (\s@Tab
 tableInput_storageDescriptor :: Lens.Lens' TableInput (Prelude.Maybe StorageDescriptor)
 tableInput_storageDescriptor = Lens.lens (\TableInput' {storageDescriptor} -> storageDescriptor) (\s@TableInput' {} a -> s {storageDescriptor = a} :: TableInput)
 
--- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
+-- | The type of this table. Glue will create tables with the
+-- @EXTERNAL_TABLE@ type. Other services, such as Athena, may create tables
+-- with additional table types.
+--
+-- Glue related table types:
+--
+-- [EXTERNAL_TABLE]
+--     Hive compatible attribute - indicates a non-Hive managed table.
+--
+-- [GOVERNED]
+--     Used by Lake Formation. The Glue Data Catalog understands
+--     @GOVERNED@.
 tableInput_tableType :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
 tableInput_tableType = Lens.lens (\TableInput' {tableType} -> tableType) (\s@TableInput' {} a -> s {tableType = a} :: TableInput)
 
@@ -183,11 +225,14 @@ tableInput_tableType = Lens.lens (\TableInput' {tableType} -> tableType) (\s@Tab
 tableInput_targetTable :: Lens.Lens' TableInput (Prelude.Maybe TableIdentifier)
 tableInput_targetTable = Lens.lens (\TableInput' {targetTable} -> targetTable) (\s@TableInput' {} a -> s {targetTable = a} :: TableInput)
 
--- | If the table is a view, the expanded text of the view; otherwise @null@.
+-- | Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations.
 tableInput_viewExpandedText :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
 tableInput_viewExpandedText = Lens.lens (\TableInput' {viewExpandedText} -> viewExpandedText) (\s@TableInput' {} a -> s {viewExpandedText = a} :: TableInput)
 
--- | If the table is a view, the original text of the view; otherwise @null@.
+-- | Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations. If the table is a @VIRTUAL_VIEW@, certain Athena
+-- configuration encoded in base64.
 tableInput_viewOriginalText :: Lens.Lens' TableInput (Prelude.Maybe Prelude.Text)
 tableInput_viewOriginalText = Lens.lens (\TableInput' {viewOriginalText} -> viewOriginalText) (\s@TableInput' {} a -> s {viewOriginalText = a} :: TableInput)
 
@@ -198,7 +243,8 @@ tableInput_name = Lens.lens (\TableInput' {name} -> name) (\s@TableInput' {} a -
 
 instance Prelude.Hashable TableInput where
   hashWithSalt _salt TableInput' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastAccessTime
       `Prelude.hashWithSalt` lastAnalyzedTime
       `Prelude.hashWithSalt` owner

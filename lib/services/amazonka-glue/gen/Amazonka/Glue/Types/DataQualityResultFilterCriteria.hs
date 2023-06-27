@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     DataQualityResultFilterCriteria' {..} =
-      _salt `Prelude.hashWithSalt` dataSource
+      _salt
+        `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` jobRunId
         `Prelude.hashWithSalt` startedAfter

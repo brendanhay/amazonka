@@ -25,10 +25,16 @@ import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Partition
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newUnfilteredPartition' smart constructor.
+-- | A partition that contains unfiltered metadata.
+--
+-- /See:/ 'newUnfilteredPartition' smart constructor.
 data UnfilteredPartition = UnfilteredPartition'
-  { authorizedColumns :: Prelude.Maybe [Prelude.Text],
+  { -- | The list of columns the user has permissions to access.
+    authorizedColumns :: Prelude.Maybe [Prelude.Text],
+    -- | A Boolean value indicating that the partition location is registered
+    -- with Lake Formation.
     isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
+    -- | The partition object.
     partition :: Prelude.Maybe Partition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,11 +47,12 @@ data UnfilteredPartition = UnfilteredPartition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizedColumns', 'unfilteredPartition_authorizedColumns' - Undocumented member.
+-- 'authorizedColumns', 'unfilteredPartition_authorizedColumns' - The list of columns the user has permissions to access.
 --
--- 'isRegisteredWithLakeFormation', 'unfilteredPartition_isRegisteredWithLakeFormation' - Undocumented member.
+-- 'isRegisteredWithLakeFormation', 'unfilteredPartition_isRegisteredWithLakeFormation' - A Boolean value indicating that the partition location is registered
+-- with Lake Formation.
 --
--- 'partition', 'unfilteredPartition_partition' - Undocumented member.
+-- 'partition', 'unfilteredPartition_partition' - The partition object.
 newUnfilteredPartition ::
   UnfilteredPartition
 newUnfilteredPartition =
@@ -56,15 +63,16 @@ newUnfilteredPartition =
       partition = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The list of columns the user has permissions to access.
 unfilteredPartition_authorizedColumns :: Lens.Lens' UnfilteredPartition (Prelude.Maybe [Prelude.Text])
 unfilteredPartition_authorizedColumns = Lens.lens (\UnfilteredPartition' {authorizedColumns} -> authorizedColumns) (\s@UnfilteredPartition' {} a -> s {authorizedColumns = a} :: UnfilteredPartition) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | A Boolean value indicating that the partition location is registered
+-- with Lake Formation.
 unfilteredPartition_isRegisteredWithLakeFormation :: Lens.Lens' UnfilteredPartition (Prelude.Maybe Prelude.Bool)
 unfilteredPartition_isRegisteredWithLakeFormation = Lens.lens (\UnfilteredPartition' {isRegisteredWithLakeFormation} -> isRegisteredWithLakeFormation) (\s@UnfilteredPartition' {} a -> s {isRegisteredWithLakeFormation = a} :: UnfilteredPartition)
 
--- | Undocumented member.
+-- | The partition object.
 unfilteredPartition_partition :: Lens.Lens' UnfilteredPartition (Prelude.Maybe Partition)
 unfilteredPartition_partition = Lens.lens (\UnfilteredPartition' {partition} -> partition) (\s@UnfilteredPartition' {} a -> s {partition = a} :: UnfilteredPartition)
 
@@ -74,7 +82,8 @@ instance Data.FromJSON UnfilteredPartition where
       "UnfilteredPartition"
       ( \x ->
           UnfilteredPartition'
-            Prelude.<$> ( x Data..:? "AuthorizedColumns"
+            Prelude.<$> ( x
+                            Data..:? "AuthorizedColumns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "IsRegisteredWithLakeFormation")
@@ -83,7 +92,8 @@ instance Data.FromJSON UnfilteredPartition where
 
 instance Prelude.Hashable UnfilteredPartition where
   hashWithSalt _salt UnfilteredPartition' {..} =
-    _salt `Prelude.hashWithSalt` authorizedColumns
+    _salt
+      `Prelude.hashWithSalt` authorizedColumns
       `Prelude.hashWithSalt` isRegisteredWithLakeFormation
       `Prelude.hashWithSalt` partition
 

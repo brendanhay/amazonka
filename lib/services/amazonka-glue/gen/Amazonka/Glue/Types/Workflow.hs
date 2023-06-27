@@ -162,7 +162,8 @@ instance Data.FromJSON Workflow where
           Workflow'
             Prelude.<$> (x Data..:? "BlueprintDetails")
             Prelude.<*> (x Data..:? "CreatedOn")
-            Prelude.<*> ( x Data..:? "DefaultRunProperties"
+            Prelude.<*> ( x
+                            Data..:? "DefaultRunProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
@@ -175,7 +176,8 @@ instance Data.FromJSON Workflow where
 
 instance Prelude.Hashable Workflow where
   hashWithSalt _salt Workflow' {..} =
-    _salt `Prelude.hashWithSalt` blueprintDetails
+    _salt
+      `Prelude.hashWithSalt` blueprintDetails
       `Prelude.hashWithSalt` createdOn
       `Prelude.hashWithSalt` defaultRunProperties
       `Prelude.hashWithSalt` description

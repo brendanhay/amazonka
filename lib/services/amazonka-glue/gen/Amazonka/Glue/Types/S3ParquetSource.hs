@@ -221,7 +221,8 @@ instance Data.FromJSON S3ParquetSource where
 
 instance Prelude.Hashable S3ParquetSource where
   hashWithSalt _salt S3ParquetSource' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` exclusions
       `Prelude.hashWithSalt` groupFiles

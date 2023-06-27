@@ -22,6 +22,7 @@ module Amazonka.Glue.Types.StartingPosition
       ( ..,
         StartingPosition_Earliest,
         StartingPosition_Latest,
+        StartingPosition_Timestamp,
         StartingPosition_Trim_horizon
       ),
   )
@@ -65,12 +66,16 @@ pattern StartingPosition_Earliest = StartingPosition' "earliest"
 pattern StartingPosition_Latest :: StartingPosition
 pattern StartingPosition_Latest = StartingPosition' "latest"
 
+pattern StartingPosition_Timestamp :: StartingPosition
+pattern StartingPosition_Timestamp = StartingPosition' "timestamp"
+
 pattern StartingPosition_Trim_horizon :: StartingPosition
 pattern StartingPosition_Trim_horizon = StartingPosition' "trim_horizon"
 
 {-# COMPLETE
   StartingPosition_Earliest,
   StartingPosition_Latest,
+  StartingPosition_Timestamp,
   StartingPosition_Trim_horizon,
   StartingPosition'
   #-}

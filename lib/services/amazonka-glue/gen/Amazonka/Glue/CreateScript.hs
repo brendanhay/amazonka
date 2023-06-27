@@ -110,7 +110,8 @@ instance Core.AWSRequest CreateScript where
 
 instance Prelude.Hashable CreateScript where
   hashWithSalt _salt CreateScript' {..} =
-    _salt `Prelude.hashWithSalt` dagEdges
+    _salt
+      `Prelude.hashWithSalt` dagEdges
       `Prelude.hashWithSalt` dagNodes
       `Prelude.hashWithSalt` language
 

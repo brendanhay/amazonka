@@ -436,21 +436,23 @@ instance Core.AWSPager GetPartitions where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getPartitionsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getPartitionsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getPartitionsResponse_partitions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getPartitions_nextToken
           Lens..~ rs
-          Lens.^? getPartitionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getPartitionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetPartitions where
   type
@@ -469,7 +471,8 @@ instance Core.AWSRequest GetPartitions where
 
 instance Prelude.Hashable GetPartitions where
   hashWithSalt _salt GetPartitions' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` excludeColumnSchema
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` maxResults

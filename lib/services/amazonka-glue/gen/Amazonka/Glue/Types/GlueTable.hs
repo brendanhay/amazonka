@@ -121,7 +121,8 @@ instance Data.FromJSON GlueTable where
       "GlueTable"
       ( \x ->
           GlueTable'
-            Prelude.<$> ( x Data..:? "AdditionalOptions"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CatalogId")
@@ -132,7 +133,8 @@ instance Data.FromJSON GlueTable where
 
 instance Prelude.Hashable GlueTable where
   hashWithSalt _salt GlueTable' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` databaseName

@@ -121,7 +121,8 @@ instance Core.AWSRequest ResumeWorkflowRun where
 
 instance Prelude.Hashable ResumeWorkflowRun where
   hashWithSalt _salt ResumeWorkflowRun' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` nodeIds
 

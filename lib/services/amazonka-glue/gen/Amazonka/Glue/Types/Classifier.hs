@@ -108,7 +108,8 @@ instance Data.FromJSON Classifier where
 
 instance Prelude.Hashable Classifier where
   hashWithSalt _salt Classifier' {..} =
-    _salt `Prelude.hashWithSalt` csvClassifier
+    _salt
+      `Prelude.hashWithSalt` csvClassifier
       `Prelude.hashWithSalt` grokClassifier
       `Prelude.hashWithSalt` jsonClassifier
       `Prelude.hashWithSalt` xMLClassifier

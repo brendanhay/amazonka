@@ -88,7 +88,8 @@ instance Data.FromJSON CodeGenEdge where
 
 instance Prelude.Hashable CodeGenEdge where
   hashWithSalt _salt CodeGenEdge' {..} =
-    _salt `Prelude.hashWithSalt` targetParameter
+    _salt
+      `Prelude.hashWithSalt` targetParameter
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` target
 

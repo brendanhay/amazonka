@@ -81,7 +81,8 @@ instance Data.FromJSON LakeFormationConfiguration where
 
 instance Prelude.Hashable LakeFormationConfiguration where
   hashWithSalt _salt LakeFormationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` useLakeFormationCredentials
 
 instance Prelude.NFData LakeFormationConfiguration where

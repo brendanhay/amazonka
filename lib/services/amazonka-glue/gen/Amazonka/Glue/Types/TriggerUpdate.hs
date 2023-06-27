@@ -117,7 +117,8 @@ triggerUpdate_schedule = Lens.lens (\TriggerUpdate' {schedule} -> schedule) (\s@
 
 instance Prelude.Hashable TriggerUpdate where
   hashWithSalt _salt TriggerUpdate' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBatchingCondition
       `Prelude.hashWithSalt` name

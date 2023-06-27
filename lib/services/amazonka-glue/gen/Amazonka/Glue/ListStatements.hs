@@ -114,7 +114,8 @@ instance Core.AWSRequest ListStatements where
 
 instance Prelude.Hashable ListStatements where
   hashWithSalt _salt ListStatements' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` requestOrigin
       `Prelude.hashWithSalt` sessionId
 

@@ -203,7 +203,8 @@ instance Data.FromJSON BlueprintRun where
 
 instance Prelude.Hashable BlueprintRun where
   hashWithSalt _salt BlueprintRun' {..} =
-    _salt `Prelude.hashWithSalt` blueprintName
+    _salt
+      `Prelude.hashWithSalt` blueprintName
       `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` parameters

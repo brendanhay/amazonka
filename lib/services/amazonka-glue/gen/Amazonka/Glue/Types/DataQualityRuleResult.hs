@@ -31,6 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data DataQualityRuleResult = DataQualityRuleResult'
   { -- | A description of the data quality rule.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A map of metrics associated with the evaluation of the rule.
+    evaluatedMetrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | An evaluation message.
     evaluationMessage :: Prelude.Maybe Prelude.Text,
     -- | The name of the data quality rule.
@@ -50,6 +52,8 @@ data DataQualityRuleResult = DataQualityRuleResult'
 --
 -- 'description', 'dataQualityRuleResult_description' - A description of the data quality rule.
 --
+-- 'evaluatedMetrics', 'dataQualityRuleResult_evaluatedMetrics' - A map of metrics associated with the evaluation of the rule.
+--
 -- 'evaluationMessage', 'dataQualityRuleResult_evaluationMessage' - An evaluation message.
 --
 -- 'name', 'dataQualityRuleResult_name' - The name of the data quality rule.
@@ -61,6 +65,7 @@ newDataQualityRuleResult =
   DataQualityRuleResult'
     { description =
         Prelude.Nothing,
+      evaluatedMetrics = Prelude.Nothing,
       evaluationMessage = Prelude.Nothing,
       name = Prelude.Nothing,
       result = Prelude.Nothing
@@ -69,6 +74,10 @@ newDataQualityRuleResult =
 -- | A description of the data quality rule.
 dataQualityRuleResult_description :: Lens.Lens' DataQualityRuleResult (Prelude.Maybe Prelude.Text)
 dataQualityRuleResult_description = Lens.lens (\DataQualityRuleResult' {description} -> description) (\s@DataQualityRuleResult' {} a -> s {description = a} :: DataQualityRuleResult)
+
+-- | A map of metrics associated with the evaluation of the rule.
+dataQualityRuleResult_evaluatedMetrics :: Lens.Lens' DataQualityRuleResult (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+dataQualityRuleResult_evaluatedMetrics = Lens.lens (\DataQualityRuleResult' {evaluatedMetrics} -> evaluatedMetrics) (\s@DataQualityRuleResult' {} a -> s {evaluatedMetrics = a} :: DataQualityRuleResult) Prelude.. Lens.mapping Lens.coerced
 
 -- | An evaluation message.
 dataQualityRuleResult_evaluationMessage :: Lens.Lens' DataQualityRuleResult (Prelude.Maybe Prelude.Text)
@@ -89,6 +98,10 @@ instance Data.FromJSON DataQualityRuleResult where
       ( \x ->
           DataQualityRuleResult'
             Prelude.<$> (x Data..:? "Description")
+            Prelude.<*> ( x
+                            Data..:? "EvaluatedMetrics"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "EvaluationMessage")
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "Result")
@@ -96,7 +109,9 @@ instance Data.FromJSON DataQualityRuleResult where
 
 instance Prelude.Hashable DataQualityRuleResult where
   hashWithSalt _salt DataQualityRuleResult' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` evaluatedMetrics
       `Prelude.hashWithSalt` evaluationMessage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` result
@@ -104,6 +119,7 @@ instance Prelude.Hashable DataQualityRuleResult where
 instance Prelude.NFData DataQualityRuleResult where
   rnf DataQualityRuleResult' {..} =
     Prelude.rnf description
+      `Prelude.seq` Prelude.rnf evaluatedMetrics
       `Prelude.seq` Prelude.rnf evaluationMessage
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf result

@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdateSchema where
 
 instance Prelude.Hashable UpdateSchema where
   hashWithSalt _salt UpdateSchema' {..} =
-    _salt `Prelude.hashWithSalt` compatibility
+    _salt
+      `Prelude.hashWithSalt` compatibility
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` schemaVersionNumber
       `Prelude.hashWithSalt` schemaId

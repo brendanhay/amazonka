@@ -76,7 +76,8 @@ instance Data.FromJSON SchemaColumn where
 
 instance Prelude.Hashable SchemaColumn where
   hashWithSalt _salt SchemaColumn' {..} =
-    _salt `Prelude.hashWithSalt` dataType
+    _salt
+      `Prelude.hashWithSalt` dataType
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData SchemaColumn where

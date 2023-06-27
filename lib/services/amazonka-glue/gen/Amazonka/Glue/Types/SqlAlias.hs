@@ -69,12 +69,14 @@ instance Data.FromJSON SqlAlias where
       "SqlAlias"
       ( \x ->
           SqlAlias'
-            Prelude.<$> (x Data..: "From") Prelude.<*> (x Data..: "Alias")
+            Prelude.<$> (x Data..: "From")
+            Prelude.<*> (x Data..: "Alias")
       )
 
 instance Prelude.Hashable SqlAlias where
   hashWithSalt _salt SqlAlias' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` alias
 
 instance Prelude.NFData SqlAlias where

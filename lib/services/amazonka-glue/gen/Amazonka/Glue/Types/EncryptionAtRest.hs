@@ -77,7 +77,8 @@ instance Data.FromJSON EncryptionAtRest where
 
 instance Prelude.Hashable EncryptionAtRest where
   hashWithSalt _salt EncryptionAtRest' {..} =
-    _salt `Prelude.hashWithSalt` sseAwsKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` sseAwsKmsKeyId
       `Prelude.hashWithSalt` catalogEncryptionMode
 
 instance Prelude.NFData EncryptionAtRest where

@@ -112,7 +112,8 @@ instance Core.AWSRequest ListBlueprints where
 
 instance Prelude.Hashable ListBlueprints where
   hashWithSalt _salt ListBlueprints' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` tags
 

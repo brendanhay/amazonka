@@ -83,7 +83,8 @@ data CreateJob = CreateJob'
     codeGenConfigurationNodes :: Prelude.Maybe (Data.Sensitive (Prelude.HashMap Prelude.Text CodeGenConfigurationNode)),
     -- | The connections used for this job.
     connections :: Prelude.Maybe ConnectionsList,
-    -- | The default arguments for this job.
+    -- | The default arguments for every run of this job, specified as name-value
+    -- pairs.
     --
     -- You can specify arguments here that your own job-execution script
     -- consumes, as well as arguments that Glue itself consumes.
@@ -97,10 +98,15 @@ data CreateJob = CreateJob'
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
     -- topic in the developer guide.
     --
-    -- For information about the key-value pairs that Glue consumes to set up
-    -- your job, see the
+    -- For information about the arguments you can provide to this field when
+    -- configuring Spark jobs, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
+    --
+    -- For information about the arguments you can provide to this field when
+    -- configuring Ray jobs, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+    -- in the developer guide.
     defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Description of the job being defined.
     description :: Prelude.Maybe Prelude.Text,
@@ -118,9 +124,13 @@ data CreateJob = CreateJob'
     -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs
     -- allowed for this job.
     executionProperty :: Prelude.Maybe ExecutionProperty,
-    -- | Glue version determines the versions of Apache Spark and Python that
-    -- Glue supports. The Python version indicates the version supported for
-    -- jobs of type Spark.
+    -- | In Spark jobs, @GlueVersion@ determines the versions of Apache Spark and
+    -- Python that Glue available in a job. The Python version indicates the
+    -- version supported for jobs of type Spark.
+    --
+    -- Ray jobs should set @GlueVersion@ to @4.0@ or greater. However, the
+    -- versions of Ray, Python and additional libraries available in your Ray
+    -- job are determined by the @Runtime@ parameter of the Job command.
     --
     -- For more information about the available Glue versions and corresponding
     -- Spark and Python versions, see
@@ -139,10 +149,14 @@ data CreateJob = CreateJob'
     -- information, see the
     -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
-    -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+    -- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+    -- Instead, you should specify a @Worker type@ and the @Number of workers@.
+    --
+    -- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
     --
     -- The value that can be allocated for @MaxCapacity@ depends on whether you
-    -- are running a Python shell job or an Apache Spark ETL job:
+    -- are running a Python shell job, an Apache Spark ETL job, or an Apache
+    -- Spark streaming ETL job:
     --
     -- -   When you specify a Python shell job
     --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
@@ -150,17 +164,14 @@ data CreateJob = CreateJob'
     --
     -- -   When you specify an Apache Spark ETL job
     --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
-    --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
-    --     2 DPUs. The default is 10 DPUs. This job type cannot have a
+    --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+    --     100 DPUs. The default is 10 DPUs. This job type cannot have a
     --     fractional DPU allocation.
-    --
-    -- For Glue version 2.0 jobs, you cannot instead specify a
-    -- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
-    -- @Number of workers@.
     maxCapacity :: Prelude.Maybe Prelude.Double,
     -- | The maximum number of times to retry this job if it fails.
     maxRetries :: Prelude.Maybe Prelude.Int,
-    -- | Non-overridable arguments for this job, specified as name-value pairs.
+    -- | Arguments for this job that are not overridden when providing job
+    -- arguments in a job run, specified as name-value pairs.
     nonOverridableArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies configuration properties of a job notification.
     notificationProperty :: Prelude.Maybe NotificationProperty,
@@ -183,7 +194,8 @@ data CreateJob = CreateJob'
     -- The default is 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
-    -- a value of Standard, G.1X, G.2X, or G.025X.
+    -- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+    -- value Z.2X for Ray jobs.
     --
     -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
     --     of memory and a 50GB disk, and 2 executors per worker.
@@ -200,6 +212,10 @@ data CreateJob = CreateJob'
     --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
     --     recommend this worker type for low volume streaming jobs. This
     --     worker type is only available for Glue version 3.0 streaming jobs.
+    --
+    -- -   For the @Z.2X@ worker type, each worker maps to 2 M-DPU (8vCPU, 64
+    --     GB of m emory, 128 GB disk), and provides up to 8 Ray workers based
+    --     on the autoscaler.
     workerType :: Prelude.Maybe WorkerType,
     -- | The name you assign to this job definition. It must be unique in your
     -- account.
@@ -233,7 +249,8 @@ data CreateJob = CreateJob'
 --
 -- 'connections', 'createJob_connections' - The connections used for this job.
 --
--- 'defaultArguments', 'createJob_defaultArguments' - The default arguments for this job.
+-- 'defaultArguments', 'createJob_defaultArguments' - The default arguments for every run of this job, specified as name-value
+-- pairs.
 --
 -- You can specify arguments here that your own job-execution script
 -- consumes, as well as arguments that Glue itself consumes.
@@ -247,10 +264,15 @@ data CreateJob = CreateJob'
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that Glue consumes to set up
--- your job, see the
+-- For information about the arguments you can provide to this field when
+-- configuring Spark jobs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
+--
+-- For information about the arguments you can provide to this field when
+-- configuring Ray jobs, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+-- in the developer guide.
 --
 -- 'description', 'createJob_description' - Description of the job being defined.
 --
@@ -268,9 +290,13 @@ data CreateJob = CreateJob'
 -- 'executionProperty', 'createJob_executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs
 -- allowed for this job.
 --
--- 'glueVersion', 'createJob_glueVersion' - Glue version determines the versions of Apache Spark and Python that
--- Glue supports. The Python version indicates the version supported for
--- jobs of type Spark.
+-- 'glueVersion', 'createJob_glueVersion' - In Spark jobs, @GlueVersion@ determines the versions of Apache Spark and
+-- Python that Glue available in a job. The Python version indicates the
+-- version supported for jobs of type Spark.
+--
+-- Ray jobs should set @GlueVersion@ to @4.0@ or greater. However, the
+-- versions of Ray, Python and additional libraries available in your Ray
+-- job are determined by the @Runtime@ parameter of the Job command.
 --
 -- For more information about the available Glue versions and corresponding
 -- Spark and Python versions, see
@@ -289,10 +315,14 @@ data CreateJob = CreateJob'
 -- information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
--- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+-- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+-- Instead, you should specify a @Worker type@ and the @Number of workers@.
+--
+-- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
 -- The value that can be allocated for @MaxCapacity@ depends on whether you
--- are running a Python shell job or an Apache Spark ETL job:
+-- are running a Python shell job, an Apache Spark ETL job, or an Apache
+-- Spark streaming ETL job:
 --
 -- -   When you specify a Python shell job
 --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
@@ -300,17 +330,14 @@ data CreateJob = CreateJob'
 --
 -- -   When you specify an Apache Spark ETL job
 --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
---     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
---     2 DPUs. The default is 10 DPUs. This job type cannot have a
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+--     100 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
---
--- For Glue version 2.0 jobs, you cannot instead specify a
--- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
--- @Number of workers@.
 --
 -- 'maxRetries', 'createJob_maxRetries' - The maximum number of times to retry this job if it fails.
 --
--- 'nonOverridableArguments', 'createJob_nonOverridableArguments' - Non-overridable arguments for this job, specified as name-value pairs.
+-- 'nonOverridableArguments', 'createJob_nonOverridableArguments' - Arguments for this job that are not overridden when providing job
+-- arguments in a job run, specified as name-value pairs.
 --
 -- 'notificationProperty', 'createJob_notificationProperty' - Specifies configuration properties of a job notification.
 --
@@ -333,7 +360,8 @@ data CreateJob = CreateJob'
 -- The default is 2,880 minutes (48 hours).
 --
 -- 'workerType', 'createJob_workerType' - The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, G.2X, or G.025X.
+-- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+-- value Z.2X for Ray jobs.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -350,6 +378,10 @@ data CreateJob = CreateJob'
 --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for low volume streaming jobs. This
 --     worker type is only available for Glue version 3.0 streaming jobs.
+--
+-- -   For the @Z.2X@ worker type, each worker maps to 2 M-DPU (8vCPU, 64
+--     GB of m emory, 128 GB disk), and provides up to 8 Ray workers based
+--     on the autoscaler.
 --
 -- 'name', 'createJob_name' - The name you assign to this job definition. It must be unique in your
 -- account.
@@ -411,7 +443,8 @@ createJob_codeGenConfigurationNodes = Lens.lens (\CreateJob' {codeGenConfigurati
 createJob_connections :: Lens.Lens' CreateJob (Prelude.Maybe ConnectionsList)
 createJob_connections = Lens.lens (\CreateJob' {connections} -> connections) (\s@CreateJob' {} a -> s {connections = a} :: CreateJob)
 
--- | The default arguments for this job.
+-- | The default arguments for every run of this job, specified as name-value
+-- pairs.
 --
 -- You can specify arguments here that your own job-execution script
 -- consumes, as well as arguments that Glue itself consumes.
@@ -425,10 +458,15 @@ createJob_connections = Lens.lens (\CreateJob' {connections} -> connections) (\s
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that Glue consumes to set up
--- your job, see the
+-- For information about the arguments you can provide to this field when
+-- configuring Spark jobs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
+--
+-- For information about the arguments you can provide to this field when
+-- configuring Ray jobs, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+-- in the developer guide.
 createJob_defaultArguments :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_defaultArguments = Lens.lens (\CreateJob' {defaultArguments} -> defaultArguments) (\s@CreateJob' {} a -> s {defaultArguments = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -454,9 +492,13 @@ createJob_executionClass = Lens.lens (\CreateJob' {executionClass} -> executionC
 createJob_executionProperty :: Lens.Lens' CreateJob (Prelude.Maybe ExecutionProperty)
 createJob_executionProperty = Lens.lens (\CreateJob' {executionProperty} -> executionProperty) (\s@CreateJob' {} a -> s {executionProperty = a} :: CreateJob)
 
--- | Glue version determines the versions of Apache Spark and Python that
--- Glue supports. The Python version indicates the version supported for
--- jobs of type Spark.
+-- | In Spark jobs, @GlueVersion@ determines the versions of Apache Spark and
+-- Python that Glue available in a job. The Python version indicates the
+-- version supported for jobs of type Spark.
+--
+-- Ray jobs should set @GlueVersion@ to @4.0@ or greater. However, the
+-- versions of Ray, Python and additional libraries available in your Ray
+-- job are determined by the @Runtime@ parameter of the Job command.
 --
 -- For more information about the available Glue versions and corresponding
 -- Spark and Python versions, see
@@ -479,10 +521,14 @@ createJob_logUri = Lens.lens (\CreateJob' {logUri} -> logUri) (\s@CreateJob' {} 
 -- information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
--- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+-- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+-- Instead, you should specify a @Worker type@ and the @Number of workers@.
+--
+-- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
 -- The value that can be allocated for @MaxCapacity@ depends on whether you
--- are running a Python shell job or an Apache Spark ETL job:
+-- are running a Python shell job, an Apache Spark ETL job, or an Apache
+-- Spark streaming ETL job:
 --
 -- -   When you specify a Python shell job
 --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
@@ -490,13 +536,9 @@ createJob_logUri = Lens.lens (\CreateJob' {logUri} -> logUri) (\s@CreateJob' {} 
 --
 -- -   When you specify an Apache Spark ETL job
 --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
---     (@JobCommand.Name@=\"gluestreaming\"), you can allocate a minimum of
---     2 DPUs. The default is 10 DPUs. This job type cannot have a
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+--     100 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
---
--- For Glue version 2.0 jobs, you cannot instead specify a
--- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
--- @Number of workers@.
 createJob_maxCapacity :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Double)
 createJob_maxCapacity = Lens.lens (\CreateJob' {maxCapacity} -> maxCapacity) (\s@CreateJob' {} a -> s {maxCapacity = a} :: CreateJob)
 
@@ -504,7 +546,8 @@ createJob_maxCapacity = Lens.lens (\CreateJob' {maxCapacity} -> maxCapacity) (\s
 createJob_maxRetries :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
 createJob_maxRetries = Lens.lens (\CreateJob' {maxRetries} -> maxRetries) (\s@CreateJob' {} a -> s {maxRetries = a} :: CreateJob)
 
--- | Non-overridable arguments for this job, specified as name-value pairs.
+-- | Arguments for this job that are not overridden when providing job
+-- arguments in a job run, specified as name-value pairs.
 createJob_nonOverridableArguments :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_nonOverridableArguments = Lens.lens (\CreateJob' {nonOverridableArguments} -> nonOverridableArguments) (\s@CreateJob' {} a -> s {nonOverridableArguments = a} :: CreateJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -541,7 +584,8 @@ createJob_timeout :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Natural)
 createJob_timeout = Lens.lens (\CreateJob' {timeout} -> timeout) (\s@CreateJob' {} a -> s {timeout = a} :: CreateJob)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, G.2X, or G.025X.
+-- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+-- value Z.2X for Ray jobs.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
@@ -558,6 +602,10 @@ createJob_timeout = Lens.lens (\CreateJob' {timeout} -> timeout) (\s@CreateJob' 
 --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for low volume streaming jobs. This
 --     worker type is only available for Glue version 3.0 streaming jobs.
+--
+-- -   For the @Z.2X@ worker type, each worker maps to 2 M-DPU (8vCPU, 64
+--     GB of m emory, 128 GB disk), and provides up to 8 Ray workers based
+--     on the autoscaler.
 createJob_workerType :: Lens.Lens' CreateJob (Prelude.Maybe WorkerType)
 createJob_workerType = Lens.lens (\CreateJob' {workerType} -> workerType) (\s@CreateJob' {} a -> s {workerType = a} :: CreateJob)
 
@@ -589,7 +637,8 @@ instance Core.AWSRequest CreateJob where
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` codeGenConfigurationNodes
       `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` defaultArguments

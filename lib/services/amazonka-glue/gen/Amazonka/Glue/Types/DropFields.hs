@@ -89,7 +89,8 @@ instance Data.FromJSON DropFields where
 
 instance Prelude.Hashable DropFields where
   hashWithSalt _salt DropFields' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` paths
 

@@ -151,7 +151,8 @@ instance Core.AWSRequest CreateWorkflow where
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =
-    _salt `Prelude.hashWithSalt` defaultRunProperties
+    _salt
+      `Prelude.hashWithSalt` defaultRunProperties
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxConcurrentRuns
       `Prelude.hashWithSalt` tags

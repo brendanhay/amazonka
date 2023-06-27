@@ -349,7 +349,8 @@ instance Data.FromJSON S3CsvSource where
 
 instance Prelude.Hashable S3CsvSource where
   hashWithSalt _salt S3CsvSource' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` escaper
       `Prelude.hashWithSalt` exclusions

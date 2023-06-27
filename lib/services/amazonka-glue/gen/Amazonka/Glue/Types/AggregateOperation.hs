@@ -93,7 +93,8 @@ instance Data.FromJSON AggregateOperation where
 
 instance Prelude.Hashable AggregateOperation where
   hashWithSalt _salt AggregateOperation' {..} =
-    _salt `Prelude.hashWithSalt` column
+    _salt
+      `Prelude.hashWithSalt` column
       `Prelude.hashWithSalt` aggFunc
 
 instance Prelude.NFData AggregateOperation where

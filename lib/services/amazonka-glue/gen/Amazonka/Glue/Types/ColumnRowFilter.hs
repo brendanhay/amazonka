@@ -24,9 +24,13 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | /See:/ 'newColumnRowFilter' smart constructor.
+-- | A filter that uses both column-level and row-level filtering.
+--
+-- /See:/ 'newColumnRowFilter' smart constructor.
 data ColumnRowFilter = ColumnRowFilter'
-  { columnName :: Prelude.Maybe Prelude.Text,
+  { -- | A string containing the name of the column.
+    columnName :: Prelude.Maybe Prelude.Text,
+    -- | A string containing the row-level filter expression.
     rowFilterExpression :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -39,9 +43,9 @@ data ColumnRowFilter = ColumnRowFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'columnName', 'columnRowFilter_columnName' - Undocumented member.
+-- 'columnName', 'columnRowFilter_columnName' - A string containing the name of the column.
 --
--- 'rowFilterExpression', 'columnRowFilter_rowFilterExpression' - Undocumented member.
+-- 'rowFilterExpression', 'columnRowFilter_rowFilterExpression' - A string containing the row-level filter expression.
 newColumnRowFilter ::
   ColumnRowFilter
 newColumnRowFilter =
@@ -50,11 +54,11 @@ newColumnRowFilter =
       rowFilterExpression = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | A string containing the name of the column.
 columnRowFilter_columnName :: Lens.Lens' ColumnRowFilter (Prelude.Maybe Prelude.Text)
 columnRowFilter_columnName = Lens.lens (\ColumnRowFilter' {columnName} -> columnName) (\s@ColumnRowFilter' {} a -> s {columnName = a} :: ColumnRowFilter)
 
--- | Undocumented member.
+-- | A string containing the row-level filter expression.
 columnRowFilter_rowFilterExpression :: Lens.Lens' ColumnRowFilter (Prelude.Maybe Prelude.Text)
 columnRowFilter_rowFilterExpression = Lens.lens (\ColumnRowFilter' {rowFilterExpression} -> rowFilterExpression) (\s@ColumnRowFilter' {} a -> s {rowFilterExpression = a} :: ColumnRowFilter)
 
@@ -70,7 +74,8 @@ instance Data.FromJSON ColumnRowFilter where
 
 instance Prelude.Hashable ColumnRowFilter where
   hashWithSalt _salt ColumnRowFilter' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` rowFilterExpression
 
 instance Prelude.NFData ColumnRowFilter where

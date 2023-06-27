@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves table metadata from the Data Catalog that contains unfiltered
+-- metadata.
+--
+-- For IAM authorization, the public IAM action associated with this API is
+-- @glue:GetTable@.
 module Amazonka.Glue.GetUnfilteredTableMetadata
   ( -- * Creating a Request
     GetUnfilteredTableMetadata (..),
@@ -56,10 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetUnfilteredTableMetadata' smart constructor.
 data GetUnfilteredTableMetadata = GetUnfilteredTableMetadata'
-  { auditContext :: Prelude.Maybe AuditContext,
+  { -- | A structure containing Lake Formation audit context information.
+    auditContext :: Prelude.Maybe AuditContext,
+    -- | The catalog ID where the table resides.
     catalogId :: Prelude.Text,
+    -- | (Required) Specifies the name of a database that contains the table.
     databaseName :: Prelude.Text,
+    -- | (Required) Specifies the name of a table for which you are requesting
+    -- metadata.
     name :: Prelude.Text,
+    -- | (Required) A list of supported permission types.
     supportedPermissionTypes :: Prelude.NonEmpty PermissionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,15 +82,16 @@ data GetUnfilteredTableMetadata = GetUnfilteredTableMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'auditContext', 'getUnfilteredTableMetadata_auditContext' - Undocumented member.
+-- 'auditContext', 'getUnfilteredTableMetadata_auditContext' - A structure containing Lake Formation audit context information.
 --
--- 'catalogId', 'getUnfilteredTableMetadata_catalogId' - Undocumented member.
+-- 'catalogId', 'getUnfilteredTableMetadata_catalogId' - The catalog ID where the table resides.
 --
--- 'databaseName', 'getUnfilteredTableMetadata_databaseName' - Undocumented member.
+-- 'databaseName', 'getUnfilteredTableMetadata_databaseName' - (Required) Specifies the name of a database that contains the table.
 --
--- 'name', 'getUnfilteredTableMetadata_name' - Undocumented member.
+-- 'name', 'getUnfilteredTableMetadata_name' - (Required) Specifies the name of a table for which you are requesting
+-- metadata.
 --
--- 'supportedPermissionTypes', 'getUnfilteredTableMetadata_supportedPermissionTypes' - Undocumented member.
+-- 'supportedPermissionTypes', 'getUnfilteredTableMetadata_supportedPermissionTypes' - (Required) A list of supported permission types.
 newGetUnfilteredTableMetadata ::
   -- | 'catalogId'
   Prelude.Text ->
@@ -107,23 +118,24 @@ newGetUnfilteredTableMetadata
             Lens.# pSupportedPermissionTypes_
       }
 
--- | Undocumented member.
+-- | A structure containing Lake Formation audit context information.
 getUnfilteredTableMetadata_auditContext :: Lens.Lens' GetUnfilteredTableMetadata (Prelude.Maybe AuditContext)
 getUnfilteredTableMetadata_auditContext = Lens.lens (\GetUnfilteredTableMetadata' {auditContext} -> auditContext) (\s@GetUnfilteredTableMetadata' {} a -> s {auditContext = a} :: GetUnfilteredTableMetadata)
 
--- | Undocumented member.
+-- | The catalog ID where the table resides.
 getUnfilteredTableMetadata_catalogId :: Lens.Lens' GetUnfilteredTableMetadata Prelude.Text
 getUnfilteredTableMetadata_catalogId = Lens.lens (\GetUnfilteredTableMetadata' {catalogId} -> catalogId) (\s@GetUnfilteredTableMetadata' {} a -> s {catalogId = a} :: GetUnfilteredTableMetadata)
 
--- | Undocumented member.
+-- | (Required) Specifies the name of a database that contains the table.
 getUnfilteredTableMetadata_databaseName :: Lens.Lens' GetUnfilteredTableMetadata Prelude.Text
 getUnfilteredTableMetadata_databaseName = Lens.lens (\GetUnfilteredTableMetadata' {databaseName} -> databaseName) (\s@GetUnfilteredTableMetadata' {} a -> s {databaseName = a} :: GetUnfilteredTableMetadata)
 
--- | Undocumented member.
+-- | (Required) Specifies the name of a table for which you are requesting
+-- metadata.
 getUnfilteredTableMetadata_name :: Lens.Lens' GetUnfilteredTableMetadata Prelude.Text
 getUnfilteredTableMetadata_name = Lens.lens (\GetUnfilteredTableMetadata' {name} -> name) (\s@GetUnfilteredTableMetadata' {} a -> s {name = a} :: GetUnfilteredTableMetadata)
 
--- | Undocumented member.
+-- | (Required) A list of supported permission types.
 getUnfilteredTableMetadata_supportedPermissionTypes :: Lens.Lens' GetUnfilteredTableMetadata (Prelude.NonEmpty PermissionType)
 getUnfilteredTableMetadata_supportedPermissionTypes = Lens.lens (\GetUnfilteredTableMetadata' {supportedPermissionTypes} -> supportedPermissionTypes) (\s@GetUnfilteredTableMetadata' {} a -> s {supportedPermissionTypes = a} :: GetUnfilteredTableMetadata) Prelude.. Lens.coerced
 
@@ -137,7 +149,8 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
     Response.receiveJSON
       ( \s h x ->
           GetUnfilteredTableMetadataResponse'
-            Prelude.<$> ( x Data..?> "AuthorizedColumns"
+            Prelude.<$> ( x
+                            Data..?> "AuthorizedColumns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "CellFilters" Core..!@ Prelude.mempty)
@@ -148,7 +161,8 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
 
 instance Prelude.Hashable GetUnfilteredTableMetadata where
   hashWithSalt _salt GetUnfilteredTableMetadata' {..} =
-    _salt `Prelude.hashWithSalt` auditContext
+    _salt
+      `Prelude.hashWithSalt` auditContext
       `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
@@ -200,9 +214,14 @@ instance Data.ToQuery GetUnfilteredTableMetadata where
 
 -- | /See:/ 'newGetUnfilteredTableMetadataResponse' smart constructor.
 data GetUnfilteredTableMetadataResponse = GetUnfilteredTableMetadataResponse'
-  { authorizedColumns :: Prelude.Maybe [Prelude.Text],
+  { -- | A list of column names that the user has been granted access to.
+    authorizedColumns :: Prelude.Maybe [Prelude.Text],
+    -- | A list of column row filters.
     cellFilters :: Prelude.Maybe [ColumnRowFilter],
+    -- | A Boolean value that indicates whether the partition location is
+    -- registered with Lake Formation.
     isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
+    -- | A Table object containing the table metadata.
     table :: Prelude.Maybe Table,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -217,13 +236,14 @@ data GetUnfilteredTableMetadataResponse = GetUnfilteredTableMetadataResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizedColumns', 'getUnfilteredTableMetadataResponse_authorizedColumns' - Undocumented member.
+-- 'authorizedColumns', 'getUnfilteredTableMetadataResponse_authorizedColumns' - A list of column names that the user has been granted access to.
 --
--- 'cellFilters', 'getUnfilteredTableMetadataResponse_cellFilters' - Undocumented member.
+-- 'cellFilters', 'getUnfilteredTableMetadataResponse_cellFilters' - A list of column row filters.
 --
--- 'isRegisteredWithLakeFormation', 'getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation' - Undocumented member.
+-- 'isRegisteredWithLakeFormation', 'getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation' - A Boolean value that indicates whether the partition location is
+-- registered with Lake Formation.
 --
--- 'table', 'getUnfilteredTableMetadataResponse_table' - Undocumented member.
+-- 'table', 'getUnfilteredTableMetadataResponse_table' - A Table object containing the table metadata.
 --
 -- 'httpStatus', 'getUnfilteredTableMetadataResponse_httpStatus' - The response's http status code.
 newGetUnfilteredTableMetadataResponse ::
@@ -241,19 +261,20 @@ newGetUnfilteredTableMetadataResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | A list of column names that the user has been granted access to.
 getUnfilteredTableMetadataResponse_authorizedColumns :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe [Prelude.Text])
 getUnfilteredTableMetadataResponse_authorizedColumns = Lens.lens (\GetUnfilteredTableMetadataResponse' {authorizedColumns} -> authorizedColumns) (\s@GetUnfilteredTableMetadataResponse' {} a -> s {authorizedColumns = a} :: GetUnfilteredTableMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | A list of column row filters.
 getUnfilteredTableMetadataResponse_cellFilters :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe [ColumnRowFilter])
 getUnfilteredTableMetadataResponse_cellFilters = Lens.lens (\GetUnfilteredTableMetadataResponse' {cellFilters} -> cellFilters) (\s@GetUnfilteredTableMetadataResponse' {} a -> s {cellFilters = a} :: GetUnfilteredTableMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | A Boolean value that indicates whether the partition location is
+-- registered with Lake Formation.
 getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe Prelude.Bool)
 getUnfilteredTableMetadataResponse_isRegisteredWithLakeFormation = Lens.lens (\GetUnfilteredTableMetadataResponse' {isRegisteredWithLakeFormation} -> isRegisteredWithLakeFormation) (\s@GetUnfilteredTableMetadataResponse' {} a -> s {isRegisteredWithLakeFormation = a} :: GetUnfilteredTableMetadataResponse)
 
--- | Undocumented member.
+-- | A Table object containing the table metadata.
 getUnfilteredTableMetadataResponse_table :: Lens.Lens' GetUnfilteredTableMetadataResponse (Prelude.Maybe Table)
 getUnfilteredTableMetadataResponse_table = Lens.lens (\GetUnfilteredTableMetadataResponse' {table} -> table) (\s@GetUnfilteredTableMetadataResponse' {} a -> s {table = a} :: GetUnfilteredTableMetadataResponse)
 

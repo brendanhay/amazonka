@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateRegistry where
 
 instance Prelude.Hashable UpdateRegistry where
   hashWithSalt _salt UpdateRegistry' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData UpdateRegistry where

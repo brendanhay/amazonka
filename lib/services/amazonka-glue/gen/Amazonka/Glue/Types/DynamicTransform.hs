@@ -22,6 +22,7 @@ module Amazonka.Glue.Types.DynamicTransform where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.Glue.Types.GlueSchema
 import Amazonka.Glue.Types.TransformConfigParameter
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDynamicTransform' smart constructor.
 data DynamicTransform = DynamicTransform'
-  { -- | Specifies the parameters of the dynamic transform.
+  { -- | Specifies the data schema for the dynamic transform.
+    outputSchemas :: Prelude.Maybe [GlueSchema],
+    -- | Specifies the parameters of the dynamic transform.
     parameters :: Prelude.Maybe [TransformConfigParameter],
     -- | This field is not used and will be deprecated in future release.
     version :: Prelude.Maybe Prelude.Text,
@@ -54,6 +57,8 @@ data DynamicTransform = DynamicTransform'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'outputSchemas', 'dynamicTransform_outputSchemas' - Specifies the data schema for the dynamic transform.
 --
 -- 'parameters', 'dynamicTransform_parameters' - Specifies the parameters of the dynamic transform.
 --
@@ -88,7 +93,8 @@ newDynamicTransform
   pFunctionName_
   pPath_ =
     DynamicTransform'
-      { parameters = Prelude.Nothing,
+      { outputSchemas = Prelude.Nothing,
+        parameters = Prelude.Nothing,
         version = Prelude.Nothing,
         name = pName_,
         transformName = pTransformName_,
@@ -96,6 +102,10 @@ newDynamicTransform
         functionName = pFunctionName_,
         path = pPath_
       }
+
+-- | Specifies the data schema for the dynamic transform.
+dynamicTransform_outputSchemas :: Lens.Lens' DynamicTransform (Prelude.Maybe [GlueSchema])
+dynamicTransform_outputSchemas = Lens.lens (\DynamicTransform' {outputSchemas} -> outputSchemas) (\s@DynamicTransform' {} a -> s {outputSchemas = a} :: DynamicTransform) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the parameters of the dynamic transform.
 dynamicTransform_parameters :: Lens.Lens' DynamicTransform (Prelude.Maybe [TransformConfigParameter])
@@ -132,7 +142,8 @@ instance Data.FromJSON DynamicTransform where
       "DynamicTransform"
       ( \x ->
           DynamicTransform'
-            Prelude.<$> (x Data..:? "Parameters" Data..!= Prelude.mempty)
+            Prelude.<$> (x Data..:? "OutputSchemas" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Version")
             Prelude.<*> (x Data..: "Name")
             Prelude.<*> (x Data..: "TransformName")
@@ -143,7 +154,9 @@ instance Data.FromJSON DynamicTransform where
 
 instance Prelude.Hashable DynamicTransform where
   hashWithSalt _salt DynamicTransform' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` outputSchemas
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` transformName
@@ -153,7 +166,8 @@ instance Prelude.Hashable DynamicTransform where
 
 instance Prelude.NFData DynamicTransform where
   rnf DynamicTransform' {..} =
-    Prelude.rnf parameters
+    Prelude.rnf outputSchemas
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf transformName
@@ -165,7 +179,8 @@ instance Data.ToJSON DynamicTransform where
   toJSON DynamicTransform' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Parameters" Data..=) Prelude.<$> parameters,
+          [ ("OutputSchemas" Data..=) Prelude.<$> outputSchemas,
+            ("Parameters" Data..=) Prelude.<$> parameters,
             ("Version" Data..=) Prelude.<$> version,
             Prelude.Just ("Name" Data..= name),
             Prelude.Just ("TransformName" Data..= transformName),

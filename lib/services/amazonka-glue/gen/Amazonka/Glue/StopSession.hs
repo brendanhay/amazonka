@@ -100,7 +100,8 @@ instance Core.AWSRequest StopSession where
 
 instance Prelude.Hashable StopSession where
   hashWithSalt _salt StopSession' {..} =
-    _salt `Prelude.hashWithSalt` requestOrigin
+    _salt
+      `Prelude.hashWithSalt` requestOrigin
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData StopSession where

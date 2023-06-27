@@ -28,7 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newKafkaStreamingSourceOptions' smart constructor.
 data KafkaStreamingSourceOptions = KafkaStreamingSourceOptions'
-  { -- | The specific @TopicPartitions@ to consume. You must specify at least one
+  { -- | When this option is set to \'true\', the data output will contain an
+    -- additional column named \"__src_timestamp\" that indicates the time when
+    -- the corresponding record received by the topic. The default value is
+    -- \'false\'. This option is supported in Glue version 4.0 or later.
+    addRecordTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The specific @TopicPartitions@ to consume. You must specify at least one
     -- of @\"topicName\"@, @\"assign\"@ or @\"subscribePattern\"@.
     assign :: Prelude.Maybe Prelude.Text,
     -- | A list of bootstrap server URLs, for example, as
@@ -42,10 +47,22 @@ data KafkaStreamingSourceOptions = KafkaStreamingSourceOptions'
     connectionName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the delimiter character.
     delimiter :: Prelude.Maybe Prelude.Text,
+    -- | When this option is set to \'true\', for each batch, it will emit the
+    -- metrics for the duration between the oldest record received by the topic
+    -- and the time it arrives in Glue to CloudWatch. The metric\'s name is
+    -- \"glue.driver.streaming.maxConsumerLagInMs\". The default value is
+    -- \'false\'. This option is supported in Glue version 4.0 or later.
+    emitConsumerLagMetrics :: Prelude.Maybe Prelude.Text,
     -- | The end point when a batch query is ended. Possible values are either
     -- @\"latest\"@ or a JSON string that specifies an ending offset for each
     -- @TopicPartition@.
     endingOffsets :: Prelude.Maybe Prelude.Text,
+    -- | Whether to include the Kafka headers. When the option is set to
+    -- \"true\", the data output will contain an additional column named
+    -- \"glue_streaming_kafka_headers\" with type
+    -- @Array[Struct(key: String, value: String)]@. The default value is
+    -- \"false\". This option is available in Glue version 3.0 or later only.
+    includeHeaders :: Prelude.Maybe Prelude.Bool,
     -- | The rate limit on the maximum number of offsets that are processed per
     -- trigger interval. The specified total number of offsets is
     -- proportionally split across @topicPartitions@ of different volumes. The
@@ -72,6 +89,13 @@ data KafkaStreamingSourceOptions = KafkaStreamingSourceOptions'
     -- values are @\"earliest\"@ or @\"latest\"@. The default value is
     -- @\"latest\"@.
     startingOffsets :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp of the record in the Kafka topic to start reading data
+    -- from. The possible values are a timestamp string in UTC format of the
+    -- pattern @yyyy-mm-ddTHH:MM:SSZ@ (where Z represents a UTC timezone offset
+    -- with a +\/-. For example: \"2023-04-04T08:00:00+08:00\").
+    --
+    -- Only one of @StartingTimestamp@ or @StartingOffsets@ must be set.
+    startingTimestamp :: Prelude.Maybe Data.ISO8601,
     -- | A Java regex string that identifies the topic list to subscribe to. You
     -- must specify at least one of @\"topicName\"@, @\"assign\"@ or
     -- @\"subscribePattern\"@.
@@ -90,6 +114,11 @@ data KafkaStreamingSourceOptions = KafkaStreamingSourceOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'addRecordTimestamp', 'kafkaStreamingSourceOptions_addRecordTimestamp' - When this option is set to \'true\', the data output will contain an
+-- additional column named \"__src_timestamp\" that indicates the time when
+-- the corresponding record received by the topic. The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
+--
 -- 'assign', 'kafkaStreamingSourceOptions_assign' - The specific @TopicPartitions@ to consume. You must specify at least one
 -- of @\"topicName\"@, @\"assign\"@ or @\"subscribePattern\"@.
 --
@@ -104,9 +133,21 @@ data KafkaStreamingSourceOptions = KafkaStreamingSourceOptions'
 --
 -- 'delimiter', 'kafkaStreamingSourceOptions_delimiter' - Specifies the delimiter character.
 --
+-- 'emitConsumerLagMetrics', 'kafkaStreamingSourceOptions_emitConsumerLagMetrics' - When this option is set to \'true\', for each batch, it will emit the
+-- metrics for the duration between the oldest record received by the topic
+-- and the time it arrives in Glue to CloudWatch. The metric\'s name is
+-- \"glue.driver.streaming.maxConsumerLagInMs\". The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
+--
 -- 'endingOffsets', 'kafkaStreamingSourceOptions_endingOffsets' - The end point when a batch query is ended. Possible values are either
 -- @\"latest\"@ or a JSON string that specifies an ending offset for each
 -- @TopicPartition@.
+--
+-- 'includeHeaders', 'kafkaStreamingSourceOptions_includeHeaders' - Whether to include the Kafka headers. When the option is set to
+-- \"true\", the data output will contain an additional column named
+-- \"glue_streaming_kafka_headers\" with type
+-- @Array[Struct(key: String, value: String)]@. The default value is
+-- \"false\". This option is available in Glue version 3.0 or later only.
 --
 -- 'maxOffsetsPerTrigger', 'kafkaStreamingSourceOptions_maxOffsetsPerTrigger' - The rate limit on the maximum number of offsets that are processed per
 -- trigger interval. The specified total number of offsets is
@@ -134,6 +175,13 @@ data KafkaStreamingSourceOptions = KafkaStreamingSourceOptions'
 -- values are @\"earliest\"@ or @\"latest\"@. The default value is
 -- @\"latest\"@.
 --
+-- 'startingTimestamp', 'kafkaStreamingSourceOptions_startingTimestamp' - The timestamp of the record in the Kafka topic to start reading data
+-- from. The possible values are a timestamp string in UTC format of the
+-- pattern @yyyy-mm-ddTHH:MM:SSZ@ (where Z represents a UTC timezone offset
+-- with a +\/-. For example: \"2023-04-04T08:00:00+08:00\").
+--
+-- Only one of @StartingTimestamp@ or @StartingOffsets@ must be set.
+--
 -- 'subscribePattern', 'kafkaStreamingSourceOptions_subscribePattern' - A Java regex string that identifies the topic list to subscribe to. You
 -- must specify at least one of @\"topicName\"@, @\"assign\"@ or
 -- @\"subscribePattern\"@.
@@ -144,13 +192,16 @@ newKafkaStreamingSourceOptions ::
   KafkaStreamingSourceOptions
 newKafkaStreamingSourceOptions =
   KafkaStreamingSourceOptions'
-    { assign =
+    { addRecordTimestamp =
         Prelude.Nothing,
+      assign = Prelude.Nothing,
       bootstrapServers = Prelude.Nothing,
       classification = Prelude.Nothing,
       connectionName = Prelude.Nothing,
       delimiter = Prelude.Nothing,
+      emitConsumerLagMetrics = Prelude.Nothing,
       endingOffsets = Prelude.Nothing,
+      includeHeaders = Prelude.Nothing,
       maxOffsetsPerTrigger = Prelude.Nothing,
       minPartitions = Prelude.Nothing,
       numRetries = Prelude.Nothing,
@@ -158,9 +209,17 @@ newKafkaStreamingSourceOptions =
       retryIntervalMs = Prelude.Nothing,
       securityProtocol = Prelude.Nothing,
       startingOffsets = Prelude.Nothing,
+      startingTimestamp = Prelude.Nothing,
       subscribePattern = Prelude.Nothing,
       topicName = Prelude.Nothing
     }
+
+-- | When this option is set to \'true\', the data output will contain an
+-- additional column named \"__src_timestamp\" that indicates the time when
+-- the corresponding record received by the topic. The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
+kafkaStreamingSourceOptions_addRecordTimestamp :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.Text)
+kafkaStreamingSourceOptions_addRecordTimestamp = Lens.lens (\KafkaStreamingSourceOptions' {addRecordTimestamp} -> addRecordTimestamp) (\s@KafkaStreamingSourceOptions' {} a -> s {addRecordTimestamp = a} :: KafkaStreamingSourceOptions)
 
 -- | The specific @TopicPartitions@ to consume. You must specify at least one
 -- of @\"topicName\"@, @\"assign\"@ or @\"subscribePattern\"@.
@@ -186,11 +245,27 @@ kafkaStreamingSourceOptions_connectionName = Lens.lens (\KafkaStreamingSourceOpt
 kafkaStreamingSourceOptions_delimiter :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.Text)
 kafkaStreamingSourceOptions_delimiter = Lens.lens (\KafkaStreamingSourceOptions' {delimiter} -> delimiter) (\s@KafkaStreamingSourceOptions' {} a -> s {delimiter = a} :: KafkaStreamingSourceOptions)
 
+-- | When this option is set to \'true\', for each batch, it will emit the
+-- metrics for the duration between the oldest record received by the topic
+-- and the time it arrives in Glue to CloudWatch. The metric\'s name is
+-- \"glue.driver.streaming.maxConsumerLagInMs\". The default value is
+-- \'false\'. This option is supported in Glue version 4.0 or later.
+kafkaStreamingSourceOptions_emitConsumerLagMetrics :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.Text)
+kafkaStreamingSourceOptions_emitConsumerLagMetrics = Lens.lens (\KafkaStreamingSourceOptions' {emitConsumerLagMetrics} -> emitConsumerLagMetrics) (\s@KafkaStreamingSourceOptions' {} a -> s {emitConsumerLagMetrics = a} :: KafkaStreamingSourceOptions)
+
 -- | The end point when a batch query is ended. Possible values are either
 -- @\"latest\"@ or a JSON string that specifies an ending offset for each
 -- @TopicPartition@.
 kafkaStreamingSourceOptions_endingOffsets :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.Text)
 kafkaStreamingSourceOptions_endingOffsets = Lens.lens (\KafkaStreamingSourceOptions' {endingOffsets} -> endingOffsets) (\s@KafkaStreamingSourceOptions' {} a -> s {endingOffsets = a} :: KafkaStreamingSourceOptions)
+
+-- | Whether to include the Kafka headers. When the option is set to
+-- \"true\", the data output will contain an additional column named
+-- \"glue_streaming_kafka_headers\" with type
+-- @Array[Struct(key: String, value: String)]@. The default value is
+-- \"false\". This option is available in Glue version 3.0 or later only.
+kafkaStreamingSourceOptions_includeHeaders :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.Bool)
+kafkaStreamingSourceOptions_includeHeaders = Lens.lens (\KafkaStreamingSourceOptions' {includeHeaders} -> includeHeaders) (\s@KafkaStreamingSourceOptions' {} a -> s {includeHeaders = a} :: KafkaStreamingSourceOptions)
 
 -- | The rate limit on the maximum number of offsets that are processed per
 -- trigger interval. The specified total number of offsets is
@@ -232,6 +307,15 @@ kafkaStreamingSourceOptions_securityProtocol = Lens.lens (\KafkaStreamingSourceO
 kafkaStreamingSourceOptions_startingOffsets :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.Text)
 kafkaStreamingSourceOptions_startingOffsets = Lens.lens (\KafkaStreamingSourceOptions' {startingOffsets} -> startingOffsets) (\s@KafkaStreamingSourceOptions' {} a -> s {startingOffsets = a} :: KafkaStreamingSourceOptions)
 
+-- | The timestamp of the record in the Kafka topic to start reading data
+-- from. The possible values are a timestamp string in UTC format of the
+-- pattern @yyyy-mm-ddTHH:MM:SSZ@ (where Z represents a UTC timezone offset
+-- with a +\/-. For example: \"2023-04-04T08:00:00+08:00\").
+--
+-- Only one of @StartingTimestamp@ or @StartingOffsets@ must be set.
+kafkaStreamingSourceOptions_startingTimestamp :: Lens.Lens' KafkaStreamingSourceOptions (Prelude.Maybe Prelude.UTCTime)
+kafkaStreamingSourceOptions_startingTimestamp = Lens.lens (\KafkaStreamingSourceOptions' {startingTimestamp} -> startingTimestamp) (\s@KafkaStreamingSourceOptions' {} a -> s {startingTimestamp = a} :: KafkaStreamingSourceOptions) Prelude.. Lens.mapping Data._Time
+
 -- | A Java regex string that identifies the topic list to subscribe to. You
 -- must specify at least one of @\"topicName\"@, @\"assign\"@ or
 -- @\"subscribePattern\"@.
@@ -249,12 +333,15 @@ instance Data.FromJSON KafkaStreamingSourceOptions where
       "KafkaStreamingSourceOptions"
       ( \x ->
           KafkaStreamingSourceOptions'
-            Prelude.<$> (x Data..:? "Assign")
+            Prelude.<$> (x Data..:? "AddRecordTimestamp")
+            Prelude.<*> (x Data..:? "Assign")
             Prelude.<*> (x Data..:? "BootstrapServers")
             Prelude.<*> (x Data..:? "Classification")
             Prelude.<*> (x Data..:? "ConnectionName")
             Prelude.<*> (x Data..:? "Delimiter")
+            Prelude.<*> (x Data..:? "EmitConsumerLagMetrics")
             Prelude.<*> (x Data..:? "EndingOffsets")
+            Prelude.<*> (x Data..:? "IncludeHeaders")
             Prelude.<*> (x Data..:? "MaxOffsetsPerTrigger")
             Prelude.<*> (x Data..:? "MinPartitions")
             Prelude.<*> (x Data..:? "NumRetries")
@@ -262,18 +349,23 @@ instance Data.FromJSON KafkaStreamingSourceOptions where
             Prelude.<*> (x Data..:? "RetryIntervalMs")
             Prelude.<*> (x Data..:? "SecurityProtocol")
             Prelude.<*> (x Data..:? "StartingOffsets")
+            Prelude.<*> (x Data..:? "StartingTimestamp")
             Prelude.<*> (x Data..:? "SubscribePattern")
             Prelude.<*> (x Data..:? "TopicName")
       )
 
 instance Prelude.Hashable KafkaStreamingSourceOptions where
   hashWithSalt _salt KafkaStreamingSourceOptions' {..} =
-    _salt `Prelude.hashWithSalt` assign
+    _salt
+      `Prelude.hashWithSalt` addRecordTimestamp
+      `Prelude.hashWithSalt` assign
       `Prelude.hashWithSalt` bootstrapServers
       `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` delimiter
+      `Prelude.hashWithSalt` emitConsumerLagMetrics
       `Prelude.hashWithSalt` endingOffsets
+      `Prelude.hashWithSalt` includeHeaders
       `Prelude.hashWithSalt` maxOffsetsPerTrigger
       `Prelude.hashWithSalt` minPartitions
       `Prelude.hashWithSalt` numRetries
@@ -281,17 +373,21 @@ instance Prelude.Hashable KafkaStreamingSourceOptions where
       `Prelude.hashWithSalt` retryIntervalMs
       `Prelude.hashWithSalt` securityProtocol
       `Prelude.hashWithSalt` startingOffsets
+      `Prelude.hashWithSalt` startingTimestamp
       `Prelude.hashWithSalt` subscribePattern
       `Prelude.hashWithSalt` topicName
 
 instance Prelude.NFData KafkaStreamingSourceOptions where
   rnf KafkaStreamingSourceOptions' {..} =
-    Prelude.rnf assign
+    Prelude.rnf addRecordTimestamp
+      `Prelude.seq` Prelude.rnf assign
       `Prelude.seq` Prelude.rnf bootstrapServers
       `Prelude.seq` Prelude.rnf classification
       `Prelude.seq` Prelude.rnf connectionName
       `Prelude.seq` Prelude.rnf delimiter
+      `Prelude.seq` Prelude.rnf emitConsumerLagMetrics
       `Prelude.seq` Prelude.rnf endingOffsets
+      `Prelude.seq` Prelude.rnf includeHeaders
       `Prelude.seq` Prelude.rnf maxOffsetsPerTrigger
       `Prelude.seq` Prelude.rnf minPartitions
       `Prelude.seq` Prelude.rnf numRetries
@@ -299,6 +395,7 @@ instance Prelude.NFData KafkaStreamingSourceOptions where
       `Prelude.seq` Prelude.rnf retryIntervalMs
       `Prelude.seq` Prelude.rnf securityProtocol
       `Prelude.seq` Prelude.rnf startingOffsets
+      `Prelude.seq` Prelude.rnf startingTimestamp
       `Prelude.seq` Prelude.rnf subscribePattern
       `Prelude.seq` Prelude.rnf topicName
 
@@ -306,7 +403,9 @@ instance Data.ToJSON KafkaStreamingSourceOptions where
   toJSON KafkaStreamingSourceOptions' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Assign" Data..=) Prelude.<$> assign,
+          [ ("AddRecordTimestamp" Data..=)
+              Prelude.<$> addRecordTimestamp,
+            ("Assign" Data..=) Prelude.<$> assign,
             ("BootstrapServers" Data..=)
               Prelude.<$> bootstrapServers,
             ("Classification" Data..=)
@@ -314,7 +413,11 @@ instance Data.ToJSON KafkaStreamingSourceOptions where
             ("ConnectionName" Data..=)
               Prelude.<$> connectionName,
             ("Delimiter" Data..=) Prelude.<$> delimiter,
+            ("EmitConsumerLagMetrics" Data..=)
+              Prelude.<$> emitConsumerLagMetrics,
             ("EndingOffsets" Data..=) Prelude.<$> endingOffsets,
+            ("IncludeHeaders" Data..=)
+              Prelude.<$> includeHeaders,
             ("MaxOffsetsPerTrigger" Data..=)
               Prelude.<$> maxOffsetsPerTrigger,
             ("MinPartitions" Data..=) Prelude.<$> minPartitions,
@@ -326,6 +429,8 @@ instance Data.ToJSON KafkaStreamingSourceOptions where
               Prelude.<$> securityProtocol,
             ("StartingOffsets" Data..=)
               Prelude.<$> startingOffsets,
+            ("StartingTimestamp" Data..=)
+              Prelude.<$> startingTimestamp,
             ("SubscribePattern" Data..=)
               Prelude.<$> subscribePattern,
             ("TopicName" Data..=) Prelude.<$> topicName

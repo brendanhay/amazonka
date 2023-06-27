@@ -74,7 +74,8 @@ location_s3 = Lens.lens (\Location' {s3} -> s3) (\s@Location' {} a -> s {s3 = a}
 
 instance Prelude.Hashable Location where
   hashWithSalt _salt Location' {..} =
-    _salt `Prelude.hashWithSalt` dynamoDB
+    _salt
+      `Prelude.hashWithSalt` dynamoDB
       `Prelude.hashWithSalt` jdbc
       `Prelude.hashWithSalt` s3
 

@@ -91,7 +91,8 @@ updateXMLClassifierRequest_name = Lens.lens (\UpdateXMLClassifierRequest' {name}
 
 instance Prelude.Hashable UpdateXMLClassifierRequest where
   hashWithSalt _salt UpdateXMLClassifierRequest' {..} =
-    _salt `Prelude.hashWithSalt` classification
+    _salt
+      `Prelude.hashWithSalt` classification
       `Prelude.hashWithSalt` rowTag
       `Prelude.hashWithSalt` name
 

@@ -112,7 +112,8 @@ instance Data.FromJSON CrawlerTargets where
           CrawlerTargets'
             Prelude.<$> (x Data..:? "CatalogTargets" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "DeltaTargets" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "DynamoDBTargets"
+            Prelude.<*> ( x
+                            Data..:? "DynamoDBTargets"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "JdbcTargets" Data..!= Prelude.mempty)
@@ -122,7 +123,8 @@ instance Data.FromJSON CrawlerTargets where
 
 instance Prelude.Hashable CrawlerTargets where
   hashWithSalt _salt CrawlerTargets' {..} =
-    _salt `Prelude.hashWithSalt` catalogTargets
+    _salt
+      `Prelude.hashWithSalt` catalogTargets
       `Prelude.hashWithSalt` deltaTargets
       `Prelude.hashWithSalt` dynamoDBTargets
       `Prelude.hashWithSalt` jdbcTargets

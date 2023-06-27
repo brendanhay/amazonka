@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Column
+import Amazonka.Glue.Types.FederatedTable
 import Amazonka.Glue.Types.StorageDescriptor
 import Amazonka.Glue.Types.TableIdentifier
 import qualified Amazonka.Prelude as Prelude
@@ -42,6 +43,9 @@ data Table = Table'
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | A description of the table.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A @FederatedTable@ structure that references an entity outside the Glue
+    -- Data Catalog.
+    federatedTable :: Prelude.Maybe FederatedTable,
     -- | Indicates whether the table has been registered with Lake Formation.
     isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
     -- | The last time that the table was accessed. This is usually taken from
@@ -67,7 +71,18 @@ data Table = Table'
     -- | A storage descriptor containing information about the physical storage
     -- of this table.
     storageDescriptor :: Prelude.Maybe StorageDescriptor,
-    -- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
+    -- | The type of this table. Glue will create tables with the
+    -- @EXTERNAL_TABLE@ type. Other services, such as Athena, may create tables
+    -- with additional table types.
+    --
+    -- Glue related table types:
+    --
+    -- [EXTERNAL_TABLE]
+    --     Hive compatible attribute - indicates a non-Hive managed table.
+    --
+    -- [GOVERNED]
+    --     Used by Lake Formation. The Glue Data Catalog understands
+    --     @GOVERNED@.
     tableType :: Prelude.Maybe Prelude.Text,
     -- | A @TableIdentifier@ structure that describes a target table for resource
     -- linking.
@@ -76,9 +91,12 @@ data Table = Table'
     updateTime :: Prelude.Maybe Data.POSIX,
     -- | The ID of the table version.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | If the table is a view, the expanded text of the view; otherwise @null@.
+    -- | Included for Apache Hive compatibility. Not used in the normal course of
+    -- Glue operations.
     viewExpandedText :: Prelude.Maybe Prelude.Text,
-    -- | If the table is a view, the original text of the view; otherwise @null@.
+    -- | Included for Apache Hive compatibility. Not used in the normal course of
+    -- Glue operations. If the table is a @VIRTUAL_VIEW@, certain Athena
+    -- configuration encoded in base64.
     viewOriginalText :: Prelude.Maybe Prelude.Text,
     -- | The table name. For Hive compatibility, this must be entirely lowercase.
     name :: Prelude.Text
@@ -103,6 +121,9 @@ data Table = Table'
 -- compatibility, this must be all lowercase.
 --
 -- 'description', 'table_description' - A description of the table.
+--
+-- 'federatedTable', 'table_federatedTable' - A @FederatedTable@ structure that references an entity outside the Glue
+-- Data Catalog.
 --
 -- 'isRegisteredWithLakeFormation', 'table_isRegisteredWithLakeFormation' - Indicates whether the table has been registered with Lake Formation.
 --
@@ -129,7 +150,18 @@ data Table = Table'
 -- 'storageDescriptor', 'table_storageDescriptor' - A storage descriptor containing information about the physical storage
 -- of this table.
 --
--- 'tableType', 'table_tableType' - The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
+-- 'tableType', 'table_tableType' - The type of this table. Glue will create tables with the
+-- @EXTERNAL_TABLE@ type. Other services, such as Athena, may create tables
+-- with additional table types.
+--
+-- Glue related table types:
+--
+-- [EXTERNAL_TABLE]
+--     Hive compatible attribute - indicates a non-Hive managed table.
+--
+-- [GOVERNED]
+--     Used by Lake Formation. The Glue Data Catalog understands
+--     @GOVERNED@.
 --
 -- 'targetTable', 'table_targetTable' - A @TableIdentifier@ structure that describes a target table for resource
 -- linking.
@@ -138,9 +170,12 @@ data Table = Table'
 --
 -- 'versionId', 'table_versionId' - The ID of the table version.
 --
--- 'viewExpandedText', 'table_viewExpandedText' - If the table is a view, the expanded text of the view; otherwise @null@.
+-- 'viewExpandedText', 'table_viewExpandedText' - Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations.
 --
--- 'viewOriginalText', 'table_viewOriginalText' - If the table is a view, the original text of the view; otherwise @null@.
+-- 'viewOriginalText', 'table_viewOriginalText' - Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations. If the table is a @VIRTUAL_VIEW@, certain Athena
+-- configuration encoded in base64.
 --
 -- 'name', 'table_name' - The table name. For Hive compatibility, this must be entirely lowercase.
 newTable ::
@@ -154,6 +189,7 @@ newTable pName_ =
       createdBy = Prelude.Nothing,
       databaseName = Prelude.Nothing,
       description = Prelude.Nothing,
+      federatedTable = Prelude.Nothing,
       isRegisteredWithLakeFormation = Prelude.Nothing,
       lastAccessTime = Prelude.Nothing,
       lastAnalyzedTime = Prelude.Nothing,
@@ -191,6 +227,11 @@ table_databaseName = Lens.lens (\Table' {databaseName} -> databaseName) (\s@Tabl
 -- | A description of the table.
 table_description :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_description = Lens.lens (\Table' {description} -> description) (\s@Table' {} a -> s {description = a} :: Table)
+
+-- | A @FederatedTable@ structure that references an entity outside the Glue
+-- Data Catalog.
+table_federatedTable :: Lens.Lens' Table (Prelude.Maybe FederatedTable)
+table_federatedTable = Lens.lens (\Table' {federatedTable} -> federatedTable) (\s@Table' {} a -> s {federatedTable = a} :: Table)
 
 -- | Indicates whether the table has been registered with Lake Formation.
 table_isRegisteredWithLakeFormation :: Lens.Lens' Table (Prelude.Maybe Prelude.Bool)
@@ -233,7 +274,18 @@ table_retention = Lens.lens (\Table' {retention} -> retention) (\s@Table' {} a -
 table_storageDescriptor :: Lens.Lens' Table (Prelude.Maybe StorageDescriptor)
 table_storageDescriptor = Lens.lens (\Table' {storageDescriptor} -> storageDescriptor) (\s@Table' {} a -> s {storageDescriptor = a} :: Table)
 
--- | The type of this table (@EXTERNAL_TABLE@, @VIRTUAL_VIEW@, etc.).
+-- | The type of this table. Glue will create tables with the
+-- @EXTERNAL_TABLE@ type. Other services, such as Athena, may create tables
+-- with additional table types.
+--
+-- Glue related table types:
+--
+-- [EXTERNAL_TABLE]
+--     Hive compatible attribute - indicates a non-Hive managed table.
+--
+-- [GOVERNED]
+--     Used by Lake Formation. The Glue Data Catalog understands
+--     @GOVERNED@.
 table_tableType :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_tableType = Lens.lens (\Table' {tableType} -> tableType) (\s@Table' {} a -> s {tableType = a} :: Table)
 
@@ -250,11 +302,14 @@ table_updateTime = Lens.lens (\Table' {updateTime} -> updateTime) (\s@Table' {} 
 table_versionId :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_versionId = Lens.lens (\Table' {versionId} -> versionId) (\s@Table' {} a -> s {versionId = a} :: Table)
 
--- | If the table is a view, the expanded text of the view; otherwise @null@.
+-- | Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations.
 table_viewExpandedText :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_viewExpandedText = Lens.lens (\Table' {viewExpandedText} -> viewExpandedText) (\s@Table' {} a -> s {viewExpandedText = a} :: Table)
 
--- | If the table is a view, the original text of the view; otherwise @null@.
+-- | Included for Apache Hive compatibility. Not used in the normal course of
+-- Glue operations. If the table is a @VIRTUAL_VIEW@, certain Athena
+-- configuration encoded in base64.
 table_viewOriginalText :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_viewOriginalText = Lens.lens (\Table' {viewOriginalText} -> viewOriginalText) (\s@Table' {} a -> s {viewOriginalText = a} :: Table)
 
@@ -273,6 +328,7 @@ instance Data.FromJSON Table where
             Prelude.<*> (x Data..:? "CreatedBy")
             Prelude.<*> (x Data..:? "DatabaseName")
             Prelude.<*> (x Data..:? "Description")
+            Prelude.<*> (x Data..:? "FederatedTable")
             Prelude.<*> (x Data..:? "IsRegisteredWithLakeFormation")
             Prelude.<*> (x Data..:? "LastAccessTime")
             Prelude.<*> (x Data..:? "LastAnalyzedTime")
@@ -292,11 +348,13 @@ instance Data.FromJSON Table where
 
 instance Prelude.Hashable Table where
   hashWithSalt _salt Table' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` federatedTable
       `Prelude.hashWithSalt` isRegisteredWithLakeFormation
       `Prelude.hashWithSalt` lastAccessTime
       `Prelude.hashWithSalt` lastAnalyzedTime
@@ -320,6 +378,7 @@ instance Prelude.NFData Table where
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf federatedTable
       `Prelude.seq` Prelude.rnf isRegisteredWithLakeFormation
       `Prelude.seq` Prelude.rnf lastAccessTime
       `Prelude.seq` Prelude.rnf lastAnalyzedTime

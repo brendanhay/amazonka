@@ -141,7 +141,8 @@ instance Core.AWSRequest RemoveSchemaVersionMetadata where
 
 instance Prelude.Hashable RemoveSchemaVersionMetadata where
   hashWithSalt _salt RemoveSchemaVersionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaVersionId
       `Prelude.hashWithSalt` schemaVersionNumber
       `Prelude.hashWithSalt` metadataKeyValue

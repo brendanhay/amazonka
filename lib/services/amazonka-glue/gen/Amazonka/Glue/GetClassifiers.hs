@@ -92,21 +92,22 @@ instance Core.AWSPager GetClassifiers where
     | Core.stop
         ( rs
             Lens.^? getClassifiersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getClassifiersResponse_classifiers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getClassifiers_nextToken
           Lens..~ rs
-          Lens.^? getClassifiersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getClassifiersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetClassifiers where
   type
@@ -125,7 +126,8 @@ instance Core.AWSRequest GetClassifiers where
 
 instance Prelude.Hashable GetClassifiers where
   hashWithSalt _salt GetClassifiers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData GetClassifiers where

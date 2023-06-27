@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     BatchStopJobRunSuccessfulSubmission' {..} =
-      _salt `Prelude.hashWithSalt` jobName
+      _salt
+        `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` jobRunId
 
 instance

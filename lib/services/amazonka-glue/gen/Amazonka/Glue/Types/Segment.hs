@@ -72,7 +72,8 @@ segment_totalSegments = Lens.lens (\Segment' {totalSegments} -> totalSegments) (
 
 instance Prelude.Hashable Segment where
   hashWithSalt _salt Segment' {..} =
-    _salt `Prelude.hashWithSalt` segmentNumber
+    _salt
+      `Prelude.hashWithSalt` segmentNumber
       `Prelude.hashWithSalt` totalSegments
 
 instance Prelude.NFData Segment where

@@ -67,7 +67,7 @@ data StartJobRun = StartJobRun'
     -- compute capacity and 16 GB of memory. For more information, see the
     -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     allocatedCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The job arguments specifically for this run. For this job run, they
+    -- | The job arguments associated with this run. For this job run, they
     -- replace the default arguments set in the job definition itself.
     --
     -- You can specify arguments here that your own job-execution script
@@ -82,10 +82,15 @@ data StartJobRun = StartJobRun'
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
     -- topic in the developer guide.
     --
-    -- For information about the key-value pairs that Glue consumes to set up
-    -- your job, see the
+    -- For information about the arguments you can provide to this field when
+    -- configuring Spark jobs, see the
     -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
+    --
+    -- For information about the arguments you can provide to this field when
+    -- configuring Ray jobs, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+    -- in the developer guide.
     arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Indicates whether the job is run with a standard or flexible execution
     -- class. The standard execution-class is ideal for time-sensitive
@@ -100,25 +105,31 @@ data StartJobRun = StartJobRun'
     executionClass :: Prelude.Maybe ExecutionClass,
     -- | The ID of a previous @JobRun@ to retry.
     jobRunId :: Prelude.Maybe Prelude.Text,
-    -- | The number of Glue data processing units (DPUs) that can be allocated
+    -- | For Glue version 1.0 or earlier jobs, using the standard worker type,
+    -- the number of Glue data processing units (DPUs) that can be allocated
     -- when this job runs. A DPU is a relative measure of processing power that
     -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
     -- information, see the
     -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
-    -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+    -- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+    -- Instead, you should specify a @Worker type@ and the @Number of workers@.
+    --
+    -- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
     --
     -- The value that can be allocated for @MaxCapacity@ depends on whether you
-    -- are running a Python shell job, or an Apache Spark ETL job:
+    -- are running a Python shell job, an Apache Spark ETL job, or an Apache
+    -- Spark streaming ETL job:
     --
     -- -   When you specify a Python shell job
     --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
     --     or 1 DPU. The default is 0.0625 DPU.
     --
     -- -   When you specify an Apache Spark ETL job
-    --     (@JobCommand.Name@=\"glueetl\"), you can allocate a minimum of 2
-    --     DPUs. The default is 10 DPUs. This job type cannot have a fractional
-    --     DPU allocation.
+    --     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
+    --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+    --     100 DPUs. The default is 10 DPUs. This job type cannot have a
+    --     fractional DPU allocation.
     maxCapacity :: Prelude.Maybe Prelude.Double,
     -- | Specifies configuration properties of a job run notification.
     notificationProperty :: Prelude.Maybe NotificationProperty,
@@ -136,21 +147,28 @@ data StartJobRun = StartJobRun'
     -- is 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | The type of predefined worker that is allocated when a job runs. Accepts
-    -- a value of Standard, G.1X, G.2X, or G.025X.
+    -- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+    -- value Z.2X for Ray jobs.
     --
     -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
     --     of memory and a 50GB disk, and 2 executors per worker.
     --
-    -- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
-    --     memory and a 64GB disk, and 1 executor per worker.
+    -- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB
+    --     of memory, 64 GB disk), and provides 1 executor per worker. We
+    --     recommend this worker type for memory-intensive jobs.
     --
-    -- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
-    --     memory and a 128GB disk, and 1 executor per worker.
+    -- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
+    --     of memory, 128 GB disk), and provides 1 executor per worker. We
+    --     recommend this worker type for memory-intensive jobs.
     --
     -- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
     --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
     --     recommend this worker type for low volume streaming jobs. This
     --     worker type is only available for Glue version 3.0 streaming jobs.
+    --
+    -- -   For the @Z.2X@ worker type, each worker maps to 2 DPU (8vCPU, 64 GB
+    --     of m emory, 128 GB disk), and provides up to 8 Ray workers (one per
+    --     vCPU) based on the autoscaler.
     workerType :: Prelude.Maybe WorkerType,
     -- | The name of the job definition to use.
     jobName :: Prelude.Text
@@ -173,7 +191,7 @@ data StartJobRun = StartJobRun'
 -- compute capacity and 16 GB of memory. For more information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
--- 'arguments', 'startJobRun_arguments' - The job arguments specifically for this run. For this job run, they
+-- 'arguments', 'startJobRun_arguments' - The job arguments associated with this run. For this job run, they
 -- replace the default arguments set in the job definition itself.
 --
 -- You can specify arguments here that your own job-execution script
@@ -188,10 +206,15 @@ data StartJobRun = StartJobRun'
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that Glue consumes to set up
--- your job, see the
+-- For information about the arguments you can provide to this field when
+-- configuring Spark jobs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
+--
+-- For information about the arguments you can provide to this field when
+-- configuring Ray jobs, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+-- in the developer guide.
 --
 -- 'executionClass', 'startJobRun_executionClass' - Indicates whether the job is run with a standard or flexible execution
 -- class. The standard execution-class is ideal for time-sensitive
@@ -206,25 +229,31 @@ data StartJobRun = StartJobRun'
 --
 -- 'jobRunId', 'startJobRun_jobRunId' - The ID of a previous @JobRun@ to retry.
 --
--- 'maxCapacity', 'startJobRun_maxCapacity' - The number of Glue data processing units (DPUs) that can be allocated
+-- 'maxCapacity', 'startJobRun_maxCapacity' - For Glue version 1.0 or earlier jobs, using the standard worker type,
+-- the number of Glue data processing units (DPUs) that can be allocated
 -- when this job runs. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
--- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+-- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+-- Instead, you should specify a @Worker type@ and the @Number of workers@.
+--
+-- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
 -- The value that can be allocated for @MaxCapacity@ depends on whether you
--- are running a Python shell job, or an Apache Spark ETL job:
+-- are running a Python shell job, an Apache Spark ETL job, or an Apache
+-- Spark streaming ETL job:
 --
 -- -   When you specify a Python shell job
 --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
 --     or 1 DPU. The default is 0.0625 DPU.
 --
 -- -   When you specify an Apache Spark ETL job
---     (@JobCommand.Name@=\"glueetl\"), you can allocate a minimum of 2
---     DPUs. The default is 10 DPUs. This job type cannot have a fractional
---     DPU allocation.
+--     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+--     100 DPUs. The default is 10 DPUs. This job type cannot have a
+--     fractional DPU allocation.
 --
 -- 'notificationProperty', 'startJobRun_notificationProperty' - Specifies configuration properties of a job run notification.
 --
@@ -242,21 +271,28 @@ data StartJobRun = StartJobRun'
 -- is 2,880 minutes (48 hours).
 --
 -- 'workerType', 'startJobRun_workerType' - The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, G.2X, or G.025X.
+-- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+-- value Z.2X for Ray jobs.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
 --
--- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
---     memory and a 64GB disk, and 1 executor per worker.
+-- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB
+--     of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
 --
--- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
---     memory and a 128GB disk, and 1 executor per worker.
+-- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
+--     of memory, 128 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
 --
 -- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
 --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for low volume streaming jobs. This
 --     worker type is only available for Glue version 3.0 streaming jobs.
+--
+-- -   For the @Z.2X@ worker type, each worker maps to 2 DPU (8vCPU, 64 GB
+--     of m emory, 128 GB disk), and provides up to 8 Ray workers (one per
+--     vCPU) based on the autoscaler.
 --
 -- 'jobName', 'startJobRun_jobName' - The name of the job definition to use.
 newStartJobRun ::
@@ -288,7 +324,7 @@ newStartJobRun pJobName_ =
 startJobRun_allocatedCapacity :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Int)
 startJobRun_allocatedCapacity = Lens.lens (\StartJobRun' {allocatedCapacity} -> allocatedCapacity) (\s@StartJobRun' {} a -> s {allocatedCapacity = a} :: StartJobRun)
 
--- | The job arguments specifically for this run. For this job run, they
+-- | The job arguments associated with this run. For this job run, they
 -- replace the default arguments set in the job definition itself.
 --
 -- You can specify arguments here that your own job-execution script
@@ -303,10 +339,15 @@ startJobRun_allocatedCapacity = Lens.lens (\StartJobRun' {allocatedCapacity} -> 
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that Glue consumes to set up
--- your job, see the
+-- For information about the arguments you can provide to this field when
+-- configuring Spark jobs, see the
 -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
+--
+-- For information about the arguments you can provide to this field when
+-- configuring Ray jobs, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/author-job-ray-job-parameters.html Using job parameters in Ray jobs>
+-- in the developer guide.
 startJobRun_arguments :: Lens.Lens' StartJobRun (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 startJobRun_arguments = Lens.lens (\StartJobRun' {arguments} -> arguments) (\s@StartJobRun' {} a -> s {arguments = a} :: StartJobRun) Prelude.. Lens.mapping Lens.coerced
 
@@ -327,25 +368,31 @@ startJobRun_executionClass = Lens.lens (\StartJobRun' {executionClass} -> execut
 startJobRun_jobRunId :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Text)
 startJobRun_jobRunId = Lens.lens (\StartJobRun' {jobRunId} -> jobRunId) (\s@StartJobRun' {} a -> s {jobRunId = a} :: StartJobRun)
 
--- | The number of Glue data processing units (DPUs) that can be allocated
+-- | For Glue version 1.0 or earlier jobs, using the standard worker type,
+-- the number of Glue data processing units (DPUs) that can be allocated
 -- when this job runs. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
 -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
--- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
+-- For Glue version 2.0+ jobs, you cannot specify a @Maximum capacity@.
+-- Instead, you should specify a @Worker type@ and the @Number of workers@.
+--
+-- Do not set @MaxCapacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
 -- The value that can be allocated for @MaxCapacity@ depends on whether you
--- are running a Python shell job, or an Apache Spark ETL job:
+-- are running a Python shell job, an Apache Spark ETL job, or an Apache
+-- Spark streaming ETL job:
 --
 -- -   When you specify a Python shell job
 --     (@JobCommand.Name@=\"pythonshell\"), you can allocate either 0.0625
 --     or 1 DPU. The default is 0.0625 DPU.
 --
 -- -   When you specify an Apache Spark ETL job
---     (@JobCommand.Name@=\"glueetl\"), you can allocate a minimum of 2
---     DPUs. The default is 10 DPUs. This job type cannot have a fractional
---     DPU allocation.
+--     (@JobCommand.Name@=\"glueetl\") or Apache Spark streaming ETL job
+--     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
+--     100 DPUs. The default is 10 DPUs. This job type cannot have a
+--     fractional DPU allocation.
 startJobRun_maxCapacity :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Double)
 startJobRun_maxCapacity = Lens.lens (\StartJobRun' {maxCapacity} -> maxCapacity) (\s@StartJobRun' {} a -> s {maxCapacity = a} :: StartJobRun)
 
@@ -373,21 +420,28 @@ startJobRun_timeout :: Lens.Lens' StartJobRun (Prelude.Maybe Prelude.Natural)
 startJobRun_timeout = Lens.lens (\StartJobRun' {timeout} -> timeout) (\s@StartJobRun' {} a -> s {timeout = a} :: StartJobRun)
 
 -- | The type of predefined worker that is allocated when a job runs. Accepts
--- a value of Standard, G.1X, G.2X, or G.025X.
+-- a value of Standard, G.1X, G.2X, or G.025X for Spark jobs. Accepts the
+-- value Z.2X for Ray jobs.
 --
 -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
 --     of memory and a 50GB disk, and 2 executors per worker.
 --
--- -   For the @G.1X@ worker type, each worker provides 4 vCPU, 16 GB of
---     memory and a 64GB disk, and 1 executor per worker.
+-- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB
+--     of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
 --
--- -   For the @G.2X@ worker type, each worker provides 8 vCPU, 32 GB of
---     memory and a 128GB disk, and 1 executor per worker.
+-- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
+--     of memory, 128 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
 --
 -- -   For the @G.025X@ worker type, each worker maps to 0.25 DPU (2 vCPU,
 --     4 GB of memory, 64 GB disk), and provides 1 executor per worker. We
 --     recommend this worker type for low volume streaming jobs. This
 --     worker type is only available for Glue version 3.0 streaming jobs.
+--
+-- -   For the @Z.2X@ worker type, each worker maps to 2 DPU (8vCPU, 64 GB
+--     of m emory, 128 GB disk), and provides up to 8 Ray workers (one per
+--     vCPU) based on the autoscaler.
 startJobRun_workerType :: Lens.Lens' StartJobRun (Prelude.Maybe WorkerType)
 startJobRun_workerType = Lens.lens (\StartJobRun' {workerType} -> workerType) (\s@StartJobRun' {} a -> s {workerType = a} :: StartJobRun)
 
@@ -409,7 +463,8 @@ instance Core.AWSRequest StartJobRun where
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =
-    _salt `Prelude.hashWithSalt` allocatedCapacity
+    _salt
+      `Prelude.hashWithSalt` allocatedCapacity
       `Prelude.hashWithSalt` arguments
       `Prelude.hashWithSalt` executionClass
       `Prelude.hashWithSalt` jobRunId

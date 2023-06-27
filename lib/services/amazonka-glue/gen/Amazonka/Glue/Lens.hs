@@ -198,6 +198,7 @@ module Amazonka.Glue.Lens
 
     -- ** CreateCustomEntityType
     createCustomEntityType_contextWords,
+    createCustomEntityType_tags,
     createCustomEntityType_name,
     createCustomEntityType_regexString,
     createCustomEntityTypeResponse_name,
@@ -709,6 +710,7 @@ module Amazonka.Glue.Lens
 
     -- ** GetDataQualityRulesetEvaluationRun
     getDataQualityRulesetEvaluationRun_runId,
+    getDataQualityRulesetEvaluationRunResponse_additionalDataSources,
     getDataQualityRulesetEvaluationRunResponse_additionalRunOptions,
     getDataQualityRulesetEvaluationRunResponse_completedOn,
     getDataQualityRulesetEvaluationRunResponse_dataSource,
@@ -1168,6 +1170,7 @@ module Amazonka.Glue.Lens
     -- ** ListCustomEntityTypes
     listCustomEntityTypes_maxResults,
     listCustomEntityTypes_nextToken,
+    listCustomEntityTypes_tags,
     listCustomEntityTypesResponse_customEntityTypes,
     listCustomEntityTypesResponse_nextToken,
     listCustomEntityTypesResponse_httpStatus,
@@ -1417,6 +1420,7 @@ module Amazonka.Glue.Lens
     startDataQualityRuleRecommendationRunResponse_httpStatus,
 
     -- ** StartDataQualityRulesetEvaluationRun
+    startDataQualityRulesetEvaluationRun_additionalDataSources,
     startDataQualityRulesetEvaluationRun_additionalRunOptions,
     startDataQualityRulesetEvaluationRun_clientToken,
     startDataQualityRulesetEvaluationRun_numberOfWorkers,
@@ -1573,7 +1577,6 @@ module Amazonka.Glue.Lens
     -- ** UpdateDataQualityRuleset
     updateDataQualityRuleset_description,
     updateDataQualityRuleset_ruleset,
-    updateDataQualityRuleset_updatedName,
     updateDataQualityRuleset_name,
     updateDataQualityRulesetResponse_description,
     updateDataQualityRulesetResponse_name,
@@ -1719,6 +1722,47 @@ module Amazonka.Glue.Lens
     aggregateOperation_column,
     aggregateOperation_aggFunc,
 
+    -- ** AmazonRedshiftAdvancedOption
+    amazonRedshiftAdvancedOption_key,
+    amazonRedshiftAdvancedOption_value,
+
+    -- ** AmazonRedshiftNodeData
+    amazonRedshiftNodeData_accessType,
+    amazonRedshiftNodeData_action,
+    amazonRedshiftNodeData_advancedOptions,
+    amazonRedshiftNodeData_catalogDatabase,
+    amazonRedshiftNodeData_catalogRedshiftSchema,
+    amazonRedshiftNodeData_catalogRedshiftTable,
+    amazonRedshiftNodeData_catalogTable,
+    amazonRedshiftNodeData_connection,
+    amazonRedshiftNodeData_crawlerConnection,
+    amazonRedshiftNodeData_iamRole,
+    amazonRedshiftNodeData_mergeAction,
+    amazonRedshiftNodeData_mergeClause,
+    amazonRedshiftNodeData_mergeWhenMatched,
+    amazonRedshiftNodeData_mergeWhenNotMatched,
+    amazonRedshiftNodeData_postAction,
+    amazonRedshiftNodeData_preAction,
+    amazonRedshiftNodeData_sampleQuery,
+    amazonRedshiftNodeData_schema,
+    amazonRedshiftNodeData_selectedColumns,
+    amazonRedshiftNodeData_sourceType,
+    amazonRedshiftNodeData_stagingTable,
+    amazonRedshiftNodeData_table,
+    amazonRedshiftNodeData_tablePrefix,
+    amazonRedshiftNodeData_tableSchema,
+    amazonRedshiftNodeData_tempDir,
+    amazonRedshiftNodeData_upsert,
+
+    -- ** AmazonRedshiftSource
+    amazonRedshiftSource_data,
+    amazonRedshiftSource_name,
+
+    -- ** AmazonRedshiftTarget
+    amazonRedshiftTarget_data,
+    amazonRedshiftTarget_inputs,
+    amazonRedshiftTarget_name,
+
     -- ** ApplyMapping
     applyMapping_name,
     applyMapping_inputs,
@@ -1803,9 +1847,23 @@ module Amazonka.Glue.Lens
     booleanColumnStatisticsData_numberOfFalses,
     booleanColumnStatisticsData_numberOfNulls,
 
+    -- ** CatalogDeltaSource
+    catalogDeltaSource_additionalDeltaOptions,
+    catalogDeltaSource_outputSchemas,
+    catalogDeltaSource_name,
+    catalogDeltaSource_database,
+    catalogDeltaSource_table,
+
     -- ** CatalogEntry
     catalogEntry_databaseName,
     catalogEntry_tableName,
+
+    -- ** CatalogHudiSource
+    catalogHudiSource_additionalHudiOptions,
+    catalogHudiSource_outputSchemas,
+    catalogHudiSource_name,
+    catalogHudiSource_database,
+    catalogHudiSource_table,
 
     -- ** CatalogImportStatus
     catalogImportStatus_importCompleted,
@@ -1858,13 +1916,18 @@ module Amazonka.Glue.Lens
 
     -- ** CodeGenConfigurationNode
     codeGenConfigurationNode_aggregate,
+    codeGenConfigurationNode_amazonRedshiftSource,
+    codeGenConfigurationNode_amazonRedshiftTarget,
     codeGenConfigurationNode_applyMapping,
     codeGenConfigurationNode_athenaConnectorSource,
+    codeGenConfigurationNode_catalogDeltaSource,
+    codeGenConfigurationNode_catalogHudiSource,
     codeGenConfigurationNode_catalogKafkaSource,
     codeGenConfigurationNode_catalogKinesisSource,
     codeGenConfigurationNode_catalogSource,
     codeGenConfigurationNode_catalogTarget,
     codeGenConfigurationNode_customCode,
+    codeGenConfigurationNode_directJDBCSource,
     codeGenConfigurationNode_directKafkaSource,
     codeGenConfigurationNode_directKinesisSource,
     codeGenConfigurationNode_dropDuplicates,
@@ -1873,6 +1936,7 @@ module Amazonka.Glue.Lens
     codeGenConfigurationNode_dynamicTransform,
     codeGenConfigurationNode_dynamoDBCatalogSource,
     codeGenConfigurationNode_evaluateDataQuality,
+    codeGenConfigurationNode_evaluateDataQualityMultiFrame,
     codeGenConfigurationNode_fillMissingValues,
     codeGenConfigurationNode_filter,
     codeGenConfigurationNode_governedCatalogSource,
@@ -1894,11 +1958,19 @@ module Amazonka.Glue.Lens
     codeGenConfigurationNode_redshiftTarget,
     codeGenConfigurationNode_relationalCatalogSource,
     codeGenConfigurationNode_renameField,
+    codeGenConfigurationNode_s3CatalogDeltaSource,
+    codeGenConfigurationNode_s3CatalogHudiSource,
     codeGenConfigurationNode_s3CatalogSource,
     codeGenConfigurationNode_s3CatalogTarget,
     codeGenConfigurationNode_s3CsvSource,
+    codeGenConfigurationNode_s3DeltaCatalogTarget,
+    codeGenConfigurationNode_s3DeltaDirectTarget,
+    codeGenConfigurationNode_s3DeltaSource,
     codeGenConfigurationNode_s3DirectTarget,
     codeGenConfigurationNode_s3GlueParquetTarget,
+    codeGenConfigurationNode_s3HudiCatalogTarget,
+    codeGenConfigurationNode_s3HudiDirectTarget,
+    codeGenConfigurationNode_s3HudiSource,
     codeGenConfigurationNode_s3JsonSource,
     codeGenConfigurationNode_s3ParquetSource,
     codeGenConfigurationNode_selectFields,
@@ -2183,6 +2255,7 @@ module Amazonka.Glue.Lens
 
     -- ** DataQualityRuleResult
     dataQualityRuleResult_description,
+    dataQualityRuleResult_evaluatedMetrics,
     dataQualityRuleResult_evaluationMessage,
     dataQualityRuleResult_name,
     dataQualityRuleResult_result,
@@ -2217,6 +2290,7 @@ module Amazonka.Glue.Lens
     dataQualityRulesetListDetails_targetTable,
 
     -- ** DataQualityTargetTable
+    dataQualityTargetTable_catalogId,
     dataQualityTargetTable_tableName,
     dataQualityTargetTable_databaseName,
 
@@ -2228,6 +2302,7 @@ module Amazonka.Glue.Lens
     database_createTableDefaultPermissions,
     database_createTime,
     database_description,
+    database_federatedDatabase,
     database_locationUri,
     database_parameters,
     database_targetDatabase,
@@ -2236,10 +2311,12 @@ module Amazonka.Glue.Lens
     -- ** DatabaseIdentifier
     databaseIdentifier_catalogId,
     databaseIdentifier_databaseName,
+    databaseIdentifier_region,
 
     -- ** DatabaseInput
     databaseInput_createTableDefaultPermissions,
     databaseInput_description,
+    databaseInput_federatedDatabase,
     databaseInput_locationUri,
     databaseInput_parameters,
     databaseInput_targetDatabase,
@@ -2302,6 +2379,14 @@ module Amazonka.Glue.Lens
     devEndpointCustomLibraries_extraJarsS3Path,
     devEndpointCustomLibraries_extraPythonLibsS3Path,
 
+    -- ** DirectJDBCSource
+    directJDBCSource_redshiftTmpDir,
+    directJDBCSource_name,
+    directJDBCSource_database,
+    directJDBCSource_table,
+    directJDBCSource_connectionName,
+    directJDBCSource_connectionType,
+
     -- ** DirectKafkaSource
     directKafkaSource_dataPreviewOptions,
     directKafkaSource_detectSchema,
@@ -2345,6 +2430,7 @@ module Amazonka.Glue.Lens
     dropNullFields_inputs,
 
     -- ** DynamicTransform
+    dynamicTransform_outputSchemas,
     dynamicTransform_parameters,
     dynamicTransform_version,
     dynamicTransform_name,
@@ -2392,6 +2478,15 @@ module Amazonka.Glue.Lens
     evaluateDataQuality_inputs,
     evaluateDataQuality_ruleset,
 
+    -- ** EvaluateDataQualityMultiFrame
+    evaluateDataQualityMultiFrame_additionalDataSources,
+    evaluateDataQualityMultiFrame_additionalOptions,
+    evaluateDataQualityMultiFrame_publishingOptions,
+    evaluateDataQualityMultiFrame_stopJobOnFailureOptions,
+    evaluateDataQualityMultiFrame_name,
+    evaluateDataQualityMultiFrame_inputs,
+    evaluateDataQualityMultiFrame_ruleset,
+
     -- ** EvaluationMetrics
     evaluationMetrics_findMatchesMetrics,
     evaluationMetrics_transformType,
@@ -2405,6 +2500,15 @@ module Amazonka.Glue.Lens
 
     -- ** ExportLabelsTaskRunProperties
     exportLabelsTaskRunProperties_outputS3Path,
+
+    -- ** FederatedDatabase
+    federatedDatabase_connectionName,
+    federatedDatabase_identifier,
+
+    -- ** FederatedTable
+    federatedTable_connectionName,
+    federatedTable_databaseIdentifier,
+    federatedTable_identifier,
 
     -- ** FillMissingValues
     fillMissingValues_filledPath,
@@ -2575,6 +2679,7 @@ module Amazonka.Glue.Lens
     -- ** JobCommand
     jobCommand_name,
     jobCommand_pythonVersion,
+    jobCommand_runtime,
     jobCommand_scriptLocation,
 
     -- ** JobNodeDetails
@@ -2646,12 +2751,15 @@ module Amazonka.Glue.Lens
     jsonClassifier_jsonPath,
 
     -- ** KafkaStreamingSourceOptions
+    kafkaStreamingSourceOptions_addRecordTimestamp,
     kafkaStreamingSourceOptions_assign,
     kafkaStreamingSourceOptions_bootstrapServers,
     kafkaStreamingSourceOptions_classification,
     kafkaStreamingSourceOptions_connectionName,
     kafkaStreamingSourceOptions_delimiter,
+    kafkaStreamingSourceOptions_emitConsumerLagMetrics,
     kafkaStreamingSourceOptions_endingOffsets,
+    kafkaStreamingSourceOptions_includeHeaders,
     kafkaStreamingSourceOptions_maxOffsetsPerTrigger,
     kafkaStreamingSourceOptions_minPartitions,
     kafkaStreamingSourceOptions_numRetries,
@@ -2659,6 +2767,7 @@ module Amazonka.Glue.Lens
     kafkaStreamingSourceOptions_retryIntervalMs,
     kafkaStreamingSourceOptions_securityProtocol,
     kafkaStreamingSourceOptions_startingOffsets,
+    kafkaStreamingSourceOptions_startingTimestamp,
     kafkaStreamingSourceOptions_subscribePattern,
     kafkaStreamingSourceOptions_topicName,
 
@@ -2668,10 +2777,12 @@ module Amazonka.Glue.Lens
 
     -- ** KinesisStreamingSourceOptions
     kinesisStreamingSourceOptions_addIdleTimeBetweenReads,
+    kinesisStreamingSourceOptions_addRecordTimestamp,
     kinesisStreamingSourceOptions_avoidEmptyBatches,
     kinesisStreamingSourceOptions_classification,
     kinesisStreamingSourceOptions_delimiter,
     kinesisStreamingSourceOptions_describeShardInterval,
+    kinesisStreamingSourceOptions_emitConsumerLagMetrics,
     kinesisStreamingSourceOptions_endpointUrl,
     kinesisStreamingSourceOptions_idleTimeBetweenReadsInMs,
     kinesisStreamingSourceOptions_maxFetchRecordsPerShard,
@@ -2683,6 +2794,7 @@ module Amazonka.Glue.Lens
     kinesisStreamingSourceOptions_roleArn,
     kinesisStreamingSourceOptions_roleSessionName,
     kinesisStreamingSourceOptions_startingPosition,
+    kinesisStreamingSourceOptions_startingTimestamp,
     kinesisStreamingSourceOptions_streamArn,
     kinesisStreamingSourceOptions_streamName,
 
@@ -2824,6 +2936,11 @@ module Amazonka.Glue.Lens
     -- ** NullValueField
     nullValueField_value,
     nullValueField_datatype,
+
+    -- ** Option
+    option_description,
+    option_label,
+    option_value,
 
     -- ** OracleSQLCatalogSource
     oracleSQLCatalogSource_name,
@@ -2968,6 +3085,20 @@ module Amazonka.Glue.Lens
     resourceUri_resourceType,
     resourceUri_uri,
 
+    -- ** S3CatalogDeltaSource
+    s3CatalogDeltaSource_additionalDeltaOptions,
+    s3CatalogDeltaSource_outputSchemas,
+    s3CatalogDeltaSource_name,
+    s3CatalogDeltaSource_database,
+    s3CatalogDeltaSource_table,
+
+    -- ** S3CatalogHudiSource
+    s3CatalogHudiSource_additionalHudiOptions,
+    s3CatalogHudiSource_outputSchemas,
+    s3CatalogHudiSource_name,
+    s3CatalogHudiSource_database,
+    s3CatalogHudiSource_table,
+
     -- ** S3CatalogSource
     s3CatalogSource_additionalOptions,
     s3CatalogSource_partitionPredicate,
@@ -3004,6 +3135,32 @@ module Amazonka.Glue.Lens
     s3CsvSource_separator,
     s3CsvSource_quoteChar,
 
+    -- ** S3DeltaCatalogTarget
+    s3DeltaCatalogTarget_additionalOptions,
+    s3DeltaCatalogTarget_partitionKeys,
+    s3DeltaCatalogTarget_schemaChangePolicy,
+    s3DeltaCatalogTarget_name,
+    s3DeltaCatalogTarget_inputs,
+    s3DeltaCatalogTarget_table,
+    s3DeltaCatalogTarget_database,
+
+    -- ** S3DeltaDirectTarget
+    s3DeltaDirectTarget_additionalOptions,
+    s3DeltaDirectTarget_partitionKeys,
+    s3DeltaDirectTarget_schemaChangePolicy,
+    s3DeltaDirectTarget_name,
+    s3DeltaDirectTarget_inputs,
+    s3DeltaDirectTarget_path,
+    s3DeltaDirectTarget_compression,
+    s3DeltaDirectTarget_format,
+
+    -- ** S3DeltaSource
+    s3DeltaSource_additionalDeltaOptions,
+    s3DeltaSource_additionalOptions,
+    s3DeltaSource_outputSchemas,
+    s3DeltaSource_name,
+    s3DeltaSource_paths,
+
     -- ** S3DirectSourceAdditionalOptions
     s3DirectSourceAdditionalOptions_boundedFiles,
     s3DirectSourceAdditionalOptions_boundedSize,
@@ -3030,6 +3187,32 @@ module Amazonka.Glue.Lens
     s3GlueParquetTarget_name,
     s3GlueParquetTarget_inputs,
     s3GlueParquetTarget_path,
+
+    -- ** S3HudiCatalogTarget
+    s3HudiCatalogTarget_partitionKeys,
+    s3HudiCatalogTarget_schemaChangePolicy,
+    s3HudiCatalogTarget_name,
+    s3HudiCatalogTarget_inputs,
+    s3HudiCatalogTarget_table,
+    s3HudiCatalogTarget_database,
+    s3HudiCatalogTarget_additionalOptions,
+
+    -- ** S3HudiDirectTarget
+    s3HudiDirectTarget_partitionKeys,
+    s3HudiDirectTarget_schemaChangePolicy,
+    s3HudiDirectTarget_name,
+    s3HudiDirectTarget_inputs,
+    s3HudiDirectTarget_path,
+    s3HudiDirectTarget_compression,
+    s3HudiDirectTarget_format,
+    s3HudiDirectTarget_additionalOptions,
+
+    -- ** S3HudiSource
+    s3HudiSource_additionalHudiOptions,
+    s3HudiSource_additionalOptions,
+    s3HudiSource_outputSchemas,
+    s3HudiSource_name,
+    s3HudiSource_paths,
 
     -- ** S3JsonSource
     s3JsonSource_additionalOptions,
@@ -3275,6 +3458,7 @@ module Amazonka.Glue.Lens
     table_createdBy,
     table_databaseName,
     table_description,
+    table_federatedTable,
     table_isRegisteredWithLakeFormation,
     table_lastAccessTime,
     table_lastAnalyzedTime,
@@ -3299,6 +3483,7 @@ module Amazonka.Glue.Lens
     tableIdentifier_catalogId,
     tableIdentifier_databaseName,
     tableIdentifier_name,
+    tableIdentifier_region,
 
     -- ** TableInput
     tableInput_description,
@@ -3697,6 +3882,10 @@ import Amazonka.Glue.TagResource
 import Amazonka.Glue.Types.Action
 import Amazonka.Glue.Types.Aggregate
 import Amazonka.Glue.Types.AggregateOperation
+import Amazonka.Glue.Types.AmazonRedshiftAdvancedOption
+import Amazonka.Glue.Types.AmazonRedshiftNodeData
+import Amazonka.Glue.Types.AmazonRedshiftSource
+import Amazonka.Glue.Types.AmazonRedshiftTarget
 import Amazonka.Glue.Types.ApplyMapping
 import Amazonka.Glue.Types.AthenaConnectorSource
 import Amazonka.Glue.Types.AuditContext
@@ -3711,7 +3900,9 @@ import Amazonka.Glue.Types.Blueprint
 import Amazonka.Glue.Types.BlueprintDetails
 import Amazonka.Glue.Types.BlueprintRun
 import Amazonka.Glue.Types.BooleanColumnStatisticsData
+import Amazonka.Glue.Types.CatalogDeltaSource
 import Amazonka.Glue.Types.CatalogEntry
+import Amazonka.Glue.Types.CatalogHudiSource
 import Amazonka.Glue.Types.CatalogImportStatus
 import Amazonka.Glue.Types.CatalogKafkaSource
 import Amazonka.Glue.Types.CatalogKinesisSource
@@ -3778,6 +3969,7 @@ import Amazonka.Glue.Types.DecimalNumber
 import Amazonka.Glue.Types.DeltaTarget
 import Amazonka.Glue.Types.DevEndpoint
 import Amazonka.Glue.Types.DevEndpointCustomLibraries
+import Amazonka.Glue.Types.DirectJDBCSource
 import Amazonka.Glue.Types.DirectKafkaSource
 import Amazonka.Glue.Types.DirectKinesisSource
 import Amazonka.Glue.Types.DirectSchemaChangePolicy
@@ -3794,10 +3986,13 @@ import Amazonka.Glue.Types.EncryptionConfiguration
 import Amazonka.Glue.Types.ErrorDetail
 import Amazonka.Glue.Types.ErrorDetails
 import Amazonka.Glue.Types.EvaluateDataQuality
+import Amazonka.Glue.Types.EvaluateDataQualityMultiFrame
 import Amazonka.Glue.Types.EvaluationMetrics
 import Amazonka.Glue.Types.EventBatchingCondition
 import Amazonka.Glue.Types.ExecutionProperty
 import Amazonka.Glue.Types.ExportLabelsTaskRunProperties
+import Amazonka.Glue.Types.FederatedDatabase
+import Amazonka.Glue.Types.FederatedTable
 import Amazonka.Glue.Types.FillMissingValues
 import Amazonka.Glue.Types.Filter
 import Amazonka.Glue.Types.FilterExpression
@@ -3854,6 +4049,7 @@ import Amazonka.Glue.Types.Node
 import Amazonka.Glue.Types.NotificationProperty
 import Amazonka.Glue.Types.NullCheckBoxList
 import Amazonka.Glue.Types.NullValueField
+import Amazonka.Glue.Types.Option
 import Amazonka.Glue.Types.OracleSQLCatalogSource
 import Amazonka.Glue.Types.OracleSQLCatalogTarget
 import Amazonka.Glue.Types.Order
@@ -3880,13 +4076,21 @@ import Amazonka.Glue.Types.RegistryListItem
 import Amazonka.Glue.Types.RelationalCatalogSource
 import Amazonka.Glue.Types.RenameField
 import Amazonka.Glue.Types.ResourceUri
+import Amazonka.Glue.Types.S3CatalogDeltaSource
+import Amazonka.Glue.Types.S3CatalogHudiSource
 import Amazonka.Glue.Types.S3CatalogSource
 import Amazonka.Glue.Types.S3CatalogTarget
 import Amazonka.Glue.Types.S3CsvSource
+import Amazonka.Glue.Types.S3DeltaCatalogTarget
+import Amazonka.Glue.Types.S3DeltaDirectTarget
+import Amazonka.Glue.Types.S3DeltaSource
 import Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
 import Amazonka.Glue.Types.S3DirectTarget
 import Amazonka.Glue.Types.S3Encryption
 import Amazonka.Glue.Types.S3GlueParquetTarget
+import Amazonka.Glue.Types.S3HudiCatalogTarget
+import Amazonka.Glue.Types.S3HudiDirectTarget
+import Amazonka.Glue.Types.S3HudiSource
 import Amazonka.Glue.Types.S3JsonSource
 import Amazonka.Glue.Types.S3ParquetSource
 import Amazonka.Glue.Types.S3SourceAdditionalOptions

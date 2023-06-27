@@ -33,7 +33,9 @@ data TableIdentifier = TableIdentifier'
     -- | The name of the catalog database that contains the target table.
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | The name of the target table.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Region of the target table.
+    region :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,13 +52,16 @@ data TableIdentifier = TableIdentifier'
 -- 'databaseName', 'tableIdentifier_databaseName' - The name of the catalog database that contains the target table.
 --
 -- 'name', 'tableIdentifier_name' - The name of the target table.
+--
+-- 'region', 'tableIdentifier_region' - Region of the target table.
 newTableIdentifier ::
   TableIdentifier
 newTableIdentifier =
   TableIdentifier'
     { catalogId = Prelude.Nothing,
       databaseName = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
 -- | The ID of the Data Catalog in which the table resides.
@@ -71,6 +76,10 @@ tableIdentifier_databaseName = Lens.lens (\TableIdentifier' {databaseName} -> da
 tableIdentifier_name :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
 tableIdentifier_name = Lens.lens (\TableIdentifier' {name} -> name) (\s@TableIdentifier' {} a -> s {name = a} :: TableIdentifier)
 
+-- | Region of the target table.
+tableIdentifier_region :: Lens.Lens' TableIdentifier (Prelude.Maybe Prelude.Text)
+tableIdentifier_region = Lens.lens (\TableIdentifier' {region} -> region) (\s@TableIdentifier' {} a -> s {region = a} :: TableIdentifier)
+
 instance Data.FromJSON TableIdentifier where
   parseJSON =
     Data.withObject
@@ -80,19 +89,23 @@ instance Data.FromJSON TableIdentifier where
             Prelude.<$> (x Data..:? "CatalogId")
             Prelude.<*> (x Data..:? "DatabaseName")
             Prelude.<*> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Region")
       )
 
 instance Prelude.Hashable TableIdentifier where
   hashWithSalt _salt TableIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` region
 
 instance Prelude.NFData TableIdentifier where
   rnf TableIdentifier' {..} =
     Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf region
 
 instance Data.ToJSON TableIdentifier where
   toJSON TableIdentifier' {..} =
@@ -100,6 +113,7 @@ instance Data.ToJSON TableIdentifier where
       ( Prelude.catMaybes
           [ ("CatalogId" Data..=) Prelude.<$> catalogId,
             ("DatabaseName" Data..=) Prelude.<$> databaseName,
-            ("Name" Data..=) Prelude.<$> name
+            ("Name" Data..=) Prelude.<$> name,
+            ("Region" Data..=) Prelude.<$> region
           ]
       )

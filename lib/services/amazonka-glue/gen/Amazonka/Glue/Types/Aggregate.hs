@@ -105,7 +105,8 @@ instance Data.FromJSON Aggregate where
 
 instance Prelude.Hashable Aggregate where
   hashWithSalt _salt Aggregate' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` aggs

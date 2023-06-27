@@ -121,7 +121,8 @@ instance Core.AWSRequest CreateUserDefinedFunction where
 
 instance Prelude.Hashable CreateUserDefinedFunction where
   hashWithSalt _salt CreateUserDefinedFunction' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` functionInput
 

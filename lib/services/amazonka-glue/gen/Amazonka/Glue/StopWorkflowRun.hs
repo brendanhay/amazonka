@@ -99,7 +99,8 @@ instance Core.AWSRequest StopWorkflowRun where
 
 instance Prelude.Hashable StopWorkflowRun where
   hashWithSalt _salt StopWorkflowRun' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` runId
 
 instance Prelude.NFData StopWorkflowRun where

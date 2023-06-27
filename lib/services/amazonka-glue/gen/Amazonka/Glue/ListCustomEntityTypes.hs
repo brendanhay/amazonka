@@ -29,6 +29,7 @@ module Amazonka.Glue.ListCustomEntityTypes
     -- * Request Lenses
     listCustomEntityTypes_maxResults,
     listCustomEntityTypes_nextToken,
+    listCustomEntityTypes_tags,
 
     -- * Destructuring the Response
     ListCustomEntityTypesResponse (..),
@@ -54,7 +55,9 @@ data ListCustomEntityTypes = ListCustomEntityTypes'
   { -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A paginated token to offset the results.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of key-value pair tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,13 +72,16 @@ data ListCustomEntityTypes = ListCustomEntityTypes'
 -- 'maxResults', 'listCustomEntityTypes_maxResults' - The maximum number of results to return.
 --
 -- 'nextToken', 'listCustomEntityTypes_nextToken' - A paginated token to offset the results.
+--
+-- 'tags', 'listCustomEntityTypes_tags' - A list of key-value pair tags.
 newListCustomEntityTypes ::
   ListCustomEntityTypes
 newListCustomEntityTypes =
   ListCustomEntityTypes'
     { maxResults =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing
+      nextToken = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
 
 -- | The maximum number of results to return.
@@ -85,6 +91,10 @@ listCustomEntityTypes_maxResults = Lens.lens (\ListCustomEntityTypes' {maxResult
 -- | A paginated token to offset the results.
 listCustomEntityTypes_nextToken :: Lens.Lens' ListCustomEntityTypes (Prelude.Maybe Prelude.Text)
 listCustomEntityTypes_nextToken = Lens.lens (\ListCustomEntityTypes' {nextToken} -> nextToken) (\s@ListCustomEntityTypes' {} a -> s {nextToken = a} :: ListCustomEntityTypes)
+
+-- | A list of key-value pair tags.
+listCustomEntityTypes_tags :: Lens.Lens' ListCustomEntityTypes (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listCustomEntityTypes_tags = Lens.lens (\ListCustomEntityTypes' {tags} -> tags) (\s@ListCustomEntityTypes' {} a -> s {tags = a} :: ListCustomEntityTypes) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.AWSRequest ListCustomEntityTypes where
   type
@@ -96,7 +106,8 @@ instance Core.AWSRequest ListCustomEntityTypes where
     Response.receiveJSON
       ( \s h x ->
           ListCustomEntityTypesResponse'
-            Prelude.<$> ( x Data..?> "CustomEntityTypes"
+            Prelude.<$> ( x
+                            Data..?> "CustomEntityTypes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -105,13 +116,16 @@ instance Core.AWSRequest ListCustomEntityTypes where
 
 instance Prelude.Hashable ListCustomEntityTypes where
   hashWithSalt _salt ListCustomEntityTypes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData ListCustomEntityTypes where
   rnf ListCustomEntityTypes' {..} =
     Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf tags
 
 instance Data.ToHeaders ListCustomEntityTypes where
   toHeaders =
@@ -133,7 +147,8 @@ instance Data.ToJSON ListCustomEntityTypes where
     Data.object
       ( Prelude.catMaybes
           [ ("MaxResults" Data..=) Prelude.<$> maxResults,
-            ("NextToken" Data..=) Prelude.<$> nextToken
+            ("NextToken" Data..=) Prelude.<$> nextToken,
+            ("Tags" Data..=) Prelude.<$> tags
           ]
       )
 

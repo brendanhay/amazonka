@@ -66,7 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSearchTables' smart constructor.
 data SearchTables = SearchTables'
-  { -- | A unique identifier, consisting of @ account_id @.
+  { -- | A unique identifier, consisting of @ @/@account_id@/@ @.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of key-value pairs, and a comparator used to filter the search
     -- results. Returns all entities matching the predicate.
@@ -113,7 +113,7 @@ data SearchTables = SearchTables'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'searchTables_catalogId' - A unique identifier, consisting of @ account_id @.
+-- 'catalogId', 'searchTables_catalogId' - A unique identifier, consisting of @ @/@account_id@/@ @.
 --
 -- 'filters', 'searchTables_filters' - A list of key-value pairs, and a comparator used to filter the search
 -- results. Returns all entities matching the predicate.
@@ -161,7 +161,7 @@ newSearchTables =
       sortCriteria = Prelude.Nothing
     }
 
--- | A unique identifier, consisting of @ account_id @.
+-- | A unique identifier, consisting of @ @/@account_id@/@ @.
 searchTables_catalogId :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
 searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s@SearchTables' {} a -> s {catalogId = a} :: SearchTables)
 
@@ -226,7 +226,8 @@ instance Core.AWSRequest SearchTables where
 
 instance Prelude.Hashable SearchTables where
   hashWithSalt _salt SearchTables' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

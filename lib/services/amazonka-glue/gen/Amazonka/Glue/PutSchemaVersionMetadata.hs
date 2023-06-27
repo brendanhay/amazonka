@@ -139,7 +139,8 @@ instance Core.AWSRequest PutSchemaVersionMetadata where
 
 instance Prelude.Hashable PutSchemaVersionMetadata where
   hashWithSalt _salt PutSchemaVersionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaVersionId
       `Prelude.hashWithSalt` schemaVersionNumber
       `Prelude.hashWithSalt` metadataKeyValue

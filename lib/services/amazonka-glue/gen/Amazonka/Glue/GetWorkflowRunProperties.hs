@@ -104,7 +104,8 @@ instance Core.AWSRequest GetWorkflowRunProperties where
 
 instance Prelude.Hashable GetWorkflowRunProperties where
   hashWithSalt _salt GetWorkflowRunProperties' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` runId
 
 instance Prelude.NFData GetWorkflowRunProperties where

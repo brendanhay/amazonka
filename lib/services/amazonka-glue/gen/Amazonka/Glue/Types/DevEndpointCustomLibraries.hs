@@ -95,7 +95,8 @@ devEndpointCustomLibraries_extraPythonLibsS3Path = Lens.lens (\DevEndpointCustom
 
 instance Prelude.Hashable DevEndpointCustomLibraries where
   hashWithSalt _salt DevEndpointCustomLibraries' {..} =
-    _salt `Prelude.hashWithSalt` extraJarsS3Path
+    _salt
+      `Prelude.hashWithSalt` extraJarsS3Path
       `Prelude.hashWithSalt` extraPythonLibsS3Path
 
 instance Prelude.NFData DevEndpointCustomLibraries where

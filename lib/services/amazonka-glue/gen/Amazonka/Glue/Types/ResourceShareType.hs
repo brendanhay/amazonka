@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.ResourceShareType
   ( ResourceShareType
       ( ..,
         ResourceShareType_ALL,
+        ResourceShareType_FEDERATED,
         ResourceShareType_FOREIGN
       ),
   )
@@ -61,11 +62,15 @@ newtype ResourceShareType = ResourceShareType'
 pattern ResourceShareType_ALL :: ResourceShareType
 pattern ResourceShareType_ALL = ResourceShareType' "ALL"
 
+pattern ResourceShareType_FEDERATED :: ResourceShareType
+pattern ResourceShareType_FEDERATED = ResourceShareType' "FEDERATED"
+
 pattern ResourceShareType_FOREIGN :: ResourceShareType
 pattern ResourceShareType_FOREIGN = ResourceShareType' "FOREIGN"
 
 {-# COMPLETE
   ResourceShareType_ALL,
+  ResourceShareType_FEDERATED,
   ResourceShareType_FOREIGN,
   ResourceShareType'
   #-}

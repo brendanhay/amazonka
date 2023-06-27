@@ -154,7 +154,8 @@ instance Core.AWSRequest GetSchemaVersion where
 
 instance Prelude.Hashable GetSchemaVersion where
   hashWithSalt _salt GetSchemaVersion' {..} =
-    _salt `Prelude.hashWithSalt` schemaId
+    _salt
+      `Prelude.hashWithSalt` schemaId
       `Prelude.hashWithSalt` schemaVersionId
       `Prelude.hashWithSalt` schemaVersionNumber
 

@@ -130,7 +130,8 @@ instance Core.AWSRequest BatchDeletePartition where
 
 instance Prelude.Hashable BatchDeletePartition where
   hashWithSalt _salt BatchDeletePartition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` partitionsToDelete

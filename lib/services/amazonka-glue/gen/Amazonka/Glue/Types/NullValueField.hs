@@ -80,7 +80,8 @@ instance Data.FromJSON NullValueField where
 
 instance Prelude.Hashable NullValueField where
   hashWithSalt _salt NullValueField' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` datatype
 
 instance Prelude.NFData NullValueField where

@@ -90,7 +90,8 @@ instance Data.FromJSON RelationalCatalogSource where
 
 instance Prelude.Hashable RelationalCatalogSource where
   hashWithSalt _salt RelationalCatalogSource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table
 

@@ -70,12 +70,14 @@ instance Data.FromJSON GlueStudioSchemaColumn where
       "GlueStudioSchemaColumn"
       ( \x ->
           GlueStudioSchemaColumn'
-            Prelude.<$> (x Data..:? "Type") Prelude.<*> (x Data..: "Name")
+            Prelude.<$> (x Data..:? "Type")
+            Prelude.<*> (x Data..: "Name")
       )
 
 instance Prelude.Hashable GlueStudioSchemaColumn where
   hashWithSalt _salt GlueStudioSchemaColumn' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GlueStudioSchemaColumn where

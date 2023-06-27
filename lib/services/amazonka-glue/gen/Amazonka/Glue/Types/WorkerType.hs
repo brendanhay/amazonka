@@ -23,7 +23,10 @@ module Amazonka.Glue.Types.WorkerType
         WorkerType_G_025X,
         WorkerType_G_1X,
         WorkerType_G_2X,
-        WorkerType_Standard
+        WorkerType_G_4X,
+        WorkerType_G_8X,
+        WorkerType_Standard,
+        WorkerType_Z_2X
       ),
   )
 where
@@ -69,13 +72,25 @@ pattern WorkerType_G_1X = WorkerType' "G.1X"
 pattern WorkerType_G_2X :: WorkerType
 pattern WorkerType_G_2X = WorkerType' "G.2X"
 
+pattern WorkerType_G_4X :: WorkerType
+pattern WorkerType_G_4X = WorkerType' "G.4X"
+
+pattern WorkerType_G_8X :: WorkerType
+pattern WorkerType_G_8X = WorkerType' "G.8X"
+
 pattern WorkerType_Standard :: WorkerType
 pattern WorkerType_Standard = WorkerType' "Standard"
+
+pattern WorkerType_Z_2X :: WorkerType
+pattern WorkerType_Z_2X = WorkerType' "Z.2X"
 
 {-# COMPLETE
   WorkerType_G_025X,
   WorkerType_G_1X,
   WorkerType_G_2X,
+  WorkerType_G_4X,
+  WorkerType_G_8X,
   WorkerType_Standard,
+  WorkerType_Z_2X,
   WorkerType'
   #-}

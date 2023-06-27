@@ -106,7 +106,8 @@ instance Data.FromJSON OracleSQLCatalogTarget where
 
 instance Prelude.Hashable OracleSQLCatalogTarget where
   hashWithSalt _salt OracleSQLCatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table

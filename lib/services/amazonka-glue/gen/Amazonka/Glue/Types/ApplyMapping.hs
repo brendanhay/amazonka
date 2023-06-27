@@ -94,7 +94,8 @@ instance Data.FromJSON ApplyMapping where
 
 instance Prelude.Hashable ApplyMapping where
   hashWithSalt _salt ApplyMapping' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` mapping
 

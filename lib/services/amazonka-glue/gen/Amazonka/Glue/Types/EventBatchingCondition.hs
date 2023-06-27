@@ -84,7 +84,8 @@ instance Data.FromJSON EventBatchingCondition where
 
 instance Prelude.Hashable EventBatchingCondition where
   hashWithSalt _salt EventBatchingCondition' {..} =
-    _salt `Prelude.hashWithSalt` batchWindow
+    _salt
+      `Prelude.hashWithSalt` batchWindow
       `Prelude.hashWithSalt` batchSize
 
 instance Prelude.NFData EventBatchingCondition where

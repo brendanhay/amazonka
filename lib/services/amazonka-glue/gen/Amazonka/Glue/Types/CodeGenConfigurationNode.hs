@@ -23,13 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.Aggregate
+import Amazonka.Glue.Types.AmazonRedshiftSource
+import Amazonka.Glue.Types.AmazonRedshiftTarget
 import Amazonka.Glue.Types.ApplyMapping
 import Amazonka.Glue.Types.AthenaConnectorSource
 import Amazonka.Glue.Types.BasicCatalogTarget
+import Amazonka.Glue.Types.CatalogDeltaSource
+import Amazonka.Glue.Types.CatalogHudiSource
 import Amazonka.Glue.Types.CatalogKafkaSource
 import Amazonka.Glue.Types.CatalogKinesisSource
 import Amazonka.Glue.Types.CatalogSource
 import Amazonka.Glue.Types.CustomCode
+import Amazonka.Glue.Types.DirectJDBCSource
 import Amazonka.Glue.Types.DirectKafkaSource
 import Amazonka.Glue.Types.DirectKinesisSource
 import Amazonka.Glue.Types.DropDuplicates
@@ -38,6 +43,7 @@ import Amazonka.Glue.Types.DropNullFields
 import Amazonka.Glue.Types.DynamicTransform
 import Amazonka.Glue.Types.DynamoDBCatalogSource
 import Amazonka.Glue.Types.EvaluateDataQuality
+import Amazonka.Glue.Types.EvaluateDataQualityMultiFrame
 import Amazonka.Glue.Types.FillMissingValues
 import Amazonka.Glue.Types.Filter
 import Amazonka.Glue.Types.GovernedCatalogSource
@@ -59,11 +65,19 @@ import Amazonka.Glue.Types.RedshiftSource
 import Amazonka.Glue.Types.RedshiftTarget
 import Amazonka.Glue.Types.RelationalCatalogSource
 import Amazonka.Glue.Types.RenameField
+import Amazonka.Glue.Types.S3CatalogDeltaSource
+import Amazonka.Glue.Types.S3CatalogHudiSource
 import Amazonka.Glue.Types.S3CatalogSource
 import Amazonka.Glue.Types.S3CatalogTarget
 import Amazonka.Glue.Types.S3CsvSource
+import Amazonka.Glue.Types.S3DeltaCatalogTarget
+import Amazonka.Glue.Types.S3DeltaDirectTarget
+import Amazonka.Glue.Types.S3DeltaSource
 import Amazonka.Glue.Types.S3DirectTarget
 import Amazonka.Glue.Types.S3GlueParquetTarget
+import Amazonka.Glue.Types.S3HudiCatalogTarget
+import Amazonka.Glue.Types.S3HudiDirectTarget
+import Amazonka.Glue.Types.S3HudiSource
 import Amazonka.Glue.Types.S3JsonSource
 import Amazonka.Glue.Types.S3ParquetSource
 import Amazonka.Glue.Types.SelectFields
@@ -84,12 +98,22 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
   { -- | Specifies a transform that groups rows by chosen fields and computes the
     -- aggregated value by specified function.
     aggregate :: Prelude.Maybe Aggregate,
+    -- | Specifies a target that writes to a data source in Amazon Redshift.
+    amazonRedshiftSource :: Prelude.Maybe AmazonRedshiftSource,
+    -- | Specifies a target that writes to a data target in Amazon Redshift.
+    amazonRedshiftTarget :: Prelude.Maybe AmazonRedshiftTarget,
     -- | Specifies a transform that maps data property keys in the data source to
     -- data property keys in the data target. You can rename keys, modify the
     -- data types for keys, and choose which keys to drop from the dataset.
     applyMapping :: Prelude.Maybe ApplyMapping,
     -- | Specifies a connector to an Amazon Athena data source.
     athenaConnectorSource :: Prelude.Maybe AthenaConnectorSource,
+    -- | Specifies a Delta Lake data source that is registered in the Glue Data
+    -- Catalog.
+    catalogDeltaSource :: Prelude.Maybe CatalogDeltaSource,
+    -- | Specifies a Hudi data source that is registered in the Glue Data
+    -- Catalog.
+    catalogHudiSource :: Prelude.Maybe CatalogHudiSource,
     -- | Specifies an Apache Kafka data store in the Data Catalog.
     catalogKafkaSource :: Prelude.Maybe CatalogKafkaSource,
     -- | Specifies a Kinesis data source in the Glue Data Catalog.
@@ -101,6 +125,7 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
     -- | Specifies a transform that uses custom code you provide to perform the
     -- data transformation. The output is a collection of DynamicFrames.
     customCode :: Prelude.Maybe CustomCode,
+    directJDBCSource :: Prelude.Maybe DirectJDBCSource,
     -- | Specifies an Apache Kafka data store.
     directKafkaSource :: Prelude.Maybe DirectKafkaSource,
     -- | Specifies a direct Amazon Kinesis data source.
@@ -119,9 +144,13 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
     dropNullFields :: Prelude.Maybe DropNullFields,
     -- | Specifies a custom visual transform created by a user.
     dynamicTransform :: Prelude.Maybe DynamicTransform,
+    -- | Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.
     dynamoDBCatalogSource :: Prelude.Maybe DynamoDBCatalogSource,
     -- | Specifies your data quality evaluation criteria.
     evaluateDataQuality :: Prelude.Maybe EvaluateDataQuality,
+    -- | Specifies your data quality evaluation criteria. Allows multiple input
+    -- data and returns a collection of Dynamic Frames.
+    evaluateDataQualityMultiFrame :: Prelude.Maybe EvaluateDataQualityMultiFrame,
     -- | Specifies a transform that locates records in the dataset that have
     -- missing values and adds a new field with a value determined by
     -- imputation. The input data set is used to train the machine learning
@@ -170,9 +199,16 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
     redshiftSource :: Prelude.Maybe RedshiftSource,
     -- | Specifies a target that uses Amazon Redshift.
     redshiftTarget :: Prelude.Maybe RedshiftTarget,
+    -- | Specifies a relational catalog data store in the Glue Data Catalog.
     relationalCatalogSource :: Prelude.Maybe RelationalCatalogSource,
     -- | Specifies a transform that renames a single data property key.
     renameField :: Prelude.Maybe RenameField,
+    -- | Specifies a Delta Lake data source that is registered in the Glue Data
+    -- Catalog. The data source must be stored in Amazon S3.
+    s3CatalogDeltaSource :: Prelude.Maybe S3CatalogDeltaSource,
+    -- | Specifies a Hudi data source that is registered in the Glue Data
+    -- Catalog. The data source must be stored in Amazon S3.
+    s3CatalogHudiSource :: Prelude.Maybe S3CatalogHudiSource,
     -- | Specifies an Amazon S3 data store in the Glue Data Catalog.
     s3CatalogSource :: Prelude.Maybe S3CatalogSource,
     -- | Specifies a data target that writes to Amazon S3 using the Glue Data
@@ -181,11 +217,25 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
     -- | Specifies a command-separated value (CSV) data store stored in Amazon
     -- S3.
     s3CsvSource :: Prelude.Maybe S3CsvSource,
+    -- | Specifies a target that writes to a Delta Lake data source in the Glue
+    -- Data Catalog.
+    s3DeltaCatalogTarget :: Prelude.Maybe S3DeltaCatalogTarget,
+    -- | Specifies a target that writes to a Delta Lake data source in Amazon S3.
+    s3DeltaDirectTarget :: Prelude.Maybe S3DeltaDirectTarget,
+    -- | Specifies a Delta Lake data source stored in Amazon S3.
+    s3DeltaSource :: Prelude.Maybe S3DeltaSource,
     -- | Specifies a data target that writes to Amazon S3.
     s3DirectTarget :: Prelude.Maybe S3DirectTarget,
     -- | Specifies a data target that writes to Amazon S3 in Apache Parquet
     -- columnar storage.
     s3GlueParquetTarget :: Prelude.Maybe S3GlueParquetTarget,
+    -- | Specifies a target that writes to a Hudi data source in the Glue Data
+    -- Catalog.
+    s3HudiCatalogTarget :: Prelude.Maybe S3HudiCatalogTarget,
+    -- | Specifies a target that writes to a Hudi data source in Amazon S3.
+    s3HudiDirectTarget :: Prelude.Maybe S3HudiDirectTarget,
+    -- | Specifies a Hudi data source stored in Amazon S3.
+    s3HudiSource :: Prelude.Maybe S3HudiSource,
     -- | Specifies a JSON data store stored in Amazon S3.
     s3JsonSource :: Prelude.Maybe S3JsonSource,
     -- | Specifies an Apache Parquet data store stored in Amazon S3.
@@ -228,11 +278,21 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
 -- 'aggregate', 'codeGenConfigurationNode_aggregate' - Specifies a transform that groups rows by chosen fields and computes the
 -- aggregated value by specified function.
 --
+-- 'amazonRedshiftSource', 'codeGenConfigurationNode_amazonRedshiftSource' - Specifies a target that writes to a data source in Amazon Redshift.
+--
+-- 'amazonRedshiftTarget', 'codeGenConfigurationNode_amazonRedshiftTarget' - Specifies a target that writes to a data target in Amazon Redshift.
+--
 -- 'applyMapping', 'codeGenConfigurationNode_applyMapping' - Specifies a transform that maps data property keys in the data source to
 -- data property keys in the data target. You can rename keys, modify the
 -- data types for keys, and choose which keys to drop from the dataset.
 --
 -- 'athenaConnectorSource', 'codeGenConfigurationNode_athenaConnectorSource' - Specifies a connector to an Amazon Athena data source.
+--
+-- 'catalogDeltaSource', 'codeGenConfigurationNode_catalogDeltaSource' - Specifies a Delta Lake data source that is registered in the Glue Data
+-- Catalog.
+--
+-- 'catalogHudiSource', 'codeGenConfigurationNode_catalogHudiSource' - Specifies a Hudi data source that is registered in the Glue Data
+-- Catalog.
 --
 -- 'catalogKafkaSource', 'codeGenConfigurationNode_catalogKafkaSource' - Specifies an Apache Kafka data store in the Data Catalog.
 --
@@ -244,6 +304,8 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
 --
 -- 'customCode', 'codeGenConfigurationNode_customCode' - Specifies a transform that uses custom code you provide to perform the
 -- data transformation. The output is a collection of DynamicFrames.
+--
+-- 'directJDBCSource', 'codeGenConfigurationNode_directJDBCSource' - Undocumented member.
 --
 -- 'directKafkaSource', 'codeGenConfigurationNode_directKafkaSource' - Specifies an Apache Kafka data store.
 --
@@ -263,9 +325,12 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
 --
 -- 'dynamicTransform', 'codeGenConfigurationNode_dynamicTransform' - Specifies a custom visual transform created by a user.
 --
--- 'dynamoDBCatalogSource', 'codeGenConfigurationNode_dynamoDBCatalogSource' - Undocumented member.
+-- 'dynamoDBCatalogSource', 'codeGenConfigurationNode_dynamoDBCatalogSource' - Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.
 --
 -- 'evaluateDataQuality', 'codeGenConfigurationNode_evaluateDataQuality' - Specifies your data quality evaluation criteria.
+--
+-- 'evaluateDataQualityMultiFrame', 'codeGenConfigurationNode_evaluateDataQualityMultiFrame' - Specifies your data quality evaluation criteria. Allows multiple input
+-- data and returns a collection of Dynamic Frames.
 --
 -- 'fillMissingValues', 'codeGenConfigurationNode_fillMissingValues' - Specifies a transform that locates records in the dataset that have
 -- missing values and adds a new field with a value determined by
@@ -315,9 +380,15 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
 --
 -- 'redshiftTarget', 'codeGenConfigurationNode_redshiftTarget' - Specifies a target that uses Amazon Redshift.
 --
--- 'relationalCatalogSource', 'codeGenConfigurationNode_relationalCatalogSource' - Undocumented member.
+-- 'relationalCatalogSource', 'codeGenConfigurationNode_relationalCatalogSource' - Specifies a relational catalog data store in the Glue Data Catalog.
 --
 -- 'renameField', 'codeGenConfigurationNode_renameField' - Specifies a transform that renames a single data property key.
+--
+-- 's3CatalogDeltaSource', 'codeGenConfigurationNode_s3CatalogDeltaSource' - Specifies a Delta Lake data source that is registered in the Glue Data
+-- Catalog. The data source must be stored in Amazon S3.
+--
+-- 's3CatalogHudiSource', 'codeGenConfigurationNode_s3CatalogHudiSource' - Specifies a Hudi data source that is registered in the Glue Data
+-- Catalog. The data source must be stored in Amazon S3.
 --
 -- 's3CatalogSource', 'codeGenConfigurationNode_s3CatalogSource' - Specifies an Amazon S3 data store in the Glue Data Catalog.
 --
@@ -327,10 +398,24 @@ data CodeGenConfigurationNode = CodeGenConfigurationNode'
 -- 's3CsvSource', 'codeGenConfigurationNode_s3CsvSource' - Specifies a command-separated value (CSV) data store stored in Amazon
 -- S3.
 --
+-- 's3DeltaCatalogTarget', 'codeGenConfigurationNode_s3DeltaCatalogTarget' - Specifies a target that writes to a Delta Lake data source in the Glue
+-- Data Catalog.
+--
+-- 's3DeltaDirectTarget', 'codeGenConfigurationNode_s3DeltaDirectTarget' - Specifies a target that writes to a Delta Lake data source in Amazon S3.
+--
+-- 's3DeltaSource', 'codeGenConfigurationNode_s3DeltaSource' - Specifies a Delta Lake data source stored in Amazon S3.
+--
 -- 's3DirectTarget', 'codeGenConfigurationNode_s3DirectTarget' - Specifies a data target that writes to Amazon S3.
 --
 -- 's3GlueParquetTarget', 'codeGenConfigurationNode_s3GlueParquetTarget' - Specifies a data target that writes to Amazon S3 in Apache Parquet
 -- columnar storage.
+--
+-- 's3HudiCatalogTarget', 'codeGenConfigurationNode_s3HudiCatalogTarget' - Specifies a target that writes to a Hudi data source in the Glue Data
+-- Catalog.
+--
+-- 's3HudiDirectTarget', 'codeGenConfigurationNode_s3HudiDirectTarget' - Specifies a target that writes to a Hudi data source in Amazon S3.
+--
+-- 's3HudiSource', 'codeGenConfigurationNode_s3HudiSource' - Specifies a Hudi data source stored in Amazon S3.
 --
 -- 's3JsonSource', 'codeGenConfigurationNode_s3JsonSource' - Specifies a JSON data store stored in Amazon S3.
 --
@@ -365,13 +450,18 @@ newCodeGenConfigurationNode =
   CodeGenConfigurationNode'
     { aggregate =
         Prelude.Nothing,
+      amazonRedshiftSource = Prelude.Nothing,
+      amazonRedshiftTarget = Prelude.Nothing,
       applyMapping = Prelude.Nothing,
       athenaConnectorSource = Prelude.Nothing,
+      catalogDeltaSource = Prelude.Nothing,
+      catalogHudiSource = Prelude.Nothing,
       catalogKafkaSource = Prelude.Nothing,
       catalogKinesisSource = Prelude.Nothing,
       catalogSource = Prelude.Nothing,
       catalogTarget = Prelude.Nothing,
       customCode = Prelude.Nothing,
+      directJDBCSource = Prelude.Nothing,
       directKafkaSource = Prelude.Nothing,
       directKinesisSource = Prelude.Nothing,
       dropDuplicates = Prelude.Nothing,
@@ -380,6 +470,7 @@ newCodeGenConfigurationNode =
       dynamicTransform = Prelude.Nothing,
       dynamoDBCatalogSource = Prelude.Nothing,
       evaluateDataQuality = Prelude.Nothing,
+      evaluateDataQualityMultiFrame = Prelude.Nothing,
       fillMissingValues = Prelude.Nothing,
       filter' = Prelude.Nothing,
       governedCatalogSource = Prelude.Nothing,
@@ -401,11 +492,19 @@ newCodeGenConfigurationNode =
       redshiftTarget = Prelude.Nothing,
       relationalCatalogSource = Prelude.Nothing,
       renameField = Prelude.Nothing,
+      s3CatalogDeltaSource = Prelude.Nothing,
+      s3CatalogHudiSource = Prelude.Nothing,
       s3CatalogSource = Prelude.Nothing,
       s3CatalogTarget = Prelude.Nothing,
       s3CsvSource = Prelude.Nothing,
+      s3DeltaCatalogTarget = Prelude.Nothing,
+      s3DeltaDirectTarget = Prelude.Nothing,
+      s3DeltaSource = Prelude.Nothing,
       s3DirectTarget = Prelude.Nothing,
       s3GlueParquetTarget = Prelude.Nothing,
+      s3HudiCatalogTarget = Prelude.Nothing,
+      s3HudiDirectTarget = Prelude.Nothing,
+      s3HudiSource = Prelude.Nothing,
       s3JsonSource = Prelude.Nothing,
       s3ParquetSource = Prelude.Nothing,
       selectFields = Prelude.Nothing,
@@ -423,6 +522,14 @@ newCodeGenConfigurationNode =
 codeGenConfigurationNode_aggregate :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe Aggregate)
 codeGenConfigurationNode_aggregate = Lens.lens (\CodeGenConfigurationNode' {aggregate} -> aggregate) (\s@CodeGenConfigurationNode' {} a -> s {aggregate = a} :: CodeGenConfigurationNode)
 
+-- | Specifies a target that writes to a data source in Amazon Redshift.
+codeGenConfigurationNode_amazonRedshiftSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe AmazonRedshiftSource)
+codeGenConfigurationNode_amazonRedshiftSource = Lens.lens (\CodeGenConfigurationNode' {amazonRedshiftSource} -> amazonRedshiftSource) (\s@CodeGenConfigurationNode' {} a -> s {amazonRedshiftSource = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a target that writes to a data target in Amazon Redshift.
+codeGenConfigurationNode_amazonRedshiftTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe AmazonRedshiftTarget)
+codeGenConfigurationNode_amazonRedshiftTarget = Lens.lens (\CodeGenConfigurationNode' {amazonRedshiftTarget} -> amazonRedshiftTarget) (\s@CodeGenConfigurationNode' {} a -> s {amazonRedshiftTarget = a} :: CodeGenConfigurationNode)
+
 -- | Specifies a transform that maps data property keys in the data source to
 -- data property keys in the data target. You can rename keys, modify the
 -- data types for keys, and choose which keys to drop from the dataset.
@@ -432,6 +539,16 @@ codeGenConfigurationNode_applyMapping = Lens.lens (\CodeGenConfigurationNode' {a
 -- | Specifies a connector to an Amazon Athena data source.
 codeGenConfigurationNode_athenaConnectorSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe AthenaConnectorSource)
 codeGenConfigurationNode_athenaConnectorSource = Lens.lens (\CodeGenConfigurationNode' {athenaConnectorSource} -> athenaConnectorSource) (\s@CodeGenConfigurationNode' {} a -> s {athenaConnectorSource = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a Delta Lake data source that is registered in the Glue Data
+-- Catalog.
+codeGenConfigurationNode_catalogDeltaSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe CatalogDeltaSource)
+codeGenConfigurationNode_catalogDeltaSource = Lens.lens (\CodeGenConfigurationNode' {catalogDeltaSource} -> catalogDeltaSource) (\s@CodeGenConfigurationNode' {} a -> s {catalogDeltaSource = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a Hudi data source that is registered in the Glue Data
+-- Catalog.
+codeGenConfigurationNode_catalogHudiSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe CatalogHudiSource)
+codeGenConfigurationNode_catalogHudiSource = Lens.lens (\CodeGenConfigurationNode' {catalogHudiSource} -> catalogHudiSource) (\s@CodeGenConfigurationNode' {} a -> s {catalogHudiSource = a} :: CodeGenConfigurationNode)
 
 -- | Specifies an Apache Kafka data store in the Data Catalog.
 codeGenConfigurationNode_catalogKafkaSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe CatalogKafkaSource)
@@ -453,6 +570,10 @@ codeGenConfigurationNode_catalogTarget = Lens.lens (\CodeGenConfigurationNode' {
 -- data transformation. The output is a collection of DynamicFrames.
 codeGenConfigurationNode_customCode :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe CustomCode)
 codeGenConfigurationNode_customCode = Lens.lens (\CodeGenConfigurationNode' {customCode} -> customCode) (\s@CodeGenConfigurationNode' {} a -> s {customCode = a} :: CodeGenConfigurationNode)
+
+-- | Undocumented member.
+codeGenConfigurationNode_directJDBCSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe DirectJDBCSource)
+codeGenConfigurationNode_directJDBCSource = Lens.lens (\CodeGenConfigurationNode' {directJDBCSource} -> directJDBCSource) (\s@CodeGenConfigurationNode' {} a -> s {directJDBCSource = a} :: CodeGenConfigurationNode)
 
 -- | Specifies an Apache Kafka data store.
 codeGenConfigurationNode_directKafkaSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe DirectKafkaSource)
@@ -484,13 +605,18 @@ codeGenConfigurationNode_dropNullFields = Lens.lens (\CodeGenConfigurationNode' 
 codeGenConfigurationNode_dynamicTransform :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe DynamicTransform)
 codeGenConfigurationNode_dynamicTransform = Lens.lens (\CodeGenConfigurationNode' {dynamicTransform} -> dynamicTransform) (\s@CodeGenConfigurationNode' {} a -> s {dynamicTransform = a} :: CodeGenConfigurationNode)
 
--- | Undocumented member.
+-- | Specifies a DynamoDBC Catalog data store in the Glue Data Catalog.
 codeGenConfigurationNode_dynamoDBCatalogSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe DynamoDBCatalogSource)
 codeGenConfigurationNode_dynamoDBCatalogSource = Lens.lens (\CodeGenConfigurationNode' {dynamoDBCatalogSource} -> dynamoDBCatalogSource) (\s@CodeGenConfigurationNode' {} a -> s {dynamoDBCatalogSource = a} :: CodeGenConfigurationNode)
 
 -- | Specifies your data quality evaluation criteria.
 codeGenConfigurationNode_evaluateDataQuality :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe EvaluateDataQuality)
 codeGenConfigurationNode_evaluateDataQuality = Lens.lens (\CodeGenConfigurationNode' {evaluateDataQuality} -> evaluateDataQuality) (\s@CodeGenConfigurationNode' {} a -> s {evaluateDataQuality = a} :: CodeGenConfigurationNode)
+
+-- | Specifies your data quality evaluation criteria. Allows multiple input
+-- data and returns a collection of Dynamic Frames.
+codeGenConfigurationNode_evaluateDataQualityMultiFrame :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe EvaluateDataQualityMultiFrame)
+codeGenConfigurationNode_evaluateDataQualityMultiFrame = Lens.lens (\CodeGenConfigurationNode' {evaluateDataQualityMultiFrame} -> evaluateDataQualityMultiFrame) (\s@CodeGenConfigurationNode' {} a -> s {evaluateDataQualityMultiFrame = a} :: CodeGenConfigurationNode)
 
 -- | Specifies a transform that locates records in the dataset that have
 -- missing values and adds a new field with a value determined by
@@ -578,13 +704,23 @@ codeGenConfigurationNode_redshiftSource = Lens.lens (\CodeGenConfigurationNode' 
 codeGenConfigurationNode_redshiftTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe RedshiftTarget)
 codeGenConfigurationNode_redshiftTarget = Lens.lens (\CodeGenConfigurationNode' {redshiftTarget} -> redshiftTarget) (\s@CodeGenConfigurationNode' {} a -> s {redshiftTarget = a} :: CodeGenConfigurationNode)
 
--- | Undocumented member.
+-- | Specifies a relational catalog data store in the Glue Data Catalog.
 codeGenConfigurationNode_relationalCatalogSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe RelationalCatalogSource)
 codeGenConfigurationNode_relationalCatalogSource = Lens.lens (\CodeGenConfigurationNode' {relationalCatalogSource} -> relationalCatalogSource) (\s@CodeGenConfigurationNode' {} a -> s {relationalCatalogSource = a} :: CodeGenConfigurationNode)
 
 -- | Specifies a transform that renames a single data property key.
 codeGenConfigurationNode_renameField :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe RenameField)
 codeGenConfigurationNode_renameField = Lens.lens (\CodeGenConfigurationNode' {renameField} -> renameField) (\s@CodeGenConfigurationNode' {} a -> s {renameField = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a Delta Lake data source that is registered in the Glue Data
+-- Catalog. The data source must be stored in Amazon S3.
+codeGenConfigurationNode_s3CatalogDeltaSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3CatalogDeltaSource)
+codeGenConfigurationNode_s3CatalogDeltaSource = Lens.lens (\CodeGenConfigurationNode' {s3CatalogDeltaSource} -> s3CatalogDeltaSource) (\s@CodeGenConfigurationNode' {} a -> s {s3CatalogDeltaSource = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a Hudi data source that is registered in the Glue Data
+-- Catalog. The data source must be stored in Amazon S3.
+codeGenConfigurationNode_s3CatalogHudiSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3CatalogHudiSource)
+codeGenConfigurationNode_s3CatalogHudiSource = Lens.lens (\CodeGenConfigurationNode' {s3CatalogHudiSource} -> s3CatalogHudiSource) (\s@CodeGenConfigurationNode' {} a -> s {s3CatalogHudiSource = a} :: CodeGenConfigurationNode)
 
 -- | Specifies an Amazon S3 data store in the Glue Data Catalog.
 codeGenConfigurationNode_s3CatalogSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3CatalogSource)
@@ -600,6 +736,19 @@ codeGenConfigurationNode_s3CatalogTarget = Lens.lens (\CodeGenConfigurationNode'
 codeGenConfigurationNode_s3CsvSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3CsvSource)
 codeGenConfigurationNode_s3CsvSource = Lens.lens (\CodeGenConfigurationNode' {s3CsvSource} -> s3CsvSource) (\s@CodeGenConfigurationNode' {} a -> s {s3CsvSource = a} :: CodeGenConfigurationNode)
 
+-- | Specifies a target that writes to a Delta Lake data source in the Glue
+-- Data Catalog.
+codeGenConfigurationNode_s3DeltaCatalogTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3DeltaCatalogTarget)
+codeGenConfigurationNode_s3DeltaCatalogTarget = Lens.lens (\CodeGenConfigurationNode' {s3DeltaCatalogTarget} -> s3DeltaCatalogTarget) (\s@CodeGenConfigurationNode' {} a -> s {s3DeltaCatalogTarget = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a target that writes to a Delta Lake data source in Amazon S3.
+codeGenConfigurationNode_s3DeltaDirectTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3DeltaDirectTarget)
+codeGenConfigurationNode_s3DeltaDirectTarget = Lens.lens (\CodeGenConfigurationNode' {s3DeltaDirectTarget} -> s3DeltaDirectTarget) (\s@CodeGenConfigurationNode' {} a -> s {s3DeltaDirectTarget = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a Delta Lake data source stored in Amazon S3.
+codeGenConfigurationNode_s3DeltaSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3DeltaSource)
+codeGenConfigurationNode_s3DeltaSource = Lens.lens (\CodeGenConfigurationNode' {s3DeltaSource} -> s3DeltaSource) (\s@CodeGenConfigurationNode' {} a -> s {s3DeltaSource = a} :: CodeGenConfigurationNode)
+
 -- | Specifies a data target that writes to Amazon S3.
 codeGenConfigurationNode_s3DirectTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3DirectTarget)
 codeGenConfigurationNode_s3DirectTarget = Lens.lens (\CodeGenConfigurationNode' {s3DirectTarget} -> s3DirectTarget) (\s@CodeGenConfigurationNode' {} a -> s {s3DirectTarget = a} :: CodeGenConfigurationNode)
@@ -608,6 +757,19 @@ codeGenConfigurationNode_s3DirectTarget = Lens.lens (\CodeGenConfigurationNode' 
 -- columnar storage.
 codeGenConfigurationNode_s3GlueParquetTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3GlueParquetTarget)
 codeGenConfigurationNode_s3GlueParquetTarget = Lens.lens (\CodeGenConfigurationNode' {s3GlueParquetTarget} -> s3GlueParquetTarget) (\s@CodeGenConfigurationNode' {} a -> s {s3GlueParquetTarget = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a target that writes to a Hudi data source in the Glue Data
+-- Catalog.
+codeGenConfigurationNode_s3HudiCatalogTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3HudiCatalogTarget)
+codeGenConfigurationNode_s3HudiCatalogTarget = Lens.lens (\CodeGenConfigurationNode' {s3HudiCatalogTarget} -> s3HudiCatalogTarget) (\s@CodeGenConfigurationNode' {} a -> s {s3HudiCatalogTarget = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a target that writes to a Hudi data source in Amazon S3.
+codeGenConfigurationNode_s3HudiDirectTarget :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3HudiDirectTarget)
+codeGenConfigurationNode_s3HudiDirectTarget = Lens.lens (\CodeGenConfigurationNode' {s3HudiDirectTarget} -> s3HudiDirectTarget) (\s@CodeGenConfigurationNode' {} a -> s {s3HudiDirectTarget = a} :: CodeGenConfigurationNode)
+
+-- | Specifies a Hudi data source stored in Amazon S3.
+codeGenConfigurationNode_s3HudiSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3HudiSource)
+codeGenConfigurationNode_s3HudiSource = Lens.lens (\CodeGenConfigurationNode' {s3HudiSource} -> s3HudiSource) (\s@CodeGenConfigurationNode' {} a -> s {s3HudiSource = a} :: CodeGenConfigurationNode)
 
 -- | Specifies a JSON data store stored in Amazon S3.
 codeGenConfigurationNode_s3JsonSource :: Lens.Lens' CodeGenConfigurationNode (Prelude.Maybe S3JsonSource)
@@ -664,13 +826,18 @@ instance Data.FromJSON CodeGenConfigurationNode where
       ( \x ->
           CodeGenConfigurationNode'
             Prelude.<$> (x Data..:? "Aggregate")
+            Prelude.<*> (x Data..:? "AmazonRedshiftSource")
+            Prelude.<*> (x Data..:? "AmazonRedshiftTarget")
             Prelude.<*> (x Data..:? "ApplyMapping")
             Prelude.<*> (x Data..:? "AthenaConnectorSource")
+            Prelude.<*> (x Data..:? "CatalogDeltaSource")
+            Prelude.<*> (x Data..:? "CatalogHudiSource")
             Prelude.<*> (x Data..:? "CatalogKafkaSource")
             Prelude.<*> (x Data..:? "CatalogKinesisSource")
             Prelude.<*> (x Data..:? "CatalogSource")
             Prelude.<*> (x Data..:? "CatalogTarget")
             Prelude.<*> (x Data..:? "CustomCode")
+            Prelude.<*> (x Data..:? "DirectJDBCSource")
             Prelude.<*> (x Data..:? "DirectKafkaSource")
             Prelude.<*> (x Data..:? "DirectKinesisSource")
             Prelude.<*> (x Data..:? "DropDuplicates")
@@ -679,6 +846,7 @@ instance Data.FromJSON CodeGenConfigurationNode where
             Prelude.<*> (x Data..:? "DynamicTransform")
             Prelude.<*> (x Data..:? "DynamoDBCatalogSource")
             Prelude.<*> (x Data..:? "EvaluateDataQuality")
+            Prelude.<*> (x Data..:? "EvaluateDataQualityMultiFrame")
             Prelude.<*> (x Data..:? "FillMissingValues")
             Prelude.<*> (x Data..:? "Filter")
             Prelude.<*> (x Data..:? "GovernedCatalogSource")
@@ -700,11 +868,19 @@ instance Data.FromJSON CodeGenConfigurationNode where
             Prelude.<*> (x Data..:? "RedshiftTarget")
             Prelude.<*> (x Data..:? "RelationalCatalogSource")
             Prelude.<*> (x Data..:? "RenameField")
+            Prelude.<*> (x Data..:? "S3CatalogDeltaSource")
+            Prelude.<*> (x Data..:? "S3CatalogHudiSource")
             Prelude.<*> (x Data..:? "S3CatalogSource")
             Prelude.<*> (x Data..:? "S3CatalogTarget")
             Prelude.<*> (x Data..:? "S3CsvSource")
+            Prelude.<*> (x Data..:? "S3DeltaCatalogTarget")
+            Prelude.<*> (x Data..:? "S3DeltaDirectTarget")
+            Prelude.<*> (x Data..:? "S3DeltaSource")
             Prelude.<*> (x Data..:? "S3DirectTarget")
             Prelude.<*> (x Data..:? "S3GlueParquetTarget")
+            Prelude.<*> (x Data..:? "S3HudiCatalogTarget")
+            Prelude.<*> (x Data..:? "S3HudiDirectTarget")
+            Prelude.<*> (x Data..:? "S3HudiSource")
             Prelude.<*> (x Data..:? "S3JsonSource")
             Prelude.<*> (x Data..:? "S3ParquetSource")
             Prelude.<*> (x Data..:? "SelectFields")
@@ -719,14 +895,20 @@ instance Data.FromJSON CodeGenConfigurationNode where
 
 instance Prelude.Hashable CodeGenConfigurationNode where
   hashWithSalt _salt CodeGenConfigurationNode' {..} =
-    _salt `Prelude.hashWithSalt` aggregate
+    _salt
+      `Prelude.hashWithSalt` aggregate
+      `Prelude.hashWithSalt` amazonRedshiftSource
+      `Prelude.hashWithSalt` amazonRedshiftTarget
       `Prelude.hashWithSalt` applyMapping
       `Prelude.hashWithSalt` athenaConnectorSource
+      `Prelude.hashWithSalt` catalogDeltaSource
+      `Prelude.hashWithSalt` catalogHudiSource
       `Prelude.hashWithSalt` catalogKafkaSource
       `Prelude.hashWithSalt` catalogKinesisSource
       `Prelude.hashWithSalt` catalogSource
       `Prelude.hashWithSalt` catalogTarget
       `Prelude.hashWithSalt` customCode
+      `Prelude.hashWithSalt` directJDBCSource
       `Prelude.hashWithSalt` directKafkaSource
       `Prelude.hashWithSalt` directKinesisSource
       `Prelude.hashWithSalt` dropDuplicates
@@ -735,6 +917,7 @@ instance Prelude.Hashable CodeGenConfigurationNode where
       `Prelude.hashWithSalt` dynamicTransform
       `Prelude.hashWithSalt` dynamoDBCatalogSource
       `Prelude.hashWithSalt` evaluateDataQuality
+      `Prelude.hashWithSalt` evaluateDataQualityMultiFrame
       `Prelude.hashWithSalt` fillMissingValues
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` governedCatalogSource
@@ -756,11 +939,19 @@ instance Prelude.Hashable CodeGenConfigurationNode where
       `Prelude.hashWithSalt` redshiftTarget
       `Prelude.hashWithSalt` relationalCatalogSource
       `Prelude.hashWithSalt` renameField
+      `Prelude.hashWithSalt` s3CatalogDeltaSource
+      `Prelude.hashWithSalt` s3CatalogHudiSource
       `Prelude.hashWithSalt` s3CatalogSource
       `Prelude.hashWithSalt` s3CatalogTarget
       `Prelude.hashWithSalt` s3CsvSource
+      `Prelude.hashWithSalt` s3DeltaCatalogTarget
+      `Prelude.hashWithSalt` s3DeltaDirectTarget
+      `Prelude.hashWithSalt` s3DeltaSource
       `Prelude.hashWithSalt` s3DirectTarget
       `Prelude.hashWithSalt` s3GlueParquetTarget
+      `Prelude.hashWithSalt` s3HudiCatalogTarget
+      `Prelude.hashWithSalt` s3HudiDirectTarget
+      `Prelude.hashWithSalt` s3HudiSource
       `Prelude.hashWithSalt` s3JsonSource
       `Prelude.hashWithSalt` s3ParquetSource
       `Prelude.hashWithSalt` selectFields
@@ -775,22 +966,32 @@ instance Prelude.Hashable CodeGenConfigurationNode where
 instance Prelude.NFData CodeGenConfigurationNode where
   rnf CodeGenConfigurationNode' {..} =
     Prelude.rnf aggregate
+      `Prelude.seq` Prelude.rnf amazonRedshiftSource
+      `Prelude.seq` Prelude.rnf amazonRedshiftTarget
       `Prelude.seq` Prelude.rnf applyMapping
       `Prelude.seq` Prelude.rnf athenaConnectorSource
+      `Prelude.seq` Prelude.rnf catalogDeltaSource
+      `Prelude.seq` Prelude.rnf catalogHudiSource
       `Prelude.seq` Prelude.rnf catalogKafkaSource
       `Prelude.seq` Prelude.rnf catalogKinesisSource
       `Prelude.seq` Prelude.rnf catalogSource
       `Prelude.seq` Prelude.rnf catalogTarget
       `Prelude.seq` Prelude.rnf customCode
+      `Prelude.seq` Prelude.rnf directJDBCSource
       `Prelude.seq` Prelude.rnf directKafkaSource
       `Prelude.seq` Prelude.rnf directKinesisSource
       `Prelude.seq` Prelude.rnf dropDuplicates
       `Prelude.seq` Prelude.rnf dropFields
       `Prelude.seq` Prelude.rnf dropNullFields
       `Prelude.seq` Prelude.rnf dynamicTransform
-      `Prelude.seq` Prelude.rnf dynamoDBCatalogSource
-      `Prelude.seq` Prelude.rnf evaluateDataQuality
-      `Prelude.seq` Prelude.rnf fillMissingValues
+      `Prelude.seq` Prelude.rnf
+        dynamoDBCatalogSource
+      `Prelude.seq` Prelude.rnf
+        evaluateDataQuality
+      `Prelude.seq` Prelude.rnf
+        evaluateDataQualityMultiFrame
+      `Prelude.seq` Prelude.rnf
+        fillMissingValues
       `Prelude.seq` Prelude.rnf filter'
       `Prelude.seq` Prelude.rnf
         governedCatalogSource
@@ -800,8 +1001,10 @@ instance Prelude.NFData CodeGenConfigurationNode where
         jDBCConnectorSource
       `Prelude.seq` Prelude.rnf
         jDBCConnectorTarget
-      `Prelude.seq` Prelude.rnf join
-      `Prelude.seq` Prelude.rnf merge
+      `Prelude.seq` Prelude.rnf
+        join
+      `Prelude.seq` Prelude.rnf
+        merge
       `Prelude.seq` Prelude.rnf
         microsoftSQLServerCatalogSource
       `Prelude.seq` Prelude.rnf
@@ -829,15 +1032,31 @@ instance Prelude.NFData CodeGenConfigurationNode where
       `Prelude.seq` Prelude.rnf
         renameField
       `Prelude.seq` Prelude.rnf
+        s3CatalogDeltaSource
+      `Prelude.seq` Prelude.rnf
+        s3CatalogHudiSource
+      `Prelude.seq` Prelude.rnf
         s3CatalogSource
       `Prelude.seq` Prelude.rnf
         s3CatalogTarget
       `Prelude.seq` Prelude.rnf
         s3CsvSource
       `Prelude.seq` Prelude.rnf
+        s3DeltaCatalogTarget
+      `Prelude.seq` Prelude.rnf
+        s3DeltaDirectTarget
+      `Prelude.seq` Prelude.rnf
+        s3DeltaSource
+      `Prelude.seq` Prelude.rnf
         s3DirectTarget
       `Prelude.seq` Prelude.rnf
         s3GlueParquetTarget
+      `Prelude.seq` Prelude.rnf
+        s3HudiCatalogTarget
+      `Prelude.seq` Prelude.rnf
+        s3HudiDirectTarget
+      `Prelude.seq` Prelude.rnf
+        s3HudiSource
       `Prelude.seq` Prelude.rnf
         s3JsonSource
       `Prelude.seq` Prelude.rnf
@@ -864,9 +1083,17 @@ instance Data.ToJSON CodeGenConfigurationNode where
     Data.object
       ( Prelude.catMaybes
           [ ("Aggregate" Data..=) Prelude.<$> aggregate,
+            ("AmazonRedshiftSource" Data..=)
+              Prelude.<$> amazonRedshiftSource,
+            ("AmazonRedshiftTarget" Data..=)
+              Prelude.<$> amazonRedshiftTarget,
             ("ApplyMapping" Data..=) Prelude.<$> applyMapping,
             ("AthenaConnectorSource" Data..=)
               Prelude.<$> athenaConnectorSource,
+            ("CatalogDeltaSource" Data..=)
+              Prelude.<$> catalogDeltaSource,
+            ("CatalogHudiSource" Data..=)
+              Prelude.<$> catalogHudiSource,
             ("CatalogKafkaSource" Data..=)
               Prelude.<$> catalogKafkaSource,
             ("CatalogKinesisSource" Data..=)
@@ -874,6 +1101,8 @@ instance Data.ToJSON CodeGenConfigurationNode where
             ("CatalogSource" Data..=) Prelude.<$> catalogSource,
             ("CatalogTarget" Data..=) Prelude.<$> catalogTarget,
             ("CustomCode" Data..=) Prelude.<$> customCode,
+            ("DirectJDBCSource" Data..=)
+              Prelude.<$> directJDBCSource,
             ("DirectKafkaSource" Data..=)
               Prelude.<$> directKafkaSource,
             ("DirectKinesisSource" Data..=)
@@ -889,6 +1118,8 @@ instance Data.ToJSON CodeGenConfigurationNode where
               Prelude.<$> dynamoDBCatalogSource,
             ("EvaluateDataQuality" Data..=)
               Prelude.<$> evaluateDataQuality,
+            ("EvaluateDataQualityMultiFrame" Data..=)
+              Prelude.<$> evaluateDataQualityMultiFrame,
             ("FillMissingValues" Data..=)
               Prelude.<$> fillMissingValues,
             ("Filter" Data..=) Prelude.<$> filter',
@@ -926,15 +1157,29 @@ instance Data.ToJSON CodeGenConfigurationNode where
             ("RelationalCatalogSource" Data..=)
               Prelude.<$> relationalCatalogSource,
             ("RenameField" Data..=) Prelude.<$> renameField,
+            ("S3CatalogDeltaSource" Data..=)
+              Prelude.<$> s3CatalogDeltaSource,
+            ("S3CatalogHudiSource" Data..=)
+              Prelude.<$> s3CatalogHudiSource,
             ("S3CatalogSource" Data..=)
               Prelude.<$> s3CatalogSource,
             ("S3CatalogTarget" Data..=)
               Prelude.<$> s3CatalogTarget,
             ("S3CsvSource" Data..=) Prelude.<$> s3CsvSource,
+            ("S3DeltaCatalogTarget" Data..=)
+              Prelude.<$> s3DeltaCatalogTarget,
+            ("S3DeltaDirectTarget" Data..=)
+              Prelude.<$> s3DeltaDirectTarget,
+            ("S3DeltaSource" Data..=) Prelude.<$> s3DeltaSource,
             ("S3DirectTarget" Data..=)
               Prelude.<$> s3DirectTarget,
             ("S3GlueParquetTarget" Data..=)
               Prelude.<$> s3GlueParquetTarget,
+            ("S3HudiCatalogTarget" Data..=)
+              Prelude.<$> s3HudiCatalogTarget,
+            ("S3HudiDirectTarget" Data..=)
+              Prelude.<$> s3HudiDirectTarget,
+            ("S3HudiSource" Data..=) Prelude.<$> s3HudiSource,
             ("S3JsonSource" Data..=) Prelude.<$> s3JsonSource,
             ("S3ParquetSource" Data..=)
               Prelude.<$> s3ParquetSource,

@@ -103,7 +103,8 @@ instance Data.FromJSON DecimalColumnStatisticsData where
 
 instance Prelude.Hashable DecimalColumnStatisticsData where
   hashWithSalt _salt DecimalColumnStatisticsData' {..} =
-    _salt `Prelude.hashWithSalt` maximumValue
+    _salt
+      `Prelude.hashWithSalt` maximumValue
       `Prelude.hashWithSalt` minimumValue
       `Prelude.hashWithSalt` numberOfNulls
       `Prelude.hashWithSalt` numberOfDistinctValues

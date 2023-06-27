@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Retrieves partition metadata from the Data Catalog that contains
+-- unfiltered metadata.
+--
+-- For IAM authorization, the public IAM action associated with this API is
+-- @glue:GetPartition@.
 module Amazonka.Glue.GetUnfilteredPartitionMetadata
   ( -- * Creating a Request
     GetUnfilteredPartitionMetadata (..),
@@ -56,11 +60,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetUnfilteredPartitionMetadata' smart constructor.
 data GetUnfilteredPartitionMetadata = GetUnfilteredPartitionMetadata'
-  { auditContext :: Prelude.Maybe AuditContext,
+  { -- | A structure containing Lake Formation audit context information.
+    auditContext :: Prelude.Maybe AuditContext,
+    -- | The catalog ID where the partition resides.
     catalogId :: Prelude.Text,
+    -- | (Required) Specifies the name of a database that contains the partition.
     databaseName :: Prelude.Text,
+    -- | (Required) Specifies the name of a table that contains the partition.
     tableName :: Prelude.Text,
+    -- | (Required) A list of partition key values.
     partitionValues :: [Prelude.Text],
+    -- | (Required) A list of supported permission types.
     supportedPermissionTypes :: Prelude.NonEmpty PermissionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,17 +83,17 @@ data GetUnfilteredPartitionMetadata = GetUnfilteredPartitionMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'auditContext', 'getUnfilteredPartitionMetadata_auditContext' - Undocumented member.
+-- 'auditContext', 'getUnfilteredPartitionMetadata_auditContext' - A structure containing Lake Formation audit context information.
 --
--- 'catalogId', 'getUnfilteredPartitionMetadata_catalogId' - Undocumented member.
+-- 'catalogId', 'getUnfilteredPartitionMetadata_catalogId' - The catalog ID where the partition resides.
 --
--- 'databaseName', 'getUnfilteredPartitionMetadata_databaseName' - Undocumented member.
+-- 'databaseName', 'getUnfilteredPartitionMetadata_databaseName' - (Required) Specifies the name of a database that contains the partition.
 --
--- 'tableName', 'getUnfilteredPartitionMetadata_tableName' - Undocumented member.
+-- 'tableName', 'getUnfilteredPartitionMetadata_tableName' - (Required) Specifies the name of a table that contains the partition.
 --
--- 'partitionValues', 'getUnfilteredPartitionMetadata_partitionValues' - Undocumented member.
+-- 'partitionValues', 'getUnfilteredPartitionMetadata_partitionValues' - (Required) A list of partition key values.
 --
--- 'supportedPermissionTypes', 'getUnfilteredPartitionMetadata_supportedPermissionTypes' - Undocumented member.
+-- 'supportedPermissionTypes', 'getUnfilteredPartitionMetadata_supportedPermissionTypes' - (Required) A list of supported permission types.
 newGetUnfilteredPartitionMetadata ::
   -- | 'catalogId'
   Prelude.Text ->
@@ -111,27 +121,27 @@ newGetUnfilteredPartitionMetadata
             Lens.# pSupportedPermissionTypes_
       }
 
--- | Undocumented member.
+-- | A structure containing Lake Formation audit context information.
 getUnfilteredPartitionMetadata_auditContext :: Lens.Lens' GetUnfilteredPartitionMetadata (Prelude.Maybe AuditContext)
 getUnfilteredPartitionMetadata_auditContext = Lens.lens (\GetUnfilteredPartitionMetadata' {auditContext} -> auditContext) (\s@GetUnfilteredPartitionMetadata' {} a -> s {auditContext = a} :: GetUnfilteredPartitionMetadata)
 
--- | Undocumented member.
+-- | The catalog ID where the partition resides.
 getUnfilteredPartitionMetadata_catalogId :: Lens.Lens' GetUnfilteredPartitionMetadata Prelude.Text
 getUnfilteredPartitionMetadata_catalogId = Lens.lens (\GetUnfilteredPartitionMetadata' {catalogId} -> catalogId) (\s@GetUnfilteredPartitionMetadata' {} a -> s {catalogId = a} :: GetUnfilteredPartitionMetadata)
 
--- | Undocumented member.
+-- | (Required) Specifies the name of a database that contains the partition.
 getUnfilteredPartitionMetadata_databaseName :: Lens.Lens' GetUnfilteredPartitionMetadata Prelude.Text
 getUnfilteredPartitionMetadata_databaseName = Lens.lens (\GetUnfilteredPartitionMetadata' {databaseName} -> databaseName) (\s@GetUnfilteredPartitionMetadata' {} a -> s {databaseName = a} :: GetUnfilteredPartitionMetadata)
 
--- | Undocumented member.
+-- | (Required) Specifies the name of a table that contains the partition.
 getUnfilteredPartitionMetadata_tableName :: Lens.Lens' GetUnfilteredPartitionMetadata Prelude.Text
 getUnfilteredPartitionMetadata_tableName = Lens.lens (\GetUnfilteredPartitionMetadata' {tableName} -> tableName) (\s@GetUnfilteredPartitionMetadata' {} a -> s {tableName = a} :: GetUnfilteredPartitionMetadata)
 
--- | Undocumented member.
+-- | (Required) A list of partition key values.
 getUnfilteredPartitionMetadata_partitionValues :: Lens.Lens' GetUnfilteredPartitionMetadata [Prelude.Text]
 getUnfilteredPartitionMetadata_partitionValues = Lens.lens (\GetUnfilteredPartitionMetadata' {partitionValues} -> partitionValues) (\s@GetUnfilteredPartitionMetadata' {} a -> s {partitionValues = a} :: GetUnfilteredPartitionMetadata) Prelude.. Lens.coerced
 
--- | Undocumented member.
+-- | (Required) A list of supported permission types.
 getUnfilteredPartitionMetadata_supportedPermissionTypes :: Lens.Lens' GetUnfilteredPartitionMetadata (Prelude.NonEmpty PermissionType)
 getUnfilteredPartitionMetadata_supportedPermissionTypes = Lens.lens (\GetUnfilteredPartitionMetadata' {supportedPermissionTypes} -> supportedPermissionTypes) (\s@GetUnfilteredPartitionMetadata' {} a -> s {supportedPermissionTypes = a} :: GetUnfilteredPartitionMetadata) Prelude.. Lens.coerced
 
@@ -148,7 +158,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetUnfilteredPartitionMetadataResponse'
-            Prelude.<$> ( x Data..?> "AuthorizedColumns"
+            Prelude.<$> ( x
+                            Data..?> "AuthorizedColumns"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "IsRegisteredWithLakeFormation")
@@ -163,7 +174,8 @@ instance
   hashWithSalt
     _salt
     GetUnfilteredPartitionMetadata' {..} =
-      _salt `Prelude.hashWithSalt` auditContext
+      _salt
+        `Prelude.hashWithSalt` auditContext
         `Prelude.hashWithSalt` catalogId
         `Prelude.hashWithSalt` databaseName
         `Prelude.hashWithSalt` tableName
@@ -225,8 +237,12 @@ instance Data.ToQuery GetUnfilteredPartitionMetadata where
 
 -- | /See:/ 'newGetUnfilteredPartitionMetadataResponse' smart constructor.
 data GetUnfilteredPartitionMetadataResponse = GetUnfilteredPartitionMetadataResponse'
-  { authorizedColumns :: Prelude.Maybe [Prelude.Text],
+  { -- | A list of column names that the user has been granted access to.
+    authorizedColumns :: Prelude.Maybe [Prelude.Text],
+    -- | A Boolean value that indicates whether the partition location is
+    -- registered with Lake Formation.
     isRegisteredWithLakeFormation :: Prelude.Maybe Prelude.Bool,
+    -- | A Partition object containing the partition metadata.
     partition :: Prelude.Maybe Partition,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -241,11 +257,12 @@ data GetUnfilteredPartitionMetadataResponse = GetUnfilteredPartitionMetadataResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'authorizedColumns', 'getUnfilteredPartitionMetadataResponse_authorizedColumns' - Undocumented member.
+-- 'authorizedColumns', 'getUnfilteredPartitionMetadataResponse_authorizedColumns' - A list of column names that the user has been granted access to.
 --
--- 'isRegisteredWithLakeFormation', 'getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation' - Undocumented member.
+-- 'isRegisteredWithLakeFormation', 'getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation' - A Boolean value that indicates whether the partition location is
+-- registered with Lake Formation.
 --
--- 'partition', 'getUnfilteredPartitionMetadataResponse_partition' - Undocumented member.
+-- 'partition', 'getUnfilteredPartitionMetadataResponse_partition' - A Partition object containing the partition metadata.
 --
 -- 'httpStatus', 'getUnfilteredPartitionMetadataResponse_httpStatus' - The response's http status code.
 newGetUnfilteredPartitionMetadataResponse ::
@@ -263,15 +280,16 @@ newGetUnfilteredPartitionMetadataResponse
         httpStatus = pHttpStatus_
       }
 
--- | Undocumented member.
+-- | A list of column names that the user has been granted access to.
 getUnfilteredPartitionMetadataResponse_authorizedColumns :: Lens.Lens' GetUnfilteredPartitionMetadataResponse (Prelude.Maybe [Prelude.Text])
 getUnfilteredPartitionMetadataResponse_authorizedColumns = Lens.lens (\GetUnfilteredPartitionMetadataResponse' {authorizedColumns} -> authorizedColumns) (\s@GetUnfilteredPartitionMetadataResponse' {} a -> s {authorizedColumns = a} :: GetUnfilteredPartitionMetadataResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | A Boolean value that indicates whether the partition location is
+-- registered with Lake Formation.
 getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation :: Lens.Lens' GetUnfilteredPartitionMetadataResponse (Prelude.Maybe Prelude.Bool)
 getUnfilteredPartitionMetadataResponse_isRegisteredWithLakeFormation = Lens.lens (\GetUnfilteredPartitionMetadataResponse' {isRegisteredWithLakeFormation} -> isRegisteredWithLakeFormation) (\s@GetUnfilteredPartitionMetadataResponse' {} a -> s {isRegisteredWithLakeFormation = a} :: GetUnfilteredPartitionMetadataResponse)
 
--- | Undocumented member.
+-- | A Partition object containing the partition metadata.
 getUnfilteredPartitionMetadataResponse_partition :: Lens.Lens' GetUnfilteredPartitionMetadataResponse (Prelude.Maybe Partition)
 getUnfilteredPartitionMetadataResponse_partition = Lens.lens (\GetUnfilteredPartitionMetadataResponse' {partition} -> partition) (\s@GetUnfilteredPartitionMetadataResponse' {} a -> s {partition = a} :: GetUnfilteredPartitionMetadataResponse)
 

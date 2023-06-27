@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.Glue.Types.DatabaseIdentifier
+import Amazonka.Glue.Types.FederatedDatabase
 import Amazonka.Glue.Types.PrincipalPermissions
 import qualified Amazonka.Prelude as Prelude
 
@@ -30,10 +31,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDatabaseInput' smart constructor.
 data DatabaseInput = DatabaseInput'
-  { -- | Creates a set of default permissions on the table for principals.
+  { -- | Creates a set of default permissions on the table for principals. Used
+    -- by Lake Formation. Not used in the normal course of Glue operations.
     createTableDefaultPermissions :: Prelude.Maybe [PrincipalPermissions],
     -- | A description of the database.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A @FederatedDatabase@ structure that references an entity outside the
+    -- Glue Data Catalog.
+    federatedDatabase :: Prelude.Maybe FederatedDatabase,
     -- | The location of the database (for example, an HDFS path).
     locationUri :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define parameters and properties of the database.
@@ -57,9 +62,13 @@ data DatabaseInput = DatabaseInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createTableDefaultPermissions', 'databaseInput_createTableDefaultPermissions' - Creates a set of default permissions on the table for principals.
+-- 'createTableDefaultPermissions', 'databaseInput_createTableDefaultPermissions' - Creates a set of default permissions on the table for principals. Used
+-- by Lake Formation. Not used in the normal course of Glue operations.
 --
 -- 'description', 'databaseInput_description' - A description of the database.
+--
+-- 'federatedDatabase', 'databaseInput_federatedDatabase' - A @FederatedDatabase@ structure that references an entity outside the
+-- Glue Data Catalog.
 --
 -- 'locationUri', 'databaseInput_locationUri' - The location of the database (for example, an HDFS path).
 --
@@ -81,19 +90,26 @@ newDatabaseInput pName_ =
     { createTableDefaultPermissions =
         Prelude.Nothing,
       description = Prelude.Nothing,
+      federatedDatabase = Prelude.Nothing,
       locationUri = Prelude.Nothing,
       parameters = Prelude.Nothing,
       targetDatabase = Prelude.Nothing,
       name = pName_
     }
 
--- | Creates a set of default permissions on the table for principals.
+-- | Creates a set of default permissions on the table for principals. Used
+-- by Lake Formation. Not used in the normal course of Glue operations.
 databaseInput_createTableDefaultPermissions :: Lens.Lens' DatabaseInput (Prelude.Maybe [PrincipalPermissions])
 databaseInput_createTableDefaultPermissions = Lens.lens (\DatabaseInput' {createTableDefaultPermissions} -> createTableDefaultPermissions) (\s@DatabaseInput' {} a -> s {createTableDefaultPermissions = a} :: DatabaseInput) Prelude.. Lens.mapping Lens.coerced
 
 -- | A description of the database.
 databaseInput_description :: Lens.Lens' DatabaseInput (Prelude.Maybe Prelude.Text)
 databaseInput_description = Lens.lens (\DatabaseInput' {description} -> description) (\s@DatabaseInput' {} a -> s {description = a} :: DatabaseInput)
+
+-- | A @FederatedDatabase@ structure that references an entity outside the
+-- Glue Data Catalog.
+databaseInput_federatedDatabase :: Lens.Lens' DatabaseInput (Prelude.Maybe FederatedDatabase)
+databaseInput_federatedDatabase = Lens.lens (\DatabaseInput' {federatedDatabase} -> federatedDatabase) (\s@DatabaseInput' {} a -> s {federatedDatabase = a} :: DatabaseInput)
 
 -- | The location of the database (for example, an HDFS path).
 databaseInput_locationUri :: Lens.Lens' DatabaseInput (Prelude.Maybe Prelude.Text)
@@ -120,6 +136,7 @@ instance Prelude.Hashable DatabaseInput where
     _salt
       `Prelude.hashWithSalt` createTableDefaultPermissions
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` federatedDatabase
       `Prelude.hashWithSalt` locationUri
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` targetDatabase
@@ -129,6 +146,7 @@ instance Prelude.NFData DatabaseInput where
   rnf DatabaseInput' {..} =
     Prelude.rnf createTableDefaultPermissions
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf federatedDatabase
       `Prelude.seq` Prelude.rnf locationUri
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf targetDatabase
@@ -141,6 +159,8 @@ instance Data.ToJSON DatabaseInput where
           [ ("CreateTableDefaultPermissions" Data..=)
               Prelude.<$> createTableDefaultPermissions,
             ("Description" Data..=) Prelude.<$> description,
+            ("FederatedDatabase" Data..=)
+              Prelude.<$> federatedDatabase,
             ("LocationUri" Data..=) Prelude.<$> locationUri,
             ("Parameters" Data..=) Prelude.<$> parameters,
             ("TargetDatabase" Data..=)

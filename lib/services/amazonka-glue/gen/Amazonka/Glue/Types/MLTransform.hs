@@ -478,7 +478,8 @@ instance Data.FromJSON MLTransform where
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "EvaluationMetrics")
             Prelude.<*> (x Data..:? "GlueVersion")
-            Prelude.<*> ( x Data..:? "InputRecordTables"
+            Prelude.<*> ( x
+                            Data..:? "InputRecordTables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "LabelCount")
@@ -499,7 +500,8 @@ instance Data.FromJSON MLTransform where
 
 instance Prelude.Hashable MLTransform where
   hashWithSalt _salt MLTransform' {..} =
-    _salt `Prelude.hashWithSalt` createdOn
+    _salt
+      `Prelude.hashWithSalt` createdOn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` evaluationMetrics
       `Prelude.hashWithSalt` glueVersion

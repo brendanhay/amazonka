@@ -43,7 +43,9 @@ data ColumnStatisticsData = ColumnStatisticsData'
     booleanColumnStatisticsData :: Prelude.Maybe BooleanColumnStatisticsData,
     -- | Date column statistics data.
     dateColumnStatisticsData :: Prelude.Maybe DateColumnStatisticsData,
-    -- | Decimal column statistics data.
+    -- | Decimal column statistics data. UnscaledValues within are Base64-encoded
+    -- binary objects storing big-endian, two\'s complement representations of
+    -- the decimal\'s unscaled value.
     decimalColumnStatisticsData :: Prelude.Maybe DecimalColumnStatisticsData,
     -- | Double column statistics data.
     doubleColumnStatisticsData :: Prelude.Maybe DoubleColumnStatisticsData,
@@ -70,7 +72,9 @@ data ColumnStatisticsData = ColumnStatisticsData'
 --
 -- 'dateColumnStatisticsData', 'columnStatisticsData_dateColumnStatisticsData' - Date column statistics data.
 --
--- 'decimalColumnStatisticsData', 'columnStatisticsData_decimalColumnStatisticsData' - Decimal column statistics data.
+-- 'decimalColumnStatisticsData', 'columnStatisticsData_decimalColumnStatisticsData' - Decimal column statistics data. UnscaledValues within are Base64-encoded
+-- binary objects storing big-endian, two\'s complement representations of
+-- the decimal\'s unscaled value.
 --
 -- 'doubleColumnStatisticsData', 'columnStatisticsData_doubleColumnStatisticsData' - Double column statistics data.
 --
@@ -108,7 +112,9 @@ columnStatisticsData_booleanColumnStatisticsData = Lens.lens (\ColumnStatisticsD
 columnStatisticsData_dateColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe DateColumnStatisticsData)
 columnStatisticsData_dateColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {dateColumnStatisticsData} -> dateColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {dateColumnStatisticsData = a} :: ColumnStatisticsData)
 
--- | Decimal column statistics data.
+-- | Decimal column statistics data. UnscaledValues within are Base64-encoded
+-- binary objects storing big-endian, two\'s complement representations of
+-- the decimal\'s unscaled value.
 columnStatisticsData_decimalColumnStatisticsData :: Lens.Lens' ColumnStatisticsData (Prelude.Maybe DecimalColumnStatisticsData)
 columnStatisticsData_decimalColumnStatisticsData = Lens.lens (\ColumnStatisticsData' {decimalColumnStatisticsData} -> decimalColumnStatisticsData) (\s@ColumnStatisticsData' {} a -> s {decimalColumnStatisticsData = a} :: ColumnStatisticsData)
 

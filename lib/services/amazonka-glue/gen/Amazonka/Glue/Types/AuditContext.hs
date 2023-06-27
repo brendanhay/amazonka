@@ -24,11 +24,11 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure containing information for audit.
+-- | A structure containing the Lake Formation audit context.
 --
 -- /See:/ 'newAuditContext' smart constructor.
 data AuditContext = AuditContext'
-  { -- | The context for the audit..
+  { -- | A string containing the additional audit context information.
     additionalAuditContext :: Prelude.Maybe Prelude.Text,
     -- | All columns request for audit.
     allColumnsRequested :: Prelude.Maybe Prelude.Bool,
@@ -45,7 +45,7 @@ data AuditContext = AuditContext'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'additionalAuditContext', 'auditContext_additionalAuditContext' - The context for the audit..
+-- 'additionalAuditContext', 'auditContext_additionalAuditContext' - A string containing the additional audit context information.
 --
 -- 'allColumnsRequested', 'auditContext_allColumnsRequested' - All columns request for audit.
 --
@@ -60,7 +60,7 @@ newAuditContext =
       requestedColumns = Prelude.Nothing
     }
 
--- | The context for the audit..
+-- | A string containing the additional audit context information.
 auditContext_additionalAuditContext :: Lens.Lens' AuditContext (Prelude.Maybe Prelude.Text)
 auditContext_additionalAuditContext = Lens.lens (\AuditContext' {additionalAuditContext} -> additionalAuditContext) (\s@AuditContext' {} a -> s {additionalAuditContext = a} :: AuditContext)
 
@@ -74,7 +74,8 @@ auditContext_requestedColumns = Lens.lens (\AuditContext' {requestedColumns} -> 
 
 instance Prelude.Hashable AuditContext where
   hashWithSalt _salt AuditContext' {..} =
-    _salt `Prelude.hashWithSalt` additionalAuditContext
+    _salt
+      `Prelude.hashWithSalt` additionalAuditContext
       `Prelude.hashWithSalt` allColumnsRequested
       `Prelude.hashWithSalt` requestedColumns
 

@@ -22,6 +22,8 @@ module Amazonka.Glue.Types.TargetFormat
       ( ..,
         TargetFormat_Avro,
         TargetFormat_Csv,
+        TargetFormat_Delta,
+        TargetFormat_Hudi,
         TargetFormat_Json,
         TargetFormat_Orc,
         TargetFormat_Parquet
@@ -67,6 +69,12 @@ pattern TargetFormat_Avro = TargetFormat' "avro"
 pattern TargetFormat_Csv :: TargetFormat
 pattern TargetFormat_Csv = TargetFormat' "csv"
 
+pattern TargetFormat_Delta :: TargetFormat
+pattern TargetFormat_Delta = TargetFormat' "delta"
+
+pattern TargetFormat_Hudi :: TargetFormat
+pattern TargetFormat_Hudi = TargetFormat' "hudi"
+
 pattern TargetFormat_Json :: TargetFormat
 pattern TargetFormat_Json = TargetFormat' "json"
 
@@ -79,6 +87,8 @@ pattern TargetFormat_Parquet = TargetFormat' "parquet"
 {-# COMPLETE
   TargetFormat_Avro,
   TargetFormat_Csv,
+  TargetFormat_Delta,
+  TargetFormat_Hudi,
   TargetFormat_Json,
   TargetFormat_Orc,
   TargetFormat_Parquet,

@@ -35,6 +35,7 @@ module Amazonka.Glue.GetDataQualityRulesetEvaluationRun
     newGetDataQualityRulesetEvaluationRunResponse,
 
     -- * Response Lenses
+    getDataQualityRulesetEvaluationRunResponse_additionalDataSources,
     getDataQualityRulesetEvaluationRunResponse_additionalRunOptions,
     getDataQualityRulesetEvaluationRunResponse_completedOn,
     getDataQualityRulesetEvaluationRunResponse_dataSource,
@@ -104,21 +105,25 @@ instance
     Response.receiveJSON
       ( \s h x ->
           GetDataQualityRulesetEvaluationRunResponse'
-            Prelude.<$> (x Data..?> "AdditionalRunOptions")
-              Prelude.<*> (x Data..?> "CompletedOn")
-              Prelude.<*> (x Data..?> "DataSource")
-              Prelude.<*> (x Data..?> "ErrorString")
-              Prelude.<*> (x Data..?> "ExecutionTime")
-              Prelude.<*> (x Data..?> "LastModifiedOn")
-              Prelude.<*> (x Data..?> "NumberOfWorkers")
-              Prelude.<*> (x Data..?> "ResultIds")
-              Prelude.<*> (x Data..?> "Role")
-              Prelude.<*> (x Data..?> "RulesetNames")
-              Prelude.<*> (x Data..?> "RunId")
-              Prelude.<*> (x Data..?> "StartedOn")
-              Prelude.<*> (x Data..?> "Status")
-              Prelude.<*> (x Data..?> "Timeout")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> ( x
+                            Data..?> "AdditionalDataSources"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "AdditionalRunOptions")
+            Prelude.<*> (x Data..?> "CompletedOn")
+            Prelude.<*> (x Data..?> "DataSource")
+            Prelude.<*> (x Data..?> "ErrorString")
+            Prelude.<*> (x Data..?> "ExecutionTime")
+            Prelude.<*> (x Data..?> "LastModifiedOn")
+            Prelude.<*> (x Data..?> "NumberOfWorkers")
+            Prelude.<*> (x Data..?> "ResultIds")
+            Prelude.<*> (x Data..?> "Role")
+            Prelude.<*> (x Data..?> "RulesetNames")
+            Prelude.<*> (x Data..?> "RunId")
+            Prelude.<*> (x Data..?> "StartedOn")
+            Prelude.<*> (x Data..?> "Status")
+            Prelude.<*> (x Data..?> "Timeout")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -179,7 +184,10 @@ instance
 
 -- | /See:/ 'newGetDataQualityRulesetEvaluationRunResponse' smart constructor.
 data GetDataQualityRulesetEvaluationRunResponse = GetDataQualityRulesetEvaluationRunResponse'
-  { -- | Additional run options you can specify for an evaluation run.
+  { -- | A map of reference strings to additional data sources you can specify
+    -- for an evaluation run.
+    additionalDataSources :: Prelude.Maybe (Prelude.HashMap Prelude.Text DataSource),
+    -- | Additional run options you can specify for an evaluation run.
     additionalRunOptions :: Prelude.Maybe DataQualityEvaluationRunAdditionalRunOptions,
     -- | The date and time when this run was completed.
     completedOn :: Prelude.Maybe Data.POSIX,
@@ -223,6 +231,9 @@ data GetDataQualityRulesetEvaluationRunResponse = GetDataQualityRulesetEvaluatio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalDataSources', 'getDataQualityRulesetEvaluationRunResponse_additionalDataSources' - A map of reference strings to additional data sources you can specify
+-- for an evaluation run.
+--
 -- 'additionalRunOptions', 'getDataQualityRulesetEvaluationRunResponse_additionalRunOptions' - Additional run options you can specify for an evaluation run.
 --
 -- 'completedOn', 'getDataQualityRulesetEvaluationRunResponse_completedOn' - The date and time when this run was completed.
@@ -262,7 +273,9 @@ newGetDataQualityRulesetEvaluationRunResponse ::
 newGetDataQualityRulesetEvaluationRunResponse
   pHttpStatus_ =
     GetDataQualityRulesetEvaluationRunResponse'
-      { additionalRunOptions =
+      { additionalDataSources =
+          Prelude.Nothing,
+        additionalRunOptions =
           Prelude.Nothing,
         completedOn = Prelude.Nothing,
         dataSource = Prelude.Nothing,
@@ -281,6 +294,11 @@ newGetDataQualityRulesetEvaluationRunResponse
         timeout = Prelude.Nothing,
         httpStatus = pHttpStatus_
       }
+
+-- | A map of reference strings to additional data sources you can specify
+-- for an evaluation run.
+getDataQualityRulesetEvaluationRunResponse_additionalDataSources :: Lens.Lens' GetDataQualityRulesetEvaluationRunResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text DataSource))
+getDataQualityRulesetEvaluationRunResponse_additionalDataSources = Lens.lens (\GetDataQualityRulesetEvaluationRunResponse' {additionalDataSources} -> additionalDataSources) (\s@GetDataQualityRulesetEvaluationRunResponse' {} a -> s {additionalDataSources = a} :: GetDataQualityRulesetEvaluationRunResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Additional run options you can specify for an evaluation run.
 getDataQualityRulesetEvaluationRunResponse_additionalRunOptions :: Lens.Lens' GetDataQualityRulesetEvaluationRunResponse (Prelude.Maybe DataQualityEvaluationRunAdditionalRunOptions)
@@ -350,7 +368,8 @@ instance
     GetDataQualityRulesetEvaluationRunResponse
   where
   rnf GetDataQualityRulesetEvaluationRunResponse' {..} =
-    Prelude.rnf additionalRunOptions
+    Prelude.rnf additionalDataSources
+      `Prelude.seq` Prelude.rnf additionalRunOptions
       `Prelude.seq` Prelude.rnf completedOn
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf errorString

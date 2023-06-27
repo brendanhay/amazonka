@@ -73,7 +73,8 @@ updateJsonClassifierRequest_name = Lens.lens (\UpdateJsonClassifierRequest' {nam
 
 instance Prelude.Hashable UpdateJsonClassifierRequest where
   hashWithSalt _salt UpdateJsonClassifierRequest' {..} =
-    _salt `Prelude.hashWithSalt` jsonPath
+    _salt
+      `Prelude.hashWithSalt` jsonPath
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateJsonClassifierRequest where

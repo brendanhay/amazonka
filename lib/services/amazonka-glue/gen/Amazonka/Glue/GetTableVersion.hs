@@ -136,7 +136,8 @@ instance Core.AWSRequest GetTableVersion where
 
 instance Prelude.Hashable GetTableVersion where
   hashWithSalt _salt GetTableVersion' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName

@@ -118,7 +118,8 @@ instance Data.FromJSON GovernedCatalogSource where
 
 instance Prelude.Hashable GovernedCatalogSource where
   hashWithSalt _salt GovernedCatalogSource' {..} =
-    _salt `Prelude.hashWithSalt` additionalOptions
+    _salt
+      `Prelude.hashWithSalt` additionalOptions
       `Prelude.hashWithSalt` partitionPredicate
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database

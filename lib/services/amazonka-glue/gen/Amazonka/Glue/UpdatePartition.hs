@@ -149,7 +149,8 @@ instance Core.AWSRequest UpdatePartition where
 
 instance Prelude.Hashable UpdatePartition where
   hashWithSalt _salt UpdatePartition' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` partitionValueList

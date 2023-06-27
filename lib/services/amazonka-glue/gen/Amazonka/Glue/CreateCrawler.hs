@@ -285,7 +285,8 @@ instance Core.AWSRequest CreateCrawler where
 
 instance Prelude.Hashable CreateCrawler where
   hashWithSalt _salt CreateCrawler' {..} =
-    _salt `Prelude.hashWithSalt` classifiers
+    _salt
+      `Prelude.hashWithSalt` classifiers
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` crawlerSecurityConfiguration
       `Prelude.hashWithSalt` databaseName

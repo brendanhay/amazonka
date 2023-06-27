@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataQualityTargetTable' smart constructor.
 data DataQualityTargetTable = DataQualityTargetTable'
-  { -- | The name of the Glue table.
+  { -- | The catalog id where the Glue table exists.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Glue table.
     tableName :: Prelude.Text,
     -- | The name of the database where the Glue table exists.
     databaseName :: Prelude.Text
@@ -43,6 +45,8 @@ data DataQualityTargetTable = DataQualityTargetTable'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'catalogId', 'dataQualityTargetTable_catalogId' - The catalog id where the Glue table exists.
+--
 -- 'tableName', 'dataQualityTargetTable_tableName' - The name of the Glue table.
 --
 -- 'databaseName', 'dataQualityTargetTable_databaseName' - The name of the database where the Glue table exists.
@@ -54,9 +58,15 @@ newDataQualityTargetTable ::
   DataQualityTargetTable
 newDataQualityTargetTable pTableName_ pDatabaseName_ =
   DataQualityTargetTable'
-    { tableName = pTableName_,
+    { catalogId =
+        Prelude.Nothing,
+      tableName = pTableName_,
       databaseName = pDatabaseName_
     }
+
+-- | The catalog id where the Glue table exists.
+dataQualityTargetTable_catalogId :: Lens.Lens' DataQualityTargetTable (Prelude.Maybe Prelude.Text)
+dataQualityTargetTable_catalogId = Lens.lens (\DataQualityTargetTable' {catalogId} -> catalogId) (\s@DataQualityTargetTable' {} a -> s {catalogId = a} :: DataQualityTargetTable)
 
 -- | The name of the Glue table.
 dataQualityTargetTable_tableName :: Lens.Lens' DataQualityTargetTable Prelude.Text
@@ -72,25 +82,30 @@ instance Data.FromJSON DataQualityTargetTable where
       "DataQualityTargetTable"
       ( \x ->
           DataQualityTargetTable'
-            Prelude.<$> (x Data..: "TableName")
+            Prelude.<$> (x Data..:? "CatalogId")
+            Prelude.<*> (x Data..: "TableName")
             Prelude.<*> (x Data..: "DatabaseName")
       )
 
 instance Prelude.Hashable DataQualityTargetTable where
   hashWithSalt _salt DataQualityTargetTable' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
+      `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData DataQualityTargetTable where
   rnf DataQualityTargetTable' {..} =
-    Prelude.rnf tableName
+    Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf databaseName
 
 instance Data.ToJSON DataQualityTargetTable where
   toJSON DataQualityTargetTable' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("TableName" Data..= tableName),
+          [ ("CatalogId" Data..=) Prelude.<$> catalogId,
+            Prelude.Just ("TableName" Data..= tableName),
             Prelude.Just ("DatabaseName" Data..= databaseName)
           ]
       )

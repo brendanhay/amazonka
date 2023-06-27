@@ -51,6 +51,15 @@ module Amazonka.Glue
     -- ** EntityNotFoundException
     _EntityNotFoundException,
 
+    -- ** FederatedResourceAlreadyExistsException
+    _FederatedResourceAlreadyExistsException,
+
+    -- ** FederationSourceException
+    _FederationSourceException,
+
+    -- ** FederationSourceRetryableException
+    _FederationSourceRetryableException,
+
     -- ** GlueEncryptionException
     _GlueEncryptionException,
 
@@ -1328,6 +1337,9 @@ module Amazonka.Glue
 
     -- * Types
 
+    -- ** AdditionalOptionKeys
+    AdditionalOptionKeys (..),
+
     -- ** AggFunction
     AggFunction (..),
 
@@ -1394,6 +1406,9 @@ module Amazonka.Glue
     -- ** DeleteBehavior
     DeleteBehavior (..),
 
+    -- ** DeltaTargetCompressionType
+    DeltaTargetCompressionType (..),
+
     -- ** EnableHybridValues
     EnableHybridValues (..),
 
@@ -1420,6 +1435,12 @@ module Amazonka.Glue
 
     -- ** GlueRecordType
     GlueRecordType (..),
+
+    -- ** HudiTargetCompressionType
+    HudiTargetCompressionType (..),
+
+    -- ** JDBCConnectionType
+    JDBCConnectionType (..),
 
     -- ** JDBCDataType
     JDBCDataType (..),
@@ -1583,6 +1604,22 @@ module Amazonka.Glue
     AggregateOperation (AggregateOperation'),
     newAggregateOperation,
 
+    -- ** AmazonRedshiftAdvancedOption
+    AmazonRedshiftAdvancedOption (AmazonRedshiftAdvancedOption'),
+    newAmazonRedshiftAdvancedOption,
+
+    -- ** AmazonRedshiftNodeData
+    AmazonRedshiftNodeData (AmazonRedshiftNodeData'),
+    newAmazonRedshiftNodeData,
+
+    -- ** AmazonRedshiftSource
+    AmazonRedshiftSource (AmazonRedshiftSource'),
+    newAmazonRedshiftSource,
+
+    -- ** AmazonRedshiftTarget
+    AmazonRedshiftTarget (AmazonRedshiftTarget'),
+    newAmazonRedshiftTarget,
+
     -- ** ApplyMapping
     ApplyMapping (ApplyMapping'),
     newApplyMapping,
@@ -1639,9 +1676,17 @@ module Amazonka.Glue
     BooleanColumnStatisticsData (BooleanColumnStatisticsData'),
     newBooleanColumnStatisticsData,
 
+    -- ** CatalogDeltaSource
+    CatalogDeltaSource (CatalogDeltaSource'),
+    newCatalogDeltaSource,
+
     -- ** CatalogEntry
     CatalogEntry (CatalogEntry'),
     newCatalogEntry,
+
+    -- ** CatalogHudiSource
+    CatalogHudiSource (CatalogHudiSource'),
+    newCatalogHudiSource,
 
     -- ** CatalogImportStatus
     CatalogImportStatus (CatalogImportStatus'),
@@ -1907,6 +1952,10 @@ module Amazonka.Glue
     DevEndpointCustomLibraries (DevEndpointCustomLibraries'),
     newDevEndpointCustomLibraries,
 
+    -- ** DirectJDBCSource
+    DirectJDBCSource (DirectJDBCSource'),
+    newDirectJDBCSource,
+
     -- ** DirectKafkaSource
     DirectKafkaSource (DirectKafkaSource'),
     newDirectKafkaSource,
@@ -1971,6 +2020,10 @@ module Amazonka.Glue
     EvaluateDataQuality (EvaluateDataQuality'),
     newEvaluateDataQuality,
 
+    -- ** EvaluateDataQualityMultiFrame
+    EvaluateDataQualityMultiFrame (EvaluateDataQualityMultiFrame'),
+    newEvaluateDataQualityMultiFrame,
+
     -- ** EvaluationMetrics
     EvaluationMetrics (EvaluationMetrics'),
     newEvaluationMetrics,
@@ -1986,6 +2039,14 @@ module Amazonka.Glue
     -- ** ExportLabelsTaskRunProperties
     ExportLabelsTaskRunProperties (ExportLabelsTaskRunProperties'),
     newExportLabelsTaskRunProperties,
+
+    -- ** FederatedDatabase
+    FederatedDatabase (FederatedDatabase'),
+    newFederatedDatabase,
+
+    -- ** FederatedTable
+    FederatedTable (FederatedTable'),
+    newFederatedTable,
 
     -- ** FillMissingValues
     FillMissingValues (FillMissingValues'),
@@ -2211,6 +2272,10 @@ module Amazonka.Glue
     NullValueField (NullValueField'),
     newNullValueField,
 
+    -- ** Option
+    Option (Option'),
+    newOption,
+
     -- ** OracleSQLCatalogSource
     OracleSQLCatalogSource (OracleSQLCatalogSource'),
     newOracleSQLCatalogSource,
@@ -2315,6 +2380,14 @@ module Amazonka.Glue
     ResourceUri (ResourceUri'),
     newResourceUri,
 
+    -- ** S3CatalogDeltaSource
+    S3CatalogDeltaSource (S3CatalogDeltaSource'),
+    newS3CatalogDeltaSource,
+
+    -- ** S3CatalogHudiSource
+    S3CatalogHudiSource (S3CatalogHudiSource'),
+    newS3CatalogHudiSource,
+
     -- ** S3CatalogSource
     S3CatalogSource (S3CatalogSource'),
     newS3CatalogSource,
@@ -2326,6 +2399,18 @@ module Amazonka.Glue
     -- ** S3CsvSource
     S3CsvSource (S3CsvSource'),
     newS3CsvSource,
+
+    -- ** S3DeltaCatalogTarget
+    S3DeltaCatalogTarget (S3DeltaCatalogTarget'),
+    newS3DeltaCatalogTarget,
+
+    -- ** S3DeltaDirectTarget
+    S3DeltaDirectTarget (S3DeltaDirectTarget'),
+    newS3DeltaDirectTarget,
+
+    -- ** S3DeltaSource
+    S3DeltaSource (S3DeltaSource'),
+    newS3DeltaSource,
 
     -- ** S3DirectSourceAdditionalOptions
     S3DirectSourceAdditionalOptions (S3DirectSourceAdditionalOptions'),
@@ -2342,6 +2427,18 @@ module Amazonka.Glue
     -- ** S3GlueParquetTarget
     S3GlueParquetTarget (S3GlueParquetTarget'),
     newS3GlueParquetTarget,
+
+    -- ** S3HudiCatalogTarget
+    S3HudiCatalogTarget (S3HudiCatalogTarget'),
+    newS3HudiCatalogTarget,
+
+    -- ** S3HudiDirectTarget
+    S3HudiDirectTarget (S3HudiDirectTarget'),
+    newS3HudiDirectTarget,
+
+    -- ** S3HudiSource
+    S3HudiSource (S3HudiSource'),
+    newS3HudiSource,
 
     -- ** S3JsonSource
     S3JsonSource (S3JsonSource'),

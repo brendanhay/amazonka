@@ -144,7 +144,8 @@ instance Core.AWSRequest ListCrawls where
 
 instance Prelude.Hashable ListCrawls where
   hashWithSalt _salt ListCrawls' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` crawlerName

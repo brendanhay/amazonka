@@ -118,7 +118,8 @@ instance Core.AWSRequest ListCrawlers where
 
 instance Prelude.Hashable ListCrawlers where
   hashWithSalt _salt ListCrawlers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` tags
 

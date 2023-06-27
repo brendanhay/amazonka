@@ -121,7 +121,8 @@ instance Core.AWSRequest UpdateDatabase where
 
 instance Prelude.Hashable UpdateDatabase where
   hashWithSalt _salt UpdateDatabase' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` databaseInput
 

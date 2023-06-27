@@ -87,7 +87,8 @@ instance Data.FromJSON BatchStopJobRunError where
 
 instance Prelude.Hashable BatchStopJobRunError where
   hashWithSalt _salt BatchStopJobRunError' {..} =
-    _salt `Prelude.hashWithSalt` errorDetail
+    _salt
+      `Prelude.hashWithSalt` errorDetail
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobRunId
 

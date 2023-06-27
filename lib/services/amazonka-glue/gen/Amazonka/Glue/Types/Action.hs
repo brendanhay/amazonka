@@ -169,7 +169,8 @@ instance Data.FromJSON Action where
 
 instance Prelude.Hashable Action where
   hashWithSalt _salt Action' {..} =
-    _salt `Prelude.hashWithSalt` arguments
+    _salt
+      `Prelude.hashWithSalt` arguments
       `Prelude.hashWithSalt` crawlerName
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` notificationProperty

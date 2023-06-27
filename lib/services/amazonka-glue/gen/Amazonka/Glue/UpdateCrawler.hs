@@ -260,7 +260,8 @@ instance Core.AWSRequest UpdateCrawler where
 
 instance Prelude.Hashable UpdateCrawler where
   hashWithSalt _salt UpdateCrawler' {..} =
-    _salt `Prelude.hashWithSalt` classifiers
+    _salt
+      `Prelude.hashWithSalt` classifiers
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` crawlerSecurityConfiguration
       `Prelude.hashWithSalt` databaseName

@@ -123,7 +123,8 @@ instance Core.AWSRequest ListDataQualityRulesets where
 
 instance Prelude.Hashable ListDataQualityRulesets where
   hashWithSalt _salt ListDataQualityRulesets' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` tags

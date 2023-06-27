@@ -74,7 +74,9 @@ data CreateSession = CreateSession'
     -- | The Glue version determines the versions of Apache Spark and Python that
     -- Glue supports. The GlueVersion must be greater than 2.0.
     glueVersion :: Prelude.Maybe Prelude.Text,
-    -- | The number of seconds when idle before request times out.
+    -- | The number of minutes when idle before session times out. Default for
+    -- Spark ETL jobs is value of Timeout. Consult the documentation for other
+    -- job types.
     idleTimeout :: Prelude.Maybe Prelude.Natural,
     -- | The number of Glue data processing units (DPUs) that can be allocated
     -- when the job runs. A DPU is a relative measure of processing power that
@@ -89,7 +91,9 @@ data CreateSession = CreateSession'
     securityConfiguration :: Prelude.Maybe Prelude.Text,
     -- | The map of key value pairs (tags) belonging to the session.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The number of seconds before request times out.
+    -- | The number of minutes before session times out. Default for Spark ETL
+    -- jobs is 48 hours (2880 minutes), the maximum session lifetime for this
+    -- job type. Consult the documentation for other job types.
     timeout :: Prelude.Maybe Prelude.Natural,
     -- | The type of predefined worker that is allocated to use for the session.
     -- Accepts a value of Standard, G.1X, G.2X, or G.025X.
@@ -136,7 +140,9 @@ data CreateSession = CreateSession'
 -- 'glueVersion', 'createSession_glueVersion' - The Glue version determines the versions of Apache Spark and Python that
 -- Glue supports. The GlueVersion must be greater than 2.0.
 --
--- 'idleTimeout', 'createSession_idleTimeout' - The number of seconds when idle before request times out.
+-- 'idleTimeout', 'createSession_idleTimeout' - The number of minutes when idle before session times out. Default for
+-- Spark ETL jobs is value of Timeout. Consult the documentation for other
+-- job types.
 --
 -- 'maxCapacity', 'createSession_maxCapacity' - The number of Glue data processing units (DPUs) that can be allocated
 -- when the job runs. A DPU is a relative measure of processing power that
@@ -151,7 +157,9 @@ data CreateSession = CreateSession'
 --
 -- 'tags', 'createSession_tags' - The map of key value pairs (tags) belonging to the session.
 --
--- 'timeout', 'createSession_timeout' - The number of seconds before request times out.
+-- 'timeout', 'createSession_timeout' - The number of minutes before session times out. Default for Spark ETL
+-- jobs is 48 hours (2880 minutes), the maximum session lifetime for this
+-- job type. Consult the documentation for other job types.
 --
 -- 'workerType', 'createSession_workerType' - The type of predefined worker that is allocated to use for the session.
 -- Accepts a value of Standard, G.1X, G.2X, or G.025X.
@@ -221,7 +229,9 @@ createSession_description = Lens.lens (\CreateSession' {description} -> descript
 createSession_glueVersion :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Text)
 createSession_glueVersion = Lens.lens (\CreateSession' {glueVersion} -> glueVersion) (\s@CreateSession' {} a -> s {glueVersion = a} :: CreateSession)
 
--- | The number of seconds when idle before request times out.
+-- | The number of minutes when idle before session times out. Default for
+-- Spark ETL jobs is value of Timeout. Consult the documentation for other
+-- job types.
 createSession_idleTimeout :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Natural)
 createSession_idleTimeout = Lens.lens (\CreateSession' {idleTimeout} -> idleTimeout) (\s@CreateSession' {} a -> s {idleTimeout = a} :: CreateSession)
 
@@ -248,7 +258,9 @@ createSession_securityConfiguration = Lens.lens (\CreateSession' {securityConfig
 createSession_tags :: Lens.Lens' CreateSession (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createSession_tags = Lens.lens (\CreateSession' {tags} -> tags) (\s@CreateSession' {} a -> s {tags = a} :: CreateSession) Prelude.. Lens.mapping Lens.coerced
 
--- | The number of seconds before request times out.
+-- | The number of minutes before session times out. Default for Spark ETL
+-- jobs is 48 hours (2880 minutes), the maximum session lifetime for this
+-- job type. Consult the documentation for other job types.
 createSession_timeout :: Lens.Lens' CreateSession (Prelude.Maybe Prelude.Natural)
 createSession_timeout = Lens.lens (\CreateSession' {timeout} -> timeout) (\s@CreateSession' {} a -> s {timeout = a} :: CreateSession)
 
@@ -301,7 +313,8 @@ instance Core.AWSRequest CreateSession where
 
 instance Prelude.Hashable CreateSession where
   hashWithSalt _salt CreateSession' {..} =
-    _salt `Prelude.hashWithSalt` connections
+    _salt
+      `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` defaultArguments
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` glueVersion

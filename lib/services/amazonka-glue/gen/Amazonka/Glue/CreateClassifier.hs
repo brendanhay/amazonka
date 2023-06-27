@@ -120,7 +120,8 @@ instance Core.AWSRequest CreateClassifier where
 
 instance Prelude.Hashable CreateClassifier where
   hashWithSalt _salt CreateClassifier' {..} =
-    _salt `Prelude.hashWithSalt` csvClassifier
+    _salt
+      `Prelude.hashWithSalt` csvClassifier
       `Prelude.hashWithSalt` grokClassifier
       `Prelude.hashWithSalt` jsonClassifier
       `Prelude.hashWithSalt` xMLClassifier

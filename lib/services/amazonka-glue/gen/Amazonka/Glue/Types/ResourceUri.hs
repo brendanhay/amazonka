@@ -75,7 +75,8 @@ instance Data.FromJSON ResourceUri where
 
 instance Prelude.Hashable ResourceUri where
   hashWithSalt _salt ResourceUri' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData ResourceUri where

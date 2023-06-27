@@ -110,7 +110,8 @@ instance Core.AWSRequest ResetJobBookmark where
 
 instance Prelude.Hashable ResetJobBookmark where
   hashWithSalt _salt ResetJobBookmark' {..} =
-    _salt `Prelude.hashWithSalt` runId
+    _salt
+      `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` jobName
 
 instance Prelude.NFData ResetJobBookmark where

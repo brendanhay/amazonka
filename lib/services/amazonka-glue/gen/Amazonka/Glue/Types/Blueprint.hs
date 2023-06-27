@@ -195,7 +195,8 @@ instance Data.FromJSON Blueprint where
 
 instance Prelude.Hashable Blueprint where
   hashWithSalt _salt Blueprint' {..} =
-    _salt `Prelude.hashWithSalt` blueprintLocation
+    _salt
+      `Prelude.hashWithSalt` blueprintLocation
       `Prelude.hashWithSalt` blueprintServiceLocation
       `Prelude.hashWithSalt` createdOn
       `Prelude.hashWithSalt` description

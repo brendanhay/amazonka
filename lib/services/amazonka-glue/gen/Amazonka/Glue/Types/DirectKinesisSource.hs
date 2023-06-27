@@ -109,7 +109,8 @@ instance Data.FromJSON DirectKinesisSource where
 
 instance Prelude.Hashable DirectKinesisSource where
   hashWithSalt _salt DirectKinesisSource' {..} =
-    _salt `Prelude.hashWithSalt` dataPreviewOptions
+    _salt
+      `Prelude.hashWithSalt` dataPreviewOptions
       `Prelude.hashWithSalt` detectSchema
       `Prelude.hashWithSalt` streamingOptions
       `Prelude.hashWithSalt` windowSize

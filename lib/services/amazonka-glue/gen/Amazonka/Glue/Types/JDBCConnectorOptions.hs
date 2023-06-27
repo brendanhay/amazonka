@@ -188,11 +188,13 @@ instance Data.FromJSON JDBCConnectorOptions where
       "JDBCConnectorOptions"
       ( \x ->
           JDBCConnectorOptions'
-            Prelude.<$> ( x Data..:? "DataTypeMapping"
+            Prelude.<$> ( x
+                            Data..:? "DataTypeMapping"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "FilterPredicate")
-            Prelude.<*> ( x Data..:? "JobBookmarkKeys"
+            Prelude.<*> ( x
+                            Data..:? "JobBookmarkKeys"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "JobBookmarkKeysSortOrder")
@@ -204,7 +206,8 @@ instance Data.FromJSON JDBCConnectorOptions where
 
 instance Prelude.Hashable JDBCConnectorOptions where
   hashWithSalt _salt JDBCConnectorOptions' {..} =
-    _salt `Prelude.hashWithSalt` dataTypeMapping
+    _salt
+      `Prelude.hashWithSalt` dataTypeMapping
       `Prelude.hashWithSalt` filterPredicate
       `Prelude.hashWithSalt` jobBookmarkKeys
       `Prelude.hashWithSalt` jobBookmarkKeysSortOrder

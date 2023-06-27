@@ -112,7 +112,8 @@ instance Core.AWSRequest CancelStatement where
 
 instance Prelude.Hashable CancelStatement where
   hashWithSalt _salt CancelStatement' {..} =
-    _salt `Prelude.hashWithSalt` requestOrigin
+    _salt
+      `Prelude.hashWithSalt` requestOrigin
       `Prelude.hashWithSalt` sessionId
       `Prelude.hashWithSalt` id
 

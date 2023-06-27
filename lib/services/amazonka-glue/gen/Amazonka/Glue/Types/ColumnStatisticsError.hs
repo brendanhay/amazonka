@@ -78,7 +78,8 @@ instance Data.FromJSON ColumnStatisticsError where
 
 instance Prelude.Hashable ColumnStatisticsError where
   hashWithSalt _salt ColumnStatisticsError' {..} =
-    _salt `Prelude.hashWithSalt` columnStatistics
+    _salt
+      `Prelude.hashWithSalt` columnStatistics
       `Prelude.hashWithSalt` error
 
 instance Prelude.NFData ColumnStatisticsError where

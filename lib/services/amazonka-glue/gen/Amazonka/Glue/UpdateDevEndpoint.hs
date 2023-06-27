@@ -196,7 +196,8 @@ instance Core.AWSRequest UpdateDevEndpoint where
 
 instance Prelude.Hashable UpdateDevEndpoint where
   hashWithSalt _salt UpdateDevEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` addArguments
+    _salt
+      `Prelude.hashWithSalt` addArguments
       `Prelude.hashWithSalt` addPublicKeys
       `Prelude.hashWithSalt` customLibraries
       `Prelude.hashWithSalt` deleteArguments

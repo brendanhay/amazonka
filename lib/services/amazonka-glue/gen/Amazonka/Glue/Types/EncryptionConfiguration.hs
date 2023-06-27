@@ -91,7 +91,8 @@ instance Data.FromJSON EncryptionConfiguration where
 
 instance Prelude.Hashable EncryptionConfiguration where
   hashWithSalt _salt EncryptionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchEncryption
+    _salt
+      `Prelude.hashWithSalt` cloudWatchEncryption
       `Prelude.hashWithSalt` jobBookmarksEncryption
       `Prelude.hashWithSalt` s3Encryption
 

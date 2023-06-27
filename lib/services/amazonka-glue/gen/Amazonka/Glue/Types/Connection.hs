@@ -141,8 +141,8 @@ data Connection = Connection'
     --     Kafka client key password (if the user has the Glue encrypt
     --     passwords setting selected).
     --
-    -- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@ or @\"GSSAPI\"@. These
-    --     are the two supported
+    -- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@, @\"GSSAPI\"@, or
+    --     @\"AWS_MSK_IAM\"@. These are the supported
     --     <https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml SASL Mechanisms>.
     --
     -- -   @KAFKA_SASL_SCRAM_USERNAME@ - A plaintext username used to
@@ -313,8 +313,8 @@ data Connection = Connection'
 --     Kafka client key password (if the user has the Glue encrypt
 --     passwords setting selected).
 --
--- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@ or @\"GSSAPI\"@. These
---     are the two supported
+-- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@, @\"GSSAPI\"@, or
+--     @\"AWS_MSK_IAM\"@. These are the supported
 --     <https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml SASL Mechanisms>.
 --
 -- -   @KAFKA_SASL_SCRAM_USERNAME@ - A plaintext username used to
@@ -488,8 +488,8 @@ newConnection =
 --     Kafka client key password (if the user has the Glue encrypt
 --     passwords setting selected).
 --
--- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@ or @\"GSSAPI\"@. These
---     are the two supported
+-- -   @KAFKA_SASL_MECHANISM@ - @\"SCRAM-SHA-512\"@, @\"GSSAPI\"@, or
+--     @\"AWS_MSK_IAM\"@. These are the supported
 --     <https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml SASL Mechanisms>.
 --
 -- -   @KAFKA_SASL_SCRAM_USERNAME@ - A plaintext username used to
@@ -563,7 +563,8 @@ instance Data.FromJSON Connection where
       "Connection"
       ( \x ->
           Connection'
-            Prelude.<$> ( x Data..:? "ConnectionProperties"
+            Prelude.<$> ( x
+                            Data..:? "ConnectionProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConnectionType")
@@ -578,7 +579,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` connectionProperties
+    _salt
+      `Prelude.hashWithSalt` connectionProperties
       `Prelude.hashWithSalt` connectionType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description

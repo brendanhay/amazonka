@@ -194,7 +194,8 @@ instance Data.FromJSON FindMatchesParameters where
 
 instance Prelude.Hashable FindMatchesParameters where
   hashWithSalt _salt FindMatchesParameters' {..} =
-    _salt `Prelude.hashWithSalt` accuracyCostTradeoff
+    _salt
+      `Prelude.hashWithSalt` accuracyCostTradeoff
       `Prelude.hashWithSalt` enforceProvidedLabels
       `Prelude.hashWithSalt` precisionRecallTradeoff
       `Prelude.hashWithSalt` primaryKeyColumnName

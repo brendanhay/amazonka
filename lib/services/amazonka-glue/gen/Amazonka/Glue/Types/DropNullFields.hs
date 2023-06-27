@@ -122,7 +122,8 @@ instance Data.FromJSON DropNullFields where
 
 instance Prelude.Hashable DropNullFields where
   hashWithSalt _salt DropNullFields' {..} =
-    _salt `Prelude.hashWithSalt` nullCheckBoxList
+    _salt
+      `Prelude.hashWithSalt` nullCheckBoxList
       `Prelude.hashWithSalt` nullTextList
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs

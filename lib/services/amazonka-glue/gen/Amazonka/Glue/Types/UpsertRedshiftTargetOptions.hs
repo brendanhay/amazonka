@@ -86,7 +86,8 @@ instance Data.FromJSON UpsertRedshiftTargetOptions where
 
 instance Prelude.Hashable UpsertRedshiftTargetOptions where
   hashWithSalt _salt UpsertRedshiftTargetOptions' {..} =
-    _salt `Prelude.hashWithSalt` connectionName
+    _salt
+      `Prelude.hashWithSalt` connectionName
       `Prelude.hashWithSalt` tableLocation
       `Prelude.hashWithSalt` upsertKeys
 

@@ -110,7 +110,8 @@ instance Data.FromJSON Union where
 
 instance Prelude.Hashable Union where
   hashWithSalt _salt Union' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` unionType
 

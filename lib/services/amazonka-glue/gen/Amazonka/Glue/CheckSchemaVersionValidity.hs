@@ -115,7 +115,8 @@ instance Core.AWSRequest CheckSchemaVersionValidity where
 
 instance Prelude.Hashable CheckSchemaVersionValidity where
   hashWithSalt _salt CheckSchemaVersionValidity' {..} =
-    _salt `Prelude.hashWithSalt` dataFormat
+    _salt
+      `Prelude.hashWithSalt` dataFormat
       `Prelude.hashWithSalt` schemaDefinition
 
 instance Prelude.NFData CheckSchemaVersionValidity where

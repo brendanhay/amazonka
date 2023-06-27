@@ -129,7 +129,8 @@ instance Data.FromJSON S3GlueParquetTarget where
 
 instance Prelude.Hashable S3GlueParquetTarget where
   hashWithSalt _salt S3GlueParquetTarget' {..} =
-    _salt `Prelude.hashWithSalt` compression
+    _salt
+      `Prelude.hashWithSalt` compression
       `Prelude.hashWithSalt` partitionKeys
       `Prelude.hashWithSalt` schemaChangePolicy
       `Prelude.hashWithSalt` name

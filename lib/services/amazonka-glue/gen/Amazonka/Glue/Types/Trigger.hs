@@ -171,7 +171,8 @@ instance Data.FromJSON Trigger where
 
 instance Prelude.Hashable Trigger where
   hashWithSalt _salt Trigger' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBatchingCondition
       `Prelude.hashWithSalt` id

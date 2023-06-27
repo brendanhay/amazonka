@@ -81,7 +81,8 @@ instance
     ImportLabelsTaskRunProperties
   where
   hashWithSalt _salt ImportLabelsTaskRunProperties' {..} =
-    _salt `Prelude.hashWithSalt` inputS3Path
+    _salt
+      `Prelude.hashWithSalt` inputS3Path
       `Prelude.hashWithSalt` replace
 
 instance Prelude.NFData ImportLabelsTaskRunProperties where

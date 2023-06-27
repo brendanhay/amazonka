@@ -63,7 +63,10 @@ data GetDatabases = GetDatabases'
     -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Allows you to specify that you want to list the databases shared with
-    -- your account. The allowable values are @FOREIGN@ or @ALL@.
+    -- your account. The allowable values are @FEDERATED@, @FOREIGN@ or @ALL@.
+    --
+    -- -   If set to @FEDERATED@, will list the federated databases
+    --     (referencing an external entity) shared with your account.
     --
     -- -   If set to @FOREIGN@, will list the databases shared with your
     --     account.
@@ -90,7 +93,10 @@ data GetDatabases = GetDatabases'
 -- 'nextToken', 'getDatabases_nextToken' - A continuation token, if this is a continuation call.
 --
 -- 'resourceShareType', 'getDatabases_resourceShareType' - Allows you to specify that you want to list the databases shared with
--- your account. The allowable values are @FOREIGN@ or @ALL@.
+-- your account. The allowable values are @FEDERATED@, @FOREIGN@ or @ALL@.
+--
+-- -   If set to @FEDERATED@, will list the federated databases
+--     (referencing an external entity) shared with your account.
 --
 -- -   If set to @FOREIGN@, will list the databases shared with your
 --     account.
@@ -121,7 +127,10 @@ getDatabases_nextToken :: Lens.Lens' GetDatabases (Prelude.Maybe Prelude.Text)
 getDatabases_nextToken = Lens.lens (\GetDatabases' {nextToken} -> nextToken) (\s@GetDatabases' {} a -> s {nextToken = a} :: GetDatabases)
 
 -- | Allows you to specify that you want to list the databases shared with
--- your account. The allowable values are @FOREIGN@ or @ALL@.
+-- your account. The allowable values are @FEDERATED@, @FOREIGN@ or @ALL@.
+--
+-- -   If set to @FEDERATED@, will list the federated databases
+--     (referencing an external entity) shared with your account.
 --
 -- -   If set to @FOREIGN@, will list the databases shared with your
 --     account.
@@ -135,18 +144,20 @@ instance Core.AWSPager GetDatabases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? getDatabasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? getDatabasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. getDatabasesResponse_databaseList) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getDatabases_nextToken
           Lens..~ rs
-          Lens.^? getDatabasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? getDatabasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDatabases where
   type AWSResponse GetDatabases = GetDatabasesResponse
@@ -163,7 +174,8 @@ instance Core.AWSRequest GetDatabases where
 
 instance Prelude.Hashable GetDatabases where
   hashWithSalt _salt GetDatabases' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceShareType

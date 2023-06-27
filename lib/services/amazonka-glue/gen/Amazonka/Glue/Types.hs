@@ -28,6 +28,9 @@ module Amazonka.Glue.Types
     _CrawlerRunningException,
     _CrawlerStoppingException,
     _EntityNotFoundException,
+    _FederatedResourceAlreadyExistsException,
+    _FederationSourceException,
+    _FederationSourceRetryableException,
     _GlueEncryptionException,
     _IdempotentParameterMismatchException,
     _IllegalBlueprintStateException,
@@ -47,6 +50,9 @@ module Amazonka.Glue.Types
     _SchedulerTransitioningException,
     _ValidationException,
     _VersionMismatchException,
+
+    -- * AdditionalOptionKeys
+    AdditionalOptionKeys (..),
 
     -- * AggFunction
     AggFunction (..),
@@ -114,6 +120,9 @@ module Amazonka.Glue.Types
     -- * DeleteBehavior
     DeleteBehavior (..),
 
+    -- * DeltaTargetCompressionType
+    DeltaTargetCompressionType (..),
+
     -- * EnableHybridValues
     EnableHybridValues (..),
 
@@ -140,6 +149,12 @@ module Amazonka.Glue.Types
 
     -- * GlueRecordType
     GlueRecordType (..),
+
+    -- * HudiTargetCompressionType
+    HudiTargetCompressionType (..),
+
+    -- * JDBCConnectionType
+    JDBCConnectionType (..),
 
     -- * JDBCDataType
     JDBCDataType (..),
@@ -315,6 +330,55 @@ module Amazonka.Glue.Types
     aggregateOperation_column,
     aggregateOperation_aggFunc,
 
+    -- * AmazonRedshiftAdvancedOption
+    AmazonRedshiftAdvancedOption (..),
+    newAmazonRedshiftAdvancedOption,
+    amazonRedshiftAdvancedOption_key,
+    amazonRedshiftAdvancedOption_value,
+
+    -- * AmazonRedshiftNodeData
+    AmazonRedshiftNodeData (..),
+    newAmazonRedshiftNodeData,
+    amazonRedshiftNodeData_accessType,
+    amazonRedshiftNodeData_action,
+    amazonRedshiftNodeData_advancedOptions,
+    amazonRedshiftNodeData_catalogDatabase,
+    amazonRedshiftNodeData_catalogRedshiftSchema,
+    amazonRedshiftNodeData_catalogRedshiftTable,
+    amazonRedshiftNodeData_catalogTable,
+    amazonRedshiftNodeData_connection,
+    amazonRedshiftNodeData_crawlerConnection,
+    amazonRedshiftNodeData_iamRole,
+    amazonRedshiftNodeData_mergeAction,
+    amazonRedshiftNodeData_mergeClause,
+    amazonRedshiftNodeData_mergeWhenMatched,
+    amazonRedshiftNodeData_mergeWhenNotMatched,
+    amazonRedshiftNodeData_postAction,
+    amazonRedshiftNodeData_preAction,
+    amazonRedshiftNodeData_sampleQuery,
+    amazonRedshiftNodeData_schema,
+    amazonRedshiftNodeData_selectedColumns,
+    amazonRedshiftNodeData_sourceType,
+    amazonRedshiftNodeData_stagingTable,
+    amazonRedshiftNodeData_table,
+    amazonRedshiftNodeData_tablePrefix,
+    amazonRedshiftNodeData_tableSchema,
+    amazonRedshiftNodeData_tempDir,
+    amazonRedshiftNodeData_upsert,
+
+    -- * AmazonRedshiftSource
+    AmazonRedshiftSource (..),
+    newAmazonRedshiftSource,
+    amazonRedshiftSource_data,
+    amazonRedshiftSource_name,
+
+    -- * AmazonRedshiftTarget
+    AmazonRedshiftTarget (..),
+    newAmazonRedshiftTarget,
+    amazonRedshiftTarget_data,
+    amazonRedshiftTarget_inputs,
+    amazonRedshiftTarget_name,
+
     -- * ApplyMapping
     ApplyMapping (..),
     newApplyMapping,
@@ -427,11 +491,29 @@ module Amazonka.Glue.Types
     booleanColumnStatisticsData_numberOfFalses,
     booleanColumnStatisticsData_numberOfNulls,
 
+    -- * CatalogDeltaSource
+    CatalogDeltaSource (..),
+    newCatalogDeltaSource,
+    catalogDeltaSource_additionalDeltaOptions,
+    catalogDeltaSource_outputSchemas,
+    catalogDeltaSource_name,
+    catalogDeltaSource_database,
+    catalogDeltaSource_table,
+
     -- * CatalogEntry
     CatalogEntry (..),
     newCatalogEntry,
     catalogEntry_databaseName,
     catalogEntry_tableName,
+
+    -- * CatalogHudiSource
+    CatalogHudiSource (..),
+    newCatalogHudiSource,
+    catalogHudiSource_additionalHudiOptions,
+    catalogHudiSource_outputSchemas,
+    catalogHudiSource_name,
+    catalogHudiSource_database,
+    catalogHudiSource_table,
 
     -- * CatalogImportStatus
     CatalogImportStatus (..),
@@ -502,13 +584,18 @@ module Amazonka.Glue.Types
     CodeGenConfigurationNode (..),
     newCodeGenConfigurationNode,
     codeGenConfigurationNode_aggregate,
+    codeGenConfigurationNode_amazonRedshiftSource,
+    codeGenConfigurationNode_amazonRedshiftTarget,
     codeGenConfigurationNode_applyMapping,
     codeGenConfigurationNode_athenaConnectorSource,
+    codeGenConfigurationNode_catalogDeltaSource,
+    codeGenConfigurationNode_catalogHudiSource,
     codeGenConfigurationNode_catalogKafkaSource,
     codeGenConfigurationNode_catalogKinesisSource,
     codeGenConfigurationNode_catalogSource,
     codeGenConfigurationNode_catalogTarget,
     codeGenConfigurationNode_customCode,
+    codeGenConfigurationNode_directJDBCSource,
     codeGenConfigurationNode_directKafkaSource,
     codeGenConfigurationNode_directKinesisSource,
     codeGenConfigurationNode_dropDuplicates,
@@ -517,6 +604,7 @@ module Amazonka.Glue.Types
     codeGenConfigurationNode_dynamicTransform,
     codeGenConfigurationNode_dynamoDBCatalogSource,
     codeGenConfigurationNode_evaluateDataQuality,
+    codeGenConfigurationNode_evaluateDataQualityMultiFrame,
     codeGenConfigurationNode_fillMissingValues,
     codeGenConfigurationNode_filter,
     codeGenConfigurationNode_governedCatalogSource,
@@ -538,11 +626,19 @@ module Amazonka.Glue.Types
     codeGenConfigurationNode_redshiftTarget,
     codeGenConfigurationNode_relationalCatalogSource,
     codeGenConfigurationNode_renameField,
+    codeGenConfigurationNode_s3CatalogDeltaSource,
+    codeGenConfigurationNode_s3CatalogHudiSource,
     codeGenConfigurationNode_s3CatalogSource,
     codeGenConfigurationNode_s3CatalogTarget,
     codeGenConfigurationNode_s3CsvSource,
+    codeGenConfigurationNode_s3DeltaCatalogTarget,
+    codeGenConfigurationNode_s3DeltaDirectTarget,
+    codeGenConfigurationNode_s3DeltaSource,
     codeGenConfigurationNode_s3DirectTarget,
     codeGenConfigurationNode_s3GlueParquetTarget,
+    codeGenConfigurationNode_s3HudiCatalogTarget,
+    codeGenConfigurationNode_s3HudiDirectTarget,
+    codeGenConfigurationNode_s3HudiSource,
     codeGenConfigurationNode_s3JsonSource,
     codeGenConfigurationNode_s3ParquetSource,
     codeGenConfigurationNode_selectFields,
@@ -909,6 +1005,7 @@ module Amazonka.Glue.Types
     DataQualityRuleResult (..),
     newDataQualityRuleResult,
     dataQualityRuleResult_description,
+    dataQualityRuleResult_evaluatedMetrics,
     dataQualityRuleResult_evaluationMessage,
     dataQualityRuleResult_name,
     dataQualityRuleResult_result,
@@ -953,6 +1050,7 @@ module Amazonka.Glue.Types
     -- * DataQualityTargetTable
     DataQualityTargetTable (..),
     newDataQualityTargetTable,
+    dataQualityTargetTable_catalogId,
     dataQualityTargetTable_tableName,
     dataQualityTargetTable_databaseName,
 
@@ -968,6 +1066,7 @@ module Amazonka.Glue.Types
     database_createTableDefaultPermissions,
     database_createTime,
     database_description,
+    database_federatedDatabase,
     database_locationUri,
     database_parameters,
     database_targetDatabase,
@@ -978,12 +1077,14 @@ module Amazonka.Glue.Types
     newDatabaseIdentifier,
     databaseIdentifier_catalogId,
     databaseIdentifier_databaseName,
+    databaseIdentifier_region,
 
     -- * DatabaseInput
     DatabaseInput (..),
     newDatabaseInput,
     databaseInput_createTableDefaultPermissions,
     databaseInput_description,
+    databaseInput_federatedDatabase,
     databaseInput_locationUri,
     databaseInput_parameters,
     databaseInput_targetDatabase,
@@ -1060,6 +1161,16 @@ module Amazonka.Glue.Types
     devEndpointCustomLibraries_extraJarsS3Path,
     devEndpointCustomLibraries_extraPythonLibsS3Path,
 
+    -- * DirectJDBCSource
+    DirectJDBCSource (..),
+    newDirectJDBCSource,
+    directJDBCSource_redshiftTmpDir,
+    directJDBCSource_name,
+    directJDBCSource_database,
+    directJDBCSource_table,
+    directJDBCSource_connectionName,
+    directJDBCSource_connectionType,
+
     -- * DirectKafkaSource
     DirectKafkaSource (..),
     newDirectKafkaSource,
@@ -1119,6 +1230,7 @@ module Amazonka.Glue.Types
     -- * DynamicTransform
     DynamicTransform (..),
     newDynamicTransform,
+    dynamicTransform_outputSchemas,
     dynamicTransform_parameters,
     dynamicTransform_version,
     dynamicTransform_name,
@@ -1182,6 +1294,17 @@ module Amazonka.Glue.Types
     evaluateDataQuality_inputs,
     evaluateDataQuality_ruleset,
 
+    -- * EvaluateDataQualityMultiFrame
+    EvaluateDataQualityMultiFrame (..),
+    newEvaluateDataQualityMultiFrame,
+    evaluateDataQualityMultiFrame_additionalDataSources,
+    evaluateDataQualityMultiFrame_additionalOptions,
+    evaluateDataQualityMultiFrame_publishingOptions,
+    evaluateDataQualityMultiFrame_stopJobOnFailureOptions,
+    evaluateDataQualityMultiFrame_name,
+    evaluateDataQualityMultiFrame_inputs,
+    evaluateDataQualityMultiFrame_ruleset,
+
     -- * EvaluationMetrics
     EvaluationMetrics (..),
     newEvaluationMetrics,
@@ -1203,6 +1326,19 @@ module Amazonka.Glue.Types
     ExportLabelsTaskRunProperties (..),
     newExportLabelsTaskRunProperties,
     exportLabelsTaskRunProperties_outputS3Path,
+
+    -- * FederatedDatabase
+    FederatedDatabase (..),
+    newFederatedDatabase,
+    federatedDatabase_connectionName,
+    federatedDatabase_identifier,
+
+    -- * FederatedTable
+    FederatedTable (..),
+    newFederatedTable,
+    federatedTable_connectionName,
+    federatedTable_databaseIdentifier,
+    federatedTable_identifier,
 
     -- * FillMissingValues
     FillMissingValues (..),
@@ -1421,6 +1557,7 @@ module Amazonka.Glue.Types
     newJobCommand,
     jobCommand_name,
     jobCommand_pythonVersion,
+    jobCommand_runtime,
     jobCommand_scriptLocation,
 
     -- * JobNodeDetails
@@ -1506,12 +1643,15 @@ module Amazonka.Glue.Types
     -- * KafkaStreamingSourceOptions
     KafkaStreamingSourceOptions (..),
     newKafkaStreamingSourceOptions,
+    kafkaStreamingSourceOptions_addRecordTimestamp,
     kafkaStreamingSourceOptions_assign,
     kafkaStreamingSourceOptions_bootstrapServers,
     kafkaStreamingSourceOptions_classification,
     kafkaStreamingSourceOptions_connectionName,
     kafkaStreamingSourceOptions_delimiter,
+    kafkaStreamingSourceOptions_emitConsumerLagMetrics,
     kafkaStreamingSourceOptions_endingOffsets,
+    kafkaStreamingSourceOptions_includeHeaders,
     kafkaStreamingSourceOptions_maxOffsetsPerTrigger,
     kafkaStreamingSourceOptions_minPartitions,
     kafkaStreamingSourceOptions_numRetries,
@@ -1519,6 +1659,7 @@ module Amazonka.Glue.Types
     kafkaStreamingSourceOptions_retryIntervalMs,
     kafkaStreamingSourceOptions_securityProtocol,
     kafkaStreamingSourceOptions_startingOffsets,
+    kafkaStreamingSourceOptions_startingTimestamp,
     kafkaStreamingSourceOptions_subscribePattern,
     kafkaStreamingSourceOptions_topicName,
 
@@ -1532,10 +1673,12 @@ module Amazonka.Glue.Types
     KinesisStreamingSourceOptions (..),
     newKinesisStreamingSourceOptions,
     kinesisStreamingSourceOptions_addIdleTimeBetweenReads,
+    kinesisStreamingSourceOptions_addRecordTimestamp,
     kinesisStreamingSourceOptions_avoidEmptyBatches,
     kinesisStreamingSourceOptions_classification,
     kinesisStreamingSourceOptions_delimiter,
     kinesisStreamingSourceOptions_describeShardInterval,
+    kinesisStreamingSourceOptions_emitConsumerLagMetrics,
     kinesisStreamingSourceOptions_endpointUrl,
     kinesisStreamingSourceOptions_idleTimeBetweenReadsInMs,
     kinesisStreamingSourceOptions_maxFetchRecordsPerShard,
@@ -1547,6 +1690,7 @@ module Amazonka.Glue.Types
     kinesisStreamingSourceOptions_roleArn,
     kinesisStreamingSourceOptions_roleSessionName,
     kinesisStreamingSourceOptions_startingPosition,
+    kinesisStreamingSourceOptions_startingTimestamp,
     kinesisStreamingSourceOptions_streamArn,
     kinesisStreamingSourceOptions_streamName,
 
@@ -1734,6 +1878,13 @@ module Amazonka.Glue.Types
     newNullValueField,
     nullValueField_value,
     nullValueField_datatype,
+
+    -- * Option
+    Option (..),
+    newOption,
+    option_description,
+    option_label,
+    option_value,
 
     -- * OracleSQLCatalogSource
     OracleSQLCatalogSource (..),
@@ -1930,6 +2081,24 @@ module Amazonka.Glue.Types
     resourceUri_resourceType,
     resourceUri_uri,
 
+    -- * S3CatalogDeltaSource
+    S3CatalogDeltaSource (..),
+    newS3CatalogDeltaSource,
+    s3CatalogDeltaSource_additionalDeltaOptions,
+    s3CatalogDeltaSource_outputSchemas,
+    s3CatalogDeltaSource_name,
+    s3CatalogDeltaSource_database,
+    s3CatalogDeltaSource_table,
+
+    -- * S3CatalogHudiSource
+    S3CatalogHudiSource (..),
+    newS3CatalogHudiSource,
+    s3CatalogHudiSource_additionalHudiOptions,
+    s3CatalogHudiSource_outputSchemas,
+    s3CatalogHudiSource_name,
+    s3CatalogHudiSource_database,
+    s3CatalogHudiSource_table,
+
     -- * S3CatalogSource
     S3CatalogSource (..),
     newS3CatalogSource,
@@ -1972,6 +2141,38 @@ module Amazonka.Glue.Types
     s3CsvSource_separator,
     s3CsvSource_quoteChar,
 
+    -- * S3DeltaCatalogTarget
+    S3DeltaCatalogTarget (..),
+    newS3DeltaCatalogTarget,
+    s3DeltaCatalogTarget_additionalOptions,
+    s3DeltaCatalogTarget_partitionKeys,
+    s3DeltaCatalogTarget_schemaChangePolicy,
+    s3DeltaCatalogTarget_name,
+    s3DeltaCatalogTarget_inputs,
+    s3DeltaCatalogTarget_table,
+    s3DeltaCatalogTarget_database,
+
+    -- * S3DeltaDirectTarget
+    S3DeltaDirectTarget (..),
+    newS3DeltaDirectTarget,
+    s3DeltaDirectTarget_additionalOptions,
+    s3DeltaDirectTarget_partitionKeys,
+    s3DeltaDirectTarget_schemaChangePolicy,
+    s3DeltaDirectTarget_name,
+    s3DeltaDirectTarget_inputs,
+    s3DeltaDirectTarget_path,
+    s3DeltaDirectTarget_compression,
+    s3DeltaDirectTarget_format,
+
+    -- * S3DeltaSource
+    S3DeltaSource (..),
+    newS3DeltaSource,
+    s3DeltaSource_additionalDeltaOptions,
+    s3DeltaSource_additionalOptions,
+    s3DeltaSource_outputSchemas,
+    s3DeltaSource_name,
+    s3DeltaSource_paths,
+
     -- * S3DirectSourceAdditionalOptions
     S3DirectSourceAdditionalOptions (..),
     newS3DirectSourceAdditionalOptions,
@@ -2006,6 +2207,38 @@ module Amazonka.Glue.Types
     s3GlueParquetTarget_name,
     s3GlueParquetTarget_inputs,
     s3GlueParquetTarget_path,
+
+    -- * S3HudiCatalogTarget
+    S3HudiCatalogTarget (..),
+    newS3HudiCatalogTarget,
+    s3HudiCatalogTarget_partitionKeys,
+    s3HudiCatalogTarget_schemaChangePolicy,
+    s3HudiCatalogTarget_name,
+    s3HudiCatalogTarget_inputs,
+    s3HudiCatalogTarget_table,
+    s3HudiCatalogTarget_database,
+    s3HudiCatalogTarget_additionalOptions,
+
+    -- * S3HudiDirectTarget
+    S3HudiDirectTarget (..),
+    newS3HudiDirectTarget,
+    s3HudiDirectTarget_partitionKeys,
+    s3HudiDirectTarget_schemaChangePolicy,
+    s3HudiDirectTarget_name,
+    s3HudiDirectTarget_inputs,
+    s3HudiDirectTarget_path,
+    s3HudiDirectTarget_compression,
+    s3HudiDirectTarget_format,
+    s3HudiDirectTarget_additionalOptions,
+
+    -- * S3HudiSource
+    S3HudiSource (..),
+    newS3HudiSource,
+    s3HudiSource_additionalHudiOptions,
+    s3HudiSource_additionalOptions,
+    s3HudiSource_outputSchemas,
+    s3HudiSource_name,
+    s3HudiSource_paths,
 
     -- * S3JsonSource
     S3JsonSource (..),
@@ -2325,6 +2558,7 @@ module Amazonka.Glue.Types
     table_createdBy,
     table_databaseName,
     table_description,
+    table_federatedTable,
     table_isRegisteredWithLakeFormation,
     table_lastAccessTime,
     table_lastAnalyzedTime,
@@ -2353,6 +2587,7 @@ module Amazonka.Glue.Types
     tableIdentifier_catalogId,
     tableIdentifier_databaseName,
     tableIdentifier_name,
+    tableIdentifier_region,
 
     -- * TableInput
     TableInput (..),
@@ -2629,9 +2864,14 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import Amazonka.Glue.Types.Action
+import Amazonka.Glue.Types.AdditionalOptionKeys
 import Amazonka.Glue.Types.AggFunction
 import Amazonka.Glue.Types.Aggregate
 import Amazonka.Glue.Types.AggregateOperation
+import Amazonka.Glue.Types.AmazonRedshiftAdvancedOption
+import Amazonka.Glue.Types.AmazonRedshiftNodeData
+import Amazonka.Glue.Types.AmazonRedshiftSource
+import Amazonka.Glue.Types.AmazonRedshiftTarget
 import Amazonka.Glue.Types.ApplyMapping
 import Amazonka.Glue.Types.AthenaConnectorSource
 import Amazonka.Glue.Types.AuditContext
@@ -2649,8 +2889,10 @@ import Amazonka.Glue.Types.BlueprintRun
 import Amazonka.Glue.Types.BlueprintRunState
 import Amazonka.Glue.Types.BlueprintStatus
 import Amazonka.Glue.Types.BooleanColumnStatisticsData
+import Amazonka.Glue.Types.CatalogDeltaSource
 import Amazonka.Glue.Types.CatalogEncryptionMode
 import Amazonka.Glue.Types.CatalogEntry
+import Amazonka.Glue.Types.CatalogHudiSource
 import Amazonka.Glue.Types.CatalogImportStatus
 import Amazonka.Glue.Types.CatalogKafkaSource
 import Amazonka.Glue.Types.CatalogKinesisSource
@@ -2732,8 +2974,10 @@ import Amazonka.Glue.Types.DecimalColumnStatisticsData
 import Amazonka.Glue.Types.DecimalNumber
 import Amazonka.Glue.Types.DeleteBehavior
 import Amazonka.Glue.Types.DeltaTarget
+import Amazonka.Glue.Types.DeltaTargetCompressionType
 import Amazonka.Glue.Types.DevEndpoint
 import Amazonka.Glue.Types.DevEndpointCustomLibraries
+import Amazonka.Glue.Types.DirectJDBCSource
 import Amazonka.Glue.Types.DirectKafkaSource
 import Amazonka.Glue.Types.DirectKinesisSource
 import Amazonka.Glue.Types.DirectSchemaChangePolicy
@@ -2751,12 +2995,15 @@ import Amazonka.Glue.Types.EncryptionConfiguration
 import Amazonka.Glue.Types.ErrorDetail
 import Amazonka.Glue.Types.ErrorDetails
 import Amazonka.Glue.Types.EvaluateDataQuality
+import Amazonka.Glue.Types.EvaluateDataQualityMultiFrame
 import Amazonka.Glue.Types.EvaluationMetrics
 import Amazonka.Glue.Types.EventBatchingCondition
 import Amazonka.Glue.Types.ExecutionClass
 import Amazonka.Glue.Types.ExecutionProperty
 import Amazonka.Glue.Types.ExistCondition
 import Amazonka.Glue.Types.ExportLabelsTaskRunProperties
+import Amazonka.Glue.Types.FederatedDatabase
+import Amazonka.Glue.Types.FederatedTable
 import Amazonka.Glue.Types.FieldName
 import Amazonka.Glue.Types.FillMissingValues
 import Amazonka.Glue.Types.Filter
@@ -2778,7 +3025,9 @@ import Amazonka.Glue.Types.GlueTable
 import Amazonka.Glue.Types.GovernedCatalogSource
 import Amazonka.Glue.Types.GovernedCatalogTarget
 import Amazonka.Glue.Types.GrokClassifier
+import Amazonka.Glue.Types.HudiTargetCompressionType
 import Amazonka.Glue.Types.ImportLabelsTaskRunProperties
+import Amazonka.Glue.Types.JDBCConnectionType
 import Amazonka.Glue.Types.JDBCConnectorOptions
 import Amazonka.Glue.Types.JDBCConnectorSource
 import Amazonka.Glue.Types.JDBCConnectorTarget
@@ -2830,6 +3079,7 @@ import Amazonka.Glue.Types.NodeType
 import Amazonka.Glue.Types.NotificationProperty
 import Amazonka.Glue.Types.NullCheckBoxList
 import Amazonka.Glue.Types.NullValueField
+import Amazonka.Glue.Types.Option
 import Amazonka.Glue.Types.OracleSQLCatalogSource
 import Amazonka.Glue.Types.OracleSQLCatalogTarget
 import Amazonka.Glue.Types.Order
@@ -2868,14 +3118,22 @@ import Amazonka.Glue.Types.RenameField
 import Amazonka.Glue.Types.ResourceShareType
 import Amazonka.Glue.Types.ResourceType
 import Amazonka.Glue.Types.ResourceUri
+import Amazonka.Glue.Types.S3CatalogDeltaSource
+import Amazonka.Glue.Types.S3CatalogHudiSource
 import Amazonka.Glue.Types.S3CatalogSource
 import Amazonka.Glue.Types.S3CatalogTarget
 import Amazonka.Glue.Types.S3CsvSource
+import Amazonka.Glue.Types.S3DeltaCatalogTarget
+import Amazonka.Glue.Types.S3DeltaDirectTarget
+import Amazonka.Glue.Types.S3DeltaSource
 import Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
 import Amazonka.Glue.Types.S3DirectTarget
 import Amazonka.Glue.Types.S3Encryption
 import Amazonka.Glue.Types.S3EncryptionMode
 import Amazonka.Glue.Types.S3GlueParquetTarget
+import Amazonka.Glue.Types.S3HudiCatalogTarget
+import Amazonka.Glue.Types.S3HudiDirectTarget
+import Amazonka.Glue.Types.S3HudiSource
 import Amazonka.Glue.Types.S3JsonSource
 import Amazonka.Glue.Types.S3ParquetSource
 import Amazonka.Glue.Types.S3SourceAdditionalOptions
@@ -2999,80 +3257,80 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Access to a resource was denied.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
 -- | A resource to be created or added already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "AlreadyExistsException"
 
 -- | Two processes are trying to modify a resource simultaneously.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
 
 -- | Too many jobs are being run concurrently.
-_ConcurrentRunsExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentRunsExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentRunsExceededException =
   Core._MatchServiceError
     defaultService
     "ConcurrentRunsExceededException"
 
 -- | A specified condition was not satisfied.
-_ConditionCheckFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConditionCheckFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConditionCheckFailureException =
   Core._MatchServiceError
     defaultService
@@ -3080,14 +3338,14 @@ _ConditionCheckFailureException =
 
 -- | The @CreatePartitions@ API was called on a table that has indexes
 -- enabled.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The specified crawler is not running.
-_CrawlerNotRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CrawlerNotRunningException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CrawlerNotRunningException =
   Core._MatchServiceError
     defaultService
@@ -3095,154 +3353,175 @@ _CrawlerNotRunningException =
 
 -- | The operation cannot be performed because the crawler is already
 -- running.
-_CrawlerRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CrawlerRunningException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CrawlerRunningException =
   Core._MatchServiceError
     defaultService
     "CrawlerRunningException"
 
 -- | The specified crawler is stopping.
-_CrawlerStoppingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CrawlerStoppingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CrawlerStoppingException =
   Core._MatchServiceError
     defaultService
     "CrawlerStoppingException"
 
 -- | A specified entity does not exist
-_EntityNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EntityNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EntityNotFoundException =
   Core._MatchServiceError
     defaultService
     "EntityNotFoundException"
 
+-- | A federated resource already exists.
+_FederatedResourceAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_FederatedResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "FederatedResourceAlreadyExistsException"
+
+-- | A federation source failed.
+_FederationSourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_FederationSourceException =
+  Core._MatchServiceError
+    defaultService
+    "FederationSourceException"
+
+-- | Prism for FederationSourceRetryableException' errors.
+_FederationSourceRetryableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_FederationSourceRetryableException =
+  Core._MatchServiceError
+    defaultService
+    "FederationSourceRetryableException"
+
 -- | An encryption operation failed.
-_GlueEncryptionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GlueEncryptionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GlueEncryptionException =
   Core._MatchServiceError
     defaultService
     "GlueEncryptionException"
 
 -- | The same unique identifier was associated with two different records.
-_IdempotentParameterMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdempotentParameterMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotentParameterMismatchException =
   Core._MatchServiceError
     defaultService
     "IdempotentParameterMismatchException"
 
 -- | The blueprint is in an invalid state to perform a requested operation.
-_IllegalBlueprintStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IllegalBlueprintStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IllegalBlueprintStateException =
   Core._MatchServiceError
     defaultService
     "IllegalBlueprintStateException"
 
 -- | The session is in an invalid state to perform a requested operation.
-_IllegalSessionStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IllegalSessionStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IllegalSessionStateException =
   Core._MatchServiceError
     defaultService
     "IllegalSessionStateException"
 
 -- | The workflow is in an invalid state to perform a requested operation.
-_IllegalWorkflowStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IllegalWorkflowStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IllegalWorkflowStateException =
   Core._MatchServiceError
     defaultService
     "IllegalWorkflowStateException"
 
 -- | An internal service error occurred.
-_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
     "InternalServiceException"
 
 -- | The input provided was not valid.
-_InvalidInputException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
 -- | An error that indicates your data is in an invalid state.
-_InvalidStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStateException =
   Core._MatchServiceError
     defaultService
     "InvalidStateException"
 
 -- | The machine learning transform is not ready to run.
-_MLTransformNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MLTransformNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MLTransformNotReadyException =
   Core._MatchServiceError
     defaultService
     "MLTransformNotReadyException"
 
 -- | There is no applicable schedule.
-_NoScheduleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoScheduleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoScheduleException =
   Core._MatchServiceError
     defaultService
     "NoScheduleException"
 
 -- | The operation timed out.
-_OperationTimeoutException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OperationTimeoutException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OperationTimeoutException =
   Core._MatchServiceError
     defaultService
     "OperationTimeoutException"
 
--- | Prism for PermissionTypeMismatchException' errors.
-_PermissionTypeMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The operation timed out.
+_PermissionTypeMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PermissionTypeMismatchException =
   Core._MatchServiceError
     defaultService
     "PermissionTypeMismatchException"
 
 -- | A resource was not ready for a transaction.
-_ResourceNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
     "ResourceNotReadyException"
 
 -- | A resource numerical limit was exceeded.
-_ResourceNumberLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNumberLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNumberLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceNumberLimitExceededException"
 
 -- | The specified scheduler is not running.
-_SchedulerNotRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SchedulerNotRunningException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SchedulerNotRunningException =
   Core._MatchServiceError
     defaultService
     "SchedulerNotRunningException"
 
 -- | The specified scheduler is already running.
-_SchedulerRunningException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SchedulerRunningException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SchedulerRunningException =
   Core._MatchServiceError
     defaultService
     "SchedulerRunningException"
 
 -- | The specified scheduler is transitioning.
-_SchedulerTransitioningException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SchedulerTransitioningException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SchedulerTransitioningException =
   Core._MatchServiceError
     defaultService
     "SchedulerTransitioningException"
 
 -- | A value could not be validated.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
     "ValidationException"
 
 -- | There was a version conflict.
-_VersionMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_VersionMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _VersionMismatchException =
   Core._MatchServiceError
     defaultService

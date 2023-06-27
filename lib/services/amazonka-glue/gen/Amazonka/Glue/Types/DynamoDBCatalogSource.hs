@@ -90,7 +90,8 @@ instance Data.FromJSON DynamoDBCatalogSource where
 
 instance Prelude.Hashable DynamoDBCatalogSource where
   hashWithSalt _salt DynamoDBCatalogSource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` table
 

@@ -90,7 +90,8 @@ instance Data.FromJSON DecimalNumber where
 
 instance Prelude.Hashable DecimalNumber where
   hashWithSalt _salt DecimalNumber' {..} =
-    _salt `Prelude.hashWithSalt` unscaledValue
+    _salt
+      `Prelude.hashWithSalt` unscaledValue
       `Prelude.hashWithSalt` scale
 
 instance Prelude.NFData DecimalNumber where

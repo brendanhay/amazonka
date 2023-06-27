@@ -188,7 +188,8 @@ instance Data.FromJSON Session where
             Prelude.<$> (x Data..:? "Command")
             Prelude.<*> (x Data..:? "Connections")
             Prelude.<*> (x Data..:? "CreatedOn")
-            Prelude.<*> ( x Data..:? "DefaultArguments"
+            Prelude.<*> ( x
+                            Data..:? "DefaultArguments"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Description")
@@ -204,7 +205,8 @@ instance Data.FromJSON Session where
 
 instance Prelude.Hashable Session where
   hashWithSalt _salt Session' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` connections
       `Prelude.hashWithSalt` createdOn
       `Prelude.hashWithSalt` defaultArguments

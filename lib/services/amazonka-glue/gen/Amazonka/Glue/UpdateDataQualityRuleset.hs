@@ -29,7 +29,6 @@ module Amazonka.Glue.UpdateDataQualityRuleset
     -- * Request Lenses
     updateDataQualityRuleset_description,
     updateDataQualityRuleset_ruleset,
-    updateDataQualityRuleset_updatedName,
     updateDataQualityRuleset_name,
 
     -- * Destructuring the Response
@@ -59,8 +58,6 @@ data UpdateDataQualityRuleset = UpdateDataQualityRuleset'
     -- | A Data Quality Definition Language (DQDL) ruleset. For more information,
     -- see the Glue developer guide.
     ruleset :: Prelude.Maybe Prelude.Text,
-    -- | The new name of the ruleset, if you are renaming it.
-    updatedName :: Prelude.Maybe Prelude.Text,
     -- | The name of the data quality ruleset.
     name :: Prelude.Text
   }
@@ -79,8 +76,6 @@ data UpdateDataQualityRuleset = UpdateDataQualityRuleset'
 -- 'ruleset', 'updateDataQualityRuleset_ruleset' - A Data Quality Definition Language (DQDL) ruleset. For more information,
 -- see the Glue developer guide.
 --
--- 'updatedName', 'updateDataQualityRuleset_updatedName' - The new name of the ruleset, if you are renaming it.
---
 -- 'name', 'updateDataQualityRuleset_name' - The name of the data quality ruleset.
 newUpdateDataQualityRuleset ::
   -- | 'name'
@@ -91,7 +86,6 @@ newUpdateDataQualityRuleset pName_ =
     { description =
         Prelude.Nothing,
       ruleset = Prelude.Nothing,
-      updatedName = Prelude.Nothing,
       name = pName_
     }
 
@@ -103,10 +97,6 @@ updateDataQualityRuleset_description = Lens.lens (\UpdateDataQualityRuleset' {de
 -- see the Glue developer guide.
 updateDataQualityRuleset_ruleset :: Lens.Lens' UpdateDataQualityRuleset (Prelude.Maybe Prelude.Text)
 updateDataQualityRuleset_ruleset = Lens.lens (\UpdateDataQualityRuleset' {ruleset} -> ruleset) (\s@UpdateDataQualityRuleset' {} a -> s {ruleset = a} :: UpdateDataQualityRuleset)
-
--- | The new name of the ruleset, if you are renaming it.
-updateDataQualityRuleset_updatedName :: Lens.Lens' UpdateDataQualityRuleset (Prelude.Maybe Prelude.Text)
-updateDataQualityRuleset_updatedName = Lens.lens (\UpdateDataQualityRuleset' {updatedName} -> updatedName) (\s@UpdateDataQualityRuleset' {} a -> s {updatedName = a} :: UpdateDataQualityRuleset)
 
 -- | The name of the data quality ruleset.
 updateDataQualityRuleset_name :: Lens.Lens' UpdateDataQualityRuleset Prelude.Text
@@ -130,16 +120,15 @@ instance Core.AWSRequest UpdateDataQualityRuleset where
 
 instance Prelude.Hashable UpdateDataQualityRuleset where
   hashWithSalt _salt UpdateDataQualityRuleset' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ruleset
-      `Prelude.hashWithSalt` updatedName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateDataQualityRuleset where
   rnf UpdateDataQualityRuleset' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf ruleset
-      `Prelude.seq` Prelude.rnf updatedName
       `Prelude.seq` Prelude.rnf name
 
 instance Data.ToHeaders UpdateDataQualityRuleset where
@@ -163,7 +152,6 @@ instance Data.ToJSON UpdateDataQualityRuleset where
       ( Prelude.catMaybes
           [ ("Description" Data..=) Prelude.<$> description,
             ("Ruleset" Data..=) Prelude.<$> ruleset,
-            ("UpdatedName" Data..=) Prelude.<$> updatedName,
             Prelude.Just ("Name" Data..= name)
           ]
       )

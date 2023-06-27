@@ -227,9 +227,14 @@ library
     Amazonka.Glue.TagResource
     Amazonka.Glue.Types
     Amazonka.Glue.Types.Action
+    Amazonka.Glue.Types.AdditionalOptionKeys
     Amazonka.Glue.Types.AggFunction
     Amazonka.Glue.Types.Aggregate
     Amazonka.Glue.Types.AggregateOperation
+    Amazonka.Glue.Types.AmazonRedshiftAdvancedOption
+    Amazonka.Glue.Types.AmazonRedshiftNodeData
+    Amazonka.Glue.Types.AmazonRedshiftSource
+    Amazonka.Glue.Types.AmazonRedshiftTarget
     Amazonka.Glue.Types.ApplyMapping
     Amazonka.Glue.Types.AthenaConnectorSource
     Amazonka.Glue.Types.AuditContext
@@ -247,8 +252,10 @@ library
     Amazonka.Glue.Types.BlueprintRunState
     Amazonka.Glue.Types.BlueprintStatus
     Amazonka.Glue.Types.BooleanColumnStatisticsData
+    Amazonka.Glue.Types.CatalogDeltaSource
     Amazonka.Glue.Types.CatalogEncryptionMode
     Amazonka.Glue.Types.CatalogEntry
+    Amazonka.Glue.Types.CatalogHudiSource
     Amazonka.Glue.Types.CatalogImportStatus
     Amazonka.Glue.Types.CatalogKafkaSource
     Amazonka.Glue.Types.CatalogKinesisSource
@@ -326,8 +333,10 @@ library
     Amazonka.Glue.Types.DecimalNumber
     Amazonka.Glue.Types.DeleteBehavior
     Amazonka.Glue.Types.DeltaTarget
+    Amazonka.Glue.Types.DeltaTargetCompressionType
     Amazonka.Glue.Types.DevEndpoint
     Amazonka.Glue.Types.DevEndpointCustomLibraries
+    Amazonka.Glue.Types.DirectJDBCSource
     Amazonka.Glue.Types.DirectKafkaSource
     Amazonka.Glue.Types.DirectKinesisSource
     Amazonka.Glue.Types.DirectSchemaChangePolicy
@@ -349,12 +358,15 @@ library
     Amazonka.Glue.Types.ErrorDetail
     Amazonka.Glue.Types.ErrorDetails
     Amazonka.Glue.Types.EvaluateDataQuality
+    Amazonka.Glue.Types.EvaluateDataQualityMultiFrame
     Amazonka.Glue.Types.EvaluationMetrics
     Amazonka.Glue.Types.EventBatchingCondition
     Amazonka.Glue.Types.ExecutionClass
     Amazonka.Glue.Types.ExecutionProperty
     Amazonka.Glue.Types.ExistCondition
     Amazonka.Glue.Types.ExportLabelsTaskRunProperties
+    Amazonka.Glue.Types.FederatedDatabase
+    Amazonka.Glue.Types.FederatedTable
     Amazonka.Glue.Types.FieldName
     Amazonka.Glue.Types.FillMissingValues
     Amazonka.Glue.Types.Filter
@@ -376,7 +388,9 @@ library
     Amazonka.Glue.Types.GovernedCatalogSource
     Amazonka.Glue.Types.GovernedCatalogTarget
     Amazonka.Glue.Types.GrokClassifier
+    Amazonka.Glue.Types.HudiTargetCompressionType
     Amazonka.Glue.Types.ImportLabelsTaskRunProperties
+    Amazonka.Glue.Types.JDBCConnectionType
     Amazonka.Glue.Types.JDBCConnectorOptions
     Amazonka.Glue.Types.JDBCConnectorSource
     Amazonka.Glue.Types.JDBCConnectorTarget
@@ -428,6 +442,7 @@ library
     Amazonka.Glue.Types.NotificationProperty
     Amazonka.Glue.Types.NullCheckBoxList
     Amazonka.Glue.Types.NullValueField
+    Amazonka.Glue.Types.Option
     Amazonka.Glue.Types.OracleSQLCatalogSource
     Amazonka.Glue.Types.OracleSQLCatalogTarget
     Amazonka.Glue.Types.Order
@@ -466,14 +481,22 @@ library
     Amazonka.Glue.Types.ResourceShareType
     Amazonka.Glue.Types.ResourceType
     Amazonka.Glue.Types.ResourceUri
+    Amazonka.Glue.Types.S3CatalogDeltaSource
+    Amazonka.Glue.Types.S3CatalogHudiSource
     Amazonka.Glue.Types.S3CatalogSource
     Amazonka.Glue.Types.S3CatalogTarget
     Amazonka.Glue.Types.S3CsvSource
+    Amazonka.Glue.Types.S3DeltaCatalogTarget
+    Amazonka.Glue.Types.S3DeltaDirectTarget
+    Amazonka.Glue.Types.S3DeltaSource
     Amazonka.Glue.Types.S3DirectSourceAdditionalOptions
     Amazonka.Glue.Types.S3DirectTarget
     Amazonka.Glue.Types.S3Encryption
     Amazonka.Glue.Types.S3EncryptionMode
     Amazonka.Glue.Types.S3GlueParquetTarget
+    Amazonka.Glue.Types.S3HudiCatalogTarget
+    Amazonka.Glue.Types.S3HudiDirectTarget
+    Amazonka.Glue.Types.S3HudiSource
     Amazonka.Glue.Types.S3JsonSource
     Amazonka.Glue.Types.S3ParquetSource
     Amazonka.Glue.Types.S3SourceAdditionalOptions

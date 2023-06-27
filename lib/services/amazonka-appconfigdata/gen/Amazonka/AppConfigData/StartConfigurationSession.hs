@@ -24,7 +24,7 @@
 -- configuration. For more information about this API action and to view
 -- example CLI commands that show how to use it with the
 -- GetLatestConfiguration API action, see
--- <http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration Receiving the configuration>
+-- <http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration Retrieving the configuration>
 -- in the /AppConfig User Guide/.
 module Amazonka.AppConfigData.StartConfigurationSession
   ( -- * Creating a Request
@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 data StartConfigurationSession = StartConfigurationSession'
   { -- | Sets a constraint on a session. If you specify a value of, for example,
     -- 60 seconds, then the client that established the session can\'t call
-    -- GetLatestConfiguration more frequently then every 60 seconds.
+    -- GetLatestConfiguration more frequently than every 60 seconds.
     requiredMinimumPollIntervalInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The application ID or the application name.
     applicationIdentifier :: Prelude.Text,
@@ -80,7 +80,7 @@ data StartConfigurationSession = StartConfigurationSession'
 --
 -- 'requiredMinimumPollIntervalInSeconds', 'startConfigurationSession_requiredMinimumPollIntervalInSeconds' - Sets a constraint on a session. If you specify a value of, for example,
 -- 60 seconds, then the client that established the session can\'t call
--- GetLatestConfiguration more frequently then every 60 seconds.
+-- GetLatestConfiguration more frequently than every 60 seconds.
 --
 -- 'applicationIdentifier', 'startConfigurationSession_applicationIdentifier' - The application ID or the application name.
 --
@@ -110,7 +110,7 @@ newStartConfigurationSession
 
 -- | Sets a constraint on a session. If you specify a value of, for example,
 -- 60 seconds, then the client that established the session can\'t call
--- GetLatestConfiguration more frequently then every 60 seconds.
+-- GetLatestConfiguration more frequently than every 60 seconds.
 startConfigurationSession_requiredMinimumPollIntervalInSeconds :: Lens.Lens' StartConfigurationSession (Prelude.Maybe Prelude.Natural)
 startConfigurationSession_requiredMinimumPollIntervalInSeconds = Lens.lens (\StartConfigurationSession' {requiredMinimumPollIntervalInSeconds} -> requiredMinimumPollIntervalInSeconds) (\s@StartConfigurationSession' {} a -> s {requiredMinimumPollIntervalInSeconds = a} :: StartConfigurationSession)
 
@@ -200,9 +200,14 @@ data StartConfigurationSessionResponse = StartConfigurationSessionResponse'
     -- data.
     --
     -- This token should only be used once in your first call to
-    -- @GetLatestConfiguration@. You MUST use the new token in the
+    -- @GetLatestConfiguration@. You /must/ use the new token in the
     -- @GetLatestConfiguration@ response (@NextPollConfigurationToken@) in each
     -- subsequent call to @GetLatestConfiguration@.
+    --
+    -- The @InitialConfigurationToken@ and @NextPollConfigurationToken@ should
+    -- only be used once. To support long poll use cases, the tokens are valid
+    -- for up to 24 hours. If a @GetLatestConfiguration@ call uses an expired
+    -- token, the system returns @BadRequestException@.
     initialConfigurationToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -222,9 +227,14 @@ data StartConfigurationSessionResponse = StartConfigurationSessionResponse'
 -- data.
 --
 -- This token should only be used once in your first call to
--- @GetLatestConfiguration@. You MUST use the new token in the
+-- @GetLatestConfiguration@. You /must/ use the new token in the
 -- @GetLatestConfiguration@ response (@NextPollConfigurationToken@) in each
 -- subsequent call to @GetLatestConfiguration@.
+--
+-- The @InitialConfigurationToken@ and @NextPollConfigurationToken@ should
+-- only be used once. To support long poll use cases, the tokens are valid
+-- for up to 24 hours. If a @GetLatestConfiguration@ call uses an expired
+-- token, the system returns @BadRequestException@.
 --
 -- 'httpStatus', 'startConfigurationSessionResponse_httpStatus' - The response's http status code.
 newStartConfigurationSessionResponse ::
@@ -243,9 +253,14 @@ newStartConfigurationSessionResponse pHttpStatus_ =
 -- data.
 --
 -- This token should only be used once in your first call to
--- @GetLatestConfiguration@. You MUST use the new token in the
+-- @GetLatestConfiguration@. You /must/ use the new token in the
 -- @GetLatestConfiguration@ response (@NextPollConfigurationToken@) in each
 -- subsequent call to @GetLatestConfiguration@.
+--
+-- The @InitialConfigurationToken@ and @NextPollConfigurationToken@ should
+-- only be used once. To support long poll use cases, the tokens are valid
+-- for up to 24 hours. If a @GetLatestConfiguration@ call uses an expired
+-- token, the system returns @BadRequestException@.
 startConfigurationSessionResponse_initialConfigurationToken :: Lens.Lens' StartConfigurationSessionResponse (Prelude.Maybe Prelude.Text)
 startConfigurationSessionResponse_initialConfigurationToken = Lens.lens (\StartConfigurationSessionResponse' {initialConfigurationToken} -> initialConfigurationToken) (\s@StartConfigurationSessionResponse' {} a -> s {initialConfigurationToken = a} :: StartConfigurationSessionResponse)
 

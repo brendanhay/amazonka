@@ -25,7 +25,7 @@
 -- more information about this API action and to view example CLI commands
 -- that show how to use it with the StartConfigurationSession API action,
 -- see
--- <http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration Receiving the configuration>
+-- <http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration Retrieving the configuration>
 -- in the /AppConfig User Guide/.
 --
 -- Note the following important information.
@@ -55,6 +55,7 @@ module Amazonka.AppConfigData.GetLatestConfiguration
     getLatestConfigurationResponse_contentType,
     getLatestConfigurationResponse_nextPollConfigurationToken,
     getLatestConfigurationResponse_nextPollIntervalInSeconds,
+    getLatestConfigurationResponse_versionLabel,
     getLatestConfigurationResponse_httpStatus,
   )
 where
@@ -73,7 +74,11 @@ data GetLatestConfiguration = GetLatestConfiguration'
     -- obtain a token, first call the StartConfigurationSession API. Note that
     -- every call to @GetLatestConfiguration@ will return a new
     -- @ConfigurationToken@ (@NextPollConfigurationToken@ in the response) and
-    -- MUST be provided to subsequent @GetLatestConfiguration@ API calls.
+    -- /must/ be provided to subsequent @GetLatestConfiguration@ API calls.
+    --
+    -- This token should only be used once. To support long poll use cases, the
+    -- token is valid for up to 24 hours. If a @GetLatestConfiguration@ call
+    -- uses an expired token, the system returns @BadRequestException@.
     configurationToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,7 +95,11 @@ data GetLatestConfiguration = GetLatestConfiguration'
 -- obtain a token, first call the StartConfigurationSession API. Note that
 -- every call to @GetLatestConfiguration@ will return a new
 -- @ConfigurationToken@ (@NextPollConfigurationToken@ in the response) and
--- MUST be provided to subsequent @GetLatestConfiguration@ API calls.
+-- /must/ be provided to subsequent @GetLatestConfiguration@ API calls.
+--
+-- This token should only be used once. To support long poll use cases, the
+-- token is valid for up to 24 hours. If a @GetLatestConfiguration@ call
+-- uses an expired token, the system returns @BadRequestException@.
 newGetLatestConfiguration ::
   -- | 'configurationToken'
   Prelude.Text ->
@@ -105,7 +114,11 @@ newGetLatestConfiguration pConfigurationToken_ =
 -- obtain a token, first call the StartConfigurationSession API. Note that
 -- every call to @GetLatestConfiguration@ will return a new
 -- @ConfigurationToken@ (@NextPollConfigurationToken@ in the response) and
--- MUST be provided to subsequent @GetLatestConfiguration@ API calls.
+-- /must/ be provided to subsequent @GetLatestConfiguration@ API calls.
+--
+-- This token should only be used once. To support long poll use cases, the
+-- token is valid for up to 24 hours. If a @GetLatestConfiguration@ call
+-- uses an expired token, the system returns @BadRequestException@.
 getLatestConfiguration_configurationToken :: Lens.Lens' GetLatestConfiguration Prelude.Text
 getLatestConfiguration_configurationToken = Lens.lens (\GetLatestConfiguration' {configurationToken} -> configurationToken) (\s@GetLatestConfiguration' {} a -> s {configurationToken = a} :: GetLatestConfiguration)
 
@@ -123,6 +136,7 @@ instance Core.AWSRequest GetLatestConfiguration where
             Prelude.<*> (h Data..#? "Content-Type")
             Prelude.<*> (h Data..#? "Next-Poll-Configuration-Token")
             Prelude.<*> (h Data..#? "Next-Poll-Interval-In-Seconds")
+            Prelude.<*> (h Data..#? "Version-Label")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -161,13 +175,22 @@ data GetLatestConfigurationResponse = GetLatestConfigurationResponse'
     -- | A standard MIME type describing the format of the configuration content.
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The latest token describing the current state of the configuration
-    -- session. This MUST be provided to the next call to
+    -- session. This /must/ be provided to the next call to
     -- @GetLatestConfiguration.@
+    --
+    -- This token should only be used once. To support long poll use cases, the
+    -- token is valid for up to 24 hours. If a @GetLatestConfiguration@ call
+    -- uses an expired token, the system returns @BadRequestException@.
     nextPollConfigurationToken :: Prelude.Maybe Prelude.Text,
     -- | The amount of time the client should wait before polling for
     -- configuration updates again. Use @RequiredMinimumPollIntervalInSeconds@
     -- to set the desired poll interval.
     nextPollIntervalInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The user-defined label for the AppConfig hosted configuration version.
+    -- This attribute doesn\'t apply if the configuration is not from an
+    -- AppConfig hosted configuration version. If the client already has the
+    -- latest version of the configuration data, this value is empty.
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,12 +210,21 @@ data GetLatestConfigurationResponse = GetLatestConfigurationResponse'
 -- 'contentType', 'getLatestConfigurationResponse_contentType' - A standard MIME type describing the format of the configuration content.
 --
 -- 'nextPollConfigurationToken', 'getLatestConfigurationResponse_nextPollConfigurationToken' - The latest token describing the current state of the configuration
--- session. This MUST be provided to the next call to
+-- session. This /must/ be provided to the next call to
 -- @GetLatestConfiguration.@
+--
+-- This token should only be used once. To support long poll use cases, the
+-- token is valid for up to 24 hours. If a @GetLatestConfiguration@ call
+-- uses an expired token, the system returns @BadRequestException@.
 --
 -- 'nextPollIntervalInSeconds', 'getLatestConfigurationResponse_nextPollIntervalInSeconds' - The amount of time the client should wait before polling for
 -- configuration updates again. Use @RequiredMinimumPollIntervalInSeconds@
 -- to set the desired poll interval.
+--
+-- 'versionLabel', 'getLatestConfigurationResponse_versionLabel' - The user-defined label for the AppConfig hosted configuration version.
+-- This attribute doesn\'t apply if the configuration is not from an
+-- AppConfig hosted configuration version. If the client already has the
+-- latest version of the configuration data, this value is empty.
 --
 -- 'httpStatus', 'getLatestConfigurationResponse_httpStatus' - The response's http status code.
 newGetLatestConfigurationResponse ::
@@ -207,6 +239,7 @@ newGetLatestConfigurationResponse pHttpStatus_ =
       nextPollConfigurationToken =
         Prelude.Nothing,
       nextPollIntervalInSeconds = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -220,8 +253,12 @@ getLatestConfigurationResponse_contentType :: Lens.Lens' GetLatestConfigurationR
 getLatestConfigurationResponse_contentType = Lens.lens (\GetLatestConfigurationResponse' {contentType} -> contentType) (\s@GetLatestConfigurationResponse' {} a -> s {contentType = a} :: GetLatestConfigurationResponse)
 
 -- | The latest token describing the current state of the configuration
--- session. This MUST be provided to the next call to
+-- session. This /must/ be provided to the next call to
 -- @GetLatestConfiguration.@
+--
+-- This token should only be used once. To support long poll use cases, the
+-- token is valid for up to 24 hours. If a @GetLatestConfiguration@ call
+-- uses an expired token, the system returns @BadRequestException@.
 getLatestConfigurationResponse_nextPollConfigurationToken :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.Text)
 getLatestConfigurationResponse_nextPollConfigurationToken = Lens.lens (\GetLatestConfigurationResponse' {nextPollConfigurationToken} -> nextPollConfigurationToken) (\s@GetLatestConfigurationResponse' {} a -> s {nextPollConfigurationToken = a} :: GetLatestConfigurationResponse)
 
@@ -230,6 +267,13 @@ getLatestConfigurationResponse_nextPollConfigurationToken = Lens.lens (\GetLates
 -- to set the desired poll interval.
 getLatestConfigurationResponse_nextPollIntervalInSeconds :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.Int)
 getLatestConfigurationResponse_nextPollIntervalInSeconds = Lens.lens (\GetLatestConfigurationResponse' {nextPollIntervalInSeconds} -> nextPollIntervalInSeconds) (\s@GetLatestConfigurationResponse' {} a -> s {nextPollIntervalInSeconds = a} :: GetLatestConfigurationResponse)
+
+-- | The user-defined label for the AppConfig hosted configuration version.
+-- This attribute doesn\'t apply if the configuration is not from an
+-- AppConfig hosted configuration version. If the client already has the
+-- latest version of the configuration data, this value is empty.
+getLatestConfigurationResponse_versionLabel :: Lens.Lens' GetLatestConfigurationResponse (Prelude.Maybe Prelude.Text)
+getLatestConfigurationResponse_versionLabel = Lens.lens (\GetLatestConfigurationResponse' {versionLabel} -> versionLabel) (\s@GetLatestConfigurationResponse' {} a -> s {versionLabel = a} :: GetLatestConfigurationResponse)
 
 -- | The response's http status code.
 getLatestConfigurationResponse_httpStatus :: Lens.Lens' GetLatestConfigurationResponse Prelude.Int
@@ -244,4 +288,5 @@ instance
       `Prelude.seq` Prelude.rnf contentType
       `Prelude.seq` Prelude.rnf nextPollConfigurationToken
       `Prelude.seq` Prelude.rnf nextPollIntervalInSeconds
+      `Prelude.seq` Prelude.rnf versionLabel
       `Prelude.seq` Prelude.rnf httpStatus

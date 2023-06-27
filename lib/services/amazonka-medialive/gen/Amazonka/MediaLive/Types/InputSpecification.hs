@@ -87,7 +87,8 @@ instance Data.FromJSON InputSpecification where
 
 instance Prelude.Hashable InputSpecification where
   hashWithSalt _salt InputSpecification' {..} =
-    _salt `Prelude.hashWithSalt` codec
+    _salt
+      `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` maximumBitrate
       `Prelude.hashWithSalt` resolution
 

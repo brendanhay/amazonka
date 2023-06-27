@@ -162,7 +162,8 @@ instance Data.FromJSON GlobalConfiguration where
 
 instance Prelude.Hashable GlobalConfiguration where
   hashWithSalt _salt GlobalConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` initialAudioGain
+    _salt
+      `Prelude.hashWithSalt` initialAudioGain
       `Prelude.hashWithSalt` inputEndAction
       `Prelude.hashWithSalt` inputLossBehavior
       `Prelude.hashWithSalt` outputLockingMode

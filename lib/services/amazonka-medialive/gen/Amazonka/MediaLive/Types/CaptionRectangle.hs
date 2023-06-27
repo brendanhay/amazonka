@@ -187,7 +187,8 @@ instance Data.FromJSON CaptionRectangle where
 
 instance Prelude.Hashable CaptionRectangle where
   hashWithSalt _salt CaptionRectangle' {..} =
-    _salt `Prelude.hashWithSalt` topOffset
+    _salt
+      `Prelude.hashWithSalt` topOffset
       `Prelude.hashWithSalt` height
       `Prelude.hashWithSalt` width
       `Prelude.hashWithSalt` leftOffset

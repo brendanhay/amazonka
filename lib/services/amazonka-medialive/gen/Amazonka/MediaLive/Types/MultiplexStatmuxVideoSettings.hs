@@ -103,7 +103,8 @@ instance
     MultiplexStatmuxVideoSettings
   where
   hashWithSalt _salt MultiplexStatmuxVideoSettings' {..} =
-    _salt `Prelude.hashWithSalt` maximumBitrate
+    _salt
+      `Prelude.hashWithSalt` maximumBitrate
       `Prelude.hashWithSalt` minimumBitrate
       `Prelude.hashWithSalt` priority
 

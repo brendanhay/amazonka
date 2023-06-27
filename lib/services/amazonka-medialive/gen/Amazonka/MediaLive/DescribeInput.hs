@@ -102,18 +102,21 @@ instance Core.AWSRequest DescribeInput where
       ( \s h x ->
           DescribeInputResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> ( x Data..?> "attachedChannels"
+            Prelude.<*> ( x
+                            Data..?> "attachedChannels"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "id")
             Prelude.<*> (x Data..?> "inputClass")
             Prelude.<*> (x Data..?> "inputDevices" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "inputPartnerIds"
+            Prelude.<*> ( x
+                            Data..?> "inputPartnerIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "inputSourceType")
-            Prelude.<*> ( x Data..?> "mediaConnectFlows"
+            Prelude.<*> ( x
+                            Data..?> "mediaConnectFlows"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "name")

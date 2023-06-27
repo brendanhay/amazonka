@@ -204,6 +204,14 @@ data M2tsSettings = M2tsSettings'
     -- Can be entered as a decimal or hexadecimal value. Valid values are 32
     -- (or 0x20)..8182 (or 0x1ff6).
     scte35Pid :: Prelude.Maybe Prelude.Text,
+    -- | Defines the amount SCTE-35 preroll will be increased (in milliseconds)
+    -- on the output. Preroll is the amount of time between the presence of a
+    -- SCTE-35 indication in a transport stream and the PTS of the video frame
+    -- it references. Zero means don\'t add pullup (it doesn\'t mean set the
+    -- preroll to zero). Negative pullup is not supported, which means that you
+    -- can\'t make the preroll shorter. Be aware that latency in the output
+    -- will increase by the pullup amount.
+    scte35PrerollPullupMilliseconds :: Prelude.Maybe Prelude.Double,
     -- | Inserts segmentation markers at each segmentationTime period.
     -- raiSegstart sets the Random Access Indicator bit in the adaptation
     -- field. raiAdapt sets the RAI bit and adds the current timecode in the
@@ -407,6 +415,14 @@ data M2tsSettings = M2tsSettings'
 -- Can be entered as a decimal or hexadecimal value. Valid values are 32
 -- (or 0x20)..8182 (or 0x1ff6).
 --
+-- 'scte35PrerollPullupMilliseconds', 'm2tsSettings_scte35PrerollPullupMilliseconds' - Defines the amount SCTE-35 preroll will be increased (in milliseconds)
+-- on the output. Preroll is the amount of time between the presence of a
+-- SCTE-35 indication in a transport stream and the PTS of the video frame
+-- it references. Zero means don\'t add pullup (it doesn\'t mean set the
+-- preroll to zero). Negative pullup is not supported, which means that you
+-- can\'t make the preroll shorter. Be aware that latency in the output
+-- will increase by the pullup amount.
+--
 -- 'segmentationMarkers', 'm2tsSettings_segmentationMarkers' - Inserts segmentation markers at each segmentationTime period.
 -- raiSegstart sets the Random Access Indicator bit in the adaptation
 -- field. raiAdapt sets the RAI bit and adds the current timecode in the
@@ -489,6 +505,7 @@ newM2tsSettings =
       scte27Pids = Prelude.Nothing,
       scte35Control = Prelude.Nothing,
       scte35Pid = Prelude.Nothing,
+      scte35PrerollPullupMilliseconds = Prelude.Nothing,
       segmentationMarkers = Prelude.Nothing,
       segmentationStyle = Prelude.Nothing,
       segmentationTime = Prelude.Nothing,
@@ -732,6 +749,16 @@ m2tsSettings_scte35Control = Lens.lens (\M2tsSettings' {scte35Control} -> scte35
 m2tsSettings_scte35Pid :: Lens.Lens' M2tsSettings (Prelude.Maybe Prelude.Text)
 m2tsSettings_scte35Pid = Lens.lens (\M2tsSettings' {scte35Pid} -> scte35Pid) (\s@M2tsSettings' {} a -> s {scte35Pid = a} :: M2tsSettings)
 
+-- | Defines the amount SCTE-35 preroll will be increased (in milliseconds)
+-- on the output. Preroll is the amount of time between the presence of a
+-- SCTE-35 indication in a transport stream and the PTS of the video frame
+-- it references. Zero means don\'t add pullup (it doesn\'t mean set the
+-- preroll to zero). Negative pullup is not supported, which means that you
+-- can\'t make the preroll shorter. Be aware that latency in the output
+-- will increase by the pullup amount.
+m2tsSettings_scte35PrerollPullupMilliseconds :: Lens.Lens' M2tsSettings (Prelude.Maybe Prelude.Double)
+m2tsSettings_scte35PrerollPullupMilliseconds = Lens.lens (\M2tsSettings' {scte35PrerollPullupMilliseconds} -> scte35PrerollPullupMilliseconds) (\s@M2tsSettings' {} a -> s {scte35PrerollPullupMilliseconds = a} :: M2tsSettings)
+
 -- | Inserts segmentation markers at each segmentationTime period.
 -- raiSegstart sets the Random Access Indicator bit in the adaptation
 -- field. raiAdapt sets the RAI bit and adds the current timecode in the
@@ -830,6 +857,7 @@ instance Data.FromJSON M2tsSettings where
             Prelude.<*> (x Data..:? "scte27Pids")
             Prelude.<*> (x Data..:? "scte35Control")
             Prelude.<*> (x Data..:? "scte35Pid")
+            Prelude.<*> (x Data..:? "scte35PrerollPullupMilliseconds")
             Prelude.<*> (x Data..:? "segmentationMarkers")
             Prelude.<*> (x Data..:? "segmentationStyle")
             Prelude.<*> (x Data..:? "segmentationTime")
@@ -882,6 +910,7 @@ instance Prelude.Hashable M2tsSettings where
       `Prelude.hashWithSalt` scte27Pids
       `Prelude.hashWithSalt` scte35Control
       `Prelude.hashWithSalt` scte35Pid
+      `Prelude.hashWithSalt` scte35PrerollPullupMilliseconds
       `Prelude.hashWithSalt` segmentationMarkers
       `Prelude.hashWithSalt` segmentationStyle
       `Prelude.hashWithSalt` segmentationTime
@@ -949,6 +978,8 @@ instance Prelude.NFData M2tsSettings where
         scte35Control
       `Prelude.seq` Prelude.rnf
         scte35Pid
+      `Prelude.seq` Prelude.rnf
+        scte35PrerollPullupMilliseconds
       `Prelude.seq` Prelude.rnf
         segmentationMarkers
       `Prelude.seq` Prelude.rnf
@@ -1023,6 +1054,8 @@ instance Data.ToJSON M2tsSettings where
             ("scte27Pids" Data..=) Prelude.<$> scte27Pids,
             ("scte35Control" Data..=) Prelude.<$> scte35Control,
             ("scte35Pid" Data..=) Prelude.<$> scte35Pid,
+            ("scte35PrerollPullupMilliseconds" Data..=)
+              Prelude.<$> scte35PrerollPullupMilliseconds,
             ("segmentationMarkers" Data..=)
               Prelude.<$> segmentationMarkers,
             ("segmentationStyle" Data..=)

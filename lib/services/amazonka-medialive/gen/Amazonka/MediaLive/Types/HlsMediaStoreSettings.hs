@@ -38,7 +38,8 @@ data HlsMediaStoreSettings = HlsMediaStoreSettings'
     -- for faster reading and writing.
     mediaStoreStorageClass :: Prelude.Maybe HlsMediaStoreStorageClass,
     -- | Number of retry attempts that will be made before the Live Event is put
-    -- into an error state.
+    -- into an error state. Applies only if the CDN destination URI begins with
+    -- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
     numRetries :: Prelude.Maybe Prelude.Natural,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
@@ -63,7 +64,8 @@ data HlsMediaStoreSettings = HlsMediaStoreSettings'
 -- for faster reading and writing.
 --
 -- 'numRetries', 'hlsMediaStoreSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 --
 -- 'restartDelay', 'hlsMediaStoreSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
@@ -94,7 +96,8 @@ hlsMediaStoreSettings_mediaStoreStorageClass :: Lens.Lens' HlsMediaStoreSettings
 hlsMediaStoreSettings_mediaStoreStorageClass = Lens.lens (\HlsMediaStoreSettings' {mediaStoreStorageClass} -> mediaStoreStorageClass) (\s@HlsMediaStoreSettings' {} a -> s {mediaStoreStorageClass = a} :: HlsMediaStoreSettings)
 
 -- | Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 hlsMediaStoreSettings_numRetries :: Lens.Lens' HlsMediaStoreSettings (Prelude.Maybe Prelude.Natural)
 hlsMediaStoreSettings_numRetries = Lens.lens (\HlsMediaStoreSettings' {numRetries} -> numRetries) (\s@HlsMediaStoreSettings' {} a -> s {numRetries = a} :: HlsMediaStoreSettings)
 

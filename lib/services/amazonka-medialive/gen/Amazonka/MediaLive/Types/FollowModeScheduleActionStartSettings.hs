@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     FollowModeScheduleActionStartSettings' {..} =
-      _salt `Prelude.hashWithSalt` referenceActionName
+      _salt
+        `Prelude.hashWithSalt` referenceActionName
         `Prelude.hashWithSalt` followPoint
 
 instance

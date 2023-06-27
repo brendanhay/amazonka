@@ -102,7 +102,8 @@ instance Data.FromJSON Fmp4HlsSettings where
 
 instance Prelude.Hashable Fmp4HlsSettings where
   hashWithSalt _salt Fmp4HlsSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioRenditionSets
+    _salt
+      `Prelude.hashWithSalt` audioRenditionSets
       `Prelude.hashWithSalt` nielsenId3Behavior
       `Prelude.hashWithSalt` timedMetadataBehavior
 

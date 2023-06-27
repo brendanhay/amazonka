@@ -26,7 +26,8 @@ import Amazonka.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
 import Amazonka.MediaLive.Types.Scte35SpliceInsertWebDeliveryAllowedBehavior
 import qualified Amazonka.Prelude as Prelude
 
--- | Scte35 Splice Insert
+-- | Typical configuration that applies breaks on splice inserts in addition
+-- to time signal placement opportunities, breaks, and advertisements.
 --
 -- /See:/ 'newScte35SpliceInsert' smart constructor.
 data Scte35SpliceInsert = Scte35SpliceInsert'
@@ -99,7 +100,8 @@ instance Data.FromJSON Scte35SpliceInsert where
 
 instance Prelude.Hashable Scte35SpliceInsert where
   hashWithSalt _salt Scte35SpliceInsert' {..} =
-    _salt `Prelude.hashWithSalt` adAvailOffset
+    _salt
+      `Prelude.hashWithSalt` adAvailOffset
       `Prelude.hashWithSalt` noRegionalBlackoutFlag
       `Prelude.hashWithSalt` webDeliveryAllowedFlag
 

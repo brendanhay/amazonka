@@ -1068,6 +1068,9 @@ module Amazonka.MediaLive
     -- ** NielsenPcmToId3TaggingState
     NielsenPcmToId3TaggingState (..),
 
+    -- ** NielsenWatermarkTimezones
+    NielsenWatermarkTimezones (..),
+
     -- ** NielsenWatermarksCbetStepaside
     NielsenWatermarksCbetStepaside (..),
 

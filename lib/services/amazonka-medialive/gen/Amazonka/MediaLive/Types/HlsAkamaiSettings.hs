@@ -38,7 +38,8 @@ data HlsAkamaiSettings = HlsAkamaiSettings'
     -- should contact Akamai to enable this feature.
     httpTransferMode :: Prelude.Maybe HlsAkamaiHttpTransferMode,
     -- | Number of retry attempts that will be made before the Live Event is put
-    -- into an error state.
+    -- into an error state. Applies only if the CDN destination URI begins with
+    -- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
     numRetries :: Prelude.Maybe Prelude.Natural,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
@@ -68,7 +69,8 @@ data HlsAkamaiSettings = HlsAkamaiSettings'
 -- should contact Akamai to enable this feature.
 --
 -- 'numRetries', 'hlsAkamaiSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 --
 -- 'restartDelay', 'hlsAkamaiSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
@@ -106,7 +108,8 @@ hlsAkamaiSettings_httpTransferMode :: Lens.Lens' HlsAkamaiSettings (Prelude.Mayb
 hlsAkamaiSettings_httpTransferMode = Lens.lens (\HlsAkamaiSettings' {httpTransferMode} -> httpTransferMode) (\s@HlsAkamaiSettings' {} a -> s {httpTransferMode = a} :: HlsAkamaiSettings)
 
 -- | Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 hlsAkamaiSettings_numRetries :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
 hlsAkamaiSettings_numRetries = Lens.lens (\HlsAkamaiSettings' {numRetries} -> numRetries) (\s@HlsAkamaiSettings' {} a -> s {numRetries = a} :: HlsAkamaiSettings)
 

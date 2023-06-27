@@ -26,7 +26,8 @@ import Amazonka.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
 import Amazonka.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
 import qualified Amazonka.Prelude as Prelude
 
--- | Scte35 Time Signal Apos
+-- | Atypical configuration that applies segment breaks only on SCTE-35 time
+-- signal placement opportunities and breaks.
 --
 -- /See:/ 'newScte35TimeSignalApos' smart constructor.
 data Scte35TimeSignalApos = Scte35TimeSignalApos'
@@ -99,7 +100,8 @@ instance Data.FromJSON Scte35TimeSignalApos where
 
 instance Prelude.Hashable Scte35TimeSignalApos where
   hashWithSalt _salt Scte35TimeSignalApos' {..} =
-    _salt `Prelude.hashWithSalt` adAvailOffset
+    _salt
+      `Prelude.hashWithSalt` adAvailOffset
       `Prelude.hashWithSalt` noRegionalBlackoutFlag
       `Prelude.hashWithSalt` webDeliveryAllowedFlag
 

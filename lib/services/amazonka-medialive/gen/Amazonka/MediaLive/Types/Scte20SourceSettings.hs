@@ -85,7 +85,8 @@ instance Data.FromJSON Scte20SourceSettings where
 
 instance Prelude.Hashable Scte20SourceSettings where
   hashWithSalt _salt Scte20SourceSettings' {..} =
-    _salt `Prelude.hashWithSalt` convert608To708
+    _salt
+      `Prelude.hashWithSalt` convert608To708
       `Prelude.hashWithSalt` source608ChannelNumber
 
 instance Prelude.NFData Scte20SourceSettings where

@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateMultiplexProgram' where
 
 instance Prelude.Hashable CreateMultiplexProgram' where
   hashWithSalt _salt CreateMultiplexProgram'' {..} =
-    _salt `Prelude.hashWithSalt` multiplexId
+    _salt
+      `Prelude.hashWithSalt` multiplexId
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` multiplexProgramSettings
       `Prelude.hashWithSalt` programName

@@ -122,7 +122,8 @@ instance Core.AWSRequest BatchDelete' where
 
 instance Prelude.Hashable BatchDelete' where
   hashWithSalt _salt BatchDelete'' {..} =
-    _salt `Prelude.hashWithSalt` channelIds
+    _salt
+      `Prelude.hashWithSalt` channelIds
       `Prelude.hashWithSalt` inputIds
       `Prelude.hashWithSalt` inputSecurityGroupIds
       `Prelude.hashWithSalt` multiplexIds

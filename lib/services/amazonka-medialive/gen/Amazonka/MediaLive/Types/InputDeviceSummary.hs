@@ -59,6 +59,8 @@ data InputDeviceSummary = InputDeviceSummary'
     networkSettings :: Prelude.Maybe InputDeviceNetworkSettings,
     -- | The unique serial number of the input device.
     serialNumber :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the input device.
     type' :: Prelude.Maybe InputDeviceType,
     -- | Settings that describe an input device that is type UHD.
@@ -98,6 +100,8 @@ data InputDeviceSummary = InputDeviceSummary'
 --
 -- 'serialNumber', 'inputDeviceSummary_serialNumber' - The unique serial number of the input device.
 --
+-- 'tags', 'inputDeviceSummary_tags' - A collection of key-value pairs.
+--
 -- 'type'', 'inputDeviceSummary_type' - The type of the input device.
 --
 -- 'uhdDeviceSettings', 'inputDeviceSummary_uhdDeviceSettings' - Settings that describe an input device that is type UHD.
@@ -115,6 +119,7 @@ newInputDeviceSummary =
       name = Prelude.Nothing,
       networkSettings = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
+      tags = Prelude.Nothing,
       type' = Prelude.Nothing,
       uhdDeviceSettings = Prelude.Nothing
     }
@@ -163,6 +168,10 @@ inputDeviceSummary_networkSettings = Lens.lens (\InputDeviceSummary' {networkSet
 inputDeviceSummary_serialNumber :: Lens.Lens' InputDeviceSummary (Prelude.Maybe Prelude.Text)
 inputDeviceSummary_serialNumber = Lens.lens (\InputDeviceSummary' {serialNumber} -> serialNumber) (\s@InputDeviceSummary' {} a -> s {serialNumber = a} :: InputDeviceSummary)
 
+-- | A collection of key-value pairs.
+inputDeviceSummary_tags :: Lens.Lens' InputDeviceSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+inputDeviceSummary_tags = Lens.lens (\InputDeviceSummary' {tags} -> tags) (\s@InputDeviceSummary' {} a -> s {tags = a} :: InputDeviceSummary) Prelude.. Lens.mapping Lens.coerced
+
 -- | The type of the input device.
 inputDeviceSummary_type :: Lens.Lens' InputDeviceSummary (Prelude.Maybe InputDeviceType)
 inputDeviceSummary_type = Lens.lens (\InputDeviceSummary' {type'} -> type') (\s@InputDeviceSummary' {} a -> s {type' = a} :: InputDeviceSummary)
@@ -187,13 +196,15 @@ instance Data.FromJSON InputDeviceSummary where
             Prelude.<*> (x Data..:? "name")
             Prelude.<*> (x Data..:? "networkSettings")
             Prelude.<*> (x Data..:? "serialNumber")
+            Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "type")
             Prelude.<*> (x Data..:? "uhdDeviceSettings")
       )
 
 instance Prelude.Hashable InputDeviceSummary where
   hashWithSalt _salt InputDeviceSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` deviceSettingsSyncState
       `Prelude.hashWithSalt` deviceUpdateStatus
@@ -203,6 +214,7 @@ instance Prelude.Hashable InputDeviceSummary where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` networkSettings
       `Prelude.hashWithSalt` serialNumber
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` uhdDeviceSettings
 
@@ -218,5 +230,6 @@ instance Prelude.NFData InputDeviceSummary where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkSettings
       `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf uhdDeviceSettings

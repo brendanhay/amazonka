@@ -111,7 +111,8 @@ instance Data.FromJSON ScheduleAction where
 
 instance Prelude.Hashable ScheduleAction where
   hashWithSalt _salt ScheduleAction' {..} =
-    _salt `Prelude.hashWithSalt` actionName
+    _salt
+      `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` scheduleActionStartSettings
       `Prelude.hashWithSalt` scheduleActionSettings
 

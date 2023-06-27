@@ -78,7 +78,8 @@ inputVpcRequest_subnetIds = Lens.lens (\InputVpcRequest' {subnetIds} -> subnetId
 
 instance Prelude.Hashable InputVpcRequest where
   hashWithSalt _salt InputVpcRequest' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData InputVpcRequest where

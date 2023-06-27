@@ -104,22 +104,22 @@ instance Core.AWSPager DescribeSchedule where
     | Core.stop
         ( rs
             Lens.^? describeScheduleResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduleResponse_scheduleActions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSchedule_nextToken
           Lens..~ rs
           Lens.^? describeScheduleResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSchedule where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest DescribeSchedule where
       ( \s h x ->
           DescribeScheduleResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "scheduleActions"
+            Prelude.<*> ( x
+                            Data..?> "scheduleActions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -140,7 +141,8 @@ instance Core.AWSRequest DescribeSchedule where
 
 instance Prelude.Hashable DescribeSchedule where
   hashWithSalt _salt DescribeSchedule' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` channelId
 

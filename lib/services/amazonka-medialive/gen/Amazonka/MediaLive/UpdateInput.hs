@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateInput' where
 
 instance Prelude.Hashable UpdateInput' where
   hashWithSalt _salt UpdateInput'' {..} =
-    _salt `Prelude.hashWithSalt` destinations
+    _salt
+      `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` inputDevices
       `Prelude.hashWithSalt` inputSecurityGroups
       `Prelude.hashWithSalt` mediaConnectFlows

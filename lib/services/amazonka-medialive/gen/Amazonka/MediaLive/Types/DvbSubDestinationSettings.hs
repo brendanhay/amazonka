@@ -391,7 +391,8 @@ instance Data.FromJSON DvbSubDestinationSettings where
 
 instance Prelude.Hashable DvbSubDestinationSettings where
   hashWithSalt _salt DvbSubDestinationSettings' {..} =
-    _salt `Prelude.hashWithSalt` alignment
+    _salt
+      `Prelude.hashWithSalt` alignment
       `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` backgroundOpacity
       `Prelude.hashWithSalt` font

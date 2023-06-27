@@ -47,6 +47,7 @@ module Amazonka.MediaLive.UpdateInputDevice
     updateInputDeviceResponse_name,
     updateInputDeviceResponse_networkSettings,
     updateInputDeviceResponse_serialNumber,
+    updateInputDeviceResponse_tags,
     updateInputDeviceResponse_type,
     updateInputDeviceResponse_uhdDeviceSettings,
     updateInputDeviceResponse_httpStatus,
@@ -140,6 +141,7 @@ instance Core.AWSRequest UpdateInputDevice' where
             Prelude.<*> (x Data..?> "name")
             Prelude.<*> (x Data..?> "networkSettings")
             Prelude.<*> (x Data..?> "serialNumber")
+            Prelude.<*> (x Data..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "type")
             Prelude.<*> (x Data..?> "uhdDeviceSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -147,7 +149,8 @@ instance Core.AWSRequest UpdateInputDevice' where
 
 instance Prelude.Hashable UpdateInputDevice' where
   hashWithSalt _salt UpdateInputDevice'' {..} =
-    _salt `Prelude.hashWithSalt` hdDeviceSettings
+    _salt
+      `Prelude.hashWithSalt` hdDeviceSettings
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` uhdDeviceSettings
       `Prelude.hashWithSalt` inputDeviceId
@@ -218,6 +221,8 @@ data UpdateInputDeviceResponse = UpdateInputDeviceResponse'
     networkSettings :: Prelude.Maybe InputDeviceNetworkSettings,
     -- | The unique serial number of the input device.
     serialNumber :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of the input device.
     type' :: Prelude.Maybe InputDeviceType,
     -- | Settings that describe an input device that is type UHD.
@@ -259,6 +264,8 @@ data UpdateInputDeviceResponse = UpdateInputDeviceResponse'
 --
 -- 'serialNumber', 'updateInputDeviceResponse_serialNumber' - The unique serial number of the input device.
 --
+-- 'tags', 'updateInputDeviceResponse_tags' - A collection of key-value pairs.
+--
 -- 'type'', 'updateInputDeviceResponse_type' - The type of the input device.
 --
 -- 'uhdDeviceSettings', 'updateInputDeviceResponse_uhdDeviceSettings' - Settings that describe an input device that is type UHD.
@@ -280,6 +287,7 @@ newUpdateInputDeviceResponse pHttpStatus_ =
       name = Prelude.Nothing,
       networkSettings = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
+      tags = Prelude.Nothing,
       type' = Prelude.Nothing,
       uhdDeviceSettings = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -329,6 +337,10 @@ updateInputDeviceResponse_networkSettings = Lens.lens (\UpdateInputDeviceRespons
 updateInputDeviceResponse_serialNumber :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe Prelude.Text)
 updateInputDeviceResponse_serialNumber = Lens.lens (\UpdateInputDeviceResponse' {serialNumber} -> serialNumber) (\s@UpdateInputDeviceResponse' {} a -> s {serialNumber = a} :: UpdateInputDeviceResponse)
 
+-- | A collection of key-value pairs.
+updateInputDeviceResponse_tags :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+updateInputDeviceResponse_tags = Lens.lens (\UpdateInputDeviceResponse' {tags} -> tags) (\s@UpdateInputDeviceResponse' {} a -> s {tags = a} :: UpdateInputDeviceResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The type of the input device.
 updateInputDeviceResponse_type :: Lens.Lens' UpdateInputDeviceResponse (Prelude.Maybe InputDeviceType)
 updateInputDeviceResponse_type = Lens.lens (\UpdateInputDeviceResponse' {type'} -> type') (\s@UpdateInputDeviceResponse' {} a -> s {type' = a} :: UpdateInputDeviceResponse)
@@ -353,6 +365,7 @@ instance Prelude.NFData UpdateInputDeviceResponse where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf networkSettings
       `Prelude.seq` Prelude.rnf serialNumber
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf uhdDeviceSettings
       `Prelude.seq` Prelude.rnf httpStatus

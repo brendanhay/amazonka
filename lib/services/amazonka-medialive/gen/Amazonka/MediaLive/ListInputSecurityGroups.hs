@@ -93,22 +93,22 @@ instance Core.AWSPager ListInputSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? listInputSecurityGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInputSecurityGroupsResponse_inputSecurityGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInputSecurityGroups_nextToken
           Lens..~ rs
           Lens.^? listInputSecurityGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInputSecurityGroups where
   type
@@ -120,7 +120,8 @@ instance Core.AWSRequest ListInputSecurityGroups where
     Response.receiveJSON
       ( \s h x ->
           ListInputSecurityGroupsResponse'
-            Prelude.<$> ( x Data..?> "inputSecurityGroups"
+            Prelude.<$> ( x
+                            Data..?> "inputSecurityGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -129,7 +130,8 @@ instance Core.AWSRequest ListInputSecurityGroups where
 
 instance Prelude.Hashable ListInputSecurityGroups where
   hashWithSalt _salt ListInputSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListInputSecurityGroups where

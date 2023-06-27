@@ -64,7 +64,8 @@ instance
       "BatchScheduleActionDeleteResult"
       ( \x ->
           BatchScheduleActionDeleteResult'
-            Prelude.<$> ( x Data..:? "scheduleActions"
+            Prelude.<$> ( x
+                            Data..:? "scheduleActions"
                             Data..!= Prelude.mempty
                         )
       )

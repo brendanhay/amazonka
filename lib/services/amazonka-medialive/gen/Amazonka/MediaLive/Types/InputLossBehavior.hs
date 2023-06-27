@@ -116,7 +116,8 @@ instance Data.FromJSON InputLossBehavior where
 
 instance Prelude.Hashable InputLossBehavior where
   hashWithSalt _salt InputLossBehavior' {..} =
-    _salt `Prelude.hashWithSalt` blackFrameMsec
+    _salt
+      `Prelude.hashWithSalt` blackFrameMsec
       `Prelude.hashWithSalt` inputLossImageColor
       `Prelude.hashWithSalt` inputLossImageSlate
       `Prelude.hashWithSalt` inputLossImageType

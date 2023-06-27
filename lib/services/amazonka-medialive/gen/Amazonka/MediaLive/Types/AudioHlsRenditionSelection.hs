@@ -78,12 +78,14 @@ instance Data.FromJSON AudioHlsRenditionSelection where
       "AudioHlsRenditionSelection"
       ( \x ->
           AudioHlsRenditionSelection'
-            Prelude.<$> (x Data..: "name") Prelude.<*> (x Data..: "groupId")
+            Prelude.<$> (x Data..: "name")
+            Prelude.<*> (x Data..: "groupId")
       )
 
 instance Prelude.Hashable AudioHlsRenditionSelection where
   hashWithSalt _salt AudioHlsRenditionSelection' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData AudioHlsRenditionSelection where

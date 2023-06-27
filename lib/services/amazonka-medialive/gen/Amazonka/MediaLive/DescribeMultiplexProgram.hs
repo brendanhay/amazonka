@@ -110,7 +110,8 @@ instance Core.AWSRequest DescribeMultiplexProgram where
             Prelude.<$> (x Data..?> "channelId")
             Prelude.<*> (x Data..?> "multiplexProgramSettings")
             Prelude.<*> (x Data..?> "packetIdentifiersMap")
-            Prelude.<*> ( x Data..?> "pipelineDetails"
+            Prelude.<*> ( x
+                            Data..?> "pipelineDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "programName")
@@ -119,7 +120,8 @@ instance Core.AWSRequest DescribeMultiplexProgram where
 
 instance Prelude.Hashable DescribeMultiplexProgram where
   hashWithSalt _salt DescribeMultiplexProgram' {..} =
-    _salt `Prelude.hashWithSalt` multiplexId
+    _salt
+      `Prelude.hashWithSalt` multiplexId
       `Prelude.hashWithSalt` programName
 
 instance Prelude.NFData DescribeMultiplexProgram where

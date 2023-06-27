@@ -83,14 +83,16 @@ instance Data.FromJSON RemixSettings where
           RemixSettings'
             Prelude.<$> (x Data..:? "channelsIn")
             Prelude.<*> (x Data..:? "channelsOut")
-            Prelude.<*> ( x Data..:? "channelMappings"
+            Prelude.<*> ( x
+                            Data..:? "channelMappings"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable RemixSettings where
   hashWithSalt _salt RemixSettings' {..} =
-    _salt `Prelude.hashWithSalt` channelsIn
+    _salt
+      `Prelude.hashWithSalt` channelsIn
       `Prelude.hashWithSalt` channelsOut
       `Prelude.hashWithSalt` channelMappings
 

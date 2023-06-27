@@ -135,7 +135,8 @@ instance Data.FromJSON OutputSettings where
 
 instance Prelude.Hashable OutputSettings where
   hashWithSalt _salt OutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` archiveOutputSettings
+    _salt
+      `Prelude.hashWithSalt` archiveOutputSettings
       `Prelude.hashWithSalt` frameCaptureOutputSettings
       `Prelude.hashWithSalt` hlsOutputSettings
       `Prelude.hashWithSalt` mediaPackageOutputSettings

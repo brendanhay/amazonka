@@ -328,7 +328,8 @@ instance Data.FromJSON Eac3Settings where
 
 instance Prelude.Hashable Eac3Settings where
   hashWithSalt _salt Eac3Settings' {..} =
-    _salt `Prelude.hashWithSalt` attenuationControl
+    _salt
+      `Prelude.hashWithSalt` attenuationControl
       `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` bitstreamMode
       `Prelude.hashWithSalt` codingMode

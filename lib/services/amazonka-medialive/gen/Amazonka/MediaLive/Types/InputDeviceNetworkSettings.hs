@@ -112,7 +112,8 @@ instance Data.FromJSON InputDeviceNetworkSettings where
 
 instance Prelude.Hashable InputDeviceNetworkSettings where
   hashWithSalt _salt InputDeviceNetworkSettings' {..} =
-    _salt `Prelude.hashWithSalt` dnsAddresses
+    _salt
+      `Prelude.hashWithSalt` dnsAddresses
       `Prelude.hashWithSalt` gateway
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` ipScheme

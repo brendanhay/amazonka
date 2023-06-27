@@ -37,7 +37,8 @@ data HlsWebdavSettings = HlsWebdavSettings'
     -- | Specify whether or not to use chunked transfer encoding to WebDAV.
     httpTransferMode :: Prelude.Maybe HlsWebdavHttpTransferMode,
     -- | Number of retry attempts that will be made before the Live Event is put
-    -- into an error state.
+    -- into an error state. Applies only if the CDN destination URI begins with
+    -- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
     numRetries :: Prelude.Maybe Prelude.Natural,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
@@ -61,7 +62,8 @@ data HlsWebdavSettings = HlsWebdavSettings'
 -- 'httpTransferMode', 'hlsWebdavSettings_httpTransferMode' - Specify whether or not to use chunked transfer encoding to WebDAV.
 --
 -- 'numRetries', 'hlsWebdavSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 --
 -- 'restartDelay', 'hlsWebdavSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
@@ -91,7 +93,8 @@ hlsWebdavSettings_httpTransferMode :: Lens.Lens' HlsWebdavSettings (Prelude.Mayb
 hlsWebdavSettings_httpTransferMode = Lens.lens (\HlsWebdavSettings' {httpTransferMode} -> httpTransferMode) (\s@HlsWebdavSettings' {} a -> s {httpTransferMode = a} :: HlsWebdavSettings)
 
 -- | Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 hlsWebdavSettings_numRetries :: Lens.Lens' HlsWebdavSettings (Prelude.Maybe Prelude.Natural)
 hlsWebdavSettings_numRetries = Lens.lens (\HlsWebdavSettings' {numRetries} -> numRetries) (\s@HlsWebdavSettings' {} a -> s {numRetries = a} :: HlsWebdavSettings)
 

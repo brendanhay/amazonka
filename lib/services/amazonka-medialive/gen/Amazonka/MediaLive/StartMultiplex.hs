@@ -97,7 +97,8 @@ instance Core.AWSRequest StartMultiplex where
       ( \s h x ->
           StartMultiplexResponse'
             Prelude.<$> (x Data..?> "arn")
-            Prelude.<*> ( x Data..?> "availabilityZones"
+            Prelude.<*> ( x
+                            Data..?> "availabilityZones"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "destinations" Core..!@ Prelude.mempty)

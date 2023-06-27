@@ -196,7 +196,8 @@ instance Data.FromJSON InputSettings where
       ( \x ->
           InputSettings'
             Prelude.<$> (x Data..:? "audioSelectors" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "captionSelectors"
+            Prelude.<*> ( x
+                            Data..:? "captionSelectors"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "deblockFilter")
@@ -212,7 +213,8 @@ instance Data.FromJSON InputSettings where
 
 instance Prelude.Hashable InputSettings where
   hashWithSalt _salt InputSettings' {..} =
-    _salt `Prelude.hashWithSalt` audioSelectors
+    _salt
+      `Prelude.hashWithSalt` audioSelectors
       `Prelude.hashWithSalt` captionSelectors
       `Prelude.hashWithSalt` deblockFilter
       `Prelude.hashWithSalt` denoiseFilter

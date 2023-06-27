@@ -22,13 +22,17 @@ module Amazonka.MediaLive.Types.NielsenNaesIiNw where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.MediaLive.Types.NielsenWatermarkTimezones
 import qualified Amazonka.Prelude as Prelude
 
 -- | Nielsen Naes Ii Nw
 --
 -- /See:/ 'newNielsenNaesIiNw' smart constructor.
 data NielsenNaesIiNw = NielsenNaesIiNw'
-  { -- | Enter the check digit string for the watermark
+  { -- | Choose the timezone for the time stamps in the watermark. If not
+    -- provided, the timestamps will be in Coordinated Universal Time (UTC)
+    timezone :: Prelude.Maybe NielsenWatermarkTimezones,
+    -- | Enter the check digit string for the watermark
     checkDigitString :: Prelude.Text,
     -- | Enter the Nielsen Source ID (SID) to include in the watermark
     sid :: Prelude.Double
@@ -43,6 +47,9 @@ data NielsenNaesIiNw = NielsenNaesIiNw'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'timezone', 'nielsenNaesIiNw_timezone' - Choose the timezone for the time stamps in the watermark. If not
+-- provided, the timestamps will be in Coordinated Universal Time (UTC)
+--
 -- 'checkDigitString', 'nielsenNaesIiNw_checkDigitString' - Enter the check digit string for the watermark
 --
 -- 'sid', 'nielsenNaesIiNw_sid' - Enter the Nielsen Source ID (SID) to include in the watermark
@@ -54,10 +61,15 @@ newNielsenNaesIiNw ::
   NielsenNaesIiNw
 newNielsenNaesIiNw pCheckDigitString_ pSid_ =
   NielsenNaesIiNw'
-    { checkDigitString =
-        pCheckDigitString_,
+    { timezone = Prelude.Nothing,
+      checkDigitString = pCheckDigitString_,
       sid = pSid_
     }
+
+-- | Choose the timezone for the time stamps in the watermark. If not
+-- provided, the timestamps will be in Coordinated Universal Time (UTC)
+nielsenNaesIiNw_timezone :: Lens.Lens' NielsenNaesIiNw (Prelude.Maybe NielsenWatermarkTimezones)
+nielsenNaesIiNw_timezone = Lens.lens (\NielsenNaesIiNw' {timezone} -> timezone) (\s@NielsenNaesIiNw' {} a -> s {timezone = a} :: NielsenNaesIiNw)
 
 -- | Enter the check digit string for the watermark
 nielsenNaesIiNw_checkDigitString :: Lens.Lens' NielsenNaesIiNw Prelude.Text
@@ -73,25 +85,30 @@ instance Data.FromJSON NielsenNaesIiNw where
       "NielsenNaesIiNw"
       ( \x ->
           NielsenNaesIiNw'
-            Prelude.<$> (x Data..: "checkDigitString")
+            Prelude.<$> (x Data..:? "timezone")
+            Prelude.<*> (x Data..: "checkDigitString")
             Prelude.<*> (x Data..: "sid")
       )
 
 instance Prelude.Hashable NielsenNaesIiNw where
   hashWithSalt _salt NielsenNaesIiNw' {..} =
-    _salt `Prelude.hashWithSalt` checkDigitString
+    _salt
+      `Prelude.hashWithSalt` timezone
+      `Prelude.hashWithSalt` checkDigitString
       `Prelude.hashWithSalt` sid
 
 instance Prelude.NFData NielsenNaesIiNw where
   rnf NielsenNaesIiNw' {..} =
-    Prelude.rnf checkDigitString
+    Prelude.rnf timezone
+      `Prelude.seq` Prelude.rnf checkDigitString
       `Prelude.seq` Prelude.rnf sid
 
 instance Data.ToJSON NielsenNaesIiNw where
   toJSON NielsenNaesIiNw' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("timezone" Data..=) Prelude.<$> timezone,
+            Prelude.Just
               ("checkDigitString" Data..= checkDigitString),
             Prelude.Just ("sid" Data..= sid)
           ]

@@ -25,8 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.MediaLive.Types.CaptionSelectorSettings
 import qualified Amazonka.Prelude as Prelude
 
--- | Output groups for this Live Event. Output groups contain information
--- about where streams should be distributed.
+-- | Caption Selector
 --
 -- /See:/ 'newCaptionSelector' smart constructor.
 data CaptionSelector = CaptionSelector'
@@ -97,7 +96,8 @@ instance Data.FromJSON CaptionSelector where
 
 instance Prelude.Hashable CaptionSelector where
   hashWithSalt _salt CaptionSelector' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` selectorSettings
       `Prelude.hashWithSalt` name
 

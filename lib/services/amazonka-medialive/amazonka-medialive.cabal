@@ -474,6 +474,7 @@ library
     Amazonka.MediaLive.Types.NielsenWatermarksCbetStepaside
     Amazonka.MediaLive.Types.NielsenWatermarksDistributionTypes
     Amazonka.MediaLive.Types.NielsenWatermarksSettings
+    Amazonka.MediaLive.Types.NielsenWatermarkTimezones
     Amazonka.MediaLive.Types.Offering
     Amazonka.MediaLive.Types.OfferingDurationUnits
     Amazonka.MediaLive.Types.OfferingType

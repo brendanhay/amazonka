@@ -263,6 +263,7 @@ module Amazonka.MediaLive.Lens
     describeInputDeviceResponse_name,
     describeInputDeviceResponse_networkSettings,
     describeInputDeviceResponse_serialNumber,
+    describeInputDeviceResponse_tags,
     describeInputDeviceResponse_type,
     describeInputDeviceResponse_uhdDeviceSettings,
     describeInputDeviceResponse_httpStatus,
@@ -596,6 +597,7 @@ module Amazonka.MediaLive.Lens
     updateInputDeviceResponse_name,
     updateInputDeviceResponse_networkSettings,
     updateInputDeviceResponse_serialNumber,
+    updateInputDeviceResponse_tags,
     updateInputDeviceResponse_type,
     updateInputDeviceResponse_uhdDeviceSettings,
     updateInputDeviceResponse_httpStatus,
@@ -1243,6 +1245,7 @@ module Amazonka.MediaLive.Lens
     hlsGroupSettings_destination,
 
     -- ** HlsId3SegmentTaggingScheduleActionSettings
+    hlsId3SegmentTaggingScheduleActionSettings_id3,
     hlsId3SegmentTaggingScheduleActionSettings_tag,
 
     -- ** HlsInputSettings
@@ -1374,6 +1377,7 @@ module Amazonka.MediaLive.Lens
     inputDeviceSummary_name,
     inputDeviceSummary_networkSettings,
     inputDeviceSummary_serialNumber,
+    inputDeviceSummary_tags,
     inputDeviceSummary_type,
     inputDeviceSummary_uhdDeviceSettings,
 
@@ -1503,6 +1507,7 @@ module Amazonka.MediaLive.Lens
     m2tsSettings_scte27Pids,
     m2tsSettings_scte35Control,
     m2tsSettings_scte35Pid,
+    m2tsSettings_scte35PrerollPullupMilliseconds,
     m2tsSettings_segmentationMarkers,
     m2tsSettings_segmentationStyle,
     m2tsSettings_segmentationTime,
@@ -1736,6 +1741,7 @@ module Amazonka.MediaLive.Lens
     nielsenConfiguration_nielsenPcmToId3Tagging,
 
     -- ** NielsenNaesIiNw
+    nielsenNaesIiNw_timezone,
     nielsenNaesIiNw_checkDigitString,
     nielsenNaesIiNw_sid,
 

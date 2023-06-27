@@ -114,7 +114,8 @@ instance Data.FromJSON RtmpOutputSettings where
 
 instance Prelude.Hashable RtmpOutputSettings where
   hashWithSalt _salt RtmpOutputSettings' {..} =
-    _salt `Prelude.hashWithSalt` certificateMode
+    _salt
+      `Prelude.hashWithSalt` certificateMode
       `Prelude.hashWithSalt` connectionRetryInterval
       `Prelude.hashWithSalt` numRetries
       `Prelude.hashWithSalt` destination

@@ -34,7 +34,8 @@ data HlsBasicPutSettings = HlsBasicPutSettings'
     -- | Size in seconds of file cache for streaming outputs.
     filecacheDuration :: Prelude.Maybe Prelude.Natural,
     -- | Number of retry attempts that will be made before the Live Event is put
-    -- into an error state.
+    -- into an error state. Applies only if the CDN destination URI begins with
+    -- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
     numRetries :: Prelude.Maybe Prelude.Natural,
     -- | If a streaming output fails, number of seconds to wait until a restart
     -- is initiated. A value of 0 means never restart.
@@ -56,7 +57,8 @@ data HlsBasicPutSettings = HlsBasicPutSettings'
 -- 'filecacheDuration', 'hlsBasicPutSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
 --
 -- 'numRetries', 'hlsBasicPutSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 --
 -- 'restartDelay', 'hlsBasicPutSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart
 -- is initiated. A value of 0 means never restart.
@@ -81,7 +83,8 @@ hlsBasicPutSettings_filecacheDuration :: Lens.Lens' HlsBasicPutSettings (Prelude
 hlsBasicPutSettings_filecacheDuration = Lens.lens (\HlsBasicPutSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsBasicPutSettings' {} a -> s {filecacheDuration = a} :: HlsBasicPutSettings)
 
 -- | Number of retry attempts that will be made before the Live Event is put
--- into an error state.
+-- into an error state. Applies only if the CDN destination URI begins with
+-- \"s3\" or \"mediastore\". For other URIs, the value is always 3.
 hlsBasicPutSettings_numRetries :: Lens.Lens' HlsBasicPutSettings (Prelude.Maybe Prelude.Natural)
 hlsBasicPutSettings_numRetries = Lens.lens (\HlsBasicPutSettings' {numRetries} -> numRetries) (\s@HlsBasicPutSettings' {} a -> s {numRetries = a} :: HlsBasicPutSettings)
 

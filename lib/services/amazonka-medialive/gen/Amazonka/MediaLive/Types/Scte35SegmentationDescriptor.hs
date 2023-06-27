@@ -240,7 +240,8 @@ instance
     Scte35SegmentationDescriptor
   where
   hashWithSalt _salt Scte35SegmentationDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` deliveryRestrictions
+    _salt
+      `Prelude.hashWithSalt` deliveryRestrictions
       `Prelude.hashWithSalt` segmentNum
       `Prelude.hashWithSalt` segmentationDuration
       `Prelude.hashWithSalt` segmentationTypeId

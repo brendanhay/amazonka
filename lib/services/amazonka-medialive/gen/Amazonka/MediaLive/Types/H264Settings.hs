@@ -867,7 +867,8 @@ instance Data.FromJSON H264Settings where
 
 instance Prelude.Hashable H264Settings where
   hashWithSalt _salt H264Settings' {..} =
-    _salt `Prelude.hashWithSalt` adaptiveQuantization
+    _salt
+      `Prelude.hashWithSalt` adaptiveQuantization
       `Prelude.hashWithSalt` afdSignaling
       `Prelude.hashWithSalt` bitrate
       `Prelude.hashWithSalt` bufFillPct

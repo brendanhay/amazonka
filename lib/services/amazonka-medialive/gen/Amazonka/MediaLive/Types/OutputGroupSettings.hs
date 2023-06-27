@@ -135,7 +135,8 @@ instance Data.FromJSON OutputGroupSettings where
 
 instance Prelude.Hashable OutputGroupSettings where
   hashWithSalt _salt OutputGroupSettings' {..} =
-    _salt `Prelude.hashWithSalt` archiveGroupSettings
+    _salt
+      `Prelude.hashWithSalt` archiveGroupSettings
       `Prelude.hashWithSalt` frameCaptureGroupSettings
       `Prelude.hashWithSalt` hlsGroupSettings
       `Prelude.hashWithSalt` mediaPackageGroupSettings

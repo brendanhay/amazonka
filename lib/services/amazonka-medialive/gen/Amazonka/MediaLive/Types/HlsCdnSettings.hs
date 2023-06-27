@@ -105,7 +105,8 @@ instance Data.FromJSON HlsCdnSettings where
 
 instance Prelude.Hashable HlsCdnSettings where
   hashWithSalt _salt HlsCdnSettings' {..} =
-    _salt `Prelude.hashWithSalt` hlsAkamaiSettings
+    _salt
+      `Prelude.hashWithSalt` hlsAkamaiSettings
       `Prelude.hashWithSalt` hlsBasicPutSettings
       `Prelude.hashWithSalt` hlsMediaStoreSettings
       `Prelude.hashWithSalt` hlsS3Settings

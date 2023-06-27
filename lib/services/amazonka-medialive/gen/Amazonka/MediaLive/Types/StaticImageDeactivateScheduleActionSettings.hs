@@ -76,7 +76,7 @@ instance
       ( \x ->
           StaticImageDeactivateScheduleActionSettings'
             Prelude.<$> (x Data..:? "fadeOut")
-              Prelude.<*> (x Data..:? "layer")
+            Prelude.<*> (x Data..:? "layer")
       )
 
 instance
@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     StaticImageDeactivateScheduleActionSettings' {..} =
-      _salt `Prelude.hashWithSalt` fadeOut
+      _salt
+        `Prelude.hashWithSalt` fadeOut
         `Prelude.hashWithSalt` layer
 
 instance

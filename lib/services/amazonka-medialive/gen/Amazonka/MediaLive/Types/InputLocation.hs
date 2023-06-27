@@ -95,7 +95,8 @@ instance Data.FromJSON InputLocation where
 
 instance Prelude.Hashable InputLocation where
   hashWithSalt _salt InputLocation' {..} =
-    _salt `Prelude.hashWithSalt` passwordParam
+    _salt
+      `Prelude.hashWithSalt` passwordParam
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` uri
 

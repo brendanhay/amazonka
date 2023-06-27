@@ -134,7 +134,8 @@ instance Data.FromJSON MultiplexSummary where
       ( \x ->
           MultiplexSummary'
             Prelude.<$> (x Data..:? "arn")
-            Prelude.<*> ( x Data..:? "availabilityZones"
+            Prelude.<*> ( x
+                            Data..:? "availabilityZones"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "id")
@@ -148,7 +149,8 @@ instance Data.FromJSON MultiplexSummary where
 
 instance Prelude.Hashable MultiplexSummary where
   hashWithSalt _salt MultiplexSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` multiplexSettings

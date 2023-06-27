@@ -76,14 +76,16 @@ instance Data.FromJSON AudioChannelMapping where
       ( \x ->
           AudioChannelMapping'
             Prelude.<$> (x Data..: "outputChannel")
-            Prelude.<*> ( x Data..:? "inputChannelLevels"
+            Prelude.<*> ( x
+                            Data..:? "inputChannelLevels"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AudioChannelMapping where
   hashWithSalt _salt AudioChannelMapping' {..} =
-    _salt `Prelude.hashWithSalt` outputChannel
+    _salt
+      `Prelude.hashWithSalt` outputChannel
       `Prelude.hashWithSalt` inputChannelLevels
 
 instance Prelude.NFData AudioChannelMapping where

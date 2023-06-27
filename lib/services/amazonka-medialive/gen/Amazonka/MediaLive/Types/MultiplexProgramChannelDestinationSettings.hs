@@ -89,7 +89,7 @@ instance
       ( \x ->
           MultiplexProgramChannelDestinationSettings'
             Prelude.<$> (x Data..:? "multiplexId")
-              Prelude.<*> (x Data..:? "programName")
+            Prelude.<*> (x Data..:? "programName")
       )
 
 instance
@@ -99,7 +99,8 @@ instance
   hashWithSalt
     _salt
     MultiplexProgramChannelDestinationSettings' {..} =
-      _salt `Prelude.hashWithSalt` multiplexId
+      _salt
+        `Prelude.hashWithSalt` multiplexId
         `Prelude.hashWithSalt` programName
 
 instance

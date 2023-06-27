@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateMultiplex' where
 
 instance Prelude.Hashable UpdateMultiplex' where
   hashWithSalt _salt UpdateMultiplex'' {..} =
-    _salt `Prelude.hashWithSalt` multiplexSettings
+    _salt
+      `Prelude.hashWithSalt` multiplexSettings
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` multiplexId
 

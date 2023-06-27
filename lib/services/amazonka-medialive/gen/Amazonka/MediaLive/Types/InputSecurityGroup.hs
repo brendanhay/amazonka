@@ -111,14 +111,16 @@ instance Data.FromJSON InputSecurityGroup where
             Prelude.<*> (x Data..:? "inputs" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "state")
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "whitelistRules"
+            Prelude.<*> ( x
+                            Data..:? "whitelistRules"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable InputSecurityGroup where
   hashWithSalt _salt InputSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` inputs
       `Prelude.hashWithSalt` state

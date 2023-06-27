@@ -29,7 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAvailConfiguration' smart constructor.
 data AvailConfiguration = AvailConfiguration'
-  { -- | Ad avail settings.
+  { -- | Controls how SCTE-35 messages create cues. Splice Insert mode treats all
+    -- segmentation signals traditionally. With Time Signal APOS mode only Time
+    -- Signal Placement Opportunity and Break messages create segment breaks.
+    -- With ESAM mode, signals are forwarded to an ESAM server for possible
+    -- update.
     availSettings :: Prelude.Maybe AvailSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,7 +46,11 @@ data AvailConfiguration = AvailConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'availSettings', 'availConfiguration_availSettings' - Ad avail settings.
+-- 'availSettings', 'availConfiguration_availSettings' - Controls how SCTE-35 messages create cues. Splice Insert mode treats all
+-- segmentation signals traditionally. With Time Signal APOS mode only Time
+-- Signal Placement Opportunity and Break messages create segment breaks.
+-- With ESAM mode, signals are forwarded to an ESAM server for possible
+-- update.
 newAvailConfiguration ::
   AvailConfiguration
 newAvailConfiguration =
@@ -51,7 +59,11 @@ newAvailConfiguration =
         Prelude.Nothing
     }
 
--- | Ad avail settings.
+-- | Controls how SCTE-35 messages create cues. Splice Insert mode treats all
+-- segmentation signals traditionally. With Time Signal APOS mode only Time
+-- Signal Placement Opportunity and Break messages create segment breaks.
+-- With ESAM mode, signals are forwarded to an ESAM server for possible
+-- update.
 availConfiguration_availSettings :: Lens.Lens' AvailConfiguration (Prelude.Maybe AvailSettings)
 availConfiguration_availSettings = Lens.lens (\AvailConfiguration' {availSettings} -> availSettings) (\s@AvailConfiguration' {} a -> s {availSettings = a} :: AvailConfiguration)
 

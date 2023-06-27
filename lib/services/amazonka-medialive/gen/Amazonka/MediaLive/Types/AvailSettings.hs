@@ -84,7 +84,8 @@ instance Data.FromJSON AvailSettings where
 
 instance Prelude.Hashable AvailSettings where
   hashWithSalt _salt AvailSettings' {..} =
-    _salt `Prelude.hashWithSalt` esam
+    _salt
+      `Prelude.hashWithSalt` esam
       `Prelude.hashWithSalt` scte35SpliceInsert
       `Prelude.hashWithSalt` scte35TimeSignalApos
 

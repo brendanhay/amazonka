@@ -90,7 +90,8 @@ instance Core.AWSRequest CreateTags where
 
 instance Prelude.Hashable CreateTags where
   hashWithSalt _salt CreateTags' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData CreateTags where

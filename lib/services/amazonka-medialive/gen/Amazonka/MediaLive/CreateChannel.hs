@@ -230,7 +230,8 @@ instance Core.AWSRequest CreateChannel' where
 
 instance Prelude.Hashable CreateChannel' where
   hashWithSalt _salt CreateChannel'' {..} =
-    _salt `Prelude.hashWithSalt` cdiInputSpecification
+    _salt
+      `Prelude.hashWithSalt` cdiInputSpecification
       `Prelude.hashWithSalt` channelClass
       `Prelude.hashWithSalt` destinations
       `Prelude.hashWithSalt` encoderSettings

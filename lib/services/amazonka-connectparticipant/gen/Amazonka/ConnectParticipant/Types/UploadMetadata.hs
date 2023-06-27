@@ -89,7 +89,8 @@ instance Data.FromJSON UploadMetadata where
       "UploadMetadata"
       ( \x ->
           UploadMetadata'
-            Prelude.<$> ( x Data..:? "HeadersToInclude"
+            Prelude.<$> ( x
+                            Data..:? "HeadersToInclude"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Url")
@@ -98,7 +99,8 @@ instance Data.FromJSON UploadMetadata where
 
 instance Prelude.Hashable UploadMetadata where
   hashWithSalt _salt UploadMetadata' {..} =
-    _salt `Prelude.hashWithSalt` headersToInclude
+    _salt
+      `Prelude.hashWithSalt` headersToInclude
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` urlExpiry
 

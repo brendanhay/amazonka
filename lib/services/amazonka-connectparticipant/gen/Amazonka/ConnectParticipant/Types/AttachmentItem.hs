@@ -105,7 +105,8 @@ instance Data.FromJSON AttachmentItem where
 
 instance Prelude.Hashable AttachmentItem where
   hashWithSalt _salt AttachmentItem' {..} =
-    _salt `Prelude.hashWithSalt` attachmentId
+    _salt
+      `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` attachmentName
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` status

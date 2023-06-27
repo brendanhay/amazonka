@@ -116,7 +116,8 @@ instance Core.AWSRequest DisconnectParticipant where
 
 instance Prelude.Hashable DisconnectParticipant where
   hashWithSalt _salt DisconnectParticipant' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` connectionToken
 
 instance Prelude.NFData DisconnectParticipant where

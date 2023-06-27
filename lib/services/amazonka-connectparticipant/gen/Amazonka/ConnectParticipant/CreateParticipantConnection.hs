@@ -89,7 +89,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateParticipantConnection' smart constructor.
 data CreateParticipantConnection = CreateParticipantConnection'
   { -- | Amazon Connect Participant is used to mark the participant as connected
-    -- for message streaming.
+    -- for customer participant in message streaming, as well as for agent or
+    -- manager participant in non-streaming chats.
     connectParticipant :: Prelude.Maybe Prelude.Bool,
     -- | Type of connection information required. This can be omitted if
     -- @ConnectParticipant@ is @true@.
@@ -112,7 +113,8 @@ data CreateParticipantConnection = CreateParticipantConnection'
 -- for backwards compatibility:
 --
 -- 'connectParticipant', 'createParticipantConnection_connectParticipant' - Amazon Connect Participant is used to mark the participant as connected
--- for message streaming.
+-- for customer participant in message streaming, as well as for agent or
+-- manager participant in non-streaming chats.
 --
 -- 'type'', 'createParticipantConnection_type' - Type of connection information required. This can be omitted if
 -- @ConnectParticipant@ is @true@.
@@ -135,7 +137,8 @@ newCreateParticipantConnection pParticipantToken_ =
     }
 
 -- | Amazon Connect Participant is used to mark the participant as connected
--- for message streaming.
+-- for customer participant in message streaming, as well as for agent or
+-- manager participant in non-streaming chats.
 createParticipantConnection_connectParticipant :: Lens.Lens' CreateParticipantConnection (Prelude.Maybe Prelude.Bool)
 createParticipantConnection_connectParticipant = Lens.lens (\CreateParticipantConnection' {connectParticipant} -> connectParticipant) (\s@CreateParticipantConnection' {} a -> s {connectParticipant = a} :: CreateParticipantConnection)
 
@@ -169,7 +172,8 @@ instance Core.AWSRequest CreateParticipantConnection where
 
 instance Prelude.Hashable CreateParticipantConnection where
   hashWithSalt _salt CreateParticipantConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectParticipant
+    _salt
+      `Prelude.hashWithSalt` connectParticipant
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` participantToken
 

@@ -75,7 +75,8 @@ instance Data.FromJSON MessageMetadata where
 
 instance Prelude.Hashable MessageMetadata where
   hashWithSalt _salt MessageMetadata' {..} =
-    _salt `Prelude.hashWithSalt` messageId
+    _salt
+      `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` receipts
 
 instance Prelude.NFData MessageMetadata where

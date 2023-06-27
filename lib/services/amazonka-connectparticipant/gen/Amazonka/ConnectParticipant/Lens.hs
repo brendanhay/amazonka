@@ -96,6 +96,7 @@ module Amazonka.ConnectParticipant.Lens
     -- ** Item
     item_absoluteTime,
     item_attachments,
+    item_contactId,
     item_content,
     item_contentType,
     item_displayName,
@@ -103,6 +104,7 @@ module Amazonka.ConnectParticipant.Lens
     item_messageMetadata,
     item_participantId,
     item_participantRole,
+    item_relatedContactId,
     item_type,
 
     -- ** MessageMetadata

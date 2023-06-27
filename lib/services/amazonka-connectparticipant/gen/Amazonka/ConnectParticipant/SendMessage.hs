@@ -65,7 +65,8 @@ data SendMessage = SendMessage'
     -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The type of the content. Supported types are @text\/plain@,
-    -- @text\/markdown@, and @application\/json@.
+    -- @text\/markdown@, @application\/json@, and
+    -- @application\/vnd.amazonaws.connect.message.interactive.response@.
     contentType :: Prelude.Text,
     -- | The content of the message.
     --
@@ -74,6 +75,10 @@ data SendMessage = SendMessage'
     --
     -- -   For @application\/json@, the Length Constraints are Minimum of 1,
     --     Maximum of 12000.
+    --
+    -- -   For
+    --     @application\/vnd.amazonaws.connect.message.interactive.response@,
+    --     the Length Constraints are Minimum of 1, Maximum of 12288.
     content :: Prelude.Text,
     -- | The authentication token associated with the connection.
     connectionToken :: Prelude.Text
@@ -94,7 +99,8 @@ data SendMessage = SendMessage'
 -- <https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/ Making retries safe with idempotent APIs>.
 --
 -- 'contentType', 'sendMessage_contentType' - The type of the content. Supported types are @text\/plain@,
--- @text\/markdown@, and @application\/json@.
+-- @text\/markdown@, @application\/json@, and
+-- @application\/vnd.amazonaws.connect.message.interactive.response@.
 --
 -- 'content', 'sendMessage_content' - The content of the message.
 --
@@ -103,6 +109,10 @@ data SendMessage = SendMessage'
 --
 -- -   For @application\/json@, the Length Constraints are Minimum of 1,
 --     Maximum of 12000.
+--
+-- -   For
+--     @application\/vnd.amazonaws.connect.message.interactive.response@,
+--     the Length Constraints are Minimum of 1, Maximum of 12288.
 --
 -- 'connectionToken', 'sendMessage_connectionToken' - The authentication token associated with the connection.
 newSendMessage ::
@@ -132,7 +142,8 @@ sendMessage_clientToken :: Lens.Lens' SendMessage (Prelude.Maybe Prelude.Text)
 sendMessage_clientToken = Lens.lens (\SendMessage' {clientToken} -> clientToken) (\s@SendMessage' {} a -> s {clientToken = a} :: SendMessage)
 
 -- | The type of the content. Supported types are @text\/plain@,
--- @text\/markdown@, and @application\/json@.
+-- @text\/markdown@, @application\/json@, and
+-- @application\/vnd.amazonaws.connect.message.interactive.response@.
 sendMessage_contentType :: Lens.Lens' SendMessage Prelude.Text
 sendMessage_contentType = Lens.lens (\SendMessage' {contentType} -> contentType) (\s@SendMessage' {} a -> s {contentType = a} :: SendMessage)
 
@@ -143,6 +154,10 @@ sendMessage_contentType = Lens.lens (\SendMessage' {contentType} -> contentType)
 --
 -- -   For @application\/json@, the Length Constraints are Minimum of 1,
 --     Maximum of 12000.
+--
+-- -   For
+--     @application\/vnd.amazonaws.connect.message.interactive.response@,
+--     the Length Constraints are Minimum of 1, Maximum of 12288.
 sendMessage_content :: Lens.Lens' SendMessage Prelude.Text
 sendMessage_content = Lens.lens (\SendMessage' {content} -> content) (\s@SendMessage' {} a -> s {content = a} :: SendMessage)
 
@@ -165,7 +180,8 @@ instance Core.AWSRequest SendMessage where
 
 instance Prelude.Hashable SendMessage where
   hashWithSalt _salt SendMessage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` connectionToken

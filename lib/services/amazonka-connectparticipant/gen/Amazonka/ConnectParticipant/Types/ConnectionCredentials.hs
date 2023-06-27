@@ -84,7 +84,8 @@ instance Data.FromJSON ConnectionCredentials where
 
 instance Prelude.Hashable ConnectionCredentials where
   hashWithSalt _salt ConnectionCredentials' {..} =
-    _salt `Prelude.hashWithSalt` connectionToken
+    _salt
+      `Prelude.hashWithSalt` connectionToken
       `Prelude.hashWithSalt` expiry
 
 instance Prelude.NFData ConnectionCredentials where

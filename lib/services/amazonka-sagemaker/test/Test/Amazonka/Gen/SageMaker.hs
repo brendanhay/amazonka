@@ -57,6 +57,9 @@ import Test.Tasty
 --         , requestCreateAutoMLJob $
 --             newCreateAutoMLJob
 --
+--         , requestCreateAutoMLJobV2 $
+--             newCreateAutoMLJobV2
+--
 --         , requestCreateCodeRepository $
 --             newCreateCodeRepository
 --
@@ -353,6 +356,9 @@ import Test.Tasty
 --
 --         , requestDescribeAutoMLJob $
 --             newDescribeAutoMLJob
+--
+--         , requestDescribeAutoMLJobV2 $
+--             newDescribeAutoMLJobV2
 --
 --         , requestDescribeCodeRepository $
 --             newDescribeCodeRepository
@@ -960,6 +966,9 @@ import Test.Tasty
 --         , responseCreateAutoMLJob $
 --             newCreateAutoMLJobResponse
 --
+--         , responseCreateAutoMLJobV2 $
+--             newCreateAutoMLJobV2Response
+--
 --         , responseCreateCodeRepository $
 --             newCreateCodeRepositoryResponse
 --
@@ -1256,6 +1265,9 @@ import Test.Tasty
 --
 --         , responseDescribeAutoMLJob $
 --             newDescribeAutoMLJobResponse
+--
+--         , responseDescribeAutoMLJobV2 $
+--             newDescribeAutoMLJobV2Response
 --
 --         , responseDescribeCodeRepository $
 --             newDescribeCodeRepositoryResponse
@@ -1895,6 +1907,12 @@ requestCreateAutoMLJob =
     "CreateAutoMLJob"
     "fixture/CreateAutoMLJob.yaml"
 
+requestCreateAutoMLJobV2 :: CreateAutoMLJobV2 -> TestTree
+requestCreateAutoMLJobV2 =
+  req
+    "CreateAutoMLJobV2"
+    "fixture/CreateAutoMLJobV2.yaml"
+
 requestCreateCodeRepository :: CreateCodeRepository -> TestTree
 requestCreateCodeRepository =
   req
@@ -2488,6 +2506,12 @@ requestDescribeAutoMLJob =
   req
     "DescribeAutoMLJob"
     "fixture/DescribeAutoMLJob.yaml"
+
+requestDescribeAutoMLJobV2 :: DescribeAutoMLJobV2 -> TestTree
+requestDescribeAutoMLJobV2 =
+  req
+    "DescribeAutoMLJobV2"
+    "fixture/DescribeAutoMLJobV2.yaml"
 
 requestDescribeCodeRepository :: DescribeCodeRepository -> TestTree
 requestDescribeCodeRepository =
@@ -3717,6 +3741,14 @@ responseCreateAutoMLJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAutoMLJob)
 
+responseCreateAutoMLJobV2 :: CreateAutoMLJobV2Response -> TestTree
+responseCreateAutoMLJobV2 =
+  res
+    "CreateAutoMLJobV2Response"
+    "fixture/CreateAutoMLJobV2Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAutoMLJobV2)
+
 responseCreateCodeRepository :: CreateCodeRepositoryResponse -> TestTree
 responseCreateCodeRepository =
   res
@@ -4508,6 +4540,14 @@ responseDescribeAutoMLJob =
     "fixture/DescribeAutoMLJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAutoMLJob)
+
+responseDescribeAutoMLJobV2 :: DescribeAutoMLJobV2Response -> TestTree
+responseDescribeAutoMLJobV2 =
+  res
+    "DescribeAutoMLJobV2Response"
+    "fixture/DescribeAutoMLJobV2Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAutoMLJobV2)
 
 responseDescribeCodeRepository :: DescribeCodeRepositoryResponse -> TestTree
 responseDescribeCodeRepository =

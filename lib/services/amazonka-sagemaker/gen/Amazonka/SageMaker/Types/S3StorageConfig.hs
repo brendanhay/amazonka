@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3StorageConfig' smart constructor.
 data S3StorageConfig = S3StorageConfig'
-  { -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
+  { -- | The Amazon Web Services Key Management Service (KMS) key ARN of the key
     -- used to encrypt any objects written into the @OfflineStore@ S3 location.
     --
     -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
@@ -55,7 +55,7 @@ data S3StorageConfig = S3StorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 's3StorageConfig_kmsKeyId' - The Amazon Web Services Key Management Service (KMS) key ID of the key
+-- 'kmsKeyId', 's3StorageConfig_kmsKeyId' - The Amazon Web Services Key Management Service (KMS) key ARN of the key
 -- used to encrypt any objects written into the @OfflineStore@ S3 location.
 --
 -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
@@ -80,7 +80,7 @@ newS3StorageConfig pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | The Amazon Web Services Key Management Service (KMS) key ID of the key
+-- | The Amazon Web Services Key Management Service (KMS) key ARN of the key
 -- used to encrypt any objects written into the @OfflineStore@ S3 location.
 --
 -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
@@ -114,7 +114,8 @@ instance Data.FromJSON S3StorageConfig where
 
 instance Prelude.Hashable S3StorageConfig where
   hashWithSalt _salt S3StorageConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` resolvedOutputS3Uri
       `Prelude.hashWithSalt` s3Uri
 

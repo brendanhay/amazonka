@@ -130,7 +130,8 @@ instance Core.AWSRequest UpdateAction where
 
 instance Prelude.Hashable UpdateAction where
   hashWithSalt _salt UpdateAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` propertiesToRemove
       `Prelude.hashWithSalt` status

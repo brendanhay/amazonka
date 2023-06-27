@@ -80,7 +80,8 @@ instance Data.FromJSON EndpointPerformance where
 
 instance Prelude.Hashable EndpointPerformance where
   hashWithSalt _salt EndpointPerformance' {..} =
-    _salt `Prelude.hashWithSalt` metrics
+    _salt
+      `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` endpointInfo
 
 instance Prelude.NFData EndpointPerformance where

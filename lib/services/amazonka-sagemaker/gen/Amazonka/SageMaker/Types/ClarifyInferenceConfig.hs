@@ -382,7 +382,8 @@ instance Data.FromJSON ClarifyInferenceConfig where
 
 instance Prelude.Hashable ClarifyInferenceConfig where
   hashWithSalt _salt ClarifyInferenceConfig' {..} =
-    _salt `Prelude.hashWithSalt` contentTemplate
+    _salt
+      `Prelude.hashWithSalt` contentTemplate
       `Prelude.hashWithSalt` featureHeaders
       `Prelude.hashWithSalt` featureTypes
       `Prelude.hashWithSalt` featuresAttribute

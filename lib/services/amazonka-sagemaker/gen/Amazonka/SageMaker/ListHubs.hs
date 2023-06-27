@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- List all existing hubs.
+--
+-- Hub APIs are only callable through SageMaker Studio.
 module Amazonka.SageMaker.ListHubs
   ( -- * Creating a Request
     ListHubs (..),
@@ -176,7 +178,8 @@ instance Core.AWSRequest ListHubs where
 
 instance Prelude.Hashable ListHubs where
   hashWithSalt _salt ListHubs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

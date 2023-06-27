@@ -164,12 +164,15 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     -- returned when the endpoint is creating or updating with a new endpoint
     -- configuration.
     pendingDeploymentSummary :: Prelude.Maybe PendingDeploymentSummary,
-    -- | An array of ProductionVariantSummary objects, one for each model hosted
-    -- behind this endpoint.
+    -- | An array of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html ProductionVariantSummary>
+    -- objects, one for each model hosted behind this endpoint.
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
-    -- | An array of ProductionVariantSummary objects, one for each model that
-    -- you want to host at this endpoint in shadow mode with production traffic
-    -- replicated from the model specified on @ProductionVariants@.
+    -- | An array of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html ProductionVariantSummary>
+    -- objects, one for each model that you want to host at this endpoint in
+    -- shadow mode with production traffic replicated from the model specified
+    -- on @ProductionVariants@.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -183,10 +186,15 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     --
     -- -   @OutOfService@: Endpoint is not available to take incoming requests.
     --
-    -- -   @Creating@: CreateEndpoint is executing.
+    -- -   @Creating@:
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+    --     is executing.
     --
-    -- -   @Updating@: UpdateEndpoint or UpdateEndpointWeightsAndCapacities is
-    --     executing.
+    -- -   @Updating@:
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html UpdateEndpoint>
+    --     or
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+    --     is executing.
     --
     -- -   @SystemUpdating@: Endpoint is undergoing maintenance and cannot be
     --     updated or deleted or re-scaled until it has completed. This
@@ -200,17 +208,23 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     --     @InService@ status. This transitional status only applies to an
     --     endpoint that has autoscaling enabled and is undergoing variant
     --     weight or capacity changes as part of an
-    --     UpdateEndpointWeightsAndCapacities call or when the
-    --     UpdateEndpointWeightsAndCapacities operation is called explicitly.
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+    --     call or when the
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+    --     operation is called explicitly.
     --
     -- -   @InService@: Endpoint is available to process incoming requests.
     --
-    -- -   @Deleting@: DeleteEndpoint is executing.
+    -- -   @Deleting@:
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html DeleteEndpoint>
+    --     is executing.
     --
     -- -   @Failed@: Endpoint could not be created, updated, or re-scaled. Use
-    --     DescribeEndpointOutput$FailureReason for information about the
-    --     failure. DeleteEndpoint is the only operation that can be performed
-    --     on a failed endpoint.
+    --     the @FailureReason@ value returned by
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html DescribeEndpoint>
+    --     for information about the failure.
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html DeleteEndpoint>
+    --     is the only operation that can be performed on a failed endpoint.
     endpointStatus :: EndpointStatus,
     -- | A timestamp that shows when the endpoint was created.
     creationTime :: Data.POSIX,
@@ -243,12 +257,15 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- returned when the endpoint is creating or updating with a new endpoint
 -- configuration.
 --
--- 'productionVariants', 'describeEndpointResponse_productionVariants' - An array of ProductionVariantSummary objects, one for each model hosted
--- behind this endpoint.
+-- 'productionVariants', 'describeEndpointResponse_productionVariants' - An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html ProductionVariantSummary>
+-- objects, one for each model hosted behind this endpoint.
 --
--- 'shadowProductionVariants', 'describeEndpointResponse_shadowProductionVariants' - An array of ProductionVariantSummary objects, one for each model that
--- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.
+-- 'shadowProductionVariants', 'describeEndpointResponse_shadowProductionVariants' - An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html ProductionVariantSummary>
+-- objects, one for each model that you want to host at this endpoint in
+-- shadow mode with production traffic replicated from the model specified
+-- on @ProductionVariants@.
 --
 -- 'httpStatus', 'describeEndpointResponse_httpStatus' - The response's http status code.
 --
@@ -262,10 +279,15 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 --
 -- -   @OutOfService@: Endpoint is not available to take incoming requests.
 --
--- -   @Creating@: CreateEndpoint is executing.
+-- -   @Creating@:
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+--     is executing.
 --
--- -   @Updating@: UpdateEndpoint or UpdateEndpointWeightsAndCapacities is
---     executing.
+-- -   @Updating@:
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html UpdateEndpoint>
+--     or
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+--     is executing.
 --
 -- -   @SystemUpdating@: Endpoint is undergoing maintenance and cannot be
 --     updated or deleted or re-scaled until it has completed. This
@@ -279,17 +301,23 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 --     @InService@ status. This transitional status only applies to an
 --     endpoint that has autoscaling enabled and is undergoing variant
 --     weight or capacity changes as part of an
---     UpdateEndpointWeightsAndCapacities call or when the
---     UpdateEndpointWeightsAndCapacities operation is called explicitly.
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+--     call or when the
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+--     operation is called explicitly.
 --
 -- -   @InService@: Endpoint is available to process incoming requests.
 --
--- -   @Deleting@: DeleteEndpoint is executing.
+-- -   @Deleting@:
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html DeleteEndpoint>
+--     is executing.
 --
 -- -   @Failed@: Endpoint could not be created, updated, or re-scaled. Use
---     DescribeEndpointOutput$FailureReason for information about the
---     failure. DeleteEndpoint is the only operation that can be performed
---     on a failed endpoint.
+--     the @FailureReason@ value returned by
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html DescribeEndpoint>
+--     for information about the failure.
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html DeleteEndpoint>
+--     is the only operation that can be performed on a failed endpoint.
 --
 -- 'creationTime', 'describeEndpointResponse_creationTime' - A timestamp that shows when the endpoint was created.
 --
@@ -366,14 +394,17 @@ describeEndpointResponse_lastDeploymentConfig = Lens.lens (\DescribeEndpointResp
 describeEndpointResponse_pendingDeploymentSummary :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe PendingDeploymentSummary)
 describeEndpointResponse_pendingDeploymentSummary = Lens.lens (\DescribeEndpointResponse' {pendingDeploymentSummary} -> pendingDeploymentSummary) (\s@DescribeEndpointResponse' {} a -> s {pendingDeploymentSummary = a} :: DescribeEndpointResponse)
 
--- | An array of ProductionVariantSummary objects, one for each model hosted
--- behind this endpoint.
+-- | An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html ProductionVariantSummary>
+-- objects, one for each model hosted behind this endpoint.
 describeEndpointResponse_productionVariants :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 describeEndpointResponse_productionVariants = Lens.lens (\DescribeEndpointResponse' {productionVariants} -> productionVariants) (\s@DescribeEndpointResponse' {} a -> s {productionVariants = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of ProductionVariantSummary objects, one for each model that
--- you want to host at this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@.
+-- | An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariantSummary.html ProductionVariantSummary>
+-- objects, one for each model that you want to host at this endpoint in
+-- shadow mode with production traffic replicated from the model specified
+-- on @ProductionVariants@.
 describeEndpointResponse_shadowProductionVariants :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 describeEndpointResponse_shadowProductionVariants = Lens.lens (\DescribeEndpointResponse' {shadowProductionVariants} -> shadowProductionVariants) (\s@DescribeEndpointResponse' {} a -> s {shadowProductionVariants = a} :: DescribeEndpointResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -397,10 +428,15 @@ describeEndpointResponse_endpointConfigName = Lens.lens (\DescribeEndpointRespon
 --
 -- -   @OutOfService@: Endpoint is not available to take incoming requests.
 --
--- -   @Creating@: CreateEndpoint is executing.
+-- -   @Creating@:
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+--     is executing.
 --
--- -   @Updating@: UpdateEndpoint or UpdateEndpointWeightsAndCapacities is
---     executing.
+-- -   @Updating@:
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html UpdateEndpoint>
+--     or
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+--     is executing.
 --
 -- -   @SystemUpdating@: Endpoint is undergoing maintenance and cannot be
 --     updated or deleted or re-scaled until it has completed. This
@@ -414,17 +450,23 @@ describeEndpointResponse_endpointConfigName = Lens.lens (\DescribeEndpointRespon
 --     @InService@ status. This transitional status only applies to an
 --     endpoint that has autoscaling enabled and is undergoing variant
 --     weight or capacity changes as part of an
---     UpdateEndpointWeightsAndCapacities call or when the
---     UpdateEndpointWeightsAndCapacities operation is called explicitly.
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+--     call or when the
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpointWeightsAndCapacities.html UpdateEndpointWeightsAndCapacities>
+--     operation is called explicitly.
 --
 -- -   @InService@: Endpoint is available to process incoming requests.
 --
--- -   @Deleting@: DeleteEndpoint is executing.
+-- -   @Deleting@:
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html DeleteEndpoint>
+--     is executing.
 --
 -- -   @Failed@: Endpoint could not be created, updated, or re-scaled. Use
---     DescribeEndpointOutput$FailureReason for information about the
---     failure. DeleteEndpoint is the only operation that can be performed
---     on a failed endpoint.
+--     the @FailureReason@ value returned by
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html DescribeEndpoint>
+--     for information about the failure.
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEndpoint.html DeleteEndpoint>
+--     is the only operation that can be performed on a failed endpoint.
 describeEndpointResponse_endpointStatus :: Lens.Lens' DescribeEndpointResponse EndpointStatus
 describeEndpointResponse_endpointStatus = Lens.lens (\DescribeEndpointResponse' {endpointStatus} -> endpointStatus) (\s@DescribeEndpointResponse' {} a -> s {endpointStatus = a} :: DescribeEndpointResponse)
 

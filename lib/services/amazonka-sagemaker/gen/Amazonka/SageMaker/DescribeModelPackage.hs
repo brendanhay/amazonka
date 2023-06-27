@@ -128,7 +128,8 @@ instance Core.AWSRequest DescribeModelPackage where
             Prelude.<*> (x Data..?> "ApprovalDescription")
             Prelude.<*> (x Data..?> "CertifyForMarketplace")
             Prelude.<*> (x Data..?> "CreatedBy")
-            Prelude.<*> ( x Data..?> "CustomerMetadataProperties"
+            Prelude.<*> ( x
+                            Data..?> "CustomerMetadataProperties"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Domain")

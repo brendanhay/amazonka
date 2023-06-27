@@ -61,7 +61,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDescribePipeline' smart constructor.
 data DescribePipeline = DescribePipeline'
-  { -- | The name of the pipeline to describe.
+  { -- | The name or Amazon Resource Name (ARN) of the pipeline to describe.
     pipelineName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data DescribePipeline = DescribePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineName', 'describePipeline_pipelineName' - The name of the pipeline to describe.
+-- 'pipelineName', 'describePipeline_pipelineName' - The name or Amazon Resource Name (ARN) of the pipeline to describe.
 newDescribePipeline ::
   -- | 'pipelineName'
   Prelude.Text ->
@@ -82,7 +82,7 @@ newDescribePipeline ::
 newDescribePipeline pPipelineName_ =
   DescribePipeline' {pipelineName = pPipelineName_}
 
--- | The name of the pipeline to describe.
+-- | The name or Amazon Resource Name (ARN) of the pipeline to describe.
 describePipeline_pipelineName :: Lens.Lens' DescribePipeline Prelude.Text
 describePipeline_pipelineName = Lens.lens (\DescribePipeline' {pipelineName} -> pipelineName) (\s@DescribePipeline' {} a -> s {pipelineName = a} :: DescribePipeline)
 

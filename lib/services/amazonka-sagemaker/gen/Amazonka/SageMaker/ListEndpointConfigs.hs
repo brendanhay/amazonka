@@ -158,21 +158,21 @@ instance Core.AWSPager ListEndpointConfigs where
     | Core.stop
         ( rs
             Lens.^? listEndpointConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listEndpointConfigsResponse_endpointConfigs
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEndpointConfigs_nextToken
           Lens..~ rs
           Lens.^? listEndpointConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEndpointConfigs where
   type
@@ -186,14 +186,16 @@ instance Core.AWSRequest ListEndpointConfigs where
           ListEndpointConfigsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "EndpointConfigs"
+            Prelude.<*> ( x
+                            Data..?> "EndpointConfigs"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListEndpointConfigs where
   hashWithSalt _salt ListEndpointConfigs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains

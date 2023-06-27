@@ -123,7 +123,8 @@ instance Data.FromJSON ModelDashboardEndpoint where
 
 instance Prelude.Hashable ModelDashboardEndpoint where
   hashWithSalt _salt ModelDashboardEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` endpointName
+    _salt
+      `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOnlineStoreSecurityConfig' smart constructor.
 data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
-  { -- | The ID of the Amazon Web Services Key Management Service (Amazon Web
-    -- Services KMS) key that SageMaker Feature Store uses to encrypt the
-    -- Amazon S3 objects at rest using Amazon S3 server-side encryption.
+  { -- | The Amazon Web Services Key Management Service (KMS) key ARN that
+    -- SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest
+    -- using Amazon S3 server-side encryption.
     --
-    -- The caller (either IAM user or IAM role) of @CreateFeatureGroup@ must
-    -- have below permissions to the @OnlineStore@ @KmsKeyId@:
+    -- The caller (either user or IAM role) of @CreateFeatureGroup@ must have
+    -- below permissions to the @OnlineStore@ @KmsKeyId@:
     --
     -- -   @\"kms:Encrypt\"@
     --
@@ -57,7 +57,7 @@ data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
     --
     -- -   @\"kms:RevokeGrant\"@
     --
-    -- The caller (either IAM user or IAM role) to all DataPlane operations
+    -- The caller (either user or IAM role) to all DataPlane operations
     -- (@PutRecord@, @GetRecord@, @DeleteRecord@) must have the following
     -- permissions to the @KmsKeyId@:
     --
@@ -74,12 +74,12 @@ data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'onlineStoreSecurityConfig_kmsKeyId' - The ID of the Amazon Web Services Key Management Service (Amazon Web
--- Services KMS) key that SageMaker Feature Store uses to encrypt the
--- Amazon S3 objects at rest using Amazon S3 server-side encryption.
+-- 'kmsKeyId', 'onlineStoreSecurityConfig_kmsKeyId' - The Amazon Web Services Key Management Service (KMS) key ARN that
+-- SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest
+-- using Amazon S3 server-side encryption.
 --
--- The caller (either IAM user or IAM role) of @CreateFeatureGroup@ must
--- have below permissions to the @OnlineStore@ @KmsKeyId@:
+-- The caller (either user or IAM role) of @CreateFeatureGroup@ must have
+-- below permissions to the @OnlineStore@ @KmsKeyId@:
 --
 -- -   @\"kms:Encrypt\"@
 --
@@ -103,7 +103,7 @@ data OnlineStoreSecurityConfig = OnlineStoreSecurityConfig'
 --
 -- -   @\"kms:RevokeGrant\"@
 --
--- The caller (either IAM user or IAM role) to all DataPlane operations
+-- The caller (either user or IAM role) to all DataPlane operations
 -- (@PutRecord@, @GetRecord@, @DeleteRecord@) must have the following
 -- permissions to the @KmsKeyId@:
 --
@@ -116,12 +116,12 @@ newOnlineStoreSecurityConfig =
         Prelude.Nothing
     }
 
--- | The ID of the Amazon Web Services Key Management Service (Amazon Web
--- Services KMS) key that SageMaker Feature Store uses to encrypt the
--- Amazon S3 objects at rest using Amazon S3 server-side encryption.
+-- | The Amazon Web Services Key Management Service (KMS) key ARN that
+-- SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest
+-- using Amazon S3 server-side encryption.
 --
--- The caller (either IAM user or IAM role) of @CreateFeatureGroup@ must
--- have below permissions to the @OnlineStore@ @KmsKeyId@:
+-- The caller (either user or IAM role) of @CreateFeatureGroup@ must have
+-- below permissions to the @OnlineStore@ @KmsKeyId@:
 --
 -- -   @\"kms:Encrypt\"@
 --
@@ -145,7 +145,7 @@ newOnlineStoreSecurityConfig =
 --
 -- -   @\"kms:RevokeGrant\"@
 --
--- The caller (either IAM user or IAM role) to all DataPlane operations
+-- The caller (either user or IAM role) to all DataPlane operations
 -- (@PutRecord@, @GetRecord@, @DeleteRecord@) must have the following
 -- permissions to the @KmsKeyId@:
 --

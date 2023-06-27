@@ -39,16 +39,26 @@
 -- (Boto), you must use the logging APIs provided by the SDK.
 --
 -- You can add tags to experiments, trials, trial components and then use
--- the Search API to search for the tags.
+-- the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search for the tags.
 --
 -- To add a description to an experiment, specify the optional
 -- @Description@ parameter. To add a description later, or to change the
--- description, call the UpdateExperiment API.
+-- description, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateExperiment.html UpdateExperiment>
+-- API.
 --
--- To get a list of all your experiments, call the ListExperiments API. To
--- view an experiment\'s properties, call the DescribeExperiment API. To
--- get a list of all the trials associated with an experiment, call the
--- ListTrials API. To create a trial call the CreateTrial API.
+-- To get a list of all your experiments, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListExperiments.html ListExperiments>
+-- API. To view an experiment\'s properties, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html DescribeExperiment>
+-- API. To get a list of all the trials associated with an experiment, call
+-- the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html ListTrials>
+-- API. To create a trial call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrial.html CreateTrial>
+-- API.
 module Amazonka.SageMaker.CreateExperiment
   ( -- * Creating a Request
     CreateExperiment (..),
@@ -86,8 +96,9 @@ data CreateExperiment = CreateExperiment'
     -- unique. If you don\'t specify @DisplayName@, the value in
     -- @ExperimentName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | A list of tags to associate with the experiment. You can use Search API
-    -- to search on the tags.
+    -- | A list of tags to associate with the experiment. You can use
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+    -- API to search on the tags.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the experiment. The name must be unique in your Amazon Web
     -- Services account and is not case-sensitive.
@@ -109,8 +120,9 @@ data CreateExperiment = CreateExperiment'
 -- unique. If you don\'t specify @DisplayName@, the value in
 -- @ExperimentName@ is displayed.
 --
--- 'tags', 'createExperiment_tags' - A list of tags to associate with the experiment. You can use Search API
--- to search on the tags.
+-- 'tags', 'createExperiment_tags' - A list of tags to associate with the experiment. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 --
 -- 'experimentName', 'createExperiment_experimentName' - The name of the experiment. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -136,8 +148,9 @@ createExperiment_description = Lens.lens (\CreateExperiment' {description} -> de
 createExperiment_displayName :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
 createExperiment_displayName = Lens.lens (\CreateExperiment' {displayName} -> displayName) (\s@CreateExperiment' {} a -> s {displayName = a} :: CreateExperiment)
 
--- | A list of tags to associate with the experiment. You can use Search API
--- to search on the tags.
+-- | A list of tags to associate with the experiment. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 createExperiment_tags :: Lens.Lens' CreateExperiment (Prelude.Maybe [Tag])
 createExperiment_tags = Lens.lens (\CreateExperiment' {tags} -> tags) (\s@CreateExperiment' {} a -> s {tags = a} :: CreateExperiment) Prelude.. Lens.mapping Lens.coerced
 
@@ -162,7 +175,8 @@ instance Core.AWSRequest CreateExperiment where
 
 instance Prelude.Hashable CreateExperiment where
   hashWithSalt _salt CreateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` experimentName

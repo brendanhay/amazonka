@@ -48,6 +48,10 @@ module Amazonka.SageMaker.Types.InstanceType
         InstanceType_Ml_g5_4xlarge,
         InstanceType_Ml_g5_8xlarge,
         InstanceType_Ml_g5_xlarge,
+        InstanceType_Ml_inf1_24xlarge,
+        InstanceType_Ml_inf1_2xlarge,
+        InstanceType_Ml_inf1_6xlarge,
+        InstanceType_Ml_inf1_xlarge,
         InstanceType_Ml_m4_10xlarge,
         InstanceType_Ml_m4_16xlarge,
         InstanceType_Ml_m4_2xlarge,
@@ -73,6 +77,8 @@ module Amazonka.SageMaker.Types.InstanceType
         InstanceType_Ml_p3_2xlarge,
         InstanceType_Ml_p3_8xlarge,
         InstanceType_Ml_p3dn_24xlarge,
+        InstanceType_Ml_p4d_24xlarge,
+        InstanceType_Ml_p4de_24xlarge,
         InstanceType_Ml_r5_12xlarge,
         InstanceType_Ml_r5_16xlarge,
         InstanceType_Ml_r5_24xlarge,
@@ -209,6 +215,18 @@ pattern InstanceType_Ml_g5_8xlarge = InstanceType' "ml.g5.8xlarge"
 pattern InstanceType_Ml_g5_xlarge :: InstanceType
 pattern InstanceType_Ml_g5_xlarge = InstanceType' "ml.g5.xlarge"
 
+pattern InstanceType_Ml_inf1_24xlarge :: InstanceType
+pattern InstanceType_Ml_inf1_24xlarge = InstanceType' "ml.inf1.24xlarge"
+
+pattern InstanceType_Ml_inf1_2xlarge :: InstanceType
+pattern InstanceType_Ml_inf1_2xlarge = InstanceType' "ml.inf1.2xlarge"
+
+pattern InstanceType_Ml_inf1_6xlarge :: InstanceType
+pattern InstanceType_Ml_inf1_6xlarge = InstanceType' "ml.inf1.6xlarge"
+
+pattern InstanceType_Ml_inf1_xlarge :: InstanceType
+pattern InstanceType_Ml_inf1_xlarge = InstanceType' "ml.inf1.xlarge"
+
 pattern InstanceType_Ml_m4_10xlarge :: InstanceType
 pattern InstanceType_Ml_m4_10xlarge = InstanceType' "ml.m4.10xlarge"
 
@@ -283,6 +301,12 @@ pattern InstanceType_Ml_p3_8xlarge = InstanceType' "ml.p3.8xlarge"
 
 pattern InstanceType_Ml_p3dn_24xlarge :: InstanceType
 pattern InstanceType_Ml_p3dn_24xlarge = InstanceType' "ml.p3dn.24xlarge"
+
+pattern InstanceType_Ml_p4d_24xlarge :: InstanceType
+pattern InstanceType_Ml_p4d_24xlarge = InstanceType' "ml.p4d.24xlarge"
+
+pattern InstanceType_Ml_p4de_24xlarge :: InstanceType
+pattern InstanceType_Ml_p4de_24xlarge = InstanceType' "ml.p4de.24xlarge"
 
 pattern InstanceType_Ml_r5_12xlarge :: InstanceType
 pattern InstanceType_Ml_r5_12xlarge = InstanceType' "ml.r5.12xlarge"
@@ -361,6 +385,10 @@ pattern InstanceType_Ml_t3_xlarge = InstanceType' "ml.t3.xlarge"
   InstanceType_Ml_g5_4xlarge,
   InstanceType_Ml_g5_8xlarge,
   InstanceType_Ml_g5_xlarge,
+  InstanceType_Ml_inf1_24xlarge,
+  InstanceType_Ml_inf1_2xlarge,
+  InstanceType_Ml_inf1_6xlarge,
+  InstanceType_Ml_inf1_xlarge,
   InstanceType_Ml_m4_10xlarge,
   InstanceType_Ml_m4_16xlarge,
   InstanceType_Ml_m4_2xlarge,
@@ -386,6 +414,8 @@ pattern InstanceType_Ml_t3_xlarge = InstanceType' "ml.t3.xlarge"
   InstanceType_Ml_p3_2xlarge,
   InstanceType_Ml_p3_8xlarge,
   InstanceType_Ml_p3dn_24xlarge,
+  InstanceType_Ml_p4d_24xlarge,
+  InstanceType_Ml_p4de_24xlarge,
   InstanceType_Ml_r5_12xlarge,
   InstanceType_Ml_r5_16xlarge,
   InstanceType_Ml_r5_24xlarge,

@@ -121,7 +121,8 @@ instance Data.FromJSON FlowDefinitionSummary where
 
 instance Prelude.Hashable FlowDefinitionSummary where
   hashWithSalt _salt FlowDefinitionSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` flowDefinitionName
       `Prelude.hashWithSalt` flowDefinitionArn
       `Prelude.hashWithSalt` flowDefinitionStatus

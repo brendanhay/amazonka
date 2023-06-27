@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ProductionVariantServerlessUpdateConfig
 
 -- | Specifies weight and capacity values for a production variant.
 --
@@ -32,6 +33,9 @@ data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
     desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | The variant\'s weight.
     desiredWeight :: Prelude.Maybe Prelude.Double,
+    -- | Specifies the serverless update concurrency configuration for an
+    -- endpoint variant.
+    serverlessUpdateConfig :: Prelude.Maybe ProductionVariantServerlessUpdateConfig,
     -- | The name of the variant to update.
     variantName :: Prelude.Text
   }
@@ -49,6 +53,9 @@ data DesiredWeightAndCapacity = DesiredWeightAndCapacity'
 --
 -- 'desiredWeight', 'desiredWeightAndCapacity_desiredWeight' - The variant\'s weight.
 --
+-- 'serverlessUpdateConfig', 'desiredWeightAndCapacity_serverlessUpdateConfig' - Specifies the serverless update concurrency configuration for an
+-- endpoint variant.
+--
 -- 'variantName', 'desiredWeightAndCapacity_variantName' - The name of the variant to update.
 newDesiredWeightAndCapacity ::
   -- | 'variantName'
@@ -59,6 +66,7 @@ newDesiredWeightAndCapacity pVariantName_ =
     { desiredInstanceCount =
         Prelude.Nothing,
       desiredWeight = Prelude.Nothing,
+      serverlessUpdateConfig = Prelude.Nothing,
       variantName = pVariantName_
     }
 
@@ -70,20 +78,28 @@ desiredWeightAndCapacity_desiredInstanceCount = Lens.lens (\DesiredWeightAndCapa
 desiredWeightAndCapacity_desiredWeight :: Lens.Lens' DesiredWeightAndCapacity (Prelude.Maybe Prelude.Double)
 desiredWeightAndCapacity_desiredWeight = Lens.lens (\DesiredWeightAndCapacity' {desiredWeight} -> desiredWeight) (\s@DesiredWeightAndCapacity' {} a -> s {desiredWeight = a} :: DesiredWeightAndCapacity)
 
+-- | Specifies the serverless update concurrency configuration for an
+-- endpoint variant.
+desiredWeightAndCapacity_serverlessUpdateConfig :: Lens.Lens' DesiredWeightAndCapacity (Prelude.Maybe ProductionVariantServerlessUpdateConfig)
+desiredWeightAndCapacity_serverlessUpdateConfig = Lens.lens (\DesiredWeightAndCapacity' {serverlessUpdateConfig} -> serverlessUpdateConfig) (\s@DesiredWeightAndCapacity' {} a -> s {serverlessUpdateConfig = a} :: DesiredWeightAndCapacity)
+
 -- | The name of the variant to update.
 desiredWeightAndCapacity_variantName :: Lens.Lens' DesiredWeightAndCapacity Prelude.Text
 desiredWeightAndCapacity_variantName = Lens.lens (\DesiredWeightAndCapacity' {variantName} -> variantName) (\s@DesiredWeightAndCapacity' {} a -> s {variantName = a} :: DesiredWeightAndCapacity)
 
 instance Prelude.Hashable DesiredWeightAndCapacity where
   hashWithSalt _salt DesiredWeightAndCapacity' {..} =
-    _salt `Prelude.hashWithSalt` desiredInstanceCount
+    _salt
+      `Prelude.hashWithSalt` desiredInstanceCount
       `Prelude.hashWithSalt` desiredWeight
+      `Prelude.hashWithSalt` serverlessUpdateConfig
       `Prelude.hashWithSalt` variantName
 
 instance Prelude.NFData DesiredWeightAndCapacity where
   rnf DesiredWeightAndCapacity' {..} =
     Prelude.rnf desiredInstanceCount
       `Prelude.seq` Prelude.rnf desiredWeight
+      `Prelude.seq` Prelude.rnf serverlessUpdateConfig
       `Prelude.seq` Prelude.rnf variantName
 
 instance Data.ToJSON DesiredWeightAndCapacity where
@@ -93,6 +109,8 @@ instance Data.ToJSON DesiredWeightAndCapacity where
           [ ("DesiredInstanceCount" Data..=)
               Prelude.<$> desiredInstanceCount,
             ("DesiredWeight" Data..=) Prelude.<$> desiredWeight,
+            ("ServerlessUpdateConfig" Data..=)
+              Prelude.<$> serverlessUpdateConfig,
             Prelude.Just ("VariantName" Data..= variantName)
           ]
       )

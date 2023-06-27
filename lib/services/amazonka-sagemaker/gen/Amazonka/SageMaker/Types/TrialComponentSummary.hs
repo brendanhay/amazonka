@@ -28,8 +28,9 @@ import Amazonka.SageMaker.Types.TrialComponentStatus
 import Amazonka.SageMaker.Types.UserContext
 
 -- | A summary of the properties of a trial component. To get all the
--- properties, call the DescribeTrialComponent API and provide the
--- @TrialComponentName@.
+-- properties, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html DescribeTrialComponent>
+-- API and provide the @TrialComponentName@.
 --
 -- /See:/ 'newTrialComponentSummary' smart constructor.
 data TrialComponentSummary = TrialComponentSummary'
@@ -189,7 +190,8 @@ instance Data.FromJSON TrialComponentSummary where
 
 instance Prelude.Hashable TrialComponentSummary where
   hashWithSalt _salt TrialComponentSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` endTime

@@ -30,7 +30,10 @@ import Amazonka.SageMaker.Types.EnvironmentParameter
 --
 -- /See:/ 'newModelConfiguration' smart constructor.
 data ModelConfiguration = ModelConfiguration'
-  { -- | Defines the environment parameters that includes key, value types, and
+  { -- | The name of the compilation job used to create the recommended model
+    -- artifacts.
+    compilationJobName :: Prelude.Maybe Prelude.Text,
+    -- | Defines the environment parameters that includes key, value types, and
     -- values.
     environmentParameters :: Prelude.Maybe (Prelude.NonEmpty EnvironmentParameter),
     -- | The inference specification name in the model package version.
@@ -46,6 +49,9 @@ data ModelConfiguration = ModelConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'compilationJobName', 'modelConfiguration_compilationJobName' - The name of the compilation job used to create the recommended model
+-- artifacts.
+--
 -- 'environmentParameters', 'modelConfiguration_environmentParameters' - Defines the environment parameters that includes key, value types, and
 -- values.
 --
@@ -54,10 +60,16 @@ newModelConfiguration ::
   ModelConfiguration
 newModelConfiguration =
   ModelConfiguration'
-    { environmentParameters =
+    { compilationJobName =
         Prelude.Nothing,
+      environmentParameters = Prelude.Nothing,
       inferenceSpecificationName = Prelude.Nothing
     }
+
+-- | The name of the compilation job used to create the recommended model
+-- artifacts.
+modelConfiguration_compilationJobName :: Lens.Lens' ModelConfiguration (Prelude.Maybe Prelude.Text)
+modelConfiguration_compilationJobName = Lens.lens (\ModelConfiguration' {compilationJobName} -> compilationJobName) (\s@ModelConfiguration' {} a -> s {compilationJobName = a} :: ModelConfiguration)
 
 -- | Defines the environment parameters that includes key, value types, and
 -- values.
@@ -74,16 +86,20 @@ instance Data.FromJSON ModelConfiguration where
       "ModelConfiguration"
       ( \x ->
           ModelConfiguration'
-            Prelude.<$> (x Data..:? "EnvironmentParameters")
+            Prelude.<$> (x Data..:? "CompilationJobName")
+            Prelude.<*> (x Data..:? "EnvironmentParameters")
             Prelude.<*> (x Data..:? "InferenceSpecificationName")
       )
 
 instance Prelude.Hashable ModelConfiguration where
   hashWithSalt _salt ModelConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` environmentParameters
+    _salt
+      `Prelude.hashWithSalt` compilationJobName
+      `Prelude.hashWithSalt` environmentParameters
       `Prelude.hashWithSalt` inferenceSpecificationName
 
 instance Prelude.NFData ModelConfiguration where
   rnf ModelConfiguration' {..} =
-    Prelude.rnf environmentParameters
+    Prelude.rnf compilationJobName
+      `Prelude.seq` Prelude.rnf environmentParameters
       `Prelude.seq` Prelude.rnf inferenceSpecificationName

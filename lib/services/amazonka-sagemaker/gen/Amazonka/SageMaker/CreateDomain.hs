@@ -23,9 +23,8 @@
 -- Creates a @Domain@ used by Amazon SageMaker Studio. A domain consists of
 -- an associated Amazon Elastic File System (EFS) volume, a list of
 -- authorized users, and a variety of security, application, policy, and
--- Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web
--- Services account is limited to one domain per region. Users within a
--- domain can share notebook files and other artifacts with each other.
+-- Amazon Virtual Private Cloud (VPC) configurations. Users within a domain
+-- can share notebook files and other artifacts with each other.
 --
 -- __EFS storage__
 --
@@ -119,7 +118,8 @@ data CreateDomain = CreateDomain'
     -- inter-app communication in @VPCOnly@ mode. Required when
     -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
     -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
-    -- is provided.
+    -- is provided. If setting up the domain for use with RStudio, this value
+    -- must be set to @Service@.
     appSecurityGroupManagement :: Prelude.Maybe AppSecurityGroupManagement,
     -- | The default settings used to create a space.
     defaultSpaceSettings :: Prelude.Maybe DefaultSpaceSettings,
@@ -179,7 +179,8 @@ data CreateDomain = CreateDomain'
 -- inter-app communication in @VPCOnly@ mode. Required when
 -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
 -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
--- is provided.
+-- is provided. If setting up the domain for use with RStudio, this value
+-- must be set to @Service@.
 --
 -- 'defaultSpaceSettings', 'createDomain_defaultSpaceSettings' - The default settings used to create a space.
 --
@@ -263,7 +264,8 @@ createDomain_appNetworkAccessType = Lens.lens (\CreateDomain' {appNetworkAccessT
 -- inter-app communication in @VPCOnly@ mode. Required when
 -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
 -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
--- is provided.
+-- is provided. If setting up the domain for use with RStudio, this value
+-- must be set to @Service@.
 createDomain_appSecurityGroupManagement :: Lens.Lens' CreateDomain (Prelude.Maybe AppSecurityGroupManagement)
 createDomain_appSecurityGroupManagement = Lens.lens (\CreateDomain' {appSecurityGroupManagement} -> appSecurityGroupManagement) (\s@CreateDomain' {} a -> s {appSecurityGroupManagement = a} :: CreateDomain)
 
@@ -336,7 +338,8 @@ instance Core.AWSRequest CreateDomain where
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =
-    _salt `Prelude.hashWithSalt` appNetworkAccessType
+    _salt
+      `Prelude.hashWithSalt` appNetworkAccessType
       `Prelude.hashWithSalt` appSecurityGroupManagement
       `Prelude.hashWithSalt` defaultSpaceSettings
       `Prelude.hashWithSalt` domainSettings

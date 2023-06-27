@@ -187,22 +187,22 @@ instance Core.AWSPager ListImageVersions where
     | Core.stop
         ( rs
             Lens.^? listImageVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listImageVersionsResponse_imageVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listImageVersions_nextToken
           Lens..~ rs
           Lens.^? listImageVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImageVersions where
   type
@@ -221,7 +221,8 @@ instance Core.AWSRequest ListImageVersions where
 
 instance Prelude.Hashable ListImageVersions where
   hashWithSalt _salt ListImageVersions' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

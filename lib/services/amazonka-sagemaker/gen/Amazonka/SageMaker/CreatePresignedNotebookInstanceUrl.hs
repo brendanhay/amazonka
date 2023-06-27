@@ -39,7 +39,8 @@
 -- instance. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/security_iam_id-based-policy-examples.html#nbi-ip-filter Limit Access to a Notebook Instance by IP Address>.
 --
--- The URL that you get from a call to CreatePresignedNotebookInstanceUrl
+-- The URL that you get from a call to
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePresignedNotebookInstanceUrl.html CreatePresignedNotebookInstanceUrl>
 -- is valid only for 5 minutes. If you try to use the URL after the
 -- 5-minute limit expires, you are directed to the Amazon Web Services
 -- console sign-in page.
@@ -125,7 +126,7 @@ instance
       ( \s h x ->
           CreatePresignedNotebookInstanceUrlResponse'
             Prelude.<$> (x Data..?> "AuthorizedUrl")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

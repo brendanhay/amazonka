@@ -32,7 +32,8 @@ data EndpointMetadata = EndpointMetadata'
   { -- | The name of the endpoint configuration.
     endpointConfigName :: Prelude.Maybe Prelude.Text,
     -- | The status of the endpoint. For possible values of the status of an
-    -- endpoint, see EndpointSummary$EndpointStatus.
+    -- endpoint, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html EndpointSummary>.
     endpointStatus :: Prelude.Maybe EndpointStatus,
     -- | If the status of the endpoint is @Failed@, or the status is @InService@
     -- but update operation fails, this provides the reason why it failed.
@@ -53,7 +54,8 @@ data EndpointMetadata = EndpointMetadata'
 -- 'endpointConfigName', 'endpointMetadata_endpointConfigName' - The name of the endpoint configuration.
 --
 -- 'endpointStatus', 'endpointMetadata_endpointStatus' - The status of the endpoint. For possible values of the status of an
--- endpoint, see EndpointSummary$EndpointStatus.
+-- endpoint, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html EndpointSummary>.
 --
 -- 'failureReason', 'endpointMetadata_failureReason' - If the status of the endpoint is @Failed@, or the status is @InService@
 -- but update operation fails, this provides the reason why it failed.
@@ -77,7 +79,8 @@ endpointMetadata_endpointConfigName :: Lens.Lens' EndpointMetadata (Prelude.Mayb
 endpointMetadata_endpointConfigName = Lens.lens (\EndpointMetadata' {endpointConfigName} -> endpointConfigName) (\s@EndpointMetadata' {} a -> s {endpointConfigName = a} :: EndpointMetadata)
 
 -- | The status of the endpoint. For possible values of the status of an
--- endpoint, see EndpointSummary$EndpointStatus.
+-- endpoint, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_EndpointSummary.html EndpointSummary>.
 endpointMetadata_endpointStatus :: Lens.Lens' EndpointMetadata (Prelude.Maybe EndpointStatus)
 endpointMetadata_endpointStatus = Lens.lens (\EndpointMetadata' {endpointStatus} -> endpointStatus) (\s@EndpointMetadata' {} a -> s {endpointStatus = a} :: EndpointMetadata)
 
@@ -104,7 +107,8 @@ instance Data.FromJSON EndpointMetadata where
 
 instance Prelude.Hashable EndpointMetadata where
   hashWithSalt _salt EndpointMetadata' {..} =
-    _salt `Prelude.hashWithSalt` endpointConfigName
+    _salt
+      `Prelude.hashWithSalt` endpointConfigName
       `Prelude.hashWithSalt` endpointStatus
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` endpointName

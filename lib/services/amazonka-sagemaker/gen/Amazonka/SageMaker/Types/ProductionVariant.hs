@@ -31,7 +31,8 @@ import Amazonka.SageMaker.Types.ProductionVariantServerlessConfig
 -- | Identifies a model that you want to host and the resources chosen to
 -- deploy for hosting it. If you are deploying multiple models, tell
 -- SageMaker how to distribute traffic among the models by specifying
--- variant weights.
+-- variant weights. For more information on production variants, check
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html Production variants>.
 --
 -- /See:/ 'newProductionVariant' smart constructor.
 data ProductionVariant = ProductionVariant'
@@ -48,6 +49,13 @@ data ProductionVariant = ProductionVariant'
     -- | Specifies configuration for a core dump from the model container when
     -- the process crashes.
     coreDumpConfig :: Prelude.Maybe ProductionVariantCoreDumpConfig,
+    -- | You can use this parameter to turn on native Amazon Web Services Systems
+    -- Manager (SSM) access for a production variant behind an endpoint. By
+    -- default, SSM access is disabled for all production variants behind an
+    -- endpoint. You can turn on or turn off SSM access for a production
+    -- variant behind an existing endpoint by creating a new endpoint
+    -- configuration and calling @UpdateEndpoint@.
+    enableSSMAccess :: Prelude.Maybe Prelude.Bool,
     -- | Number of instances to launch initially.
     initialInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | Determines initial traffic distribution among all of the models that you
@@ -67,8 +75,8 @@ data ProductionVariant = ProductionVariant'
     -- configuration.
     serverlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
     -- | The size, in GB, of the ML storage volume attached to individual
-    -- inference instance associated with the production variant. Currenly only
-    -- Amazon EBS gp2 storage volumes are supported.
+    -- inference instance associated with the production variant. Currently
+    -- only Amazon EBS gp2 storage volumes are supported.
     volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | The name of the production variant.
     variantName :: Prelude.Text,
@@ -99,6 +107,13 @@ data ProductionVariant = ProductionVariant'
 -- 'coreDumpConfig', 'productionVariant_coreDumpConfig' - Specifies configuration for a core dump from the model container when
 -- the process crashes.
 --
+-- 'enableSSMAccess', 'productionVariant_enableSSMAccess' - You can use this parameter to turn on native Amazon Web Services Systems
+-- Manager (SSM) access for a production variant behind an endpoint. By
+-- default, SSM access is disabled for all production variants behind an
+-- endpoint. You can turn on or turn off SSM access for a production
+-- variant behind an existing endpoint by creating a new endpoint
+-- configuration and calling @UpdateEndpoint@.
+--
 -- 'initialInstanceCount', 'productionVariant_initialInstanceCount' - Number of instances to launch initially.
 --
 -- 'initialVariantWeight', 'productionVariant_initialVariantWeight' - Determines initial traffic distribution among all of the models that you
@@ -118,8 +133,8 @@ data ProductionVariant = ProductionVariant'
 -- configuration.
 --
 -- 'volumeSizeInGB', 'productionVariant_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to individual
--- inference instance associated with the production variant. Currenly only
--- Amazon EBS gp2 storage volumes are supported.
+-- inference instance associated with the production variant. Currently
+-- only Amazon EBS gp2 storage volumes are supported.
 --
 -- 'variantName', 'productionVariant_variantName' - The name of the production variant.
 --
@@ -138,6 +153,7 @@ newProductionVariant pVariantName_ pModelName_ =
       containerStartupHealthCheckTimeoutInSeconds =
         Prelude.Nothing,
       coreDumpConfig = Prelude.Nothing,
+      enableSSMAccess = Prelude.Nothing,
       initialInstanceCount = Prelude.Nothing,
       initialVariantWeight = Prelude.Nothing,
       instanceType = Prelude.Nothing,
@@ -166,6 +182,15 @@ productionVariant_containerStartupHealthCheckTimeoutInSeconds = Lens.lens (\Prod
 -- the process crashes.
 productionVariant_coreDumpConfig :: Lens.Lens' ProductionVariant (Prelude.Maybe ProductionVariantCoreDumpConfig)
 productionVariant_coreDumpConfig = Lens.lens (\ProductionVariant' {coreDumpConfig} -> coreDumpConfig) (\s@ProductionVariant' {} a -> s {coreDumpConfig = a} :: ProductionVariant)
+
+-- | You can use this parameter to turn on native Amazon Web Services Systems
+-- Manager (SSM) access for a production variant behind an endpoint. By
+-- default, SSM access is disabled for all production variants behind an
+-- endpoint. You can turn on or turn off SSM access for a production
+-- variant behind an existing endpoint by creating a new endpoint
+-- configuration and calling @UpdateEndpoint@.
+productionVariant_enableSSMAccess :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Bool)
+productionVariant_enableSSMAccess = Lens.lens (\ProductionVariant' {enableSSMAccess} -> enableSSMAccess) (\s@ProductionVariant' {} a -> s {enableSSMAccess = a} :: ProductionVariant)
 
 -- | Number of instances to launch initially.
 productionVariant_initialInstanceCount :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Natural)
@@ -196,8 +221,8 @@ productionVariant_serverlessConfig :: Lens.Lens' ProductionVariant (Prelude.Mayb
 productionVariant_serverlessConfig = Lens.lens (\ProductionVariant' {serverlessConfig} -> serverlessConfig) (\s@ProductionVariant' {} a -> s {serverlessConfig = a} :: ProductionVariant)
 
 -- | The size, in GB, of the ML storage volume attached to individual
--- inference instance associated with the production variant. Currenly only
--- Amazon EBS gp2 storage volumes are supported.
+-- inference instance associated with the production variant. Currently
+-- only Amazon EBS gp2 storage volumes are supported.
 productionVariant_volumeSizeInGB :: Lens.Lens' ProductionVariant (Prelude.Maybe Prelude.Natural)
 productionVariant_volumeSizeInGB = Lens.lens (\ProductionVariant' {volumeSizeInGB} -> volumeSizeInGB) (\s@ProductionVariant' {} a -> s {volumeSizeInGB = a} :: ProductionVariant)
 
@@ -221,6 +246,7 @@ instance Data.FromJSON ProductionVariant where
                             Data..:? "ContainerStartupHealthCheckTimeoutInSeconds"
                         )
             Prelude.<*> (x Data..:? "CoreDumpConfig")
+            Prelude.<*> (x Data..:? "EnableSSMAccess")
             Prelude.<*> (x Data..:? "InitialInstanceCount")
             Prelude.<*> (x Data..:? "InitialVariantWeight")
             Prelude.<*> (x Data..:? "InstanceType")
@@ -233,9 +259,11 @@ instance Data.FromJSON ProductionVariant where
 
 instance Prelude.Hashable ProductionVariant where
   hashWithSalt _salt ProductionVariant' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorType
+    _salt
+      `Prelude.hashWithSalt` acceleratorType
       `Prelude.hashWithSalt` containerStartupHealthCheckTimeoutInSeconds
       `Prelude.hashWithSalt` coreDumpConfig
+      `Prelude.hashWithSalt` enableSSMAccess
       `Prelude.hashWithSalt` initialInstanceCount
       `Prelude.hashWithSalt` initialVariantWeight
       `Prelude.hashWithSalt` instanceType
@@ -251,6 +279,7 @@ instance Prelude.NFData ProductionVariant where
       `Prelude.seq` Prelude.rnf
         containerStartupHealthCheckTimeoutInSeconds
       `Prelude.seq` Prelude.rnf coreDumpConfig
+      `Prelude.seq` Prelude.rnf enableSSMAccess
       `Prelude.seq` Prelude.rnf initialInstanceCount
       `Prelude.seq` Prelude.rnf initialVariantWeight
       `Prelude.seq` Prelude.rnf instanceType
@@ -272,6 +301,8 @@ instance Data.ToJSON ProductionVariant where
               Prelude.<$> containerStartupHealthCheckTimeoutInSeconds,
             ("CoreDumpConfig" Data..=)
               Prelude.<$> coreDumpConfig,
+            ("EnableSSMAccess" Data..=)
+              Prelude.<$> enableSSMAccess,
             ("InitialInstanceCount" Data..=)
               Prelude.<$> initialInstanceCount,
             ("InitialVariantWeight" Data..=)

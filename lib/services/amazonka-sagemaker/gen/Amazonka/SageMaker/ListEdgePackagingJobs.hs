@@ -186,21 +186,21 @@ instance Core.AWSPager ListEdgePackagingJobs where
     | Core.stop
         ( rs
             Lens.^? listEdgePackagingJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listEdgePackagingJobsResponse_edgePackagingJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEdgePackagingJobs_nextToken
           Lens..~ rs
           Lens.^? listEdgePackagingJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEdgePackagingJobs where
   type
@@ -214,14 +214,16 @@ instance Core.AWSRequest ListEdgePackagingJobs where
           ListEdgePackagingJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "EdgePackagingJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "EdgePackagingJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListEdgePackagingJobs where
   hashWithSalt _salt ListEdgePackagingJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

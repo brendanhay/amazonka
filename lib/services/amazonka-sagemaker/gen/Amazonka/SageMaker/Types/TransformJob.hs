@@ -386,7 +386,8 @@ instance Data.FromJSON TransformJob where
 
 instance Prelude.Hashable TransformJob where
   hashWithSalt _salt TransformJob' {..} =
-    _salt `Prelude.hashWithSalt` autoMLJobArn
+    _salt
+      `Prelude.hashWithSalt` autoMLJobArn
       `Prelude.hashWithSalt` batchStrategy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` dataProcessing

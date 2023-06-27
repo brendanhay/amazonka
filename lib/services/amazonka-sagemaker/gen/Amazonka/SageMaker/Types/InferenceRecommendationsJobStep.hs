@@ -28,7 +28,7 @@ import Amazonka.SageMaker.Types.RecommendationJobStatus
 import Amazonka.SageMaker.Types.RecommendationStepType
 
 -- | A returned array object for the @Steps@ response field in the
--- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InferenceRecommendationsJobStep.html ListInferenceRecommendationsJobSteps>
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceRecommendationsJobSteps.html ListInferenceRecommendationsJobSteps>
 -- API command.
 --
 -- /See:/ 'newInferenceRecommendationsJobStep' smart constructor.
@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     InferenceRecommendationsJobStep' {..} =
-      _salt `Prelude.hashWithSalt` inferenceBenchmark
+      _salt
+        `Prelude.hashWithSalt` inferenceBenchmark
         `Prelude.hashWithSalt` stepType
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` status

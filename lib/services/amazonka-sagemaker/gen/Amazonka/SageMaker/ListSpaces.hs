@@ -59,7 +59,10 @@ import Amazonka.SageMaker.Types
 data ListSpaces = ListSpaces'
   { -- | A parameter to search for the Domain ID.
     domainIdEquals :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list up to a specified limit.
+    -- | The total number of items to return in the response. If the total number
+    -- of items available is more than the value specified, a @NextToken@ is
+    -- provided in the response. To resume pagination, provide the @NextToken@
+    -- value in the as part of a subsequent call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
@@ -84,7 +87,10 @@ data ListSpaces = ListSpaces'
 --
 -- 'domainIdEquals', 'listSpaces_domainIdEquals' - A parameter to search for the Domain ID.
 --
--- 'maxResults', 'listSpaces_maxResults' - Returns a list up to a specified limit.
+-- 'maxResults', 'listSpaces_maxResults' - The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 --
 -- 'nextToken', 'listSpaces_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
@@ -111,7 +117,10 @@ newListSpaces =
 listSpaces_domainIdEquals :: Lens.Lens' ListSpaces (Prelude.Maybe Prelude.Text)
 listSpaces_domainIdEquals = Lens.lens (\ListSpaces' {domainIdEquals} -> domainIdEquals) (\s@ListSpaces' {} a -> s {domainIdEquals = a} :: ListSpaces)
 
--- | Returns a list up to a specified limit.
+-- | The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 listSpaces_maxResults :: Lens.Lens' ListSpaces (Prelude.Maybe Prelude.Natural)
 listSpaces_maxResults = Lens.lens (\ListSpaces' {maxResults} -> maxResults) (\s@ListSpaces' {} a -> s {maxResults = a} :: ListSpaces)
 
@@ -137,20 +146,23 @@ instance Core.AWSPager ListSpaces where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listSpacesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listSpacesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listSpacesResponse_spaces Prelude.. Lens._Just
+            Lens.^? listSpacesResponse_spaces
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSpaces_nextToken
           Lens..~ rs
-          Lens.^? listSpacesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listSpacesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpaces where
   type AWSResponse ListSpaces = ListSpacesResponse
@@ -167,7 +179,8 @@ instance Core.AWSRequest ListSpaces where
 
 instance Prelude.Hashable ListSpaces where
   hashWithSalt _salt ListSpaces' {..} =
-    _salt `Prelude.hashWithSalt` domainIdEquals
+    _salt
+      `Prelude.hashWithSalt` domainIdEquals
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

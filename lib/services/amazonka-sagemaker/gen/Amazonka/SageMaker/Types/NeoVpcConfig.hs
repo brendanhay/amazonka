@@ -24,8 +24,10 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | The VpcConfig configuration object that specifies the VPC that you want
--- the compilation jobs to connect to. For more information on controlling
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- configuration object that specifies the VPC that you want the
+-- compilation jobs to connect to. For more information on controlling
 -- access to your Amazon S3 buckets used for compilation job, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Give Amazon SageMaker Compilation Jobs Access to Resources in Your Amazon VPC>.
 --
@@ -91,7 +93,8 @@ instance Data.FromJSON NeoVpcConfig where
 
 instance Prelude.Hashable NeoVpcConfig where
   hashWithSalt _salt NeoVpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData NeoVpcConfig where

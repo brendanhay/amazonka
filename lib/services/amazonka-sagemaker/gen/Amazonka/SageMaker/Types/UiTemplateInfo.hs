@@ -74,7 +74,8 @@ instance Data.FromJSON UiTemplateInfo where
 
 instance Prelude.Hashable UiTemplateInfo where
   hashWithSalt _salt UiTemplateInfo' {..} =
-    _salt `Prelude.hashWithSalt` contentSha256
+    _salt
+      `Prelude.hashWithSalt` contentSha256
       `Prelude.hashWithSalt` url
 
 instance Prelude.NFData UiTemplateInfo where

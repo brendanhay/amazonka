@@ -25,8 +25,9 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.PropertyNameQuery
 
--- | Specified in the GetSearchSuggestions request. Limits the property names
--- that are included in the response.
+-- | Specified in the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSearchSuggestions.html GetSearchSuggestions>
+-- request. Limits the property names that are included in the response.
 --
 -- /See:/ 'newSuggestionQuery' smart constructor.
 data SuggestionQuery = SuggestionQuery'

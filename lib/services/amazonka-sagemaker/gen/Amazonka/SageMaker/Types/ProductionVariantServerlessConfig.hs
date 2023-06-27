@@ -28,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProductionVariantServerlessConfig' smart constructor.
 data ProductionVariantServerlessConfig = ProductionVariantServerlessConfig'
-  { -- | The memory size of your serverless endpoint. Valid values are in 1 GB
+  { -- | The amount of provisioned concurrency to allocate for the serverless
+    -- endpoint. Should be less than or equal to @MaxConcurrency@.
+    provisionedConcurrency :: Prelude.Maybe Prelude.Natural,
+    -- | The memory size of your serverless endpoint. Valid values are in 1 GB
     -- increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
     memorySizeInMB :: Prelude.Natural,
     -- | The maximum number of concurrent invocations your serverless endpoint
@@ -45,6 +48,9 @@ data ProductionVariantServerlessConfig = ProductionVariantServerlessConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'provisionedConcurrency', 'productionVariantServerlessConfig_provisionedConcurrency' - The amount of provisioned concurrency to allocate for the serverless
+-- endpoint. Should be less than or equal to @MaxConcurrency@.
+--
 -- 'memorySizeInMB', 'productionVariantServerlessConfig_memorySizeInMB' - The memory size of your serverless endpoint. Valid values are in 1 GB
 -- increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
 --
@@ -60,10 +66,16 @@ newProductionVariantServerlessConfig
   pMemorySizeInMB_
   pMaxConcurrency_ =
     ProductionVariantServerlessConfig'
-      { memorySizeInMB =
-          pMemorySizeInMB_,
+      { provisionedConcurrency =
+          Prelude.Nothing,
+        memorySizeInMB = pMemorySizeInMB_,
         maxConcurrency = pMaxConcurrency_
       }
+
+-- | The amount of provisioned concurrency to allocate for the serverless
+-- endpoint. Should be less than or equal to @MaxConcurrency@.
+productionVariantServerlessConfig_provisionedConcurrency :: Lens.Lens' ProductionVariantServerlessConfig (Prelude.Maybe Prelude.Natural)
+productionVariantServerlessConfig_provisionedConcurrency = Lens.lens (\ProductionVariantServerlessConfig' {provisionedConcurrency} -> provisionedConcurrency) (\s@ProductionVariantServerlessConfig' {} a -> s {provisionedConcurrency = a} :: ProductionVariantServerlessConfig)
 
 -- | The memory size of your serverless endpoint. Valid values are in 1 GB
 -- increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
@@ -84,7 +96,8 @@ instance
       "ProductionVariantServerlessConfig"
       ( \x ->
           ProductionVariantServerlessConfig'
-            Prelude.<$> (x Data..: "MemorySizeInMB")
+            Prelude.<$> (x Data..:? "ProvisionedConcurrency")
+            Prelude.<*> (x Data..: "MemorySizeInMB")
             Prelude.<*> (x Data..: "MaxConcurrency")
       )
 
@@ -95,7 +108,9 @@ instance
   hashWithSalt
     _salt
     ProductionVariantServerlessConfig' {..} =
-      _salt `Prelude.hashWithSalt` memorySizeInMB
+      _salt
+        `Prelude.hashWithSalt` provisionedConcurrency
+        `Prelude.hashWithSalt` memorySizeInMB
         `Prelude.hashWithSalt` maxConcurrency
 
 instance
@@ -103,7 +118,8 @@ instance
     ProductionVariantServerlessConfig
   where
   rnf ProductionVariantServerlessConfig' {..} =
-    Prelude.rnf memorySizeInMB
+    Prelude.rnf provisionedConcurrency
+      `Prelude.seq` Prelude.rnf memorySizeInMB
       `Prelude.seq` Prelude.rnf maxConcurrency
 
 instance
@@ -113,7 +129,9 @@ instance
   toJSON ProductionVariantServerlessConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("ProvisionedConcurrency" Data..=)
+              Prelude.<$> provisionedConcurrency,
+            Prelude.Just
               ("MemorySizeInMB" Data..= memorySizeInMB),
             Prelude.Just
               ("MaxConcurrency" Data..= maxConcurrency)

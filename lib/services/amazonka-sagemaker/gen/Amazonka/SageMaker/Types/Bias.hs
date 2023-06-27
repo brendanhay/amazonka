@@ -85,7 +85,8 @@ instance Data.FromJSON Bias where
 
 instance Prelude.Hashable Bias where
   hashWithSalt _salt Bias' {..} =
-    _salt `Prelude.hashWithSalt` postTrainingReport
+    _salt
+      `Prelude.hashWithSalt` postTrainingReport
       `Prelude.hashWithSalt` preTrainingReport
       `Prelude.hashWithSalt` report
 

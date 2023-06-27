@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.AsyncNotificationTopicTypes
 
 -- | Specifies the configuration for notifications of inference results for
 -- asynchronous inference.
@@ -32,6 +33,12 @@ data AsyncInferenceNotificationConfig = AsyncInferenceNotificationConfig'
   { -- | Amazon SNS topic to post a notification to when inference fails. If no
     -- topic is provided, no notification is sent on failure.
     errorTopic :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topics where you want the inference response to be
+    -- included.
+    --
+    -- The inference response is included only if the response size is less
+    -- than or equal to 128 KB.
+    includeInferenceResponseIn :: Prelude.Maybe [AsyncNotificationTopicTypes],
     -- | Amazon SNS topic to post a notification to when inference completes
     -- successfully. If no topic is provided, no notification is sent on
     -- success.
@@ -50,6 +57,12 @@ data AsyncInferenceNotificationConfig = AsyncInferenceNotificationConfig'
 -- 'errorTopic', 'asyncInferenceNotificationConfig_errorTopic' - Amazon SNS topic to post a notification to when inference fails. If no
 -- topic is provided, no notification is sent on failure.
 --
+-- 'includeInferenceResponseIn', 'asyncInferenceNotificationConfig_includeInferenceResponseIn' - The Amazon SNS topics where you want the inference response to be
+-- included.
+--
+-- The inference response is included only if the response size is less
+-- than or equal to 128 KB.
+--
 -- 'successTopic', 'asyncInferenceNotificationConfig_successTopic' - Amazon SNS topic to post a notification to when inference completes
 -- successfully. If no topic is provided, no notification is sent on
 -- success.
@@ -59,6 +72,8 @@ newAsyncInferenceNotificationConfig =
   AsyncInferenceNotificationConfig'
     { errorTopic =
         Prelude.Nothing,
+      includeInferenceResponseIn =
+        Prelude.Nothing,
       successTopic = Prelude.Nothing
     }
 
@@ -66,6 +81,14 @@ newAsyncInferenceNotificationConfig =
 -- topic is provided, no notification is sent on failure.
 asyncInferenceNotificationConfig_errorTopic :: Lens.Lens' AsyncInferenceNotificationConfig (Prelude.Maybe Prelude.Text)
 asyncInferenceNotificationConfig_errorTopic = Lens.lens (\AsyncInferenceNotificationConfig' {errorTopic} -> errorTopic) (\s@AsyncInferenceNotificationConfig' {} a -> s {errorTopic = a} :: AsyncInferenceNotificationConfig)
+
+-- | The Amazon SNS topics where you want the inference response to be
+-- included.
+--
+-- The inference response is included only if the response size is less
+-- than or equal to 128 KB.
+asyncInferenceNotificationConfig_includeInferenceResponseIn :: Lens.Lens' AsyncInferenceNotificationConfig (Prelude.Maybe [AsyncNotificationTopicTypes])
+asyncInferenceNotificationConfig_includeInferenceResponseIn = Lens.lens (\AsyncInferenceNotificationConfig' {includeInferenceResponseIn} -> includeInferenceResponseIn) (\s@AsyncInferenceNotificationConfig' {} a -> s {includeInferenceResponseIn = a} :: AsyncInferenceNotificationConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | Amazon SNS topic to post a notification to when inference completes
 -- successfully. If no topic is provided, no notification is sent on
@@ -83,6 +106,10 @@ instance
       ( \x ->
           AsyncInferenceNotificationConfig'
             Prelude.<$> (x Data..:? "ErrorTopic")
+            Prelude.<*> ( x
+                            Data..:? "IncludeInferenceResponseIn"
+                            Data..!= Prelude.mempty
+                        )
             Prelude.<*> (x Data..:? "SuccessTopic")
       )
 
@@ -93,7 +120,9 @@ instance
   hashWithSalt
     _salt
     AsyncInferenceNotificationConfig' {..} =
-      _salt `Prelude.hashWithSalt` errorTopic
+      _salt
+        `Prelude.hashWithSalt` errorTopic
+        `Prelude.hashWithSalt` includeInferenceResponseIn
         `Prelude.hashWithSalt` successTopic
 
 instance
@@ -102,6 +131,7 @@ instance
   where
   rnf AsyncInferenceNotificationConfig' {..} =
     Prelude.rnf errorTopic
+      `Prelude.seq` Prelude.rnf includeInferenceResponseIn
       `Prelude.seq` Prelude.rnf successTopic
 
 instance Data.ToJSON AsyncInferenceNotificationConfig where
@@ -109,6 +139,8 @@ instance Data.ToJSON AsyncInferenceNotificationConfig where
     Data.object
       ( Prelude.catMaybes
           [ ("ErrorTopic" Data..=) Prelude.<$> errorTopic,
+            ("IncludeInferenceResponseIn" Data..=)
+              Prelude.<$> includeInferenceResponseIn,
             ("SuccessTopic" Data..=) Prelude.<$> successTopic
           ]
       )

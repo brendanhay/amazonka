@@ -176,20 +176,21 @@ instance Core.AWSPager ListAutoMLJobs where
     | Core.stop
         ( rs
             Lens.^? listAutoMLJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listAutoMLJobsResponse_autoMLJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAutoMLJobs_nextToken
           Lens..~ rs
-          Lens.^? listAutoMLJobsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAutoMLJobsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAutoMLJobs where
   type
@@ -203,14 +204,16 @@ instance Core.AWSRequest ListAutoMLJobs where
           ListAutoMLJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "AutoMLJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "AutoMLJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListAutoMLJobs where
   hashWithSalt _salt ListAutoMLJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

@@ -32,6 +32,8 @@ data ResourceLimits = ResourceLimits'
   { -- | The maximum number of training jobs that a hyperparameter tuning job can
     -- launch.
     maxNumberOfTrainingJobs :: Prelude.Maybe Prelude.Natural,
+    -- | The maximum time in seconds that a hyperparameter tuning job can run.
+    maxRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of concurrent training jobs that a hyperparameter
     -- tuning job can launch.
     maxParallelTrainingJobs :: Prelude.Natural
@@ -49,6 +51,8 @@ data ResourceLimits = ResourceLimits'
 -- 'maxNumberOfTrainingJobs', 'resourceLimits_maxNumberOfTrainingJobs' - The maximum number of training jobs that a hyperparameter tuning job can
 -- launch.
 --
+-- 'maxRuntimeInSeconds', 'resourceLimits_maxRuntimeInSeconds' - The maximum time in seconds that a hyperparameter tuning job can run.
+--
 -- 'maxParallelTrainingJobs', 'resourceLimits_maxParallelTrainingJobs' - The maximum number of concurrent training jobs that a hyperparameter
 -- tuning job can launch.
 newResourceLimits ::
@@ -59,6 +63,7 @@ newResourceLimits pMaxParallelTrainingJobs_ =
   ResourceLimits'
     { maxNumberOfTrainingJobs =
         Prelude.Nothing,
+      maxRuntimeInSeconds = Prelude.Nothing,
       maxParallelTrainingJobs = pMaxParallelTrainingJobs_
     }
 
@@ -66,6 +71,10 @@ newResourceLimits pMaxParallelTrainingJobs_ =
 -- launch.
 resourceLimits_maxNumberOfTrainingJobs :: Lens.Lens' ResourceLimits (Prelude.Maybe Prelude.Natural)
 resourceLimits_maxNumberOfTrainingJobs = Lens.lens (\ResourceLimits' {maxNumberOfTrainingJobs} -> maxNumberOfTrainingJobs) (\s@ResourceLimits' {} a -> s {maxNumberOfTrainingJobs = a} :: ResourceLimits)
+
+-- | The maximum time in seconds that a hyperparameter tuning job can run.
+resourceLimits_maxRuntimeInSeconds :: Lens.Lens' ResourceLimits (Prelude.Maybe Prelude.Natural)
+resourceLimits_maxRuntimeInSeconds = Lens.lens (\ResourceLimits' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@ResourceLimits' {} a -> s {maxRuntimeInSeconds = a} :: ResourceLimits)
 
 -- | The maximum number of concurrent training jobs that a hyperparameter
 -- tuning job can launch.
@@ -79,6 +88,7 @@ instance Data.FromJSON ResourceLimits where
       ( \x ->
           ResourceLimits'
             Prelude.<$> (x Data..:? "MaxNumberOfTrainingJobs")
+            Prelude.<*> (x Data..:? "MaxRuntimeInSeconds")
             Prelude.<*> (x Data..: "MaxParallelTrainingJobs")
       )
 
@@ -86,11 +96,13 @@ instance Prelude.Hashable ResourceLimits where
   hashWithSalt _salt ResourceLimits' {..} =
     _salt
       `Prelude.hashWithSalt` maxNumberOfTrainingJobs
+      `Prelude.hashWithSalt` maxRuntimeInSeconds
       `Prelude.hashWithSalt` maxParallelTrainingJobs
 
 instance Prelude.NFData ResourceLimits where
   rnf ResourceLimits' {..} =
     Prelude.rnf maxNumberOfTrainingJobs
+      `Prelude.seq` Prelude.rnf maxRuntimeInSeconds
       `Prelude.seq` Prelude.rnf maxParallelTrainingJobs
 
 instance Data.ToJSON ResourceLimits where
@@ -99,6 +111,8 @@ instance Data.ToJSON ResourceLimits where
       ( Prelude.catMaybes
           [ ("MaxNumberOfTrainingJobs" Data..=)
               Prelude.<$> maxNumberOfTrainingJobs,
+            ("MaxRuntimeInSeconds" Data..=)
+              Prelude.<$> maxRuntimeInSeconds,
             Prelude.Just
               ( "MaxParallelTrainingJobs"
                   Data..= maxParallelTrainingJobs

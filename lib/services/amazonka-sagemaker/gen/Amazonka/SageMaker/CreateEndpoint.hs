@@ -23,7 +23,8 @@
 -- Creates an endpoint using the endpoint configuration specified in the
 -- request. SageMaker uses the endpoint to provision resources and deploy
 -- models. You create the endpoint configuration with the
--- CreateEndpointConfig API.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- API.
 --
 -- Use this API to deploy models using SageMaker hosting services.
 --
@@ -42,9 +43,11 @@
 -- When it receives the request, SageMaker creates the endpoint, launches
 -- the resources (ML compute instances), and deploys the model(s) on them.
 --
--- When you call CreateEndpoint, a load call is made to DynamoDB to verify
--- that your endpoint configuration exists. When you read data from a
--- DynamoDB table supporting
+-- When you call
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>,
+-- a load call is made to DynamoDB to verify that your endpoint
+-- configuration exists. When you read data from a DynamoDB table
+-- supporting
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html Eventually Consistent Reads>
 -- , the response might not reflect the results of a recently completed
 -- write operation. The response might include some stale data. If the
@@ -52,20 +55,24 @@
 -- error. If you repeat your read request after a short time, the response
 -- should return the latest data. So retry logic is recommended to handle
 -- these possible issues. We also recommend that customers call
--- DescribeEndpointConfig before calling CreateEndpoint to minimize the
--- potential impact of a DynamoDB eventually consistent read.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html DescribeEndpointConfig>
+-- before calling
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+-- to minimize the potential impact of a DynamoDB eventually consistent
+-- read.
 --
 -- When SageMaker receives the request, it sets the endpoint status to
 -- @Creating@. After it creates the endpoint, it sets the status to
 -- @InService@. SageMaker can then process incoming requests for
--- inferences. To check the status of an endpoint, use the DescribeEndpoint
+-- inferences. To check the status of an endpoint, use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html DescribeEndpoint>
 -- API.
 --
 -- If any of the models hosted at this endpoint get model data from an
 -- Amazon S3 location, SageMaker uses Amazon Web Services Security Token
 -- Service to download model artifacts from the S3 path you provided.
--- Amazon Web Services STS is activated in your IAM user account by
--- default. If you previously deactivated Amazon Web Services STS for a
+-- Amazon Web Services STS is activated in your Amazon Web Services account
+-- by default. If you previously deactivated Amazon Web Services STS for a
 -- region, you need to reactivate Amazon Web Services STS for that region.
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
@@ -74,8 +81,11 @@
 -- To add the IAM role policies for using this API operation, go to the
 -- <https://console.aws.amazon.com/iam/ IAM console>, and choose Roles in
 -- the left navigation pane. Search the IAM role that you want to grant
--- access to use the CreateEndpoint and CreateEndpointConfig API
--- operations, add the following policies to the role.
+-- access to use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+-- and
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- API operations, add the following policies to the role.
 --
 -- -   Option 1: For a full SageMaker access, search and attach the
 --     @AmazonSageMakerFullAccess@ policy.
@@ -136,10 +146,11 @@ data CreateEndpoint = CreateEndpoint'
     -- | The name of the endpoint.The name must be unique within an Amazon Web
     -- Services Region in your Amazon Web Services account. The name is
     -- case-insensitive in @CreateEndpoint@, but the case is preserved and must
-    -- be matched in .
+    -- be matched in
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpoint>.
     endpointName :: Prelude.Text,
     -- | The name of an endpoint configuration. For more information, see
-    -- CreateEndpointConfig.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
     endpointConfigName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -162,10 +173,11 @@ data CreateEndpoint = CreateEndpoint'
 -- 'endpointName', 'createEndpoint_endpointName' - The name of the endpoint.The name must be unique within an Amazon Web
 -- Services Region in your Amazon Web Services account. The name is
 -- case-insensitive in @CreateEndpoint@, but the case is preserved and must
--- be matched in .
+-- be matched in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpoint>.
 --
 -- 'endpointConfigName', 'createEndpoint_endpointConfigName' - The name of an endpoint configuration. For more information, see
--- CreateEndpointConfig.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
 newCreateEndpoint ::
   -- | 'endpointName'
   Prelude.Text ->
@@ -194,12 +206,13 @@ createEndpoint_tags = Lens.lens (\CreateEndpoint' {tags} -> tags) (\s@CreateEndp
 -- | The name of the endpoint.The name must be unique within an Amazon Web
 -- Services Region in your Amazon Web Services account. The name is
 -- case-insensitive in @CreateEndpoint@, but the case is preserved and must
--- be matched in .
+-- be matched in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpoint>.
 createEndpoint_endpointName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_endpointName = Lens.lens (\CreateEndpoint' {endpointName} -> endpointName) (\s@CreateEndpoint' {} a -> s {endpointName = a} :: CreateEndpoint)
 
 -- | The name of an endpoint configuration. For more information, see
--- CreateEndpointConfig.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
 createEndpoint_endpointConfigName :: Lens.Lens' CreateEndpoint Prelude.Text
 createEndpoint_endpointConfigName = Lens.lens (\CreateEndpoint' {endpointConfigName} -> endpointConfigName) (\s@CreateEndpoint' {} a -> s {endpointConfigName = a} :: CreateEndpoint)
 
@@ -219,7 +232,8 @@ instance Core.AWSRequest CreateEndpoint where
 
 instance Prelude.Hashable CreateEndpoint where
   hashWithSalt _salt CreateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` deploymentConfig
+    _salt
+      `Prelude.hashWithSalt` deploymentConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` endpointConfigName

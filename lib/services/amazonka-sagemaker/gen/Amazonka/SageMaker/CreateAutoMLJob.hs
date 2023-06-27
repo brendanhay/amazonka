@@ -20,13 +20,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Autopilot job.
+-- Creates an Autopilot job also referred to as Autopilot experiment or
+-- AutoML job.
 --
--- Find the best-performing model after you run an Autopilot job by calling
--- .
+-- We recommend using the new versions
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html CreateAutoMLJobV2>
+-- and
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html DescribeAutoMLJobV2>,
+-- which offer backward compatibility.
 --
--- For information about how to use Autopilot, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html Automate Model Development with Amazon SageMaker Autopilot>.
+-- @CreateAutoMLJobV2@ can manage tabular problem types identical to those
+-- of its previous version @CreateAutoMLJob@, as well as non-tabular
+-- problem types such as image or text classification.
+--
+-- Find guidelines about how to migrate a @CreateAutoMLJob@ to
+-- @CreateAutoMLJobV2@ in
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2 Migrate a CreateAutoMLJob to CreateAutoMLJobV2>.
+--
+-- You can find the best-performing model after you run an AutoML job by
+-- calling
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html DescribeAutoMLJobV2>
+-- (recommended) or
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html DescribeAutoMLJob>.
 module Amazonka.SageMaker.CreateAutoMLJob
   ( -- * Creating a Request
     CreateAutoMLJob (..),
@@ -66,9 +81,11 @@ import Amazonka.SageMaker.Types
 data CreateAutoMLJob = CreateAutoMLJob'
   { -- | A collection of settings used to configure an AutoML job.
     autoMLJobConfig :: Prelude.Maybe AutoMLJobConfig,
-    -- | Defines the objective metric used to measure the predictive quality of
-    -- an AutoML job. You provide an AutoMLJobObjective$MetricName and
-    -- Autopilot infers whether to minimize or maximize it.
+    -- | Specifies a metric to minimize or maximize as the objective of a job. If
+    -- not specified, the default objective metric depends on the problem type.
+    -- See
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html AutoMLJobObjective>
+    -- for the default values.
     autoMLJobObjective :: Prelude.Maybe AutoMLJobObjective,
     -- | Generates possible candidates without training the models. A candidate
     -- is a combination of data preprocessors, algorithms, and algorithm
@@ -77,21 +94,26 @@ data CreateAutoMLJob = CreateAutoMLJob'
     -- | Specifies how to generate the endpoint name for an automatic one-click
     -- Autopilot model deployment.
     modelDeployConfig :: Prelude.Maybe ModelDeployConfig,
-    -- | Defines the type of supervised learning available for the candidates.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
+    -- | Defines the type of supervised learning problem available for the
+    -- candidates. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types Amazon SageMaker Autopilot problem types>.
     problemType :: Prelude.Maybe ProblemType,
-    -- | Each tag consists of a key and an optional value. Tag keys must be
-    -- unique per resource.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web ServicesResources>.
+    -- Tag keys must be unique per resource.
     tags :: Prelude.Maybe [Tag],
     -- | Identifies an Autopilot job. The name must be unique to your account and
-    -- is case-insensitive.
+    -- is case insensitive.
     autoMLJobName :: Prelude.Text,
     -- | An array of channel objects that describes the input data and its
     -- location. Each channel is a named input source. Similar to
-    -- @InputDataConfig@ supported by . Format(s) supported: CSV, Parquet. A
-    -- minimum of 500 rows is required for the training dataset. There is not a
-    -- minimum number of rows required for the validation dataset.
+    -- @InputDataConfig@ supported by
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>.
+    -- Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for
+    -- the training dataset. There is not a minimum number of rows required for
+    -- the validation dataset.
     inputDataConfig :: Prelude.NonEmpty AutoMLChannel,
     -- | Provides information about encryption and the Amazon S3 output path
     -- needed to store artifacts from an AutoML job. Format(s) supported: CSV.
@@ -111,9 +133,11 @@ data CreateAutoMLJob = CreateAutoMLJob'
 --
 -- 'autoMLJobConfig', 'createAutoMLJob_autoMLJobConfig' - A collection of settings used to configure an AutoML job.
 --
--- 'autoMLJobObjective', 'createAutoMLJob_autoMLJobObjective' - Defines the objective metric used to measure the predictive quality of
--- an AutoML job. You provide an AutoMLJobObjective$MetricName and
--- Autopilot infers whether to minimize or maximize it.
+-- 'autoMLJobObjective', 'createAutoMLJob_autoMLJobObjective' - Specifies a metric to minimize or maximize as the objective of a job. If
+-- not specified, the default objective metric depends on the problem type.
+-- See
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html AutoMLJobObjective>
+-- for the default values.
 --
 -- 'generateCandidateDefinitionsOnly', 'createAutoMLJob_generateCandidateDefinitionsOnly' - Generates possible candidates without training the models. A candidate
 -- is a combination of data preprocessors, algorithms, and algorithm
@@ -122,21 +146,26 @@ data CreateAutoMLJob = CreateAutoMLJob'
 -- 'modelDeployConfig', 'createAutoMLJob_modelDeployConfig' - Specifies how to generate the endpoint name for an automatic one-click
 -- Autopilot model deployment.
 --
--- 'problemType', 'createAutoMLJob_problemType' - Defines the type of supervised learning available for the candidates.
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
+-- 'problemType', 'createAutoMLJob_problemType' - Defines the type of supervised learning problem available for the
+-- candidates. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types Amazon SageMaker Autopilot problem types>.
 --
--- 'tags', 'createAutoMLJob_tags' - Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
+-- 'tags', 'createAutoMLJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web ServicesResources>.
+-- Tag keys must be unique per resource.
 --
 -- 'autoMLJobName', 'createAutoMLJob_autoMLJobName' - Identifies an Autopilot job. The name must be unique to your account and
--- is case-insensitive.
+-- is case insensitive.
 --
 -- 'inputDataConfig', 'createAutoMLJob_inputDataConfig' - An array of channel objects that describes the input data and its
 -- location. Each channel is a named input source. Similar to
--- @InputDataConfig@ supported by . Format(s) supported: CSV, Parquet. A
--- minimum of 500 rows is required for the training dataset. There is not a
--- minimum number of rows required for the validation dataset.
+-- @InputDataConfig@ supported by
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>.
+-- Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for
+-- the training dataset. There is not a minimum number of rows required for
+-- the validation dataset.
 --
 -- 'outputDataConfig', 'createAutoMLJob_outputDataConfig' - Provides information about encryption and the Amazon S3 output path
 -- needed to store artifacts from an AutoML job. Format(s) supported: CSV.
@@ -175,9 +204,11 @@ newCreateAutoMLJob
 createAutoMLJob_autoMLJobConfig :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe AutoMLJobConfig)
 createAutoMLJob_autoMLJobConfig = Lens.lens (\CreateAutoMLJob' {autoMLJobConfig} -> autoMLJobConfig) (\s@CreateAutoMLJob' {} a -> s {autoMLJobConfig = a} :: CreateAutoMLJob)
 
--- | Defines the objective metric used to measure the predictive quality of
--- an AutoML job. You provide an AutoMLJobObjective$MetricName and
--- Autopilot infers whether to minimize or maximize it.
+-- | Specifies a metric to minimize or maximize as the objective of a job. If
+-- not specified, the default objective metric depends on the problem type.
+-- See
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobObjective.html AutoMLJobObjective>
+-- for the default values.
 createAutoMLJob_autoMLJobObjective :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe AutoMLJobObjective)
 createAutoMLJob_autoMLJobObjective = Lens.lens (\CreateAutoMLJob' {autoMLJobObjective} -> autoMLJobObjective) (\s@CreateAutoMLJob' {} a -> s {autoMLJobObjective = a} :: CreateAutoMLJob)
 
@@ -192,27 +223,32 @@ createAutoMLJob_generateCandidateDefinitionsOnly = Lens.lens (\CreateAutoMLJob' 
 createAutoMLJob_modelDeployConfig :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe ModelDeployConfig)
 createAutoMLJob_modelDeployConfig = Lens.lens (\CreateAutoMLJob' {modelDeployConfig} -> modelDeployConfig) (\s@CreateAutoMLJob' {} a -> s {modelDeployConfig = a} :: CreateAutoMLJob)
 
--- | Defines the type of supervised learning available for the candidates.
--- For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-problem-types.html Amazon SageMaker Autopilot problem types and algorithm support>.
+-- | Defines the type of supervised learning problem available for the
+-- candidates. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-problem-types Amazon SageMaker Autopilot problem types>.
 createAutoMLJob_problemType :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe ProblemType)
 createAutoMLJob_problemType = Lens.lens (\CreateAutoMLJob' {problemType} -> problemType) (\s@CreateAutoMLJob' {} a -> s {problemType = a} :: CreateAutoMLJob)
 
--- | Each tag consists of a key and an optional value. Tag keys must be
--- unique per resource.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web ServicesResources>.
+-- Tag keys must be unique per resource.
 createAutoMLJob_tags :: Lens.Lens' CreateAutoMLJob (Prelude.Maybe [Tag])
 createAutoMLJob_tags = Lens.lens (\CreateAutoMLJob' {tags} -> tags) (\s@CreateAutoMLJob' {} a -> s {tags = a} :: CreateAutoMLJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | Identifies an Autopilot job. The name must be unique to your account and
--- is case-insensitive.
+-- is case insensitive.
 createAutoMLJob_autoMLJobName :: Lens.Lens' CreateAutoMLJob Prelude.Text
 createAutoMLJob_autoMLJobName = Lens.lens (\CreateAutoMLJob' {autoMLJobName} -> autoMLJobName) (\s@CreateAutoMLJob' {} a -> s {autoMLJobName = a} :: CreateAutoMLJob)
 
 -- | An array of channel objects that describes the input data and its
 -- location. Each channel is a named input source. Similar to
--- @InputDataConfig@ supported by . Format(s) supported: CSV, Parquet. A
--- minimum of 500 rows is required for the training dataset. There is not a
--- minimum number of rows required for the validation dataset.
+-- @InputDataConfig@ supported by
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>.
+-- Format(s) supported: CSV, Parquet. A minimum of 500 rows is required for
+-- the training dataset. There is not a minimum number of rows required for
+-- the validation dataset.
 createAutoMLJob_inputDataConfig :: Lens.Lens' CreateAutoMLJob (Prelude.NonEmpty AutoMLChannel)
 createAutoMLJob_inputDataConfig = Lens.lens (\CreateAutoMLJob' {inputDataConfig} -> inputDataConfig) (\s@CreateAutoMLJob' {} a -> s {inputDataConfig = a} :: CreateAutoMLJob) Prelude.. Lens.coerced
 
@@ -241,7 +277,8 @@ instance Core.AWSRequest CreateAutoMLJob where
 
 instance Prelude.Hashable CreateAutoMLJob where
   hashWithSalt _salt CreateAutoMLJob' {..} =
-    _salt `Prelude.hashWithSalt` autoMLJobConfig
+    _salt
+      `Prelude.hashWithSalt` autoMLJobConfig
       `Prelude.hashWithSalt` autoMLJobObjective
       `Prelude.hashWithSalt` generateCandidateDefinitionsOnly
       `Prelude.hashWithSalt` modelDeployConfig

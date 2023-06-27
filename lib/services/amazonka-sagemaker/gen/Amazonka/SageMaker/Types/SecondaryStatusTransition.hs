@@ -25,15 +25,15 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.SecondaryStatus
 
--- | An array element of
--- DescribeTrainingJobResponse$SecondaryStatusTransitions. It provides
--- additional details about a status that the training job has transitioned
--- through. A training job can be in one of several states, for example,
--- starting, downloading, training, or uploading. Within each state, there
--- are a number of intermediate states. For example, within the starting
--- state, SageMaker could be starting the training job or launching the ML
--- instances. These transitional states are referred to as the job\'s
--- secondary status.
+-- | An array element of @SecondaryStatusTransitions@ for
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html DescribeTrainingJob>.
+-- It provides additional details about a status that the training job has
+-- transitioned through. A training job can be in one of several states,
+-- for example, starting, downloading, training, or uploading. Within each
+-- state, there are a number of intermediate states. For example, within
+-- the starting state, SageMaker could be starting the training job or
+-- launching the ML instances. These transitional states are referred to as
+-- the job\'s secondary status.
 --
 -- /See:/ 'newSecondaryStatusTransition' smart constructor.
 data SecondaryStatusTransition = SecondaryStatusTransition'
@@ -68,9 +68,10 @@ data SecondaryStatusTransition = SecondaryStatusTransition'
     -- examples, don\'t use status messages in if statements.
     --
     -- To have an overview of your training job\'s progress, view
-    -- @TrainingJobStatus@ and @SecondaryStatus@ in DescribeTrainingJob, and
-    -- @StatusMessage@ together. For example, at the start of a training job,
-    -- you might see the following:
+    -- @TrainingJobStatus@ and @SecondaryStatus@ in
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html DescribeTrainingJob>,
+    -- and @StatusMessage@ together. For example, at the start of a training
+    -- job, you might see the following:
     --
     -- -   @TrainingJobStatus@ - InProgress
     --
@@ -164,9 +165,10 @@ data SecondaryStatusTransition = SecondaryStatusTransition'
 -- examples, don\'t use status messages in if statements.
 --
 -- To have an overview of your training job\'s progress, view
--- @TrainingJobStatus@ and @SecondaryStatus@ in DescribeTrainingJob, and
--- @StatusMessage@ together. For example, at the start of a training job,
--- you might see the following:
+-- @TrainingJobStatus@ and @SecondaryStatus@ in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html DescribeTrainingJob>,
+-- and @StatusMessage@ together. For example, at the start of a training
+-- job, you might see the following:
 --
 -- -   @TrainingJobStatus@ - InProgress
 --
@@ -265,9 +267,10 @@ secondaryStatusTransition_endTime = Lens.lens (\SecondaryStatusTransition' {endT
 -- examples, don\'t use status messages in if statements.
 --
 -- To have an overview of your training job\'s progress, view
--- @TrainingJobStatus@ and @SecondaryStatus@ in DescribeTrainingJob, and
--- @StatusMessage@ together. For example, at the start of a training job,
--- you might see the following:
+-- @TrainingJobStatus@ and @SecondaryStatus@ in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingJob.html DescribeTrainingJob>,
+-- and @StatusMessage@ together. For example, at the start of a training
+-- job, you might see the following:
 --
 -- -   @TrainingJobStatus@ - InProgress
 --
@@ -339,7 +342,8 @@ instance Data.FromJSON SecondaryStatusTransition where
 
 instance Prelude.Hashable SecondaryStatusTransition where
   hashWithSalt _salt SecondaryStatusTransition' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` startTime

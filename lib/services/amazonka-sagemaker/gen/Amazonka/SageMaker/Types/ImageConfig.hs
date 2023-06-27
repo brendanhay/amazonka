@@ -107,7 +107,8 @@ instance Data.FromJSON ImageConfig where
 
 instance Prelude.Hashable ImageConfig where
   hashWithSalt _salt ImageConfig' {..} =
-    _salt `Prelude.hashWithSalt` repositoryAuthConfig
+    _salt
+      `Prelude.hashWithSalt` repositoryAuthConfig
       `Prelude.hashWithSalt` repositoryAccessMode
 
 instance Prelude.NFData ImageConfig where

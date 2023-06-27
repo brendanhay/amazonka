@@ -20,7 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about an Amazon SageMaker AutoML job.
+-- Returns information about an AutoML job created by calling
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html CreateAutoMLJob>.
+--
+-- AutoML jobs created by calling
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html CreateAutoMLJobV2>
+-- cannot be described by @DescribeAutoMLJob@.
 module Amazonka.SageMaker.DescribeAutoMLJob
   ( -- * Creating a Request
     DescribeAutoMLJob (..),
@@ -196,10 +201,8 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
     partialFailureReasons :: Prelude.Maybe (Prelude.NonEmpty AutoMLPartialFailureReason),
     -- | Returns the job\'s problem type.
     problemType :: Prelude.Maybe ProblemType,
-    -- | This contains @ProblemType@, @AutoMLJobObjective@, and
-    -- @CompletionCriteria@. If you do not provide these values, they are
-    -- auto-inferred. If you do provide them, the values used are the ones you
-    -- provide.
+    -- | Contains @ProblemType@, @AutoMLJobObjective@, and @CompletionCriteria@.
+    -- If you do not provide these values, they are inferred.
     resolvedAttributes :: Prelude.Maybe ResolvedAttributes,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -207,7 +210,7 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
     autoMLJobName :: Prelude.Text,
     -- | Returns the ARN of the AutoML job.
     autoMLJobArn :: Prelude.Text,
-    -- | Returns the input data configuration for the AutoML job..
+    -- | Returns the input data configuration for the AutoML job.
     inputDataConfig :: Prelude.NonEmpty AutoMLChannel,
     -- | Returns the job\'s output data config.
     outputDataConfig :: AutoMLOutputDataConfig,
@@ -262,10 +265,8 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
 --
 -- 'problemType', 'describeAutoMLJobResponse_problemType' - Returns the job\'s problem type.
 --
--- 'resolvedAttributes', 'describeAutoMLJobResponse_resolvedAttributes' - This contains @ProblemType@, @AutoMLJobObjective@, and
--- @CompletionCriteria@. If you do not provide these values, they are
--- auto-inferred. If you do provide them, the values used are the ones you
--- provide.
+-- 'resolvedAttributes', 'describeAutoMLJobResponse_resolvedAttributes' - Contains @ProblemType@, @AutoMLJobObjective@, and @CompletionCriteria@.
+-- If you do not provide these values, they are inferred.
 --
 -- 'httpStatus', 'describeAutoMLJobResponse_httpStatus' - The response's http status code.
 --
@@ -273,7 +274,7 @@ data DescribeAutoMLJobResponse = DescribeAutoMLJobResponse'
 --
 -- 'autoMLJobArn', 'describeAutoMLJobResponse_autoMLJobArn' - Returns the ARN of the AutoML job.
 --
--- 'inputDataConfig', 'describeAutoMLJobResponse_inputDataConfig' - Returns the input data configuration for the AutoML job..
+-- 'inputDataConfig', 'describeAutoMLJobResponse_inputDataConfig' - Returns the input data configuration for the AutoML job.
 --
 -- 'outputDataConfig', 'describeAutoMLJobResponse_outputDataConfig' - Returns the job\'s output data config.
 --
@@ -401,10 +402,8 @@ describeAutoMLJobResponse_partialFailureReasons = Lens.lens (\DescribeAutoMLJobR
 describeAutoMLJobResponse_problemType :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ProblemType)
 describeAutoMLJobResponse_problemType = Lens.lens (\DescribeAutoMLJobResponse' {problemType} -> problemType) (\s@DescribeAutoMLJobResponse' {} a -> s {problemType = a} :: DescribeAutoMLJobResponse)
 
--- | This contains @ProblemType@, @AutoMLJobObjective@, and
--- @CompletionCriteria@. If you do not provide these values, they are
--- auto-inferred. If you do provide them, the values used are the ones you
--- provide.
+-- | Contains @ProblemType@, @AutoMLJobObjective@, and @CompletionCriteria@.
+-- If you do not provide these values, they are inferred.
 describeAutoMLJobResponse_resolvedAttributes :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.Maybe ResolvedAttributes)
 describeAutoMLJobResponse_resolvedAttributes = Lens.lens (\DescribeAutoMLJobResponse' {resolvedAttributes} -> resolvedAttributes) (\s@DescribeAutoMLJobResponse' {} a -> s {resolvedAttributes = a} :: DescribeAutoMLJobResponse)
 
@@ -420,7 +419,7 @@ describeAutoMLJobResponse_autoMLJobName = Lens.lens (\DescribeAutoMLJobResponse'
 describeAutoMLJobResponse_autoMLJobArn :: Lens.Lens' DescribeAutoMLJobResponse Prelude.Text
 describeAutoMLJobResponse_autoMLJobArn = Lens.lens (\DescribeAutoMLJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@DescribeAutoMLJobResponse' {} a -> s {autoMLJobArn = a} :: DescribeAutoMLJobResponse)
 
--- | Returns the input data configuration for the AutoML job..
+-- | Returns the input data configuration for the AutoML job.
 describeAutoMLJobResponse_inputDataConfig :: Lens.Lens' DescribeAutoMLJobResponse (Prelude.NonEmpty AutoMLChannel)
 describeAutoMLJobResponse_inputDataConfig = Lens.lens (\DescribeAutoMLJobResponse' {inputDataConfig} -> inputDataConfig) (\s@DescribeAutoMLJobResponse' {} a -> s {inputDataConfig = a} :: DescribeAutoMLJobResponse) Prelude.. Lens.coerced
 

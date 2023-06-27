@@ -190,7 +190,8 @@ instance Core.AWSRequest CreateApp where
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =
-    _salt `Prelude.hashWithSalt` resourceSpec
+    _salt
+      `Prelude.hashWithSalt` resourceSpec
       `Prelude.hashWithSalt` spaceName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` userProfileName

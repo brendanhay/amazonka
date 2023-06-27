@@ -68,8 +68,10 @@ data ListAppImageConfigs = ListAppImageConfigs'
     -- | A filter that returns only AppImageConfigs created on or before the
     -- specified time.
     creationTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | The maximum number of AppImageConfigs to return in the response. The
-    -- default value is 10.
+    -- | The total number of items to return in the response. If the total number
+    -- of items available is more than the value specified, a @NextToken@ is
+    -- provided in the response. To resume pagination, provide the @NextToken@
+    -- value in the as part of a subsequent call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only AppImageConfigs modified on or after the
     -- specified time.
@@ -105,8 +107,10 @@ data ListAppImageConfigs = ListAppImageConfigs'
 -- 'creationTimeBefore', 'listAppImageConfigs_creationTimeBefore' - A filter that returns only AppImageConfigs created on or before the
 -- specified time.
 --
--- 'maxResults', 'listAppImageConfigs_maxResults' - The maximum number of AppImageConfigs to return in the response. The
--- default value is 10.
+-- 'maxResults', 'listAppImageConfigs_maxResults' - The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 --
 -- 'modifiedTimeAfter', 'listAppImageConfigs_modifiedTimeAfter' - A filter that returns only AppImageConfigs modified on or after the
 -- specified time.
@@ -150,8 +154,10 @@ listAppImageConfigs_creationTimeAfter = Lens.lens (\ListAppImageConfigs' {creati
 listAppImageConfigs_creationTimeBefore :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.UTCTime)
 listAppImageConfigs_creationTimeBefore = Lens.lens (\ListAppImageConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListAppImageConfigs' {} a -> s {creationTimeBefore = a} :: ListAppImageConfigs) Prelude.. Lens.mapping Data._Time
 
--- | The maximum number of AppImageConfigs to return in the response. The
--- default value is 10.
+-- | The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 listAppImageConfigs_maxResults :: Lens.Lens' ListAppImageConfigs (Prelude.Maybe Prelude.Natural)
 listAppImageConfigs_maxResults = Lens.lens (\ListAppImageConfigs' {maxResults} -> maxResults) (\s@ListAppImageConfigs' {} a -> s {maxResults = a} :: ListAppImageConfigs)
 
@@ -189,22 +195,22 @@ instance Core.AWSPager ListAppImageConfigs where
     | Core.stop
         ( rs
             Lens.^? listAppImageConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAppImageConfigsResponse_appImageConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAppImageConfigs_nextToken
           Lens..~ rs
           Lens.^? listAppImageConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppImageConfigs where
   type
@@ -216,7 +222,8 @@ instance Core.AWSRequest ListAppImageConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListAppImageConfigsResponse'
-            Prelude.<$> ( x Data..?> "AppImageConfigs"
+            Prelude.<$> ( x
+                            Data..?> "AppImageConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -225,7 +232,8 @@ instance Core.AWSRequest ListAppImageConfigs where
 
 instance Prelude.Hashable ListAppImageConfigs where
   hashWithSalt _salt ListAppImageConfigs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modifiedTimeAfter

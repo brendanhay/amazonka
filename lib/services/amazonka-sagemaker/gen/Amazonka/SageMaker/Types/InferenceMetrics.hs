@@ -83,7 +83,8 @@ instance Data.FromJSON InferenceMetrics where
 
 instance Prelude.Hashable InferenceMetrics where
   hashWithSalt _salt InferenceMetrics' {..} =
-    _salt `Prelude.hashWithSalt` maxInvocations
+    _salt
+      `Prelude.hashWithSalt` maxInvocations
       `Prelude.hashWithSalt` modelLatency
 
 instance Prelude.NFData InferenceMetrics where

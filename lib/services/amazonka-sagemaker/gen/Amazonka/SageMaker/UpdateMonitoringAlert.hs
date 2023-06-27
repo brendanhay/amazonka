@@ -141,7 +141,8 @@ instance Core.AWSRequest UpdateMonitoringAlert where
 
 instance Prelude.Hashable UpdateMonitoringAlert where
   hashWithSalt _salt UpdateMonitoringAlert' {..} =
-    _salt `Prelude.hashWithSalt` monitoringScheduleName
+    _salt
+      `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` monitoringAlertName
       `Prelude.hashWithSalt` datapointsToAlert
       `Prelude.hashWithSalt` evaluationPeriod

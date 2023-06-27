@@ -134,7 +134,8 @@ instance Data.FromJSON OidcConfigForResponse where
 
 instance Prelude.Hashable OidcConfigForResponse where
   hashWithSalt _salt OidcConfigForResponse' {..} =
-    _salt `Prelude.hashWithSalt` authorizationEndpoint
+    _salt
+      `Prelude.hashWithSalt` authorizationEndpoint
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` jwksUri

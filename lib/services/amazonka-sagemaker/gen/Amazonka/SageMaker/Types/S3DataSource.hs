@@ -28,6 +28,9 @@ import Amazonka.SageMaker.Types.S3DataType
 
 -- | Describes the S3 data source.
 --
+-- Your input bucket must be in the same Amazon Web Services region as your
+-- training job.
+--
 -- /See:/ 'newS3DataSource' smart constructor.
 data S3DataSource = S3DataSource'
   { -- | A list of one or more attribute names to use that are found in a
@@ -114,6 +117,9 @@ data S3DataSource = S3DataSource'
     --     the channel for this data source. The object that each @S3Uri@
     --     points to must be readable by the IAM role that SageMaker uses to
     --     perform tasks on your behalf.
+    --
+    -- Your input bucket must be located in same Amazon Web Services region as
+    -- your training job.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -210,6 +216,9 @@ data S3DataSource = S3DataSource'
 --     the channel for this data source. The object that each @S3Uri@
 --     points to must be readable by the IAM role that SageMaker uses to
 --     perform tasks on your behalf.
+--
+-- Your input bucket must be located in same Amazon Web Services region as
+-- your training job.
 newS3DataSource ::
   -- | 's3DataType'
   S3DataType ->
@@ -317,6 +326,9 @@ s3DataSource_s3DataType = Lens.lens (\S3DataSource' {s3DataType} -> s3DataType) 
 --     the channel for this data source. The object that each @S3Uri@
 --     points to must be readable by the IAM role that SageMaker uses to
 --     perform tasks on your behalf.
+--
+-- Your input bucket must be located in same Amazon Web Services region as
+-- your training job.
 s3DataSource_s3Uri :: Lens.Lens' S3DataSource Prelude.Text
 s3DataSource_s3Uri = Lens.lens (\S3DataSource' {s3Uri} -> s3Uri) (\s@S3DataSource' {} a -> s {s3Uri = a} :: S3DataSource)
 
@@ -327,7 +339,8 @@ instance Data.FromJSON S3DataSource where
       ( \x ->
           S3DataSource'
             Prelude.<$> (x Data..:? "AttributeNames" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "InstanceGroupNames"
+            Prelude.<*> ( x
+                            Data..:? "InstanceGroupNames"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "S3DataDistributionType")
@@ -337,7 +350,8 @@ instance Data.FromJSON S3DataSource where
 
 instance Prelude.Hashable S3DataSource where
   hashWithSalt _salt S3DataSource' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` instanceGroupNames
       `Prelude.hashWithSalt` s3DataDistributionType
       `Prelude.hashWithSalt` s3DataType

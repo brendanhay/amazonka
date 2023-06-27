@@ -26,7 +26,9 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrialSource
 
 -- | A summary of the properties of a trial. To get the complete set of
--- properties, call the DescribeTrial API and provide the @TrialName@.
+-- properties, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html DescribeTrial>
+-- API and provide the @TrialName@.
 --
 -- /See:/ 'newTrialSummary' smart constructor.
 data TrialSummary = TrialSummary'
@@ -118,7 +120,8 @@ instance Data.FromJSON TrialSummary where
 
 instance Prelude.Hashable TrialSummary where
   hashWithSalt _salt TrialSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` trialArn

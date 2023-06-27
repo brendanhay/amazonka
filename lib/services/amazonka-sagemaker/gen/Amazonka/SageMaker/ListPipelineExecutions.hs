@@ -74,7 +74,7 @@ data ListPipelineExecutions = ListPipelineExecutions'
     sortBy :: Prelude.Maybe SortPipelineExecutionsBy,
     -- | The sort order for results.
     sortOrder :: Prelude.Maybe SortOrder,
-    -- | The name of the pipeline.
+    -- | The name or Amazon Resource Name (ARN) of the pipeline.
     pipelineName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,7 +103,7 @@ data ListPipelineExecutions = ListPipelineExecutions'
 --
 -- 'sortOrder', 'listPipelineExecutions_sortOrder' - The sort order for results.
 --
--- 'pipelineName', 'listPipelineExecutions_pipelineName' - The name of the pipeline.
+-- 'pipelineName', 'listPipelineExecutions_pipelineName' - The name or Amazon Resource Name (ARN) of the pipeline.
 newListPipelineExecutions ::
   -- | 'pipelineName'
   Prelude.Text ->
@@ -148,7 +148,7 @@ listPipelineExecutions_sortBy = Lens.lens (\ListPipelineExecutions' {sortBy} -> 
 listPipelineExecutions_sortOrder :: Lens.Lens' ListPipelineExecutions (Prelude.Maybe SortOrder)
 listPipelineExecutions_sortOrder = Lens.lens (\ListPipelineExecutions' {sortOrder} -> sortOrder) (\s@ListPipelineExecutions' {} a -> s {sortOrder = a} :: ListPipelineExecutions)
 
--- | The name of the pipeline.
+-- | The name or Amazon Resource Name (ARN) of the pipeline.
 listPipelineExecutions_pipelineName :: Lens.Lens' ListPipelineExecutions Prelude.Text
 listPipelineExecutions_pipelineName = Lens.lens (\ListPipelineExecutions' {pipelineName} -> pipelineName) (\s@ListPipelineExecutions' {} a -> s {pipelineName = a} :: ListPipelineExecutions)
 
@@ -157,22 +157,22 @@ instance Core.AWSPager ListPipelineExecutions where
     | Core.stop
         ( rs
             Lens.^? listPipelineExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPipelineExecutionsResponse_pipelineExecutionSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPipelineExecutions_nextToken
           Lens..~ rs
           Lens.^? listPipelineExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelineExecutions where
   type
@@ -185,7 +185,8 @@ instance Core.AWSRequest ListPipelineExecutions where
       ( \s h x ->
           ListPipelineExecutionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PipelineExecutionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "PipelineExecutionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,7 +194,8 @@ instance Core.AWSRequest ListPipelineExecutions where
 
 instance Prelude.Hashable ListPipelineExecutions where
   hashWithSalt _salt ListPipelineExecutions' {..} =
-    _salt `Prelude.hashWithSalt` createdAfter
+    _salt
+      `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

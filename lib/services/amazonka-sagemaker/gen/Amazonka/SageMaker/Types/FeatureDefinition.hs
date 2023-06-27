@@ -85,7 +85,8 @@ instance Data.FromJSON FeatureDefinition where
 
 instance Prelude.Hashable FeatureDefinition where
   hashWithSalt _salt FeatureDefinition' {..} =
-    _salt `Prelude.hashWithSalt` featureName
+    _salt
+      `Prelude.hashWithSalt` featureName
       `Prelude.hashWithSalt` featureType
 
 instance Prelude.NFData FeatureDefinition where

@@ -94,7 +94,8 @@ instance Data.FromJSON EnvironmentParameter where
 
 instance Prelude.Hashable EnvironmentParameter where
   hashWithSalt _salt EnvironmentParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` valueType
       `Prelude.hashWithSalt` value
 

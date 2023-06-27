@@ -27,6 +27,7 @@ import Amazonka.SageMaker.Types.ParallelismConfiguration
 import Amazonka.SageMaker.Types.Parameter
 import Amazonka.SageMaker.Types.PipelineExecutionStatus
 import Amazonka.SageMaker.Types.PipelineExperimentConfig
+import Amazonka.SageMaker.Types.SelectiveExecutionConfig
 import Amazonka.SageMaker.Types.UserContext
 
 -- | An execution of a pipeline.
@@ -55,7 +56,9 @@ data PipelineExecution = PipelineExecution'
     pipelineExecutionStatus :: Prelude.Maybe PipelineExecutionStatus,
     pipelineExperimentConfig :: Prelude.Maybe PipelineExperimentConfig,
     -- | Contains a list of pipeline parameters. This list can be empty.
-    pipelineParameters :: Prelude.Maybe [Parameter]
+    pipelineParameters :: Prelude.Maybe [Parameter],
+    -- | The selective execution configuration applied to the pipeline run.
+    selectiveExecutionConfig :: Prelude.Maybe SelectiveExecutionConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,6 +95,8 @@ data PipelineExecution = PipelineExecution'
 -- 'pipelineExperimentConfig', 'pipelineExecution_pipelineExperimentConfig' - Undocumented member.
 --
 -- 'pipelineParameters', 'pipelineExecution_pipelineParameters' - Contains a list of pipeline parameters. This list can be empty.
+--
+-- 'selectiveExecutionConfig', 'pipelineExecution_selectiveExecutionConfig' - The selective execution configuration applied to the pipeline run.
 newPipelineExecution ::
   PipelineExecution
 newPipelineExecution =
@@ -108,7 +113,8 @@ newPipelineExecution =
       pipelineExecutionDisplayName = Prelude.Nothing,
       pipelineExecutionStatus = Prelude.Nothing,
       pipelineExperimentConfig = Prelude.Nothing,
-      pipelineParameters = Prelude.Nothing
+      pipelineParameters = Prelude.Nothing,
+      selectiveExecutionConfig = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -163,6 +169,10 @@ pipelineExecution_pipelineExperimentConfig = Lens.lens (\PipelineExecution' {pip
 pipelineExecution_pipelineParameters :: Lens.Lens' PipelineExecution (Prelude.Maybe [Parameter])
 pipelineExecution_pipelineParameters = Lens.lens (\PipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@PipelineExecution' {} a -> s {pipelineParameters = a} :: PipelineExecution) Prelude.. Lens.mapping Lens.coerced
 
+-- | The selective execution configuration applied to the pipeline run.
+pipelineExecution_selectiveExecutionConfig :: Lens.Lens' PipelineExecution (Prelude.Maybe SelectiveExecutionConfig)
+pipelineExecution_selectiveExecutionConfig = Lens.lens (\PipelineExecution' {selectiveExecutionConfig} -> selectiveExecutionConfig) (\s@PipelineExecution' {} a -> s {selectiveExecutionConfig = a} :: PipelineExecution)
+
 instance Data.FromJSON PipelineExecution where
   parseJSON =
     Data.withObject
@@ -181,14 +191,17 @@ instance Data.FromJSON PipelineExecution where
             Prelude.<*> (x Data..:? "PipelineExecutionDisplayName")
             Prelude.<*> (x Data..:? "PipelineExecutionStatus")
             Prelude.<*> (x Data..:? "PipelineExperimentConfig")
-            Prelude.<*> ( x Data..:? "PipelineParameters"
+            Prelude.<*> ( x
+                            Data..:? "PipelineParameters"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "SelectiveExecutionConfig")
       )
 
 instance Prelude.Hashable PipelineExecution where
   hashWithSalt _salt PipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastModifiedBy
@@ -201,6 +214,7 @@ instance Prelude.Hashable PipelineExecution where
       `Prelude.hashWithSalt` pipelineExecutionStatus
       `Prelude.hashWithSalt` pipelineExperimentConfig
       `Prelude.hashWithSalt` pipelineParameters
+      `Prelude.hashWithSalt` selectiveExecutionConfig
 
 instance Prelude.NFData PipelineExecution where
   rnf PipelineExecution' {..} =
@@ -217,3 +231,4 @@ instance Prelude.NFData PipelineExecution where
       `Prelude.seq` Prelude.rnf pipelineExecutionStatus
       `Prelude.seq` Prelude.rnf pipelineExperimentConfig
       `Prelude.seq` Prelude.rnf pipelineParameters
+      `Prelude.seq` Prelude.rnf selectiveExecutionConfig

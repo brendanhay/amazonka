@@ -25,27 +25,52 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLS3DataType
 
--- | The Amazon S3 data source.
+-- | Describes the Amazon S3 data source.
 --
 -- /See:/ 'newAutoMLS3DataSource' smart constructor.
 data AutoMLS3DataSource = AutoMLS3DataSource'
   { -- | The data type.
     --
-    -- A ManifestFile should have the format shown below:
+    -- -   If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
+    --     SageMaker uses all objects that match the specified key name prefix
+    --     for model training.
     --
-    -- @[ {\"prefix\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/DOC-EXAMPLE-PREFIX\/\"}, @
+    --     The @S3Prefix@ should have the following format:
     --
-    -- @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-1\",@
+    --     @s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER-OR-FILE@
     --
-    -- @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-2\",@
+    -- -   If you choose @ManifestFile@, @S3Uri@ identifies an object that is a
+    --     manifest file containing a list of object keys that you want
+    --     SageMaker to use for model training.
     --
-    -- @... \"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-N\" ]@
+    --     A @ManifestFile@ should have the format shown below:
     --
-    -- An S3Prefix should have the following format:
+    --     @[ {\"prefix\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/DOC-EXAMPLE-PREFIX\/\"}, @
     --
-    -- @s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER-OR-FILE@
+    --     @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-1\",@
+    --
+    --     @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-2\",@
+    --
+    --     @... \"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-N\" ]@
+    --
+    -- -   If you choose @AugmentedManifestFile@, @S3Uri@ identifies an object
+    --     that is an augmented manifest file in JSON lines format. This file
+    --     contains the data you want to use for model training.
+    --     @AugmentedManifestFile@ is available for V2 API jobs only (for
+    --     example, for jobs created by calling @CreateAutoMLJobV2@).
+    --
+    --     Here is a minimal, single-record example of an
+    --     @AugmentedManifestFile@:
+    --
+    --     @{\"source-ref\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/cats\/cat.jpg\",@
+    --
+    --     @\"label-metadata\": {\"class-name\": \"cat\"@ }
+    --
+    --     For more information on @AugmentedManifestFile@, see
+    --     <https://docs.aws.amazon.com/sagemaker/latest/dg/augmented-manifest.html Provide Dataset Metadata to Training Jobs with an Augmented Manifest File>.
     s3DataType :: AutoMLS3DataType,
-    -- | The URL to the Amazon S3 data source.
+    -- | The URL to the Amazon S3 data source. The Uri refers to the Amazon S3
+    -- prefix or ManifestFile depending on the data type.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,21 +85,46 @@ data AutoMLS3DataSource = AutoMLS3DataSource'
 --
 -- 's3DataType', 'autoMLS3DataSource_s3DataType' - The data type.
 --
--- A ManifestFile should have the format shown below:
+-- -   If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
+--     SageMaker uses all objects that match the specified key name prefix
+--     for model training.
 --
--- @[ {\"prefix\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/DOC-EXAMPLE-PREFIX\/\"}, @
+--     The @S3Prefix@ should have the following format:
 --
--- @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-1\",@
+--     @s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER-OR-FILE@
 --
--- @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-2\",@
+-- -   If you choose @ManifestFile@, @S3Uri@ identifies an object that is a
+--     manifest file containing a list of object keys that you want
+--     SageMaker to use for model training.
 --
--- @... \"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-N\" ]@
+--     A @ManifestFile@ should have the format shown below:
 --
--- An S3Prefix should have the following format:
+--     @[ {\"prefix\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/DOC-EXAMPLE-PREFIX\/\"}, @
 --
--- @s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER-OR-FILE@
+--     @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-1\",@
 --
--- 's3Uri', 'autoMLS3DataSource_s3Uri' - The URL to the Amazon S3 data source.
+--     @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-2\",@
+--
+--     @... \"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-N\" ]@
+--
+-- -   If you choose @AugmentedManifestFile@, @S3Uri@ identifies an object
+--     that is an augmented manifest file in JSON lines format. This file
+--     contains the data you want to use for model training.
+--     @AugmentedManifestFile@ is available for V2 API jobs only (for
+--     example, for jobs created by calling @CreateAutoMLJobV2@).
+--
+--     Here is a minimal, single-record example of an
+--     @AugmentedManifestFile@:
+--
+--     @{\"source-ref\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/cats\/cat.jpg\",@
+--
+--     @\"label-metadata\": {\"class-name\": \"cat\"@ }
+--
+--     For more information on @AugmentedManifestFile@, see
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/augmented-manifest.html Provide Dataset Metadata to Training Jobs with an Augmented Manifest File>.
+--
+-- 's3Uri', 'autoMLS3DataSource_s3Uri' - The URL to the Amazon S3 data source. The Uri refers to the Amazon S3
+-- prefix or ManifestFile depending on the data type.
 newAutoMLS3DataSource ::
   -- | 's3DataType'
   AutoMLS3DataType ->
@@ -89,23 +139,48 @@ newAutoMLS3DataSource pS3DataType_ pS3Uri_ =
 
 -- | The data type.
 --
--- A ManifestFile should have the format shown below:
+-- -   If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
+--     SageMaker uses all objects that match the specified key name prefix
+--     for model training.
 --
--- @[ {\"prefix\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/DOC-EXAMPLE-PREFIX\/\"}, @
+--     The @S3Prefix@ should have the following format:
 --
--- @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-1\",@
+--     @s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER-OR-FILE@
 --
--- @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-2\",@
+-- -   If you choose @ManifestFile@, @S3Uri@ identifies an object that is a
+--     manifest file containing a list of object keys that you want
+--     SageMaker to use for model training.
 --
--- @... \"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-N\" ]@
+--     A @ManifestFile@ should have the format shown below:
 --
--- An S3Prefix should have the following format:
+--     @[ {\"prefix\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/DOC-EXAMPLE-PREFIX\/\"}, @
 --
--- @s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER-OR-FILE@
+--     @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-1\",@
+--
+--     @\"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-2\",@
+--
+--     @... \"DOC-EXAMPLE-RELATIVE-PATH\/DOC-EXAMPLE-FOLDER\/DATA-N\" ]@
+--
+-- -   If you choose @AugmentedManifestFile@, @S3Uri@ identifies an object
+--     that is an augmented manifest file in JSON lines format. This file
+--     contains the data you want to use for model training.
+--     @AugmentedManifestFile@ is available for V2 API jobs only (for
+--     example, for jobs created by calling @CreateAutoMLJobV2@).
+--
+--     Here is a minimal, single-record example of an
+--     @AugmentedManifestFile@:
+--
+--     @{\"source-ref\": \"s3:\/\/DOC-EXAMPLE-BUCKET\/DOC-EXAMPLE-FOLDER\/cats\/cat.jpg\",@
+--
+--     @\"label-metadata\": {\"class-name\": \"cat\"@ }
+--
+--     For more information on @AugmentedManifestFile@, see
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/augmented-manifest.html Provide Dataset Metadata to Training Jobs with an Augmented Manifest File>.
 autoMLS3DataSource_s3DataType :: Lens.Lens' AutoMLS3DataSource AutoMLS3DataType
 autoMLS3DataSource_s3DataType = Lens.lens (\AutoMLS3DataSource' {s3DataType} -> s3DataType) (\s@AutoMLS3DataSource' {} a -> s {s3DataType = a} :: AutoMLS3DataSource)
 
--- | The URL to the Amazon S3 data source.
+-- | The URL to the Amazon S3 data source. The Uri refers to the Amazon S3
+-- prefix or ManifestFile depending on the data type.
 autoMLS3DataSource_s3Uri :: Lens.Lens' AutoMLS3DataSource Prelude.Text
 autoMLS3DataSource_s3Uri = Lens.lens (\AutoMLS3DataSource' {s3Uri} -> s3Uri) (\s@AutoMLS3DataSource' {} a -> s {s3Uri = a} :: AutoMLS3DataSource)
 
@@ -121,7 +196,8 @@ instance Data.FromJSON AutoMLS3DataSource where
 
 instance Prelude.Hashable AutoMLS3DataSource where
   hashWithSalt _salt AutoMLS3DataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3DataType
+    _salt
+      `Prelude.hashWithSalt` s3DataType
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData AutoMLS3DataSource where

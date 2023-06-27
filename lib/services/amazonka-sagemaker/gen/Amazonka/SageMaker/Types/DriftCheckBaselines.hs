@@ -111,7 +111,8 @@ instance Data.FromJSON DriftCheckBaselines where
 
 instance Prelude.Hashable DriftCheckBaselines where
   hashWithSalt _salt DriftCheckBaselines' {..} =
-    _salt `Prelude.hashWithSalt` bias
+    _salt
+      `Prelude.hashWithSalt` bias
       `Prelude.hashWithSalt` explainability
       `Prelude.hashWithSalt` modelDataQuality
       `Prelude.hashWithSalt` modelQuality

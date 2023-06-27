@@ -211,7 +211,8 @@ instance Data.FromJSON BatchTransformInput where
 
 instance Prelude.Hashable BatchTransformInput where
   hashWithSalt _salt BatchTransformInput' {..} =
-    _salt `Prelude.hashWithSalt` endTimeOffset
+    _salt
+      `Prelude.hashWithSalt` endTimeOffset
       `Prelude.hashWithSalt` featuresAttribute
       `Prelude.hashWithSalt` inferenceAttribute
       `Prelude.hashWithSalt` probabilityAttribute

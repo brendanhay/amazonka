@@ -159,7 +159,8 @@ instance Core.AWSRequest DescribeApp where
 
 instance Prelude.Hashable DescribeApp where
   hashWithSalt _salt DescribeApp' {..} =
-    _salt `Prelude.hashWithSalt` spaceName
+    _salt
+      `Prelude.hashWithSalt` spaceName
       `Prelude.hashWithSalt` userProfileName
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` appType

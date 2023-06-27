@@ -148,7 +148,8 @@ instance Data.FromJSON AssociationSummary where
 
 instance Prelude.Hashable AssociationSummary where
   hashWithSalt _salt AssociationSummary' {..} =
-    _salt `Prelude.hashWithSalt` associationType
+    _salt
+      `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` destinationArn

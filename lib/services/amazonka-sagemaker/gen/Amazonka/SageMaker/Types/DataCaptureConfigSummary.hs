@@ -122,7 +122,8 @@ instance Data.FromJSON DataCaptureConfigSummary where
 
 instance Prelude.Hashable DataCaptureConfigSummary where
   hashWithSalt _salt DataCaptureConfigSummary' {..} =
-    _salt `Prelude.hashWithSalt` enableCapture
+    _salt
+      `Prelude.hashWithSalt` enableCapture
       `Prelude.hashWithSalt` captureStatus
       `Prelude.hashWithSalt` currentSamplingPercentage
       `Prelude.hashWithSalt` destinationS3Uri

@@ -87,7 +87,8 @@ instance Data.FromJSON AppSpecification where
 
 instance Prelude.Hashable AppSpecification where
   hashWithSalt _salt AppSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerArguments
+    _salt
+      `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` imageUri
 

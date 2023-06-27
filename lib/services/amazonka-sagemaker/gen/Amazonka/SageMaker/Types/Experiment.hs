@@ -27,7 +27,9 @@ import Amazonka.SageMaker.Types.ExperimentSource
 import Amazonka.SageMaker.Types.Tag
 import Amazonka.SageMaker.Types.UserContext
 
--- | The properties of an experiment as returned by the Search API.
+-- | The properties of an experiment as returned by the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API.
 --
 -- /See:/ 'newExperiment' smart constructor.
 data Experiment = Experiment'
@@ -49,7 +51,8 @@ data Experiment = Experiment'
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     source :: Prelude.Maybe ExperimentSource,
     -- | The list of tags that are associated with the experiment. You can use
-    -- Search API to search on the tags.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+    -- API to search on the tags.
     tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +85,8 @@ data Experiment = Experiment'
 -- 'source', 'experiment_source' - Undocumented member.
 --
 -- 'tags', 'experiment_tags' - The list of tags that are associated with the experiment. You can use
--- Search API to search on the tags.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 newExperiment ::
   Experiment
 newExperiment =
@@ -137,7 +141,8 @@ experiment_source :: Lens.Lens' Experiment (Prelude.Maybe ExperimentSource)
 experiment_source = Lens.lens (\Experiment' {source} -> source) (\s@Experiment' {} a -> s {source = a} :: Experiment)
 
 -- | The list of tags that are associated with the experiment. You can use
--- Search API to search on the tags.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 experiment_tags :: Lens.Lens' Experiment (Prelude.Maybe [Tag])
 experiment_tags = Lens.lens (\Experiment' {tags} -> tags) (\s@Experiment' {} a -> s {tags = a} :: Experiment) Prelude.. Lens.mapping Lens.coerced
 
@@ -161,7 +166,8 @@ instance Data.FromJSON Experiment where
 
 instance Prelude.Hashable Experiment where
   hashWithSalt _salt Experiment' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName

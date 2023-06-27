@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a hub.
+--
+-- Hub APIs are only callable through SageMaker Studio.
 module Amazonka.SageMaker.CreateHub
   ( -- * Creating a Request
     CreateHub (..),
@@ -142,7 +144,8 @@ instance Core.AWSRequest CreateHub where
 
 instance Prelude.Hashable CreateHub where
   hashWithSalt _salt CreateHub' {..} =
-    _salt `Prelude.hashWithSalt` hubDisplayName
+    _salt
+      `Prelude.hashWithSalt` hubDisplayName
       `Prelude.hashWithSalt` hubSearchKeywords
       `Prelude.hashWithSalt` s3StorageConfig
       `Prelude.hashWithSalt` tags

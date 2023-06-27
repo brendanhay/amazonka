@@ -76,7 +76,8 @@ instance Data.FromJSON TrialSource where
 
 instance Prelude.Hashable TrialSource where
   hashWithSalt _salt TrialSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceType
+    _salt
+      `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceArn
 
 instance Prelude.NFData TrialSource where

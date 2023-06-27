@@ -37,6 +37,7 @@ data DomainSettingsForUpdate = DomainSettingsForUpdate'
     -- @InService@ or @Pending@ state.
     executionRoleIdentityConfig :: Prelude.Maybe ExecutionRoleIdentityConfig,
     -- | A collection of @RStudioServerPro@ Domain-level app settings to update.
+    -- A single @RStudioServerPro@ application is created for a domain.
     rStudioServerProDomainSettingsForUpdate :: Prelude.Maybe RStudioServerProDomainSettingsForUpdate,
     -- | The security groups for the Amazon Virtual Private Cloud that the
     -- @Domain@ uses for communication between Domain-level apps and user apps.
@@ -59,6 +60,7 @@ data DomainSettingsForUpdate = DomainSettingsForUpdate'
 -- @InService@ or @Pending@ state.
 --
 -- 'rStudioServerProDomainSettingsForUpdate', 'domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate' - A collection of @RStudioServerPro@ Domain-level app settings to update.
+-- A single @RStudioServerPro@ application is created for a domain.
 --
 -- 'securityGroupIds', 'domainSettingsForUpdate_securityGroupIds' - The security groups for the Amazon Virtual Private Cloud that the
 -- @Domain@ uses for communication between Domain-level apps and user apps.
@@ -82,6 +84,7 @@ domainSettingsForUpdate_executionRoleIdentityConfig :: Lens.Lens' DomainSettings
 domainSettingsForUpdate_executionRoleIdentityConfig = Lens.lens (\DomainSettingsForUpdate' {executionRoleIdentityConfig} -> executionRoleIdentityConfig) (\s@DomainSettingsForUpdate' {} a -> s {executionRoleIdentityConfig = a} :: DomainSettingsForUpdate)
 
 -- | A collection of @RStudioServerPro@ Domain-level app settings to update.
+-- A single @RStudioServerPro@ application is created for a domain.
 domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate :: Lens.Lens' DomainSettingsForUpdate (Prelude.Maybe RStudioServerProDomainSettingsForUpdate)
 domainSettingsForUpdate_rStudioServerProDomainSettingsForUpdate = Lens.lens (\DomainSettingsForUpdate' {rStudioServerProDomainSettingsForUpdate} -> rStudioServerProDomainSettingsForUpdate) (\s@DomainSettingsForUpdate' {} a -> s {rStudioServerProDomainSettingsForUpdate = a} :: DomainSettingsForUpdate)
 

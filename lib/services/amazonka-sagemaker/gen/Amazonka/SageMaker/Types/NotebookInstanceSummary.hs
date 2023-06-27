@@ -210,7 +210,8 @@ instance Data.FromJSON NotebookInstanceSummary where
       "NotebookInstanceSummary"
       ( \x ->
           NotebookInstanceSummary'
-            Prelude.<$> ( x Data..:? "AdditionalCodeRepositories"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalCodeRepositories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "CreationTime")

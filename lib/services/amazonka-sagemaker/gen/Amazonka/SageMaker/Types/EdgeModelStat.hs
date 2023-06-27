@@ -144,7 +144,8 @@ instance Data.FromJSON EdgeModelStat where
 
 instance Prelude.Hashable EdgeModelStat where
   hashWithSalt _salt EdgeModelStat' {..} =
-    _salt `Prelude.hashWithSalt` modelName
+    _salt
+      `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` modelVersion
       `Prelude.hashWithSalt` offlineDeviceCount
       `Prelude.hashWithSalt` connectedDeviceCount

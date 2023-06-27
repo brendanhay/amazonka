@@ -24,12 +24,13 @@
 -- trials the component is associated with. Before you can delete a
 -- component, you must disassociate the component from all trials it is
 -- associated with. To associate a trial component with a trial, call the
--- AssociateTrialComponent API.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AssociateTrialComponent.html AssociateTrialComponent>
+-- API.
 --
 -- To get a list of the trials a component is associated with, use the
--- Search API. Specify @ExperimentTrialComponent@ for the @Resource@
--- parameter. The list appears in the response under
--- @Results.TrialComponent.Parents@.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API. Specify @ExperimentTrialComponent@ for the @Resource@ parameter.
+-- The list appears in the response under @Results.TrialComponent.Parents@.
 module Amazonka.SageMaker.DisassociateTrialComponent
   ( -- * Creating a Request
     DisassociateTrialComponent (..),
@@ -118,7 +119,8 @@ instance Core.AWSRequest DisassociateTrialComponent where
 
 instance Prelude.Hashable DisassociateTrialComponent where
   hashWithSalt _salt DisassociateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` trialComponentName
+    _salt
+      `Prelude.hashWithSalt` trialComponentName
       `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData DisassociateTrialComponent where

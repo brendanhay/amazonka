@@ -26,8 +26,9 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ExperimentSource
 
 -- | A summary of the properties of an experiment. To get the complete set of
--- properties, call the DescribeExperiment API and provide the
--- @ExperimentName@.
+-- properties, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeExperiment.html DescribeExperiment>
+-- API and provide the @ExperimentName@.
 --
 -- /See:/ 'newExperimentSummary' smart constructor.
 data ExperimentSummary = ExperimentSummary'
@@ -119,7 +120,8 @@ instance Data.FromJSON ExperimentSummary where
 
 instance Prelude.Hashable ExperimentSummary where
   hashWithSalt _salt ExperimentSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` experimentArn
       `Prelude.hashWithSalt` experimentName

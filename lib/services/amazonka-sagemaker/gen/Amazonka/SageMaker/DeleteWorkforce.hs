@@ -24,9 +24,12 @@
 --
 -- If you want to create a new workforce in an Amazon Web Services Region
 -- where a workforce already exists, use this operation to delete the
--- existing workforce and then use to create a new workforce.
+-- existing workforce and then use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateWorkforce.html CreateWorkforce>
+-- to create a new workforce.
 --
 -- If a private workforce contains one or more work teams, you must use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html DeleteWorkteam>
 -- operation to delete all work teams before you delete the workforce. If
 -- you try to delete a workforce that contains one or more work teams, you
 -- will recieve a @ResourceInUse@ error.

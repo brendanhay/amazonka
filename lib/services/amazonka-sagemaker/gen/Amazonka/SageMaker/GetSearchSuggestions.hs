@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- An auto-complete API for the search functionality in the Amazon
--- SageMaker console. It returns suggestions of possible matches for the
--- property name to use in @Search@ queries. Provides suggestions for
+-- An auto-complete API for the search functionality in the SageMaker
+-- console. It returns suggestions of possible matches for the property
+-- name to use in @Search@ queries. Provides suggestions for
 -- @HyperParameters@, @Tags@, and @Metrics@.
 module Amazonka.SageMaker.GetSearchSuggestions
   ( -- * Creating a Request
@@ -55,7 +55,7 @@ import Amazonka.SageMaker.Types
 data GetSearchSuggestions = GetSearchSuggestions'
   { -- | Limits the property names that are included in the response.
     suggestionQuery :: Prelude.Maybe SuggestionQuery,
-    -- | The name of the Amazon SageMaker resource to search for.
+    -- | The name of the SageMaker resource to search for.
     resource :: ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +70,7 @@ data GetSearchSuggestions = GetSearchSuggestions'
 --
 -- 'suggestionQuery', 'getSearchSuggestions_suggestionQuery' - Limits the property names that are included in the response.
 --
--- 'resource', 'getSearchSuggestions_resource' - The name of the Amazon SageMaker resource to search for.
+-- 'resource', 'getSearchSuggestions_resource' - The name of the SageMaker resource to search for.
 newGetSearchSuggestions ::
   -- | 'resource'
   ResourceType ->
@@ -86,7 +86,7 @@ newGetSearchSuggestions pResource_ =
 getSearchSuggestions_suggestionQuery :: Lens.Lens' GetSearchSuggestions (Prelude.Maybe SuggestionQuery)
 getSearchSuggestions_suggestionQuery = Lens.lens (\GetSearchSuggestions' {suggestionQuery} -> suggestionQuery) (\s@GetSearchSuggestions' {} a -> s {suggestionQuery = a} :: GetSearchSuggestions)
 
--- | The name of the Amazon SageMaker resource to search for.
+-- | The name of the SageMaker resource to search for.
 getSearchSuggestions_resource :: Lens.Lens' GetSearchSuggestions ResourceType
 getSearchSuggestions_resource = Lens.lens (\GetSearchSuggestions' {resource} -> resource) (\s@GetSearchSuggestions' {} a -> s {resource = a} :: GetSearchSuggestions)
 
@@ -100,7 +100,8 @@ instance Core.AWSRequest GetSearchSuggestions where
     Response.receiveJSON
       ( \s h x ->
           GetSearchSuggestionsResponse'
-            Prelude.<$> ( x Data..?> "PropertyNameSuggestions"
+            Prelude.<$> ( x
+                            Data..?> "PropertyNameSuggestions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -108,7 +109,8 @@ instance Core.AWSRequest GetSearchSuggestions where
 
 instance Prelude.Hashable GetSearchSuggestions where
   hashWithSalt _salt GetSearchSuggestions' {..} =
-    _salt `Prelude.hashWithSalt` suggestionQuery
+    _salt
+      `Prelude.hashWithSalt` suggestionQuery
       `Prelude.hashWithSalt` resource
 
 instance Prelude.NFData GetSearchSuggestions where

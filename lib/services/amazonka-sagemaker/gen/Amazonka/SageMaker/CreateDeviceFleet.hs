@@ -153,7 +153,8 @@ instance Core.AWSRequest CreateDeviceFleet where
 
 instance Prelude.Hashable CreateDeviceFleet where
   hashWithSalt _salt CreateDeviceFleet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enableIotRoleAlias
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` tags

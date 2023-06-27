@@ -26,7 +26,9 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Represents an input or output artifact of a trial component. You specify
 -- @TrialComponentArtifact@ as part of the @InputArtifacts@ and
--- @OutputArtifacts@ parameters in the CreateTrialComponent request.
+-- @OutputArtifacts@ parameters in the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html CreateTrialComponent>
+-- request.
 --
 -- Examples of input artifacts are datasets, algorithms, hyperparameters,
 -- source code, and instance types. Examples of output artifacts are
@@ -95,7 +97,8 @@ instance Data.FromJSON TrialComponentArtifact where
 
 instance Prelude.Hashable TrialComponentArtifact where
   hashWithSalt _salt TrialComponentArtifact' {..} =
-    _salt `Prelude.hashWithSalt` mediaType
+    _salt
+      `Prelude.hashWithSalt` mediaType
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TrialComponentArtifact where

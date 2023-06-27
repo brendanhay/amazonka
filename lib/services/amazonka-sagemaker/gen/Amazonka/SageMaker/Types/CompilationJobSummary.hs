@@ -195,7 +195,8 @@ instance Data.FromJSON CompilationJobSummary where
 
 instance Prelude.Hashable CompilationJobSummary where
   hashWithSalt _salt CompilationJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` compilationEndTime
+    _salt
+      `Prelude.hashWithSalt` compilationEndTime
       `Prelude.hashWithSalt` compilationStartTime
       `Prelude.hashWithSalt` compilationTargetDevice
       `Prelude.hashWithSalt` compilationTargetPlatformAccelerator

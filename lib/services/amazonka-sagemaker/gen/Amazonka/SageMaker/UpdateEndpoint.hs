@@ -28,7 +28,8 @@
 -- When SageMaker receives the request, it sets the endpoint status to
 -- @Updating@. After updating the endpoint, it sets the status to
 -- @InService@. To check the status of an endpoint, use the
--- DescribeEndpoint API.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html DescribeEndpoint>
+-- API.
 --
 -- You must not delete an @EndpointConfig@ in use by an endpoint that is
 -- live or while the @UpdateEndpoint@ or @CreateEndpoint@ operations are
@@ -76,11 +77,12 @@ data UpdateEndpoint = UpdateEndpoint'
     -- deployment strategy and rollback configurations.
     deploymentConfig :: Prelude.Maybe DeploymentConfig,
     -- | When you are updating endpoint resources with
-    -- UpdateEndpointInput$RetainAllVariantProperties, whose value is set to
-    -- @true@, @ExcludeRetainedVariantProperties@ specifies the list of type
-    -- VariantProperty to override with the values provided by
-    -- @EndpointConfig@. If you don\'t specify a value for
-    -- @ExcludeAllVariantProperties@, no variant properties are overridden.
+    -- @RetainAllVariantProperties@, whose value is set to @true@,
+    -- @ExcludeRetainedVariantProperties@ specifies the list of type
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html VariantProperty>
+    -- to override with the values provided by @EndpointConfig@. If you don\'t
+    -- specify a value for @ExcludeRetainedVariantProperties@, no variant
+    -- properties are overridden.
     excludeRetainedVariantProperties :: Prelude.Maybe [VariantProperty],
     -- | When updating endpoint resources, enables or disables the retention of
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
@@ -112,11 +114,12 @@ data UpdateEndpoint = UpdateEndpoint'
 -- deployment strategy and rollback configurations.
 --
 -- 'excludeRetainedVariantProperties', 'updateEndpoint_excludeRetainedVariantProperties' - When you are updating endpoint resources with
--- UpdateEndpointInput$RetainAllVariantProperties, whose value is set to
--- @true@, @ExcludeRetainedVariantProperties@ specifies the list of type
--- VariantProperty to override with the values provided by
--- @EndpointConfig@. If you don\'t specify a value for
--- @ExcludeAllVariantProperties@, no variant properties are overridden.
+-- @RetainAllVariantProperties@, whose value is set to @true@,
+-- @ExcludeRetainedVariantProperties@ specifies the list of type
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html VariantProperty>
+-- to override with the values provided by @EndpointConfig@. If you don\'t
+-- specify a value for @ExcludeRetainedVariantProperties@, no variant
+-- properties are overridden.
 --
 -- 'retainAllVariantProperties', 'updateEndpoint_retainAllVariantProperties' - When updating endpoint resources, enables or disables the retention of
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html variant properties>,
@@ -154,11 +157,12 @@ updateEndpoint_deploymentConfig :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Depl
 updateEndpoint_deploymentConfig = Lens.lens (\UpdateEndpoint' {deploymentConfig} -> deploymentConfig) (\s@UpdateEndpoint' {} a -> s {deploymentConfig = a} :: UpdateEndpoint)
 
 -- | When you are updating endpoint resources with
--- UpdateEndpointInput$RetainAllVariantProperties, whose value is set to
--- @true@, @ExcludeRetainedVariantProperties@ specifies the list of type
--- VariantProperty to override with the values provided by
--- @EndpointConfig@. If you don\'t specify a value for
--- @ExcludeAllVariantProperties@, no variant properties are overridden.
+-- @RetainAllVariantProperties@, whose value is set to @true@,
+-- @ExcludeRetainedVariantProperties@ specifies the list of type
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VariantProperty.html VariantProperty>
+-- to override with the values provided by @EndpointConfig@. If you don\'t
+-- specify a value for @ExcludeRetainedVariantProperties@, no variant
+-- properties are overridden.
 updateEndpoint_excludeRetainedVariantProperties :: Lens.Lens' UpdateEndpoint (Prelude.Maybe [VariantProperty])
 updateEndpoint_excludeRetainedVariantProperties = Lens.lens (\UpdateEndpoint' {excludeRetainedVariantProperties} -> excludeRetainedVariantProperties) (\s@UpdateEndpoint' {} a -> s {excludeRetainedVariantProperties = a} :: UpdateEndpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -201,7 +205,8 @@ instance Core.AWSRequest UpdateEndpoint where
 
 instance Prelude.Hashable UpdateEndpoint where
   hashWithSalt _salt UpdateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` deploymentConfig
+    _salt
+      `Prelude.hashWithSalt` deploymentConfig
       `Prelude.hashWithSalt` excludeRetainedVariantProperties
       `Prelude.hashWithSalt` retainAllVariantProperties
       `Prelude.hashWithSalt` retainDeploymentConfig

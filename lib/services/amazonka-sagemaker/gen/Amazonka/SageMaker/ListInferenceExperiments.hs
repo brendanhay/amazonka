@@ -84,10 +84,12 @@ data ListInferenceExperiments = ListInferenceExperiments'
     -- | The direction of sorting (ascending or descending).
     sortOrder :: Prelude.Maybe SortOrder,
     -- | Selects inference experiments which are in this status. For the possible
-    -- statuses, see DescribeInferenceExperimentResponse$Status.
+    -- statuses, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html DescribeInferenceExperiment>.
     statusEquals :: Prelude.Maybe InferenceExperimentStatus,
     -- | Selects inference experiments of this type. For the possible types of
-    -- inference experiments, see CreateInferenceExperimentRequest$Type.
+    -- inference experiments, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html CreateInferenceExperiment>.
     type' :: Prelude.Maybe InferenceExperimentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -122,10 +124,12 @@ data ListInferenceExperiments = ListInferenceExperiments'
 -- 'sortOrder', 'listInferenceExperiments_sortOrder' - The direction of sorting (ascending or descending).
 --
 -- 'statusEquals', 'listInferenceExperiments_statusEquals' - Selects inference experiments which are in this status. For the possible
--- statuses, see DescribeInferenceExperimentResponse$Status.
+-- statuses, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html DescribeInferenceExperiment>.
 --
 -- 'type'', 'listInferenceExperiments_type' - Selects inference experiments of this type. For the possible types of
--- inference experiments, see CreateInferenceExperimentRequest$Type.
+-- inference experiments, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html CreateInferenceExperiment>.
 newListInferenceExperiments ::
   ListInferenceExperiments
 newListInferenceExperiments =
@@ -184,12 +188,14 @@ listInferenceExperiments_sortOrder :: Lens.Lens' ListInferenceExperiments (Prelu
 listInferenceExperiments_sortOrder = Lens.lens (\ListInferenceExperiments' {sortOrder} -> sortOrder) (\s@ListInferenceExperiments' {} a -> s {sortOrder = a} :: ListInferenceExperiments)
 
 -- | Selects inference experiments which are in this status. For the possible
--- statuses, see DescribeInferenceExperimentResponse$Status.
+-- statuses, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html DescribeInferenceExperiment>.
 listInferenceExperiments_statusEquals :: Lens.Lens' ListInferenceExperiments (Prelude.Maybe InferenceExperimentStatus)
 listInferenceExperiments_statusEquals = Lens.lens (\ListInferenceExperiments' {statusEquals} -> statusEquals) (\s@ListInferenceExperiments' {} a -> s {statusEquals = a} :: ListInferenceExperiments)
 
 -- | Selects inference experiments of this type. For the possible types of
--- inference experiments, see CreateInferenceExperimentRequest$Type.
+-- inference experiments, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html CreateInferenceExperiment>.
 listInferenceExperiments_type :: Lens.Lens' ListInferenceExperiments (Prelude.Maybe InferenceExperimentType)
 listInferenceExperiments_type = Lens.lens (\ListInferenceExperiments' {type'} -> type') (\s@ListInferenceExperiments' {} a -> s {type' = a} :: ListInferenceExperiments)
 
@@ -198,22 +204,22 @@ instance Core.AWSPager ListInferenceExperiments where
     | Core.stop
         ( rs
             Lens.^? listInferenceExperimentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listInferenceExperimentsResponse_inferenceExperiments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInferenceExperiments_nextToken
           Lens..~ rs
           Lens.^? listInferenceExperimentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListInferenceExperiments where
   type
@@ -225,7 +231,8 @@ instance Core.AWSRequest ListInferenceExperiments where
     Response.receiveJSON
       ( \s h x ->
           ListInferenceExperimentsResponse'
-            Prelude.<$> ( x Data..?> "InferenceExperiments"
+            Prelude.<$> ( x
+                            Data..?> "InferenceExperiments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -234,7 +241,8 @@ instance Core.AWSRequest ListInferenceExperiments where
 
 instance Prelude.Hashable ListInferenceExperiments where
   hashWithSalt _salt ListInferenceExperiments' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

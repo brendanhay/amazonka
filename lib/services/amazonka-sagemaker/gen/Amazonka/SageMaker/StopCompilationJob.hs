@@ -27,9 +27,9 @@
 -- the SIGKILL signal.
 --
 -- When it receives a @StopCompilationJob@ request, Amazon SageMaker
--- changes the CompilationJobSummary$CompilationJobStatus of the job to
--- @Stopping@. After Amazon SageMaker stops the job, it sets the
--- CompilationJobSummary$CompilationJobStatus to @Stopped@.
+-- changes the @CompilationJobStatus@ of the job to @Stopping@. After
+-- Amazon SageMaker stops the job, it sets the @CompilationJobStatus@ to
+-- @Stopped@.
 module Amazonka.SageMaker.StopCompilationJob
   ( -- * Creating a Request
     StopCompilationJob (..),

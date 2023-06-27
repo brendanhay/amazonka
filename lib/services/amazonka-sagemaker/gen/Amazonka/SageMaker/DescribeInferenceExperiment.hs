@@ -168,7 +168,8 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
     -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
     -- key that Amazon SageMaker uses to encrypt data on the storage volume
     -- attached to the ML compute instance that hosts the endpoint. For more
-    -- information, see CreateInferenceExperimentRequest$KmsKey.
+    -- information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html CreateInferenceExperiment>.
     kmsKey :: Prelude.Maybe Prelude.Text,
     -- | The timestamp at which you last modified the inference experiment.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
@@ -185,8 +186,8 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
     -- of requests that Amazon SageMaker replicates.
     shadowModeConfig :: Prelude.Maybe ShadowModeConfig,
     -- | The error message or client-specified @Reason@ from the
-    -- StopInferenceExperiment API, that explains the status of the inference
-    -- experiment.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html StopInferenceExperiment>
+    -- API, that explains the status of the inference experiment.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -216,8 +217,9 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
     -- -   @Completed@ - Your experiment has completed.
     --
     -- -   @Cancelled@ - When you conclude your experiment early using the
-    --     StopInferenceExperiment API, or if any operation fails with an
-    --     unexpected error, it shows as cancelled.
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html StopInferenceExperiment>
+    --     API, or if any operation fails with an unexpected error, it shows as
+    --     cancelled.
     status :: InferenceExperimentStatus,
     -- | The metadata of the endpoint on which the inference experiment ran.
     endpointMetadata :: EndpointMetadata,
@@ -249,7 +251,8 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
 -- 'kmsKey', 'describeInferenceExperimentResponse_kmsKey' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data on the storage volume
 -- attached to the ML compute instance that hosts the endpoint. For more
--- information, see CreateInferenceExperimentRequest$KmsKey.
+-- information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html CreateInferenceExperiment>.
 --
 -- 'lastModifiedTime', 'describeInferenceExperimentResponse_lastModifiedTime' - The timestamp at which you last modified the inference experiment.
 --
@@ -266,8 +269,8 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
 -- of requests that Amazon SageMaker replicates.
 --
 -- 'statusReason', 'describeInferenceExperimentResponse_statusReason' - The error message or client-specified @Reason@ from the
--- StopInferenceExperiment API, that explains the status of the inference
--- experiment.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html StopInferenceExperiment>
+-- API, that explains the status of the inference experiment.
 --
 -- 'httpStatus', 'describeInferenceExperimentResponse_httpStatus' - The response's http status code.
 --
@@ -297,8 +300,9 @@ data DescribeInferenceExperimentResponse = DescribeInferenceExperimentResponse'
 -- -   @Completed@ - Your experiment has completed.
 --
 -- -   @Cancelled@ - When you conclude your experiment early using the
---     StopInferenceExperiment API, or if any operation fails with an
---     unexpected error, it shows as cancelled.
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html StopInferenceExperiment>
+--     API, or if any operation fails with an unexpected error, it shows as
+--     cancelled.
 --
 -- 'endpointMetadata', 'describeInferenceExperimentResponse_endpointMetadata' - The metadata of the endpoint on which the inference experiment ran.
 --
@@ -368,7 +372,8 @@ describeInferenceExperimentResponse_description = Lens.lens (\DescribeInferenceE
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data on the storage volume
 -- attached to the ML compute instance that hosts the endpoint. For more
--- information, see CreateInferenceExperimentRequest$KmsKey.
+-- information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html CreateInferenceExperiment>.
 describeInferenceExperimentResponse_kmsKey :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe Prelude.Text)
 describeInferenceExperimentResponse_kmsKey = Lens.lens (\DescribeInferenceExperimentResponse' {kmsKey} -> kmsKey) (\s@DescribeInferenceExperimentResponse' {} a -> s {kmsKey = a} :: DescribeInferenceExperimentResponse)
 
@@ -395,8 +400,8 @@ describeInferenceExperimentResponse_shadowModeConfig :: Lens.Lens' DescribeInfer
 describeInferenceExperimentResponse_shadowModeConfig = Lens.lens (\DescribeInferenceExperimentResponse' {shadowModeConfig} -> shadowModeConfig) (\s@DescribeInferenceExperimentResponse' {} a -> s {shadowModeConfig = a} :: DescribeInferenceExperimentResponse)
 
 -- | The error message or client-specified @Reason@ from the
--- StopInferenceExperiment API, that explains the status of the inference
--- experiment.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html StopInferenceExperiment>
+-- API, that explains the status of the inference experiment.
 describeInferenceExperimentResponse_statusReason :: Lens.Lens' DescribeInferenceExperimentResponse (Prelude.Maybe Prelude.Text)
 describeInferenceExperimentResponse_statusReason = Lens.lens (\DescribeInferenceExperimentResponse' {statusReason} -> statusReason) (\s@DescribeInferenceExperimentResponse' {} a -> s {statusReason = a} :: DescribeInferenceExperimentResponse)
 
@@ -436,8 +441,9 @@ describeInferenceExperimentResponse_type = Lens.lens (\DescribeInferenceExperime
 -- -   @Completed@ - Your experiment has completed.
 --
 -- -   @Cancelled@ - When you conclude your experiment early using the
---     StopInferenceExperiment API, or if any operation fails with an
---     unexpected error, it shows as cancelled.
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html StopInferenceExperiment>
+--     API, or if any operation fails with an unexpected error, it shows as
+--     cancelled.
 describeInferenceExperimentResponse_status :: Lens.Lens' DescribeInferenceExperimentResponse InferenceExperimentStatus
 describeInferenceExperimentResponse_status = Lens.lens (\DescribeInferenceExperimentResponse' {status} -> status) (\s@DescribeInferenceExperimentResponse' {} a -> s {status = a} :: DescribeInferenceExperimentResponse)
 

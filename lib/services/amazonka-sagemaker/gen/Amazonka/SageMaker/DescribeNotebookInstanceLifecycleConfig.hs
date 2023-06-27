@@ -101,12 +101,12 @@ instance
       ( \s h x ->
           DescribeNotebookInstanceLifecycleConfigResponse'
             Prelude.<$> (x Data..?> "CreationTime")
-              Prelude.<*> (x Data..?> "LastModifiedTime")
-              Prelude.<*> (x Data..?> "NotebookInstanceLifecycleConfigArn")
-              Prelude.<*> (x Data..?> "NotebookInstanceLifecycleConfigName")
-              Prelude.<*> (x Data..?> "OnCreate" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "OnStart" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "LastModifiedTime")
+            Prelude.<*> (x Data..?> "NotebookInstanceLifecycleConfigArn")
+            Prelude.<*> (x Data..?> "NotebookInstanceLifecycleConfigName")
+            Prelude.<*> (x Data..?> "OnCreate" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "OnStart" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

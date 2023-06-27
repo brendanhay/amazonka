@@ -30,13 +30,16 @@ import Amazonka.SageMaker.Types.PendingProductionVariantSummary
 --
 -- /See:/ 'newPendingDeploymentSummary' smart constructor.
 data PendingDeploymentSummary = PendingDeploymentSummary'
-  { -- | An array of PendingProductionVariantSummary objects, one for each model
-    -- hosted behind this endpoint for the in-progress deployment.
-    productionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
-    -- | An array of PendingProductionVariantSummary objects, one for each model
-    -- hosted behind this endpoint in shadow mode with production traffic
-    -- replicated from the model specified on @ProductionVariants@ for the
+  { -- | An array of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html PendingProductionVariantSummary>
+    -- objects, one for each model hosted behind this endpoint for the
     -- in-progress deployment.
+    productionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
+    -- | An array of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html PendingProductionVariantSummary>
+    -- objects, one for each model hosted behind this endpoint in shadow mode
+    -- with production traffic replicated from the model specified on
+    -- @ProductionVariants@ for the in-progress deployment.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary),
     -- | The start time of the deployment.
     startTime :: Prelude.Maybe Data.POSIX,
@@ -53,13 +56,16 @@ data PendingDeploymentSummary = PendingDeploymentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'productionVariants', 'pendingDeploymentSummary_productionVariants' - An array of PendingProductionVariantSummary objects, one for each model
--- hosted behind this endpoint for the in-progress deployment.
---
--- 'shadowProductionVariants', 'pendingDeploymentSummary_shadowProductionVariants' - An array of PendingProductionVariantSummary objects, one for each model
--- hosted behind this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@ for the
+-- 'productionVariants', 'pendingDeploymentSummary_productionVariants' - An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html PendingProductionVariantSummary>
+-- objects, one for each model hosted behind this endpoint for the
 -- in-progress deployment.
+--
+-- 'shadowProductionVariants', 'pendingDeploymentSummary_shadowProductionVariants' - An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html PendingProductionVariantSummary>
+-- objects, one for each model hosted behind this endpoint in shadow mode
+-- with production traffic replicated from the model specified on
+-- @ProductionVariants@ for the in-progress deployment.
 --
 -- 'startTime', 'pendingDeploymentSummary_startTime' - The start time of the deployment.
 --
@@ -77,15 +83,18 @@ newPendingDeploymentSummary pEndpointConfigName_ =
       endpointConfigName = pEndpointConfigName_
     }
 
--- | An array of PendingProductionVariantSummary objects, one for each model
--- hosted behind this endpoint for the in-progress deployment.
+-- | An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html PendingProductionVariantSummary>
+-- objects, one for each model hosted behind this endpoint for the
+-- in-progress deployment.
 pendingDeploymentSummary_productionVariants :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary))
 pendingDeploymentSummary_productionVariants = Lens.lens (\PendingDeploymentSummary' {productionVariants} -> productionVariants) (\s@PendingDeploymentSummary' {} a -> s {productionVariants = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of PendingProductionVariantSummary objects, one for each model
--- hosted behind this endpoint in shadow mode with production traffic
--- replicated from the model specified on @ProductionVariants@ for the
--- in-progress deployment.
+-- | An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PendingProductionVariantSummary.html PendingProductionVariantSummary>
+-- objects, one for each model hosted behind this endpoint in shadow mode
+-- with production traffic replicated from the model specified on
+-- @ProductionVariants@ for the in-progress deployment.
 pendingDeploymentSummary_shadowProductionVariants :: Lens.Lens' PendingDeploymentSummary (Prelude.Maybe (Prelude.NonEmpty PendingProductionVariantSummary))
 pendingDeploymentSummary_shadowProductionVariants = Lens.lens (\PendingDeploymentSummary' {shadowProductionVariants} -> shadowProductionVariants) (\s@PendingDeploymentSummary' {} a -> s {shadowProductionVariants = a} :: PendingDeploymentSummary) Prelude.. Lens.mapping Lens.coerced
 
@@ -111,7 +120,8 @@ instance Data.FromJSON PendingDeploymentSummary where
 
 instance Prelude.Hashable PendingDeploymentSummary where
   hashWithSalt _salt PendingDeploymentSummary' {..} =
-    _salt `Prelude.hashWithSalt` productionVariants
+    _salt
+      `Prelude.hashWithSalt` productionVariants
       `Prelude.hashWithSalt` shadowProductionVariants
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` endpointConfigName

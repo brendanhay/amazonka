@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newPropertyNameSuggestion' smart constructor.
 data PropertyNameSuggestion = PropertyNameSuggestion'
   { -- | A suggested property name based on what you entered in the search
-    -- textbox in the Amazon SageMaker console.
+    -- textbox in the SageMaker console.
     propertyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data PropertyNameSuggestion = PropertyNameSuggestion'
 -- for backwards compatibility:
 --
 -- 'propertyName', 'propertyNameSuggestion_propertyName' - A suggested property name based on what you entered in the search
--- textbox in the Amazon SageMaker console.
+-- textbox in the SageMaker console.
 newPropertyNameSuggestion ::
   PropertyNameSuggestion
 newPropertyNameSuggestion =
@@ -54,7 +54,7 @@ newPropertyNameSuggestion =
     }
 
 -- | A suggested property name based on what you entered in the search
--- textbox in the Amazon SageMaker console.
+-- textbox in the SageMaker console.
 propertyNameSuggestion_propertyName :: Lens.Lens' PropertyNameSuggestion (Prelude.Maybe Prelude.Text)
 propertyNameSuggestion_propertyName = Lens.lens (\PropertyNameSuggestion' {propertyName} -> propertyName) (\s@PropertyNameSuggestion' {} a -> s {propertyName = a} :: PropertyNameSuggestion)
 

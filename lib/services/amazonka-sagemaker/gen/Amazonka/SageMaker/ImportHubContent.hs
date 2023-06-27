@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Import hub content.
+--
+-- Hub APIs are only callable through SageMaker Studio.
 module Amazonka.SageMaker.ImportHubContent
   ( -- * Creating a Request
     ImportHubContent (..),
@@ -64,7 +66,8 @@ data ImportHubContent = ImportHubContent'
     hubContentDescription :: Prelude.Maybe Prelude.Text,
     -- | The display name of the hub content to import.
     hubContentDisplayName :: Prelude.Maybe Prelude.Text,
-    -- | Markdown files associated with the hub content to import.
+    -- | A string that provides a description of the hub content. This string can
+    -- include links, tables, and standard markdown formating.
     hubContentMarkdown :: Prelude.Maybe Prelude.Text,
     -- | The searchable keywords of the hub content.
     hubContentSearchKeywords :: Prelude.Maybe [Prelude.Text],
@@ -98,7 +101,8 @@ data ImportHubContent = ImportHubContent'
 --
 -- 'hubContentDisplayName', 'importHubContent_hubContentDisplayName' - The display name of the hub content to import.
 --
--- 'hubContentMarkdown', 'importHubContent_hubContentMarkdown' - Markdown files associated with the hub content to import.
+-- 'hubContentMarkdown', 'importHubContent_hubContentMarkdown' - A string that provides a description of the hub content. This string can
+-- include links, tables, and standard markdown formating.
 --
 -- 'hubContentSearchKeywords', 'importHubContent_hubContentSearchKeywords' - The searchable keywords of the hub content.
 --
@@ -157,7 +161,8 @@ importHubContent_hubContentDescription = Lens.lens (\ImportHubContent' {hubConte
 importHubContent_hubContentDisplayName :: Lens.Lens' ImportHubContent (Prelude.Maybe Prelude.Text)
 importHubContent_hubContentDisplayName = Lens.lens (\ImportHubContent' {hubContentDisplayName} -> hubContentDisplayName) (\s@ImportHubContent' {} a -> s {hubContentDisplayName = a} :: ImportHubContent)
 
--- | Markdown files associated with the hub content to import.
+-- | A string that provides a description of the hub content. This string can
+-- include links, tables, and standard markdown formating.
 importHubContent_hubContentMarkdown :: Lens.Lens' ImportHubContent (Prelude.Maybe Prelude.Text)
 importHubContent_hubContentMarkdown = Lens.lens (\ImportHubContent' {hubContentMarkdown} -> hubContentMarkdown) (\s@ImportHubContent' {} a -> s {hubContentMarkdown = a} :: ImportHubContent)
 
@@ -211,7 +216,8 @@ instance Core.AWSRequest ImportHubContent where
 
 instance Prelude.Hashable ImportHubContent where
   hashWithSalt _salt ImportHubContent' {..} =
-    _salt `Prelude.hashWithSalt` hubContentDescription
+    _salt
+      `Prelude.hashWithSalt` hubContentDescription
       `Prelude.hashWithSalt` hubContentDisplayName
       `Prelude.hashWithSalt` hubContentMarkdown
       `Prelude.hashWithSalt` hubContentSearchKeywords

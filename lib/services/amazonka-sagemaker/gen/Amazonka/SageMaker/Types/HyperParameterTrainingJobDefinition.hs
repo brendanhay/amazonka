@@ -59,6 +59,20 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- customer data and model artifacts through the specified VPC, but the
     -- training container does not have network access.
     enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
+    -- | An environment variable that you can pass into the SageMaker
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html CreateTrainingJob>
+    -- API. You can use an existing
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment environment variable from the training container>
+    -- or use your own. See
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html Define metrics and variables>
+    -- for more information.
+    --
+    -- The maximum number of items specified for @Map Entries@ refers to the
+    -- maximum number of environment variables for each @TrainingJobDefinition@
+    -- and also the maximum for the hyperparameter tuning job itself. That is,
+    -- the sum of the number of environment variables for all the training job
+    -- definitions can\'t exceed the maximum number specified.
+    environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     hyperParameterRanges :: Prelude.Maybe ParameterRanges,
     -- | The configuration for the hyperparameter tuning resources, including the
     -- compute instances and storage volumes, used for training jobs launched
@@ -67,8 +81,10 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- @AlgorithmSpecification@ parameter to additionally store training data
     -- in the storage volume (optional).
     hyperParameterTuningResourceConfig :: Prelude.Maybe HyperParameterTuningResourceConfig,
-    -- | An array of Channel objects that specify the input for the training jobs
-    -- that the tuning job launches.
+    -- | An array of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html Channel>
+    -- objects that specify the input for the training jobs that the tuning job
+    -- launches.
     inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
     -- | The resources, including the compute instances and storage volumes, to
     -- use for the training jobs that the tuning job launches.
@@ -90,15 +106,18 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
     -- tuning job.
     staticHyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     tuningObjective :: Prelude.Maybe HyperParameterTuningJobObjective,
-    -- | The VpcConfig object that specifies the VPC that you want the training
-    -- jobs that this hyperparameter tuning job launches to connect to. Control
-    -- access to and from your training container by configuring the VPC. For
-    -- more information, see
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+    -- object that specifies the VPC that you want the training jobs that this
+    -- hyperparameter tuning job launches to connect to. Control access to and
+    -- from your training container by configuring the VPC. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | The HyperParameterAlgorithmSpecification object that specifies the
-    -- resource algorithm to use for the training jobs that the tuning job
-    -- launches.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterAlgorithmSpecification.html HyperParameterAlgorithmSpecification>
+    -- object that specifies the resource algorithm to use for the training
+    -- jobs that the tuning job launches.
     algorithmSpecification :: HyperParameterAlgorithmSpecification,
     -- | The Amazon Resource Name (ARN) of the IAM role associated with the
     -- training jobs that the tuning job launches.
@@ -143,6 +162,20 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 -- customer data and model artifacts through the specified VPC, but the
 -- training container does not have network access.
 --
+-- 'environment', 'hyperParameterTrainingJobDefinition_environment' - An environment variable that you can pass into the SageMaker
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html CreateTrainingJob>
+-- API. You can use an existing
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment environment variable from the training container>
+-- or use your own. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html Define metrics and variables>
+-- for more information.
+--
+-- The maximum number of items specified for @Map Entries@ refers to the
+-- maximum number of environment variables for each @TrainingJobDefinition@
+-- and also the maximum for the hyperparameter tuning job itself. That is,
+-- the sum of the number of environment variables for all the training job
+-- definitions can\'t exceed the maximum number specified.
+--
 -- 'hyperParameterRanges', 'hyperParameterTrainingJobDefinition_hyperParameterRanges' - Undocumented member.
 --
 -- 'hyperParameterTuningResourceConfig', 'hyperParameterTrainingJobDefinition_hyperParameterTuningResourceConfig' - The configuration for the hyperparameter tuning resources, including the
@@ -152,8 +185,10 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 -- @AlgorithmSpecification@ parameter to additionally store training data
 -- in the storage volume (optional).
 --
--- 'inputDataConfig', 'hyperParameterTrainingJobDefinition_inputDataConfig' - An array of Channel objects that specify the input for the training jobs
--- that the tuning job launches.
+-- 'inputDataConfig', 'hyperParameterTrainingJobDefinition_inputDataConfig' - An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html Channel>
+-- objects that specify the input for the training jobs that the tuning job
+-- launches.
 --
 -- 'resourceConfig', 'hyperParameterTrainingJobDefinition_resourceConfig' - The resources, including the compute instances and storage volumes, to
 -- use for the training jobs that the tuning job launches.
@@ -176,15 +211,18 @@ data HyperParameterTrainingJobDefinition = HyperParameterTrainingJobDefinition'
 --
 -- 'tuningObjective', 'hyperParameterTrainingJobDefinition_tuningObjective' - Undocumented member.
 --
--- 'vpcConfig', 'hyperParameterTrainingJobDefinition_vpcConfig' - The VpcConfig object that specifies the VPC that you want the training
--- jobs that this hyperparameter tuning job launches to connect to. Control
--- access to and from your training container by configuring the VPC. For
--- more information, see
+-- 'vpcConfig', 'hyperParameterTrainingJobDefinition_vpcConfig' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want the training jobs that this
+-- hyperparameter tuning job launches to connect to. Control access to and
+-- from your training container by configuring the VPC. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 --
--- 'algorithmSpecification', 'hyperParameterTrainingJobDefinition_algorithmSpecification' - The HyperParameterAlgorithmSpecification object that specifies the
--- resource algorithm to use for the training jobs that the tuning job
--- launches.
+-- 'algorithmSpecification', 'hyperParameterTrainingJobDefinition_algorithmSpecification' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterAlgorithmSpecification.html HyperParameterAlgorithmSpecification>
+-- object that specifies the resource algorithm to use for the training
+-- jobs that the tuning job launches.
 --
 -- 'roleArn', 'hyperParameterTrainingJobDefinition_roleArn' - The Amazon Resource Name (ARN) of the IAM role associated with the
 -- training jobs that the tuning job launches.
@@ -221,6 +259,7 @@ newHyperParameterTrainingJobDefinition
           Prelude.Nothing,
         enableNetworkIsolation =
           Prelude.Nothing,
+        environment = Prelude.Nothing,
         hyperParameterRanges = Prelude.Nothing,
         hyperParameterTuningResourceConfig =
           Prelude.Nothing,
@@ -270,6 +309,22 @@ hyperParameterTrainingJobDefinition_enableManagedSpotTraining = Lens.lens (\Hype
 hyperParameterTrainingJobDefinition_enableNetworkIsolation :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe Prelude.Bool)
 hyperParameterTrainingJobDefinition_enableNetworkIsolation = Lens.lens (\HyperParameterTrainingJobDefinition' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@HyperParameterTrainingJobDefinition' {} a -> s {enableNetworkIsolation = a} :: HyperParameterTrainingJobDefinition)
 
+-- | An environment variable that you can pass into the SageMaker
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html CreateTrainingJob>
+-- API. You can use an existing
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html#sagemaker-CreateTrainingJob-request-Environment environment variable from the training container>
+-- or use your own. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html Define metrics and variables>
+-- for more information.
+--
+-- The maximum number of items specified for @Map Entries@ refers to the
+-- maximum number of environment variables for each @TrainingJobDefinition@
+-- and also the maximum for the hyperparameter tuning job itself. That is,
+-- the sum of the number of environment variables for all the training job
+-- definitions can\'t exceed the maximum number specified.
+hyperParameterTrainingJobDefinition_environment :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+hyperParameterTrainingJobDefinition_environment = Lens.lens (\HyperParameterTrainingJobDefinition' {environment} -> environment) (\s@HyperParameterTrainingJobDefinition' {} a -> s {environment = a} :: HyperParameterTrainingJobDefinition) Prelude.. Lens.mapping Lens.coerced
+
 -- | Undocumented member.
 hyperParameterTrainingJobDefinition_hyperParameterRanges :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe ParameterRanges)
 hyperParameterTrainingJobDefinition_hyperParameterRanges = Lens.lens (\HyperParameterTrainingJobDefinition' {hyperParameterRanges} -> hyperParameterRanges) (\s@HyperParameterTrainingJobDefinition' {} a -> s {hyperParameterRanges = a} :: HyperParameterTrainingJobDefinition)
@@ -283,8 +338,10 @@ hyperParameterTrainingJobDefinition_hyperParameterRanges = Lens.lens (\HyperPara
 hyperParameterTrainingJobDefinition_hyperParameterTuningResourceConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe HyperParameterTuningResourceConfig)
 hyperParameterTrainingJobDefinition_hyperParameterTuningResourceConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {hyperParameterTuningResourceConfig} -> hyperParameterTuningResourceConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {hyperParameterTuningResourceConfig = a} :: HyperParameterTrainingJobDefinition)
 
--- | An array of Channel objects that specify the input for the training jobs
--- that the tuning job launches.
+-- | An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html Channel>
+-- objects that specify the input for the training jobs that the tuning job
+-- launches.
 hyperParameterTrainingJobDefinition_inputDataConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe (Prelude.NonEmpty Channel))
 hyperParameterTrainingJobDefinition_inputDataConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {inputDataConfig = a} :: HyperParameterTrainingJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -317,17 +374,20 @@ hyperParameterTrainingJobDefinition_staticHyperParameters = Lens.lens (\HyperPar
 hyperParameterTrainingJobDefinition_tuningObjective :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe HyperParameterTuningJobObjective)
 hyperParameterTrainingJobDefinition_tuningObjective = Lens.lens (\HyperParameterTrainingJobDefinition' {tuningObjective} -> tuningObjective) (\s@HyperParameterTrainingJobDefinition' {} a -> s {tuningObjective = a} :: HyperParameterTrainingJobDefinition)
 
--- | The VpcConfig object that specifies the VPC that you want the training
--- jobs that this hyperparameter tuning job launches to connect to. Control
--- access to and from your training container by configuring the VPC. For
--- more information, see
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want the training jobs that this
+-- hyperparameter tuning job launches to connect to. Control access to and
+-- from your training container by configuring the VPC. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 hyperParameterTrainingJobDefinition_vpcConfig :: Lens.Lens' HyperParameterTrainingJobDefinition (Prelude.Maybe VpcConfig)
 hyperParameterTrainingJobDefinition_vpcConfig = Lens.lens (\HyperParameterTrainingJobDefinition' {vpcConfig} -> vpcConfig) (\s@HyperParameterTrainingJobDefinition' {} a -> s {vpcConfig = a} :: HyperParameterTrainingJobDefinition)
 
--- | The HyperParameterAlgorithmSpecification object that specifies the
--- resource algorithm to use for the training jobs that the tuning job
--- launches.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterAlgorithmSpecification.html HyperParameterAlgorithmSpecification>
+-- object that specifies the resource algorithm to use for the training
+-- jobs that the tuning job launches.
 hyperParameterTrainingJobDefinition_algorithmSpecification :: Lens.Lens' HyperParameterTrainingJobDefinition HyperParameterAlgorithmSpecification
 hyperParameterTrainingJobDefinition_algorithmSpecification = Lens.lens (\HyperParameterTrainingJobDefinition' {algorithmSpecification} -> algorithmSpecification) (\s@HyperParameterTrainingJobDefinition' {} a -> s {algorithmSpecification = a} :: HyperParameterTrainingJobDefinition)
 
@@ -362,12 +422,14 @@ instance
             Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
             Prelude.<*> (x Data..:? "EnableManagedSpotTraining")
             Prelude.<*> (x Data..:? "EnableNetworkIsolation")
+            Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "HyperParameterRanges")
             Prelude.<*> (x Data..:? "HyperParameterTuningResourceConfig")
             Prelude.<*> (x Data..:? "InputDataConfig")
             Prelude.<*> (x Data..:? "ResourceConfig")
             Prelude.<*> (x Data..:? "RetryStrategy")
-            Prelude.<*> ( x Data..:? "StaticHyperParameters"
+            Prelude.<*> ( x
+                            Data..:? "StaticHyperParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TuningObjective")
@@ -385,11 +447,13 @@ instance
   hashWithSalt
     _salt
     HyperParameterTrainingJobDefinition' {..} =
-      _salt `Prelude.hashWithSalt` checkpointConfig
+      _salt
+        `Prelude.hashWithSalt` checkpointConfig
         `Prelude.hashWithSalt` definitionName
         `Prelude.hashWithSalt` enableInterContainerTrafficEncryption
         `Prelude.hashWithSalt` enableManagedSpotTraining
         `Prelude.hashWithSalt` enableNetworkIsolation
+        `Prelude.hashWithSalt` environment
         `Prelude.hashWithSalt` hyperParameterRanges
         `Prelude.hashWithSalt` hyperParameterTuningResourceConfig
         `Prelude.hashWithSalt` inputDataConfig
@@ -413,6 +477,7 @@ instance
       `Prelude.seq` Prelude.rnf enableInterContainerTrafficEncryption
       `Prelude.seq` Prelude.rnf enableManagedSpotTraining
       `Prelude.seq` Prelude.rnf enableNetworkIsolation
+      `Prelude.seq` Prelude.rnf environment
       `Prelude.seq` Prelude.rnf hyperParameterRanges
       `Prelude.seq` Prelude.rnf hyperParameterTuningResourceConfig
       `Prelude.seq` Prelude.rnf inputDataConfig
@@ -443,6 +508,7 @@ instance
               Prelude.<$> enableManagedSpotTraining,
             ("EnableNetworkIsolation" Data..=)
               Prelude.<$> enableNetworkIsolation,
+            ("Environment" Data..=) Prelude.<$> environment,
             ("HyperParameterRanges" Data..=)
               Prelude.<$> hyperParameterRanges,
             ("HyperParameterTuningResourceConfig" Data..=)

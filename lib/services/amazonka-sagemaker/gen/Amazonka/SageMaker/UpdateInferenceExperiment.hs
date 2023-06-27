@@ -23,7 +23,7 @@
 -- Updates an inference experiment that you created. The status of the
 -- inference experiment has to be either @Created@, @Running@. For more
 -- information on the status of an inference experiment, see
--- DescribeInferenceExperimentResponse$Status.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html DescribeInferenceExperiment>.
 module Amazonka.SageMaker.UpdateInferenceExperiment
   ( -- * Creating a Request
     UpdateInferenceExperiment (..),
@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateInferenceExperiment where
 
 instance Prelude.Hashable UpdateInferenceExperiment where
   hashWithSalt _salt UpdateInferenceExperiment' {..} =
-    _salt `Prelude.hashWithSalt` dataStorageConfig
+    _salt
+      `Prelude.hashWithSalt` dataStorageConfig
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` modelVariants
       `Prelude.hashWithSalt` schedule

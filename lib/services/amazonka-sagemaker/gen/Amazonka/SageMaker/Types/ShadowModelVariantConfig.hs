@@ -84,7 +84,8 @@ instance Data.FromJSON ShadowModelVariantConfig where
 
 instance Prelude.Hashable ShadowModelVariantConfig where
   hashWithSalt _salt ShadowModelVariantConfig' {..} =
-    _salt `Prelude.hashWithSalt` shadowModelVariantName
+    _salt
+      `Prelude.hashWithSalt` shadowModelVariantName
       `Prelude.hashWithSalt` samplingPercentage
 
 instance Prelude.NFData ShadowModelVariantConfig where

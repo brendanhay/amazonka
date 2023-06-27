@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.EndpointOutputConfiguration
+import Amazonka.SageMaker.Types.InferenceMetrics
 import Amazonka.SageMaker.Types.ModelConfiguration
 import Amazonka.SageMaker.Types.RecommendationMetrics
 
@@ -32,8 +33,13 @@ import Amazonka.SageMaker.Types.RecommendationMetrics
 -- /See:/ 'newRecommendationJobInferenceBenchmark' smart constructor.
 data RecommendationJobInferenceBenchmark = RecommendationJobInferenceBenchmark'
   { endpointConfiguration :: Prelude.Maybe EndpointOutputConfiguration,
+    endpointMetrics :: Prelude.Maybe InferenceMetrics,
     -- | The reason why a benchmark failed.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | A timestamp that shows when the benchmark completed.
+    invocationEndTime :: Prelude.Maybe Data.POSIX,
+    -- | A timestamp that shows when the benchmark started.
+    invocationStartTime :: Prelude.Maybe Data.POSIX,
     metrics :: Prelude.Maybe RecommendationMetrics,
     modelConfiguration :: ModelConfiguration
   }
@@ -49,7 +55,13 @@ data RecommendationJobInferenceBenchmark = RecommendationJobInferenceBenchmark'
 --
 -- 'endpointConfiguration', 'recommendationJobInferenceBenchmark_endpointConfiguration' - Undocumented member.
 --
+-- 'endpointMetrics', 'recommendationJobInferenceBenchmark_endpointMetrics' - Undocumented member.
+--
 -- 'failureReason', 'recommendationJobInferenceBenchmark_failureReason' - The reason why a benchmark failed.
+--
+-- 'invocationEndTime', 'recommendationJobInferenceBenchmark_invocationEndTime' - A timestamp that shows when the benchmark completed.
+--
+-- 'invocationStartTime', 'recommendationJobInferenceBenchmark_invocationStartTime' - A timestamp that shows when the benchmark started.
 --
 -- 'metrics', 'recommendationJobInferenceBenchmark_metrics' - Undocumented member.
 --
@@ -63,7 +75,10 @@ newRecommendationJobInferenceBenchmark
     RecommendationJobInferenceBenchmark'
       { endpointConfiguration =
           Prelude.Nothing,
+        endpointMetrics = Prelude.Nothing,
         failureReason = Prelude.Nothing,
+        invocationEndTime = Prelude.Nothing,
+        invocationStartTime = Prelude.Nothing,
         metrics = Prelude.Nothing,
         modelConfiguration =
           pModelConfiguration_
@@ -73,9 +88,21 @@ newRecommendationJobInferenceBenchmark
 recommendationJobInferenceBenchmark_endpointConfiguration :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe EndpointOutputConfiguration)
 recommendationJobInferenceBenchmark_endpointConfiguration = Lens.lens (\RecommendationJobInferenceBenchmark' {endpointConfiguration} -> endpointConfiguration) (\s@RecommendationJobInferenceBenchmark' {} a -> s {endpointConfiguration = a} :: RecommendationJobInferenceBenchmark)
 
+-- | Undocumented member.
+recommendationJobInferenceBenchmark_endpointMetrics :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe InferenceMetrics)
+recommendationJobInferenceBenchmark_endpointMetrics = Lens.lens (\RecommendationJobInferenceBenchmark' {endpointMetrics} -> endpointMetrics) (\s@RecommendationJobInferenceBenchmark' {} a -> s {endpointMetrics = a} :: RecommendationJobInferenceBenchmark)
+
 -- | The reason why a benchmark failed.
 recommendationJobInferenceBenchmark_failureReason :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe Prelude.Text)
 recommendationJobInferenceBenchmark_failureReason = Lens.lens (\RecommendationJobInferenceBenchmark' {failureReason} -> failureReason) (\s@RecommendationJobInferenceBenchmark' {} a -> s {failureReason = a} :: RecommendationJobInferenceBenchmark)
+
+-- | A timestamp that shows when the benchmark completed.
+recommendationJobInferenceBenchmark_invocationEndTime :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe Prelude.UTCTime)
+recommendationJobInferenceBenchmark_invocationEndTime = Lens.lens (\RecommendationJobInferenceBenchmark' {invocationEndTime} -> invocationEndTime) (\s@RecommendationJobInferenceBenchmark' {} a -> s {invocationEndTime = a} :: RecommendationJobInferenceBenchmark) Prelude.. Lens.mapping Data._Time
+
+-- | A timestamp that shows when the benchmark started.
+recommendationJobInferenceBenchmark_invocationStartTime :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe Prelude.UTCTime)
+recommendationJobInferenceBenchmark_invocationStartTime = Lens.lens (\RecommendationJobInferenceBenchmark' {invocationStartTime} -> invocationStartTime) (\s@RecommendationJobInferenceBenchmark' {} a -> s {invocationStartTime = a} :: RecommendationJobInferenceBenchmark) Prelude.. Lens.mapping Data._Time
 
 -- | Undocumented member.
 recommendationJobInferenceBenchmark_metrics :: Lens.Lens' RecommendationJobInferenceBenchmark (Prelude.Maybe RecommendationMetrics)
@@ -95,7 +122,10 @@ instance
       ( \x ->
           RecommendationJobInferenceBenchmark'
             Prelude.<$> (x Data..:? "EndpointConfiguration")
+            Prelude.<*> (x Data..:? "EndpointMetrics")
             Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "InvocationEndTime")
+            Prelude.<*> (x Data..:? "InvocationStartTime")
             Prelude.<*> (x Data..:? "Metrics")
             Prelude.<*> (x Data..: "ModelConfiguration")
       )
@@ -107,8 +137,12 @@ instance
   hashWithSalt
     _salt
     RecommendationJobInferenceBenchmark' {..} =
-      _salt `Prelude.hashWithSalt` endpointConfiguration
+      _salt
+        `Prelude.hashWithSalt` endpointConfiguration
+        `Prelude.hashWithSalt` endpointMetrics
         `Prelude.hashWithSalt` failureReason
+        `Prelude.hashWithSalt` invocationEndTime
+        `Prelude.hashWithSalt` invocationStartTime
         `Prelude.hashWithSalt` metrics
         `Prelude.hashWithSalt` modelConfiguration
 
@@ -118,6 +152,9 @@ instance
   where
   rnf RecommendationJobInferenceBenchmark' {..} =
     Prelude.rnf endpointConfiguration
+      `Prelude.seq` Prelude.rnf endpointMetrics
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf invocationEndTime
+      `Prelude.seq` Prelude.rnf invocationStartTime
       `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf modelConfiguration

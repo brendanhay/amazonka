@@ -37,7 +37,8 @@
 -- sure that the tags associated with a hyperparameter tuning job are also
 -- added to all training jobs that the hyperparameter tuning job launches,
 -- add the tags when you first create the tuning job by specifying them in
--- the @Tags@ parameter of CreateHyperParameterTuningJob
+-- the @Tags@ parameter of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html CreateHyperParameterTuningJob>
 --
 -- Tags that you add to a SageMaker Studio Domain or User Profile by
 -- calling this API are also added to any Apps that the Domain or User
@@ -46,7 +47,10 @@
 -- that the tags associated with a Domain or User Profile are also added to
 -- all Apps that the Domain or User Profile launches, add the tags when you
 -- first create the Domain or User Profile by specifying them in the @Tags@
--- parameter of CreateDomain or CreateUserProfile.
+-- parameter of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateDomain.html CreateDomain>
+-- or
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html CreateUserProfile>.
 module Amazonka.SageMaker.AddTags
   ( -- * Creating a Request
     AddTags (..),
@@ -135,7 +139,8 @@ instance Core.AWSRequest AddTags where
 
 instance Prelude.Hashable AddTags where
   hashWithSalt _salt AddTags' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData AddTags where

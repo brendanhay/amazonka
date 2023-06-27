@@ -145,7 +145,8 @@ instance Data.FromJSON EdgePackagingJobSummary where
 
 instance Prelude.Hashable EdgePackagingJobSummary where
   hashWithSalt _salt EdgePackagingJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` compilationJobName
+    _salt
+      `Prelude.hashWithSalt` compilationJobName
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` modelName

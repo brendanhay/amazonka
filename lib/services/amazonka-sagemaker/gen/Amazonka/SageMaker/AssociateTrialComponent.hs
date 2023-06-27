@@ -22,7 +22,9 @@
 --
 -- Associates a trial component with a trial. A trial component can be
 -- associated with multiple trials. To disassociate a trial component from
--- a trial, call the DisassociateTrialComponent API.
+-- a trial, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html DisassociateTrialComponent>
+-- API.
 module Amazonka.SageMaker.AssociateTrialComponent
   ( -- * Creating a Request
     AssociateTrialComponent (..),
@@ -111,7 +113,8 @@ instance Core.AWSRequest AssociateTrialComponent where
 
 instance Prelude.Hashable AssociateTrialComponent where
   hashWithSalt _salt AssociateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` trialComponentName
+    _salt
+      `Prelude.hashWithSalt` trialComponentName
       `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData AssociateTrialComponent where

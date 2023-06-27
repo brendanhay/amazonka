@@ -234,7 +234,8 @@ instance Core.AWSRequest CreateProcessingJob where
 
 instance Prelude.Hashable CreateProcessingJob where
   hashWithSalt _salt CreateProcessingJob' {..} =
-    _salt `Prelude.hashWithSalt` environment
+    _salt
+      `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` experimentConfig
       `Prelude.hashWithSalt` networkConfig
       `Prelude.hashWithSalt` processingInputs

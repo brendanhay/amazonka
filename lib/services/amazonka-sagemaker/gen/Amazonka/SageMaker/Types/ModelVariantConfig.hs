@@ -86,7 +86,8 @@ modelVariantConfig_infrastructureConfig = Lens.lens (\ModelVariantConfig' {infra
 
 instance Prelude.Hashable ModelVariantConfig where
   hashWithSalt _salt ModelVariantConfig' {..} =
-    _salt `Prelude.hashWithSalt` modelName
+    _salt
+      `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` variantName
       `Prelude.hashWithSalt` infrastructureConfig
 

@@ -87,7 +87,8 @@ instance
     PipelineDefinitionS3Location
   where
   hashWithSalt _salt PipelineDefinitionS3Location' {..} =
-    _salt `Prelude.hashWithSalt` versionId
+    _salt
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` objectKey
 

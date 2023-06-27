@@ -25,8 +25,11 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | This structure specifies how to split the data into train and validation
--- datasets. The validation and training datasets must contain the same
--- headers. The validation dataset must be less than 2 GB in size.
+-- datasets.
+--
+-- The validation and training datasets must contain the same headers. For
+-- jobs created by calling @CreateAutoMLJob@, the validation dataset must
+-- be less than 2 GB in size.
 --
 -- /See:/ 'newAutoMLDataSplitConfig' smart constructor.
 data AutoMLDataSplitConfig = AutoMLDataSplitConfig'

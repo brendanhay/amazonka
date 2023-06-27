@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteEdgeDeploymentStage where
 
 instance Prelude.Hashable DeleteEdgeDeploymentStage where
   hashWithSalt _salt DeleteEdgeDeploymentStage' {..} =
-    _salt `Prelude.hashWithSalt` edgeDeploymentPlanName
+    _salt
+      `Prelude.hashWithSalt` edgeDeploymentPlanName
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData DeleteEdgeDeploymentStage where

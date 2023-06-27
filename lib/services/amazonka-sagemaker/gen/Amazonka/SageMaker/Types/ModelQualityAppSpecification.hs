@@ -150,7 +150,8 @@ instance
     ModelQualityAppSpecification
   where
   hashWithSalt _salt ModelQualityAppSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerArguments
+    _salt
+      `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` postAnalyticsProcessorSourceUri

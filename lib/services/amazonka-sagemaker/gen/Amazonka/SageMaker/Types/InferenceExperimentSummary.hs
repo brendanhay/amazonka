@@ -189,7 +189,8 @@ instance Data.FromJSON InferenceExperimentSummary where
 
 instance Prelude.Hashable InferenceExperimentSummary where
   hashWithSalt _salt InferenceExperimentSummary' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` schedule

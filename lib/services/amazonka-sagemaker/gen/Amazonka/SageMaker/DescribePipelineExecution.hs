@@ -46,6 +46,7 @@ module Amazonka.SageMaker.DescribePipelineExecution
     describePipelineExecutionResponse_pipelineExecutionDisplayName,
     describePipelineExecutionResponse_pipelineExecutionStatus,
     describePipelineExecutionResponse_pipelineExperimentConfig,
+    describePipelineExecutionResponse_selectiveExecutionConfig,
     describePipelineExecutionResponse_httpStatus,
   )
 where
@@ -110,6 +111,7 @@ instance Core.AWSRequest DescribePipelineExecution where
             Prelude.<*> (x Data..?> "PipelineExecutionDisplayName")
             Prelude.<*> (x Data..?> "PipelineExecutionStatus")
             Prelude.<*> (x Data..?> "PipelineExperimentConfig")
+            Prelude.<*> (x Data..?> "SelectiveExecutionConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -176,6 +178,8 @@ data DescribePipelineExecutionResponse = DescribePipelineExecutionResponse'
     -- | The status of the pipeline execution.
     pipelineExecutionStatus :: Prelude.Maybe PipelineExecutionStatus,
     pipelineExperimentConfig :: Prelude.Maybe PipelineExperimentConfig,
+    -- | The selective execution configuration applied to the pipeline run.
+    selectiveExecutionConfig :: Prelude.Maybe SelectiveExecutionConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,6 +217,8 @@ data DescribePipelineExecutionResponse = DescribePipelineExecutionResponse'
 --
 -- 'pipelineExperimentConfig', 'describePipelineExecutionResponse_pipelineExperimentConfig' - Undocumented member.
 --
+-- 'selectiveExecutionConfig', 'describePipelineExecutionResponse_selectiveExecutionConfig' - The selective execution configuration applied to the pipeline run.
+--
 -- 'httpStatus', 'describePipelineExecutionResponse_httpStatus' - The response's http status code.
 newDescribePipelineExecutionResponse ::
   -- | 'httpStatus'
@@ -237,6 +243,8 @@ newDescribePipelineExecutionResponse pHttpStatus_ =
       pipelineExecutionStatus =
         Prelude.Nothing,
       pipelineExperimentConfig =
+        Prelude.Nothing,
+      selectiveExecutionConfig =
         Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -289,6 +297,10 @@ describePipelineExecutionResponse_pipelineExecutionStatus = Lens.lens (\Describe
 describePipelineExecutionResponse_pipelineExperimentConfig :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe PipelineExperimentConfig)
 describePipelineExecutionResponse_pipelineExperimentConfig = Lens.lens (\DescribePipelineExecutionResponse' {pipelineExperimentConfig} -> pipelineExperimentConfig) (\s@DescribePipelineExecutionResponse' {} a -> s {pipelineExperimentConfig = a} :: DescribePipelineExecutionResponse)
 
+-- | The selective execution configuration applied to the pipeline run.
+describePipelineExecutionResponse_selectiveExecutionConfig :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe SelectiveExecutionConfig)
+describePipelineExecutionResponse_selectiveExecutionConfig = Lens.lens (\DescribePipelineExecutionResponse' {selectiveExecutionConfig} -> selectiveExecutionConfig) (\s@DescribePipelineExecutionResponse' {} a -> s {selectiveExecutionConfig = a} :: DescribePipelineExecutionResponse)
+
 -- | The response's http status code.
 describePipelineExecutionResponse_httpStatus :: Lens.Lens' DescribePipelineExecutionResponse Prelude.Int
 describePipelineExecutionResponse_httpStatus = Lens.lens (\DescribePipelineExecutionResponse' {httpStatus} -> httpStatus) (\s@DescribePipelineExecutionResponse' {} a -> s {httpStatus = a} :: DescribePipelineExecutionResponse)
@@ -310,4 +322,5 @@ instance
       `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
       `Prelude.seq` Prelude.rnf pipelineExecutionStatus
       `Prelude.seq` Prelude.rnf pipelineExperimentConfig
+      `Prelude.seq` Prelude.rnf selectiveExecutionConfig
       `Prelude.seq` Prelude.rnf httpStatus

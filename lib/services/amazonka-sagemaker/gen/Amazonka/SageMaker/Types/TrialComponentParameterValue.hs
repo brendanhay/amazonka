@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | The value of a hyperparameter. Only one of @NumberValue@ or
 -- @StringValue@ can be specified.
 --
--- This object is specified in the CreateTrialComponent request.
+-- This object is specified in the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html CreateTrialComponent>
+-- request.
 --
 -- /See:/ 'newTrialComponentParameterValue' smart constructor.
 data TrialComponentParameterValue = TrialComponentParameterValue'
@@ -87,7 +89,8 @@ instance
     TrialComponentParameterValue
   where
   hashWithSalt _salt TrialComponentParameterValue' {..} =
-    _salt `Prelude.hashWithSalt` numberValue
+    _salt
+      `Prelude.hashWithSalt` numberValue
       `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData TrialComponentParameterValue where

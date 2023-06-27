@@ -140,7 +140,8 @@ instance Data.FromJSON LabelingJobResourceConfig where
 
 instance Prelude.Hashable LabelingJobResourceConfig where
   hashWithSalt _salt LabelingJobResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` vpcConfig
 
 instance Prelude.NFData LabelingJobResourceConfig where

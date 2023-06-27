@@ -108,7 +108,8 @@ instance Data.FromJSON ProcessingInput where
 
 instance Prelude.Hashable ProcessingInput where
   hashWithSalt _salt ProcessingInput' {..} =
-    _salt `Prelude.hashWithSalt` appManaged
+    _salt
+      `Prelude.hashWithSalt` appManaged
       `Prelude.hashWithSalt` datasetDefinition
       `Prelude.hashWithSalt` s3Input
       `Prelude.hashWithSalt` inputName

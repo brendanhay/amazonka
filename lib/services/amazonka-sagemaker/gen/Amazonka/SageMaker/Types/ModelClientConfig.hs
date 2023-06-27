@@ -82,7 +82,8 @@ instance Data.FromJSON ModelClientConfig where
 
 instance Prelude.Hashable ModelClientConfig where
   hashWithSalt _salt ModelClientConfig' {..} =
-    _salt `Prelude.hashWithSalt` invocationsMaxRetries
+    _salt
+      `Prelude.hashWithSalt` invocationsMaxRetries
       `Prelude.hashWithSalt` invocationsTimeoutInSeconds
 
 instance Prelude.NFData ModelClientConfig where

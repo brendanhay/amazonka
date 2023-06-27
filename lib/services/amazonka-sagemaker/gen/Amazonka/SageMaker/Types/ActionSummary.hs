@@ -129,7 +129,8 @@ instance Data.FromJSON ActionSummary where
 
 instance Prelude.Hashable ActionSummary where
   hashWithSalt _salt ActionSummary' {..} =
-    _salt `Prelude.hashWithSalt` actionArn
+    _salt
+      `Prelude.hashWithSalt` actionArn
       `Prelude.hashWithSalt` actionName
       `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` creationTime

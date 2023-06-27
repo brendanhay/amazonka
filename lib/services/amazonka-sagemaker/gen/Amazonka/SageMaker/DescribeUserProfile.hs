@@ -124,7 +124,8 @@ instance Core.AWSRequest DescribeUserProfile where
 
 instance Prelude.Hashable DescribeUserProfile where
   hashWithSalt _salt DescribeUserProfile' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` userProfileName
 
 instance Prelude.NFData DescribeUserProfile where

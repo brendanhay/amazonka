@@ -142,6 +142,12 @@ module Amazonka.SageMaker
     CreateAutoMLJobResponse (CreateAutoMLJobResponse'),
     newCreateAutoMLJobResponse,
 
+    -- ** CreateAutoMLJobV2
+    CreateAutoMLJobV2 (CreateAutoMLJobV2'),
+    newCreateAutoMLJobV2,
+    CreateAutoMLJobV2Response (CreateAutoMLJobV2Response'),
+    newCreateAutoMLJobV2Response,
+
     -- ** CreateCodeRepository
     CreateCodeRepository (CreateCodeRepository'),
     newCreateCodeRepository,
@@ -735,6 +741,12 @@ module Amazonka.SageMaker
     newDescribeAutoMLJob,
     DescribeAutoMLJobResponse (DescribeAutoMLJobResponse'),
     newDescribeAutoMLJobResponse,
+
+    -- ** DescribeAutoMLJobV2
+    DescribeAutoMLJobV2 (DescribeAutoMLJobV2'),
+    newDescribeAutoMLJobV2,
+    DescribeAutoMLJobV2Response (DescribeAutoMLJobV2Response'),
+    newDescribeAutoMLJobV2Response,
 
     -- ** DescribeCodeRepository
     DescribeCodeRepository (DescribeCodeRepository'),
@@ -1923,6 +1935,9 @@ module Amazonka.SageMaker
     -- ** AssociationEdgeType
     AssociationEdgeType (..),
 
+    -- ** AsyncNotificationTopicTypes
+    AsyncNotificationTopicTypes (..),
+
     -- ** AthenaResultCompressionType
     AthenaResultCompressionType (..),
 
@@ -1931,6 +1946,9 @@ module Amazonka.SageMaker
 
     -- ** AuthMode
     AuthMode (..),
+
+    -- ** AutoMLAlgorithm
+    AutoMLAlgorithm (..),
 
     -- ** AutoMLChannelType
     AutoMLChannelType (..),
@@ -1953,6 +1971,12 @@ module Amazonka.SageMaker
     -- ** AutoMLMode
     AutoMLMode (..),
 
+    -- ** AutoMLProblemTypeConfigName
+    AutoMLProblemTypeConfigName (..),
+
+    -- ** AutoMLProcessingUnit
+    AutoMLProcessingUnit (..),
+
     -- ** AutoMLS3DataType
     AutoMLS3DataType (..),
 
@@ -1961,6 +1985,9 @@ module Amazonka.SageMaker
 
     -- ** AutoMLSortOrder
     AutoMLSortOrder (..),
+
+    -- ** AutotuneMode
+    AutotuneMode (..),
 
     -- ** AwsManagedHumanLoopRequestSource
     AwsManagedHumanLoopRequestSource (..),
@@ -2006,6 +2033,9 @@ module Amazonka.SageMaker
 
     -- ** CompilationJobStatus
     CompilationJobStatus (..),
+
+    -- ** CompleteOnConvergence
+    CompleteOnConvergence (..),
 
     -- ** CompressionType
     CompressionType (..),
@@ -2244,6 +2274,9 @@ module Amazonka.SageMaker
     -- ** ModelCardVersionSortBy
     ModelCardVersionSortBy (..),
 
+    -- ** ModelCompressionType
+    ModelCompressionType (..),
+
     -- ** ModelInfrastructureType
     ModelInfrastructureType (..),
 
@@ -2328,6 +2361,9 @@ module Amazonka.SageMaker
     -- ** OrderKey
     OrderKey (..),
 
+    -- ** OutputCompressionType
+    OutputCompressionType (..),
+
     -- ** ParameterType
     ParameterType (..),
 
@@ -2394,6 +2430,9 @@ module Amazonka.SageMaker
     -- ** RecommendationJobType
     RecommendationJobType (..),
 
+    -- ** RecommendationStatus
+    RecommendationStatus (..),
+
     -- ** RecommendationStepType
     RecommendationStepType (..),
 
@@ -2426,6 +2465,9 @@ module Amazonka.SageMaker
 
     -- ** S3DataType
     S3DataType (..),
+
+    -- ** S3ModelDataType
+    S3ModelDataType (..),
 
     -- ** SagemakerServicecatalogStatus
     SagemakerServicecatalogStatus (..),
@@ -2534,6 +2576,9 @@ module Amazonka.SageMaker
 
     -- ** TrainingJobStatus
     TrainingJobStatus (..),
+
+    -- ** TrainingRepositoryAccessMode
+    TrainingRepositoryAccessMode (..),
 
     -- ** TransformInstanceType
     TransformInstanceType (..),
@@ -2661,6 +2706,10 @@ module Amazonka.SageMaker
     AthenaDatasetDefinition (AthenaDatasetDefinition'),
     newAthenaDatasetDefinition,
 
+    -- ** AutoMLAlgorithmConfig
+    AutoMLAlgorithmConfig (AutoMLAlgorithmConfig'),
+    newAutoMLAlgorithmConfig,
+
     -- ** AutoMLCandidate
     AutoMLCandidate (AutoMLCandidate'),
     newAutoMLCandidate,
@@ -2693,6 +2742,10 @@ module Amazonka.SageMaker
     AutoMLJobArtifacts (AutoMLJobArtifacts'),
     newAutoMLJobArtifacts,
 
+    -- ** AutoMLJobChannel
+    AutoMLJobChannel (AutoMLJobChannel'),
+    newAutoMLJobChannel,
+
     -- ** AutoMLJobCompletionCriteria
     AutoMLJobCompletionCriteria (AutoMLJobCompletionCriteria'),
     newAutoMLJobCompletionCriteria,
@@ -2721,6 +2774,18 @@ module Amazonka.SageMaker
     AutoMLPartialFailureReason (AutoMLPartialFailureReason'),
     newAutoMLPartialFailureReason,
 
+    -- ** AutoMLProblemTypeConfig
+    AutoMLProblemTypeConfig (AutoMLProblemTypeConfig'),
+    newAutoMLProblemTypeConfig,
+
+    -- ** AutoMLProblemTypeResolvedAttributes
+    AutoMLProblemTypeResolvedAttributes (AutoMLProblemTypeResolvedAttributes'),
+    newAutoMLProblemTypeResolvedAttributes,
+
+    -- ** AutoMLResolvedAttributes
+    AutoMLResolvedAttributes (AutoMLResolvedAttributes'),
+    newAutoMLResolvedAttributes,
+
     -- ** AutoMLS3DataSource
     AutoMLS3DataSource (AutoMLS3DataSource'),
     newAutoMLS3DataSource,
@@ -2729,9 +2794,17 @@ module Amazonka.SageMaker
     AutoMLSecurityConfig (AutoMLSecurityConfig'),
     newAutoMLSecurityConfig,
 
+    -- ** AutoParameter
+    AutoParameter (AutoParameter'),
+    newAutoParameter,
+
     -- ** AutoRollbackConfig
     AutoRollbackConfig (AutoRollbackConfig'),
     newAutoRollbackConfig,
+
+    -- ** Autotune
+    Autotune (Autotune'),
+    newAutotune,
 
     -- ** BatchDataCaptureConfig
     BatchDataCaptureConfig (BatchDataCaptureConfig'),
@@ -2748,6 +2821,10 @@ module Amazonka.SageMaker
     -- ** BatchTransformInput
     BatchTransformInput (BatchTransformInput'),
     newBatchTransformInput,
+
+    -- ** BestObjectiveNotImproving
+    BestObjectiveNotImproving (BestObjectiveNotImproving'),
+    newBestObjectiveNotImproving,
 
     -- ** Bias
     Bias (Bias'),
@@ -2768,6 +2845,10 @@ module Amazonka.SageMaker
     -- ** CandidateArtifactLocations
     CandidateArtifactLocations (CandidateArtifactLocations'),
     newCandidateArtifactLocations,
+
+    -- ** CandidateGenerationConfig
+    CandidateGenerationConfig (CandidateGenerationConfig'),
+    newCandidateGenerationConfig,
 
     -- ** CandidateProperties
     CandidateProperties (CandidateProperties'),
@@ -2885,6 +2966,10 @@ module Amazonka.SageMaker
     ContinuousParameterRangeSpecification (ContinuousParameterRangeSpecification'),
     newContinuousParameterRangeSpecification,
 
+    -- ** ConvergenceDetected
+    ConvergenceDetected (ConvergenceDetected'),
+    newConvergenceDetected,
+
     -- ** CustomImage
     CustomImage (CustomImage'),
     newCustomImage,
@@ -2948,6 +3033,10 @@ module Amazonka.SageMaker
     -- ** DeploymentConfig
     DeploymentConfig (DeploymentConfig'),
     newDeploymentConfig,
+
+    -- ** DeploymentRecommendation
+    DeploymentRecommendation (DeploymentRecommendation'),
+    newDeploymentRecommendation,
 
     -- ** DeploymentStage
     DeploymentStage (DeploymentStage'),
@@ -3257,9 +3346,17 @@ module Amazonka.SageMaker
     HyperParameterTuningInstanceConfig (HyperParameterTuningInstanceConfig'),
     newHyperParameterTuningInstanceConfig,
 
+    -- ** HyperParameterTuningJobCompletionDetails
+    HyperParameterTuningJobCompletionDetails (HyperParameterTuningJobCompletionDetails'),
+    newHyperParameterTuningJobCompletionDetails,
+
     -- ** HyperParameterTuningJobConfig
     HyperParameterTuningJobConfig (HyperParameterTuningJobConfig'),
     newHyperParameterTuningJobConfig,
+
+    -- ** HyperParameterTuningJobConsumedResources
+    HyperParameterTuningJobConsumedResources (HyperParameterTuningJobConsumedResources'),
+    newHyperParameterTuningJobConsumedResources,
 
     -- ** HyperParameterTuningJobObjective
     HyperParameterTuningJobObjective (HyperParameterTuningJobObjective'),
@@ -3289,9 +3386,17 @@ module Amazonka.SageMaker
     HyperbandStrategyConfig (HyperbandStrategyConfig'),
     newHyperbandStrategyConfig,
 
+    -- ** IamIdentity
+    IamIdentity (IamIdentity'),
+    newIamIdentity,
+
     -- ** Image
     Image (Image'),
     newImage,
+
+    -- ** ImageClassificationJobConfig
+    ImageClassificationJobConfig (ImageClassificationJobConfig'),
+    newImageClassificationJobConfig,
 
     -- ** ImageConfig
     ImageConfig (ImageConfig'),
@@ -3545,6 +3650,10 @@ module Amazonka.SageMaker
     ModelDataQuality (ModelDataQuality'),
     newModelDataQuality,
 
+    -- ** ModelDataSource
+    ModelDataSource (ModelDataSource'),
+    newModelDataSource,
+
     -- ** ModelDeployConfig
     ModelDeployConfig (ModelDeployConfig'),
     newModelDeployConfig,
@@ -3648,6 +3757,10 @@ module Amazonka.SageMaker
     -- ** ModelQualityJobInput
     ModelQualityJobInput (ModelQualityJobInput'),
     newModelQualityJobInput,
+
+    -- ** ModelRegisterSettings
+    ModelRegisterSettings (ModelRegisterSettings'),
+    newModelRegisterSettings,
 
     -- ** ModelStepMetadata
     ModelStepMetadata (ModelStepMetadata'),
@@ -3973,6 +4086,10 @@ module Amazonka.SageMaker
     ProductionVariantServerlessConfig (ProductionVariantServerlessConfig'),
     newProductionVariantServerlessConfig,
 
+    -- ** ProductionVariantServerlessUpdateConfig
+    ProductionVariantServerlessUpdateConfig (ProductionVariantServerlessUpdateConfig'),
+    newProductionVariantServerlessUpdateConfig,
+
     -- ** ProductionVariantStatus
     ProductionVariantStatus (ProductionVariantStatus'),
     newProductionVariantStatus,
@@ -4048,6 +4165,10 @@ module Amazonka.SageMaker
     -- ** RealTimeInferenceConfig
     RealTimeInferenceConfig (RealTimeInferenceConfig'),
     newRealTimeInferenceConfig,
+
+    -- ** RealTimeInferenceRecommendation
+    RealTimeInferenceRecommendation (RealTimeInferenceRecommendation'),
+    newRealTimeInferenceRecommendation,
 
     -- ** RecommendationJobCompiledOutputConfig
     RecommendationJobCompiledOutputConfig (RecommendationJobCompiledOutputConfig'),
@@ -4141,6 +4262,10 @@ module Amazonka.SageMaker
     S3DataSource (S3DataSource'),
     newS3DataSource,
 
+    -- ** S3ModelDataSource
+    S3ModelDataSource (S3ModelDataSource'),
+    newS3ModelDataSource,
+
     -- ** S3StorageConfig
     S3StorageConfig (S3StorageConfig'),
     newS3StorageConfig,
@@ -4160,6 +4285,18 @@ module Amazonka.SageMaker
     -- ** SecondaryStatusTransition
     SecondaryStatusTransition (SecondaryStatusTransition'),
     newSecondaryStatusTransition,
+
+    -- ** SelectedStep
+    SelectedStep (SelectedStep'),
+    newSelectedStep,
+
+    -- ** SelectiveExecutionConfig
+    SelectiveExecutionConfig (SelectiveExecutionConfig'),
+    newSelectiveExecutionConfig,
+
+    -- ** SelectiveExecutionResult
+    SelectiveExecutionResult (SelectiveExecutionResult'),
+    newSelectiveExecutionResult,
 
     -- ** ServiceCatalogProvisionedProductDetails
     ServiceCatalogProvisionedProductDetails (ServiceCatalogProvisionedProductDetails'),
@@ -4225,6 +4362,14 @@ module Amazonka.SageMaker
     SuggestionQuery (SuggestionQuery'),
     newSuggestionQuery,
 
+    -- ** TabularJobConfig
+    TabularJobConfig (TabularJobConfig'),
+    newTabularJobConfig,
+
+    -- ** TabularResolvedAttributes
+    TabularResolvedAttributes (TabularResolvedAttributes'),
+    newTabularResolvedAttributes,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -4241,6 +4386,10 @@ module Amazonka.SageMaker
     TensorBoardOutputConfig (TensorBoardOutputConfig'),
     newTensorBoardOutputConfig,
 
+    -- ** TextClassificationJobConfig
+    TextClassificationJobConfig (TextClassificationJobConfig'),
+    newTextClassificationJobConfig,
+
     -- ** TimeSeriesForecastingSettings
     TimeSeriesForecastingSettings (TimeSeriesForecastingSettings'),
     newTimeSeriesForecastingSettings,
@@ -4252,6 +4401,10 @@ module Amazonka.SageMaker
     -- ** TrafficRoutingConfig
     TrafficRoutingConfig (TrafficRoutingConfig'),
     newTrafficRoutingConfig,
+
+    -- ** TrainingImageConfig
+    TrainingImageConfig (TrainingImageConfig'),
+    newTrainingImageConfig,
 
     -- ** TrainingJob
     TrainingJob (TrainingJob'),
@@ -4272,6 +4425,10 @@ module Amazonka.SageMaker
     -- ** TrainingJobSummary
     TrainingJobSummary (TrainingJobSummary'),
     newTrainingJobSummary,
+
+    -- ** TrainingRepositoryAuthConfig
+    TrainingRepositoryAuthConfig (TrainingRepositoryAuthConfig'),
+    newTrainingRepositoryAuthConfig,
 
     -- ** TrainingSpecification
     TrainingSpecification (TrainingSpecification'),
@@ -4441,6 +4598,7 @@ import Amazonka.SageMaker.CreateApp
 import Amazonka.SageMaker.CreateAppImageConfig
 import Amazonka.SageMaker.CreateArtifact
 import Amazonka.SageMaker.CreateAutoMLJob
+import Amazonka.SageMaker.CreateAutoMLJobV2
 import Amazonka.SageMaker.CreateCodeRepository
 import Amazonka.SageMaker.CreateCompilationJob
 import Amazonka.SageMaker.CreateContext
@@ -4540,6 +4698,7 @@ import Amazonka.SageMaker.DescribeApp
 import Amazonka.SageMaker.DescribeAppImageConfig
 import Amazonka.SageMaker.DescribeArtifact
 import Amazonka.SageMaker.DescribeAutoMLJob
+import Amazonka.SageMaker.DescribeAutoMLJobV2
 import Amazonka.SageMaker.DescribeCodeRepository
 import Amazonka.SageMaker.DescribeCompilationJob
 import Amazonka.SageMaker.DescribeContext

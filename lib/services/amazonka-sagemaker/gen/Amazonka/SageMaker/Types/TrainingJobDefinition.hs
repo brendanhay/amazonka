@@ -152,7 +152,8 @@ instance Data.FromJSON TrainingJobDefinition where
       "TrainingJobDefinition"
       ( \x ->
           TrainingJobDefinition'
-            Prelude.<$> ( x Data..:? "HyperParameters"
+            Prelude.<$> ( x
+                            Data..:? "HyperParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "TrainingInputMode")
@@ -164,7 +165,8 @@ instance Data.FromJSON TrainingJobDefinition where
 
 instance Prelude.Hashable TrainingJobDefinition where
   hashWithSalt _salt TrainingJobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` hyperParameters
+    _salt
+      `Prelude.hashWithSalt` hyperParameters
       `Prelude.hashWithSalt` trainingInputMode
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` outputDataConfig

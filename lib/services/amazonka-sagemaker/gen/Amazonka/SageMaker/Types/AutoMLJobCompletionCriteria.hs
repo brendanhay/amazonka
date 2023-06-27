@@ -35,13 +35,23 @@ data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
     -- automatically and its processing is ended gracefully. The AutoML job
     -- identifies the best model whose training was completed and marks it as
     -- the best-performing model. Any unfinished steps of the job, such as
-    -- automatic one-click Autopilot model deployment, will not be completed.
+    -- automatic one-click Autopilot model deployment, are not completed.
     maxAutoMLJobRuntimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of times a training job is allowed to run.
+    --
+    -- For job V2s (jobs created by calling @CreateAutoMLJobV2@), the supported
+    -- value is 1.
     maxCandidates :: Prelude.Maybe Prelude.Natural,
     -- | The maximum time, in seconds, that each training job executed inside
     -- hyperparameter tuning is allowed to run as part of a hyperparameter
-    -- tuning job. For more information, see the used by the action.
+    -- tuning job. For more information, see the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html StoppingCondition>
+    -- used by the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html CreateHyperParameterTuningJob>
+    -- action.
+    --
+    -- For job V2s (jobs created by calling @CreateAutoMLJobV2@), this field
+    -- controls the runtime of the job candidate.
     maxRuntimePerTrainingJobInSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,13 +70,23 @@ data AutoMLJobCompletionCriteria = AutoMLJobCompletionCriteria'
 -- automatically and its processing is ended gracefully. The AutoML job
 -- identifies the best model whose training was completed and marks it as
 -- the best-performing model. Any unfinished steps of the job, such as
--- automatic one-click Autopilot model deployment, will not be completed.
+-- automatic one-click Autopilot model deployment, are not completed.
 --
 -- 'maxCandidates', 'autoMLJobCompletionCriteria_maxCandidates' - The maximum number of times a training job is allowed to run.
 --
+-- For job V2s (jobs created by calling @CreateAutoMLJobV2@), the supported
+-- value is 1.
+--
 -- 'maxRuntimePerTrainingJobInSeconds', 'autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds' - The maximum time, in seconds, that each training job executed inside
 -- hyperparameter tuning is allowed to run as part of a hyperparameter
--- tuning job. For more information, see the used by the action.
+-- tuning job. For more information, see the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html StoppingCondition>
+-- used by the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html CreateHyperParameterTuningJob>
+-- action.
+--
+-- For job V2s (jobs created by calling @CreateAutoMLJobV2@), this field
+-- controls the runtime of the job candidate.
 newAutoMLJobCompletionCriteria ::
   AutoMLJobCompletionCriteria
 newAutoMLJobCompletionCriteria =
@@ -84,17 +104,27 @@ newAutoMLJobCompletionCriteria =
 -- automatically and its processing is ended gracefully. The AutoML job
 -- identifies the best model whose training was completed and marks it as
 -- the best-performing model. Any unfinished steps of the job, such as
--- automatic one-click Autopilot model deployment, will not be completed.
+-- automatic one-click Autopilot model deployment, are not completed.
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxAutoMLJobRuntimeInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxAutoMLJobRuntimeInSeconds} -> maxAutoMLJobRuntimeInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxAutoMLJobRuntimeInSeconds = a} :: AutoMLJobCompletionCriteria)
 
 -- | The maximum number of times a training job is allowed to run.
+--
+-- For job V2s (jobs created by calling @CreateAutoMLJobV2@), the supported
+-- value is 1.
 autoMLJobCompletionCriteria_maxCandidates :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxCandidates = Lens.lens (\AutoMLJobCompletionCriteria' {maxCandidates} -> maxCandidates) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxCandidates = a} :: AutoMLJobCompletionCriteria)
 
 -- | The maximum time, in seconds, that each training job executed inside
 -- hyperparameter tuning is allowed to run as part of a hyperparameter
--- tuning job. For more information, see the used by the action.
+-- tuning job. For more information, see the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StoppingCondition.html StoppingCondition>
+-- used by the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHyperParameterTuningJob.html CreateHyperParameterTuningJob>
+-- action.
+--
+-- For job V2s (jobs created by calling @CreateAutoMLJobV2@), this field
+-- controls the runtime of the job candidate.
 autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds :: Lens.Lens' AutoMLJobCompletionCriteria (Prelude.Maybe Prelude.Natural)
 autoMLJobCompletionCriteria_maxRuntimePerTrainingJobInSeconds = Lens.lens (\AutoMLJobCompletionCriteria' {maxRuntimePerTrainingJobInSeconds} -> maxRuntimePerTrainingJobInSeconds) (\s@AutoMLJobCompletionCriteria' {} a -> s {maxRuntimePerTrainingJobInSeconds = a} :: AutoMLJobCompletionCriteria)
 

@@ -84,7 +84,8 @@ instance Data.FromJSON USD where
 
 instance Prelude.Hashable USD where
   hashWithSalt _salt USD' {..} =
-    _salt `Prelude.hashWithSalt` cents
+    _salt
+      `Prelude.hashWithSalt` cents
       `Prelude.hashWithSalt` dollars
       `Prelude.hashWithSalt` tenthFractionsOfACent
 

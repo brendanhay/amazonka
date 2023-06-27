@@ -66,17 +66,23 @@ data UpdateTrialComponent = UpdateTrialComponent'
     -- | When the component ended.
     endTime :: Prelude.Maybe Data.POSIX,
     -- | Replaces all of the component\'s input artifacts with the specified
-    -- artifacts.
+    -- artifacts or adds new input artifacts. Existing input artifacts are
+    -- replaced if the trial component is updated with an identical input
+    -- artifact key.
     inputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | The input artifacts to remove from the component.
     inputArtifactsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | Replaces all of the component\'s output artifacts with the specified
-    -- artifacts.
+    -- artifacts or adds new output artifacts. Existing output artifacts are
+    -- replaced if the trial component is updated with an identical output
+    -- artifact key.
     outputArtifacts :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact),
     -- | The output artifacts to remove from the component.
     outputArtifactsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | Replaces all of the component\'s hyperparameters with the specified
-    -- hyperparameters.
+    -- hyperparameters or add new hyperparameters. Existing hyperparameters are
+    -- replaced if the trial component is updated with an identical
+    -- hyperparameter key.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue),
     -- | The hyperparameters to remove from the component.
     parametersToRemove :: Prelude.Maybe [Prelude.Text],
@@ -104,17 +110,23 @@ data UpdateTrialComponent = UpdateTrialComponent'
 -- 'endTime', 'updateTrialComponent_endTime' - When the component ended.
 --
 -- 'inputArtifacts', 'updateTrialComponent_inputArtifacts' - Replaces all of the component\'s input artifacts with the specified
--- artifacts.
+-- artifacts or adds new input artifacts. Existing input artifacts are
+-- replaced if the trial component is updated with an identical input
+-- artifact key.
 --
 -- 'inputArtifactsToRemove', 'updateTrialComponent_inputArtifactsToRemove' - The input artifacts to remove from the component.
 --
 -- 'outputArtifacts', 'updateTrialComponent_outputArtifacts' - Replaces all of the component\'s output artifacts with the specified
--- artifacts.
+-- artifacts or adds new output artifacts. Existing output artifacts are
+-- replaced if the trial component is updated with an identical output
+-- artifact key.
 --
 -- 'outputArtifactsToRemove', 'updateTrialComponent_outputArtifactsToRemove' - The output artifacts to remove from the component.
 --
 -- 'parameters', 'updateTrialComponent_parameters' - Replaces all of the component\'s hyperparameters with the specified
--- hyperparameters.
+-- hyperparameters or add new hyperparameters. Existing hyperparameters are
+-- replaced if the trial component is updated with an identical
+-- hyperparameter key.
 --
 -- 'parametersToRemove', 'updateTrialComponent_parametersToRemove' - The hyperparameters to remove from the component.
 --
@@ -154,7 +166,9 @@ updateTrialComponent_endTime :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe P
 updateTrialComponent_endTime = Lens.lens (\UpdateTrialComponent' {endTime} -> endTime) (\s@UpdateTrialComponent' {} a -> s {endTime = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Data._Time
 
 -- | Replaces all of the component\'s input artifacts with the specified
--- artifacts.
+-- artifacts or adds new input artifacts. Existing input artifacts are
+-- replaced if the trial component is updated with an identical input
+-- artifact key.
 updateTrialComponent_inputArtifacts :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
 updateTrialComponent_inputArtifacts = Lens.lens (\UpdateTrialComponent' {inputArtifacts} -> inputArtifacts) (\s@UpdateTrialComponent' {} a -> s {inputArtifacts = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
@@ -163,7 +177,9 @@ updateTrialComponent_inputArtifactsToRemove :: Lens.Lens' UpdateTrialComponent (
 updateTrialComponent_inputArtifactsToRemove = Lens.lens (\UpdateTrialComponent' {inputArtifactsToRemove} -> inputArtifactsToRemove) (\s@UpdateTrialComponent' {} a -> s {inputArtifactsToRemove = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | Replaces all of the component\'s output artifacts with the specified
--- artifacts.
+-- artifacts or adds new output artifacts. Existing output artifacts are
+-- replaced if the trial component is updated with an identical output
+-- artifact key.
 updateTrialComponent_outputArtifacts :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentArtifact))
 updateTrialComponent_outputArtifacts = Lens.lens (\UpdateTrialComponent' {outputArtifacts} -> outputArtifacts) (\s@UpdateTrialComponent' {} a -> s {outputArtifacts = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
@@ -172,7 +188,9 @@ updateTrialComponent_outputArtifactsToRemove :: Lens.Lens' UpdateTrialComponent 
 updateTrialComponent_outputArtifactsToRemove = Lens.lens (\UpdateTrialComponent' {outputArtifactsToRemove} -> outputArtifactsToRemove) (\s@UpdateTrialComponent' {} a -> s {outputArtifactsToRemove = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
 -- | Replaces all of the component\'s hyperparameters with the specified
--- hyperparameters.
+-- hyperparameters or add new hyperparameters. Existing hyperparameters are
+-- replaced if the trial component is updated with an identical
+-- hyperparameter key.
 updateTrialComponent_parameters :: Lens.Lens' UpdateTrialComponent (Prelude.Maybe (Prelude.HashMap Prelude.Text TrialComponentParameterValue))
 updateTrialComponent_parameters = Lens.lens (\UpdateTrialComponent' {parameters} -> parameters) (\s@UpdateTrialComponent' {} a -> s {parameters = a} :: UpdateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
@@ -208,7 +226,8 @@ instance Core.AWSRequest UpdateTrialComponent where
 
 instance Prelude.Hashable UpdateTrialComponent where
   hashWithSalt _salt UpdateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` inputArtifactsToRemove

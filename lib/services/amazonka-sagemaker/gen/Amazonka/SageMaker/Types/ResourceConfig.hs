@@ -332,7 +332,8 @@ instance Data.FromJSON ResourceConfig where
 
 instance Prelude.Hashable ResourceConfig where
   hashWithSalt _salt ResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
+    _salt
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceGroups
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` keepAlivePeriodInSeconds

@@ -45,7 +45,7 @@ data Endpoint = Endpoint'
     productionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | A list of the shadow variants hosted on the endpoint. Each shadow
     -- variant is a model in shadow mode with production traffic replicated
-    -- from the proudction variant.
+    -- from the production variant.
     shadowProductionVariants :: Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary),
     -- | A list of the tags associated with the endpoint. For more information,
     -- see
@@ -88,7 +88,7 @@ data Endpoint = Endpoint'
 --
 -- 'shadowProductionVariants', 'endpoint_shadowProductionVariants' - A list of the shadow variants hosted on the endpoint. Each shadow
 -- variant is a model in shadow mode with production traffic replicated
--- from the proudction variant.
+-- from the production variant.
 --
 -- 'tags', 'endpoint_tags' - A list of the tags associated with the endpoint. For more information,
 -- see
@@ -164,7 +164,7 @@ endpoint_productionVariants = Lens.lens (\Endpoint' {productionVariants} -> prod
 
 -- | A list of the shadow variants hosted on the endpoint. Each shadow
 -- variant is a model in shadow mode with production traffic replicated
--- from the proudction variant.
+-- from the production variant.
 endpoint_shadowProductionVariants :: Lens.Lens' Endpoint (Prelude.Maybe (Prelude.NonEmpty ProductionVariantSummary))
 endpoint_shadowProductionVariants = Lens.lens (\Endpoint' {shadowProductionVariants} -> shadowProductionVariants) (\s@Endpoint' {} a -> s {shadowProductionVariants = a} :: Endpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -207,7 +207,8 @@ instance Data.FromJSON Endpoint where
           Endpoint'
             Prelude.<$> (x Data..:? "DataCaptureConfig")
             Prelude.<*> (x Data..:? "FailureReason")
-            Prelude.<*> ( x Data..:? "MonitoringSchedules"
+            Prelude.<*> ( x
+                            Data..:? "MonitoringSchedules"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ProductionVariants")
@@ -223,7 +224,8 @@ instance Data.FromJSON Endpoint where
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` dataCaptureConfig
+    _salt
+      `Prelude.hashWithSalt` dataCaptureConfig
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` monitoringSchedules
       `Prelude.hashWithSalt` productionVariants

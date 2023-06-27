@@ -66,8 +66,8 @@ data HyperbandStrategyConfig = HyperbandStrategyConfig'
     maxResource :: Prelude.Maybe Prelude.Natural,
     -- | The minimum number of resources (such as epochs) that can be used by a
     -- training job launched by a hyperparameter tuning job. If the value for
-    -- @MinResource@ has not been reached, the training job will not be stopped
-    -- by @Hyperband@.
+    -- @MinResource@ has not been reached, the training job is not stopped by
+    -- @Hyperband@.
     minResource :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,8 +112,8 @@ data HyperbandStrategyConfig = HyperbandStrategyConfig'
 --
 -- 'minResource', 'hyperbandStrategyConfig_minResource' - The minimum number of resources (such as epochs) that can be used by a
 -- training job launched by a hyperparameter tuning job. If the value for
--- @MinResource@ has not been reached, the training job will not be stopped
--- by @Hyperband@.
+-- @MinResource@ has not been reached, the training job is not stopped by
+-- @Hyperband@.
 newHyperbandStrategyConfig ::
   HyperbandStrategyConfig
 newHyperbandStrategyConfig =
@@ -157,8 +157,8 @@ hyperbandStrategyConfig_maxResource = Lens.lens (\HyperbandStrategyConfig' {maxR
 
 -- | The minimum number of resources (such as epochs) that can be used by a
 -- training job launched by a hyperparameter tuning job. If the value for
--- @MinResource@ has not been reached, the training job will not be stopped
--- by @Hyperband@.
+-- @MinResource@ has not been reached, the training job is not stopped by
+-- @Hyperband@.
 hyperbandStrategyConfig_minResource :: Lens.Lens' HyperbandStrategyConfig (Prelude.Maybe Prelude.Natural)
 hyperbandStrategyConfig_minResource = Lens.lens (\HyperbandStrategyConfig' {minResource} -> minResource) (\s@HyperbandStrategyConfig' {} a -> s {minResource = a} :: HyperbandStrategyConfig)
 
@@ -174,7 +174,8 @@ instance Data.FromJSON HyperbandStrategyConfig where
 
 instance Prelude.Hashable HyperbandStrategyConfig where
   hashWithSalt _salt HyperbandStrategyConfig' {..} =
-    _salt `Prelude.hashWithSalt` maxResource
+    _salt
+      `Prelude.hashWithSalt` maxResource
       `Prelude.hashWithSalt` minResource
 
 instance Prelude.NFData HyperbandStrategyConfig where

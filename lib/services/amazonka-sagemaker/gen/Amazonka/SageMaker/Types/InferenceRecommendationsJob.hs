@@ -34,6 +34,14 @@ data InferenceRecommendationsJob = InferenceRecommendationsJob'
     completionTime :: Prelude.Maybe Data.POSIX,
     -- | If the job fails, provides information why the job failed.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The name of the created model.
+    modelName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a versioned model package.
+    modelPackageVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Simple Storage Service (Amazon S3) path where the sample
+    -- payload is stored. This path must point to a single gzip compressed tar
+    -- archive (.tar.gz suffix).
+    samplePayloadUrl :: Prelude.Maybe Prelude.Text,
     -- | The name of the job.
     jobName :: Prelude.Text,
     -- | The job description.
@@ -65,6 +73,14 @@ data InferenceRecommendationsJob = InferenceRecommendationsJob'
 -- 'completionTime', 'inferenceRecommendationsJob_completionTime' - A timestamp that shows when the job completed.
 --
 -- 'failureReason', 'inferenceRecommendationsJob_failureReason' - If the job fails, provides information why the job failed.
+--
+-- 'modelName', 'inferenceRecommendationsJob_modelName' - The name of the created model.
+--
+-- 'modelPackageVersionArn', 'inferenceRecommendationsJob_modelPackageVersionArn' - The Amazon Resource Name (ARN) of a versioned model package.
+--
+-- 'samplePayloadUrl', 'inferenceRecommendationsJob_samplePayloadUrl' - The Amazon Simple Storage Service (Amazon S3) path where the sample
+-- payload is stored. This path must point to a single gzip compressed tar
+-- archive (.tar.gz suffix).
 --
 -- 'jobName', 'inferenceRecommendationsJob_jobName' - The name of the job.
 --
@@ -113,6 +129,9 @@ newInferenceRecommendationsJob
       { completionTime =
           Prelude.Nothing,
         failureReason = Prelude.Nothing,
+        modelName = Prelude.Nothing,
+        modelPackageVersionArn = Prelude.Nothing,
+        samplePayloadUrl = Prelude.Nothing,
         jobName = pJobName_,
         jobDescription = pJobDescription_,
         jobType = pJobType_,
@@ -132,6 +151,20 @@ inferenceRecommendationsJob_completionTime = Lens.lens (\InferenceRecommendation
 -- | If the job fails, provides information why the job failed.
 inferenceRecommendationsJob_failureReason :: Lens.Lens' InferenceRecommendationsJob (Prelude.Maybe Prelude.Text)
 inferenceRecommendationsJob_failureReason = Lens.lens (\InferenceRecommendationsJob' {failureReason} -> failureReason) (\s@InferenceRecommendationsJob' {} a -> s {failureReason = a} :: InferenceRecommendationsJob)
+
+-- | The name of the created model.
+inferenceRecommendationsJob_modelName :: Lens.Lens' InferenceRecommendationsJob (Prelude.Maybe Prelude.Text)
+inferenceRecommendationsJob_modelName = Lens.lens (\InferenceRecommendationsJob' {modelName} -> modelName) (\s@InferenceRecommendationsJob' {} a -> s {modelName = a} :: InferenceRecommendationsJob)
+
+-- | The Amazon Resource Name (ARN) of a versioned model package.
+inferenceRecommendationsJob_modelPackageVersionArn :: Lens.Lens' InferenceRecommendationsJob (Prelude.Maybe Prelude.Text)
+inferenceRecommendationsJob_modelPackageVersionArn = Lens.lens (\InferenceRecommendationsJob' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@InferenceRecommendationsJob' {} a -> s {modelPackageVersionArn = a} :: InferenceRecommendationsJob)
+
+-- | The Amazon Simple Storage Service (Amazon S3) path where the sample
+-- payload is stored. This path must point to a single gzip compressed tar
+-- archive (.tar.gz suffix).
+inferenceRecommendationsJob_samplePayloadUrl :: Lens.Lens' InferenceRecommendationsJob (Prelude.Maybe Prelude.Text)
+inferenceRecommendationsJob_samplePayloadUrl = Lens.lens (\InferenceRecommendationsJob' {samplePayloadUrl} -> samplePayloadUrl) (\s@InferenceRecommendationsJob' {} a -> s {samplePayloadUrl = a} :: InferenceRecommendationsJob)
 
 -- | The name of the job.
 inferenceRecommendationsJob_jobName :: Lens.Lens' InferenceRecommendationsJob Prelude.Text
@@ -174,6 +207,9 @@ instance Data.FromJSON InferenceRecommendationsJob where
           InferenceRecommendationsJob'
             Prelude.<$> (x Data..:? "CompletionTime")
             Prelude.<*> (x Data..:? "FailureReason")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "ModelPackageVersionArn")
+            Prelude.<*> (x Data..:? "SamplePayloadUrl")
             Prelude.<*> (x Data..: "JobName")
             Prelude.<*> (x Data..: "JobDescription")
             Prelude.<*> (x Data..: "JobType")
@@ -186,8 +222,12 @@ instance Data.FromJSON InferenceRecommendationsJob where
 
 instance Prelude.Hashable InferenceRecommendationsJob where
   hashWithSalt _salt InferenceRecommendationsJob' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` modelPackageVersionArn
+      `Prelude.hashWithSalt` samplePayloadUrl
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobDescription
       `Prelude.hashWithSalt` jobType
@@ -201,6 +241,9 @@ instance Prelude.NFData InferenceRecommendationsJob where
   rnf InferenceRecommendationsJob' {..} =
     Prelude.rnf completionTime
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelPackageVersionArn
+      `Prelude.seq` Prelude.rnf samplePayloadUrl
       `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf jobDescription
       `Prelude.seq` Prelude.rnf jobType

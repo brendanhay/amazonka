@@ -262,22 +262,22 @@ instance Core.AWSPager ListNotebookInstances where
     | Core.stop
         ( rs
             Lens.^? listNotebookInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNotebookInstancesResponse_notebookInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNotebookInstances_nextToken
           Lens..~ rs
           Lens.^? listNotebookInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListNotebookInstances where
   type
@@ -290,7 +290,8 @@ instance Core.AWSRequest ListNotebookInstances where
       ( \s h x ->
           ListNotebookInstancesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "NotebookInstances"
+            Prelude.<*> ( x
+                            Data..?> "NotebookInstances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

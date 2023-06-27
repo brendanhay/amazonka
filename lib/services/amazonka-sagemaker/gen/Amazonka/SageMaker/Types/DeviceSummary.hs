@@ -152,7 +152,8 @@ instance Data.FromJSON DeviceSummary where
 
 instance Prelude.Hashable DeviceSummary where
   hashWithSalt _salt DeviceSummary' {..} =
-    _salt `Prelude.hashWithSalt` agentVersion
+    _salt
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceFleetName
       `Prelude.hashWithSalt` iotThingName

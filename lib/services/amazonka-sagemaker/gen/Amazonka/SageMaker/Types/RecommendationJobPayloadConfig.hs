@@ -76,7 +76,8 @@ instance Data.FromJSON RecommendationJobPayloadConfig where
       ( \x ->
           RecommendationJobPayloadConfig'
             Prelude.<$> (x Data..:? "SamplePayloadUrl")
-            Prelude.<*> ( x Data..:? "SupportedContentTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedContentTypes"
                             Data..!= Prelude.mempty
                         )
       )
@@ -88,7 +89,8 @@ instance
   hashWithSalt
     _salt
     RecommendationJobPayloadConfig' {..} =
-      _salt `Prelude.hashWithSalt` samplePayloadUrl
+      _salt
+        `Prelude.hashWithSalt` samplePayloadUrl
         `Prelude.hashWithSalt` supportedContentTypes
 
 instance

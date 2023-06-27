@@ -73,6 +73,10 @@ data CreateInferenceRecommendationsJob = CreateInferenceRecommendationsJob'
     tags :: Prelude.Maybe [Tag],
     -- | A name for the recommendation job. The name must be unique within the
     -- Amazon Web Services Region and within your Amazon Web Services account.
+    -- The job name is passed down to the resources created by the
+    -- recommendation job. The names of resources (such as the model, endpoint
+    -- configuration, endpoint, and compilation) that are prefixed with the job
+    -- name are truncated at 40 characters.
     jobName :: Prelude.Text,
     -- | Defines the type of recommendation job. Specify @Default@ to initiate an
     -- instance recommendation and @Advanced@ to initiate a load test. If left
@@ -112,6 +116,10 @@ data CreateInferenceRecommendationsJob = CreateInferenceRecommendationsJob'
 --
 -- 'jobName', 'createInferenceRecommendationsJob_jobName' - A name for the recommendation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
+-- The job name is passed down to the resources created by the
+-- recommendation job. The names of resources (such as the model, endpoint
+-- configuration, endpoint, and compilation) that are prefixed with the job
+-- name are truncated at 40 characters.
 --
 -- 'jobType', 'createInferenceRecommendationsJob_jobType' - Defines the type of recommendation job. Specify @Default@ to initiate an
 -- instance recommendation and @Advanced@ to initiate a load test. If left
@@ -174,6 +182,10 @@ createInferenceRecommendationsJob_tags = Lens.lens (\CreateInferenceRecommendati
 
 -- | A name for the recommendation job. The name must be unique within the
 -- Amazon Web Services Region and within your Amazon Web Services account.
+-- The job name is passed down to the resources created by the
+-- recommendation job. The names of resources (such as the model, endpoint
+-- configuration, endpoint, and compilation) that are prefixed with the job
+-- name are truncated at 40 characters.
 createInferenceRecommendationsJob_jobName :: Lens.Lens' CreateInferenceRecommendationsJob Prelude.Text
 createInferenceRecommendationsJob_jobName = Lens.lens (\CreateInferenceRecommendationsJob' {jobName} -> jobName) (\s@CreateInferenceRecommendationsJob' {} a -> s {jobName = a} :: CreateInferenceRecommendationsJob)
 
@@ -208,7 +220,7 @@ instance
       ( \s h x ->
           CreateInferenceRecommendationsJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "JobArn")
+            Prelude.<*> (x Data..:> "JobArn")
       )
 
 instance
@@ -218,7 +230,8 @@ instance
   hashWithSalt
     _salt
     CreateInferenceRecommendationsJob' {..} =
-      _salt `Prelude.hashWithSalt` jobDescription
+      _salt
+        `Prelude.hashWithSalt` jobDescription
         `Prelude.hashWithSalt` outputConfig
         `Prelude.hashWithSalt` stoppingConditions
         `Prelude.hashWithSalt` tags

@@ -20,13 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Finds Amazon SageMaker resources that match a search query. Matching
--- resources are returned as a list of @SearchRecord@ objects in the
--- response. You can sort the search results by any resource property in a
--- ascending or descending order.
+-- Finds SageMaker resources that match a search query. Matching resources
+-- are returned as a list of @SearchRecord@ objects in the response. You
+-- can sort the search results by any resource property in a ascending or
+-- descending order.
 --
 -- You can query against the following value types: numeric, text, Boolean,
 -- and timestamp.
+--
+-- The Search API may provide access to otherwise restricted data. See
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html Amazon SageMaker API Permissions: Actions, Permissions, and Resources Reference>
+-- for more information.
 --
 -- This operation returns paginated results.
 module Amazonka.SageMaker.Search
@@ -82,7 +86,7 @@ data Search = Search'
     -- | How @SearchResults@ are ordered. Valid values are @Ascending@ or
     -- @Descending@. The default is @Descending@.
     sortOrder :: Prelude.Maybe SearchSortOrder,
-    -- | The name of the Amazon SageMaker resource to search for.
+    -- | The name of the SageMaker resource to search for.
     resource :: ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -114,7 +118,7 @@ data Search = Search'
 -- 'sortOrder', 'search_sortOrder' - How @SearchResults@ are ordered. Valid values are @Ascending@ or
 -- @Descending@. The default is @Descending@.
 --
--- 'resource', 'search_resource' - The name of the Amazon SageMaker resource to search for.
+-- 'resource', 'search_resource' - The name of the SageMaker resource to search for.
 newSearch ::
   -- | 'resource'
   ResourceType ->
@@ -158,7 +162,7 @@ search_sortBy = Lens.lens (\Search' {sortBy} -> sortBy) (\s@Search' {} a -> s {s
 search_sortOrder :: Lens.Lens' Search (Prelude.Maybe SearchSortOrder)
 search_sortOrder = Lens.lens (\Search' {sortOrder} -> sortOrder) (\s@Search' {} a -> s {sortOrder = a} :: Search)
 
--- | The name of the Amazon SageMaker resource to search for.
+-- | The name of the SageMaker resource to search for.
 search_resource :: Lens.Lens' Search ResourceType
 search_resource = Lens.lens (\Search' {resource} -> resource) (\s@Search' {} a -> s {resource = a} :: Search)
 
@@ -166,20 +170,23 @@ instance Core.AWSPager Search where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? searchResponse_nextToken Prelude.. Lens._Just
+            Lens.^? searchResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? searchResponse_results Prelude.. Lens._Just
+            Lens.^? searchResponse_results
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& search_nextToken
           Lens..~ rs
-          Lens.^? searchResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest Search where
   type AWSResponse Search = SearchResponse
@@ -196,7 +203,8 @@ instance Core.AWSRequest Search where
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` searchExpression
       `Prelude.hashWithSalt` sortBy

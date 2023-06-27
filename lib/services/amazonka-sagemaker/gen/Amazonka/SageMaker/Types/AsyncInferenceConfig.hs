@@ -86,7 +86,8 @@ instance Data.FromJSON AsyncInferenceConfig where
 
 instance Prelude.Hashable AsyncInferenceConfig where
   hashWithSalt _salt AsyncInferenceConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientConfig
+    _salt
+      `Prelude.hashWithSalt` clientConfig
       `Prelude.hashWithSalt` outputConfig
 
 instance Prelude.NFData AsyncInferenceConfig where

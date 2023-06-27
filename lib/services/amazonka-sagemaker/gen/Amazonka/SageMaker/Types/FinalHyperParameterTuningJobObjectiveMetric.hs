@@ -25,17 +25,22 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperParameterTuningJobObjectiveType
 
--- | Shows the final value for the objective metric for a training job that
--- was launched by a hyperparameter tuning job. You define the objective
--- metric in the @HyperParameterTuningJobObjective@ parameter of
--- HyperParameterTuningJobConfig.
+-- | Shows the latest objective metric emitted by a training job that was
+-- launched by a hyperparameter tuning job. You define the objective metric
+-- in the @HyperParameterTuningJobObjective@ parameter of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html HyperParameterTuningJobConfig>.
 --
 -- /See:/ 'newFinalHyperParameterTuningJobObjectiveMetric' smart constructor.
 data FinalHyperParameterTuningJobObjectiveMetric = FinalHyperParameterTuningJobObjectiveMetric'
-  { -- | Whether to minimize or maximize the objective metric. Valid values are
-    -- Minimize and Maximize.
+  { -- | Select if you want to minimize or maximize the objective metric during
+    -- hyperparameter tuning.
     type' :: Prelude.Maybe HyperParameterTuningJobObjectiveType,
-    -- | The name of the objective metric.
+    -- | The name of the objective metric. For SageMaker built-in algorithms,
+    -- metrics are defined per algorithm. See the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost-tuning.html metrics for XGBoost>
+    -- as an example. You can also use a custom algorithm for training and
+    -- define your own metrics. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html Define metrics and environment variables>.
     metricName :: Prelude.Text,
     -- | The value of the objective metric.
     value :: Prelude.Double
@@ -50,10 +55,15 @@ data FinalHyperParameterTuningJobObjectiveMetric = FinalHyperParameterTuningJobO
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'finalHyperParameterTuningJobObjectiveMetric_type' - Whether to minimize or maximize the objective metric. Valid values are
--- Minimize and Maximize.
+-- 'type'', 'finalHyperParameterTuningJobObjectiveMetric_type' - Select if you want to minimize or maximize the objective metric during
+-- hyperparameter tuning.
 --
--- 'metricName', 'finalHyperParameterTuningJobObjectiveMetric_metricName' - The name of the objective metric.
+-- 'metricName', 'finalHyperParameterTuningJobObjectiveMetric_metricName' - The name of the objective metric. For SageMaker built-in algorithms,
+-- metrics are defined per algorithm. See the
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost-tuning.html metrics for XGBoost>
+-- as an example. You can also use a custom algorithm for training and
+-- define your own metrics. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html Define metrics and environment variables>.
 --
 -- 'value', 'finalHyperParameterTuningJobObjectiveMetric_value' - The value of the objective metric.
 newFinalHyperParameterTuningJobObjectiveMetric ::
@@ -72,12 +82,17 @@ newFinalHyperParameterTuningJobObjectiveMetric
         value = pValue_
       }
 
--- | Whether to minimize or maximize the objective metric. Valid values are
--- Minimize and Maximize.
+-- | Select if you want to minimize or maximize the objective metric during
+-- hyperparameter tuning.
 finalHyperParameterTuningJobObjectiveMetric_type :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric (Prelude.Maybe HyperParameterTuningJobObjectiveType)
 finalHyperParameterTuningJobObjectiveMetric_type = Lens.lens (\FinalHyperParameterTuningJobObjectiveMetric' {type'} -> type') (\s@FinalHyperParameterTuningJobObjectiveMetric' {} a -> s {type' = a} :: FinalHyperParameterTuningJobObjectiveMetric)
 
--- | The name of the objective metric.
+-- | The name of the objective metric. For SageMaker built-in algorithms,
+-- metrics are defined per algorithm. See the
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost-tuning.html metrics for XGBoost>
+-- as an example. You can also use a custom algorithm for training and
+-- define your own metrics. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html Define metrics and environment variables>.
 finalHyperParameterTuningJobObjectiveMetric_metricName :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Prelude.Text
 finalHyperParameterTuningJobObjectiveMetric_metricName = Lens.lens (\FinalHyperParameterTuningJobObjectiveMetric' {metricName} -> metricName) (\s@FinalHyperParameterTuningJobObjectiveMetric' {} a -> s {metricName = a} :: FinalHyperParameterTuningJobObjectiveMetric)
 
@@ -95,8 +110,8 @@ instance
       ( \x ->
           FinalHyperParameterTuningJobObjectiveMetric'
             Prelude.<$> (x Data..:? "Type")
-              Prelude.<*> (x Data..: "MetricName")
-              Prelude.<*> (x Data..: "Value")
+            Prelude.<*> (x Data..: "MetricName")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance
@@ -106,7 +121,8 @@ instance
   hashWithSalt
     _salt
     FinalHyperParameterTuningJobObjectiveMetric' {..} =
-      _salt `Prelude.hashWithSalt` type'
+      _salt
+        `Prelude.hashWithSalt` type'
         `Prelude.hashWithSalt` metricName
         `Prelude.hashWithSalt` value
 

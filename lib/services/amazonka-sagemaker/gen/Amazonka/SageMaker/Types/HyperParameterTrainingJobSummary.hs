@@ -33,9 +33,10 @@ import Amazonka.SageMaker.Types.TrainingJobStatus
 data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
   { -- | The reason that the training job failed.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The FinalHyperParameterTuningJobObjectiveMetric object that specifies
-    -- the value of the objective metric of the tuning job that launched this
-    -- training job.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html FinalHyperParameterTuningJobObjectiveMetric>
+    -- object that specifies the value of the objective metric of the tuning
+    -- job that launched this training job.
     finalHyperParameterTuningJobObjectiveMetric :: Prelude.Maybe FinalHyperParameterTuningJobObjectiveMetric,
     -- | The status of the objective metric for the training job:
     --
@@ -86,9 +87,10 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
 --
 -- 'failureReason', 'hyperParameterTrainingJobSummary_failureReason' - The reason that the training job failed.
 --
--- 'finalHyperParameterTuningJobObjectiveMetric', 'hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric' - The FinalHyperParameterTuningJobObjectiveMetric object that specifies
--- the value of the objective metric of the tuning job that launched this
--- training job.
+-- 'finalHyperParameterTuningJobObjectiveMetric', 'hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html FinalHyperParameterTuningJobObjectiveMetric>
+-- object that specifies the value of the objective metric of the tuning
+-- job that launched this training job.
 --
 -- 'objectiveStatus', 'hyperParameterTrainingJobSummary_objectiveStatus' - The status of the objective metric for the training job:
 --
@@ -163,9 +165,10 @@ newHyperParameterTrainingJobSummary
 hyperParameterTrainingJobSummary_failureReason :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
 hyperParameterTrainingJobSummary_failureReason = Lens.lens (\HyperParameterTrainingJobSummary' {failureReason} -> failureReason) (\s@HyperParameterTrainingJobSummary' {} a -> s {failureReason = a} :: HyperParameterTrainingJobSummary)
 
--- | The FinalHyperParameterTuningJobObjectiveMetric object that specifies
--- the value of the objective metric of the tuning job that launched this
--- training job.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html FinalHyperParameterTuningJobObjectiveMetric>
+-- object that specifies the value of the objective metric of the tuning
+-- job that launched this training job.
 hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe FinalHyperParameterTuningJobObjectiveMetric)
 hyperParameterTrainingJobSummary_finalHyperParameterTuningJobObjectiveMetric = Lens.lens (\HyperParameterTrainingJobSummary' {finalHyperParameterTuningJobObjectiveMetric} -> finalHyperParameterTuningJobObjectiveMetric) (\s@HyperParameterTrainingJobSummary' {} a -> s {finalHyperParameterTuningJobObjectiveMetric = a} :: HyperParameterTrainingJobSummary)
 
@@ -247,7 +250,8 @@ instance
             Prelude.<*> (x Data..: "TrainingJobArn")
             Prelude.<*> (x Data..: "CreationTime")
             Prelude.<*> (x Data..: "TrainingJobStatus")
-            Prelude.<*> ( x Data..:? "TunedHyperParameters"
+            Prelude.<*> ( x
+                            Data..:? "TunedHyperParameters"
                             Data..!= Prelude.mempty
                         )
       )
@@ -259,7 +263,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTrainingJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` failureReason
+      _salt
+        `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` finalHyperParameterTuningJobObjectiveMetric
         `Prelude.hashWithSalt` objectiveStatus
         `Prelude.hashWithSalt` trainingEndTime

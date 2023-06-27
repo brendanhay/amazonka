@@ -112,7 +112,8 @@ profilerConfigForUpdate_s3OutputPath = Lens.lens (\ProfilerConfigForUpdate' {s3O
 
 instance Prelude.Hashable ProfilerConfigForUpdate where
   hashWithSalt _salt ProfilerConfigForUpdate' {..} =
-    _salt `Prelude.hashWithSalt` disableProfiler
+    _salt
+      `Prelude.hashWithSalt` disableProfiler
       `Prelude.hashWithSalt` profilingIntervalInMilliseconds
       `Prelude.hashWithSalt` profilingParameters
       `Prelude.hashWithSalt` s3OutputPath

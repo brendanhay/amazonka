@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a description of a hyperparameter tuning job.
+-- Returns a description of a hyperparameter tuning job, depending on the
+-- fields selected. These fields can include the name, Amazon Resource Name
+-- (ARN), job status of your tuning job and more.
 module Amazonka.SageMaker.DescribeHyperParameterTuningJob
   ( -- * Creating a Request
     DescribeHyperParameterTuningJob (..),
@@ -34,13 +36,16 @@ module Amazonka.SageMaker.DescribeHyperParameterTuningJob
     newDescribeHyperParameterTuningJobResponse,
 
     -- * Response Lenses
+    describeHyperParameterTuningJobResponse_autotune,
     describeHyperParameterTuningJobResponse_bestTrainingJob,
+    describeHyperParameterTuningJobResponse_consumedResources,
     describeHyperParameterTuningJobResponse_failureReason,
     describeHyperParameterTuningJobResponse_hyperParameterTuningEndTime,
     describeHyperParameterTuningJobResponse_lastModifiedTime,
     describeHyperParameterTuningJobResponse_overallBestTrainingJob,
     describeHyperParameterTuningJobResponse_trainingJobDefinition,
     describeHyperParameterTuningJobResponse_trainingJobDefinitions,
+    describeHyperParameterTuningJobResponse_tuningJobCompletionDetails,
     describeHyperParameterTuningJobResponse_warmStartConfig,
     describeHyperParameterTuningJobResponse_httpStatus,
     describeHyperParameterTuningJobResponse_hyperParameterTuningJobName,
@@ -105,13 +110,16 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeHyperParameterTuningJobResponse'
-            Prelude.<$> (x Data..?> "BestTrainingJob")
+            Prelude.<$> (x Data..?> "Autotune")
+            Prelude.<*> (x Data..?> "BestTrainingJob")
+            Prelude.<*> (x Data..?> "ConsumedResources")
             Prelude.<*> (x Data..?> "FailureReason")
             Prelude.<*> (x Data..?> "HyperParameterTuningEndTime")
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "OverallBestTrainingJob")
             Prelude.<*> (x Data..?> "TrainingJobDefinition")
             Prelude.<*> (x Data..?> "TrainingJobDefinitions")
+            Prelude.<*> (x Data..?> "TuningJobCompletionDetails")
             Prelude.<*> (x Data..?> "WarmStartConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..:> "HyperParameterTuningJobName")
@@ -177,9 +185,16 @@ instance Data.ToQuery DescribeHyperParameterTuningJob where
 
 -- | /See:/ 'newDescribeHyperParameterTuningJobResponse' smart constructor.
 data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobResponse'
-  { -- | A TrainingJobSummary object that describes the training job that
-    -- completed with the best current HyperParameterTuningJobObjective.
+  { -- | A flag to indicate if autotune is enabled for the hyperparameter tuning
+    -- job.
+    autotune :: Prelude.Maybe Autotune,
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html TrainingJobSummary>
+    -- object that describes the training job that completed with the best
+    -- current
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html HyperParameterTuningJobObjective>.
     bestTrainingJob :: Prelude.Maybe HyperParameterTrainingJobSummary,
+    consumedResources :: Prelude.Maybe HyperParameterTuningJobConsumedResources,
     -- | If the tuning job failed, the reason it failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the tuning job ended.
@@ -188,16 +203,26 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     -- | If the hyperparameter tuning job is an warm start tuning job with a
     -- @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@, this is the
-    -- TrainingJobSummary for the training job with the best objective metric
-    -- value of all training jobs launched by this tuning job and all parent
-    -- jobs specified for the warm start tuning job.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html TrainingJobSummary>
+    -- for the training job with the best objective metric value of all
+    -- training jobs launched by this tuning job and all parent jobs specified
+    -- for the warm start tuning job.
     overallBestTrainingJob :: Prelude.Maybe HyperParameterTrainingJobSummary,
-    -- | The HyperParameterTrainingJobDefinition object that specifies the
-    -- definition of the training jobs that this tuning job launches.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+    -- object that specifies the definition of the training jobs that this
+    -- tuning job launches.
     trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
-    -- | A list of the HyperParameterTrainingJobDefinition objects launched for
-    -- this tuning job.
+    -- | A list of the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+    -- objects launched for this tuning job.
     trainingJobDefinitions :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition),
+    -- | Tuning job completion information returned as the response from a
+    -- hyperparameter tuning job. This information tells if your tuning job has
+    -- or has not converged. It also includes the number of training jobs that
+    -- have not improved model performance as evaluated against the objective
+    -- function.
+    tuningJobCompletionDetails :: Prelude.Maybe HyperParameterTuningJobCompletionDetails,
     -- | The configuration for starting the hyperparameter parameter tuning job
     -- using one or more previous tuning jobs as a starting point. The results
     -- of previous tuning jobs are used to inform which combinations of
@@ -205,24 +230,28 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
     warmStartConfig :: Prelude.Maybe HyperParameterTuningJobWarmStartConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The name of the tuning job.
+    -- | The name of the hyperparameter tuning job.
     hyperParameterTuningJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the tuning job.
     hyperParameterTuningJobArn :: Prelude.Text,
-    -- | The HyperParameterTuningJobConfig object that specifies the
-    -- configuration of the tuning job.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html HyperParameterTuningJobConfig>
+    -- object that specifies the configuration of the tuning job.
     hyperParameterTuningJobConfig :: HyperParameterTuningJobConfig,
     -- | The status of the tuning job: InProgress, Completed, Failed, Stopping,
     -- or Stopped.
     hyperParameterTuningJobStatus :: HyperParameterTuningJobStatus,
     -- | The date and time that the tuning job started.
     creationTime :: Data.POSIX,
-    -- | The TrainingJobStatusCounters object that specifies the number of
-    -- training jobs, categorized by status, that this tuning job launched.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html TrainingJobStatusCounters>
+    -- object that specifies the number of training jobs, categorized by
+    -- status, that this tuning job launched.
     trainingJobStatusCounters :: TrainingJobStatusCounters,
-    -- | The ObjectiveStatusCounters object that specifies the number of training
-    -- jobs, categorized by the status of their final objective metric, that
-    -- this tuning job launched.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html ObjectiveStatusCounters>
+    -- object that specifies the number of training jobs, categorized by the
+    -- status of their final objective metric, that this tuning job launched.
     objectiveStatusCounters :: ObjectiveStatusCounters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -235,8 +264,16 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bestTrainingJob', 'describeHyperParameterTuningJobResponse_bestTrainingJob' - A TrainingJobSummary object that describes the training job that
--- completed with the best current HyperParameterTuningJobObjective.
+-- 'autotune', 'describeHyperParameterTuningJobResponse_autotune' - A flag to indicate if autotune is enabled for the hyperparameter tuning
+-- job.
+--
+-- 'bestTrainingJob', 'describeHyperParameterTuningJobResponse_bestTrainingJob' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html TrainingJobSummary>
+-- object that describes the training job that completed with the best
+-- current
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html HyperParameterTuningJobObjective>.
+--
+-- 'consumedResources', 'describeHyperParameterTuningJobResponse_consumedResources' - Undocumented member.
 --
 -- 'failureReason', 'describeHyperParameterTuningJobResponse_failureReason' - If the tuning job failed, the reason it failed.
 --
@@ -246,15 +283,25 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
 --
 -- 'overallBestTrainingJob', 'describeHyperParameterTuningJobResponse_overallBestTrainingJob' - If the hyperparameter tuning job is an warm start tuning job with a
 -- @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@, this is the
--- TrainingJobSummary for the training job with the best objective metric
--- value of all training jobs launched by this tuning job and all parent
--- jobs specified for the warm start tuning job.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html TrainingJobSummary>
+-- for the training job with the best objective metric value of all
+-- training jobs launched by this tuning job and all parent jobs specified
+-- for the warm start tuning job.
 --
--- 'trainingJobDefinition', 'describeHyperParameterTuningJobResponse_trainingJobDefinition' - The HyperParameterTrainingJobDefinition object that specifies the
--- definition of the training jobs that this tuning job launches.
+-- 'trainingJobDefinition', 'describeHyperParameterTuningJobResponse_trainingJobDefinition' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- object that specifies the definition of the training jobs that this
+-- tuning job launches.
 --
--- 'trainingJobDefinitions', 'describeHyperParameterTuningJobResponse_trainingJobDefinitions' - A list of the HyperParameterTrainingJobDefinition objects launched for
--- this tuning job.
+-- 'trainingJobDefinitions', 'describeHyperParameterTuningJobResponse_trainingJobDefinitions' - A list of the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- objects launched for this tuning job.
+--
+-- 'tuningJobCompletionDetails', 'describeHyperParameterTuningJobResponse_tuningJobCompletionDetails' - Tuning job completion information returned as the response from a
+-- hyperparameter tuning job. This information tells if your tuning job has
+-- or has not converged. It also includes the number of training jobs that
+-- have not improved model performance as evaluated against the objective
+-- function.
 --
 -- 'warmStartConfig', 'describeHyperParameterTuningJobResponse_warmStartConfig' - The configuration for starting the hyperparameter parameter tuning job
 -- using one or more previous tuning jobs as a starting point. The results
@@ -263,24 +310,28 @@ data DescribeHyperParameterTuningJobResponse = DescribeHyperParameterTuningJobRe
 --
 -- 'httpStatus', 'describeHyperParameterTuningJobResponse_httpStatus' - The response's http status code.
 --
--- 'hyperParameterTuningJobName', 'describeHyperParameterTuningJobResponse_hyperParameterTuningJobName' - The name of the tuning job.
+-- 'hyperParameterTuningJobName', 'describeHyperParameterTuningJobResponse_hyperParameterTuningJobName' - The name of the hyperparameter tuning job.
 --
 -- 'hyperParameterTuningJobArn', 'describeHyperParameterTuningJobResponse_hyperParameterTuningJobArn' - The Amazon Resource Name (ARN) of the tuning job.
 --
--- 'hyperParameterTuningJobConfig', 'describeHyperParameterTuningJobResponse_hyperParameterTuningJobConfig' - The HyperParameterTuningJobConfig object that specifies the
--- configuration of the tuning job.
+-- 'hyperParameterTuningJobConfig', 'describeHyperParameterTuningJobResponse_hyperParameterTuningJobConfig' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html HyperParameterTuningJobConfig>
+-- object that specifies the configuration of the tuning job.
 --
 -- 'hyperParameterTuningJobStatus', 'describeHyperParameterTuningJobResponse_hyperParameterTuningJobStatus' - The status of the tuning job: InProgress, Completed, Failed, Stopping,
 -- or Stopped.
 --
 -- 'creationTime', 'describeHyperParameterTuningJobResponse_creationTime' - The date and time that the tuning job started.
 --
--- 'trainingJobStatusCounters', 'describeHyperParameterTuningJobResponse_trainingJobStatusCounters' - The TrainingJobStatusCounters object that specifies the number of
--- training jobs, categorized by status, that this tuning job launched.
+-- 'trainingJobStatusCounters', 'describeHyperParameterTuningJobResponse_trainingJobStatusCounters' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html TrainingJobStatusCounters>
+-- object that specifies the number of training jobs, categorized by
+-- status, that this tuning job launched.
 --
--- 'objectiveStatusCounters', 'describeHyperParameterTuningJobResponse_objectiveStatusCounters' - The ObjectiveStatusCounters object that specifies the number of training
--- jobs, categorized by the status of their final objective metric, that
--- this tuning job launched.
+-- 'objectiveStatusCounters', 'describeHyperParameterTuningJobResponse_objectiveStatusCounters' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html ObjectiveStatusCounters>
+-- object that specifies the number of training jobs, categorized by the
+-- status of their final objective metric, that this tuning job launched.
 newDescribeHyperParameterTuningJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -309,7 +360,10 @@ newDescribeHyperParameterTuningJobResponse
   pTrainingJobStatusCounters_
   pObjectiveStatusCounters_ =
     DescribeHyperParameterTuningJobResponse'
-      { bestTrainingJob =
+      { autotune =
+          Prelude.Nothing,
+        bestTrainingJob = Prelude.Nothing,
+        consumedResources =
           Prelude.Nothing,
         failureReason = Prelude.Nothing,
         hyperParameterTuningEndTime =
@@ -320,6 +374,8 @@ newDescribeHyperParameterTuningJobResponse
         trainingJobDefinition =
           Prelude.Nothing,
         trainingJobDefinitions =
+          Prelude.Nothing,
+        tuningJobCompletionDetails =
           Prelude.Nothing,
         warmStartConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -339,10 +395,22 @@ newDescribeHyperParameterTuningJobResponse
           pObjectiveStatusCounters_
       }
 
--- | A TrainingJobSummary object that describes the training job that
--- completed with the best current HyperParameterTuningJobObjective.
+-- | A flag to indicate if autotune is enabled for the hyperparameter tuning
+-- job.
+describeHyperParameterTuningJobResponse_autotune :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe Autotune)
+describeHyperParameterTuningJobResponse_autotune = Lens.lens (\DescribeHyperParameterTuningJobResponse' {autotune} -> autotune) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {autotune = a} :: DescribeHyperParameterTuningJobResponse)
+
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html TrainingJobSummary>
+-- object that describes the training job that completed with the best
+-- current
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html HyperParameterTuningJobObjective>.
 describeHyperParameterTuningJobResponse_bestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTrainingJobSummary)
 describeHyperParameterTuningJobResponse_bestTrainingJob = Lens.lens (\DescribeHyperParameterTuningJobResponse' {bestTrainingJob} -> bestTrainingJob) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {bestTrainingJob = a} :: DescribeHyperParameterTuningJobResponse)
+
+-- | Undocumented member.
+describeHyperParameterTuningJobResponse_consumedResources :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTuningJobConsumedResources)
+describeHyperParameterTuningJobResponse_consumedResources = Lens.lens (\DescribeHyperParameterTuningJobResponse' {consumedResources} -> consumedResources) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {consumedResources = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | If the tuning job failed, the reason it failed.
 describeHyperParameterTuningJobResponse_failureReason :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe Prelude.Text)
@@ -358,21 +426,33 @@ describeHyperParameterTuningJobResponse_lastModifiedTime = Lens.lens (\DescribeH
 
 -- | If the hyperparameter tuning job is an warm start tuning job with a
 -- @WarmStartType@ of @IDENTICAL_DATA_AND_ALGORITHM@, this is the
--- TrainingJobSummary for the training job with the best objective metric
--- value of all training jobs launched by this tuning job and all parent
--- jobs specified for the warm start tuning job.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html TrainingJobSummary>
+-- for the training job with the best objective metric value of all
+-- training jobs launched by this tuning job and all parent jobs specified
+-- for the warm start tuning job.
 describeHyperParameterTuningJobResponse_overallBestTrainingJob :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTrainingJobSummary)
 describeHyperParameterTuningJobResponse_overallBestTrainingJob = Lens.lens (\DescribeHyperParameterTuningJobResponse' {overallBestTrainingJob} -> overallBestTrainingJob) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {overallBestTrainingJob = a} :: DescribeHyperParameterTuningJobResponse)
 
--- | The HyperParameterTrainingJobDefinition object that specifies the
--- definition of the training jobs that this tuning job launches.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- object that specifies the definition of the training jobs that this
+-- tuning job launches.
 describeHyperParameterTuningJobResponse_trainingJobDefinition :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTrainingJobDefinition)
 describeHyperParameterTuningJobResponse_trainingJobDefinition = Lens.lens (\DescribeHyperParameterTuningJobResponse' {trainingJobDefinition} -> trainingJobDefinition) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {trainingJobDefinition = a} :: DescribeHyperParameterTuningJobResponse)
 
--- | A list of the HyperParameterTrainingJobDefinition objects launched for
--- this tuning job.
+-- | A list of the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- objects launched for this tuning job.
 describeHyperParameterTuningJobResponse_trainingJobDefinitions :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition))
 describeHyperParameterTuningJobResponse_trainingJobDefinitions = Lens.lens (\DescribeHyperParameterTuningJobResponse' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {trainingJobDefinitions = a} :: DescribeHyperParameterTuningJobResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Tuning job completion information returned as the response from a
+-- hyperparameter tuning job. This information tells if your tuning job has
+-- or has not converged. It also includes the number of training jobs that
+-- have not improved model performance as evaluated against the objective
+-- function.
+describeHyperParameterTuningJobResponse_tuningJobCompletionDetails :: Lens.Lens' DescribeHyperParameterTuningJobResponse (Prelude.Maybe HyperParameterTuningJobCompletionDetails)
+describeHyperParameterTuningJobResponse_tuningJobCompletionDetails = Lens.lens (\DescribeHyperParameterTuningJobResponse' {tuningJobCompletionDetails} -> tuningJobCompletionDetails) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {tuningJobCompletionDetails = a} :: DescribeHyperParameterTuningJobResponse)
 
 -- | The configuration for starting the hyperparameter parameter tuning job
 -- using one or more previous tuning jobs as a starting point. The results
@@ -385,7 +465,7 @@ describeHyperParameterTuningJobResponse_warmStartConfig = Lens.lens (\DescribeHy
 describeHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.Int
 describeHyperParameterTuningJobResponse_httpStatus = Lens.lens (\DescribeHyperParameterTuningJobResponse' {httpStatus} -> httpStatus) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {httpStatus = a} :: DescribeHyperParameterTuningJobResponse)
 
--- | The name of the tuning job.
+-- | The name of the hyperparameter tuning job.
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobName :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.Text
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobName = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobName = a} :: DescribeHyperParameterTuningJobResponse)
 
@@ -393,8 +473,9 @@ describeHyperParameterTuningJobResponse_hyperParameterTuningJobName = Lens.lens 
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobArn :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.Text
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobArn = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningJobArn} -> hyperParameterTuningJobArn) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobArn = a} :: DescribeHyperParameterTuningJobResponse)
 
--- | The HyperParameterTuningJobConfig object that specifies the
--- configuration of the tuning job.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html HyperParameterTuningJobConfig>
+-- object that specifies the configuration of the tuning job.
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobConfig :: Lens.Lens' DescribeHyperParameterTuningJobResponse HyperParameterTuningJobConfig
 describeHyperParameterTuningJobResponse_hyperParameterTuningJobConfig = Lens.lens (\DescribeHyperParameterTuningJobResponse' {hyperParameterTuningJobConfig} -> hyperParameterTuningJobConfig) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobConfig = a} :: DescribeHyperParameterTuningJobResponse)
 
@@ -407,14 +488,17 @@ describeHyperParameterTuningJobResponse_hyperParameterTuningJobStatus = Lens.len
 describeHyperParameterTuningJobResponse_creationTime :: Lens.Lens' DescribeHyperParameterTuningJobResponse Prelude.UTCTime
 describeHyperParameterTuningJobResponse_creationTime = Lens.lens (\DescribeHyperParameterTuningJobResponse' {creationTime} -> creationTime) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {creationTime = a} :: DescribeHyperParameterTuningJobResponse) Prelude.. Data._Time
 
--- | The TrainingJobStatusCounters object that specifies the number of
--- training jobs, categorized by status, that this tuning job launched.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html TrainingJobStatusCounters>
+-- object that specifies the number of training jobs, categorized by
+-- status, that this tuning job launched.
 describeHyperParameterTuningJobResponse_trainingJobStatusCounters :: Lens.Lens' DescribeHyperParameterTuningJobResponse TrainingJobStatusCounters
 describeHyperParameterTuningJobResponse_trainingJobStatusCounters = Lens.lens (\DescribeHyperParameterTuningJobResponse' {trainingJobStatusCounters} -> trainingJobStatusCounters) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {trainingJobStatusCounters = a} :: DescribeHyperParameterTuningJobResponse)
 
--- | The ObjectiveStatusCounters object that specifies the number of training
--- jobs, categorized by the status of their final objective metric, that
--- this tuning job launched.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html ObjectiveStatusCounters>
+-- object that specifies the number of training jobs, categorized by the
+-- status of their final objective metric, that this tuning job launched.
 describeHyperParameterTuningJobResponse_objectiveStatusCounters :: Lens.Lens' DescribeHyperParameterTuningJobResponse ObjectiveStatusCounters
 describeHyperParameterTuningJobResponse_objectiveStatusCounters = Lens.lens (\DescribeHyperParameterTuningJobResponse' {objectiveStatusCounters} -> objectiveStatusCounters) (\s@DescribeHyperParameterTuningJobResponse' {} a -> s {objectiveStatusCounters = a} :: DescribeHyperParameterTuningJobResponse)
 
@@ -423,19 +507,26 @@ instance
     DescribeHyperParameterTuningJobResponse
   where
   rnf DescribeHyperParameterTuningJobResponse' {..} =
-    Prelude.rnf bestTrainingJob
+    Prelude.rnf autotune
+      `Prelude.seq` Prelude.rnf bestTrainingJob
+      `Prelude.seq` Prelude.rnf consumedResources
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf hyperParameterTuningEndTime
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf overallBestTrainingJob
       `Prelude.seq` Prelude.rnf trainingJobDefinition
       `Prelude.seq` Prelude.rnf trainingJobDefinitions
+      `Prelude.seq` Prelude.rnf tuningJobCompletionDetails
       `Prelude.seq` Prelude.rnf warmStartConfig
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf hyperParameterTuningJobName
       `Prelude.seq` Prelude.rnf hyperParameterTuningJobArn
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobConfig
-      `Prelude.seq` Prelude.rnf hyperParameterTuningJobStatus
+      `Prelude.seq` Prelude.rnf
+        hyperParameterTuningJobConfig
+      `Prelude.seq` Prelude.rnf
+        hyperParameterTuningJobStatus
       `Prelude.seq` Prelude.rnf creationTime
-      `Prelude.seq` Prelude.rnf trainingJobStatusCounters
-      `Prelude.seq` Prelude.rnf objectiveStatusCounters
+      `Prelude.seq` Prelude.rnf
+        trainingJobStatusCounters
+      `Prelude.seq` Prelude.rnf
+        objectiveStatusCounters

@@ -37,8 +37,10 @@ data AsyncInferenceOutputConfig = AsyncInferenceOutputConfig'
     -- | Specifies the configuration for notifications of inference results for
     -- asynchronous inference.
     notificationConfig :: Prelude.Maybe AsyncInferenceNotificationConfig,
+    -- | The Amazon S3 location to upload failure inference responses to.
+    s3FailurePath :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 location to upload inference responses to.
-    s3OutputPath :: Prelude.Text
+    s3OutputPath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,17 +59,18 @@ data AsyncInferenceOutputConfig = AsyncInferenceOutputConfig'
 -- 'notificationConfig', 'asyncInferenceOutputConfig_notificationConfig' - Specifies the configuration for notifications of inference results for
 -- asynchronous inference.
 --
+-- 's3FailurePath', 'asyncInferenceOutputConfig_s3FailurePath' - The Amazon S3 location to upload failure inference responses to.
+--
 -- 's3OutputPath', 'asyncInferenceOutputConfig_s3OutputPath' - The Amazon S3 location to upload inference responses to.
 newAsyncInferenceOutputConfig ::
-  -- | 's3OutputPath'
-  Prelude.Text ->
   AsyncInferenceOutputConfig
-newAsyncInferenceOutputConfig pS3OutputPath_ =
+newAsyncInferenceOutputConfig =
   AsyncInferenceOutputConfig'
     { kmsKeyId =
         Prelude.Nothing,
       notificationConfig = Prelude.Nothing,
-      s3OutputPath = pS3OutputPath_
+      s3FailurePath = Prelude.Nothing,
+      s3OutputPath = Prelude.Nothing
     }
 
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
@@ -81,8 +84,12 @@ asyncInferenceOutputConfig_kmsKeyId = Lens.lens (\AsyncInferenceOutputConfig' {k
 asyncInferenceOutputConfig_notificationConfig :: Lens.Lens' AsyncInferenceOutputConfig (Prelude.Maybe AsyncInferenceNotificationConfig)
 asyncInferenceOutputConfig_notificationConfig = Lens.lens (\AsyncInferenceOutputConfig' {notificationConfig} -> notificationConfig) (\s@AsyncInferenceOutputConfig' {} a -> s {notificationConfig = a} :: AsyncInferenceOutputConfig)
 
+-- | The Amazon S3 location to upload failure inference responses to.
+asyncInferenceOutputConfig_s3FailurePath :: Lens.Lens' AsyncInferenceOutputConfig (Prelude.Maybe Prelude.Text)
+asyncInferenceOutputConfig_s3FailurePath = Lens.lens (\AsyncInferenceOutputConfig' {s3FailurePath} -> s3FailurePath) (\s@AsyncInferenceOutputConfig' {} a -> s {s3FailurePath = a} :: AsyncInferenceOutputConfig)
+
 -- | The Amazon S3 location to upload inference responses to.
-asyncInferenceOutputConfig_s3OutputPath :: Lens.Lens' AsyncInferenceOutputConfig Prelude.Text
+asyncInferenceOutputConfig_s3OutputPath :: Lens.Lens' AsyncInferenceOutputConfig (Prelude.Maybe Prelude.Text)
 asyncInferenceOutputConfig_s3OutputPath = Lens.lens (\AsyncInferenceOutputConfig' {s3OutputPath} -> s3OutputPath) (\s@AsyncInferenceOutputConfig' {} a -> s {s3OutputPath = a} :: AsyncInferenceOutputConfig)
 
 instance Data.FromJSON AsyncInferenceOutputConfig where
@@ -93,19 +100,23 @@ instance Data.FromJSON AsyncInferenceOutputConfig where
           AsyncInferenceOutputConfig'
             Prelude.<$> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..:? "NotificationConfig")
-            Prelude.<*> (x Data..: "S3OutputPath")
+            Prelude.<*> (x Data..:? "S3FailurePath")
+            Prelude.<*> (x Data..:? "S3OutputPath")
       )
 
 instance Prelude.Hashable AsyncInferenceOutputConfig where
   hashWithSalt _salt AsyncInferenceOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationConfig
+      `Prelude.hashWithSalt` s3FailurePath
       `Prelude.hashWithSalt` s3OutputPath
 
 instance Prelude.NFData AsyncInferenceOutputConfig where
   rnf AsyncInferenceOutputConfig' {..} =
     Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf notificationConfig
+      `Prelude.seq` Prelude.rnf s3FailurePath
       `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Data.ToJSON AsyncInferenceOutputConfig where
@@ -115,6 +126,7 @@ instance Data.ToJSON AsyncInferenceOutputConfig where
           [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             ("NotificationConfig" Data..=)
               Prelude.<$> notificationConfig,
-            Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
+            ("S3FailurePath" Data..=) Prelude.<$> s3FailurePath,
+            ("S3OutputPath" Data..=) Prelude.<$> s3OutputPath
           ]
       )

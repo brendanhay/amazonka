@@ -62,7 +62,8 @@ data UserSettings = UserSettings'
     -- to @PublicInternetOnly@.
     --
     -- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set
-    -- to @VpcOnly@.
+    -- to @VpcOnly@, unless specified as part of the @DefaultUserSettings@ for
+    -- the domain.
     --
     -- Amazon SageMaker adds a security group to allow NFS traffic from
     -- SageMaker Studio. Therefore, the number of security groups that you can
@@ -103,7 +104,8 @@ data UserSettings = UserSettings'
 -- to @PublicInternetOnly@.
 --
 -- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set
--- to @VpcOnly@.
+-- to @VpcOnly@, unless specified as part of the @DefaultUserSettings@ for
+-- the domain.
 --
 -- Amazon SageMaker adds a security group to allow NFS traffic from
 -- SageMaker Studio. Therefore, the number of security groups that you can
@@ -159,7 +161,8 @@ userSettings_rStudioServerProAppSettings = Lens.lens (\UserSettings' {rStudioSer
 -- to @PublicInternetOnly@.
 --
 -- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set
--- to @VpcOnly@.
+-- to @VpcOnly@, unless specified as part of the @DefaultUserSettings@ for
+-- the domain.
 --
 -- Amazon SageMaker adds a security group to allow NFS traffic from
 -- SageMaker Studio. Therefore, the number of security groups that you can
@@ -194,7 +197,8 @@ instance Data.FromJSON UserSettings where
 
 instance Prelude.Hashable UserSettings where
   hashWithSalt _salt UserSettings' {..} =
-    _salt `Prelude.hashWithSalt` canvasAppSettings
+    _salt
+      `Prelude.hashWithSalt` canvasAppSettings
       `Prelude.hashWithSalt` executionRole
       `Prelude.hashWithSalt` jupyterServerAppSettings
       `Prelude.hashWithSalt` kernelGatewayAppSettings

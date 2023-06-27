@@ -34,6 +34,8 @@ module Amazonka.SageMaker.ListInferenceRecommendationsJobs
     listInferenceRecommendationsJobs_lastModifiedTimeAfter,
     listInferenceRecommendationsJobs_lastModifiedTimeBefore,
     listInferenceRecommendationsJobs_maxResults,
+    listInferenceRecommendationsJobs_modelNameEquals,
+    listInferenceRecommendationsJobs_modelPackageVersionArnEquals,
     listInferenceRecommendationsJobs_nameContains,
     listInferenceRecommendationsJobs_nextToken,
     listInferenceRecommendationsJobs_sortBy,
@@ -75,6 +77,11 @@ data ListInferenceRecommendationsJobs = ListInferenceRecommendationsJobs'
     lastModifiedTimeBefore :: Prelude.Maybe Data.POSIX,
     -- | The maximum number of recommendations to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A filter that returns only jobs that were created for this model.
+    modelNameEquals :: Prelude.Maybe Prelude.Text,
+    -- | A filter that returns only jobs that were created for this versioned
+    -- model package.
+    modelPackageVersionArnEquals :: Prelude.Maybe Prelude.Text,
     -- | A string in the job name. This filter returns only recommendations whose
     -- name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -114,6 +121,11 @@ data ListInferenceRecommendationsJobs = ListInferenceRecommendationsJobs'
 --
 -- 'maxResults', 'listInferenceRecommendationsJobs_maxResults' - The maximum number of recommendations to return in the response.
 --
+-- 'modelNameEquals', 'listInferenceRecommendationsJobs_modelNameEquals' - A filter that returns only jobs that were created for this model.
+--
+-- 'modelPackageVersionArnEquals', 'listInferenceRecommendationsJobs_modelPackageVersionArnEquals' - A filter that returns only jobs that were created for this versioned
+-- model package.
+--
 -- 'nameContains', 'listInferenceRecommendationsJobs_nameContains' - A string in the job name. This filter returns only recommendations whose
 -- name contains the specified string.
 --
@@ -137,6 +149,9 @@ newListInferenceRecommendationsJobs =
       lastModifiedTimeAfter = Prelude.Nothing,
       lastModifiedTimeBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      modelNameEquals = Prelude.Nothing,
+      modelPackageVersionArnEquals =
+        Prelude.Nothing,
       nameContains = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       sortBy = Prelude.Nothing,
@@ -167,6 +182,15 @@ listInferenceRecommendationsJobs_lastModifiedTimeBefore = Lens.lens (\ListInfere
 -- | The maximum number of recommendations to return in the response.
 listInferenceRecommendationsJobs_maxResults :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe Prelude.Natural)
 listInferenceRecommendationsJobs_maxResults = Lens.lens (\ListInferenceRecommendationsJobs' {maxResults} -> maxResults) (\s@ListInferenceRecommendationsJobs' {} a -> s {maxResults = a} :: ListInferenceRecommendationsJobs)
+
+-- | A filter that returns only jobs that were created for this model.
+listInferenceRecommendationsJobs_modelNameEquals :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe Prelude.Text)
+listInferenceRecommendationsJobs_modelNameEquals = Lens.lens (\ListInferenceRecommendationsJobs' {modelNameEquals} -> modelNameEquals) (\s@ListInferenceRecommendationsJobs' {} a -> s {modelNameEquals = a} :: ListInferenceRecommendationsJobs)
+
+-- | A filter that returns only jobs that were created for this versioned
+-- model package.
+listInferenceRecommendationsJobs_modelPackageVersionArnEquals :: Lens.Lens' ListInferenceRecommendationsJobs (Prelude.Maybe Prelude.Text)
+listInferenceRecommendationsJobs_modelPackageVersionArnEquals = Lens.lens (\ListInferenceRecommendationsJobs' {modelPackageVersionArnEquals} -> modelPackageVersionArnEquals) (\s@ListInferenceRecommendationsJobs' {} a -> s {modelPackageVersionArnEquals = a} :: ListInferenceRecommendationsJobs)
 
 -- | A string in the job name. This filter returns only recommendations whose
 -- name contains the specified string.
@@ -200,21 +224,21 @@ instance
     | Core.stop
         ( rs
             Lens.^? listInferenceRecommendationsJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listInferenceRecommendationsJobsResponse_inferenceRecommendationsJobs
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listInferenceRecommendationsJobs_nextToken
           Lens..~ rs
           Lens.^? listInferenceRecommendationsJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -231,7 +255,8 @@ instance
           ListInferenceRecommendationsJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "InferenceRecommendationsJobs"
+            Prelude.<*> ( x
+                            Data..?> "InferenceRecommendationsJobs"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -243,11 +268,14 @@ instance
   hashWithSalt
     _salt
     ListInferenceRecommendationsJobs' {..} =
-      _salt `Prelude.hashWithSalt` creationTimeAfter
+      _salt
+        `Prelude.hashWithSalt` creationTimeAfter
         `Prelude.hashWithSalt` creationTimeBefore
         `Prelude.hashWithSalt` lastModifiedTimeAfter
         `Prelude.hashWithSalt` lastModifiedTimeBefore
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` modelNameEquals
+        `Prelude.hashWithSalt` modelPackageVersionArnEquals
         `Prelude.hashWithSalt` nameContains
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` sortBy
@@ -264,6 +292,8 @@ instance
       `Prelude.seq` Prelude.rnf lastModifiedTimeAfter
       `Prelude.seq` Prelude.rnf lastModifiedTimeBefore
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf modelNameEquals
+      `Prelude.seq` Prelude.rnf modelPackageVersionArnEquals
       `Prelude.seq` Prelude.rnf nameContains
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sortBy
@@ -301,6 +331,10 @@ instance Data.ToJSON ListInferenceRecommendationsJobs where
             ("LastModifiedTimeBefore" Data..=)
               Prelude.<$> lastModifiedTimeBefore,
             ("MaxResults" Data..=) Prelude.<$> maxResults,
+            ("ModelNameEquals" Data..=)
+              Prelude.<$> modelNameEquals,
+            ("ModelPackageVersionArnEquals" Data..=)
+              Prelude.<$> modelPackageVersionArnEquals,
             ("NameContains" Data..=) Prelude.<$> nameContains,
             ("NextToken" Data..=) Prelude.<$> nextToken,
             ("SortBy" Data..=) Prelude.<$> sortBy,

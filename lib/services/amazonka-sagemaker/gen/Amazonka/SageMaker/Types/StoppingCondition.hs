@@ -164,7 +164,8 @@ instance Data.FromJSON StoppingCondition where
 
 instance Prelude.Hashable StoppingCondition where
   hashWithSalt _salt StoppingCondition' {..} =
-    _salt `Prelude.hashWithSalt` maxRuntimeInSeconds
+    _salt
+      `Prelude.hashWithSalt` maxRuntimeInSeconds
       `Prelude.hashWithSalt` maxWaitTimeInSeconds
 
 instance Prelude.NFData StoppingCondition where

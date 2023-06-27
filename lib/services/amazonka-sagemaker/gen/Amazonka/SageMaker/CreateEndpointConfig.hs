@@ -23,7 +23,9 @@
 -- Creates an endpoint configuration that SageMaker hosting services uses
 -- to deploy models. In the configuration, you identify one or more models,
 -- created using the @CreateModel@ API, to deploy and the resources that
--- you want SageMaker to provision. Then you call the CreateEndpoint API.
+-- you want SageMaker to provision. Then you call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+-- API.
 --
 -- Use this API if you want to use SageMaker hosting services to deploy
 -- models into production.
@@ -40,9 +42,11 @@
 -- distributes two-thirds of the traffic to Model A, and one-third to model
 -- B.
 --
--- When you call CreateEndpoint, a load call is made to DynamoDB to verify
--- that your endpoint configuration exists. When you read data from a
--- DynamoDB table supporting
+-- When you call
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>,
+-- a load call is made to DynamoDB to verify that your endpoint
+-- configuration exists. When you read data from a DynamoDB table
+-- supporting
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html Eventually Consistent Reads>
 -- , the response might not reflect the results of a recently completed
 -- write operation. The response might include some stale data. If the
@@ -50,8 +54,11 @@
 -- error. If you repeat your read request after a short time, the response
 -- should return the latest data. So retry logic is recommended to handle
 -- these possible issues. We also recommend that customers call
--- DescribeEndpointConfig before calling CreateEndpoint to minimize the
--- potential impact of a DynamoDB eventually consistent read.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpointConfig.html DescribeEndpointConfig>
+-- before calling
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+-- to minimize the potential impact of a DynamoDB eventually consistent
+-- read.
 module Amazonka.SageMaker.CreateEndpointConfig
   ( -- * Creating a Request
     CreateEndpointConfig (..),
@@ -144,7 +151,8 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the endpoint configuration. You specify this name in a
-    -- CreateEndpoint request.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+    -- request.
     endpointConfigName :: Prelude.Text,
     -- | An array of @ProductionVariant@ objects, one for each model that you
     -- want to host at this endpoint.
@@ -218,7 +226,8 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'endpointConfigName', 'createEndpointConfig_endpointConfigName' - The name of the endpoint configuration. You specify this name in a
--- CreateEndpoint request.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+-- request.
 --
 -- 'productionVariants', 'createEndpointConfig_productionVariants' - An array of @ProductionVariant@ objects, one for each model that you
 -- want to host at this endpoint.
@@ -314,7 +323,8 @@ createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe [Tag
 createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the endpoint configuration. You specify this name in a
--- CreateEndpoint request.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+-- request.
 createEndpointConfig_endpointConfigName :: Lens.Lens' CreateEndpointConfig Prelude.Text
 createEndpointConfig_endpointConfigName = Lens.lens (\CreateEndpointConfig' {endpointConfigName} -> endpointConfigName) (\s@CreateEndpointConfig' {} a -> s {endpointConfigName = a} :: CreateEndpointConfig)
 
@@ -339,7 +349,8 @@ instance Core.AWSRequest CreateEndpointConfig where
 
 instance Prelude.Hashable CreateEndpointConfig where
   hashWithSalt _salt CreateEndpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` asyncInferenceConfig
+    _salt
+      `Prelude.hashWithSalt` asyncInferenceConfig
       `Prelude.hashWithSalt` dataCaptureConfig
       `Prelude.hashWithSalt` explainerConfig
       `Prelude.hashWithSalt` kmsKeyId

@@ -20,8 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of HyperParameterTuningJobSummary objects that describe the
--- hyperparameter tuning jobs launched in your account.
+-- Gets a list of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html HyperParameterTuningJobSummary>
+-- objects that describe the hyperparameter tuning jobs launched in your
+-- account.
 --
 -- This operation returns paginated results.
 module Amazonka.SageMaker.ListHyperParameterTuningJobs
@@ -195,21 +197,21 @@ instance Core.AWSPager ListHyperParameterTuningJobs where
     | Core.stop
         ( rs
             Lens.^? listHyperParameterTuningJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHyperParameterTuningJobs_nextToken
           Lens..~ rs
           Lens.^? listHyperParameterTuningJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHyperParameterTuningJobs where
   type
@@ -223,7 +225,8 @@ instance Core.AWSRequest ListHyperParameterTuningJobs where
           ListHyperParameterTuningJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "HyperParameterTuningJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "HyperParameterTuningJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -233,7 +236,8 @@ instance
     ListHyperParameterTuningJobs
   where
   hashWithSalt _salt ListHyperParameterTuningJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore
@@ -307,8 +311,10 @@ data ListHyperParameterTuningJobsResponse = ListHyperParameterTuningJobsResponse
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of HyperParameterTuningJobSummary objects that describe the
-    -- tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
+    -- | A list of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html HyperParameterTuningJobSummary>
+    -- objects that describe the tuning jobs that the
+    -- @ListHyperParameterTuningJobs@ request returned.
     hyperParameterTuningJobSummaries :: [HyperParameterTuningJobSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -327,8 +333,10 @@ data ListHyperParameterTuningJobsResponse = ListHyperParameterTuningJobsResponse
 --
 -- 'httpStatus', 'listHyperParameterTuningJobsResponse_httpStatus' - The response's http status code.
 --
--- 'hyperParameterTuningJobSummaries', 'listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries' - A list of HyperParameterTuningJobSummary objects that describe the
--- tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
+-- 'hyperParameterTuningJobSummaries', 'listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries' - A list of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html HyperParameterTuningJobSummary>
+-- objects that describe the tuning jobs that the
+-- @ListHyperParameterTuningJobs@ request returned.
 newListHyperParameterTuningJobsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -352,8 +360,10 @@ listHyperParameterTuningJobsResponse_nextToken = Lens.lens (\ListHyperParameterT
 listHyperParameterTuningJobsResponse_httpStatus :: Lens.Lens' ListHyperParameterTuningJobsResponse Prelude.Int
 listHyperParameterTuningJobsResponse_httpStatus = Lens.lens (\ListHyperParameterTuningJobsResponse' {httpStatus} -> httpStatus) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {httpStatus = a} :: ListHyperParameterTuningJobsResponse)
 
--- | A list of HyperParameterTuningJobSummary objects that describe the
--- tuning jobs that the @ListHyperParameterTuningJobs@ request returned.
+-- | A list of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html HyperParameterTuningJobSummary>
+-- objects that describe the tuning jobs that the
+-- @ListHyperParameterTuningJobs@ request returned.
 listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries :: Lens.Lens' ListHyperParameterTuningJobsResponse [HyperParameterTuningJobSummary]
 listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries = Lens.lens (\ListHyperParameterTuningJobsResponse' {hyperParameterTuningJobSummaries} -> hyperParameterTuningJobSummaries) (\s@ListHyperParameterTuningJobsResponse' {} a -> s {hyperParameterTuningJobSummaries = a} :: ListHyperParameterTuningJobsResponse) Prelude.. Lens.coerced
 

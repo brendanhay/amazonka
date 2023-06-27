@@ -43,6 +43,7 @@ module Amazonka.SageMaker.CreateHyperParameterTuningJob
     newCreateHyperParameterTuningJob,
 
     -- * Request Lenses
+    createHyperParameterTuningJob_autotune,
     createHyperParameterTuningJob_tags,
     createHyperParameterTuningJob_trainingJobDefinition,
     createHyperParameterTuningJob_trainingJobDefinitions,
@@ -70,7 +71,35 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newCreateHyperParameterTuningJob' smart constructor.
 data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
-  { -- | An array of key-value pairs. You can use tags to categorize your Amazon
+  { -- | Configures SageMaker Automatic model tuning (AMT) to automatically find
+    -- optimal parameters for the following fields:
+    --
+    -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges ParameterRanges>:
+    --     The names and ranges of parameters that a hyperparameter tuning job
+    --     can optimize.
+    --
+    -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>:
+    --     The maximum resources that can be used for a training job. These
+    --     resources include the maximum number of training jobs, the maximum
+    --     runtime of a tuning job, and the maximum number of training jobs to
+    --     run at the same time.
+    --
+    -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType TrainingJobEarlyStoppingType>:
+    --     A flag that specifies whether or not to use early stopping for
+    --     training jobs launched by a hyperparameter tuning job.
+    --
+    -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-RetryStrategy RetryStrategy>:
+    --     The number of times to retry a training job.
+    --
+    -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html Strategy>:
+    --     Specifies how hyperparameter tuning chooses the combinations of
+    --     hyperparameter values to use for the training jobs that it launches.
+    --
+    -- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html ConvergenceDetected>:
+    --     A flag to indicate that Automatic model tuning (AMT) has detected
+    --     model convergence.
+    autotune :: Prelude.Maybe Autotune,
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
     -- Web Services resources in different ways, for example, by purpose,
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
@@ -78,13 +107,15 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     -- Tags that you specify for the tuning job are also added to all training
     -- jobs that the tuning job launches.
     tags :: Prelude.Maybe [Tag],
-    -- | The HyperParameterTrainingJobDefinition object that describes the
-    -- training jobs that this tuning job launches, including static
-    -- hyperparameters, input data configuration, output data configuration,
-    -- resource configuration, and stopping condition.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+    -- object that describes the training jobs that this tuning job launches,
+    -- including static hyperparameters, input data configuration, output data
+    -- configuration, resource configuration, and stopping condition.
     trainingJobDefinition :: Prelude.Maybe HyperParameterTrainingJobDefinition,
-    -- | A list of the HyperParameterTrainingJobDefinition objects launched for
-    -- this tuning job.
+    -- | A list of the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+    -- objects launched for this tuning job.
     trainingJobDefinitions :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition),
     -- | Specifies the configuration for starting the hyperparameter tuning job
     -- using one or more previous tuning jobs as a starting point. The results
@@ -109,10 +140,12 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
     -- Region. The name must have 1 to 32 characters. Valid characters are a-z,
     -- A-Z, 0-9, and : + = \@ _ % - (hyphen). The name is not case sensitive.
     hyperParameterTuningJobName :: Prelude.Text,
-    -- | The HyperParameterTuningJobConfig object that describes the tuning job,
-    -- including the search strategy, the objective metric used to evaluate
-    -- training jobs, ranges of parameters to search, and resource limits for
-    -- the tuning job. For more information, see
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html HyperParameterTuningJobConfig>
+    -- object that describes the tuning job, including the search strategy, the
+    -- objective metric used to evaluate training jobs, ranges of parameters to
+    -- search, and resource limits for the tuning job. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
     hyperParameterTuningJobConfig :: HyperParameterTuningJobConfig
   }
@@ -126,6 +159,34 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autotune', 'createHyperParameterTuningJob_autotune' - Configures SageMaker Automatic model tuning (AMT) to automatically find
+-- optimal parameters for the following fields:
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges ParameterRanges>:
+--     The names and ranges of parameters that a hyperparameter tuning job
+--     can optimize.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>:
+--     The maximum resources that can be used for a training job. These
+--     resources include the maximum number of training jobs, the maximum
+--     runtime of a tuning job, and the maximum number of training jobs to
+--     run at the same time.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType TrainingJobEarlyStoppingType>:
+--     A flag that specifies whether or not to use early stopping for
+--     training jobs launched by a hyperparameter tuning job.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-RetryStrategy RetryStrategy>:
+--     The number of times to retry a training job.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html Strategy>:
+--     Specifies how hyperparameter tuning chooses the combinations of
+--     hyperparameter values to use for the training jobs that it launches.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html ConvergenceDetected>:
+--     A flag to indicate that Automatic model tuning (AMT) has detected
+--     model convergence.
+--
 -- 'tags', 'createHyperParameterTuningJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
 -- owner, or environment. For more information, see
@@ -134,13 +195,15 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 -- Tags that you specify for the tuning job are also added to all training
 -- jobs that the tuning job launches.
 --
--- 'trainingJobDefinition', 'createHyperParameterTuningJob_trainingJobDefinition' - The HyperParameterTrainingJobDefinition object that describes the
--- training jobs that this tuning job launches, including static
--- hyperparameters, input data configuration, output data configuration,
--- resource configuration, and stopping condition.
+-- 'trainingJobDefinition', 'createHyperParameterTuningJob_trainingJobDefinition' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- object that describes the training jobs that this tuning job launches,
+-- including static hyperparameters, input data configuration, output data
+-- configuration, resource configuration, and stopping condition.
 --
--- 'trainingJobDefinitions', 'createHyperParameterTuningJob_trainingJobDefinitions' - A list of the HyperParameterTrainingJobDefinition objects launched for
--- this tuning job.
+-- 'trainingJobDefinitions', 'createHyperParameterTuningJob_trainingJobDefinitions' - A list of the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- objects launched for this tuning job.
 --
 -- 'warmStartConfig', 'createHyperParameterTuningJob_warmStartConfig' - Specifies the configuration for starting the hyperparameter tuning job
 -- using one or more previous tuning jobs as a starting point. The results
@@ -165,10 +228,12 @@ data CreateHyperParameterTuningJob = CreateHyperParameterTuningJob'
 -- Region. The name must have 1 to 32 characters. Valid characters are a-z,
 -- A-Z, 0-9, and : + = \@ _ % - (hyphen). The name is not case sensitive.
 --
--- 'hyperParameterTuningJobConfig', 'createHyperParameterTuningJob_hyperParameterTuningJobConfig' - The HyperParameterTuningJobConfig object that describes the tuning job,
--- including the search strategy, the objective metric used to evaluate
--- training jobs, ranges of parameters to search, and resource limits for
--- the tuning job. For more information, see
+-- 'hyperParameterTuningJobConfig', 'createHyperParameterTuningJob_hyperParameterTuningJobConfig' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html HyperParameterTuningJobConfig>
+-- object that describes the tuning job, including the search strategy, the
+-- objective metric used to evaluate training jobs, ranges of parameters to
+-- search, and resource limits for the tuning job. For more information,
+-- see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
 newCreateHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
@@ -180,8 +245,9 @@ newCreateHyperParameterTuningJob
   pHyperParameterTuningJobName_
   pHyperParameterTuningJobConfig_ =
     CreateHyperParameterTuningJob'
-      { tags =
+      { autotune =
           Prelude.Nothing,
+        tags = Prelude.Nothing,
         trainingJobDefinition = Prelude.Nothing,
         trainingJobDefinitions = Prelude.Nothing,
         warmStartConfig = Prelude.Nothing,
@@ -190,6 +256,36 @@ newCreateHyperParameterTuningJob
         hyperParameterTuningJobConfig =
           pHyperParameterTuningJobConfig_
       }
+
+-- | Configures SageMaker Automatic model tuning (AMT) to automatically find
+-- optimal parameters for the following fields:
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-ParameterRanges ParameterRanges>:
+--     The names and ranges of parameters that a hyperparameter tuning job
+--     can optimize.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>:
+--     The maximum resources that can be used for a training job. These
+--     resources include the maximum number of training jobs, the maximum
+--     runtime of a tuning job, and the maximum number of training jobs to
+--     run at the same time.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html#sagemaker-Type-HyperParameterTuningJobConfig-TrainingJobEarlyStoppingType TrainingJobEarlyStoppingType>:
+--     A flag that specifies whether or not to use early stopping for
+--     training jobs launched by a hyperparameter tuning job.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html#sagemaker-Type-HyperParameterTrainingJobDefinition-RetryStrategy RetryStrategy>:
+--     The number of times to retry a training job.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html Strategy>:
+--     Specifies how hyperparameter tuning chooses the combinations of
+--     hyperparameter values to use for the training jobs that it launches.
+--
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ConvergenceDetected.html ConvergenceDetected>:
+--     A flag to indicate that Automatic model tuning (AMT) has detected
+--     model convergence.
+createHyperParameterTuningJob_autotune :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe Autotune)
+createHyperParameterTuningJob_autotune = Lens.lens (\CreateHyperParameterTuningJob' {autotune} -> autotune) (\s@CreateHyperParameterTuningJob' {} a -> s {autotune = a} :: CreateHyperParameterTuningJob)
 
 -- | An array of key-value pairs. You can use tags to categorize your Amazon
 -- Web Services resources in different ways, for example, by purpose,
@@ -201,15 +297,17 @@ newCreateHyperParameterTuningJob
 createHyperParameterTuningJob_tags :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe [Tag])
 createHyperParameterTuningJob_tags = Lens.lens (\CreateHyperParameterTuningJob' {tags} -> tags) (\s@CreateHyperParameterTuningJob' {} a -> s {tags = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The HyperParameterTrainingJobDefinition object that describes the
--- training jobs that this tuning job launches, including static
--- hyperparameters, input data configuration, output data configuration,
--- resource configuration, and stopping condition.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- object that describes the training jobs that this tuning job launches,
+-- including static hyperparameters, input data configuration, output data
+-- configuration, resource configuration, and stopping condition.
 createHyperParameterTuningJob_trainingJobDefinition :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe HyperParameterTrainingJobDefinition)
 createHyperParameterTuningJob_trainingJobDefinition = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinition} -> trainingJobDefinition) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinition = a} :: CreateHyperParameterTuningJob)
 
--- | A list of the HyperParameterTrainingJobDefinition objects launched for
--- this tuning job.
+-- | A list of the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTrainingJobDefinition.html HyperParameterTrainingJobDefinition>
+-- objects launched for this tuning job.
 createHyperParameterTuningJob_trainingJobDefinitions :: Lens.Lens' CreateHyperParameterTuningJob (Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition))
 createHyperParameterTuningJob_trainingJobDefinitions = Lens.lens (\CreateHyperParameterTuningJob' {trainingJobDefinitions} -> trainingJobDefinitions) (\s@CreateHyperParameterTuningJob' {} a -> s {trainingJobDefinitions = a} :: CreateHyperParameterTuningJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -240,10 +338,12 @@ createHyperParameterTuningJob_warmStartConfig = Lens.lens (\CreateHyperParameter
 createHyperParameterTuningJob_hyperParameterTuningJobName :: Lens.Lens' CreateHyperParameterTuningJob Prelude.Text
 createHyperParameterTuningJob_hyperParameterTuningJobName = Lens.lens (\CreateHyperParameterTuningJob' {hyperParameterTuningJobName} -> hyperParameterTuningJobName) (\s@CreateHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobName = a} :: CreateHyperParameterTuningJob)
 
--- | The HyperParameterTuningJobConfig object that describes the tuning job,
--- including the search strategy, the objective metric used to evaluate
--- training jobs, ranges of parameters to search, and resource limits for
--- the tuning job. For more information, see
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html HyperParameterTuningJobConfig>
+-- object that describes the tuning job, including the search strategy, the
+-- objective metric used to evaluate training jobs, ranges of parameters to
+-- search, and resource limits for the tuning job. For more information,
+-- see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
 createHyperParameterTuningJob_hyperParameterTuningJobConfig :: Lens.Lens' CreateHyperParameterTuningJob HyperParameterTuningJobConfig
 createHyperParameterTuningJob_hyperParameterTuningJobConfig = Lens.lens (\CreateHyperParameterTuningJob' {hyperParameterTuningJobConfig} -> hyperParameterTuningJobConfig) (\s@CreateHyperParameterTuningJob' {} a -> s {hyperParameterTuningJobConfig = a} :: CreateHyperParameterTuningJob)
@@ -270,7 +370,9 @@ instance
     CreateHyperParameterTuningJob
   where
   hashWithSalt _salt CreateHyperParameterTuningJob' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` autotune
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trainingJobDefinition
       `Prelude.hashWithSalt` trainingJobDefinitions
       `Prelude.hashWithSalt` warmStartConfig
@@ -279,7 +381,8 @@ instance
 
 instance Prelude.NFData CreateHyperParameterTuningJob where
   rnf CreateHyperParameterTuningJob' {..} =
-    Prelude.rnf tags
+    Prelude.rnf autotune
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf trainingJobDefinition
       `Prelude.seq` Prelude.rnf trainingJobDefinitions
       `Prelude.seq` Prelude.rnf warmStartConfig
@@ -305,7 +408,8 @@ instance Data.ToJSON CreateHyperParameterTuningJob where
   toJSON CreateHyperParameterTuningJob' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Tags" Data..=) Prelude.<$> tags,
+          [ ("Autotune" Data..=) Prelude.<$> autotune,
+            ("Tags" Data..=) Prelude.<$> tags,
             ("TrainingJobDefinition" Data..=)
               Prelude.<$> trainingJobDefinition,
             ("TrainingJobDefinitions" Data..=)

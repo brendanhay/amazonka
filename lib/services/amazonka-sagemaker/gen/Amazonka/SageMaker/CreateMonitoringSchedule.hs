@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a schedule that regularly starts Amazon SageMaker Processing
--- Jobs to monitor the data captured for an Amazon SageMaker Endoint.
+-- Jobs to monitor the data captured for an Amazon SageMaker Endpoint.
 module Amazonka.SageMaker.CreateMonitoringSchedule
   ( -- * Creating a Request
     CreateMonitoringSchedule (..),
@@ -130,7 +130,8 @@ instance Core.AWSRequest CreateMonitoringSchedule where
 
 instance Prelude.Hashable CreateMonitoringSchedule where
   hashWithSalt _salt CreateMonitoringSchedule' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` monitoringScheduleName
       `Prelude.hashWithSalt` monitoringScheduleConfig
 

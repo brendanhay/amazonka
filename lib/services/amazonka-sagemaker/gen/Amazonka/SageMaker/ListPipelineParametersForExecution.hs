@@ -116,22 +116,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listPipelineParametersForExecutionResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listPipelineParametersForExecutionResponse_pipelineParameters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPipelineParametersForExecution_nextToken
           Lens..~ rs
           Lens.^? listPipelineParametersForExecutionResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -147,10 +147,11 @@ instance
       ( \s h x ->
           ListPipelineParametersForExecutionResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "PipelineParameters"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "PipelineParameters"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -160,7 +161,8 @@ instance
   hashWithSalt
     _salt
     ListPipelineParametersForExecution' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` pipelineExecutionArn
 

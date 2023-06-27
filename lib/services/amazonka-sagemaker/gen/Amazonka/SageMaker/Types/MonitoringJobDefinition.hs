@@ -190,7 +190,8 @@ instance Data.FromJSON MonitoringJobDefinition where
 
 instance Prelude.Hashable MonitoringJobDefinition where
   hashWithSalt _salt MonitoringJobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` baselineConfig
+    _salt
+      `Prelude.hashWithSalt` baselineConfig
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` networkConfig
       `Prelude.hashWithSalt` stoppingCondition

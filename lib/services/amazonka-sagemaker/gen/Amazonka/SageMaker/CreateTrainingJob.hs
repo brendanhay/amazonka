@@ -193,6 +193,9 @@ data CreateTrainingJob = CreateTrainingJob'
     -- the Docker container, or makes it available as input streams. For
     -- example, if you specify an EFS location, input data files are available
     -- as input streams. They do not need to be downloaded.
+    --
+    -- Your input must be in the same Amazon Web Services region as your
+    -- training job.
     inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
     profilerConfig :: Prelude.Maybe ProfilerConfig,
     -- | Configuration information for Amazon SageMaker Debugger rules for
@@ -207,9 +210,11 @@ data CreateTrainingJob = CreateTrainingJob'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     tensorBoardOutputConfig :: Prelude.Maybe TensorBoardOutputConfig,
-    -- | A VpcConfig object that specifies the VPC that you want your training
-    -- job to connect to. Control access to and from your training container by
-    -- configuring the VPC. For more information, see
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+    -- object that specifies the VPC that you want your training job to connect
+    -- to. Control access to and from your training container by configuring
+    -- the VPC. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The name of the training job. The name must be unique within an Amazon
@@ -340,6 +345,9 @@ data CreateTrainingJob = CreateTrainingJob'
 -- example, if you specify an EFS location, input data files are available
 -- as input streams. They do not need to be downloaded.
 --
+-- Your input must be in the same Amazon Web Services region as your
+-- training job.
+--
 -- 'profilerConfig', 'createTrainingJob_profilerConfig' - Undocumented member.
 --
 -- 'profilerRuleConfigurations', 'createTrainingJob_profilerRuleConfigurations' - Configuration information for Amazon SageMaker Debugger rules for
@@ -355,9 +363,11 @@ data CreateTrainingJob = CreateTrainingJob'
 --
 -- 'tensorBoardOutputConfig', 'createTrainingJob_tensorBoardOutputConfig' - Undocumented member.
 --
--- 'vpcConfig', 'createTrainingJob_vpcConfig' - A VpcConfig object that specifies the VPC that you want your training
--- job to connect to. Control access to and from your training container by
--- configuring the VPC. For more information, see
+-- 'vpcConfig', 'createTrainingJob_vpcConfig' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want your training job to connect
+-- to. Control access to and from your training container by configuring
+-- the VPC. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 --
 -- 'trainingJobName', 'createTrainingJob_trainingJobName' - The name of the training job. The name must be unique within an Amazon
@@ -541,6 +551,9 @@ createTrainingJob_hyperParameters = Lens.lens (\CreateTrainingJob' {hyperParamet
 -- the Docker container, or makes it available as input streams. For
 -- example, if you specify an EFS location, input data files are available
 -- as input streams. They do not need to be downloaded.
+--
+-- Your input must be in the same Amazon Web Services region as your
+-- training job.
 createTrainingJob_inputDataConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe (Prelude.NonEmpty Channel))
 createTrainingJob_inputDataConfig = Lens.lens (\CreateTrainingJob' {inputDataConfig} -> inputDataConfig) (\s@CreateTrainingJob' {} a -> s {inputDataConfig = a} :: CreateTrainingJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -569,9 +582,11 @@ createTrainingJob_tags = Lens.lens (\CreateTrainingJob' {tags} -> tags) (\s@Crea
 createTrainingJob_tensorBoardOutputConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe TensorBoardOutputConfig)
 createTrainingJob_tensorBoardOutputConfig = Lens.lens (\CreateTrainingJob' {tensorBoardOutputConfig} -> tensorBoardOutputConfig) (\s@CreateTrainingJob' {} a -> s {tensorBoardOutputConfig = a} :: CreateTrainingJob)
 
--- | A VpcConfig object that specifies the VPC that you want your training
--- job to connect to. Control access to and from your training container by
--- configuring the VPC. For more information, see
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want your training job to connect
+-- to. Control access to and from your training container by configuring
+-- the VPC. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 createTrainingJob_vpcConfig :: Lens.Lens' CreateTrainingJob (Prelude.Maybe VpcConfig)
 createTrainingJob_vpcConfig = Lens.lens (\CreateTrainingJob' {vpcConfig} -> vpcConfig) (\s@CreateTrainingJob' {} a -> s {vpcConfig = a} :: CreateTrainingJob)
@@ -651,7 +666,8 @@ instance Core.AWSRequest CreateTrainingJob where
 
 instance Prelude.Hashable CreateTrainingJob where
   hashWithSalt _salt CreateTrainingJob' {..} =
-    _salt `Prelude.hashWithSalt` checkpointConfig
+    _salt
+      `Prelude.hashWithSalt` checkpointConfig
       `Prelude.hashWithSalt` debugHookConfig
       `Prelude.hashWithSalt` debugRuleConfigurations
       `Prelude.hashWithSalt` enableInterContainerTrafficEncryption

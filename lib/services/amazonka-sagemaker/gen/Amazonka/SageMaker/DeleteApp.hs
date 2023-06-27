@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteApp where
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =
-    _salt `Prelude.hashWithSalt` spaceName
+    _salt
+      `Prelude.hashWithSalt` spaceName
       `Prelude.hashWithSalt` userProfileName
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` appType

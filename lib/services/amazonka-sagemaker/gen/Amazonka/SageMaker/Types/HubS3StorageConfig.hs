@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHubS3StorageConfig' smart constructor.
 data HubS3StorageConfig = HubS3StorageConfig'
-  { -- | The Amazon S3 output path for the hub.
+  { -- | The Amazon S3 bucket prefix for hosting hub content.
     s3OutputPath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,13 +41,13 @@ data HubS3StorageConfig = HubS3StorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3OutputPath', 'hubS3StorageConfig_s3OutputPath' - The Amazon S3 output path for the hub.
+-- 's3OutputPath', 'hubS3StorageConfig_s3OutputPath' - The Amazon S3 bucket prefix for hosting hub content.
 newHubS3StorageConfig ::
   HubS3StorageConfig
 newHubS3StorageConfig =
   HubS3StorageConfig' {s3OutputPath = Prelude.Nothing}
 
--- | The Amazon S3 output path for the hub.
+-- | The Amazon S3 bucket prefix for hosting hub content.
 hubS3StorageConfig_s3OutputPath :: Lens.Lens' HubS3StorageConfig (Prelude.Maybe Prelude.Text)
 hubS3StorageConfig_s3OutputPath = Lens.lens (\HubS3StorageConfig' {s3OutputPath} -> s3OutputPath) (\s@HubS3StorageConfig' {} a -> s {s3OutputPath = a} :: HubS3StorageConfig)
 

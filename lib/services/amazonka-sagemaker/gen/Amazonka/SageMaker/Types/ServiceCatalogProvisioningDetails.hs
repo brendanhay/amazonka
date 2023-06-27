@@ -103,7 +103,8 @@ instance
           ServiceCatalogProvisioningDetails'
             Prelude.<$> (x Data..:? "PathId")
             Prelude.<*> (x Data..:? "ProvisioningArtifactId")
-            Prelude.<*> ( x Data..:? "ProvisioningParameters"
+            Prelude.<*> ( x
+                            Data..:? "ProvisioningParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "ProductId")
@@ -116,7 +117,8 @@ instance
   hashWithSalt
     _salt
     ServiceCatalogProvisioningDetails' {..} =
-      _salt `Prelude.hashWithSalt` pathId
+      _salt
+        `Prelude.hashWithSalt` pathId
         `Prelude.hashWithSalt` provisioningArtifactId
         `Prelude.hashWithSalt` provisioningParameters
         `Prelude.hashWithSalt` productId

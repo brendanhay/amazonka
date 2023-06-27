@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdateContext where
 
 instance Prelude.Hashable UpdateContext where
   hashWithSalt _salt UpdateContext' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` propertiesToRemove
       `Prelude.hashWithSalt` contextName

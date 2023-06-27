@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     NotebookInstanceLifecycleConfigSummary' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
+      _salt
+        `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` lastModifiedTime
         `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
         `Prelude.hashWithSalt` notebookInstanceLifecycleConfigArn

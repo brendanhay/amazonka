@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a notebook instance lifecycle configuration created with the
--- CreateNotebookInstanceLifecycleConfig API.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html CreateNotebookInstanceLifecycleConfig>
+-- API.
 module Amazonka.SageMaker.UpdateNotebookInstanceLifecycleConfig
   ( -- * Creating a Request
     UpdateNotebookInstanceLifecycleConfig (..),
@@ -132,7 +133,8 @@ instance
   hashWithSalt
     _salt
     UpdateNotebookInstanceLifecycleConfig' {..} =
-      _salt `Prelude.hashWithSalt` onCreate
+      _salt
+        `Prelude.hashWithSalt` onCreate
         `Prelude.hashWithSalt` onStart
         `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
 

@@ -58,7 +58,7 @@ data RenderUiTemplate = RenderUiTemplate'
     -- provide a @HumanTaskUiArn@ if you use the @UiTemplate@ parameter.
     --
     -- See a list of available Human Ui Amazon Resource Names (ARNs) in
-    -- UiConfig.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html UiConfig>.
     humanTaskUiArn :: Prelude.Maybe Prelude.Text,
     -- | A @Template@ object containing the worker UI template to render.
     uiTemplate :: Prelude.Maybe UiTemplate,
@@ -82,7 +82,7 @@ data RenderUiTemplate = RenderUiTemplate'
 -- provide a @HumanTaskUiArn@ if you use the @UiTemplate@ parameter.
 --
 -- See a list of available Human Ui Amazon Resource Names (ARNs) in
--- UiConfig.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html UiConfig>.
 --
 -- 'uiTemplate', 'renderUiTemplate_uiTemplate' - A @Template@ object containing the worker UI template to render.
 --
@@ -108,7 +108,7 @@ newRenderUiTemplate pTask_ pRoleArn_ =
 -- provide a @HumanTaskUiArn@ if you use the @UiTemplate@ parameter.
 --
 -- See a list of available Human Ui Amazon Resource Names (ARNs) in
--- UiConfig.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html UiConfig>.
 renderUiTemplate_humanTaskUiArn :: Lens.Lens' RenderUiTemplate (Prelude.Maybe Prelude.Text)
 renderUiTemplate_humanTaskUiArn = Lens.lens (\RenderUiTemplate' {humanTaskUiArn} -> humanTaskUiArn) (\s@RenderUiTemplate' {} a -> s {humanTaskUiArn = a} :: RenderUiTemplate)
 
@@ -142,7 +142,8 @@ instance Core.AWSRequest RenderUiTemplate where
 
 instance Prelude.Hashable RenderUiTemplate where
   hashWithSalt _salt RenderUiTemplate' {..} =
-    _salt `Prelude.hashWithSalt` humanTaskUiArn
+    _salt
+      `Prelude.hashWithSalt` humanTaskUiArn
       `Prelude.hashWithSalt` uiTemplate
       `Prelude.hashWithSalt` task
       `Prelude.hashWithSalt` roleArn

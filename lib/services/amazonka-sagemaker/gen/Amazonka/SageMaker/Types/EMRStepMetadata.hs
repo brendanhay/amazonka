@@ -97,7 +97,8 @@ instance Data.FromJSON EMRStepMetadata where
 
 instance Prelude.Hashable EMRStepMetadata where
   hashWithSalt _salt EMRStepMetadata' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` logFilePath
       `Prelude.hashWithSalt` stepId
       `Prelude.hashWithSalt` stepName

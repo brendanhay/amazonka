@@ -35,8 +35,8 @@ data SourceAlgorithm = SourceAlgorithm'
     -- training, are stored. This path must point to a single @gzip@ compressed
     -- tar archive (@.tar.gz@ suffix).
     --
-    -- The model artifacts must be in an S3 bucket that is in the same region
-    -- as the algorithm.
+    -- The model artifacts must be in an S3 bucket that is in the same Amazon
+    -- Web Services region as the algorithm.
     modelDataUrl :: Prelude.Maybe Prelude.Text,
     -- | The name of an algorithm that was used to create the model package. The
     -- algorithm must be either an algorithm resource in your SageMaker account
@@ -58,8 +58,8 @@ data SourceAlgorithm = SourceAlgorithm'
 -- training, are stored. This path must point to a single @gzip@ compressed
 -- tar archive (@.tar.gz@ suffix).
 --
--- The model artifacts must be in an S3 bucket that is in the same region
--- as the algorithm.
+-- The model artifacts must be in an S3 bucket that is in the same Amazon
+-- Web Services region as the algorithm.
 --
 -- 'algorithmName', 'sourceAlgorithm_algorithmName' - The name of an algorithm that was used to create the model package. The
 -- algorithm must be either an algorithm resource in your SageMaker account
@@ -79,8 +79,8 @@ newSourceAlgorithm pAlgorithmName_ =
 -- training, are stored. This path must point to a single @gzip@ compressed
 -- tar archive (@.tar.gz@ suffix).
 --
--- The model artifacts must be in an S3 bucket that is in the same region
--- as the algorithm.
+-- The model artifacts must be in an S3 bucket that is in the same Amazon
+-- Web Services region as the algorithm.
 sourceAlgorithm_modelDataUrl :: Lens.Lens' SourceAlgorithm (Prelude.Maybe Prelude.Text)
 sourceAlgorithm_modelDataUrl = Lens.lens (\SourceAlgorithm' {modelDataUrl} -> modelDataUrl) (\s@SourceAlgorithm' {} a -> s {modelDataUrl = a} :: SourceAlgorithm)
 
@@ -103,7 +103,8 @@ instance Data.FromJSON SourceAlgorithm where
 
 instance Prelude.Hashable SourceAlgorithm where
   hashWithSalt _salt SourceAlgorithm' {..} =
-    _salt `Prelude.hashWithSalt` modelDataUrl
+    _salt
+      `Prelude.hashWithSalt` modelDataUrl
       `Prelude.hashWithSalt` algorithmName
 
 instance Prelude.NFData SourceAlgorithm where

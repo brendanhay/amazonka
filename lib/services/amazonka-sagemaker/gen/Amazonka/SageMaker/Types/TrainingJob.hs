@@ -90,6 +90,9 @@ data TrainingJob = TrainingJob'
     -- | Algorithm-specific parameters.
     hyperParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An array of @Channel@ objects that describes each data input channel.
+    --
+    -- Your input must be in the same Amazon Web Services region as your
+    -- training job.
     inputDataConfig :: Prelude.Maybe (Prelude.NonEmpty Channel),
     -- | The Amazon Resource Name (ARN) of the labeling job.
     labelingJobArn :: Prelude.Maybe Prelude.Text,
@@ -113,7 +116,8 @@ data TrainingJob = TrainingJob'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Provides detailed information about the state of the training job. For
     -- detailed information about the secondary status of the training job, see
-    -- @StatusMessage@ under SecondaryStatusTransition.
+    -- @StatusMessage@ under
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html SecondaryStatusTransition>.
     --
     -- SageMaker provides primary statuses and secondary statuses that apply to
     -- each of them:
@@ -215,8 +219,10 @@ data TrainingJob = TrainingJob'
     -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning
     -- job if the training job was launched by a hyperparameter tuning job.
     tuningJobArn :: Prelude.Maybe Prelude.Text,
-    -- | A VpcConfig object that specifies the VPC that this training job has
-    -- access to. For more information, see
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+    -- object that specifies the VPC that this training job has access to. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe VpcConfig
   }
@@ -277,6 +283,9 @@ data TrainingJob = TrainingJob'
 --
 -- 'inputDataConfig', 'trainingJob_inputDataConfig' - An array of @Channel@ objects that describes each data input channel.
 --
+-- Your input must be in the same Amazon Web Services region as your
+-- training job.
+--
 -- 'labelingJobArn', 'trainingJob_labelingJobArn' - The Amazon Resource Name (ARN) of the labeling job.
 --
 -- 'lastModifiedTime', 'trainingJob_lastModifiedTime' - A timestamp that indicates when the status of the training job was last
@@ -299,7 +308,8 @@ data TrainingJob = TrainingJob'
 --
 -- 'secondaryStatus', 'trainingJob_secondaryStatus' - Provides detailed information about the state of the training job. For
 -- detailed information about the secondary status of the training job, see
--- @StatusMessage@ under SecondaryStatusTransition.
+-- @StatusMessage@ under
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html SecondaryStatusTransition>.
 --
 -- SageMaker provides primary statuses and secondary statuses that apply to
 -- each of them:
@@ -402,8 +412,10 @@ data TrainingJob = TrainingJob'
 -- 'tuningJobArn', 'trainingJob_tuningJobArn' - The Amazon Resource Name (ARN) of the associated hyperparameter tuning
 -- job if the training job was launched by a hyperparameter tuning job.
 --
--- 'vpcConfig', 'trainingJob_vpcConfig' - A VpcConfig object that specifies the VPC that this training job has
--- access to. For more information, see
+-- 'vpcConfig', 'trainingJob_vpcConfig' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that this training job has access to. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 newTrainingJob ::
   TrainingJob
@@ -528,6 +540,9 @@ trainingJob_hyperParameters :: Lens.Lens' TrainingJob (Prelude.Maybe (Prelude.Ha
 trainingJob_hyperParameters = Lens.lens (\TrainingJob' {hyperParameters} -> hyperParameters) (\s@TrainingJob' {} a -> s {hyperParameters = a} :: TrainingJob) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of @Channel@ objects that describes each data input channel.
+--
+-- Your input must be in the same Amazon Web Services region as your
+-- training job.
 trainingJob_inputDataConfig :: Lens.Lens' TrainingJob (Prelude.Maybe (Prelude.NonEmpty Channel))
 trainingJob_inputDataConfig = Lens.lens (\TrainingJob' {inputDataConfig} -> inputDataConfig) (\s@TrainingJob' {} a -> s {inputDataConfig = a} :: TrainingJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -567,7 +582,8 @@ trainingJob_roleArn = Lens.lens (\TrainingJob' {roleArn} -> roleArn) (\s@Trainin
 
 -- | Provides detailed information about the state of the training job. For
 -- detailed information about the secondary status of the training job, see
--- @StatusMessage@ under SecondaryStatusTransition.
+-- @StatusMessage@ under
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html SecondaryStatusTransition>.
 --
 -- SageMaker provides primary statuses and secondary statuses that apply to
 -- each of them:
@@ -694,8 +710,10 @@ trainingJob_trainingTimeInSeconds = Lens.lens (\TrainingJob' {trainingTimeInSeco
 trainingJob_tuningJobArn :: Lens.Lens' TrainingJob (Prelude.Maybe Prelude.Text)
 trainingJob_tuningJobArn = Lens.lens (\TrainingJob' {tuningJobArn} -> tuningJobArn) (\s@TrainingJob' {} a -> s {tuningJobArn = a} :: TrainingJob)
 
--- | A VpcConfig object that specifies the VPC that this training job has
--- access to. For more information, see
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that this training job has access to. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 trainingJob_vpcConfig :: Lens.Lens' TrainingJob (Prelude.Maybe VpcConfig)
 trainingJob_vpcConfig = Lens.lens (\TrainingJob' {vpcConfig} -> vpcConfig) (\s@TrainingJob' {} a -> s {vpcConfig = a} :: TrainingJob)
@@ -712,10 +730,12 @@ instance Data.FromJSON TrainingJob where
             Prelude.<*> (x Data..:? "CheckpointConfig")
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DebugHookConfig")
-            Prelude.<*> ( x Data..:? "DebugRuleConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "DebugRuleConfigurations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "DebugRuleEvaluationStatuses"
+            Prelude.<*> ( x
+                            Data..:? "DebugRuleEvaluationStatuses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
@@ -724,10 +744,12 @@ instance Data.FromJSON TrainingJob where
             Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ExperimentConfig")
             Prelude.<*> (x Data..:? "FailureReason")
-            Prelude.<*> ( x Data..:? "FinalMetricDataList"
+            Prelude.<*> ( x
+                            Data..:? "FinalMetricDataList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "HyperParameters"
+            Prelude.<*> ( x
+                            Data..:? "HyperParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InputDataConfig")
@@ -739,7 +761,8 @@ instance Data.FromJSON TrainingJob where
             Prelude.<*> (x Data..:? "RetryStrategy")
             Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "SecondaryStatus")
-            Prelude.<*> ( x Data..:? "SecondaryStatusTransitions"
+            Prelude.<*> ( x
+                            Data..:? "SecondaryStatusTransitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StoppingCondition")
@@ -757,7 +780,8 @@ instance Data.FromJSON TrainingJob where
 
 instance Prelude.Hashable TrainingJob where
   hashWithSalt _salt TrainingJob' {..} =
-    _salt `Prelude.hashWithSalt` algorithmSpecification
+    _salt
+      `Prelude.hashWithSalt` algorithmSpecification
       `Prelude.hashWithSalt` autoMLJobArn
       `Prelude.hashWithSalt` billableTimeInSeconds
       `Prelude.hashWithSalt` checkpointConfig

@@ -37,7 +37,7 @@
 -- @Not Found@ error message on the worker portal.
 --
 -- To restrict access to all the workers in public internet, add the
--- @SourceIpConfig@ CIDR value as \"0.0.0.0\/0\".
+-- @SourceIpConfig@ CIDR value as \"10.0.0.0\/16\".
 --
 -- Amazon SageMaker does not support Source Ip restriction for worker
 -- portals in VPC.
@@ -47,11 +47,15 @@
 --
 -- You can only update your OIDC IdP configuration when there are no work
 -- teams associated with your workforce. You can delete work teams using
--- the operation.
+-- the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html DeleteWorkteam>
+-- operation.
 --
 -- After restricting access to a range of IP addresses or updating your
 -- OIDC IdP configuration with this operation, you can view details about
--- your update workforce using the operation.
+-- your update workforce using the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeWorkforce.html DescribeWorkforce>
+-- operation.
 --
 -- This operation only applies to private workforces.
 module Amazonka.SageMaker.UpdateWorkforce
@@ -97,7 +101,9 @@ data UpdateWorkforce = UpdateWorkforce'
     -- | Use this parameter to update your VPC configuration for a workforce.
     workforceVpcConfig :: Prelude.Maybe WorkforceVpcConfigRequest,
     -- | The name of the private workforce that you want to update. You can find
-    -- your workforce name by using the operation.
+    -- your workforce name by using the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html ListWorkforces>
+    -- operation.
     workforceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -122,7 +128,9 @@ data UpdateWorkforce = UpdateWorkforce'
 -- 'workforceVpcConfig', 'updateWorkforce_workforceVpcConfig' - Use this parameter to update your VPC configuration for a workforce.
 --
 -- 'workforceName', 'updateWorkforce_workforceName' - The name of the private workforce that you want to update. You can find
--- your workforce name by using the operation.
+-- your workforce name by using the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html ListWorkforces>
+-- operation.
 newUpdateWorkforce ::
   -- | 'workforceName'
   Prelude.Text ->
@@ -153,7 +161,9 @@ updateWorkforce_workforceVpcConfig :: Lens.Lens' UpdateWorkforce (Prelude.Maybe 
 updateWorkforce_workforceVpcConfig = Lens.lens (\UpdateWorkforce' {workforceVpcConfig} -> workforceVpcConfig) (\s@UpdateWorkforce' {} a -> s {workforceVpcConfig = a} :: UpdateWorkforce)
 
 -- | The name of the private workforce that you want to update. You can find
--- your workforce name by using the operation.
+-- your workforce name by using the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html ListWorkforces>
+-- operation.
 updateWorkforce_workforceName :: Lens.Lens' UpdateWorkforce Prelude.Text
 updateWorkforce_workforceName = Lens.lens (\UpdateWorkforce' {workforceName} -> workforceName) (\s@UpdateWorkforce' {} a -> s {workforceName = a} :: UpdateWorkforce)
 
@@ -173,7 +183,8 @@ instance Core.AWSRequest UpdateWorkforce where
 
 instance Prelude.Hashable UpdateWorkforce where
   hashWithSalt _salt UpdateWorkforce' {..} =
-    _salt `Prelude.hashWithSalt` oidcConfig
+    _salt
+      `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` sourceIpConfig
       `Prelude.hashWithSalt` workforceVpcConfig
       `Prelude.hashWithSalt` workforceName

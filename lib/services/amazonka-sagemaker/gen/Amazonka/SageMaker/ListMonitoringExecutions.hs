@@ -241,21 +241,21 @@ instance Core.AWSPager ListMonitoringExecutions where
     | Core.stop
         ( rs
             Lens.^? listMonitoringExecutionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listMonitoringExecutionsResponse_monitoringExecutionSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMonitoringExecutions_nextToken
           Lens..~ rs
           Lens.^? listMonitoringExecutionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitoringExecutions where
   type
@@ -269,14 +269,16 @@ instance Core.AWSRequest ListMonitoringExecutions where
           ListMonitoringExecutionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "MonitoringExecutionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "MonitoringExecutionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListMonitoringExecutions where
   hashWithSalt _salt ListMonitoringExecutions' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` lastModifiedTimeAfter

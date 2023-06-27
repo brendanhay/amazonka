@@ -59,7 +59,10 @@ import Amazonka.SageMaker.Types
 data ListUserProfiles = ListUserProfiles'
   { -- | A parameter by which to filter the results.
     domainIdEquals :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list up to a specified limit.
+    -- | The total number of items to return in the response. If the total number
+    -- of items available is more than the value specified, a @NextToken@ is
+    -- provided in the response. To resume pagination, provide the @NextToken@
+    -- value in the as part of a subsequent call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
@@ -83,7 +86,10 @@ data ListUserProfiles = ListUserProfiles'
 --
 -- 'domainIdEquals', 'listUserProfiles_domainIdEquals' - A parameter by which to filter the results.
 --
--- 'maxResults', 'listUserProfiles_maxResults' - Returns a list up to a specified limit.
+-- 'maxResults', 'listUserProfiles_maxResults' - The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 --
 -- 'nextToken', 'listUserProfiles_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
@@ -109,7 +115,10 @@ newListUserProfiles =
 listUserProfiles_domainIdEquals :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Text)
 listUserProfiles_domainIdEquals = Lens.lens (\ListUserProfiles' {domainIdEquals} -> domainIdEquals) (\s@ListUserProfiles' {} a -> s {domainIdEquals = a} :: ListUserProfiles)
 
--- | Returns a list up to a specified limit.
+-- | The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 listUserProfiles_maxResults :: Lens.Lens' ListUserProfiles (Prelude.Maybe Prelude.Natural)
 listUserProfiles_maxResults = Lens.lens (\ListUserProfiles' {maxResults} -> maxResults) (\s@ListUserProfiles' {} a -> s {maxResults = a} :: ListUserProfiles)
 
@@ -135,22 +144,22 @@ instance Core.AWSPager ListUserProfiles where
     | Core.stop
         ( rs
             Lens.^? listUserProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listUserProfilesResponse_userProfiles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUserProfiles_nextToken
           Lens..~ rs
           Lens.^? listUserProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserProfiles where
   type
@@ -169,7 +178,8 @@ instance Core.AWSRequest ListUserProfiles where
 
 instance Prelude.Hashable ListUserProfiles where
   hashWithSalt _salt ListUserProfiles' {..} =
-    _salt `Prelude.hashWithSalt` domainIdEquals
+    _salt
+      `Prelude.hashWithSalt` domainIdEquals
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

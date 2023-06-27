@@ -165,7 +165,8 @@ instance Core.AWSRequest AddAssociation where
 
 instance Prelude.Hashable AddAssociation where
   hashWithSalt _salt AddAssociation' {..} =
-    _salt `Prelude.hashWithSalt` associationType
+    _salt
+      `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` destinationArn
 

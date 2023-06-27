@@ -369,7 +369,8 @@ instance Core.AWSRequest UpdateNotebookInstance where
 
 instance Prelude.Hashable UpdateNotebookInstance where
   hashWithSalt _salt UpdateNotebookInstance' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorTypes
+    _salt
+      `Prelude.hashWithSalt` acceleratorTypes
       `Prelude.hashWithSalt` additionalCodeRepositories
       `Prelude.hashWithSalt` defaultCodeRepository
       `Prelude.hashWithSalt` disassociateAcceleratorTypes

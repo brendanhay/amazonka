@@ -46,7 +46,7 @@ data InputConfig = InputConfig'
     s3Uri :: Prelude.Text,
     -- | Specifies the name and shape of the expected data inputs for your
     -- trained model with a JSON dictionary form. The data inputs are
-    -- InputConfig$Framework specific.
+    -- @Framework@ specific.
     --
     -- -   @TensorFlow@: You must specify the name and shape (NHWC format) of
     --     the expected data inputs using a dictionary format for your trained
@@ -135,7 +135,7 @@ data InputConfig = InputConfig'
     -- -   @XGBOOST@: input data name and shape are not needed.
     --
     -- @DataInputConfig@ supports the following parameters for @CoreML@
-    -- OutputConfig$TargetDevice (ML Model format):
+    -- @TargetDevice@ (ML Model format):
     --
     -- -   @shape@: Input shape, for example
     --     @{\"input_1\": {\"shape\": [1,224,224,3]}}@. In addition to static
@@ -169,8 +169,9 @@ data InputConfig = InputConfig'
     --     factor.
     --
     -- CoreML @ClassifierConfig@ parameters can be specified using
-    -- OutputConfig$CompilerOptions. CoreML converter supports Tensorflow and
-    -- PyTorch models. CoreML conversion examples:
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html OutputConfig>
+    -- @CompilerOptions@. CoreML converter supports Tensorflow and PyTorch
+    -- models. CoreML conversion examples:
     --
     -- -   Tensor type input:
     --
@@ -246,7 +247,7 @@ data InputConfig = InputConfig'
 --
 -- 'dataInputConfig', 'inputConfig_dataInputConfig' - Specifies the name and shape of the expected data inputs for your
 -- trained model with a JSON dictionary form. The data inputs are
--- InputConfig$Framework specific.
+-- @Framework@ specific.
 --
 -- -   @TensorFlow@: You must specify the name and shape (NHWC format) of
 --     the expected data inputs using a dictionary format for your trained
@@ -335,7 +336,7 @@ data InputConfig = InputConfig'
 -- -   @XGBOOST@: input data name and shape are not needed.
 --
 -- @DataInputConfig@ supports the following parameters for @CoreML@
--- OutputConfig$TargetDevice (ML Model format):
+-- @TargetDevice@ (ML Model format):
 --
 -- -   @shape@: Input shape, for example
 --     @{\"input_1\": {\"shape\": [1,224,224,3]}}@. In addition to static
@@ -369,8 +370,9 @@ data InputConfig = InputConfig'
 --     factor.
 --
 -- CoreML @ClassifierConfig@ parameters can be specified using
--- OutputConfig$CompilerOptions. CoreML converter supports Tensorflow and
--- PyTorch models. CoreML conversion examples:
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html OutputConfig>
+-- @CompilerOptions@. CoreML converter supports Tensorflow and PyTorch
+-- models. CoreML conversion examples:
 --
 -- -   Tensor type input:
 --
@@ -454,7 +456,7 @@ inputConfig_s3Uri = Lens.lens (\InputConfig' {s3Uri} -> s3Uri) (\s@InputConfig' 
 
 -- | Specifies the name and shape of the expected data inputs for your
 -- trained model with a JSON dictionary form. The data inputs are
--- InputConfig$Framework specific.
+-- @Framework@ specific.
 --
 -- -   @TensorFlow@: You must specify the name and shape (NHWC format) of
 --     the expected data inputs using a dictionary format for your trained
@@ -543,7 +545,7 @@ inputConfig_s3Uri = Lens.lens (\InputConfig' {s3Uri} -> s3Uri) (\s@InputConfig' 
 -- -   @XGBOOST@: input data name and shape are not needed.
 --
 -- @DataInputConfig@ supports the following parameters for @CoreML@
--- OutputConfig$TargetDevice (ML Model format):
+-- @TargetDevice@ (ML Model format):
 --
 -- -   @shape@: Input shape, for example
 --     @{\"input_1\": {\"shape\": [1,224,224,3]}}@. In addition to static
@@ -577,8 +579,9 @@ inputConfig_s3Uri = Lens.lens (\InputConfig' {s3Uri} -> s3Uri) (\s@InputConfig' 
 --     factor.
 --
 -- CoreML @ClassifierConfig@ parameters can be specified using
--- OutputConfig$CompilerOptions. CoreML converter supports Tensorflow and
--- PyTorch models. CoreML conversion examples:
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html OutputConfig>
+-- @CompilerOptions@. CoreML converter supports Tensorflow and PyTorch
+-- models. CoreML conversion examples:
 --
 -- -   Tensor type input:
 --
@@ -646,7 +649,8 @@ instance Data.FromJSON InputConfig where
 
 instance Prelude.Hashable InputConfig where
   hashWithSalt _salt InputConfig' {..} =
-    _salt `Prelude.hashWithSalt` frameworkVersion
+    _salt
+      `Prelude.hashWithSalt` frameworkVersion
       `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` dataInputConfig
       `Prelude.hashWithSalt` framework

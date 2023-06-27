@@ -161,7 +161,8 @@ instance Data.FromJSON ClarifyShapBaselineConfig where
 
 instance Prelude.Hashable ClarifyShapBaselineConfig where
   hashWithSalt _salt ClarifyShapBaselineConfig' {..} =
-    _salt `Prelude.hashWithSalt` mimeType
+    _salt
+      `Prelude.hashWithSalt` mimeType
       `Prelude.hashWithSalt` shapBaseline
       `Prelude.hashWithSalt` shapBaselineUri
 

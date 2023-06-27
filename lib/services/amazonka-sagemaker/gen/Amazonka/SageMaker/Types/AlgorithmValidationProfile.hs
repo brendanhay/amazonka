@@ -106,7 +106,8 @@ instance Data.FromJSON AlgorithmValidationProfile where
 
 instance Prelude.Hashable AlgorithmValidationProfile where
   hashWithSalt _salt AlgorithmValidationProfile' {..} =
-    _salt `Prelude.hashWithSalt` transformJobDefinition
+    _salt
+      `Prelude.hashWithSalt` transformJobDefinition
       `Prelude.hashWithSalt` profileName
       `Prelude.hashWithSalt` trainingJobDefinition
 

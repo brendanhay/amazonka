@@ -420,7 +420,8 @@ instance Core.AWSRequest CreateTransformJob where
 
 instance Prelude.Hashable CreateTransformJob where
   hashWithSalt _salt CreateTransformJob' {..} =
-    _salt `Prelude.hashWithSalt` batchStrategy
+    _salt
+      `Prelude.hashWithSalt` batchStrategy
       `Prelude.hashWithSalt` dataCaptureConfig
       `Prelude.hashWithSalt` dataProcessing
       `Prelude.hashWithSalt` environment

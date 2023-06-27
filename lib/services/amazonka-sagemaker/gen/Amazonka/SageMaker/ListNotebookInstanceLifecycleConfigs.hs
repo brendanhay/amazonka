@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists notebook instance lifestyle configurations created with the
--- CreateNotebookInstanceLifecycleConfig API.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateNotebookInstanceLifecycleConfig.html CreateNotebookInstanceLifecycleConfig>
+-- API.
 --
 -- This operation returns paginated results.
 module Amazonka.SageMaker.ListNotebookInstanceLifecycleConfigs
@@ -193,22 +194,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listNotebookInstanceLifecycleConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listNotebookInstanceLifecycleConfigs_nextToken
           Lens..~ rs
-            Lens.^? listNotebookInstanceLifecycleConfigsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listNotebookInstanceLifecycleConfigsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -224,10 +225,11 @@ instance
       ( \s h x ->
           ListNotebookInstanceLifecycleConfigsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "NotebookInstanceLifecycleConfigs"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "NotebookInstanceLifecycleConfigs"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -237,7 +239,8 @@ instance
   hashWithSalt
     _salt
     ListNotebookInstanceLifecycleConfigs' {..} =
-      _salt `Prelude.hashWithSalt` creationTimeAfter
+      _salt
+        `Prelude.hashWithSalt` creationTimeAfter
         `Prelude.hashWithSalt` creationTimeBefore
         `Prelude.hashWithSalt` lastModifiedTimeAfter
         `Prelude.hashWithSalt` lastModifiedTimeBefore

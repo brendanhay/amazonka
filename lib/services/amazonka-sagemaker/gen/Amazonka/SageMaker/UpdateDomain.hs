@@ -57,7 +57,8 @@ data UpdateDomain = UpdateDomain'
     -- inter-app communication in @VPCOnly@ mode. Required when
     -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
     -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
-    -- is provided.
+    -- is provided. If setting up the domain for use with RStudio, this value
+    -- must be set to @Service@.
     appSecurityGroupManagement :: Prelude.Maybe AppSecurityGroupManagement,
     -- | The default settings used to create a space within the Domain.
     defaultSpaceSettings :: Prelude.Maybe DefaultSpaceSettings,
@@ -82,7 +83,8 @@ data UpdateDomain = UpdateDomain'
 -- inter-app communication in @VPCOnly@ mode. Required when
 -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
 -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
--- is provided.
+-- is provided. If setting up the domain for use with RStudio, this value
+-- must be set to @Service@.
 --
 -- 'defaultSpaceSettings', 'updateDomain_defaultSpaceSettings' - The default settings used to create a space within the Domain.
 --
@@ -109,7 +111,8 @@ newUpdateDomain pDomainId_ =
 -- inter-app communication in @VPCOnly@ mode. Required when
 -- @CreateDomain.AppNetworkAccessType@ is @VPCOnly@ and
 -- @DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn@
--- is provided.
+-- is provided. If setting up the domain for use with RStudio, this value
+-- must be set to @Service@.
 updateDomain_appSecurityGroupManagement :: Lens.Lens' UpdateDomain (Prelude.Maybe AppSecurityGroupManagement)
 updateDomain_appSecurityGroupManagement = Lens.lens (\UpdateDomain' {appSecurityGroupManagement} -> appSecurityGroupManagement) (\s@UpdateDomain' {} a -> s {appSecurityGroupManagement = a} :: UpdateDomain)
 

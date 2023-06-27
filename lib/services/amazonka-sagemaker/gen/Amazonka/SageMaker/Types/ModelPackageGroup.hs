@@ -171,7 +171,8 @@ instance Data.FromJSON ModelPackageGroup where
 
 instance Prelude.Hashable ModelPackageGroup where
   hashWithSalt _salt ModelPackageGroup' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` modelPackageGroupArn
       `Prelude.hashWithSalt` modelPackageGroupDescription

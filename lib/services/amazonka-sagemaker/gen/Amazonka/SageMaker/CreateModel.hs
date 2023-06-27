@@ -100,10 +100,12 @@ data CreateModel = CreateModel'
     -- owner, or environment. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
-    -- | A VpcConfig object that specifies the VPC that you want your model to
-    -- connect to. Control access to and from your model container by
-    -- configuring the VPC. @VpcConfig@ is used in hosting services and in
-    -- batch transform. For more information, see
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+    -- object that specifies the VPC that you want your model to connect to.
+    -- Control access to and from your model container by configuring the VPC.
+    -- @VpcConfig@ is used in hosting services and in batch transform. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
     -- and
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud>.
@@ -147,10 +149,12 @@ data CreateModel = CreateModel'
 -- owner, or environment. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
--- 'vpcConfig', 'createModel_vpcConfig' - A VpcConfig object that specifies the VPC that you want your model to
--- connect to. Control access to and from your model container by
--- configuring the VPC. @VpcConfig@ is used in hosting services and in
--- batch transform. For more information, see
+-- 'vpcConfig', 'createModel_vpcConfig' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want your model to connect to.
+-- Control access to and from your model container by configuring the VPC.
+-- @VpcConfig@ is used in hosting services and in batch transform. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
 -- and
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud>.
@@ -210,10 +214,12 @@ createModel_primaryContainer = Lens.lens (\CreateModel' {primaryContainer} -> pr
 createModel_tags :: Lens.Lens' CreateModel (Prelude.Maybe [Tag])
 createModel_tags = Lens.lens (\CreateModel' {tags} -> tags) (\s@CreateModel' {} a -> s {tags = a} :: CreateModel) Prelude.. Lens.mapping Lens.coerced
 
--- | A VpcConfig object that specifies the VPC that you want your model to
--- connect to. Control access to and from your model container by
--- configuring the VPC. @VpcConfig@ is used in hosting services and in
--- batch transform. For more information, see
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want your model to connect to.
+-- Control access to and from your model container by configuring the VPC.
+-- @VpcConfig@ is used in hosting services and in batch transform. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
 -- and
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html Protect Data in Batch Transform Jobs by Using an Amazon Virtual Private Cloud>.
@@ -249,7 +255,8 @@ instance Core.AWSRequest CreateModel where
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` enableNetworkIsolation
       `Prelude.hashWithSalt` inferenceExecutionConfig
       `Prelude.hashWithSalt` primaryContainer

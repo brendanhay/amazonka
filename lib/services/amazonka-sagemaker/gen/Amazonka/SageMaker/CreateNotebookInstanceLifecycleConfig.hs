@@ -141,7 +141,7 @@ instance
       ( \s h x ->
           CreateNotebookInstanceLifecycleConfigResponse'
             Prelude.<$> (x Data..?> "NotebookInstanceLifecycleConfigArn")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -151,7 +151,8 @@ instance
   hashWithSalt
     _salt
     CreateNotebookInstanceLifecycleConfig' {..} =
-      _salt `Prelude.hashWithSalt` onCreate
+      _salt
+        `Prelude.hashWithSalt` onCreate
         `Prelude.hashWithSalt` onStart
         `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
 

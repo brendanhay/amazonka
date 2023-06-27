@@ -29,7 +29,9 @@ import Amazonka.SageMaker.Types.TrialComponentSimpleSummary
 import Amazonka.SageMaker.Types.TrialSource
 import Amazonka.SageMaker.Types.UserContext
 
--- | The properties of a trial as returned by the Search API.
+-- | The properties of a trial as returned by the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API.
 --
 -- /See:/ 'newTrial' smart constructor.
 data Trial = Trial'
@@ -47,7 +49,8 @@ data Trial = Trial'
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
     metadataProperties :: Prelude.Maybe MetadataProperties,
     source :: Prelude.Maybe TrialSource,
-    -- | The list of tags that are associated with the trial. You can use Search
+    -- | The list of tags that are associated with the trial. You can use
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
     -- API to search on the tags.
     tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the trial.
@@ -85,7 +88,8 @@ data Trial = Trial'
 --
 -- 'source', 'trial_source' - Undocumented member.
 --
--- 'tags', 'trial_tags' - The list of tags that are associated with the trial. You can use Search
+-- 'tags', 'trial_tags' - The list of tags that are associated with the trial. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
 -- API to search on the tags.
 --
 -- 'trialArn', 'trial_trialArn' - The Amazon Resource Name (ARN) of the trial.
@@ -145,7 +149,8 @@ trial_metadataProperties = Lens.lens (\Trial' {metadataProperties} -> metadataPr
 trial_source :: Lens.Lens' Trial (Prelude.Maybe TrialSource)
 trial_source = Lens.lens (\Trial' {source} -> source) (\s@Trial' {} a -> s {source = a} :: Trial)
 
--- | The list of tags that are associated with the trial. You can use Search
+-- | The list of tags that are associated with the trial. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
 -- API to search on the tags.
 trial_tags :: Lens.Lens' Trial (Prelude.Maybe [Tag])
 trial_tags = Lens.lens (\Trial' {tags} -> tags) (\s@Trial' {} a -> s {tags = a} :: Trial) Prelude.. Lens.mapping Lens.coerced
@@ -179,7 +184,8 @@ instance Data.FromJSON Trial where
             Prelude.<*> (x Data..:? "Source")
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "TrialArn")
-            Prelude.<*> ( x Data..:? "TrialComponentSummaries"
+            Prelude.<*> ( x
+                            Data..:? "TrialComponentSummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TrialName")
@@ -187,7 +193,8 @@ instance Data.FromJSON Trial where
 
 instance Prelude.Hashable Trial where
   hashWithSalt _salt Trial' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` experimentName

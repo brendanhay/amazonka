@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete a hub.
+--
+-- Hub APIs are only callable through SageMaker Studio.
 module Amazonka.SageMaker.DeleteHub
   ( -- * Creating a Request
     DeleteHub (..),

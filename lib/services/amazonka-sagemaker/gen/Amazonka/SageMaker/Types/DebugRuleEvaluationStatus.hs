@@ -106,7 +106,8 @@ instance Data.FromJSON DebugRuleEvaluationStatus where
 
 instance Prelude.Hashable DebugRuleEvaluationStatus where
   hashWithSalt _salt DebugRuleEvaluationStatus' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` ruleConfigurationName
       `Prelude.hashWithSalt` ruleEvaluationJobArn
       `Prelude.hashWithSalt` ruleEvaluationStatus

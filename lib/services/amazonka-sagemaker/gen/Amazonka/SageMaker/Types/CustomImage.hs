@@ -89,7 +89,8 @@ instance Data.FromJSON CustomImage where
 
 instance Prelude.Hashable CustomImage where
   hashWithSalt _salt CustomImage' {..} =
-    _salt `Prelude.hashWithSalt` imageVersionNumber
+    _salt
+      `Prelude.hashWithSalt` imageVersionNumber
       `Prelude.hashWithSalt` imageName
       `Prelude.hashWithSalt` appImageConfigName
 

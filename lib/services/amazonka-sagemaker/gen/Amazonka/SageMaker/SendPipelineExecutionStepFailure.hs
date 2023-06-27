@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     SendPipelineExecutionStepFailure' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` callbackToken
 

@@ -33,7 +33,7 @@ import Amazonka.SageMaker.Types.UserContext
 -- /See:/ 'newModelCard' smart constructor.
 data ModelCard = ModelCard'
   { -- | The content of the model card. Content uses the
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
     -- and provided as a string.
     content :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     createdBy :: Prelude.Maybe UserContext,
@@ -84,7 +84,7 @@ data ModelCard = ModelCard'
 -- for backwards compatibility:
 --
 -- 'content', 'modelCard_content' - The content of the model card. Content uses the
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
 -- and provided as a string.
 --
 -- 'createdBy', 'modelCard_createdBy' - Undocumented member.
@@ -144,7 +144,7 @@ newModelCard =
     }
 
 -- | The content of the model card. Content uses the
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
 -- and provided as a string.
 modelCard_content :: Lens.Lens' ModelCard (Prelude.Maybe Prelude.Text)
 modelCard_content = Lens.lens (\ModelCard' {content} -> content) (\s@ModelCard' {} a -> s {content = a} :: ModelCard) Prelude.. Lens.mapping Data._Sensitive
@@ -234,7 +234,8 @@ instance Data.FromJSON ModelCard where
 
 instance Prelude.Hashable ModelCard where
   hashWithSalt _salt ModelCard' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedBy

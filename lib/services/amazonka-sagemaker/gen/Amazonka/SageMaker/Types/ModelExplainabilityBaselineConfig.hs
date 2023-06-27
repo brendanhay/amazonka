@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     ModelExplainabilityBaselineConfig' {..} =
-      _salt `Prelude.hashWithSalt` baseliningJobName
+      _salt
+        `Prelude.hashWithSalt` baseliningJobName
         `Prelude.hashWithSalt` constraintsResource
 
 instance

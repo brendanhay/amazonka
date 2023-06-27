@@ -27,9 +27,7 @@ import Amazonka.SageMaker.Types.RStudioServerProAccessStatus
 import Amazonka.SageMaker.Types.RStudioServerProUserGroup
 
 -- | A collection of settings that configure user interaction with the
--- @RStudioServerPro@ app. @RStudioServerProAppSettings@ cannot be updated.
--- The @RStudioServerPro@ app must be deleted and a new one created to make
--- any changes.
+-- @RStudioServerPro@ app.
 --
 -- /See:/ 'newRStudioServerProAppSettings' smart constructor.
 data RStudioServerProAppSettings = RStudioServerProAppSettings'
@@ -89,7 +87,8 @@ instance Data.FromJSON RStudioServerProAppSettings where
 
 instance Prelude.Hashable RStudioServerProAppSettings where
   hashWithSalt _salt RStudioServerProAppSettings' {..} =
-    _salt `Prelude.hashWithSalt` accessStatus
+    _salt
+      `Prelude.hashWithSalt` accessStatus
       `Prelude.hashWithSalt` userGroup
 
 instance Prelude.NFData RStudioServerProAppSettings where

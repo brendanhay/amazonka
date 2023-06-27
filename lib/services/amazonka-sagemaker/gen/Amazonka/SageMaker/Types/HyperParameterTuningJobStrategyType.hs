@@ -33,8 +33,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | The strategy hyperparameter tuning uses to find the best combination of
--- hyperparameters for your model. Currently, the only supported value is
--- @Bayesian@.
+-- hyperparameters for your model.
 newtype HyperParameterTuningJobStrategyType = HyperParameterTuningJobStrategyType'
   { fromHyperParameterTuningJobStrategyType ::
       Data.Text

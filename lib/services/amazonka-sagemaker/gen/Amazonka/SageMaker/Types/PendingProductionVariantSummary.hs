@@ -30,7 +30,10 @@ import Amazonka.SageMaker.Types.ProductionVariantServerlessConfig
 import Amazonka.SageMaker.Types.ProductionVariantStatus
 
 -- | The production variant summary for a deployment when an endpoint is
--- creating or updating with the @ CreateEndpoint @ or @ UpdateEndpoint @
+-- creating or updating with the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpoint.html CreateEndpoint>
+-- or
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html UpdateEndpoint>
 -- operations. Describes the @VariantStatus @, weight and capacity for a
 -- production variant associated with an endpoint.
 --
@@ -53,14 +56,18 @@ data PendingProductionVariantSummary = PendingProductionVariantSummary'
     deployedImages :: Prelude.Maybe [DeployedImage],
     -- | The number of instances requested in this deployment, as specified in
     -- the endpoint configuration for the endpoint. The value is taken from the
-    -- request to the @ CreateEndpointConfig @ operation.
+    -- request to the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+    -- operation.
     desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
     -- | The serverless configuration requested for this deployment, as specified
     -- in the endpoint configuration for the endpoint.
     desiredServerlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
     -- | The requested weight for the variant in this deployment, as specified in
     -- the endpoint configuration for the endpoint. The value is taken from the
-    -- request to the @ CreateEndpointConfig @ operation.
+    -- request to the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+    -- operation.
     desiredWeight :: Prelude.Maybe Prelude.Double,
     -- | The type of instances associated with the variant.
     instanceType :: Prelude.Maybe ProductionVariantInstanceType,
@@ -97,14 +104,18 @@ data PendingProductionVariantSummary = PendingProductionVariantSummary'
 --
 -- 'desiredInstanceCount', 'pendingProductionVariantSummary_desiredInstanceCount' - The number of instances requested in this deployment, as specified in
 -- the endpoint configuration for the endpoint. The value is taken from the
--- request to the @ CreateEndpointConfig @ operation.
+-- request to the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- operation.
 --
 -- 'desiredServerlessConfig', 'pendingProductionVariantSummary_desiredServerlessConfig' - The serverless configuration requested for this deployment, as specified
 -- in the endpoint configuration for the endpoint.
 --
 -- 'desiredWeight', 'pendingProductionVariantSummary_desiredWeight' - The requested weight for the variant in this deployment, as specified in
 -- the endpoint configuration for the endpoint. The value is taken from the
--- request to the @ CreateEndpointConfig @ operation.
+-- request to the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- operation.
 --
 -- 'instanceType', 'pendingProductionVariantSummary_instanceType' - The type of instances associated with the variant.
 --
@@ -159,7 +170,9 @@ pendingProductionVariantSummary_deployedImages = Lens.lens (\PendingProductionVa
 
 -- | The number of instances requested in this deployment, as specified in
 -- the endpoint configuration for the endpoint. The value is taken from the
--- request to the @ CreateEndpointConfig @ operation.
+-- request to the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- operation.
 pendingProductionVariantSummary_desiredInstanceCount :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Natural)
 pendingProductionVariantSummary_desiredInstanceCount = Lens.lens (\PendingProductionVariantSummary' {desiredInstanceCount} -> desiredInstanceCount) (\s@PendingProductionVariantSummary' {} a -> s {desiredInstanceCount = a} :: PendingProductionVariantSummary)
 
@@ -170,7 +183,9 @@ pendingProductionVariantSummary_desiredServerlessConfig = Lens.lens (\PendingPro
 
 -- | The requested weight for the variant in this deployment, as specified in
 -- the endpoint configuration for the endpoint. The value is taken from the
--- request to the @ CreateEndpointConfig @ operation.
+-- request to the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- operation.
 pendingProductionVariantSummary_desiredWeight :: Lens.Lens' PendingProductionVariantSummary (Prelude.Maybe Prelude.Double)
 pendingProductionVariantSummary_desiredWeight = Lens.lens (\PendingProductionVariantSummary' {desiredWeight} -> desiredWeight) (\s@PendingProductionVariantSummary' {} a -> s {desiredWeight = a} :: PendingProductionVariantSummary)
 
@@ -216,7 +231,8 @@ instance
   hashWithSalt
     _salt
     PendingProductionVariantSummary' {..} =
-      _salt `Prelude.hashWithSalt` acceleratorType
+      _salt
+        `Prelude.hashWithSalt` acceleratorType
         `Prelude.hashWithSalt` currentInstanceCount
         `Prelude.hashWithSalt` currentServerlessConfig
         `Prelude.hashWithSalt` currentWeight

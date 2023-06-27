@@ -221,21 +221,21 @@ instance Core.AWSPager ListModelPackages where
     | Core.stop
         ( rs
             Lens.^? listModelPackagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelPackagesResponse_modelPackageSummaryList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelPackages_nextToken
           Lens..~ rs
           Lens.^? listModelPackagesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelPackages where
   type
@@ -249,14 +249,16 @@ instance Core.AWSRequest ListModelPackages where
           ListModelPackagesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ModelPackageSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ModelPackageSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListModelPackages where
   hashWithSalt _salt ListModelPackages' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelApprovalStatus

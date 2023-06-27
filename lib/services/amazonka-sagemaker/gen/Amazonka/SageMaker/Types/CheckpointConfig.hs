@@ -83,7 +83,8 @@ instance Data.FromJSON CheckpointConfig where
 
 instance Prelude.Hashable CheckpointConfig where
   hashWithSalt _salt CheckpointConfig' {..} =
-    _salt `Prelude.hashWithSalt` localPath
+    _salt
+      `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData CheckpointConfig where

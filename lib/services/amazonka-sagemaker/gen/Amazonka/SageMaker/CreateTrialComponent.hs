@@ -32,8 +32,9 @@
 -- logged, and indexed. When you use the Amazon Web Services SDK for Python
 -- (Boto), you must use the logging APIs provided by the SDK.
 --
--- You can add tags to a trial component and then use the Search API to
--- search for the tags.
+-- You can add tags to a trial component and then use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search for the tags.
 module Amazonka.SageMaker.CreateTrialComponent
   ( -- * Creating a Request
     CreateTrialComponent (..),
@@ -96,8 +97,9 @@ data CreateTrialComponent = CreateTrialComponent'
     --
     -- -   Failed
     status :: Prelude.Maybe TrialComponentStatus,
-    -- | A list of tags to associate with the component. You can use Search API
-    -- to search on the tags.
+    -- | A list of tags to associate with the component. You can use
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+    -- API to search on the tags.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the component. The name must be unique in your Amazon Web
     -- Services account and is not case-sensitive.
@@ -139,8 +141,9 @@ data CreateTrialComponent = CreateTrialComponent'
 --
 -- -   Failed
 --
--- 'tags', 'createTrialComponent_tags' - A list of tags to associate with the component. You can use Search API
--- to search on the tags.
+-- 'tags', 'createTrialComponent_tags' - A list of tags to associate with the component. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 --
 -- 'trialComponentName', 'createTrialComponent_trialComponentName' - The name of the component. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -205,8 +208,9 @@ createTrialComponent_startTime = Lens.lens (\CreateTrialComponent' {startTime} -
 createTrialComponent_status :: Lens.Lens' CreateTrialComponent (Prelude.Maybe TrialComponentStatus)
 createTrialComponent_status = Lens.lens (\CreateTrialComponent' {status} -> status) (\s@CreateTrialComponent' {} a -> s {status = a} :: CreateTrialComponent)
 
--- | A list of tags to associate with the component. You can use Search API
--- to search on the tags.
+-- | A list of tags to associate with the component. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 createTrialComponent_tags :: Lens.Lens' CreateTrialComponent (Prelude.Maybe [Tag])
 createTrialComponent_tags = Lens.lens (\CreateTrialComponent' {tags} -> tags) (\s@CreateTrialComponent' {} a -> s {tags = a} :: CreateTrialComponent) Prelude.. Lens.mapping Lens.coerced
 
@@ -231,7 +235,8 @@ instance Core.AWSRequest CreateTrialComponent where
 
 instance Prelude.Hashable CreateTrialComponent where
   hashWithSalt _salt CreateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` metadataProperties

@@ -23,13 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ModelRegisterSettings
 import Amazonka.SageMaker.Types.TimeSeriesForecastingSettings
 
--- | The SageMaker Canvas app settings.
+-- | The SageMaker Canvas application settings.
 --
 -- /See:/ 'newCanvasAppSettings' smart constructor.
 data CanvasAppSettings = CanvasAppSettings'
-  { -- | Time series forecast settings for the Canvas app.
+  { -- | The model registry settings for the SageMaker Canvas application.
+    modelRegisterSettings :: Prelude.Maybe ModelRegisterSettings,
+    -- | Time series forecast settings for the Canvas application.
     timeSeriesForecastingSettings :: Prelude.Maybe TimeSeriesForecastingSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,16 +45,23 @@ data CanvasAppSettings = CanvasAppSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timeSeriesForecastingSettings', 'canvasAppSettings_timeSeriesForecastingSettings' - Time series forecast settings for the Canvas app.
+-- 'modelRegisterSettings', 'canvasAppSettings_modelRegisterSettings' - The model registry settings for the SageMaker Canvas application.
+--
+-- 'timeSeriesForecastingSettings', 'canvasAppSettings_timeSeriesForecastingSettings' - Time series forecast settings for the Canvas application.
 newCanvasAppSettings ::
   CanvasAppSettings
 newCanvasAppSettings =
   CanvasAppSettings'
-    { timeSeriesForecastingSettings =
-        Prelude.Nothing
+    { modelRegisterSettings =
+        Prelude.Nothing,
+      timeSeriesForecastingSettings = Prelude.Nothing
     }
 
--- | Time series forecast settings for the Canvas app.
+-- | The model registry settings for the SageMaker Canvas application.
+canvasAppSettings_modelRegisterSettings :: Lens.Lens' CanvasAppSettings (Prelude.Maybe ModelRegisterSettings)
+canvasAppSettings_modelRegisterSettings = Lens.lens (\CanvasAppSettings' {modelRegisterSettings} -> modelRegisterSettings) (\s@CanvasAppSettings' {} a -> s {modelRegisterSettings = a} :: CanvasAppSettings)
+
+-- | Time series forecast settings for the Canvas application.
 canvasAppSettings_timeSeriesForecastingSettings :: Lens.Lens' CanvasAppSettings (Prelude.Maybe TimeSeriesForecastingSettings)
 canvasAppSettings_timeSeriesForecastingSettings = Lens.lens (\CanvasAppSettings' {timeSeriesForecastingSettings} -> timeSeriesForecastingSettings) (\s@CanvasAppSettings' {} a -> s {timeSeriesForecastingSettings = a} :: CanvasAppSettings)
 
@@ -61,23 +71,28 @@ instance Data.FromJSON CanvasAppSettings where
       "CanvasAppSettings"
       ( \x ->
           CanvasAppSettings'
-            Prelude.<$> (x Data..:? "TimeSeriesForecastingSettings")
+            Prelude.<$> (x Data..:? "ModelRegisterSettings")
+            Prelude.<*> (x Data..:? "TimeSeriesForecastingSettings")
       )
 
 instance Prelude.Hashable CanvasAppSettings where
   hashWithSalt _salt CanvasAppSettings' {..} =
     _salt
+      `Prelude.hashWithSalt` modelRegisterSettings
       `Prelude.hashWithSalt` timeSeriesForecastingSettings
 
 instance Prelude.NFData CanvasAppSettings where
   rnf CanvasAppSettings' {..} =
-    Prelude.rnf timeSeriesForecastingSettings
+    Prelude.rnf modelRegisterSettings
+      `Prelude.seq` Prelude.rnf timeSeriesForecastingSettings
 
 instance Data.ToJSON CanvasAppSettings where
   toJSON CanvasAppSettings' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("TimeSeriesForecastingSettings" Data..=)
+          [ ("ModelRegisterSettings" Data..=)
+              Prelude.<$> modelRegisterSettings,
+            ("TimeSeriesForecastingSettings" Data..=)
               Prelude.<$> timeSeriesForecastingSettings
           ]
       )

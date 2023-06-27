@@ -39,10 +39,12 @@ module Amazonka.SageMaker.Types.TargetDevice
         TargetDevice_Ml_eia2,
         TargetDevice_Ml_g4dn,
         TargetDevice_Ml_inf1,
+        TargetDevice_Ml_inf2,
         TargetDevice_Ml_m4,
         TargetDevice_Ml_m5,
         TargetDevice_Ml_p2,
         TargetDevice_Ml_p3,
+        TargetDevice_Ml_trn1,
         TargetDevice_Qcs603,
         TargetDevice_Qcs605,
         TargetDevice_Rasp3b,
@@ -145,6 +147,9 @@ pattern TargetDevice_Ml_g4dn = TargetDevice' "ml_g4dn"
 pattern TargetDevice_Ml_inf1 :: TargetDevice
 pattern TargetDevice_Ml_inf1 = TargetDevice' "ml_inf1"
 
+pattern TargetDevice_Ml_inf2 :: TargetDevice
+pattern TargetDevice_Ml_inf2 = TargetDevice' "ml_inf2"
+
 pattern TargetDevice_Ml_m4 :: TargetDevice
 pattern TargetDevice_Ml_m4 = TargetDevice' "ml_m4"
 
@@ -156,6 +161,9 @@ pattern TargetDevice_Ml_p2 = TargetDevice' "ml_p2"
 
 pattern TargetDevice_Ml_p3 :: TargetDevice
 pattern TargetDevice_Ml_p3 = TargetDevice' "ml_p3"
+
+pattern TargetDevice_Ml_trn1 :: TargetDevice
+pattern TargetDevice_Ml_trn1 = TargetDevice' "ml_trn1"
 
 pattern TargetDevice_Qcs603 :: TargetDevice
 pattern TargetDevice_Qcs603 = TargetDevice' "qcs603"
@@ -204,10 +212,12 @@ pattern TargetDevice_X86_win64 = TargetDevice' "x86_win64"
   TargetDevice_Ml_eia2,
   TargetDevice_Ml_g4dn,
   TargetDevice_Ml_inf1,
+  TargetDevice_Ml_inf2,
   TargetDevice_Ml_m4,
   TargetDevice_Ml_m5,
   TargetDevice_Ml_p2,
   TargetDevice_Ml_p3,
+  TargetDevice_Ml_trn1,
   TargetDevice_Qcs603,
   TargetDevice_Qcs605,
   TargetDevice_Rasp3b,

@@ -42,7 +42,11 @@ data OfflineStoreConfig = OfflineStoreConfig'
     -- @OfflineStore@ is created.
     dataCatalogConfig :: Prelude.Maybe DataCatalogConfig,
     -- | Set to @True@ to disable the automatic creation of an Amazon Web
-    -- Services Glue table when configuring an @OfflineStore@.
+    -- Services Glue table when configuring an @OfflineStore@. If set to
+    -- @False@, Feature Store will name the @OfflineStore@ Glue table following
+    -- <https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html Athena\'s naming recommendations>.
+    --
+    -- The default value is @False@.
     disableGlueTableCreation :: Prelude.Maybe Prelude.Bool,
     -- | Format for the offline store table. Supported formats are Glue (Default)
     -- and <https://iceberg.apache.org/ Apache Iceberg>.
@@ -64,7 +68,11 @@ data OfflineStoreConfig = OfflineStoreConfig'
 -- @OfflineStore@ is created.
 --
 -- 'disableGlueTableCreation', 'offlineStoreConfig_disableGlueTableCreation' - Set to @True@ to disable the automatic creation of an Amazon Web
--- Services Glue table when configuring an @OfflineStore@.
+-- Services Glue table when configuring an @OfflineStore@. If set to
+-- @False@, Feature Store will name the @OfflineStore@ Glue table following
+-- <https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html Athena\'s naming recommendations>.
+--
+-- The default value is @False@.
 --
 -- 'tableFormat', 'offlineStoreConfig_tableFormat' - Format for the offline store table. Supported formats are Glue (Default)
 -- and <https://iceberg.apache.org/ Apache Iceberg>.
@@ -89,7 +97,11 @@ offlineStoreConfig_dataCatalogConfig :: Lens.Lens' OfflineStoreConfig (Prelude.M
 offlineStoreConfig_dataCatalogConfig = Lens.lens (\OfflineStoreConfig' {dataCatalogConfig} -> dataCatalogConfig) (\s@OfflineStoreConfig' {} a -> s {dataCatalogConfig = a} :: OfflineStoreConfig)
 
 -- | Set to @True@ to disable the automatic creation of an Amazon Web
--- Services Glue table when configuring an @OfflineStore@.
+-- Services Glue table when configuring an @OfflineStore@. If set to
+-- @False@, Feature Store will name the @OfflineStore@ Glue table following
+-- <https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html Athena\'s naming recommendations>.
+--
+-- The default value is @False@.
 offlineStoreConfig_disableGlueTableCreation :: Lens.Lens' OfflineStoreConfig (Prelude.Maybe Prelude.Bool)
 offlineStoreConfig_disableGlueTableCreation = Lens.lens (\OfflineStoreConfig' {disableGlueTableCreation} -> disableGlueTableCreation) (\s@OfflineStoreConfig' {} a -> s {disableGlueTableCreation = a} :: OfflineStoreConfig)
 
@@ -116,7 +128,8 @@ instance Data.FromJSON OfflineStoreConfig where
 
 instance Prelude.Hashable OfflineStoreConfig where
   hashWithSalt _salt OfflineStoreConfig' {..} =
-    _salt `Prelude.hashWithSalt` dataCatalogConfig
+    _salt
+      `Prelude.hashWithSalt` dataCatalogConfig
       `Prelude.hashWithSalt` disableGlueTableCreation
       `Prelude.hashWithSalt` tableFormat
       `Prelude.hashWithSalt` s3StorageConfig

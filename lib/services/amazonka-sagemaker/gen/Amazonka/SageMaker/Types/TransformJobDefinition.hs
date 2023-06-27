@@ -169,7 +169,8 @@ instance Data.FromJSON TransformJobDefinition where
 
 instance Prelude.Hashable TransformJobDefinition where
   hashWithSalt _salt TransformJobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` batchStrategy
+    _salt
+      `Prelude.hashWithSalt` batchStrategy
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` maxConcurrentTransforms
       `Prelude.hashWithSalt` maxPayloadInMB

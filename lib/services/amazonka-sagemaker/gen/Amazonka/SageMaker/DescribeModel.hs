@@ -35,6 +35,7 @@ module Amazonka.SageMaker.DescribeModel
 
     -- * Response Lenses
     describeModelResponse_containers,
+    describeModelResponse_deploymentRecommendation,
     describeModelResponse_enableNetworkIsolation,
     describeModelResponse_inferenceExecutionConfig,
     describeModelResponse_primaryContainer,
@@ -93,6 +94,7 @@ instance Core.AWSRequest DescribeModel where
       ( \s h x ->
           DescribeModelResponse'
             Prelude.<$> (x Data..?> "Containers" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "DeploymentRecommendation")
             Prelude.<*> (x Data..?> "EnableNetworkIsolation")
             Prelude.<*> (x Data..?> "InferenceExecutionConfig")
             Prelude.<*> (x Data..?> "PrimaryContainer")
@@ -141,6 +143,8 @@ instance Data.ToQuery DescribeModel where
 data DescribeModelResponse = DescribeModelResponse'
   { -- | The containers in the inference pipeline.
     containers :: Prelude.Maybe [ContainerDefinition],
+    -- | A set of recommended deployment configurations for the model.
+    deploymentRecommendation :: Prelude.Maybe DeploymentRecommendation,
     -- | If @True@, no inbound or outbound network calls can be made to or from
     -- the model container.
     enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
@@ -151,8 +155,10 @@ data DescribeModelResponse = DescribeModelResponse'
     -- custom environment map that the inference code uses when it is deployed
     -- in production.
     primaryContainer :: Prelude.Maybe ContainerDefinition,
-    -- | A VpcConfig object that specifies the VPC that this model has access to.
-    -- For more information, see
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+    -- object that specifies the VPC that this model has access to. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The response's http status code.
@@ -179,6 +185,8 @@ data DescribeModelResponse = DescribeModelResponse'
 --
 -- 'containers', 'describeModelResponse_containers' - The containers in the inference pipeline.
 --
+-- 'deploymentRecommendation', 'describeModelResponse_deploymentRecommendation' - A set of recommended deployment configurations for the model.
+--
 -- 'enableNetworkIsolation', 'describeModelResponse_enableNetworkIsolation' - If @True@, no inbound or outbound network calls can be made to or from
 -- the model container.
 --
@@ -189,8 +197,10 @@ data DescribeModelResponse = DescribeModelResponse'
 -- custom environment map that the inference code uses when it is deployed
 -- in production.
 --
--- 'vpcConfig', 'describeModelResponse_vpcConfig' - A VpcConfig object that specifies the VPC that this model has access to.
--- For more information, see
+-- 'vpcConfig', 'describeModelResponse_vpcConfig' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that this model has access to. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
 --
 -- 'httpStatus', 'describeModelResponse_httpStatus' - The response's http status code.
@@ -224,6 +234,7 @@ newDescribeModelResponse
     DescribeModelResponse'
       { containers =
           Prelude.Nothing,
+        deploymentRecommendation = Prelude.Nothing,
         enableNetworkIsolation = Prelude.Nothing,
         inferenceExecutionConfig = Prelude.Nothing,
         primaryContainer = Prelude.Nothing,
@@ -238,6 +249,10 @@ newDescribeModelResponse
 -- | The containers in the inference pipeline.
 describeModelResponse_containers :: Lens.Lens' DescribeModelResponse (Prelude.Maybe [ContainerDefinition])
 describeModelResponse_containers = Lens.lens (\DescribeModelResponse' {containers} -> containers) (\s@DescribeModelResponse' {} a -> s {containers = a} :: DescribeModelResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A set of recommended deployment configurations for the model.
+describeModelResponse_deploymentRecommendation :: Lens.Lens' DescribeModelResponse (Prelude.Maybe DeploymentRecommendation)
+describeModelResponse_deploymentRecommendation = Lens.lens (\DescribeModelResponse' {deploymentRecommendation} -> deploymentRecommendation) (\s@DescribeModelResponse' {} a -> s {deploymentRecommendation = a} :: DescribeModelResponse)
 
 -- | If @True@, no inbound or outbound network calls can be made to or from
 -- the model container.
@@ -255,8 +270,10 @@ describeModelResponse_inferenceExecutionConfig = Lens.lens (\DescribeModelRespon
 describeModelResponse_primaryContainer :: Lens.Lens' DescribeModelResponse (Prelude.Maybe ContainerDefinition)
 describeModelResponse_primaryContainer = Lens.lens (\DescribeModelResponse' {primaryContainer} -> primaryContainer) (\s@DescribeModelResponse' {} a -> s {primaryContainer = a} :: DescribeModelResponse)
 
--- | A VpcConfig object that specifies the VPC that this model has access to.
--- For more information, see
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that this model has access to. For more
+-- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
 describeModelResponse_vpcConfig :: Lens.Lens' DescribeModelResponse (Prelude.Maybe VpcConfig)
 describeModelResponse_vpcConfig = Lens.lens (\DescribeModelResponse' {vpcConfig} -> vpcConfig) (\s@DescribeModelResponse' {} a -> s {vpcConfig = a} :: DescribeModelResponse)
@@ -285,6 +302,7 @@ describeModelResponse_modelArn = Lens.lens (\DescribeModelResponse' {modelArn} -
 instance Prelude.NFData DescribeModelResponse where
   rnf DescribeModelResponse' {..} =
     Prelude.rnf containers
+      `Prelude.seq` Prelude.rnf deploymentRecommendation
       `Prelude.seq` Prelude.rnf enableNetworkIsolation
       `Prelude.seq` Prelude.rnf inferenceExecutionConfig
       `Prelude.seq` Prelude.rnf primaryContainer

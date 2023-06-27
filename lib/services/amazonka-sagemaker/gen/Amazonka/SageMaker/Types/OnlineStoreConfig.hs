@@ -28,7 +28,9 @@ import Amazonka.SageMaker.Types.OnlineStoreSecurityConfig
 -- | Use this to specify the Amazon Web Services Key Management Service (KMS)
 -- Key ID, or @KMSKeyId@, for at rest data encryption. You can turn
 -- @OnlineStore@ on or off by specifying the @EnableOnlineStore@ flag at
--- General Assembly; the default value is @False@.
+-- General Assembly.
+--
+-- The default value is @False@.
 --
 -- /See:/ 'newOnlineStoreConfig' smart constructor.
 data OnlineStoreConfig = OnlineStoreConfig'
@@ -94,7 +96,8 @@ instance Data.FromJSON OnlineStoreConfig where
 
 instance Prelude.Hashable OnlineStoreConfig where
   hashWithSalt _salt OnlineStoreConfig' {..} =
-    _salt `Prelude.hashWithSalt` enableOnlineStore
+    _salt
+      `Prelude.hashWithSalt` enableOnlineStore
       `Prelude.hashWithSalt` securityConfig
 
 instance Prelude.NFData OnlineStoreConfig where

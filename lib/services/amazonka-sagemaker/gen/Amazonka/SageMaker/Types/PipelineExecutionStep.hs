@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.CacheHitResult
 import Amazonka.SageMaker.Types.PipelineExecutionStepMetadata
+import Amazonka.SageMaker.Types.SelectiveExecutionResult
 import Amazonka.SageMaker.Types.StepStatus
 
 -- | An execution of a step in a pipeline.
@@ -43,6 +44,9 @@ data PipelineExecutionStep = PipelineExecutionStep'
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | Metadata to run the pipeline step.
     metadata :: Prelude.Maybe PipelineExecutionStepMetadata,
+    -- | The ARN from an execution of the current pipeline from which results are
+    -- reused for this step.
+    selectiveExecutionResult :: Prelude.Maybe SelectiveExecutionResult,
     -- | The time that the step started executing.
     startTime :: Prelude.Maybe Data.POSIX,
     -- | The description of the step.
@@ -76,6 +80,9 @@ data PipelineExecutionStep = PipelineExecutionStep'
 --
 -- 'metadata', 'pipelineExecutionStep_metadata' - Metadata to run the pipeline step.
 --
+-- 'selectiveExecutionResult', 'pipelineExecutionStep_selectiveExecutionResult' - The ARN from an execution of the current pipeline from which results are
+-- reused for this step.
+--
 -- 'startTime', 'pipelineExecutionStep_startTime' - The time that the step started executing.
 --
 -- 'stepDescription', 'pipelineExecutionStep_stepDescription' - The description of the step.
@@ -95,6 +102,7 @@ newPipelineExecutionStep =
       endTime = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       metadata = Prelude.Nothing,
+      selectiveExecutionResult = Prelude.Nothing,
       startTime = Prelude.Nothing,
       stepDescription = Prelude.Nothing,
       stepDisplayName = Prelude.Nothing,
@@ -123,6 +131,11 @@ pipelineExecutionStep_failureReason = Lens.lens (\PipelineExecutionStep' {failur
 -- | Metadata to run the pipeline step.
 pipelineExecutionStep_metadata :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe PipelineExecutionStepMetadata)
 pipelineExecutionStep_metadata = Lens.lens (\PipelineExecutionStep' {metadata} -> metadata) (\s@PipelineExecutionStep' {} a -> s {metadata = a} :: PipelineExecutionStep)
+
+-- | The ARN from an execution of the current pipeline from which results are
+-- reused for this step.
+pipelineExecutionStep_selectiveExecutionResult :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe SelectiveExecutionResult)
+pipelineExecutionStep_selectiveExecutionResult = Lens.lens (\PipelineExecutionStep' {selectiveExecutionResult} -> selectiveExecutionResult) (\s@PipelineExecutionStep' {} a -> s {selectiveExecutionResult = a} :: PipelineExecutionStep)
 
 -- | The time that the step started executing.
 pipelineExecutionStep_startTime :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.UTCTime)
@@ -155,6 +168,7 @@ instance Data.FromJSON PipelineExecutionStep where
             Prelude.<*> (x Data..:? "EndTime")
             Prelude.<*> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "Metadata")
+            Prelude.<*> (x Data..:? "SelectiveExecutionResult")
             Prelude.<*> (x Data..:? "StartTime")
             Prelude.<*> (x Data..:? "StepDescription")
             Prelude.<*> (x Data..:? "StepDisplayName")
@@ -164,11 +178,13 @@ instance Data.FromJSON PipelineExecutionStep where
 
 instance Prelude.Hashable PipelineExecutionStep where
   hashWithSalt _salt PipelineExecutionStep' {..} =
-    _salt `Prelude.hashWithSalt` attemptCount
+    _salt
+      `Prelude.hashWithSalt` attemptCount
       `Prelude.hashWithSalt` cacheHitResult
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` metadata
+      `Prelude.hashWithSalt` selectiveExecutionResult
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` stepDescription
       `Prelude.hashWithSalt` stepDisplayName
@@ -182,6 +198,7 @@ instance Prelude.NFData PipelineExecutionStep where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf selectiveExecutionResult
       `Prelude.seq` Prelude.rnf startTime
       `Prelude.seq` Prelude.rnf stepDescription
       `Prelude.seq` Prelude.rnf stepDisplayName

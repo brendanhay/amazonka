@@ -22,9 +22,10 @@
 --
 -- Returns information about a model compilation job.
 --
--- To create a model compilation job, use CreateCompilationJob. To get
--- information about multiple model compilation jobs, use
--- ListCompilationJobs.
+-- To create a model compilation job, use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html CreateCompilationJob>.
+-- To get information about multiple model compilation jobs, use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html ListCompilationJobs>.
 module Amazonka.SageMaker.DescribeCompilationJob
   ( -- * Creating a Request
     DescribeCompilationJob (..),
@@ -176,10 +177,10 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- instances.
     --
     -- You are billed for the time between this timestamp and the timestamp in
-    -- the DescribeCompilationJobResponse$CompilationEndTime field. In Amazon
-    -- CloudWatch Logs, the start time might be later than this time. That\'s
-    -- because it takes time to download the compilation job, which depends on
-    -- the size of the compilation job container.
+    -- the @CompilationEndTime@ field. In Amazon CloudWatch Logs, the start
+    -- time might be later than this time. That\'s because it takes time to
+    -- download the compilation job, which depends on the size of the
+    -- compilation job container.
     compilationStartTime :: Prelude.Maybe Data.POSIX,
     -- | The inference image to use when compiling a model. Specify an image only
     -- if the target device is a cloud instance.
@@ -190,9 +191,11 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
     -- | The Amazon Resource Name (ARN) of the versioned model package that was
     -- provided to SageMaker Neo when you initiated a compilation job.
     modelPackageVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | A VpcConfig object that specifies the VPC that you want your compilation
-    -- job to connect to. Control access to your models by configuring the VPC.
-    -- For more information, see
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+    -- object that specifies the VPC that you want your compilation job to
+    -- connect to. Control access to your models by configuring the VPC. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe NeoVpcConfig,
     -- | The response's http status code.
@@ -246,10 +249,10 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
 -- instances.
 --
 -- You are billed for the time between this timestamp and the timestamp in
--- the DescribeCompilationJobResponse$CompilationEndTime field. In Amazon
--- CloudWatch Logs, the start time might be later than this time. That\'s
--- because it takes time to download the compilation job, which depends on
--- the size of the compilation job container.
+-- the @CompilationEndTime@ field. In Amazon CloudWatch Logs, the start
+-- time might be later than this time. That\'s because it takes time to
+-- download the compilation job, which depends on the size of the
+-- compilation job container.
 --
 -- 'inferenceImage', 'describeCompilationJobResponse_inferenceImage' - The inference image to use when compiling a model. Specify an image only
 -- if the target device is a cloud instance.
@@ -260,9 +263,11 @@ data DescribeCompilationJobResponse = DescribeCompilationJobResponse'
 -- 'modelPackageVersionArn', 'describeCompilationJobResponse_modelPackageVersionArn' - The Amazon Resource Name (ARN) of the versioned model package that was
 -- provided to SageMaker Neo when you initiated a compilation job.
 --
--- 'vpcConfig', 'describeCompilationJobResponse_vpcConfig' - A VpcConfig object that specifies the VPC that you want your compilation
--- job to connect to. Control access to your models by configuring the VPC.
--- For more information, see
+-- 'vpcConfig', 'describeCompilationJobResponse_vpcConfig' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want your compilation job to
+-- connect to. Control access to your models by configuring the VPC. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
 --
 -- 'httpStatus', 'describeCompilationJobResponse_httpStatus' - The response's http status code.
@@ -370,10 +375,10 @@ describeCompilationJobResponse_compilationEndTime = Lens.lens (\DescribeCompilat
 -- instances.
 --
 -- You are billed for the time between this timestamp and the timestamp in
--- the DescribeCompilationJobResponse$CompilationEndTime field. In Amazon
--- CloudWatch Logs, the start time might be later than this time. That\'s
--- because it takes time to download the compilation job, which depends on
--- the size of the compilation job container.
+-- the @CompilationEndTime@ field. In Amazon CloudWatch Logs, the start
+-- time might be later than this time. That\'s because it takes time to
+-- download the compilation job, which depends on the size of the
+-- compilation job container.
 describeCompilationJobResponse_compilationStartTime :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeCompilationJobResponse_compilationStartTime = Lens.lens (\DescribeCompilationJobResponse' {compilationStartTime} -> compilationStartTime) (\s@DescribeCompilationJobResponse' {} a -> s {compilationStartTime = a} :: DescribeCompilationJobResponse) Prelude.. Lens.mapping Data._Time
 
@@ -392,9 +397,11 @@ describeCompilationJobResponse_modelDigests = Lens.lens (\DescribeCompilationJob
 describeCompilationJobResponse_modelPackageVersionArn :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe Prelude.Text)
 describeCompilationJobResponse_modelPackageVersionArn = Lens.lens (\DescribeCompilationJobResponse' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@DescribeCompilationJobResponse' {} a -> s {modelPackageVersionArn = a} :: DescribeCompilationJobResponse)
 
--- | A VpcConfig object that specifies the VPC that you want your compilation
--- job to connect to. Control access to your models by configuring the VPC.
--- For more information, see
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that you want your compilation job to
+-- connect to. Control access to your models by configuring the VPC. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
 describeCompilationJobResponse_vpcConfig :: Lens.Lens' DescribeCompilationJobResponse (Prelude.Maybe NeoVpcConfig)
 describeCompilationJobResponse_vpcConfig = Lens.lens (\DescribeCompilationJobResponse' {vpcConfig} -> vpcConfig) (\s@DescribeCompilationJobResponse' {} a -> s {vpcConfig = a} :: DescribeCompilationJobResponse)

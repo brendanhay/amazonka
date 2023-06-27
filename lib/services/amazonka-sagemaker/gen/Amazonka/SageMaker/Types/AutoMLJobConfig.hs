@@ -56,14 +56,14 @@ data AutoMLJobConfig = AutoMLJobConfig'
     -- predictions from contributing members. A multi-stack ensemble model can
     -- provide better performance over a single model by combining the
     -- predictive capabilities of multiple models. See
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support Autopilot algorithm support>
     -- for a list of algorithms supported by @ENSEMBLING@ mode.
     --
     -- The @HYPERPARAMETER_TUNING@ (HPO) mode uses the best hyperparameters to
-    -- train the best version of a model. HPO will automatically select an
+    -- train the best version of a model. HPO automatically selects an
     -- algorithm for the type of problem you want to solve. Then HPO finds the
     -- best hyperparameters according to your objective metric. See
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support Autopilot algorithm support>
     -- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
     mode :: Prelude.Maybe AutoMLMode,
     -- | The security configuration for traffic encryption or Amazon VPC
@@ -103,14 +103,14 @@ data AutoMLJobConfig = AutoMLJobConfig'
 -- predictions from contributing members. A multi-stack ensemble model can
 -- provide better performance over a single model by combining the
 -- predictive capabilities of multiple models. See
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support Autopilot algorithm support>
 -- for a list of algorithms supported by @ENSEMBLING@ mode.
 --
 -- The @HYPERPARAMETER_TUNING@ (HPO) mode uses the best hyperparameters to
--- train the best version of a model. HPO will automatically select an
+-- train the best version of a model. HPO automatically selects an
 -- algorithm for the type of problem you want to solve. Then HPO finds the
 -- best hyperparameters according to your objective metric. See
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support Autopilot algorithm support>
 -- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
 --
 -- 'securityConfig', 'autoMLJobConfig_securityConfig' - The security configuration for traffic encryption or Amazon VPC
@@ -156,14 +156,14 @@ autoMLJobConfig_dataSplitConfig = Lens.lens (\AutoMLJobConfig' {dataSplitConfig}
 -- predictions from contributing members. A multi-stack ensemble model can
 -- provide better performance over a single model by combining the
 -- predictive capabilities of multiple models. See
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support Autopilot algorithm support>
 -- for a list of algorithms supported by @ENSEMBLING@ mode.
 --
 -- The @HYPERPARAMETER_TUNING@ (HPO) mode uses the best hyperparameters to
--- train the best version of a model. HPO will automatically select an
+-- train the best version of a model. HPO automatically selects an
 -- algorithm for the type of problem you want to solve. Then HPO finds the
 -- best hyperparameters according to your objective metric. See
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-suppprt Autopilot algorithm support>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support Autopilot algorithm support>
 -- for a list of algorithms supported by @HYPERPARAMETER_TUNING@ mode.
 autoMLJobConfig_mode :: Lens.Lens' AutoMLJobConfig (Prelude.Maybe AutoMLMode)
 autoMLJobConfig_mode = Lens.lens (\AutoMLJobConfig' {mode} -> mode) (\s@AutoMLJobConfig' {} a -> s {mode = a} :: AutoMLJobConfig)

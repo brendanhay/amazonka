@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- A method for forcing the termination of a running job.
+-- A method for forcing a running job to shut down.
 module Amazonka.SageMaker.StopAutoMLJob
   ( -- * Creating a Request
     StopAutoMLJob (..),

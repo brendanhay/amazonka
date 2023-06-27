@@ -22,9 +22,11 @@
 --
 -- Lists model compilation jobs that satisfy various filters.
 --
--- To create a model compilation job, use CreateCompilationJob. To get
--- information about a particular model compilation job you have created,
--- use DescribeCompilationJob.
+-- To create a model compilation job, use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html CreateCompilationJob>.
+-- To get information about a particular model compilation job you have
+-- created, use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html DescribeCompilationJob>.
 --
 -- This operation returns paginated results.
 module Amazonka.SageMaker.ListCompilationJobs
@@ -91,7 +93,7 @@ data ListCompilationJobs = ListCompilationJobs'
     -- | The sort order for results. The default is @Ascending@.
     sortOrder :: Prelude.Maybe SortOrder,
     -- | A filter that retrieves model compilation jobs with a specific
-    -- DescribeCompilationJobResponse$CompilationJobStatus status.
+    -- @CompilationJobStatus@ status.
     statusEquals :: Prelude.Maybe CompilationJobStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -130,7 +132,7 @@ data ListCompilationJobs = ListCompilationJobs'
 -- 'sortOrder', 'listCompilationJobs_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'statusEquals', 'listCompilationJobs_statusEquals' - A filter that retrieves model compilation jobs with a specific
--- DescribeCompilationJobResponse$CompilationJobStatus status.
+-- @CompilationJobStatus@ status.
 newListCompilationJobs ::
   ListCompilationJobs
 newListCompilationJobs =
@@ -192,7 +194,7 @@ listCompilationJobs_sortOrder :: Lens.Lens' ListCompilationJobs (Prelude.Maybe S
 listCompilationJobs_sortOrder = Lens.lens (\ListCompilationJobs' {sortOrder} -> sortOrder) (\s@ListCompilationJobs' {} a -> s {sortOrder = a} :: ListCompilationJobs)
 
 -- | A filter that retrieves model compilation jobs with a specific
--- DescribeCompilationJobResponse$CompilationJobStatus status.
+-- @CompilationJobStatus@ status.
 listCompilationJobs_statusEquals :: Lens.Lens' ListCompilationJobs (Prelude.Maybe CompilationJobStatus)
 listCompilationJobs_statusEquals = Lens.lens (\ListCompilationJobs' {statusEquals} -> statusEquals) (\s@ListCompilationJobs' {} a -> s {statusEquals = a} :: ListCompilationJobs)
 
@@ -201,21 +203,21 @@ instance Core.AWSPager ListCompilationJobs where
     | Core.stop
         ( rs
             Lens.^? listCompilationJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listCompilationJobsResponse_compilationJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCompilationJobs_nextToken
           Lens..~ rs
           Lens.^? listCompilationJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCompilationJobs where
   type
@@ -229,14 +231,16 @@ instance Core.AWSRequest ListCompilationJobs where
           ListCompilationJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "CompilationJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "CompilationJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListCompilationJobs where
   hashWithSalt _salt ListCompilationJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore
@@ -310,8 +314,9 @@ data ListCompilationJobsResponse = ListCompilationJobsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | An array of CompilationJobSummary objects, each describing a model
-    -- compilation job.
+    -- | An array of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html CompilationJobSummary>
+    -- objects, each describing a model compilation job.
     compilationJobSummaries :: [CompilationJobSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -330,8 +335,9 @@ data ListCompilationJobsResponse = ListCompilationJobsResponse'
 --
 -- 'httpStatus', 'listCompilationJobsResponse_httpStatus' - The response's http status code.
 --
--- 'compilationJobSummaries', 'listCompilationJobsResponse_compilationJobSummaries' - An array of CompilationJobSummary objects, each describing a model
--- compilation job.
+-- 'compilationJobSummaries', 'listCompilationJobsResponse_compilationJobSummaries' - An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html CompilationJobSummary>
+-- objects, each describing a model compilation job.
 newListCompilationJobsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -354,8 +360,9 @@ listCompilationJobsResponse_nextToken = Lens.lens (\ListCompilationJobsResponse'
 listCompilationJobsResponse_httpStatus :: Lens.Lens' ListCompilationJobsResponse Prelude.Int
 listCompilationJobsResponse_httpStatus = Lens.lens (\ListCompilationJobsResponse' {httpStatus} -> httpStatus) (\s@ListCompilationJobsResponse' {} a -> s {httpStatus = a} :: ListCompilationJobsResponse)
 
--- | An array of CompilationJobSummary objects, each describing a model
--- compilation job.
+-- | An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CompilationJobSummary.html CompilationJobSummary>
+-- objects, each describing a model compilation job.
 listCompilationJobsResponse_compilationJobSummaries :: Lens.Lens' ListCompilationJobsResponse [CompilationJobSummary]
 listCompilationJobsResponse_compilationJobSummaries = Lens.lens (\ListCompilationJobsResponse' {compilationJobSummaries} -> compilationJobSummaries) (\s@ListCompilationJobsResponse' {} a -> s {compilationJobSummaries = a} :: ListCompilationJobsResponse) Prelude.. Lens.coerced
 

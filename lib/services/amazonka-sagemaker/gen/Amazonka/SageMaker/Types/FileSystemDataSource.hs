@@ -115,7 +115,8 @@ instance Data.FromJSON FileSystemDataSource where
 
 instance Prelude.Hashable FileSystemDataSource where
   hashWithSalt _salt FileSystemDataSource' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt
+      `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` fileSystemAccessMode
       `Prelude.hashWithSalt` fileSystemType
       `Prelude.hashWithSalt` directoryPath

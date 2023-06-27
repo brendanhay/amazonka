@@ -30,7 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 -- You can add tags to notebook instances, training jobs, hyperparameter
 -- tuning jobs, batch transform jobs, models, labeling jobs, work teams,
 -- endpoint configurations, and endpoints. For more information on adding
--- tags to SageMaker resources, see AddTags.
+-- tags to SageMaker resources, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html AddTags>.
 --
 -- For more information on adding metadata to your Amazon Web Services
 -- resources with tagging, see
@@ -82,12 +83,14 @@ instance Data.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where

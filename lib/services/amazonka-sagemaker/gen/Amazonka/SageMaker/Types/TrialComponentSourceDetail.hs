@@ -108,7 +108,8 @@ instance Data.FromJSON TrialComponentSourceDetail where
 
 instance Prelude.Hashable TrialComponentSourceDetail where
   hashWithSalt _salt TrialComponentSourceDetail' {..} =
-    _salt `Prelude.hashWithSalt` processingJob
+    _salt
+      `Prelude.hashWithSalt` processingJob
       `Prelude.hashWithSalt` sourceArn
       `Prelude.hashWithSalt` trainingJob
       `Prelude.hashWithSalt` transformJob

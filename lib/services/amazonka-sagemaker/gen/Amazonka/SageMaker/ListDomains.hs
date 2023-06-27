@@ -53,7 +53,10 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | Returns a list up to a specified limit.
+  { -- | The total number of items to return in the response. If the total number
+    -- of items available is more than the value specified, a @NextToken@ is
+    -- provided in the response. To resume pagination, provide the @NextToken@
+    -- value in the as part of a subsequent call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
@@ -69,7 +72,10 @@ data ListDomains = ListDomains'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'listDomains_maxResults' - Returns a list up to a specified limit.
+-- 'maxResults', 'listDomains_maxResults' - The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 --
 -- 'nextToken', 'listDomains_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
@@ -81,7 +87,10 @@ newListDomains =
       nextToken = Prelude.Nothing
     }
 
--- | Returns a list up to a specified limit.
+-- | The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 listDomains_maxResults :: Lens.Lens' ListDomains (Prelude.Maybe Prelude.Natural)
 listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\s@ListDomains' {} a -> s {maxResults = a} :: ListDomains)
 
@@ -94,20 +103,23 @@ instance Core.AWSPager ListDomains where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listDomainsResponse_domains Prelude.. Lens._Just
+            Lens.^? listDomainsResponse_domains
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDomains_nextToken
           Lens..~ rs
-          Lens.^? listDomainsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listDomainsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
@@ -124,7 +136,8 @@ instance Core.AWSRequest ListDomains where
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDomains where

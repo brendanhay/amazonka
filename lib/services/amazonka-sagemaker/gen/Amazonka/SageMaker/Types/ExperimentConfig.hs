@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 -- | Associates a SageMaker job as a trial component with an experiment and
 -- trial. Specified when you call the following APIs:
 --
--- -   CreateProcessingJob
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateProcessingJob.html CreateProcessingJob>
 --
--- -   CreateTrainingJob
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html CreateTrainingJob>
 --
--- -   CreateTransformJob
+-- -   <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html CreateTransformJob>
 --
 -- /See:/ 'newExperimentConfig' smart constructor.
 data ExperimentConfig = ExperimentConfig'
@@ -110,7 +110,8 @@ instance Data.FromJSON ExperimentConfig where
 
 instance Prelude.Hashable ExperimentConfig where
   hashWithSalt _salt ExperimentConfig' {..} =
-    _salt `Prelude.hashWithSalt` experimentName
+    _salt
+      `Prelude.hashWithSalt` experimentName
       `Prelude.hashWithSalt` runName
       `Prelude.hashWithSalt` trialComponentDisplayName
       `Prelude.hashWithSalt` trialName

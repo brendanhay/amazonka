@@ -25,8 +25,11 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Filter
 
--- | A list of nested Filter objects. A resource must satisfy the conditions
--- of all filters to be included in the results returned from the Search
+-- | A list of nested
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Filter.html Filter>
+-- objects. A resource must satisfy the conditions of all filters to be
+-- included in the results returned from the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
 -- API.
 --
 -- For example, to filter on a training job\'s @InputDataConfig@ property
@@ -95,7 +98,8 @@ nestedFilters_filters = Lens.lens (\NestedFilters' {filters} -> filters) (\s@Nes
 
 instance Prelude.Hashable NestedFilters where
   hashWithSalt _salt NestedFilters' {..} =
-    _salt `Prelude.hashWithSalt` nestedPropertyName
+    _salt
+      `Prelude.hashWithSalt` nestedPropertyName
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData NestedFilters where

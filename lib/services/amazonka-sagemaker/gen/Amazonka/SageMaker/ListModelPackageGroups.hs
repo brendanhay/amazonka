@@ -158,21 +158,21 @@ instance Core.AWSPager ListModelPackageGroups where
     | Core.stop
         ( rs
             Lens.^? listModelPackageGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelPackageGroupsResponse_modelPackageGroupSummaryList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelPackageGroups_nextToken
           Lens..~ rs
           Lens.^? listModelPackageGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelPackageGroups where
   type
@@ -186,14 +186,16 @@ instance Core.AWSRequest ListModelPackageGroups where
           ListModelPackageGroupsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ModelPackageGroupSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ModelPackageGroupSummaryList"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListModelPackageGroups where
   hashWithSalt _salt ListModelPackageGroups' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains

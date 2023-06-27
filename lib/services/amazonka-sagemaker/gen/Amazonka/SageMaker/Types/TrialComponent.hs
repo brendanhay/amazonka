@@ -34,7 +34,9 @@ import Amazonka.SageMaker.Types.TrialComponentSourceDetail
 import Amazonka.SageMaker.Types.TrialComponentStatus
 import Amazonka.SageMaker.Types.UserContext
 
--- | The properties of a trial component as returned by the Search API.
+-- | The properties of a trial component as returned by the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API.
 --
 -- /See:/ 'newTrialComponent' smart constructor.
 data TrialComponent = TrialComponent'
@@ -76,7 +78,8 @@ data TrialComponent = TrialComponent'
     startTime :: Prelude.Maybe Data.POSIX,
     status :: Prelude.Maybe TrialComponentStatus,
     -- | The list of tags that are associated with the component. You can use
-    -- Search API to search on the tags.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+    -- API to search on the tags.
     tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the trial component.
     trialComponentArn :: Prelude.Maybe Prelude.Text,
@@ -134,7 +137,8 @@ data TrialComponent = TrialComponent'
 -- 'status', 'trialComponent_status' - Undocumented member.
 --
 -- 'tags', 'trialComponent_tags' - The list of tags that are associated with the component. You can use
--- Search API to search on the tags.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 --
 -- 'trialComponentArn', 'trialComponent_trialComponentArn' - The Amazon Resource Name (ARN) of the trial component.
 --
@@ -243,7 +247,8 @@ trialComponent_status :: Lens.Lens' TrialComponent (Prelude.Maybe TrialComponent
 trialComponent_status = Lens.lens (\TrialComponent' {status} -> status) (\s@TrialComponent' {} a -> s {status = a} :: TrialComponent)
 
 -- | The list of tags that are associated with the component. You can use
--- Search API to search on the tags.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 trialComponent_tags :: Lens.Lens' TrialComponent (Prelude.Maybe [Tag])
 trialComponent_tags = Lens.lens (\TrialComponent' {tags} -> tags) (\s@TrialComponent' {} a -> s {tags = a} :: TrialComponent) Prelude.. Lens.mapping Lens.coerced
 
@@ -271,7 +276,8 @@ instance Data.FromJSON TrialComponent where
             Prelude.<*> (x Data..:? "LineageGroupArn")
             Prelude.<*> (x Data..:? "MetadataProperties")
             Prelude.<*> (x Data..:? "Metrics" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "OutputArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "OutputArtifacts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Parameters" Data..!= Prelude.mempty)
@@ -288,7 +294,8 @@ instance Data.FromJSON TrialComponent where
 
 instance Prelude.Hashable TrialComponent where
   hashWithSalt _salt TrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` endTime

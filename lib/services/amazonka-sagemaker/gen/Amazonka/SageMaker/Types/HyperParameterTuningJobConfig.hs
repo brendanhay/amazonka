@@ -35,13 +35,16 @@ import Amazonka.SageMaker.Types.TuningJobCompletionCriteria
 --
 -- /See:/ 'newHyperParameterTuningJobConfig' smart constructor.
 data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
-  { -- | The HyperParameterTuningJobObjective specifies the objective metric used
-    -- to evaluate the performance of training jobs launched by this tuning
-    -- job.
+  { -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html HyperParameterTuningJobObjective>
+    -- specifies the objective metric used to evaluate the performance of
+    -- training jobs launched by this tuning job.
     hyperParameterTuningJobObjective :: Prelude.Maybe HyperParameterTuningJobObjective,
-    -- | The ParameterRanges object that specifies the ranges of hyperparameters
-    -- that this tuning job searches over to find the optimal configuration for
-    -- the highest model performance against your chosen objective metric.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ParameterRanges.html ParameterRanges>
+    -- object that specifies the ranges of hyperparameters that this tuning job
+    -- searches over to find the optimal configuration for the highest model
+    -- performance against your chosen objective metric.
     parameterRanges :: Prelude.Maybe ParameterRanges,
     -- | A value used to initialize a pseudo-random number generator. Setting a
     -- random seed and using the same seed later for the same tuning job will
@@ -76,9 +79,10 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
     -- information about search strategies, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
     strategy :: HyperParameterTuningJobStrategyType,
-    -- | The ResourceLimits object that specifies the maximum number of training
-    -- and parallel training jobs that can be used for this hyperparameter
-    -- tuning job.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>
+    -- object that specifies the maximum number of training and parallel
+    -- training jobs that can be used for this hyperparameter tuning job.
     resourceLimits :: ResourceLimits
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,13 +95,16 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The HyperParameterTuningJobObjective specifies the objective metric used
--- to evaluate the performance of training jobs launched by this tuning
--- job.
+-- 'hyperParameterTuningJobObjective', 'hyperParameterTuningJobConfig_hyperParameterTuningJobObjective' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html HyperParameterTuningJobObjective>
+-- specifies the objective metric used to evaluate the performance of
+-- training jobs launched by this tuning job.
 --
--- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The ParameterRanges object that specifies the ranges of hyperparameters
--- that this tuning job searches over to find the optimal configuration for
--- the highest model performance against your chosen objective metric.
+-- 'parameterRanges', 'hyperParameterTuningJobConfig_parameterRanges' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ParameterRanges.html ParameterRanges>
+-- object that specifies the ranges of hyperparameters that this tuning job
+-- searches over to find the optimal configuration for the highest model
+-- performance against your chosen objective metric.
 --
 -- 'randomSeed', 'hyperParameterTuningJobConfig_randomSeed' - A value used to initialize a pseudo-random number generator. Setting a
 -- random seed and using the same seed later for the same tuning job will
@@ -132,9 +139,10 @@ data HyperParameterTuningJobConfig = HyperParameterTuningJobConfig'
 -- information about search strategies, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html How Hyperparameter Tuning Works>.
 --
--- 'resourceLimits', 'hyperParameterTuningJobConfig_resourceLimits' - The ResourceLimits object that specifies the maximum number of training
--- and parallel training jobs that can be used for this hyperparameter
--- tuning job.
+-- 'resourceLimits', 'hyperParameterTuningJobConfig_resourceLimits' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>
+-- object that specifies the maximum number of training and parallel
+-- training jobs that can be used for this hyperparameter tuning job.
 newHyperParameterTuningJobConfig ::
   -- | 'strategy'
   HyperParameterTuningJobStrategyType ->
@@ -158,15 +166,18 @@ newHyperParameterTuningJobConfig
         resourceLimits = pResourceLimits_
       }
 
--- | The HyperParameterTuningJobObjective specifies the objective metric used
--- to evaluate the performance of training jobs launched by this tuning
--- job.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobObjective.html HyperParameterTuningJobObjective>
+-- specifies the objective metric used to evaluate the performance of
+-- training jobs launched by this tuning job.
 hyperParameterTuningJobConfig_hyperParameterTuningJobObjective :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe HyperParameterTuningJobObjective)
 hyperParameterTuningJobConfig_hyperParameterTuningJobObjective = Lens.lens (\HyperParameterTuningJobConfig' {hyperParameterTuningJobObjective} -> hyperParameterTuningJobObjective) (\s@HyperParameterTuningJobConfig' {} a -> s {hyperParameterTuningJobObjective = a} :: HyperParameterTuningJobConfig)
 
--- | The ParameterRanges object that specifies the ranges of hyperparameters
--- that this tuning job searches over to find the optimal configuration for
--- the highest model performance against your chosen objective metric.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ParameterRanges.html ParameterRanges>
+-- object that specifies the ranges of hyperparameters that this tuning job
+-- searches over to find the optimal configuration for the highest model
+-- performance against your chosen objective metric.
 hyperParameterTuningJobConfig_parameterRanges :: Lens.Lens' HyperParameterTuningJobConfig (Prelude.Maybe ParameterRanges)
 hyperParameterTuningJobConfig_parameterRanges = Lens.lens (\HyperParameterTuningJobConfig' {parameterRanges} -> parameterRanges) (\s@HyperParameterTuningJobConfig' {} a -> s {parameterRanges = a} :: HyperParameterTuningJobConfig)
 
@@ -213,9 +224,10 @@ hyperParameterTuningJobConfig_tuningJobCompletionCriteria = Lens.lens (\HyperPar
 hyperParameterTuningJobConfig_strategy :: Lens.Lens' HyperParameterTuningJobConfig HyperParameterTuningJobStrategyType
 hyperParameterTuningJobConfig_strategy = Lens.lens (\HyperParameterTuningJobConfig' {strategy} -> strategy) (\s@HyperParameterTuningJobConfig' {} a -> s {strategy = a} :: HyperParameterTuningJobConfig)
 
--- | The ResourceLimits object that specifies the maximum number of training
--- and parallel training jobs that can be used for this hyperparameter
--- tuning job.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>
+-- object that specifies the maximum number of training and parallel
+-- training jobs that can be used for this hyperparameter tuning job.
 hyperParameterTuningJobConfig_resourceLimits :: Lens.Lens' HyperParameterTuningJobConfig ResourceLimits
 hyperParameterTuningJobConfig_resourceLimits = Lens.lens (\HyperParameterTuningJobConfig' {resourceLimits} -> resourceLimits) (\s@HyperParameterTuningJobConfig' {} a -> s {resourceLimits = a} :: HyperParameterTuningJobConfig)
 

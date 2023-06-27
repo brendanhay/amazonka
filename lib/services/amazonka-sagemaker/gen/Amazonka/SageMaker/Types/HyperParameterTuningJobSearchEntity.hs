@@ -25,7 +25,9 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.HyperParameterTrainingJobDefinition
 import Amazonka.SageMaker.Types.HyperParameterTrainingJobSummary
+import Amazonka.SageMaker.Types.HyperParameterTuningJobCompletionDetails
 import Amazonka.SageMaker.Types.HyperParameterTuningJobConfig
+import Amazonka.SageMaker.Types.HyperParameterTuningJobConsumedResources
 import Amazonka.SageMaker.Types.HyperParameterTuningJobStatus
 import Amazonka.SageMaker.Types.HyperParameterTuningJobWarmStartConfig
 import Amazonka.SageMaker.Types.ObjectiveStatusCounters
@@ -39,6 +41,8 @@ import Amazonka.SageMaker.Types.TrainingJobStatusCounters
 -- /See:/ 'newHyperParameterTuningJobSearchEntity' smart constructor.
 data HyperParameterTuningJobSearchEntity = HyperParameterTuningJobSearchEntity'
   { bestTrainingJob :: Prelude.Maybe HyperParameterTrainingJobSummary,
+    -- | The total amount of resources consumed by a hyperparameter tuning job.
+    consumedResources :: Prelude.Maybe HyperParameterTuningJobConsumedResources,
     -- | The time that a hyperparameter tuning job was created.
     creationTime :: Prelude.Maybe Data.POSIX,
     -- | The error that was created when a hyperparameter tuning job failed.
@@ -64,6 +68,9 @@ data HyperParameterTuningJobSearchEntity = HyperParameterTuningJobSearchEntity'
     -- | The job definitions included in a hyperparameter tuning job.
     trainingJobDefinitions :: Prelude.Maybe (Prelude.NonEmpty HyperParameterTrainingJobDefinition),
     trainingJobStatusCounters :: Prelude.Maybe TrainingJobStatusCounters,
+    -- | Information about either a current or completed hyperparameter tuning
+    -- job.
+    tuningJobCompletionDetails :: Prelude.Maybe HyperParameterTuningJobCompletionDetails,
     warmStartConfig :: Prelude.Maybe HyperParameterTuningJobWarmStartConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,6 +84,8 @@ data HyperParameterTuningJobSearchEntity = HyperParameterTuningJobSearchEntity'
 -- for backwards compatibility:
 --
 -- 'bestTrainingJob', 'hyperParameterTuningJobSearchEntity_bestTrainingJob' - Undocumented member.
+--
+-- 'consumedResources', 'hyperParameterTuningJobSearchEntity_consumedResources' - The total amount of resources consumed by a hyperparameter tuning job.
 --
 -- 'creationTime', 'hyperParameterTuningJobSearchEntity_creationTime' - The time that a hyperparameter tuning job was created.
 --
@@ -108,6 +117,9 @@ data HyperParameterTuningJobSearchEntity = HyperParameterTuningJobSearchEntity'
 --
 -- 'trainingJobStatusCounters', 'hyperParameterTuningJobSearchEntity_trainingJobStatusCounters' - Undocumented member.
 --
+-- 'tuningJobCompletionDetails', 'hyperParameterTuningJobSearchEntity_tuningJobCompletionDetails' - Information about either a current or completed hyperparameter tuning
+-- job.
+--
 -- 'warmStartConfig', 'hyperParameterTuningJobSearchEntity_warmStartConfig' - Undocumented member.
 newHyperParameterTuningJobSearchEntity ::
   HyperParameterTuningJobSearchEntity
@@ -115,6 +127,7 @@ newHyperParameterTuningJobSearchEntity =
   HyperParameterTuningJobSearchEntity'
     { bestTrainingJob =
         Prelude.Nothing,
+      consumedResources = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       hyperParameterTuningEndTime =
@@ -139,12 +152,18 @@ newHyperParameterTuningJobSearchEntity =
         Prelude.Nothing,
       trainingJobStatusCounters =
         Prelude.Nothing,
+      tuningJobCompletionDetails =
+        Prelude.Nothing,
       warmStartConfig = Prelude.Nothing
     }
 
 -- | Undocumented member.
 hyperParameterTuningJobSearchEntity_bestTrainingJob :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe HyperParameterTrainingJobSummary)
 hyperParameterTuningJobSearchEntity_bestTrainingJob = Lens.lens (\HyperParameterTuningJobSearchEntity' {bestTrainingJob} -> bestTrainingJob) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {bestTrainingJob = a} :: HyperParameterTuningJobSearchEntity)
+
+-- | The total amount of resources consumed by a hyperparameter tuning job.
+hyperParameterTuningJobSearchEntity_consumedResources :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe HyperParameterTuningJobConsumedResources)
+hyperParameterTuningJobSearchEntity_consumedResources = Lens.lens (\HyperParameterTuningJobSearchEntity' {consumedResources} -> consumedResources) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {consumedResources = a} :: HyperParameterTuningJobSearchEntity)
 
 -- | The time that a hyperparameter tuning job was created.
 hyperParameterTuningJobSearchEntity_creationTime :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe Prelude.UTCTime)
@@ -204,6 +223,11 @@ hyperParameterTuningJobSearchEntity_trainingJobDefinitions = Lens.lens (\HyperPa
 hyperParameterTuningJobSearchEntity_trainingJobStatusCounters :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe TrainingJobStatusCounters)
 hyperParameterTuningJobSearchEntity_trainingJobStatusCounters = Lens.lens (\HyperParameterTuningJobSearchEntity' {trainingJobStatusCounters} -> trainingJobStatusCounters) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {trainingJobStatusCounters = a} :: HyperParameterTuningJobSearchEntity)
 
+-- | Information about either a current or completed hyperparameter tuning
+-- job.
+hyperParameterTuningJobSearchEntity_tuningJobCompletionDetails :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe HyperParameterTuningJobCompletionDetails)
+hyperParameterTuningJobSearchEntity_tuningJobCompletionDetails = Lens.lens (\HyperParameterTuningJobSearchEntity' {tuningJobCompletionDetails} -> tuningJobCompletionDetails) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {tuningJobCompletionDetails = a} :: HyperParameterTuningJobSearchEntity)
+
 -- | Undocumented member.
 hyperParameterTuningJobSearchEntity_warmStartConfig :: Lens.Lens' HyperParameterTuningJobSearchEntity (Prelude.Maybe HyperParameterTuningJobWarmStartConfig)
 hyperParameterTuningJobSearchEntity_warmStartConfig = Lens.lens (\HyperParameterTuningJobSearchEntity' {warmStartConfig} -> warmStartConfig) (\s@HyperParameterTuningJobSearchEntity' {} a -> s {warmStartConfig = a} :: HyperParameterTuningJobSearchEntity)
@@ -218,6 +242,7 @@ instance
       ( \x ->
           HyperParameterTuningJobSearchEntity'
             Prelude.<$> (x Data..:? "BestTrainingJob")
+            Prelude.<*> (x Data..:? "ConsumedResources")
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "HyperParameterTuningEndTime")
@@ -232,6 +257,7 @@ instance
             Prelude.<*> (x Data..:? "TrainingJobDefinition")
             Prelude.<*> (x Data..:? "TrainingJobDefinitions")
             Prelude.<*> (x Data..:? "TrainingJobStatusCounters")
+            Prelude.<*> (x Data..:? "TuningJobCompletionDetails")
             Prelude.<*> (x Data..:? "WarmStartConfig")
       )
 
@@ -242,7 +268,9 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningJobSearchEntity' {..} =
-      _salt `Prelude.hashWithSalt` bestTrainingJob
+      _salt
+        `Prelude.hashWithSalt` bestTrainingJob
+        `Prelude.hashWithSalt` consumedResources
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` hyperParameterTuningEndTime
@@ -257,6 +285,7 @@ instance
         `Prelude.hashWithSalt` trainingJobDefinition
         `Prelude.hashWithSalt` trainingJobDefinitions
         `Prelude.hashWithSalt` trainingJobStatusCounters
+        `Prelude.hashWithSalt` tuningJobCompletionDetails
         `Prelude.hashWithSalt` warmStartConfig
 
 instance
@@ -265,6 +294,7 @@ instance
   where
   rnf HyperParameterTuningJobSearchEntity' {..} =
     Prelude.rnf bestTrainingJob
+      `Prelude.seq` Prelude.rnf consumedResources
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf hyperParameterTuningEndTime
@@ -279,4 +309,6 @@ instance
       `Prelude.seq` Prelude.rnf trainingJobDefinition
       `Prelude.seq` Prelude.rnf trainingJobDefinitions
       `Prelude.seq` Prelude.rnf trainingJobStatusCounters
+      `Prelude.seq` Prelude.rnf
+        tuningJobCompletionDetails
       `Prelude.seq` Prelude.rnf warmStartConfig

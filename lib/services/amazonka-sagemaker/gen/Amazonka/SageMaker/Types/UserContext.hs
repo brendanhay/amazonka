@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.IamIdentity
 
 -- | Information about the user who created or modified an experiment, trial,
 -- trial component, lineage group, project, or model card.
@@ -31,6 +32,10 @@ import qualified Amazonka.Prelude as Prelude
 data UserContext = UserContext'
   { -- | The domain associated with the user.
     domainId :: Prelude.Maybe Prelude.Text,
+    -- | The IAM Identity details associated with the user. These details are
+    -- associated with model package groups, model packages, and project
+    -- entities only.
+    iamIdentity :: Prelude.Maybe IamIdentity,
     -- | The Amazon Resource Name (ARN) of the user\'s profile.
     userProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the user\'s profile.
@@ -48,6 +53,10 @@ data UserContext = UserContext'
 --
 -- 'domainId', 'userContext_domainId' - The domain associated with the user.
 --
+-- 'iamIdentity', 'userContext_iamIdentity' - The IAM Identity details associated with the user. These details are
+-- associated with model package groups, model packages, and project
+-- entities only.
+--
 -- 'userProfileArn', 'userContext_userProfileArn' - The Amazon Resource Name (ARN) of the user\'s profile.
 --
 -- 'userProfileName', 'userContext_userProfileName' - The name of the user\'s profile.
@@ -56,6 +65,7 @@ newUserContext ::
 newUserContext =
   UserContext'
     { domainId = Prelude.Nothing,
+      iamIdentity = Prelude.Nothing,
       userProfileArn = Prelude.Nothing,
       userProfileName = Prelude.Nothing
     }
@@ -63,6 +73,12 @@ newUserContext =
 -- | The domain associated with the user.
 userContext_domainId :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
 userContext_domainId = Lens.lens (\UserContext' {domainId} -> domainId) (\s@UserContext' {} a -> s {domainId = a} :: UserContext)
+
+-- | The IAM Identity details associated with the user. These details are
+-- associated with model package groups, model packages, and project
+-- entities only.
+userContext_iamIdentity :: Lens.Lens' UserContext (Prelude.Maybe IamIdentity)
+userContext_iamIdentity = Lens.lens (\UserContext' {iamIdentity} -> iamIdentity) (\s@UserContext' {} a -> s {iamIdentity = a} :: UserContext)
 
 -- | The Amazon Resource Name (ARN) of the user\'s profile.
 userContext_userProfileArn :: Lens.Lens' UserContext (Prelude.Maybe Prelude.Text)
@@ -79,18 +95,22 @@ instance Data.FromJSON UserContext where
       ( \x ->
           UserContext'
             Prelude.<$> (x Data..:? "DomainId")
+            Prelude.<*> (x Data..:? "IamIdentity")
             Prelude.<*> (x Data..:? "UserProfileArn")
             Prelude.<*> (x Data..:? "UserProfileName")
       )
 
 instance Prelude.Hashable UserContext where
   hashWithSalt _salt UserContext' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
+      `Prelude.hashWithSalt` iamIdentity
       `Prelude.hashWithSalt` userProfileArn
       `Prelude.hashWithSalt` userProfileName
 
 instance Prelude.NFData UserContext where
   rnf UserContext' {..} =
     Prelude.rnf domainId
+      `Prelude.seq` Prelude.rnf iamIdentity
       `Prelude.seq` Prelude.rnf userProfileArn
       `Prelude.seq` Prelude.rnf userProfileName

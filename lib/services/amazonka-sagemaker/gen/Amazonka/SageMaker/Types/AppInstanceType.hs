@@ -42,6 +42,7 @@ module Amazonka.SageMaker.Types.AppInstanceType
         AppInstanceType_Ml_g5_4xlarge,
         AppInstanceType_Ml_g5_8xlarge,
         AppInstanceType_Ml_g5_xlarge,
+        AppInstanceType_Ml_geospatial_interactive,
         AppInstanceType_Ml_m5_12xlarge,
         AppInstanceType_Ml_m5_16xlarge,
         AppInstanceType_Ml_m5_24xlarge,
@@ -62,6 +63,8 @@ module Amazonka.SageMaker.Types.AppInstanceType
         AppInstanceType_Ml_p3_2xlarge,
         AppInstanceType_Ml_p3_8xlarge,
         AppInstanceType_Ml_p3dn_24xlarge,
+        AppInstanceType_Ml_p4d_24xlarge,
+        AppInstanceType_Ml_p4de_24xlarge,
         AppInstanceType_Ml_r5_12xlarge,
         AppInstanceType_Ml_r5_16xlarge,
         AppInstanceType_Ml_r5_24xlarge,
@@ -179,6 +182,9 @@ pattern AppInstanceType_Ml_g5_8xlarge = AppInstanceType' "ml.g5.8xlarge"
 pattern AppInstanceType_Ml_g5_xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_g5_xlarge = AppInstanceType' "ml.g5.xlarge"
 
+pattern AppInstanceType_Ml_geospatial_interactive :: AppInstanceType
+pattern AppInstanceType_Ml_geospatial_interactive = AppInstanceType' "ml.geospatial.interactive"
+
 pattern AppInstanceType_Ml_m5_12xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_m5_12xlarge = AppInstanceType' "ml.m5.12xlarge"
 
@@ -238,6 +244,12 @@ pattern AppInstanceType_Ml_p3_8xlarge = AppInstanceType' "ml.p3.8xlarge"
 
 pattern AppInstanceType_Ml_p3dn_24xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_p3dn_24xlarge = AppInstanceType' "ml.p3dn.24xlarge"
+
+pattern AppInstanceType_Ml_p4d_24xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_p4d_24xlarge = AppInstanceType' "ml.p4d.24xlarge"
+
+pattern AppInstanceType_Ml_p4de_24xlarge :: AppInstanceType
+pattern AppInstanceType_Ml_p4de_24xlarge = AppInstanceType' "ml.p4de.24xlarge"
 
 pattern AppInstanceType_Ml_r5_12xlarge :: AppInstanceType
 pattern AppInstanceType_Ml_r5_12xlarge = AppInstanceType' "ml.r5.12xlarge"
@@ -307,6 +319,7 @@ pattern AppInstanceType_System = AppInstanceType' "system"
   AppInstanceType_Ml_g5_4xlarge,
   AppInstanceType_Ml_g5_8xlarge,
   AppInstanceType_Ml_g5_xlarge,
+  AppInstanceType_Ml_geospatial_interactive,
   AppInstanceType_Ml_m5_12xlarge,
   AppInstanceType_Ml_m5_16xlarge,
   AppInstanceType_Ml_m5_24xlarge,
@@ -327,6 +340,8 @@ pattern AppInstanceType_System = AppInstanceType' "system"
   AppInstanceType_Ml_p3_2xlarge,
   AppInstanceType_Ml_p3_8xlarge,
   AppInstanceType_Ml_p3dn_24xlarge,
+  AppInstanceType_Ml_p4d_24xlarge,
+  AppInstanceType_Ml_p4de_24xlarge,
   AppInstanceType_Ml_r5_12xlarge,
   AppInstanceType_Ml_r5_16xlarge,
   AppInstanceType_Ml_r5_24xlarge,

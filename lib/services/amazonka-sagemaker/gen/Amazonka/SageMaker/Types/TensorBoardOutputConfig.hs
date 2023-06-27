@@ -81,7 +81,8 @@ instance Data.FromJSON TensorBoardOutputConfig where
 
 instance Prelude.Hashable TensorBoardOutputConfig where
   hashWithSalt _salt TensorBoardOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` localPath
+    _salt
+      `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` s3OutputPath
 
 instance Prelude.NFData TensorBoardOutputConfig where

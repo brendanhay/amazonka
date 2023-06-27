@@ -124,7 +124,8 @@ instance Data.FromJSON CodeRepositorySummary where
 
 instance Prelude.Hashable CodeRepositorySummary where
   hashWithSalt _salt CodeRepositorySummary' {..} =
-    _salt `Prelude.hashWithSalt` gitConfig
+    _salt
+      `Prelude.hashWithSalt` gitConfig
       `Prelude.hashWithSalt` codeRepositoryName
       `Prelude.hashWithSalt` codeRepositoryArn
       `Prelude.hashWithSalt` creationTime

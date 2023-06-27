@@ -83,7 +83,8 @@ instance Data.FromJSON KernelGatewayImageConfig where
 
 instance Prelude.Hashable KernelGatewayImageConfig where
   hashWithSalt _salt KernelGatewayImageConfig' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemConfig
+    _salt
+      `Prelude.hashWithSalt` fileSystemConfig
       `Prelude.hashWithSalt` kernelSpecs
 
 instance Prelude.NFData KernelGatewayImageConfig where

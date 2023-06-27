@@ -100,7 +100,8 @@ instance Data.FromJSON CognitoMemberDefinition where
 
 instance Prelude.Hashable CognitoMemberDefinition where
   hashWithSalt _salt CognitoMemberDefinition' {..} =
-    _salt `Prelude.hashWithSalt` userPool
+    _salt
+      `Prelude.hashWithSalt` userPool
       `Prelude.hashWithSalt` userGroup
       `Prelude.hashWithSalt` clientId
 

@@ -104,18 +104,21 @@ instance Data.FromJSON JupyterServerAppSettings where
       "JupyterServerAppSettings"
       ( \x ->
           JupyterServerAppSettings'
-            Prelude.<$> ( x Data..:? "CodeRepositories"
+            Prelude.<$> ( x
+                            Data..:? "CodeRepositories"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DefaultResourceSpec")
-            Prelude.<*> ( x Data..:? "LifecycleConfigArns"
+            Prelude.<*> ( x
+                            Data..:? "LifecycleConfigArns"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable JupyterServerAppSettings where
   hashWithSalt _salt JupyterServerAppSettings' {..} =
-    _salt `Prelude.hashWithSalt` codeRepositories
+    _salt
+      `Prelude.hashWithSalt` codeRepositories
       `Prelude.hashWithSalt` defaultResourceSpec
       `Prelude.hashWithSalt` lifecycleConfigArns
 

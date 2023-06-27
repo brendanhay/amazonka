@@ -103,7 +103,8 @@ instance Core.AWSRequest UpdateTrial where
 
 instance Prelude.Hashable UpdateTrial where
   hashWithSalt _salt UpdateTrial' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData UpdateTrial where

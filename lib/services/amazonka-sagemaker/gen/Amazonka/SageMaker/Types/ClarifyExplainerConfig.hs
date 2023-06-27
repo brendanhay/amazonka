@@ -98,7 +98,8 @@ instance Data.FromJSON ClarifyExplainerConfig where
 
 instance Prelude.Hashable ClarifyExplainerConfig where
   hashWithSalt _salt ClarifyExplainerConfig' {..} =
-    _salt `Prelude.hashWithSalt` enableExplanations
+    _salt
+      `Prelude.hashWithSalt` enableExplanations
       `Prelude.hashWithSalt` inferenceConfig
       `Prelude.hashWithSalt` shapConfig
 

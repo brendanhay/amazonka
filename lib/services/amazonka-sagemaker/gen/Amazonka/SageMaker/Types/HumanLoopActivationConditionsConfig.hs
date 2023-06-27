@@ -25,7 +25,11 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Defines under what conditions SageMaker creates a human loop. Used
--- within . See for the required format of activation conditions.
+-- within
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateFlowDefinition.html CreateFlowDefinition>.
+-- See
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HumanLoopActivationConditionsConfig.html HumanLoopActivationConditionsConfig>
+-- for the required format of activation conditions.
 --
 -- /See:/ 'newHumanLoopActivationConditionsConfig' smart constructor.
 data HumanLoopActivationConditionsConfig = HumanLoopActivationConditionsConfig'

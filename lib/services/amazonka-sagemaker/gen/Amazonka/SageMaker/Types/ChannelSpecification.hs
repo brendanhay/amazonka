@@ -139,11 +139,13 @@ instance Data.FromJSON ChannelSpecification where
           ChannelSpecification'
             Prelude.<$> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "IsRequired")
-            Prelude.<*> ( x Data..:? "SupportedCompressionTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedCompressionTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "Name")
-            Prelude.<*> ( x Data..:? "SupportedContentTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedContentTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "SupportedInputModes")
@@ -151,7 +153,8 @@ instance Data.FromJSON ChannelSpecification where
 
 instance Prelude.Hashable ChannelSpecification where
   hashWithSalt _salt ChannelSpecification' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isRequired
       `Prelude.hashWithSalt` supportedCompressionTypes
       `Prelude.hashWithSalt` name

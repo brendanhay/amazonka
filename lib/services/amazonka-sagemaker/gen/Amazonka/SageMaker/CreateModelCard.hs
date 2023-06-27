@@ -65,7 +65,7 @@ data CreateModelCard = CreateModelCard'
     -- | The unique name of the model card.
     modelCardName :: Prelude.Text,
     -- | The content of the model card. Content must be in
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
     -- and provided as a string.
     content :: Data.Sensitive Prelude.Text,
     -- | The approval status of the model card within your organization.
@@ -101,7 +101,7 @@ data CreateModelCard = CreateModelCard'
 -- 'modelCardName', 'createModelCard_modelCardName' - The unique name of the model card.
 --
 -- 'content', 'createModelCard_content' - The content of the model card. Content must be in
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
 -- and provided as a string.
 --
 -- 'modelCardStatus', 'createModelCard_modelCardStatus' - The approval status of the model card within your organization.
@@ -151,7 +151,7 @@ createModelCard_modelCardName :: Lens.Lens' CreateModelCard Prelude.Text
 createModelCard_modelCardName = Lens.lens (\CreateModelCard' {modelCardName} -> modelCardName) (\s@CreateModelCard' {} a -> s {modelCardName = a} :: CreateModelCard)
 
 -- | The content of the model card. Content must be in
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
 -- and provided as a string.
 createModelCard_content :: Lens.Lens' CreateModelCard Prelude.Text
 createModelCard_content = Lens.lens (\CreateModelCard' {content} -> content) (\s@CreateModelCard' {} a -> s {content = a} :: CreateModelCard) Prelude.. Data._Sensitive
@@ -187,7 +187,8 @@ instance Core.AWSRequest CreateModelCard where
 
 instance Prelude.Hashable CreateModelCard where
   hashWithSalt _salt CreateModelCard' {..} =
-    _salt `Prelude.hashWithSalt` securityConfig
+    _salt
+      `Prelude.hashWithSalt` securityConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelCardName
       `Prelude.hashWithSalt` content

@@ -140,7 +140,8 @@ instance Core.AWSRequest CreateEdgeDeploymentPlan where
 
 instance Prelude.Hashable CreateEdgeDeploymentPlan where
   hashWithSalt _salt CreateEdgeDeploymentPlan' {..} =
-    _salt `Prelude.hashWithSalt` stages
+    _salt
+      `Prelude.hashWithSalt` stages
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` edgeDeploymentPlanName
       `Prelude.hashWithSalt` modelConfigs

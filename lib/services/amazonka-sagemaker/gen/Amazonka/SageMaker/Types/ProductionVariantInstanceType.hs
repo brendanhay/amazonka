@@ -92,6 +92,10 @@ module Amazonka.SageMaker.Types.ProductionVariantInstanceType
         ProductionVariantInstanceType_Ml_inf1_2xlarge,
         ProductionVariantInstanceType_Ml_inf1_6xlarge,
         ProductionVariantInstanceType_Ml_inf1_xlarge,
+        ProductionVariantInstanceType_Ml_inf2_24xlarge,
+        ProductionVariantInstanceType_Ml_inf2_48xlarge,
+        ProductionVariantInstanceType_Ml_inf2_8xlarge,
+        ProductionVariantInstanceType_Ml_inf2_xlarge,
         ProductionVariantInstanceType_Ml_m4_10xlarge,
         ProductionVariantInstanceType_Ml_m4_16xlarge,
         ProductionVariantInstanceType_Ml_m4_2xlarge,
@@ -130,6 +134,7 @@ module Amazonka.SageMaker.Types.ProductionVariantInstanceType
         ProductionVariantInstanceType_Ml_p3_2xlarge,
         ProductionVariantInstanceType_Ml_p3_8xlarge,
         ProductionVariantInstanceType_Ml_p4d_24xlarge,
+        ProductionVariantInstanceType_Ml_p4de_24xlarge,
         ProductionVariantInstanceType_Ml_r5_12xlarge,
         ProductionVariantInstanceType_Ml_r5_24xlarge,
         ProductionVariantInstanceType_Ml_r5_2xlarge,
@@ -159,7 +164,9 @@ module Amazonka.SageMaker.Types.ProductionVariantInstanceType
         ProductionVariantInstanceType_Ml_t2_2xlarge,
         ProductionVariantInstanceType_Ml_t2_large,
         ProductionVariantInstanceType_Ml_t2_medium,
-        ProductionVariantInstanceType_Ml_t2_xlarge
+        ProductionVariantInstanceType_Ml_t2_xlarge,
+        ProductionVariantInstanceType_Ml_trn1_2xlarge,
+        ProductionVariantInstanceType_Ml_trn1_32xlarge
       ),
   )
 where
@@ -412,6 +419,18 @@ pattern ProductionVariantInstanceType_Ml_inf1_6xlarge = ProductionVariantInstanc
 pattern ProductionVariantInstanceType_Ml_inf1_xlarge :: ProductionVariantInstanceType
 pattern ProductionVariantInstanceType_Ml_inf1_xlarge = ProductionVariantInstanceType' "ml.inf1.xlarge"
 
+pattern ProductionVariantInstanceType_Ml_inf2_24xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceType_Ml_inf2_24xlarge = ProductionVariantInstanceType' "ml.inf2.24xlarge"
+
+pattern ProductionVariantInstanceType_Ml_inf2_48xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceType_Ml_inf2_48xlarge = ProductionVariantInstanceType' "ml.inf2.48xlarge"
+
+pattern ProductionVariantInstanceType_Ml_inf2_8xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceType_Ml_inf2_8xlarge = ProductionVariantInstanceType' "ml.inf2.8xlarge"
+
+pattern ProductionVariantInstanceType_Ml_inf2_xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceType_Ml_inf2_xlarge = ProductionVariantInstanceType' "ml.inf2.xlarge"
+
 pattern ProductionVariantInstanceType_Ml_m4_10xlarge :: ProductionVariantInstanceType
 pattern ProductionVariantInstanceType_Ml_m4_10xlarge = ProductionVariantInstanceType' "ml.m4.10xlarge"
 
@@ -526,6 +545,9 @@ pattern ProductionVariantInstanceType_Ml_p3_8xlarge = ProductionVariantInstanceT
 pattern ProductionVariantInstanceType_Ml_p4d_24xlarge :: ProductionVariantInstanceType
 pattern ProductionVariantInstanceType_Ml_p4d_24xlarge = ProductionVariantInstanceType' "ml.p4d.24xlarge"
 
+pattern ProductionVariantInstanceType_Ml_p4de_24xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceType_Ml_p4de_24xlarge = ProductionVariantInstanceType' "ml.p4de.24xlarge"
+
 pattern ProductionVariantInstanceType_Ml_r5_12xlarge :: ProductionVariantInstanceType
 pattern ProductionVariantInstanceType_Ml_r5_12xlarge = ProductionVariantInstanceType' "ml.r5.12xlarge"
 
@@ -616,6 +638,12 @@ pattern ProductionVariantInstanceType_Ml_t2_medium = ProductionVariantInstanceTy
 pattern ProductionVariantInstanceType_Ml_t2_xlarge :: ProductionVariantInstanceType
 pattern ProductionVariantInstanceType_Ml_t2_xlarge = ProductionVariantInstanceType' "ml.t2.xlarge"
 
+pattern ProductionVariantInstanceType_Ml_trn1_2xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceType_Ml_trn1_2xlarge = ProductionVariantInstanceType' "ml.trn1.2xlarge"
+
+pattern ProductionVariantInstanceType_Ml_trn1_32xlarge :: ProductionVariantInstanceType
+pattern ProductionVariantInstanceType_Ml_trn1_32xlarge = ProductionVariantInstanceType' "ml.trn1.32xlarge"
+
 {-# COMPLETE
   ProductionVariantInstanceType_Ml_c4_2xlarge,
   ProductionVariantInstanceType_Ml_c4_4xlarge,
@@ -689,6 +717,10 @@ pattern ProductionVariantInstanceType_Ml_t2_xlarge = ProductionVariantInstanceTy
   ProductionVariantInstanceType_Ml_inf1_2xlarge,
   ProductionVariantInstanceType_Ml_inf1_6xlarge,
   ProductionVariantInstanceType_Ml_inf1_xlarge,
+  ProductionVariantInstanceType_Ml_inf2_24xlarge,
+  ProductionVariantInstanceType_Ml_inf2_48xlarge,
+  ProductionVariantInstanceType_Ml_inf2_8xlarge,
+  ProductionVariantInstanceType_Ml_inf2_xlarge,
   ProductionVariantInstanceType_Ml_m4_10xlarge,
   ProductionVariantInstanceType_Ml_m4_16xlarge,
   ProductionVariantInstanceType_Ml_m4_2xlarge,
@@ -727,6 +759,7 @@ pattern ProductionVariantInstanceType_Ml_t2_xlarge = ProductionVariantInstanceTy
   ProductionVariantInstanceType_Ml_p3_2xlarge,
   ProductionVariantInstanceType_Ml_p3_8xlarge,
   ProductionVariantInstanceType_Ml_p4d_24xlarge,
+  ProductionVariantInstanceType_Ml_p4de_24xlarge,
   ProductionVariantInstanceType_Ml_r5_12xlarge,
   ProductionVariantInstanceType_Ml_r5_24xlarge,
   ProductionVariantInstanceType_Ml_r5_2xlarge,
@@ -757,5 +790,7 @@ pattern ProductionVariantInstanceType_Ml_t2_xlarge = ProductionVariantInstanceTy
   ProductionVariantInstanceType_Ml_t2_large,
   ProductionVariantInstanceType_Ml_t2_medium,
   ProductionVariantInstanceType_Ml_t2_xlarge,
+  ProductionVariantInstanceType_Ml_trn1_2xlarge,
+  ProductionVariantInstanceType_Ml_trn1_32xlarge,
   ProductionVariantInstanceType'
   #-}

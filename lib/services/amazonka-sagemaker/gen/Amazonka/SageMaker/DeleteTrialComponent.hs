@@ -23,7 +23,8 @@
 -- Deletes the specified trial component. A trial component must be
 -- disassociated from all trials before the trial component can be deleted.
 -- To disassociate a trial component from a trial, call the
--- DisassociateTrialComponent API.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html DisassociateTrialComponent>
+-- API.
 module Amazonka.SageMaker.DeleteTrialComponent
   ( -- * Creating a Request
     DeleteTrialComponent (..),

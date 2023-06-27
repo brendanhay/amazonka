@@ -32,7 +32,13 @@ import Amazonka.SageMaker.Types.RecommendationMetrics
 --
 -- /See:/ 'newInferenceRecommendation' smart constructor.
 data InferenceRecommendation = InferenceRecommendation'
-  { -- | The metrics used to decide what recommendation to make.
+  { -- | A timestamp that shows when the benchmark completed.
+    invocationEndTime :: Prelude.Maybe Data.POSIX,
+    -- | A timestamp that shows when the benchmark started.
+    invocationStartTime :: Prelude.Maybe Data.POSIX,
+    -- | The recommendation ID which uniquely identifies each recommendation.
+    recommendationId :: Prelude.Maybe Prelude.Text,
+    -- | The metrics used to decide what recommendation to make.
     metrics :: RecommendationMetrics,
     -- | Defines the endpoint configuration parameters.
     endpointConfiguration :: EndpointOutputConfiguration,
@@ -48,6 +54,12 @@ data InferenceRecommendation = InferenceRecommendation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'invocationEndTime', 'inferenceRecommendation_invocationEndTime' - A timestamp that shows when the benchmark completed.
+--
+-- 'invocationStartTime', 'inferenceRecommendation_invocationStartTime' - A timestamp that shows when the benchmark started.
+--
+-- 'recommendationId', 'inferenceRecommendation_recommendationId' - The recommendation ID which uniquely identifies each recommendation.
 --
 -- 'metrics', 'inferenceRecommendation_metrics' - The metrics used to decide what recommendation to make.
 --
@@ -67,10 +79,26 @@ newInferenceRecommendation
   pEndpointConfiguration_
   pModelConfiguration_ =
     InferenceRecommendation'
-      { metrics = pMetrics_,
+      { invocationEndTime =
+          Prelude.Nothing,
+        invocationStartTime = Prelude.Nothing,
+        recommendationId = Prelude.Nothing,
+        metrics = pMetrics_,
         endpointConfiguration = pEndpointConfiguration_,
         modelConfiguration = pModelConfiguration_
       }
+
+-- | A timestamp that shows when the benchmark completed.
+inferenceRecommendation_invocationEndTime :: Lens.Lens' InferenceRecommendation (Prelude.Maybe Prelude.UTCTime)
+inferenceRecommendation_invocationEndTime = Lens.lens (\InferenceRecommendation' {invocationEndTime} -> invocationEndTime) (\s@InferenceRecommendation' {} a -> s {invocationEndTime = a} :: InferenceRecommendation) Prelude.. Lens.mapping Data._Time
+
+-- | A timestamp that shows when the benchmark started.
+inferenceRecommendation_invocationStartTime :: Lens.Lens' InferenceRecommendation (Prelude.Maybe Prelude.UTCTime)
+inferenceRecommendation_invocationStartTime = Lens.lens (\InferenceRecommendation' {invocationStartTime} -> invocationStartTime) (\s@InferenceRecommendation' {} a -> s {invocationStartTime = a} :: InferenceRecommendation) Prelude.. Lens.mapping Data._Time
+
+-- | The recommendation ID which uniquely identifies each recommendation.
+inferenceRecommendation_recommendationId :: Lens.Lens' InferenceRecommendation (Prelude.Maybe Prelude.Text)
+inferenceRecommendation_recommendationId = Lens.lens (\InferenceRecommendation' {recommendationId} -> recommendationId) (\s@InferenceRecommendation' {} a -> s {recommendationId = a} :: InferenceRecommendation)
 
 -- | The metrics used to decide what recommendation to make.
 inferenceRecommendation_metrics :: Lens.Lens' InferenceRecommendation RecommendationMetrics
@@ -90,19 +118,29 @@ instance Data.FromJSON InferenceRecommendation where
       "InferenceRecommendation"
       ( \x ->
           InferenceRecommendation'
-            Prelude.<$> (x Data..: "Metrics")
+            Prelude.<$> (x Data..:? "InvocationEndTime")
+            Prelude.<*> (x Data..:? "InvocationStartTime")
+            Prelude.<*> (x Data..:? "RecommendationId")
+            Prelude.<*> (x Data..: "Metrics")
             Prelude.<*> (x Data..: "EndpointConfiguration")
             Prelude.<*> (x Data..: "ModelConfiguration")
       )
 
 instance Prelude.Hashable InferenceRecommendation where
   hashWithSalt _salt InferenceRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` metrics
+    _salt
+      `Prelude.hashWithSalt` invocationEndTime
+      `Prelude.hashWithSalt` invocationStartTime
+      `Prelude.hashWithSalt` recommendationId
+      `Prelude.hashWithSalt` metrics
       `Prelude.hashWithSalt` endpointConfiguration
       `Prelude.hashWithSalt` modelConfiguration
 
 instance Prelude.NFData InferenceRecommendation where
   rnf InferenceRecommendation' {..} =
-    Prelude.rnf metrics
+    Prelude.rnf invocationEndTime
+      `Prelude.seq` Prelude.rnf invocationStartTime
+      `Prelude.seq` Prelude.rnf recommendationId
+      `Prelude.seq` Prelude.rnf metrics
       `Prelude.seq` Prelude.rnf endpointConfiguration
       `Prelude.seq` Prelude.rnf modelConfiguration

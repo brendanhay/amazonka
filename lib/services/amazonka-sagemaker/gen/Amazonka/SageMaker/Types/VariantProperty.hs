@@ -27,23 +27,26 @@ import Amazonka.SageMaker.Types.VariantPropertyType
 
 -- | Specifies a production variant property type for an Endpoint.
 --
--- If you are updating an endpoint with the
--- UpdateEndpointInput$RetainAllVariantProperties option set to @true@, the
--- @VariantProperty@ objects listed in
--- UpdateEndpointInput$ExcludeRetainedVariantProperties override the
--- existing variant properties of the endpoint.
+-- If you are updating an endpoint with the @RetainAllVariantProperties@
+-- option of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html UpdateEndpointInput>
+-- set to @true@, the @VariantProperty@ objects listed in the
+-- @ExcludeRetainedVariantProperties@ parameter of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateEndpoint.html UpdateEndpointInput>
+-- override the existing variant properties of the endpoint.
 --
 -- /See:/ 'newVariantProperty' smart constructor.
 data VariantProperty = VariantProperty'
   { -- | The type of variant property. The supported values are:
     --
     -- -   @DesiredInstanceCount@: Overrides the existing variant instance
-    --     counts using the ProductionVariant$InitialInstanceCount values in
-    --     the CreateEndpointConfigInput$ProductionVariants.
+    --     counts using the @InitialInstanceCount@ values in the
+    --     @ProductionVariants@ of
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
     --
     -- -   @DesiredWeight@: Overrides the existing variant weights using the
-    --     ProductionVariant$InitialVariantWeight values in the
-    --     CreateEndpointConfigInput$ProductionVariants.
+    --     @InitialVariantWeight@ values in the @ProductionVariants@ of
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
     --
     -- -   @DataCaptureConfig@: (Not currently supported.)
     variantPropertyType :: VariantPropertyType
@@ -61,12 +64,13 @@ data VariantProperty = VariantProperty'
 -- 'variantPropertyType', 'variantProperty_variantPropertyType' - The type of variant property. The supported values are:
 --
 -- -   @DesiredInstanceCount@: Overrides the existing variant instance
---     counts using the ProductionVariant$InitialInstanceCount values in
---     the CreateEndpointConfigInput$ProductionVariants.
+--     counts using the @InitialInstanceCount@ values in the
+--     @ProductionVariants@ of
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
 --
 -- -   @DesiredWeight@: Overrides the existing variant weights using the
---     ProductionVariant$InitialVariantWeight values in the
---     CreateEndpointConfigInput$ProductionVariants.
+--     @InitialVariantWeight@ values in the @ProductionVariants@ of
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
 --
 -- -   @DataCaptureConfig@: (Not currently supported.)
 newVariantProperty ::
@@ -82,12 +86,13 @@ newVariantProperty pVariantPropertyType_ =
 -- | The type of variant property. The supported values are:
 --
 -- -   @DesiredInstanceCount@: Overrides the existing variant instance
---     counts using the ProductionVariant$InitialInstanceCount values in
---     the CreateEndpointConfigInput$ProductionVariants.
+--     counts using the @InitialInstanceCount@ values in the
+--     @ProductionVariants@ of
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
 --
 -- -   @DesiredWeight@: Overrides the existing variant weights using the
---     ProductionVariant$InitialVariantWeight values in the
---     CreateEndpointConfigInput$ProductionVariants.
+--     @InitialVariantWeight@ values in the @ProductionVariants@ of
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>.
 --
 -- -   @DataCaptureConfig@: (Not currently supported.)
 variantProperty_variantPropertyType :: Lens.Lens' VariantProperty VariantPropertyType

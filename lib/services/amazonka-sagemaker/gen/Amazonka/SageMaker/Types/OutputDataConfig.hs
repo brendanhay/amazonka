@@ -23,13 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.OutputCompressionType
 
 -- | Provides information about how to store model training results (model
 -- artifacts).
 --
 -- /See:/ 'newOutputDataConfig' smart constructor.
 data OutputDataConfig = OutputDataConfig'
-  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+  { -- | The model output compression type. Select @None@ to output an
+    -- uncompressed model, recommended for large model outputs. Defaults to
+    -- gzip.
+    compressionType :: Prelude.Maybe OutputCompressionType,
+    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
     -- key that SageMaker uses to encrypt the model artifacts at rest using
     -- Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
     -- following formats:
@@ -82,6 +87,10 @@ data OutputDataConfig = OutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'compressionType', 'outputDataConfig_compressionType' - The model output compression type. Select @None@ to output an
+-- uncompressed model, recommended for large model outputs. Defaults to
+-- gzip.
+--
 -- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that SageMaker uses to encrypt the model artifacts at rest using
 -- Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
@@ -129,9 +138,17 @@ newOutputDataConfig ::
   OutputDataConfig
 newOutputDataConfig pS3OutputPath_ =
   OutputDataConfig'
-    { kmsKeyId = Prelude.Nothing,
+    { compressionType =
+        Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
       s3OutputPath = pS3OutputPath_
     }
+
+-- | The model output compression type. Select @None@ to output an
+-- uncompressed model, recommended for large model outputs. Defaults to
+-- gzip.
+outputDataConfig_compressionType :: Lens.Lens' OutputDataConfig (Prelude.Maybe OutputCompressionType)
+outputDataConfig_compressionType = Lens.lens (\OutputDataConfig' {compressionType} -> compressionType) (\s@OutputDataConfig' {} a -> s {compressionType = a} :: OutputDataConfig)
 
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that SageMaker uses to encrypt the model artifacts at rest using
@@ -185,25 +202,31 @@ instance Data.FromJSON OutputDataConfig where
       "OutputDataConfig"
       ( \x ->
           OutputDataConfig'
-            Prelude.<$> (x Data..:? "KmsKeyId")
+            Prelude.<$> (x Data..:? "CompressionType")
+            Prelude.<*> (x Data..:? "KmsKeyId")
             Prelude.<*> (x Data..: "S3OutputPath")
       )
 
 instance Prelude.Hashable OutputDataConfig where
   hashWithSalt _salt OutputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` compressionType
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3OutputPath
 
 instance Prelude.NFData OutputDataConfig where
   rnf OutputDataConfig' {..} =
-    Prelude.rnf kmsKeyId
+    Prelude.rnf compressionType
+      `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf s3OutputPath
 
 instance Data.ToJSON OutputDataConfig where
   toJSON OutputDataConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
+          [ ("CompressionType" Data..=)
+              Prelude.<$> compressionType,
+            ("KmsKeyId" Data..=) Prelude.<$> kmsKeyId,
             Prelude.Just ("S3OutputPath" Data..= s3OutputPath)
           ]
       )

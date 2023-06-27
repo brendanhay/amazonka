@@ -229,7 +229,8 @@ instance Data.FromJSON UiConfig where
 
 instance Prelude.Hashable UiConfig where
   hashWithSalt _salt UiConfig' {..} =
-    _salt `Prelude.hashWithSalt` humanTaskUiArn
+    _salt
+      `Prelude.hashWithSalt` humanTaskUiArn
       `Prelude.hashWithSalt` uiTemplateS3Uri
 
 instance Prelude.NFData UiConfig where

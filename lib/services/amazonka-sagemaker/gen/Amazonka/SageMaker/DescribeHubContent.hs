@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe the content of a hub.
+--
+-- Hub APIs are only callable through SageMaker Studio.
 module Amazonka.SageMaker.DescribeHubContent
   ( -- * Creating a Request
     DescribeHubContent (..),
@@ -140,13 +142,15 @@ instance Core.AWSRequest DescribeHubContent where
       ( \s h x ->
           DescribeHubContentResponse'
             Prelude.<$> (x Data..?> "FailureReason")
-            Prelude.<*> ( x Data..?> "HubContentDependencies"
+            Prelude.<*> ( x
+                            Data..?> "HubContentDependencies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "HubContentDescription")
             Prelude.<*> (x Data..?> "HubContentDisplayName")
             Prelude.<*> (x Data..?> "HubContentMarkdown")
-            Prelude.<*> ( x Data..?> "HubContentSearchKeywords"
+            Prelude.<*> ( x
+                            Data..?> "HubContentSearchKeywords"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -164,7 +168,8 @@ instance Core.AWSRequest DescribeHubContent where
 
 instance Prelude.Hashable DescribeHubContent where
   hashWithSalt _salt DescribeHubContent' {..} =
-    _salt `Prelude.hashWithSalt` hubContentVersion
+    _salt
+      `Prelude.hashWithSalt` hubContentVersion
       `Prelude.hashWithSalt` hubName
       `Prelude.hashWithSalt` hubContentType
       `Prelude.hashWithSalt` hubContentName
@@ -222,7 +227,8 @@ data DescribeHubContentResponse = DescribeHubContentResponse'
     hubContentDescription :: Prelude.Maybe Prelude.Text,
     -- | The display name of the hub content.
     hubContentDisplayName :: Prelude.Maybe Prelude.Text,
-    -- | Markdown files associated with the hub content to import.
+    -- | A string that provides a description of the hub content. This string can
+    -- include links, tables, and standard markdown formating.
     hubContentMarkdown :: Prelude.Maybe Prelude.Text,
     -- | The searchable keywords for the hub content.
     hubContentSearchKeywords :: Prelude.Maybe [Prelude.Text],
@@ -269,7 +275,8 @@ data DescribeHubContentResponse = DescribeHubContentResponse'
 --
 -- 'hubContentDisplayName', 'describeHubContentResponse_hubContentDisplayName' - The display name of the hub content.
 --
--- 'hubContentMarkdown', 'describeHubContentResponse_hubContentMarkdown' - Markdown files associated with the hub content to import.
+-- 'hubContentMarkdown', 'describeHubContentResponse_hubContentMarkdown' - A string that provides a description of the hub content. This string can
+-- include links, tables, and standard markdown formating.
 --
 -- 'hubContentSearchKeywords', 'describeHubContentResponse_hubContentSearchKeywords' - The searchable keywords for the hub content.
 --
@@ -369,7 +376,8 @@ describeHubContentResponse_hubContentDescription = Lens.lens (\DescribeHubConten
 describeHubContentResponse_hubContentDisplayName :: Lens.Lens' DescribeHubContentResponse (Prelude.Maybe Prelude.Text)
 describeHubContentResponse_hubContentDisplayName = Lens.lens (\DescribeHubContentResponse' {hubContentDisplayName} -> hubContentDisplayName) (\s@DescribeHubContentResponse' {} a -> s {hubContentDisplayName = a} :: DescribeHubContentResponse)
 
--- | Markdown files associated with the hub content to import.
+-- | A string that provides a description of the hub content. This string can
+-- include links, tables, and standard markdown formating.
 describeHubContentResponse_hubContentMarkdown :: Lens.Lens' DescribeHubContentResponse (Prelude.Maybe Prelude.Text)
 describeHubContentResponse_hubContentMarkdown = Lens.lens (\DescribeHubContentResponse' {hubContentMarkdown} -> hubContentMarkdown) (\s@DescribeHubContentResponse' {} a -> s {hubContentMarkdown = a} :: DescribeHubContentResponse)
 

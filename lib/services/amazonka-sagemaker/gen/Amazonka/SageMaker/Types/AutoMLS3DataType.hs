@@ -20,6 +20,7 @@
 module Amazonka.SageMaker.Types.AutoMLS3DataType
   ( AutoMLS3DataType
       ( ..,
+        AutoMLS3DataType_AugmentedManifestFile,
         AutoMLS3DataType_ManifestFile,
         AutoMLS3DataType_S3Prefix
       ),
@@ -58,6 +59,9 @@ newtype AutoMLS3DataType = AutoMLS3DataType'
       Data.ToXML
     )
 
+pattern AutoMLS3DataType_AugmentedManifestFile :: AutoMLS3DataType
+pattern AutoMLS3DataType_AugmentedManifestFile = AutoMLS3DataType' "AugmentedManifestFile"
+
 pattern AutoMLS3DataType_ManifestFile :: AutoMLS3DataType
 pattern AutoMLS3DataType_ManifestFile = AutoMLS3DataType' "ManifestFile"
 
@@ -65,6 +69,7 @@ pattern AutoMLS3DataType_S3Prefix :: AutoMLS3DataType
 pattern AutoMLS3DataType_S3Prefix = AutoMLS3DataType' "S3Prefix"
 
 {-# COMPLETE
+  AutoMLS3DataType_AugmentedManifestFile,
   AutoMLS3DataType_ManifestFile,
   AutoMLS3DataType_S3Prefix,
   AutoMLS3DataType'

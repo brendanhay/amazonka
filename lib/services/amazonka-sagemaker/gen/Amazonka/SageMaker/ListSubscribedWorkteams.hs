@@ -114,21 +114,21 @@ instance Core.AWSPager ListSubscribedWorkteams where
     | Core.stop
         ( rs
             Lens.^? listSubscribedWorkteamsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listSubscribedWorkteamsResponse_subscribedWorkteams
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSubscribedWorkteams_nextToken
           Lens..~ rs
           Lens.^? listSubscribedWorkteamsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSubscribedWorkteams where
   type
@@ -142,14 +142,16 @@ instance Core.AWSRequest ListSubscribedWorkteams where
           ListSubscribedWorkteamsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "SubscribedWorkteams"
+            Prelude.<*> ( x
+                            Data..?> "SubscribedWorkteams"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListSubscribedWorkteams where
   hashWithSalt _salt ListSubscribedWorkteams' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` nextToken
 

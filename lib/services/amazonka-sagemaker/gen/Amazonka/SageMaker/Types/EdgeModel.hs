@@ -98,7 +98,8 @@ instance Data.FromJSON EdgeModel where
 
 instance Prelude.Hashable EdgeModel where
   hashWithSalt _salt EdgeModel' {..} =
-    _salt `Prelude.hashWithSalt` latestInference
+    _salt
+      `Prelude.hashWithSalt` latestInference
       `Prelude.hashWithSalt` latestSampleTime
       `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` modelVersion

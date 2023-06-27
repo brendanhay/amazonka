@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     ServiceCatalogProvisionedProductDetails' {..} =
-      _salt `Prelude.hashWithSalt` provisionedProductId
+      _salt
+        `Prelude.hashWithSalt` provisionedProductId
         `Prelude.hashWithSalt` provisionedProductStatusMessage
 
 instance

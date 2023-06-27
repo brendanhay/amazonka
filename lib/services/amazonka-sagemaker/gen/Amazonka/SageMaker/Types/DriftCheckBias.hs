@@ -87,7 +87,8 @@ instance Data.FromJSON DriftCheckBias where
 
 instance Prelude.Hashable DriftCheckBias where
   hashWithSalt _salt DriftCheckBias' {..} =
-    _salt `Prelude.hashWithSalt` configFile
+    _salt
+      `Prelude.hashWithSalt` configFile
       `Prelude.hashWithSalt` postTrainingConstraints
       `Prelude.hashWithSalt` preTrainingConstraints
 

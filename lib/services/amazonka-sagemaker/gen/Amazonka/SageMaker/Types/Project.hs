@@ -188,7 +188,8 @@ instance Data.FromJSON Project where
 
 instance Prelude.Hashable Project where
   hashWithSalt _salt Project' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedBy
       `Prelude.hashWithSalt` lastModifiedTime

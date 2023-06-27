@@ -150,7 +150,8 @@ instance Core.AWSRequest CreateArtifact where
 
 instance Prelude.Hashable CreateArtifact where
   hashWithSalt _salt CreateArtifact' {..} =
-    _salt `Prelude.hashWithSalt` artifactName
+    _salt
+      `Prelude.hashWithSalt` artifactName
       `Prelude.hashWithSalt` metadataProperties
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` tags

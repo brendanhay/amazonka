@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delete the contents of a hub.
+--
+-- Hub APIs are only callable through SageMaker Studio.
 module Amazonka.SageMaker.DeleteHubContent
   ( -- * Creating a Request
     DeleteHubContent (..),
@@ -123,7 +125,8 @@ instance Core.AWSRequest DeleteHubContent where
 
 instance Prelude.Hashable DeleteHubContent where
   hashWithSalt _salt DeleteHubContent' {..} =
-    _salt `Prelude.hashWithSalt` hubName
+    _salt
+      `Prelude.hashWithSalt` hubName
       `Prelude.hashWithSalt` hubContentType
       `Prelude.hashWithSalt` hubContentName
       `Prelude.hashWithSalt` hubContentVersion

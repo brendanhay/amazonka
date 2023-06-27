@@ -60,7 +60,10 @@ import Amazonka.SageMaker.Types
 data ListApps = ListApps'
   { -- | A parameter to search for the domain ID.
     domainIdEquals :: Prelude.Maybe Prelude.Text,
-    -- | Returns a list up to a specified limit.
+    -- | The total number of items to return in the response. If the total number
+    -- of items available is more than the value specified, a @NextToken@ is
+    -- provided in the response. To resume pagination, provide the @NextToken@
+    -- value in the as part of a subsequent call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
@@ -88,7 +91,10 @@ data ListApps = ListApps'
 --
 -- 'domainIdEquals', 'listApps_domainIdEquals' - A parameter to search for the domain ID.
 --
--- 'maxResults', 'listApps_maxResults' - Returns a list up to a specified limit.
+-- 'maxResults', 'listApps_maxResults' - The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 --
 -- 'nextToken', 'listApps_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
@@ -119,7 +125,10 @@ newListApps =
 listApps_domainIdEquals :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_domainIdEquals = Lens.lens (\ListApps' {domainIdEquals} -> domainIdEquals) (\s@ListApps' {} a -> s {domainIdEquals = a} :: ListApps)
 
--- | Returns a list up to a specified limit.
+-- | The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Natural)
 listApps_maxResults = Lens.lens (\ListApps' {maxResults} -> maxResults) (\s@ListApps' {} a -> s {maxResults = a} :: ListApps)
 
@@ -150,20 +159,23 @@ instance Core.AWSPager ListApps where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAppsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAppsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listAppsResponse_apps Prelude.. Lens._Just
+            Lens.^? listAppsResponse_apps
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listApps_nextToken
           Lens..~ rs
-          Lens.^? listAppsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAppsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListApps where
   type AWSResponse ListApps = ListAppsResponse
@@ -180,7 +192,8 @@ instance Core.AWSRequest ListApps where
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =
-    _salt `Prelude.hashWithSalt` domainIdEquals
+    _salt
+      `Prelude.hashWithSalt` domainIdEquals
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

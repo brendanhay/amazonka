@@ -77,7 +77,8 @@ instance Data.FromJSON DriftCheckModelQuality where
 
 instance Prelude.Hashable DriftCheckModelQuality where
   hashWithSalt _salt DriftCheckModelQuality' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` statistics
 
 instance Prelude.NFData DriftCheckModelQuality where

@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ContainerMode
 import Amazonka.SageMaker.Types.ImageConfig
+import Amazonka.SageMaker.Types.ModelDataSource
 import Amazonka.SageMaker.Types.MultiModelConfig
 
 -- | Describes the container, as part of model definition.
@@ -57,18 +58,32 @@ data ContainerDefinition = ContainerDefinition'
     -- inference code must meet SageMaker requirements. SageMaker supports both
     -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
     -- path formats. For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+    --
+    -- The model artifacts in an Amazon S3 bucket and the Docker image for
+    -- inference container in Amazon EC2 Container Registry must be in the same
+    -- region as the model or endpoint you are creating.
     image :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the model container is in Amazon ECR or a private
     -- Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
     -- For information about storing containers in a private Docker registry,
     -- see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>.
+    --
+    -- The model artifacts in an Amazon S3 bucket and the Docker image for
+    -- inference container in Amazon EC2 Container Registry must be in the same
+    -- region as the model or endpoint you are creating.
     imageConfig :: Prelude.Maybe ImageConfig,
     -- | The inference specification name in the model package version.
     inferenceSpecificationName :: Prelude.Maybe Prelude.Text,
     -- | Whether the container hosts a single model or multiple models.
     mode :: Prelude.Maybe ContainerMode,
+    -- | Specifies the location of ML model data to deploy.
+    --
+    -- Currently you cannot use @ModelDataSource@ in conjuction with SageMaker
+    -- batch transform, SageMaker serverless endpoints, SageMaker multi-model
+    -- endpoints, and SageMaker Marketplace.
+    modelDataSource :: Prelude.Maybe ModelDataSource,
     -- | The S3 path where the model artifacts, which result from model training,
     -- are stored. This path must point to a single gzip compressed tar archive
     -- (.tar.gz suffix). The S3 path is required for SageMaker built-in
@@ -81,10 +96,10 @@ data ContainerDefinition = ContainerDefinition'
     --
     -- If you provide a value for this parameter, SageMaker uses Amazon Web
     -- Services Security Token Service to download model artifacts from the S3
-    -- path you provide. Amazon Web Services STS is activated in your IAM user
-    -- account by default. If you previously deactivated Amazon Web Services
-    -- STS for a region, you need to reactivate Amazon Web Services STS for
-    -- that region. For more information, see
+    -- path you provide. Amazon Web Services STS is activated in your Amazon
+    -- Web Services account by default. If you previously deactivated Amazon
+    -- Web Services STS for a region, you need to reactivate Amazon Web
+    -- Services STS for that region. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
     -- in the /Amazon Web Services Identity and Access Management User Guide/.
     --
@@ -133,17 +148,31 @@ data ContainerDefinition = ContainerDefinition'
 -- inference code must meet SageMaker requirements. SageMaker supports both
 -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
 -- path formats. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+--
+-- The model artifacts in an Amazon S3 bucket and the Docker image for
+-- inference container in Amazon EC2 Container Registry must be in the same
+-- region as the model or endpoint you are creating.
 --
 -- 'imageConfig', 'containerDefinition_imageConfig' - Specifies whether the model container is in Amazon ECR or a private
 -- Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
 -- For information about storing containers in a private Docker registry,
 -- see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>.
+--
+-- The model artifacts in an Amazon S3 bucket and the Docker image for
+-- inference container in Amazon EC2 Container Registry must be in the same
+-- region as the model or endpoint you are creating.
 --
 -- 'inferenceSpecificationName', 'containerDefinition_inferenceSpecificationName' - The inference specification name in the model package version.
 --
 -- 'mode', 'containerDefinition_mode' - Whether the container hosts a single model or multiple models.
+--
+-- 'modelDataSource', 'containerDefinition_modelDataSource' - Specifies the location of ML model data to deploy.
+--
+-- Currently you cannot use @ModelDataSource@ in conjuction with SageMaker
+-- batch transform, SageMaker serverless endpoints, SageMaker multi-model
+-- endpoints, and SageMaker Marketplace.
 --
 -- 'modelDataUrl', 'containerDefinition_modelDataUrl' - The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
@@ -157,10 +186,10 @@ data ContainerDefinition = ContainerDefinition'
 --
 -- If you provide a value for this parameter, SageMaker uses Amazon Web
 -- Services Security Token Service to download model artifacts from the S3
--- path you provide. Amazon Web Services STS is activated in your IAM user
--- account by default. If you previously deactivated Amazon Web Services
--- STS for a region, you need to reactivate Amazon Web Services STS for
--- that region. For more information, see
+-- path you provide. Amazon Web Services STS is activated in your Amazon
+-- Web Services account by default. If you previously deactivated Amazon
+-- Web Services STS for a region, you need to reactivate Amazon Web
+-- Services STS for that region. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
@@ -182,6 +211,7 @@ newContainerDefinition =
       imageConfig = Prelude.Nothing,
       inferenceSpecificationName = Prelude.Nothing,
       mode = Prelude.Nothing,
+      modelDataSource = Prelude.Nothing,
       modelDataUrl = Prelude.Nothing,
       modelPackageName = Prelude.Nothing,
       multiModelConfig = Prelude.Nothing
@@ -217,7 +247,11 @@ containerDefinition_environment = Lens.lens (\ContainerDefinition' {environment}
 -- inference code must meet SageMaker requirements. SageMaker supports both
 -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
 -- path formats. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+--
+-- The model artifacts in an Amazon S3 bucket and the Docker image for
+-- inference container in Amazon EC2 Container Registry must be in the same
+-- region as the model or endpoint you are creating.
 containerDefinition_image :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_image = Lens.lens (\ContainerDefinition' {image} -> image) (\s@ContainerDefinition' {} a -> s {image = a} :: ContainerDefinition)
 
@@ -225,7 +259,11 @@ containerDefinition_image = Lens.lens (\ContainerDefinition' {image} -> image) (
 -- Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
 -- For information about storing containers in a private Docker registry,
 -- see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html Use a Private Docker Registry for Real-Time Inference Containers>.
+--
+-- The model artifacts in an Amazon S3 bucket and the Docker image for
+-- inference container in Amazon EC2 Container Registry must be in the same
+-- region as the model or endpoint you are creating.
 containerDefinition_imageConfig :: Lens.Lens' ContainerDefinition (Prelude.Maybe ImageConfig)
 containerDefinition_imageConfig = Lens.lens (\ContainerDefinition' {imageConfig} -> imageConfig) (\s@ContainerDefinition' {} a -> s {imageConfig = a} :: ContainerDefinition)
 
@@ -236,6 +274,14 @@ containerDefinition_inferenceSpecificationName = Lens.lens (\ContainerDefinition
 -- | Whether the container hosts a single model or multiple models.
 containerDefinition_mode :: Lens.Lens' ContainerDefinition (Prelude.Maybe ContainerMode)
 containerDefinition_mode = Lens.lens (\ContainerDefinition' {mode} -> mode) (\s@ContainerDefinition' {} a -> s {mode = a} :: ContainerDefinition)
+
+-- | Specifies the location of ML model data to deploy.
+--
+-- Currently you cannot use @ModelDataSource@ in conjuction with SageMaker
+-- batch transform, SageMaker serverless endpoints, SageMaker multi-model
+-- endpoints, and SageMaker Marketplace.
+containerDefinition_modelDataSource :: Lens.Lens' ContainerDefinition (Prelude.Maybe ModelDataSource)
+containerDefinition_modelDataSource = Lens.lens (\ContainerDefinition' {modelDataSource} -> modelDataSource) (\s@ContainerDefinition' {} a -> s {modelDataSource = a} :: ContainerDefinition)
 
 -- | The S3 path where the model artifacts, which result from model training,
 -- are stored. This path must point to a single gzip compressed tar archive
@@ -249,10 +295,10 @@ containerDefinition_mode = Lens.lens (\ContainerDefinition' {mode} -> mode) (\s@
 --
 -- If you provide a value for this parameter, SageMaker uses Amazon Web
 -- Services Security Token Service to download model artifacts from the S3
--- path you provide. Amazon Web Services STS is activated in your IAM user
--- account by default. If you previously deactivated Amazon Web Services
--- STS for a region, you need to reactivate Amazon Web Services STS for
--- that region. For more information, see
+-- path you provide. Amazon Web Services STS is activated in your Amazon
+-- Web Services account by default. If you previously deactivated Amazon
+-- Web Services STS for a region, you need to reactivate Amazon Web
+-- Services STS for that region. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /Amazon Web Services Identity and Access Management User Guide/.
 --
@@ -282,6 +328,7 @@ instance Data.FromJSON ContainerDefinition where
             Prelude.<*> (x Data..:? "ImageConfig")
             Prelude.<*> (x Data..:? "InferenceSpecificationName")
             Prelude.<*> (x Data..:? "Mode")
+            Prelude.<*> (x Data..:? "ModelDataSource")
             Prelude.<*> (x Data..:? "ModelDataUrl")
             Prelude.<*> (x Data..:? "ModelPackageName")
             Prelude.<*> (x Data..:? "MultiModelConfig")
@@ -289,12 +336,14 @@ instance Data.FromJSON ContainerDefinition where
 
 instance Prelude.Hashable ContainerDefinition where
   hashWithSalt _salt ContainerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` containerHostname
+    _salt
+      `Prelude.hashWithSalt` containerHostname
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` imageConfig
       `Prelude.hashWithSalt` inferenceSpecificationName
       `Prelude.hashWithSalt` mode
+      `Prelude.hashWithSalt` modelDataSource
       `Prelude.hashWithSalt` modelDataUrl
       `Prelude.hashWithSalt` modelPackageName
       `Prelude.hashWithSalt` multiModelConfig
@@ -307,6 +356,7 @@ instance Prelude.NFData ContainerDefinition where
       `Prelude.seq` Prelude.rnf imageConfig
       `Prelude.seq` Prelude.rnf inferenceSpecificationName
       `Prelude.seq` Prelude.rnf mode
+      `Prelude.seq` Prelude.rnf modelDataSource
       `Prelude.seq` Prelude.rnf modelDataUrl
       `Prelude.seq` Prelude.rnf modelPackageName
       `Prelude.seq` Prelude.rnf multiModelConfig
@@ -323,6 +373,8 @@ instance Data.ToJSON ContainerDefinition where
             ("InferenceSpecificationName" Data..=)
               Prelude.<$> inferenceSpecificationName,
             ("Mode" Data..=) Prelude.<$> mode,
+            ("ModelDataSource" Data..=)
+              Prelude.<$> modelDataSource,
             ("ModelDataUrl" Data..=) Prelude.<$> modelDataUrl,
             ("ModelPackageName" Data..=)
               Prelude.<$> modelPackageName,

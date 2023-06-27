@@ -25,7 +25,8 @@
 -- existing endpoint. When it receives the request, SageMaker sets the
 -- endpoint status to @Updating@. After updating the endpoint, it sets the
 -- status to @InService@. To check the status of an endpoint, use the
--- DescribeEndpoint API.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html DescribeEndpoint>
+-- API.
 module Amazonka.SageMaker.UpdateEndpointWeightsAndCapacities
   ( -- * Creating a Request
     UpdateEndpointWeightsAndCapacities (..),
@@ -112,7 +113,7 @@ instance
       ( \s h x ->
           UpdateEndpointWeightsAndCapacitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "EndpointArn")
+            Prelude.<*> (x Data..:> "EndpointArn")
       )
 
 instance
@@ -122,7 +123,8 @@ instance
   hashWithSalt
     _salt
     UpdateEndpointWeightsAndCapacities' {..} =
-      _salt `Prelude.hashWithSalt` endpointName
+      _salt
+        `Prelude.hashWithSalt` endpointName
         `Prelude.hashWithSalt` desiredWeightsAndCapacities
 
 instance

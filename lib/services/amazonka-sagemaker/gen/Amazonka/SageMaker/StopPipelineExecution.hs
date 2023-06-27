@@ -139,7 +139,8 @@ instance Core.AWSRequest StopPipelineExecution where
 
 instance Prelude.Hashable StopPipelineExecution where
   hashWithSalt _salt StopPipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` pipelineExecutionArn
+    _salt
+      `Prelude.hashWithSalt` pipelineExecutionArn
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData StopPipelineExecution where

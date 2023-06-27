@@ -138,7 +138,8 @@ instance Core.AWSRequest DescribeEdgeDeploymentPlan where
 
 instance Prelude.Hashable DescribeEdgeDeploymentPlan where
   hashWithSalt _salt DescribeEdgeDeploymentPlan' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` edgeDeploymentPlanName
 

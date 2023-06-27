@@ -24,11 +24,14 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ContainerDefinition
+import Amazonka.SageMaker.Types.DeploymentRecommendation
 import Amazonka.SageMaker.Types.InferenceExecutionConfig
 import Amazonka.SageMaker.Types.Tag
 import Amazonka.SageMaker.Types.VpcConfig
 
--- | The properties of a model as returned by the Search API.
+-- | The properties of a model as returned by the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API.
 --
 -- /See:/ 'newModel' smart constructor.
 data Model = Model'
@@ -36,6 +39,8 @@ data Model = Model'
     containers :: Prelude.Maybe [ContainerDefinition],
     -- | A timestamp that indicates when the model was created.
     creationTime :: Prelude.Maybe Data.POSIX,
+    -- | A set of recommended deployment configurations for the model.
+    deploymentRecommendation :: Prelude.Maybe DeploymentRecommendation,
     -- | Isolates the model container. No inbound or outbound network calls can
     -- be made to or from the model container.
     enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
@@ -69,6 +74,8 @@ data Model = Model'
 --
 -- 'creationTime', 'model_creationTime' - A timestamp that indicates when the model was created.
 --
+-- 'deploymentRecommendation', 'model_deploymentRecommendation' - A set of recommended deployment configurations for the model.
+--
 -- 'enableNetworkIsolation', 'model_enableNetworkIsolation' - Isolates the model container. No inbound or outbound network calls can
 -- be made to or from the model container.
 --
@@ -95,6 +102,7 @@ newModel =
   Model'
     { containers = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      deploymentRecommendation = Prelude.Nothing,
       enableNetworkIsolation = Prelude.Nothing,
       executionRoleArn = Prelude.Nothing,
       inferenceExecutionConfig = Prelude.Nothing,
@@ -112,6 +120,10 @@ model_containers = Lens.lens (\Model' {containers} -> containers) (\s@Model' {} 
 -- | A timestamp that indicates when the model was created.
 model_creationTime :: Lens.Lens' Model (Prelude.Maybe Prelude.UTCTime)
 model_creationTime = Lens.lens (\Model' {creationTime} -> creationTime) (\s@Model' {} a -> s {creationTime = a} :: Model) Prelude.. Lens.mapping Data._Time
+
+-- | A set of recommended deployment configurations for the model.
+model_deploymentRecommendation :: Lens.Lens' Model (Prelude.Maybe DeploymentRecommendation)
+model_deploymentRecommendation = Lens.lens (\Model' {deploymentRecommendation} -> deploymentRecommendation) (\s@Model' {} a -> s {deploymentRecommendation = a} :: Model)
 
 -- | Isolates the model container. No inbound or outbound network calls can
 -- be made to or from the model container.
@@ -158,6 +170,7 @@ instance Data.FromJSON Model where
           Model'
             Prelude.<$> (x Data..:? "Containers" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "CreationTime")
+            Prelude.<*> (x Data..:? "DeploymentRecommendation")
             Prelude.<*> (x Data..:? "EnableNetworkIsolation")
             Prelude.<*> (x Data..:? "ExecutionRoleArn")
             Prelude.<*> (x Data..:? "InferenceExecutionConfig")
@@ -170,8 +183,10 @@ instance Data.FromJSON Model where
 
 instance Prelude.Hashable Model where
   hashWithSalt _salt Model' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` creationTime
+      `Prelude.hashWithSalt` deploymentRecommendation
       `Prelude.hashWithSalt` enableNetworkIsolation
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` inferenceExecutionConfig
@@ -185,6 +200,7 @@ instance Prelude.NFData Model where
   rnf Model' {..} =
     Prelude.rnf containers
       `Prelude.seq` Prelude.rnf creationTime
+      `Prelude.seq` Prelude.rnf deploymentRecommendation
       `Prelude.seq` Prelude.rnf enableNetworkIsolation
       `Prelude.seq` Prelude.rnf executionRoleArn
       `Prelude.seq` Prelude.rnf inferenceExecutionConfig

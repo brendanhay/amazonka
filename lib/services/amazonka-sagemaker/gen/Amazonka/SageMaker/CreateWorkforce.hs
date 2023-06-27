@@ -26,9 +26,10 @@
 -- Services Region per Amazon Web Services account.
 --
 -- If you want to create a new workforce in an Amazon Web Services Region
--- where a workforce already exists, use the API operation to delete the
--- existing workforce and then use @CreateWorkforce@ to create a new
--- workforce.
+-- where a workforce already exists, use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html DeleteWorkforce>
+-- API operation to delete the existing workforce and then use
+-- @CreateWorkforce@ to create a new workforce.
 --
 -- To create a private workforce using Amazon Cognito, you must specify a
 -- Cognito user pool in @CognitoConfig@. You can also create an Amazon
@@ -188,7 +189,8 @@ instance Core.AWSRequest CreateWorkforce where
 
 instance Prelude.Hashable CreateWorkforce where
   hashWithSalt _salt CreateWorkforce' {..} =
-    _salt `Prelude.hashWithSalt` cognitoConfig
+    _salt
+      `Prelude.hashWithSalt` cognitoConfig
       `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` sourceIpConfig
       `Prelude.hashWithSalt` tags

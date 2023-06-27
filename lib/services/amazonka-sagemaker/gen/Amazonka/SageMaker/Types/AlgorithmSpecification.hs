@@ -24,9 +24,12 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.MetricDefinition
+import Amazonka.SageMaker.Types.TrainingImageConfig
 import Amazonka.SageMaker.Types.TrainingInputMode
 
--- | Specifies the training algorithm to use in a CreateTrainingJob request.
+-- | Specifies the training algorithm to use in a
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html CreateTrainingJob>
+-- request.
 --
 -- For more information about algorithms provided by SageMaker, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
@@ -78,7 +81,8 @@ data AlgorithmSpecification = AlgorithmSpecification'
     --
     --     -   PyTorch (version >= 1.3)
     --
-    -- -   You specify at least one MetricDefinition
+    -- -   You specify at least one
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html MetricDefinition>
     enableSageMakerMetricsTimeSeries :: Prelude.Maybe Prelude.Bool,
     -- | A list of metric definition objects. Each object specifies the metric
     -- name and regular expressions used to parse algorithm logs. SageMaker
@@ -101,6 +105,9 @@ data AlgorithmSpecification = AlgorithmSpecification'
     -- For more information, see the note in the @AlgorithmName@ parameter
     -- description.
     trainingImage :: Prelude.Maybe Prelude.Text,
+    -- | The configuration to use an image from a private Docker registry for a
+    -- training job.
+    trainingImageConfig :: Prelude.Maybe TrainingImageConfig,
     trainingInputMode :: TrainingInputMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -156,7 +163,8 @@ data AlgorithmSpecification = AlgorithmSpecification'
 --
 --     -   PyTorch (version >= 1.3)
 --
--- -   You specify at least one MetricDefinition
+-- -   You specify at least one
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html MetricDefinition>
 --
 -- 'metricDefinitions', 'algorithmSpecification_metricDefinitions' - A list of metric definition objects. Each object specifies the metric
 -- name and regular expressions used to parse algorithm logs. SageMaker
@@ -179,6 +187,9 @@ data AlgorithmSpecification = AlgorithmSpecification'
 -- For more information, see the note in the @AlgorithmName@ parameter
 -- description.
 --
+-- 'trainingImageConfig', 'algorithmSpecification_trainingImageConfig' - The configuration to use an image from a private Docker registry for a
+-- training job.
+--
 -- 'trainingInputMode', 'algorithmSpecification_trainingInputMode' - Undocumented member.
 newAlgorithmSpecification ::
   -- | 'trainingInputMode'
@@ -193,6 +204,7 @@ newAlgorithmSpecification pTrainingInputMode_ =
       enableSageMakerMetricsTimeSeries = Prelude.Nothing,
       metricDefinitions = Prelude.Nothing,
       trainingImage = Prelude.Nothing,
+      trainingImageConfig = Prelude.Nothing,
       trainingInputMode = pTrainingInputMode_
     }
 
@@ -245,7 +257,8 @@ algorithmSpecification_containerEntrypoint = Lens.lens (\AlgorithmSpecification'
 --
 --     -   PyTorch (version >= 1.3)
 --
--- -   You specify at least one MetricDefinition
+-- -   You specify at least one
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html MetricDefinition>
 algorithmSpecification_enableSageMakerMetricsTimeSeries :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Bool)
 algorithmSpecification_enableSageMakerMetricsTimeSeries = Lens.lens (\AlgorithmSpecification' {enableSageMakerMetricsTimeSeries} -> enableSageMakerMetricsTimeSeries) (\s@AlgorithmSpecification' {} a -> s {enableSageMakerMetricsTimeSeries = a} :: AlgorithmSpecification)
 
@@ -274,6 +287,11 @@ algorithmSpecification_metricDefinitions = Lens.lens (\AlgorithmSpecification' {
 algorithmSpecification_trainingImage :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
 algorithmSpecification_trainingImage = Lens.lens (\AlgorithmSpecification' {trainingImage} -> trainingImage) (\s@AlgorithmSpecification' {} a -> s {trainingImage = a} :: AlgorithmSpecification)
 
+-- | The configuration to use an image from a private Docker registry for a
+-- training job.
+algorithmSpecification_trainingImageConfig :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe TrainingImageConfig)
+algorithmSpecification_trainingImageConfig = Lens.lens (\AlgorithmSpecification' {trainingImageConfig} -> trainingImageConfig) (\s@AlgorithmSpecification' {} a -> s {trainingImageConfig = a} :: AlgorithmSpecification)
+
 -- | Undocumented member.
 algorithmSpecification_trainingInputMode :: Lens.Lens' AlgorithmSpecification TrainingInputMode
 algorithmSpecification_trainingInputMode = Lens.lens (\AlgorithmSpecification' {trainingInputMode} -> trainingInputMode) (\s@AlgorithmSpecification' {} a -> s {trainingInputMode = a} :: AlgorithmSpecification)
@@ -288,21 +306,25 @@ instance Data.FromJSON AlgorithmSpecification where
             Prelude.<*> (x Data..:? "ContainerArguments")
             Prelude.<*> (x Data..:? "ContainerEntrypoint")
             Prelude.<*> (x Data..:? "EnableSageMakerMetricsTimeSeries")
-            Prelude.<*> ( x Data..:? "MetricDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "MetricDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TrainingImage")
+            Prelude.<*> (x Data..:? "TrainingImageConfig")
             Prelude.<*> (x Data..: "TrainingInputMode")
       )
 
 instance Prelude.Hashable AlgorithmSpecification where
   hashWithSalt _salt AlgorithmSpecification' {..} =
-    _salt `Prelude.hashWithSalt` algorithmName
+    _salt
+      `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` enableSageMakerMetricsTimeSeries
       `Prelude.hashWithSalt` metricDefinitions
       `Prelude.hashWithSalt` trainingImage
+      `Prelude.hashWithSalt` trainingImageConfig
       `Prelude.hashWithSalt` trainingInputMode
 
 instance Prelude.NFData AlgorithmSpecification where
@@ -313,6 +335,7 @@ instance Prelude.NFData AlgorithmSpecification where
       `Prelude.seq` Prelude.rnf enableSageMakerMetricsTimeSeries
       `Prelude.seq` Prelude.rnf metricDefinitions
       `Prelude.seq` Prelude.rnf trainingImage
+      `Prelude.seq` Prelude.rnf trainingImageConfig
       `Prelude.seq` Prelude.rnf trainingInputMode
 
 instance Data.ToJSON AlgorithmSpecification where
@@ -329,6 +352,8 @@ instance Data.ToJSON AlgorithmSpecification where
             ("MetricDefinitions" Data..=)
               Prelude.<$> metricDefinitions,
             ("TrainingImage" Data..=) Prelude.<$> trainingImage,
+            ("TrainingImageConfig" Data..=)
+              Prelude.<$> trainingImageConfig,
             Prelude.Just
               ("TrainingInputMode" Data..= trainingInputMode)
           ]

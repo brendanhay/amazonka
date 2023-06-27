@@ -25,17 +25,21 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | A list of container definitions that describe the different containers
--- that make up an AutoML candidate. For more information, see .
+-- that make up an AutoML candidate. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
 --
 -- /See:/ 'newAutoMLContainerDefinition' smart constructor.
 data AutoMLContainerDefinition = AutoMLContainerDefinition'
   { -- | The environment variables to set in the container. For more information,
-    -- see .
+    -- see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
     environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Elastic Container Registry (Amazon ECR) path of the
-    -- container. For more information, see .
+    -- container. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
     image :: Prelude.Text,
-    -- | The location of the model artifacts. For more information, see .
+    -- | The location of the model artifacts. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
     modelDataUrl :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,12 +53,15 @@ data AutoMLContainerDefinition = AutoMLContainerDefinition'
 -- for backwards compatibility:
 --
 -- 'environment', 'autoMLContainerDefinition_environment' - The environment variables to set in the container. For more information,
--- see .
+-- see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
 --
 -- 'image', 'autoMLContainerDefinition_image' - The Amazon Elastic Container Registry (Amazon ECR) path of the
--- container. For more information, see .
+-- container. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
 --
--- 'modelDataUrl', 'autoMLContainerDefinition_modelDataUrl' - The location of the model artifacts. For more information, see .
+-- 'modelDataUrl', 'autoMLContainerDefinition_modelDataUrl' - The location of the model artifacts. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
 newAutoMLContainerDefinition ::
   -- | 'image'
   Prelude.Text ->
@@ -70,16 +77,19 @@ newAutoMLContainerDefinition pImage_ pModelDataUrl_ =
     }
 
 -- | The environment variables to set in the container. For more information,
--- see .
+-- see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
 autoMLContainerDefinition_environment :: Lens.Lens' AutoMLContainerDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 autoMLContainerDefinition_environment = Lens.lens (\AutoMLContainerDefinition' {environment} -> environment) (\s@AutoMLContainerDefinition' {} a -> s {environment = a} :: AutoMLContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Elastic Container Registry (Amazon ECR) path of the
--- container. For more information, see .
+-- container. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
 autoMLContainerDefinition_image :: Lens.Lens' AutoMLContainerDefinition Prelude.Text
 autoMLContainerDefinition_image = Lens.lens (\AutoMLContainerDefinition' {image} -> image) (\s@AutoMLContainerDefinition' {} a -> s {image = a} :: AutoMLContainerDefinition)
 
--- | The location of the model artifacts. For more information, see .
+-- | The location of the model artifacts. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ContainerDefinition.html ContainerDefinition>.
 autoMLContainerDefinition_modelDataUrl :: Lens.Lens' AutoMLContainerDefinition Prelude.Text
 autoMLContainerDefinition_modelDataUrl = Lens.lens (\AutoMLContainerDefinition' {modelDataUrl} -> modelDataUrl) (\s@AutoMLContainerDefinition' {} a -> s {modelDataUrl = a} :: AutoMLContainerDefinition)
 
@@ -96,7 +106,8 @@ instance Data.FromJSON AutoMLContainerDefinition where
 
 instance Prelude.Hashable AutoMLContainerDefinition where
   hashWithSalt _salt AutoMLContainerDefinition' {..} =
-    _salt `Prelude.hashWithSalt` environment
+    _salt
+      `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` image
       `Prelude.hashWithSalt` modelDataUrl
 

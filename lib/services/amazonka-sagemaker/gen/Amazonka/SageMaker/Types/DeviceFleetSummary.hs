@@ -100,7 +100,8 @@ instance Data.FromJSON DeviceFleetSummary where
 
 instance Prelude.Hashable DeviceFleetSummary where
   hashWithSalt _salt DeviceFleetSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` deviceFleetArn
       `Prelude.hashWithSalt` deviceFleetName

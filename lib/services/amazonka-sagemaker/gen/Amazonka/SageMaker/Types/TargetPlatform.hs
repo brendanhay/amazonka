@@ -165,7 +165,8 @@ instance Data.FromJSON TargetPlatform where
 
 instance Prelude.Hashable TargetPlatform where
   hashWithSalt _salt TargetPlatform' {..} =
-    _salt `Prelude.hashWithSalt` accelerator
+    _salt
+      `Prelude.hashWithSalt` accelerator
       `Prelude.hashWithSalt` os
       `Prelude.hashWithSalt` arch
 

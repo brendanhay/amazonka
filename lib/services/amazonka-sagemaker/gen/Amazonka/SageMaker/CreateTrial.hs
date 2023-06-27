@@ -29,12 +29,17 @@
 -- logged, and indexed. When you use the Amazon Web Services SDK for Python
 -- (Boto), you must use the logging APIs provided by the SDK.
 --
--- You can add tags to a trial and then use the Search API to search for
--- the tags.
+-- You can add tags to a trial and then use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search for the tags.
 --
--- To get a list of all your trials, call the ListTrials API. To view a
--- trial\'s properties, call the DescribeTrial API. To create a trial
--- component, call the CreateTrialComponent API.
+-- To get a list of all your trials, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html ListTrials>
+-- API. To view a trial\'s properties, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrial.html DescribeTrial>
+-- API. To create a trial component, call the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrialComponent.html CreateTrialComponent>
+-- API.
 module Amazonka.SageMaker.CreateTrial
   ( -- * Creating a Request
     CreateTrial (..),
@@ -71,8 +76,9 @@ data CreateTrial = CreateTrial'
     -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
     metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | A list of tags to associate with the trial. You can use Search API to
-    -- search on the tags.
+    -- | A list of tags to associate with the trial. You can use
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+    -- API to search on the tags.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the trial. The name must be unique in your Amazon Web
     -- Services account and is not case-sensitive.
@@ -95,8 +101,9 @@ data CreateTrial = CreateTrial'
 --
 -- 'metadataProperties', 'createTrial_metadataProperties' - Undocumented member.
 --
--- 'tags', 'createTrial_tags' - A list of tags to associate with the trial. You can use Search API to
--- search on the tags.
+-- 'tags', 'createTrial_tags' - A list of tags to associate with the trial. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 --
 -- 'trialName', 'createTrial_trialName' - The name of the trial. The name must be unique in your Amazon Web
 -- Services account and is not case-sensitive.
@@ -126,8 +133,9 @@ createTrial_displayName = Lens.lens (\CreateTrial' {displayName} -> displayName)
 createTrial_metadataProperties :: Lens.Lens' CreateTrial (Prelude.Maybe MetadataProperties)
 createTrial_metadataProperties = Lens.lens (\CreateTrial' {metadataProperties} -> metadataProperties) (\s@CreateTrial' {} a -> s {metadataProperties = a} :: CreateTrial)
 
--- | A list of tags to associate with the trial. You can use Search API to
--- search on the tags.
+-- | A list of tags to associate with the trial. You can use
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API to search on the tags.
 createTrial_tags :: Lens.Lens' CreateTrial (Prelude.Maybe [Tag])
 createTrial_tags = Lens.lens (\CreateTrial' {tags} -> tags) (\s@CreateTrial' {} a -> s {tags = a} :: CreateTrial) Prelude.. Lens.mapping Lens.coerced
 
@@ -154,7 +162,8 @@ instance Core.AWSRequest CreateTrial where
 
 instance Prelude.Hashable CreateTrial where
   hashWithSalt _salt CreateTrial' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` metadataProperties
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` trialName

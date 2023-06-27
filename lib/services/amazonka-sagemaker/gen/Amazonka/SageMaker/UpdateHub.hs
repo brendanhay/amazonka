@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Update a hub.
+--
+-- Hub APIs are only callable through SageMaker Studio.
 module Amazonka.SageMaker.UpdateHub
   ( -- * Creating a Request
     UpdateHub (..),
@@ -120,7 +122,8 @@ instance Core.AWSRequest UpdateHub where
 
 instance Prelude.Hashable UpdateHub where
   hashWithSalt _salt UpdateHub' {..} =
-    _salt `Prelude.hashWithSalt` hubDescription
+    _salt
+      `Prelude.hashWithSalt` hubDescription
       `Prelude.hashWithSalt` hubDisplayName
       `Prelude.hashWithSalt` hubSearchKeywords
       `Prelude.hashWithSalt` hubName

@@ -30,12 +30,12 @@ import Amazonka.SageMaker.Types.KernelGatewayAppSettings
 --
 -- /See:/ 'newDefaultSpaceSettings' smart constructor.
 data DefaultSpaceSettings = DefaultSpaceSettings'
-  { -- | The execution role for the space.
+  { -- | The ARN of the execution role for the space.
     executionRole :: Prelude.Maybe Prelude.Text,
     jupyterServerAppSettings :: Prelude.Maybe JupyterServerAppSettings,
     kernelGatewayAppSettings :: Prelude.Maybe KernelGatewayAppSettings,
-    -- | The security groups for the Amazon Virtual Private Cloud that the space
-    -- uses for communication.
+    -- | The security group IDs for the Amazon Virtual Private Cloud that the
+    -- space uses for communication.
     securityGroups :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,14 +48,14 @@ data DefaultSpaceSettings = DefaultSpaceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionRole', 'defaultSpaceSettings_executionRole' - The execution role for the space.
+-- 'executionRole', 'defaultSpaceSettings_executionRole' - The ARN of the execution role for the space.
 --
 -- 'jupyterServerAppSettings', 'defaultSpaceSettings_jupyterServerAppSettings' - Undocumented member.
 --
 -- 'kernelGatewayAppSettings', 'defaultSpaceSettings_kernelGatewayAppSettings' - Undocumented member.
 --
--- 'securityGroups', 'defaultSpaceSettings_securityGroups' - The security groups for the Amazon Virtual Private Cloud that the space
--- uses for communication.
+-- 'securityGroups', 'defaultSpaceSettings_securityGroups' - The security group IDs for the Amazon Virtual Private Cloud that the
+-- space uses for communication.
 newDefaultSpaceSettings ::
   DefaultSpaceSettings
 newDefaultSpaceSettings =
@@ -67,7 +67,7 @@ newDefaultSpaceSettings =
       securityGroups = Prelude.Nothing
     }
 
--- | The execution role for the space.
+-- | The ARN of the execution role for the space.
 defaultSpaceSettings_executionRole :: Lens.Lens' DefaultSpaceSettings (Prelude.Maybe Prelude.Text)
 defaultSpaceSettings_executionRole = Lens.lens (\DefaultSpaceSettings' {executionRole} -> executionRole) (\s@DefaultSpaceSettings' {} a -> s {executionRole = a} :: DefaultSpaceSettings)
 
@@ -79,8 +79,8 @@ defaultSpaceSettings_jupyterServerAppSettings = Lens.lens (\DefaultSpaceSettings
 defaultSpaceSettings_kernelGatewayAppSettings :: Lens.Lens' DefaultSpaceSettings (Prelude.Maybe KernelGatewayAppSettings)
 defaultSpaceSettings_kernelGatewayAppSettings = Lens.lens (\DefaultSpaceSettings' {kernelGatewayAppSettings} -> kernelGatewayAppSettings) (\s@DefaultSpaceSettings' {} a -> s {kernelGatewayAppSettings = a} :: DefaultSpaceSettings)
 
--- | The security groups for the Amazon Virtual Private Cloud that the space
--- uses for communication.
+-- | The security group IDs for the Amazon Virtual Private Cloud that the
+-- space uses for communication.
 defaultSpaceSettings_securityGroups :: Lens.Lens' DefaultSpaceSettings (Prelude.Maybe [Prelude.Text])
 defaultSpaceSettings_securityGroups = Lens.lens (\DefaultSpaceSettings' {securityGroups} -> securityGroups) (\s@DefaultSpaceSettings' {} a -> s {securityGroups = a} :: DefaultSpaceSettings) Prelude.. Lens.mapping Lens.coerced
 
@@ -93,14 +93,16 @@ instance Data.FromJSON DefaultSpaceSettings where
             Prelude.<$> (x Data..:? "ExecutionRole")
             Prelude.<*> (x Data..:? "JupyterServerAppSettings")
             Prelude.<*> (x Data..:? "KernelGatewayAppSettings")
-            Prelude.<*> ( x Data..:? "SecurityGroups"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroups"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DefaultSpaceSettings where
   hashWithSalt _salt DefaultSpaceSettings' {..} =
-    _salt `Prelude.hashWithSalt` executionRole
+    _salt
+      `Prelude.hashWithSalt` executionRole
       `Prelude.hashWithSalt` jupyterServerAppSettings
       `Prelude.hashWithSalt` kernelGatewayAppSettings
       `Prelude.hashWithSalt` securityGroups

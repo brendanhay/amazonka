@@ -164,7 +164,8 @@ instance Data.FromJSON ModelCardVersionSummary where
 
 instance Prelude.Hashable ModelCardVersionSummary where
   hashWithSalt _salt ModelCardVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` modelCardName
       `Prelude.hashWithSalt` modelCardArn
       `Prelude.hashWithSalt` modelCardStatus

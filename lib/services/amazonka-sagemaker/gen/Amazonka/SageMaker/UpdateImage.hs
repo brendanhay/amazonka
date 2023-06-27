@@ -21,7 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the properties of a SageMaker image. To change the image\'s
--- tags, use the AddTags and DeleteTags APIs.
+-- tags, use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html AddTags>
+-- and
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTags.html DeleteTags>
+-- APIs.
 module Amazonka.SageMaker.UpdateImage
   ( -- * Creating a Request
     UpdateImage (..),
@@ -137,7 +141,8 @@ instance Core.AWSRequest UpdateImage where
 
 instance Prelude.Hashable UpdateImage where
   hashWithSalt _salt UpdateImage' {..} =
-    _salt `Prelude.hashWithSalt` deleteProperties
+    _salt
+      `Prelude.hashWithSalt` deleteProperties
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` roleArn

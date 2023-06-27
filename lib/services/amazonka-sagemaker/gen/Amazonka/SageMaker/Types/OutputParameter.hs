@@ -69,12 +69,14 @@ instance Data.FromJSON OutputParameter where
       "OutputParameter"
       ( \x ->
           OutputParameter'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable OutputParameter where
   hashWithSalt _salt OutputParameter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData OutputParameter where

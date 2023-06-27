@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified trial. All trial components that make up the trial
--- must be deleted first. Use the DescribeTrialComponent API to get the
--- list of trial components.
+-- must be deleted first. Use the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrialComponent.html DescribeTrialComponent>
+-- API to get the list of trial components.
 module Amazonka.SageMaker.DeleteTrial
   ( -- * Creating a Request
     DeleteTrial (..),

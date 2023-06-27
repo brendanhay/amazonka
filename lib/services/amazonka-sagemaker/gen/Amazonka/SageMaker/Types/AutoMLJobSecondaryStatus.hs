@@ -36,7 +36,8 @@ module Amazonka.SageMaker.Types.AutoMLJobSecondaryStatus
         AutoMLJobSecondaryStatus_ModelTuning,
         AutoMLJobSecondaryStatus_Starting,
         AutoMLJobSecondaryStatus_Stopped,
-        AutoMLJobSecondaryStatus_Stopping
+        AutoMLJobSecondaryStatus_Stopping,
+        AutoMLJobSecondaryStatus_TrainingModels
       ),
   )
 where
@@ -124,6 +125,9 @@ pattern AutoMLJobSecondaryStatus_Stopped = AutoMLJobSecondaryStatus' "Stopped"
 pattern AutoMLJobSecondaryStatus_Stopping :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_Stopping = AutoMLJobSecondaryStatus' "Stopping"
 
+pattern AutoMLJobSecondaryStatus_TrainingModels :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_TrainingModels = AutoMLJobSecondaryStatus' "TrainingModels"
+
 {-# COMPLETE
   AutoMLJobSecondaryStatus_AnalyzingData,
   AutoMLJobSecondaryStatus_CandidateDefinitionsGenerated,
@@ -142,5 +146,6 @@ pattern AutoMLJobSecondaryStatus_Stopping = AutoMLJobSecondaryStatus' "Stopping"
   AutoMLJobSecondaryStatus_Starting,
   AutoMLJobSecondaryStatus_Stopped,
   AutoMLJobSecondaryStatus_Stopping,
+  AutoMLJobSecondaryStatus_TrainingModels,
   AutoMLJobSecondaryStatus'
   #-}

@@ -47,8 +47,9 @@ data Workforce = Workforce'
     createDate :: Prelude.Maybe Data.POSIX,
     -- | The reason your workforce failed.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | The most recent date that was used to successfully add one or more IP
-    -- address ranges
+    -- | The most recent date that
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html UpdateWorkforce>
+    -- was used to successfully add one or more IP address ranges
     -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
     -- to a private workforce\'s allow list.
     lastUpdatedDate :: Prelude.Maybe Data.POSIX,
@@ -88,8 +89,9 @@ data Workforce = Workforce'
 --
 -- 'failureReason', 'workforce_failureReason' - The reason your workforce failed.
 --
--- 'lastUpdatedDate', 'workforce_lastUpdatedDate' - The most recent date that was used to successfully add one or more IP
--- address ranges
+-- 'lastUpdatedDate', 'workforce_lastUpdatedDate' - The most recent date that
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html UpdateWorkforce>
+-- was used to successfully add one or more IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- to a private workforce\'s allow list.
 --
@@ -144,8 +146,9 @@ workforce_createDate = Lens.lens (\Workforce' {createDate} -> createDate) (\s@Wo
 workforce_failureReason :: Lens.Lens' Workforce (Prelude.Maybe Prelude.Text)
 workforce_failureReason = Lens.lens (\Workforce' {failureReason} -> failureReason) (\s@Workforce' {} a -> s {failureReason = a} :: Workforce)
 
--- | The most recent date that was used to successfully add one or more IP
--- address ranges
+-- | The most recent date that
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateWorkforce.html UpdateWorkforce>
+-- was used to successfully add one or more IP address ranges
 -- (<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html CIDRs>)
 -- to a private workforce\'s allow list.
 workforce_lastUpdatedDate :: Lens.Lens' Workforce (Prelude.Maybe Prelude.UTCTime)
@@ -203,7 +206,8 @@ instance Data.FromJSON Workforce where
 
 instance Prelude.Hashable Workforce where
   hashWithSalt _salt Workforce' {..} =
-    _salt `Prelude.hashWithSalt` cognitoConfig
+    _salt
+      `Prelude.hashWithSalt` cognitoConfig
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastUpdatedDate

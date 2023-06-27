@@ -42,8 +42,8 @@ data HyperParameterTuningInstanceConfig = HyperParameterTuningInstanceConfig'
     instanceType :: TrainingInstanceType,
     -- | The number of instances of the type specified by @InstanceType@. Choose
     -- an instance count larger than 1 for distributed training algorithms. See
-    -- <https://docs.aws.amazon.com/data-parallel-use-api.html SageMaker distributed training jobs>
-    -- for more informcration.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html Step 2: Launch a SageMaker Distributed Training Job Using the SageMaker Python SDK>
+    -- for more information.
     instanceCount :: Prelude.Natural,
     -- | The volume size in GB of the data to be processed for hyperparameter
     -- optimization (optional).
@@ -68,8 +68,8 @@ data HyperParameterTuningInstanceConfig = HyperParameterTuningInstanceConfig'
 --
 -- 'instanceCount', 'hyperParameterTuningInstanceConfig_instanceCount' - The number of instances of the type specified by @InstanceType@. Choose
 -- an instance count larger than 1 for distributed training algorithms. See
--- <https://docs.aws.amazon.com/data-parallel-use-api.html SageMaker distributed training jobs>
--- for more informcration.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html Step 2: Launch a SageMaker Distributed Training Job Using the SageMaker Python SDK>
+-- for more information.
 --
 -- 'volumeSizeInGB', 'hyperParameterTuningInstanceConfig_volumeSizeInGB' - The volume size in GB of the data to be processed for hyperparameter
 -- optimization (optional).
@@ -103,8 +103,8 @@ hyperParameterTuningInstanceConfig_instanceType = Lens.lens (\HyperParameterTuni
 
 -- | The number of instances of the type specified by @InstanceType@. Choose
 -- an instance count larger than 1 for distributed training algorithms. See
--- <https://docs.aws.amazon.com/data-parallel-use-api.html SageMaker distributed training jobs>
--- for more informcration.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/data-parallel-use-api.html Step 2: Launch a SageMaker Distributed Training Job Using the SageMaker Python SDK>
+-- for more information.
 hyperParameterTuningInstanceConfig_instanceCount :: Lens.Lens' HyperParameterTuningInstanceConfig Prelude.Natural
 hyperParameterTuningInstanceConfig_instanceCount = Lens.lens (\HyperParameterTuningInstanceConfig' {instanceCount} -> instanceCount) (\s@HyperParameterTuningInstanceConfig' {} a -> s {instanceCount = a} :: HyperParameterTuningInstanceConfig)
 
@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningInstanceConfig' {..} =
-      _salt `Prelude.hashWithSalt` instanceType
+      _salt
+        `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` volumeSizeInGB
 

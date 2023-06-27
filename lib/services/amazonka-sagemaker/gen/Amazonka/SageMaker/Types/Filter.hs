@@ -27,10 +27,12 @@ import Amazonka.SageMaker.Types.Operator
 
 -- | A conditional statement for a search expression that includes a resource
 -- property, a Boolean operator, and a value. Resources that match the
--- statement are returned in the results from the Search API.
+-- statement are returned in the results from the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html Search>
+-- API.
 --
--- If you specify a @Value@, but not an @Operator@, Amazon SageMaker uses
--- the equals operator.
+-- If you specify a @Value@, but not an @Operator@, SageMaker uses the
+-- equals operator.
 --
 -- In search, there are several property types:
 --
@@ -151,8 +153,9 @@ data Filter = Filter'
     -- @YYYY-mm-dd\'T\'HH:MM:SS@.
     value :: Prelude.Maybe Prelude.Text,
     -- | A resource property name. For example, @TrainingJobName@. For valid
-    -- property names, see SearchRecord. You must specify a valid property for
-    -- the resource.
+    -- property names, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html SearchRecord>.
+    -- You must specify a valid property for the resource.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -242,8 +245,9 @@ data Filter = Filter'
 -- @YYYY-mm-dd\'T\'HH:MM:SS@.
 --
 -- 'name', 'filter_name' - A resource property name. For example, @TrainingJobName@. For valid
--- property names, see SearchRecord. You must specify a valid property for
--- the resource.
+-- property names, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html SearchRecord>.
+-- You must specify a valid property for the resource.
 newFilter ::
   -- | 'name'
   Prelude.Text ->
@@ -336,14 +340,16 @@ filter_value :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_value = Lens.lens (\Filter' {value} -> value) (\s@Filter' {} a -> s {value = a} :: Filter)
 
 -- | A resource property name. For example, @TrainingJobName@. For valid
--- property names, see SearchRecord. You must specify a valid property for
--- the resource.
+-- property names, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchRecord.html SearchRecord>.
+-- You must specify a valid property for the resource.
 filter_name :: Lens.Lens' Filter Prelude.Text
 filter_name = Lens.lens (\Filter' {name} -> name) (\s@Filter' {} a -> s {name = a} :: Filter)
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` operator
+    _salt
+      `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
 

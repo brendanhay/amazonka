@@ -37,8 +37,10 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
     hyperParameterTuningEndTime :: Prelude.Maybe Data.POSIX,
     -- | The date and time that the tuning job was modified.
     lastModifiedTime :: Prelude.Maybe Data.POSIX,
-    -- | The ResourceLimits object that specifies the maximum number of training
-    -- jobs and parallel training jobs allowed for this tuning job.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>
+    -- object that specifies the maximum number of training jobs and parallel
+    -- training jobs allowed for this tuning job.
     resourceLimits :: Prelude.Maybe ResourceLimits,
     -- | The name of the tuning job.
     hyperParameterTuningJobName :: Prelude.Text,
@@ -51,12 +53,15 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
     strategy :: HyperParameterTuningJobStrategyType,
     -- | The date and time that the tuning job was created.
     creationTime :: Data.POSIX,
-    -- | The TrainingJobStatusCounters object that specifies the numbers of
-    -- training jobs, categorized by status, that this tuning job launched.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html TrainingJobStatusCounters>
+    -- object that specifies the numbers of training jobs, categorized by
+    -- status, that this tuning job launched.
     trainingJobStatusCounters :: TrainingJobStatusCounters,
-    -- | The ObjectiveStatusCounters object that specifies the numbers of
-    -- training jobs, categorized by objective metric status, that this tuning
-    -- job launched.
+    -- | The
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html ObjectiveStatusCounters>
+    -- object that specifies the numbers of training jobs, categorized by
+    -- objective metric status, that this tuning job launched.
     objectiveStatusCounters :: ObjectiveStatusCounters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,8 +78,10 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
 --
 -- 'lastModifiedTime', 'hyperParameterTuningJobSummary_lastModifiedTime' - The date and time that the tuning job was modified.
 --
--- 'resourceLimits', 'hyperParameterTuningJobSummary_resourceLimits' - The ResourceLimits object that specifies the maximum number of training
--- jobs and parallel training jobs allowed for this tuning job.
+-- 'resourceLimits', 'hyperParameterTuningJobSummary_resourceLimits' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>
+-- object that specifies the maximum number of training jobs and parallel
+-- training jobs allowed for this tuning job.
 --
 -- 'hyperParameterTuningJobName', 'hyperParameterTuningJobSummary_hyperParameterTuningJobName' - The name of the tuning job.
 --
@@ -87,12 +94,15 @@ data HyperParameterTuningJobSummary = HyperParameterTuningJobSummary'
 --
 -- 'creationTime', 'hyperParameterTuningJobSummary_creationTime' - The date and time that the tuning job was created.
 --
--- 'trainingJobStatusCounters', 'hyperParameterTuningJobSummary_trainingJobStatusCounters' - The TrainingJobStatusCounters object that specifies the numbers of
--- training jobs, categorized by status, that this tuning job launched.
+-- 'trainingJobStatusCounters', 'hyperParameterTuningJobSummary_trainingJobStatusCounters' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html TrainingJobStatusCounters>
+-- object that specifies the numbers of training jobs, categorized by
+-- status, that this tuning job launched.
 --
--- 'objectiveStatusCounters', 'hyperParameterTuningJobSummary_objectiveStatusCounters' - The ObjectiveStatusCounters object that specifies the numbers of
--- training jobs, categorized by objective metric status, that this tuning
--- job launched.
+-- 'objectiveStatusCounters', 'hyperParameterTuningJobSummary_objectiveStatusCounters' - The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html ObjectiveStatusCounters>
+-- object that specifies the numbers of training jobs, categorized by
+-- objective metric status, that this tuning job launched.
 newHyperParameterTuningJobSummary ::
   -- | 'hyperParameterTuningJobName'
   Prelude.Text ->
@@ -145,8 +155,10 @@ hyperParameterTuningJobSummary_hyperParameterTuningEndTime = Lens.lens (\HyperPa
 hyperParameterTuningJobSummary_lastModifiedTime :: Lens.Lens' HyperParameterTuningJobSummary (Prelude.Maybe Prelude.UTCTime)
 hyperParameterTuningJobSummary_lastModifiedTime = Lens.lens (\HyperParameterTuningJobSummary' {lastModifiedTime} -> lastModifiedTime) (\s@HyperParameterTuningJobSummary' {} a -> s {lastModifiedTime = a} :: HyperParameterTuningJobSummary) Prelude.. Lens.mapping Data._Time
 
--- | The ResourceLimits object that specifies the maximum number of training
--- jobs and parallel training jobs allowed for this tuning job.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceLimits.html ResourceLimits>
+-- object that specifies the maximum number of training jobs and parallel
+-- training jobs allowed for this tuning job.
 hyperParameterTuningJobSummary_resourceLimits :: Lens.Lens' HyperParameterTuningJobSummary (Prelude.Maybe ResourceLimits)
 hyperParameterTuningJobSummary_resourceLimits = Lens.lens (\HyperParameterTuningJobSummary' {resourceLimits} -> resourceLimits) (\s@HyperParameterTuningJobSummary' {} a -> s {resourceLimits = a} :: HyperParameterTuningJobSummary)
 
@@ -171,14 +183,17 @@ hyperParameterTuningJobSummary_strategy = Lens.lens (\HyperParameterTuningJobSum
 hyperParameterTuningJobSummary_creationTime :: Lens.Lens' HyperParameterTuningJobSummary Prelude.UTCTime
 hyperParameterTuningJobSummary_creationTime = Lens.lens (\HyperParameterTuningJobSummary' {creationTime} -> creationTime) (\s@HyperParameterTuningJobSummary' {} a -> s {creationTime = a} :: HyperParameterTuningJobSummary) Prelude.. Data._Time
 
--- | The TrainingJobStatusCounters object that specifies the numbers of
--- training jobs, categorized by status, that this tuning job launched.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobStatusCounters.html TrainingJobStatusCounters>
+-- object that specifies the numbers of training jobs, categorized by
+-- status, that this tuning job launched.
 hyperParameterTuningJobSummary_trainingJobStatusCounters :: Lens.Lens' HyperParameterTuningJobSummary TrainingJobStatusCounters
 hyperParameterTuningJobSummary_trainingJobStatusCounters = Lens.lens (\HyperParameterTuningJobSummary' {trainingJobStatusCounters} -> trainingJobStatusCounters) (\s@HyperParameterTuningJobSummary' {} a -> s {trainingJobStatusCounters = a} :: HyperParameterTuningJobSummary)
 
--- | The ObjectiveStatusCounters object that specifies the numbers of
--- training jobs, categorized by objective metric status, that this tuning
--- job launched.
+-- | The
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ObjectiveStatusCounters.html ObjectiveStatusCounters>
+-- object that specifies the numbers of training jobs, categorized by
+-- objective metric status, that this tuning job launched.
 hyperParameterTuningJobSummary_objectiveStatusCounters :: Lens.Lens' HyperParameterTuningJobSummary ObjectiveStatusCounters
 hyperParameterTuningJobSummary_objectiveStatusCounters = Lens.lens (\HyperParameterTuningJobSummary' {objectiveStatusCounters} -> objectiveStatusCounters) (\s@HyperParameterTuningJobSummary' {} a -> s {objectiveStatusCounters = a} :: HyperParameterTuningJobSummary)
 

@@ -31,6 +31,7 @@ module Amazonka.SageMaker.StartPipelineExecution
     startPipelineExecution_pipelineExecutionDescription,
     startPipelineExecution_pipelineExecutionDisplayName,
     startPipelineExecution_pipelineParameters,
+    startPipelineExecution_selectiveExecutionConfig,
     startPipelineExecution_pipelineName,
     startPipelineExecution_clientRequestToken,
 
@@ -63,7 +64,9 @@ data StartPipelineExecution = StartPipelineExecution'
     pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of pipeline parameters. This list can be empty.
     pipelineParameters :: Prelude.Maybe [Parameter],
-    -- | The name of the pipeline.
+    -- | The selective execution configuration applied to the pipeline run.
+    selectiveExecutionConfig :: Prelude.Maybe SelectiveExecutionConfig,
+    -- | The name or Amazon Resource Name (ARN) of the pipeline.
     pipelineName :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
@@ -89,7 +92,9 @@ data StartPipelineExecution = StartPipelineExecution'
 --
 -- 'pipelineParameters', 'startPipelineExecution_pipelineParameters' - Contains a list of pipeline parameters. This list can be empty.
 --
--- 'pipelineName', 'startPipelineExecution_pipelineName' - The name of the pipeline.
+-- 'selectiveExecutionConfig', 'startPipelineExecution_selectiveExecutionConfig' - The selective execution configuration applied to the pipeline run.
+--
+-- 'pipelineName', 'startPipelineExecution_pipelineName' - The name or Amazon Resource Name (ARN) of the pipeline.
 --
 -- 'clientRequestToken', 'startPipelineExecution_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
@@ -109,6 +114,7 @@ newStartPipelineExecution
         pipelineExecutionDescription = Prelude.Nothing,
         pipelineExecutionDisplayName = Prelude.Nothing,
         pipelineParameters = Prelude.Nothing,
+        selectiveExecutionConfig = Prelude.Nothing,
         pipelineName = pPipelineName_,
         clientRequestToken = pClientRequestToken_
       }
@@ -130,7 +136,11 @@ startPipelineExecution_pipelineExecutionDisplayName = Lens.lens (\StartPipelineE
 startPipelineExecution_pipelineParameters :: Lens.Lens' StartPipelineExecution (Prelude.Maybe [Parameter])
 startPipelineExecution_pipelineParameters = Lens.lens (\StartPipelineExecution' {pipelineParameters} -> pipelineParameters) (\s@StartPipelineExecution' {} a -> s {pipelineParameters = a} :: StartPipelineExecution) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the pipeline.
+-- | The selective execution configuration applied to the pipeline run.
+startPipelineExecution_selectiveExecutionConfig :: Lens.Lens' StartPipelineExecution (Prelude.Maybe SelectiveExecutionConfig)
+startPipelineExecution_selectiveExecutionConfig = Lens.lens (\StartPipelineExecution' {selectiveExecutionConfig} -> selectiveExecutionConfig) (\s@StartPipelineExecution' {} a -> s {selectiveExecutionConfig = a} :: StartPipelineExecution)
+
+-- | The name or Amazon Resource Name (ARN) of the pipeline.
 startPipelineExecution_pipelineName :: Lens.Lens' StartPipelineExecution Prelude.Text
 startPipelineExecution_pipelineName = Lens.lens (\StartPipelineExecution' {pipelineName} -> pipelineName) (\s@StartPipelineExecution' {} a -> s {pipelineName = a} :: StartPipelineExecution)
 
@@ -161,6 +171,7 @@ instance Prelude.Hashable StartPipelineExecution where
       `Prelude.hashWithSalt` pipelineExecutionDescription
       `Prelude.hashWithSalt` pipelineExecutionDisplayName
       `Prelude.hashWithSalt` pipelineParameters
+      `Prelude.hashWithSalt` selectiveExecutionConfig
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` clientRequestToken
 
@@ -170,6 +181,7 @@ instance Prelude.NFData StartPipelineExecution where
       `Prelude.seq` Prelude.rnf pipelineExecutionDescription
       `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
       `Prelude.seq` Prelude.rnf pipelineParameters
+      `Prelude.seq` Prelude.rnf selectiveExecutionConfig
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf clientRequestToken
 
@@ -200,6 +212,8 @@ instance Data.ToJSON StartPipelineExecution where
               Prelude.<$> pipelineExecutionDisplayName,
             ("PipelineParameters" Data..=)
               Prelude.<$> pipelineParameters,
+            ("SelectiveExecutionConfig" Data..=)
+              Prelude.<$> selectiveExecutionConfig,
             Prelude.Just ("PipelineName" Data..= pipelineName),
             Prelude.Just
               ("ClientRequestToken" Data..= clientRequestToken)

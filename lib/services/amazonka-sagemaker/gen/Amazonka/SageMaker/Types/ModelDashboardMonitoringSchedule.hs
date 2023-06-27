@@ -184,7 +184,8 @@ instance
   hashWithSalt
     _salt
     ModelDashboardMonitoringSchedule' {..} =
-      _salt `Prelude.hashWithSalt` creationTime
+      _salt
+        `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` endpointName
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` lastModifiedTime

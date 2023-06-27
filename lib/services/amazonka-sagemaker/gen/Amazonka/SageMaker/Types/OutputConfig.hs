@@ -99,8 +99,9 @@ data OutputConfig = OutputConfig'
     --     For information about supported compiler options, see
     --     <https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md Neuron Compiler CLI>.
     --
-    -- -   @CoreML@: Compilation for the CoreML OutputConfig$TargetDevice
-    --     supports the following compiler options:
+    -- -   @CoreML@: Compilation for the CoreML
+    --     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html OutputConfig>
+    --     @TargetDevice@ supports the following compiler options:
     --
     --     -   @class_labels@: Specifies the classification labels file name
     --         inside input tar.gz file. For example,
@@ -148,7 +149,11 @@ data OutputConfig = OutputConfig'
     -- | Identifies the target device or the machine learning instance that you
     -- want to run your model on after the compilation has completed.
     -- Alternatively, you can specify OS, architecture, and accelerator using
-    -- TargetPlatform fields. It can be used instead of @TargetPlatform@.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html TargetPlatform>
+    -- fields. It can be used instead of @TargetPlatform@.
+    --
+    -- Currently @ml_trn1@ is available only in US East (N. Virginia) Region,
+    -- and @ml_inf2@ is available only in US East (Ohio) Region.
     targetDevice :: Prelude.Maybe TargetDevice,
     -- | Contains information about a target platform that you want your model to
     -- run on, such as OS, architecture, and accelerators. It is an alternative
@@ -267,8 +272,9 @@ data OutputConfig = OutputConfig'
 --     For information about supported compiler options, see
 --     <https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md Neuron Compiler CLI>.
 --
--- -   @CoreML@: Compilation for the CoreML OutputConfig$TargetDevice
---     supports the following compiler options:
+-- -   @CoreML@: Compilation for the CoreML
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html OutputConfig>
+--     @TargetDevice@ supports the following compiler options:
 --
 --     -   @class_labels@: Specifies the classification labels file name
 --         inside input tar.gz file. For example,
@@ -316,7 +322,11 @@ data OutputConfig = OutputConfig'
 -- 'targetDevice', 'outputConfig_targetDevice' - Identifies the target device or the machine learning instance that you
 -- want to run your model on after the compilation has completed.
 -- Alternatively, you can specify OS, architecture, and accelerator using
--- TargetPlatform fields. It can be used instead of @TargetPlatform@.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html TargetPlatform>
+-- fields. It can be used instead of @TargetPlatform@.
+--
+-- Currently @ml_trn1@ is available only in US East (N. Virginia) Region,
+-- and @ml_inf2@ is available only in US East (Ohio) Region.
 --
 -- 'targetPlatform', 'outputConfig_targetPlatform' - Contains information about a target platform that you want your model to
 -- run on, such as OS, architecture, and accelerators. It is an alternative
@@ -436,8 +446,9 @@ newOutputConfig pS3OutputLocation_ =
 --     For information about supported compiler options, see
 --     <https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md Neuron Compiler CLI>.
 --
--- -   @CoreML@: Compilation for the CoreML OutputConfig$TargetDevice
---     supports the following compiler options:
+-- -   @CoreML@: Compilation for the CoreML
+--     <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html OutputConfig>
+--     @TargetDevice@ supports the following compiler options:
 --
 --     -   @class_labels@: Specifies the classification labels file name
 --         inside input tar.gz file. For example,
@@ -489,7 +500,11 @@ outputConfig_kmsKeyId = Lens.lens (\OutputConfig' {kmsKeyId} -> kmsKeyId) (\s@Ou
 -- | Identifies the target device or the machine learning instance that you
 -- want to run your model on after the compilation has completed.
 -- Alternatively, you can specify OS, architecture, and accelerator using
--- TargetPlatform fields. It can be used instead of @TargetPlatform@.
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TargetPlatform.html TargetPlatform>
+-- fields. It can be used instead of @TargetPlatform@.
+--
+-- Currently @ml_trn1@ is available only in US East (N. Virginia) Region,
+-- and @ml_inf2@ is available only in US East (Ohio) Region.
 outputConfig_targetDevice :: Lens.Lens' OutputConfig (Prelude.Maybe TargetDevice)
 outputConfig_targetDevice = Lens.lens (\OutputConfig' {targetDevice} -> targetDevice) (\s@OutputConfig' {} a -> s {targetDevice = a} :: OutputConfig)
 
@@ -556,7 +571,8 @@ instance Data.FromJSON OutputConfig where
 
 instance Prelude.Hashable OutputConfig where
   hashWithSalt _salt OutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` compilerOptions
+    _salt
+      `Prelude.hashWithSalt` compilerOptions
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` targetDevice
       `Prelude.hashWithSalt` targetPlatform

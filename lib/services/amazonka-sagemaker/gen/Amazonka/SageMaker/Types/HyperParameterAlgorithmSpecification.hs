@@ -35,8 +35,9 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
     -- job. If you specify a value for this parameter, do not specify a value
     -- for @TrainingImage@.
     algorithmName :: Prelude.Maybe Prelude.Text,
-    -- | An array of MetricDefinition objects that specify the metrics that the
-    -- algorithm emits.
+    -- | An array of
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html MetricDefinition>
+    -- objects that specify the metrics that the algorithm emits.
     metricDefinitions :: Prelude.Maybe [MetricDefinition],
     -- | The registry path of the Docker image that contains the training
     -- algorithm. For information about Docker registry paths for built-in
@@ -63,8 +64,9 @@ data HyperParameterAlgorithmSpecification = HyperParameterAlgorithmSpecification
 -- job. If you specify a value for this parameter, do not specify a value
 -- for @TrainingImage@.
 --
--- 'metricDefinitions', 'hyperParameterAlgorithmSpecification_metricDefinitions' - An array of MetricDefinition objects that specify the metrics that the
--- algorithm emits.
+-- 'metricDefinitions', 'hyperParameterAlgorithmSpecification_metricDefinitions' - An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html MetricDefinition>
+-- objects that specify the metrics that the algorithm emits.
 --
 -- 'trainingImage', 'hyperParameterAlgorithmSpecification_trainingImage' - The registry path of the Docker image that contains the training
 -- algorithm. For information about Docker registry paths for built-in
@@ -97,8 +99,9 @@ newHyperParameterAlgorithmSpecification
 hyperParameterAlgorithmSpecification_algorithmName :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe Prelude.Text)
 hyperParameterAlgorithmSpecification_algorithmName = Lens.lens (\HyperParameterAlgorithmSpecification' {algorithmName} -> algorithmName) (\s@HyperParameterAlgorithmSpecification' {} a -> s {algorithmName = a} :: HyperParameterAlgorithmSpecification)
 
--- | An array of MetricDefinition objects that specify the metrics that the
--- algorithm emits.
+-- | An array of
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_MetricDefinition.html MetricDefinition>
+-- objects that specify the metrics that the algorithm emits.
 hyperParameterAlgorithmSpecification_metricDefinitions :: Lens.Lens' HyperParameterAlgorithmSpecification (Prelude.Maybe [MetricDefinition])
 hyperParameterAlgorithmSpecification_metricDefinitions = Lens.lens (\HyperParameterAlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@HyperParameterAlgorithmSpecification' {} a -> s {metricDefinitions = a} :: HyperParameterAlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
 
@@ -127,7 +130,8 @@ instance
       ( \x ->
           HyperParameterAlgorithmSpecification'
             Prelude.<$> (x Data..:? "AlgorithmName")
-            Prelude.<*> ( x Data..:? "MetricDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "MetricDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TrainingImage")
@@ -141,7 +145,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterAlgorithmSpecification' {..} =
-      _salt `Prelude.hashWithSalt` algorithmName
+      _salt
+        `Prelude.hashWithSalt` algorithmName
         `Prelude.hashWithSalt` metricDefinitions
         `Prelude.hashWithSalt` trainingImage
         `Prelude.hashWithSalt` trainingInputMode

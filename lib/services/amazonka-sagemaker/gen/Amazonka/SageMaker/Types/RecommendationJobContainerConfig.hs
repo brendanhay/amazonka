@@ -35,7 +35,12 @@ import Amazonka.SageMaker.Types.RecommendationJobPayloadConfig
 --
 -- /See:/ 'newRecommendationJobContainerConfig' smart constructor.
 data RecommendationJobContainerConfig = RecommendationJobContainerConfig'
-  { -- | The machine learning domain of the model and its components.
+  { -- | Specifies the name and shape of the expected data inputs for your
+    -- trained model with a JSON dictionary form. This field is used for
+    -- optimizing your model using SageMaker Neo. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig DataInputConfig>.
+    dataInputConfig :: Prelude.Maybe Prelude.Text,
+    -- | The machine learning domain of the model and its components.
     --
     -- Valid Values:
     -- @COMPUTER_VISION | NATURAL_LANGUAGE_PROCESSING | MACHINE_LEARNING@
@@ -74,6 +79,11 @@ data RecommendationJobContainerConfig = RecommendationJobContainerConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dataInputConfig', 'recommendationJobContainerConfig_dataInputConfig' - Specifies the name and shape of the expected data inputs for your
+-- trained model with a JSON dictionary form. This field is used for
+-- optimizing your model using SageMaker Neo. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig DataInputConfig>.
+--
 -- 'domain', 'recommendationJobContainerConfig_domain' - The machine learning domain of the model and its components.
 --
 -- Valid Values:
@@ -105,8 +115,9 @@ newRecommendationJobContainerConfig ::
   RecommendationJobContainerConfig
 newRecommendationJobContainerConfig =
   RecommendationJobContainerConfig'
-    { domain =
+    { dataInputConfig =
         Prelude.Nothing,
+      domain = Prelude.Nothing,
       framework = Prelude.Nothing,
       frameworkVersion = Prelude.Nothing,
       nearestModelName = Prelude.Nothing,
@@ -114,6 +125,13 @@ newRecommendationJobContainerConfig =
       supportedInstanceTypes = Prelude.Nothing,
       task = Prelude.Nothing
     }
+
+-- | Specifies the name and shape of the expected data inputs for your
+-- trained model with a JSON dictionary form. This field is used for
+-- optimizing your model using SageMaker Neo. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_InputConfig.html#sagemaker-Type-InputConfig-DataInputConfig DataInputConfig>.
+recommendationJobContainerConfig_dataInputConfig :: Lens.Lens' RecommendationJobContainerConfig (Prelude.Maybe Prelude.Text)
+recommendationJobContainerConfig_dataInputConfig = Lens.lens (\RecommendationJobContainerConfig' {dataInputConfig} -> dataInputConfig) (\s@RecommendationJobContainerConfig' {} a -> s {dataInputConfig = a} :: RecommendationJobContainerConfig)
 
 -- | The machine learning domain of the model and its components.
 --
@@ -166,12 +184,14 @@ instance
       "RecommendationJobContainerConfig"
       ( \x ->
           RecommendationJobContainerConfig'
-            Prelude.<$> (x Data..:? "Domain")
+            Prelude.<$> (x Data..:? "DataInputConfig")
+            Prelude.<*> (x Data..:? "Domain")
             Prelude.<*> (x Data..:? "Framework")
             Prelude.<*> (x Data..:? "FrameworkVersion")
             Prelude.<*> (x Data..:? "NearestModelName")
             Prelude.<*> (x Data..:? "PayloadConfig")
-            Prelude.<*> ( x Data..:? "SupportedInstanceTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedInstanceTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Task")
@@ -184,7 +204,9 @@ instance
   hashWithSalt
     _salt
     RecommendationJobContainerConfig' {..} =
-      _salt `Prelude.hashWithSalt` domain
+      _salt
+        `Prelude.hashWithSalt` dataInputConfig
+        `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` framework
         `Prelude.hashWithSalt` frameworkVersion
         `Prelude.hashWithSalt` nearestModelName
@@ -197,7 +219,8 @@ instance
     RecommendationJobContainerConfig
   where
   rnf RecommendationJobContainerConfig' {..} =
-    Prelude.rnf domain
+    Prelude.rnf dataInputConfig
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf framework
       `Prelude.seq` Prelude.rnf frameworkVersion
       `Prelude.seq` Prelude.rnf nearestModelName
@@ -209,7 +232,9 @@ instance Data.ToJSON RecommendationJobContainerConfig where
   toJSON RecommendationJobContainerConfig' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Domain" Data..=) Prelude.<$> domain,
+          [ ("DataInputConfig" Data..=)
+              Prelude.<$> dataInputConfig,
+            ("Domain" Data..=) Prelude.<$> domain,
             ("Framework" Data..=) Prelude.<$> framework,
             ("FrameworkVersion" Data..=)
               Prelude.<$> frameworkVersion,

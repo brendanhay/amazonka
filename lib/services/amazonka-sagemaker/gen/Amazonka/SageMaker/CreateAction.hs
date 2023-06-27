@@ -170,7 +170,8 @@ instance Core.AWSRequest CreateAction where
 
 instance Prelude.Hashable CreateAction where
   hashWithSalt _salt CreateAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` metadataProperties
       `Prelude.hashWithSalt` properties
       `Prelude.hashWithSalt` status

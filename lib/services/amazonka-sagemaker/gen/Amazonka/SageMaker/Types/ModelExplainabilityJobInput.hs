@@ -76,7 +76,8 @@ instance Data.FromJSON ModelExplainabilityJobInput where
 
 instance Prelude.Hashable ModelExplainabilityJobInput where
   hashWithSalt _salt ModelExplainabilityJobInput' {..} =
-    _salt `Prelude.hashWithSalt` batchTransformInput
+    _salt
+      `Prelude.hashWithSalt` batchTransformInput
       `Prelude.hashWithSalt` endpointInput
 
 instance Prelude.NFData ModelExplainabilityJobInput where

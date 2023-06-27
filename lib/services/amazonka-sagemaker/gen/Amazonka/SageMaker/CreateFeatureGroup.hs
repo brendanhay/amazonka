@@ -90,14 +90,16 @@ data CreateFeatureGroup = CreateFeatureGroup'
     -- -   Format for the offline store table. Supported formats are Glue
     --     (Default) and <https://iceberg.apache.org/ Apache Iceberg>.
     --
-    -- To learn more about this parameter, see OfflineStoreConfig.
+    -- To learn more about this parameter, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OfflineStoreConfig.html OfflineStoreConfig>.
     offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
-    -- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
-    -- @False@.
+    -- @EnableOnlineStore@ flag in @OnlineStoreConfig@.
     --
     -- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
     -- at-rest encryption of the @OnlineStore@.
+    --
+    -- The default value is @False@.
     onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
     -- | The Amazon Resource Name (ARN) of the IAM execution role used to persist
     -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
@@ -191,14 +193,16 @@ data CreateFeatureGroup = CreateFeatureGroup'
 -- -   Format for the offline store table. Supported formats are Glue
 --     (Default) and <https://iceberg.apache.org/ Apache Iceberg>.
 --
--- To learn more about this parameter, see OfflineStoreConfig.
+-- To learn more about this parameter, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OfflineStoreConfig.html OfflineStoreConfig>.
 --
 -- 'onlineStoreConfig', 'createFeatureGroup_onlineStoreConfig' - You can turn the @OnlineStore@ on or off by specifying @True@ for the
--- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
--- @False@.
+-- @EnableOnlineStore@ flag in @OnlineStoreConfig@.
 --
 -- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
 -- at-rest encryption of the @OnlineStore@.
+--
+-- The default value is @False@.
 --
 -- 'roleArn', 'createFeatureGroup_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to persist
 -- data into the @OfflineStore@ if an @OfflineStoreConfig@ is provided.
@@ -311,16 +315,18 @@ createFeatureGroup_description = Lens.lens (\CreateFeatureGroup' {description} -
 -- -   Format for the offline store table. Supported formats are Glue
 --     (Default) and <https://iceberg.apache.org/ Apache Iceberg>.
 --
--- To learn more about this parameter, see OfflineStoreConfig.
+-- To learn more about this parameter, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OfflineStoreConfig.html OfflineStoreConfig>.
 createFeatureGroup_offlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OfflineStoreConfig)
 createFeatureGroup_offlineStoreConfig = Lens.lens (\CreateFeatureGroup' {offlineStoreConfig} -> offlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {offlineStoreConfig = a} :: CreateFeatureGroup)
 
 -- | You can turn the @OnlineStore@ on or off by specifying @True@ for the
--- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
--- @False@.
+-- @EnableOnlineStore@ flag in @OnlineStoreConfig@.
 --
 -- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
 -- at-rest encryption of the @OnlineStore@.
+--
+-- The default value is @False@.
 createFeatureGroup_onlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OnlineStoreConfig)
 createFeatureGroup_onlineStoreConfig = Lens.lens (\CreateFeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {onlineStoreConfig = a} :: CreateFeatureGroup)
 
@@ -411,7 +417,8 @@ instance Core.AWSRequest CreateFeatureGroup where
 
 instance Prelude.Hashable CreateFeatureGroup where
   hashWithSalt _salt CreateFeatureGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` offlineStoreConfig
       `Prelude.hashWithSalt` onlineStoreConfig
       `Prelude.hashWithSalt` roleArn

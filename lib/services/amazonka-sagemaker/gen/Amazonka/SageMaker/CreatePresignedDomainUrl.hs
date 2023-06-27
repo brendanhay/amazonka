@@ -167,7 +167,8 @@ instance Core.AWSRequest CreatePresignedDomainUrl where
 
 instance Prelude.Hashable CreatePresignedDomainUrl where
   hashWithSalt _salt CreatePresignedDomainUrl' {..} =
-    _salt `Prelude.hashWithSalt` expiresInSeconds
+    _salt
+      `Prelude.hashWithSalt` expiresInSeconds
       `Prelude.hashWithSalt` sessionExpirationDurationInSeconds
       `Prelude.hashWithSalt` spaceName
       `Prelude.hashWithSalt` domainId

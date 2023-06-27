@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.AutoMLCandidateStep
 import Amazonka.SageMaker.Types.AutoMLContainerDefinition
+import Amazonka.SageMaker.Types.AutoMLProcessingUnit
 import Amazonka.SageMaker.Types.CandidateProperties
 import Amazonka.SageMaker.Types.CandidateStatus
 import Amazonka.SageMaker.Types.FinalAutoMLJobObjectiveMetric
@@ -42,7 +43,13 @@ data AutoMLCandidate = AutoMLCandidate'
     -- | The failure reason.
     failureReason :: Prelude.Maybe Prelude.Text,
     finalAutoMLJobObjectiveMetric :: Prelude.Maybe FinalAutoMLJobObjectiveMetric,
-    -- | Information about the inference container definitions.
+    -- | The mapping of all supported processing unit (CPU, GPU, etc...) to
+    -- inference container definitions for the candidate. This field is
+    -- populated for the AutoML jobs V2 (for example, for jobs created by
+    -- calling @CreateAutoMLJobV2@) related to image or text classification
+    -- problem types only.
+    inferenceContainerDefinitions :: Prelude.Maybe (Prelude.HashMap AutoMLProcessingUnit [AutoMLContainerDefinition]),
+    -- | Information about the recommended inference container definitions.
     inferenceContainers :: Prelude.Maybe [AutoMLContainerDefinition],
     -- | The name of the candidate.
     candidateName :: Prelude.Text,
@@ -75,7 +82,13 @@ data AutoMLCandidate = AutoMLCandidate'
 --
 -- 'finalAutoMLJobObjectiveMetric', 'autoMLCandidate_finalAutoMLJobObjectiveMetric' - Undocumented member.
 --
--- 'inferenceContainers', 'autoMLCandidate_inferenceContainers' - Information about the inference container definitions.
+-- 'inferenceContainerDefinitions', 'autoMLCandidate_inferenceContainerDefinitions' - The mapping of all supported processing unit (CPU, GPU, etc...) to
+-- inference container definitions for the candidate. This field is
+-- populated for the AutoML jobs V2 (for example, for jobs created by
+-- calling @CreateAutoMLJobV2@) related to image or text classification
+-- problem types only.
+--
+-- 'inferenceContainers', 'autoMLCandidate_inferenceContainers' - Information about the recommended inference container definitions.
 --
 -- 'candidateName', 'autoMLCandidate_candidateName' - The name of the candidate.
 --
@@ -112,6 +125,7 @@ newAutoMLCandidate
         endTime = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         finalAutoMLJobObjectiveMetric = Prelude.Nothing,
+        inferenceContainerDefinitions = Prelude.Nothing,
         inferenceContainers = Prelude.Nothing,
         candidateName = pCandidateName_,
         objectiveStatus = pObjectiveStatus_,
@@ -138,7 +152,15 @@ autoMLCandidate_failureReason = Lens.lens (\AutoMLCandidate' {failureReason} -> 
 autoMLCandidate_finalAutoMLJobObjectiveMetric :: Lens.Lens' AutoMLCandidate (Prelude.Maybe FinalAutoMLJobObjectiveMetric)
 autoMLCandidate_finalAutoMLJobObjectiveMetric = Lens.lens (\AutoMLCandidate' {finalAutoMLJobObjectiveMetric} -> finalAutoMLJobObjectiveMetric) (\s@AutoMLCandidate' {} a -> s {finalAutoMLJobObjectiveMetric = a} :: AutoMLCandidate)
 
--- | Information about the inference container definitions.
+-- | The mapping of all supported processing unit (CPU, GPU, etc...) to
+-- inference container definitions for the candidate. This field is
+-- populated for the AutoML jobs V2 (for example, for jobs created by
+-- calling @CreateAutoMLJobV2@) related to image or text classification
+-- problem types only.
+autoMLCandidate_inferenceContainerDefinitions :: Lens.Lens' AutoMLCandidate (Prelude.Maybe (Prelude.HashMap AutoMLProcessingUnit [AutoMLContainerDefinition]))
+autoMLCandidate_inferenceContainerDefinitions = Lens.lens (\AutoMLCandidate' {inferenceContainerDefinitions} -> inferenceContainerDefinitions) (\s@AutoMLCandidate' {} a -> s {inferenceContainerDefinitions = a} :: AutoMLCandidate) Prelude.. Lens.mapping Lens.coerced
+
+-- | Information about the recommended inference container definitions.
 autoMLCandidate_inferenceContainers :: Lens.Lens' AutoMLCandidate (Prelude.Maybe [AutoMLContainerDefinition])
 autoMLCandidate_inferenceContainers = Lens.lens (\AutoMLCandidate' {inferenceContainers} -> inferenceContainers) (\s@AutoMLCandidate' {} a -> s {inferenceContainers = a} :: AutoMLCandidate) Prelude.. Lens.mapping Lens.coerced
 
@@ -176,7 +198,12 @@ instance Data.FromJSON AutoMLCandidate where
             Prelude.<*> (x Data..:? "EndTime")
             Prelude.<*> (x Data..:? "FailureReason")
             Prelude.<*> (x Data..:? "FinalAutoMLJobObjectiveMetric")
-            Prelude.<*> ( x Data..:? "InferenceContainers"
+            Prelude.<*> ( x
+                            Data..:? "InferenceContainerDefinitions"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "InferenceContainers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "CandidateName")
@@ -189,10 +216,12 @@ instance Data.FromJSON AutoMLCandidate where
 
 instance Prelude.Hashable AutoMLCandidate where
   hashWithSalt _salt AutoMLCandidate' {..} =
-    _salt `Prelude.hashWithSalt` candidateProperties
+    _salt
+      `Prelude.hashWithSalt` candidateProperties
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` finalAutoMLJobObjectiveMetric
+      `Prelude.hashWithSalt` inferenceContainerDefinitions
       `Prelude.hashWithSalt` inferenceContainers
       `Prelude.hashWithSalt` candidateName
       `Prelude.hashWithSalt` objectiveStatus
@@ -207,6 +236,7 @@ instance Prelude.NFData AutoMLCandidate where
       `Prelude.seq` Prelude.rnf endTime
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf finalAutoMLJobObjectiveMetric
+      `Prelude.seq` Prelude.rnf inferenceContainerDefinitions
       `Prelude.seq` Prelude.rnf inferenceContainers
       `Prelude.seq` Prelude.rnf candidateName
       `Prelude.seq` Prelude.rnf objectiveStatus

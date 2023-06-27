@@ -62,7 +62,7 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
     instanceCount :: Prelude.Maybe Prelude.Natural,
     -- | The instance type used to run hyperparameter optimization tuning jobs.
     -- See
-    -- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html descriptions of instance types>
     -- for more information.
     instanceType :: Prelude.Maybe TrainingInstanceType,
     -- | A key used by Amazon Web Services Key Management Service to encrypt data
@@ -137,7 +137,7 @@ data HyperParameterTuningResourceConfig = HyperParameterTuningResourceConfig'
 --
 -- 'instanceType', 'hyperParameterTuningResourceConfig_instanceType' - The instance type used to run hyperparameter optimization tuning jobs.
 -- See
--- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html descriptions of instance types>
 -- for more information.
 --
 -- 'volumeKmsKeyId', 'hyperParameterTuningResourceConfig_volumeKmsKeyId' - A key used by Amazon Web Services Key Management Service to encrypt data
@@ -219,7 +219,7 @@ hyperParameterTuningResourceConfig_instanceCount = Lens.lens (\HyperParameterTun
 
 -- | The instance type used to run hyperparameter optimization tuning jobs.
 -- See
--- <https://docs.aws.amazon.com/notebooks-available-instance-types.html descriptions of instance types>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html descriptions of instance types>
 -- for more information.
 hyperParameterTuningResourceConfig_instanceType :: Lens.Lens' HyperParameterTuningResourceConfig (Prelude.Maybe TrainingInstanceType)
 hyperParameterTuningResourceConfig_instanceType = Lens.lens (\HyperParameterTuningResourceConfig' {instanceType} -> instanceType) (\s@HyperParameterTuningResourceConfig' {} a -> s {instanceType = a} :: HyperParameterTuningResourceConfig)
@@ -292,7 +292,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` allocationStrategy
+      _salt
+        `Prelude.hashWithSalt` allocationStrategy
         `Prelude.hashWithSalt` instanceConfigs
         `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` instanceType

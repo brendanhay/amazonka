@@ -45,6 +45,10 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
     endpoints :: Prelude.Maybe [EndpointInfo],
     -- | Specifies the maximum duration of the job, in seconds.>
     jobDurationInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the created model.
+    modelName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a versioned model package.
+    modelPackageVersionArn :: Prelude.Maybe Prelude.Text,
     -- | Defines the resource limit of the job.
     resourceLimit :: Prelude.Maybe RecommendationJobResourceLimit,
     -- | Specifies the traffic pattern of the job.
@@ -86,9 +90,7 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Inference Recommender provisions SageMaker endpoints with access to VPC
     -- in the inference recommendation job.
-    vpcConfig :: Prelude.Maybe RecommendationJobVpcConfig,
-    -- | The Amazon Resource Name (ARN) of a versioned model package.
-    modelPackageVersionArn :: Prelude.Text
+    vpcConfig :: Prelude.Maybe RecommendationJobVpcConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,6 +112,10 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
 -- job.
 --
 -- 'jobDurationInSeconds', 'recommendationJobInputConfig_jobDurationInSeconds' - Specifies the maximum duration of the job, in seconds.>
+--
+-- 'modelName', 'recommendationJobInputConfig_modelName' - The name of the created model.
+--
+-- 'modelPackageVersionArn', 'recommendationJobInputConfig_modelPackageVersionArn' - The Amazon Resource Name (ARN) of a versioned model package.
 --
 -- 'resourceLimit', 'recommendationJobInputConfig_resourceLimit' - Defines the resource limit of the job.
 --
@@ -152,27 +158,22 @@ data RecommendationJobInputConfig = RecommendationJobInputConfig'
 --
 -- 'vpcConfig', 'recommendationJobInputConfig_vpcConfig' - Inference Recommender provisions SageMaker endpoints with access to VPC
 -- in the inference recommendation job.
---
--- 'modelPackageVersionArn', 'recommendationJobInputConfig_modelPackageVersionArn' - The Amazon Resource Name (ARN) of a versioned model package.
 newRecommendationJobInputConfig ::
-  -- | 'modelPackageVersionArn'
-  Prelude.Text ->
   RecommendationJobInputConfig
-newRecommendationJobInputConfig
-  pModelPackageVersionArn_ =
-    RecommendationJobInputConfig'
-      { containerConfig =
-          Prelude.Nothing,
-        endpointConfigurations = Prelude.Nothing,
-        endpoints = Prelude.Nothing,
-        jobDurationInSeconds = Prelude.Nothing,
-        resourceLimit = Prelude.Nothing,
-        trafficPattern = Prelude.Nothing,
-        volumeKmsKeyId = Prelude.Nothing,
-        vpcConfig = Prelude.Nothing,
-        modelPackageVersionArn =
-          pModelPackageVersionArn_
-      }
+newRecommendationJobInputConfig =
+  RecommendationJobInputConfig'
+    { containerConfig =
+        Prelude.Nothing,
+      endpointConfigurations = Prelude.Nothing,
+      endpoints = Prelude.Nothing,
+      jobDurationInSeconds = Prelude.Nothing,
+      modelName = Prelude.Nothing,
+      modelPackageVersionArn = Prelude.Nothing,
+      resourceLimit = Prelude.Nothing,
+      trafficPattern = Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing
+    }
 
 -- | Specifies mandatory fields for running an Inference Recommender job. The
 -- fields specified in @ContainerConfig@ override the corresponding fields
@@ -192,6 +193,14 @@ recommendationJobInputConfig_endpoints = Lens.lens (\RecommendationJobInputConfi
 -- | Specifies the maximum duration of the job, in seconds.>
 recommendationJobInputConfig_jobDurationInSeconds :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe Prelude.Natural)
 recommendationJobInputConfig_jobDurationInSeconds = Lens.lens (\RecommendationJobInputConfig' {jobDurationInSeconds} -> jobDurationInSeconds) (\s@RecommendationJobInputConfig' {} a -> s {jobDurationInSeconds = a} :: RecommendationJobInputConfig)
+
+-- | The name of the created model.
+recommendationJobInputConfig_modelName :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe Prelude.Text)
+recommendationJobInputConfig_modelName = Lens.lens (\RecommendationJobInputConfig' {modelName} -> modelName) (\s@RecommendationJobInputConfig' {} a -> s {modelName = a} :: RecommendationJobInputConfig)
+
+-- | The Amazon Resource Name (ARN) of a versioned model package.
+recommendationJobInputConfig_modelPackageVersionArn :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe Prelude.Text)
+recommendationJobInputConfig_modelPackageVersionArn = Lens.lens (\RecommendationJobInputConfig' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@RecommendationJobInputConfig' {} a -> s {modelPackageVersionArn = a} :: RecommendationJobInputConfig)
 
 -- | Defines the resource limit of the job.
 recommendationJobInputConfig_resourceLimit :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe RecommendationJobResourceLimit)
@@ -243,10 +252,6 @@ recommendationJobInputConfig_volumeKmsKeyId = Lens.lens (\RecommendationJobInput
 recommendationJobInputConfig_vpcConfig :: Lens.Lens' RecommendationJobInputConfig (Prelude.Maybe RecommendationJobVpcConfig)
 recommendationJobInputConfig_vpcConfig = Lens.lens (\RecommendationJobInputConfig' {vpcConfig} -> vpcConfig) (\s@RecommendationJobInputConfig' {} a -> s {vpcConfig = a} :: RecommendationJobInputConfig)
 
--- | The Amazon Resource Name (ARN) of a versioned model package.
-recommendationJobInputConfig_modelPackageVersionArn :: Lens.Lens' RecommendationJobInputConfig Prelude.Text
-recommendationJobInputConfig_modelPackageVersionArn = Lens.lens (\RecommendationJobInputConfig' {modelPackageVersionArn} -> modelPackageVersionArn) (\s@RecommendationJobInputConfig' {} a -> s {modelPackageVersionArn = a} :: RecommendationJobInputConfig)
-
 instance Data.FromJSON RecommendationJobInputConfig where
   parseJSON =
     Data.withObject
@@ -257,11 +262,12 @@ instance Data.FromJSON RecommendationJobInputConfig where
             Prelude.<*> (x Data..:? "EndpointConfigurations")
             Prelude.<*> (x Data..:? "Endpoints" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "JobDurationInSeconds")
+            Prelude.<*> (x Data..:? "ModelName")
+            Prelude.<*> (x Data..:? "ModelPackageVersionArn")
             Prelude.<*> (x Data..:? "ResourceLimit")
             Prelude.<*> (x Data..:? "TrafficPattern")
             Prelude.<*> (x Data..:? "VolumeKmsKeyId")
             Prelude.<*> (x Data..:? "VpcConfig")
-            Prelude.<*> (x Data..: "ModelPackageVersionArn")
       )
 
 instance
@@ -269,15 +275,17 @@ instance
     RecommendationJobInputConfig
   where
   hashWithSalt _salt RecommendationJobInputConfig' {..} =
-    _salt `Prelude.hashWithSalt` containerConfig
+    _salt
+      `Prelude.hashWithSalt` containerConfig
       `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` jobDurationInSeconds
+      `Prelude.hashWithSalt` modelName
+      `Prelude.hashWithSalt` modelPackageVersionArn
       `Prelude.hashWithSalt` resourceLimit
       `Prelude.hashWithSalt` trafficPattern
       `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` vpcConfig
-      `Prelude.hashWithSalt` modelPackageVersionArn
 
 instance Prelude.NFData RecommendationJobInputConfig where
   rnf RecommendationJobInputConfig' {..} =
@@ -285,11 +293,12 @@ instance Prelude.NFData RecommendationJobInputConfig where
       `Prelude.seq` Prelude.rnf endpointConfigurations
       `Prelude.seq` Prelude.rnf endpoints
       `Prelude.seq` Prelude.rnf jobDurationInSeconds
+      `Prelude.seq` Prelude.rnf modelName
+      `Prelude.seq` Prelude.rnf modelPackageVersionArn
       `Prelude.seq` Prelude.rnf resourceLimit
       `Prelude.seq` Prelude.rnf trafficPattern
       `Prelude.seq` Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf vpcConfig
-      `Prelude.seq` Prelude.rnf modelPackageVersionArn
 
 instance Data.ToJSON RecommendationJobInputConfig where
   toJSON RecommendationJobInputConfig' {..} =
@@ -302,15 +311,14 @@ instance Data.ToJSON RecommendationJobInputConfig where
             ("Endpoints" Data..=) Prelude.<$> endpoints,
             ("JobDurationInSeconds" Data..=)
               Prelude.<$> jobDurationInSeconds,
+            ("ModelName" Data..=) Prelude.<$> modelName,
+            ("ModelPackageVersionArn" Data..=)
+              Prelude.<$> modelPackageVersionArn,
             ("ResourceLimit" Data..=) Prelude.<$> resourceLimit,
             ("TrafficPattern" Data..=)
               Prelude.<$> trafficPattern,
             ("VolumeKmsKeyId" Data..=)
               Prelude.<$> volumeKmsKeyId,
-            ("VpcConfig" Data..=) Prelude.<$> vpcConfig,
-            Prelude.Just
-              ( "ModelPackageVersionArn"
-                  Data..= modelPackageVersionArn
-              )
+            ("VpcConfig" Data..=) Prelude.<$> vpcConfig
           ]
       )

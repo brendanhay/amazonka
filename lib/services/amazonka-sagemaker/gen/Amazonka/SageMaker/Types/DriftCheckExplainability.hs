@@ -78,7 +78,8 @@ instance Data.FromJSON DriftCheckExplainability where
 
 instance Prelude.Hashable DriftCheckExplainability where
   hashWithSalt _salt DriftCheckExplainability' {..} =
-    _salt `Prelude.hashWithSalt` configFile
+    _salt
+      `Prelude.hashWithSalt` configFile
       `Prelude.hashWithSalt` constraints
 
 instance Prelude.NFData DriftCheckExplainability where

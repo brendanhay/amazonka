@@ -112,7 +112,8 @@ instance Data.FromJSON EndpointOutputConfiguration where
 
 instance Prelude.Hashable EndpointOutputConfiguration where
   hashWithSalt _salt EndpointOutputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` endpointName
+    _salt
+      `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` variantName
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` initialInstanceCount

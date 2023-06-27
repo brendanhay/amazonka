@@ -71,8 +71,10 @@ data ListStudioLifecycleConfigs = ListStudioLifecycleConfigs'
     -- | A filter that returns only Lifecycle Configurations created on or before
     -- the specified time.
     creationTimeBefore :: Prelude.Maybe Data.POSIX,
-    -- | The maximum number of Studio Lifecycle Configurations to return in the
-    -- response. The default value is 10.
+    -- | The total number of items to return in the response. If the total number
+    -- of items available is more than the value specified, a @NextToken@ is
+    -- provided in the response. To resume pagination, provide the @NextToken@
+    -- value in the as part of a subsequent call. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only Lifecycle Configurations modified after the
     -- specified time.
@@ -111,8 +113,10 @@ data ListStudioLifecycleConfigs = ListStudioLifecycleConfigs'
 -- 'creationTimeBefore', 'listStudioLifecycleConfigs_creationTimeBefore' - A filter that returns only Lifecycle Configurations created on or before
 -- the specified time.
 --
--- 'maxResults', 'listStudioLifecycleConfigs_maxResults' - The maximum number of Studio Lifecycle Configurations to return in the
--- response. The default value is 10.
+-- 'maxResults', 'listStudioLifecycleConfigs_maxResults' - The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 --
 -- 'modifiedTimeAfter', 'listStudioLifecycleConfigs_modifiedTimeAfter' - A filter that returns only Lifecycle Configurations modified after the
 -- specified time.
@@ -162,8 +166,10 @@ listStudioLifecycleConfigs_creationTimeAfter = Lens.lens (\ListStudioLifecycleCo
 listStudioLifecycleConfigs_creationTimeBefore :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.UTCTime)
 listStudioLifecycleConfigs_creationTimeBefore = Lens.lens (\ListStudioLifecycleConfigs' {creationTimeBefore} -> creationTimeBefore) (\s@ListStudioLifecycleConfigs' {} a -> s {creationTimeBefore = a} :: ListStudioLifecycleConfigs) Prelude.. Lens.mapping Data._Time
 
--- | The maximum number of Studio Lifecycle Configurations to return in the
--- response. The default value is 10.
+-- | The total number of items to return in the response. If the total number
+-- of items available is more than the value specified, a @NextToken@ is
+-- provided in the response. To resume pagination, provide the @NextToken@
+-- value in the as part of a subsequent call. The default value is 10.
 listStudioLifecycleConfigs_maxResults :: Lens.Lens' ListStudioLifecycleConfigs (Prelude.Maybe Prelude.Natural)
 listStudioLifecycleConfigs_maxResults = Lens.lens (\ListStudioLifecycleConfigs' {maxResults} -> maxResults) (\s@ListStudioLifecycleConfigs' {} a -> s {maxResults = a} :: ListStudioLifecycleConfigs)
 
@@ -201,22 +207,22 @@ instance Core.AWSPager ListStudioLifecycleConfigs where
     | Core.stop
         ( rs
             Lens.^? listStudioLifecycleConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listStudioLifecycleConfigsResponse_studioLifecycleConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listStudioLifecycleConfigs_nextToken
           Lens..~ rs
           Lens.^? listStudioLifecycleConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListStudioLifecycleConfigs where
   type
@@ -229,7 +235,8 @@ instance Core.AWSRequest ListStudioLifecycleConfigs where
       ( \s h x ->
           ListStudioLifecycleConfigsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "StudioLifecycleConfigs"
+            Prelude.<*> ( x
+                            Data..?> "StudioLifecycleConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -237,7 +244,8 @@ instance Core.AWSRequest ListStudioLifecycleConfigs where
 
 instance Prelude.Hashable ListStudioLifecycleConfigs where
   hashWithSalt _salt ListStudioLifecycleConfigs' {..} =
-    _salt `Prelude.hashWithSalt` appTypeEquals
+    _salt
+      `Prelude.hashWithSalt` appTypeEquals
       `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
@@ -305,7 +313,8 @@ instance Data.ToQuery ListStudioLifecycleConfigs where
 
 -- | /See:/ 'newListStudioLifecycleConfigsResponse' smart constructor.
 data ListStudioLifecycleConfigsResponse = ListStudioLifecycleConfigsResponse'
-  { -- | A token for getting the next set of actions, if there are any.
+  { -- | If the previous response was truncated, you will receive this token. Use
+    -- it in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of Lifecycle Configurations and their properties.
     studioLifecycleConfigs :: Prelude.Maybe [StudioLifecycleConfigDetails],
@@ -322,7 +331,8 @@ data ListStudioLifecycleConfigsResponse = ListStudioLifecycleConfigsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStudioLifecycleConfigsResponse_nextToken' - A token for getting the next set of actions, if there are any.
+-- 'nextToken', 'listStudioLifecycleConfigsResponse_nextToken' - If the previous response was truncated, you will receive this token. Use
+-- it in your next request to receive the next set of results.
 --
 -- 'studioLifecycleConfigs', 'listStudioLifecycleConfigsResponse_studioLifecycleConfigs' - A list of Lifecycle Configurations and their properties.
 --
@@ -340,7 +350,8 @@ newListStudioLifecycleConfigsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A token for getting the next set of actions, if there are any.
+-- | If the previous response was truncated, you will receive this token. Use
+-- it in your next request to receive the next set of results.
 listStudioLifecycleConfigsResponse_nextToken :: Lens.Lens' ListStudioLifecycleConfigsResponse (Prelude.Maybe Prelude.Text)
 listStudioLifecycleConfigsResponse_nextToken = Lens.lens (\ListStudioLifecycleConfigsResponse' {nextToken} -> nextToken) (\s@ListStudioLifecycleConfigsResponse' {} a -> s {nextToken = a} :: ListStudioLifecycleConfigsResponse)
 

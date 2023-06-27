@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     RecommendationJobResourceLimit' {..} =
-      _salt `Prelude.hashWithSalt` maxNumberOfTests
+      _salt
+        `Prelude.hashWithSalt` maxNumberOfTests
         `Prelude.hashWithSalt` maxParallelOfTests
 
 instance

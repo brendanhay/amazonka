@@ -142,7 +142,8 @@ instance Core.AWSRequest CreateStudioLifecycleConfig where
 
 instance Prelude.Hashable CreateStudioLifecycleConfig where
   hashWithSalt _salt CreateStudioLifecycleConfig' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` studioLifecycleConfigName
       `Prelude.hashWithSalt` studioLifecycleConfigContent
       `Prelude.hashWithSalt` studioLifecycleConfigAppType

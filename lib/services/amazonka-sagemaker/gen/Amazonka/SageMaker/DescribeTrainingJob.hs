@@ -137,10 +137,12 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Data..?> "BillableTimeInSeconds")
             Prelude.<*> (x Data..?> "CheckpointConfig")
             Prelude.<*> (x Data..?> "DebugHookConfig")
-            Prelude.<*> ( x Data..?> "DebugRuleConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "DebugRuleConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "DebugRuleEvaluationStatuses"
+            Prelude.<*> ( x
+                            Data..?> "DebugRuleEvaluationStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "EnableInterContainerTrafficEncryption")
@@ -149,10 +151,12 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Data..?> "Environment" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "ExperimentConfig")
             Prelude.<*> (x Data..?> "FailureReason")
-            Prelude.<*> ( x Data..?> "FinalMetricDataList"
+            Prelude.<*> ( x
+                            Data..?> "FinalMetricDataList"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "HyperParameters"
+            Prelude.<*> ( x
+                            Data..?> "HyperParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "InputDataConfig")
@@ -160,16 +164,19 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Data..?> "LastModifiedTime")
             Prelude.<*> (x Data..?> "OutputDataConfig")
             Prelude.<*> (x Data..?> "ProfilerConfig")
-            Prelude.<*> ( x Data..?> "ProfilerRuleConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "ProfilerRuleConfigurations"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProfilerRuleEvaluationStatuses"
+            Prelude.<*> ( x
+                            Data..?> "ProfilerRuleEvaluationStatuses"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ProfilingStatus")
             Prelude.<*> (x Data..?> "RetryStrategy")
             Prelude.<*> (x Data..?> "RoleArn")
-            Prelude.<*> ( x Data..?> "SecondaryStatusTransitions"
+            Prelude.<*> ( x
+                            Data..?> "SecondaryStatusTransitions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TensorBoardOutputConfig")
@@ -329,8 +336,10 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     -- | The Amazon Resource Name (ARN) of the associated hyperparameter tuning
     -- job if the training job was launched by a hyperparameter tuning job.
     tuningJobArn :: Prelude.Maybe Prelude.Text,
-    -- | A VpcConfig object that specifies the VPC that this training job has
-    -- access to. For more information, see
+    -- | A
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+    -- object that specifies the VPC that this training job has access to. For
+    -- more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The status of the warm pool associated with the training job.
@@ -364,7 +373,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
     trainingJobStatus :: TrainingJobStatus,
     -- | Provides detailed information about the state of the training job. For
     -- detailed information on the secondary status of the training job, see
-    -- @StatusMessage@ under SecondaryStatusTransition.
+    -- @StatusMessage@ under
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html SecondaryStatusTransition>.
     --
     -- SageMaker provides primary statuses and secondary statuses that apply to
     -- each of them:
@@ -546,8 +556,10 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 -- 'tuningJobArn', 'describeTrainingJobResponse_tuningJobArn' - The Amazon Resource Name (ARN) of the associated hyperparameter tuning
 -- job if the training job was launched by a hyperparameter tuning job.
 --
--- 'vpcConfig', 'describeTrainingJobResponse_vpcConfig' - A VpcConfig object that specifies the VPC that this training job has
--- access to. For more information, see
+-- 'vpcConfig', 'describeTrainingJobResponse_vpcConfig' - A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that this training job has access to. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 --
 -- 'warmPoolStatus', 'describeTrainingJobResponse_warmPoolStatus' - The status of the warm pool associated with the training job.
@@ -581,7 +593,8 @@ data DescribeTrainingJobResponse = DescribeTrainingJobResponse'
 --
 -- 'secondaryStatus', 'describeTrainingJobResponse_secondaryStatus' - Provides detailed information about the state of the training job. For
 -- detailed information on the secondary status of the training job, see
--- @StatusMessage@ under SecondaryStatusTransition.
+-- @StatusMessage@ under
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html SecondaryStatusTransition>.
 --
 -- SageMaker provides primary statuses and secondary statuses that apply to
 -- each of them:
@@ -894,8 +907,10 @@ describeTrainingJobResponse_trainingTimeInSeconds = Lens.lens (\DescribeTraining
 describeTrainingJobResponse_tuningJobArn :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe Prelude.Text)
 describeTrainingJobResponse_tuningJobArn = Lens.lens (\DescribeTrainingJobResponse' {tuningJobArn} -> tuningJobArn) (\s@DescribeTrainingJobResponse' {} a -> s {tuningJobArn = a} :: DescribeTrainingJobResponse)
 
--- | A VpcConfig object that specifies the VPC that this training job has
--- access to. For more information, see
+-- | A
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html VpcConfig>
+-- object that specifies the VPC that this training job has access to. For
+-- more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html Protect Training Jobs by Using an Amazon Virtual Private Cloud>.
 describeTrainingJobResponse_vpcConfig :: Lens.Lens' DescribeTrainingJobResponse (Prelude.Maybe VpcConfig)
 describeTrainingJobResponse_vpcConfig = Lens.lens (\DescribeTrainingJobResponse' {vpcConfig} -> vpcConfig) (\s@DescribeTrainingJobResponse' {} a -> s {vpcConfig = a} :: DescribeTrainingJobResponse)
@@ -943,7 +958,8 @@ describeTrainingJobResponse_trainingJobStatus = Lens.lens (\DescribeTrainingJobR
 
 -- | Provides detailed information about the state of the training job. For
 -- detailed information on the secondary status of the training job, see
--- @StatusMessage@ under SecondaryStatusTransition.
+-- @StatusMessage@ under
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SecondaryStatusTransition.html SecondaryStatusTransition>.
 --
 -- SageMaker provides primary statuses and secondary statuses that apply to
 -- each of them:

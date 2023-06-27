@@ -26,7 +26,8 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TransformJobStatus
 
 -- | Provides a summary of a transform job. Multiple @TransformJobSummary@
--- objects are returned as a list after in response to a ListTransformJobs
+-- objects are returned as a list after in response to a
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTransformJobs.html ListTransformJobs>
 -- call.
 --
 -- /See:/ 'newTransformJobSummary' smart constructor.
@@ -149,7 +150,8 @@ instance Data.FromJSON TransformJobSummary where
 
 instance Prelude.Hashable TransformJobSummary where
   hashWithSalt _salt TransformJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` transformEndTime
       `Prelude.hashWithSalt` transformJobName

@@ -25,7 +25,8 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Gets the Amazon EC2 Container Registry path of the docker image of the
--- model that is hosted in this ProductionVariant.
+-- model that is hosted in this
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html ProductionVariant>.
 --
 -- If you used the @registry\/repository[:tag]@ form to specify the image
 -- path of the primary container when you created the model hosted in this
@@ -100,7 +101,8 @@ instance Data.FromJSON DeployedImage where
 
 instance Prelude.Hashable DeployedImage where
   hashWithSalt _salt DeployedImage' {..} =
-    _salt `Prelude.hashWithSalt` resolutionTime
+    _salt
+      `Prelude.hashWithSalt` resolutionTime
       `Prelude.hashWithSalt` resolvedImage
       `Prelude.hashWithSalt` specifiedImage
 

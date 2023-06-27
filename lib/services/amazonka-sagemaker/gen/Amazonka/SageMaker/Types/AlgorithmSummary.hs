@@ -118,7 +118,8 @@ instance Data.FromJSON AlgorithmSummary where
 
 instance Prelude.Hashable AlgorithmSummary where
   hashWithSalt _salt AlgorithmSummary' {..} =
-    _salt `Prelude.hashWithSalt` algorithmDescription
+    _salt
+      `Prelude.hashWithSalt` algorithmDescription
       `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` algorithmArn
       `Prelude.hashWithSalt` creationTime

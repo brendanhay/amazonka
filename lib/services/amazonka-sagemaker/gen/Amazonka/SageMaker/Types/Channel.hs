@@ -42,12 +42,14 @@ data Channel = Channel'
     -- | (Optional) The input mode to use for the data channel in a training job.
     -- If you don\'t set a value for @InputMode@, SageMaker uses the value set
     -- for @TrainingInputMode@. Use this parameter to override the
-    -- @TrainingInputMode@ setting in a AlgorithmSpecification request when you
-    -- have a channel that needs a different input mode from the training
-    -- job\'s general setting. To download the data from Amazon Simple Storage
-    -- Service (Amazon S3) to the provisioned ML storage volume, and mount the
-    -- directory to a Docker volume, use @File@ input mode. To stream data
-    -- directly from Amazon S3 to the container, choose @Pipe@ input mode.
+    -- @TrainingInputMode@ setting in a
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html AlgorithmSpecification>
+    -- request when you have a channel that needs a different input mode from
+    -- the training job\'s general setting. To download the data from Amazon
+    -- Simple Storage Service (Amazon S3) to the provisioned ML storage volume,
+    -- and mount the directory to a Docker volume, use @File@ input mode. To
+    -- stream data directly from Amazon S3 to the container, choose @Pipe@
+    -- input mode.
     --
     -- To use a model for incremental training, choose @File@ input model.
     inputMode :: Prelude.Maybe TrainingInputMode,
@@ -100,12 +102,14 @@ data Channel = Channel'
 -- 'inputMode', 'channel_inputMode' - (Optional) The input mode to use for the data channel in a training job.
 -- If you don\'t set a value for @InputMode@, SageMaker uses the value set
 -- for @TrainingInputMode@. Use this parameter to override the
--- @TrainingInputMode@ setting in a AlgorithmSpecification request when you
--- have a channel that needs a different input mode from the training
--- job\'s general setting. To download the data from Amazon Simple Storage
--- Service (Amazon S3) to the provisioned ML storage volume, and mount the
--- directory to a Docker volume, use @File@ input mode. To stream data
--- directly from Amazon S3 to the container, choose @Pipe@ input mode.
+-- @TrainingInputMode@ setting in a
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html AlgorithmSpecification>
+-- request when you have a channel that needs a different input mode from
+-- the training job\'s general setting. To download the data from Amazon
+-- Simple Storage Service (Amazon S3) to the provisioned ML storage volume,
+-- and mount the directory to a Docker volume, use @File@ input mode. To
+-- stream data directly from Amazon S3 to the container, choose @Pipe@
+-- input mode.
 --
 -- To use a model for incremental training, choose @File@ input model.
 --
@@ -167,12 +171,14 @@ channel_contentType = Lens.lens (\Channel' {contentType} -> contentType) (\s@Cha
 -- | (Optional) The input mode to use for the data channel in a training job.
 -- If you don\'t set a value for @InputMode@, SageMaker uses the value set
 -- for @TrainingInputMode@. Use this parameter to override the
--- @TrainingInputMode@ setting in a AlgorithmSpecification request when you
--- have a channel that needs a different input mode from the training
--- job\'s general setting. To download the data from Amazon Simple Storage
--- Service (Amazon S3) to the provisioned ML storage volume, and mount the
--- directory to a Docker volume, use @File@ input mode. To stream data
--- directly from Amazon S3 to the container, choose @Pipe@ input mode.
+-- @TrainingInputMode@ setting in a
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AlgorithmSpecification.html AlgorithmSpecification>
+-- request when you have a channel that needs a different input mode from
+-- the training job\'s general setting. To download the data from Amazon
+-- Simple Storage Service (Amazon S3) to the provisioned ML storage volume,
+-- and mount the directory to a Docker volume, use @File@ input mode. To
+-- stream data directly from Amazon S3 to the container, choose @Pipe@
+-- input mode.
 --
 -- To use a model for incremental training, choose @File@ input model.
 channel_inputMode :: Lens.Lens' Channel (Prelude.Maybe TrainingInputMode)
@@ -232,7 +238,8 @@ instance Data.FromJSON Channel where
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` compressionType
+    _salt
+      `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` inputMode
       `Prelude.hashWithSalt` recordWrapperType

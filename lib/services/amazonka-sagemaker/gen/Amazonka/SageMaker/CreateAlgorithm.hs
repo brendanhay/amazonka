@@ -266,7 +266,8 @@ instance Core.AWSRequest CreateAlgorithm where
 
 instance Prelude.Hashable CreateAlgorithm where
   hashWithSalt _salt CreateAlgorithm' {..} =
-    _salt `Prelude.hashWithSalt` algorithmDescription
+    _salt
+      `Prelude.hashWithSalt` algorithmDescription
       `Prelude.hashWithSalt` certifyForMarketplace
       `Prelude.hashWithSalt` inferenceSpecification
       `Prelude.hashWithSalt` tags

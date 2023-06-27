@@ -144,7 +144,8 @@ instance Data.FromJSON TrialComponentMetricSummary where
 
 instance Prelude.Hashable TrialComponentMetricSummary where
   hashWithSalt _salt TrialComponentMetricSummary' {..} =
-    _salt `Prelude.hashWithSalt` avg
+    _salt
+      `Prelude.hashWithSalt` avg
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` last
       `Prelude.hashWithSalt` max

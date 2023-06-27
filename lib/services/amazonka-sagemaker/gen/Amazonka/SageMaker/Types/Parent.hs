@@ -76,7 +76,8 @@ instance Data.FromJSON Parent where
 
 instance Prelude.Hashable Parent where
   hashWithSalt _salt Parent' {..} =
-    _salt `Prelude.hashWithSalt` experimentName
+    _salt
+      `Prelude.hashWithSalt` experimentName
       `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData Parent where

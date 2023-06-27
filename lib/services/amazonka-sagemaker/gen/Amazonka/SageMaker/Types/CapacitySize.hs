@@ -91,12 +91,14 @@ instance Data.FromJSON CapacitySize where
       "CapacitySize"
       ( \x ->
           CapacitySize'
-            Prelude.<$> (x Data..: "Type") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Type")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable CapacitySize where
   hashWithSalt _salt CapacitySize' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CapacitySize where

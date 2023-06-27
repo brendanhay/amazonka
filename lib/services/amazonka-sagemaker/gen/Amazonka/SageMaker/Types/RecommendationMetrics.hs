@@ -28,7 +28,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationMetrics' smart constructor.
 data RecommendationMetrics = RecommendationMetrics'
-  { -- | Defines the cost per hour for the instance.
+  { -- | The expected CPU utilization at maximum invocations per minute for the
+    -- instance.
+    --
+    -- @NaN@ indicates that the value is not available.
+    cpuUtilization :: Prelude.Maybe Prelude.Double,
+    -- | The expected memory utilization at maximum invocations per minute for
+    -- the instance.
+    --
+    -- @NaN@ indicates that the value is not available.
+    memoryUtilization :: Prelude.Maybe Prelude.Double,
+    -- | Defines the cost per hour for the instance.
     costPerHour :: Prelude.Double,
     -- | Defines the cost per inference for the instance .
     costPerInference :: Prelude.Double,
@@ -47,6 +57,16 @@ data RecommendationMetrics = RecommendationMetrics'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'cpuUtilization', 'recommendationMetrics_cpuUtilization' - The expected CPU utilization at maximum invocations per minute for the
+-- instance.
+--
+-- @NaN@ indicates that the value is not available.
+--
+-- 'memoryUtilization', 'recommendationMetrics_memoryUtilization' - The expected memory utilization at maximum invocations per minute for
+-- the instance.
+--
+-- @NaN@ indicates that the value is not available.
 --
 -- 'costPerHour', 'recommendationMetrics_costPerHour' - Defines the cost per hour for the instance.
 --
@@ -72,11 +92,28 @@ newRecommendationMetrics
   pMaxInvocations_
   pModelLatency_ =
     RecommendationMetrics'
-      { costPerHour = pCostPerHour_,
+      { cpuUtilization =
+          Prelude.Nothing,
+        memoryUtilization = Prelude.Nothing,
+        costPerHour = pCostPerHour_,
         costPerInference = pCostPerInference_,
         maxInvocations = pMaxInvocations_,
         modelLatency = pModelLatency_
       }
+
+-- | The expected CPU utilization at maximum invocations per minute for the
+-- instance.
+--
+-- @NaN@ indicates that the value is not available.
+recommendationMetrics_cpuUtilization :: Lens.Lens' RecommendationMetrics (Prelude.Maybe Prelude.Double)
+recommendationMetrics_cpuUtilization = Lens.lens (\RecommendationMetrics' {cpuUtilization} -> cpuUtilization) (\s@RecommendationMetrics' {} a -> s {cpuUtilization = a} :: RecommendationMetrics)
+
+-- | The expected memory utilization at maximum invocations per minute for
+-- the instance.
+--
+-- @NaN@ indicates that the value is not available.
+recommendationMetrics_memoryUtilization :: Lens.Lens' RecommendationMetrics (Prelude.Maybe Prelude.Double)
+recommendationMetrics_memoryUtilization = Lens.lens (\RecommendationMetrics' {memoryUtilization} -> memoryUtilization) (\s@RecommendationMetrics' {} a -> s {memoryUtilization = a} :: RecommendationMetrics)
 
 -- | Defines the cost per hour for the instance.
 recommendationMetrics_costPerHour :: Lens.Lens' RecommendationMetrics Prelude.Double
@@ -101,7 +138,9 @@ instance Data.FromJSON RecommendationMetrics where
       "RecommendationMetrics"
       ( \x ->
           RecommendationMetrics'
-            Prelude.<$> (x Data..: "CostPerHour")
+            Prelude.<$> (x Data..:? "CpuUtilization")
+            Prelude.<*> (x Data..:? "MemoryUtilization")
+            Prelude.<*> (x Data..: "CostPerHour")
             Prelude.<*> (x Data..: "CostPerInference")
             Prelude.<*> (x Data..: "MaxInvocations")
             Prelude.<*> (x Data..: "ModelLatency")
@@ -109,14 +148,19 @@ instance Data.FromJSON RecommendationMetrics where
 
 instance Prelude.Hashable RecommendationMetrics where
   hashWithSalt _salt RecommendationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` costPerHour
+    _salt
+      `Prelude.hashWithSalt` cpuUtilization
+      `Prelude.hashWithSalt` memoryUtilization
+      `Prelude.hashWithSalt` costPerHour
       `Prelude.hashWithSalt` costPerInference
       `Prelude.hashWithSalt` maxInvocations
       `Prelude.hashWithSalt` modelLatency
 
 instance Prelude.NFData RecommendationMetrics where
   rnf RecommendationMetrics' {..} =
-    Prelude.rnf costPerHour
+    Prelude.rnf cpuUtilization
+      `Prelude.seq` Prelude.rnf memoryUtilization
+      `Prelude.seq` Prelude.rnf costPerHour
       `Prelude.seq` Prelude.rnf costPerInference
       `Prelude.seq` Prelude.rnf maxInvocations
       `Prelude.seq` Prelude.rnf modelLatency

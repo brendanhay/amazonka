@@ -88,7 +88,8 @@ instance Data.FromJSON LabelCountersForWorkteam where
 
 instance Prelude.Hashable LabelCountersForWorkteam where
   hashWithSalt _salt LabelCountersForWorkteam' {..} =
-    _salt `Prelude.hashWithSalt` humanLabeled
+    _salt
+      `Prelude.hashWithSalt` humanLabeled
       `Prelude.hashWithSalt` pendingHuman
       `Prelude.hashWithSalt` total
 

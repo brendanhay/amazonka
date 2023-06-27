@@ -75,7 +75,8 @@ instance Data.FromJSON ModelDataQuality where
 
 instance Prelude.Hashable ModelDataQuality where
   hashWithSalt _salt ModelDataQuality' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` statistics
 
 instance Prelude.NFData ModelDataQuality where

@@ -146,8 +146,12 @@ data CreateModelPackage = CreateModelPackage'
     -- to versioned models.
     modelPackageName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Simple Storage Service (Amazon S3) path where the sample
-    -- payload are stored. This path must point to a single gzip compressed tar
-    -- archive (.tar.gz suffix).
+    -- payload is stored. This path must point to a single gzip compressed tar
+    -- archive (.tar.gz suffix). This archive can hold multiple files that are
+    -- all equally used in the load test. Each file in the archive must satisfy
+    -- the size constraints of the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax InvokeEndpoint>
+    -- call.
     samplePayloadUrl :: Prelude.Maybe Prelude.Text,
     -- | Details about the algorithm that was used to create the model package.
     sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
@@ -243,8 +247,12 @@ data CreateModelPackage = CreateModelPackage'
 -- to versioned models.
 --
 -- 'samplePayloadUrl', 'createModelPackage_samplePayloadUrl' - The Amazon Simple Storage Service (Amazon S3) path where the sample
--- payload are stored. This path must point to a single gzip compressed tar
--- archive (.tar.gz suffix).
+-- payload is stored. This path must point to a single gzip compressed tar
+-- archive (.tar.gz suffix). This archive can hold multiple files that are
+-- all equally used in the load test. Each file in the archive must satisfy
+-- the size constraints of the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax InvokeEndpoint>
+-- call.
 --
 -- 'sourceAlgorithmSpecification', 'createModelPackage_sourceAlgorithmSpecification' - Details about the algorithm that was used to create the model package.
 --
@@ -379,8 +387,12 @@ createModelPackage_modelPackageName :: Lens.Lens' CreateModelPackage (Prelude.Ma
 createModelPackage_modelPackageName = Lens.lens (\CreateModelPackage' {modelPackageName} -> modelPackageName) (\s@CreateModelPackage' {} a -> s {modelPackageName = a} :: CreateModelPackage)
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where the sample
--- payload are stored. This path must point to a single gzip compressed tar
--- archive (.tar.gz suffix).
+-- payload is stored. This path must point to a single gzip compressed tar
+-- archive (.tar.gz suffix). This archive can hold multiple files that are
+-- all equally used in the load test. Each file in the archive must satisfy
+-- the size constraints of the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html#API_runtime_InvokeEndpoint_RequestSyntax InvokeEndpoint>
+-- call.
 createModelPackage_samplePayloadUrl :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_samplePayloadUrl = Lens.lens (\CreateModelPackage' {samplePayloadUrl} -> samplePayloadUrl) (\s@CreateModelPackage' {} a -> s {samplePayloadUrl = a} :: CreateModelPackage)
 

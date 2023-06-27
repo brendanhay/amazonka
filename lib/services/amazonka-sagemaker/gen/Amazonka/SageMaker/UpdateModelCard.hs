@@ -55,7 +55,7 @@ import Amazonka.SageMaker.Types
 -- | /See:/ 'newUpdateModelCard' smart constructor.
 data UpdateModelCard = UpdateModelCard'
   { -- | The updated model card content. Content must be in
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
     -- and provided as a string.
     --
     -- When updating model card content, be sure to include the full content
@@ -88,7 +88,7 @@ data UpdateModelCard = UpdateModelCard'
 -- for backwards compatibility:
 --
 -- 'content', 'updateModelCard_content' - The updated model card content. Content must be in
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
 -- and provided as a string.
 --
 -- When updating model card content, be sure to include the full content
@@ -120,7 +120,7 @@ newUpdateModelCard pModelCardName_ =
     }
 
 -- | The updated model card content. Content must be in
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-api-json-schema.html model card JSON schema>
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema model card JSON schema>
 -- and provided as a string.
 --
 -- When updating model card content, be sure to include the full content
@@ -163,7 +163,8 @@ instance Core.AWSRequest UpdateModelCard where
 
 instance Prelude.Hashable UpdateModelCard where
   hashWithSalt _salt UpdateModelCard' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` modelCardStatus
       `Prelude.hashWithSalt` modelCardName
 

@@ -77,7 +77,8 @@ instance Data.FromJSON ModelQualityBaselineConfig where
 
 instance Prelude.Hashable ModelQualityBaselineConfig where
   hashWithSalt _salt ModelQualityBaselineConfig' {..} =
-    _salt `Prelude.hashWithSalt` baseliningJobName
+    _salt
+      `Prelude.hashWithSalt` baseliningJobName
       `Prelude.hashWithSalt` constraintsResource
 
 instance Prelude.NFData ModelQualityBaselineConfig where

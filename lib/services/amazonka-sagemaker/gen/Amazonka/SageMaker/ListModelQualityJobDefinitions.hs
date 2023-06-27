@@ -180,21 +180,21 @@ instance Core.AWSPager ListModelQualityJobDefinitions where
     | Core.stop
         ( rs
             Lens.^? listModelQualityJobDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelQualityJobDefinitionsResponse_jobDefinitionSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelQualityJobDefinitions_nextToken
           Lens..~ rs
           Lens.^? listModelQualityJobDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -211,7 +211,8 @@ instance
           ListModelQualityJobDefinitionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "JobDefinitionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "JobDefinitionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -223,7 +224,8 @@ instance
   hashWithSalt
     _salt
     ListModelQualityJobDefinitions' {..} =
-      _salt `Prelude.hashWithSalt` creationTimeAfter
+      _salt
+        `Prelude.hashWithSalt` creationTimeAfter
         `Prelude.hashWithSalt` creationTimeBefore
         `Prelude.hashWithSalt` endpointName
         `Prelude.hashWithSalt` maxResults

@@ -29,7 +29,8 @@ import Amazonka.SageMaker.Types.CompressionType
 
 -- | A channel is a named input source that training algorithms can consume.
 -- The validation dataset size is limited to less than 2 GB. The training
--- dataset size must be less than 100 GB. For more information, see .
+-- dataset size must be less than 100 GB. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Channel.html Channel>.
 --
 -- A validation dataset must contain the same headers as the training
 -- dataset.
@@ -40,8 +41,7 @@ data AutoMLChannel = AutoMLChannel'
     -- @training@. Channels for training and validation must share the same
     -- @ContentType@ and @TargetAttributeName@. For information on specifying
     -- training and validation channel types, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>
-    -- .
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>.
     channelType :: Prelude.Maybe AutoMLChannelType,
     -- | You can use @Gzip@ or @None@. The default value is @None@.
     compressionType :: Prelude.Maybe CompressionType,
@@ -49,6 +49,21 @@ data AutoMLChannel = AutoMLChannel'
     -- @text\/csv;header=present@ or @x-application\/vnd.amazon+parquet@. The
     -- default value is @text\/csv;header=present@.
     contentType :: Prelude.Maybe Prelude.Text,
+    -- | If specified, this column name indicates which column of the dataset
+    -- should be treated as sample weights for use by the objective metric
+    -- during the training, evaluation, and the selection of the best model.
+    -- This column is not considered as a predictive feature. For more
+    -- information on Autopilot metrics, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html Metrics and validation>.
+    --
+    -- Sample weights should be numeric, non-negative, with larger values
+    -- indicating which rows are more important than others. Data points that
+    -- have invalid or no weight value are excluded.
+    --
+    -- Support for sample weights is available in
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html Ensembling>
+    -- mode only.
+    sampleWeightAttributeName :: Prelude.Maybe Prelude.Text,
     -- | The data source for an AutoML channel.
     dataSource :: AutoMLDataSource,
     -- | The name of the target variable in supervised learning, usually
@@ -69,14 +84,28 @@ data AutoMLChannel = AutoMLChannel'
 -- @training@. Channels for training and validation must share the same
 -- @ContentType@ and @TargetAttributeName@. For information on specifying
 -- training and validation channel types, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>
--- .
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>.
 --
 -- 'compressionType', 'autoMLChannel_compressionType' - You can use @Gzip@ or @None@. The default value is @None@.
 --
 -- 'contentType', 'autoMLChannel_contentType' - The content type of the data from the input source. You can use
 -- @text\/csv;header=present@ or @x-application\/vnd.amazon+parquet@. The
 -- default value is @text\/csv;header=present@.
+--
+-- 'sampleWeightAttributeName', 'autoMLChannel_sampleWeightAttributeName' - If specified, this column name indicates which column of the dataset
+-- should be treated as sample weights for use by the objective metric
+-- during the training, evaluation, and the selection of the best model.
+-- This column is not considered as a predictive feature. For more
+-- information on Autopilot metrics, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html Metrics and validation>.
+--
+-- Sample weights should be numeric, non-negative, with larger values
+-- indicating which rows are more important than others. Data points that
+-- have invalid or no weight value are excluded.
+--
+-- Support for sample weights is available in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html Ensembling>
+-- mode only.
 --
 -- 'dataSource', 'autoMLChannel_dataSource' - The data source for an AutoML channel.
 --
@@ -93,6 +122,7 @@ newAutoMLChannel pDataSource_ pTargetAttributeName_ =
     { channelType = Prelude.Nothing,
       compressionType = Prelude.Nothing,
       contentType = Prelude.Nothing,
+      sampleWeightAttributeName = Prelude.Nothing,
       dataSource = pDataSource_,
       targetAttributeName = pTargetAttributeName_
     }
@@ -101,8 +131,7 @@ newAutoMLChannel pDataSource_ pTargetAttributeName_ =
 -- @training@. Channels for training and validation must share the same
 -- @ContentType@ and @TargetAttributeName@. For information on specifying
 -- training and validation channel types, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>
--- .
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-datasets-problem-types.html#autopilot-data-sources-training-or-validation How to specify training and validation datasets>.
 autoMLChannel_channelType :: Lens.Lens' AutoMLChannel (Prelude.Maybe AutoMLChannelType)
 autoMLChannel_channelType = Lens.lens (\AutoMLChannel' {channelType} -> channelType) (\s@AutoMLChannel' {} a -> s {channelType = a} :: AutoMLChannel)
 
@@ -115,6 +144,23 @@ autoMLChannel_compressionType = Lens.lens (\AutoMLChannel' {compressionType} -> 
 -- default value is @text\/csv;header=present@.
 autoMLChannel_contentType :: Lens.Lens' AutoMLChannel (Prelude.Maybe Prelude.Text)
 autoMLChannel_contentType = Lens.lens (\AutoMLChannel' {contentType} -> contentType) (\s@AutoMLChannel' {} a -> s {contentType = a} :: AutoMLChannel)
+
+-- | If specified, this column name indicates which column of the dataset
+-- should be treated as sample weights for use by the objective metric
+-- during the training, evaluation, and the selection of the best model.
+-- This column is not considered as a predictive feature. For more
+-- information on Autopilot metrics, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html Metrics and validation>.
+--
+-- Sample weights should be numeric, non-negative, with larger values
+-- indicating which rows are more important than others. Data points that
+-- have invalid or no weight value are excluded.
+--
+-- Support for sample weights is available in
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html Ensembling>
+-- mode only.
+autoMLChannel_sampleWeightAttributeName :: Lens.Lens' AutoMLChannel (Prelude.Maybe Prelude.Text)
+autoMLChannel_sampleWeightAttributeName = Lens.lens (\AutoMLChannel' {sampleWeightAttributeName} -> sampleWeightAttributeName) (\s@AutoMLChannel' {} a -> s {sampleWeightAttributeName = a} :: AutoMLChannel)
 
 -- | The data source for an AutoML channel.
 autoMLChannel_dataSource :: Lens.Lens' AutoMLChannel AutoMLDataSource
@@ -134,15 +180,18 @@ instance Data.FromJSON AutoMLChannel where
             Prelude.<$> (x Data..:? "ChannelType")
             Prelude.<*> (x Data..:? "CompressionType")
             Prelude.<*> (x Data..:? "ContentType")
+            Prelude.<*> (x Data..:? "SampleWeightAttributeName")
             Prelude.<*> (x Data..: "DataSource")
             Prelude.<*> (x Data..: "TargetAttributeName")
       )
 
 instance Prelude.Hashable AutoMLChannel where
   hashWithSalt _salt AutoMLChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelType
+    _salt
+      `Prelude.hashWithSalt` channelType
       `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` contentType
+      `Prelude.hashWithSalt` sampleWeightAttributeName
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` targetAttributeName
 
@@ -151,6 +200,7 @@ instance Prelude.NFData AutoMLChannel where
     Prelude.rnf channelType
       `Prelude.seq` Prelude.rnf compressionType
       `Prelude.seq` Prelude.rnf contentType
+      `Prelude.seq` Prelude.rnf sampleWeightAttributeName
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf targetAttributeName
 
@@ -162,6 +212,8 @@ instance Data.ToJSON AutoMLChannel where
             ("CompressionType" Data..=)
               Prelude.<$> compressionType,
             ("ContentType" Data..=) Prelude.<$> contentType,
+            ("SampleWeightAttributeName" Data..=)
+              Prelude.<$> sampleWeightAttributeName,
             Prelude.Just ("DataSource" Data..= dataSource),
             Prelude.Just
               ("TargetAttributeName" Data..= targetAttributeName)

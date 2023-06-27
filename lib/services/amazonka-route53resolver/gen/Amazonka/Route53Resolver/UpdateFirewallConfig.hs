@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateFirewallConfig where
 
 instance Prelude.Hashable UpdateFirewallConfig where
   hashWithSalt _salt UpdateFirewallConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` firewallFailOpen
 
 instance Prelude.NFData UpdateFirewallConfig where

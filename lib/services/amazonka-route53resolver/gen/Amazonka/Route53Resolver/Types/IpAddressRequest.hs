@@ -33,8 +33,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpAddressRequest' smart constructor.
 data IpAddressRequest = IpAddressRequest'
-  { -- | The IP address that you want to use for DNS queries.
+  { -- | The IPv4 address that you want to use for DNS queries.
     ip :: Prelude.Maybe Prelude.Text,
+    -- | The IPv6 address that you want to use for DNS queries.
+    ipv6 :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet that contains the IP address.
     subnetId :: Prelude.Text
   }
@@ -48,7 +50,9 @@ data IpAddressRequest = IpAddressRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ip', 'ipAddressRequest_ip' - The IP address that you want to use for DNS queries.
+-- 'ip', 'ipAddressRequest_ip' - The IPv4 address that you want to use for DNS queries.
+--
+-- 'ipv6', 'ipAddressRequest_ipv6' - The IPv6 address that you want to use for DNS queries.
 --
 -- 'subnetId', 'ipAddressRequest_subnetId' - The ID of the subnet that contains the IP address.
 newIpAddressRequest ::
@@ -58,12 +62,17 @@ newIpAddressRequest ::
 newIpAddressRequest pSubnetId_ =
   IpAddressRequest'
     { ip = Prelude.Nothing,
+      ipv6 = Prelude.Nothing,
       subnetId = pSubnetId_
     }
 
--- | The IP address that you want to use for DNS queries.
+-- | The IPv4 address that you want to use for DNS queries.
 ipAddressRequest_ip :: Lens.Lens' IpAddressRequest (Prelude.Maybe Prelude.Text)
 ipAddressRequest_ip = Lens.lens (\IpAddressRequest' {ip} -> ip) (\s@IpAddressRequest' {} a -> s {ip = a} :: IpAddressRequest)
+
+-- | The IPv6 address that you want to use for DNS queries.
+ipAddressRequest_ipv6 :: Lens.Lens' IpAddressRequest (Prelude.Maybe Prelude.Text)
+ipAddressRequest_ipv6 = Lens.lens (\IpAddressRequest' {ipv6} -> ipv6) (\s@IpAddressRequest' {} a -> s {ipv6 = a} :: IpAddressRequest)
 
 -- | The ID of the subnet that contains the IP address.
 ipAddressRequest_subnetId :: Lens.Lens' IpAddressRequest Prelude.Text
@@ -71,18 +80,23 @@ ipAddressRequest_subnetId = Lens.lens (\IpAddressRequest' {subnetId} -> subnetId
 
 instance Prelude.Hashable IpAddressRequest where
   hashWithSalt _salt IpAddressRequest' {..} =
-    _salt `Prelude.hashWithSalt` ip
+    _salt
+      `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` ipv6
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData IpAddressRequest where
   rnf IpAddressRequest' {..} =
-    Prelude.rnf ip `Prelude.seq` Prelude.rnf subnetId
+    Prelude.rnf ip
+      `Prelude.seq` Prelude.rnf ipv6
+      `Prelude.seq` Prelude.rnf subnetId
 
 instance Data.ToJSON IpAddressRequest where
   toJSON IpAddressRequest' {..} =
     Data.object
       ( Prelude.catMaybes
           [ ("Ip" Data..=) Prelude.<$> ip,
+            ("Ipv6" Data..=) Prelude.<$> ipv6,
             Prelude.Just ("SubnetId" Data..= subnetId)
           ]
       )

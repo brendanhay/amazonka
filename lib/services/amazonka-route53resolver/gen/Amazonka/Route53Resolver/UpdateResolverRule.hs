@@ -107,7 +107,8 @@ instance Core.AWSRequest UpdateResolverRule where
 
 instance Prelude.Hashable UpdateResolverRule where
   hashWithSalt _salt UpdateResolverRule' {..} =
-    _salt `Prelude.hashWithSalt` resolverRuleId
+    _salt
+      `Prelude.hashWithSalt` resolverRuleId
       `Prelude.hashWithSalt` config
 
 instance Prelude.NFData UpdateResolverRule where

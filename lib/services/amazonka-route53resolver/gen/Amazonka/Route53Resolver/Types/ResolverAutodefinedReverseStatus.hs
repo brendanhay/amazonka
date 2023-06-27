@@ -23,7 +23,9 @@ module Amazonka.Route53Resolver.Types.ResolverAutodefinedReverseStatus
         ResolverAutodefinedReverseStatus_DISABLED,
         ResolverAutodefinedReverseStatus_DISABLING,
         ResolverAutodefinedReverseStatus_ENABLED,
-        ResolverAutodefinedReverseStatus_ENABLING
+        ResolverAutodefinedReverseStatus_ENABLING,
+        ResolverAutodefinedReverseStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING,
+        ResolverAutodefinedReverseStatus_USE_LOCAL_RESOURCE_SETTING
       ),
   )
 where
@@ -72,10 +74,18 @@ pattern ResolverAutodefinedReverseStatus_ENABLED = ResolverAutodefinedReverseSta
 pattern ResolverAutodefinedReverseStatus_ENABLING :: ResolverAutodefinedReverseStatus
 pattern ResolverAutodefinedReverseStatus_ENABLING = ResolverAutodefinedReverseStatus' "ENABLING"
 
+pattern ResolverAutodefinedReverseStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING :: ResolverAutodefinedReverseStatus
+pattern ResolverAutodefinedReverseStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING = ResolverAutodefinedReverseStatus' "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING"
+
+pattern ResolverAutodefinedReverseStatus_USE_LOCAL_RESOURCE_SETTING :: ResolverAutodefinedReverseStatus
+pattern ResolverAutodefinedReverseStatus_USE_LOCAL_RESOURCE_SETTING = ResolverAutodefinedReverseStatus' "USE_LOCAL_RESOURCE_SETTING"
+
 {-# COMPLETE
   ResolverAutodefinedReverseStatus_DISABLED,
   ResolverAutodefinedReverseStatus_DISABLING,
   ResolverAutodefinedReverseStatus_ENABLED,
   ResolverAutodefinedReverseStatus_ENABLING,
+  ResolverAutodefinedReverseStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING,
+  ResolverAutodefinedReverseStatus_USE_LOCAL_RESOURCE_SETTING,
   ResolverAutodefinedReverseStatus'
   #-}

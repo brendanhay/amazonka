@@ -35,10 +35,12 @@ data IpAddressResponse = IpAddressResponse'
   { -- | The date and time that the IP address was created, in Unix time format
     -- and Coordinated Universal Time (UTC).
     creationTime :: Prelude.Maybe Prelude.Text,
-    -- | One IP address that the Resolver endpoint uses for DNS queries.
+    -- | One IPv4 address that the Resolver endpoint uses for DNS queries.
     ip :: Prelude.Maybe Prelude.Text,
     -- | The ID of one IP address.
     ipId :: Prelude.Maybe Prelude.Text,
+    -- | One IPv6 address that the Resolver endpoint uses for DNS queries.
+    ipv6 :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the IP address was last modified, in Unix time
     -- format and Coordinated Universal Time (UTC).
     modificationTime :: Prelude.Maybe Prelude.Text,
@@ -63,9 +65,11 @@ data IpAddressResponse = IpAddressResponse'
 -- 'creationTime', 'ipAddressResponse_creationTime' - The date and time that the IP address was created, in Unix time format
 -- and Coordinated Universal Time (UTC).
 --
--- 'ip', 'ipAddressResponse_ip' - One IP address that the Resolver endpoint uses for DNS queries.
+-- 'ip', 'ipAddressResponse_ip' - One IPv4 address that the Resolver endpoint uses for DNS queries.
 --
 -- 'ipId', 'ipAddressResponse_ipId' - The ID of one IP address.
+--
+-- 'ipv6', 'ipAddressResponse_ipv6' - One IPv6 address that the Resolver endpoint uses for DNS queries.
 --
 -- 'modificationTime', 'ipAddressResponse_modificationTime' - The date and time that the IP address was last modified, in Unix time
 -- format and Coordinated Universal Time (UTC).
@@ -83,6 +87,7 @@ newIpAddressResponse =
     { creationTime = Prelude.Nothing,
       ip = Prelude.Nothing,
       ipId = Prelude.Nothing,
+      ipv6 = Prelude.Nothing,
       modificationTime = Prelude.Nothing,
       status = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
@@ -94,13 +99,17 @@ newIpAddressResponse =
 ipAddressResponse_creationTime :: Lens.Lens' IpAddressResponse (Prelude.Maybe Prelude.Text)
 ipAddressResponse_creationTime = Lens.lens (\IpAddressResponse' {creationTime} -> creationTime) (\s@IpAddressResponse' {} a -> s {creationTime = a} :: IpAddressResponse)
 
--- | One IP address that the Resolver endpoint uses for DNS queries.
+-- | One IPv4 address that the Resolver endpoint uses for DNS queries.
 ipAddressResponse_ip :: Lens.Lens' IpAddressResponse (Prelude.Maybe Prelude.Text)
 ipAddressResponse_ip = Lens.lens (\IpAddressResponse' {ip} -> ip) (\s@IpAddressResponse' {} a -> s {ip = a} :: IpAddressResponse)
 
 -- | The ID of one IP address.
 ipAddressResponse_ipId :: Lens.Lens' IpAddressResponse (Prelude.Maybe Prelude.Text)
 ipAddressResponse_ipId = Lens.lens (\IpAddressResponse' {ipId} -> ipId) (\s@IpAddressResponse' {} a -> s {ipId = a} :: IpAddressResponse)
+
+-- | One IPv6 address that the Resolver endpoint uses for DNS queries.
+ipAddressResponse_ipv6 :: Lens.Lens' IpAddressResponse (Prelude.Maybe Prelude.Text)
+ipAddressResponse_ipv6 = Lens.lens (\IpAddressResponse' {ipv6} -> ipv6) (\s@IpAddressResponse' {} a -> s {ipv6 = a} :: IpAddressResponse)
 
 -- | The date and time that the IP address was last modified, in Unix time
 -- format and Coordinated Universal Time (UTC).
@@ -129,6 +138,7 @@ instance Data.FromJSON IpAddressResponse where
             Prelude.<$> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "Ip")
             Prelude.<*> (x Data..:? "IpId")
+            Prelude.<*> (x Data..:? "Ipv6")
             Prelude.<*> (x Data..:? "ModificationTime")
             Prelude.<*> (x Data..:? "Status")
             Prelude.<*> (x Data..:? "StatusMessage")
@@ -137,9 +147,11 @@ instance Data.FromJSON IpAddressResponse where
 
 instance Prelude.Hashable IpAddressResponse where
   hashWithSalt _salt IpAddressResponse' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` ipId
+      `Prelude.hashWithSalt` ipv6
       `Prelude.hashWithSalt` modificationTime
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
@@ -150,6 +162,7 @@ instance Prelude.NFData IpAddressResponse where
     Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf ip
       `Prelude.seq` Prelude.rnf ipId
+      `Prelude.seq` Prelude.rnf ipv6
       `Prelude.seq` Prelude.rnf modificationTime
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage

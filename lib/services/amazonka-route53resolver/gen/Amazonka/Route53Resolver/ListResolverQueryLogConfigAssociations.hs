@@ -342,22 +342,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listResolverQueryLogConfigAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResolverQueryLogConfigAssociationsResponse_resolverQueryLogConfigAssociations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResolverQueryLogConfigAssociations_nextToken
           Lens..~ rs
-            Lens.^? listResolverQueryLogConfigAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listResolverQueryLogConfigAssociationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -374,12 +374,13 @@ instance
       ( \s h x ->
           ListResolverQueryLogConfigAssociationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "ResolverQueryLogConfigAssociations"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (x Data..?> "TotalCount")
-              Prelude.<*> (x Data..?> "TotalFilteredCount")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ResolverQueryLogConfigAssociations"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Data..?> "TotalCount")
+            Prelude.<*> (x Data..?> "TotalFilteredCount")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -389,7 +390,8 @@ instance
   hashWithSalt
     _salt
     ListResolverQueryLogConfigAssociations' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` sortBy

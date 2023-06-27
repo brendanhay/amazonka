@@ -70,6 +70,8 @@ data UpdateFirewallDomains = UpdateFirewallDomains'
     operation :: FirewallDomainUpdateOperation,
     -- | A list of domains to use in the update operation.
     --
+    -- There is a limit of 1000 domains per request.
+    --
     -- Each domain specification in your domain list must satisfy the following
     -- requirements:
     --
@@ -106,6 +108,8 @@ data UpdateFirewallDomains = UpdateFirewallDomains'
 --     you are providing.
 --
 -- 'domains', 'updateFirewallDomains_domains' - A list of domains to use in the update operation.
+--
+-- There is a limit of 1000 domains per request.
 --
 -- Each domain specification in your domain list must satisfy the following
 -- requirements:
@@ -152,6 +156,8 @@ updateFirewallDomains_operation = Lens.lens (\UpdateFirewallDomains' {operation}
 
 -- | A list of domains to use in the update operation.
 --
+-- There is a limit of 1000 domains per request.
+--
 -- Each domain specification in your domain list must satisfy the following
 -- requirements:
 --
@@ -183,7 +189,8 @@ instance Core.AWSRequest UpdateFirewallDomains where
 
 instance Prelude.Hashable UpdateFirewallDomains where
   hashWithSalt _salt UpdateFirewallDomains' {..} =
-    _salt `Prelude.hashWithSalt` firewallDomainListId
+    _salt
+      `Prelude.hashWithSalt` firewallDomainListId
       `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` domains
 
@@ -233,6 +240,7 @@ data UpdateFirewallDomainsResponse = UpdateFirewallDomainsResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain list.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Status of the @UpdateFirewallDomains@ request.
     status :: Prelude.Maybe FirewallDomainListStatus,
     -- | Additional information about the status of the list, if available.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -253,7 +261,7 @@ data UpdateFirewallDomainsResponse = UpdateFirewallDomainsResponse'
 --
 -- 'name', 'updateFirewallDomainsResponse_name' - The name of the domain list.
 --
--- 'status', 'updateFirewallDomainsResponse_status' -
+-- 'status', 'updateFirewallDomainsResponse_status' - Status of the @UpdateFirewallDomains@ request.
 --
 -- 'statusMessage', 'updateFirewallDomainsResponse_statusMessage' - Additional information about the status of the list, if available.
 --
@@ -280,7 +288,7 @@ updateFirewallDomainsResponse_id = Lens.lens (\UpdateFirewallDomainsResponse' {i
 updateFirewallDomainsResponse_name :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDomainsResponse_name = Lens.lens (\UpdateFirewallDomainsResponse' {name} -> name) (\s@UpdateFirewallDomainsResponse' {} a -> s {name = a} :: UpdateFirewallDomainsResponse)
 
--- |
+-- | Status of the @UpdateFirewallDomains@ request.
 updateFirewallDomainsResponse_status :: Lens.Lens' UpdateFirewallDomainsResponse (Prelude.Maybe FirewallDomainListStatus)
 updateFirewallDomainsResponse_status = Lens.lens (\UpdateFirewallDomainsResponse' {status} -> status) (\s@UpdateFirewallDomainsResponse' {} a -> s {status = a} :: UpdateFirewallDomainsResponse)
 

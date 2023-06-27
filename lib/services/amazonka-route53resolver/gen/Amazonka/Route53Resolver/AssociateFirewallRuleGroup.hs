@@ -224,7 +224,8 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
 
 instance Prelude.Hashable AssociateFirewallRuleGroup where
   hashWithSalt _salt AssociateFirewallRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` mutationProtection
+    _salt
+      `Prelude.hashWithSalt` mutationProtection
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` firewallRuleGroupId

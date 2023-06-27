@@ -244,7 +244,8 @@ instance Data.FromJSON ResolverQueryLogConfig where
 
 instance Prelude.Hashable ResolverQueryLogConfig where
   hashWithSalt _salt ResolverQueryLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` associationCount
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorRequestId

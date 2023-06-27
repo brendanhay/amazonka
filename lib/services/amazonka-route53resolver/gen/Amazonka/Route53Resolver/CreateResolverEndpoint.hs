@@ -35,6 +35,7 @@ module Amazonka.Route53Resolver.CreateResolverEndpoint
 
     -- * Request Lenses
     createResolverEndpoint_name,
+    createResolverEndpoint_resolverEndpointType,
     createResolverEndpoint_tags,
     createResolverEndpoint_creatorRequestId,
     createResolverEndpoint_securityGroupIds,
@@ -64,6 +65,10 @@ data CreateResolverEndpoint = CreateResolverEndpoint'
   { -- | A friendly name that lets you easily find a configuration in the
     -- Resolver dashboard in the Route 53 console.
     name :: Prelude.Maybe Prelude.Text,
+    -- | For the endpoint type you can choose either IPv4, IPv6. or dual-stack. A
+    -- dual-stack endpoint means that it will resolve via both IPv4 and IPv6.
+    -- This endpoint type is applied to all IP addresses.
+    resolverEndpointType :: Prelude.Maybe ResolverEndpointType,
     -- | A list of the tag keys and values that you want to associate with the
     -- endpoint.
     tags :: Prelude.Maybe [Tag],
@@ -106,6 +111,10 @@ data CreateResolverEndpoint = CreateResolverEndpoint'
 -- 'name', 'createResolverEndpoint_name' - A friendly name that lets you easily find a configuration in the
 -- Resolver dashboard in the Route 53 console.
 --
+-- 'resolverEndpointType', 'createResolverEndpoint_resolverEndpointType' - For the endpoint type you can choose either IPv4, IPv6. or dual-stack. A
+-- dual-stack endpoint means that it will resolve via both IPv4 and IPv6.
+-- This endpoint type is applied to all IP addresses.
+--
 -- 'tags', 'createResolverEndpoint_tags' - A list of the tag keys and values that you want to associate with the
 -- endpoint.
 --
@@ -147,6 +156,7 @@ newCreateResolverEndpoint
   pIpAddresses_ =
     CreateResolverEndpoint'
       { name = Prelude.Nothing,
+        resolverEndpointType = Prelude.Nothing,
         tags = Prelude.Nothing,
         creatorRequestId = pCreatorRequestId_,
         securityGroupIds = Prelude.mempty,
@@ -158,6 +168,12 @@ newCreateResolverEndpoint
 -- Resolver dashboard in the Route 53 console.
 createResolverEndpoint_name :: Lens.Lens' CreateResolverEndpoint (Prelude.Maybe Prelude.Text)
 createResolverEndpoint_name = Lens.lens (\CreateResolverEndpoint' {name} -> name) (\s@CreateResolverEndpoint' {} a -> s {name = a} :: CreateResolverEndpoint)
+
+-- | For the endpoint type you can choose either IPv4, IPv6. or dual-stack. A
+-- dual-stack endpoint means that it will resolve via both IPv4 and IPv6.
+-- This endpoint type is applied to all IP addresses.
+createResolverEndpoint_resolverEndpointType :: Lens.Lens' CreateResolverEndpoint (Prelude.Maybe ResolverEndpointType)
+createResolverEndpoint_resolverEndpointType = Lens.lens (\CreateResolverEndpoint' {resolverEndpointType} -> resolverEndpointType) (\s@CreateResolverEndpoint' {} a -> s {resolverEndpointType = a} :: CreateResolverEndpoint)
 
 -- | A list of the tag keys and values that you want to associate with the
 -- endpoint.
@@ -213,7 +229,9 @@ instance Core.AWSRequest CreateResolverEndpoint where
 
 instance Prelude.Hashable CreateResolverEndpoint where
   hashWithSalt _salt CreateResolverEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resolverEndpointType
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` securityGroupIds
@@ -223,6 +241,7 @@ instance Prelude.Hashable CreateResolverEndpoint where
 instance Prelude.NFData CreateResolverEndpoint where
   rnf CreateResolverEndpoint' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resolverEndpointType
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf creatorRequestId
       `Prelude.seq` Prelude.rnf securityGroupIds
@@ -249,6 +268,8 @@ instance Data.ToJSON CreateResolverEndpoint where
     Data.object
       ( Prelude.catMaybes
           [ ("Name" Data..=) Prelude.<$> name,
+            ("ResolverEndpointType" Data..=)
+              Prelude.<$> resolverEndpointType,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just
               ("CreatorRequestId" Data..= creatorRequestId),

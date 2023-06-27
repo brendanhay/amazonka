@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the Resolver configurations that you have defined. Route 53
+-- Retrieves the Resolver configurations that you have defined. Route 53
 -- Resolver uses the configurations to manage DNS resolution behavior for
 -- your VPCs.
 --
@@ -124,22 +124,22 @@ instance Core.AWSPager ListResolverConfigs where
     | Core.stop
         ( rs
             Lens.^? listResolverConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResolverConfigsResponse_resolverConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResolverConfigs_nextToken
           Lens..~ rs
           Lens.^? listResolverConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolverConfigs where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListResolverConfigs where
       ( \s h x ->
           ListResolverConfigsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ResolverConfigs"
+            Prelude.<*> ( x
+                            Data..?> "ResolverConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,7 +161,8 @@ instance Core.AWSRequest ListResolverConfigs where
 
 instance Prelude.Hashable ListResolverConfigs where
   hashWithSalt _salt ListResolverConfigs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListResolverConfigs where
@@ -206,7 +208,7 @@ data ListResolverConfigsResponse = ListResolverConfigsResponse'
     --
     -- If a response doesn\'t include the last of the configurations, you can
     -- get more configurations by submitting another @ListResolverConfigs@
-    -- request. Get the value of @NextToken@ that Amazon Route 53 returned in
+    -- request. Get the value of @NextToken@ that Amazon Route 53 returned in
     -- the previous response and include it in @NextToken@ in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array that contains one @ResolverConfigs@ element for each Resolver
@@ -232,7 +234,7 @@ data ListResolverConfigsResponse = ListResolverConfigsResponse'
 --
 -- If a response doesn\'t include the last of the configurations, you can
 -- get more configurations by submitting another @ListResolverConfigs@
--- request. Get the value of @NextToken@ that Amazon Route 53 returned in
+-- request. Get the value of @NextToken@ that Amazon Route 53 returned in
 -- the previous response and include it in @NextToken@ in the next request.
 --
 -- 'resolverConfigs', 'listResolverConfigsResponse_resolverConfigs' - An array that contains one @ResolverConfigs@ element for each Resolver
@@ -258,7 +260,7 @@ newListResolverConfigsResponse pHttpStatus_ =
 --
 -- If a response doesn\'t include the last of the configurations, you can
 -- get more configurations by submitting another @ListResolverConfigs@
--- request. Get the value of @NextToken@ that Amazon Route 53 returned in
+-- request. Get the value of @NextToken@ that Amazon Route 53 returned in
 -- the previous response and include it in @NextToken@ in the next request.
 listResolverConfigsResponse_nextToken :: Lens.Lens' ListResolverConfigsResponse (Prelude.Maybe Prelude.Text)
 listResolverConfigsResponse_nextToken = Lens.lens (\ListResolverConfigsResponse' {nextToken} -> nextToken) (\s@ListResolverConfigsResponse' {} a -> s {nextToken = a} :: ListResolverConfigsResponse)

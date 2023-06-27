@@ -21,7 +21,8 @@ module Amazonka.Route53Resolver.Types.Validation
   ( Validation
       ( ..,
         Validation_DISABLE,
-        Validation_ENABLE
+        Validation_ENABLE,
+        Validation_USE_LOCAL_RESOURCE_SETTING
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern Validation_DISABLE = Validation' "DISABLE"
 pattern Validation_ENABLE :: Validation
 pattern Validation_ENABLE = Validation' "ENABLE"
 
+pattern Validation_USE_LOCAL_RESOURCE_SETTING :: Validation
+pattern Validation_USE_LOCAL_RESOURCE_SETTING = Validation' "USE_LOCAL_RESOURCE_SETTING"
+
 {-# COMPLETE
   Validation_DISABLE,
   Validation_ENABLE,
+  Validation_USE_LOCAL_RESOURCE_SETTING,
   Validation'
   #-}

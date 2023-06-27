@@ -21,7 +21,8 @@ module Amazonka.Route53Resolver.Types.FirewallFailOpenStatus
   ( FirewallFailOpenStatus
       ( ..,
         FirewallFailOpenStatus_DISABLED,
-        FirewallFailOpenStatus_ENABLED
+        FirewallFailOpenStatus_ENABLED,
+        FirewallFailOpenStatus_USE_LOCAL_RESOURCE_SETTING
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern FirewallFailOpenStatus_DISABLED = FirewallFailOpenStatus' "DISABLED"
 pattern FirewallFailOpenStatus_ENABLED :: FirewallFailOpenStatus
 pattern FirewallFailOpenStatus_ENABLED = FirewallFailOpenStatus' "ENABLED"
 
+pattern FirewallFailOpenStatus_USE_LOCAL_RESOURCE_SETTING :: FirewallFailOpenStatus
+pattern FirewallFailOpenStatus_USE_LOCAL_RESOURCE_SETTING = FirewallFailOpenStatus' "USE_LOCAL_RESOURCE_SETTING"
+
 {-# COMPLETE
   FirewallFailOpenStatus_DISABLED,
   FirewallFailOpenStatus_ENABLED,
+  FirewallFailOpenStatus_USE_LOCAL_RESOURCE_SETTING,
   FirewallFailOpenStatus'
   #-}

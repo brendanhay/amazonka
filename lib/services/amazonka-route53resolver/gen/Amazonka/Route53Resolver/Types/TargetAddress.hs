@@ -30,11 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTargetAddress' smart constructor.
 data TargetAddress = TargetAddress'
-  { -- | The port at @Ip@ that you want to forward DNS queries to.
-    port :: Prelude.Maybe Prelude.Natural,
-    -- | One IP address that you want to forward DNS queries to. You can specify
-    -- only IPv4 addresses.
-    ip :: Prelude.Text
+  { -- | One IPv4 address that you want to forward DNS queries to.
+    ip :: Prelude.Maybe Prelude.Text,
+    -- | One IPv6 address that you want to forward DNS queries to.
+    ipv6 :: Prelude.Maybe Prelude.Text,
+    -- | The port at @Ip@ that you want to forward DNS queries to.
+    port :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,25 +47,31 @@ data TargetAddress = TargetAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'targetAddress_port' - The port at @Ip@ that you want to forward DNS queries to.
+-- 'ip', 'targetAddress_ip' - One IPv4 address that you want to forward DNS queries to.
 --
--- 'ip', 'targetAddress_ip' - One IP address that you want to forward DNS queries to. You can specify
--- only IPv4 addresses.
+-- 'ipv6', 'targetAddress_ipv6' - One IPv6 address that you want to forward DNS queries to.
+--
+-- 'port', 'targetAddress_port' - The port at @Ip@ that you want to forward DNS queries to.
 newTargetAddress ::
-  -- | 'ip'
-  Prelude.Text ->
   TargetAddress
-newTargetAddress pIp_ =
-  TargetAddress' {port = Prelude.Nothing, ip = pIp_}
+newTargetAddress =
+  TargetAddress'
+    { ip = Prelude.Nothing,
+      ipv6 = Prelude.Nothing,
+      port = Prelude.Nothing
+    }
+
+-- | One IPv4 address that you want to forward DNS queries to.
+targetAddress_ip :: Lens.Lens' TargetAddress (Prelude.Maybe Prelude.Text)
+targetAddress_ip = Lens.lens (\TargetAddress' {ip} -> ip) (\s@TargetAddress' {} a -> s {ip = a} :: TargetAddress)
+
+-- | One IPv6 address that you want to forward DNS queries to.
+targetAddress_ipv6 :: Lens.Lens' TargetAddress (Prelude.Maybe Prelude.Text)
+targetAddress_ipv6 = Lens.lens (\TargetAddress' {ipv6} -> ipv6) (\s@TargetAddress' {} a -> s {ipv6 = a} :: TargetAddress)
 
 -- | The port at @Ip@ that you want to forward DNS queries to.
 targetAddress_port :: Lens.Lens' TargetAddress (Prelude.Maybe Prelude.Natural)
 targetAddress_port = Lens.lens (\TargetAddress' {port} -> port) (\s@TargetAddress' {} a -> s {port = a} :: TargetAddress)
-
--- | One IP address that you want to forward DNS queries to. You can specify
--- only IPv4 addresses.
-targetAddress_ip :: Lens.Lens' TargetAddress Prelude.Text
-targetAddress_ip = Lens.lens (\TargetAddress' {ip} -> ip) (\s@TargetAddress' {} a -> s {ip = a} :: TargetAddress)
 
 instance Data.FromJSON TargetAddress where
   parseJSON =
@@ -72,23 +79,30 @@ instance Data.FromJSON TargetAddress where
       "TargetAddress"
       ( \x ->
           TargetAddress'
-            Prelude.<$> (x Data..:? "Port") Prelude.<*> (x Data..: "Ip")
+            Prelude.<$> (x Data..:? "Ip")
+            Prelude.<*> (x Data..:? "Ipv6")
+            Prelude.<*> (x Data..:? "Port")
       )
 
 instance Prelude.Hashable TargetAddress where
   hashWithSalt _salt TargetAddress' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
       `Prelude.hashWithSalt` ip
+      `Prelude.hashWithSalt` ipv6
+      `Prelude.hashWithSalt` port
 
 instance Prelude.NFData TargetAddress where
   rnf TargetAddress' {..} =
-    Prelude.rnf port `Prelude.seq` Prelude.rnf ip
+    Prelude.rnf ip
+      `Prelude.seq` Prelude.rnf ipv6
+      `Prelude.seq` Prelude.rnf port
 
 instance Data.ToJSON TargetAddress where
   toJSON TargetAddress' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("Port" Data..=) Prelude.<$> port,
-            Prelude.Just ("Ip" Data..= ip)
+          [ ("Ip" Data..=) Prelude.<$> ip,
+            ("Ipv6" Data..=) Prelude.<$> ipv6,
+            ("Port" Data..=) Prelude.<$> port
           ]
       )

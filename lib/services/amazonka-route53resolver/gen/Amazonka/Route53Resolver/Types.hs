@@ -83,6 +83,9 @@ module Amazonka.Route53Resolver.Types
     -- * ResolverEndpointStatus
     ResolverEndpointStatus (..),
 
+    -- * ResolverEndpointType
+    ResolverEndpointType (..),
+
     -- * ResolverQueryLogConfigAssociationError
     ResolverQueryLogConfigAssociationError (..),
 
@@ -209,6 +212,7 @@ module Amazonka.Route53Resolver.Types
     IpAddressRequest (..),
     newIpAddressRequest,
     ipAddressRequest_ip,
+    ipAddressRequest_ipv6,
     ipAddressRequest_subnetId,
 
     -- * IpAddressResponse
@@ -217,6 +221,7 @@ module Amazonka.Route53Resolver.Types
     ipAddressResponse_creationTime,
     ipAddressResponse_ip,
     ipAddressResponse_ipId,
+    ipAddressResponse_ipv6,
     ipAddressResponse_modificationTime,
     ipAddressResponse_status,
     ipAddressResponse_statusMessage,
@@ -227,6 +232,7 @@ module Amazonka.Route53Resolver.Types
     newIpAddressUpdate,
     ipAddressUpdate_ip,
     ipAddressUpdate_ipId,
+    ipAddressUpdate_ipv6,
     ipAddressUpdate_subnetId,
 
     -- * ResolverConfig
@@ -257,6 +263,7 @@ module Amazonka.Route53Resolver.Types
     resolverEndpoint_ipAddressCount,
     resolverEndpoint_modificationTime,
     resolverEndpoint_name,
+    resolverEndpoint_resolverEndpointType,
     resolverEndpoint_securityGroupIds,
     resolverEndpoint_status,
     resolverEndpoint_statusMessage,
@@ -330,8 +337,15 @@ module Amazonka.Route53Resolver.Types
     -- * TargetAddress
     TargetAddress (..),
     newTargetAddress,
-    targetAddress_port,
     targetAddress_ip,
+    targetAddress_ipv6,
+    targetAddress_port,
+
+    -- * UpdateIpAddress
+    UpdateIpAddress (..),
+    newUpdateIpAddress,
+    updateIpAddress_ipId,
+    updateIpAddress_ipv6,
   )
 where
 
@@ -368,6 +382,7 @@ import Amazonka.Route53Resolver.Types.ResolverDnssecConfig
 import Amazonka.Route53Resolver.Types.ResolverEndpoint
 import Amazonka.Route53Resolver.Types.ResolverEndpointDirection
 import Amazonka.Route53Resolver.Types.ResolverEndpointStatus
+import Amazonka.Route53Resolver.Types.ResolverEndpointType
 import Amazonka.Route53Resolver.Types.ResolverQueryLogConfig
 import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociation
 import Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociationError
@@ -383,6 +398,7 @@ import Amazonka.Route53Resolver.Types.ShareStatus
 import Amazonka.Route53Resolver.Types.SortOrder
 import Amazonka.Route53Resolver.Types.Tag
 import Amazonka.Route53Resolver.Types.TargetAddress
+import Amazonka.Route53Resolver.Types.UpdateIpAddress
 import Amazonka.Route53Resolver.Types.Validation
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -412,67 +428,70 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The current account doesn\'t have the IAM permissions required to
 -- perform the specified Resolver operation.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
--- |
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | The requested state transition isn\'t valid. For example, you can\'t
+-- delete a firewall domain list if it is in the process of being deleted,
+-- or you can\'t import domains into a domain list that is in the process
+-- of being deleted.
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | We encountered an unknown error. Try again in a few minutes.
-_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -480,91 +499,92 @@ _InternalServiceErrorException =
 
 -- | The value that you specified for @NextToken@ in a @List@ request isn\'t
 -- valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | One or more parameters in this request are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | The specified Resolver rule policy is invalid.
-_InvalidPolicyDocument :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPolicyDocument :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPolicyDocument =
   Core._MatchServiceError
     defaultService
     "InvalidPolicyDocument"
 
 -- | The request is invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The specified tag is invalid.
-_InvalidTagException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTagException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTagException =
   Core._MatchServiceError
     defaultService
     "InvalidTagException"
 
 -- | The request caused one or more limits to be exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The resource that you tried to create already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceExistsException"
 
 -- | The resource that you tried to update or delete is currently in use.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | The specified resource doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The specified resource isn\'t available.
-_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ResourceUnavailableException"
 
 -- | The request was throttled. Try again in a few minutes.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | The specified resource doesn\'t exist.
-_UnknownResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnknownResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnknownResourceException =
   Core._MatchServiceError
     defaultService
     "UnknownResourceException"
 
--- |
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | You have provided an invalid command. Supported values are @ADD@,
+-- @REMOVE@, or @REPLACE@ a domain.
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

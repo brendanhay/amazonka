@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the name of an inbound or an outbound Resolver endpoint.
+-- Updates the name, or enpoint type for an inbound or an outbound Resolver
+-- endpoint. You can only update between IPV4 and DUALSTACK, IPV6 endpoint
+-- type can\'t be updated to other type.
 module Amazonka.Route53Resolver.UpdateResolverEndpoint
   ( -- * Creating a Request
     UpdateResolverEndpoint (..),
@@ -28,6 +30,8 @@ module Amazonka.Route53Resolver.UpdateResolverEndpoint
 
     -- * Request Lenses
     updateResolverEndpoint_name,
+    updateResolverEndpoint_resolverEndpointType,
+    updateResolverEndpoint_updateIpAddresses,
     updateResolverEndpoint_resolverEndpointId,
 
     -- * Destructuring the Response
@@ -52,6 +56,11 @@ import Amazonka.Route53Resolver.Types
 data UpdateResolverEndpoint = UpdateResolverEndpoint'
   { -- | The name of the Resolver endpoint that you want to update.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the endpoint type for what type of IP address the endpoint
+    -- uses to forward DNS queries.
+    resolverEndpointType :: Prelude.Maybe ResolverEndpointType,
+    -- | Updates the Resolver endpoint type to IpV4, Ipv6, or dual-stack.
+    updateIpAddresses :: Prelude.Maybe [UpdateIpAddress],
     -- | The ID of the Resolver endpoint that you want to update.
     resolverEndpointId :: Prelude.Text
   }
@@ -67,6 +76,11 @@ data UpdateResolverEndpoint = UpdateResolverEndpoint'
 --
 -- 'name', 'updateResolverEndpoint_name' - The name of the Resolver endpoint that you want to update.
 --
+-- 'resolverEndpointType', 'updateResolverEndpoint_resolverEndpointType' - Specifies the endpoint type for what type of IP address the endpoint
+-- uses to forward DNS queries.
+--
+-- 'updateIpAddresses', 'updateResolverEndpoint_updateIpAddresses' - Updates the Resolver endpoint type to IpV4, Ipv6, or dual-stack.
+--
 -- 'resolverEndpointId', 'updateResolverEndpoint_resolverEndpointId' - The ID of the Resolver endpoint that you want to update.
 newUpdateResolverEndpoint ::
   -- | 'resolverEndpointId'
@@ -75,12 +89,23 @@ newUpdateResolverEndpoint ::
 newUpdateResolverEndpoint pResolverEndpointId_ =
   UpdateResolverEndpoint'
     { name = Prelude.Nothing,
+      resolverEndpointType = Prelude.Nothing,
+      updateIpAddresses = Prelude.Nothing,
       resolverEndpointId = pResolverEndpointId_
     }
 
 -- | The name of the Resolver endpoint that you want to update.
 updateResolverEndpoint_name :: Lens.Lens' UpdateResolverEndpoint (Prelude.Maybe Prelude.Text)
 updateResolverEndpoint_name = Lens.lens (\UpdateResolverEndpoint' {name} -> name) (\s@UpdateResolverEndpoint' {} a -> s {name = a} :: UpdateResolverEndpoint)
+
+-- | Specifies the endpoint type for what type of IP address the endpoint
+-- uses to forward DNS queries.
+updateResolverEndpoint_resolverEndpointType :: Lens.Lens' UpdateResolverEndpoint (Prelude.Maybe ResolverEndpointType)
+updateResolverEndpoint_resolverEndpointType = Lens.lens (\UpdateResolverEndpoint' {resolverEndpointType} -> resolverEndpointType) (\s@UpdateResolverEndpoint' {} a -> s {resolverEndpointType = a} :: UpdateResolverEndpoint)
+
+-- | Updates the Resolver endpoint type to IpV4, Ipv6, or dual-stack.
+updateResolverEndpoint_updateIpAddresses :: Lens.Lens' UpdateResolverEndpoint (Prelude.Maybe [UpdateIpAddress])
+updateResolverEndpoint_updateIpAddresses = Lens.lens (\UpdateResolverEndpoint' {updateIpAddresses} -> updateIpAddresses) (\s@UpdateResolverEndpoint' {} a -> s {updateIpAddresses = a} :: UpdateResolverEndpoint) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Resolver endpoint that you want to update.
 updateResolverEndpoint_resolverEndpointId :: Lens.Lens' UpdateResolverEndpoint Prelude.Text
@@ -102,12 +127,17 @@ instance Core.AWSRequest UpdateResolverEndpoint where
 
 instance Prelude.Hashable UpdateResolverEndpoint where
   hashWithSalt _salt UpdateResolverEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resolverEndpointType
+      `Prelude.hashWithSalt` updateIpAddresses
       `Prelude.hashWithSalt` resolverEndpointId
 
 instance Prelude.NFData UpdateResolverEndpoint where
   rnf UpdateResolverEndpoint' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resolverEndpointType
+      `Prelude.seq` Prelude.rnf updateIpAddresses
       `Prelude.seq` Prelude.rnf resolverEndpointId
 
 instance Data.ToHeaders UpdateResolverEndpoint where
@@ -130,6 +160,10 @@ instance Data.ToJSON UpdateResolverEndpoint where
     Data.object
       ( Prelude.catMaybes
           [ ("Name" Data..=) Prelude.<$> name,
+            ("ResolverEndpointType" Data..=)
+              Prelude.<$> resolverEndpointType,
+            ("UpdateIpAddresses" Data..=)
+              Prelude.<$> updateIpAddresses,
             Prelude.Just
               ("ResolverEndpointId" Data..= resolverEndpointId)
           ]

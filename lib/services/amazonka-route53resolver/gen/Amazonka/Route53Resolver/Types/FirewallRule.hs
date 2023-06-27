@@ -273,7 +273,8 @@ instance Data.FromJSON FirewallRule where
 
 instance Prelude.Hashable FirewallRule where
   hashWithSalt _salt FirewallRule' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` blockOverrideDnsType
       `Prelude.hashWithSalt` blockOverrideDomain
       `Prelude.hashWithSalt` blockOverrideTtl

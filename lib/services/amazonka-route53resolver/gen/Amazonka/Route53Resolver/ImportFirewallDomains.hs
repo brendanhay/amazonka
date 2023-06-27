@@ -161,7 +161,8 @@ instance Core.AWSRequest ImportFirewallDomains where
 
 instance Prelude.Hashable ImportFirewallDomains where
   hashWithSalt _salt ImportFirewallDomains' {..} =
-    _salt `Prelude.hashWithSalt` firewallDomainListId
+    _salt
+      `Prelude.hashWithSalt` firewallDomainListId
       `Prelude.hashWithSalt` operation
       `Prelude.hashWithSalt` domainFileUrl
 
@@ -212,6 +213,7 @@ data ImportFirewallDomainsResponse = ImportFirewallDomainsResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain list.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Status of the import request.
     status :: Prelude.Maybe FirewallDomainListStatus,
     -- | Additional information about the status of the list, if available.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -232,7 +234,7 @@ data ImportFirewallDomainsResponse = ImportFirewallDomainsResponse'
 --
 -- 'name', 'importFirewallDomainsResponse_name' - The name of the domain list.
 --
--- 'status', 'importFirewallDomainsResponse_status' -
+-- 'status', 'importFirewallDomainsResponse_status' - Status of the import request.
 --
 -- 'statusMessage', 'importFirewallDomainsResponse_statusMessage' - Additional information about the status of the list, if available.
 --
@@ -259,7 +261,7 @@ importFirewallDomainsResponse_id = Lens.lens (\ImportFirewallDomainsResponse' {i
 importFirewallDomainsResponse_name :: Lens.Lens' ImportFirewallDomainsResponse (Prelude.Maybe Prelude.Text)
 importFirewallDomainsResponse_name = Lens.lens (\ImportFirewallDomainsResponse' {name} -> name) (\s@ImportFirewallDomainsResponse' {} a -> s {name = a} :: ImportFirewallDomainsResponse)
 
--- |
+-- | Status of the import request.
 importFirewallDomainsResponse_status :: Lens.Lens' ImportFirewallDomainsResponse (Prelude.Maybe FirewallDomainListStatus)
 importFirewallDomainsResponse_status = Lens.lens (\ImportFirewallDomainsResponse' {status} -> status) (\s@ImportFirewallDomainsResponse' {} a -> s {status = a} :: ImportFirewallDomainsResponse)
 

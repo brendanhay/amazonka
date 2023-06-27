@@ -196,7 +196,8 @@ instance Data.FromJSON FirewallRuleGroup where
 
 instance Prelude.Hashable FirewallRuleGroup where
   hashWithSalt _salt FirewallRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` id

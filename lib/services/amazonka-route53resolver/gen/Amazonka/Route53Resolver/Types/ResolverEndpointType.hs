@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Route53Resolver.Types.AutodefinedReverseFlag
+-- Module      : Amazonka.Route53Resolver.Types.ResolverEndpointType
 -- Copyright   : (c) 2013-2023 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Route53Resolver.Types.AutodefinedReverseFlag
-  ( AutodefinedReverseFlag
+module Amazonka.Route53Resolver.Types.ResolverEndpointType
+  ( ResolverEndpointType
       ( ..,
-        AutodefinedReverseFlag_DISABLE,
-        AutodefinedReverseFlag_ENABLE,
-        AutodefinedReverseFlag_USE_LOCAL_RESOURCE_SETTING
+        ResolverEndpointType_DUALSTACK,
+        ResolverEndpointType_IPV4,
+        ResolverEndpointType_IPV6
       ),
   )
 where
@@ -31,8 +31,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
-newtype AutodefinedReverseFlag = AutodefinedReverseFlag'
-  { fromAutodefinedReverseFlag ::
+newtype ResolverEndpointType = ResolverEndpointType'
+  { fromResolverEndpointType ::
       Data.Text
   }
   deriving stock
@@ -59,18 +59,18 @@ newtype AutodefinedReverseFlag = AutodefinedReverseFlag'
       Data.ToXML
     )
 
-pattern AutodefinedReverseFlag_DISABLE :: AutodefinedReverseFlag
-pattern AutodefinedReverseFlag_DISABLE = AutodefinedReverseFlag' "DISABLE"
+pattern ResolverEndpointType_DUALSTACK :: ResolverEndpointType
+pattern ResolverEndpointType_DUALSTACK = ResolverEndpointType' "DUALSTACK"
 
-pattern AutodefinedReverseFlag_ENABLE :: AutodefinedReverseFlag
-pattern AutodefinedReverseFlag_ENABLE = AutodefinedReverseFlag' "ENABLE"
+pattern ResolverEndpointType_IPV4 :: ResolverEndpointType
+pattern ResolverEndpointType_IPV4 = ResolverEndpointType' "IPV4"
 
-pattern AutodefinedReverseFlag_USE_LOCAL_RESOURCE_SETTING :: AutodefinedReverseFlag
-pattern AutodefinedReverseFlag_USE_LOCAL_RESOURCE_SETTING = AutodefinedReverseFlag' "USE_LOCAL_RESOURCE_SETTING"
+pattern ResolverEndpointType_IPV6 :: ResolverEndpointType
+pattern ResolverEndpointType_IPV6 = ResolverEndpointType' "IPV6"
 
 {-# COMPLETE
-  AutodefinedReverseFlag_DISABLE,
-  AutodefinedReverseFlag_ENABLE,
-  AutodefinedReverseFlag_USE_LOCAL_RESOURCE_SETTING,
-  AutodefinedReverseFlag'
+  ResolverEndpointType_DUALSTACK,
+  ResolverEndpointType_IPV4,
+  ResolverEndpointType_IPV6,
+  ResolverEndpointType'
   #-}

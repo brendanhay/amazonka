@@ -23,7 +23,9 @@ module Amazonka.Route53Resolver.Types.ResolverDNSSECValidationStatus
         ResolverDNSSECValidationStatus_DISABLED,
         ResolverDNSSECValidationStatus_DISABLING,
         ResolverDNSSECValidationStatus_ENABLED,
-        ResolverDNSSECValidationStatus_ENABLING
+        ResolverDNSSECValidationStatus_ENABLING,
+        ResolverDNSSECValidationStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING,
+        ResolverDNSSECValidationStatus_USE_LOCAL_RESOURCE_SETTING
       ),
   )
 where
@@ -72,10 +74,18 @@ pattern ResolverDNSSECValidationStatus_ENABLED = ResolverDNSSECValidationStatus'
 pattern ResolverDNSSECValidationStatus_ENABLING :: ResolverDNSSECValidationStatus
 pattern ResolverDNSSECValidationStatus_ENABLING = ResolverDNSSECValidationStatus' "ENABLING"
 
+pattern ResolverDNSSECValidationStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING :: ResolverDNSSECValidationStatus
+pattern ResolverDNSSECValidationStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING = ResolverDNSSECValidationStatus' "UPDATING_TO_USE_LOCAL_RESOURCE_SETTING"
+
+pattern ResolverDNSSECValidationStatus_USE_LOCAL_RESOURCE_SETTING :: ResolverDNSSECValidationStatus
+pattern ResolverDNSSECValidationStatus_USE_LOCAL_RESOURCE_SETTING = ResolverDNSSECValidationStatus' "USE_LOCAL_RESOURCE_SETTING"
+
 {-# COMPLETE
   ResolverDNSSECValidationStatus_DISABLED,
   ResolverDNSSECValidationStatus_DISABLING,
   ResolverDNSSECValidationStatus_ENABLED,
   ResolverDNSSECValidationStatus_ENABLING,
+  ResolverDNSSECValidationStatus_UPDATING_TO_USE_LOCAL_RESOURCE_SETTING,
+  ResolverDNSSECValidationStatus_USE_LOCAL_RESOURCE_SETTING,
   ResolverDNSSECValidationStatus'
   #-}

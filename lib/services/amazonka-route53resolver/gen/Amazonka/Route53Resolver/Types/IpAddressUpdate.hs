@@ -30,12 +30,14 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpAddressUpdate' smart constructor.
 data IpAddressUpdate = IpAddressUpdate'
-  { -- | The new IP address.
+  { -- | The new IPv4 address.
     ip :: Prelude.Maybe Prelude.Text,
     -- | /Only when removing an IP address from a Resolver endpoint/: The ID of
     -- the IP address that you want to remove. To get this ID, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
     ipId :: Prelude.Maybe Prelude.Text,
+    -- | The new IPv6 address.
+    ipv6 :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet that includes the IP address that you want to
     -- update. To get this ID, use
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
@@ -51,11 +53,13 @@ data IpAddressUpdate = IpAddressUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ip', 'ipAddressUpdate_ip' - The new IP address.
+-- 'ip', 'ipAddressUpdate_ip' - The new IPv4 address.
 --
 -- 'ipId', 'ipAddressUpdate_ipId' - /Only when removing an IP address from a Resolver endpoint/: The ID of
 -- the IP address that you want to remove. To get this ID, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
+--
+-- 'ipv6', 'ipAddressUpdate_ipv6' - The new IPv6 address.
 --
 -- 'subnetId', 'ipAddressUpdate_subnetId' - The ID of the subnet that includes the IP address that you want to
 -- update. To get this ID, use
@@ -66,10 +70,11 @@ newIpAddressUpdate =
   IpAddressUpdate'
     { ip = Prelude.Nothing,
       ipId = Prelude.Nothing,
+      ipv6 = Prelude.Nothing,
       subnetId = Prelude.Nothing
     }
 
--- | The new IP address.
+-- | The new IPv4 address.
 ipAddressUpdate_ip :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
 ipAddressUpdate_ip = Lens.lens (\IpAddressUpdate' {ip} -> ip) (\s@IpAddressUpdate' {} a -> s {ip = a} :: IpAddressUpdate)
 
@@ -79,6 +84,10 @@ ipAddressUpdate_ip = Lens.lens (\IpAddressUpdate' {ip} -> ip) (\s@IpAddressUpdat
 ipAddressUpdate_ipId :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
 ipAddressUpdate_ipId = Lens.lens (\IpAddressUpdate' {ipId} -> ipId) (\s@IpAddressUpdate' {} a -> s {ipId = a} :: IpAddressUpdate)
 
+-- | The new IPv6 address.
+ipAddressUpdate_ipv6 :: Lens.Lens' IpAddressUpdate (Prelude.Maybe Prelude.Text)
+ipAddressUpdate_ipv6 = Lens.lens (\IpAddressUpdate' {ipv6} -> ipv6) (\s@IpAddressUpdate' {} a -> s {ipv6 = a} :: IpAddressUpdate)
+
 -- | The ID of the subnet that includes the IP address that you want to
 -- update. To get this ID, use
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>.
@@ -87,14 +96,17 @@ ipAddressUpdate_subnetId = Lens.lens (\IpAddressUpdate' {subnetId} -> subnetId) 
 
 instance Prelude.Hashable IpAddressUpdate where
   hashWithSalt _salt IpAddressUpdate' {..} =
-    _salt `Prelude.hashWithSalt` ip
+    _salt
+      `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` ipId
+      `Prelude.hashWithSalt` ipv6
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData IpAddressUpdate where
   rnf IpAddressUpdate' {..} =
     Prelude.rnf ip
       `Prelude.seq` Prelude.rnf ipId
+      `Prelude.seq` Prelude.rnf ipv6
       `Prelude.seq` Prelude.rnf subnetId
 
 instance Data.ToJSON IpAddressUpdate where
@@ -103,6 +115,7 @@ instance Data.ToJSON IpAddressUpdate where
       ( Prelude.catMaybes
           [ ("Ip" Data..=) Prelude.<$> ip,
             ("IpId" Data..=) Prelude.<$> ipId,
+            ("Ipv6" Data..=) Prelude.<$> ipv6,
             ("SubnetId" Data..=) Prelude.<$> subnetId
           ]
       )

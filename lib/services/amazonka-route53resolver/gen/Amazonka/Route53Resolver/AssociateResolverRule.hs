@@ -128,7 +128,8 @@ instance Core.AWSRequest AssociateResolverRule where
 
 instance Prelude.Hashable AssociateResolverRule where
   hashWithSalt _salt AssociateResolverRule' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resolverRuleId
       `Prelude.hashWithSalt` vPCId
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the behavior configuration of Route 53 Resolver behavior for a
+-- Updates the behavior configuration of Route 53 Resolver behavior for a
 -- single VPC from Amazon Virtual Private Cloud.
 module Amazonka.Route53Resolver.UpdateResolverConfig
   ( -- * Creating a Request
@@ -61,6 +61,12 @@ data UpdateResolverConfig = UpdateResolverConfig'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
     -- in the /Amazon EC2 guide/.
     --
+    -- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+    -- migrate from EC2-Classic to a VPC. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+    -- in the /Amazon EC2 guide/ and the blog
+    -- <http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/ EC2-Classic Networking is Retiring – Here’s How to Prepare>.
+    --
     -- It can take some time for the status change to be completed.
     autodefinedReverseFlag :: AutodefinedReverseFlag
   }
@@ -83,6 +89,12 @@ data UpdateResolverConfig = UpdateResolverConfig'
 -- information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon EC2 guide/.
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon EC2 guide/ and the blog
+-- <http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/ EC2-Classic Networking is Retiring – Here’s How to Prepare>.
 --
 -- It can take some time for the status change to be completed.
 newUpdateResolverConfig ::
@@ -111,6 +123,12 @@ updateResolverConfig_resourceId = Lens.lens (\UpdateResolverConfig' {resourceId}
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon EC2 guide/.
 --
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon EC2 guide/ and the blog
+-- <http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/ EC2-Classic Networking is Retiring – Here’s How to Prepare>.
+--
 -- It can take some time for the status change to be completed.
 updateResolverConfig_autodefinedReverseFlag :: Lens.Lens' UpdateResolverConfig AutodefinedReverseFlag
 updateResolverConfig_autodefinedReverseFlag = Lens.lens (\UpdateResolverConfig' {autodefinedReverseFlag} -> autodefinedReverseFlag) (\s@UpdateResolverConfig' {} a -> s {autodefinedReverseFlag = a} :: UpdateResolverConfig)
@@ -131,7 +149,8 @@ instance Core.AWSRequest UpdateResolverConfig where
 
 instance Prelude.Hashable UpdateResolverConfig where
   hashWithSalt _salt UpdateResolverConfig' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` autodefinedReverseFlag
 
 instance Prelude.NFData UpdateResolverConfig where

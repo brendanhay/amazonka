@@ -138,7 +138,8 @@ instance Data.FromJSON FirewallConfig where
 
 instance Prelude.Hashable FirewallConfig where
   hashWithSalt _salt FirewallConfig' {..} =
-    _salt `Prelude.hashWithSalt` firewallFailOpen
+    _salt
+      `Prelude.hashWithSalt` firewallFailOpen
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` resourceId

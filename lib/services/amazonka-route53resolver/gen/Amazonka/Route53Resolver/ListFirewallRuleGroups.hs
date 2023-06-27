@@ -133,22 +133,22 @@ instance Core.AWSPager ListFirewallRuleGroups where
     | Core.stop
         ( rs
             Lens.^? listFirewallRuleGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFirewallRuleGroupsResponse_firewallRuleGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFirewallRuleGroups_nextToken
           Lens..~ rs
           Lens.^? listFirewallRuleGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFirewallRuleGroups where
   type
@@ -160,7 +160,8 @@ instance Core.AWSRequest ListFirewallRuleGroups where
     Response.receiveJSON
       ( \s h x ->
           ListFirewallRuleGroupsResponse'
-            Prelude.<$> ( x Data..?> "FirewallRuleGroups"
+            Prelude.<$> ( x
+                            Data..?> "FirewallRuleGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -169,7 +170,8 @@ instance Core.AWSRequest ListFirewallRuleGroups where
 
 instance Prelude.Hashable ListFirewallRuleGroups where
   hashWithSalt _salt ListFirewallRuleGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFirewallRuleGroups where

@@ -98,7 +98,7 @@ instance
       ( \s h x ->
           GetResolverQueryLogConfigAssociationResponse'
             Prelude.<$> (x Data..?> "ResolverQueryLogConfigAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

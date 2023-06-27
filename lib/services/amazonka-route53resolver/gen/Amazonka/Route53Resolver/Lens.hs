@@ -74,6 +74,7 @@ module Amazonka.Route53Resolver.Lens
 
     -- ** CreateResolverEndpoint
     createResolverEndpoint_name,
+    createResolverEndpoint_resolverEndpointType,
     createResolverEndpoint_tags,
     createResolverEndpoint_creatorRequestId,
     createResolverEndpoint_securityGroupIds,
@@ -447,6 +448,8 @@ module Amazonka.Route53Resolver.Lens
 
     -- ** UpdateResolverEndpoint
     updateResolverEndpoint_name,
+    updateResolverEndpoint_resolverEndpointType,
+    updateResolverEndpoint_updateIpAddresses,
     updateResolverEndpoint_resolverEndpointId,
     updateResolverEndpointResponse_resolverEndpoint,
     updateResolverEndpointResponse_httpStatus,
@@ -540,12 +543,14 @@ module Amazonka.Route53Resolver.Lens
 
     -- ** IpAddressRequest
     ipAddressRequest_ip,
+    ipAddressRequest_ipv6,
     ipAddressRequest_subnetId,
 
     -- ** IpAddressResponse
     ipAddressResponse_creationTime,
     ipAddressResponse_ip,
     ipAddressResponse_ipId,
+    ipAddressResponse_ipv6,
     ipAddressResponse_modificationTime,
     ipAddressResponse_status,
     ipAddressResponse_statusMessage,
@@ -554,6 +559,7 @@ module Amazonka.Route53Resolver.Lens
     -- ** IpAddressUpdate
     ipAddressUpdate_ip,
     ipAddressUpdate_ipId,
+    ipAddressUpdate_ipv6,
     ipAddressUpdate_subnetId,
 
     -- ** ResolverConfig
@@ -578,6 +584,7 @@ module Amazonka.Route53Resolver.Lens
     resolverEndpoint_ipAddressCount,
     resolverEndpoint_modificationTime,
     resolverEndpoint_name,
+    resolverEndpoint_resolverEndpointType,
     resolverEndpoint_securityGroupIds,
     resolverEndpoint_status,
     resolverEndpoint_statusMessage,
@@ -637,8 +644,13 @@ module Amazonka.Route53Resolver.Lens
     tag_value,
 
     -- ** TargetAddress
-    targetAddress_port,
     targetAddress_ip,
+    targetAddress_ipv6,
+    targetAddress_port,
+
+    -- ** UpdateIpAddress
+    updateIpAddress_ipId,
+    updateIpAddress_ipv6,
   )
 where
 
@@ -717,6 +729,7 @@ import Amazonka.Route53Resolver.Types.ResolverRuleAssociation
 import Amazonka.Route53Resolver.Types.ResolverRuleConfig
 import Amazonka.Route53Resolver.Types.Tag
 import Amazonka.Route53Resolver.Types.TargetAddress
+import Amazonka.Route53Resolver.Types.UpdateIpAddress
 import Amazonka.Route53Resolver.UntagResource
 import Amazonka.Route53Resolver.UpdateFirewallConfig
 import Amazonka.Route53Resolver.UpdateFirewallDomains

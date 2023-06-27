@@ -140,22 +140,22 @@ instance Core.AWSPager ListResolverEndpoints where
     | Core.stop
         ( rs
             Lens.^? listResolverEndpointsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResolverEndpointsResponse_resolverEndpoints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResolverEndpoints_nextToken
           Lens..~ rs
           Lens.^? listResolverEndpointsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolverEndpoints where
   type
@@ -169,7 +169,8 @@ instance Core.AWSRequest ListResolverEndpoints where
           ListResolverEndpointsResponse'
             Prelude.<$> (x Data..?> "MaxResults")
             Prelude.<*> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ResolverEndpoints"
+            Prelude.<*> ( x
+                            Data..?> "ResolverEndpoints"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -177,7 +178,8 @@ instance Core.AWSRequest ListResolverEndpoints where
 
 instance Prelude.Hashable ListResolverEndpoints where
   hashWithSalt _salt ListResolverEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

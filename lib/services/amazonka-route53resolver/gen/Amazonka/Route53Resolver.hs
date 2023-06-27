@@ -539,6 +539,9 @@ module Amazonka.Route53Resolver
     -- ** ResolverEndpointStatus
     ResolverEndpointStatus (..),
 
+    -- ** ResolverEndpointType
+    ResolverEndpointType (..),
+
     -- ** ResolverQueryLogConfigAssociationError
     ResolverQueryLogConfigAssociationError (..),
 
@@ -649,6 +652,10 @@ module Amazonka.Route53Resolver
     -- ** TargetAddress
     TargetAddress (TargetAddress'),
     newTargetAddress,
+
+    -- ** UpdateIpAddress
+    UpdateIpAddress (UpdateIpAddress'),
+    newUpdateIpAddress,
   )
 where
 

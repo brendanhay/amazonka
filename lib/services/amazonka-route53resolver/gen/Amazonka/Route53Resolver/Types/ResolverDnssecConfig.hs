@@ -135,7 +135,8 @@ instance Data.FromJSON ResolverDnssecConfig where
 
 instance Prelude.Hashable ResolverDnssecConfig where
   hashWithSalt _salt ResolverDnssecConfig' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` validationStatus

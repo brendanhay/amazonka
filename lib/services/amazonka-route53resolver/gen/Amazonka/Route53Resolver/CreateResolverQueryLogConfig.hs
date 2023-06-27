@@ -215,7 +215,8 @@ instance
     CreateResolverQueryLogConfig
   where
   hashWithSalt _salt CreateResolverQueryLogConfig' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` creatorRequestId

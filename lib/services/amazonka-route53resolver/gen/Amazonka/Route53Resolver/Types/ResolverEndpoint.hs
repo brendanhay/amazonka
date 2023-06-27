@@ -25,13 +25,13 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53Resolver.Types.ResolverEndpointDirection
 import Amazonka.Route53Resolver.Types.ResolverEndpointStatus
+import Amazonka.Route53Resolver.Types.ResolverEndpointType
 
 -- | In the response to a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html CreateResolverEndpoint>,
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverEndpoint.html DeleteResolverEndpoint>,
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html GetResolverEndpoint>,
--- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html ListResolverEndpoints>,
--- or
+-- Updates the name, or ResolverEndpointType for an endpoint, or
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html UpdateResolverEndpoint>
 -- request, a complex type that contains settings for an existing inbound
 -- or outbound Resolver endpoint.
@@ -68,6 +68,8 @@ data ResolverEndpoint = ResolverEndpoint'
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html CreateResolverEndpoint>
     -- request.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The Resolver endpoint IP address type.
+    resolverEndpointType :: Prelude.Maybe ResolverEndpointType,
     -- | The ID of one or more security groups that control access to this VPC.
     -- The security group must include one or more inbound rules (for inbound
     -- endpoints) or outbound rules (for outbound endpoints). Inbound and
@@ -156,6 +158,8 @@ data ResolverEndpoint = ResolverEndpoint'
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html CreateResolverEndpoint>
 -- request.
 --
+-- 'resolverEndpointType', 'resolverEndpoint_resolverEndpointType' - The Resolver endpoint IP address type.
+--
 -- 'securityGroupIds', 'resolverEndpoint_securityGroupIds' - The ID of one or more security groups that control access to this VPC.
 -- The security group must include one or more inbound rules (for inbound
 -- endpoints) or outbound rules (for outbound endpoints). Inbound and
@@ -215,6 +219,7 @@ newResolverEndpoint =
       ipAddressCount = Prelude.Nothing,
       modificationTime = Prelude.Nothing,
       name = Prelude.Nothing,
+      resolverEndpointType = Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
       status = Prelude.Nothing,
       statusMessage = Prelude.Nothing
@@ -267,6 +272,10 @@ resolverEndpoint_modificationTime = Lens.lens (\ResolverEndpoint' {modificationT
 -- request.
 resolverEndpoint_name :: Lens.Lens' ResolverEndpoint (Prelude.Maybe Prelude.Text)
 resolverEndpoint_name = Lens.lens (\ResolverEndpoint' {name} -> name) (\s@ResolverEndpoint' {} a -> s {name = a} :: ResolverEndpoint)
+
+-- | The Resolver endpoint IP address type.
+resolverEndpoint_resolverEndpointType :: Lens.Lens' ResolverEndpoint (Prelude.Maybe ResolverEndpointType)
+resolverEndpoint_resolverEndpointType = Lens.lens (\ResolverEndpoint' {resolverEndpointType} -> resolverEndpointType) (\s@ResolverEndpoint' {} a -> s {resolverEndpointType = a} :: ResolverEndpoint)
 
 -- | The ID of one or more security groups that control access to this VPC.
 -- The security group must include one or more inbound rules (for inbound
@@ -336,7 +345,9 @@ instance Data.FromJSON ResolverEndpoint where
             Prelude.<*> (x Data..:? "IpAddressCount")
             Prelude.<*> (x Data..:? "ModificationTime")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+            Prelude.<*> (x Data..:? "ResolverEndpointType")
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -345,7 +356,8 @@ instance Data.FromJSON ResolverEndpoint where
 
 instance Prelude.Hashable ResolverEndpoint where
   hashWithSalt _salt ResolverEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` direction
@@ -354,6 +366,7 @@ instance Prelude.Hashable ResolverEndpoint where
       `Prelude.hashWithSalt` ipAddressCount
       `Prelude.hashWithSalt` modificationTime
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` resolverEndpointType
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
@@ -369,6 +382,7 @@ instance Prelude.NFData ResolverEndpoint where
       `Prelude.seq` Prelude.rnf ipAddressCount
       `Prelude.seq` Prelude.rnf modificationTime
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf resolverEndpointType
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf statusMessage

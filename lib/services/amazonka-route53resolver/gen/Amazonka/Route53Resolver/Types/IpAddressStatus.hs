@@ -29,7 +29,8 @@ module Amazonka.Route53Resolver.Types.IpAddressStatus
         IpAddressStatus_FAILED_CREATION,
         IpAddressStatus_FAILED_RESOURCE_GONE,
         IpAddressStatus_REMAP_ATTACHING,
-        IpAddressStatus_REMAP_DETACHING
+        IpAddressStatus_REMAP_DETACHING,
+        IpAddressStatus_UPDATING
       ),
   )
 where
@@ -96,6 +97,9 @@ pattern IpAddressStatus_REMAP_ATTACHING = IpAddressStatus' "REMAP_ATTACHING"
 pattern IpAddressStatus_REMAP_DETACHING :: IpAddressStatus
 pattern IpAddressStatus_REMAP_DETACHING = IpAddressStatus' "REMAP_DETACHING"
 
+pattern IpAddressStatus_UPDATING :: IpAddressStatus
+pattern IpAddressStatus_UPDATING = IpAddressStatus' "UPDATING"
+
 {-# COMPLETE
   IpAddressStatus_ATTACHED,
   IpAddressStatus_ATTACHING,
@@ -107,5 +111,6 @@ pattern IpAddressStatus_REMAP_DETACHING = IpAddressStatus' "REMAP_DETACHING"
   IpAddressStatus_FAILED_RESOURCE_GONE,
   IpAddressStatus_REMAP_ATTACHING,
   IpAddressStatus_REMAP_DETACHING,
+  IpAddressStatus_UPDATING,
   IpAddressStatus'
   #-}

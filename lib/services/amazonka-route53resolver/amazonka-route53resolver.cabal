@@ -130,6 +130,7 @@ library
     Amazonka.Route53Resolver.Types.ResolverEndpoint
     Amazonka.Route53Resolver.Types.ResolverEndpointDirection
     Amazonka.Route53Resolver.Types.ResolverEndpointStatus
+    Amazonka.Route53Resolver.Types.ResolverEndpointType
     Amazonka.Route53Resolver.Types.ResolverQueryLogConfig
     Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociation
     Amazonka.Route53Resolver.Types.ResolverQueryLogConfigAssociationError
@@ -145,6 +146,7 @@ library
     Amazonka.Route53Resolver.Types.SortOrder
     Amazonka.Route53Resolver.Types.Tag
     Amazonka.Route53Resolver.Types.TargetAddress
+    Amazonka.Route53Resolver.Types.UpdateIpAddress
     Amazonka.Route53Resolver.Types.Validation
     Amazonka.Route53Resolver.UntagResource
     Amazonka.Route53Resolver.UpdateFirewallConfig

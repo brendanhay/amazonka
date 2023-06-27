@@ -161,7 +161,8 @@ instance Core.AWSRequest DescribeHsm where
 
 instance Prelude.Hashable DescribeHsm where
   hashWithSalt _salt DescribeHsm' {..} =
-    _salt `Prelude.hashWithSalt` hsmArn
+    _salt
+      `Prelude.hashWithSalt` hsmArn
       `Prelude.hashWithSalt` hsmSerialNumber
 
 instance Prelude.NFData DescribeHsm where

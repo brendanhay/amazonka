@@ -183,7 +183,8 @@ instance Core.AWSRequest ModifyHsm where
 
 instance Prelude.Hashable ModifyHsm where
   hashWithSalt _salt ModifyHsm' {..} =
-    _salt `Prelude.hashWithSalt` eniIp
+    _salt
+      `Prelude.hashWithSalt` eniIp
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` subnetId

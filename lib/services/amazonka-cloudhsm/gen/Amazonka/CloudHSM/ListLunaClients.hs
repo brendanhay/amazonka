@@ -102,19 +102,19 @@ instance Core.AWSPager ListLunaClients where
     | Core.stop
         ( rs
             Lens.^? listLunaClientsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listLunaClientsResponse_clientList) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLunaClients_nextToken
           Lens..~ rs
           Lens.^? listLunaClientsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLunaClients where
   type

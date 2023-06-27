@@ -136,7 +136,8 @@ inputUpdate_inputId = Lens.lens (\InputUpdate' {inputId} -> inputId) (\s@InputUp
 
 instance Prelude.Hashable InputUpdate where
   hashWithSalt _salt InputUpdate' {..} =
-    _salt `Prelude.hashWithSalt` inputParallelismUpdate
+    _salt
+      `Prelude.hashWithSalt` inputParallelismUpdate
       `Prelude.hashWithSalt` inputProcessingConfigurationUpdate
       `Prelude.hashWithSalt` inputSchemaUpdate
       `Prelude.hashWithSalt` kinesisFirehoseInputUpdate

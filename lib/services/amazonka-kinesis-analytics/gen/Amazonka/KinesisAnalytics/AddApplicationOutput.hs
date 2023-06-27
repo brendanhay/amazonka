@@ -182,7 +182,8 @@ instance Core.AWSRequest AddApplicationOutput where
 
 instance Prelude.Hashable AddApplicationOutput where
   hashWithSalt _salt AddApplicationOutput' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` currentApplicationVersionId
       `Prelude.hashWithSalt` output
 

@@ -168,7 +168,8 @@ instance
   hashWithSalt
     _salt
     DeleteApplicationReferenceDataSource' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` referenceId
 

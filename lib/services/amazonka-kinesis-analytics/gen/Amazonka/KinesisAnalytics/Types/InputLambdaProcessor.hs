@@ -89,7 +89,8 @@ inputLambdaProcessor_roleARN = Lens.lens (\InputLambdaProcessor' {roleARN} -> ro
 
 instance Prelude.Hashable InputLambdaProcessor where
   hashWithSalt _salt InputLambdaProcessor' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` roleARN
 
 instance Prelude.NFData InputLambdaProcessor where

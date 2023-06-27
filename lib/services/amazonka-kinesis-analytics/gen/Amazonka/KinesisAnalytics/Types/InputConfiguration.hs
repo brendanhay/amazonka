@@ -83,7 +83,8 @@ inputConfiguration_inputStartingPositionConfiguration = Lens.lens (\InputConfigu
 
 instance Prelude.Hashable InputConfiguration where
   hashWithSalt _salt InputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` inputStartingPositionConfiguration
 
 instance Prelude.NFData InputConfiguration where

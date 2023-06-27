@@ -79,7 +79,8 @@ s3ReferenceDataSourceUpdate_referenceRoleARNUpdate = Lens.lens (\S3ReferenceData
 
 instance Prelude.Hashable S3ReferenceDataSourceUpdate where
   hashWithSalt _salt S3ReferenceDataSourceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` bucketARNUpdate
+    _salt
+      `Prelude.hashWithSalt` bucketARNUpdate
       `Prelude.hashWithSalt` fileKeyUpdate
       `Prelude.hashWithSalt` referenceRoleARNUpdate
 

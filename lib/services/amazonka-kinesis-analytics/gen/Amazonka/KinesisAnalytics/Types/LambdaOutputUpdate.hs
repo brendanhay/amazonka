@@ -89,7 +89,8 @@ lambdaOutputUpdate_roleARNUpdate = Lens.lens (\LambdaOutputUpdate' {roleARNUpdat
 
 instance Prelude.Hashable LambdaOutputUpdate where
   hashWithSalt _salt LambdaOutputUpdate' {..} =
-    _salt `Prelude.hashWithSalt` resourceARNUpdate
+    _salt
+      `Prelude.hashWithSalt` resourceARNUpdate
       `Prelude.hashWithSalt` roleARNUpdate
 
 instance Prelude.NFData LambdaOutputUpdate where

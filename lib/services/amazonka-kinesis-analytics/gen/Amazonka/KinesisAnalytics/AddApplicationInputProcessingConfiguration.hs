@@ -188,7 +188,8 @@ instance
   hashWithSalt
     _salt
     AddApplicationInputProcessingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` inputId
         `Prelude.hashWithSalt` inputProcessingConfiguration

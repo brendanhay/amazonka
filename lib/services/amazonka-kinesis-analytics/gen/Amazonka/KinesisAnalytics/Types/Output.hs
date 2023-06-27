@@ -115,7 +115,8 @@ output_destinationSchema = Lens.lens (\Output' {destinationSchema} -> destinatio
 
 instance Prelude.Hashable Output where
   hashWithSalt _salt Output' {..} =
-    _salt `Prelude.hashWithSalt` kinesisFirehoseOutput
+    _salt
+      `Prelude.hashWithSalt` kinesisFirehoseOutput
       `Prelude.hashWithSalt` kinesisStreamsOutput
       `Prelude.hashWithSalt` lambdaOutput
       `Prelude.hashWithSalt` name

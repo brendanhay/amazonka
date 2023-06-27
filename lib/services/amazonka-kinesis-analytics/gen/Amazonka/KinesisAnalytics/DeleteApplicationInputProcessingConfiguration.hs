@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     DeleteApplicationInputProcessingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` applicationName
+      _salt
+        `Prelude.hashWithSalt` applicationName
         `Prelude.hashWithSalt` currentApplicationVersionId
         `Prelude.hashWithSalt` inputId
 

@@ -95,7 +95,8 @@ lambdaOutput_roleARN = Lens.lens (\LambdaOutput' {roleARN} -> roleARN) (\s@Lambd
 
 instance Prelude.Hashable LambdaOutput where
   hashWithSalt _salt LambdaOutput' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` roleARN
 
 instance Prelude.NFData LambdaOutput where

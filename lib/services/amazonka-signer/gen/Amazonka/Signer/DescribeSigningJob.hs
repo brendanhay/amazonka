@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeSigningJob where
             Prelude.<*> (x Data..?> "signatureExpiresAt")
             Prelude.<*> (x Data..?> "signedObject")
             Prelude.<*> (x Data..?> "signingMaterial")
-            Prelude.<*> ( x Data..?> "signingParameters"
+            Prelude.<*> ( x
+                            Data..?> "signingParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "source")

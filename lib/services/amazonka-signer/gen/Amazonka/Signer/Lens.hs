@@ -50,6 +50,15 @@ module Amazonka.Signer.Lens
     describeSigningJobResponse_statusReason,
     describeSigningJobResponse_httpStatus,
 
+    -- ** GetRevocationStatus
+    getRevocationStatus_signatureTimestamp,
+    getRevocationStatus_platformId,
+    getRevocationStatus_profileVersionArn,
+    getRevocationStatus_jobArn,
+    getRevocationStatus_certificateHashes,
+    getRevocationStatusResponse_revokedEntities,
+    getRevocationStatusResponse_httpStatus,
+
     -- ** GetSigningPlatform
     getSigningPlatform_platformId,
     getSigningPlatformResponse_category,
@@ -160,6 +169,17 @@ module Amazonka.Signer.Lens
     revokeSigningProfile_reason,
     revokeSigningProfile_effectiveTime,
     revokeSigningProfile_profileName,
+
+    -- ** SignPayload
+    signPayload_profileOwner,
+    signPayload_profileName,
+    signPayload_payload,
+    signPayload_payloadFormat,
+    signPayloadResponse_jobId,
+    signPayloadResponse_jobOwner,
+    signPayloadResponse_metadata,
+    signPayloadResponse_signature,
+    signPayloadResponse_httpStatus,
 
     -- ** StartSigningJob
     startSigningJob_profileOwner,
@@ -297,6 +317,7 @@ where
 import Amazonka.Signer.AddProfilePermission
 import Amazonka.Signer.CancelSigningProfile
 import Amazonka.Signer.DescribeSigningJob
+import Amazonka.Signer.GetRevocationStatus
 import Amazonka.Signer.GetSigningPlatform
 import Amazonka.Signer.GetSigningProfile
 import Amazonka.Signer.ListProfilePermissions
@@ -308,6 +329,7 @@ import Amazonka.Signer.PutSigningProfile
 import Amazonka.Signer.RemoveProfilePermission
 import Amazonka.Signer.RevokeSignature
 import Amazonka.Signer.RevokeSigningProfile
+import Amazonka.Signer.SignPayload
 import Amazonka.Signer.StartSigningJob
 import Amazonka.Signer.TagResource
 import Amazonka.Signer.Types.Destination

@@ -106,7 +106,8 @@ instance Core.AWSRequest RevokeSignature where
 
 instance Prelude.Hashable RevokeSignature where
   hashWithSalt _salt RevokeSignature' {..} =
-    _salt `Prelude.hashWithSalt` jobOwner
+    _salt
+      `Prelude.hashWithSalt` jobOwner
       `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` jobId
 

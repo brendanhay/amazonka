@@ -47,6 +47,7 @@ library
     Amazonka.Signer.AddProfilePermission
     Amazonka.Signer.CancelSigningProfile
     Amazonka.Signer.DescribeSigningJob
+    Amazonka.Signer.GetRevocationStatus
     Amazonka.Signer.GetSigningPlatform
     Amazonka.Signer.GetSigningProfile
     Amazonka.Signer.Lens
@@ -59,6 +60,7 @@ library
     Amazonka.Signer.RemoveProfilePermission
     Amazonka.Signer.RevokeSignature
     Amazonka.Signer.RevokeSigningProfile
+    Amazonka.Signer.SignPayload
     Amazonka.Signer.StartSigningJob
     Amazonka.Signer.TagResource
     Amazonka.Signer.Types

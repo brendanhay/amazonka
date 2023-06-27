@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestDescribeSigningJob $
 --             newDescribeSigningJob
 --
+--         , requestGetRevocationStatus $
+--             newGetRevocationStatus
+--
 --         , requestGetSigningPlatform $
 --             newGetSigningPlatform
 --
@@ -69,6 +72,9 @@ import Test.Tasty
 --         , requestRevokeSigningProfile $
 --             newRevokeSigningProfile
 --
+--         , requestSignPayload $
+--             newSignPayload
+--
 --         , requestStartSigningJob $
 --             newStartSigningJob
 --
@@ -89,6 +95,9 @@ import Test.Tasty
 --
 --         , responseDescribeSigningJob $
 --             newDescribeSigningJobResponse
+--
+--         , responseGetRevocationStatus $
+--             newGetRevocationStatusResponse
 --
 --         , responseGetSigningPlatform $
 --             newGetSigningPlatformResponse
@@ -123,6 +132,9 @@ import Test.Tasty
 --         , responseRevokeSigningProfile $
 --             newRevokeSigningProfileResponse
 --
+--         , responseSignPayload $
+--             newSignPayloadResponse
+--
 --         , responseStartSigningJob $
 --             newStartSigningJobResponse
 --
@@ -154,6 +166,12 @@ requestDescribeSigningJob =
   req
     "DescribeSigningJob"
     "fixture/DescribeSigningJob.yaml"
+
+requestGetRevocationStatus :: GetRevocationStatus -> TestTree
+requestGetRevocationStatus =
+  req
+    "GetRevocationStatus"
+    "fixture/GetRevocationStatus.yaml"
 
 requestGetSigningPlatform :: GetSigningPlatform -> TestTree
 requestGetSigningPlatform =
@@ -221,6 +239,12 @@ requestRevokeSigningProfile =
     "RevokeSigningProfile"
     "fixture/RevokeSigningProfile.yaml"
 
+requestSignPayload :: SignPayload -> TestTree
+requestSignPayload =
+  req
+    "SignPayload"
+    "fixture/SignPayload.yaml"
+
 requestStartSigningJob :: StartSigningJob -> TestTree
 requestStartSigningJob =
   req
@@ -264,6 +288,14 @@ responseDescribeSigningJob =
     "fixture/DescribeSigningJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSigningJob)
+
+responseGetRevocationStatus :: GetRevocationStatusResponse -> TestTree
+responseGetRevocationStatus =
+  res
+    "GetRevocationStatusResponse"
+    "fixture/GetRevocationStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRevocationStatus)
 
 responseGetSigningPlatform :: GetSigningPlatformResponse -> TestTree
 responseGetSigningPlatform =
@@ -352,6 +384,14 @@ responseRevokeSigningProfile =
     "fixture/RevokeSigningProfileResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RevokeSigningProfile)
+
+responseSignPayload :: SignPayloadResponse -> TestTree
+responseSignPayload =
+  res
+    "SignPayloadResponse"
+    "fixture/SignPayloadResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SignPayload)
 
 responseStartSigningJob :: StartSigningJobResponse -> TestTree
 responseStartSigningJob =

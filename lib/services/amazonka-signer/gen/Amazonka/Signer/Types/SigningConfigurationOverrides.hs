@@ -87,7 +87,8 @@ instance
     SigningConfigurationOverrides
   where
   hashWithSalt _salt SigningConfigurationOverrides' {..} =
-    _salt `Prelude.hashWithSalt` encryptionAlgorithm
+    _salt
+      `Prelude.hashWithSalt` encryptionAlgorithm
       `Prelude.hashWithSalt` hashAlgorithm
 
 instance Prelude.NFData SigningConfigurationOverrides where

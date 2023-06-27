@@ -119,7 +119,8 @@ instance Core.AWSRequest GetSigningProfile where
             Prelude.<*> (x Data..?> "revocationRecord")
             Prelude.<*> (x Data..?> "signatureValidityPeriod")
             Prelude.<*> (x Data..?> "signingMaterial")
-            Prelude.<*> ( x Data..?> "signingParameters"
+            Prelude.<*> ( x
+                            Data..?> "signingParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "status")
@@ -130,7 +131,8 @@ instance Core.AWSRequest GetSigningProfile where
 
 instance Prelude.Hashable GetSigningProfile where
   hashWithSalt _salt GetSigningProfile' {..} =
-    _salt `Prelude.hashWithSalt` profileOwner
+    _salt
+      `Prelude.hashWithSalt` profileOwner
       `Prelude.hashWithSalt` profileName
 
 instance Prelude.NFData GetSigningProfile where

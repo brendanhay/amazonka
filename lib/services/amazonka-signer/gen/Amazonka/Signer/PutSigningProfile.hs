@@ -21,9 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a signing profile. A signing profile is a code signing template
--- that can be used to carry out a pre-defined signing job. For more
--- information, see
--- <http://docs.aws.amazon.com/signer/latest/developerguide/gs-profile.html>
+-- that can be used to carry out a pre-defined signing job.
 module Amazonka.Signer.PutSigningProfile
   ( -- * Creating a Request
     PutSigningProfile (..),
@@ -176,7 +174,8 @@ instance Core.AWSRequest PutSigningProfile where
 
 instance Prelude.Hashable PutSigningProfile where
   hashWithSalt _salt PutSigningProfile' {..} =
-    _salt `Prelude.hashWithSalt` overrides
+    _salt
+      `Prelude.hashWithSalt` overrides
       `Prelude.hashWithSalt` signatureValidityPeriod
       `Prelude.hashWithSalt` signingMaterial
       `Prelude.hashWithSalt` signingParameters

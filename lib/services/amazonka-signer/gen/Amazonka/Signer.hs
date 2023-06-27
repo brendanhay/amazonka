@@ -16,13 +16,18 @@
 --
 -- AWS Signer supports the following applications:
 --
--- With /code signing for AWS Lambda/, you can sign AWS Lambda deployment
--- packages. Integrated support is provided for Amazon S3, Amazon
--- CloudWatch, and AWS CloudTrail. In order to sign code, you create a
--- signing profile and then use Signer to sign Lambda zip files in S3.
+-- With code signing for AWS Lambda, you can sign
+-- <http://docs.aws.amazon.com/lambda/latest/dg/ AWS Lambda> deployment
+-- packages. Integrated support is provided for
+-- <http://docs.aws.amazon.com/AmazonS3/latest/gsg/ Amazon S3>,
+-- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ Amazon CloudWatch>,
+-- and
+-- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/ AWS CloudTrail>.
+-- In order to sign code, you create a signing profile and then use Signer
+-- to sign Lambda zip files in S3.
 --
--- With /code signing for IoT/, you can sign code for any IoT device that
--- is supported by AWS. IoT code signing is available for
+-- With code signing for IoT, you can sign code for any IoT device that is
+-- supported by AWS. IoT code signing is available for
 -- <http://docs.aws.amazon.com/freertos/latest/userguide/ Amazon FreeRTOS>
 -- and
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/ AWS IoT Device Management>,
@@ -32,8 +37,10 @@
 -- using ACM, and use that to sign updates in Amazon FreeRTOS and AWS IoT
 -- Device Management.
 --
+-- With code signing for containers …(TBD)
+--
 -- For more information about AWS Signer, see the
--- <http://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html AWS Signer Developer Guide>.
+-- <https://docs.aws.amazon.com/signer/latest/developerguide/Welcome.html AWS Signer Developer Guide>.
 module Amazonka.Signer
   ( -- * Service Configuration
     defaultService,
@@ -97,6 +104,12 @@ module Amazonka.Signer
     newDescribeSigningJob,
     DescribeSigningJobResponse (DescribeSigningJobResponse'),
     newDescribeSigningJobResponse,
+
+    -- ** GetRevocationStatus
+    GetRevocationStatus (GetRevocationStatus'),
+    newGetRevocationStatus,
+    GetRevocationStatusResponse (GetRevocationStatusResponse'),
+    newGetRevocationStatusResponse,
 
     -- ** GetSigningPlatform
     GetSigningPlatform (GetSigningPlatform'),
@@ -163,6 +176,12 @@ module Amazonka.Signer
     newRevokeSigningProfile,
     RevokeSigningProfileResponse (RevokeSigningProfileResponse'),
     newRevokeSigningProfileResponse,
+
+    -- ** SignPayload
+    SignPayload (SignPayload'),
+    newSignPayload,
+    SignPayloadResponse (SignPayloadResponse'),
+    newSignPayloadResponse,
 
     -- ** StartSigningJob
     StartSigningJob (StartSigningJob'),
@@ -290,6 +309,7 @@ where
 import Amazonka.Signer.AddProfilePermission
 import Amazonka.Signer.CancelSigningProfile
 import Amazonka.Signer.DescribeSigningJob
+import Amazonka.Signer.GetRevocationStatus
 import Amazonka.Signer.GetSigningPlatform
 import Amazonka.Signer.GetSigningProfile
 import Amazonka.Signer.Lens
@@ -302,6 +322,7 @@ import Amazonka.Signer.PutSigningProfile
 import Amazonka.Signer.RemoveProfilePermission
 import Amazonka.Signer.RevokeSignature
 import Amazonka.Signer.RevokeSigningProfile
+import Amazonka.Signer.SignPayload
 import Amazonka.Signer.StartSigningJob
 import Amazonka.Signer.TagResource
 import Amazonka.Signer.Types

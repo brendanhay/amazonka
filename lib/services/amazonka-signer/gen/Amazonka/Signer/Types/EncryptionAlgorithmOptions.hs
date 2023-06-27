@@ -82,7 +82,8 @@ instance Data.FromJSON EncryptionAlgorithmOptions where
 
 instance Prelude.Hashable EncryptionAlgorithmOptions where
   hashWithSalt _salt EncryptionAlgorithmOptions' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` defaultValue
 
 instance Prelude.NFData EncryptionAlgorithmOptions where

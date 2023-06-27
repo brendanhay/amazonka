@@ -109,7 +109,8 @@ instance Core.AWSRequest ListProfilePermissions where
 
 instance Prelude.Hashable ListProfilePermissions where
   hashWithSalt _salt ListProfilePermissions' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` profileName
 
 instance Prelude.NFData ListProfilePermissions where

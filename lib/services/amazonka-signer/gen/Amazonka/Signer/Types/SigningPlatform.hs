@@ -41,7 +41,7 @@ data SigningPlatform = SigningPlatform'
     maxSizeInMB :: Prelude.Maybe Prelude.Int,
     -- | Any partner entities linked to a code signing platform.
     partner :: Prelude.Maybe Prelude.Text,
-    -- | The ID of a code signing; platform.
+    -- | The ID of a code signing platform.
     platformId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether revocation is supported for the platform.
     revocationSupported :: Prelude.Maybe Prelude.Bool,
@@ -72,7 +72,7 @@ data SigningPlatform = SigningPlatform'
 --
 -- 'partner', 'signingPlatform_partner' - Any partner entities linked to a code signing platform.
 --
--- 'platformId', 'signingPlatform_platformId' - The ID of a code signing; platform.
+-- 'platformId', 'signingPlatform_platformId' - The ID of a code signing platform.
 --
 -- 'revocationSupported', 'signingPlatform_revocationSupported' - Indicates whether revocation is supported for the platform.
 --
@@ -115,7 +115,7 @@ signingPlatform_maxSizeInMB = Lens.lens (\SigningPlatform' {maxSizeInMB} -> maxS
 signingPlatform_partner :: Lens.Lens' SigningPlatform (Prelude.Maybe Prelude.Text)
 signingPlatform_partner = Lens.lens (\SigningPlatform' {partner} -> partner) (\s@SigningPlatform' {} a -> s {partner = a} :: SigningPlatform)
 
--- | The ID of a code signing; platform.
+-- | The ID of a code signing platform.
 signingPlatform_platformId :: Lens.Lens' SigningPlatform (Prelude.Maybe Prelude.Text)
 signingPlatform_platformId = Lens.lens (\SigningPlatform' {platformId} -> platformId) (\s@SigningPlatform' {} a -> s {platformId = a} :: SigningPlatform)
 
@@ -156,7 +156,8 @@ instance Data.FromJSON SigningPlatform where
 
 instance Prelude.Hashable SigningPlatform where
   hashWithSalt _salt SigningPlatform' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` maxSizeInMB
       `Prelude.hashWithSalt` partner

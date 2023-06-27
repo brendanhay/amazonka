@@ -207,7 +207,8 @@ instance Data.FromJSON SigningJob where
 
 instance Prelude.Hashable SigningJob where
   hashWithSalt _salt SigningJob' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` isRevoked
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobInvoker

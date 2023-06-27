@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all tags on a Timestream resource.
+-- Lists all tags on a Timestream resource.
 module Amazonka.TimeStreamWrite.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),

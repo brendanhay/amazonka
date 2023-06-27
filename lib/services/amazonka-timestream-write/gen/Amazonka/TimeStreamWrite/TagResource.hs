@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associate a set of tags with a Timestream resource. You can then
+-- Associates a set of tags with a Timestream resource. You can then
 -- activate these user-defined tags so that they appear on the Billing and
 -- Cost Management console for cost allocation tracking.
 module Amazonka.TimeStreamWrite.TagResource
@@ -103,7 +103,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceARN
+    _salt
+      `Prelude.hashWithSalt` resourceARN
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagResource where

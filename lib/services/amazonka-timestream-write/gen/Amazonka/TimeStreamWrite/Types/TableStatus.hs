@@ -21,7 +21,8 @@ module Amazonka.TimeStreamWrite.Types.TableStatus
   ( TableStatus
       ( ..,
         TableStatus_ACTIVE,
-        TableStatus_DELETING
+        TableStatus_DELETING,
+        TableStatus_RESTORING
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern TableStatus_ACTIVE = TableStatus' "ACTIVE"
 pattern TableStatus_DELETING :: TableStatus
 pattern TableStatus_DELETING = TableStatus' "DELETING"
 
+pattern TableStatus_RESTORING :: TableStatus
+pattern TableStatus_RESTORING = TableStatus' "RESTORING"
+
 {-# COMPLETE
   TableStatus_ACTIVE,
   TableStatus_DELETING,
+  TableStatus_RESTORING,
   TableStatus'
   #-}

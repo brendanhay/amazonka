@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | A top level container for a table. Databases and tables are the
+-- | A top-level container for a table. Databases and tables are the
 -- fundamental management concepts in Amazon Timestream. All tables in a
 -- database are encrypted with the same KMS key.
 --
@@ -122,7 +122,8 @@ instance Data.FromJSON Database where
 
 instance Prelude.Hashable Database where
   hashWithSalt _salt Database' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` kmsKeyId

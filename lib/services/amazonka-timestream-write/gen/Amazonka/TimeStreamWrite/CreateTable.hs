@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The CreateTable operation adds a new table to an existing database in
--- your account. In an Amazon Web Services account, table names must be at
--- least unique within each Region if they are in the same database. You
--- may have identical table names in the same Region if the tables are in
--- separate databases. While creating the table, you must specify the table
--- name, database name, and the retention properties.
+-- Adds a new table to an existing database in your account. In an Amazon
+-- Web Services account, table names must be at least unique within each
+-- Region if they are in the same database. You might have identical table
+-- names in the same Region if the tables are in separate databases. While
+-- creating the table, you must specify the table name, database name, and
+-- the retention properties.
 -- <https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html Service quotas apply>.
 -- See
 -- <https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-table.html code sample>
@@ -38,6 +38,7 @@ module Amazonka.TimeStreamWrite.CreateTable
     -- * Request Lenses
     createTable_magneticStoreWriteProperties,
     createTable_retentionProperties,
+    createTable_schema,
     createTable_tags,
     createTable_databaseName,
     createTable_tableName,
@@ -65,9 +66,11 @@ data CreateTable = CreateTable'
   { -- | Contains properties to set on the table when enabling magnetic store
     -- writes.
     magneticStoreWriteProperties :: Prelude.Maybe MagneticStoreWriteProperties,
-    -- | The duration for which your time series data must be stored in the
+    -- | The duration for which your time-series data must be stored in the
     -- memory store and the magnetic store.
     retentionProperties :: Prelude.Maybe RetentionProperties,
+    -- | The schema of the table.
+    schema :: Prelude.Maybe Schema,
     -- | A list of key-value pairs to label the table.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the Timestream database.
@@ -88,8 +91,10 @@ data CreateTable = CreateTable'
 -- 'magneticStoreWriteProperties', 'createTable_magneticStoreWriteProperties' - Contains properties to set on the table when enabling magnetic store
 -- writes.
 --
--- 'retentionProperties', 'createTable_retentionProperties' - The duration for which your time series data must be stored in the
+-- 'retentionProperties', 'createTable_retentionProperties' - The duration for which your time-series data must be stored in the
 -- memory store and the magnetic store.
+--
+-- 'schema', 'createTable_schema' - The schema of the table.
 --
 -- 'tags', 'createTable_tags' - A list of key-value pairs to label the table.
 --
@@ -107,6 +112,7 @@ newCreateTable pDatabaseName_ pTableName_ =
     { magneticStoreWriteProperties =
         Prelude.Nothing,
       retentionProperties = Prelude.Nothing,
+      schema = Prelude.Nothing,
       tags = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
@@ -117,10 +123,14 @@ newCreateTable pDatabaseName_ pTableName_ =
 createTable_magneticStoreWriteProperties :: Lens.Lens' CreateTable (Prelude.Maybe MagneticStoreWriteProperties)
 createTable_magneticStoreWriteProperties = Lens.lens (\CreateTable' {magneticStoreWriteProperties} -> magneticStoreWriteProperties) (\s@CreateTable' {} a -> s {magneticStoreWriteProperties = a} :: CreateTable)
 
--- | The duration for which your time series data must be stored in the
+-- | The duration for which your time-series data must be stored in the
 -- memory store and the magnetic store.
 createTable_retentionProperties :: Lens.Lens' CreateTable (Prelude.Maybe RetentionProperties)
 createTable_retentionProperties = Lens.lens (\CreateTable' {retentionProperties} -> retentionProperties) (\s@CreateTable' {} a -> s {retentionProperties = a} :: CreateTable)
+
+-- | The schema of the table.
+createTable_schema :: Lens.Lens' CreateTable (Prelude.Maybe Schema)
+createTable_schema = Lens.lens (\CreateTable' {schema} -> schema) (\s@CreateTable' {} a -> s {schema = a} :: CreateTable)
 
 -- | A list of key-value pairs to label the table.
 createTable_tags :: Lens.Lens' CreateTable (Prelude.Maybe [Tag])
@@ -151,6 +161,7 @@ instance Prelude.Hashable CreateTable where
     _salt
       `Prelude.hashWithSalt` magneticStoreWriteProperties
       `Prelude.hashWithSalt` retentionProperties
+      `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
@@ -159,6 +170,7 @@ instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
     Prelude.rnf magneticStoreWriteProperties
       `Prelude.seq` Prelude.rnf retentionProperties
+      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
@@ -186,6 +198,7 @@ instance Data.ToJSON CreateTable where
               Prelude.<$> magneticStoreWriteProperties,
             ("RetentionProperties" Data..=)
               Prelude.<$> retentionProperties,
+            ("Schema" Data..=) Prelude.<$> schema,
             ("Tags" Data..=) Prelude.<$> tags,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)

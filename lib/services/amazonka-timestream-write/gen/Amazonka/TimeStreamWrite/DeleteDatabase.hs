@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a given Timestream database. /This is an irreversible operation.
--- After a database is deleted, the time series data from its tables cannot
+-- After a database is deleted, the time-series data from its tables cannot
 -- be recovered./
 --
 -- All tables in the database must be deleted first, or a

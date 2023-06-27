@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A tag is a label that you assign to a Timestream database and\/or table.
 -- Each tag consists of a key and an optional value, both of which you
--- define. Tags enable you to categorize databases and\/or tables, for
+-- define. With tags, you can categorize databases and\/or tables, for
 -- example, by purpose, owner, or environment.
 --
 -- /See:/ 'newTag' smart constructor.
@@ -72,12 +72,14 @@ instance Data.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Data..: "Key") Prelude.<*> (x Data..: "Value")
+            Prelude.<$> (x Data..: "Key")
+            Prelude.<*> (x Data..: "Value")
       )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData Tag where

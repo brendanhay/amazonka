@@ -44,32 +44,58 @@ library
 
   exposed-modules:
     Amazonka.TimeStreamWrite
+    Amazonka.TimeStreamWrite.CreateBatchLoadTask
     Amazonka.TimeStreamWrite.CreateDatabase
     Amazonka.TimeStreamWrite.CreateTable
     Amazonka.TimeStreamWrite.DeleteDatabase
     Amazonka.TimeStreamWrite.DeleteTable
+    Amazonka.TimeStreamWrite.DescribeBatchLoadTask
     Amazonka.TimeStreamWrite.DescribeDatabase
     Amazonka.TimeStreamWrite.DescribeEndpoints
     Amazonka.TimeStreamWrite.DescribeTable
     Amazonka.TimeStreamWrite.Lens
+    Amazonka.TimeStreamWrite.ListBatchLoadTasks
     Amazonka.TimeStreamWrite.ListDatabases
     Amazonka.TimeStreamWrite.ListTables
     Amazonka.TimeStreamWrite.ListTagsForResource
+    Amazonka.TimeStreamWrite.ResumeBatchLoadTask
     Amazonka.TimeStreamWrite.TagResource
     Amazonka.TimeStreamWrite.Types
+    Amazonka.TimeStreamWrite.Types.BatchLoadDataFormat
+    Amazonka.TimeStreamWrite.Types.BatchLoadProgressReport
+    Amazonka.TimeStreamWrite.Types.BatchLoadStatus
+    Amazonka.TimeStreamWrite.Types.BatchLoadTask
+    Amazonka.TimeStreamWrite.Types.BatchLoadTaskDescription
+    Amazonka.TimeStreamWrite.Types.CsvConfiguration
     Amazonka.TimeStreamWrite.Types.Database
+    Amazonka.TimeStreamWrite.Types.DataModel
+    Amazonka.TimeStreamWrite.Types.DataModelConfiguration
+    Amazonka.TimeStreamWrite.Types.DataModelS3Configuration
+    Amazonka.TimeStreamWrite.Types.DataSourceConfiguration
+    Amazonka.TimeStreamWrite.Types.DataSourceS3Configuration
     Amazonka.TimeStreamWrite.Types.Dimension
+    Amazonka.TimeStreamWrite.Types.DimensionMapping
     Amazonka.TimeStreamWrite.Types.DimensionValueType
     Amazonka.TimeStreamWrite.Types.Endpoint
     Amazonka.TimeStreamWrite.Types.MagneticStoreRejectedDataLocation
     Amazonka.TimeStreamWrite.Types.MagneticStoreWriteProperties
     Amazonka.TimeStreamWrite.Types.MeasureValue
     Amazonka.TimeStreamWrite.Types.MeasureValueType
+    Amazonka.TimeStreamWrite.Types.MixedMeasureMapping
+    Amazonka.TimeStreamWrite.Types.MultiMeasureAttributeMapping
+    Amazonka.TimeStreamWrite.Types.MultiMeasureMappings
+    Amazonka.TimeStreamWrite.Types.PartitionKey
+    Amazonka.TimeStreamWrite.Types.PartitionKeyEnforcementLevel
+    Amazonka.TimeStreamWrite.Types.PartitionKeyType
     Amazonka.TimeStreamWrite.Types.Record
     Amazonka.TimeStreamWrite.Types.RecordsIngested
+    Amazonka.TimeStreamWrite.Types.ReportConfiguration
+    Amazonka.TimeStreamWrite.Types.ReportS3Configuration
     Amazonka.TimeStreamWrite.Types.RetentionProperties
     Amazonka.TimeStreamWrite.Types.S3Configuration
     Amazonka.TimeStreamWrite.Types.S3EncryptionOption
+    Amazonka.TimeStreamWrite.Types.ScalarMeasureValueType
+    Amazonka.TimeStreamWrite.Types.Schema
     Amazonka.TimeStreamWrite.Types.Table
     Amazonka.TimeStreamWrite.Types.TableStatus
     Amazonka.TimeStreamWrite.Types.Tag

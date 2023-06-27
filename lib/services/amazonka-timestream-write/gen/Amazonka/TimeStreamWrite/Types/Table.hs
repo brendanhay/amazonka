@@ -25,11 +25,12 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.MagneticStoreWriteProperties
 import Amazonka.TimeStreamWrite.Types.RetentionProperties
+import Amazonka.TimeStreamWrite.Types.Schema
 import Amazonka.TimeStreamWrite.Types.TableStatus
 
--- | Table represents a database table in Timestream. Tables contain one or
--- more related time series. You can modify the retention duration of the
--- memory store and the magnetic store for a table.
+-- | Represents a database table in Timestream. Tables contain one or more
+-- related time series. You can modify the retention duration of the memory
+-- store and the magnetic store for a table.
 --
 -- /See:/ 'newTable' smart constructor.
 data Table = Table'
@@ -46,6 +47,8 @@ data Table = Table'
     magneticStoreWriteProperties :: Prelude.Maybe MagneticStoreWriteProperties,
     -- | The retention duration for the memory store and magnetic store.
     retentionProperties :: Prelude.Maybe RetentionProperties,
+    -- | The schema of the table.
+    schema :: Prelude.Maybe Schema,
     -- | The name of the Timestream table.
     tableName :: Prelude.Maybe Prelude.Text,
     -- | The current state of the table:
@@ -78,6 +81,8 @@ data Table = Table'
 --
 -- 'retentionProperties', 'table_retentionProperties' - The retention duration for the memory store and magnetic store.
 --
+-- 'schema', 'table_schema' - The schema of the table.
+--
 -- 'tableName', 'table_tableName' - The name of the Timestream table.
 --
 -- 'tableStatus', 'table_tableStatus' - The current state of the table:
@@ -95,6 +100,7 @@ newTable =
       lastUpdatedTime = Prelude.Nothing,
       magneticStoreWriteProperties = Prelude.Nothing,
       retentionProperties = Prelude.Nothing,
+      schema = Prelude.Nothing,
       tableName = Prelude.Nothing,
       tableStatus = Prelude.Nothing
     }
@@ -124,6 +130,10 @@ table_magneticStoreWriteProperties = Lens.lens (\Table' {magneticStoreWritePrope
 table_retentionProperties :: Lens.Lens' Table (Prelude.Maybe RetentionProperties)
 table_retentionProperties = Lens.lens (\Table' {retentionProperties} -> retentionProperties) (\s@Table' {} a -> s {retentionProperties = a} :: Table)
 
+-- | The schema of the table.
+table_schema :: Lens.Lens' Table (Prelude.Maybe Schema)
+table_schema = Lens.lens (\Table' {schema} -> schema) (\s@Table' {} a -> s {schema = a} :: Table)
+
 -- | The name of the Timestream table.
 table_tableName :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
 table_tableName = Lens.lens (\Table' {tableName} -> tableName) (\s@Table' {} a -> s {tableName = a} :: Table)
@@ -148,18 +158,21 @@ instance Data.FromJSON Table where
             Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "MagneticStoreWriteProperties")
             Prelude.<*> (x Data..:? "RetentionProperties")
+            Prelude.<*> (x Data..:? "Schema")
             Prelude.<*> (x Data..:? "TableName")
             Prelude.<*> (x Data..:? "TableStatus")
       )
 
 instance Prelude.Hashable Table where
   hashWithSalt _salt Table' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` magneticStoreWriteProperties
       `Prelude.hashWithSalt` retentionProperties
+      `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` tableStatus
 
@@ -171,5 +184,6 @@ instance Prelude.NFData Table where
       `Prelude.seq` Prelude.rnf lastUpdatedTime
       `Prelude.seq` Prelude.rnf magneticStoreWriteProperties
       `Prelude.seq` Prelude.rnf retentionProperties
+      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf tableName
       `Prelude.seq` Prelude.rnf tableStatus

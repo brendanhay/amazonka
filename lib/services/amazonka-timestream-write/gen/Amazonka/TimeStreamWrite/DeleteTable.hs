@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a given Timestream table. This is an irreversible operation.
--- After a Timestream database table is deleted, the time series data
+-- After a Timestream database table is deleted, the time-series data
 -- stored in the table cannot be recovered.
 --
 -- Due to the nature of distributed retries, the operation can return
@@ -102,7 +102,8 @@ instance Core.AWSRequest DeleteTable where
 
 instance Prelude.Hashable DeleteTable where
   hashWithSalt _salt DeleteTable' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
 instance Prelude.NFData DeleteTable where

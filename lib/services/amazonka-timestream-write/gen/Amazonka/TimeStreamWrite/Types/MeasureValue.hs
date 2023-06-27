@@ -25,9 +25,9 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.MeasureValueType
 
--- | MeasureValue represents the data attribute of the time series. For
--- example, the CPU utilization of an EC2 instance or the RPM of a wind
--- turbine are measures. MeasureValue has both name and value.
+-- | Represents the data attribute of the time series. For example, the CPU
+-- utilization of an EC2 instance or the RPM of a wind turbine are
+-- measures. MeasureValue has both name and value.
 --
 -- MeasureValue is only allowed for type @MULTI@. Using @MULTI@ type, you
 -- can pass multiple data attributes associated with the same time series
@@ -35,15 +35,16 @@ import Amazonka.TimeStreamWrite.Types.MeasureValueType
 --
 -- /See:/ 'newMeasureValue' smart constructor.
 data MeasureValue = MeasureValue'
-  { -- | Name of the MeasureValue.
+  { -- | The name of the MeasureValue.
     --
-    -- For constraints on MeasureValue names, refer to
+    -- For constraints on MeasureValue names, see
     -- <https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming Naming Constraints>
-    -- in the Timestream developer guide.
+    -- in the Amazon Timestream Developer Guide.
     name :: Prelude.Text,
-    -- | Value for the MeasureValue.
+    -- | The value for the MeasureValue. For information, see
+    -- <https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types Data types>.
     value :: Prelude.Text,
-    -- | Contains the data type of the MeasureValue for the time series data
+    -- | Contains the data type of the MeasureValue for the time-series data
     -- point.
     type' :: MeasureValueType
   }
@@ -57,15 +58,16 @@ data MeasureValue = MeasureValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'measureValue_name' - Name of the MeasureValue.
+-- 'name', 'measureValue_name' - The name of the MeasureValue.
 --
--- For constraints on MeasureValue names, refer to
+-- For constraints on MeasureValue names, see
 -- <https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming Naming Constraints>
--- in the Timestream developer guide.
+-- in the Amazon Timestream Developer Guide.
 --
--- 'value', 'measureValue_value' - Value for the MeasureValue.
+-- 'value', 'measureValue_value' - The value for the MeasureValue. For information, see
+-- <https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types Data types>.
 --
--- 'type'', 'measureValue_type' - Contains the data type of the MeasureValue for the time series data
+-- 'type'', 'measureValue_type' - Contains the data type of the MeasureValue for the time-series data
 -- point.
 newMeasureValue ::
   -- | 'name'
@@ -82,26 +84,28 @@ newMeasureValue pName_ pValue_ pType_ =
       type' = pType_
     }
 
--- | Name of the MeasureValue.
+-- | The name of the MeasureValue.
 --
--- For constraints on MeasureValue names, refer to
+-- For constraints on MeasureValue names, see
 -- <https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.naming Naming Constraints>
--- in the Timestream developer guide.
+-- in the Amazon Timestream Developer Guide.
 measureValue_name :: Lens.Lens' MeasureValue Prelude.Text
 measureValue_name = Lens.lens (\MeasureValue' {name} -> name) (\s@MeasureValue' {} a -> s {name = a} :: MeasureValue)
 
--- | Value for the MeasureValue.
+-- | The value for the MeasureValue. For information, see
+-- <https://docs.aws.amazon.com/timestream/latest/developerguide/writes.html#writes.data-types Data types>.
 measureValue_value :: Lens.Lens' MeasureValue Prelude.Text
 measureValue_value = Lens.lens (\MeasureValue' {value} -> value) (\s@MeasureValue' {} a -> s {value = a} :: MeasureValue)
 
--- | Contains the data type of the MeasureValue for the time series data
+-- | Contains the data type of the MeasureValue for the time-series data
 -- point.
 measureValue_type :: Lens.Lens' MeasureValue MeasureValueType
 measureValue_type = Lens.lens (\MeasureValue' {type'} -> type') (\s@MeasureValue' {} a -> s {type' = a} :: MeasureValue)
 
 instance Prelude.Hashable MeasureValue where
   hashWithSalt _salt MeasureValue' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` type'
 

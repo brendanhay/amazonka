@@ -20,13 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- DescribeEndpoints returns a list of available endpoints to make
--- Timestream API calls against. This API is available through both Write
--- and Query.
+-- Returns a list of available endpoints to make Timestream API calls
+-- against. This API operation is available through both the Write and
+-- Query APIs.
 --
 -- Because the Timestream SDKs are designed to transparently work with the
 -- service’s architecture, including the management and mapping of the
--- service endpoints, /it is not recommended that you use this API unless/:
+-- service endpoints, /we don\'t recommend that you use this API operation
+-- unless/:
 --
 -- -   You are using
 --     <https://docs.aws.amazon.com/timestream/latest/developerguide/VPCEndpoints VPC endpoints (Amazon Web Services PrivateLink) with Timestream>

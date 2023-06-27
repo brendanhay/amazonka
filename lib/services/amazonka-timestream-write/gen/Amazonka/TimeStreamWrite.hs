@@ -13,20 +13,22 @@
 --
 -- Amazon Timestream Write
 --
--- Amazon Timestream is a fast, scalable, fully managed time series
+-- Amazon Timestream is a fast, scalable, fully managed time-series
 -- database service that makes it easy to store and analyze trillions of
--- time series data points per day. With Timestream, you can easily store
+-- time-series data points per day. With Timestream, you can easily store
 -- and analyze IoT sensor data to derive insights from your IoT
 -- applications. You can analyze industrial telemetry to streamline
 -- equipment management and maintenance. You can also store and analyze log
 -- data and metrics to improve the performance and availability of your
--- applications. Timestream is built from the ground up to effectively
--- ingest, process, and store time series data. It organizes data to
--- optimize query processing. It automatically scales based on the volume
--- of data ingested and on the query volume to ensure you receive optimal
--- performance while inserting and querying data. As your data grows over
--- time, Timestream’s adaptive query processing engine spans across storage
--- tiers to provide fast analysis while reducing costs.
+-- applications.
+--
+-- Timestream is built from the ground up to effectively ingest, process,
+-- and store time-series data. It organizes data to optimize query
+-- processing. It automatically scales based on the volume of data ingested
+-- and on the query volume to ensure you receive optimal performance while
+-- inserting and querying data. As your data grows over time, Timestream’s
+-- adaptive query processing engine spans across storage tiers to provide
+-- fast analysis while reducing costs.
 module Amazonka.TimeStreamWrite
   ( -- * Service Configuration
     defaultService,
@@ -67,6 +69,12 @@ module Amazonka.TimeStreamWrite
     -- * Operations
     -- $operations
 
+    -- ** CreateBatchLoadTask
+    CreateBatchLoadTask (CreateBatchLoadTask'),
+    newCreateBatchLoadTask,
+    CreateBatchLoadTaskResponse (CreateBatchLoadTaskResponse'),
+    newCreateBatchLoadTaskResponse,
+
     -- ** CreateDatabase
     CreateDatabase (CreateDatabase'),
     newCreateDatabase,
@@ -91,6 +99,12 @@ module Amazonka.TimeStreamWrite
     DeleteTableResponse (DeleteTableResponse'),
     newDeleteTableResponse,
 
+    -- ** DescribeBatchLoadTask
+    DescribeBatchLoadTask (DescribeBatchLoadTask'),
+    newDescribeBatchLoadTask,
+    DescribeBatchLoadTaskResponse (DescribeBatchLoadTaskResponse'),
+    newDescribeBatchLoadTaskResponse,
+
     -- ** DescribeDatabase
     DescribeDatabase (DescribeDatabase'),
     newDescribeDatabase,
@@ -109,6 +123,12 @@ module Amazonka.TimeStreamWrite
     DescribeTableResponse (DescribeTableResponse'),
     newDescribeTableResponse,
 
+    -- ** ListBatchLoadTasks
+    ListBatchLoadTasks (ListBatchLoadTasks'),
+    newListBatchLoadTasks,
+    ListBatchLoadTasksResponse (ListBatchLoadTasksResponse'),
+    newListBatchLoadTasksResponse,
+
     -- ** ListDatabases
     ListDatabases (ListDatabases'),
     newListDatabases,
@@ -126,6 +146,12 @@ module Amazonka.TimeStreamWrite
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ResumeBatchLoadTask
+    ResumeBatchLoadTask (ResumeBatchLoadTask'),
+    newResumeBatchLoadTask,
+    ResumeBatchLoadTaskResponse (ResumeBatchLoadTaskResponse'),
+    newResumeBatchLoadTaskResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -159,20 +185,71 @@ module Amazonka.TimeStreamWrite
 
     -- * Types
 
+    -- ** BatchLoadDataFormat
+    BatchLoadDataFormat (..),
+
+    -- ** BatchLoadStatus
+    BatchLoadStatus (..),
+
     -- ** DimensionValueType
     DimensionValueType (..),
 
     -- ** MeasureValueType
     MeasureValueType (..),
 
+    -- ** PartitionKeyEnforcementLevel
+    PartitionKeyEnforcementLevel (..),
+
+    -- ** PartitionKeyType
+    PartitionKeyType (..),
+
     -- ** S3EncryptionOption
     S3EncryptionOption (..),
+
+    -- ** ScalarMeasureValueType
+    ScalarMeasureValueType (..),
 
     -- ** TableStatus
     TableStatus (..),
 
     -- ** TimeUnit
     TimeUnit (..),
+
+    -- ** BatchLoadProgressReport
+    BatchLoadProgressReport (BatchLoadProgressReport'),
+    newBatchLoadProgressReport,
+
+    -- ** BatchLoadTask
+    BatchLoadTask (BatchLoadTask'),
+    newBatchLoadTask,
+
+    -- ** BatchLoadTaskDescription
+    BatchLoadTaskDescription (BatchLoadTaskDescription'),
+    newBatchLoadTaskDescription,
+
+    -- ** CsvConfiguration
+    CsvConfiguration (CsvConfiguration'),
+    newCsvConfiguration,
+
+    -- ** DataModel
+    DataModel (DataModel'),
+    newDataModel,
+
+    -- ** DataModelConfiguration
+    DataModelConfiguration (DataModelConfiguration'),
+    newDataModelConfiguration,
+
+    -- ** DataModelS3Configuration
+    DataModelS3Configuration (DataModelS3Configuration'),
+    newDataModelS3Configuration,
+
+    -- ** DataSourceConfiguration
+    DataSourceConfiguration (DataSourceConfiguration'),
+    newDataSourceConfiguration,
+
+    -- ** DataSourceS3Configuration
+    DataSourceS3Configuration (DataSourceS3Configuration'),
+    newDataSourceS3Configuration,
 
     -- ** Database
     Database (Database'),
@@ -181,6 +258,10 @@ module Amazonka.TimeStreamWrite
     -- ** Dimension
     Dimension (Dimension'),
     newDimension,
+
+    -- ** DimensionMapping
+    DimensionMapping (DimensionMapping'),
+    newDimensionMapping,
 
     -- ** Endpoint
     Endpoint (Endpoint'),
@@ -198,6 +279,22 @@ module Amazonka.TimeStreamWrite
     MeasureValue (MeasureValue'),
     newMeasureValue,
 
+    -- ** MixedMeasureMapping
+    MixedMeasureMapping (MixedMeasureMapping'),
+    newMixedMeasureMapping,
+
+    -- ** MultiMeasureAttributeMapping
+    MultiMeasureAttributeMapping (MultiMeasureAttributeMapping'),
+    newMultiMeasureAttributeMapping,
+
+    -- ** MultiMeasureMappings
+    MultiMeasureMappings (MultiMeasureMappings'),
+    newMultiMeasureMappings,
+
+    -- ** PartitionKey
+    PartitionKey (PartitionKey'),
+    newPartitionKey,
+
     -- ** Record
     Record (Record'),
     newRecord,
@@ -206,6 +303,14 @@ module Amazonka.TimeStreamWrite
     RecordsIngested (RecordsIngested'),
     newRecordsIngested,
 
+    -- ** ReportConfiguration
+    ReportConfiguration (ReportConfiguration'),
+    newReportConfiguration,
+
+    -- ** ReportS3Configuration
+    ReportS3Configuration (ReportS3Configuration'),
+    newReportS3Configuration,
+
     -- ** RetentionProperties
     RetentionProperties (RetentionProperties'),
     newRetentionProperties,
@@ -213,6 +318,10 @@ module Amazonka.TimeStreamWrite
     -- ** S3Configuration
     S3Configuration (S3Configuration'),
     newS3Configuration,
+
+    -- ** Schema
+    Schema (Schema'),
+    newSchema,
 
     -- ** Table
     Table (Table'),
@@ -224,17 +333,21 @@ module Amazonka.TimeStreamWrite
   )
 where
 
+import Amazonka.TimeStreamWrite.CreateBatchLoadTask
 import Amazonka.TimeStreamWrite.CreateDatabase
 import Amazonka.TimeStreamWrite.CreateTable
 import Amazonka.TimeStreamWrite.DeleteDatabase
 import Amazonka.TimeStreamWrite.DeleteTable
+import Amazonka.TimeStreamWrite.DescribeBatchLoadTask
 import Amazonka.TimeStreamWrite.DescribeDatabase
 import Amazonka.TimeStreamWrite.DescribeEndpoints
 import Amazonka.TimeStreamWrite.DescribeTable
 import Amazonka.TimeStreamWrite.Lens
+import Amazonka.TimeStreamWrite.ListBatchLoadTasks
 import Amazonka.TimeStreamWrite.ListDatabases
 import Amazonka.TimeStreamWrite.ListTables
 import Amazonka.TimeStreamWrite.ListTagsForResource
+import Amazonka.TimeStreamWrite.ResumeBatchLoadTask
 import Amazonka.TimeStreamWrite.TagResource
 import Amazonka.TimeStreamWrite.Types
 import Amazonka.TimeStreamWrite.UntagResource

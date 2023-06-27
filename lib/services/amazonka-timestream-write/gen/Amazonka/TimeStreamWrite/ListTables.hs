@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- A list of tables, along with the name, status and retention properties
--- of each table. See
+-- Provides a list of tables, along with the name, status, and retention
+-- properties of each table. See
 -- <https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.list-table.html code sample>
 -- for details.
 module Amazonka.TimeStreamWrite.ListTables
@@ -125,7 +125,8 @@ instance Core.AWSRequest ListTables where
 
 instance Prelude.Hashable ListTables where
   hashWithSalt _salt ListTables' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

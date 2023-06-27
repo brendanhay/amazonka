@@ -40,6 +40,7 @@ module Amazonka.TimeStreamWrite.UpdateTable
     -- * Request Lenses
     updateTable_magneticStoreWriteProperties,
     updateTable_retentionProperties,
+    updateTable_schema,
     updateTable_databaseName,
     updateTable_tableName,
 
@@ -68,6 +69,8 @@ data UpdateTable = UpdateTable'
     magneticStoreWriteProperties :: Prelude.Maybe MagneticStoreWriteProperties,
     -- | The retention duration of the memory store and the magnetic store.
     retentionProperties :: Prelude.Maybe RetentionProperties,
+    -- | The schema of the table.
+    schema :: Prelude.Maybe Schema,
     -- | The name of the Timestream database.
     databaseName :: Prelude.Text,
     -- | The name of the Timestream table.
@@ -88,6 +91,8 @@ data UpdateTable = UpdateTable'
 --
 -- 'retentionProperties', 'updateTable_retentionProperties' - The retention duration of the memory store and the magnetic store.
 --
+-- 'schema', 'updateTable_schema' - The schema of the table.
+--
 -- 'databaseName', 'updateTable_databaseName' - The name of the Timestream database.
 --
 -- 'tableName', 'updateTable_tableName' - The name of the Timestream table.
@@ -102,6 +107,7 @@ newUpdateTable pDatabaseName_ pTableName_ =
     { magneticStoreWriteProperties =
         Prelude.Nothing,
       retentionProperties = Prelude.Nothing,
+      schema = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
@@ -114,6 +120,10 @@ updateTable_magneticStoreWriteProperties = Lens.lens (\UpdateTable' {magneticSto
 -- | The retention duration of the memory store and the magnetic store.
 updateTable_retentionProperties :: Lens.Lens' UpdateTable (Prelude.Maybe RetentionProperties)
 updateTable_retentionProperties = Lens.lens (\UpdateTable' {retentionProperties} -> retentionProperties) (\s@UpdateTable' {} a -> s {retentionProperties = a} :: UpdateTable)
+
+-- | The schema of the table.
+updateTable_schema :: Lens.Lens' UpdateTable (Prelude.Maybe Schema)
+updateTable_schema = Lens.lens (\UpdateTable' {schema} -> schema) (\s@UpdateTable' {} a -> s {schema = a} :: UpdateTable)
 
 -- | The name of the Timestream database.
 updateTable_databaseName :: Lens.Lens' UpdateTable Prelude.Text
@@ -140,6 +150,7 @@ instance Prelude.Hashable UpdateTable where
     _salt
       `Prelude.hashWithSalt` magneticStoreWriteProperties
       `Prelude.hashWithSalt` retentionProperties
+      `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
 
@@ -147,6 +158,7 @@ instance Prelude.NFData UpdateTable where
   rnf UpdateTable' {..} =
     Prelude.rnf magneticStoreWriteProperties
       `Prelude.seq` Prelude.rnf retentionProperties
+      `Prelude.seq` Prelude.rnf schema
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
 
@@ -173,6 +185,7 @@ instance Data.ToJSON UpdateTable where
               Prelude.<$> magneticStoreWriteProperties,
             ("RetentionProperties" Data..=)
               Prelude.<$> retentionProperties,
+            ("Schema" Data..=) Prelude.<$> schema,
             Prelude.Just ("DatabaseName" Data..= databaseName),
             Prelude.Just ("TableName" Data..= tableName)
           ]

@@ -25,19 +25,20 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.TimeStreamWrite.Types.S3EncryptionOption
 
--- | Configuration specifing an S3 location.
+-- | The configuration that specifies an S3 location.
 --
 -- /See:/ 'newS3Configuration' smart constructor.
 data S3Configuration = S3Configuration'
-  { -- | >Bucket name of the customer S3 bucket.
+  { -- | The bucket name of the customer S3 bucket.
     bucketName :: Prelude.Maybe Prelude.Text,
-    -- | Encryption option for the customer s3 location. Options are S3 server
-    -- side encryption with an S3-managed key or KMS managed key.
-    encryptionOption :: Prelude.Maybe S3EncryptionOption,
-    -- | KMS key id for the customer s3 location when encrypting with a KMS
+    -- | The encryption option for the customer S3 location. Options are S3
+    -- server-side encryption with an S3 managed key or Amazon Web Services
     -- managed key.
+    encryptionOption :: Prelude.Maybe S3EncryptionOption,
+    -- | The KMS key ID for the customer S3 location when encrypting with an
+    -- Amazon Web Services managed key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | Object key preview for the customer S3 location.
+    -- | The object key preview for the customer S3 location.
     objectKeyPrefix :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,15 +51,16 @@ data S3Configuration = S3Configuration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketName', 's3Configuration_bucketName' - >Bucket name of the customer S3 bucket.
+-- 'bucketName', 's3Configuration_bucketName' - The bucket name of the customer S3 bucket.
 --
--- 'encryptionOption', 's3Configuration_encryptionOption' - Encryption option for the customer s3 location. Options are S3 server
--- side encryption with an S3-managed key or KMS managed key.
---
--- 'kmsKeyId', 's3Configuration_kmsKeyId' - KMS key id for the customer s3 location when encrypting with a KMS
+-- 'encryptionOption', 's3Configuration_encryptionOption' - The encryption option for the customer S3 location. Options are S3
+-- server-side encryption with an S3 managed key or Amazon Web Services
 -- managed key.
 --
--- 'objectKeyPrefix', 's3Configuration_objectKeyPrefix' - Object key preview for the customer S3 location.
+-- 'kmsKeyId', 's3Configuration_kmsKeyId' - The KMS key ID for the customer S3 location when encrypting with an
+-- Amazon Web Services managed key.
+--
+-- 'objectKeyPrefix', 's3Configuration_objectKeyPrefix' - The object key preview for the customer S3 location.
 newS3Configuration ::
   S3Configuration
 newS3Configuration =
@@ -69,21 +71,22 @@ newS3Configuration =
       objectKeyPrefix = Prelude.Nothing
     }
 
--- | >Bucket name of the customer S3 bucket.
+-- | The bucket name of the customer S3 bucket.
 s3Configuration_bucketName :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
 s3Configuration_bucketName = Lens.lens (\S3Configuration' {bucketName} -> bucketName) (\s@S3Configuration' {} a -> s {bucketName = a} :: S3Configuration)
 
--- | Encryption option for the customer s3 location. Options are S3 server
--- side encryption with an S3-managed key or KMS managed key.
+-- | The encryption option for the customer S3 location. Options are S3
+-- server-side encryption with an S3 managed key or Amazon Web Services
+-- managed key.
 s3Configuration_encryptionOption :: Lens.Lens' S3Configuration (Prelude.Maybe S3EncryptionOption)
 s3Configuration_encryptionOption = Lens.lens (\S3Configuration' {encryptionOption} -> encryptionOption) (\s@S3Configuration' {} a -> s {encryptionOption = a} :: S3Configuration)
 
--- | KMS key id for the customer s3 location when encrypting with a KMS
--- managed key.
+-- | The KMS key ID for the customer S3 location when encrypting with an
+-- Amazon Web Services managed key.
 s3Configuration_kmsKeyId :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
 s3Configuration_kmsKeyId = Lens.lens (\S3Configuration' {kmsKeyId} -> kmsKeyId) (\s@S3Configuration' {} a -> s {kmsKeyId = a} :: S3Configuration)
 
--- | Object key preview for the customer S3 location.
+-- | The object key preview for the customer S3 location.
 s3Configuration_objectKeyPrefix :: Lens.Lens' S3Configuration (Prelude.Maybe Prelude.Text)
 s3Configuration_objectKeyPrefix = Lens.lens (\S3Configuration' {objectKeyPrefix} -> objectKeyPrefix) (\s@S3Configuration' {} a -> s {objectKeyPrefix = a} :: S3Configuration)
 
@@ -101,7 +104,8 @@ instance Data.FromJSON S3Configuration where
 
 instance Prelude.Hashable S3Configuration where
   hashWithSalt _salt S3Configuration' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` encryptionOption
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` objectKeyPrefix

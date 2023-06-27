@@ -24,7 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
--- | Retention properties contain the duration for which your time series
+-- | Retention properties contain the duration for which your time-series
 -- data must be stored in the magnetic store and the memory store.
 --
 -- /See:/ 'newRetentionProperties' smart constructor.

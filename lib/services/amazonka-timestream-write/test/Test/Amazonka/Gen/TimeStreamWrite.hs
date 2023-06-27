@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateDatabase $
+--         [ requestCreateBatchLoadTask $
+--             newCreateBatchLoadTask
+--
+--         , requestCreateDatabase $
 --             newCreateDatabase
 --
 --         , requestCreateTable $
@@ -39,6 +42,9 @@ import Test.Tasty
 --         , requestDeleteTable $
 --             newDeleteTable
 --
+--         , requestDescribeBatchLoadTask $
+--             newDescribeBatchLoadTask
+--
 --         , requestDescribeDatabase $
 --             newDescribeDatabase
 --
@@ -48,6 +54,9 @@ import Test.Tasty
 --         , requestDescribeTable $
 --             newDescribeTable
 --
+--         , requestListBatchLoadTasks $
+--             newListBatchLoadTasks
+--
 --         , requestListDatabases $
 --             newListDatabases
 --
@@ -56,6 +65,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestResumeBatchLoadTask $
+--             newResumeBatchLoadTask
 --
 --         , requestTagResource $
 --             newTagResource
@@ -75,7 +87,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateDatabase $
+--         [ responseCreateBatchLoadTask $
+--             newCreateBatchLoadTaskResponse
+--
+--         , responseCreateDatabase $
 --             newCreateDatabaseResponse
 --
 --         , responseCreateTable $
@@ -87,6 +102,9 @@ import Test.Tasty
 --         , responseDeleteTable $
 --             newDeleteTableResponse
 --
+--         , responseDescribeBatchLoadTask $
+--             newDescribeBatchLoadTaskResponse
+--
 --         , responseDescribeDatabase $
 --             newDescribeDatabaseResponse
 --
@@ -96,6 +114,9 @@ import Test.Tasty
 --         , responseDescribeTable $
 --             newDescribeTableResponse
 --
+--         , responseListBatchLoadTasks $
+--             newListBatchLoadTasksResponse
+--
 --         , responseListDatabases $
 --             newListDatabasesResponse
 --
@@ -104,6 +125,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseResumeBatchLoadTask $
+--             newResumeBatchLoadTaskResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -124,6 +148,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestCreateBatchLoadTask :: CreateBatchLoadTask -> TestTree
+requestCreateBatchLoadTask =
+  req
+    "CreateBatchLoadTask"
+    "fixture/CreateBatchLoadTask.yaml"
 
 requestCreateDatabase :: CreateDatabase -> TestTree
 requestCreateDatabase =
@@ -149,6 +179,12 @@ requestDeleteTable =
     "DeleteTable"
     "fixture/DeleteTable.yaml"
 
+requestDescribeBatchLoadTask :: DescribeBatchLoadTask -> TestTree
+requestDescribeBatchLoadTask =
+  req
+    "DescribeBatchLoadTask"
+    "fixture/DescribeBatchLoadTask.yaml"
+
 requestDescribeDatabase :: DescribeDatabase -> TestTree
 requestDescribeDatabase =
   req
@@ -167,6 +203,12 @@ requestDescribeTable =
     "DescribeTable"
     "fixture/DescribeTable.yaml"
 
+requestListBatchLoadTasks :: ListBatchLoadTasks -> TestTree
+requestListBatchLoadTasks =
+  req
+    "ListBatchLoadTasks"
+    "fixture/ListBatchLoadTasks.yaml"
+
 requestListDatabases :: ListDatabases -> TestTree
 requestListDatabases =
   req
@@ -184,6 +226,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestResumeBatchLoadTask :: ResumeBatchLoadTask -> TestTree
+requestResumeBatchLoadTask =
+  req
+    "ResumeBatchLoadTask"
+    "fixture/ResumeBatchLoadTask.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -217,6 +265,14 @@ requestWriteRecords =
 
 -- Responses
 
+responseCreateBatchLoadTask :: CreateBatchLoadTaskResponse -> TestTree
+responseCreateBatchLoadTask =
+  res
+    "CreateBatchLoadTaskResponse"
+    "fixture/CreateBatchLoadTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchLoadTask)
+
 responseCreateDatabase :: CreateDatabaseResponse -> TestTree
 responseCreateDatabase =
   res
@@ -249,6 +305,14 @@ responseDeleteTable =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTable)
 
+responseDescribeBatchLoadTask :: DescribeBatchLoadTaskResponse -> TestTree
+responseDescribeBatchLoadTask =
+  res
+    "DescribeBatchLoadTaskResponse"
+    "fixture/DescribeBatchLoadTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBatchLoadTask)
+
 responseDescribeDatabase :: DescribeDatabaseResponse -> TestTree
 responseDescribeDatabase =
   res
@@ -273,6 +337,14 @@ responseDescribeTable =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTable)
 
+responseListBatchLoadTasks :: ListBatchLoadTasksResponse -> TestTree
+responseListBatchLoadTasks =
+  res
+    "ListBatchLoadTasksResponse"
+    "fixture/ListBatchLoadTasksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBatchLoadTasks)
+
 responseListDatabases :: ListDatabasesResponse -> TestTree
 responseListDatabases =
   res
@@ -296,6 +368,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseResumeBatchLoadTask :: ResumeBatchLoadTaskResponse -> TestTree
+responseResumeBatchLoadTask =
+  res
+    "ResumeBatchLoadTaskResponse"
+    "fixture/ResumeBatchLoadTaskResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ResumeBatchLoadTask)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

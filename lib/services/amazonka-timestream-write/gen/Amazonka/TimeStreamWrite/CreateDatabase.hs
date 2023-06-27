@@ -22,13 +22,11 @@
 --
 -- Creates a new Timestream database. If the KMS key is not specified, the
 -- database will be encrypted with a Timestream managed KMS key located in
--- your account. Refer to
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed KMS keys>
--- for more info.
+-- your account. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed keys>.
 -- <https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html Service quotas apply>.
--- See
--- <https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html code sample>
--- for details.
+-- For details, see
+-- <https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.create-db.html code sample>.
 module Amazonka.TimeStreamWrite.CreateDatabase
   ( -- * Creating a Request
     CreateDatabase (..),
@@ -61,9 +59,8 @@ import Amazonka.TimeStreamWrite.Types
 data CreateDatabase = CreateDatabase'
   { -- | The KMS key for the database. If the KMS key is not specified, the
     -- database will be encrypted with a Timestream managed KMS key located in
-    -- your account. Refer to
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed KMS keys>
-    -- for more info.
+    -- your account. For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed keys>.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A list of key-value pairs to label the table.
     tags :: Prelude.Maybe [Tag],
@@ -82,9 +79,8 @@ data CreateDatabase = CreateDatabase'
 --
 -- 'kmsKeyId', 'createDatabase_kmsKeyId' - The KMS key for the database. If the KMS key is not specified, the
 -- database will be encrypted with a Timestream managed KMS key located in
--- your account. Refer to
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed KMS keys>
--- for more info.
+-- your account. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed keys>.
 --
 -- 'tags', 'createDatabase_tags' - A list of key-value pairs to label the table.
 --
@@ -102,9 +98,8 @@ newCreateDatabase pDatabaseName_ =
 
 -- | The KMS key for the database. If the KMS key is not specified, the
 -- database will be encrypted with a Timestream managed KMS key located in
--- your account. Refer to
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed KMS keys>
--- for more info.
+-- your account. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed keys>.
 createDatabase_kmsKeyId :: Lens.Lens' CreateDatabase (Prelude.Maybe Prelude.Text)
 createDatabase_kmsKeyId = Lens.lens (\CreateDatabase' {kmsKeyId} -> kmsKeyId) (\s@CreateDatabase' {} a -> s {kmsKeyId = a} :: CreateDatabase)
 
@@ -132,7 +127,8 @@ instance Core.AWSRequest CreateDatabase where
 
 instance Prelude.Hashable CreateDatabase where
   hashWithSalt _salt CreateDatabase' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` databaseName
 

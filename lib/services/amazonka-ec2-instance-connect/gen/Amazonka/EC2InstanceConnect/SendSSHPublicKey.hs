@@ -142,7 +142,8 @@ instance Core.AWSRequest SendSSHPublicKey where
 
 instance Prelude.Hashable SendSSHPublicKey where
   hashWithSalt _salt SendSSHPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceOSUser
       `Prelude.hashWithSalt` sSHPublicKey

@@ -74,7 +74,8 @@ instance Data.FromJSON CPU where
 
 instance Prelude.Hashable CPU where
   hashWithSalt _salt CPU' {..} =
-    _salt `Prelude.hashWithSalt` cores
+    _salt
+      `Prelude.hashWithSalt` cores
       `Prelude.hashWithSalt` modelName
 
 instance Prelude.NFData CPU where

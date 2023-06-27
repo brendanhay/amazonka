@@ -90,7 +90,8 @@ instance
     LifeCycleLastLaunchInitiated
   where
   hashWithSalt _salt LifeCycleLastLaunchInitiated' {..} =
-    _salt `Prelude.hashWithSalt` apiCallDateTime
+    _salt
+      `Prelude.hashWithSalt` apiCallDateTime
       `Prelude.hashWithSalt` jobID
       `Prelude.hashWithSalt` type'
 

@@ -35,6 +35,7 @@ module Amazonka.DrS.GetReplicationConfiguration
 
     -- * Response Lenses
     replicationConfiguration_associateDefaultSecurityGroup,
+    replicationConfiguration_autoReplicateNewDisks,
     replicationConfiguration_bandwidthThrottling,
     replicationConfiguration_createPublicIP,
     replicationConfiguration_dataPlaneRouting,

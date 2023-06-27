@@ -27,6 +27,7 @@ module Amazonka.DrS.CreateReplicationConfigurationTemplate
     newCreateReplicationConfigurationTemplate,
 
     -- * Request Lenses
+    createReplicationConfigurationTemplate_autoReplicateNewDisks,
     createReplicationConfigurationTemplate_ebsEncryptionKeyArn,
     createReplicationConfigurationTemplate_tags,
     createReplicationConfigurationTemplate_associateDefaultSecurityGroup,
@@ -49,6 +50,7 @@ module Amazonka.DrS.CreateReplicationConfigurationTemplate
     -- * Response Lenses
     replicationConfigurationTemplate_arn,
     replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_autoReplicateNewDisks,
     replicationConfigurationTemplate_bandwidthThrottling,
     replicationConfigurationTemplate_createPublicIP,
     replicationConfigurationTemplate_dataPlaneRouting,
@@ -76,7 +78,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateReplicationConfigurationTemplate' smart constructor.
 data CreateReplicationConfigurationTemplate = CreateReplicationConfigurationTemplate'
-  { -- | The ARN of the EBS encryption key to be used during replication.
+  { -- | Whether to allow the AWS replication agent to automatically replicate
+    -- newly added disks.
+    autoReplicateNewDisks :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the EBS encryption key to be used during replication.
     ebsEncryptionKeyArn :: Prelude.Maybe Prelude.Text,
     -- | A set of tags to be associated with the Replication Configuration
     -- Template resource.
@@ -121,6 +126,9 @@ data CreateReplicationConfigurationTemplate = CreateReplicationConfigurationTemp
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'autoReplicateNewDisks', 'createReplicationConfigurationTemplate_autoReplicateNewDisks' - Whether to allow the AWS replication agent to automatically replicate
+-- newly added disks.
 --
 -- 'ebsEncryptionKeyArn', 'createReplicationConfigurationTemplate_ebsEncryptionKeyArn' - The ARN of the EBS encryption key to be used during replication.
 --
@@ -190,7 +198,9 @@ newCreateReplicationConfigurationTemplate
   pStagingAreaSubnetId_
   pUseDedicatedReplicationServer_ =
     CreateReplicationConfigurationTemplate'
-      { ebsEncryptionKeyArn =
+      { autoReplicateNewDisks =
+          Prelude.Nothing,
+        ebsEncryptionKeyArn =
           Prelude.Nothing,
         tags = Prelude.Nothing,
         associateDefaultSecurityGroup =
@@ -215,6 +225,11 @@ newCreateReplicationConfigurationTemplate
         useDedicatedReplicationServer =
           pUseDedicatedReplicationServer_
       }
+
+-- | Whether to allow the AWS replication agent to automatically replicate
+-- newly added disks.
+createReplicationConfigurationTemplate_autoReplicateNewDisks :: Lens.Lens' CreateReplicationConfigurationTemplate (Prelude.Maybe Prelude.Bool)
+createReplicationConfigurationTemplate_autoReplicateNewDisks = Lens.lens (\CreateReplicationConfigurationTemplate' {autoReplicateNewDisks} -> autoReplicateNewDisks) (\s@CreateReplicationConfigurationTemplate' {} a -> s {autoReplicateNewDisks = a} :: CreateReplicationConfigurationTemplate)
 
 -- | The ARN of the EBS encryption key to be used during replication.
 createReplicationConfigurationTemplate_ebsEncryptionKeyArn :: Lens.Lens' CreateReplicationConfigurationTemplate (Prelude.Maybe Prelude.Text)
@@ -300,7 +315,9 @@ instance
   hashWithSalt
     _salt
     CreateReplicationConfigurationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` ebsEncryptionKeyArn
+      _salt
+        `Prelude.hashWithSalt` autoReplicateNewDisks
+        `Prelude.hashWithSalt` ebsEncryptionKeyArn
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` associateDefaultSecurityGroup
         `Prelude.hashWithSalt` bandwidthThrottling
@@ -320,7 +337,8 @@ instance
     CreateReplicationConfigurationTemplate
   where
   rnf CreateReplicationConfigurationTemplate' {..} =
-    Prelude.rnf ebsEncryptionKeyArn
+    Prelude.rnf autoReplicateNewDisks
+      `Prelude.seq` Prelude.rnf ebsEncryptionKeyArn
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf associateDefaultSecurityGroup
       `Prelude.seq` Prelude.rnf bandwidthThrottling
@@ -330,10 +348,12 @@ instance
       `Prelude.seq` Prelude.rnf ebsEncryption
       `Prelude.seq` Prelude.rnf pitPolicy
       `Prelude.seq` Prelude.rnf replicationServerInstanceType
-      `Prelude.seq` Prelude.rnf replicationServersSecurityGroupsIDs
+      `Prelude.seq` Prelude.rnf
+        replicationServersSecurityGroupsIDs
       `Prelude.seq` Prelude.rnf stagingAreaSubnetId
       `Prelude.seq` Prelude.rnf stagingAreaTags
-      `Prelude.seq` Prelude.rnf useDedicatedReplicationServer
+      `Prelude.seq` Prelude.rnf
+        useDedicatedReplicationServer
 
 instance
   Data.ToHeaders
@@ -356,7 +376,9 @@ instance
   toJSON CreateReplicationConfigurationTemplate' {..} =
     Data.object
       ( Prelude.catMaybes
-          [ ("ebsEncryptionKeyArn" Data..=)
+          [ ("autoReplicateNewDisks" Data..=)
+              Prelude.<$> autoReplicateNewDisks,
+            ("ebsEncryptionKeyArn" Data..=)
               Prelude.<$> ebsEncryptionKeyArn,
             ("tags" Data..=) Prelude.<$> tags,
             Prelude.Just

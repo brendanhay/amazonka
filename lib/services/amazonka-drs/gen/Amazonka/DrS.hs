@@ -49,11 +49,23 @@ module Amazonka.DrS
     -- * Operations
     -- $operations
 
+    -- ** AssociateSourceNetworkStack
+    AssociateSourceNetworkStack (AssociateSourceNetworkStack'),
+    newAssociateSourceNetworkStack,
+    AssociateSourceNetworkStackResponse (AssociateSourceNetworkStackResponse'),
+    newAssociateSourceNetworkStackResponse,
+
     -- ** CreateExtendedSourceServer
     CreateExtendedSourceServer (CreateExtendedSourceServer'),
     newCreateExtendedSourceServer,
     CreateExtendedSourceServerResponse (CreateExtendedSourceServerResponse'),
     newCreateExtendedSourceServerResponse,
+
+    -- ** CreateLaunchConfigurationTemplate
+    CreateLaunchConfigurationTemplate (CreateLaunchConfigurationTemplate'),
+    newCreateLaunchConfigurationTemplate,
+    CreateLaunchConfigurationTemplateResponse (CreateLaunchConfigurationTemplateResponse'),
+    newCreateLaunchConfigurationTemplateResponse,
 
     -- ** CreateReplicationConfigurationTemplate
     CreateReplicationConfigurationTemplate (CreateReplicationConfigurationTemplate'),
@@ -61,11 +73,23 @@ module Amazonka.DrS
     ReplicationConfigurationTemplate (ReplicationConfigurationTemplate'),
     newReplicationConfigurationTemplate,
 
+    -- ** CreateSourceNetwork
+    CreateSourceNetwork (CreateSourceNetwork'),
+    newCreateSourceNetwork,
+    CreateSourceNetworkResponse (CreateSourceNetworkResponse'),
+    newCreateSourceNetworkResponse,
+
     -- ** DeleteJob
     DeleteJob (DeleteJob'),
     newDeleteJob,
     DeleteJobResponse (DeleteJobResponse'),
     newDeleteJobResponse,
+
+    -- ** DeleteLaunchConfigurationTemplate
+    DeleteLaunchConfigurationTemplate (DeleteLaunchConfigurationTemplate'),
+    newDeleteLaunchConfigurationTemplate,
+    DeleteLaunchConfigurationTemplateResponse (DeleteLaunchConfigurationTemplateResponse'),
+    newDeleteLaunchConfigurationTemplateResponse,
 
     -- ** DeleteRecoveryInstance
     DeleteRecoveryInstance (DeleteRecoveryInstance'),
@@ -78,6 +102,12 @@ module Amazonka.DrS
     newDeleteReplicationConfigurationTemplate,
     DeleteReplicationConfigurationTemplateResponse (DeleteReplicationConfigurationTemplateResponse'),
     newDeleteReplicationConfigurationTemplateResponse,
+
+    -- ** DeleteSourceNetwork
+    DeleteSourceNetwork (DeleteSourceNetwork'),
+    newDeleteSourceNetwork,
+    DeleteSourceNetworkResponse (DeleteSourceNetworkResponse'),
+    newDeleteSourceNetworkResponse,
 
     -- ** DeleteSourceServer
     DeleteSourceServer (DeleteSourceServer'),
@@ -97,6 +127,12 @@ module Amazonka.DrS
     DescribeJobsResponse (DescribeJobsResponse'),
     newDescribeJobsResponse,
 
+    -- ** DescribeLaunchConfigurationTemplates (Paginated)
+    DescribeLaunchConfigurationTemplates (DescribeLaunchConfigurationTemplates'),
+    newDescribeLaunchConfigurationTemplates,
+    DescribeLaunchConfigurationTemplatesResponse (DescribeLaunchConfigurationTemplatesResponse'),
+    newDescribeLaunchConfigurationTemplatesResponse,
+
     -- ** DescribeRecoveryInstances (Paginated)
     DescribeRecoveryInstances (DescribeRecoveryInstances'),
     newDescribeRecoveryInstances,
@@ -115,6 +151,12 @@ module Amazonka.DrS
     DescribeReplicationConfigurationTemplatesResponse (DescribeReplicationConfigurationTemplatesResponse'),
     newDescribeReplicationConfigurationTemplatesResponse,
 
+    -- ** DescribeSourceNetworks (Paginated)
+    DescribeSourceNetworks (DescribeSourceNetworks'),
+    newDescribeSourceNetworks,
+    DescribeSourceNetworksResponse (DescribeSourceNetworksResponse'),
+    newDescribeSourceNetworksResponse,
+
     -- ** DescribeSourceServers (Paginated)
     DescribeSourceServers (DescribeSourceServers'),
     newDescribeSourceServers,
@@ -132,6 +174,12 @@ module Amazonka.DrS
     newDisconnectSourceServer,
     SourceServer (SourceServer'),
     newSourceServer,
+
+    -- ** ExportSourceNetworkCfnTemplate
+    ExportSourceNetworkCfnTemplate (ExportSourceNetworkCfnTemplate'),
+    newExportSourceNetworkCfnTemplate,
+    ExportSourceNetworkCfnTemplateResponse (ExportSourceNetworkCfnTemplateResponse'),
+    newExportSourceNetworkCfnTemplateResponse,
 
     -- ** GetFailbackReplicationConfiguration
     GetFailbackReplicationConfiguration (GetFailbackReplicationConfiguration'),
@@ -175,12 +223,6 @@ module Amazonka.DrS
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** RetryDataReplication
-    RetryDataReplication (RetryDataReplication'),
-    newRetryDataReplication,
-    SourceServer (SourceServer'),
-    newSourceServer,
-
     -- ** ReverseReplication
     ReverseReplication (ReverseReplication'),
     newReverseReplication,
@@ -205,6 +247,18 @@ module Amazonka.DrS
     StartReplicationResponse (StartReplicationResponse'),
     newStartReplicationResponse,
 
+    -- ** StartSourceNetworkRecovery
+    StartSourceNetworkRecovery (StartSourceNetworkRecovery'),
+    newStartSourceNetworkRecovery,
+    StartSourceNetworkRecoveryResponse (StartSourceNetworkRecoveryResponse'),
+    newStartSourceNetworkRecoveryResponse,
+
+    -- ** StartSourceNetworkReplication
+    StartSourceNetworkReplication (StartSourceNetworkReplication'),
+    newStartSourceNetworkReplication,
+    StartSourceNetworkReplicationResponse (StartSourceNetworkReplicationResponse'),
+    newStartSourceNetworkReplicationResponse,
+
     -- ** StopFailback
     StopFailback (StopFailback'),
     newStopFailback,
@@ -216,6 +270,12 @@ module Amazonka.DrS
     newStopReplication,
     StopReplicationResponse (StopReplicationResponse'),
     newStopReplicationResponse,
+
+    -- ** StopSourceNetworkReplication
+    StopSourceNetworkReplication (StopSourceNetworkReplication'),
+    newStopSourceNetworkReplication,
+    StopSourceNetworkReplicationResponse (StopSourceNetworkReplicationResponse'),
+    newStopSourceNetworkReplicationResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -246,6 +306,12 @@ module Amazonka.DrS
     newUpdateLaunchConfiguration,
     LaunchConfiguration (LaunchConfiguration'),
     newLaunchConfiguration,
+
+    -- ** UpdateLaunchConfigurationTemplate
+    UpdateLaunchConfigurationTemplate (UpdateLaunchConfigurationTemplate'),
+    newUpdateLaunchConfigurationTemplate,
+    UpdateLaunchConfigurationTemplateResponse (UpdateLaunchConfigurationTemplateResponse'),
+    newUpdateLaunchConfigurationTemplateResponse,
 
     -- ** UpdateReplicationConfiguration
     UpdateReplicationConfiguration (UpdateReplicationConfiguration'),
@@ -327,6 +393,9 @@ module Amazonka.DrS
     -- ** RecoveryInstanceDataReplicationState
     RecoveryInstanceDataReplicationState (..),
 
+    -- ** RecoveryResult
+    RecoveryResult (..),
+
     -- ** RecoverySnapshotsOrder
     RecoverySnapshotsOrder (..),
 
@@ -344,6 +413,9 @@ module Amazonka.DrS
 
     -- ** ReplicationDirection
     ReplicationDirection (..),
+
+    -- ** ReplicationStatus
+    ReplicationStatus (..),
 
     -- ** TargetInstanceTypeRightSizingMethod
     TargetInstanceTypeRightSizingMethod (..),
@@ -392,6 +464,10 @@ module Amazonka.DrS
     DescribeRecoverySnapshotsRequestFilters (DescribeRecoverySnapshotsRequestFilters'),
     newDescribeRecoverySnapshotsRequestFilters,
 
+    -- ** DescribeSourceNetworksRequestFilters
+    DescribeSourceNetworksRequestFilters (DescribeSourceNetworksRequestFilters'),
+    newDescribeSourceNetworksRequestFilters,
+
     -- ** DescribeSourceServersRequestFilters
     DescribeSourceServersRequestFilters (DescribeSourceServersRequestFilters'),
     newDescribeSourceServersRequestFilters,
@@ -399,6 +475,10 @@ module Amazonka.DrS
     -- ** Disk
     Disk (Disk'),
     newDisk,
+
+    -- ** EventResourceData
+    EventResourceData (EventResourceData'),
+    newEventResourceData,
 
     -- ** IdentificationHints
     IdentificationHints (IdentificationHints'),
@@ -419,6 +499,10 @@ module Amazonka.DrS
     -- ** LaunchConfiguration
     LaunchConfiguration (LaunchConfiguration'),
     newLaunchConfiguration,
+
+    -- ** LaunchConfigurationTemplate
+    LaunchConfigurationTemplate (LaunchConfigurationTemplate'),
+    newLaunchConfigurationTemplate,
 
     -- ** Licensing
     Licensing (Licensing'),
@@ -447,6 +531,14 @@ module Amazonka.DrS
     -- ** PITPolicyRule
     PITPolicyRule (PITPolicyRule'),
     newPITPolicyRule,
+
+    -- ** ParticipatingResource
+    ParticipatingResource (ParticipatingResource'),
+    newParticipatingResource,
+
+    -- ** ParticipatingResourceID
+    ParticipatingResourceID (ParticipatingResourceID'),
+    newParticipatingResourceID,
 
     -- ** ParticipatingServer
     ParticipatingServer (ParticipatingServer'),
@@ -488,6 +580,10 @@ module Amazonka.DrS
     RecoveryInstanceProperties (RecoveryInstanceProperties'),
     newRecoveryInstanceProperties,
 
+    -- ** RecoveryLifeCycle
+    RecoveryLifeCycle (RecoveryLifeCycle'),
+    newRecoveryLifeCycle,
+
     -- ** RecoverySnapshot
     RecoverySnapshot (RecoverySnapshot'),
     newRecoverySnapshot,
@@ -508,6 +604,14 @@ module Amazonka.DrS
     SourceCloudProperties (SourceCloudProperties'),
     newSourceCloudProperties,
 
+    -- ** SourceNetwork
+    SourceNetwork (SourceNetwork'),
+    newSourceNetwork,
+
+    -- ** SourceNetworkData
+    SourceNetworkData (SourceNetworkData'),
+    newSourceNetworkData,
+
     -- ** SourceProperties
     SourceProperties (SourceProperties'),
     newSourceProperties,
@@ -527,23 +631,35 @@ module Amazonka.DrS
     -- ** StartRecoveryRequestSourceServer
     StartRecoveryRequestSourceServer (StartRecoveryRequestSourceServer'),
     newStartRecoveryRequestSourceServer,
+
+    -- ** StartSourceNetworkRecoveryRequestNetworkEntry
+    StartSourceNetworkRecoveryRequestNetworkEntry (StartSourceNetworkRecoveryRequestNetworkEntry'),
+    newStartSourceNetworkRecoveryRequestNetworkEntry,
   )
 where
 
+import Amazonka.DrS.AssociateSourceNetworkStack
 import Amazonka.DrS.CreateExtendedSourceServer
+import Amazonka.DrS.CreateLaunchConfigurationTemplate
 import Amazonka.DrS.CreateReplicationConfigurationTemplate
+import Amazonka.DrS.CreateSourceNetwork
 import Amazonka.DrS.DeleteJob
+import Amazonka.DrS.DeleteLaunchConfigurationTemplate
 import Amazonka.DrS.DeleteRecoveryInstance
 import Amazonka.DrS.DeleteReplicationConfigurationTemplate
+import Amazonka.DrS.DeleteSourceNetwork
 import Amazonka.DrS.DeleteSourceServer
 import Amazonka.DrS.DescribeJobLogItems
 import Amazonka.DrS.DescribeJobs
+import Amazonka.DrS.DescribeLaunchConfigurationTemplates
 import Amazonka.DrS.DescribeRecoveryInstances
 import Amazonka.DrS.DescribeRecoverySnapshots
 import Amazonka.DrS.DescribeReplicationConfigurationTemplates
+import Amazonka.DrS.DescribeSourceNetworks
 import Amazonka.DrS.DescribeSourceServers
 import Amazonka.DrS.DisconnectRecoveryInstance
 import Amazonka.DrS.DisconnectSourceServer
+import Amazonka.DrS.ExportSourceNetworkCfnTemplate
 import Amazonka.DrS.GetFailbackReplicationConfiguration
 import Amazonka.DrS.GetLaunchConfiguration
 import Amazonka.DrS.GetReplicationConfiguration
@@ -552,19 +668,22 @@ import Amazonka.DrS.Lens
 import Amazonka.DrS.ListExtensibleSourceServers
 import Amazonka.DrS.ListStagingAccounts
 import Amazonka.DrS.ListTagsForResource
-import Amazonka.DrS.RetryDataReplication
 import Amazonka.DrS.ReverseReplication
 import Amazonka.DrS.StartFailbackLaunch
 import Amazonka.DrS.StartRecovery
 import Amazonka.DrS.StartReplication
+import Amazonka.DrS.StartSourceNetworkRecovery
+import Amazonka.DrS.StartSourceNetworkReplication
 import Amazonka.DrS.StopFailback
 import Amazonka.DrS.StopReplication
+import Amazonka.DrS.StopSourceNetworkReplication
 import Amazonka.DrS.TagResource
 import Amazonka.DrS.TerminateRecoveryInstances
 import Amazonka.DrS.Types
 import Amazonka.DrS.UntagResource
 import Amazonka.DrS.UpdateFailbackReplicationConfiguration
 import Amazonka.DrS.UpdateLaunchConfiguration
+import Amazonka.DrS.UpdateLaunchConfigurationTemplate
 import Amazonka.DrS.UpdateReplicationConfiguration
 import Amazonka.DrS.UpdateReplicationConfigurationTemplate
 import Amazonka.DrS.Waiters

@@ -35,9 +35,8 @@ data ReplicationConfigurationReplicatedDisk = ReplicationConfigurationReplicated
     iops :: Prelude.Maybe Prelude.Natural,
     -- | Whether to boot from this disk or not.
     isBootDisk :: Prelude.Maybe Prelude.Bool,
-    -- | When @stagingDiskType@ is set to Auto, this field shows the current
-    -- staging disk EBS volume type as it is constantly updated by the service.
-    -- This is a read-only field.
+    -- | The Staging Disk EBS volume type to be used during replication when
+    -- @stagingDiskType@ is set to Auto. This is a read-only field.
     optimizedStagingDiskType :: Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType,
     -- | The Staging Disk EBS volume type to be used during replication.
     stagingDiskType :: Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType,
@@ -61,9 +60,8 @@ data ReplicationConfigurationReplicatedDisk = ReplicationConfigurationReplicated
 --
 -- 'isBootDisk', 'replicationConfigurationReplicatedDisk_isBootDisk' - Whether to boot from this disk or not.
 --
--- 'optimizedStagingDiskType', 'replicationConfigurationReplicatedDisk_optimizedStagingDiskType' - When @stagingDiskType@ is set to Auto, this field shows the current
--- staging disk EBS volume type as it is constantly updated by the service.
--- This is a read-only field.
+-- 'optimizedStagingDiskType', 'replicationConfigurationReplicatedDisk_optimizedStagingDiskType' - The Staging Disk EBS volume type to be used during replication when
+-- @stagingDiskType@ is set to Auto. This is a read-only field.
 --
 -- 'stagingDiskType', 'replicationConfigurationReplicatedDisk_stagingDiskType' - The Staging Disk EBS volume type to be used during replication.
 --
@@ -95,9 +93,8 @@ replicationConfigurationReplicatedDisk_iops = Lens.lens (\ReplicationConfigurati
 replicationConfigurationReplicatedDisk_isBootDisk :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe Prelude.Bool)
 replicationConfigurationReplicatedDisk_isBootDisk = Lens.lens (\ReplicationConfigurationReplicatedDisk' {isBootDisk} -> isBootDisk) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {isBootDisk = a} :: ReplicationConfigurationReplicatedDisk)
 
--- | When @stagingDiskType@ is set to Auto, this field shows the current
--- staging disk EBS volume type as it is constantly updated by the service.
--- This is a read-only field.
+-- | The Staging Disk EBS volume type to be used during replication when
+-- @stagingDiskType@ is set to Auto. This is a read-only field.
 replicationConfigurationReplicatedDisk_optimizedStagingDiskType :: Lens.Lens' ReplicationConfigurationReplicatedDisk (Prelude.Maybe ReplicationConfigurationReplicatedDiskStagingDiskType)
 replicationConfigurationReplicatedDisk_optimizedStagingDiskType = Lens.lens (\ReplicationConfigurationReplicatedDisk' {optimizedStagingDiskType} -> optimizedStagingDiskType) (\s@ReplicationConfigurationReplicatedDisk' {} a -> s {optimizedStagingDiskType = a} :: ReplicationConfigurationReplicatedDisk)
 
@@ -134,7 +131,8 @@ instance
   hashWithSalt
     _salt
     ReplicationConfigurationReplicatedDisk' {..} =
-      _salt `Prelude.hashWithSalt` deviceName
+      _salt
+        `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` iops
         `Prelude.hashWithSalt` isBootDisk
         `Prelude.hashWithSalt` optimizedStagingDiskType

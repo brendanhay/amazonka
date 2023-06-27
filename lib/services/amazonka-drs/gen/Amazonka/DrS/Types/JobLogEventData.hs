@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.ConversionProperties
+import Amazonka.DrS.Types.EventResourceData
 import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata associated with a Job log.
@@ -33,6 +34,8 @@ data JobLogEventData = JobLogEventData'
     conversionProperties :: Prelude.Maybe ConversionProperties,
     -- | The ID of a conversion server.
     conversionServerID :: Prelude.Maybe Prelude.Text,
+    -- | Properties of resource related to a job event.
+    eventResourceData :: Prelude.Maybe EventResourceData,
     -- | A string representing a job error.
     rawError :: Prelude.Maybe Prelude.Text,
     -- | The ID of a Source Server.
@@ -54,6 +57,8 @@ data JobLogEventData = JobLogEventData'
 --
 -- 'conversionServerID', 'jobLogEventData_conversionServerID' - The ID of a conversion server.
 --
+-- 'eventResourceData', 'jobLogEventData_eventResourceData' - Properties of resource related to a job event.
+--
 -- 'rawError', 'jobLogEventData_rawError' - A string representing a job error.
 --
 -- 'sourceServerID', 'jobLogEventData_sourceServerID' - The ID of a Source Server.
@@ -66,6 +71,7 @@ newJobLogEventData =
     { conversionProperties =
         Prelude.Nothing,
       conversionServerID = Prelude.Nothing,
+      eventResourceData = Prelude.Nothing,
       rawError = Prelude.Nothing,
       sourceServerID = Prelude.Nothing,
       targetInstanceID = Prelude.Nothing
@@ -78,6 +84,10 @@ jobLogEventData_conversionProperties = Lens.lens (\JobLogEventData' {conversionP
 -- | The ID of a conversion server.
 jobLogEventData_conversionServerID :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
 jobLogEventData_conversionServerID = Lens.lens (\JobLogEventData' {conversionServerID} -> conversionServerID) (\s@JobLogEventData' {} a -> s {conversionServerID = a} :: JobLogEventData)
+
+-- | Properties of resource related to a job event.
+jobLogEventData_eventResourceData :: Lens.Lens' JobLogEventData (Prelude.Maybe EventResourceData)
+jobLogEventData_eventResourceData = Lens.lens (\JobLogEventData' {eventResourceData} -> eventResourceData) (\s@JobLogEventData' {} a -> s {eventResourceData = a} :: JobLogEventData)
 
 -- | A string representing a job error.
 jobLogEventData_rawError :: Lens.Lens' JobLogEventData (Prelude.Maybe Prelude.Text)
@@ -99,6 +109,7 @@ instance Data.FromJSON JobLogEventData where
           JobLogEventData'
             Prelude.<$> (x Data..:? "conversionProperties")
             Prelude.<*> (x Data..:? "conversionServerID")
+            Prelude.<*> (x Data..:? "eventResourceData")
             Prelude.<*> (x Data..:? "rawError")
             Prelude.<*> (x Data..:? "sourceServerID")
             Prelude.<*> (x Data..:? "targetInstanceID")
@@ -106,8 +117,10 @@ instance Data.FromJSON JobLogEventData where
 
 instance Prelude.Hashable JobLogEventData where
   hashWithSalt _salt JobLogEventData' {..} =
-    _salt `Prelude.hashWithSalt` conversionProperties
+    _salt
+      `Prelude.hashWithSalt` conversionProperties
       `Prelude.hashWithSalt` conversionServerID
+      `Prelude.hashWithSalt` eventResourceData
       `Prelude.hashWithSalt` rawError
       `Prelude.hashWithSalt` sourceServerID
       `Prelude.hashWithSalt` targetInstanceID
@@ -116,6 +129,7 @@ instance Prelude.NFData JobLogEventData where
   rnf JobLogEventData' {..} =
     Prelude.rnf conversionProperties
       `Prelude.seq` Prelude.rnf conversionServerID
+      `Prelude.seq` Prelude.rnf eventResourceData
       `Prelude.seq` Prelude.rnf rawError
       `Prelude.seq` Prelude.rnf sourceServerID
       `Prelude.seq` Prelude.rnf targetInstanceID

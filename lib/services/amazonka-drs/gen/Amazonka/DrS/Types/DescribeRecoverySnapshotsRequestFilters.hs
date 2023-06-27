@@ -70,7 +70,8 @@ instance
   hashWithSalt
     _salt
     DescribeRecoverySnapshotsRequestFilters' {..} =
-      _salt `Prelude.hashWithSalt` fromDateTime
+      _salt
+        `Prelude.hashWithSalt` fromDateTime
         `Prelude.hashWithSalt` toDateTime
 
 instance

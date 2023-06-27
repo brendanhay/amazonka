@@ -22,6 +22,7 @@ module Amazonka.DrS.Types.LifeCycleLastLaunch where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
+import Amazonka.DrS.Types.LaunchStatus
 import Amazonka.DrS.Types.LifeCycleLastLaunchInitiated
 import qualified Amazonka.Prelude as Prelude
 
@@ -32,7 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 data LifeCycleLastLaunch = LifeCycleLastLaunch'
   { -- | An object containing information regarding the initiation of the last
     -- launch of a Source Server.
-    initiated :: Prelude.Maybe LifeCycleLastLaunchInitiated
+    initiated :: Prelude.Maybe LifeCycleLastLaunchInitiated,
+    -- | Status of Source Server\'s last launch.
+    status :: Prelude.Maybe LaunchStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,15 +49,24 @@ data LifeCycleLastLaunch = LifeCycleLastLaunch'
 --
 -- 'initiated', 'lifeCycleLastLaunch_initiated' - An object containing information regarding the initiation of the last
 -- launch of a Source Server.
+--
+-- 'status', 'lifeCycleLastLaunch_status' - Status of Source Server\'s last launch.
 newLifeCycleLastLaunch ::
   LifeCycleLastLaunch
 newLifeCycleLastLaunch =
-  LifeCycleLastLaunch' {initiated = Prelude.Nothing}
+  LifeCycleLastLaunch'
+    { initiated = Prelude.Nothing,
+      status = Prelude.Nothing
+    }
 
 -- | An object containing information regarding the initiation of the last
 -- launch of a Source Server.
 lifeCycleLastLaunch_initiated :: Lens.Lens' LifeCycleLastLaunch (Prelude.Maybe LifeCycleLastLaunchInitiated)
 lifeCycleLastLaunch_initiated = Lens.lens (\LifeCycleLastLaunch' {initiated} -> initiated) (\s@LifeCycleLastLaunch' {} a -> s {initiated = a} :: LifeCycleLastLaunch)
+
+-- | Status of Source Server\'s last launch.
+lifeCycleLastLaunch_status :: Lens.Lens' LifeCycleLastLaunch (Prelude.Maybe LaunchStatus)
+lifeCycleLastLaunch_status = Lens.lens (\LifeCycleLastLaunch' {status} -> status) (\s@LifeCycleLastLaunch' {} a -> s {status = a} :: LifeCycleLastLaunch)
 
 instance Data.FromJSON LifeCycleLastLaunch where
   parseJSON =
@@ -63,11 +75,16 @@ instance Data.FromJSON LifeCycleLastLaunch where
       ( \x ->
           LifeCycleLastLaunch'
             Prelude.<$> (x Data..:? "initiated")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance Prelude.Hashable LifeCycleLastLaunch where
   hashWithSalt _salt LifeCycleLastLaunch' {..} =
-    _salt `Prelude.hashWithSalt` initiated
+    _salt
+      `Prelude.hashWithSalt` initiated
+      `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LifeCycleLastLaunch where
-  rnf LifeCycleLastLaunch' {..} = Prelude.rnf initiated
+  rnf LifeCycleLastLaunch' {..} =
+    Prelude.rnf initiated
+      `Prelude.seq` Prelude.rnf status

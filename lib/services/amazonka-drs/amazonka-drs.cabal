@@ -44,20 +44,28 @@ library
 
   exposed-modules:
     Amazonka.DrS
+    Amazonka.DrS.AssociateSourceNetworkStack
     Amazonka.DrS.CreateExtendedSourceServer
+    Amazonka.DrS.CreateLaunchConfigurationTemplate
     Amazonka.DrS.CreateReplicationConfigurationTemplate
+    Amazonka.DrS.CreateSourceNetwork
     Amazonka.DrS.DeleteJob
+    Amazonka.DrS.DeleteLaunchConfigurationTemplate
     Amazonka.DrS.DeleteRecoveryInstance
     Amazonka.DrS.DeleteReplicationConfigurationTemplate
+    Amazonka.DrS.DeleteSourceNetwork
     Amazonka.DrS.DeleteSourceServer
     Amazonka.DrS.DescribeJobLogItems
     Amazonka.DrS.DescribeJobs
+    Amazonka.DrS.DescribeLaunchConfigurationTemplates
     Amazonka.DrS.DescribeRecoveryInstances
     Amazonka.DrS.DescribeRecoverySnapshots
     Amazonka.DrS.DescribeReplicationConfigurationTemplates
+    Amazonka.DrS.DescribeSourceNetworks
     Amazonka.DrS.DescribeSourceServers
     Amazonka.DrS.DisconnectRecoveryInstance
     Amazonka.DrS.DisconnectSourceServer
+    Amazonka.DrS.ExportSourceNetworkCfnTemplate
     Amazonka.DrS.GetFailbackReplicationConfiguration
     Amazonka.DrS.GetLaunchConfiguration
     Amazonka.DrS.GetReplicationConfiguration
@@ -66,13 +74,15 @@ library
     Amazonka.DrS.ListExtensibleSourceServers
     Amazonka.DrS.ListStagingAccounts
     Amazonka.DrS.ListTagsForResource
-    Amazonka.DrS.RetryDataReplication
     Amazonka.DrS.ReverseReplication
     Amazonka.DrS.StartFailbackLaunch
     Amazonka.DrS.StartRecovery
     Amazonka.DrS.StartReplication
+    Amazonka.DrS.StartSourceNetworkRecovery
+    Amazonka.DrS.StartSourceNetworkReplication
     Amazonka.DrS.StopFailback
     Amazonka.DrS.StopReplication
+    Amazonka.DrS.StopSourceNetworkReplication
     Amazonka.DrS.TagResource
     Amazonka.DrS.TerminateRecoveryInstances
     Amazonka.DrS.Types
@@ -91,9 +101,11 @@ library
     Amazonka.DrS.Types.DescribeJobsRequestFilters
     Amazonka.DrS.Types.DescribeRecoveryInstancesRequestFilters
     Amazonka.DrS.Types.DescribeRecoverySnapshotsRequestFilters
+    Amazonka.DrS.Types.DescribeSourceNetworksRequestFilters
     Amazonka.DrS.Types.DescribeSourceServersRequestFilters
     Amazonka.DrS.Types.Disk
     Amazonka.DrS.Types.EC2InstanceState
+    Amazonka.DrS.Types.EventResourceData
     Amazonka.DrS.Types.ExtensionStatus
     Amazonka.DrS.Types.FailbackLaunchType
     Amazonka.DrS.Types.FailbackReplicationError
@@ -109,6 +121,7 @@ library
     Amazonka.DrS.Types.LastLaunchResult
     Amazonka.DrS.Types.LastLaunchType
     Amazonka.DrS.Types.LaunchConfiguration
+    Amazonka.DrS.Types.LaunchConfigurationTemplate
     Amazonka.DrS.Types.LaunchDisposition
     Amazonka.DrS.Types.LaunchStatus
     Amazonka.DrS.Types.Licensing
@@ -118,6 +131,8 @@ library
     Amazonka.DrS.Types.NetworkInterface
     Amazonka.DrS.Types.OriginEnvironment
     Amazonka.DrS.Types.OS
+    Amazonka.DrS.Types.ParticipatingResource
+    Amazonka.DrS.Types.ParticipatingResourceID
     Amazonka.DrS.Types.ParticipatingServer
     Amazonka.DrS.Types.PITPolicyRule
     Amazonka.DrS.Types.PITPolicyRuleUnits
@@ -133,6 +148,8 @@ library
     Amazonka.DrS.Types.RecoveryInstanceDisk
     Amazonka.DrS.Types.RecoveryInstanceFailback
     Amazonka.DrS.Types.RecoveryInstanceProperties
+    Amazonka.DrS.Types.RecoveryLifeCycle
+    Amazonka.DrS.Types.RecoveryResult
     Amazonka.DrS.Types.RecoverySnapshot
     Amazonka.DrS.Types.RecoverySnapshotsOrder
     Amazonka.DrS.Types.ReplicationConfiguration
@@ -143,16 +160,21 @@ library
     Amazonka.DrS.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
     Amazonka.DrS.Types.ReplicationConfigurationTemplate
     Amazonka.DrS.Types.ReplicationDirection
+    Amazonka.DrS.Types.ReplicationStatus
     Amazonka.DrS.Types.SourceCloudProperties
+    Amazonka.DrS.Types.SourceNetwork
+    Amazonka.DrS.Types.SourceNetworkData
     Amazonka.DrS.Types.SourceProperties
     Amazonka.DrS.Types.SourceServer
     Amazonka.DrS.Types.StagingArea
     Amazonka.DrS.Types.StagingSourceServer
     Amazonka.DrS.Types.StartRecoveryRequestSourceServer
+    Amazonka.DrS.Types.StartSourceNetworkRecoveryRequestNetworkEntry
     Amazonka.DrS.Types.TargetInstanceTypeRightSizingMethod
     Amazonka.DrS.UntagResource
     Amazonka.DrS.UpdateFailbackReplicationConfiguration
     Amazonka.DrS.UpdateLaunchConfiguration
+    Amazonka.DrS.UpdateLaunchConfigurationTemplate
     Amazonka.DrS.UpdateReplicationConfiguration
     Amazonka.DrS.UpdateReplicationConfigurationTemplate
     Amazonka.DrS.Waiters

@@ -29,6 +29,7 @@ module Amazonka.DrS.UpdateReplicationConfigurationTemplate
     -- * Request Lenses
     updateReplicationConfigurationTemplate_arn,
     updateReplicationConfigurationTemplate_associateDefaultSecurityGroup,
+    updateReplicationConfigurationTemplate_autoReplicateNewDisks,
     updateReplicationConfigurationTemplate_bandwidthThrottling,
     updateReplicationConfigurationTemplate_createPublicIP,
     updateReplicationConfigurationTemplate_dataPlaneRouting,
@@ -50,6 +51,7 @@ module Amazonka.DrS.UpdateReplicationConfigurationTemplate
     -- * Response Lenses
     replicationConfigurationTemplate_arn,
     replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_autoReplicateNewDisks,
     replicationConfigurationTemplate_bandwidthThrottling,
     replicationConfigurationTemplate_createPublicIP,
     replicationConfigurationTemplate_dataPlaneRouting,
@@ -82,6 +84,9 @@ data UpdateReplicationConfigurationTemplate = UpdateReplicationConfigurationTemp
     -- | Whether to associate the default Elastic Disaster Recovery Security
     -- group with the Replication Configuration Template.
     associateDefaultSecurityGroup :: Prelude.Maybe Prelude.Bool,
+    -- | Whether to allow the AWS replication agent to automatically replicate
+    -- newly added disks.
+    autoReplicateNewDisks :: Prelude.Maybe Prelude.Bool,
     -- | Configure bandwidth throttling for the outbound data transfer rate of
     -- the Source Server in Mbps.
     bandwidthThrottling :: Prelude.Maybe Prelude.Natural,
@@ -129,6 +134,9 @@ data UpdateReplicationConfigurationTemplate = UpdateReplicationConfigurationTemp
 -- 'associateDefaultSecurityGroup', 'updateReplicationConfigurationTemplate_associateDefaultSecurityGroup' - Whether to associate the default Elastic Disaster Recovery Security
 -- group with the Replication Configuration Template.
 --
+-- 'autoReplicateNewDisks', 'updateReplicationConfigurationTemplate_autoReplicateNewDisks' - Whether to allow the AWS replication agent to automatically replicate
+-- newly added disks.
+--
 -- 'bandwidthThrottling', 'updateReplicationConfigurationTemplate_bandwidthThrottling' - Configure bandwidth throttling for the outbound data transfer rate of
 -- the Source Server in Mbps.
 --
@@ -170,6 +178,8 @@ newUpdateReplicationConfigurationTemplate
           Prelude.Nothing,
         associateDefaultSecurityGroup =
           Prelude.Nothing,
+        autoReplicateNewDisks =
+          Prelude.Nothing,
         bandwidthThrottling =
           Prelude.Nothing,
         createPublicIP = Prelude.Nothing,
@@ -201,6 +211,11 @@ updateReplicationConfigurationTemplate_arn = Lens.lens (\UpdateReplicationConfig
 -- group with the Replication Configuration Template.
 updateReplicationConfigurationTemplate_associateDefaultSecurityGroup :: Lens.Lens' UpdateReplicationConfigurationTemplate (Prelude.Maybe Prelude.Bool)
 updateReplicationConfigurationTemplate_associateDefaultSecurityGroup = Lens.lens (\UpdateReplicationConfigurationTemplate' {associateDefaultSecurityGroup} -> associateDefaultSecurityGroup) (\s@UpdateReplicationConfigurationTemplate' {} a -> s {associateDefaultSecurityGroup = a} :: UpdateReplicationConfigurationTemplate)
+
+-- | Whether to allow the AWS replication agent to automatically replicate
+-- newly added disks.
+updateReplicationConfigurationTemplate_autoReplicateNewDisks :: Lens.Lens' UpdateReplicationConfigurationTemplate (Prelude.Maybe Prelude.Bool)
+updateReplicationConfigurationTemplate_autoReplicateNewDisks = Lens.lens (\UpdateReplicationConfigurationTemplate' {autoReplicateNewDisks} -> autoReplicateNewDisks) (\s@UpdateReplicationConfigurationTemplate' {} a -> s {autoReplicateNewDisks = a} :: UpdateReplicationConfigurationTemplate)
 
 -- | Configure bandwidth throttling for the outbound data transfer rate of
 -- the Source Server in Mbps.
@@ -280,8 +295,10 @@ instance
   hashWithSalt
     _salt
     UpdateReplicationConfigurationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` associateDefaultSecurityGroup
+        `Prelude.hashWithSalt` autoReplicateNewDisks
         `Prelude.hashWithSalt` bandwidthThrottling
         `Prelude.hashWithSalt` createPublicIP
         `Prelude.hashWithSalt` dataPlaneRouting
@@ -303,6 +320,7 @@ instance
   rnf UpdateReplicationConfigurationTemplate' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf associateDefaultSecurityGroup
+      `Prelude.seq` Prelude.rnf autoReplicateNewDisks
       `Prelude.seq` Prelude.rnf bandwidthThrottling
       `Prelude.seq` Prelude.rnf createPublicIP
       `Prelude.seq` Prelude.rnf dataPlaneRouting
@@ -311,10 +329,12 @@ instance
       `Prelude.seq` Prelude.rnf ebsEncryptionKeyArn
       `Prelude.seq` Prelude.rnf pitPolicy
       `Prelude.seq` Prelude.rnf replicationServerInstanceType
-      `Prelude.seq` Prelude.rnf replicationServersSecurityGroupsIDs
+      `Prelude.seq` Prelude.rnf
+        replicationServersSecurityGroupsIDs
       `Prelude.seq` Prelude.rnf stagingAreaSubnetId
       `Prelude.seq` Prelude.rnf stagingAreaTags
-      `Prelude.seq` Prelude.rnf useDedicatedReplicationServer
+      `Prelude.seq` Prelude.rnf
+        useDedicatedReplicationServer
       `Prelude.seq` Prelude.rnf
         replicationConfigurationTemplateID
 
@@ -342,6 +362,8 @@ instance
           [ ("arn" Data..=) Prelude.<$> arn,
             ("associateDefaultSecurityGroup" Data..=)
               Prelude.<$> associateDefaultSecurityGroup,
+            ("autoReplicateNewDisks" Data..=)
+              Prelude.<$> autoReplicateNewDisks,
             ("bandwidthThrottling" Data..=)
               Prelude.<$> bandwidthThrottling,
             ("createPublicIP" Data..=)

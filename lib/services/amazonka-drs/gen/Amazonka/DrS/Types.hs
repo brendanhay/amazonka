@@ -93,6 +93,9 @@ module Amazonka.DrS.Types
     -- * RecoveryInstanceDataReplicationState
     RecoveryInstanceDataReplicationState (..),
 
+    -- * RecoveryResult
+    RecoveryResult (..),
+
     -- * RecoverySnapshotsOrder
     RecoverySnapshotsOrder (..),
 
@@ -110,6 +113,9 @@ module Amazonka.DrS.Types
 
     -- * ReplicationDirection
     ReplicationDirection (..),
+
+    -- * ReplicationStatus
+    ReplicationStatus (..),
 
     -- * TargetInstanceTypeRightSizingMethod
     TargetInstanceTypeRightSizingMethod (..),
@@ -149,6 +155,7 @@ module Amazonka.DrS.Types
     dataReplicationInfo_etaDateTime,
     dataReplicationInfo_lagDuration,
     dataReplicationInfo_replicatedDisks,
+    dataReplicationInfo_stagingAvailabilityZone,
 
     -- * DataReplicationInfoReplicatedDisk
     DataReplicationInfoReplicatedDisk (..),
@@ -191,6 +198,13 @@ module Amazonka.DrS.Types
     describeRecoverySnapshotsRequestFilters_fromDateTime,
     describeRecoverySnapshotsRequestFilters_toDateTime,
 
+    -- * DescribeSourceNetworksRequestFilters
+    DescribeSourceNetworksRequestFilters (..),
+    newDescribeSourceNetworksRequestFilters,
+    describeSourceNetworksRequestFilters_originAccountID,
+    describeSourceNetworksRequestFilters_originRegion,
+    describeSourceNetworksRequestFilters_sourceNetworkIDs,
+
     -- * DescribeSourceServersRequestFilters
     DescribeSourceServersRequestFilters (..),
     newDescribeSourceServersRequestFilters,
@@ -203,6 +217,11 @@ module Amazonka.DrS.Types
     newDisk,
     disk_bytes,
     disk_deviceName,
+
+    -- * EventResourceData
+    EventResourceData (..),
+    newEventResourceData,
+    eventResourceData_sourceNetworkData,
 
     -- * IdentificationHints
     IdentificationHints (..),
@@ -219,6 +238,7 @@ module Amazonka.DrS.Types
     job_creationDateTime,
     job_endDateTime,
     job_initiatedBy,
+    job_participatingResources,
     job_participatingServers,
     job_status,
     job_tags,
@@ -237,6 +257,7 @@ module Amazonka.DrS.Types
     newJobLogEventData,
     jobLogEventData_conversionProperties,
     jobLogEventData_conversionServerID,
+    jobLogEventData_eventResourceData,
     jobLogEventData_rawError,
     jobLogEventData_sourceServerID,
     jobLogEventData_targetInstanceID,
@@ -252,6 +273,19 @@ module Amazonka.DrS.Types
     launchConfiguration_name,
     launchConfiguration_sourceServerID,
     launchConfiguration_targetInstanceTypeRightSizingMethod,
+
+    -- * LaunchConfigurationTemplate
+    LaunchConfigurationTemplate (..),
+    newLaunchConfigurationTemplate,
+    launchConfigurationTemplate_arn,
+    launchConfigurationTemplate_copyPrivateIp,
+    launchConfigurationTemplate_copyTags,
+    launchConfigurationTemplate_exportBucketArn,
+    launchConfigurationTemplate_launchConfigurationTemplateID,
+    launchConfigurationTemplate_launchDisposition,
+    launchConfigurationTemplate_licensing,
+    launchConfigurationTemplate_tags,
+    launchConfigurationTemplate_targetInstanceTypeRightSizingMethod,
 
     -- * Licensing
     Licensing (..),
@@ -271,6 +305,7 @@ module Amazonka.DrS.Types
     LifeCycleLastLaunch (..),
     newLifeCycleLastLaunch,
     lifeCycleLastLaunch_initiated,
+    lifeCycleLastLaunch_status,
 
     -- * LifeCycleLastLaunchInitiated
     LifeCycleLastLaunchInitiated (..),
@@ -300,6 +335,17 @@ module Amazonka.DrS.Types
     pITPolicyRule_retentionDuration,
     pITPolicyRule_units,
 
+    -- * ParticipatingResource
+    ParticipatingResource (..),
+    newParticipatingResource,
+    participatingResource_launchStatus,
+    participatingResource_participatingResourceID,
+
+    -- * ParticipatingResourceID
+    ParticipatingResourceID (..),
+    newParticipatingResourceID,
+    participatingResourceID_sourceNetworkID,
+
     -- * ParticipatingServer
     ParticipatingServer (..),
     newParticipatingServer,
@@ -317,6 +363,7 @@ module Amazonka.DrS.Types
     recoveryInstance_failback,
     recoveryInstance_isDrill,
     recoveryInstance_jobID,
+    recoveryInstance_originAvailabilityZone,
     recoveryInstance_originEnvironment,
     recoveryInstance_pointInTimeSnapshotDateTime,
     recoveryInstance_recoveryInstanceID,
@@ -339,6 +386,7 @@ module Amazonka.DrS.Types
     recoveryInstanceDataReplicationInfo_etaDateTime,
     recoveryInstanceDataReplicationInfo_lagDuration,
     recoveryInstanceDataReplicationInfo_replicatedDisks,
+    recoveryInstanceDataReplicationInfo_stagingAvailabilityZone,
 
     -- * RecoveryInstanceDataReplicationInfoReplicatedDisk
     RecoveryInstanceDataReplicationInfoReplicatedDisk (..),
@@ -393,6 +441,13 @@ module Amazonka.DrS.Types
     recoveryInstanceProperties_os,
     recoveryInstanceProperties_ramBytes,
 
+    -- * RecoveryLifeCycle
+    RecoveryLifeCycle (..),
+    newRecoveryLifeCycle,
+    recoveryLifeCycle_apiCallDateTime,
+    recoveryLifeCycle_jobID,
+    recoveryLifeCycle_lastRecoveryResult,
+
     -- * RecoverySnapshot
     RecoverySnapshot (..),
     newRecoverySnapshot,
@@ -406,6 +461,7 @@ module Amazonka.DrS.Types
     ReplicationConfiguration (..),
     newReplicationConfiguration,
     replicationConfiguration_associateDefaultSecurityGroup,
+    replicationConfiguration_autoReplicateNewDisks,
     replicationConfiguration_bandwidthThrottling,
     replicationConfiguration_createPublicIP,
     replicationConfiguration_dataPlaneRouting,
@@ -437,6 +493,7 @@ module Amazonka.DrS.Types
     newReplicationConfigurationTemplate,
     replicationConfigurationTemplate_arn,
     replicationConfigurationTemplate_associateDefaultSecurityGroup,
+    replicationConfigurationTemplate_autoReplicateNewDisks,
     replicationConfigurationTemplate_bandwidthThrottling,
     replicationConfigurationTemplate_createPublicIP,
     replicationConfigurationTemplate_dataPlaneRouting,
@@ -459,6 +516,29 @@ module Amazonka.DrS.Types
     sourceCloudProperties_originAvailabilityZone,
     sourceCloudProperties_originRegion,
 
+    -- * SourceNetwork
+    SourceNetwork (..),
+    newSourceNetwork,
+    sourceNetwork_arn,
+    sourceNetwork_cfnStackName,
+    sourceNetwork_lastRecovery,
+    sourceNetwork_launchedVpcID,
+    sourceNetwork_replicationStatus,
+    sourceNetwork_replicationStatusDetails,
+    sourceNetwork_sourceAccountID,
+    sourceNetwork_sourceNetworkID,
+    sourceNetwork_sourceRegion,
+    sourceNetwork_sourceVpcID,
+    sourceNetwork_tags,
+
+    -- * SourceNetworkData
+    SourceNetworkData (..),
+    newSourceNetworkData,
+    sourceNetworkData_sourceNetworkID,
+    sourceNetworkData_sourceVpc,
+    sourceNetworkData_stackName,
+    sourceNetworkData_targetVpc,
+
     -- * SourceProperties
     SourceProperties (..),
     newSourceProperties,
@@ -470,6 +550,7 @@ module Amazonka.DrS.Types
     sourceProperties_os,
     sourceProperties_ramBytes,
     sourceProperties_recommendedInstanceType,
+    sourceProperties_supportsNitroInstances,
 
     -- * SourceServer
     SourceServer (..),
@@ -482,6 +563,7 @@ module Amazonka.DrS.Types
     sourceServer_replicationDirection,
     sourceServer_reversedDirectionSourceServerArn,
     sourceServer_sourceCloudProperties,
+    sourceServer_sourceNetworkID,
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_stagingArea,
@@ -507,6 +589,12 @@ module Amazonka.DrS.Types
     newStartRecoveryRequestSourceServer,
     startRecoveryRequestSourceServer_recoverySnapshotID,
     startRecoveryRequestSourceServer_sourceServerID,
+
+    -- * StartSourceNetworkRecoveryRequestNetworkEntry
+    StartSourceNetworkRecoveryRequestNetworkEntry (..),
+    newStartSourceNetworkRecoveryRequestNetworkEntry,
+    startSourceNetworkRecoveryRequestNetworkEntry_cfnStackName,
+    startSourceNetworkRecoveryRequestNetworkEntry_sourceNetworkID,
   )
 where
 
@@ -527,9 +615,11 @@ import Amazonka.DrS.Types.DataReplicationState
 import Amazonka.DrS.Types.DescribeJobsRequestFilters
 import Amazonka.DrS.Types.DescribeRecoveryInstancesRequestFilters
 import Amazonka.DrS.Types.DescribeRecoverySnapshotsRequestFilters
+import Amazonka.DrS.Types.DescribeSourceNetworksRequestFilters
 import Amazonka.DrS.Types.DescribeSourceServersRequestFilters
 import Amazonka.DrS.Types.Disk
 import Amazonka.DrS.Types.EC2InstanceState
+import Amazonka.DrS.Types.EventResourceData
 import Amazonka.DrS.Types.ExtensionStatus
 import Amazonka.DrS.Types.FailbackLaunchType
 import Amazonka.DrS.Types.FailbackReplicationError
@@ -545,6 +635,7 @@ import Amazonka.DrS.Types.JobType
 import Amazonka.DrS.Types.LastLaunchResult
 import Amazonka.DrS.Types.LastLaunchType
 import Amazonka.DrS.Types.LaunchConfiguration
+import Amazonka.DrS.Types.LaunchConfigurationTemplate
 import Amazonka.DrS.Types.LaunchDisposition
 import Amazonka.DrS.Types.LaunchStatus
 import Amazonka.DrS.Types.Licensing
@@ -556,6 +647,8 @@ import Amazonka.DrS.Types.OS
 import Amazonka.DrS.Types.OriginEnvironment
 import Amazonka.DrS.Types.PITPolicyRule
 import Amazonka.DrS.Types.PITPolicyRuleUnits
+import Amazonka.DrS.Types.ParticipatingResource
+import Amazonka.DrS.Types.ParticipatingResourceID
 import Amazonka.DrS.Types.ParticipatingServer
 import Amazonka.DrS.Types.RecoveryInstance
 import Amazonka.DrS.Types.RecoveryInstanceDataReplicationError
@@ -569,6 +662,8 @@ import Amazonka.DrS.Types.RecoveryInstanceDataReplicationState
 import Amazonka.DrS.Types.RecoveryInstanceDisk
 import Amazonka.DrS.Types.RecoveryInstanceFailback
 import Amazonka.DrS.Types.RecoveryInstanceProperties
+import Amazonka.DrS.Types.RecoveryLifeCycle
+import Amazonka.DrS.Types.RecoveryResult
 import Amazonka.DrS.Types.RecoverySnapshot
 import Amazonka.DrS.Types.RecoverySnapshotsOrder
 import Amazonka.DrS.Types.ReplicationConfiguration
@@ -579,12 +674,16 @@ import Amazonka.DrS.Types.ReplicationConfigurationReplicatedDisk
 import Amazonka.DrS.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
 import Amazonka.DrS.Types.ReplicationConfigurationTemplate
 import Amazonka.DrS.Types.ReplicationDirection
+import Amazonka.DrS.Types.ReplicationStatus
 import Amazonka.DrS.Types.SourceCloudProperties
+import Amazonka.DrS.Types.SourceNetwork
+import Amazonka.DrS.Types.SourceNetworkData
 import Amazonka.DrS.Types.SourceProperties
 import Amazonka.DrS.Types.SourceServer
 import Amazonka.DrS.Types.StagingArea
 import Amazonka.DrS.Types.StagingSourceServer
 import Amazonka.DrS.Types.StartRecoveryRequestSourceServer
+import Amazonka.DrS.Types.StartSourceNetworkRecoveryRequestNetworkEntry
 import Amazonka.DrS.Types.TargetInstanceTypeRightSizingMethod
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -615,52 +714,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient access to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -669,7 +768,7 @@ _AccessDeniedException =
 
 -- | The request could not be completed due to a conflict with the current
 -- state of the target resource.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -678,7 +777,7 @@ _ConflictException =
 
 -- | The request processing has failed because of an unknown error, exception
 -- or failure.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -686,7 +785,7 @@ _InternalServerException =
     Prelude.. Core.hasStatus 500
 
 -- | The resource for this operation was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -695,7 +794,7 @@ _ResourceNotFoundException =
 
 -- | The request could not be completed because its exceeded the service
 -- quota.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -703,7 +802,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -711,7 +810,7 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | The account performing the request has not been initialized.
-_UninitializedAccountException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UninitializedAccountException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UninitializedAccountException =
   Core._MatchServiceError
     defaultService
@@ -719,7 +818,7 @@ _UninitializedAccountException =
     Prelude.. Core.hasStatus 400
 
 -- | The input fails to satisfy the constraints specified by the AWS service.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

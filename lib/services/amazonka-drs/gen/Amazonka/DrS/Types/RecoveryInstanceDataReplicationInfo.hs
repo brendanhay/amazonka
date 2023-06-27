@@ -43,7 +43,9 @@ data RecoveryInstanceDataReplicationInfo = RecoveryInstanceDataReplicationInfo'
     -- | Data replication lag duration.
     lagDuration :: Prelude.Maybe Prelude.Text,
     -- | The disks that should be replicated.
-    replicatedDisks :: Prelude.Maybe [RecoveryInstanceDataReplicationInfoReplicatedDisk]
+    replicatedDisks :: Prelude.Maybe [RecoveryInstanceDataReplicationInfoReplicatedDisk],
+    -- | AWS Availability zone into which data is being replicated.
+    stagingAvailabilityZone :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +68,8 @@ data RecoveryInstanceDataReplicationInfo = RecoveryInstanceDataReplicationInfo'
 -- 'lagDuration', 'recoveryInstanceDataReplicationInfo_lagDuration' - Data replication lag duration.
 --
 -- 'replicatedDisks', 'recoveryInstanceDataReplicationInfo_replicatedDisks' - The disks that should be replicated.
+--
+-- 'stagingAvailabilityZone', 'recoveryInstanceDataReplicationInfo_stagingAvailabilityZone' - AWS Availability zone into which data is being replicated.
 newRecoveryInstanceDataReplicationInfo ::
   RecoveryInstanceDataReplicationInfo
 newRecoveryInstanceDataReplicationInfo =
@@ -77,7 +81,9 @@ newRecoveryInstanceDataReplicationInfo =
       dataReplicationState = Prelude.Nothing,
       etaDateTime = Prelude.Nothing,
       lagDuration = Prelude.Nothing,
-      replicatedDisks = Prelude.Nothing
+      replicatedDisks = Prelude.Nothing,
+      stagingAvailabilityZone =
+        Prelude.Nothing
     }
 
 -- | Information about Data Replication
@@ -104,6 +110,10 @@ recoveryInstanceDataReplicationInfo_lagDuration = Lens.lens (\RecoveryInstanceDa
 recoveryInstanceDataReplicationInfo_replicatedDisks :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe [RecoveryInstanceDataReplicationInfoReplicatedDisk])
 recoveryInstanceDataReplicationInfo_replicatedDisks = Lens.lens (\RecoveryInstanceDataReplicationInfo' {replicatedDisks} -> replicatedDisks) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {replicatedDisks = a} :: RecoveryInstanceDataReplicationInfo) Prelude.. Lens.mapping Lens.coerced
 
+-- | AWS Availability zone into which data is being replicated.
+recoveryInstanceDataReplicationInfo_stagingAvailabilityZone :: Lens.Lens' RecoveryInstanceDataReplicationInfo (Prelude.Maybe Prelude.Text)
+recoveryInstanceDataReplicationInfo_stagingAvailabilityZone = Lens.lens (\RecoveryInstanceDataReplicationInfo' {stagingAvailabilityZone} -> stagingAvailabilityZone) (\s@RecoveryInstanceDataReplicationInfo' {} a -> s {stagingAvailabilityZone = a} :: RecoveryInstanceDataReplicationInfo)
+
 instance
   Data.FromJSON
     RecoveryInstanceDataReplicationInfo
@@ -118,9 +128,11 @@ instance
             Prelude.<*> (x Data..:? "dataReplicationState")
             Prelude.<*> (x Data..:? "etaDateTime")
             Prelude.<*> (x Data..:? "lagDuration")
-            Prelude.<*> ( x Data..:? "replicatedDisks"
+            Prelude.<*> ( x
+                            Data..:? "replicatedDisks"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "stagingAvailabilityZone")
       )
 
 instance
@@ -130,12 +142,14 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationInfo' {..} =
-      _salt `Prelude.hashWithSalt` dataReplicationError
+      _salt
+        `Prelude.hashWithSalt` dataReplicationError
         `Prelude.hashWithSalt` dataReplicationInitiation
         `Prelude.hashWithSalt` dataReplicationState
         `Prelude.hashWithSalt` etaDateTime
         `Prelude.hashWithSalt` lagDuration
         `Prelude.hashWithSalt` replicatedDisks
+        `Prelude.hashWithSalt` stagingAvailabilityZone
 
 instance
   Prelude.NFData
@@ -148,3 +162,4 @@ instance
       `Prelude.seq` Prelude.rnf etaDateTime
       `Prelude.seq` Prelude.rnf lagDuration
       `Prelude.seq` Prelude.rnf replicatedDisks
+      `Prelude.seq` Prelude.rnf stagingAvailabilityZone

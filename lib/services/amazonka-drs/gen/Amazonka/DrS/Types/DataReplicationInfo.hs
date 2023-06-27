@@ -43,7 +43,9 @@ data DataReplicationInfo = DataReplicationInfo'
     -- | Data replication lag duration.
     lagDuration :: Prelude.Maybe Prelude.Text,
     -- | The disks that should be replicated.
-    replicatedDisks :: Prelude.Maybe [DataReplicationInfoReplicatedDisk]
+    replicatedDisks :: Prelude.Maybe [DataReplicationInfoReplicatedDisk],
+    -- | AWS Availability zone into which data is being replicated.
+    stagingAvailabilityZone :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,6 +68,8 @@ data DataReplicationInfo = DataReplicationInfo'
 -- 'lagDuration', 'dataReplicationInfo_lagDuration' - Data replication lag duration.
 --
 -- 'replicatedDisks', 'dataReplicationInfo_replicatedDisks' - The disks that should be replicated.
+--
+-- 'stagingAvailabilityZone', 'dataReplicationInfo_stagingAvailabilityZone' - AWS Availability zone into which data is being replicated.
 newDataReplicationInfo ::
   DataReplicationInfo
 newDataReplicationInfo =
@@ -76,7 +80,8 @@ newDataReplicationInfo =
       dataReplicationState = Prelude.Nothing,
       etaDateTime = Prelude.Nothing,
       lagDuration = Prelude.Nothing,
-      replicatedDisks = Prelude.Nothing
+      replicatedDisks = Prelude.Nothing,
+      stagingAvailabilityZone = Prelude.Nothing
     }
 
 -- | Error in data replication.
@@ -103,6 +108,10 @@ dataReplicationInfo_lagDuration = Lens.lens (\DataReplicationInfo' {lagDuration}
 dataReplicationInfo_replicatedDisks :: Lens.Lens' DataReplicationInfo (Prelude.Maybe [DataReplicationInfoReplicatedDisk])
 dataReplicationInfo_replicatedDisks = Lens.lens (\DataReplicationInfo' {replicatedDisks} -> replicatedDisks) (\s@DataReplicationInfo' {} a -> s {replicatedDisks = a} :: DataReplicationInfo) Prelude.. Lens.mapping Lens.coerced
 
+-- | AWS Availability zone into which data is being replicated.
+dataReplicationInfo_stagingAvailabilityZone :: Lens.Lens' DataReplicationInfo (Prelude.Maybe Prelude.Text)
+dataReplicationInfo_stagingAvailabilityZone = Lens.lens (\DataReplicationInfo' {stagingAvailabilityZone} -> stagingAvailabilityZone) (\s@DataReplicationInfo' {} a -> s {stagingAvailabilityZone = a} :: DataReplicationInfo)
+
 instance Data.FromJSON DataReplicationInfo where
   parseJSON =
     Data.withObject
@@ -114,19 +123,23 @@ instance Data.FromJSON DataReplicationInfo where
             Prelude.<*> (x Data..:? "dataReplicationState")
             Prelude.<*> (x Data..:? "etaDateTime")
             Prelude.<*> (x Data..:? "lagDuration")
-            Prelude.<*> ( x Data..:? "replicatedDisks"
+            Prelude.<*> ( x
+                            Data..:? "replicatedDisks"
                             Data..!= Prelude.mempty
                         )
+            Prelude.<*> (x Data..:? "stagingAvailabilityZone")
       )
 
 instance Prelude.Hashable DataReplicationInfo where
   hashWithSalt _salt DataReplicationInfo' {..} =
-    _salt `Prelude.hashWithSalt` dataReplicationError
+    _salt
+      `Prelude.hashWithSalt` dataReplicationError
       `Prelude.hashWithSalt` dataReplicationInitiation
       `Prelude.hashWithSalt` dataReplicationState
       `Prelude.hashWithSalt` etaDateTime
       `Prelude.hashWithSalt` lagDuration
       `Prelude.hashWithSalt` replicatedDisks
+      `Prelude.hashWithSalt` stagingAvailabilityZone
 
 instance Prelude.NFData DataReplicationInfo where
   rnf DataReplicationInfo' {..} =
@@ -136,3 +149,4 @@ instance Prelude.NFData DataReplicationInfo where
       `Prelude.seq` Prelude.rnf etaDateTime
       `Prelude.seq` Prelude.rnf lagDuration
       `Prelude.seq` Prelude.rnf replicatedDisks
+      `Prelude.seq` Prelude.rnf stagingAvailabilityZone

@@ -102,17 +102,20 @@ instance Data.FromJSON ConversionProperties where
             Prelude.<$> (x Data..:? "dataTimestamp")
             Prelude.<*> (x Data..:? "forceUefi")
             Prelude.<*> (x Data..:? "rootVolumeName")
-            Prelude.<*> ( x Data..:? "volumeToConversionMap"
+            Prelude.<*> ( x
+                            Data..:? "volumeToConversionMap"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "volumeToVolumeSize"
+            Prelude.<*> ( x
+                            Data..:? "volumeToVolumeSize"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ConversionProperties where
   hashWithSalt _salt ConversionProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataTimestamp
+    _salt
+      `Prelude.hashWithSalt` dataTimestamp
       `Prelude.hashWithSalt` forceUefi
       `Prelude.hashWithSalt` rootVolumeName
       `Prelude.hashWithSalt` volumeToConversionMap

@@ -55,6 +55,7 @@ module Amazonka.DrS.DisconnectSourceServer
     sourceServer_replicationDirection,
     sourceServer_reversedDirectionSourceServerArn,
     sourceServer_sourceCloudProperties,
+    sourceServer_sourceNetworkID,
     sourceServer_sourceProperties,
     sourceServer_sourceServerID,
     sourceServer_stagingArea,

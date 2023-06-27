@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationError' {..} =
-      _salt `Prelude.hashWithSalt` error
+      _salt
+        `Prelude.hashWithSalt` error
         `Prelude.hashWithSalt` rawError
 
 instance

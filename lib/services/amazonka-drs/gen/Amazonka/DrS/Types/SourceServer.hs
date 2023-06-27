@@ -51,6 +51,9 @@ data SourceServer = SourceServer'
     reversedDirectionSourceServerArn :: Prelude.Maybe Prelude.Text,
     -- | Source cloud properties of the Source Server.
     sourceCloudProperties :: Prelude.Maybe SourceCloudProperties,
+    -- | ID of the Source Network which is protecting this Source Server\'s
+    -- network.
+    sourceNetworkID :: Prelude.Maybe Prelude.Text,
     -- | The source properties of the Source Server.
     sourceProperties :: Prelude.Maybe SourceProperties,
     -- | The ID of the Source Server.
@@ -88,6 +91,9 @@ data SourceServer = SourceServer'
 --
 -- 'sourceCloudProperties', 'sourceServer_sourceCloudProperties' - Source cloud properties of the Source Server.
 --
+-- 'sourceNetworkID', 'sourceServer_sourceNetworkID' - ID of the Source Network which is protecting this Source Server\'s
+-- network.
+--
 -- 'sourceProperties', 'sourceServer_sourceProperties' - The source properties of the Source Server.
 --
 -- 'sourceServerID', 'sourceServer_sourceServerID' - The ID of the Source Server.
@@ -107,6 +113,7 @@ newSourceServer =
       replicationDirection = Prelude.Nothing,
       reversedDirectionSourceServerArn = Prelude.Nothing,
       sourceCloudProperties = Prelude.Nothing,
+      sourceNetworkID = Prelude.Nothing,
       sourceProperties = Prelude.Nothing,
       sourceServerID = Prelude.Nothing,
       stagingArea = Prelude.Nothing,
@@ -147,6 +154,11 @@ sourceServer_reversedDirectionSourceServerArn = Lens.lens (\SourceServer' {rever
 sourceServer_sourceCloudProperties :: Lens.Lens' SourceServer (Prelude.Maybe SourceCloudProperties)
 sourceServer_sourceCloudProperties = Lens.lens (\SourceServer' {sourceCloudProperties} -> sourceCloudProperties) (\s@SourceServer' {} a -> s {sourceCloudProperties = a} :: SourceServer)
 
+-- | ID of the Source Network which is protecting this Source Server\'s
+-- network.
+sourceServer_sourceNetworkID :: Lens.Lens' SourceServer (Prelude.Maybe Prelude.Text)
+sourceServer_sourceNetworkID = Lens.lens (\SourceServer' {sourceNetworkID} -> sourceNetworkID) (\s@SourceServer' {} a -> s {sourceNetworkID = a} :: SourceServer)
+
 -- | The source properties of the Source Server.
 sourceServer_sourceProperties :: Lens.Lens' SourceServer (Prelude.Maybe SourceProperties)
 sourceServer_sourceProperties = Lens.lens (\SourceServer' {sourceProperties} -> sourceProperties) (\s@SourceServer' {} a -> s {sourceProperties = a} :: SourceServer)
@@ -177,6 +189,7 @@ instance Data.FromJSON SourceServer where
             Prelude.<*> (x Data..:? "replicationDirection")
             Prelude.<*> (x Data..:? "reversedDirectionSourceServerArn")
             Prelude.<*> (x Data..:? "sourceCloudProperties")
+            Prelude.<*> (x Data..:? "sourceNetworkID")
             Prelude.<*> (x Data..:? "sourceProperties")
             Prelude.<*> (x Data..:? "sourceServerID")
             Prelude.<*> (x Data..:? "stagingArea")
@@ -185,7 +198,8 @@ instance Data.FromJSON SourceServer where
 
 instance Prelude.Hashable SourceServer where
   hashWithSalt _salt SourceServer' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataReplicationInfo
       `Prelude.hashWithSalt` lastLaunchResult
       `Prelude.hashWithSalt` lifeCycle
@@ -193,6 +207,7 @@ instance Prelude.Hashable SourceServer where
       `Prelude.hashWithSalt` replicationDirection
       `Prelude.hashWithSalt` reversedDirectionSourceServerArn
       `Prelude.hashWithSalt` sourceCloudProperties
+      `Prelude.hashWithSalt` sourceNetworkID
       `Prelude.hashWithSalt` sourceProperties
       `Prelude.hashWithSalt` sourceServerID
       `Prelude.hashWithSalt` stagingArea
@@ -208,6 +223,7 @@ instance Prelude.NFData SourceServer where
       `Prelude.seq` Prelude.rnf replicationDirection
       `Prelude.seq` Prelude.rnf reversedDirectionSourceServerArn
       `Prelude.seq` Prelude.rnf sourceCloudProperties
+      `Prelude.seq` Prelude.rnf sourceNetworkID
       `Prelude.seq` Prelude.rnf sourceProperties
       `Prelude.seq` Prelude.rnf sourceServerID
       `Prelude.seq` Prelude.rnf stagingArea

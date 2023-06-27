@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     DescribeSourceServersRequestFilters' {..} =
-      _salt `Prelude.hashWithSalt` hardwareId
+      _salt
+        `Prelude.hashWithSalt` hardwareId
         `Prelude.hashWithSalt` sourceServerIDs
         `Prelude.hashWithSalt` stagingAccountIDs
 

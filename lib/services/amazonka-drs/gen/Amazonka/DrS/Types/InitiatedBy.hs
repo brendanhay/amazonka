@@ -20,12 +20,15 @@
 module Amazonka.DrS.Types.InitiatedBy
   ( InitiatedBy
       ( ..,
+        InitiatedBy_ASSOCIATE_NETWORK_RECOVERY,
+        InitiatedBy_CREATE_NETWORK_RECOVERY,
         InitiatedBy_DIAGNOSTIC,
         InitiatedBy_FAILBACK,
         InitiatedBy_START_DRILL,
         InitiatedBy_START_RECOVERY,
         InitiatedBy_TARGET_ACCOUNT,
-        InitiatedBy_TERMINATE_RECOVERY_INSTANCES
+        InitiatedBy_TERMINATE_RECOVERY_INSTANCES,
+        InitiatedBy_UPDATE_NETWORK_RECOVERY
       ),
   )
 where
@@ -62,6 +65,12 @@ newtype InitiatedBy = InitiatedBy'
       Data.ToXML
     )
 
+pattern InitiatedBy_ASSOCIATE_NETWORK_RECOVERY :: InitiatedBy
+pattern InitiatedBy_ASSOCIATE_NETWORK_RECOVERY = InitiatedBy' "ASSOCIATE_NETWORK_RECOVERY"
+
+pattern InitiatedBy_CREATE_NETWORK_RECOVERY :: InitiatedBy
+pattern InitiatedBy_CREATE_NETWORK_RECOVERY = InitiatedBy' "CREATE_NETWORK_RECOVERY"
+
 pattern InitiatedBy_DIAGNOSTIC :: InitiatedBy
 pattern InitiatedBy_DIAGNOSTIC = InitiatedBy' "DIAGNOSTIC"
 
@@ -80,12 +89,18 @@ pattern InitiatedBy_TARGET_ACCOUNT = InitiatedBy' "TARGET_ACCOUNT"
 pattern InitiatedBy_TERMINATE_RECOVERY_INSTANCES :: InitiatedBy
 pattern InitiatedBy_TERMINATE_RECOVERY_INSTANCES = InitiatedBy' "TERMINATE_RECOVERY_INSTANCES"
 
+pattern InitiatedBy_UPDATE_NETWORK_RECOVERY :: InitiatedBy
+pattern InitiatedBy_UPDATE_NETWORK_RECOVERY = InitiatedBy' "UPDATE_NETWORK_RECOVERY"
+
 {-# COMPLETE
+  InitiatedBy_ASSOCIATE_NETWORK_RECOVERY,
+  InitiatedBy_CREATE_NETWORK_RECOVERY,
   InitiatedBy_DIAGNOSTIC,
   InitiatedBy_FAILBACK,
   InitiatedBy_START_DRILL,
   InitiatedBy_START_RECOVERY,
   InitiatedBy_TARGET_ACCOUNT,
   InitiatedBy_TERMINATE_RECOVERY_INSTANCES,
+  InitiatedBy_UPDATE_NETWORK_RECOVERY,
   InitiatedBy'
   #-}

@@ -75,7 +75,8 @@ instance
   hashWithSalt
     _salt
     StartRecoveryRequestSourceServer' {..} =
-      _salt `Prelude.hashWithSalt` recoverySnapshotID
+      _salt
+        `Prelude.hashWithSalt` recoverySnapshotID
         `Prelude.hashWithSalt` sourceServerID
 
 instance

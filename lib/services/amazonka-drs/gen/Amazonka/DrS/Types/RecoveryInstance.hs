@@ -49,6 +49,8 @@ data RecoveryInstance = RecoveryInstance'
     isDrill :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Job that created the Recovery Instance.
     jobID :: Prelude.Maybe Prelude.Text,
+    -- | AWS availability zone associated with the recovery instance.
+    originAvailabilityZone :: Prelude.Maybe Prelude.Text,
     -- | Environment (On Premises \/ AWS) of the instance that the recovery
     -- instance originated from.
     originEnvironment :: Prelude.Maybe OriginEnvironment,
@@ -90,6 +92,8 @@ data RecoveryInstance = RecoveryInstance'
 --
 -- 'jobID', 'recoveryInstance_jobID' - The ID of the Job that created the Recovery Instance.
 --
+-- 'originAvailabilityZone', 'recoveryInstance_originAvailabilityZone' - AWS availability zone associated with the recovery instance.
+--
 -- 'originEnvironment', 'recoveryInstance_originEnvironment' - Environment (On Premises \/ AWS) of the instance that the recovery
 -- instance originated from.
 --
@@ -114,6 +118,7 @@ newRecoveryInstance =
       failback = Prelude.Nothing,
       isDrill = Prelude.Nothing,
       jobID = Prelude.Nothing,
+      originAvailabilityZone = Prelude.Nothing,
       originEnvironment = Prelude.Nothing,
       pointInTimeSnapshotDateTime = Prelude.Nothing,
       recoveryInstanceID = Prelude.Nothing,
@@ -151,6 +156,10 @@ recoveryInstance_isDrill = Lens.lens (\RecoveryInstance' {isDrill} -> isDrill) (
 -- | The ID of the Job that created the Recovery Instance.
 recoveryInstance_jobID :: Lens.Lens' RecoveryInstance (Prelude.Maybe Prelude.Text)
 recoveryInstance_jobID = Lens.lens (\RecoveryInstance' {jobID} -> jobID) (\s@RecoveryInstance' {} a -> s {jobID = a} :: RecoveryInstance)
+
+-- | AWS availability zone associated with the recovery instance.
+recoveryInstance_originAvailabilityZone :: Lens.Lens' RecoveryInstance (Prelude.Maybe Prelude.Text)
+recoveryInstance_originAvailabilityZone = Lens.lens (\RecoveryInstance' {originAvailabilityZone} -> originAvailabilityZone) (\s@RecoveryInstance' {} a -> s {originAvailabilityZone = a} :: RecoveryInstance)
 
 -- | Environment (On Premises \/ AWS) of the instance that the recovery
 -- instance originated from.
@@ -191,6 +200,7 @@ instance Data.FromJSON RecoveryInstance where
             Prelude.<*> (x Data..:? "failback")
             Prelude.<*> (x Data..:? "isDrill")
             Prelude.<*> (x Data..:? "jobID")
+            Prelude.<*> (x Data..:? "originAvailabilityZone")
             Prelude.<*> (x Data..:? "originEnvironment")
             Prelude.<*> (x Data..:? "pointInTimeSnapshotDateTime")
             Prelude.<*> (x Data..:? "recoveryInstanceID")
@@ -201,13 +211,15 @@ instance Data.FromJSON RecoveryInstance where
 
 instance Prelude.Hashable RecoveryInstance where
   hashWithSalt _salt RecoveryInstance' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataReplicationInfo
       `Prelude.hashWithSalt` ec2InstanceID
       `Prelude.hashWithSalt` ec2InstanceState
       `Prelude.hashWithSalt` failback
       `Prelude.hashWithSalt` isDrill
       `Prelude.hashWithSalt` jobID
+      `Prelude.hashWithSalt` originAvailabilityZone
       `Prelude.hashWithSalt` originEnvironment
       `Prelude.hashWithSalt` pointInTimeSnapshotDateTime
       `Prelude.hashWithSalt` recoveryInstanceID
@@ -224,6 +236,7 @@ instance Prelude.NFData RecoveryInstance where
       `Prelude.seq` Prelude.rnf failback
       `Prelude.seq` Prelude.rnf isDrill
       `Prelude.seq` Prelude.rnf jobID
+      `Prelude.seq` Prelude.rnf originAvailabilityZone
       `Prelude.seq` Prelude.rnf originEnvironment
       `Prelude.seq` Prelude.rnf pointInTimeSnapshotDateTime
       `Prelude.seq` Prelude.rnf recoveryInstanceID

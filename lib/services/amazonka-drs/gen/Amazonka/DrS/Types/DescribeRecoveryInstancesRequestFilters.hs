@@ -76,7 +76,8 @@ instance
   hashWithSalt
     _salt
     DescribeRecoveryInstancesRequestFilters' {..} =
-      _salt `Prelude.hashWithSalt` recoveryInstanceIDs
+      _salt
+        `Prelude.hashWithSalt` recoveryInstanceIDs
         `Prelude.hashWithSalt` sourceServerIDs
 
 instance

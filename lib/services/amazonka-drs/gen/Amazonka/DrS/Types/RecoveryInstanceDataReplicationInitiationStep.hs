@@ -75,7 +75,7 @@ instance
       ( \x ->
           RecoveryInstanceDataReplicationInitiationStep'
             Prelude.<$> (x Data..:? "name")
-              Prelude.<*> (x Data..:? "status")
+            Prelude.<*> (x Data..:? "status")
       )
 
 instance
@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     RecoveryInstanceDataReplicationInitiationStep' {..} =
-      _salt `Prelude.hashWithSalt` name
+      _salt
+        `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` status
 
 instance

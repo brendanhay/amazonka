@@ -27,20 +27,35 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCreateExtendedSourceServer $
+--         [ requestAssociateSourceNetworkStack $
+--             newAssociateSourceNetworkStack
+--
+--         , requestCreateExtendedSourceServer $
 --             newCreateExtendedSourceServer
+--
+--         , requestCreateLaunchConfigurationTemplate $
+--             newCreateLaunchConfigurationTemplate
 --
 --         , requestCreateReplicationConfigurationTemplate $
 --             newCreateReplicationConfigurationTemplate
 --
+--         , requestCreateSourceNetwork $
+--             newCreateSourceNetwork
+--
 --         , requestDeleteJob $
 --             newDeleteJob
+--
+--         , requestDeleteLaunchConfigurationTemplate $
+--             newDeleteLaunchConfigurationTemplate
 --
 --         , requestDeleteRecoveryInstance $
 --             newDeleteRecoveryInstance
 --
 --         , requestDeleteReplicationConfigurationTemplate $
 --             newDeleteReplicationConfigurationTemplate
+--
+--         , requestDeleteSourceNetwork $
+--             newDeleteSourceNetwork
 --
 --         , requestDeleteSourceServer $
 --             newDeleteSourceServer
@@ -51,6 +66,9 @@ import Test.Tasty
 --         , requestDescribeJobs $
 --             newDescribeJobs
 --
+--         , requestDescribeLaunchConfigurationTemplates $
+--             newDescribeLaunchConfigurationTemplates
+--
 --         , requestDescribeRecoveryInstances $
 --             newDescribeRecoveryInstances
 --
@@ -60,6 +78,9 @@ import Test.Tasty
 --         , requestDescribeReplicationConfigurationTemplates $
 --             newDescribeReplicationConfigurationTemplates
 --
+--         , requestDescribeSourceNetworks $
+--             newDescribeSourceNetworks
+--
 --         , requestDescribeSourceServers $
 --             newDescribeSourceServers
 --
@@ -68,6 +89,9 @@ import Test.Tasty
 --
 --         , requestDisconnectSourceServer $
 --             newDisconnectSourceServer
+--
+--         , requestExportSourceNetworkCfnTemplate $
+--             newExportSourceNetworkCfnTemplate
 --
 --         , requestGetFailbackReplicationConfiguration $
 --             newGetFailbackReplicationConfiguration
@@ -90,9 +114,6 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
---         , requestRetryDataReplication $
---             newRetryDataReplication
---
 --         , requestReverseReplication $
 --             newReverseReplication
 --
@@ -105,11 +126,20 @@ import Test.Tasty
 --         , requestStartReplication $
 --             newStartReplication
 --
+--         , requestStartSourceNetworkRecovery $
+--             newStartSourceNetworkRecovery
+--
+--         , requestStartSourceNetworkReplication $
+--             newStartSourceNetworkReplication
+--
 --         , requestStopFailback $
 --             newStopFailback
 --
 --         , requestStopReplication $
 --             newStopReplication
+--
+--         , requestStopSourceNetworkReplication $
+--             newStopSourceNetworkReplication
 --
 --         , requestTagResource $
 --             newTagResource
@@ -126,6 +156,9 @@ import Test.Tasty
 --         , requestUpdateLaunchConfiguration $
 --             newUpdateLaunchConfiguration
 --
+--         , requestUpdateLaunchConfigurationTemplate $
+--             newUpdateLaunchConfigurationTemplate
+--
 --         , requestUpdateReplicationConfiguration $
 --             newUpdateReplicationConfiguration
 --
@@ -135,20 +168,35 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCreateExtendedSourceServer $
+--         [ responseAssociateSourceNetworkStack $
+--             newAssociateSourceNetworkStackResponse
+--
+--         , responseCreateExtendedSourceServer $
 --             newCreateExtendedSourceServerResponse
+--
+--         , responseCreateLaunchConfigurationTemplate $
+--             newCreateLaunchConfigurationTemplateResponse
 --
 --         , responseCreateReplicationConfigurationTemplate $
 --             newReplicationConfigurationTemplate
 --
+--         , responseCreateSourceNetwork $
+--             newCreateSourceNetworkResponse
+--
 --         , responseDeleteJob $
 --             newDeleteJobResponse
+--
+--         , responseDeleteLaunchConfigurationTemplate $
+--             newDeleteLaunchConfigurationTemplateResponse
 --
 --         , responseDeleteRecoveryInstance $
 --             newDeleteRecoveryInstanceResponse
 --
 --         , responseDeleteReplicationConfigurationTemplate $
 --             newDeleteReplicationConfigurationTemplateResponse
+--
+--         , responseDeleteSourceNetwork $
+--             newDeleteSourceNetworkResponse
 --
 --         , responseDeleteSourceServer $
 --             newDeleteSourceServerResponse
@@ -159,6 +207,9 @@ import Test.Tasty
 --         , responseDescribeJobs $
 --             newDescribeJobsResponse
 --
+--         , responseDescribeLaunchConfigurationTemplates $
+--             newDescribeLaunchConfigurationTemplatesResponse
+--
 --         , responseDescribeRecoveryInstances $
 --             newDescribeRecoveryInstancesResponse
 --
@@ -168,6 +219,9 @@ import Test.Tasty
 --         , responseDescribeReplicationConfigurationTemplates $
 --             newDescribeReplicationConfigurationTemplatesResponse
 --
+--         , responseDescribeSourceNetworks $
+--             newDescribeSourceNetworksResponse
+--
 --         , responseDescribeSourceServers $
 --             newDescribeSourceServersResponse
 --
@@ -176,6 +230,9 @@ import Test.Tasty
 --
 --         , responseDisconnectSourceServer $
 --             newSourceServer
+--
+--         , responseExportSourceNetworkCfnTemplate $
+--             newExportSourceNetworkCfnTemplateResponse
 --
 --         , responseGetFailbackReplicationConfiguration $
 --             newGetFailbackReplicationConfigurationResponse
@@ -198,9 +255,6 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
---         , responseRetryDataReplication $
---             newSourceServer
---
 --         , responseReverseReplication $
 --             newReverseReplicationResponse
 --
@@ -213,11 +267,20 @@ import Test.Tasty
 --         , responseStartReplication $
 --             newStartReplicationResponse
 --
+--         , responseStartSourceNetworkRecovery $
+--             newStartSourceNetworkRecoveryResponse
+--
+--         , responseStartSourceNetworkReplication $
+--             newStartSourceNetworkReplicationResponse
+--
 --         , responseStopFailback $
 --             newStopFailbackResponse
 --
 --         , responseStopReplication $
 --             newStopReplicationResponse
+--
+--         , responseStopSourceNetworkReplication $
+--             newStopSourceNetworkReplicationResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -234,6 +297,9 @@ import Test.Tasty
 --         , responseUpdateLaunchConfiguration $
 --             newLaunchConfiguration
 --
+--         , responseUpdateLaunchConfigurationTemplate $
+--             newUpdateLaunchConfigurationTemplateResponse
+--
 --         , responseUpdateReplicationConfiguration $
 --             newReplicationConfiguration
 --
@@ -245,11 +311,23 @@ import Test.Tasty
 
 -- Requests
 
+requestAssociateSourceNetworkStack :: AssociateSourceNetworkStack -> TestTree
+requestAssociateSourceNetworkStack =
+  req
+    "AssociateSourceNetworkStack"
+    "fixture/AssociateSourceNetworkStack.yaml"
+
 requestCreateExtendedSourceServer :: CreateExtendedSourceServer -> TestTree
 requestCreateExtendedSourceServer =
   req
     "CreateExtendedSourceServer"
     "fixture/CreateExtendedSourceServer.yaml"
+
+requestCreateLaunchConfigurationTemplate :: CreateLaunchConfigurationTemplate -> TestTree
+requestCreateLaunchConfigurationTemplate =
+  req
+    "CreateLaunchConfigurationTemplate"
+    "fixture/CreateLaunchConfigurationTemplate.yaml"
 
 requestCreateReplicationConfigurationTemplate :: CreateReplicationConfigurationTemplate -> TestTree
 requestCreateReplicationConfigurationTemplate =
@@ -257,11 +335,23 @@ requestCreateReplicationConfigurationTemplate =
     "CreateReplicationConfigurationTemplate"
     "fixture/CreateReplicationConfigurationTemplate.yaml"
 
+requestCreateSourceNetwork :: CreateSourceNetwork -> TestTree
+requestCreateSourceNetwork =
+  req
+    "CreateSourceNetwork"
+    "fixture/CreateSourceNetwork.yaml"
+
 requestDeleteJob :: DeleteJob -> TestTree
 requestDeleteJob =
   req
     "DeleteJob"
     "fixture/DeleteJob.yaml"
+
+requestDeleteLaunchConfigurationTemplate :: DeleteLaunchConfigurationTemplate -> TestTree
+requestDeleteLaunchConfigurationTemplate =
+  req
+    "DeleteLaunchConfigurationTemplate"
+    "fixture/DeleteLaunchConfigurationTemplate.yaml"
 
 requestDeleteRecoveryInstance :: DeleteRecoveryInstance -> TestTree
 requestDeleteRecoveryInstance =
@@ -274,6 +364,12 @@ requestDeleteReplicationConfigurationTemplate =
   req
     "DeleteReplicationConfigurationTemplate"
     "fixture/DeleteReplicationConfigurationTemplate.yaml"
+
+requestDeleteSourceNetwork :: DeleteSourceNetwork -> TestTree
+requestDeleteSourceNetwork =
+  req
+    "DeleteSourceNetwork"
+    "fixture/DeleteSourceNetwork.yaml"
 
 requestDeleteSourceServer :: DeleteSourceServer -> TestTree
 requestDeleteSourceServer =
@@ -293,6 +389,12 @@ requestDescribeJobs =
     "DescribeJobs"
     "fixture/DescribeJobs.yaml"
 
+requestDescribeLaunchConfigurationTemplates :: DescribeLaunchConfigurationTemplates -> TestTree
+requestDescribeLaunchConfigurationTemplates =
+  req
+    "DescribeLaunchConfigurationTemplates"
+    "fixture/DescribeLaunchConfigurationTemplates.yaml"
+
 requestDescribeRecoveryInstances :: DescribeRecoveryInstances -> TestTree
 requestDescribeRecoveryInstances =
   req
@@ -311,6 +413,12 @@ requestDescribeReplicationConfigurationTemplates =
     "DescribeReplicationConfigurationTemplates"
     "fixture/DescribeReplicationConfigurationTemplates.yaml"
 
+requestDescribeSourceNetworks :: DescribeSourceNetworks -> TestTree
+requestDescribeSourceNetworks =
+  req
+    "DescribeSourceNetworks"
+    "fixture/DescribeSourceNetworks.yaml"
+
 requestDescribeSourceServers :: DescribeSourceServers -> TestTree
 requestDescribeSourceServers =
   req
@@ -328,6 +436,12 @@ requestDisconnectSourceServer =
   req
     "DisconnectSourceServer"
     "fixture/DisconnectSourceServer.yaml"
+
+requestExportSourceNetworkCfnTemplate :: ExportSourceNetworkCfnTemplate -> TestTree
+requestExportSourceNetworkCfnTemplate =
+  req
+    "ExportSourceNetworkCfnTemplate"
+    "fixture/ExportSourceNetworkCfnTemplate.yaml"
 
 requestGetFailbackReplicationConfiguration :: GetFailbackReplicationConfiguration -> TestTree
 requestGetFailbackReplicationConfiguration =
@@ -371,12 +485,6 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
-requestRetryDataReplication :: RetryDataReplication -> TestTree
-requestRetryDataReplication =
-  req
-    "RetryDataReplication"
-    "fixture/RetryDataReplication.yaml"
-
 requestReverseReplication :: ReverseReplication -> TestTree
 requestReverseReplication =
   req
@@ -401,6 +509,18 @@ requestStartReplication =
     "StartReplication"
     "fixture/StartReplication.yaml"
 
+requestStartSourceNetworkRecovery :: StartSourceNetworkRecovery -> TestTree
+requestStartSourceNetworkRecovery =
+  req
+    "StartSourceNetworkRecovery"
+    "fixture/StartSourceNetworkRecovery.yaml"
+
+requestStartSourceNetworkReplication :: StartSourceNetworkReplication -> TestTree
+requestStartSourceNetworkReplication =
+  req
+    "StartSourceNetworkReplication"
+    "fixture/StartSourceNetworkReplication.yaml"
+
 requestStopFailback :: StopFailback -> TestTree
 requestStopFailback =
   req
@@ -412,6 +532,12 @@ requestStopReplication =
   req
     "StopReplication"
     "fixture/StopReplication.yaml"
+
+requestStopSourceNetworkReplication :: StopSourceNetworkReplication -> TestTree
+requestStopSourceNetworkReplication =
+  req
+    "StopSourceNetworkReplication"
+    "fixture/StopSourceNetworkReplication.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -443,6 +569,12 @@ requestUpdateLaunchConfiguration =
     "UpdateLaunchConfiguration"
     "fixture/UpdateLaunchConfiguration.yaml"
 
+requestUpdateLaunchConfigurationTemplate :: UpdateLaunchConfigurationTemplate -> TestTree
+requestUpdateLaunchConfigurationTemplate =
+  req
+    "UpdateLaunchConfigurationTemplate"
+    "fixture/UpdateLaunchConfigurationTemplate.yaml"
+
 requestUpdateReplicationConfiguration :: UpdateReplicationConfiguration -> TestTree
 requestUpdateReplicationConfiguration =
   req
@@ -457,6 +589,14 @@ requestUpdateReplicationConfigurationTemplate =
 
 -- Responses
 
+responseAssociateSourceNetworkStack :: AssociateSourceNetworkStackResponse -> TestTree
+responseAssociateSourceNetworkStack =
+  res
+    "AssociateSourceNetworkStackResponse"
+    "fixture/AssociateSourceNetworkStackResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateSourceNetworkStack)
+
 responseCreateExtendedSourceServer :: CreateExtendedSourceServerResponse -> TestTree
 responseCreateExtendedSourceServer =
   res
@@ -464,6 +604,14 @@ responseCreateExtendedSourceServer =
     "fixture/CreateExtendedSourceServerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateExtendedSourceServer)
+
+responseCreateLaunchConfigurationTemplate :: CreateLaunchConfigurationTemplateResponse -> TestTree
+responseCreateLaunchConfigurationTemplate =
+  res
+    "CreateLaunchConfigurationTemplateResponse"
+    "fixture/CreateLaunchConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLaunchConfigurationTemplate)
 
 responseCreateReplicationConfigurationTemplate :: ReplicationConfigurationTemplate -> TestTree
 responseCreateReplicationConfigurationTemplate =
@@ -473,6 +621,14 @@ responseCreateReplicationConfigurationTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateReplicationConfigurationTemplate)
 
+responseCreateSourceNetwork :: CreateSourceNetworkResponse -> TestTree
+responseCreateSourceNetwork =
+  res
+    "CreateSourceNetworkResponse"
+    "fixture/CreateSourceNetworkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateSourceNetwork)
+
 responseDeleteJob :: DeleteJobResponse -> TestTree
 responseDeleteJob =
   res
@@ -480,6 +636,14 @@ responseDeleteJob =
     "fixture/DeleteJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteJob)
+
+responseDeleteLaunchConfigurationTemplate :: DeleteLaunchConfigurationTemplateResponse -> TestTree
+responseDeleteLaunchConfigurationTemplate =
+  res
+    "DeleteLaunchConfigurationTemplateResponse"
+    "fixture/DeleteLaunchConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchConfigurationTemplate)
 
 responseDeleteRecoveryInstance :: DeleteRecoveryInstanceResponse -> TestTree
 responseDeleteRecoveryInstance =
@@ -496,6 +660,14 @@ responseDeleteReplicationConfigurationTemplate =
     "fixture/DeleteReplicationConfigurationTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteReplicationConfigurationTemplate)
+
+responseDeleteSourceNetwork :: DeleteSourceNetworkResponse -> TestTree
+responseDeleteSourceNetwork =
+  res
+    "DeleteSourceNetworkResponse"
+    "fixture/DeleteSourceNetworkResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSourceNetwork)
 
 responseDeleteSourceServer :: DeleteSourceServerResponse -> TestTree
 responseDeleteSourceServer =
@@ -521,6 +693,14 @@ responseDescribeJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeJobs)
 
+responseDescribeLaunchConfigurationTemplates :: DescribeLaunchConfigurationTemplatesResponse -> TestTree
+responseDescribeLaunchConfigurationTemplates =
+  res
+    "DescribeLaunchConfigurationTemplatesResponse"
+    "fixture/DescribeLaunchConfigurationTemplatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLaunchConfigurationTemplates)
+
 responseDescribeRecoveryInstances :: DescribeRecoveryInstancesResponse -> TestTree
 responseDescribeRecoveryInstances =
   res
@@ -545,6 +725,14 @@ responseDescribeReplicationConfigurationTemplates =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeReplicationConfigurationTemplates)
 
+responseDescribeSourceNetworks :: DescribeSourceNetworksResponse -> TestTree
+responseDescribeSourceNetworks =
+  res
+    "DescribeSourceNetworksResponse"
+    "fixture/DescribeSourceNetworksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSourceNetworks)
+
 responseDescribeSourceServers :: DescribeSourceServersResponse -> TestTree
 responseDescribeSourceServers =
   res
@@ -568,6 +756,14 @@ responseDisconnectSourceServer =
     "fixture/DisconnectSourceServerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisconnectSourceServer)
+
+responseExportSourceNetworkCfnTemplate :: ExportSourceNetworkCfnTemplateResponse -> TestTree
+responseExportSourceNetworkCfnTemplate =
+  res
+    "ExportSourceNetworkCfnTemplateResponse"
+    "fixture/ExportSourceNetworkCfnTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportSourceNetworkCfnTemplate)
 
 responseGetFailbackReplicationConfiguration :: GetFailbackReplicationConfigurationResponse -> TestTree
 responseGetFailbackReplicationConfiguration =
@@ -625,14 +821,6 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
-responseRetryDataReplication :: SourceServer -> TestTree
-responseRetryDataReplication =
-  res
-    "RetryDataReplicationResponse"
-    "fixture/RetryDataReplicationResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RetryDataReplication)
-
 responseReverseReplication :: ReverseReplicationResponse -> TestTree
 responseReverseReplication =
   res
@@ -665,6 +853,22 @@ responseStartReplication =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartReplication)
 
+responseStartSourceNetworkRecovery :: StartSourceNetworkRecoveryResponse -> TestTree
+responseStartSourceNetworkRecovery =
+  res
+    "StartSourceNetworkRecoveryResponse"
+    "fixture/StartSourceNetworkRecoveryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSourceNetworkRecovery)
+
+responseStartSourceNetworkReplication :: StartSourceNetworkReplicationResponse -> TestTree
+responseStartSourceNetworkReplication =
+  res
+    "StartSourceNetworkReplicationResponse"
+    "fixture/StartSourceNetworkReplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartSourceNetworkReplication)
+
 responseStopFailback :: StopFailbackResponse -> TestTree
 responseStopFailback =
   res
@@ -680,6 +884,14 @@ responseStopReplication =
     "fixture/StopReplicationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopReplication)
+
+responseStopSourceNetworkReplication :: StopSourceNetworkReplicationResponse -> TestTree
+responseStopSourceNetworkReplication =
+  res
+    "StopSourceNetworkReplicationResponse"
+    "fixture/StopSourceNetworkReplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopSourceNetworkReplication)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -720,6 +932,14 @@ responseUpdateLaunchConfiguration =
     "fixture/UpdateLaunchConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateLaunchConfiguration)
+
+responseUpdateLaunchConfigurationTemplate :: UpdateLaunchConfigurationTemplateResponse -> TestTree
+responseUpdateLaunchConfigurationTemplate =
+  res
+    "UpdateLaunchConfigurationTemplateResponse"
+    "fixture/UpdateLaunchConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchConfigurationTemplate)
 
 responseUpdateReplicationConfiguration :: ReplicationConfiguration -> TestTree
 responseUpdateReplicationConfiguration =

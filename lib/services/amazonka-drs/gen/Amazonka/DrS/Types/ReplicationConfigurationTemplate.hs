@@ -35,6 +35,9 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
     -- | Whether to associate the default Elastic Disaster Recovery Security
     -- group with the Replication Configuration Template.
     associateDefaultSecurityGroup :: Prelude.Maybe Prelude.Bool,
+    -- | Whether to allow the AWS replication agent to automatically replicate
+    -- newly added disks.
+    autoReplicateNewDisks :: Prelude.Maybe Prelude.Bool,
     -- | Configure bandwidth throttling for the outbound data transfer rate of
     -- the Source Server in Mbps.
     bandwidthThrottling :: Prelude.Maybe Prelude.Natural,
@@ -85,6 +88,9 @@ data ReplicationConfigurationTemplate = ReplicationConfigurationTemplate'
 -- 'associateDefaultSecurityGroup', 'replicationConfigurationTemplate_associateDefaultSecurityGroup' - Whether to associate the default Elastic Disaster Recovery Security
 -- group with the Replication Configuration Template.
 --
+-- 'autoReplicateNewDisks', 'replicationConfigurationTemplate_autoReplicateNewDisks' - Whether to allow the AWS replication agent to automatically replicate
+-- newly added disks.
+--
 -- 'bandwidthThrottling', 'replicationConfigurationTemplate_bandwidthThrottling' - Configure bandwidth throttling for the outbound data transfer rate of
 -- the Source Server in Mbps.
 --
@@ -129,6 +135,7 @@ newReplicationConfigurationTemplate
           Prelude.Nothing,
         associateDefaultSecurityGroup =
           Prelude.Nothing,
+        autoReplicateNewDisks = Prelude.Nothing,
         bandwidthThrottling = Prelude.Nothing,
         createPublicIP = Prelude.Nothing,
         dataPlaneRouting = Prelude.Nothing,
@@ -158,6 +165,11 @@ replicationConfigurationTemplate_arn = Lens.lens (\ReplicationConfigurationTempl
 -- group with the Replication Configuration Template.
 replicationConfigurationTemplate_associateDefaultSecurityGroup :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe Prelude.Bool)
 replicationConfigurationTemplate_associateDefaultSecurityGroup = Lens.lens (\ReplicationConfigurationTemplate' {associateDefaultSecurityGroup} -> associateDefaultSecurityGroup) (\s@ReplicationConfigurationTemplate' {} a -> s {associateDefaultSecurityGroup = a} :: ReplicationConfigurationTemplate)
+
+-- | Whether to allow the AWS replication agent to automatically replicate
+-- newly added disks.
+replicationConfigurationTemplate_autoReplicateNewDisks :: Lens.Lens' ReplicationConfigurationTemplate (Prelude.Maybe Prelude.Bool)
+replicationConfigurationTemplate_autoReplicateNewDisks = Lens.lens (\ReplicationConfigurationTemplate' {autoReplicateNewDisks} -> autoReplicateNewDisks) (\s@ReplicationConfigurationTemplate' {} a -> s {autoReplicateNewDisks = a} :: ReplicationConfigurationTemplate)
 
 -- | Configure bandwidth throttling for the outbound data transfer rate of
 -- the Source Server in Mbps.
@@ -232,6 +244,7 @@ instance
           ReplicationConfigurationTemplate'
             Prelude.<$> (x Data..:? "arn")
             Prelude.<*> (x Data..:? "associateDefaultSecurityGroup")
+            Prelude.<*> (x Data..:? "autoReplicateNewDisks")
             Prelude.<*> (x Data..:? "bandwidthThrottling")
             Prelude.<*> (x Data..:? "createPublicIP")
             Prelude.<*> (x Data..:? "dataPlaneRouting")
@@ -240,11 +253,13 @@ instance
             Prelude.<*> (x Data..:? "ebsEncryptionKeyArn")
             Prelude.<*> (x Data..:? "pitPolicy")
             Prelude.<*> (x Data..:? "replicationServerInstanceType")
-            Prelude.<*> ( x Data..:? "replicationServersSecurityGroupsIDs"
+            Prelude.<*> ( x
+                            Data..:? "replicationServersSecurityGroupsIDs"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "stagingAreaSubnetId")
-            Prelude.<*> ( x Data..:? "stagingAreaTags"
+            Prelude.<*> ( x
+                            Data..:? "stagingAreaTags"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
@@ -259,8 +274,10 @@ instance
   hashWithSalt
     _salt
     ReplicationConfigurationTemplate' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` associateDefaultSecurityGroup
+        `Prelude.hashWithSalt` autoReplicateNewDisks
         `Prelude.hashWithSalt` bandwidthThrottling
         `Prelude.hashWithSalt` createPublicIP
         `Prelude.hashWithSalt` dataPlaneRouting
@@ -283,6 +300,7 @@ instance
   rnf ReplicationConfigurationTemplate' {..} =
     Prelude.rnf arn
       `Prelude.seq` Prelude.rnf associateDefaultSecurityGroup
+      `Prelude.seq` Prelude.rnf autoReplicateNewDisks
       `Prelude.seq` Prelude.rnf bandwidthThrottling
       `Prelude.seq` Prelude.rnf createPublicIP
       `Prelude.seq` Prelude.rnf dataPlaneRouting
@@ -291,7 +309,8 @@ instance
       `Prelude.seq` Prelude.rnf ebsEncryptionKeyArn
       `Prelude.seq` Prelude.rnf pitPolicy
       `Prelude.seq` Prelude.rnf replicationServerInstanceType
-      `Prelude.seq` Prelude.rnf replicationServersSecurityGroupsIDs
+      `Prelude.seq` Prelude.rnf
+        replicationServersSecurityGroupsIDs
       `Prelude.seq` Prelude.rnf stagingAreaSubnetId
       `Prelude.seq` Prelude.rnf stagingAreaTags
       `Prelude.seq` Prelude.rnf tags

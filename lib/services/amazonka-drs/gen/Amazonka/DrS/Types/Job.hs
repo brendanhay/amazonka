@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.DrS.Types.InitiatedBy
 import Amazonka.DrS.Types.JobStatus
 import Amazonka.DrS.Types.JobType
+import Amazonka.DrS.Types.ParticipatingResource
 import Amazonka.DrS.Types.ParticipatingServer
 import qualified Amazonka.Prelude as Prelude
 
@@ -40,6 +41,8 @@ data Job = Job'
     endDateTime :: Prelude.Maybe Prelude.Text,
     -- | A string representing who initiated the Job.
     initiatedBy :: Prelude.Maybe InitiatedBy,
+    -- | A list of resources that the Job is acting upon.
+    participatingResources :: Prelude.Maybe [ParticipatingResource],
     -- | A list of servers that the Job is acting upon.
     participatingServers :: Prelude.Maybe [ParticipatingServer],
     -- | The status of the Job.
@@ -69,6 +72,8 @@ data Job = Job'
 --
 -- 'initiatedBy', 'job_initiatedBy' - A string representing who initiated the Job.
 --
+-- 'participatingResources', 'job_participatingResources' - A list of resources that the Job is acting upon.
+--
 -- 'participatingServers', 'job_participatingServers' - A list of servers that the Job is acting upon.
 --
 -- 'status', 'job_status' - The status of the Job.
@@ -88,6 +93,7 @@ newJob pJobID_ =
       creationDateTime = Prelude.Nothing,
       endDateTime = Prelude.Nothing,
       initiatedBy = Prelude.Nothing,
+      participatingResources = Prelude.Nothing,
       participatingServers = Prelude.Nothing,
       status = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -110,6 +116,10 @@ job_endDateTime = Lens.lens (\Job' {endDateTime} -> endDateTime) (\s@Job' {} a -
 -- | A string representing who initiated the Job.
 job_initiatedBy :: Lens.Lens' Job (Prelude.Maybe InitiatedBy)
 job_initiatedBy = Lens.lens (\Job' {initiatedBy} -> initiatedBy) (\s@Job' {} a -> s {initiatedBy = a} :: Job)
+
+-- | A list of resources that the Job is acting upon.
+job_participatingResources :: Lens.Lens' Job (Prelude.Maybe [ParticipatingResource])
+job_participatingResources = Lens.lens (\Job' {participatingResources} -> participatingResources) (\s@Job' {} a -> s {participatingResources = a} :: Job) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of servers that the Job is acting upon.
 job_participatingServers :: Lens.Lens' Job (Prelude.Maybe [ParticipatingServer])
@@ -141,7 +151,12 @@ instance Data.FromJSON Job where
             Prelude.<*> (x Data..:? "creationDateTime")
             Prelude.<*> (x Data..:? "endDateTime")
             Prelude.<*> (x Data..:? "initiatedBy")
-            Prelude.<*> ( x Data..:? "participatingServers"
+            Prelude.<*> ( x
+                            Data..:? "participatingResources"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "participatingServers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "status")
@@ -152,10 +167,12 @@ instance Data.FromJSON Job where
 
 instance Prelude.Hashable Job where
   hashWithSalt _salt Job' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDateTime
       `Prelude.hashWithSalt` endDateTime
       `Prelude.hashWithSalt` initiatedBy
+      `Prelude.hashWithSalt` participatingResources
       `Prelude.hashWithSalt` participatingServers
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` tags
@@ -168,6 +185,7 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf creationDateTime
       `Prelude.seq` Prelude.rnf endDateTime
       `Prelude.seq` Prelude.rnf initiatedBy
+      `Prelude.seq` Prelude.rnf participatingResources
       `Prelude.seq` Prelude.rnf participatingServers
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf tags

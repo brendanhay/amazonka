@@ -21,7 +21,8 @@ module Amazonka.DrS.Types.ReplicationConfigurationEbsEncryption
   ( ReplicationConfigurationEbsEncryption
       ( ..,
         ReplicationConfigurationEbsEncryption_CUSTOM,
-        ReplicationConfigurationEbsEncryption_DEFAULT
+        ReplicationConfigurationEbsEncryption_DEFAULT,
+        ReplicationConfigurationEbsEncryption_NONE
       ),
   )
 where
@@ -64,8 +65,12 @@ pattern ReplicationConfigurationEbsEncryption_CUSTOM = ReplicationConfigurationE
 pattern ReplicationConfigurationEbsEncryption_DEFAULT :: ReplicationConfigurationEbsEncryption
 pattern ReplicationConfigurationEbsEncryption_DEFAULT = ReplicationConfigurationEbsEncryption' "DEFAULT"
 
+pattern ReplicationConfigurationEbsEncryption_NONE :: ReplicationConfigurationEbsEncryption
+pattern ReplicationConfigurationEbsEncryption_NONE = ReplicationConfigurationEbsEncryption' "NONE"
+
 {-# COMPLETE
   ReplicationConfigurationEbsEncryption_CUSTOM,
   ReplicationConfigurationEbsEncryption_DEFAULT,
+  ReplicationConfigurationEbsEncryption_NONE,
   ReplicationConfigurationEbsEncryption'
   #-}

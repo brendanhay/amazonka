@@ -49,7 +49,10 @@ data SourceProperties = SourceProperties'
     ramBytes :: Prelude.Maybe Prelude.Natural,
     -- | The recommended EC2 instance type that will be used when recovering the
     -- Source Server.
-    recommendedInstanceType :: Prelude.Maybe Prelude.Text
+    recommendedInstanceType :: Prelude.Maybe Prelude.Text,
+    -- | Are EC2 nitro instance types supported when recovering the Source
+    -- Server.
+    supportsNitroInstances :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +80,9 @@ data SourceProperties = SourceProperties'
 --
 -- 'recommendedInstanceType', 'sourceProperties_recommendedInstanceType' - The recommended EC2 instance type that will be used when recovering the
 -- Source Server.
+--
+-- 'supportsNitroInstances', 'sourceProperties_supportsNitroInstances' - Are EC2 nitro instance types supported when recovering the Source
+-- Server.
 newSourceProperties ::
   SourceProperties
 newSourceProperties =
@@ -88,7 +94,8 @@ newSourceProperties =
       networkInterfaces = Prelude.Nothing,
       os = Prelude.Nothing,
       ramBytes = Prelude.Nothing,
-      recommendedInstanceType = Prelude.Nothing
+      recommendedInstanceType = Prelude.Nothing,
+      supportsNitroInstances = Prelude.Nothing
     }
 
 -- | An array of CPUs.
@@ -124,6 +131,11 @@ sourceProperties_ramBytes = Lens.lens (\SourceProperties' {ramBytes} -> ramBytes
 sourceProperties_recommendedInstanceType :: Lens.Lens' SourceProperties (Prelude.Maybe Prelude.Text)
 sourceProperties_recommendedInstanceType = Lens.lens (\SourceProperties' {recommendedInstanceType} -> recommendedInstanceType) (\s@SourceProperties' {} a -> s {recommendedInstanceType = a} :: SourceProperties)
 
+-- | Are EC2 nitro instance types supported when recovering the Source
+-- Server.
+sourceProperties_supportsNitroInstances :: Lens.Lens' SourceProperties (Prelude.Maybe Prelude.Bool)
+sourceProperties_supportsNitroInstances = Lens.lens (\SourceProperties' {supportsNitroInstances} -> supportsNitroInstances) (\s@SourceProperties' {} a -> s {supportsNitroInstances = a} :: SourceProperties)
+
 instance Data.FromJSON SourceProperties where
   parseJSON =
     Data.withObject
@@ -134,17 +146,20 @@ instance Data.FromJSON SourceProperties where
             Prelude.<*> (x Data..:? "disks" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "identificationHints")
             Prelude.<*> (x Data..:? "lastUpdatedDateTime")
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "os")
             Prelude.<*> (x Data..:? "ramBytes")
             Prelude.<*> (x Data..:? "recommendedInstanceType")
+            Prelude.<*> (x Data..:? "supportsNitroInstances")
       )
 
 instance Prelude.Hashable SourceProperties where
   hashWithSalt _salt SourceProperties' {..} =
-    _salt `Prelude.hashWithSalt` cpus
+    _salt
+      `Prelude.hashWithSalt` cpus
       `Prelude.hashWithSalt` disks
       `Prelude.hashWithSalt` identificationHints
       `Prelude.hashWithSalt` lastUpdatedDateTime
@@ -152,6 +167,7 @@ instance Prelude.Hashable SourceProperties where
       `Prelude.hashWithSalt` os
       `Prelude.hashWithSalt` ramBytes
       `Prelude.hashWithSalt` recommendedInstanceType
+      `Prelude.hashWithSalt` supportsNitroInstances
 
 instance Prelude.NFData SourceProperties where
   rnf SourceProperties' {..} =
@@ -163,3 +179,4 @@ instance Prelude.NFData SourceProperties where
       `Prelude.seq` Prelude.rnf os
       `Prelude.seq` Prelude.rnf ramBytes
       `Prelude.seq` Prelude.rnf recommendedInstanceType
+      `Prelude.seq` Prelude.rnf supportsNitroInstances

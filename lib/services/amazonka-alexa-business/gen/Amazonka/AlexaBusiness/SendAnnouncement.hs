@@ -141,7 +141,8 @@ instance Core.AWSRequest SendAnnouncement where
 
 instance Prelude.Hashable SendAnnouncement where
   hashWithSalt _salt SendAnnouncement' {..} =
-    _salt `Prelude.hashWithSalt` timeToLiveInSeconds
+    _salt
+      `Prelude.hashWithSalt` timeToLiveInSeconds
       `Prelude.hashWithSalt` roomFilters
       `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` clientRequestToken

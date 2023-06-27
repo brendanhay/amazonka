@@ -129,7 +129,8 @@ instance Core.AWSRequest DeleteInstanceEventWindow where
 
 instance Prelude.Hashable DeleteInstanceEventWindow where
   hashWithSalt _salt DeleteInstanceEventWindow' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` forceDelete
       `Prelude.hashWithSalt` instanceEventWindowId
 

@@ -207,6 +207,9 @@ data CreateVolume = CreateVolume'
     --
     -- -   Magnetic: @standard@
     --
+    -- Throughput Optimized HDD (@st1@) and Cold HDD (@sc1@) volumes can\'t be
+    -- used as boot volumes.
+    --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
     -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -337,6 +340,9 @@ data CreateVolume = CreateVolume'
 -- -   Cold HDD: @sc1@
 --
 -- -   Magnetic: @standard@
+--
+-- Throughput Optimized HDD (@st1@) and Cold HDD (@sc1@) volumes can\'t be
+-- used as boot volumes.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
@@ -500,6 +506,9 @@ createVolume_throughput = Lens.lens (\CreateVolume' {throughput} -> throughput) 
 --
 -- -   Magnetic: @standard@
 --
+-- Throughput Optimized HDD (@st1@) and Cold HDD (@sc1@) volumes can\'t be
+-- used as boot volumes.
+--
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBS volume types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -521,7 +530,8 @@ instance Core.AWSRequest CreateVolume where
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops

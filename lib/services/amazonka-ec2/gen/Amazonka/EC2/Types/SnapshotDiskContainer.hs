@@ -38,11 +38,11 @@ data SnapshotDiskContainer = SnapshotDiskContainer'
     format :: Prelude.Maybe Prelude.Text,
     -- | The URL to the Amazon S3-based disk image being imported. It can either
     -- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon S3 bucket for the disk image.
     userBucket :: Prelude.Maybe UserBucket
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnapshotDiskContainer' with all optional fields omitted.
@@ -86,7 +86,7 @@ snapshotDiskContainer_format = Lens.lens (\SnapshotDiskContainer' {format} -> fo
 -- | The URL to the Amazon S3-based disk image being imported. It can either
 -- be a https URL (https:\/\/..) or an Amazon S3 URL (s3:\/\/..).
 snapshotDiskContainer_url :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe Prelude.Text)
-snapshotDiskContainer_url = Lens.lens (\SnapshotDiskContainer' {url} -> url) (\s@SnapshotDiskContainer' {} a -> s {url = a} :: SnapshotDiskContainer)
+snapshotDiskContainer_url = Lens.lens (\SnapshotDiskContainer' {url} -> url) (\s@SnapshotDiskContainer' {} a -> s {url = a} :: SnapshotDiskContainer) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon S3 bucket for the disk image.
 snapshotDiskContainer_userBucket :: Lens.Lens' SnapshotDiskContainer (Prelude.Maybe UserBucket)
@@ -94,7 +94,8 @@ snapshotDiskContainer_userBucket = Lens.lens (\SnapshotDiskContainer' {userBucke
 
 instance Prelude.Hashable SnapshotDiskContainer where
   hashWithSalt _salt SnapshotDiskContainer' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` userBucket

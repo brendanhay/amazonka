@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts one or more interface VPC endpoint connection requests to your
--- VPC endpoint service.
+-- Accepts connection requests to your VPC endpoint service.
 module Amazonka.EC2.AcceptVpcEndpointConnections
   ( -- * Creating a Request
     AcceptVpcEndpointConnections (..),
@@ -59,7 +58,7 @@ data AcceptVpcEndpointConnections = AcceptVpcEndpointConnections'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC endpoint service.
     serviceId :: Prelude.Text,
-    -- | The IDs of one or more interface VPC endpoints.
+    -- | The IDs of the interface VPC endpoints.
     vpcEndpointIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +78,7 @@ data AcceptVpcEndpointConnections = AcceptVpcEndpointConnections'
 --
 -- 'serviceId', 'acceptVpcEndpointConnections_serviceId' - The ID of the VPC endpoint service.
 --
--- 'vpcEndpointIds', 'acceptVpcEndpointConnections_vpcEndpointIds' - The IDs of one or more interface VPC endpoints.
+-- 'vpcEndpointIds', 'acceptVpcEndpointConnections_vpcEndpointIds' - The IDs of the interface VPC endpoints.
 newAcceptVpcEndpointConnections ::
   -- | 'serviceId'
   Prelude.Text ->
@@ -103,7 +102,7 @@ acceptVpcEndpointConnections_dryRun = Lens.lens (\AcceptVpcEndpointConnections' 
 acceptVpcEndpointConnections_serviceId :: Lens.Lens' AcceptVpcEndpointConnections Prelude.Text
 acceptVpcEndpointConnections_serviceId = Lens.lens (\AcceptVpcEndpointConnections' {serviceId} -> serviceId) (\s@AcceptVpcEndpointConnections' {} a -> s {serviceId = a} :: AcceptVpcEndpointConnections)
 
--- | The IDs of one or more interface VPC endpoints.
+-- | The IDs of the interface VPC endpoints.
 acceptVpcEndpointConnections_vpcEndpointIds :: Lens.Lens' AcceptVpcEndpointConnections [Prelude.Text]
 acceptVpcEndpointConnections_vpcEndpointIds = Lens.lens (\AcceptVpcEndpointConnections' {vpcEndpointIds} -> vpcEndpointIds) (\s@AcceptVpcEndpointConnections' {} a -> s {vpcEndpointIds = a} :: AcceptVpcEndpointConnections) Prelude.. Lens.coerced
 
@@ -117,7 +116,9 @@ instance Core.AWSRequest AcceptVpcEndpointConnections where
     Response.receiveXML
       ( \s h x ->
           AcceptVpcEndpointConnectionsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,7 +129,8 @@ instance
     AcceptVpcEndpointConnections
   where
   hashWithSalt _salt AcceptVpcEndpointConnections' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` vpcEndpointIds
 

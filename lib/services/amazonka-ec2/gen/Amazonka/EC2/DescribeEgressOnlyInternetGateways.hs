@@ -75,11 +75,13 @@ data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
     --     filter to find all resources assigned a tag with a specific key,
     --     regardless of the tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,11 +113,13 @@ data DescribeEgressOnlyInternetGateways = DescribeEgressOnlyInternetGateways'
 --     filter to find all resources assigned a tag with a specific key,
 --     regardless of the tag value.
 --
--- 'maxResults', 'describeEgressOnlyInternetGateways_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'describeEgressOnlyInternetGateways_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeEgressOnlyInternetGateways_nextToken' - The token for the next page of results.
+-- 'nextToken', 'describeEgressOnlyInternetGateways_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeEgressOnlyInternetGateways ::
   DescribeEgressOnlyInternetGateways
 newDescribeEgressOnlyInternetGateways =
@@ -154,13 +158,15 @@ describeEgressOnlyInternetGateways_egressOnlyInternetGatewayIds = Lens.lens (\De
 describeEgressOnlyInternetGateways_filters :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe [Filter])
 describeEgressOnlyInternetGateways_filters = Lens.lens (\DescribeEgressOnlyInternetGateways' {filters} -> filters) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {filters = a} :: DescribeEgressOnlyInternetGateways) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeEgressOnlyInternetGateways_maxResults :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe Prelude.Natural)
 describeEgressOnlyInternetGateways_maxResults = Lens.lens (\DescribeEgressOnlyInternetGateways' {maxResults} -> maxResults) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {maxResults = a} :: DescribeEgressOnlyInternetGateways)
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeEgressOnlyInternetGateways_nextToken :: Lens.Lens' DescribeEgressOnlyInternetGateways (Prelude.Maybe Prelude.Text)
 describeEgressOnlyInternetGateways_nextToken = Lens.lens (\DescribeEgressOnlyInternetGateways' {nextToken} -> nextToken) (\s@DescribeEgressOnlyInternetGateways' {} a -> s {nextToken = a} :: DescribeEgressOnlyInternetGateways)
 
@@ -172,22 +178,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeEgressOnlyInternetGatewaysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEgressOnlyInternetGateways_nextToken
           Lens..~ rs
           Lens.^? describeEgressOnlyInternetGatewaysResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -202,12 +208,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeEgressOnlyInternetGatewaysResponse'
-            Prelude.<$> ( x Data..@? "egressOnlyInternetGatewaySet"
+            Prelude.<$> ( x
+                            Data..@? "egressOnlyInternetGatewaySet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -217,7 +224,8 @@ instance
   hashWithSalt
     _salt
     DescribeEgressOnlyInternetGateways' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` egressOnlyInternetGatewayIds
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
@@ -273,8 +281,8 @@ instance
 data DescribeEgressOnlyInternetGatewaysResponse = DescribeEgressOnlyInternetGatewaysResponse'
   { -- | Information about the egress-only internet gateways.
     egressOnlyInternetGateways :: Prelude.Maybe [EgressOnlyInternetGateway],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -291,8 +299,8 @@ data DescribeEgressOnlyInternetGatewaysResponse = DescribeEgressOnlyInternetGate
 --
 -- 'egressOnlyInternetGateways', 'describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways' - Information about the egress-only internet gateways.
 --
--- 'nextToken', 'describeEgressOnlyInternetGatewaysResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeEgressOnlyInternetGatewaysResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeEgressOnlyInternetGatewaysResponse_httpStatus' - The response's http status code.
 newDescribeEgressOnlyInternetGatewaysResponse ::
@@ -312,8 +320,8 @@ newDescribeEgressOnlyInternetGatewaysResponse
 describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Prelude.Maybe [EgressOnlyInternetGateway])
 describeEgressOnlyInternetGatewaysResponse_egressOnlyInternetGateways = Lens.lens (\DescribeEgressOnlyInternetGatewaysResponse' {egressOnlyInternetGateways} -> egressOnlyInternetGateways) (\s@DescribeEgressOnlyInternetGatewaysResponse' {} a -> s {egressOnlyInternetGateways = a} :: DescribeEgressOnlyInternetGatewaysResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeEgressOnlyInternetGatewaysResponse_nextToken :: Lens.Lens' DescribeEgressOnlyInternetGatewaysResponse (Prelude.Maybe Prelude.Text)
 describeEgressOnlyInternetGatewaysResponse_nextToken = Lens.lens (\DescribeEgressOnlyInternetGatewaysResponse' {nextToken} -> nextToken) (\s@DescribeEgressOnlyInternetGatewaysResponse' {} a -> s {nextToken = a} :: DescribeEgressOnlyInternetGatewaysResponse)
 

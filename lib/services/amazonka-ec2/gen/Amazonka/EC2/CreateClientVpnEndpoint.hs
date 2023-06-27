@@ -137,7 +137,8 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
     -- addresses. The address range cannot overlap with the local CIDR of the
     -- VPC in which the associated subnet is located, or the routes that you
     -- add manually. The address range cannot be changed after the Client VPN
-    -- endpoint has been created. The CIDR block should be \/22 or greater.
+    -- endpoint has been created. Client CIDR range must have a size of at
+    -- least \/22 and must not be greater than \/12.
     clientCidrBlock :: Prelude.Text,
     -- | The ARN of the server certificate. For more information, see the
     -- <https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide>.
@@ -237,7 +238,8 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 -- addresses. The address range cannot overlap with the local CIDR of the
 -- VPC in which the associated subnet is located, or the routes that you
 -- add manually. The address range cannot be changed after the Client VPN
--- endpoint has been created. The CIDR block should be \/22 or greater.
+-- endpoint has been created. Client CIDR range must have a size of at
+-- least \/22 and must not be greater than \/12.
 --
 -- 'serverCertificateArn', 'createClientVpnEndpoint_serverCertificateArn' - The ARN of the server certificate. For more information, see the
 -- <https://docs.aws.amazon.com/acm/latest/userguide/ Certificate Manager User Guide>.
@@ -387,7 +389,8 @@ createClientVpnEndpoint_vpnPort = Lens.lens (\CreateClientVpnEndpoint' {vpnPort}
 -- addresses. The address range cannot overlap with the local CIDR of the
 -- VPC in which the associated subnet is located, or the routes that you
 -- add manually. The address range cannot be changed after the Client VPN
--- endpoint has been created. The CIDR block should be \/22 or greater.
+-- endpoint has been created. Client CIDR range must have a size of at
+-- least \/22 and must not be greater than \/12.
 createClientVpnEndpoint_clientCidrBlock :: Lens.Lens' CreateClientVpnEndpoint Prelude.Text
 createClientVpnEndpoint_clientCidrBlock = Lens.lens (\CreateClientVpnEndpoint' {clientCidrBlock} -> clientCidrBlock) (\s@CreateClientVpnEndpoint' {} a -> s {clientCidrBlock = a} :: CreateClientVpnEndpoint)
 
@@ -435,7 +438,8 @@ instance Core.AWSRequest CreateClientVpnEndpoint where
 
 instance Prelude.Hashable CreateClientVpnEndpoint where
   hashWithSalt _salt CreateClientVpnEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientConnectOptions
+    _salt
+      `Prelude.hashWithSalt` clientConnectOptions
       `Prelude.hashWithSalt` clientLoginBannerOptions
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description

@@ -38,8 +38,8 @@ data DataResponse = DataResponse'
     destination :: Prelude.Maybe Prelude.Text,
     -- | The ID passed in the @DataQuery@.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The metric used for the network performance request. Currently only
-    -- @aggregate-latency@ is supported, showing network latency during a
+    -- | The metric used for the network performance request. Only
+    -- @aggregate-latency@ is supported, which shows network latency during a
     -- specified period.
     metric :: Prelude.Maybe MetricType,
     -- | A list of @MetricPoint@ objects.
@@ -67,8 +67,8 @@ data DataResponse = DataResponse'
 --
 -- 'id', 'dataResponse_id' - The ID passed in the @DataQuery@.
 --
--- 'metric', 'dataResponse_metric' - The metric used for the network performance request. Currently only
--- @aggregate-latency@ is supported, showing network latency during a
+-- 'metric', 'dataResponse_metric' - The metric used for the network performance request. Only
+-- @aggregate-latency@ is supported, which shows network latency during a
 -- specified period.
 --
 -- 'metricPoints', 'dataResponse_metricPoints' - A list of @MetricPoint@ objects.
@@ -101,8 +101,8 @@ dataResponse_destination = Lens.lens (\DataResponse' {destination} -> destinatio
 dataResponse_id :: Lens.Lens' DataResponse (Prelude.Maybe Prelude.Text)
 dataResponse_id = Lens.lens (\DataResponse' {id} -> id) (\s@DataResponse' {} a -> s {id = a} :: DataResponse)
 
--- | The metric used for the network performance request. Currently only
--- @aggregate-latency@ is supported, showing network latency during a
+-- | The metric used for the network performance request. Only
+-- @aggregate-latency@ is supported, which shows network latency during a
 -- specified period.
 dataResponse_metric :: Lens.Lens' DataResponse (Prelude.Maybe MetricType)
 dataResponse_metric = Lens.lens (\DataResponse' {metric} -> metric) (\s@DataResponse' {} a -> s {metric = a} :: DataResponse)
@@ -130,7 +130,9 @@ instance Data.FromXML DataResponse where
       Prelude.<$> (x Data..@? "destination")
       Prelude.<*> (x Data..@? "id")
       Prelude.<*> (x Data..@? "metric")
-      Prelude.<*> ( x Data..@? "metricPointSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "metricPointSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "period")
@@ -139,7 +141,8 @@ instance Data.FromXML DataResponse where
 
 instance Prelude.Hashable DataResponse where
   hashWithSalt _salt DataResponse' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` metricPoints

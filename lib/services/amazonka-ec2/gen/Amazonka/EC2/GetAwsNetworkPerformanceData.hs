@@ -160,22 +160,22 @@ instance Core.AWSPager GetAwsNetworkPerformanceData where
     | Core.stop
         ( rs
             Lens.^? getAwsNetworkPerformanceDataResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getAwsNetworkPerformanceDataResponse_dataResponses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getAwsNetworkPerformanceData_nextToken
           Lens..~ rs
           Lens.^? getAwsNetworkPerformanceDataResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAwsNetworkPerformanceData where
   type
@@ -187,7 +187,9 @@ instance Core.AWSRequest GetAwsNetworkPerformanceData where
     Response.receiveXML
       ( \s h x ->
           GetAwsNetworkPerformanceDataResponse'
-            Prelude.<$> ( x Data..@? "dataResponseSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "dataResponseSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -199,7 +201,8 @@ instance
     GetAwsNetworkPerformanceData
   where
   hashWithSalt _salt GetAwsNetworkPerformanceData' {..} =
-    _salt `Prelude.hashWithSalt` dataQueries
+    _salt
+      `Prelude.hashWithSalt` dataQueries
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` maxResults

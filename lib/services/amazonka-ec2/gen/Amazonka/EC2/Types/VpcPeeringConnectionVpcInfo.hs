@@ -119,10 +119,13 @@ instance Data.FromXML VpcPeeringConnectionVpcInfo where
   parseXML x =
     VpcPeeringConnectionVpcInfo'
       Prelude.<$> (x Data..@? "cidrBlock")
-      Prelude.<*> ( x Data..@? "cidrBlockSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "cidrBlockSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "ipv6CidrBlockSet"
+      Prelude.<*> ( x
+                      Data..@? "ipv6CidrBlockSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -133,7 +136,8 @@ instance Data.FromXML VpcPeeringConnectionVpcInfo where
 
 instance Prelude.Hashable VpcPeeringConnectionVpcInfo where
   hashWithSalt _salt VpcPeeringConnectionVpcInfo' {..} =
-    _salt `Prelude.hashWithSalt` cidrBlock
+    _salt
+      `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` cidrBlockSet
       `Prelude.hashWithSalt` ipv6CidrBlockSet
       `Prelude.hashWithSalt` ownerId

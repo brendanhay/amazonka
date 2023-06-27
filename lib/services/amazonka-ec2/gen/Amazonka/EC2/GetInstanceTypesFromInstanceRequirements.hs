@@ -79,12 +79,13 @@ data GetInstanceTypesFromInstanceRequirements = GetInstanceTypesFromInstanceRequ
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and  1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with  the returned @NextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token for the next set of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The processor architecture type.
     architectureTypes :: [ArchitectureType],
@@ -108,12 +109,13 @@ data GetInstanceTypesFromInstanceRequirements = GetInstanceTypesFromInstanceRequ
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'maxResults', 'getInstanceTypesFromInstanceRequirements_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and  1000. The default value is 1000. To retrieve the
--- remaining results, make another call with  the returned @NextToken@
--- value.
+-- 'maxResults', 'getInstanceTypesFromInstanceRequirements_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'getInstanceTypesFromInstanceRequirements_nextToken' - The token for the next set of results.
+-- 'nextToken', 'getInstanceTypesFromInstanceRequirements_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'architectureTypes', 'getInstanceTypesFromInstanceRequirements_architectureTypes' - The processor architecture type.
 --
@@ -146,14 +148,15 @@ newGetInstanceTypesFromInstanceRequirements
 getInstanceTypesFromInstanceRequirements_dryRun :: Lens.Lens' GetInstanceTypesFromInstanceRequirements (Prelude.Maybe Prelude.Bool)
 getInstanceTypesFromInstanceRequirements_dryRun = Lens.lens (\GetInstanceTypesFromInstanceRequirements' {dryRun} -> dryRun) (\s@GetInstanceTypesFromInstanceRequirements' {} a -> s {dryRun = a} :: GetInstanceTypesFromInstanceRequirements)
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and  1000. The default value is 1000. To retrieve the
--- remaining results, make another call with  the returned @NextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 getInstanceTypesFromInstanceRequirements_maxResults :: Lens.Lens' GetInstanceTypesFromInstanceRequirements (Prelude.Maybe Prelude.Int)
 getInstanceTypesFromInstanceRequirements_maxResults = Lens.lens (\GetInstanceTypesFromInstanceRequirements' {maxResults} -> maxResults) (\s@GetInstanceTypesFromInstanceRequirements' {} a -> s {maxResults = a} :: GetInstanceTypesFromInstanceRequirements)
 
--- | The token for the next set of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 getInstanceTypesFromInstanceRequirements_nextToken :: Lens.Lens' GetInstanceTypesFromInstanceRequirements (Prelude.Maybe Prelude.Text)
 getInstanceTypesFromInstanceRequirements_nextToken = Lens.lens (\GetInstanceTypesFromInstanceRequirements' {nextToken} -> nextToken) (\s@GetInstanceTypesFromInstanceRequirements' {} a -> s {nextToken = a} :: GetInstanceTypesFromInstanceRequirements)
 
@@ -177,22 +180,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getInstanceTypesFromInstanceRequirementsResponse_instanceTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getInstanceTypesFromInstanceRequirements_nextToken
           Lens..~ rs
-            Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? getInstanceTypesFromInstanceRequirementsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -208,11 +211,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetInstanceTypesFromInstanceRequirementsResponse'
-            Prelude.<$> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instanceTypeSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -222,7 +227,8 @@ instance
   hashWithSalt
     _salt
     GetInstanceTypesFromInstanceRequirements' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` architectureTypes
@@ -281,7 +287,8 @@ instance
 data GetInstanceTypesFromInstanceRequirementsResponse = GetInstanceTypesFromInstanceRequirementsResponse'
   { -- | The instance types with the specified instance attributes.
     instanceTypes :: Prelude.Maybe [InstanceTypeInfoFromInstanceRequirements],
-    -- | The token for the next set of results.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -298,7 +305,8 @@ data GetInstanceTypesFromInstanceRequirementsResponse = GetInstanceTypesFromInst
 --
 -- 'instanceTypes', 'getInstanceTypesFromInstanceRequirementsResponse_instanceTypes' - The instance types with the specified instance attributes.
 --
--- 'nextToken', 'getInstanceTypesFromInstanceRequirementsResponse_nextToken' - The token for the next set of results.
+-- 'nextToken', 'getInstanceTypesFromInstanceRequirementsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'getInstanceTypesFromInstanceRequirementsResponse_httpStatus' - The response's http status code.
 newGetInstanceTypesFromInstanceRequirementsResponse ::
@@ -319,7 +327,8 @@ newGetInstanceTypesFromInstanceRequirementsResponse
 getInstanceTypesFromInstanceRequirementsResponse_instanceTypes :: Lens.Lens' GetInstanceTypesFromInstanceRequirementsResponse (Prelude.Maybe [InstanceTypeInfoFromInstanceRequirements])
 getInstanceTypesFromInstanceRequirementsResponse_instanceTypes = Lens.lens (\GetInstanceTypesFromInstanceRequirementsResponse' {instanceTypes} -> instanceTypes) (\s@GetInstanceTypesFromInstanceRequirementsResponse' {} a -> s {instanceTypes = a} :: GetInstanceTypesFromInstanceRequirementsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next set of results.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 getInstanceTypesFromInstanceRequirementsResponse_nextToken :: Lens.Lens' GetInstanceTypesFromInstanceRequirementsResponse (Prelude.Maybe Prelude.Text)
 getInstanceTypesFromInstanceRequirementsResponse_nextToken = Lens.lens (\GetInstanceTypesFromInstanceRequirementsResponse' {nextToken} -> nextToken) (\s@GetInstanceTypesFromInstanceRequirementsResponse' {} a -> s {nextToken = a} :: GetInstanceTypesFromInstanceRequirementsResponse)
 

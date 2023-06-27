@@ -173,7 +173,8 @@ instance Core.AWSRequest AssociateTrunkInterface where
 
 instance Prelude.Hashable AssociateTrunkInterface where
   hashWithSalt _salt AssociateTrunkInterface' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` greKey
       `Prelude.hashWithSalt` vlanId

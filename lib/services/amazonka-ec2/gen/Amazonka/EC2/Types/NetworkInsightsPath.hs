@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.PathFilter
 import Amazonka.EC2.Types.Protocol
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -33,27 +34,31 @@ import qualified Amazonka.Prelude as Prelude
 data NetworkInsightsPath = NetworkInsightsPath'
   { -- | The time stamp when the path was created.
     createdDate :: Prelude.Maybe Data.ISO8601,
-    -- | The Amazon Web Services resource that is the destination of the path.
+    -- | The ID of the destination.
     destination :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the destination.
     destinationArn :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the Amazon Web Services resource that is the
-    -- destination of the path.
+    -- | The IP address of the destination.
     destinationIp :: Prelude.Maybe Prelude.Text,
     -- | The destination port.
     destinationPort :: Prelude.Maybe Prelude.Int,
+    -- | Scopes the analysis to network paths that match specific filters at the
+    -- destination.
+    filterAtDestination :: Prelude.Maybe PathFilter,
+    -- | Scopes the analysis to network paths that match specific filters at the
+    -- source.
+    filterAtSource :: Prelude.Maybe PathFilter,
     -- | The Amazon Resource Name (ARN) of the path.
     networkInsightsPathArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the path.
     networkInsightsPathId :: Prelude.Maybe Prelude.Text,
     -- | The protocol.
     protocol :: Prelude.Maybe Protocol,
-    -- | The Amazon Web Services resource that is the source of the path.
+    -- | The ID of the source.
     source :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the source.
     sourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The IP address of the Amazon Web Services resource that is the source of
-    -- the path.
+    -- | The IP address of the source.
     sourceIp :: Prelude.Maybe Prelude.Text,
     -- | The tags associated with the path.
     tags :: Prelude.Maybe [Tag]
@@ -70,14 +75,19 @@ data NetworkInsightsPath = NetworkInsightsPath'
 --
 -- 'createdDate', 'networkInsightsPath_createdDate' - The time stamp when the path was created.
 --
--- 'destination', 'networkInsightsPath_destination' - The Amazon Web Services resource that is the destination of the path.
+-- 'destination', 'networkInsightsPath_destination' - The ID of the destination.
 --
 -- 'destinationArn', 'networkInsightsPath_destinationArn' - The Amazon Resource Name (ARN) of the destination.
 --
--- 'destinationIp', 'networkInsightsPath_destinationIp' - The IP address of the Amazon Web Services resource that is the
--- destination of the path.
+-- 'destinationIp', 'networkInsightsPath_destinationIp' - The IP address of the destination.
 --
 -- 'destinationPort', 'networkInsightsPath_destinationPort' - The destination port.
+--
+-- 'filterAtDestination', 'networkInsightsPath_filterAtDestination' - Scopes the analysis to network paths that match specific filters at the
+-- destination.
+--
+-- 'filterAtSource', 'networkInsightsPath_filterAtSource' - Scopes the analysis to network paths that match specific filters at the
+-- source.
 --
 -- 'networkInsightsPathArn', 'networkInsightsPath_networkInsightsPathArn' - The Amazon Resource Name (ARN) of the path.
 --
@@ -85,12 +95,11 @@ data NetworkInsightsPath = NetworkInsightsPath'
 --
 -- 'protocol', 'networkInsightsPath_protocol' - The protocol.
 --
--- 'source', 'networkInsightsPath_source' - The Amazon Web Services resource that is the source of the path.
+-- 'source', 'networkInsightsPath_source' - The ID of the source.
 --
 -- 'sourceArn', 'networkInsightsPath_sourceArn' - The Amazon Resource Name (ARN) of the source.
 --
--- 'sourceIp', 'networkInsightsPath_sourceIp' - The IP address of the Amazon Web Services resource that is the source of
--- the path.
+-- 'sourceIp', 'networkInsightsPath_sourceIp' - The IP address of the source.
 --
 -- 'tags', 'networkInsightsPath_tags' - The tags associated with the path.
 newNetworkInsightsPath ::
@@ -102,6 +111,8 @@ newNetworkInsightsPath =
       destinationArn = Prelude.Nothing,
       destinationIp = Prelude.Nothing,
       destinationPort = Prelude.Nothing,
+      filterAtDestination = Prelude.Nothing,
+      filterAtSource = Prelude.Nothing,
       networkInsightsPathArn = Prelude.Nothing,
       networkInsightsPathId = Prelude.Nothing,
       protocol = Prelude.Nothing,
@@ -115,7 +126,7 @@ newNetworkInsightsPath =
 networkInsightsPath_createdDate :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.UTCTime)
 networkInsightsPath_createdDate = Lens.lens (\NetworkInsightsPath' {createdDate} -> createdDate) (\s@NetworkInsightsPath' {} a -> s {createdDate = a} :: NetworkInsightsPath) Prelude.. Lens.mapping Data._Time
 
--- | The Amazon Web Services resource that is the destination of the path.
+-- | The ID of the destination.
 networkInsightsPath_destination :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_destination = Lens.lens (\NetworkInsightsPath' {destination} -> destination) (\s@NetworkInsightsPath' {} a -> s {destination = a} :: NetworkInsightsPath)
 
@@ -123,14 +134,23 @@ networkInsightsPath_destination = Lens.lens (\NetworkInsightsPath' {destination}
 networkInsightsPath_destinationArn :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_destinationArn = Lens.lens (\NetworkInsightsPath' {destinationArn} -> destinationArn) (\s@NetworkInsightsPath' {} a -> s {destinationArn = a} :: NetworkInsightsPath)
 
--- | The IP address of the Amazon Web Services resource that is the
--- destination of the path.
+-- | The IP address of the destination.
 networkInsightsPath_destinationIp :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_destinationIp = Lens.lens (\NetworkInsightsPath' {destinationIp} -> destinationIp) (\s@NetworkInsightsPath' {} a -> s {destinationIp = a} :: NetworkInsightsPath)
 
 -- | The destination port.
 networkInsightsPath_destinationPort :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Int)
 networkInsightsPath_destinationPort = Lens.lens (\NetworkInsightsPath' {destinationPort} -> destinationPort) (\s@NetworkInsightsPath' {} a -> s {destinationPort = a} :: NetworkInsightsPath)
+
+-- | Scopes the analysis to network paths that match specific filters at the
+-- destination.
+networkInsightsPath_filterAtDestination :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe PathFilter)
+networkInsightsPath_filterAtDestination = Lens.lens (\NetworkInsightsPath' {filterAtDestination} -> filterAtDestination) (\s@NetworkInsightsPath' {} a -> s {filterAtDestination = a} :: NetworkInsightsPath)
+
+-- | Scopes the analysis to network paths that match specific filters at the
+-- source.
+networkInsightsPath_filterAtSource :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe PathFilter)
+networkInsightsPath_filterAtSource = Lens.lens (\NetworkInsightsPath' {filterAtSource} -> filterAtSource) (\s@NetworkInsightsPath' {} a -> s {filterAtSource = a} :: NetworkInsightsPath)
 
 -- | The Amazon Resource Name (ARN) of the path.
 networkInsightsPath_networkInsightsPathArn :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
@@ -144,7 +164,7 @@ networkInsightsPath_networkInsightsPathId = Lens.lens (\NetworkInsightsPath' {ne
 networkInsightsPath_protocol :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Protocol)
 networkInsightsPath_protocol = Lens.lens (\NetworkInsightsPath' {protocol} -> protocol) (\s@NetworkInsightsPath' {} a -> s {protocol = a} :: NetworkInsightsPath)
 
--- | The Amazon Web Services resource that is the source of the path.
+-- | The ID of the source.
 networkInsightsPath_source :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_source = Lens.lens (\NetworkInsightsPath' {source} -> source) (\s@NetworkInsightsPath' {} a -> s {source = a} :: NetworkInsightsPath)
 
@@ -152,8 +172,7 @@ networkInsightsPath_source = Lens.lens (\NetworkInsightsPath' {source} -> source
 networkInsightsPath_sourceArn :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_sourceArn = Lens.lens (\NetworkInsightsPath' {sourceArn} -> sourceArn) (\s@NetworkInsightsPath' {} a -> s {sourceArn = a} :: NetworkInsightsPath)
 
--- | The IP address of the Amazon Web Services resource that is the source of
--- the path.
+-- | The IP address of the source.
 networkInsightsPath_sourceIp :: Lens.Lens' NetworkInsightsPath (Prelude.Maybe Prelude.Text)
 networkInsightsPath_sourceIp = Lens.lens (\NetworkInsightsPath' {sourceIp} -> sourceIp) (\s@NetworkInsightsPath' {} a -> s {sourceIp = a} :: NetworkInsightsPath)
 
@@ -169,23 +188,30 @@ instance Data.FromXML NetworkInsightsPath where
       Prelude.<*> (x Data..@? "destinationArn")
       Prelude.<*> (x Data..@? "destinationIp")
       Prelude.<*> (x Data..@? "destinationPort")
+      Prelude.<*> (x Data..@? "filterAtDestination")
+      Prelude.<*> (x Data..@? "filterAtSource")
       Prelude.<*> (x Data..@? "networkInsightsPathArn")
       Prelude.<*> (x Data..@? "networkInsightsPathId")
       Prelude.<*> (x Data..@? "protocol")
       Prelude.<*> (x Data..@? "source")
       Prelude.<*> (x Data..@? "sourceArn")
       Prelude.<*> (x Data..@? "sourceIp")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable NetworkInsightsPath where
   hashWithSalt _salt NetworkInsightsPath' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` destinationIp
       `Prelude.hashWithSalt` destinationPort
+      `Prelude.hashWithSalt` filterAtDestination
+      `Prelude.hashWithSalt` filterAtSource
       `Prelude.hashWithSalt` networkInsightsPathArn
       `Prelude.hashWithSalt` networkInsightsPathId
       `Prelude.hashWithSalt` protocol
@@ -201,6 +227,8 @@ instance Prelude.NFData NetworkInsightsPath where
       `Prelude.seq` Prelude.rnf destinationArn
       `Prelude.seq` Prelude.rnf destinationIp
       `Prelude.seq` Prelude.rnf destinationPort
+      `Prelude.seq` Prelude.rnf filterAtDestination
+      `Prelude.seq` Prelude.rnf filterAtSource
       `Prelude.seq` Prelude.rnf networkInsightsPathArn
       `Prelude.seq` Prelude.rnf networkInsightsPathId
       `Prelude.seq` Prelude.rnf protocol

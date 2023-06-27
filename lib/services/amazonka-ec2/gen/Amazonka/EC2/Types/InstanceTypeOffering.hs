@@ -96,7 +96,8 @@ instance Data.FromXML InstanceTypeOffering where
 
 instance Prelude.Hashable InstanceTypeOffering where
   hashWithSalt _salt InstanceTypeOffering' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` locationType
 

@@ -28,8 +28,9 @@ module Amazonka.EC2.DeleteLocalGatewayRoute
     newDeleteLocalGatewayRoute,
 
     -- * Request Lenses
-    deleteLocalGatewayRoute_dryRun,
     deleteLocalGatewayRoute_destinationCidrBlock,
+    deleteLocalGatewayRoute_destinationPrefixListId,
+    deleteLocalGatewayRoute_dryRun,
     deleteLocalGatewayRoute_localGatewayRouteTableId,
 
     -- * Destructuring the Response
@@ -52,14 +53,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteLocalGatewayRoute' smart constructor.
 data DeleteLocalGatewayRoute = DeleteLocalGatewayRoute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The CIDR range for the route. This must match the CIDR for the route
+    -- exactly.
+    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | Use a prefix list in place of @DestinationCidrBlock@. You cannot use
+    -- @DestinationPrefixListId@ and @DestinationCidrBlock@ in the same
+    -- request.
+    destinationPrefixListId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The CIDR range for the route. This must match the CIDR for the route
-    -- exactly.
-    destinationCidrBlock :: Prelude.Text,
     -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Prelude.Text
   }
@@ -73,30 +78,43 @@ data DeleteLocalGatewayRoute = DeleteLocalGatewayRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationCidrBlock', 'deleteLocalGatewayRoute_destinationCidrBlock' - The CIDR range for the route. This must match the CIDR for the route
+-- exactly.
+--
+-- 'destinationPrefixListId', 'deleteLocalGatewayRoute_destinationPrefixListId' - Use a prefix list in place of @DestinationCidrBlock@. You cannot use
+-- @DestinationPrefixListId@ and @DestinationCidrBlock@ in the same
+-- request.
+--
 -- 'dryRun', 'deleteLocalGatewayRoute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'destinationCidrBlock', 'deleteLocalGatewayRoute_destinationCidrBlock' - The CIDR range for the route. This must match the CIDR for the route
--- exactly.
---
 -- 'localGatewayRouteTableId', 'deleteLocalGatewayRoute_localGatewayRouteTableId' - The ID of the local gateway route table.
 newDeleteLocalGatewayRoute ::
-  -- | 'destinationCidrBlock'
-  Prelude.Text ->
   -- | 'localGatewayRouteTableId'
   Prelude.Text ->
   DeleteLocalGatewayRoute
-newDeleteLocalGatewayRoute
-  pDestinationCidrBlock_
-  pLocalGatewayRouteTableId_ =
-    DeleteLocalGatewayRoute'
-      { dryRun = Prelude.Nothing,
-        destinationCidrBlock = pDestinationCidrBlock_,
-        localGatewayRouteTableId =
-          pLocalGatewayRouteTableId_
-      }
+newDeleteLocalGatewayRoute pLocalGatewayRouteTableId_ =
+  DeleteLocalGatewayRoute'
+    { destinationCidrBlock =
+        Prelude.Nothing,
+      destinationPrefixListId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      localGatewayRouteTableId =
+        pLocalGatewayRouteTableId_
+    }
+
+-- | The CIDR range for the route. This must match the CIDR for the route
+-- exactly.
+deleteLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' DeleteLocalGatewayRoute (Prelude.Maybe Prelude.Text)
+deleteLocalGatewayRoute_destinationCidrBlock = Lens.lens (\DeleteLocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@DeleteLocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: DeleteLocalGatewayRoute)
+
+-- | Use a prefix list in place of @DestinationCidrBlock@. You cannot use
+-- @DestinationPrefixListId@ and @DestinationCidrBlock@ in the same
+-- request.
+deleteLocalGatewayRoute_destinationPrefixListId :: Lens.Lens' DeleteLocalGatewayRoute (Prelude.Maybe Prelude.Text)
+deleteLocalGatewayRoute_destinationPrefixListId = Lens.lens (\DeleteLocalGatewayRoute' {destinationPrefixListId} -> destinationPrefixListId) (\s@DeleteLocalGatewayRoute' {} a -> s {destinationPrefixListId = a} :: DeleteLocalGatewayRoute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -104,11 +122,6 @@ newDeleteLocalGatewayRoute
 -- Otherwise, it is @UnauthorizedOperation@.
 deleteLocalGatewayRoute_dryRun :: Lens.Lens' DeleteLocalGatewayRoute (Prelude.Maybe Prelude.Bool)
 deleteLocalGatewayRoute_dryRun = Lens.lens (\DeleteLocalGatewayRoute' {dryRun} -> dryRun) (\s@DeleteLocalGatewayRoute' {} a -> s {dryRun = a} :: DeleteLocalGatewayRoute)
-
--- | The CIDR range for the route. This must match the CIDR for the route
--- exactly.
-deleteLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' DeleteLocalGatewayRoute Prelude.Text
-deleteLocalGatewayRoute_destinationCidrBlock = Lens.lens (\DeleteLocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@DeleteLocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: DeleteLocalGatewayRoute)
 
 -- | The ID of the local gateway route table.
 deleteLocalGatewayRoute_localGatewayRouteTableId :: Lens.Lens' DeleteLocalGatewayRoute Prelude.Text
@@ -130,14 +143,17 @@ instance Core.AWSRequest DeleteLocalGatewayRoute where
 
 instance Prelude.Hashable DeleteLocalGatewayRoute where
   hashWithSalt _salt DeleteLocalGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
       `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` localGatewayRouteTableId
 
 instance Prelude.NFData DeleteLocalGatewayRoute where
   rnf DeleteLocalGatewayRoute' {..} =
-    Prelude.rnf dryRun
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
+    Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
 instance Data.ToHeaders DeleteLocalGatewayRoute where
@@ -153,8 +169,10 @@ instance Data.ToQuery DeleteLocalGatewayRoute where
           Data.=: ("DeleteLocalGatewayRoute" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "DryRun" Data.=: dryRun,
         "DestinationCidrBlock" Data.=: destinationCidrBlock,
+        "DestinationPrefixListId"
+          Data.=: destinationPrefixListId,
+        "DryRun" Data.=: dryRun,
         "LocalGatewayRouteTableId"
           Data.=: localGatewayRouteTableId
       ]

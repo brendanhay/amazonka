@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified Verified Access endpoint policy.
+-- Modifies the specified Amazon Web Services Verified Access endpoint
+-- policy.
 module Amazonka.EC2.ModifyVerifiedAccessEndpointPolicy
   ( -- * Creating a Request
     ModifyVerifiedAccessEndpointPolicy (..),
@@ -63,9 +64,9 @@ data ModifyVerifiedAccessEndpointPolicy = ModifyVerifiedAccessEndpointPolicy'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Web Services Verified Access policy document.
+    -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services Verified Access endpoint.
+    -- | The ID of the Verified Access endpoint.
     verifiedAccessEndpointId :: Prelude.Text,
     -- | The status of the Verified Access policy.
     policyEnabled :: Prelude.Bool
@@ -89,9 +90,9 @@ data ModifyVerifiedAccessEndpointPolicy = ModifyVerifiedAccessEndpointPolicy'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'policyDocument', 'modifyVerifiedAccessEndpointPolicy_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'modifyVerifiedAccessEndpointPolicy_policyDocument' - The Verified Access policy document.
 --
--- 'verifiedAccessEndpointId', 'modifyVerifiedAccessEndpointPolicy_verifiedAccessEndpointId' - The ID of the Amazon Web Services Verified Access endpoint.
+-- 'verifiedAccessEndpointId', 'modifyVerifiedAccessEndpointPolicy_verifiedAccessEndpointId' - The ID of the Verified Access endpoint.
 --
 -- 'policyEnabled', 'modifyVerifiedAccessEndpointPolicy_policyEnabled' - The status of the Verified Access policy.
 newModifyVerifiedAccessEndpointPolicy ::
@@ -126,11 +127,11 @@ modifyVerifiedAccessEndpointPolicy_clientToken = Lens.lens (\ModifyVerifiedAcces
 modifyVerifiedAccessEndpointPolicy_dryRun :: Lens.Lens' ModifyVerifiedAccessEndpointPolicy (Prelude.Maybe Prelude.Bool)
 modifyVerifiedAccessEndpointPolicy_dryRun = Lens.lens (\ModifyVerifiedAccessEndpointPolicy' {dryRun} -> dryRun) (\s@ModifyVerifiedAccessEndpointPolicy' {} a -> s {dryRun = a} :: ModifyVerifiedAccessEndpointPolicy)
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 modifyVerifiedAccessEndpointPolicy_policyDocument :: Lens.Lens' ModifyVerifiedAccessEndpointPolicy (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessEndpointPolicy_policyDocument = Lens.lens (\ModifyVerifiedAccessEndpointPolicy' {policyDocument} -> policyDocument) (\s@ModifyVerifiedAccessEndpointPolicy' {} a -> s {policyDocument = a} :: ModifyVerifiedAccessEndpointPolicy)
 
--- | The ID of the Amazon Web Services Verified Access endpoint.
+-- | The ID of the Verified Access endpoint.
 modifyVerifiedAccessEndpointPolicy_verifiedAccessEndpointId :: Lens.Lens' ModifyVerifiedAccessEndpointPolicy Prelude.Text
 modifyVerifiedAccessEndpointPolicy_verifiedAccessEndpointId = Lens.lens (\ModifyVerifiedAccessEndpointPolicy' {verifiedAccessEndpointId} -> verifiedAccessEndpointId) (\s@ModifyVerifiedAccessEndpointPolicy' {} a -> s {verifiedAccessEndpointId = a} :: ModifyVerifiedAccessEndpointPolicy)
 
@@ -152,8 +153,8 @@ instance
       ( \s h x ->
           ModifyVerifiedAccessEndpointPolicyResponse'
             Prelude.<$> (x Data..@? "policyDocument")
-              Prelude.<*> (x Data..@? "policyEnabled")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "policyEnabled")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -163,7 +164,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessEndpointPolicy' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` policyDocument
         `Prelude.hashWithSalt` verifiedAccessEndpointId
@@ -214,7 +216,7 @@ instance
 
 -- | /See:/ 'newModifyVerifiedAccessEndpointPolicyResponse' smart constructor.
 data ModifyVerifiedAccessEndpointPolicyResponse = ModifyVerifiedAccessEndpointPolicyResponse'
-  { -- | The Amazon Web Services Verified Access policy document.
+  { -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The status of the Verified Access policy.
     policyEnabled :: Prelude.Maybe Prelude.Bool,
@@ -231,7 +233,7 @@ data ModifyVerifiedAccessEndpointPolicyResponse = ModifyVerifiedAccessEndpointPo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDocument', 'modifyVerifiedAccessEndpointPolicyResponse_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'modifyVerifiedAccessEndpointPolicyResponse_policyDocument' - The Verified Access policy document.
 --
 -- 'policyEnabled', 'modifyVerifiedAccessEndpointPolicyResponse_policyEnabled' - The status of the Verified Access policy.
 --
@@ -249,7 +251,7 @@ newModifyVerifiedAccessEndpointPolicyResponse
         httpStatus = pHttpStatus_
       }
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 modifyVerifiedAccessEndpointPolicyResponse_policyDocument :: Lens.Lens' ModifyVerifiedAccessEndpointPolicyResponse (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessEndpointPolicyResponse_policyDocument = Lens.lens (\ModifyVerifiedAccessEndpointPolicyResponse' {policyDocument} -> policyDocument) (\s@ModifyVerifiedAccessEndpointPolicyResponse' {} a -> s {policyDocument = a} :: ModifyVerifiedAccessEndpointPolicyResponse)
 

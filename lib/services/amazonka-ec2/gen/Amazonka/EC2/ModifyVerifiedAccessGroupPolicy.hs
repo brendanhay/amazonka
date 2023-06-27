@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified Verified Access group policy.
+-- Modifies the specified Amazon Web Services Verified Access group policy.
 module Amazonka.EC2.ModifyVerifiedAccessGroupPolicy
   ( -- * Creating a Request
     ModifyVerifiedAccessGroupPolicy (..),
@@ -63,9 +63,9 @@ data ModifyVerifiedAccessGroupPolicy = ModifyVerifiedAccessGroupPolicy'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Web Services Verified Access policy document.
+    -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services Verified Access group.
+    -- | The ID of the Verified Access group.
     verifiedAccessGroupId :: Prelude.Text,
     -- | The status of the Verified Access policy.
     policyEnabled :: Prelude.Bool
@@ -89,9 +89,9 @@ data ModifyVerifiedAccessGroupPolicy = ModifyVerifiedAccessGroupPolicy'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'policyDocument', 'modifyVerifiedAccessGroupPolicy_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'modifyVerifiedAccessGroupPolicy_policyDocument' - The Verified Access policy document.
 --
--- 'verifiedAccessGroupId', 'modifyVerifiedAccessGroupPolicy_verifiedAccessGroupId' - The ID of the Amazon Web Services Verified Access group.
+-- 'verifiedAccessGroupId', 'modifyVerifiedAccessGroupPolicy_verifiedAccessGroupId' - The ID of the Verified Access group.
 --
 -- 'policyEnabled', 'modifyVerifiedAccessGroupPolicy_policyEnabled' - The status of the Verified Access policy.
 newModifyVerifiedAccessGroupPolicy ::
@@ -126,11 +126,11 @@ modifyVerifiedAccessGroupPolicy_clientToken = Lens.lens (\ModifyVerifiedAccessGr
 modifyVerifiedAccessGroupPolicy_dryRun :: Lens.Lens' ModifyVerifiedAccessGroupPolicy (Prelude.Maybe Prelude.Bool)
 modifyVerifiedAccessGroupPolicy_dryRun = Lens.lens (\ModifyVerifiedAccessGroupPolicy' {dryRun} -> dryRun) (\s@ModifyVerifiedAccessGroupPolicy' {} a -> s {dryRun = a} :: ModifyVerifiedAccessGroupPolicy)
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 modifyVerifiedAccessGroupPolicy_policyDocument :: Lens.Lens' ModifyVerifiedAccessGroupPolicy (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessGroupPolicy_policyDocument = Lens.lens (\ModifyVerifiedAccessGroupPolicy' {policyDocument} -> policyDocument) (\s@ModifyVerifiedAccessGroupPolicy' {} a -> s {policyDocument = a} :: ModifyVerifiedAccessGroupPolicy)
 
--- | The ID of the Amazon Web Services Verified Access group.
+-- | The ID of the Verified Access group.
 modifyVerifiedAccessGroupPolicy_verifiedAccessGroupId :: Lens.Lens' ModifyVerifiedAccessGroupPolicy Prelude.Text
 modifyVerifiedAccessGroupPolicy_verifiedAccessGroupId = Lens.lens (\ModifyVerifiedAccessGroupPolicy' {verifiedAccessGroupId} -> verifiedAccessGroupId) (\s@ModifyVerifiedAccessGroupPolicy' {} a -> s {verifiedAccessGroupId = a} :: ModifyVerifiedAccessGroupPolicy)
 
@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessGroupPolicy' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` policyDocument
         `Prelude.hashWithSalt` verifiedAccessGroupId
@@ -208,7 +209,7 @@ instance Data.ToQuery ModifyVerifiedAccessGroupPolicy where
 
 -- | /See:/ 'newModifyVerifiedAccessGroupPolicyResponse' smart constructor.
 data ModifyVerifiedAccessGroupPolicyResponse = ModifyVerifiedAccessGroupPolicyResponse'
-  { -- | The Amazon Web Services Verified Access policy document.
+  { -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The status of the Verified Access policy.
     policyEnabled :: Prelude.Maybe Prelude.Bool,
@@ -225,7 +226,7 @@ data ModifyVerifiedAccessGroupPolicyResponse = ModifyVerifiedAccessGroupPolicyRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDocument', 'modifyVerifiedAccessGroupPolicyResponse_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'modifyVerifiedAccessGroupPolicyResponse_policyDocument' - The Verified Access policy document.
 --
 -- 'policyEnabled', 'modifyVerifiedAccessGroupPolicyResponse_policyEnabled' - The status of the Verified Access policy.
 --
@@ -243,7 +244,7 @@ newModifyVerifiedAccessGroupPolicyResponse
         httpStatus = pHttpStatus_
       }
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 modifyVerifiedAccessGroupPolicyResponse_policyDocument :: Lens.Lens' ModifyVerifiedAccessGroupPolicyResponse (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessGroupPolicyResponse_policyDocument = Lens.lens (\ModifyVerifiedAccessGroupPolicyResponse' {policyDocument} -> policyDocument) (\s@ModifyVerifiedAccessGroupPolicyResponse' {} a -> s {policyDocument = a} :: ModifyVerifiedAccessGroupPolicyResponse)
 

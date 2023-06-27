@@ -20,7 +20,8 @@
 module Amazonka.EC2.Types.IpamPoolCidrFailureCode
   ( IpamPoolCidrFailureCode
       ( ..,
-        IpamPoolCidrFailureCode_Cidr_not_available
+        IpamPoolCidrFailureCode_Cidr_not_available,
+        IpamPoolCidrFailureCode_Limit_exceeded
       ),
   )
 where
@@ -61,7 +62,11 @@ newtype IpamPoolCidrFailureCode = IpamPoolCidrFailureCode'
 pattern IpamPoolCidrFailureCode_Cidr_not_available :: IpamPoolCidrFailureCode
 pattern IpamPoolCidrFailureCode_Cidr_not_available = IpamPoolCidrFailureCode' "cidr-not-available"
 
+pattern IpamPoolCidrFailureCode_Limit_exceeded :: IpamPoolCidrFailureCode
+pattern IpamPoolCidrFailureCode_Limit_exceeded = IpamPoolCidrFailureCode' "limit-exceeded"
+
 {-# COMPLETE
   IpamPoolCidrFailureCode_Cidr_not_available,
+  IpamPoolCidrFailureCode_Limit_exceeded,
   IpamPoolCidrFailureCode'
   #-}

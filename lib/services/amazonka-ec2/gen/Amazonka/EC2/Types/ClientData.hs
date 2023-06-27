@@ -83,7 +83,8 @@ clientData_uploadStart = Lens.lens (\ClientData' {uploadStart} -> uploadStart) (
 
 instance Prelude.Hashable ClientData where
   hashWithSalt _salt ClientData' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` uploadEnd
       `Prelude.hashWithSalt` uploadSize
       `Prelude.hashWithSalt` uploadStart

@@ -74,11 +74,13 @@ data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
     filters :: Prelude.Maybe [Filter],
     -- | The location type.
     locationType :: Prelude.Maybe LocationType,
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the next token value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to retrieve the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,11 +108,13 @@ data DescribeInstanceTypeOfferings = DescribeInstanceTypeOfferings'
 --
 -- 'locationType', 'describeInstanceTypeOfferings_locationType' - The location type.
 --
--- 'maxResults', 'describeInstanceTypeOfferings_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
+-- 'maxResults', 'describeInstanceTypeOfferings_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeInstanceTypeOfferings_nextToken' - The token to retrieve the next page of results.
+-- 'nextToken', 'describeInstanceTypeOfferings_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeInstanceTypeOfferings ::
   DescribeInstanceTypeOfferings
 newDescribeInstanceTypeOfferings =
@@ -144,13 +148,15 @@ describeInstanceTypeOfferings_filters = Lens.lens (\DescribeInstanceTypeOffering
 describeInstanceTypeOfferings_locationType :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe LocationType)
 describeInstanceTypeOfferings_locationType = Lens.lens (\DescribeInstanceTypeOfferings' {locationType} -> locationType) (\s@DescribeInstanceTypeOfferings' {} a -> s {locationType = a} :: DescribeInstanceTypeOfferings)
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeInstanceTypeOfferings_maxResults :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Natural)
 describeInstanceTypeOfferings_maxResults = Lens.lens (\DescribeInstanceTypeOfferings' {maxResults} -> maxResults) (\s@DescribeInstanceTypeOfferings' {} a -> s {maxResults = a} :: DescribeInstanceTypeOfferings)
 
--- | The token to retrieve the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeInstanceTypeOfferings_nextToken :: Lens.Lens' DescribeInstanceTypeOfferings (Prelude.Maybe Prelude.Text)
 describeInstanceTypeOfferings_nextToken = Lens.lens (\DescribeInstanceTypeOfferings' {nextToken} -> nextToken) (\s@DescribeInstanceTypeOfferings' {} a -> s {nextToken = a} :: DescribeInstanceTypeOfferings)
 
@@ -159,22 +165,22 @@ instance Core.AWSPager DescribeInstanceTypeOfferings where
     | Core.stop
         ( rs
             Lens.^? describeInstanceTypeOfferingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceTypeOfferingsResponse_instanceTypeOfferings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceTypeOfferings_nextToken
           Lens..~ rs
           Lens.^? describeInstanceTypeOfferingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -189,7 +195,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceTypeOfferingsResponse'
-            Prelude.<$> ( x Data..@? "instanceTypeOfferingSet"
+            Prelude.<$> ( x
+                            Data..@? "instanceTypeOfferingSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -202,7 +209,8 @@ instance
     DescribeInstanceTypeOfferings
   where
   hashWithSalt _salt DescribeInstanceTypeOfferings' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` locationType
       `Prelude.hashWithSalt` maxResults
@@ -243,8 +251,8 @@ instance Data.ToQuery DescribeInstanceTypeOfferings where
 data DescribeInstanceTypeOfferingsResponse = DescribeInstanceTypeOfferingsResponse'
   { -- | The instance types offered.
     instanceTypeOfferings :: Prelude.Maybe [InstanceTypeOffering],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -261,8 +269,8 @@ data DescribeInstanceTypeOfferingsResponse = DescribeInstanceTypeOfferingsRespon
 --
 -- 'instanceTypeOfferings', 'describeInstanceTypeOfferingsResponse_instanceTypeOfferings' - The instance types offered.
 --
--- 'nextToken', 'describeInstanceTypeOfferingsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeInstanceTypeOfferingsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeInstanceTypeOfferingsResponse_httpStatus' - The response's http status code.
 newDescribeInstanceTypeOfferingsResponse ::
@@ -281,8 +289,8 @@ newDescribeInstanceTypeOfferingsResponse pHttpStatus_ =
 describeInstanceTypeOfferingsResponse_instanceTypeOfferings :: Lens.Lens' DescribeInstanceTypeOfferingsResponse (Prelude.Maybe [InstanceTypeOffering])
 describeInstanceTypeOfferingsResponse_instanceTypeOfferings = Lens.lens (\DescribeInstanceTypeOfferingsResponse' {instanceTypeOfferings} -> instanceTypeOfferings) (\s@DescribeInstanceTypeOfferingsResponse' {} a -> s {instanceTypeOfferings = a} :: DescribeInstanceTypeOfferingsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeInstanceTypeOfferingsResponse_nextToken :: Lens.Lens' DescribeInstanceTypeOfferingsResponse (Prelude.Maybe Prelude.Text)
 describeInstanceTypeOfferingsResponse_nextToken = Lens.lens (\DescribeInstanceTypeOfferingsResponse' {nextToken} -> nextToken) (\s@DescribeInstanceTypeOfferingsResponse' {} a -> s {nextToken = a} :: DescribeInstanceTypeOfferingsResponse)
 

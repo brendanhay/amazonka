@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detach a trust provider from an Amazon Web Services Verified Access
+-- Detaches the specified Amazon Web Services Verified Access trust
+-- provider from the specified Amazon Web Services Verified Access
 -- instance.
 module Amazonka.EC2.DetachVerifiedAccessTrustProvider
   ( -- * Creating a Request
@@ -63,9 +64,9 @@ data DetachVerifiedAccessTrustProvider = DetachVerifiedAccessTrustProvider'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Text,
-    -- | The ID of the Amazon Web Services Verified Access trust provider.
+    -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProviderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,9 +88,9 @@ data DetachVerifiedAccessTrustProvider = DetachVerifiedAccessTrustProvider'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessInstanceId', 'detachVerifiedAccessTrustProvider_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'detachVerifiedAccessTrustProvider_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 --
--- 'verifiedAccessTrustProviderId', 'detachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProviderId', 'detachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Verified Access trust provider.
 newDetachVerifiedAccessTrustProvider ::
   -- | 'verifiedAccessInstanceId'
   Prelude.Text ->
@@ -122,11 +123,11 @@ detachVerifiedAccessTrustProvider_clientToken = Lens.lens (\DetachVerifiedAccess
 detachVerifiedAccessTrustProvider_dryRun :: Lens.Lens' DetachVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Bool)
 detachVerifiedAccessTrustProvider_dryRun = Lens.lens (\DetachVerifiedAccessTrustProvider' {dryRun} -> dryRun) (\s@DetachVerifiedAccessTrustProvider' {} a -> s {dryRun = a} :: DetachVerifiedAccessTrustProvider)
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 detachVerifiedAccessTrustProvider_verifiedAccessInstanceId :: Lens.Lens' DetachVerifiedAccessTrustProvider Prelude.Text
 detachVerifiedAccessTrustProvider_verifiedAccessInstanceId = Lens.lens (\DetachVerifiedAccessTrustProvider' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@DetachVerifiedAccessTrustProvider' {} a -> s {verifiedAccessInstanceId = a} :: DetachVerifiedAccessTrustProvider)
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 detachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId :: Lens.Lens' DetachVerifiedAccessTrustProvider Prelude.Text
 detachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId = Lens.lens (\DetachVerifiedAccessTrustProvider' {verifiedAccessTrustProviderId} -> verifiedAccessTrustProviderId) (\s@DetachVerifiedAccessTrustProvider' {} a -> s {verifiedAccessTrustProviderId = a} :: DetachVerifiedAccessTrustProvider)
 
@@ -144,8 +145,8 @@ instance
       ( \s h x ->
           DetachVerifiedAccessTrustProviderResponse'
             Prelude.<$> (x Data..@? "verifiedAccessInstance")
-              Prelude.<*> (x Data..@? "verifiedAccessTrustProvider")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "verifiedAccessTrustProvider")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -155,7 +156,8 @@ instance
   hashWithSalt
     _salt
     DetachVerifiedAccessTrustProvider' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessInstanceId
         `Prelude.hashWithSalt` verifiedAccessTrustProviderId
@@ -204,14 +206,14 @@ instance
 
 -- | /See:/ 'newDetachVerifiedAccessTrustProviderResponse' smart constructor.
 data DetachVerifiedAccessTrustProviderResponse = DetachVerifiedAccessTrustProviderResponse'
-  { -- | The ID of the Amazon Web Services Verified Access instance.
+  { -- | The ID of the Verified Access instance.
     verifiedAccessInstance :: Prelude.Maybe VerifiedAccessInstance,
-    -- | The ID of the Amazon Web Services Verified Access trust provider.
+    -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProvider :: Prelude.Maybe VerifiedAccessTrustProvider,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DetachVerifiedAccessTrustProviderResponse' with all optional fields omitted.
@@ -221,9 +223,9 @@ data DetachVerifiedAccessTrustProviderResponse = DetachVerifiedAccessTrustProvid
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessInstance', 'detachVerifiedAccessTrustProviderResponse_verifiedAccessInstance' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstance', 'detachVerifiedAccessTrustProviderResponse_verifiedAccessInstance' - The ID of the Verified Access instance.
 --
--- 'verifiedAccessTrustProvider', 'detachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProvider', 'detachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Verified Access trust provider.
 --
 -- 'httpStatus', 'detachVerifiedAccessTrustProviderResponse_httpStatus' - The response's http status code.
 newDetachVerifiedAccessTrustProviderResponse ::
@@ -240,11 +242,11 @@ newDetachVerifiedAccessTrustProviderResponse
         httpStatus = pHttpStatus_
       }
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 detachVerifiedAccessTrustProviderResponse_verifiedAccessInstance :: Lens.Lens' DetachVerifiedAccessTrustProviderResponse (Prelude.Maybe VerifiedAccessInstance)
 detachVerifiedAccessTrustProviderResponse_verifiedAccessInstance = Lens.lens (\DetachVerifiedAccessTrustProviderResponse' {verifiedAccessInstance} -> verifiedAccessInstance) (\s@DetachVerifiedAccessTrustProviderResponse' {} a -> s {verifiedAccessInstance = a} :: DetachVerifiedAccessTrustProviderResponse)
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 detachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider :: Lens.Lens' DetachVerifiedAccessTrustProviderResponse (Prelude.Maybe VerifiedAccessTrustProvider)
 detachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider = Lens.lens (\DetachVerifiedAccessTrustProviderResponse' {verifiedAccessTrustProvider} -> verifiedAccessTrustProvider) (\s@DetachVerifiedAccessTrustProviderResponse' {} a -> s {verifiedAccessTrustProvider = a} :: DetachVerifiedAccessTrustProviderResponse)
 

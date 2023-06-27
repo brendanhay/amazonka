@@ -72,7 +72,8 @@ instance Data.FromXML RecurringCharge where
 
 instance Prelude.Hashable RecurringCharge where
   hashWithSalt _salt RecurringCharge' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` frequency
 
 instance Prelude.NFData RecurringCharge where

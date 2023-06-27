@@ -134,7 +134,8 @@ instance Core.AWSRequest DisassociateTrunkInterface where
 
 instance Prelude.Hashable DisassociateTrunkInterface where
   hashWithSalt _salt DisassociateTrunkInterface' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` associationId
 

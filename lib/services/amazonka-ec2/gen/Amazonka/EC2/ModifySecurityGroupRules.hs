@@ -121,7 +121,8 @@ instance Core.AWSRequest ModifySecurityGroupRules where
 
 instance Prelude.Hashable ModifySecurityGroupRules where
   hashWithSalt _salt ModifySecurityGroupRules' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` securityGroupRules
 

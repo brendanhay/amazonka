@@ -119,7 +119,8 @@ instance Core.AWSRequest GetLaunchTemplateData where
 
 instance Prelude.Hashable GetLaunchTemplateData where
   hashWithSalt _salt GetLaunchTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GetLaunchTemplateData where
@@ -151,7 +152,7 @@ data GetLaunchTemplateDataResponse = GetLaunchTemplateDataResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetLaunchTemplateDataResponse' with all optional fields omitted.

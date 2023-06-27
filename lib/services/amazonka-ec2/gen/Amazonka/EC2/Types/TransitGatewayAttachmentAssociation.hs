@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayAttachmentAssociation' {..} =
-      _salt `Prelude.hashWithSalt` state
+      _salt
+        `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` transitGatewayRouteTableId
 
 instance

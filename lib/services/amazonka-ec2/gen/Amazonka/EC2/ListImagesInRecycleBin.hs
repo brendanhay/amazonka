@@ -67,15 +67,13 @@ data ListImagesInRecycleBin = ListImagesInRecycleBin'
     -- that are in the Recycle Bin. You can specify up to 20 IDs in a single
     -- request.
     imageIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
-    --
-    -- If you do not specify a value for /MaxResults/, the request returns
-    -- 1,000 items per page by default. For more information, see
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,15 +95,13 @@ data ListImagesInRecycleBin = ListImagesInRecycleBin'
 -- that are in the Recycle Bin. You can specify up to 20 IDs in a single
 -- request.
 --
--- 'maxResults', 'listImagesInRecycleBin_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- If you do not specify a value for /MaxResults/, the request returns
--- 1,000 items per page by default. For more information, see
+-- 'maxResults', 'listImagesInRecycleBin_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'listImagesInRecycleBin_nextToken' - The token for the next page of results.
+-- 'nextToken', 'listImagesInRecycleBin_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newListImagesInRecycleBin ::
   ListImagesInRecycleBin
 newListImagesInRecycleBin =
@@ -129,17 +125,15 @@ listImagesInRecycleBin_dryRun = Lens.lens (\ListImagesInRecycleBin' {dryRun} -> 
 listImagesInRecycleBin_imageIds :: Lens.Lens' ListImagesInRecycleBin (Prelude.Maybe [Prelude.Text])
 listImagesInRecycleBin_imageIds = Lens.lens (\ListImagesInRecycleBin' {imageIds} -> imageIds) (\s@ListImagesInRecycleBin' {} a -> s {imageIds = a} :: ListImagesInRecycleBin) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
---
--- If you do not specify a value for /MaxResults/, the request returns
--- 1,000 items per page by default. For more information, see
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 listImagesInRecycleBin_maxResults :: Lens.Lens' ListImagesInRecycleBin (Prelude.Maybe Prelude.Natural)
 listImagesInRecycleBin_maxResults = Lens.lens (\ListImagesInRecycleBin' {maxResults} -> maxResults) (\s@ListImagesInRecycleBin' {} a -> s {maxResults = a} :: ListImagesInRecycleBin)
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 listImagesInRecycleBin_nextToken :: Lens.Lens' ListImagesInRecycleBin (Prelude.Maybe Prelude.Text)
 listImagesInRecycleBin_nextToken = Lens.lens (\ListImagesInRecycleBin' {nextToken} -> nextToken) (\s@ListImagesInRecycleBin' {} a -> s {nextToken = a} :: ListImagesInRecycleBin)
 
@@ -148,22 +142,22 @@ instance Core.AWSPager ListImagesInRecycleBin where
     | Core.stop
         ( rs
             Lens.^? listImagesInRecycleBinResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listImagesInRecycleBinResponse_images
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listImagesInRecycleBin_nextToken
           Lens..~ rs
           Lens.^? listImagesInRecycleBinResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListImagesInRecycleBin where
   type
@@ -175,7 +169,9 @@ instance Core.AWSRequest ListImagesInRecycleBin where
     Response.receiveXML
       ( \s h x ->
           ListImagesInRecycleBinResponse'
-            Prelude.<$> ( x Data..@? "imageSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "imageSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -184,7 +180,8 @@ instance Core.AWSRequest ListImagesInRecycleBin where
 
 instance Prelude.Hashable ListImagesInRecycleBin where
   hashWithSalt _salt ListImagesInRecycleBin' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -220,8 +217,8 @@ instance Data.ToQuery ListImagesInRecycleBin where
 data ListImagesInRecycleBinResponse = ListImagesInRecycleBinResponse'
   { -- | Information about the AMIs.
     images :: Prelude.Maybe [ImageRecycleBinInfo],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -238,8 +235,8 @@ data ListImagesInRecycleBinResponse = ListImagesInRecycleBinResponse'
 --
 -- 'images', 'listImagesInRecycleBinResponse_images' - Information about the AMIs.
 --
--- 'nextToken', 'listImagesInRecycleBinResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'listImagesInRecycleBinResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'listImagesInRecycleBinResponse_httpStatus' - The response's http status code.
 newListImagesInRecycleBinResponse ::
@@ -258,8 +255,8 @@ newListImagesInRecycleBinResponse pHttpStatus_ =
 listImagesInRecycleBinResponse_images :: Lens.Lens' ListImagesInRecycleBinResponse (Prelude.Maybe [ImageRecycleBinInfo])
 listImagesInRecycleBinResponse_images = Lens.lens (\ListImagesInRecycleBinResponse' {images} -> images) (\s@ListImagesInRecycleBinResponse' {} a -> s {images = a} :: ListImagesInRecycleBinResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 listImagesInRecycleBinResponse_nextToken :: Lens.Lens' ListImagesInRecycleBinResponse (Prelude.Maybe Prelude.Text)
 listImagesInRecycleBinResponse_nextToken = Lens.lens (\ListImagesInRecycleBinResponse' {nextToken} -> nextToken) (\s@ListImagesInRecycleBinResponse' {} a -> s {nextToken = a} :: ListImagesInRecycleBinResponse)
 

@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteNatGateway where
 
 instance Prelude.Hashable DeleteNatGateway where
   hashWithSalt _salt DeleteNatGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` natGatewayId
 
 instance Prelude.NFData DeleteNatGateway where

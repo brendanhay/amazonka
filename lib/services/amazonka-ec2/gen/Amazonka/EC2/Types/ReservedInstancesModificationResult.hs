@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     ReservedInstancesModificationResult' {..} =
-      _salt `Prelude.hashWithSalt` reservedInstancesId
+      _salt
+        `Prelude.hashWithSalt` reservedInstancesId
         `Prelude.hashWithSalt` targetConfiguration
 
 instance

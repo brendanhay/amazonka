@@ -24,6 +24,15 @@
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro Transfer Elastic IP addresses>
 -- in the /Amazon Virtual Private Cloud User Guide/.
 --
+-- When you transfer an Elastic IP address, there is a two-step handshake
+-- between the source and transfer Amazon Web Services accounts. When the
+-- source account starts the transfer, the transfer account has seven days
+-- to accept the Elastic IP address transfer. During those seven days, the
+-- source account can view the pending transfer by using this action. After
+-- seven days, the transfer expires and ownership of the Elastic IP address
+-- returns to the source account. Accepted transfers are visible to the
+-- source account for three days after the transfers have been accepted.
+--
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeAddressTransfers
   ( -- * Creating a Request
@@ -130,22 +139,22 @@ instance Core.AWSPager DescribeAddressTransfers where
     | Core.stop
         ( rs
             Lens.^? describeAddressTransfersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAddressTransfersResponse_addressTransfers
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAddressTransfers_nextToken
           Lens..~ rs
           Lens.^? describeAddressTransfersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddressTransfers where
   type
@@ -157,7 +166,8 @@ instance Core.AWSRequest DescribeAddressTransfers where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressTransfersResponse'
-            Prelude.<$> ( x Data..@? "addressTransferSet"
+            Prelude.<$> ( x
+                            Data..@? "addressTransferSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -167,7 +177,8 @@ instance Core.AWSRequest DescribeAddressTransfers where
 
 instance Prelude.Hashable DescribeAddressTransfers where
   hashWithSalt _salt DescribeAddressTransfers' {..} =
-    _salt `Prelude.hashWithSalt` allocationIds
+    _salt
+      `Prelude.hashWithSalt` allocationIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

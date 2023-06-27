@@ -98,14 +98,17 @@ instance Data.FromXML CarrierGateway where
       Prelude.<$> (x Data..@? "carrierGatewayId")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable CarrierGateway where
   hashWithSalt _salt CarrierGateway' {..} =
-    _salt `Prelude.hashWithSalt` carrierGatewayId
+    _salt
+      `Prelude.hashWithSalt` carrierGatewayId
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` tags

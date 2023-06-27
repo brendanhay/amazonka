@@ -92,7 +92,8 @@ instance Data.FromXML AddedPrincipal where
 
 instance Prelude.Hashable AddedPrincipal where
   hashWithSalt _salt AddedPrincipal' {..} =
-    _salt `Prelude.hashWithSalt` principal
+    _salt
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` principalType
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` servicePermissionId

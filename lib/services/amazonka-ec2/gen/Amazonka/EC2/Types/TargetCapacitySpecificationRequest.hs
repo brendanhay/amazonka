@@ -55,7 +55,8 @@ data TargetCapacitySpecificationRequest = TargetCapacitySpecificationRequest'
     onDemandTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The number of Spot units to request.
     spotTargetCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The unit for the target capacity.
+    -- | The unit for the target capacity. @TargetCapacityUnitType@ can only be
+    -- specified when @InstanceRequirements@ is specified.
     --
     -- Default: @units@ (translates to number of instances)
     targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
@@ -80,7 +81,8 @@ data TargetCapacitySpecificationRequest = TargetCapacitySpecificationRequest'
 --
 -- 'spotTargetCapacity', 'targetCapacitySpecificationRequest_spotTargetCapacity' - The number of Spot units to request.
 --
--- 'targetCapacityUnitType', 'targetCapacitySpecificationRequest_targetCapacityUnitType' - The unit for the target capacity.
+-- 'targetCapacityUnitType', 'targetCapacitySpecificationRequest_targetCapacityUnitType' - The unit for the target capacity. @TargetCapacityUnitType@ can only be
+-- specified when @InstanceRequirements@ is specified.
 --
 -- Default: @units@ (translates to number of instances)
 --
@@ -117,7 +119,8 @@ targetCapacitySpecificationRequest_onDemandTargetCapacity = Lens.lens (\TargetCa
 targetCapacitySpecificationRequest_spotTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest (Prelude.Maybe Prelude.Int)
 targetCapacitySpecificationRequest_spotTargetCapacity = Lens.lens (\TargetCapacitySpecificationRequest' {spotTargetCapacity} -> spotTargetCapacity) (\s@TargetCapacitySpecificationRequest' {} a -> s {spotTargetCapacity = a} :: TargetCapacitySpecificationRequest)
 
--- | The unit for the target capacity.
+-- | The unit for the target capacity. @TargetCapacityUnitType@ can only be
+-- specified when @InstanceRequirements@ is specified.
 --
 -- Default: @units@ (translates to number of instances)
 targetCapacitySpecificationRequest_targetCapacityUnitType :: Lens.Lens' TargetCapacitySpecificationRequest (Prelude.Maybe TargetCapacityUnitType)

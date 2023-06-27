@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the current logging configuration for the Amazon Web Services
--- Verified Access instances.
+-- Describes the specified Amazon Web Services Verified Access instances.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeVerifiedAccessInstanceLoggingConfigurations
@@ -70,7 +69,7 @@ data DescribeVerifiedAccessInstanceLoggingConfigurations = DescribeVerifiedAcces
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the Amazon Web Services Verified Access instances.
+    -- | The IDs of the Verified Access instances.
     verifiedAccessInstanceIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,7 +95,7 @@ data DescribeVerifiedAccessInstanceLoggingConfigurations = DescribeVerifiedAcces
 --
 -- 'nextToken', 'describeVerifiedAccessInstanceLoggingConfigurations_nextToken' - The token for the next page of results.
 --
--- 'verifiedAccessInstanceIds', 'describeVerifiedAccessInstanceLoggingConfigurations_verifiedAccessInstanceIds' - The IDs of the Amazon Web Services Verified Access instances.
+-- 'verifiedAccessInstanceIds', 'describeVerifiedAccessInstanceLoggingConfigurations_verifiedAccessInstanceIds' - The IDs of the Verified Access instances.
 newDescribeVerifiedAccessInstanceLoggingConfigurations ::
   DescribeVerifiedAccessInstanceLoggingConfigurations
 newDescribeVerifiedAccessInstanceLoggingConfigurations =
@@ -134,7 +133,7 @@ describeVerifiedAccessInstanceLoggingConfigurations_maxResults = Lens.lens (\Des
 describeVerifiedAccessInstanceLoggingConfigurations_nextToken :: Lens.Lens' DescribeVerifiedAccessInstanceLoggingConfigurations (Prelude.Maybe Prelude.Text)
 describeVerifiedAccessInstanceLoggingConfigurations_nextToken = Lens.lens (\DescribeVerifiedAccessInstanceLoggingConfigurations' {nextToken} -> nextToken) (\s@DescribeVerifiedAccessInstanceLoggingConfigurations' {} a -> s {nextToken = a} :: DescribeVerifiedAccessInstanceLoggingConfigurations)
 
--- | The IDs of the Amazon Web Services Verified Access instances.
+-- | The IDs of the Verified Access instances.
 describeVerifiedAccessInstanceLoggingConfigurations_verifiedAccessInstanceIds :: Lens.Lens' DescribeVerifiedAccessInstanceLoggingConfigurations (Prelude.Maybe [Prelude.Text])
 describeVerifiedAccessInstanceLoggingConfigurations_verifiedAccessInstanceIds = Lens.lens (\DescribeVerifiedAccessInstanceLoggingConfigurations' {verifiedAccessInstanceIds} -> verifiedAccessInstanceIds) (\s@DescribeVerifiedAccessInstanceLoggingConfigurations' {} a -> s {verifiedAccessInstanceIds = a} :: DescribeVerifiedAccessInstanceLoggingConfigurations) Prelude.. Lens.mapping Lens.coerced
 
@@ -146,22 +145,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessInstanceLoggingConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessInstanceLoggingConfigurationsResponse_loggingConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVerifiedAccessInstanceLoggingConfigurations_nextToken
           Lens..~ rs
-            Lens.^? describeVerifiedAccessInstanceLoggingConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeVerifiedAccessInstanceLoggingConfigurationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -177,12 +176,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeVerifiedAccessInstanceLoggingConfigurationsResponse'
-            Prelude.<$> ( x Data..@? "loggingConfigurationSet"
+            Prelude.<$> ( x
+                            Data..@? "loggingConfigurationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -192,7 +192,8 @@ instance
   hashWithSalt
     _salt
     DescribeVerifiedAccessInstanceLoggingConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -248,8 +249,7 @@ instance
 
 -- | /See:/ 'newDescribeVerifiedAccessInstanceLoggingConfigurationsResponse' smart constructor.
 data DescribeVerifiedAccessInstanceLoggingConfigurationsResponse = DescribeVerifiedAccessInstanceLoggingConfigurationsResponse'
-  { -- | The current logging configuration for the Amazon Web Services Verified
-    -- Access instances.
+  { -- | The current logging configuration for the Verified Access instances.
     loggingConfigurations :: Prelude.Maybe [VerifiedAccessInstanceLoggingConfiguration],
     -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
@@ -267,8 +267,7 @@ data DescribeVerifiedAccessInstanceLoggingConfigurationsResponse = DescribeVerif
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingConfigurations', 'describeVerifiedAccessInstanceLoggingConfigurationsResponse_loggingConfigurations' - The current logging configuration for the Amazon Web Services Verified
--- Access instances.
+-- 'loggingConfigurations', 'describeVerifiedAccessInstanceLoggingConfigurationsResponse_loggingConfigurations' - The current logging configuration for the Verified Access instances.
 --
 -- 'nextToken', 'describeVerifiedAccessInstanceLoggingConfigurationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -289,8 +288,7 @@ newDescribeVerifiedAccessInstanceLoggingConfigurationsResponse
           pHttpStatus_
       }
 
--- | The current logging configuration for the Amazon Web Services Verified
--- Access instances.
+-- | The current logging configuration for the Verified Access instances.
 describeVerifiedAccessInstanceLoggingConfigurationsResponse_loggingConfigurations :: Lens.Lens' DescribeVerifiedAccessInstanceLoggingConfigurationsResponse (Prelude.Maybe [VerifiedAccessInstanceLoggingConfiguration])
 describeVerifiedAccessInstanceLoggingConfigurationsResponse_loggingConfigurations = Lens.lens (\DescribeVerifiedAccessInstanceLoggingConfigurationsResponse' {loggingConfigurations} -> loggingConfigurations) (\s@DescribeVerifiedAccessInstanceLoggingConfigurationsResponse' {} a -> s {loggingConfigurations = a} :: DescribeVerifiedAccessInstanceLoggingConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 

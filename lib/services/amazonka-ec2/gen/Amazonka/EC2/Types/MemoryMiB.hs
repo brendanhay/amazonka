@@ -72,11 +72,13 @@ memoryMiB_min = Lens.lens (\MemoryMiB' {min} -> min) (\s@MemoryMiB' {} a -> s {m
 instance Data.FromXML MemoryMiB where
   parseXML x =
     MemoryMiB'
-      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
+      Prelude.<$> (x Data..@? "max")
+      Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable MemoryMiB where
   hashWithSalt _salt MemoryMiB' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData MemoryMiB where

@@ -24,6 +24,7 @@ import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.ArchitectureType
+import Amazonka.EC2.Types.SupportedAdditionalProcessorFeature
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the processor used by the instance type.
@@ -32,6 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 data ProcessorInfo = ProcessorInfo'
   { -- | The architectures supported by the instance type.
     supportedArchitectures :: Prelude.Maybe [ArchitectureType],
+    -- | Indicates whether the instance type supports AMD SEV-SNP. If the request
+    -- returns @amd-sev-snp@, AMD SEV-SNP is supported. Otherwise, it is not
+    -- supported. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html AMD SEV-SNP>.
+    supportedFeatures :: Prelude.Maybe [SupportedAdditionalProcessorFeature],
     -- | The speed of the processor, in GHz.
     sustainedClockSpeedInGhz :: Prelude.Maybe Prelude.Double
   }
@@ -47,6 +53,11 @@ data ProcessorInfo = ProcessorInfo'
 --
 -- 'supportedArchitectures', 'processorInfo_supportedArchitectures' - The architectures supported by the instance type.
 --
+-- 'supportedFeatures', 'processorInfo_supportedFeatures' - Indicates whether the instance type supports AMD SEV-SNP. If the request
+-- returns @amd-sev-snp@, AMD SEV-SNP is supported. Otherwise, it is not
+-- supported. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html AMD SEV-SNP>.
+--
 -- 'sustainedClockSpeedInGhz', 'processorInfo_sustainedClockSpeedInGhz' - The speed of the processor, in GHz.
 newProcessorInfo ::
   ProcessorInfo
@@ -54,12 +65,20 @@ newProcessorInfo =
   ProcessorInfo'
     { supportedArchitectures =
         Prelude.Nothing,
+      supportedFeatures = Prelude.Nothing,
       sustainedClockSpeedInGhz = Prelude.Nothing
     }
 
 -- | The architectures supported by the instance type.
 processorInfo_supportedArchitectures :: Lens.Lens' ProcessorInfo (Prelude.Maybe [ArchitectureType])
 processorInfo_supportedArchitectures = Lens.lens (\ProcessorInfo' {supportedArchitectures} -> supportedArchitectures) (\s@ProcessorInfo' {} a -> s {supportedArchitectures = a} :: ProcessorInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether the instance type supports AMD SEV-SNP. If the request
+-- returns @amd-sev-snp@, AMD SEV-SNP is supported. Otherwise, it is not
+-- supported. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html AMD SEV-SNP>.
+processorInfo_supportedFeatures :: Lens.Lens' ProcessorInfo (Prelude.Maybe [SupportedAdditionalProcessorFeature])
+processorInfo_supportedFeatures = Lens.lens (\ProcessorInfo' {supportedFeatures} -> supportedFeatures) (\s@ProcessorInfo' {} a -> s {supportedFeatures = a} :: ProcessorInfo) Prelude.. Lens.mapping Lens.coerced
 
 -- | The speed of the processor, in GHz.
 processorInfo_sustainedClockSpeedInGhz :: Lens.Lens' ProcessorInfo (Prelude.Maybe Prelude.Double)
@@ -68,7 +87,13 @@ processorInfo_sustainedClockSpeedInGhz = Lens.lens (\ProcessorInfo' {sustainedCl
 instance Data.FromXML ProcessorInfo where
   parseXML x =
     ProcessorInfo'
-      Prelude.<$> ( x Data..@? "supportedArchitectures"
+      Prelude.<$> ( x
+                      Data..@? "supportedArchitectures"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "supportedFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -76,10 +101,13 @@ instance Data.FromXML ProcessorInfo where
 
 instance Prelude.Hashable ProcessorInfo where
   hashWithSalt _salt ProcessorInfo' {..} =
-    _salt `Prelude.hashWithSalt` supportedArchitectures
+    _salt
+      `Prelude.hashWithSalt` supportedArchitectures
+      `Prelude.hashWithSalt` supportedFeatures
       `Prelude.hashWithSalt` sustainedClockSpeedInGhz
 
 instance Prelude.NFData ProcessorInfo where
   rnf ProcessorInfo' {..} =
     Prelude.rnf supportedArchitectures
+      `Prelude.seq` Prelude.rnf supportedFeatures
       `Prelude.seq` Prelude.rnf sustainedClockSpeedInGhz

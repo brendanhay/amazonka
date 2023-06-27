@@ -81,7 +81,8 @@ instance
   hashWithSalt
     _salt
     ClientVpnAuthorizationRuleStatus' {..} =
-      _salt `Prelude.hashWithSalt` code
+      _salt
+        `Prelude.hashWithSalt` code
         `Prelude.hashWithSalt` message
 
 instance

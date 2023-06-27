@@ -171,7 +171,8 @@ instance Core.AWSRequest AttachNetworkInterface where
 
 instance Prelude.Hashable AttachNetworkInterface where
   hashWithSalt _salt AttachNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` enaSrdSpecification
       `Prelude.hashWithSalt` networkCardIndex
       `Prelude.hashWithSalt` deviceIndex

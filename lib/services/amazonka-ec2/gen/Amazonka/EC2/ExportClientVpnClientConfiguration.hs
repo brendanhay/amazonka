@@ -115,7 +115,7 @@ instance
       ( \s h x ->
           ExportClientVpnClientConfigurationResponse'
             Prelude.<$> (x Data..@? "clientConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     ExportClientVpnClientConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` clientVpnEndpointId
 
 instance

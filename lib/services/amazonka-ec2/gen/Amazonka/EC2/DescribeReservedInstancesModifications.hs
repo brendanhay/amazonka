@@ -85,9 +85,6 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     -- -   @modification-result.target-configuration.instance-type@ - The
     --     instance type of the new Reserved Instances.
     --
-    -- -   @modification-result.target-configuration.platform@ - The network
-    --     platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@).
-    --
     -- -   @reserved-instances-id@ - The ID of the Reserved Instances modified.
     --
     -- -   @reserved-instances-modification-id@ - The ID of the modification
@@ -138,9 +135,6 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 -- -   @modification-result.target-configuration.instance-type@ - The
 --     instance type of the new Reserved Instances.
 --
--- -   @modification-result.target-configuration.platform@ - The network
---     platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@).
---
 -- -   @reserved-instances-id@ - The ID of the Reserved Instances modified.
 --
 -- -   @reserved-instances-modification-id@ - The ID of the modification
@@ -190,9 +184,6 @@ newDescribeReservedInstancesModifications =
 -- -   @modification-result.target-configuration.instance-type@ - The
 --     instance type of the new Reserved Instances.
 --
--- -   @modification-result.target-configuration.platform@ - The network
---     platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@).
---
 -- -   @reserved-instances-id@ - The ID of the Reserved Instances modified.
 --
 -- -   @reserved-instances-modification-id@ - The ID of the modification
@@ -224,22 +215,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesModificationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesModificationsResponse_reservedInstancesModifications
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReservedInstancesModifications_nextToken
           Lens..~ rs
-            Lens.^? describeReservedInstancesModificationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeReservedInstancesModificationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -256,11 +247,12 @@ instance
       ( \s h x ->
           DescribeReservedInstancesModificationsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "reservedInstancesModificationsSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "reservedInstancesModificationsSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -270,7 +262,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedInstancesModifications' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` reservedInstancesModificationIds
 

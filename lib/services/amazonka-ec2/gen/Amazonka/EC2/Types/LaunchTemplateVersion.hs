@@ -47,7 +47,7 @@ data LaunchTemplateVersion = LaunchTemplateVersion'
     -- | The version number.
     versionNumber :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchTemplateVersion' with all optional fields omitted.
@@ -133,7 +133,8 @@ instance Data.FromXML LaunchTemplateVersion where
 
 instance Prelude.Hashable LaunchTemplateVersion where
   hashWithSalt _salt LaunchTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` defaultVersion
       `Prelude.hashWithSalt` launchTemplateData

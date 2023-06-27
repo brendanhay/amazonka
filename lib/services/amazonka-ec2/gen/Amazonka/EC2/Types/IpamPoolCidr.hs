@@ -38,6 +38,14 @@ data IpamPoolCidr = IpamPoolCidr'
     cidr :: Prelude.Maybe Prelude.Text,
     -- | Details related to why an IPAM pool CIDR failed to be provisioned.
     failureReason :: Prelude.Maybe IpamPoolCidrFailureReason,
+    -- | The IPAM pool CIDR ID.
+    ipamPoolCidrId :: Prelude.Maybe Prelude.Text,
+    -- | The netmask length of the CIDR you\'d like to provision to a pool. Can
+    -- be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools
+    -- and for provisioning CIDRs to pools with source pools. Cannot be used to
+    -- provision BYOIP CIDRs to top-level pools. \"NetmaskLength\" or \"Cidr\"
+    -- is required.
+    netmaskLength :: Prelude.Maybe Prelude.Int,
     -- | The state of the CIDR.
     state :: Prelude.Maybe IpamPoolCidrState
   }
@@ -58,6 +66,14 @@ data IpamPoolCidr = IpamPoolCidr'
 --
 -- 'failureReason', 'ipamPoolCidr_failureReason' - Details related to why an IPAM pool CIDR failed to be provisioned.
 --
+-- 'ipamPoolCidrId', 'ipamPoolCidr_ipamPoolCidrId' - The IPAM pool CIDR ID.
+--
+-- 'netmaskLength', 'ipamPoolCidr_netmaskLength' - The netmask length of the CIDR you\'d like to provision to a pool. Can
+-- be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools
+-- and for provisioning CIDRs to pools with source pools. Cannot be used to
+-- provision BYOIP CIDRs to top-level pools. \"NetmaskLength\" or \"Cidr\"
+-- is required.
+--
 -- 'state', 'ipamPoolCidr_state' - The state of the CIDR.
 newIpamPoolCidr ::
   IpamPoolCidr
@@ -65,6 +81,8 @@ newIpamPoolCidr =
   IpamPoolCidr'
     { cidr = Prelude.Nothing,
       failureReason = Prelude.Nothing,
+      ipamPoolCidrId = Prelude.Nothing,
+      netmaskLength = Prelude.Nothing,
       state = Prelude.Nothing
     }
 
@@ -79,6 +97,18 @@ ipamPoolCidr_cidr = Lens.lens (\IpamPoolCidr' {cidr} -> cidr) (\s@IpamPoolCidr' 
 ipamPoolCidr_failureReason :: Lens.Lens' IpamPoolCidr (Prelude.Maybe IpamPoolCidrFailureReason)
 ipamPoolCidr_failureReason = Lens.lens (\IpamPoolCidr' {failureReason} -> failureReason) (\s@IpamPoolCidr' {} a -> s {failureReason = a} :: IpamPoolCidr)
 
+-- | The IPAM pool CIDR ID.
+ipamPoolCidr_ipamPoolCidrId :: Lens.Lens' IpamPoolCidr (Prelude.Maybe Prelude.Text)
+ipamPoolCidr_ipamPoolCidrId = Lens.lens (\IpamPoolCidr' {ipamPoolCidrId} -> ipamPoolCidrId) (\s@IpamPoolCidr' {} a -> s {ipamPoolCidrId = a} :: IpamPoolCidr)
+
+-- | The netmask length of the CIDR you\'d like to provision to a pool. Can
+-- be used for provisioning Amazon-provided IPv6 CIDRs to top-level pools
+-- and for provisioning CIDRs to pools with source pools. Cannot be used to
+-- provision BYOIP CIDRs to top-level pools. \"NetmaskLength\" or \"Cidr\"
+-- is required.
+ipamPoolCidr_netmaskLength :: Lens.Lens' IpamPoolCidr (Prelude.Maybe Prelude.Int)
+ipamPoolCidr_netmaskLength = Lens.lens (\IpamPoolCidr' {netmaskLength} -> netmaskLength) (\s@IpamPoolCidr' {} a -> s {netmaskLength = a} :: IpamPoolCidr)
+
 -- | The state of the CIDR.
 ipamPoolCidr_state :: Lens.Lens' IpamPoolCidr (Prelude.Maybe IpamPoolCidrState)
 ipamPoolCidr_state = Lens.lens (\IpamPoolCidr' {state} -> state) (\s@IpamPoolCidr' {} a -> s {state = a} :: IpamPoolCidr)
@@ -88,16 +118,23 @@ instance Data.FromXML IpamPoolCidr where
     IpamPoolCidr'
       Prelude.<$> (x Data..@? "cidr")
       Prelude.<*> (x Data..@? "failureReason")
+      Prelude.<*> (x Data..@? "ipamPoolCidrId")
+      Prelude.<*> (x Data..@? "netmaskLength")
       Prelude.<*> (x Data..@? "state")
 
 instance Prelude.Hashable IpamPoolCidr where
   hashWithSalt _salt IpamPoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` failureReason
+      `Prelude.hashWithSalt` ipamPoolCidrId
+      `Prelude.hashWithSalt` netmaskLength
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData IpamPoolCidr where
   rnf IpamPoolCidr' {..} =
     Prelude.rnf cidr
       `Prelude.seq` Prelude.rnf failureReason
+      `Prelude.seq` Prelude.rnf ipamPoolCidrId
+      `Prelude.seq` Prelude.rnf netmaskLength
       `Prelude.seq` Prelude.rnf state

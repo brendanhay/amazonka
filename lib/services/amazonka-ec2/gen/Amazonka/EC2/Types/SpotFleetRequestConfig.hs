@@ -51,7 +51,7 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
     -- | The tags for a Spot Fleet resource.
     tags :: Prelude.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotFleetRequestConfig' with all optional fields omitted.
@@ -127,13 +127,16 @@ instance Data.FromXML SpotFleetRequestConfig where
       Prelude.<*> (x Data..@? "spotFleetRequestConfig")
       Prelude.<*> (x Data..@? "spotFleetRequestId")
       Prelude.<*> (x Data..@? "spotFleetRequestState")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable SpotFleetRequestConfig where
   hashWithSalt _salt SpotFleetRequestConfig' {..} =
-    _salt `Prelude.hashWithSalt` activityStatus
+    _salt
+      `Prelude.hashWithSalt` activityStatus
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` spotFleetRequestConfig
       `Prelude.hashWithSalt` spotFleetRequestId

@@ -73,7 +73,8 @@ cidrAuthorizationContext_signature = Lens.lens (\CidrAuthorizationContext' {sign
 
 instance Prelude.Hashable CidrAuthorizationContext where
   hashWithSalt _salt CidrAuthorizationContext' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` signature
 
 instance Prelude.NFData CidrAuthorizationContext where

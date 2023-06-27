@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateVpnGateway where
 
 instance Prelude.Hashable CreateVpnGateway where
   hashWithSalt _salt CreateVpnGateway' {..} =
-    _salt `Prelude.hashWithSalt` amazonSideAsn
+    _salt
+      `Prelude.hashWithSalt` amazonSideAsn
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications

@@ -123,7 +123,8 @@ instance Core.AWSRequest ResetFpgaImageAttribute where
 
 instance Prelude.Hashable ResetFpgaImageAttribute where
   hashWithSalt _salt ResetFpgaImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fpgaImageId
 

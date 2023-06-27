@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteSubnetCidrReservation where
 
 instance Prelude.Hashable DeleteSubnetCidrReservation where
   hashWithSalt _salt DeleteSubnetCidrReservation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` subnetCidrReservationId
 
 instance Prelude.NFData DeleteSubnetCidrReservation where

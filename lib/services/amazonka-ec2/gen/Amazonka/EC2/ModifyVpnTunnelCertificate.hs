@@ -127,7 +127,8 @@ instance Core.AWSRequest ModifyVpnTunnelCertificate where
 
 instance Prelude.Hashable ModifyVpnTunnelCertificate where
   hashWithSalt _salt ModifyVpnTunnelCertificate' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpnConnectionId
       `Prelude.hashWithSalt` vpnTunnelOutsideIpAddress
 
@@ -163,7 +164,7 @@ data ModifyVpnTunnelCertificateResponse = ModifyVpnTunnelCertificateResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelCertificateResponse' with all optional fields omitted.

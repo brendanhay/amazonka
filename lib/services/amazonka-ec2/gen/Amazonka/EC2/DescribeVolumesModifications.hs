@@ -103,9 +103,11 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
     -- -   @volume-id@ - The ID of the volume.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results (up to a limit of 500) to be returned in a
-    -- paginated request.
+    -- paginated request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The @nextToken@ value returned by a previous paginated request.
+    -- | The token returned by a previous paginated request. Pagination continues
+    -- from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the volumes.
     volumeIds :: Prelude.Maybe [Prelude.Text]
@@ -155,9 +157,11 @@ data DescribeVolumesModifications = DescribeVolumesModifications'
 -- -   @volume-id@ - The ID of the volume.
 --
 -- 'maxResults', 'describeVolumesModifications_maxResults' - The maximum number of results (up to a limit of 500) to be returned in a
--- paginated request.
+-- paginated request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeVolumesModifications_nextToken' - The @nextToken@ value returned by a previous paginated request.
+-- 'nextToken', 'describeVolumesModifications_nextToken' - The token returned by a previous paginated request. Pagination continues
+-- from the end of the items returned by the previous request.
 --
 -- 'volumeIds', 'describeVolumesModifications_volumeIds' - The IDs of the volumes.
 newDescribeVolumesModifications ::
@@ -211,11 +215,13 @@ describeVolumesModifications_filters :: Lens.Lens' DescribeVolumesModifications 
 describeVolumesModifications_filters = Lens.lens (\DescribeVolumesModifications' {filters} -> filters) (\s@DescribeVolumesModifications' {} a -> s {filters = a} :: DescribeVolumesModifications) Prelude.. Lens.mapping Lens.coerced
 
 -- | The maximum number of results (up to a limit of 500) to be returned in a
--- paginated request.
+-- paginated request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeVolumesModifications_maxResults :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Int)
 describeVolumesModifications_maxResults = Lens.lens (\DescribeVolumesModifications' {maxResults} -> maxResults) (\s@DescribeVolumesModifications' {} a -> s {maxResults = a} :: DescribeVolumesModifications)
 
--- | The @nextToken@ value returned by a previous paginated request.
+-- | The token returned by a previous paginated request. Pagination continues
+-- from the end of the items returned by the previous request.
 describeVolumesModifications_nextToken :: Lens.Lens' DescribeVolumesModifications (Prelude.Maybe Prelude.Text)
 describeVolumesModifications_nextToken = Lens.lens (\DescribeVolumesModifications' {nextToken} -> nextToken) (\s@DescribeVolumesModifications' {} a -> s {nextToken = a} :: DescribeVolumesModifications)
 
@@ -228,22 +234,22 @@ instance Core.AWSPager DescribeVolumesModifications where
     | Core.stop
         ( rs
             Lens.^? describeVolumesModificationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVolumesModificationsResponse_volumesModifications
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVolumesModifications_nextToken
           Lens..~ rs
           Lens.^? describeVolumesModificationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumesModifications where
   type
@@ -256,7 +262,8 @@ instance Core.AWSRequest DescribeVolumesModifications where
       ( \s h x ->
           DescribeVolumesModificationsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "volumeModificationSet"
+            Prelude.<*> ( x
+                            Data..@? "volumeModificationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -268,7 +275,8 @@ instance
     DescribeVolumesModifications
   where
   hashWithSalt _salt DescribeVolumesModifications' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -308,7 +316,8 @@ instance Data.ToQuery DescribeVolumesModifications where
 
 -- | /See:/ 'newDescribeVolumesModificationsResponse' smart constructor.
 data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse'
-  { -- | Token for pagination, null if there are no more results
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ if there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the volume modifications.
     volumesModifications :: Prelude.Maybe [VolumeModification],
@@ -325,7 +334,8 @@ data DescribeVolumesModificationsResponse = DescribeVolumesModificationsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVolumesModificationsResponse_nextToken' - Token for pagination, null if there are no more results
+-- 'nextToken', 'describeVolumesModificationsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ if there are no more items to return.
 --
 -- 'volumesModifications', 'describeVolumesModificationsResponse_volumesModifications' - Information about the volume modifications.
 --
@@ -343,7 +353,8 @@ newDescribeVolumesModificationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Token for pagination, null if there are no more results
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ if there are no more items to return.
 describeVolumesModificationsResponse_nextToken :: Lens.Lens' DescribeVolumesModificationsResponse (Prelude.Maybe Prelude.Text)
 describeVolumesModificationsResponse_nextToken = Lens.lens (\DescribeVolumesModificationsResponse' {nextToken} -> nextToken) (\s@DescribeVolumesModificationsResponse' {} a -> s {nextToken = a} :: DescribeVolumesModificationsResponse)
 

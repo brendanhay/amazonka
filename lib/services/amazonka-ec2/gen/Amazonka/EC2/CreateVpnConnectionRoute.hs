@@ -108,7 +108,8 @@ instance Core.AWSRequest CreateVpnConnectionRoute where
 
 instance Prelude.Hashable CreateVpnConnectionRoute where
   hashWithSalt _salt CreateVpnConnectionRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` vpnConnectionId
 
 instance Prelude.NFData CreateVpnConnectionRoute where

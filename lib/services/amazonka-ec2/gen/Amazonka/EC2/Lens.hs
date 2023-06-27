@@ -86,15 +86,17 @@ module Amazonka.EC2.Lens
     allocateAddressResponse_httpStatus,
 
     -- ** AllocateHosts
+    allocateHosts_assetIds,
     allocateHosts_autoPlacement,
     allocateHosts_clientToken,
+    allocateHosts_hostMaintenance,
     allocateHosts_hostRecovery,
     allocateHosts_instanceFamily,
     allocateHosts_instanceType,
     allocateHosts_outpostArn,
+    allocateHosts_quantity,
     allocateHosts_tagSpecifications,
     allocateHosts_availabilityZone,
-    allocateHosts_quantity,
     allocateHostsResponse_hostIds,
     allocateHostsResponse_httpStatus,
 
@@ -141,6 +143,15 @@ module Amazonka.EC2.Lens
     assignPrivateIpAddressesResponse_networkInterfaceId,
     assignPrivateIpAddressesResponse_httpStatus,
 
+    -- ** AssignPrivateNatGatewayAddress
+    assignPrivateNatGatewayAddress_dryRun,
+    assignPrivateNatGatewayAddress_privateIpAddressCount,
+    assignPrivateNatGatewayAddress_privateIpAddresses,
+    assignPrivateNatGatewayAddress_natGatewayId,
+    assignPrivateNatGatewayAddressResponse_natGatewayAddresses,
+    assignPrivateNatGatewayAddressResponse_natGatewayId,
+    assignPrivateNatGatewayAddressResponse_httpStatus,
+
     -- ** AssociateAddress
     associateAddress_allocationId,
     associateAddress_allowReassociation,
@@ -167,8 +178,8 @@ module Amazonka.EC2.Lens
     associateDhcpOptions_vpcId,
 
     -- ** AssociateEnclaveCertificateIamRole
-    associateEnclaveCertificateIamRole_certificateArn,
     associateEnclaveCertificateIamRole_dryRun,
+    associateEnclaveCertificateIamRole_certificateArn,
     associateEnclaveCertificateIamRole_roleArn,
     associateEnclaveCertificateIamRoleResponse_certificateS3BucketName,
     associateEnclaveCertificateIamRoleResponse_certificateS3ObjectKey,
@@ -188,6 +199,24 @@ module Amazonka.EC2.Lens
     associateInstanceEventWindowResponse_instanceEventWindow,
     associateInstanceEventWindowResponse_httpStatus,
 
+    -- ** AssociateIpamResourceDiscovery
+    associateIpamResourceDiscovery_clientToken,
+    associateIpamResourceDiscovery_dryRun,
+    associateIpamResourceDiscovery_tagSpecifications,
+    associateIpamResourceDiscovery_ipamId,
+    associateIpamResourceDiscovery_ipamResourceDiscoveryId,
+    associateIpamResourceDiscoveryResponse_ipamResourceDiscoveryAssociation,
+    associateIpamResourceDiscoveryResponse_httpStatus,
+
+    -- ** AssociateNatGatewayAddress
+    associateNatGatewayAddress_dryRun,
+    associateNatGatewayAddress_privateIpAddresses,
+    associateNatGatewayAddress_natGatewayId,
+    associateNatGatewayAddress_allocationIds,
+    associateNatGatewayAddressResponse_natGatewayAddresses,
+    associateNatGatewayAddressResponse_natGatewayId,
+    associateNatGatewayAddressResponse_httpStatus,
+
     -- ** AssociateRouteTable
     associateRouteTable_dryRun,
     associateRouteTable_gatewayId,
@@ -206,9 +235,9 @@ module Amazonka.EC2.Lens
 
     -- ** AssociateTransitGatewayMulticastDomain
     associateTransitGatewayMulticastDomain_dryRun,
-    associateTransitGatewayMulticastDomain_subnetIds,
-    associateTransitGatewayMulticastDomain_transitGatewayAttachmentId,
     associateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId,
+    associateTransitGatewayMulticastDomain_transitGatewayAttachmentId,
+    associateTransitGatewayMulticastDomain_subnetIds,
     associateTransitGatewayMulticastDomainResponse_associations,
     associateTransitGatewayMulticastDomainResponse_httpStatus,
 
@@ -562,13 +591,13 @@ module Amazonka.EC2.Lens
     createCoipPoolResponse_httpStatus,
 
     -- ** CreateCustomerGateway
+    createCustomerGateway_bgpAsn,
     createCustomerGateway_certificateArn,
     createCustomerGateway_deviceName,
     createCustomerGateway_dryRun,
     createCustomerGateway_ipAddress,
     createCustomerGateway_publicIp,
     createCustomerGateway_tagSpecifications,
-    createCustomerGateway_bgpAsn,
     createCustomerGateway_type,
     createCustomerGatewayResponse_customerGateway,
     createCustomerGatewayResponse_httpStatus,
@@ -664,6 +693,17 @@ module Amazonka.EC2.Lens
     createImageResponse_imageId,
     createImageResponse_httpStatus,
 
+    -- ** CreateInstanceConnectEndpoint
+    createInstanceConnectEndpoint_clientToken,
+    createInstanceConnectEndpoint_dryRun,
+    createInstanceConnectEndpoint_preserveClientIp,
+    createInstanceConnectEndpoint_securityGroupIds,
+    createInstanceConnectEndpoint_tagSpecifications,
+    createInstanceConnectEndpoint_subnetId,
+    createInstanceConnectEndpointResponse_clientToken,
+    createInstanceConnectEndpointResponse_instanceConnectEndpoint,
+    createInstanceConnectEndpointResponse_httpStatus,
+
     -- ** CreateInstanceEventWindow
     createInstanceEventWindow_cronExpression,
     createInstanceEventWindow_dryRun,
@@ -708,6 +748,7 @@ module Amazonka.EC2.Lens
     createIpamPool_description,
     createIpamPool_dryRun,
     createIpamPool_locale,
+    createIpamPool_publicIpSource,
     createIpamPool_publiclyAdvertisable,
     createIpamPool_sourceIpamPoolId,
     createIpamPool_tagSpecifications,
@@ -715,6 +756,15 @@ module Amazonka.EC2.Lens
     createIpamPool_addressFamily,
     createIpamPoolResponse_ipamPool,
     createIpamPoolResponse_httpStatus,
+
+    -- ** CreateIpamResourceDiscovery
+    createIpamResourceDiscovery_clientToken,
+    createIpamResourceDiscovery_description,
+    createIpamResourceDiscovery_dryRun,
+    createIpamResourceDiscovery_operatingRegions,
+    createIpamResourceDiscovery_tagSpecifications,
+    createIpamResourceDiscoveryResponse_ipamResourceDiscovery,
+    createIpamResourceDiscoveryResponse_httpStatus,
 
     -- ** CreateIpamScope
     createIpamScope_clientToken,
@@ -754,6 +804,7 @@ module Amazonka.EC2.Lens
     createLaunchTemplateVersion_dryRun,
     createLaunchTemplateVersion_launchTemplateId,
     createLaunchTemplateVersion_launchTemplateName,
+    createLaunchTemplateVersion_resolveAlias,
     createLaunchTemplateVersion_sourceVersion,
     createLaunchTemplateVersion_versionDescription,
     createLaunchTemplateVersion_launchTemplateData,
@@ -762,10 +813,11 @@ module Amazonka.EC2.Lens
     createLaunchTemplateVersionResponse_httpStatus,
 
     -- ** CreateLocalGatewayRoute
+    createLocalGatewayRoute_destinationCidrBlock,
+    createLocalGatewayRoute_destinationPrefixListId,
     createLocalGatewayRoute_dryRun,
     createLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
     createLocalGatewayRoute_networkInterfaceId,
-    createLocalGatewayRoute_destinationCidrBlock,
     createLocalGatewayRoute_localGatewayRouteTableId,
     createLocalGatewayRouteResponse_route,
     createLocalGatewayRouteResponse_httpStatus,
@@ -811,6 +863,9 @@ module Amazonka.EC2.Lens
     createNatGateway_connectivityType,
     createNatGateway_dryRun,
     createNatGateway_privateIpAddress,
+    createNatGateway_secondaryAllocationIds,
+    createNatGateway_secondaryPrivateIpAddressCount,
+    createNatGateway_secondaryPrivateIpAddresses,
     createNatGateway_tagSpecifications,
     createNatGateway_subnetId,
     createNatGatewayResponse_clientToken,
@@ -847,13 +902,15 @@ module Amazonka.EC2.Lens
     createNetworkInsightsAccessScopeResponse_httpStatus,
 
     -- ** CreateNetworkInsightsPath
+    createNetworkInsightsPath_destination,
     createNetworkInsightsPath_destinationIp,
     createNetworkInsightsPath_destinationPort,
     createNetworkInsightsPath_dryRun,
+    createNetworkInsightsPath_filterAtDestination,
+    createNetworkInsightsPath_filterAtSource,
     createNetworkInsightsPath_sourceIp,
     createNetworkInsightsPath_tagSpecifications,
     createNetworkInsightsPath_source,
-    createNetworkInsightsPath_destination,
     createNetworkInsightsPath_protocol,
     createNetworkInsightsPath_clientToken,
     createNetworkInsightsPathResponse_networkInsightsPath,
@@ -1436,6 +1493,12 @@ module Amazonka.EC2.Lens
     deleteFpgaImageResponse_return,
     deleteFpgaImageResponse_httpStatus,
 
+    -- ** DeleteInstanceConnectEndpoint
+    deleteInstanceConnectEndpoint_dryRun,
+    deleteInstanceConnectEndpoint_instanceConnectEndpointId,
+    deleteInstanceConnectEndpointResponse_instanceConnectEndpoint,
+    deleteInstanceConnectEndpointResponse_httpStatus,
+
     -- ** DeleteInstanceEventWindow
     deleteInstanceEventWindow_dryRun,
     deleteInstanceEventWindow_forceDelete,
@@ -1459,6 +1522,12 @@ module Amazonka.EC2.Lens
     deleteIpamPool_ipamPoolId,
     deleteIpamPoolResponse_ipamPool,
     deleteIpamPoolResponse_httpStatus,
+
+    -- ** DeleteIpamResourceDiscovery
+    deleteIpamResourceDiscovery_dryRun,
+    deleteIpamResourceDiscovery_ipamResourceDiscoveryId,
+    deleteIpamResourceDiscoveryResponse_ipamResourceDiscovery,
+    deleteIpamResourceDiscoveryResponse_httpStatus,
 
     -- ** DeleteIpamScope
     deleteIpamScope_dryRun,
@@ -1488,8 +1557,9 @@ module Amazonka.EC2.Lens
     deleteLaunchTemplateVersionsResponse_httpStatus,
 
     -- ** DeleteLocalGatewayRoute
-    deleteLocalGatewayRoute_dryRun,
     deleteLocalGatewayRoute_destinationCidrBlock,
+    deleteLocalGatewayRoute_destinationPrefixListId,
+    deleteLocalGatewayRoute_dryRun,
     deleteLocalGatewayRoute_localGatewayRouteTableId,
     deleteLocalGatewayRouteResponse_route,
     deleteLocalGatewayRouteResponse_httpStatus,
@@ -2274,6 +2344,16 @@ module Amazonka.EC2.Lens
     describeInstanceAttributeResponse_userData,
     describeInstanceAttributeResponse_httpStatus,
 
+    -- ** DescribeInstanceConnectEndpoints
+    describeInstanceConnectEndpoints_dryRun,
+    describeInstanceConnectEndpoints_filters,
+    describeInstanceConnectEndpoints_instanceConnectEndpointIds,
+    describeInstanceConnectEndpoints_maxResults,
+    describeInstanceConnectEndpoints_nextToken,
+    describeInstanceConnectEndpointsResponse_instanceConnectEndpoints,
+    describeInstanceConnectEndpointsResponse_nextToken,
+    describeInstanceConnectEndpointsResponse_httpStatus,
+
     -- ** DescribeInstanceCreditSpecifications
     describeInstanceCreditSpecifications_dryRun,
     describeInstanceCreditSpecifications_filters,
@@ -2360,6 +2440,26 @@ module Amazonka.EC2.Lens
     describeIpamPoolsResponse_nextToken,
     describeIpamPoolsResponse_httpStatus,
 
+    -- ** DescribeIpamResourceDiscoveries
+    describeIpamResourceDiscoveries_dryRun,
+    describeIpamResourceDiscoveries_filters,
+    describeIpamResourceDiscoveries_ipamResourceDiscoveryIds,
+    describeIpamResourceDiscoveries_maxResults,
+    describeIpamResourceDiscoveries_nextToken,
+    describeIpamResourceDiscoveriesResponse_ipamResourceDiscoveries,
+    describeIpamResourceDiscoveriesResponse_nextToken,
+    describeIpamResourceDiscoveriesResponse_httpStatus,
+
+    -- ** DescribeIpamResourceDiscoveryAssociations
+    describeIpamResourceDiscoveryAssociations_dryRun,
+    describeIpamResourceDiscoveryAssociations_filters,
+    describeIpamResourceDiscoveryAssociations_ipamResourceDiscoveryAssociationIds,
+    describeIpamResourceDiscoveryAssociations_maxResults,
+    describeIpamResourceDiscoveryAssociations_nextToken,
+    describeIpamResourceDiscoveryAssociationsResponse_ipamResourceDiscoveryAssociations,
+    describeIpamResourceDiscoveryAssociationsResponse_nextToken,
+    describeIpamResourceDiscoveryAssociationsResponse_httpStatus,
+
     -- ** DescribeIpamScopes
     describeIpamScopes_dryRun,
     describeIpamScopes_filters,
@@ -2408,6 +2508,7 @@ module Amazonka.EC2.Lens
     describeLaunchTemplateVersions_maxVersion,
     describeLaunchTemplateVersions_minVersion,
     describeLaunchTemplateVersions_nextToken,
+    describeLaunchTemplateVersions_resolveAlias,
     describeLaunchTemplateVersions_versions,
     describeLaunchTemplateVersionsResponse_launchTemplateVersions,
     describeLaunchTemplateVersionsResponse_nextToken,
@@ -3382,8 +3483,8 @@ module Amazonka.EC2.Lens
     disassociateClientVpnTargetNetworkResponse_httpStatus,
 
     -- ** DisassociateEnclaveCertificateIamRole
-    disassociateEnclaveCertificateIamRole_certificateArn,
     disassociateEnclaveCertificateIamRole_dryRun,
+    disassociateEnclaveCertificateIamRole_certificateArn,
     disassociateEnclaveCertificateIamRole_roleArn,
     disassociateEnclaveCertificateIamRoleResponse_return,
     disassociateEnclaveCertificateIamRoleResponse_httpStatus,
@@ -3400,6 +3501,21 @@ module Amazonka.EC2.Lens
     disassociateInstanceEventWindowResponse_instanceEventWindow,
     disassociateInstanceEventWindowResponse_httpStatus,
 
+    -- ** DisassociateIpamResourceDiscovery
+    disassociateIpamResourceDiscovery_dryRun,
+    disassociateIpamResourceDiscovery_ipamResourceDiscoveryAssociationId,
+    disassociateIpamResourceDiscoveryResponse_ipamResourceDiscoveryAssociation,
+    disassociateIpamResourceDiscoveryResponse_httpStatus,
+
+    -- ** DisassociateNatGatewayAddress
+    disassociateNatGatewayAddress_dryRun,
+    disassociateNatGatewayAddress_maxDrainDurationSeconds,
+    disassociateNatGatewayAddress_natGatewayId,
+    disassociateNatGatewayAddress_associationIds,
+    disassociateNatGatewayAddressResponse_natGatewayAddresses,
+    disassociateNatGatewayAddressResponse_natGatewayId,
+    disassociateNatGatewayAddressResponse_httpStatus,
+
     -- ** DisassociateRouteTable
     disassociateRouteTable_dryRun,
     disassociateRouteTable_associationId,
@@ -3412,9 +3528,9 @@ module Amazonka.EC2.Lens
 
     -- ** DisassociateTransitGatewayMulticastDomain
     disassociateTransitGatewayMulticastDomain_dryRun,
-    disassociateTransitGatewayMulticastDomain_subnetIds,
-    disassociateTransitGatewayMulticastDomain_transitGatewayAttachmentId,
     disassociateTransitGatewayMulticastDomain_transitGatewayMulticastDomainId,
+    disassociateTransitGatewayMulticastDomain_transitGatewayAttachmentId,
+    disassociateTransitGatewayMulticastDomain_subnetIds,
     disassociateTransitGatewayMulticastDomainResponse_associations,
     disassociateTransitGatewayMulticastDomainResponse_httpStatus,
 
@@ -3588,8 +3704,8 @@ module Amazonka.EC2.Lens
     exportTransitGatewayRoutesResponse_httpStatus,
 
     -- ** GetAssociatedEnclaveCertificateIamRoles
-    getAssociatedEnclaveCertificateIamRoles_certificateArn,
     getAssociatedEnclaveCertificateIamRoles_dryRun,
+    getAssociatedEnclaveCertificateIamRoles_certificateArn,
     getAssociatedEnclaveCertificateIamRolesResponse_associatedRoles,
     getAssociatedEnclaveCertificateIamRolesResponse_httpStatus,
 
@@ -3727,6 +3843,28 @@ module Amazonka.EC2.Lens
     getIpamAddressHistoryResponse_historyRecords,
     getIpamAddressHistoryResponse_nextToken,
     getIpamAddressHistoryResponse_httpStatus,
+
+    -- ** GetIpamDiscoveredAccounts
+    getIpamDiscoveredAccounts_dryRun,
+    getIpamDiscoveredAccounts_filters,
+    getIpamDiscoveredAccounts_maxResults,
+    getIpamDiscoveredAccounts_nextToken,
+    getIpamDiscoveredAccounts_ipamResourceDiscoveryId,
+    getIpamDiscoveredAccounts_discoveryRegion,
+    getIpamDiscoveredAccountsResponse_ipamDiscoveredAccounts,
+    getIpamDiscoveredAccountsResponse_nextToken,
+    getIpamDiscoveredAccountsResponse_httpStatus,
+
+    -- ** GetIpamDiscoveredResourceCidrs
+    getIpamDiscoveredResourceCidrs_dryRun,
+    getIpamDiscoveredResourceCidrs_filters,
+    getIpamDiscoveredResourceCidrs_maxResults,
+    getIpamDiscoveredResourceCidrs_nextToken,
+    getIpamDiscoveredResourceCidrs_ipamResourceDiscoveryId,
+    getIpamDiscoveredResourceCidrs_resourceRegion,
+    getIpamDiscoveredResourceCidrsResponse_ipamDiscoveredResourceCidrs,
+    getIpamDiscoveredResourceCidrsResponse_nextToken,
+    getIpamDiscoveredResourceCidrsResponse_httpStatus,
 
     -- ** GetIpamPoolAllocations
     getIpamPoolAllocations_dryRun,
@@ -3958,6 +4096,18 @@ module Amazonka.EC2.Lens
     getVpnConnectionDeviceTypesResponse_vpnConnectionDeviceTypes,
     getVpnConnectionDeviceTypesResponse_httpStatus,
 
+    -- ** GetVpnTunnelReplacementStatus
+    getVpnTunnelReplacementStatus_dryRun,
+    getVpnTunnelReplacementStatus_vpnConnectionId,
+    getVpnTunnelReplacementStatus_vpnTunnelOutsideIpAddress,
+    getVpnTunnelReplacementStatusResponse_customerGatewayId,
+    getVpnTunnelReplacementStatusResponse_maintenanceDetails,
+    getVpnTunnelReplacementStatusResponse_transitGatewayId,
+    getVpnTunnelReplacementStatusResponse_vpnConnectionId,
+    getVpnTunnelReplacementStatusResponse_vpnGatewayId,
+    getVpnTunnelReplacementStatusResponse_vpnTunnelOutsideIpAddress,
+    getVpnTunnelReplacementStatusResponse_httpStatus,
+
     -- ** ImportClientVpnClientCertificateRevocationList
     importClientVpnClientCertificateRevocationList_dryRun,
     importClientVpnClientCertificateRevocationList_clientVpnEndpointId,
@@ -4154,6 +4304,7 @@ module Amazonka.EC2.Lens
 
     -- ** ModifyHosts
     modifyHosts_autoPlacement,
+    modifyHosts_hostMaintenance,
     modifyHosts_hostRecovery,
     modifyHosts_instanceFamily,
     modifyHosts_instanceType,
@@ -4175,6 +4326,7 @@ module Amazonka.EC2.Lens
     modifyImageAttribute_attribute,
     modifyImageAttribute_description,
     modifyImageAttribute_dryRun,
+    modifyImageAttribute_imdsSupport,
     modifyImageAttribute_launchPermission,
     modifyImageAttribute_operationType,
     modifyImageAttribute_organizationArns,
@@ -4302,6 +4454,15 @@ module Amazonka.EC2.Lens
     modifyIpamResourceCidrResponse_ipamResourceCidr,
     modifyIpamResourceCidrResponse_httpStatus,
 
+    -- ** ModifyIpamResourceDiscovery
+    modifyIpamResourceDiscovery_addOperatingRegions,
+    modifyIpamResourceDiscovery_description,
+    modifyIpamResourceDiscovery_dryRun,
+    modifyIpamResourceDiscovery_removeOperatingRegions,
+    modifyIpamResourceDiscovery_ipamResourceDiscoveryId,
+    modifyIpamResourceDiscoveryResponse_ipamResourceDiscovery,
+    modifyIpamResourceDiscoveryResponse_httpStatus,
+
     -- ** ModifyIpamScope
     modifyIpamScope_description,
     modifyIpamScope_dryRun,
@@ -4319,10 +4480,11 @@ module Amazonka.EC2.Lens
     modifyLaunchTemplateResponse_httpStatus,
 
     -- ** ModifyLocalGatewayRoute
+    modifyLocalGatewayRoute_destinationCidrBlock,
+    modifyLocalGatewayRoute_destinationPrefixListId,
     modifyLocalGatewayRoute_dryRun,
     modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
     modifyLocalGatewayRoute_networkInterfaceId,
-    modifyLocalGatewayRoute_destinationCidrBlock,
     modifyLocalGatewayRoute_localGatewayRouteTableId,
     modifyLocalGatewayRouteResponse_route,
     modifyLocalGatewayRouteResponse_httpStatus,
@@ -4351,8 +4513,8 @@ module Amazonka.EC2.Lens
     modifyPrivateDnsNameOptions_dryRun,
     modifyPrivateDnsNameOptions_enableResourceNameDnsAAAARecord,
     modifyPrivateDnsNameOptions_enableResourceNameDnsARecord,
-    modifyPrivateDnsNameOptions_instanceId,
     modifyPrivateDnsNameOptions_privateDnsHostnameType,
+    modifyPrivateDnsNameOptions_instanceId,
     modifyPrivateDnsNameOptionsResponse_return,
     modifyPrivateDnsNameOptionsResponse_httpStatus,
 
@@ -4660,6 +4822,7 @@ module Amazonka.EC2.Lens
 
     -- ** ModifyVpnTunnelOptions
     modifyVpnTunnelOptions_dryRun,
+    modifyVpnTunnelOptions_skipTunnelReplacement,
     modifyVpnTunnelOptions_vpnConnectionId,
     modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress,
     modifyVpnTunnelOptions_tunnelOptions,
@@ -4701,7 +4864,9 @@ module Amazonka.EC2.Lens
     -- ** ProvisionIpamPoolCidr
     provisionIpamPoolCidr_cidr,
     provisionIpamPoolCidr_cidrAuthorizationContext,
+    provisionIpamPoolCidr_clientToken,
     provisionIpamPoolCidr_dryRun,
+    provisionIpamPoolCidr_netmaskLength,
     provisionIpamPoolCidr_ipamPoolId,
     provisionIpamPoolCidrResponse_ipamPoolCidr,
     provisionIpamPoolCidrResponse_httpStatus,
@@ -4779,16 +4944,16 @@ module Amazonka.EC2.Lens
     -- ** RegisterTransitGatewayMulticastGroupMembers
     registerTransitGatewayMulticastGroupMembers_dryRun,
     registerTransitGatewayMulticastGroupMembers_groupIpAddress,
-    registerTransitGatewayMulticastGroupMembers_networkInterfaceIds,
     registerTransitGatewayMulticastGroupMembers_transitGatewayMulticastDomainId,
+    registerTransitGatewayMulticastGroupMembers_networkInterfaceIds,
     registerTransitGatewayMulticastGroupMembersResponse_registeredMulticastGroupMembers,
     registerTransitGatewayMulticastGroupMembersResponse_httpStatus,
 
     -- ** RegisterTransitGatewayMulticastGroupSources
     registerTransitGatewayMulticastGroupSources_dryRun,
     registerTransitGatewayMulticastGroupSources_groupIpAddress,
-    registerTransitGatewayMulticastGroupSources_networkInterfaceIds,
     registerTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId,
+    registerTransitGatewayMulticastGroupSources_networkInterfaceIds,
     registerTransitGatewayMulticastGroupSourcesResponse_registeredMulticastGroupSources,
     registerTransitGatewayMulticastGroupSourcesResponse_httpStatus,
 
@@ -4905,6 +5070,14 @@ module Amazonka.EC2.Lens
     replaceTransitGatewayRoute_transitGatewayRouteTableId,
     replaceTransitGatewayRouteResponse_route,
     replaceTransitGatewayRouteResponse_httpStatus,
+
+    -- ** ReplaceVpnTunnel
+    replaceVpnTunnel_applyPendingMaintenance,
+    replaceVpnTunnel_dryRun,
+    replaceVpnTunnel_vpnConnectionId,
+    replaceVpnTunnel_vpnTunnelOutsideIpAddress,
+    replaceVpnTunnelResponse_return,
+    replaceVpnTunnelResponse_httpStatus,
 
     -- ** ReportInstanceStatus
     reportInstanceStatus_description,
@@ -5222,6 +5395,15 @@ module Amazonka.EC2.Lens
     unassignPrivateIpAddresses_privateIpAddresses,
     unassignPrivateIpAddresses_networkInterfaceId,
 
+    -- ** UnassignPrivateNatGatewayAddress
+    unassignPrivateNatGatewayAddress_dryRun,
+    unassignPrivateNatGatewayAddress_maxDrainDurationSeconds,
+    unassignPrivateNatGatewayAddress_natGatewayId,
+    unassignPrivateNatGatewayAddress_privateIpAddresses,
+    unassignPrivateNatGatewayAddressResponse_natGatewayAddresses,
+    unassignPrivateNatGatewayAddressResponse_natGatewayId,
+    unassignPrivateNatGatewayAddressResponse_httpStatus,
+
     -- ** UnmonitorInstances
     unmonitorInstances_dryRun,
     unmonitorInstances_instanceIds,
@@ -5315,6 +5497,12 @@ module Amazonka.EC2.Lens
     -- ** AdditionalDetail
     additionalDetail_additionalDetailType,
     additionalDetail_component,
+    additionalDetail_loadBalancers,
+    additionalDetail_ruleGroupRuleOptionsPairs,
+    additionalDetail_ruleGroupTypePairs,
+    additionalDetail_ruleOptions,
+    additionalDetail_serviceName,
+    additionalDetail_vpcEndpointService,
 
     -- ** Address
     address_allocationId,
@@ -5388,11 +5576,14 @@ module Amazonka.EC2.Lens
     analysisPacketHeader_sourcePortRanges,
 
     -- ** AnalysisRouteTableRoute
+    analysisRouteTableRoute_carrierGatewayId,
+    analysisRouteTableRoute_coreNetworkArn,
     analysisRouteTableRoute_destinationCidr,
     analysisRouteTableRoute_destinationPrefixListId,
     analysisRouteTableRoute_egressOnlyInternetGatewayId,
     analysisRouteTableRoute_gatewayId,
     analysisRouteTableRoute_instanceId,
+    analysisRouteTableRoute_localGatewayId,
     analysisRouteTableRoute_natGatewayId,
     analysisRouteTableRoute_networkInterfaceId,
     analysisRouteTableRoute_origin,
@@ -5806,10 +5997,12 @@ module Amazonka.EC2.Lens
     conversionTask_tags,
 
     -- ** CpuOptions
+    cpuOptions_amdSevSnp,
     cpuOptions_coreCount,
     cpuOptions_threadsPerCore,
 
     -- ** CpuOptionsRequest
+    cpuOptionsRequest_amdSevSnp,
     cpuOptionsRequest_coreCount,
     cpuOptionsRequest_threadsPerCore,
 
@@ -6060,9 +6253,11 @@ module Amazonka.EC2.Lens
 
     -- ** DnsOptions
     dnsOptions_dnsRecordIpType,
+    dnsOptions_privateDnsOnlyForInboundResolverEndpoint,
 
     -- ** DnsOptionsSpecification
     dnsOptionsSpecification_dnsRecordIpType,
+    dnsOptionsSpecification_privateDnsOnlyForInboundResolverEndpoint,
 
     -- ** DnsServersOptionsModifyStructure
     dnsServersOptionsModifyStructure_customDnsServers,
@@ -6102,6 +6297,23 @@ module Amazonka.EC2.Lens
     ebsOptimizedInfo_maximumBandwidthInMbps,
     ebsOptimizedInfo_maximumIops,
     ebsOptimizedInfo_maximumThroughputInMBps,
+
+    -- ** Ec2InstanceConnectEndpoint
+    ec2InstanceConnectEndpoint_availabilityZone,
+    ec2InstanceConnectEndpoint_createdAt,
+    ec2InstanceConnectEndpoint_dnsName,
+    ec2InstanceConnectEndpoint_fipsDnsName,
+    ec2InstanceConnectEndpoint_instanceConnectEndpointArn,
+    ec2InstanceConnectEndpoint_instanceConnectEndpointId,
+    ec2InstanceConnectEndpoint_networkInterfaceIds,
+    ec2InstanceConnectEndpoint_ownerId,
+    ec2InstanceConnectEndpoint_preserveClientIp,
+    ec2InstanceConnectEndpoint_securityGroupIds,
+    ec2InstanceConnectEndpoint_state,
+    ec2InstanceConnectEndpoint_stateMessage,
+    ec2InstanceConnectEndpoint_subnetId,
+    ec2InstanceConnectEndpoint_tags,
+    ec2InstanceConnectEndpoint_vpcId,
 
     -- ** EfaInfo
     efaInfo_maximumEfaInterfaces,
@@ -6206,6 +6418,8 @@ module Amazonka.EC2.Lens
     explanation_direction,
     explanation_elasticLoadBalancerListener,
     explanation_explanationCode,
+    explanation_firewallStatefulRule,
+    explanation_firewallStatelessRule,
     explanation_ingressRouteTable,
     explanation_internetGateway,
     explanation_loadBalancerArn,
@@ -6315,6 +6529,30 @@ module Amazonka.EC2.Lens
     -- ** Filter
     filter_values,
     filter_name,
+
+    -- ** FilterPortRange
+    filterPortRange_fromPort,
+    filterPortRange_toPort,
+
+    -- ** FirewallStatefulRule
+    firewallStatefulRule_destinationPorts,
+    firewallStatefulRule_destinations,
+    firewallStatefulRule_direction,
+    firewallStatefulRule_protocol,
+    firewallStatefulRule_ruleAction,
+    firewallStatefulRule_ruleGroupArn,
+    firewallStatefulRule_sourcePorts,
+    firewallStatefulRule_sources,
+
+    -- ** FirewallStatelessRule
+    firewallStatelessRule_destinationPorts,
+    firewallStatelessRule_destinations,
+    firewallStatelessRule_priority,
+    firewallStatelessRule_protocols,
+    firewallStatelessRule_ruleAction,
+    firewallStatelessRule_ruleGroupArn,
+    firewallStatelessRule_sourcePorts,
+    firewallStatelessRule_sources,
 
     -- ** FleetCapacityReservation
     fleetCapacityReservation_availabilityZone,
@@ -6502,12 +6740,14 @@ module Amazonka.EC2.Lens
     -- ** Host
     host_allocationTime,
     host_allowsMultipleInstanceTypes,
+    host_assetId,
     host_autoPlacement,
     host_availabilityZone,
     host_availabilityZoneId,
     host_availableCapacity,
     host_clientToken,
     host_hostId,
+    host_hostMaintenance,
     host_hostProperties,
     host_hostRecovery,
     host_hostReservationId,
@@ -6714,6 +6954,7 @@ module Amazonka.EC2.Lens
     instance_capacityReservationSpecification,
     instance_clientToken,
     instance_cpuOptions,
+    instance_currentInstanceBootMode,
     instance_ebsOptimized,
     instance_elasticGpuAssociations,
     instance_elasticInferenceAcceleratorAssociations,
@@ -7113,6 +7354,8 @@ module Amazonka.EC2.Lens
     ipRange_cidrIp,
 
     -- ** Ipam
+    ipam_defaultResourceDiscoveryAssociationId,
+    ipam_defaultResourceDiscoveryId,
     ipam_description,
     ipam_ipamArn,
     ipam_ipamId,
@@ -7121,6 +7364,7 @@ module Amazonka.EC2.Lens
     ipam_ownerId,
     ipam_privateDefaultScopeId,
     ipam_publicDefaultScopeId,
+    ipam_resourceDiscoveryAssociationCount,
     ipam_scopeCount,
     ipam_state,
     ipam_tags,
@@ -7141,6 +7385,29 @@ module Amazonka.EC2.Lens
     -- ** IpamCidrAuthorizationContext
     ipamCidrAuthorizationContext_message,
     ipamCidrAuthorizationContext_signature,
+
+    -- ** IpamDiscoveredAccount
+    ipamDiscoveredAccount_accountId,
+    ipamDiscoveredAccount_discoveryRegion,
+    ipamDiscoveredAccount_failureReason,
+    ipamDiscoveredAccount_lastAttemptedDiscoveryTime,
+    ipamDiscoveredAccount_lastSuccessfulDiscoveryTime,
+
+    -- ** IpamDiscoveredResourceCidr
+    ipamDiscoveredResourceCidr_ipUsage,
+    ipamDiscoveredResourceCidr_ipamResourceDiscoveryId,
+    ipamDiscoveredResourceCidr_resourceCidr,
+    ipamDiscoveredResourceCidr_resourceId,
+    ipamDiscoveredResourceCidr_resourceOwnerId,
+    ipamDiscoveredResourceCidr_resourceRegion,
+    ipamDiscoveredResourceCidr_resourceTags,
+    ipamDiscoveredResourceCidr_resourceType,
+    ipamDiscoveredResourceCidr_sampleTime,
+    ipamDiscoveredResourceCidr_vpcId,
+
+    -- ** IpamDiscoveryFailureReason
+    ipamDiscoveryFailureReason_code,
+    ipamDiscoveryFailureReason_message,
 
     -- ** IpamOperatingRegion
     ipamOperatingRegion_regionName,
@@ -7163,6 +7430,7 @@ module Amazonka.EC2.Lens
     ipamPool_locale,
     ipamPool_ownerId,
     ipamPool_poolDepth,
+    ipamPool_publicIpSource,
     ipamPool_publiclyAdvertisable,
     ipamPool_sourceIpamPoolId,
     ipamPool_state,
@@ -7181,6 +7449,8 @@ module Amazonka.EC2.Lens
     -- ** IpamPoolCidr
     ipamPoolCidr_cidr,
     ipamPoolCidr_failureReason,
+    ipamPoolCidr_ipamPoolCidrId,
+    ipamPoolCidr_netmaskLength,
     ipamPoolCidr_state,
 
     -- ** IpamPoolCidrFailureReason
@@ -7203,6 +7473,30 @@ module Amazonka.EC2.Lens
     ipamResourceCidr_resourceTags,
     ipamResourceCidr_resourceType,
     ipamResourceCidr_vpcId,
+
+    -- ** IpamResourceDiscovery
+    ipamResourceDiscovery_description,
+    ipamResourceDiscovery_ipamResourceDiscoveryArn,
+    ipamResourceDiscovery_ipamResourceDiscoveryId,
+    ipamResourceDiscovery_ipamResourceDiscoveryRegion,
+    ipamResourceDiscovery_isDefault,
+    ipamResourceDiscovery_operatingRegions,
+    ipamResourceDiscovery_ownerId,
+    ipamResourceDiscovery_state,
+    ipamResourceDiscovery_tags,
+
+    -- ** IpamResourceDiscoveryAssociation
+    ipamResourceDiscoveryAssociation_ipamArn,
+    ipamResourceDiscoveryAssociation_ipamId,
+    ipamResourceDiscoveryAssociation_ipamRegion,
+    ipamResourceDiscoveryAssociation_ipamResourceDiscoveryAssociationArn,
+    ipamResourceDiscoveryAssociation_ipamResourceDiscoveryAssociationId,
+    ipamResourceDiscoveryAssociation_ipamResourceDiscoveryId,
+    ipamResourceDiscoveryAssociation_isDefault,
+    ipamResourceDiscoveryAssociation_ownerId,
+    ipamResourceDiscoveryAssociation_resourceDiscoveryStatus,
+    ipamResourceDiscoveryAssociation_state,
+    ipamResourceDiscoveryAssociation_tags,
 
     -- ** IpamResourceTag
     ipamResourceTag_key,
@@ -7334,10 +7628,12 @@ module Amazonka.EC2.Lens
     launchTemplateConfig_overrides,
 
     -- ** LaunchTemplateCpuOptions
+    launchTemplateCpuOptions_amdSevSnp,
     launchTemplateCpuOptions_coreCount,
     launchTemplateCpuOptions_threadsPerCore,
 
     -- ** LaunchTemplateCpuOptionsRequest
+    launchTemplateCpuOptionsRequest_amdSevSnp,
     launchTemplateCpuOptionsRequest_coreCount,
     launchTemplateCpuOptionsRequest_threadsPerCore,
 
@@ -7582,6 +7878,7 @@ module Amazonka.EC2.Lens
     -- ** LocalGatewayRoute
     localGatewayRoute_coipPoolId,
     localGatewayRoute_destinationCidrBlock,
+    localGatewayRoute_destinationPrefixListId,
     localGatewayRoute_localGatewayRouteTableArn,
     localGatewayRoute_localGatewayRouteTableId,
     localGatewayRoute_localGatewayVirtualInterfaceGroupId,
@@ -7639,6 +7936,11 @@ module Amazonka.EC2.Lens
     localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceIds,
     localGatewayVirtualInterfaceGroup_ownerId,
     localGatewayVirtualInterfaceGroup_tags,
+
+    -- ** MaintenanceDetails
+    maintenanceDetails_lastMaintenanceApplied,
+    maintenanceDetails_maintenanceAutoAppliedAfter,
+    maintenanceDetails_pendingMaintenance,
 
     -- ** ManagedPrefixList
     managedPrefixList_addressFamily,
@@ -7704,11 +8006,18 @@ module Amazonka.EC2.Lens
     modifyVerifiedAccessEndpointLoadBalancerOptions_subnetIds,
 
     -- ** ModifyVerifiedAccessTrustProviderOidcOptions
+    modifyVerifiedAccessTrustProviderOidcOptions_authorizationEndpoint,
+    modifyVerifiedAccessTrustProviderOidcOptions_clientId,
+    modifyVerifiedAccessTrustProviderOidcOptions_clientSecret,
+    modifyVerifiedAccessTrustProviderOidcOptions_issuer,
     modifyVerifiedAccessTrustProviderOidcOptions_scope,
+    modifyVerifiedAccessTrustProviderOidcOptions_tokenEndpoint,
+    modifyVerifiedAccessTrustProviderOidcOptions_userInfoEndpoint,
 
     -- ** ModifyVpnTunnelOptionsSpecification
     modifyVpnTunnelOptionsSpecification_dPDTimeoutAction,
     modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds,
+    modifyVpnTunnelOptionsSpecification_enableTunnelLifecycleControl,
     modifyVpnTunnelOptionsSpecification_iKEVersions,
     modifyVpnTunnelOptionsSpecification_logOptions,
     modifyVpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -7750,9 +8059,13 @@ module Amazonka.EC2.Lens
 
     -- ** NatGatewayAddress
     natGatewayAddress_allocationId,
+    natGatewayAddress_associationId,
+    natGatewayAddress_failureMessage,
+    natGatewayAddress_isPrimary,
     natGatewayAddress_networkInterfaceId,
     natGatewayAddress_privateIp,
     natGatewayAddress_publicIp,
+    natGatewayAddress_status,
 
     -- ** NetworkAcl
     networkAcl_associations,
@@ -7855,6 +8168,8 @@ module Amazonka.EC2.Lens
     networkInsightsPath_destinationArn,
     networkInsightsPath_destinationIp,
     networkInsightsPath_destinationPort,
+    networkInsightsPath_filterAtDestination,
+    networkInsightsPath_filterAtSource,
     networkInsightsPath_networkInsightsPathArn,
     networkInsightsPath_networkInsightsPathId,
     networkInsightsPath_protocol,
@@ -7999,16 +8314,31 @@ module Amazonka.EC2.Lens
     pathComponent_destinationVpc,
     pathComponent_elasticLoadBalancerListener,
     pathComponent_explanations,
+    pathComponent_firewallStatefulRule,
+    pathComponent_firewallStatelessRule,
     pathComponent_inboundHeader,
     pathComponent_outboundHeader,
     pathComponent_routeTableRoute,
     pathComponent_securityGroupRule,
     pathComponent_sequenceNumber,
+    pathComponent_serviceName,
     pathComponent_sourceVpc,
     pathComponent_subnet,
     pathComponent_transitGateway,
     pathComponent_transitGatewayRouteTableRoute,
     pathComponent_vpc,
+
+    -- ** PathFilter
+    pathFilter_destinationAddress,
+    pathFilter_destinationPortRange,
+    pathFilter_sourceAddress,
+    pathFilter_sourcePortRange,
+
+    -- ** PathRequestFilter
+    pathRequestFilter_destinationAddress,
+    pathRequestFilter_destinationPortRange,
+    pathRequestFilter_sourceAddress,
+    pathRequestFilter_sourcePortRange,
 
     -- ** PathStatement
     pathStatement_packetHeaderStatement,
@@ -8180,6 +8510,7 @@ module Amazonka.EC2.Lens
 
     -- ** ProcessorInfo
     processorInfo_supportedArchitectures,
+    processorInfo_supportedFeatures,
     processorInfo_sustainedClockSpeedInGhz,
 
     -- ** ProductCode
@@ -8266,6 +8597,10 @@ module Amazonka.EC2.Lens
     replaceRootVolumeTask_startTime,
     replaceRootVolumeTask_tags,
     replaceRootVolumeTask_taskState,
+
+    -- ** RequestFilterPortRange
+    requestFilterPortRange_fromPort,
+    requestFilterPortRange_toPort,
 
     -- ** RequestIpamResourceTag
     requestIpamResourceTag_key,
@@ -8508,6 +8843,18 @@ module Amazonka.EC2.Lens
     -- ** RouteTableAssociationState
     routeTableAssociationState_state,
     routeTableAssociationState_statusMessage,
+
+    -- ** RuleGroupRuleOptionsPair
+    ruleGroupRuleOptionsPair_ruleGroupArn,
+    ruleGroupRuleOptionsPair_ruleOptions,
+
+    -- ** RuleGroupTypePair
+    ruleGroupTypePair_ruleGroupArn,
+    ruleGroupTypePair_ruleGroupType,
+
+    -- ** RuleOption
+    ruleOption_keyword,
+    ruleOption_settings,
 
     -- ** RunInstancesMonitoringEnabled
     runInstancesMonitoringEnabled_enabled,
@@ -9492,6 +9839,7 @@ module Amazonka.EC2.Lens
     -- ** TunnelOption
     tunnelOption_dpdTimeoutAction,
     tunnelOption_dpdTimeoutSeconds,
+    tunnelOption_enableTunnelLifecycleControl,
     tunnelOption_ikeVersions,
     tunnelOption_logOptions,
     tunnelOption_outsideIpAddress,
@@ -9651,7 +9999,9 @@ module Amazonka.EC2.Lens
 
     -- ** VerifiedAccessLogOptions
     verifiedAccessLogOptions_cloudWatchLogs,
+    verifiedAccessLogOptions_includeTrustContext,
     verifiedAccessLogOptions_kinesisDataFirehose,
+    verifiedAccessLogOptions_logVersion,
     verifiedAccessLogOptions_s3,
 
     -- ** VerifiedAccessLogS3Destination
@@ -9669,7 +10019,9 @@ module Amazonka.EC2.Lens
 
     -- ** VerifiedAccessLogs
     verifiedAccessLogs_cloudWatchLogs,
+    verifiedAccessLogs_includeTrustContext,
     verifiedAccessLogs_kinesisDataFirehose,
+    verifiedAccessLogs_logVersion,
     verifiedAccessLogs_s3,
 
     -- ** VerifiedAccessTrustProvider
@@ -9949,6 +10301,7 @@ module Amazonka.EC2.Lens
     -- ** VpnTunnelOptionsSpecification
     vpnTunnelOptionsSpecification_dPDTimeoutAction,
     vpnTunnelOptionsSpecification_dPDTimeoutSeconds,
+    vpnTunnelOptionsSpecification_enableTunnelLifecycleControl,
     vpnTunnelOptionsSpecification_iKEVersions,
     vpnTunnelOptionsSpecification_logOptions,
     vpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -9983,12 +10336,15 @@ import Amazonka.EC2.AllocateIpamPoolCidr
 import Amazonka.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
 import Amazonka.EC2.AssignIpv6Addresses
 import Amazonka.EC2.AssignPrivateIpAddresses
+import Amazonka.EC2.AssignPrivateNatGatewayAddress
 import Amazonka.EC2.AssociateAddress
 import Amazonka.EC2.AssociateClientVpnTargetNetwork
 import Amazonka.EC2.AssociateDhcpOptions
 import Amazonka.EC2.AssociateEnclaveCertificateIamRole
 import Amazonka.EC2.AssociateIamInstanceProfile
 import Amazonka.EC2.AssociateInstanceEventWindow
+import Amazonka.EC2.AssociateIpamResourceDiscovery
+import Amazonka.EC2.AssociateNatGatewayAddress
 import Amazonka.EC2.AssociateRouteTable
 import Amazonka.EC2.AssociateSubnetCidrBlock
 import Amazonka.EC2.AssociateTransitGatewayMulticastDomain
@@ -10036,11 +10392,13 @@ import Amazonka.EC2.CreateFleet
 import Amazonka.EC2.CreateFlowLogs
 import Amazonka.EC2.CreateFpgaImage
 import Amazonka.EC2.CreateImage
+import Amazonka.EC2.CreateInstanceConnectEndpoint
 import Amazonka.EC2.CreateInstanceEventWindow
 import Amazonka.EC2.CreateInstanceExportTask
 import Amazonka.EC2.CreateInternetGateway
 import Amazonka.EC2.CreateIpam
 import Amazonka.EC2.CreateIpamPool
+import Amazonka.EC2.CreateIpamResourceDiscovery
 import Amazonka.EC2.CreateIpamScope
 import Amazonka.EC2.CreateKeyPair
 import Amazonka.EC2.CreateLaunchTemplate
@@ -10111,10 +10469,12 @@ import Amazonka.EC2.DeleteEgressOnlyInternetGateway
 import Amazonka.EC2.DeleteFleets
 import Amazonka.EC2.DeleteFlowLogs
 import Amazonka.EC2.DeleteFpgaImage
+import Amazonka.EC2.DeleteInstanceConnectEndpoint
 import Amazonka.EC2.DeleteInstanceEventWindow
 import Amazonka.EC2.DeleteInternetGateway
 import Amazonka.EC2.DeleteIpam
 import Amazonka.EC2.DeleteIpamPool
+import Amazonka.EC2.DeleteIpamResourceDiscovery
 import Amazonka.EC2.DeleteIpamScope
 import Amazonka.EC2.DeleteKeyPair
 import Amazonka.EC2.DeleteLaunchTemplate
@@ -10224,6 +10584,7 @@ import Amazonka.EC2.DescribeImages
 import Amazonka.EC2.DescribeImportImageTasks
 import Amazonka.EC2.DescribeImportSnapshotTasks
 import Amazonka.EC2.DescribeInstanceAttribute
+import Amazonka.EC2.DescribeInstanceConnectEndpoints
 import Amazonka.EC2.DescribeInstanceCreditSpecifications
 import Amazonka.EC2.DescribeInstanceEventNotificationAttributes
 import Amazonka.EC2.DescribeInstanceEventWindows
@@ -10233,6 +10594,8 @@ import Amazonka.EC2.DescribeInstanceTypes
 import Amazonka.EC2.DescribeInstances
 import Amazonka.EC2.DescribeInternetGateways
 import Amazonka.EC2.DescribeIpamPools
+import Amazonka.EC2.DescribeIpamResourceDiscoveries
+import Amazonka.EC2.DescribeIpamResourceDiscoveryAssociations
 import Amazonka.EC2.DescribeIpamScopes
 import Amazonka.EC2.DescribeIpams
 import Amazonka.EC2.DescribeIpv6Pools
@@ -10344,6 +10707,8 @@ import Amazonka.EC2.DisassociateClientVpnTargetNetwork
 import Amazonka.EC2.DisassociateEnclaveCertificateIamRole
 import Amazonka.EC2.DisassociateIamInstanceProfile
 import Amazonka.EC2.DisassociateInstanceEventWindow
+import Amazonka.EC2.DisassociateIpamResourceDiscovery
+import Amazonka.EC2.DisassociateNatGatewayAddress
 import Amazonka.EC2.DisassociateRouteTable
 import Amazonka.EC2.DisassociateSubnetCidrBlock
 import Amazonka.EC2.DisassociateTransitGatewayMulticastDomain
@@ -10385,6 +10750,8 @@ import Amazonka.EC2.GetHostReservationPurchasePreview
 import Amazonka.EC2.GetInstanceTypesFromInstanceRequirements
 import Amazonka.EC2.GetInstanceUefiData
 import Amazonka.EC2.GetIpamAddressHistory
+import Amazonka.EC2.GetIpamDiscoveredAccounts
+import Amazonka.EC2.GetIpamDiscoveredResourceCidrs
 import Amazonka.EC2.GetIpamPoolAllocations
 import Amazonka.EC2.GetIpamPoolCidrs
 import Amazonka.EC2.GetIpamResourceCidrs
@@ -10409,6 +10776,7 @@ import Amazonka.EC2.GetVerifiedAccessEndpointPolicy
 import Amazonka.EC2.GetVerifiedAccessGroupPolicy
 import Amazonka.EC2.GetVpnConnectionDeviceSampleConfiguration
 import Amazonka.EC2.GetVpnConnectionDeviceTypes
+import Amazonka.EC2.GetVpnTunnelReplacementStatus
 import Amazonka.EC2.ImportClientVpnClientCertificateRevocationList
 import Amazonka.EC2.ImportImage
 import Amazonka.EC2.ImportInstance
@@ -10441,6 +10809,7 @@ import Amazonka.EC2.ModifyInstancePlacement
 import Amazonka.EC2.ModifyIpam
 import Amazonka.EC2.ModifyIpamPool
 import Amazonka.EC2.ModifyIpamResourceCidr
+import Amazonka.EC2.ModifyIpamResourceDiscovery
 import Amazonka.EC2.ModifyIpamScope
 import Amazonka.EC2.ModifyLaunchTemplate
 import Amazonka.EC2.ModifyLocalGatewayRoute
@@ -10508,6 +10877,7 @@ import Amazonka.EC2.ReplaceNetworkAclEntry
 import Amazonka.EC2.ReplaceRoute
 import Amazonka.EC2.ReplaceRouteTableAssociation
 import Amazonka.EC2.ReplaceTransitGatewayRoute
+import Amazonka.EC2.ReplaceVpnTunnel
 import Amazonka.EC2.ReportInstanceStatus
 import Amazonka.EC2.RequestSpotFleet
 import Amazonka.EC2.RequestSpotInstances
@@ -10690,6 +11060,7 @@ import Amazonka.EC2.Types.EbsInfo
 import Amazonka.EC2.Types.EbsInstanceBlockDevice
 import Amazonka.EC2.Types.EbsInstanceBlockDeviceSpecification
 import Amazonka.EC2.Types.EbsOptimizedInfo
+import Amazonka.EC2.Types.Ec2InstanceConnectEndpoint
 import Amazonka.EC2.Types.EfaInfo
 import Amazonka.EC2.Types.EgressOnlyInternetGateway
 import Amazonka.EC2.Types.ElasticGpuAssociation
@@ -10724,6 +11095,9 @@ import Amazonka.EC2.Types.FastLaunchSnapshotConfigurationResponse
 import Amazonka.EC2.Types.FederatedAuthentication
 import Amazonka.EC2.Types.FederatedAuthenticationRequest
 import Amazonka.EC2.Types.Filter
+import Amazonka.EC2.Types.FilterPortRange
+import Amazonka.EC2.Types.FirewallStatefulRule
+import Amazonka.EC2.Types.FirewallStatelessRule
 import Amazonka.EC2.Types.FleetCapacityReservation
 import Amazonka.EC2.Types.FleetData
 import Amazonka.EC2.Types.FleetLaunchTemplateConfig
@@ -10831,12 +11205,17 @@ import Amazonka.EC2.Types.IpRange
 import Amazonka.EC2.Types.Ipam
 import Amazonka.EC2.Types.IpamAddressHistoryRecord
 import Amazonka.EC2.Types.IpamCidrAuthorizationContext
+import Amazonka.EC2.Types.IpamDiscoveredAccount
+import Amazonka.EC2.Types.IpamDiscoveredResourceCidr
+import Amazonka.EC2.Types.IpamDiscoveryFailureReason
 import Amazonka.EC2.Types.IpamOperatingRegion
 import Amazonka.EC2.Types.IpamPool
 import Amazonka.EC2.Types.IpamPoolAllocation
 import Amazonka.EC2.Types.IpamPoolCidr
 import Amazonka.EC2.Types.IpamPoolCidrFailureReason
 import Amazonka.EC2.Types.IpamResourceCidr
+import Amazonka.EC2.Types.IpamResourceDiscovery
+import Amazonka.EC2.Types.IpamResourceDiscoveryAssociation
 import Amazonka.EC2.Types.IpamResourceTag
 import Amazonka.EC2.Types.IpamScope
 import Amazonka.EC2.Types.Ipv4PrefixSpecification
@@ -10909,6 +11288,7 @@ import Amazonka.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation
 import Amazonka.EC2.Types.LocalGatewayRouteTableVpcAssociation
 import Amazonka.EC2.Types.LocalGatewayVirtualInterface
 import Amazonka.EC2.Types.LocalGatewayVirtualInterfaceGroup
+import Amazonka.EC2.Types.MaintenanceDetails
 import Amazonka.EC2.Types.ManagedPrefixList
 import Amazonka.EC2.Types.MemoryGiBPerVCpu
 import Amazonka.EC2.Types.MemoryGiBPerVCpuRequest
@@ -10955,6 +11335,8 @@ import Amazonka.EC2.Types.OnDemandOptionsRequest
 import Amazonka.EC2.Types.PacketHeaderStatement
 import Amazonka.EC2.Types.PacketHeaderStatementRequest
 import Amazonka.EC2.Types.PathComponent
+import Amazonka.EC2.Types.PathFilter
+import Amazonka.EC2.Types.PathRequestFilter
 import Amazonka.EC2.Types.PathStatement
 import Amazonka.EC2.Types.PathStatementRequest
 import Amazonka.EC2.Types.PciId
@@ -11010,6 +11392,7 @@ import Amazonka.EC2.Types.RegisterInstanceTagAttributeRequest
 import Amazonka.EC2.Types.RemoveIpamOperatingRegion
 import Amazonka.EC2.Types.RemovePrefixListEntry
 import Amazonka.EC2.Types.ReplaceRootVolumeTask
+import Amazonka.EC2.Types.RequestFilterPortRange
 import Amazonka.EC2.Types.RequestIpamResourceTag
 import Amazonka.EC2.Types.RequestLaunchTemplateData
 import Amazonka.EC2.Types.RequestSpotLaunchSpecification
@@ -11033,6 +11416,9 @@ import Amazonka.EC2.Types.Route
 import Amazonka.EC2.Types.RouteTable
 import Amazonka.EC2.Types.RouteTableAssociation
 import Amazonka.EC2.Types.RouteTableAssociationState
+import Amazonka.EC2.Types.RuleGroupRuleOptionsPair
+import Amazonka.EC2.Types.RuleGroupTypePair
+import Amazonka.EC2.Types.RuleOption
 import Amazonka.EC2.Types.RunInstancesMonitoringEnabled
 import Amazonka.EC2.Types.S3ObjectTag
 import Amazonka.EC2.Types.S3Storage
@@ -11229,6 +11615,7 @@ import Amazonka.EC2.Types.VpnTunnelLogOptionsSpecification
 import Amazonka.EC2.Types.VpnTunnelOptionsSpecification
 import Amazonka.EC2.UnassignIpv6Addresses
 import Amazonka.EC2.UnassignPrivateIpAddresses
+import Amazonka.EC2.UnassignPrivateNatGatewayAddress
 import Amazonka.EC2.UnmonitorInstances
 import Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsEgress
 import Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsIngress

@@ -97,7 +97,7 @@ data CreateVpnConnection = CreateVpnConnection'
     -- | The type of VPN connection (@ipsec.1@).
     type' :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpnConnection' with all optional fields omitted.
@@ -191,7 +191,8 @@ instance Core.AWSRequest CreateVpnConnection where
 
 instance Prelude.Hashable CreateVpnConnection where
   hashWithSalt _salt CreateVpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` transitGatewayId
@@ -243,7 +244,7 @@ data CreateVpnConnectionResponse = CreateVpnConnectionResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVpnConnectionResponse' with all optional fields omitted.

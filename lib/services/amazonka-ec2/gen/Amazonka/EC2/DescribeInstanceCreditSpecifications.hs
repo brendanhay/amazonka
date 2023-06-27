@@ -97,12 +97,16 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
     --
     -- Constraints: Maximum 1000 explicitly specified instance IDs.
     instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 5 and 1000. You cannot specify this
-    -- parameter and the instance IDs parameter in the same call.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+    --
+    -- You cannot specify this parameter and the instance IDs parameter in the
+    -- same call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to retrieve the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -130,12 +134,16 @@ data DescribeInstanceCreditSpecifications = DescribeInstanceCreditSpecifications
 --
 -- Constraints: Maximum 1000 explicitly specified instance IDs.
 --
--- 'maxResults', 'describeInstanceCreditSpecifications_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
+-- 'maxResults', 'describeInstanceCreditSpecifications_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeInstanceCreditSpecifications_nextToken' - The token to retrieve the next page of results.
+-- You cannot specify this parameter and the instance IDs parameter in the
+-- same call.
+--
+-- 'nextToken', 'describeInstanceCreditSpecifications_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeInstanceCreditSpecifications ::
   DescribeInstanceCreditSpecifications
 newDescribeInstanceCreditSpecifications =
@@ -169,14 +177,18 @@ describeInstanceCreditSpecifications_filters = Lens.lens (\DescribeInstanceCredi
 describeInstanceCreditSpecifications_instanceIds :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe [Prelude.Text])
 describeInstanceCreditSpecifications_instanceIds = Lens.lens (\DescribeInstanceCreditSpecifications' {instanceIds} -> instanceIds) (\s@DescribeInstanceCreditSpecifications' {} a -> s {instanceIds = a} :: DescribeInstanceCreditSpecifications) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+--
+-- You cannot specify this parameter and the instance IDs parameter in the
+-- same call.
 describeInstanceCreditSpecifications_maxResults :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Natural)
 describeInstanceCreditSpecifications_maxResults = Lens.lens (\DescribeInstanceCreditSpecifications' {maxResults} -> maxResults) (\s@DescribeInstanceCreditSpecifications' {} a -> s {maxResults = a} :: DescribeInstanceCreditSpecifications)
 
--- | The token to retrieve the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeInstanceCreditSpecifications_nextToken :: Lens.Lens' DescribeInstanceCreditSpecifications (Prelude.Maybe Prelude.Text)
 describeInstanceCreditSpecifications_nextToken = Lens.lens (\DescribeInstanceCreditSpecifications' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecifications' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecifications)
 
@@ -188,22 +200,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeInstanceCreditSpecificationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceCreditSpecifications_nextToken
           Lens..~ rs
-            Lens.^? describeInstanceCreditSpecificationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeInstanceCreditSpecificationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -218,12 +230,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceCreditSpecificationsResponse'
-            Prelude.<$> ( x Data..@? "instanceCreditSpecificationSet"
+            Prelude.<$> ( x
+                            Data..@? "instanceCreditSpecificationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -233,7 +246,8 @@ instance
   hashWithSalt
     _salt
     DescribeInstanceCreditSpecifications' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` instanceIds
         `Prelude.hashWithSalt` maxResults
@@ -289,8 +303,8 @@ instance
 data DescribeInstanceCreditSpecificationsResponse = DescribeInstanceCreditSpecificationsResponse'
   { -- | Information about the credit option for CPU usage of an instance.
     instanceCreditSpecifications :: Prelude.Maybe [InstanceCreditSpecification],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -307,8 +321,8 @@ data DescribeInstanceCreditSpecificationsResponse = DescribeInstanceCreditSpecif
 --
 -- 'instanceCreditSpecifications', 'describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications' - Information about the credit option for CPU usage of an instance.
 --
--- 'nextToken', 'describeInstanceCreditSpecificationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeInstanceCreditSpecificationsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeInstanceCreditSpecificationsResponse_httpStatus' - The response's http status code.
 newDescribeInstanceCreditSpecificationsResponse ::
@@ -328,8 +342,8 @@ newDescribeInstanceCreditSpecificationsResponse
 describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse (Prelude.Maybe [InstanceCreditSpecification])
 describeInstanceCreditSpecificationsResponse_instanceCreditSpecifications = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {instanceCreditSpecifications} -> instanceCreditSpecifications) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {instanceCreditSpecifications = a} :: DescribeInstanceCreditSpecificationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeInstanceCreditSpecificationsResponse_nextToken :: Lens.Lens' DescribeInstanceCreditSpecificationsResponse (Prelude.Maybe Prelude.Text)
 describeInstanceCreditSpecificationsResponse_nextToken = Lens.lens (\DescribeInstanceCreditSpecificationsResponse' {nextToken} -> nextToken) (\s@DescribeInstanceCreditSpecificationsResponse' {} a -> s {nextToken = a} :: DescribeInstanceCreditSpecificationsResponse)
 

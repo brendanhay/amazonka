@@ -26,21 +26,13 @@
 -- You can specify a number of options, or leave the default options. The
 -- following rules apply:
 --
--- -   [EC2-VPC] If you don\'t specify a subnet ID, we choose a default
---     subnet from your default VPC for you. If you don\'t have a default
---     VPC, you must specify a subnet ID in the request.
+-- -   If you don\'t specify a subnet ID, we choose a default subnet from
+--     your default VPC for you. If you don\'t have a default VPC, you must
+--     specify a subnet ID in the request.
 --
--- -   [EC2-Classic] If don\'t specify an Availability Zone, we choose one
---     for you.
---
--- -   Some instance types must be launched into a VPC. If you do not have
---     a default VPC, or if you do not specify a subnet ID, the request
---     fails. For more information, see
---     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types Instance types available only in a VPC>.
---
--- -   [EC2-VPC] All instances have a network interface with a primary
---     private IPv4 address. If you don\'t specify this address, we choose
---     one from the IPv4 range of your subnet.
+-- -   All instances have a network interface with a primary private IPv4
+--     address. If you don\'t specify this address, we choose one from the
+--     IPv4 range of your subnet.
 --
 -- -   Not all instance types support IPv6 addresses. For more information,
 --     see
@@ -79,11 +71,6 @@
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html What to do if an instance immediately terminates>,
 -- and
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html Troubleshooting connecting to your instance>.
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.RunInstances
   ( -- * Creating a Request
     RunInstances (..),
@@ -233,6 +220,15 @@ data RunInstances = RunInstances'
     --
     -- You cannot specify accelerators from different generations in the same
     -- request.
+    --
+    -- Starting April 15, 2023, Amazon Web Services will not onboard new
+    -- customers to Amazon Elastic Inference (EI), and will help current
+    -- customers migrate their workloads to options that offer better price and
+    -- performance. After April 15, 2023, new customers will not be able to
+    -- launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon
+    -- ECS, or Amazon EC2. However, customers who have used Amazon EI at least
+    -- once during the past 30-day period are considered current customers and
+    -- will be able to continue using the service.
     elasticInferenceAccelerators :: Prelude.Maybe [ElasticInferenceAccelerator],
     -- | Indicates whether the instance is enabled for Amazon Web Services Nitro
     -- Enclaves. For more information, see
@@ -271,22 +267,29 @@ data RunInstances = RunInstances'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
     --
+    -- When you change your EBS-backed instance type, instance restart or
+    -- replacement behavior depends on the instance type compatibility between
+    -- the old and new types. An instance that\'s backed by an instance store
+    -- volume is always replaced. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type>
+    -- in the /Amazon EC2 User Guide/.
+    --
     -- Default: @m1.small@
     instanceType :: Prelude.Maybe InstanceType,
-    -- | [EC2-VPC] The number of IPv6 addresses to associate with the primary
-    -- network interface. Amazon EC2 chooses the IPv6 addresses from the range
-    -- of your subnet. You cannot specify this option and the option to assign
-    -- specific IPv6 addresses in the same request. You can specify this option
-    -- if you\'ve specified a minimum number of instances to launch.
+    -- | The number of IPv6 addresses to associate with the primary network
+    -- interface. Amazon EC2 chooses the IPv6 addresses from the range of your
+    -- subnet. You cannot specify this option and the option to assign specific
+    -- IPv6 addresses in the same request. You can specify this option if
+    -- you\'ve specified a minimum number of instances to launch.
     --
     -- You cannot specify this option and the network interfaces option in the
     -- same request.
     ipv6AddressCount :: Prelude.Maybe Prelude.Int,
-    -- | [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
-    -- with the primary network interface. You cannot specify this option and
-    -- the option to assign a number of IPv6 addresses in the same request. You
-    -- cannot specify this option if you\'ve specified a minimum number of
-    -- instances to launch.
+    -- | The IPv6 addresses from the range of the subnet to associate with the
+    -- primary network interface. You cannot specify this option and the option
+    -- to assign a number of IPv6 addresses in the same request. You cannot
+    -- specify this option if you\'ve specified a minimum number of instances
+    -- to launch.
     --
     -- You cannot specify this option and the network interfaces option in the
     -- same request.
@@ -330,8 +333,8 @@ data RunInstances = RunInstances'
     -- | The options for the instance hostname. The default values are inherited
     -- from the subnet.
     privateDnsNameOptions :: Prelude.Maybe PrivateDnsNameOptionsRequest,
-    -- | [EC2-VPC] The primary IPv4 address. You must specify a value from the
-    -- IPv4 address range of the subnet.
+    -- | The primary IPv4 address. You must specify a value from the IPv4 address
+    -- range of the subnet.
     --
     -- Only one private IP address can be designated as primary. You can\'t
     -- specify this option if you\'ve specified the option to designate a
@@ -358,15 +361,14 @@ data RunInstances = RunInstances'
     -- If you specify a network interface, you must specify any security groups
     -- as part of the network interface.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | [EC2-Classic, default VPC] The names of the security groups. For a
-    -- nondefault VPC, you must use security group IDs instead.
+    -- | [Default VPC] The names of the security groups.
     --
     -- If you specify a network interface, you must specify any security groups
     -- as part of the network interface.
     --
     -- Default: Amazon EC2 uses the default security group.
     securityGroups :: Prelude.Maybe [Prelude.Text],
-    -- | [EC2-VPC] The ID of the subnet to launch the instance into.
+    -- | The ID of the subnet to launch the instance into.
     --
     -- If you specify a network interface, you must specify any subnets as part
     -- of the network interface.
@@ -509,6 +511,15 @@ data RunInstances = RunInstances'
 -- You cannot specify accelerators from different generations in the same
 -- request.
 --
+-- Starting April 15, 2023, Amazon Web Services will not onboard new
+-- customers to Amazon Elastic Inference (EI), and will help current
+-- customers migrate their workloads to options that offer better price and
+-- performance. After April 15, 2023, new customers will not be able to
+-- launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon
+-- ECS, or Amazon EC2. However, customers who have used Amazon EI at least
+-- once during the past 30-day period are considered current customers and
+-- will be able to continue using the service.
+--
 -- 'enclaveOptions', 'runInstances_enclaveOptions' - Indicates whether the instance is enabled for Amazon Web Services Nitro
 -- Enclaves. For more information, see
 -- <https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html What is Amazon Web Services Nitro Enclaves?>
@@ -546,22 +557,29 @@ data RunInstances = RunInstances'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 --
+-- When you change your EBS-backed instance type, instance restart or
+-- replacement behavior depends on the instance type compatibility between
+-- the old and new types. An instance that\'s backed by an instance store
+-- volume is always replaced. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type>
+-- in the /Amazon EC2 User Guide/.
+--
 -- Default: @m1.small@
 --
--- 'ipv6AddressCount', 'runInstances_ipv6AddressCount' - [EC2-VPC] The number of IPv6 addresses to associate with the primary
--- network interface. Amazon EC2 chooses the IPv6 addresses from the range
--- of your subnet. You cannot specify this option and the option to assign
--- specific IPv6 addresses in the same request. You can specify this option
--- if you\'ve specified a minimum number of instances to launch.
+-- 'ipv6AddressCount', 'runInstances_ipv6AddressCount' - The number of IPv6 addresses to associate with the primary network
+-- interface. Amazon EC2 chooses the IPv6 addresses from the range of your
+-- subnet. You cannot specify this option and the option to assign specific
+-- IPv6 addresses in the same request. You can specify this option if
+-- you\'ve specified a minimum number of instances to launch.
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
 --
--- 'ipv6Addresses', 'runInstances_ipv6Addresses' - [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
--- with the primary network interface. You cannot specify this option and
--- the option to assign a number of IPv6 addresses in the same request. You
--- cannot specify this option if you\'ve specified a minimum number of
--- instances to launch.
+-- 'ipv6Addresses', 'runInstances_ipv6Addresses' - The IPv6 addresses from the range of the subnet to associate with the
+-- primary network interface. You cannot specify this option and the option
+-- to assign a number of IPv6 addresses in the same request. You cannot
+-- specify this option if you\'ve specified a minimum number of instances
+-- to launch.
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
@@ -605,8 +623,8 @@ data RunInstances = RunInstances'
 -- 'privateDnsNameOptions', 'runInstances_privateDnsNameOptions' - The options for the instance hostname. The default values are inherited
 -- from the subnet.
 --
--- 'privateIpAddress', 'runInstances_privateIpAddress' - [EC2-VPC] The primary IPv4 address. You must specify a value from the
--- IPv4 address range of the subnet.
+-- 'privateIpAddress', 'runInstances_privateIpAddress' - The primary IPv4 address. You must specify a value from the IPv4 address
+-- range of the subnet.
 --
 -- Only one private IP address can be designated as primary. You can\'t
 -- specify this option if you\'ve specified the option to designate a
@@ -633,15 +651,14 @@ data RunInstances = RunInstances'
 -- If you specify a network interface, you must specify any security groups
 -- as part of the network interface.
 --
--- 'securityGroups', 'runInstances_securityGroups' - [EC2-Classic, default VPC] The names of the security groups. For a
--- nondefault VPC, you must use security group IDs instead.
+-- 'securityGroups', 'runInstances_securityGroups' - [Default VPC] The names of the security groups.
 --
 -- If you specify a network interface, you must specify any security groups
 -- as part of the network interface.
 --
 -- Default: Amazon EC2 uses the default security group.
 --
--- 'subnetId', 'runInstances_subnetId' - [EC2-VPC] The ID of the subnet to launch the instance into.
+-- 'subnetId', 'runInstances_subnetId' - The ID of the subnet to launch the instance into.
 --
 -- If you specify a network interface, you must specify any subnets as part
 -- of the network interface.
@@ -843,6 +860,15 @@ runInstances_elasticGpuSpecification = Lens.lens (\RunInstances' {elasticGpuSpec
 --
 -- You cannot specify accelerators from different generations in the same
 -- request.
+--
+-- Starting April 15, 2023, Amazon Web Services will not onboard new
+-- customers to Amazon Elastic Inference (EI), and will help current
+-- customers migrate their workloads to options that offer better price and
+-- performance. After April 15, 2023, new customers will not be able to
+-- launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon
+-- ECS, or Amazon EC2. However, customers who have used Amazon EI at least
+-- once during the past 30-day period are considered current customers and
+-- will be able to continue using the service.
 runInstances_elasticInferenceAccelerators :: Lens.Lens' RunInstances (Prelude.Maybe [ElasticInferenceAccelerator])
 runInstances_elasticInferenceAccelerators = Lens.lens (\RunInstances' {elasticInferenceAccelerators} -> elasticInferenceAccelerators) (\s@RunInstances' {} a -> s {elasticInferenceAccelerators = a} :: RunInstances) Prelude.. Lens.mapping Lens.coerced
 
@@ -895,26 +921,33 @@ runInstances_instanceMarketOptions = Lens.lens (\RunInstances' {instanceMarketOp
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 --
+-- When you change your EBS-backed instance type, instance restart or
+-- replacement behavior depends on the instance type compatibility between
+-- the old and new types. An instance that\'s backed by an instance store
+-- volume is always replaced. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type>
+-- in the /Amazon EC2 User Guide/.
+--
 -- Default: @m1.small@
 runInstances_instanceType :: Lens.Lens' RunInstances (Prelude.Maybe InstanceType)
 runInstances_instanceType = Lens.lens (\RunInstances' {instanceType} -> instanceType) (\s@RunInstances' {} a -> s {instanceType = a} :: RunInstances)
 
--- | [EC2-VPC] The number of IPv6 addresses to associate with the primary
--- network interface. Amazon EC2 chooses the IPv6 addresses from the range
--- of your subnet. You cannot specify this option and the option to assign
--- specific IPv6 addresses in the same request. You can specify this option
--- if you\'ve specified a minimum number of instances to launch.
+-- | The number of IPv6 addresses to associate with the primary network
+-- interface. Amazon EC2 chooses the IPv6 addresses from the range of your
+-- subnet. You cannot specify this option and the option to assign specific
+-- IPv6 addresses in the same request. You can specify this option if
+-- you\'ve specified a minimum number of instances to launch.
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
 runInstances_ipv6AddressCount :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Int)
 runInstances_ipv6AddressCount = Lens.lens (\RunInstances' {ipv6AddressCount} -> ipv6AddressCount) (\s@RunInstances' {} a -> s {ipv6AddressCount = a} :: RunInstances)
 
--- | [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
--- with the primary network interface. You cannot specify this option and
--- the option to assign a number of IPv6 addresses in the same request. You
--- cannot specify this option if you\'ve specified a minimum number of
--- instances to launch.
+-- | The IPv6 addresses from the range of the subnet to associate with the
+-- primary network interface. You cannot specify this option and the option
+-- to assign a number of IPv6 addresses in the same request. You cannot
+-- specify this option if you\'ve specified a minimum number of instances
+-- to launch.
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
@@ -980,8 +1013,8 @@ runInstances_placement = Lens.lens (\RunInstances' {placement} -> placement) (\s
 runInstances_privateDnsNameOptions :: Lens.Lens' RunInstances (Prelude.Maybe PrivateDnsNameOptionsRequest)
 runInstances_privateDnsNameOptions = Lens.lens (\RunInstances' {privateDnsNameOptions} -> privateDnsNameOptions) (\s@RunInstances' {} a -> s {privateDnsNameOptions = a} :: RunInstances)
 
--- | [EC2-VPC] The primary IPv4 address. You must specify a value from the
--- IPv4 address range of the subnet.
+-- | The primary IPv4 address. You must specify a value from the IPv4 address
+-- range of the subnet.
 --
 -- Only one private IP address can be designated as primary. You can\'t
 -- specify this option if you\'ve specified the option to designate a
@@ -1014,8 +1047,7 @@ runInstances_ramdiskId = Lens.lens (\RunInstances' {ramdiskId} -> ramdiskId) (\s
 runInstances_securityGroupIds :: Lens.Lens' RunInstances (Prelude.Maybe [Prelude.Text])
 runInstances_securityGroupIds = Lens.lens (\RunInstances' {securityGroupIds} -> securityGroupIds) (\s@RunInstances' {} a -> s {securityGroupIds = a} :: RunInstances) Prelude.. Lens.mapping Lens.coerced
 
--- | [EC2-Classic, default VPC] The names of the security groups. For a
--- nondefault VPC, you must use security group IDs instead.
+-- | [Default VPC] The names of the security groups.
 --
 -- If you specify a network interface, you must specify any security groups
 -- as part of the network interface.
@@ -1024,7 +1056,7 @@ runInstances_securityGroupIds = Lens.lens (\RunInstances' {securityGroupIds} -> 
 runInstances_securityGroups :: Lens.Lens' RunInstances (Prelude.Maybe [Prelude.Text])
 runInstances_securityGroups = Lens.lens (\RunInstances' {securityGroups} -> securityGroups) (\s@RunInstances' {} a -> s {securityGroups = a} :: RunInstances) Prelude.. Lens.mapping Lens.coerced
 
--- | [EC2-VPC] The ID of the subnet to launch the instance into.
+-- | The ID of the subnet to launch the instance into.
 --
 -- If you specify a network interface, you must specify any subnets as part
 -- of the network interface.
@@ -1095,7 +1127,8 @@ instance Core.AWSRequest RunInstances where
 
 instance Prelude.Hashable RunInstances where
   hashWithSalt _salt RunInstances' {..} =
-    _salt `Prelude.hashWithSalt` additionalInfo
+    _salt
+      `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` capacityReservationSpecification
       `Prelude.hashWithSalt` clientToken

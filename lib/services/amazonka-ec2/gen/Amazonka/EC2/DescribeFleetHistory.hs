@@ -75,12 +75,13 @@ data DescribeFleetHistory = DescribeFleetHistory'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The type of events to describe. By default, all events are described.
     eventType :: Prelude.Maybe FleetEventType,
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and 1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with the returned @NextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token for the next set of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Text,
@@ -105,12 +106,13 @@ data DescribeFleetHistory = DescribeFleetHistory'
 --
 -- 'eventType', 'describeFleetHistory_eventType' - The type of events to describe. By default, all events are described.
 --
--- 'maxResults', 'describeFleetHistory_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- 'maxResults', 'describeFleetHistory_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeFleetHistory_nextToken' - The token for the next set of results.
+-- 'nextToken', 'describeFleetHistory_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'fleetId', 'describeFleetHistory_fleetId' - The ID of the EC2 Fleet.
 --
@@ -143,14 +145,15 @@ describeFleetHistory_dryRun = Lens.lens (\DescribeFleetHistory' {dryRun} -> dryR
 describeFleetHistory_eventType :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe FleetEventType)
 describeFleetHistory_eventType = Lens.lens (\DescribeFleetHistory' {eventType} -> eventType) (\s@DescribeFleetHistory' {} a -> s {eventType = a} :: DescribeFleetHistory)
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeFleetHistory_maxResults :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Int)
 describeFleetHistory_maxResults = Lens.lens (\DescribeFleetHistory' {maxResults} -> maxResults) (\s@DescribeFleetHistory' {} a -> s {maxResults = a} :: DescribeFleetHistory)
 
--- | The token for the next set of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeFleetHistory_nextToken :: Lens.Lens' DescribeFleetHistory (Prelude.Maybe Prelude.Text)
 describeFleetHistory_nextToken = Lens.lens (\DescribeFleetHistory' {nextToken} -> nextToken) (\s@DescribeFleetHistory' {} a -> s {nextToken = a} :: DescribeFleetHistory)
 
@@ -174,7 +177,8 @@ instance Core.AWSRequest DescribeFleetHistory where
       ( \s h x ->
           DescribeFleetHistoryResponse'
             Prelude.<$> (x Data..@? "fleetId")
-            Prelude.<*> ( x Data..@? "historyRecordSet"
+            Prelude.<*> ( x
+                            Data..@? "historyRecordSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -186,7 +190,8 @@ instance Core.AWSRequest DescribeFleetHistory where
 
 instance Prelude.Hashable DescribeFleetHistory where
   hashWithSalt _salt DescribeFleetHistory' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -233,10 +238,11 @@ data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
     -- retrieved.
     --
-    -- If @nextToken@ indicates that there are more results, this value is not
+    -- If @nextToken@ indicates that there are more items, this value is not
     -- present.
     lastEvaluatedTime :: Prelude.Maybe Data.ISO8601,
-    -- | The token for the next set of results.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The start date and time for the events, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -262,10 +268,11 @@ data DescribeFleetHistoryResponse = DescribeFleetHistoryResponse'
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
 -- retrieved.
 --
--- If @nextToken@ indicates that there are more results, this value is not
+-- If @nextToken@ indicates that there are more items, this value is not
 -- present.
 --
--- 'nextToken', 'describeFleetHistoryResponse_nextToken' - The token for the next set of results.
+-- 'nextToken', 'describeFleetHistoryResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'startTime', 'describeFleetHistoryResponse_startTime' - The start date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -298,12 +305,13 @@ describeFleetHistoryResponse_historyRecords = Lens.lens (\DescribeFleetHistoryRe
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
 -- retrieved.
 --
--- If @nextToken@ indicates that there are more results, this value is not
+-- If @nextToken@ indicates that there are more items, this value is not
 -- present.
 describeFleetHistoryResponse_lastEvaluatedTime :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.UTCTime)
 describeFleetHistoryResponse_lastEvaluatedTime = Lens.lens (\DescribeFleetHistoryResponse' {lastEvaluatedTime} -> lastEvaluatedTime) (\s@DescribeFleetHistoryResponse' {} a -> s {lastEvaluatedTime = a} :: DescribeFleetHistoryResponse) Prelude.. Lens.mapping Data._Time
 
--- | The token for the next set of results.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeFleetHistoryResponse_nextToken :: Lens.Lens' DescribeFleetHistoryResponse (Prelude.Maybe Prelude.Text)
 describeFleetHistoryResponse_nextToken = Lens.lens (\DescribeFleetHistoryResponse' {nextToken} -> nextToken) (\s@DescribeFleetHistoryResponse' {} a -> s {nextToken = a} :: DescribeFleetHistoryResponse)
 

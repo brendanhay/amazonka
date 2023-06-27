@@ -148,22 +148,22 @@ instance Core.AWSPager DescribePublicIpv4Pools where
     | Core.stop
         ( rs
             Lens.^? describePublicIpv4PoolsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePublicIpv4PoolsResponse_publicIpv4Pools
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describePublicIpv4Pools_nextToken
           Lens..~ rs
           Lens.^? describePublicIpv4PoolsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePublicIpv4Pools where
   type
@@ -176,7 +176,8 @@ instance Core.AWSRequest DescribePublicIpv4Pools where
       ( \s h x ->
           DescribePublicIpv4PoolsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "publicIpv4PoolSet"
+            Prelude.<*> ( x
+                            Data..@? "publicIpv4PoolSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -185,7 +186,8 @@ instance Core.AWSRequest DescribePublicIpv4Pools where
 
 instance Prelude.Hashable DescribePublicIpv4Pools where
   hashWithSalt _salt DescribePublicIpv4Pools' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` poolIds

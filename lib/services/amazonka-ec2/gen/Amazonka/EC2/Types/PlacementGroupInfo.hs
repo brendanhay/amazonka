@@ -59,7 +59,8 @@ placementGroupInfo_supportedStrategies = Lens.lens (\PlacementGroupInfo' {suppor
 instance Data.FromXML PlacementGroupInfo where
   parseXML x =
     PlacementGroupInfo'
-      Prelude.<$> ( x Data..@? "supportedStrategies"
+      Prelude.<$> ( x
+                      Data..@? "supportedStrategies"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )

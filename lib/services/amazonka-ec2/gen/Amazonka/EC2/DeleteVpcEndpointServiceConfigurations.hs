@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes one or more VPC endpoint service configurations in your account.
--- Before you delete the endpoint service configuration, you must reject
--- any @Available@ or @PendingAcceptance@ interface endpoint connections
--- that are attached to the service.
+-- Deletes the specified VPC endpoint service configurations. Before you
+-- can delete an endpoint service configuration, you must reject any
+-- @Available@ or @PendingAcceptance@ interface endpoint connections that
+-- are attached to the service.
 module Amazonka.EC2.DeleteVpcEndpointServiceConfigurations
   ( -- * Creating a Request
     DeleteVpcEndpointServiceConfigurations (..),
@@ -58,7 +58,7 @@ data DeleteVpcEndpointServiceConfigurations = DeleteVpcEndpointServiceConfigurat
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The IDs of one or more services.
+    -- | The IDs of the services.
     serviceIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +76,7 @@ data DeleteVpcEndpointServiceConfigurations = DeleteVpcEndpointServiceConfigurat
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'serviceIds', 'deleteVpcEndpointServiceConfigurations_serviceIds' - The IDs of one or more services.
+-- 'serviceIds', 'deleteVpcEndpointServiceConfigurations_serviceIds' - The IDs of the services.
 newDeleteVpcEndpointServiceConfigurations ::
   DeleteVpcEndpointServiceConfigurations
 newDeleteVpcEndpointServiceConfigurations =
@@ -93,7 +93,7 @@ newDeleteVpcEndpointServiceConfigurations =
 deleteVpcEndpointServiceConfigurations_dryRun :: Lens.Lens' DeleteVpcEndpointServiceConfigurations (Prelude.Maybe Prelude.Bool)
 deleteVpcEndpointServiceConfigurations_dryRun = Lens.lens (\DeleteVpcEndpointServiceConfigurations' {dryRun} -> dryRun) (\s@DeleteVpcEndpointServiceConfigurations' {} a -> s {dryRun = a} :: DeleteVpcEndpointServiceConfigurations)
 
--- | The IDs of one or more services.
+-- | The IDs of the services.
 deleteVpcEndpointServiceConfigurations_serviceIds :: Lens.Lens' DeleteVpcEndpointServiceConfigurations [Prelude.Text]
 deleteVpcEndpointServiceConfigurations_serviceIds = Lens.lens (\DeleteVpcEndpointServiceConfigurations' {serviceIds} -> serviceIds) (\s@DeleteVpcEndpointServiceConfigurations' {} a -> s {serviceIds = a} :: DeleteVpcEndpointServiceConfigurations) Prelude.. Lens.coerced
 
@@ -111,10 +111,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointServiceConfigurationsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -124,7 +126,8 @@ instance
   hashWithSalt
     _salt
     DeleteVpcEndpointServiceConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` serviceIds
 
 instance

@@ -431,10 +431,14 @@ instance Core.AWSRequest CreateFlowLogs where
       ( \s h x ->
           CreateFlowLogsResponse'
             Prelude.<$> (x Data..@? "clientToken")
-            Prelude.<*> ( x Data..@? "flowLogIdSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "flowLogIdSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -442,7 +446,8 @@ instance Core.AWSRequest CreateFlowLogs where
 
 instance Prelude.Hashable CreateFlowLogs where
   hashWithSalt _salt CreateFlowLogs' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deliverCrossAccountRole
       `Prelude.hashWithSalt` deliverLogsPermissionArn
       `Prelude.hashWithSalt` destinationOptions

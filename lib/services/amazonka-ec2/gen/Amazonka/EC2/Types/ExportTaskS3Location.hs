@@ -71,7 +71,8 @@ instance Data.FromXML ExportTaskS3Location where
 
 instance Prelude.Hashable ExportTaskS3Location where
   hashWithSalt _salt ExportTaskS3Location' {..} =
-    _salt `Prelude.hashWithSalt` s3Bucket
+    _salt
+      `Prelude.hashWithSalt` s3Bucket
       `Prelude.hashWithSalt` s3Prefix
 
 instance Prelude.NFData ExportTaskS3Location where

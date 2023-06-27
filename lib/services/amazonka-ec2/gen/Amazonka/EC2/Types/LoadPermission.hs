@@ -72,7 +72,8 @@ instance Data.FromXML LoadPermission where
 
 instance Prelude.Hashable LoadPermission where
   hashWithSalt _salt LoadPermission' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData LoadPermission where

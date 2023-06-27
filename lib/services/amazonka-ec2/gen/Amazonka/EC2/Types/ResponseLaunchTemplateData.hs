@@ -62,7 +62,8 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
     creditSpecification :: Prelude.Maybe CreditSpecification,
     -- | Indicates whether the instance is enabled for stop protection. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
     disableApiStop :: Prelude.Maybe Prelude.Bool,
     -- | If set to @true@, indicates that the instance cannot be terminated using
     -- the Amazon EC2 console, command line tool, or API.
@@ -83,7 +84,25 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
     hibernationOptions :: Prelude.Maybe LaunchTemplateHibernationOptions,
     -- | The IAM instance profile.
     iamInstanceProfile :: Prelude.Maybe LaunchTemplateIamInstanceProfileSpecification,
-    -- | The ID of the AMI that was used to launch the instance.
+    -- | The ID of the AMI or a Systems Manager parameter. The Systems Manager
+    -- parameter will resolve to the ID of the AMI at instance launch.
+    --
+    -- The value depends on what you specified in the request. The possible
+    -- values are:
+    --
+    -- -   If an AMI ID was specified in the request, then this is the AMI ID.
+    --
+    -- -   If a Systems Manager parameter was specified in the request, and
+    --     @ResolveAlias@ was configured as @true@, then this is the AMI ID
+    --     that the parameter is mapped to in the Parameter Store.
+    --
+    -- -   If a Systems Manager parameter was specified in the request, and
+    --     @ResolveAlias@ was configured as @false@, then this is the parameter
+    --     value.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
@@ -130,9 +149,9 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
     -- instance launch.
     tagSpecifications :: Prelude.Maybe [LaunchTemplateTagSpecification],
     -- | The user data for the instance.
-    userData :: Prelude.Maybe Prelude.Text
+    userData :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ResponseLaunchTemplateData' with all optional fields omitted.
@@ -154,7 +173,8 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
 --
 -- 'disableApiStop', 'responseLaunchTemplateData_disableApiStop' - Indicates whether the instance is enabled for stop protection. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'disableApiTermination', 'responseLaunchTemplateData_disableApiTermination' - If set to @true@, indicates that the instance cannot be terminated using
 -- the Amazon EC2 console, command line tool, or API.
@@ -175,7 +195,25 @@ data ResponseLaunchTemplateData = ResponseLaunchTemplateData'
 --
 -- 'iamInstanceProfile', 'responseLaunchTemplateData_iamInstanceProfile' - The IAM instance profile.
 --
--- 'imageId', 'responseLaunchTemplateData_imageId' - The ID of the AMI that was used to launch the instance.
+-- 'imageId', 'responseLaunchTemplateData_imageId' - The ID of the AMI or a Systems Manager parameter. The Systems Manager
+-- parameter will resolve to the ID of the AMI at instance launch.
+--
+-- The value depends on what you specified in the request. The possible
+-- values are:
+--
+-- -   If an AMI ID was specified in the request, then this is the AMI ID.
+--
+-- -   If a Systems Manager parameter was specified in the request, and
+--     @ResolveAlias@ was configured as @true@, then this is the AMI ID
+--     that the parameter is mapped to in the Parameter Store.
+--
+-- -   If a Systems Manager parameter was specified in the request, and
+--     @ResolveAlias@ was configured as @false@, then this is the parameter
+--     value.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'instanceInitiatedShutdownBehavior', 'responseLaunchTemplateData_instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -282,7 +320,8 @@ responseLaunchTemplateData_creditSpecification = Lens.lens (\ResponseLaunchTempl
 
 -- | Indicates whether the instance is enabled for stop protection. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 responseLaunchTemplateData_disableApiStop :: Lens.Lens' ResponseLaunchTemplateData (Prelude.Maybe Prelude.Bool)
 responseLaunchTemplateData_disableApiStop = Lens.lens (\ResponseLaunchTemplateData' {disableApiStop} -> disableApiStop) (\s@ResponseLaunchTemplateData' {} a -> s {disableApiStop = a} :: ResponseLaunchTemplateData)
 
@@ -319,7 +358,25 @@ responseLaunchTemplateData_hibernationOptions = Lens.lens (\ResponseLaunchTempla
 responseLaunchTemplateData_iamInstanceProfile :: Lens.Lens' ResponseLaunchTemplateData (Prelude.Maybe LaunchTemplateIamInstanceProfileSpecification)
 responseLaunchTemplateData_iamInstanceProfile = Lens.lens (\ResponseLaunchTemplateData' {iamInstanceProfile} -> iamInstanceProfile) (\s@ResponseLaunchTemplateData' {} a -> s {iamInstanceProfile = a} :: ResponseLaunchTemplateData)
 
--- | The ID of the AMI that was used to launch the instance.
+-- | The ID of the AMI or a Systems Manager parameter. The Systems Manager
+-- parameter will resolve to the ID of the AMI at instance launch.
+--
+-- The value depends on what you specified in the request. The possible
+-- values are:
+--
+-- -   If an AMI ID was specified in the request, then this is the AMI ID.
+--
+-- -   If a Systems Manager parameter was specified in the request, and
+--     @ResolveAlias@ was configured as @true@, then this is the AMI ID
+--     that the parameter is mapped to in the Parameter Store.
+--
+-- -   If a Systems Manager parameter was specified in the request, and
+--     @ResolveAlias@ was configured as @false@, then this is the parameter
+--     value.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 responseLaunchTemplateData_imageId :: Lens.Lens' ResponseLaunchTemplateData (Prelude.Maybe Prelude.Text)
 responseLaunchTemplateData_imageId = Lens.lens (\ResponseLaunchTemplateData' {imageId} -> imageId) (\s@ResponseLaunchTemplateData' {} a -> s {imageId = a} :: ResponseLaunchTemplateData)
 
@@ -403,12 +460,13 @@ responseLaunchTemplateData_tagSpecifications = Lens.lens (\ResponseLaunchTemplat
 
 -- | The user data for the instance.
 responseLaunchTemplateData_userData :: Lens.Lens' ResponseLaunchTemplateData (Prelude.Maybe Prelude.Text)
-responseLaunchTemplateData_userData = Lens.lens (\ResponseLaunchTemplateData' {userData} -> userData) (\s@ResponseLaunchTemplateData' {} a -> s {userData = a} :: ResponseLaunchTemplateData)
+responseLaunchTemplateData_userData = Lens.lens (\ResponseLaunchTemplateData' {userData} -> userData) (\s@ResponseLaunchTemplateData' {} a -> s {userData = a} :: ResponseLaunchTemplateData) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromXML ResponseLaunchTemplateData where
   parseXML x =
     ResponseLaunchTemplateData'
-      Prelude.<$> ( x Data..@? "blockDeviceMappingSet"
+      Prelude.<$> ( x
+                      Data..@? "blockDeviceMappingSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -418,11 +476,13 @@ instance Data.FromXML ResponseLaunchTemplateData where
       Prelude.<*> (x Data..@? "disableApiStop")
       Prelude.<*> (x Data..@? "disableApiTermination")
       Prelude.<*> (x Data..@? "ebsOptimized")
-      Prelude.<*> ( x Data..@? "elasticGpuSpecificationSet"
+      Prelude.<*> ( x
+                      Data..@? "elasticGpuSpecificationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "elasticInferenceAcceleratorSet"
+      Prelude.<*> ( x
+                      Data..@? "elasticInferenceAcceleratorSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -436,28 +496,34 @@ instance Data.FromXML ResponseLaunchTemplateData where
       Prelude.<*> (x Data..@? "instanceType")
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
-      Prelude.<*> ( x Data..@? "licenseSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "licenseSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "maintenanceOptions")
       Prelude.<*> (x Data..@? "metadataOptions")
       Prelude.<*> (x Data..@? "monitoring")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "placement")
       Prelude.<*> (x Data..@? "privateDnsNameOptions")
       Prelude.<*> (x Data..@? "ramDiskId")
-      Prelude.<*> ( x Data..@? "securityGroupIdSet"
+      Prelude.<*> ( x
+                      Data..@? "securityGroupIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "securityGroupSet"
+      Prelude.<*> ( x
+                      Data..@? "securityGroupSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSpecificationSet"
+      Prelude.<*> ( x
+                      Data..@? "tagSpecificationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -465,7 +531,8 @@ instance Data.FromXML ResponseLaunchTemplateData where
 
 instance Prelude.Hashable ResponseLaunchTemplateData where
   hashWithSalt _salt ResponseLaunchTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` capacityReservationSpecification
       `Prelude.hashWithSalt` cpuOptions
       `Prelude.hashWithSalt` creditSpecification

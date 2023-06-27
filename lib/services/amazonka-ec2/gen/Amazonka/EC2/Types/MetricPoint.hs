@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
--- | Indicates whether the network was healthy or unhealthy at a particular
+-- | Indicates whether the network was healthy or degraded at a particular
 -- point. The value is aggregated from the @startDate@ to the @endDate@.
 -- Currently only @five_minutes@ is supported.
 --
@@ -101,7 +101,8 @@ instance Data.FromXML MetricPoint where
 
 instance Prelude.Hashable MetricPoint where
   hashWithSalt _salt MetricPoint' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` value

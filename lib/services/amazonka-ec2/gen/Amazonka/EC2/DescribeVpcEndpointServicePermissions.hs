@@ -62,7 +62,7 @@ data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissio
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+    -- | The filters.
     --
     -- -   @principal@ - The ARN of the principal.
     --
@@ -95,7 +95,7 @@ data DescribeVpcEndpointServicePermissions = DescribeVpcEndpointServicePermissio
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeVpcEndpointServicePermissions_filters' - One or more filters.
+-- 'filters', 'describeVpcEndpointServicePermissions_filters' - The filters.
 --
 -- -   @principal@ - The ARN of the principal.
 --
@@ -132,7 +132,7 @@ newDescribeVpcEndpointServicePermissions pServiceId_ =
 describeVpcEndpointServicePermissions_dryRun :: Lens.Lens' DescribeVpcEndpointServicePermissions (Prelude.Maybe Prelude.Bool)
 describeVpcEndpointServicePermissions_dryRun = Lens.lens (\DescribeVpcEndpointServicePermissions' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServicePermissions' {} a -> s {dryRun = a} :: DescribeVpcEndpointServicePermissions)
 
--- | One or more filters.
+-- | The filters.
 --
 -- -   @principal@ - The ARN of the principal.
 --
@@ -165,22 +165,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicePermissionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicePermissionsResponse_allowedPrincipals
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpointServicePermissions_nextToken
           Lens..~ rs
-            Lens.^? describeVpcEndpointServicePermissionsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeVpcEndpointServicePermissionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -196,12 +196,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeVpcEndpointServicePermissionsResponse'
-            Prelude.<$> ( x Data..@? "allowedPrincipals"
+            Prelude.<$> ( x
+                            Data..@? "allowedPrincipals"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -211,7 +212,8 @@ instance
   hashWithSalt
     _salt
     DescribeVpcEndpointServicePermissions' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -262,7 +264,7 @@ instance
 
 -- | /See:/ 'newDescribeVpcEndpointServicePermissionsResponse' smart constructor.
 data DescribeVpcEndpointServicePermissionsResponse = DescribeVpcEndpointServicePermissionsResponse'
-  { -- | Information about one or more allowed principals.
+  { -- | Information about the allowed principals.
     allowedPrincipals :: Prelude.Maybe [AllowedPrincipal],
     -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
@@ -280,7 +282,7 @@ data DescribeVpcEndpointServicePermissionsResponse = DescribeVpcEndpointServiceP
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allowedPrincipals', 'describeVpcEndpointServicePermissionsResponse_allowedPrincipals' - Information about one or more allowed principals.
+-- 'allowedPrincipals', 'describeVpcEndpointServicePermissionsResponse_allowedPrincipals' - Information about the allowed principals.
 --
 -- 'nextToken', 'describeVpcEndpointServicePermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -299,7 +301,7 @@ newDescribeVpcEndpointServicePermissionsResponse
         httpStatus = pHttpStatus_
       }
 
--- | Information about one or more allowed principals.
+-- | Information about the allowed principals.
 describeVpcEndpointServicePermissionsResponse_allowedPrincipals :: Lens.Lens' DescribeVpcEndpointServicePermissionsResponse (Prelude.Maybe [AllowedPrincipal])
 describeVpcEndpointServicePermissionsResponse_allowedPrincipals = Lens.lens (\DescribeVpcEndpointServicePermissionsResponse' {allowedPrincipals} -> allowedPrincipals) (\s@DescribeVpcEndpointServicePermissionsResponse' {} a -> s {allowedPrincipals = a} :: DescribeVpcEndpointServicePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 

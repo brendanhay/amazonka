@@ -23,10 +23,12 @@
 -- Cancels the specified Spot Fleet requests.
 --
 -- After you cancel a Spot Fleet request, the Spot Fleet launches no new
--- Spot Instances. You must specify whether the Spot Fleet should also
--- terminate its Spot Instances. If you terminate the instances, the Spot
--- Fleet request enters the @cancelled_terminating@ state. Otherwise, the
--- Spot Fleet request enters the @cancelled_running@ state and the
+-- instances.
+--
+-- You must also specify whether a canceled Spot Fleet request should
+-- terminate its instances. If you choose to terminate the instances, the
+-- Spot Fleet request enters the @cancelled_terminating@ state. Otherwise,
+-- the Spot Fleet request enters the @cancelled_running@ state and the
 -- instances continue to run until they are interrupted or you terminate
 -- them manually.
 module Amazonka.EC2.CancelSpotFleetRequests
@@ -69,8 +71,11 @@ data CancelSpotFleetRequests = CancelSpotFleetRequests'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the Spot Fleet requests.
     spotFleetRequestIds :: [Prelude.Text],
-    -- | Indicates whether to terminate instances for a Spot Fleet request if it
-    -- is canceled successfully.
+    -- | Indicates whether to terminate the associated instances when the Spot
+    -- Fleet request is canceled. The default is to terminate the instances.
+    --
+    -- To let the instances continue to run after the Spot Fleet request is
+    -- canceled, specify @no-terminate-instances@.
     terminateInstances :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,8 +95,11 @@ data CancelSpotFleetRequests = CancelSpotFleetRequests'
 --
 -- 'spotFleetRequestIds', 'cancelSpotFleetRequests_spotFleetRequestIds' - The IDs of the Spot Fleet requests.
 --
--- 'terminateInstances', 'cancelSpotFleetRequests_terminateInstances' - Indicates whether to terminate instances for a Spot Fleet request if it
--- is canceled successfully.
+-- 'terminateInstances', 'cancelSpotFleetRequests_terminateInstances' - Indicates whether to terminate the associated instances when the Spot
+-- Fleet request is canceled. The default is to terminate the instances.
+--
+-- To let the instances continue to run after the Spot Fleet request is
+-- canceled, specify @no-terminate-instances@.
 newCancelSpotFleetRequests ::
   -- | 'terminateInstances'
   Prelude.Bool ->
@@ -114,8 +122,11 @@ cancelSpotFleetRequests_dryRun = Lens.lens (\CancelSpotFleetRequests' {dryRun} -
 cancelSpotFleetRequests_spotFleetRequestIds :: Lens.Lens' CancelSpotFleetRequests [Prelude.Text]
 cancelSpotFleetRequests_spotFleetRequestIds = Lens.lens (\CancelSpotFleetRequests' {spotFleetRequestIds} -> spotFleetRequestIds) (\s@CancelSpotFleetRequests' {} a -> s {spotFleetRequestIds = a} :: CancelSpotFleetRequests) Prelude.. Lens.coerced
 
--- | Indicates whether to terminate instances for a Spot Fleet request if it
--- is canceled successfully.
+-- | Indicates whether to terminate the associated instances when the Spot
+-- Fleet request is canceled. The default is to terminate the instances.
+--
+-- To let the instances continue to run after the Spot Fleet request is
+-- canceled, specify @no-terminate-instances@.
 cancelSpotFleetRequests_terminateInstances :: Lens.Lens' CancelSpotFleetRequests Prelude.Bool
 cancelSpotFleetRequests_terminateInstances = Lens.lens (\CancelSpotFleetRequests' {terminateInstances} -> terminateInstances) (\s@CancelSpotFleetRequests' {} a -> s {terminateInstances = a} :: CancelSpotFleetRequests)
 
@@ -129,11 +140,13 @@ instance Core.AWSRequest CancelSpotFleetRequests where
     Response.receiveXML
       ( \s h x ->
           CancelSpotFleetRequestsResponse'
-            Prelude.<$> ( x Data..@? "successfulFleetRequestSet"
+            Prelude.<$> ( x
+                            Data..@? "successfulFleetRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessfulFleetRequestSet"
+            Prelude.<*> ( x
+                            Data..@? "unsuccessfulFleetRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -142,7 +155,8 @@ instance Core.AWSRequest CancelSpotFleetRequests where
 
 instance Prelude.Hashable CancelSpotFleetRequests where
   hashWithSalt _salt CancelSpotFleetRequests' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` spotFleetRequestIds
       `Prelude.hashWithSalt` terminateInstances
 

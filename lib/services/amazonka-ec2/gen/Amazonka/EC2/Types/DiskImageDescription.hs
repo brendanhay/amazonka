@@ -43,11 +43,11 @@ data DiskImageDescription = DiskImageDescription'
     -- For information about the import manifest referenced by this API action,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
-    importManifestUrl :: Prelude.Maybe Prelude.Text,
+    importManifestUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The size of the disk image, in GiB.
     size :: Prelude.Maybe Prelude.Integer
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskImageDescription' with all optional fields omitted.
@@ -100,7 +100,7 @@ diskImageDescription_format = Lens.lens (\DiskImageDescription' {format} -> form
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 diskImageDescription_importManifestUrl :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Text)
-diskImageDescription_importManifestUrl = Lens.lens (\DiskImageDescription' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDescription' {} a -> s {importManifestUrl = a} :: DiskImageDescription)
+diskImageDescription_importManifestUrl = Lens.lens (\DiskImageDescription' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDescription' {} a -> s {importManifestUrl = a} :: DiskImageDescription) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The size of the disk image, in GiB.
 diskImageDescription_size :: Lens.Lens' DiskImageDescription (Prelude.Maybe Prelude.Integer)
@@ -116,7 +116,8 @@ instance Data.FromXML DiskImageDescription where
 
 instance Prelude.Hashable DiskImageDescription where
   hashWithSalt _salt DiskImageDescription' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` importManifestUrl
       `Prelude.hashWithSalt` size

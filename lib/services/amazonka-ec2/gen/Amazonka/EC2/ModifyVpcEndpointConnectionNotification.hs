@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyVpcEndpointConnectionNotification' smart constructor.
 data ModifyVpcEndpointConnectionNotification = ModifyVpcEndpointConnectionNotification'
-  { -- | One or more events for the endpoint. Valid values are @Accept@,
-    -- @Connect@, @Delete@, and @Reject@.
+  { -- | The events for the endpoint. Valid values are @Accept@, @Connect@,
+    -- @Delete@, and @Reject@.
     connectionEvents :: Prelude.Maybe [Prelude.Text],
     -- | The ARN for the SNS topic for the notification.
     connectionNotificationArn :: Prelude.Maybe Prelude.Text,
@@ -77,8 +77,8 @@ data ModifyVpcEndpointConnectionNotification = ModifyVpcEndpointConnectionNotifi
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'connectionEvents', 'modifyVpcEndpointConnectionNotification_connectionEvents' - One or more events for the endpoint. Valid values are @Accept@,
--- @Connect@, @Delete@, and @Reject@.
+-- 'connectionEvents', 'modifyVpcEndpointConnectionNotification_connectionEvents' - The events for the endpoint. Valid values are @Accept@, @Connect@,
+-- @Delete@, and @Reject@.
 --
 -- 'connectionNotificationArn', 'modifyVpcEndpointConnectionNotification_connectionNotificationArn' - The ARN for the SNS topic for the notification.
 --
@@ -104,8 +104,8 @@ newModifyVpcEndpointConnectionNotification
           pConnectionNotificationId_
       }
 
--- | One or more events for the endpoint. Valid values are @Accept@,
--- @Connect@, @Delete@, and @Reject@.
+-- | The events for the endpoint. Valid values are @Accept@, @Connect@,
+-- @Delete@, and @Reject@.
 modifyVpcEndpointConnectionNotification_connectionEvents :: Lens.Lens' ModifyVpcEndpointConnectionNotification (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpointConnectionNotification_connectionEvents = Lens.lens (\ModifyVpcEndpointConnectionNotification' {connectionEvents} -> connectionEvents) (\s@ModifyVpcEndpointConnectionNotification' {} a -> s {connectionEvents = a} :: ModifyVpcEndpointConnectionNotification) Prelude.. Lens.mapping Lens.coerced
 
@@ -139,7 +139,7 @@ instance
       ( \s h x ->
           ModifyVpcEndpointConnectionNotificationResponse'
             Prelude.<$> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     ModifyVpcEndpointConnectionNotification' {..} =
-      _salt `Prelude.hashWithSalt` connectionEvents
+      _salt
+        `Prelude.hashWithSalt` connectionEvents
         `Prelude.hashWithSalt` connectionNotificationArn
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` connectionNotificationId

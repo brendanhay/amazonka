@@ -20,6 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- To import your virtual machines (VMs) with a console-based experience,
+-- you can use the /Import virtual machine images to Amazon Web Services/
+-- template in the
+-- <https://console.aws.amazon.com/migrationhub/orchestrator Migration Hub Orchestrator console>.
+-- For more information, see the
+-- <https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/import-vm-images.html Migration Hub Orchestrator User Guide>
+-- .
+--
 -- Import single or multi-volume disk images or EBS snapshots into an
 -- Amazon Machine Image (AMI).
 --
@@ -187,7 +195,7 @@ data ImportImage = ImportImage'
     -- in the /VM Import\/Export User Guide/.
     usageOperation :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportImage' with all optional fields omitted.
@@ -459,20 +467,24 @@ instance Core.AWSRequest ImportImage where
             Prelude.<*> (x Data..@? "imageId")
             Prelude.<*> (x Data..@? "importTaskId")
             Prelude.<*> (x Data..@? "kmsKeyId")
-            Prelude.<*> ( x Data..@? "licenseSpecifications"
+            Prelude.<*> ( x
+                            Data..@? "licenseSpecifications"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "licenseType")
             Prelude.<*> (x Data..@? "platform")
             Prelude.<*> (x Data..@? "progress")
-            Prelude.<*> ( x Data..@? "snapshotDetailSet"
+            Prelude.<*> ( x
+                            Data..@? "snapshotDetailSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "status")
             Prelude.<*> (x Data..@? "statusMessage")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "usageOperation")
@@ -481,7 +493,8 @@ instance Core.AWSRequest ImportImage where
 
 instance Prelude.Hashable ImportImage where
   hashWithSalt _salt ImportImage' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` clientData
       `Prelude.hashWithSalt` clientToken
@@ -595,7 +608,7 @@ data ImportImageResponse = ImportImageResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportImageResponse' with all optional fields omitted.

@@ -67,31 +67,31 @@ data CreateVerifiedAccessEndpoint = CreateVerifiedAccessEndpoint'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access endpoint.
+    -- | A description for the Verified Access endpoint.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The load balancer details if creating the Amazon Web Services Verified
-    -- Access endpoint as @load-balancer@type.
+    -- | The load balancer details. This parameter is required if the endpoint
+    -- type is @load-balancer@.
     loadBalancerOptions :: Prelude.Maybe CreateVerifiedAccessEndpointLoadBalancerOptions,
-    -- | The network interface details if creating the Amazon Web Services
-    -- Verified Access endpoint as @network-interface@type.
+    -- | The network interface details. This parameter is required if the
+    -- endpoint type is @network-interface@.
     networkInterfaceOptions :: Prelude.Maybe CreateVerifiedAccessEndpointEniOptions,
-    -- | The Amazon Web Services Verified Access policy document.
+    -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon EC2 security groups to associate with the Amazon Web Services
-    -- Verified Access endpoint.
+    -- | The IDs of the security groups to associate with the Verified Access
+    -- endpoint.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The tags to assign to the Amazon Web Services Verified Access endpoint.
+    -- | The tags to assign to the Verified Access endpoint.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the Verified Access group to associate the endpoint with.
     verifiedAccessGroupId :: Prelude.Text,
-    -- | The type of Amazon Web Services Verified Access endpoint to create.
+    -- | The type of Verified Access endpoint to create.
     endpointType :: VerifiedAccessEndpointType,
-    -- | The Amazon Web Services network component Verified Access attaches to.
+    -- | The type of attachment.
     attachmentType :: VerifiedAccessEndpointAttachmentType,
     -- | The ARN of the public TLS\/SSL certificate in Amazon Web Services
     -- Certificate Manager to associate with the endpoint. The CN in the
@@ -100,7 +100,7 @@ data CreateVerifiedAccessEndpoint = CreateVerifiedAccessEndpoint'
     domainCertificateArn :: Prelude.Text,
     -- | The DNS name for users to reach your application.
     applicationDomain :: Prelude.Text,
-    -- | A custom identifier that gets prepended to a DNS name that is generated
+    -- | A custom identifier that is prepended to the DNS name that is generated
     -- for the endpoint.
     endpointDomainPrefix :: Prelude.Text
   }
@@ -118,31 +118,31 @@ data CreateVerifiedAccessEndpoint = CreateVerifiedAccessEndpoint'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'createVerifiedAccessEndpoint_description' - A description for the Amazon Web Services Verified Access endpoint.
+-- 'description', 'createVerifiedAccessEndpoint_description' - A description for the Verified Access endpoint.
 --
 -- 'dryRun', 'createVerifiedAccessEndpoint_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'loadBalancerOptions', 'createVerifiedAccessEndpoint_loadBalancerOptions' - The load balancer details if creating the Amazon Web Services Verified
--- Access endpoint as @load-balancer@type.
+-- 'loadBalancerOptions', 'createVerifiedAccessEndpoint_loadBalancerOptions' - The load balancer details. This parameter is required if the endpoint
+-- type is @load-balancer@.
 --
--- 'networkInterfaceOptions', 'createVerifiedAccessEndpoint_networkInterfaceOptions' - The network interface details if creating the Amazon Web Services
--- Verified Access endpoint as @network-interface@type.
+-- 'networkInterfaceOptions', 'createVerifiedAccessEndpoint_networkInterfaceOptions' - The network interface details. This parameter is required if the
+-- endpoint type is @network-interface@.
 --
--- 'policyDocument', 'createVerifiedAccessEndpoint_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'createVerifiedAccessEndpoint_policyDocument' - The Verified Access policy document.
 --
--- 'securityGroupIds', 'createVerifiedAccessEndpoint_securityGroupIds' - The Amazon EC2 security groups to associate with the Amazon Web Services
--- Verified Access endpoint.
+-- 'securityGroupIds', 'createVerifiedAccessEndpoint_securityGroupIds' - The IDs of the security groups to associate with the Verified Access
+-- endpoint.
 --
--- 'tagSpecifications', 'createVerifiedAccessEndpoint_tagSpecifications' - The tags to assign to the Amazon Web Services Verified Access endpoint.
+-- 'tagSpecifications', 'createVerifiedAccessEndpoint_tagSpecifications' - The tags to assign to the Verified Access endpoint.
 --
 -- 'verifiedAccessGroupId', 'createVerifiedAccessEndpoint_verifiedAccessGroupId' - The ID of the Verified Access group to associate the endpoint with.
 --
--- 'endpointType', 'createVerifiedAccessEndpoint_endpointType' - The type of Amazon Web Services Verified Access endpoint to create.
+-- 'endpointType', 'createVerifiedAccessEndpoint_endpointType' - The type of Verified Access endpoint to create.
 --
--- 'attachmentType', 'createVerifiedAccessEndpoint_attachmentType' - The Amazon Web Services network component Verified Access attaches to.
+-- 'attachmentType', 'createVerifiedAccessEndpoint_attachmentType' - The type of attachment.
 --
 -- 'domainCertificateArn', 'createVerifiedAccessEndpoint_domainCertificateArn' - The ARN of the public TLS\/SSL certificate in Amazon Web Services
 -- Certificate Manager to associate with the endpoint. The CN in the
@@ -151,7 +151,7 @@ data CreateVerifiedAccessEndpoint = CreateVerifiedAccessEndpoint'
 --
 -- 'applicationDomain', 'createVerifiedAccessEndpoint_applicationDomain' - The DNS name for users to reach your application.
 --
--- 'endpointDomainPrefix', 'createVerifiedAccessEndpoint_endpointDomainPrefix' - A custom identifier that gets prepended to a DNS name that is generated
+-- 'endpointDomainPrefix', 'createVerifiedAccessEndpoint_endpointDomainPrefix' - A custom identifier that is prepended to the DNS name that is generated
 -- for the endpoint.
 newCreateVerifiedAccessEndpoint ::
   -- | 'verifiedAccessGroupId'
@@ -199,7 +199,7 @@ newCreateVerifiedAccessEndpoint
 createVerifiedAccessEndpoint_clientToken :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe Prelude.Text)
 createVerifiedAccessEndpoint_clientToken = Lens.lens (\CreateVerifiedAccessEndpoint' {clientToken} -> clientToken) (\s@CreateVerifiedAccessEndpoint' {} a -> s {clientToken = a} :: CreateVerifiedAccessEndpoint)
 
--- | A description for the Amazon Web Services Verified Access endpoint.
+-- | A description for the Verified Access endpoint.
 createVerifiedAccessEndpoint_description :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe Prelude.Text)
 createVerifiedAccessEndpoint_description = Lens.lens (\CreateVerifiedAccessEndpoint' {description} -> description) (\s@CreateVerifiedAccessEndpoint' {} a -> s {description = a} :: CreateVerifiedAccessEndpoint)
 
@@ -210,26 +210,26 @@ createVerifiedAccessEndpoint_description = Lens.lens (\CreateVerifiedAccessEndpo
 createVerifiedAccessEndpoint_dryRun :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe Prelude.Bool)
 createVerifiedAccessEndpoint_dryRun = Lens.lens (\CreateVerifiedAccessEndpoint' {dryRun} -> dryRun) (\s@CreateVerifiedAccessEndpoint' {} a -> s {dryRun = a} :: CreateVerifiedAccessEndpoint)
 
--- | The load balancer details if creating the Amazon Web Services Verified
--- Access endpoint as @load-balancer@type.
+-- | The load balancer details. This parameter is required if the endpoint
+-- type is @load-balancer@.
 createVerifiedAccessEndpoint_loadBalancerOptions :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe CreateVerifiedAccessEndpointLoadBalancerOptions)
 createVerifiedAccessEndpoint_loadBalancerOptions = Lens.lens (\CreateVerifiedAccessEndpoint' {loadBalancerOptions} -> loadBalancerOptions) (\s@CreateVerifiedAccessEndpoint' {} a -> s {loadBalancerOptions = a} :: CreateVerifiedAccessEndpoint)
 
--- | The network interface details if creating the Amazon Web Services
--- Verified Access endpoint as @network-interface@type.
+-- | The network interface details. This parameter is required if the
+-- endpoint type is @network-interface@.
 createVerifiedAccessEndpoint_networkInterfaceOptions :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe CreateVerifiedAccessEndpointEniOptions)
 createVerifiedAccessEndpoint_networkInterfaceOptions = Lens.lens (\CreateVerifiedAccessEndpoint' {networkInterfaceOptions} -> networkInterfaceOptions) (\s@CreateVerifiedAccessEndpoint' {} a -> s {networkInterfaceOptions = a} :: CreateVerifiedAccessEndpoint)
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 createVerifiedAccessEndpoint_policyDocument :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe Prelude.Text)
 createVerifiedAccessEndpoint_policyDocument = Lens.lens (\CreateVerifiedAccessEndpoint' {policyDocument} -> policyDocument) (\s@CreateVerifiedAccessEndpoint' {} a -> s {policyDocument = a} :: CreateVerifiedAccessEndpoint)
 
--- | The Amazon EC2 security groups to associate with the Amazon Web Services
--- Verified Access endpoint.
+-- | The IDs of the security groups to associate with the Verified Access
+-- endpoint.
 createVerifiedAccessEndpoint_securityGroupIds :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe [Prelude.Text])
 createVerifiedAccessEndpoint_securityGroupIds = Lens.lens (\CreateVerifiedAccessEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateVerifiedAccessEndpoint' {} a -> s {securityGroupIds = a} :: CreateVerifiedAccessEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | The tags to assign to the Amazon Web Services Verified Access endpoint.
+-- | The tags to assign to the Verified Access endpoint.
 createVerifiedAccessEndpoint_tagSpecifications :: Lens.Lens' CreateVerifiedAccessEndpoint (Prelude.Maybe [TagSpecification])
 createVerifiedAccessEndpoint_tagSpecifications = Lens.lens (\CreateVerifiedAccessEndpoint' {tagSpecifications} -> tagSpecifications) (\s@CreateVerifiedAccessEndpoint' {} a -> s {tagSpecifications = a} :: CreateVerifiedAccessEndpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -237,11 +237,11 @@ createVerifiedAccessEndpoint_tagSpecifications = Lens.lens (\CreateVerifiedAcces
 createVerifiedAccessEndpoint_verifiedAccessGroupId :: Lens.Lens' CreateVerifiedAccessEndpoint Prelude.Text
 createVerifiedAccessEndpoint_verifiedAccessGroupId = Lens.lens (\CreateVerifiedAccessEndpoint' {verifiedAccessGroupId} -> verifiedAccessGroupId) (\s@CreateVerifiedAccessEndpoint' {} a -> s {verifiedAccessGroupId = a} :: CreateVerifiedAccessEndpoint)
 
--- | The type of Amazon Web Services Verified Access endpoint to create.
+-- | The type of Verified Access endpoint to create.
 createVerifiedAccessEndpoint_endpointType :: Lens.Lens' CreateVerifiedAccessEndpoint VerifiedAccessEndpointType
 createVerifiedAccessEndpoint_endpointType = Lens.lens (\CreateVerifiedAccessEndpoint' {endpointType} -> endpointType) (\s@CreateVerifiedAccessEndpoint' {} a -> s {endpointType = a} :: CreateVerifiedAccessEndpoint)
 
--- | The Amazon Web Services network component Verified Access attaches to.
+-- | The type of attachment.
 createVerifiedAccessEndpoint_attachmentType :: Lens.Lens' CreateVerifiedAccessEndpoint VerifiedAccessEndpointAttachmentType
 createVerifiedAccessEndpoint_attachmentType = Lens.lens (\CreateVerifiedAccessEndpoint' {attachmentType} -> attachmentType) (\s@CreateVerifiedAccessEndpoint' {} a -> s {attachmentType = a} :: CreateVerifiedAccessEndpoint)
 
@@ -256,7 +256,7 @@ createVerifiedAccessEndpoint_domainCertificateArn = Lens.lens (\CreateVerifiedAc
 createVerifiedAccessEndpoint_applicationDomain :: Lens.Lens' CreateVerifiedAccessEndpoint Prelude.Text
 createVerifiedAccessEndpoint_applicationDomain = Lens.lens (\CreateVerifiedAccessEndpoint' {applicationDomain} -> applicationDomain) (\s@CreateVerifiedAccessEndpoint' {} a -> s {applicationDomain = a} :: CreateVerifiedAccessEndpoint)
 
--- | A custom identifier that gets prepended to a DNS name that is generated
+-- | A custom identifier that is prepended to the DNS name that is generated
 -- for the endpoint.
 createVerifiedAccessEndpoint_endpointDomainPrefix :: Lens.Lens' CreateVerifiedAccessEndpoint Prelude.Text
 createVerifiedAccessEndpoint_endpointDomainPrefix = Lens.lens (\CreateVerifiedAccessEndpoint' {endpointDomainPrefix} -> endpointDomainPrefix) (\s@CreateVerifiedAccessEndpoint' {} a -> s {endpointDomainPrefix = a} :: CreateVerifiedAccessEndpoint)
@@ -280,7 +280,8 @@ instance
     CreateVerifiedAccessEndpoint
   where
   hashWithSalt _salt CreateVerifiedAccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` loadBalancerOptions
@@ -353,7 +354,7 @@ instance Data.ToQuery CreateVerifiedAccessEndpoint where
 
 -- | /See:/ 'newCreateVerifiedAccessEndpointResponse' smart constructor.
 data CreateVerifiedAccessEndpointResponse = CreateVerifiedAccessEndpointResponse'
-  { -- | The ID of the Amazon Web Services Verified Access endpoint.
+  { -- | The ID of the Verified Access endpoint.
     verifiedAccessEndpoint :: Prelude.Maybe VerifiedAccessEndpoint,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -368,7 +369,7 @@ data CreateVerifiedAccessEndpointResponse = CreateVerifiedAccessEndpointResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessEndpoint', 'createVerifiedAccessEndpointResponse_verifiedAccessEndpoint' - The ID of the Amazon Web Services Verified Access endpoint.
+-- 'verifiedAccessEndpoint', 'createVerifiedAccessEndpointResponse_verifiedAccessEndpoint' - The ID of the Verified Access endpoint.
 --
 -- 'httpStatus', 'createVerifiedAccessEndpointResponse_httpStatus' - The response's http status code.
 newCreateVerifiedAccessEndpointResponse ::
@@ -382,7 +383,7 @@ newCreateVerifiedAccessEndpointResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the Amazon Web Services Verified Access endpoint.
+-- | The ID of the Verified Access endpoint.
 createVerifiedAccessEndpointResponse_verifiedAccessEndpoint :: Lens.Lens' CreateVerifiedAccessEndpointResponse (Prelude.Maybe VerifiedAccessEndpoint)
 createVerifiedAccessEndpointResponse_verifiedAccessEndpoint = Lens.lens (\CreateVerifiedAccessEndpointResponse' {verifiedAccessEndpoint} -> verifiedAccessEndpoint) (\s@CreateVerifiedAccessEndpointResponse' {} a -> s {verifiedAccessEndpoint = a} :: CreateVerifiedAccessEndpointResponse)
 

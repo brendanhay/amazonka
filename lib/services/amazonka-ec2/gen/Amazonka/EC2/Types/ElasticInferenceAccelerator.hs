@@ -80,7 +80,8 @@ elasticInferenceAccelerator_type = Lens.lens (\ElasticInferenceAccelerator' {typ
 
 instance Prelude.Hashable ElasticInferenceAccelerator where
   hashWithSalt _salt ElasticInferenceAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData ElasticInferenceAccelerator where

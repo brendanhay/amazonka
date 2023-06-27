@@ -117,7 +117,7 @@ instance
       ( \s h x ->
           AcceptTransitGatewayVpcAttachmentResponse'
             Prelude.<$> (x Data..@? "transitGatewayVpcAttachment")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     AcceptTransitGatewayVpcAttachment' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` transitGatewayAttachmentId
 
 instance

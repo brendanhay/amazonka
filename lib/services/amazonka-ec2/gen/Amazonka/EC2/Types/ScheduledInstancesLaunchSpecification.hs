@@ -73,7 +73,7 @@ data ScheduledInstancesLaunchSpecification = ScheduledInstancesLaunchSpecificati
     -- | The ID of the Amazon Machine Image (AMI).
     imageId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ScheduledInstancesLaunchSpecification' with all optional fields omitted.
@@ -208,7 +208,8 @@ instance
   hashWithSalt
     _salt
     ScheduledInstancesLaunchSpecification' {..} =
-      _salt `Prelude.hashWithSalt` blockDeviceMappings
+      _salt
+        `Prelude.hashWithSalt` blockDeviceMappings
         `Prelude.hashWithSalt` ebsOptimized
         `Prelude.hashWithSalt` iamInstanceProfile
         `Prelude.hashWithSalt` instanceType

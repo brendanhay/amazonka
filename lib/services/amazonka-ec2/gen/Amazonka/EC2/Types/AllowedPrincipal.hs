@@ -99,13 +99,16 @@ instance Data.FromXML AllowedPrincipal where
       Prelude.<*> (x Data..@? "principalType")
       Prelude.<*> (x Data..@? "serviceId")
       Prelude.<*> (x Data..@? "servicePermissionId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable AllowedPrincipal where
   hashWithSalt _salt AllowedPrincipal' {..} =
-    _salt `Prelude.hashWithSalt` principal
+    _salt
+      `Prelude.hashWithSalt` principal
       `Prelude.hashWithSalt` principalType
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` servicePermissionId

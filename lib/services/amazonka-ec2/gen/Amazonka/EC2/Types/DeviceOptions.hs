@@ -25,8 +25,8 @@ import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
--- | Options for an Amazon Web Services Verified Access device-identity based
--- trust provider.
+-- | Describes the options for an Amazon Web Services Verified Access
+-- device-identity based trust provider.
 --
 -- /See:/ 'newDeviceOptions' smart constructor.
 data DeviceOptions = DeviceOptions'

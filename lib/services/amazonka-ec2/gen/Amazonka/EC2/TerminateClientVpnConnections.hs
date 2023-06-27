@@ -141,7 +141,8 @@ instance
       ( \s h x ->
           TerminateClientVpnConnectionsResponse'
             Prelude.<$> (x Data..@? "clientVpnEndpointId")
-            Prelude.<*> ( x Data..@? "connectionStatuses"
+            Prelude.<*> ( x
+                            Data..@? "connectionStatuses"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -154,7 +155,8 @@ instance
     TerminateClientVpnConnections
   where
   hashWithSalt _salt TerminateClientVpnConnections' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` clientVpnEndpointId

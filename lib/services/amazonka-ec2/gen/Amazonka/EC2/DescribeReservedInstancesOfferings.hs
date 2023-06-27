@@ -107,19 +107,12 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     --     the Reserved Instance Marketplace are listed.
     --
     -- -   @product-description@ - The Reserved Instance product platform
-    --     description. Instances that include @(Amazon VPC)@ in the product
-    --     platform description will only be displayed to EC2-Classic account
-    --     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
-    --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
-    --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
-    --     @Red Hat Enterprise Linux (Amazon VPC)@ |
-    --     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
-    --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
-    --     @Windows with SQL Server Standard (Amazon VPC)@ |
-    --     @Windows with SQL Server Web@ |
-    --     @ Windows with SQL Server Web (Amazon VPC)@ |
-    --     @Windows with SQL Server Enterprise@ |
-    --     @Windows with SQL Server Enterprise (Amazon VPC)@)
+    --     description (@Linux\/UNIX@ | @Linux with SQL Server Standard@ |
+    --     @Linux with SQL Server Web@ | @Linux with SQL Server Enterprise@ |
+    --     @SUSE Linux@ | @Red Hat Enterprise Linux@ |
+    --     @Red Hat Enterprise Linux with HA@ | @Windows@ |
+    --     @Windows with SQL Server Standard@ | @Windows with SQL Server Web@ |
+    --     @Windows with SQL Server Enterprise@).
     --
     -- -   @reserved-instances-offering-id@ - The Reserved Instances offering
     --     ID.
@@ -219,19 +212,12 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
 --     the Reserved Instance Marketplace are listed.
 --
 -- -   @product-description@ - The Reserved Instance product platform
---     description. Instances that include @(Amazon VPC)@ in the product
---     platform description will only be displayed to EC2-Classic account
---     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
---     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
---     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ |
---     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
---     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
---     @Windows with SQL Server Standard (Amazon VPC)@ |
---     @Windows with SQL Server Web@ |
---     @ Windows with SQL Server Web (Amazon VPC)@ |
---     @Windows with SQL Server Enterprise@ |
---     @Windows with SQL Server Enterprise (Amazon VPC)@)
+--     description (@Linux\/UNIX@ | @Linux with SQL Server Standard@ |
+--     @Linux with SQL Server Web@ | @Linux with SQL Server Enterprise@ |
+--     @SUSE Linux@ | @Red Hat Enterprise Linux@ |
+--     @Red Hat Enterprise Linux with HA@ | @Windows@ |
+--     @Windows with SQL Server Standard@ | @Windows with SQL Server Web@ |
+--     @Windows with SQL Server Enterprise@).
 --
 -- -   @reserved-instances-offering-id@ - The Reserved Instances offering
 --     ID.
@@ -346,19 +332,12 @@ describeReservedInstancesOfferings_dryRun = Lens.lens (\DescribeReservedInstance
 --     the Reserved Instance Marketplace are listed.
 --
 -- -   @product-description@ - The Reserved Instance product platform
---     description. Instances that include @(Amazon VPC)@ in the product
---     platform description will only be displayed to EC2-Classic account
---     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
---     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
---     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ |
---     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
---     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
---     @Windows with SQL Server Standard (Amazon VPC)@ |
---     @Windows with SQL Server Web@ |
---     @ Windows with SQL Server Web (Amazon VPC)@ |
---     @Windows with SQL Server Enterprise@ |
---     @Windows with SQL Server Enterprise (Amazon VPC)@)
+--     description (@Linux\/UNIX@ | @Linux with SQL Server Standard@ |
+--     @Linux with SQL Server Web@ | @Linux with SQL Server Enterprise@ |
+--     @SUSE Linux@ | @Red Hat Enterprise Linux@ |
+--     @Red Hat Enterprise Linux with HA@ | @Windows@ |
+--     @Windows with SQL Server Standard@ | @Windows with SQL Server Web@ |
+--     @Windows with SQL Server Enterprise@).
 --
 -- -   @reserved-instances-offering-id@ - The Reserved Instances offering
 --     ID.
@@ -454,22 +433,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesOfferingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedInstancesOfferingsResponse_reservedInstancesOfferings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReservedInstancesOfferings_nextToken
           Lens..~ rs
           Lens.^? describeReservedInstancesOfferingsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -485,11 +464,12 @@ instance
       ( \s h x ->
           DescribeReservedInstancesOfferingsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "reservedInstancesOfferingsSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "reservedInstancesOfferingsSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -499,7 +479,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedInstancesOfferings' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` includeMarketplace

@@ -75,7 +75,8 @@ instance
   hashWithSalt
     _salt
     ScheduledInstancesPrivateIpAddressConfig' {..} =
-      _salt `Prelude.hashWithSalt` primary
+      _salt
+        `Prelude.hashWithSalt` primary
         `Prelude.hashWithSalt` privateIpAddress
 
 instance

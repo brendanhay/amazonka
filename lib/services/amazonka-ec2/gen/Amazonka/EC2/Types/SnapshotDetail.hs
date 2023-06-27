@@ -47,11 +47,11 @@ data SnapshotDetail = SnapshotDetail'
     -- | A detailed status message for the snapshot creation.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The URL used to access the disk image.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon S3 bucket for the disk image.
     userBucket :: Prelude.Maybe UserBucketDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnapshotDetail' with all optional fields omitted.
@@ -130,7 +130,7 @@ snapshotDetail_statusMessage = Lens.lens (\SnapshotDetail' {statusMessage} -> st
 
 -- | The URL used to access the disk image.
 snapshotDetail_url :: Lens.Lens' SnapshotDetail (Prelude.Maybe Prelude.Text)
-snapshotDetail_url = Lens.lens (\SnapshotDetail' {url} -> url) (\s@SnapshotDetail' {} a -> s {url = a} :: SnapshotDetail)
+snapshotDetail_url = Lens.lens (\SnapshotDetail' {url} -> url) (\s@SnapshotDetail' {} a -> s {url = a} :: SnapshotDetail) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon S3 bucket for the disk image.
 snapshotDetail_userBucket :: Lens.Lens' SnapshotDetail (Prelude.Maybe UserBucketDetails)
@@ -152,7 +152,8 @@ instance Data.FromXML SnapshotDetail where
 
 instance Prelude.Hashable SnapshotDetail where
   hashWithSalt _salt SnapshotDetail' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` diskImageSize
       `Prelude.hashWithSalt` format

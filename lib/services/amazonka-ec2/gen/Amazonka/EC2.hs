@@ -26,18 +26,17 @@
 --
 -- To learn more, see the following resources:
 --
--- -   Amazon EC2: <http://aws.amazon.com/ec2 AmazonEC2 product page>,
---     <http://aws.amazon.com/documentation/ec2 Amazon EC2 documentation>
+-- -   Amazon EC2: <http://aws.amazon.com/ec2 Amazon EC2 product page>,
+--     <https://docs.aws.amazon.com/ec2/index.html Amazon EC2 documentation>
 --
 -- -   Amazon EBS: <http://aws.amazon.com/ebs Amazon EBS product page>,
---     <http://aws.amazon.com/documentation/ebs Amazon EBS documentation>
+--     <https://docs.aws.amazon.com/ebs/index.html Amazon EBS documentation>
 --
 -- -   Amazon VPC: <http://aws.amazon.com/vpc Amazon VPC product page>,
---     <http://aws.amazon.com/documentation/vpc Amazon VPC documentation>
+--     <https://docs.aws.amazon.com/vpc/index.html Amazon VPC documentation>
 --
--- -   Amazon Web Services VPN:
---     <http://aws.amazon.com/vpn Amazon Web Services VPN product page>,
---     <http://aws.amazon.com/documentation/vpn Amazon Web Services VPN documentation>
+-- -   VPN: <http://aws.amazon.com/vpn VPN product page>,
+--     <https://docs.aws.amazon.com/vpn/index.html VPN documentation>
 module Amazonka.EC2
   ( -- * Service Configuration
     defaultService,
@@ -113,6 +112,9 @@ module Amazonka.EC2
 
     -- ** SnapshotCompleted
     newSnapshotCompleted,
+
+    -- ** SnapshotImported
+    newSnapshotImported,
 
     -- ** SpotInstanceRequestFulfilled
     newSpotInstanceRequestFulfilled,
@@ -237,6 +239,12 @@ module Amazonka.EC2
     AssignPrivateIpAddressesResponse (AssignPrivateIpAddressesResponse'),
     newAssignPrivateIpAddressesResponse,
 
+    -- ** AssignPrivateNatGatewayAddress
+    AssignPrivateNatGatewayAddress (AssignPrivateNatGatewayAddress'),
+    newAssignPrivateNatGatewayAddress,
+    AssignPrivateNatGatewayAddressResponse (AssignPrivateNatGatewayAddressResponse'),
+    newAssignPrivateNatGatewayAddressResponse,
+
     -- ** AssociateAddress
     AssociateAddress (AssociateAddress'),
     newAssociateAddress,
@@ -272,6 +280,18 @@ module Amazonka.EC2
     newAssociateInstanceEventWindow,
     AssociateInstanceEventWindowResponse (AssociateInstanceEventWindowResponse'),
     newAssociateInstanceEventWindowResponse,
+
+    -- ** AssociateIpamResourceDiscovery
+    AssociateIpamResourceDiscovery (AssociateIpamResourceDiscovery'),
+    newAssociateIpamResourceDiscovery,
+    AssociateIpamResourceDiscoveryResponse (AssociateIpamResourceDiscoveryResponse'),
+    newAssociateIpamResourceDiscoveryResponse,
+
+    -- ** AssociateNatGatewayAddress
+    AssociateNatGatewayAddress (AssociateNatGatewayAddress'),
+    newAssociateNatGatewayAddress,
+    AssociateNatGatewayAddressResponse (AssociateNatGatewayAddressResponse'),
+    newAssociateNatGatewayAddressResponse,
 
     -- ** AssociateRouteTable
     AssociateRouteTable (AssociateRouteTable'),
@@ -555,6 +575,12 @@ module Amazonka.EC2
     CreateImageResponse (CreateImageResponse'),
     newCreateImageResponse,
 
+    -- ** CreateInstanceConnectEndpoint
+    CreateInstanceConnectEndpoint (CreateInstanceConnectEndpoint'),
+    newCreateInstanceConnectEndpoint,
+    CreateInstanceConnectEndpointResponse (CreateInstanceConnectEndpointResponse'),
+    newCreateInstanceConnectEndpointResponse,
+
     -- ** CreateInstanceEventWindow
     CreateInstanceEventWindow (CreateInstanceEventWindow'),
     newCreateInstanceEventWindow,
@@ -584,6 +610,12 @@ module Amazonka.EC2
     newCreateIpamPool,
     CreateIpamPoolResponse (CreateIpamPoolResponse'),
     newCreateIpamPoolResponse,
+
+    -- ** CreateIpamResourceDiscovery
+    CreateIpamResourceDiscovery (CreateIpamResourceDiscovery'),
+    newCreateIpamResourceDiscovery,
+    CreateIpamResourceDiscoveryResponse (CreateIpamResourceDiscoveryResponse'),
+    newCreateIpamResourceDiscoveryResponse,
 
     -- ** CreateIpamScope
     CreateIpamScope (CreateIpamScope'),
@@ -1005,6 +1037,12 @@ module Amazonka.EC2
     DeleteFpgaImageResponse (DeleteFpgaImageResponse'),
     newDeleteFpgaImageResponse,
 
+    -- ** DeleteInstanceConnectEndpoint
+    DeleteInstanceConnectEndpoint (DeleteInstanceConnectEndpoint'),
+    newDeleteInstanceConnectEndpoint,
+    DeleteInstanceConnectEndpointResponse (DeleteInstanceConnectEndpointResponse'),
+    newDeleteInstanceConnectEndpointResponse,
+
     -- ** DeleteInstanceEventWindow
     DeleteInstanceEventWindow (DeleteInstanceEventWindow'),
     newDeleteInstanceEventWindow,
@@ -1028,6 +1066,12 @@ module Amazonka.EC2
     newDeleteIpamPool,
     DeleteIpamPoolResponse (DeleteIpamPoolResponse'),
     newDeleteIpamPoolResponse,
+
+    -- ** DeleteIpamResourceDiscovery
+    DeleteIpamResourceDiscovery (DeleteIpamResourceDiscovery'),
+    newDeleteIpamResourceDiscovery,
+    DeleteIpamResourceDiscoveryResponse (DeleteIpamResourceDiscoveryResponse'),
+    newDeleteIpamResourceDiscoveryResponse,
 
     -- ** DeleteIpamScope
     DeleteIpamScope (DeleteIpamScope'),
@@ -1683,6 +1727,12 @@ module Amazonka.EC2
     DescribeInstanceAttributeResponse (DescribeInstanceAttributeResponse'),
     newDescribeInstanceAttributeResponse,
 
+    -- ** DescribeInstanceConnectEndpoints (Paginated)
+    DescribeInstanceConnectEndpoints (DescribeInstanceConnectEndpoints'),
+    newDescribeInstanceConnectEndpoints,
+    DescribeInstanceConnectEndpointsResponse (DescribeInstanceConnectEndpointsResponse'),
+    newDescribeInstanceConnectEndpointsResponse,
+
     -- ** DescribeInstanceCreditSpecifications (Paginated)
     DescribeInstanceCreditSpecifications (DescribeInstanceCreditSpecifications'),
     newDescribeInstanceCreditSpecifications,
@@ -1736,6 +1786,18 @@ module Amazonka.EC2
     newDescribeIpamPools,
     DescribeIpamPoolsResponse (DescribeIpamPoolsResponse'),
     newDescribeIpamPoolsResponse,
+
+    -- ** DescribeIpamResourceDiscoveries (Paginated)
+    DescribeIpamResourceDiscoveries (DescribeIpamResourceDiscoveries'),
+    newDescribeIpamResourceDiscoveries,
+    DescribeIpamResourceDiscoveriesResponse (DescribeIpamResourceDiscoveriesResponse'),
+    newDescribeIpamResourceDiscoveriesResponse,
+
+    -- ** DescribeIpamResourceDiscoveryAssociations (Paginated)
+    DescribeIpamResourceDiscoveryAssociations (DescribeIpamResourceDiscoveryAssociations'),
+    newDescribeIpamResourceDiscoveryAssociations,
+    DescribeIpamResourceDiscoveryAssociationsResponse (DescribeIpamResourceDiscoveryAssociationsResponse'),
+    newDescribeIpamResourceDiscoveryAssociationsResponse,
 
     -- ** DescribeIpamScopes (Paginated)
     DescribeIpamScopes (DescribeIpamScopes'),
@@ -2403,6 +2465,18 @@ module Amazonka.EC2
     DisassociateInstanceEventWindowResponse (DisassociateInstanceEventWindowResponse'),
     newDisassociateInstanceEventWindowResponse,
 
+    -- ** DisassociateIpamResourceDiscovery
+    DisassociateIpamResourceDiscovery (DisassociateIpamResourceDiscovery'),
+    newDisassociateIpamResourceDiscovery,
+    DisassociateIpamResourceDiscoveryResponse (DisassociateIpamResourceDiscoveryResponse'),
+    newDisassociateIpamResourceDiscoveryResponse,
+
+    -- ** DisassociateNatGatewayAddress
+    DisassociateNatGatewayAddress (DisassociateNatGatewayAddress'),
+    newDisassociateNatGatewayAddress,
+    DisassociateNatGatewayAddressResponse (DisassociateNatGatewayAddressResponse'),
+    newDisassociateNatGatewayAddressResponse,
+
     -- ** DisassociateRouteTable
     DisassociateRouteTable (DisassociateRouteTable'),
     newDisassociateRouteTable,
@@ -2649,6 +2723,18 @@ module Amazonka.EC2
     GetIpamAddressHistoryResponse (GetIpamAddressHistoryResponse'),
     newGetIpamAddressHistoryResponse,
 
+    -- ** GetIpamDiscoveredAccounts (Paginated)
+    GetIpamDiscoveredAccounts (GetIpamDiscoveredAccounts'),
+    newGetIpamDiscoveredAccounts,
+    GetIpamDiscoveredAccountsResponse (GetIpamDiscoveredAccountsResponse'),
+    newGetIpamDiscoveredAccountsResponse,
+
+    -- ** GetIpamDiscoveredResourceCidrs (Paginated)
+    GetIpamDiscoveredResourceCidrs (GetIpamDiscoveredResourceCidrs'),
+    newGetIpamDiscoveredResourceCidrs,
+    GetIpamDiscoveredResourceCidrsResponse (GetIpamDiscoveredResourceCidrsResponse'),
+    newGetIpamDiscoveredResourceCidrsResponse,
+
     -- ** GetIpamPoolAllocations (Paginated)
     GetIpamPoolAllocations (GetIpamPoolAllocations'),
     newGetIpamPoolAllocations,
@@ -2685,7 +2771,7 @@ module Amazonka.EC2
     GetManagedPrefixListEntriesResponse (GetManagedPrefixListEntriesResponse'),
     newGetManagedPrefixListEntriesResponse,
 
-    -- ** GetNetworkInsightsAccessScopeAnalysisFindings
+    -- ** GetNetworkInsightsAccessScopeAnalysisFindings (Paginated)
     GetNetworkInsightsAccessScopeAnalysisFindings (GetNetworkInsightsAccessScopeAnalysisFindings'),
     newGetNetworkInsightsAccessScopeAnalysisFindings,
     GetNetworkInsightsAccessScopeAnalysisFindingsResponse (GetNetworkInsightsAccessScopeAnalysisFindingsResponse'),
@@ -2792,6 +2878,12 @@ module Amazonka.EC2
     newGetVpnConnectionDeviceTypes,
     GetVpnConnectionDeviceTypesResponse (GetVpnConnectionDeviceTypesResponse'),
     newGetVpnConnectionDeviceTypesResponse,
+
+    -- ** GetVpnTunnelReplacementStatus
+    GetVpnTunnelReplacementStatus (GetVpnTunnelReplacementStatus'),
+    newGetVpnTunnelReplacementStatus,
+    GetVpnTunnelReplacementStatusResponse (GetVpnTunnelReplacementStatusResponse'),
+    newGetVpnTunnelReplacementStatusResponse,
 
     -- ** ImportClientVpnClientCertificateRevocationList
     ImportClientVpnClientCertificateRevocationList (ImportClientVpnClientCertificateRevocationList'),
@@ -2984,6 +3076,12 @@ module Amazonka.EC2
     newModifyIpamResourceCidr,
     ModifyIpamResourceCidrResponse (ModifyIpamResourceCidrResponse'),
     newModifyIpamResourceCidrResponse,
+
+    -- ** ModifyIpamResourceDiscovery
+    ModifyIpamResourceDiscovery (ModifyIpamResourceDiscovery'),
+    newModifyIpamResourceDiscovery,
+    ModifyIpamResourceDiscoveryResponse (ModifyIpamResourceDiscoveryResponse'),
+    newModifyIpamResourceDiscoveryResponse,
 
     -- ** ModifyIpamScope
     ModifyIpamScope (ModifyIpamScope'),
@@ -3387,6 +3485,12 @@ module Amazonka.EC2
     ReplaceTransitGatewayRouteResponse (ReplaceTransitGatewayRouteResponse'),
     newReplaceTransitGatewayRouteResponse,
 
+    -- ** ReplaceVpnTunnel
+    ReplaceVpnTunnel (ReplaceVpnTunnel'),
+    newReplaceVpnTunnel,
+    ReplaceVpnTunnelResponse (ReplaceVpnTunnelResponse'),
+    newReplaceVpnTunnelResponse,
+
     -- ** ReportInstanceStatus
     ReportInstanceStatus (ReportInstanceStatus'),
     newReportInstanceStatus,
@@ -3585,6 +3689,12 @@ module Amazonka.EC2
     UnassignPrivateIpAddressesResponse (UnassignPrivateIpAddressesResponse'),
     newUnassignPrivateIpAddressesResponse,
 
+    -- ** UnassignPrivateNatGatewayAddress
+    UnassignPrivateNatGatewayAddress (UnassignPrivateNatGatewayAddress'),
+    newUnassignPrivateNatGatewayAddress,
+    UnassignPrivateNatGatewayAddressResponse (UnassignPrivateNatGatewayAddressResponse'),
+    newUnassignPrivateNatGatewayAddressResponse,
+
     -- ** UnmonitorInstances
     UnmonitorInstances (UnmonitorInstances'),
     newUnmonitorInstances,
@@ -3655,6 +3765,9 @@ module Amazonka.EC2
 
     -- ** AllowsMultipleInstanceTypes
     AllowsMultipleInstanceTypes (..),
+
+    -- ** AmdSevSnpSpecification
+    AmdSevSnpSpecification (..),
 
     -- ** AnalysisStatus
     AnalysisStatus (..),
@@ -3842,6 +3955,9 @@ module Amazonka.EC2
     -- ** EbsOptimizedSupport
     EbsOptimizedSupport (..),
 
+    -- ** Ec2InstanceConnectEndpointState
+    Ec2InstanceConnectEndpointState (..),
+
     -- ** ElasticGpuState
     ElasticGpuState (..),
 
@@ -3929,6 +4045,9 @@ module Amazonka.EC2
     -- ** GatewayType
     GatewayType (..),
 
+    -- ** HostMaintenance
+    HostMaintenance (..),
+
     -- ** HostRecovery
     HostRecovery (..),
 
@@ -3967,6 +4086,9 @@ module Amazonka.EC2
 
     -- ** InstanceAutoRecoveryState
     InstanceAutoRecoveryState (..),
+
+    -- ** InstanceBootModeValues
+    InstanceBootModeValues (..),
 
     -- ** InstanceEventWindowState
     InstanceEventWindowState (..),
@@ -4025,8 +4147,14 @@ module Amazonka.EC2
     -- ** IpamAddressHistoryResourceType
     IpamAddressHistoryResourceType (..),
 
+    -- ** IpamAssociatedResourceDiscoveryStatus
+    IpamAssociatedResourceDiscoveryStatus (..),
+
     -- ** IpamComplianceStatus
     IpamComplianceStatus (..),
+
+    -- ** IpamDiscoveryFailureCode
+    IpamDiscoveryFailureCode (..),
 
     -- ** IpamManagementState
     IpamManagementState (..),
@@ -4046,8 +4174,17 @@ module Amazonka.EC2
     -- ** IpamPoolCidrState
     IpamPoolCidrState (..),
 
+    -- ** IpamPoolPublicIpSource
+    IpamPoolPublicIpSource (..),
+
     -- ** IpamPoolState
     IpamPoolState (..),
+
+    -- ** IpamResourceDiscoveryAssociationState
+    IpamResourceDiscoveryAssociationState (..),
+
+    -- ** IpamResourceDiscoveryState
+    IpamResourceDiscoveryState (..),
 
     -- ** IpamResourceType
     IpamResourceType (..),
@@ -4138,6 +4275,9 @@ module Amazonka.EC2
 
     -- ** MulticastSupportValue
     MulticastSupportValue (..),
+
+    -- ** NatGatewayAddressStatus
+    NatGatewayAddressStatus (..),
 
     -- ** NatGatewayState
     NatGatewayState (..),
@@ -4327,6 +4467,9 @@ module Amazonka.EC2
 
     -- ** SummaryStatus
     SummaryStatus (..),
+
+    -- ** SupportedAdditionalProcessorFeature
+    SupportedAdditionalProcessorFeature (..),
 
     -- ** TargetCapacityUnitType
     TargetCapacityUnitType (..),
@@ -5109,6 +5252,10 @@ module Amazonka.EC2
     EbsOptimizedInfo (EbsOptimizedInfo'),
     newEbsOptimizedInfo,
 
+    -- ** Ec2InstanceConnectEndpoint
+    Ec2InstanceConnectEndpoint (Ec2InstanceConnectEndpoint'),
+    newEc2InstanceConnectEndpoint,
+
     -- ** EfaInfo
     EfaInfo (EfaInfo'),
     newEfaInfo,
@@ -5244,6 +5391,18 @@ module Amazonka.EC2
     -- ** Filter
     Filter (Filter'),
     newFilter,
+
+    -- ** FilterPortRange
+    FilterPortRange (FilterPortRange'),
+    newFilterPortRange,
+
+    -- ** FirewallStatefulRule
+    FirewallStatefulRule (FirewallStatefulRule'),
+    newFirewallStatefulRule,
+
+    -- ** FirewallStatelessRule
+    FirewallStatelessRule (FirewallStatelessRule'),
+    newFirewallStatelessRule,
 
     -- ** FleetCapacityReservation
     FleetCapacityReservation (FleetCapacityReservation'),
@@ -5673,6 +5832,18 @@ module Amazonka.EC2
     IpamCidrAuthorizationContext (IpamCidrAuthorizationContext'),
     newIpamCidrAuthorizationContext,
 
+    -- ** IpamDiscoveredAccount
+    IpamDiscoveredAccount (IpamDiscoveredAccount'),
+    newIpamDiscoveredAccount,
+
+    -- ** IpamDiscoveredResourceCidr
+    IpamDiscoveredResourceCidr (IpamDiscoveredResourceCidr'),
+    newIpamDiscoveredResourceCidr,
+
+    -- ** IpamDiscoveryFailureReason
+    IpamDiscoveryFailureReason (IpamDiscoveryFailureReason'),
+    newIpamDiscoveryFailureReason,
+
     -- ** IpamOperatingRegion
     IpamOperatingRegion (IpamOperatingRegion'),
     newIpamOperatingRegion,
@@ -5696,6 +5867,14 @@ module Amazonka.EC2
     -- ** IpamResourceCidr
     IpamResourceCidr (IpamResourceCidr'),
     newIpamResourceCidr,
+
+    -- ** IpamResourceDiscovery
+    IpamResourceDiscovery (IpamResourceDiscovery'),
+    newIpamResourceDiscovery,
+
+    -- ** IpamResourceDiscoveryAssociation
+    IpamResourceDiscoveryAssociation (IpamResourceDiscoveryAssociation'),
+    newIpamResourceDiscoveryAssociation,
 
     -- ** IpamResourceTag
     IpamResourceTag (IpamResourceTag'),
@@ -5985,6 +6164,10 @@ module Amazonka.EC2
     LocalGatewayVirtualInterfaceGroup (LocalGatewayVirtualInterfaceGroup'),
     newLocalGatewayVirtualInterfaceGroup,
 
+    -- ** MaintenanceDetails
+    MaintenanceDetails (MaintenanceDetails'),
+    newMaintenanceDetails,
+
     -- ** ManagedPrefixList
     ManagedPrefixList (ManagedPrefixList'),
     newManagedPrefixList,
@@ -6168,6 +6351,14 @@ module Amazonka.EC2
     -- ** PathComponent
     PathComponent (PathComponent'),
     newPathComponent,
+
+    -- ** PathFilter
+    PathFilter (PathFilter'),
+    newPathFilter,
+
+    -- ** PathRequestFilter
+    PathRequestFilter (PathRequestFilter'),
+    newPathRequestFilter,
 
     -- ** PathStatement
     PathStatement (PathStatement'),
@@ -6389,6 +6580,10 @@ module Amazonka.EC2
     ReplaceRootVolumeTask (ReplaceRootVolumeTask'),
     newReplaceRootVolumeTask,
 
+    -- ** RequestFilterPortRange
+    RequestFilterPortRange (RequestFilterPortRange'),
+    newRequestFilterPortRange,
+
     -- ** RequestIpamResourceTag
     RequestIpamResourceTag (RequestIpamResourceTag'),
     newRequestIpamResourceTag,
@@ -6480,6 +6675,18 @@ module Amazonka.EC2
     -- ** RouteTableAssociationState
     RouteTableAssociationState (RouteTableAssociationState'),
     newRouteTableAssociationState,
+
+    -- ** RuleGroupRuleOptionsPair
+    RuleGroupRuleOptionsPair (RuleGroupRuleOptionsPair'),
+    newRuleGroupRuleOptionsPair,
+
+    -- ** RuleGroupTypePair
+    RuleGroupTypePair (RuleGroupTypePair'),
+    newRuleGroupTypePair,
+
+    -- ** RuleOption
+    RuleOption (RuleOption'),
+    newRuleOption,
 
     -- ** RunInstancesMonitoringEnabled
     RunInstancesMonitoringEnabled (RunInstancesMonitoringEnabled'),
@@ -7273,12 +7480,15 @@ import Amazonka.EC2.AllocateIpamPoolCidr
 import Amazonka.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
 import Amazonka.EC2.AssignIpv6Addresses
 import Amazonka.EC2.AssignPrivateIpAddresses
+import Amazonka.EC2.AssignPrivateNatGatewayAddress
 import Amazonka.EC2.AssociateAddress
 import Amazonka.EC2.AssociateClientVpnTargetNetwork
 import Amazonka.EC2.AssociateDhcpOptions
 import Amazonka.EC2.AssociateEnclaveCertificateIamRole
 import Amazonka.EC2.AssociateIamInstanceProfile
 import Amazonka.EC2.AssociateInstanceEventWindow
+import Amazonka.EC2.AssociateIpamResourceDiscovery
+import Amazonka.EC2.AssociateNatGatewayAddress
 import Amazonka.EC2.AssociateRouteTable
 import Amazonka.EC2.AssociateSubnetCidrBlock
 import Amazonka.EC2.AssociateTransitGatewayMulticastDomain
@@ -7326,11 +7536,13 @@ import Amazonka.EC2.CreateFleet
 import Amazonka.EC2.CreateFlowLogs
 import Amazonka.EC2.CreateFpgaImage
 import Amazonka.EC2.CreateImage
+import Amazonka.EC2.CreateInstanceConnectEndpoint
 import Amazonka.EC2.CreateInstanceEventWindow
 import Amazonka.EC2.CreateInstanceExportTask
 import Amazonka.EC2.CreateInternetGateway
 import Amazonka.EC2.CreateIpam
 import Amazonka.EC2.CreateIpamPool
+import Amazonka.EC2.CreateIpamResourceDiscovery
 import Amazonka.EC2.CreateIpamScope
 import Amazonka.EC2.CreateKeyPair
 import Amazonka.EC2.CreateLaunchTemplate
@@ -7401,10 +7613,12 @@ import Amazonka.EC2.DeleteEgressOnlyInternetGateway
 import Amazonka.EC2.DeleteFleets
 import Amazonka.EC2.DeleteFlowLogs
 import Amazonka.EC2.DeleteFpgaImage
+import Amazonka.EC2.DeleteInstanceConnectEndpoint
 import Amazonka.EC2.DeleteInstanceEventWindow
 import Amazonka.EC2.DeleteInternetGateway
 import Amazonka.EC2.DeleteIpam
 import Amazonka.EC2.DeleteIpamPool
+import Amazonka.EC2.DeleteIpamResourceDiscovery
 import Amazonka.EC2.DeleteIpamScope
 import Amazonka.EC2.DeleteKeyPair
 import Amazonka.EC2.DeleteLaunchTemplate
@@ -7514,6 +7728,7 @@ import Amazonka.EC2.DescribeImages
 import Amazonka.EC2.DescribeImportImageTasks
 import Amazonka.EC2.DescribeImportSnapshotTasks
 import Amazonka.EC2.DescribeInstanceAttribute
+import Amazonka.EC2.DescribeInstanceConnectEndpoints
 import Amazonka.EC2.DescribeInstanceCreditSpecifications
 import Amazonka.EC2.DescribeInstanceEventNotificationAttributes
 import Amazonka.EC2.DescribeInstanceEventWindows
@@ -7523,6 +7738,8 @@ import Amazonka.EC2.DescribeInstanceTypes
 import Amazonka.EC2.DescribeInstances
 import Amazonka.EC2.DescribeInternetGateways
 import Amazonka.EC2.DescribeIpamPools
+import Amazonka.EC2.DescribeIpamResourceDiscoveries
+import Amazonka.EC2.DescribeIpamResourceDiscoveryAssociations
 import Amazonka.EC2.DescribeIpamScopes
 import Amazonka.EC2.DescribeIpams
 import Amazonka.EC2.DescribeIpv6Pools
@@ -7634,6 +7851,8 @@ import Amazonka.EC2.DisassociateClientVpnTargetNetwork
 import Amazonka.EC2.DisassociateEnclaveCertificateIamRole
 import Amazonka.EC2.DisassociateIamInstanceProfile
 import Amazonka.EC2.DisassociateInstanceEventWindow
+import Amazonka.EC2.DisassociateIpamResourceDiscovery
+import Amazonka.EC2.DisassociateNatGatewayAddress
 import Amazonka.EC2.DisassociateRouteTable
 import Amazonka.EC2.DisassociateSubnetCidrBlock
 import Amazonka.EC2.DisassociateTransitGatewayMulticastDomain
@@ -7675,6 +7894,8 @@ import Amazonka.EC2.GetHostReservationPurchasePreview
 import Amazonka.EC2.GetInstanceTypesFromInstanceRequirements
 import Amazonka.EC2.GetInstanceUefiData
 import Amazonka.EC2.GetIpamAddressHistory
+import Amazonka.EC2.GetIpamDiscoveredAccounts
+import Amazonka.EC2.GetIpamDiscoveredResourceCidrs
 import Amazonka.EC2.GetIpamPoolAllocations
 import Amazonka.EC2.GetIpamPoolCidrs
 import Amazonka.EC2.GetIpamResourceCidrs
@@ -7699,6 +7920,7 @@ import Amazonka.EC2.GetVerifiedAccessEndpointPolicy
 import Amazonka.EC2.GetVerifiedAccessGroupPolicy
 import Amazonka.EC2.GetVpnConnectionDeviceSampleConfiguration
 import Amazonka.EC2.GetVpnConnectionDeviceTypes
+import Amazonka.EC2.GetVpnTunnelReplacementStatus
 import Amazonka.EC2.ImportClientVpnClientCertificateRevocationList
 import Amazonka.EC2.ImportImage
 import Amazonka.EC2.ImportInstance
@@ -7733,6 +7955,7 @@ import Amazonka.EC2.ModifyInstancePlacement
 import Amazonka.EC2.ModifyIpam
 import Amazonka.EC2.ModifyIpamPool
 import Amazonka.EC2.ModifyIpamResourceCidr
+import Amazonka.EC2.ModifyIpamResourceDiscovery
 import Amazonka.EC2.ModifyIpamScope
 import Amazonka.EC2.ModifyLaunchTemplate
 import Amazonka.EC2.ModifyLocalGatewayRoute
@@ -7800,6 +8023,7 @@ import Amazonka.EC2.ReplaceNetworkAclEntry
 import Amazonka.EC2.ReplaceRoute
 import Amazonka.EC2.ReplaceRouteTableAssociation
 import Amazonka.EC2.ReplaceTransitGatewayRoute
+import Amazonka.EC2.ReplaceVpnTunnel
 import Amazonka.EC2.ReportInstanceStatus
 import Amazonka.EC2.RequestSpotFleet
 import Amazonka.EC2.RequestSpotInstances
@@ -7834,6 +8058,7 @@ import Amazonka.EC2.TerminateInstances
 import Amazonka.EC2.Types
 import Amazonka.EC2.UnassignIpv6Addresses
 import Amazonka.EC2.UnassignPrivateIpAddresses
+import Amazonka.EC2.UnassignPrivateNatGatewayAddress
 import Amazonka.EC2.UnmonitorInstances
 import Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsEgress
 import Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsIngress

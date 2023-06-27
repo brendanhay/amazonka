@@ -76,7 +76,7 @@ instance
   parseXML x =
     UnsuccessfulInstanceCreditSpecificationItem'
       Prelude.<$> (x Data..@? "error")
-        Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "instanceId")
 
 instance
   Prelude.Hashable
@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     UnsuccessfulInstanceCreditSpecificationItem' {..} =
-      _salt `Prelude.hashWithSalt` error
+      _salt
+        `Prelude.hashWithSalt` error
         `Prelude.hashWithSalt` instanceId
 
 instance

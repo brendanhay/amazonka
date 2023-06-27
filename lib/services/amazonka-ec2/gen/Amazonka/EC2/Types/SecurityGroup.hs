@@ -134,14 +134,19 @@ securityGroup_description = Lens.lens (\SecurityGroup' {description} -> descript
 instance Data.FromXML SecurityGroup where
   parseXML x =
     SecurityGroup'
-      Prelude.<$> ( x Data..@? "ipPermissions" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Data..@? "ipPermissionsEgress"
+      Prelude.<$> ( x
+                      Data..@? "ipPermissions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ipPermissionsEgress"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -152,7 +157,8 @@ instance Data.FromXML SecurityGroup where
 
 instance Prelude.Hashable SecurityGroup where
   hashWithSalt _salt SecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` ipPermissions
+    _salt
+      `Prelude.hashWithSalt` ipPermissions
       `Prelude.hashWithSalt` ipPermissionsEgress
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcId

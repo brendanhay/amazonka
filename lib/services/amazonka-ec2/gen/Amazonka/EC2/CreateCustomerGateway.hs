@@ -43,13 +43,13 @@ module Amazonka.EC2.CreateCustomerGateway
     newCreateCustomerGateway,
 
     -- * Request Lenses
+    createCustomerGateway_bgpAsn,
     createCustomerGateway_certificateArn,
     createCustomerGateway_deviceName,
     createCustomerGateway_dryRun,
     createCustomerGateway_ipAddress,
     createCustomerGateway_publicIp,
     createCustomerGateway_tagSpecifications,
-    createCustomerGateway_bgpAsn,
     createCustomerGateway_type,
 
     -- * Destructuring the Response
@@ -74,7 +74,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateCustomerGateway' smart constructor.
 data CreateCustomerGateway = CreateCustomerGateway'
-  { -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
+  { -- | For devices that support BGP, the customer gateway\'s BGP ASN.
+    --
+    -- Default: 65000
+    bgpAsn :: Prelude.Maybe Prelude.Int,
+    -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | A name for the customer gateway device.
     --
@@ -93,10 +97,6 @@ data CreateCustomerGateway = CreateCustomerGateway'
     publicIp :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply to the customer gateway.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | For devices that support BGP, the customer gateway\'s BGP ASN.
-    --
-    -- Default: 65000
-    bgpAsn :: Prelude.Int,
     -- | The type of VPN connection that this customer gateway supports
     -- (@ipsec.1@).
     type' :: GatewayType
@@ -110,6 +110,10 @@ data CreateCustomerGateway = CreateCustomerGateway'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'bgpAsn', 'createCustomerGateway_bgpAsn' - For devices that support BGP, the customer gateway\'s BGP ASN.
+--
+-- Default: 65000
 --
 -- 'certificateArn', 'createCustomerGateway_certificateArn' - The Amazon Resource Name (ARN) for the customer gateway certificate.
 --
@@ -130,30 +134,29 @@ data CreateCustomerGateway = CreateCustomerGateway'
 --
 -- 'tagSpecifications', 'createCustomerGateway_tagSpecifications' - The tags to apply to the customer gateway.
 --
--- 'bgpAsn', 'createCustomerGateway_bgpAsn' - For devices that support BGP, the customer gateway\'s BGP ASN.
---
--- Default: 65000
---
 -- 'type'', 'createCustomerGateway_type' - The type of VPN connection that this customer gateway supports
 -- (@ipsec.1@).
 newCreateCustomerGateway ::
-  -- | 'bgpAsn'
-  Prelude.Int ->
   -- | 'type''
   GatewayType ->
   CreateCustomerGateway
-newCreateCustomerGateway pBgpAsn_ pType_ =
+newCreateCustomerGateway pType_ =
   CreateCustomerGateway'
-    { certificateArn =
-        Prelude.Nothing,
+    { bgpAsn = Prelude.Nothing,
+      certificateArn = Prelude.Nothing,
       deviceName = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       ipAddress = Prelude.Nothing,
       publicIp = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      bgpAsn = pBgpAsn_,
       type' = pType_
     }
+
+-- | For devices that support BGP, the customer gateway\'s BGP ASN.
+--
+-- Default: 65000
+createCustomerGateway_bgpAsn :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Int)
+createCustomerGateway_bgpAsn = Lens.lens (\CreateCustomerGateway' {bgpAsn} -> bgpAsn) (\s@CreateCustomerGateway' {} a -> s {bgpAsn = a} :: CreateCustomerGateway)
 
 -- | The Amazon Resource Name (ARN) for the customer gateway certificate.
 createCustomerGateway_certificateArn :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
@@ -186,12 +189,6 @@ createCustomerGateway_publicIp = Lens.lens (\CreateCustomerGateway' {publicIp} -
 createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe [TagSpecification])
 createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Prelude.. Lens.mapping Lens.coerced
 
--- | For devices that support BGP, the customer gateway\'s BGP ASN.
---
--- Default: 65000
-createCustomerGateway_bgpAsn :: Lens.Lens' CreateCustomerGateway Prelude.Int
-createCustomerGateway_bgpAsn = Lens.lens (\CreateCustomerGateway' {bgpAsn} -> bgpAsn) (\s@CreateCustomerGateway' {} a -> s {bgpAsn = a} :: CreateCustomerGateway)
-
 -- | The type of VPN connection that this customer gateway supports
 -- (@ipsec.1@).
 createCustomerGateway_type :: Lens.Lens' CreateCustomerGateway GatewayType
@@ -213,24 +210,25 @@ instance Core.AWSRequest CreateCustomerGateway where
 
 instance Prelude.Hashable CreateCustomerGateway where
   hashWithSalt _salt CreateCustomerGateway' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` bgpAsn
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` publicIp
       `Prelude.hashWithSalt` tagSpecifications
-      `Prelude.hashWithSalt` bgpAsn
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData CreateCustomerGateway where
   rnf CreateCustomerGateway' {..} =
-    Prelude.rnf certificateArn
+    Prelude.rnf bgpAsn
+      `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf ipAddress
       `Prelude.seq` Prelude.rnf publicIp
       `Prelude.seq` Prelude.rnf tagSpecifications
-      `Prelude.seq` Prelude.rnf bgpAsn
       `Prelude.seq` Prelude.rnf type'
 
 instance Data.ToHeaders CreateCustomerGateway where
@@ -246,6 +244,7 @@ instance Data.ToQuery CreateCustomerGateway where
           Data.=: ("CreateCustomerGateway" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "BgpAsn" Data.=: bgpAsn,
         "CertificateArn" Data.=: certificateArn,
         "DeviceName" Data.=: deviceName,
         "DryRun" Data.=: dryRun,
@@ -255,7 +254,6 @@ instance Data.ToQuery CreateCustomerGateway where
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "BgpAsn" Data.=: bgpAsn,
         "Type" Data.=: type'
       ]
 

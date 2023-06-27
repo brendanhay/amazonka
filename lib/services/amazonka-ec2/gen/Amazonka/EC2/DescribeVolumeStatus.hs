@@ -135,20 +135,16 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
     --     | @warning@ | @insufficient-data@).
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of volume results returned by @DescribeVolumeStatus@
-    -- in paginated output. When this parameter is used, the request only
-    -- returns @MaxResults@ results in a single page along with a @NextToken@
-    -- response element. The remaining results of the initial request can be
-    -- seen by sending another request with the returned @NextToken@ value.
-    -- This value can be between 5 and 1,000; if @MaxResults@ is given a value
-    -- larger than 1,000, only 1,000 results are returned. If this parameter is
-    -- not used, then @DescribeVolumeStatus@ returns all results. You cannot
-    -- specify this parameter and the volume IDs parameter in the same request.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. This value can be between 5 and 1,000; if the value is larger
+    -- than 1,000, only 1,000 results are returned. If this parameter is not
+    -- used, then all items are returned. You cannot specify this parameter and
+    -- the volume IDs parameter in the same request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
-    -- request. When the results of the request exceed @MaxResults@, this value
-    -- can be used to retrieve the next page of results. This value is @null@
-    -- when there are no more results to return.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the volumes.
     --
@@ -204,20 +200,16 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
 --
--- 'maxResults', 'describeVolumeStatus_maxResults' - The maximum number of volume results returned by @DescribeVolumeStatus@
--- in paginated output. When this parameter is used, the request only
--- returns @MaxResults@ results in a single page along with a @NextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another request with the returned @NextToken@ value.
--- This value can be between 5 and 1,000; if @MaxResults@ is given a value
--- larger than 1,000, only 1,000 results are returned. If this parameter is
--- not used, then @DescribeVolumeStatus@ returns all results. You cannot
--- specify this parameter and the volume IDs parameter in the same request.
+-- 'maxResults', 'describeVolumeStatus_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. This value can be between 5 and 1,000; if the value is larger
+-- than 1,000, only 1,000 results are returned. If this parameter is not
+-- used, then all items are returned. You cannot specify this parameter and
+-- the volume IDs parameter in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeVolumeStatus_nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@
--- request. When the results of the request exceed @MaxResults@, this value
--- can be used to retrieve the next page of results. This value is @null@
--- when there are no more results to return.
+-- 'nextToken', 'describeVolumeStatus_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'volumeIds', 'describeVolumeStatus_volumeIds' - The IDs of the volumes.
 --
@@ -276,22 +268,18 @@ describeVolumeStatus_dryRun = Lens.lens (\DescribeVolumeStatus' {dryRun} -> dryR
 describeVolumeStatus_filters :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe [Filter])
 describeVolumeStatus_filters = Lens.lens (\DescribeVolumeStatus' {filters} -> filters) (\s@DescribeVolumeStatus' {} a -> s {filters = a} :: DescribeVolumeStatus) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of volume results returned by @DescribeVolumeStatus@
--- in paginated output. When this parameter is used, the request only
--- returns @MaxResults@ results in a single page along with a @NextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another request with the returned @NextToken@ value.
--- This value can be between 5 and 1,000; if @MaxResults@ is given a value
--- larger than 1,000, only 1,000 results are returned. If this parameter is
--- not used, then @DescribeVolumeStatus@ returns all results. You cannot
--- specify this parameter and the volume IDs parameter in the same request.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. This value can be between 5 and 1,000; if the value is larger
+-- than 1,000, only 1,000 results are returned. If this parameter is not
+-- used, then all items are returned. You cannot specify this parameter and
+-- the volume IDs parameter in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeVolumeStatus_maxResults :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Int)
 describeVolumeStatus_maxResults = Lens.lens (\DescribeVolumeStatus' {maxResults} -> maxResults) (\s@DescribeVolumeStatus' {} a -> s {maxResults = a} :: DescribeVolumeStatus)
 
--- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
--- request. When the results of the request exceed @MaxResults@, this value
--- can be used to retrieve the next page of results. This value is @null@
--- when there are no more results to return.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeVolumeStatus_nextToken :: Lens.Lens' DescribeVolumeStatus (Prelude.Maybe Prelude.Text)
 describeVolumeStatus_nextToken = Lens.lens (\DescribeVolumeStatus' {nextToken} -> nextToken) (\s@DescribeVolumeStatus' {} a -> s {nextToken = a} :: DescribeVolumeStatus)
 
@@ -306,22 +294,22 @@ instance Core.AWSPager DescribeVolumeStatus where
     | Core.stop
         ( rs
             Lens.^? describeVolumeStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVolumeStatusResponse_volumeStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVolumeStatus_nextToken
           Lens..~ rs
           Lens.^? describeVolumeStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumeStatus where
   type
@@ -334,7 +322,9 @@ instance Core.AWSRequest DescribeVolumeStatus where
       ( \s h x ->
           DescribeVolumeStatusResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "volumeStatusSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "volumeStatusSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -342,7 +332,8 @@ instance Core.AWSRequest DescribeVolumeStatus where
 
 instance Prelude.Hashable DescribeVolumeStatus where
   hashWithSalt _salt DescribeVolumeStatus' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -380,8 +371,8 @@ instance Data.ToQuery DescribeVolumeStatus where
 
 -- | /See:/ 'newDescribeVolumeStatusResponse' smart constructor.
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the status of the volumes.
     volumeStatuses :: Prelude.Maybe [VolumeStatusItem],
@@ -398,8 +389,8 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVolumeStatusResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeVolumeStatusResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'volumeStatuses', 'describeVolumeStatusResponse_volumeStatuses' - Information about the status of the volumes.
 --
@@ -416,8 +407,8 @@ newDescribeVolumeStatusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeVolumeStatusResponse_nextToken :: Lens.Lens' DescribeVolumeStatusResponse (Prelude.Maybe Prelude.Text)
 describeVolumeStatusResponse_nextToken = Lens.lens (\DescribeVolumeStatusResponse' {nextToken} -> nextToken) (\s@DescribeVolumeStatusResponse' {} a -> s {nextToken = a} :: DescribeVolumeStatusResponse)
 

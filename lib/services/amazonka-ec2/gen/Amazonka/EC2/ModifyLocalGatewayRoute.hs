@@ -27,10 +27,11 @@ module Amazonka.EC2.ModifyLocalGatewayRoute
     newModifyLocalGatewayRoute,
 
     -- * Request Lenses
+    modifyLocalGatewayRoute_destinationCidrBlock,
+    modifyLocalGatewayRoute_destinationPrefixListId,
     modifyLocalGatewayRoute_dryRun,
     modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId,
     modifyLocalGatewayRoute_networkInterfaceId,
-    modifyLocalGatewayRoute_destinationCidrBlock,
     modifyLocalGatewayRoute_localGatewayRouteTableId,
 
     -- * Destructuring the Response
@@ -53,7 +54,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyLocalGatewayRoute' smart constructor.
 data ModifyLocalGatewayRoute = ModifyLocalGatewayRoute'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | The CIDR block used for destination matches. The value that you provide
+    -- must match the CIDR of an existing route in the table.
+    destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the prefix list. Use a prefix list in place of
+    -- @DestinationCidrBlock@. You cannot use @DestinationPrefixListId@ and
+    -- @DestinationCidrBlock@ in the same request.
+    destinationPrefixListId :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -62,9 +70,6 @@ data ModifyLocalGatewayRoute = ModifyLocalGatewayRoute'
     localGatewayVirtualInterfaceGroupId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the network interface.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
-    -- | The CIDR block used for destination matches. The value that you provide
-    -- must match the CIDR of an existing route in the table.
-    destinationCidrBlock :: Prelude.Text,
     -- | The ID of the local gateway route table.
     localGatewayRouteTableId :: Prelude.Text
   }
@@ -78,6 +83,13 @@ data ModifyLocalGatewayRoute = ModifyLocalGatewayRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'destinationCidrBlock', 'modifyLocalGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches. The value that you provide
+-- must match the CIDR of an existing route in the table.
+--
+-- 'destinationPrefixListId', 'modifyLocalGatewayRoute_destinationPrefixListId' - The ID of the prefix list. Use a prefix list in place of
+-- @DestinationCidrBlock@. You cannot use @DestinationPrefixListId@ and
+-- @DestinationCidrBlock@ in the same request.
+--
 -- 'dryRun', 'modifyLocalGatewayRoute_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -87,28 +99,34 @@ data ModifyLocalGatewayRoute = ModifyLocalGatewayRoute'
 --
 -- 'networkInterfaceId', 'modifyLocalGatewayRoute_networkInterfaceId' - The ID of the network interface.
 --
--- 'destinationCidrBlock', 'modifyLocalGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches. The value that you provide
--- must match the CIDR of an existing route in the table.
---
 -- 'localGatewayRouteTableId', 'modifyLocalGatewayRoute_localGatewayRouteTableId' - The ID of the local gateway route table.
 newModifyLocalGatewayRoute ::
-  -- | 'destinationCidrBlock'
-  Prelude.Text ->
   -- | 'localGatewayRouteTableId'
   Prelude.Text ->
   ModifyLocalGatewayRoute
-newModifyLocalGatewayRoute
-  pDestinationCidrBlock_
-  pLocalGatewayRouteTableId_ =
-    ModifyLocalGatewayRoute'
-      { dryRun = Prelude.Nothing,
-        localGatewayVirtualInterfaceGroupId =
-          Prelude.Nothing,
-        networkInterfaceId = Prelude.Nothing,
-        destinationCidrBlock = pDestinationCidrBlock_,
-        localGatewayRouteTableId =
-          pLocalGatewayRouteTableId_
-      }
+newModifyLocalGatewayRoute pLocalGatewayRouteTableId_ =
+  ModifyLocalGatewayRoute'
+    { destinationCidrBlock =
+        Prelude.Nothing,
+      destinationPrefixListId = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      localGatewayVirtualInterfaceGroupId =
+        Prelude.Nothing,
+      networkInterfaceId = Prelude.Nothing,
+      localGatewayRouteTableId =
+        pLocalGatewayRouteTableId_
+    }
+
+-- | The CIDR block used for destination matches. The value that you provide
+-- must match the CIDR of an existing route in the table.
+modifyLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' ModifyLocalGatewayRoute (Prelude.Maybe Prelude.Text)
+modifyLocalGatewayRoute_destinationCidrBlock = Lens.lens (\ModifyLocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@ModifyLocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: ModifyLocalGatewayRoute)
+
+-- | The ID of the prefix list. Use a prefix list in place of
+-- @DestinationCidrBlock@. You cannot use @DestinationPrefixListId@ and
+-- @DestinationCidrBlock@ in the same request.
+modifyLocalGatewayRoute_destinationPrefixListId :: Lens.Lens' ModifyLocalGatewayRoute (Prelude.Maybe Prelude.Text)
+modifyLocalGatewayRoute_destinationPrefixListId = Lens.lens (\ModifyLocalGatewayRoute' {destinationPrefixListId} -> destinationPrefixListId) (\s@ModifyLocalGatewayRoute' {} a -> s {destinationPrefixListId = a} :: ModifyLocalGatewayRoute)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -124,11 +142,6 @@ modifyLocalGatewayRoute_localGatewayVirtualInterfaceGroupId = Lens.lens (\Modify
 -- | The ID of the network interface.
 modifyLocalGatewayRoute_networkInterfaceId :: Lens.Lens' ModifyLocalGatewayRoute (Prelude.Maybe Prelude.Text)
 modifyLocalGatewayRoute_networkInterfaceId = Lens.lens (\ModifyLocalGatewayRoute' {networkInterfaceId} -> networkInterfaceId) (\s@ModifyLocalGatewayRoute' {} a -> s {networkInterfaceId = a} :: ModifyLocalGatewayRoute)
-
--- | The CIDR block used for destination matches. The value that you provide
--- must match the CIDR of an existing route in the table.
-modifyLocalGatewayRoute_destinationCidrBlock :: Lens.Lens' ModifyLocalGatewayRoute Prelude.Text
-modifyLocalGatewayRoute_destinationCidrBlock = Lens.lens (\ModifyLocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@ModifyLocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: ModifyLocalGatewayRoute)
 
 -- | The ID of the local gateway route table.
 modifyLocalGatewayRoute_localGatewayRouteTableId :: Lens.Lens' ModifyLocalGatewayRoute Prelude.Text
@@ -150,18 +163,21 @@ instance Core.AWSRequest ModifyLocalGatewayRoute where
 
 instance Prelude.Hashable ModifyLocalGatewayRoute where
   hashWithSalt _salt ModifyLocalGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` destinationPrefixListId
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
       `Prelude.hashWithSalt` networkInterfaceId
-      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` localGatewayRouteTableId
 
 instance Prelude.NFData ModifyLocalGatewayRoute where
   rnf ModifyLocalGatewayRoute' {..} =
-    Prelude.rnf dryRun
+    Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId
       `Prelude.seq` Prelude.rnf networkInterfaceId
-      `Prelude.seq` Prelude.rnf destinationCidrBlock
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
 
 instance Data.ToHeaders ModifyLocalGatewayRoute where
@@ -177,11 +193,13 @@ instance Data.ToQuery ModifyLocalGatewayRoute where
           Data.=: ("ModifyLocalGatewayRoute" :: Prelude.ByteString),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
+        "DestinationCidrBlock" Data.=: destinationCidrBlock,
+        "DestinationPrefixListId"
+          Data.=: destinationPrefixListId,
         "DryRun" Data.=: dryRun,
         "LocalGatewayVirtualInterfaceGroupId"
           Data.=: localGatewayVirtualInterfaceGroupId,
         "NetworkInterfaceId" Data.=: networkInterfaceId,
-        "DestinationCidrBlock" Data.=: destinationCidrBlock,
         "LocalGatewayRouteTableId"
           Data.=: localGatewayRouteTableId
       ]

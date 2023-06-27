@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Rejects one or more VPC endpoint connection requests to your VPC
--- endpoint service.
+-- Rejects VPC endpoint connection requests to your VPC endpoint service.
 module Amazonka.EC2.RejectVpcEndpointConnections
   ( -- * Creating a Request
     RejectVpcEndpointConnections (..),
@@ -59,7 +58,7 @@ data RejectVpcEndpointConnections = RejectVpcEndpointConnections'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the service.
     serviceId :: Prelude.Text,
-    -- | The IDs of one or more VPC endpoints.
+    -- | The IDs of the VPC endpoints.
     vpcEndpointIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +78,7 @@ data RejectVpcEndpointConnections = RejectVpcEndpointConnections'
 --
 -- 'serviceId', 'rejectVpcEndpointConnections_serviceId' - The ID of the service.
 --
--- 'vpcEndpointIds', 'rejectVpcEndpointConnections_vpcEndpointIds' - The IDs of one or more VPC endpoints.
+-- 'vpcEndpointIds', 'rejectVpcEndpointConnections_vpcEndpointIds' - The IDs of the VPC endpoints.
 newRejectVpcEndpointConnections ::
   -- | 'serviceId'
   Prelude.Text ->
@@ -103,7 +102,7 @@ rejectVpcEndpointConnections_dryRun = Lens.lens (\RejectVpcEndpointConnections' 
 rejectVpcEndpointConnections_serviceId :: Lens.Lens' RejectVpcEndpointConnections Prelude.Text
 rejectVpcEndpointConnections_serviceId = Lens.lens (\RejectVpcEndpointConnections' {serviceId} -> serviceId) (\s@RejectVpcEndpointConnections' {} a -> s {serviceId = a} :: RejectVpcEndpointConnections)
 
--- | The IDs of one or more VPC endpoints.
+-- | The IDs of the VPC endpoints.
 rejectVpcEndpointConnections_vpcEndpointIds :: Lens.Lens' RejectVpcEndpointConnections [Prelude.Text]
 rejectVpcEndpointConnections_vpcEndpointIds = Lens.lens (\RejectVpcEndpointConnections' {vpcEndpointIds} -> vpcEndpointIds) (\s@RejectVpcEndpointConnections' {} a -> s {vpcEndpointIds = a} :: RejectVpcEndpointConnections) Prelude.. Lens.coerced
 
@@ -117,7 +116,9 @@ instance Core.AWSRequest RejectVpcEndpointConnections where
     Response.receiveXML
       ( \s h x ->
           RejectVpcEndpointConnectionsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -128,7 +129,8 @@ instance
     RejectVpcEndpointConnections
   where
   hashWithSalt _salt RejectVpcEndpointConnections' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` serviceId
       `Prelude.hashWithSalt` vpcEndpointIds
 

@@ -165,7 +165,8 @@ instance
     DeleteLaunchTemplateVersions
   where
   hashWithSalt _salt DeleteLaunchTemplateVersions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplateId
       `Prelude.hashWithSalt` launchTemplateName
       `Prelude.hashWithSalt` versions

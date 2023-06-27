@@ -74,8 +74,8 @@ data Placement = Placement'
     partitionNumber :: Prelude.Maybe Prelude.Int,
     -- | Reserved for future use.
     spreadDomain :: Prelude.Maybe Prelude.Text,
-    -- | The tenancy of the instance (if the instance is running in a VPC). An
-    -- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
+    -- | The tenancy of the instance. An instance with a tenancy of @dedicated@
+    -- runs on single-tenant hardware.
     --
     -- This parameter is not supported for
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
@@ -139,8 +139,8 @@ data Placement = Placement'
 --
 -- 'spreadDomain', 'placement_spreadDomain' - Reserved for future use.
 --
--- 'tenancy', 'placement_tenancy' - The tenancy of the instance (if the instance is running in a VPC). An
--- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
+-- 'tenancy', 'placement_tenancy' - The tenancy of the instance. An instance with a tenancy of @dedicated@
+-- runs on single-tenant hardware.
 --
 -- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
@@ -223,8 +223,8 @@ placement_partitionNumber = Lens.lens (\Placement' {partitionNumber} -> partitio
 placement_spreadDomain :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
 placement_spreadDomain = Lens.lens (\Placement' {spreadDomain} -> spreadDomain) (\s@Placement' {} a -> s {spreadDomain = a} :: Placement)
 
--- | The tenancy of the instance (if the instance is running in a VPC). An
--- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
+-- | The tenancy of the instance. An instance with a tenancy of @dedicated@
+-- runs on single-tenant hardware.
 --
 -- This parameter is not supported for
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
@@ -250,7 +250,8 @@ instance Data.FromXML Placement where
 
 instance Prelude.Hashable Placement where
   hashWithSalt _salt Placement' {..} =
-    _salt `Prelude.hashWithSalt` affinity
+    _salt
+      `Prelude.hashWithSalt` affinity
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName

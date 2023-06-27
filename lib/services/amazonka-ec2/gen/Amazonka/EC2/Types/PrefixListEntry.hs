@@ -71,7 +71,8 @@ instance Data.FromXML PrefixListEntry where
 
 instance Prelude.Hashable PrefixListEntry where
   hashWithSalt _salt PrefixListEntry' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData PrefixListEntry where

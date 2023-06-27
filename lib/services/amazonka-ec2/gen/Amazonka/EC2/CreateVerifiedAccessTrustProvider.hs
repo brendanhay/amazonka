@@ -22,9 +22,9 @@
 --
 -- A trust provider is a third-party entity that creates, maintains, and
 -- manages identity information for users and devices. When an application
--- request is made, the identity information sent by the trust provider
--- will be evaluated by Amazon Web Services Verified Access, before
--- allowing or denying the application request.
+-- request is made, the identity information sent by the trust provider is
+-- evaluated by Verified Access before allowing or denying the application
+-- request.
 module Amazonka.EC2.CreateVerifiedAccessTrustProvider
   ( -- * Creating a Request
     CreateVerifiedAccessTrustProvider (..),
@@ -66,32 +66,33 @@ data CreateVerifiedAccessTrustProvider = CreateVerifiedAccessTrustProvider'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access trust
-    -- provider.
+    -- | A description for the Verified Access trust provider.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The options for device identity based trust providers.
+    -- | The options for a device-based trust provider. This parameter is
+    -- required when the provider type is @device@.
     deviceOptions :: Prelude.Maybe CreateVerifiedAccessTrustProviderDeviceOptions,
-    -- | The type of device-based trust provider.
+    -- | The type of device-based trust provider. This parameter is required when
+    -- the provider type is @device@.
     deviceTrustProviderType :: Prelude.Maybe DeviceTrustProviderType,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The OpenID Connect details for an @oidc@-type, user-identity based trust
-    -- provider.
+    -- | The options for a OpenID Connect-compatible user-identity trust
+    -- provider. This parameter is required when the provider type is @user@.
     oidcOptions :: Prelude.Maybe CreateVerifiedAccessTrustProviderOidcOptions,
-    -- | The tags to assign to the Amazon Web Services Verified Access trust
-    -- provider.
+    -- | The tags to assign to the Verified Access trust provider.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The type of user-based trust provider.
+    -- | The type of user-based trust provider. This parameter is required when
+    -- the provider type is @user@.
     userTrustProviderType :: Prelude.Maybe UserTrustProviderType,
-    -- | The type of trust provider can be either user or device-based.
+    -- | The type of trust provider.
     trustProviderType :: TrustProviderType,
     -- | The identifier to be used when working with policy rules.
     policyReferenceName :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVerifiedAccessTrustProvider' with all optional fields omitted.
@@ -105,27 +106,28 @@ data CreateVerifiedAccessTrustProvider = CreateVerifiedAccessTrustProvider'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'createVerifiedAccessTrustProvider_description' - A description for the Amazon Web Services Verified Access trust
--- provider.
+-- 'description', 'createVerifiedAccessTrustProvider_description' - A description for the Verified Access trust provider.
 --
--- 'deviceOptions', 'createVerifiedAccessTrustProvider_deviceOptions' - The options for device identity based trust providers.
+-- 'deviceOptions', 'createVerifiedAccessTrustProvider_deviceOptions' - The options for a device-based trust provider. This parameter is
+-- required when the provider type is @device@.
 --
--- 'deviceTrustProviderType', 'createVerifiedAccessTrustProvider_deviceTrustProviderType' - The type of device-based trust provider.
+-- 'deviceTrustProviderType', 'createVerifiedAccessTrustProvider_deviceTrustProviderType' - The type of device-based trust provider. This parameter is required when
+-- the provider type is @device@.
 --
 -- 'dryRun', 'createVerifiedAccessTrustProvider_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'oidcOptions', 'createVerifiedAccessTrustProvider_oidcOptions' - The OpenID Connect details for an @oidc@-type, user-identity based trust
--- provider.
+-- 'oidcOptions', 'createVerifiedAccessTrustProvider_oidcOptions' - The options for a OpenID Connect-compatible user-identity trust
+-- provider. This parameter is required when the provider type is @user@.
 --
--- 'tagSpecifications', 'createVerifiedAccessTrustProvider_tagSpecifications' - The tags to assign to the Amazon Web Services Verified Access trust
--- provider.
+-- 'tagSpecifications', 'createVerifiedAccessTrustProvider_tagSpecifications' - The tags to assign to the Verified Access trust provider.
 --
--- 'userTrustProviderType', 'createVerifiedAccessTrustProvider_userTrustProviderType' - The type of user-based trust provider.
+-- 'userTrustProviderType', 'createVerifiedAccessTrustProvider_userTrustProviderType' - The type of user-based trust provider. This parameter is required when
+-- the provider type is @user@.
 --
--- 'trustProviderType', 'createVerifiedAccessTrustProvider_trustProviderType' - The type of trust provider can be either user or device-based.
+-- 'trustProviderType', 'createVerifiedAccessTrustProvider_trustProviderType' - The type of trust provider.
 --
 -- 'policyReferenceName', 'createVerifiedAccessTrustProvider_policyReferenceName' - The identifier to be used when working with policy rules.
 newCreateVerifiedAccessTrustProvider ::
@@ -159,16 +161,17 @@ newCreateVerifiedAccessTrustProvider
 createVerifiedAccessTrustProvider_clientToken :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Text)
 createVerifiedAccessTrustProvider_clientToken = Lens.lens (\CreateVerifiedAccessTrustProvider' {clientToken} -> clientToken) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {clientToken = a} :: CreateVerifiedAccessTrustProvider)
 
--- | A description for the Amazon Web Services Verified Access trust
--- provider.
+-- | A description for the Verified Access trust provider.
 createVerifiedAccessTrustProvider_description :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Text)
 createVerifiedAccessTrustProvider_description = Lens.lens (\CreateVerifiedAccessTrustProvider' {description} -> description) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {description = a} :: CreateVerifiedAccessTrustProvider)
 
--- | The options for device identity based trust providers.
+-- | The options for a device-based trust provider. This parameter is
+-- required when the provider type is @device@.
 createVerifiedAccessTrustProvider_deviceOptions :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe CreateVerifiedAccessTrustProviderDeviceOptions)
 createVerifiedAccessTrustProvider_deviceOptions = Lens.lens (\CreateVerifiedAccessTrustProvider' {deviceOptions} -> deviceOptions) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {deviceOptions = a} :: CreateVerifiedAccessTrustProvider)
 
--- | The type of device-based trust provider.
+-- | The type of device-based trust provider. This parameter is required when
+-- the provider type is @device@.
 createVerifiedAccessTrustProvider_deviceTrustProviderType :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe DeviceTrustProviderType)
 createVerifiedAccessTrustProvider_deviceTrustProviderType = Lens.lens (\CreateVerifiedAccessTrustProvider' {deviceTrustProviderType} -> deviceTrustProviderType) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {deviceTrustProviderType = a} :: CreateVerifiedAccessTrustProvider)
 
@@ -179,21 +182,21 @@ createVerifiedAccessTrustProvider_deviceTrustProviderType = Lens.lens (\CreateVe
 createVerifiedAccessTrustProvider_dryRun :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Bool)
 createVerifiedAccessTrustProvider_dryRun = Lens.lens (\CreateVerifiedAccessTrustProvider' {dryRun} -> dryRun) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {dryRun = a} :: CreateVerifiedAccessTrustProvider)
 
--- | The OpenID Connect details for an @oidc@-type, user-identity based trust
--- provider.
+-- | The options for a OpenID Connect-compatible user-identity trust
+-- provider. This parameter is required when the provider type is @user@.
 createVerifiedAccessTrustProvider_oidcOptions :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe CreateVerifiedAccessTrustProviderOidcOptions)
 createVerifiedAccessTrustProvider_oidcOptions = Lens.lens (\CreateVerifiedAccessTrustProvider' {oidcOptions} -> oidcOptions) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {oidcOptions = a} :: CreateVerifiedAccessTrustProvider)
 
--- | The tags to assign to the Amazon Web Services Verified Access trust
--- provider.
+-- | The tags to assign to the Verified Access trust provider.
 createVerifiedAccessTrustProvider_tagSpecifications :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe [TagSpecification])
 createVerifiedAccessTrustProvider_tagSpecifications = Lens.lens (\CreateVerifiedAccessTrustProvider' {tagSpecifications} -> tagSpecifications) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {tagSpecifications = a} :: CreateVerifiedAccessTrustProvider) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of user-based trust provider.
+-- | The type of user-based trust provider. This parameter is required when
+-- the provider type is @user@.
 createVerifiedAccessTrustProvider_userTrustProviderType :: Lens.Lens' CreateVerifiedAccessTrustProvider (Prelude.Maybe UserTrustProviderType)
 createVerifiedAccessTrustProvider_userTrustProviderType = Lens.lens (\CreateVerifiedAccessTrustProvider' {userTrustProviderType} -> userTrustProviderType) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {userTrustProviderType = a} :: CreateVerifiedAccessTrustProvider)
 
--- | The type of trust provider can be either user or device-based.
+-- | The type of trust provider.
 createVerifiedAccessTrustProvider_trustProviderType :: Lens.Lens' CreateVerifiedAccessTrustProvider TrustProviderType
 createVerifiedAccessTrustProvider_trustProviderType = Lens.lens (\CreateVerifiedAccessTrustProvider' {trustProviderType} -> trustProviderType) (\s@CreateVerifiedAccessTrustProvider' {} a -> s {trustProviderType = a} :: CreateVerifiedAccessTrustProvider)
 
@@ -215,7 +218,7 @@ instance
       ( \s h x ->
           CreateVerifiedAccessTrustProviderResponse'
             Prelude.<$> (x Data..@? "verifiedAccessTrustProvider")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -225,7 +228,8 @@ instance
   hashWithSalt
     _salt
     CreateVerifiedAccessTrustProvider' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` deviceOptions
         `Prelude.hashWithSalt` deviceTrustProviderType
@@ -295,12 +299,12 @@ instance
 
 -- | /See:/ 'newCreateVerifiedAccessTrustProviderResponse' smart constructor.
 data CreateVerifiedAccessTrustProviderResponse = CreateVerifiedAccessTrustProviderResponse'
-  { -- | The ID of the Amazon Web Services Verified Access trust provider.
+  { -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProvider :: Prelude.Maybe VerifiedAccessTrustProvider,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVerifiedAccessTrustProviderResponse' with all optional fields omitted.
@@ -310,7 +314,7 @@ data CreateVerifiedAccessTrustProviderResponse = CreateVerifiedAccessTrustProvid
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessTrustProvider', 'createVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProvider', 'createVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Verified Access trust provider.
 --
 -- 'httpStatus', 'createVerifiedAccessTrustProviderResponse_httpStatus' - The response's http status code.
 newCreateVerifiedAccessTrustProviderResponse ::
@@ -325,7 +329,7 @@ newCreateVerifiedAccessTrustProviderResponse
         httpStatus = pHttpStatus_
       }
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 createVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider :: Lens.Lens' CreateVerifiedAccessTrustProviderResponse (Prelude.Maybe VerifiedAccessTrustProvider)
 createVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider = Lens.lens (\CreateVerifiedAccessTrustProviderResponse' {verifiedAccessTrustProvider} -> verifiedAccessTrustProvider) (\s@CreateVerifiedAccessTrustProviderResponse' {} a -> s {verifiedAccessTrustProvider = a} :: CreateVerifiedAccessTrustProviderResponse)
 

@@ -75,7 +75,8 @@ instance
   hashWithSalt
     _salt
     FederatedAuthenticationRequest' {..} =
-      _salt `Prelude.hashWithSalt` sAMLProviderArn
+      _salt
+        `Prelude.hashWithSalt` sAMLProviderArn
         `Prelude.hashWithSalt` selfServiceSAMLProviderArn
 
 instance

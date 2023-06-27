@@ -131,10 +131,14 @@ instance Core.AWSRequest EnableFastSnapshotRestores where
     Response.receiveXML
       ( \s h x ->
           EnableFastSnapshotRestoresResponse'
-            Prelude.<$> ( x Data..@? "successful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "successful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -142,7 +146,8 @@ instance Core.AWSRequest EnableFastSnapshotRestores where
 
 instance Prelude.Hashable EnableFastSnapshotRestores where
   hashWithSalt _salt EnableFastSnapshotRestores' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` sourceSnapshotIds
 

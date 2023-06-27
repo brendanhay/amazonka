@@ -68,12 +68,13 @@ data DescribeFleetInstances = DescribeFleetInstances'
     --
     -- -   @instance-type@ - The instance type.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and 1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with the returned @NextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token for the next set of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Text
@@ -97,12 +98,13 @@ data DescribeFleetInstances = DescribeFleetInstances'
 --
 -- -   @instance-type@ - The instance type.
 --
--- 'maxResults', 'describeFleetInstances_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- 'maxResults', 'describeFleetInstances_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeFleetInstances_nextToken' - The token for the next set of results.
+-- 'nextToken', 'describeFleetInstances_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'fleetId', 'describeFleetInstances_fleetId' - The ID of the EC2 Fleet.
 newDescribeFleetInstances ::
@@ -131,14 +133,15 @@ describeFleetInstances_dryRun = Lens.lens (\DescribeFleetInstances' {dryRun} -> 
 describeFleetInstances_filters :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe [Filter])
 describeFleetInstances_filters = Lens.lens (\DescribeFleetInstances' {filters} -> filters) (\s@DescribeFleetInstances' {} a -> s {filters = a} :: DescribeFleetInstances) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeFleetInstances_maxResults :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Int)
 describeFleetInstances_maxResults = Lens.lens (\DescribeFleetInstances' {maxResults} -> maxResults) (\s@DescribeFleetInstances' {} a -> s {maxResults = a} :: DescribeFleetInstances)
 
--- | The token for the next set of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeFleetInstances_nextToken :: Lens.Lens' DescribeFleetInstances (Prelude.Maybe Prelude.Text)
 describeFleetInstances_nextToken = Lens.lens (\DescribeFleetInstances' {nextToken} -> nextToken) (\s@DescribeFleetInstances' {} a -> s {nextToken = a} :: DescribeFleetInstances)
 
@@ -156,7 +159,8 @@ instance Core.AWSRequest DescribeFleetInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeFleetInstancesResponse'
-            Prelude.<$> ( x Data..@? "activeInstanceSet"
+            Prelude.<$> ( x
+                            Data..@? "activeInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -167,7 +171,8 @@ instance Core.AWSRequest DescribeFleetInstances where
 
 instance Prelude.Hashable DescribeFleetInstances where
   hashWithSalt _salt DescribeFleetInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -209,7 +214,8 @@ data DescribeFleetInstancesResponse = DescribeFleetInstancesResponse'
     activeInstances :: Prelude.Maybe [ActiveInstance],
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next set of results.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -229,7 +235,8 @@ data DescribeFleetInstancesResponse = DescribeFleetInstancesResponse'
 --
 -- 'fleetId', 'describeFleetInstancesResponse_fleetId' - The ID of the EC2 Fleet.
 --
--- 'nextToken', 'describeFleetInstancesResponse_nextToken' - The token for the next set of results.
+-- 'nextToken', 'describeFleetInstancesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeFleetInstancesResponse_httpStatus' - The response's http status code.
 newDescribeFleetInstancesResponse ::
@@ -254,7 +261,8 @@ describeFleetInstancesResponse_activeInstances = Lens.lens (\DescribeFleetInstan
 describeFleetInstancesResponse_fleetId :: Lens.Lens' DescribeFleetInstancesResponse (Prelude.Maybe Prelude.Text)
 describeFleetInstancesResponse_fleetId = Lens.lens (\DescribeFleetInstancesResponse' {fleetId} -> fleetId) (\s@DescribeFleetInstancesResponse' {} a -> s {fleetId = a} :: DescribeFleetInstancesResponse)
 
--- | The token for the next set of results.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeFleetInstancesResponse_nextToken :: Lens.Lens' DescribeFleetInstancesResponse (Prelude.Maybe Prelude.Text)
 describeFleetInstancesResponse_nextToken = Lens.lens (\DescribeFleetInstancesResponse' {nextToken} -> nextToken) (\s@DescribeFleetInstancesResponse' {} a -> s {nextToken = a} :: DescribeFleetInstancesResponse)
 

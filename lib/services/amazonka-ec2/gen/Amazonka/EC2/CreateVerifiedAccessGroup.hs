@@ -22,11 +22,10 @@
 --
 -- An Amazon Web Services Verified Access group is a collection of Amazon
 -- Web Services Verified Access endpoints who\'s associated applications
--- have similar security requirements. Each instance within an Amazon Web
--- Services Verified Access group shares an Amazon Web Services Verified
--- Access policy. For example, you can group all Amazon Web Services
--- Verified Access instances associated with “sales” applications together
--- and use one common Amazon Web Services Verified Access policy.
+-- have similar security requirements. Each instance within a Verified
+-- Access group shares an Verified Access policy. For example, you can
+-- group all Verified Access instances associated with \"sales\"
+-- applications together and use one common Verified Access policy.
 module Amazonka.EC2.CreateVerifiedAccessGroup
   ( -- * Creating a Request
     CreateVerifiedAccessGroup (..),
@@ -64,18 +63,18 @@ data CreateVerifiedAccessGroup = CreateVerifiedAccessGroup'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access group.
+    -- | A description for the Verified Access group.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Web Services Verified Access policy document.
+    -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
-    -- | The tags to assign to the Amazon Web Services Verified Access group.
+    -- | The tags to assign to the Verified Access group.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,18 +91,18 @@ data CreateVerifiedAccessGroup = CreateVerifiedAccessGroup'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'createVerifiedAccessGroup_description' - A description for the Amazon Web Services Verified Access group.
+-- 'description', 'createVerifiedAccessGroup_description' - A description for the Verified Access group.
 --
 -- 'dryRun', 'createVerifiedAccessGroup_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'policyDocument', 'createVerifiedAccessGroup_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'createVerifiedAccessGroup_policyDocument' - The Verified Access policy document.
 --
--- 'tagSpecifications', 'createVerifiedAccessGroup_tagSpecifications' - The tags to assign to the Amazon Web Services Verified Access group.
+-- 'tagSpecifications', 'createVerifiedAccessGroup_tagSpecifications' - The tags to assign to the Verified Access group.
 --
--- 'verifiedAccessInstanceId', 'createVerifiedAccessGroup_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'createVerifiedAccessGroup_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 newCreateVerifiedAccessGroup ::
   -- | 'verifiedAccessInstanceId'
   Prelude.Text ->
@@ -127,7 +126,7 @@ newCreateVerifiedAccessGroup
 createVerifiedAccessGroup_clientToken :: Lens.Lens' CreateVerifiedAccessGroup (Prelude.Maybe Prelude.Text)
 createVerifiedAccessGroup_clientToken = Lens.lens (\CreateVerifiedAccessGroup' {clientToken} -> clientToken) (\s@CreateVerifiedAccessGroup' {} a -> s {clientToken = a} :: CreateVerifiedAccessGroup)
 
--- | A description for the Amazon Web Services Verified Access group.
+-- | A description for the Verified Access group.
 createVerifiedAccessGroup_description :: Lens.Lens' CreateVerifiedAccessGroup (Prelude.Maybe Prelude.Text)
 createVerifiedAccessGroup_description = Lens.lens (\CreateVerifiedAccessGroup' {description} -> description) (\s@CreateVerifiedAccessGroup' {} a -> s {description = a} :: CreateVerifiedAccessGroup)
 
@@ -138,15 +137,15 @@ createVerifiedAccessGroup_description = Lens.lens (\CreateVerifiedAccessGroup' {
 createVerifiedAccessGroup_dryRun :: Lens.Lens' CreateVerifiedAccessGroup (Prelude.Maybe Prelude.Bool)
 createVerifiedAccessGroup_dryRun = Lens.lens (\CreateVerifiedAccessGroup' {dryRun} -> dryRun) (\s@CreateVerifiedAccessGroup' {} a -> s {dryRun = a} :: CreateVerifiedAccessGroup)
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 createVerifiedAccessGroup_policyDocument :: Lens.Lens' CreateVerifiedAccessGroup (Prelude.Maybe Prelude.Text)
 createVerifiedAccessGroup_policyDocument = Lens.lens (\CreateVerifiedAccessGroup' {policyDocument} -> policyDocument) (\s@CreateVerifiedAccessGroup' {} a -> s {policyDocument = a} :: CreateVerifiedAccessGroup)
 
--- | The tags to assign to the Amazon Web Services Verified Access group.
+-- | The tags to assign to the Verified Access group.
 createVerifiedAccessGroup_tagSpecifications :: Lens.Lens' CreateVerifiedAccessGroup (Prelude.Maybe [TagSpecification])
 createVerifiedAccessGroup_tagSpecifications = Lens.lens (\CreateVerifiedAccessGroup' {tagSpecifications} -> tagSpecifications) (\s@CreateVerifiedAccessGroup' {} a -> s {tagSpecifications = a} :: CreateVerifiedAccessGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 createVerifiedAccessGroup_verifiedAccessInstanceId :: Lens.Lens' CreateVerifiedAccessGroup Prelude.Text
 createVerifiedAccessGroup_verifiedAccessInstanceId = Lens.lens (\CreateVerifiedAccessGroup' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@CreateVerifiedAccessGroup' {} a -> s {verifiedAccessInstanceId = a} :: CreateVerifiedAccessGroup)
 
@@ -166,7 +165,8 @@ instance Core.AWSRequest CreateVerifiedAccessGroup where
 
 instance Prelude.Hashable CreateVerifiedAccessGroup where
   hashWithSalt _salt CreateVerifiedAccessGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` policyDocument

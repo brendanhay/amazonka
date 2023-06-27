@@ -199,11 +199,13 @@ data DescribeImages = DescribeImages'
     -- If you are the AMI owner, all deprecated AMIs appear in the response
     -- regardless of what you specify for this parameter.
     includeDeprecated :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Scopes the results to images with the specified owners. You can specify
     -- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
@@ -350,11 +352,13 @@ data DescribeImages = DescribeImages'
 -- If you are the AMI owner, all deprecated AMIs appear in the response
 -- regardless of what you specify for this parameter.
 --
--- 'maxResults', 'describeImages_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'describeImages_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeImages_nextToken' - The token for the next page of results.
+-- 'nextToken', 'describeImages_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'owners', 'describeImages_owners' - Scopes the results to images with the specified owners. You can specify
 -- a combination of Amazon Web Services account IDs, @self@, @amazon@, and
@@ -513,13 +517,15 @@ describeImages_imageIds = Lens.lens (\DescribeImages' {imageIds} -> imageIds) (\
 describeImages_includeDeprecated :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Bool)
 describeImages_includeDeprecated = Lens.lens (\DescribeImages' {includeDeprecated} -> includeDeprecated) (\s@DescribeImages' {} a -> s {includeDeprecated = a} :: DescribeImages)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Int)
 describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeImages_nextToken :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Text)
 describeImages_nextToken = Lens.lens (\DescribeImages' {nextToken} -> nextToken) (\s@DescribeImages' {} a -> s {nextToken = a} :: DescribeImages)
 
@@ -535,20 +541,22 @@ instance Core.AWSPager DescribeImages where
     | Core.stop
         ( rs
             Lens.^? describeImagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeImagesResponse_images Prelude.. Lens._Just
+            Lens.^? describeImagesResponse_images
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeImages_nextToken
           Lens..~ rs
-          Lens.^? describeImagesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeImagesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeImages where
   type
@@ -560,7 +568,9 @@ instance Core.AWSRequest DescribeImages where
     Response.receiveXML
       ( \s h x ->
           DescribeImagesResponse'
-            Prelude.<$> ( x Data..@? "imagesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "imagesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -569,7 +579,8 @@ instance Core.AWSRequest DescribeImages where
 
 instance Prelude.Hashable DescribeImages where
   hashWithSalt _salt DescribeImages' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` executableUsers
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` imageIds
@@ -622,8 +633,8 @@ instance Data.ToQuery DescribeImages where
 data DescribeImagesResponse = DescribeImagesResponse'
   { -- | Information about the images.
     images :: Prelude.Maybe [Image],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -640,8 +651,8 @@ data DescribeImagesResponse = DescribeImagesResponse'
 --
 -- 'images', 'describeImagesResponse_images' - Information about the images.
 --
--- 'nextToken', 'describeImagesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeImagesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeImagesResponse_httpStatus' - The response's http status code.
 newDescribeImagesResponse ::
@@ -659,8 +670,8 @@ newDescribeImagesResponse pHttpStatus_ =
 describeImagesResponse_images :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe [Image])
 describeImagesResponse_images = Lens.lens (\DescribeImagesResponse' {images} -> images) (\s@DescribeImagesResponse' {} a -> s {images = a} :: DescribeImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeImagesResponse_nextToken :: Lens.Lens' DescribeImagesResponse (Prelude.Maybe Prelude.Text)
 describeImagesResponse_nextToken = Lens.lens (\DescribeImagesResponse' {nextToken} -> nextToken) (\s@DescribeImagesResponse' {} a -> s {nextToken = a} :: DescribeImagesResponse)
 

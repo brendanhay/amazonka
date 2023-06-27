@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the findings for the specified Network Access Scope analysis.
+--
+-- This operation returns paginated results.
 module Amazonka.EC2.GetNetworkInsightsAccessScopeAnalysisFindings
   ( -- * Creating a Request
     GetNetworkInsightsAccessScopeAnalysisFindings (..),
@@ -128,6 +130,31 @@ getNetworkInsightsAccessScopeAnalysisFindings_networkInsightsAccessScopeAnalysis
 getNetworkInsightsAccessScopeAnalysisFindings_networkInsightsAccessScopeAnalysisId = Lens.lens (\GetNetworkInsightsAccessScopeAnalysisFindings' {networkInsightsAccessScopeAnalysisId} -> networkInsightsAccessScopeAnalysisId) (\s@GetNetworkInsightsAccessScopeAnalysisFindings' {} a -> s {networkInsightsAccessScopeAnalysisId = a} :: GetNetworkInsightsAccessScopeAnalysisFindings)
 
 instance
+  Core.AWSPager
+    GetNetworkInsightsAccessScopeAnalysisFindings
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getNetworkInsightsAccessScopeAnalysisFindingsResponse_nextToken
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getNetworkInsightsAccessScopeAnalysisFindingsResponse_analysisFindings
+            Prelude.. Lens._Just
+        ) =
+        Prelude.Nothing
+    | Prelude.otherwise =
+        Prelude.Just
+          Prelude.$ rq
+          Prelude.& getNetworkInsightsAccessScopeAnalysisFindings_nextToken
+          Lens..~ rs
+          Lens.^? getNetworkInsightsAccessScopeAnalysisFindingsResponse_nextToken
+          Prelude.. Lens._Just
+
+instance
   Core.AWSRequest
     GetNetworkInsightsAccessScopeAnalysisFindings
   where
@@ -141,14 +168,15 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetNetworkInsightsAccessScopeAnalysisFindingsResponse'
-            Prelude.<$> ( x Data..@? "analysisFindingSet"
+            Prelude.<$> ( x
+                            Data..@? "analysisFindingSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "analysisStatus")
-              Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisId")
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "analysisStatus")
+            Prelude.<*> (x Data..@? "networkInsightsAccessScopeAnalysisId")
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -158,7 +186,8 @@ instance
   hashWithSalt
     _salt
     GetNetworkInsightsAccessScopeAnalysisFindings' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` networkInsightsAccessScopeAnalysisId

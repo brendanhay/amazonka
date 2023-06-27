@@ -42,7 +42,7 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
     -- | The volume.
     volume :: Prelude.Maybe DiskImageVolumeDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportVolumeTaskDetails' with all optional fields omitted.
@@ -104,7 +104,8 @@ instance Data.FromXML ImportVolumeTaskDetails where
 
 instance Prelude.Hashable ImportVolumeTaskDetails where
   hashWithSalt _salt ImportVolumeTaskDetails' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` bytesConverted
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` image

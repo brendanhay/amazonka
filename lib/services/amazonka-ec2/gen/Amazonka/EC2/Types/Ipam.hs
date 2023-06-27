@@ -38,9 +38,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpam' smart constructor.
 data Ipam = Ipam'
-  { -- | The description for the IPAM.
+  { -- | The IPAM\'s default resource discovery association ID.
+    defaultResourceDiscoveryAssociationId :: Prelude.Maybe Prelude.Text,
+    -- | The IPAM\'s default resource discovery ID.
+    defaultResourceDiscoveryId :: Prelude.Maybe Prelude.Text,
+    -- | The description for the IPAM.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IPAM.
+    -- | The Amazon Resource Name (ARN) of the IPAM.
     ipamArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the IPAM.
     ipamId :: Prelude.Maybe Prelude.Text,
@@ -61,6 +65,8 @@ data Ipam = Ipam'
     privateDefaultScopeId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the IPAM\'s default public scope.
     publicDefaultScopeId :: Prelude.Maybe Prelude.Text,
+    -- | The IPAM\'s resource discovery association count.
+    resourceDiscoveryAssociationCount :: Prelude.Maybe Prelude.Int,
     -- | The number of scopes in the IPAM. The scope quota is 5. For more
     -- information on quotas, see
     -- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas in IPAM>
@@ -85,9 +91,13 @@ data Ipam = Ipam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultResourceDiscoveryAssociationId', 'ipam_defaultResourceDiscoveryAssociationId' - The IPAM\'s default resource discovery association ID.
+--
+-- 'defaultResourceDiscoveryId', 'ipam_defaultResourceDiscoveryId' - The IPAM\'s default resource discovery ID.
+--
 -- 'description', 'ipam_description' - The description for the IPAM.
 --
--- 'ipamArn', 'ipam_ipamArn' - The ARN of the IPAM.
+-- 'ipamArn', 'ipam_ipamArn' - The Amazon Resource Name (ARN) of the IPAM.
 --
 -- 'ipamId', 'ipam_ipamId' - The ID of the IPAM.
 --
@@ -108,6 +118,8 @@ data Ipam = Ipam'
 --
 -- 'publicDefaultScopeId', 'ipam_publicDefaultScopeId' - The ID of the IPAM\'s default public scope.
 --
+-- 'resourceDiscoveryAssociationCount', 'ipam_resourceDiscoveryAssociationCount' - The IPAM\'s resource discovery association count.
+--
 -- 'scopeCount', 'ipam_scopeCount' - The number of scopes in the IPAM. The scope quota is 5. For more
 -- information on quotas, see
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas in IPAM>
@@ -124,7 +136,10 @@ newIpam ::
   Ipam
 newIpam =
   Ipam'
-    { description = Prelude.Nothing,
+    { defaultResourceDiscoveryAssociationId =
+        Prelude.Nothing,
+      defaultResourceDiscoveryId = Prelude.Nothing,
+      description = Prelude.Nothing,
       ipamArn = Prelude.Nothing,
       ipamId = Prelude.Nothing,
       ipamRegion = Prelude.Nothing,
@@ -132,16 +147,25 @@ newIpam =
       ownerId = Prelude.Nothing,
       privateDefaultScopeId = Prelude.Nothing,
       publicDefaultScopeId = Prelude.Nothing,
+      resourceDiscoveryAssociationCount = Prelude.Nothing,
       scopeCount = Prelude.Nothing,
       state = Prelude.Nothing,
       tags = Prelude.Nothing
     }
 
+-- | The IPAM\'s default resource discovery association ID.
+ipam_defaultResourceDiscoveryAssociationId :: Lens.Lens' Ipam (Prelude.Maybe Prelude.Text)
+ipam_defaultResourceDiscoveryAssociationId = Lens.lens (\Ipam' {defaultResourceDiscoveryAssociationId} -> defaultResourceDiscoveryAssociationId) (\s@Ipam' {} a -> s {defaultResourceDiscoveryAssociationId = a} :: Ipam)
+
+-- | The IPAM\'s default resource discovery ID.
+ipam_defaultResourceDiscoveryId :: Lens.Lens' Ipam (Prelude.Maybe Prelude.Text)
+ipam_defaultResourceDiscoveryId = Lens.lens (\Ipam' {defaultResourceDiscoveryId} -> defaultResourceDiscoveryId) (\s@Ipam' {} a -> s {defaultResourceDiscoveryId = a} :: Ipam)
+
 -- | The description for the IPAM.
 ipam_description :: Lens.Lens' Ipam (Prelude.Maybe Prelude.Text)
 ipam_description = Lens.lens (\Ipam' {description} -> description) (\s@Ipam' {} a -> s {description = a} :: Ipam)
 
--- | The ARN of the IPAM.
+-- | The Amazon Resource Name (ARN) of the IPAM.
 ipam_ipamArn :: Lens.Lens' Ipam (Prelude.Maybe Prelude.Text)
 ipam_ipamArn = Lens.lens (\Ipam' {ipamArn} -> ipamArn) (\s@Ipam' {} a -> s {ipamArn = a} :: Ipam)
 
@@ -176,6 +200,10 @@ ipam_privateDefaultScopeId = Lens.lens (\Ipam' {privateDefaultScopeId} -> privat
 ipam_publicDefaultScopeId :: Lens.Lens' Ipam (Prelude.Maybe Prelude.Text)
 ipam_publicDefaultScopeId = Lens.lens (\Ipam' {publicDefaultScopeId} -> publicDefaultScopeId) (\s@Ipam' {} a -> s {publicDefaultScopeId = a} :: Ipam)
 
+-- | The IPAM\'s resource discovery association count.
+ipam_resourceDiscoveryAssociationCount :: Lens.Lens' Ipam (Prelude.Maybe Prelude.Int)
+ipam_resourceDiscoveryAssociationCount = Lens.lens (\Ipam' {resourceDiscoveryAssociationCount} -> resourceDiscoveryAssociationCount) (\s@Ipam' {} a -> s {resourceDiscoveryAssociationCount = a} :: Ipam)
+
 -- | The number of scopes in the IPAM. The scope quota is 5. For more
 -- information on quotas, see
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas in IPAM>
@@ -198,26 +226,35 @@ ipam_tags = Lens.lens (\Ipam' {tags} -> tags) (\s@Ipam' {} a -> s {tags = a} :: 
 instance Data.FromXML Ipam where
   parseXML x =
     Ipam'
-      Prelude.<$> (x Data..@? "description")
+      Prelude.<$> (x Data..@? "defaultResourceDiscoveryAssociationId")
+      Prelude.<*> (x Data..@? "defaultResourceDiscoveryId")
+      Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "ipamArn")
       Prelude.<*> (x Data..@? "ipamId")
       Prelude.<*> (x Data..@? "ipamRegion")
-      Prelude.<*> ( x Data..@? "operatingRegionSet"
+      Prelude.<*> ( x
+                      Data..@? "operatingRegionSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "privateDefaultScopeId")
       Prelude.<*> (x Data..@? "publicDefaultScopeId")
+      Prelude.<*> (x Data..@? "resourceDiscoveryAssociationCount")
       Prelude.<*> (x Data..@? "scopeCount")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable Ipam where
   hashWithSalt _salt Ipam' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` defaultResourceDiscoveryAssociationId
+      `Prelude.hashWithSalt` defaultResourceDiscoveryId
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ipamArn
       `Prelude.hashWithSalt` ipamId
       `Prelude.hashWithSalt` ipamRegion
@@ -225,13 +262,16 @@ instance Prelude.Hashable Ipam where
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` privateDefaultScopeId
       `Prelude.hashWithSalt` publicDefaultScopeId
+      `Prelude.hashWithSalt` resourceDiscoveryAssociationCount
       `Prelude.hashWithSalt` scopeCount
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData Ipam where
   rnf Ipam' {..} =
-    Prelude.rnf description
+    Prelude.rnf defaultResourceDiscoveryAssociationId
+      `Prelude.seq` Prelude.rnf defaultResourceDiscoveryId
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf ipamArn
       `Prelude.seq` Prelude.rnf ipamId
       `Prelude.seq` Prelude.rnf ipamRegion
@@ -239,6 +279,7 @@ instance Prelude.NFData Ipam where
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf privateDefaultScopeId
       `Prelude.seq` Prelude.rnf publicDefaultScopeId
+      `Prelude.seq` Prelude.rnf resourceDiscoveryAssociationCount
       `Prelude.seq` Prelude.rnf scopeCount
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf tags

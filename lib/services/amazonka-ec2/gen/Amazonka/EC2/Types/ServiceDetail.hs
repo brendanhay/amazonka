@@ -66,7 +66,7 @@ data ServiceDetail = ServiceDetail'
     serviceType :: Prelude.Maybe [ServiceTypeDetail],
     -- | The supported IP address types.
     supportedIpAddressTypes :: Prelude.Maybe [ServiceConnectivityType],
-    -- | Any tags assigned to the service.
+    -- | The tags assigned to the service.
     tags :: Prelude.Maybe [Tag],
     -- | Indicates whether the service supports endpoint policies.
     vpcEndpointPolicySupported :: Prelude.Maybe Prelude.Bool
@@ -112,7 +112,7 @@ data ServiceDetail = ServiceDetail'
 --
 -- 'supportedIpAddressTypes', 'serviceDetail_supportedIpAddressTypes' - The supported IP address types.
 --
--- 'tags', 'serviceDetail_tags' - Any tags assigned to the service.
+-- 'tags', 'serviceDetail_tags' - The tags assigned to the service.
 --
 -- 'vpcEndpointPolicySupported', 'serviceDetail_vpcEndpointPolicySupported' - Indicates whether the service supports endpoint policies.
 newServiceDetail ::
@@ -194,7 +194,7 @@ serviceDetail_serviceType = Lens.lens (\ServiceDetail' {serviceType} -> serviceT
 serviceDetail_supportedIpAddressTypes :: Lens.Lens' ServiceDetail (Prelude.Maybe [ServiceConnectivityType])
 serviceDetail_supportedIpAddressTypes = Lens.lens (\ServiceDetail' {supportedIpAddressTypes} -> supportedIpAddressTypes) (\s@ServiceDetail' {} a -> s {supportedIpAddressTypes = a} :: ServiceDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | Any tags assigned to the service.
+-- | The tags assigned to the service.
 serviceDetail_tags :: Lens.Lens' ServiceDetail (Prelude.Maybe [Tag])
 serviceDetail_tags = Lens.lens (\ServiceDetail' {tags} -> tags) (\s@ServiceDetail' {} a -> s {tags = a} :: ServiceDetail) Prelude.. Lens.mapping Lens.coerced
 
@@ -206,11 +206,13 @@ instance Data.FromXML ServiceDetail where
   parseXML x =
     ServiceDetail'
       Prelude.<$> (x Data..@? "acceptanceRequired")
-      Prelude.<*> ( x Data..@? "availabilityZoneSet"
+      Prelude.<*> ( x
+                      Data..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "baseEndpointDnsNameSet"
+      Prelude.<*> ( x
+                      Data..@? "baseEndpointDnsNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -219,27 +221,34 @@ instance Data.FromXML ServiceDetail where
       Prelude.<*> (x Data..@? "payerResponsibility")
       Prelude.<*> (x Data..@? "privateDnsName")
       Prelude.<*> (x Data..@? "privateDnsNameVerificationState")
-      Prelude.<*> ( x Data..@? "privateDnsNameSet"
+      Prelude.<*> ( x
+                      Data..@? "privateDnsNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "serviceId")
       Prelude.<*> (x Data..@? "serviceName")
-      Prelude.<*> ( x Data..@? "serviceType" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Data..@? "supportedIpAddressTypeSet"
+      Prelude.<*> ( x
+                      Data..@? "serviceType"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "supportedIpAddressTypeSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointPolicySupported")
 
 instance Prelude.Hashable ServiceDetail where
   hashWithSalt _salt ServiceDetail' {..} =
-    _salt `Prelude.hashWithSalt` acceptanceRequired
+    _salt
+      `Prelude.hashWithSalt` acceptanceRequired
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` baseEndpointDnsNames
       `Prelude.hashWithSalt` managesVpcEndpoints

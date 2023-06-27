@@ -114,7 +114,7 @@ instance
       ( \s h x ->
           DeleteLocalGatewayRouteTableVpcAssociationResponse'
             Prelude.<$> (x Data..@? "localGatewayRouteTableVpcAssociation")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     DeleteLocalGatewayRouteTableVpcAssociation' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` localGatewayRouteTableVpcAssociationId
 
 instance

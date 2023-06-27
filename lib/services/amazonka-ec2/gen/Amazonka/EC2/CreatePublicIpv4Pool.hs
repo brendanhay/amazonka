@@ -126,7 +126,8 @@ instance Core.AWSRequest CreatePublicIpv4Pool where
 
 instance Prelude.Hashable CreatePublicIpv4Pool where
   hashWithSalt _salt CreatePublicIpv4Pool' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
 
 instance Prelude.NFData CreatePublicIpv4Pool where

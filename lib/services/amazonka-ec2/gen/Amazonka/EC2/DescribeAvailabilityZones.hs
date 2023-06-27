@@ -81,8 +81,8 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     --
     -- -   @message@ - The Zone message.
     --
-    -- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@
-    --     | @opt-in-not-required@).
+    -- -   @opt-in-status@ - The opt-in status (@opted-in@ | @not-opted-in@ |
+    --     @opt-in-not-required@).
     --
     -- -   @parent-zoneID@ - The ID of the zone that handles some of the Local
     --     Zone and Wavelength Zone control plane operations, such as API
@@ -102,13 +102,12 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     --     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
     --     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
     --
-    -- -   @zone-type@ - The type of zone, for example, @local-zone@.
-    --
     -- -   @zone-name@ - The name of the Availability Zone (for example,
     --     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or
     --     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
     --
-    -- -   @zone-type@ - The type of zone, for example, @local-zone@.
+    -- -   @zone-type@ - The type of zone (@availability-zone@ | @local-zone@ |
+    --     @wavelength-zone@).
     filters :: Prelude.Maybe [Filter],
     -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
     zoneIds :: Prelude.Maybe [Prelude.Text],
@@ -146,8 +145,8 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 --
 -- -   @message@ - The Zone message.
 --
--- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@
---     | @opt-in-not-required@).
+-- -   @opt-in-status@ - The opt-in status (@opted-in@ | @not-opted-in@ |
+--     @opt-in-not-required@).
 --
 -- -   @parent-zoneID@ - The ID of the zone that handles some of the Local
 --     Zone and Wavelength Zone control plane operations, such as API
@@ -167,13 +166,12 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 --     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
 --     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
 --
--- -   @zone-type@ - The type of zone, for example, @local-zone@.
---
 -- -   @zone-name@ - The name of the Availability Zone (for example,
 --     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or
 --     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
 --
--- -   @zone-type@ - The type of zone, for example, @local-zone@.
+-- -   @zone-type@ - The type of zone (@availability-zone@ | @local-zone@ |
+--     @wavelength-zone@).
 --
 -- 'zoneIds', 'describeAvailabilityZones_zoneIds' - The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
 --
@@ -215,8 +213,8 @@ describeAvailabilityZones_dryRun = Lens.lens (\DescribeAvailabilityZones' {dryRu
 --
 -- -   @message@ - The Zone message.
 --
--- -   @opt-in-status@ - The opt-in status (@opted-in@, and @not-opted-in@
---     | @opt-in-not-required@).
+-- -   @opt-in-status@ - The opt-in status (@opted-in@ | @not-opted-in@ |
+--     @opt-in-not-required@).
 --
 -- -   @parent-zoneID@ - The ID of the zone that handles some of the Local
 --     Zone and Wavelength Zone control plane operations, such as API
@@ -236,13 +234,12 @@ describeAvailabilityZones_dryRun = Lens.lens (\DescribeAvailabilityZones' {dryRu
 --     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
 --     Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
 --
--- -   @zone-type@ - The type of zone, for example, @local-zone@.
---
 -- -   @zone-name@ - The name of the Availability Zone (for example,
 --     @us-east-1a@), the Local Zone (for example, @us-west-2-lax-1a@), or
 --     the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@).
 --
--- -   @zone-type@ - The type of zone, for example, @local-zone@.
+-- -   @zone-type@ - The type of zone (@availability-zone@ | @local-zone@ |
+--     @wavelength-zone@).
 describeAvailabilityZones_filters :: Lens.Lens' DescribeAvailabilityZones (Prelude.Maybe [Filter])
 describeAvailabilityZones_filters = Lens.lens (\DescribeAvailabilityZones' {filters} -> filters) (\s@DescribeAvailabilityZones' {} a -> s {filters = a} :: DescribeAvailabilityZones) Prelude.. Lens.mapping Lens.coerced
 
@@ -264,7 +261,8 @@ instance Core.AWSRequest DescribeAvailabilityZones where
     Response.receiveXML
       ( \s h x ->
           DescribeAvailabilityZonesResponse'
-            Prelude.<$> ( x Data..@? "availabilityZoneInfo"
+            Prelude.<$> ( x
+                            Data..@? "availabilityZoneInfo"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -273,7 +271,8 @@ instance Core.AWSRequest DescribeAvailabilityZones where
 
 instance Prelude.Hashable DescribeAvailabilityZones where
   hashWithSalt _salt DescribeAvailabilityZones' {..} =
-    _salt `Prelude.hashWithSalt` allAvailabilityZones
+    _salt
+      `Prelude.hashWithSalt` allAvailabilityZones
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` zoneIds

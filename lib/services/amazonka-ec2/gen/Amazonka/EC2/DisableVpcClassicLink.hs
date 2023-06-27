@@ -117,7 +117,8 @@ instance Core.AWSRequest DisableVpcClassicLink where
 
 instance Prelude.Hashable DisableVpcClassicLink where
   hashWithSalt _salt DisableVpcClassicLink' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData DisableVpcClassicLink where

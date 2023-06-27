@@ -70,7 +70,8 @@ capacityReservationTarget_capacityReservationResourceGroupArn = Lens.lens (\Capa
 
 instance Prelude.Hashable CapacityReservationTarget where
   hashWithSalt _salt CapacityReservationTarget' {..} =
-    _salt `Prelude.hashWithSalt` capacityReservationId
+    _salt
+      `Prelude.hashWithSalt` capacityReservationId
       `Prelude.hashWithSalt` capacityReservationResourceGroupArn
 
 instance Prelude.NFData CapacityReservationTarget where

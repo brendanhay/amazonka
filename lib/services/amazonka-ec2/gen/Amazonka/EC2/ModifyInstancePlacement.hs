@@ -94,16 +94,18 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
     groupName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Dedicated Host with which to associate the instance.
     hostId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the host resource group in which to place the instance.
+    -- | The ARN of the host resource group in which to place the instance. The
+    -- instance must have a tenancy of @host@ to specify this parameter.
     hostResourceGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The number of the partition in which to place the instance. Valid only
     -- if the placement group strategy is set to @partition@.
     partitionNumber :: Prelude.Maybe Prelude.Int,
     -- | The tenancy for the instance.
     --
-    -- For T3 instances, you can\'t change the tenancy from @dedicated@ to
-    -- @host@, or from @host@ to @dedicated@. Attempting to make one of these
-    -- unsupported tenancy changes results in the @InvalidTenancy@ error code.
+    -- For T3 instances, you must launch the instance on a Dedicated Host to
+    -- use a tenancy of @host@. You can\'t change the tenancy from @host@ to
+    -- @dedicated@ or @default@. Attempting to make one of these unsupported
+    -- tenancy changes results in an @InvalidRequest@ error code.
     tenancy :: Prelude.Maybe HostTenancy,
     -- | The ID of the instance that you are modifying.
     instanceId :: Prelude.Text
@@ -133,16 +135,18 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
 --
 -- 'hostId', 'modifyInstancePlacement_hostId' - The ID of the Dedicated Host with which to associate the instance.
 --
--- 'hostResourceGroupArn', 'modifyInstancePlacement_hostResourceGroupArn' - The ARN of the host resource group in which to place the instance.
+-- 'hostResourceGroupArn', 'modifyInstancePlacement_hostResourceGroupArn' - The ARN of the host resource group in which to place the instance. The
+-- instance must have a tenancy of @host@ to specify this parameter.
 --
 -- 'partitionNumber', 'modifyInstancePlacement_partitionNumber' - The number of the partition in which to place the instance. Valid only
 -- if the placement group strategy is set to @partition@.
 --
 -- 'tenancy', 'modifyInstancePlacement_tenancy' - The tenancy for the instance.
 --
--- For T3 instances, you can\'t change the tenancy from @dedicated@ to
--- @host@, or from @host@ to @dedicated@. Attempting to make one of these
--- unsupported tenancy changes results in the @InvalidTenancy@ error code.
+-- For T3 instances, you must launch the instance on a Dedicated Host to
+-- use a tenancy of @host@. You can\'t change the tenancy from @host@ to
+-- @dedicated@ or @default@. Attempting to make one of these unsupported
+-- tenancy changes results in an @InvalidRequest@ error code.
 --
 -- 'instanceId', 'modifyInstancePlacement_instanceId' - The ID of the instance that you are modifying.
 newModifyInstancePlacement ::
@@ -185,7 +189,8 @@ modifyInstancePlacement_groupName = Lens.lens (\ModifyInstancePlacement' {groupN
 modifyInstancePlacement_hostId :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
 modifyInstancePlacement_hostId = Lens.lens (\ModifyInstancePlacement' {hostId} -> hostId) (\s@ModifyInstancePlacement' {} a -> s {hostId = a} :: ModifyInstancePlacement)
 
--- | The ARN of the host resource group in which to place the instance.
+-- | The ARN of the host resource group in which to place the instance. The
+-- instance must have a tenancy of @host@ to specify this parameter.
 modifyInstancePlacement_hostResourceGroupArn :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Text)
 modifyInstancePlacement_hostResourceGroupArn = Lens.lens (\ModifyInstancePlacement' {hostResourceGroupArn} -> hostResourceGroupArn) (\s@ModifyInstancePlacement' {} a -> s {hostResourceGroupArn = a} :: ModifyInstancePlacement)
 
@@ -196,9 +201,10 @@ modifyInstancePlacement_partitionNumber = Lens.lens (\ModifyInstancePlacement' {
 
 -- | The tenancy for the instance.
 --
--- For T3 instances, you can\'t change the tenancy from @dedicated@ to
--- @host@, or from @host@ to @dedicated@. Attempting to make one of these
--- unsupported tenancy changes results in the @InvalidTenancy@ error code.
+-- For T3 instances, you must launch the instance on a Dedicated Host to
+-- use a tenancy of @host@. You can\'t change the tenancy from @host@ to
+-- @dedicated@ or @default@. Attempting to make one of these unsupported
+-- tenancy changes results in an @InvalidRequest@ error code.
 modifyInstancePlacement_tenancy :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe HostTenancy)
 modifyInstancePlacement_tenancy = Lens.lens (\ModifyInstancePlacement' {tenancy} -> tenancy) (\s@ModifyInstancePlacement' {} a -> s {tenancy = a} :: ModifyInstancePlacement)
 
@@ -222,7 +228,8 @@ instance Core.AWSRequest ModifyInstancePlacement where
 
 instance Prelude.Hashable ModifyInstancePlacement where
   hashWithSalt _salt ModifyInstancePlacement' {..} =
-    _salt `Prelude.hashWithSalt` affinity
+    _salt
+      `Prelude.hashWithSalt` affinity
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` hostId

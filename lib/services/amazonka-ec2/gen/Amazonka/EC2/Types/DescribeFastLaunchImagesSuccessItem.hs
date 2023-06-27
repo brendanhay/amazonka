@@ -40,8 +40,8 @@ data DescribeFastLaunchImagesSuccessItem = DescribeFastLaunchImagesSuccessItem'
     -- | The launch template that the fast-launch enabled Windows AMI uses when
     -- it launches Windows instances from pre-provisioned snapshots.
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse,
-    -- | The maximum number of parallel instances that are launched for creating
-    -- resources.
+    -- | The maximum number of instances that Amazon EC2 can launch at the same
+    -- time to create pre-provisioned snapshots for Windows faster launching.
     maxParallelLaunches :: Prelude.Maybe Prelude.Int,
     -- | The owner ID for the fast-launch enabled Windows AMI.
     ownerId :: Prelude.Maybe Prelude.Text,
@@ -75,8 +75,8 @@ data DescribeFastLaunchImagesSuccessItem = DescribeFastLaunchImagesSuccessItem'
 -- 'launchTemplate', 'describeFastLaunchImagesSuccessItem_launchTemplate' - The launch template that the fast-launch enabled Windows AMI uses when
 -- it launches Windows instances from pre-provisioned snapshots.
 --
--- 'maxParallelLaunches', 'describeFastLaunchImagesSuccessItem_maxParallelLaunches' - The maximum number of parallel instances that are launched for creating
--- resources.
+-- 'maxParallelLaunches', 'describeFastLaunchImagesSuccessItem_maxParallelLaunches' - The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
 --
 -- 'ownerId', 'describeFastLaunchImagesSuccessItem_ownerId' - The owner ID for the fast-launch enabled Windows AMI.
 --
@@ -120,8 +120,8 @@ describeFastLaunchImagesSuccessItem_imageId = Lens.lens (\DescribeFastLaunchImag
 describeFastLaunchImagesSuccessItem_launchTemplate :: Lens.Lens' DescribeFastLaunchImagesSuccessItem (Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse)
 describeFastLaunchImagesSuccessItem_launchTemplate = Lens.lens (\DescribeFastLaunchImagesSuccessItem' {launchTemplate} -> launchTemplate) (\s@DescribeFastLaunchImagesSuccessItem' {} a -> s {launchTemplate = a} :: DescribeFastLaunchImagesSuccessItem)
 
--- | The maximum number of parallel instances that are launched for creating
--- resources.
+-- | The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
 describeFastLaunchImagesSuccessItem_maxParallelLaunches :: Lens.Lens' DescribeFastLaunchImagesSuccessItem (Prelude.Maybe Prelude.Int)
 describeFastLaunchImagesSuccessItem_maxParallelLaunches = Lens.lens (\DescribeFastLaunchImagesSuccessItem' {maxParallelLaunches} -> maxParallelLaunches) (\s@DescribeFastLaunchImagesSuccessItem' {} a -> s {maxParallelLaunches = a} :: DescribeFastLaunchImagesSuccessItem)
 
@@ -176,7 +176,8 @@ instance
   hashWithSalt
     _salt
     DescribeFastLaunchImagesSuccessItem' {..} =
-      _salt `Prelude.hashWithSalt` imageId
+      _salt
+        `Prelude.hashWithSalt` imageId
         `Prelude.hashWithSalt` launchTemplate
         `Prelude.hashWithSalt` maxParallelLaunches
         `Prelude.hashWithSalt` ownerId

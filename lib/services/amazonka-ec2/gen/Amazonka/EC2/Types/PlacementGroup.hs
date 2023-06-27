@@ -137,13 +137,16 @@ instance Data.FromXML PlacementGroup where
       Prelude.<*> (x Data..@? "spreadLevel")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "strategy")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable PlacementGroup where
   hashWithSalt _salt PlacementGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupArn
+    _salt
+      `Prelude.hashWithSalt` groupArn
       `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` partitionCount

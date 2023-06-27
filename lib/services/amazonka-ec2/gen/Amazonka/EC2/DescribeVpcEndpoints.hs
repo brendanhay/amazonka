@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your VPC endpoints.
+-- Describes your VPC endpoints.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeVpcEndpoints
@@ -54,16 +54,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Contains the parameters for DescribeVpcEndpoints.
---
--- /See:/ 'newDescribeVpcEndpoints' smart constructor.
+-- | /See:/ 'newDescribeVpcEndpoints' smart constructor.
 data DescribeVpcEndpoints = DescribeVpcEndpoints'
   { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+    -- | The filters.
     --
     -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
     --
@@ -100,7 +98,7 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
     -- | The token for the next set of items to return. (You received this token
     -- from a prior call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more endpoint IDs.
+    -- | The IDs of the VPC endpoints.
     vpcEndpointIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -118,7 +116,7 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeVpcEndpoints_filters' - One or more filters.
+-- 'filters', 'describeVpcEndpoints_filters' - The filters.
 --
 -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
@@ -155,7 +153,7 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
 -- 'nextToken', 'describeVpcEndpoints_nextToken' - The token for the next set of items to return. (You received this token
 -- from a prior call.)
 --
--- 'vpcEndpointIds', 'describeVpcEndpoints_vpcEndpointIds' - One or more endpoint IDs.
+-- 'vpcEndpointIds', 'describeVpcEndpoints_vpcEndpointIds' - The IDs of the VPC endpoints.
 newDescribeVpcEndpoints ::
   DescribeVpcEndpoints
 newDescribeVpcEndpoints =
@@ -174,7 +172,7 @@ newDescribeVpcEndpoints =
 describeVpcEndpoints_dryRun :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Bool)
 describeVpcEndpoints_dryRun = Lens.lens (\DescribeVpcEndpoints' {dryRun} -> dryRun) (\s@DescribeVpcEndpoints' {} a -> s {dryRun = a} :: DescribeVpcEndpoints)
 
--- | One or more filters.
+-- | The filters.
 --
 -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
@@ -217,7 +215,7 @@ describeVpcEndpoints_maxResults = Lens.lens (\DescribeVpcEndpoints' {maxResults}
 describeVpcEndpoints_nextToken :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe Prelude.Text)
 describeVpcEndpoints_nextToken = Lens.lens (\DescribeVpcEndpoints' {nextToken} -> nextToken) (\s@DescribeVpcEndpoints' {} a -> s {nextToken = a} :: DescribeVpcEndpoints)
 
--- | One or more endpoint IDs.
+-- | The IDs of the VPC endpoints.
 describeVpcEndpoints_vpcEndpointIds :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe [Prelude.Text])
 describeVpcEndpoints_vpcEndpointIds = Lens.lens (\DescribeVpcEndpoints' {vpcEndpointIds} -> vpcEndpointIds) (\s@DescribeVpcEndpoints' {} a -> s {vpcEndpointIds = a} :: DescribeVpcEndpoints) Prelude.. Lens.mapping Lens.coerced
 
@@ -226,22 +224,22 @@ instance Core.AWSPager DescribeVpcEndpoints where
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointsResponse_vpcEndpoints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpoints_nextToken
           Lens..~ rs
           Lens.^? describeVpcEndpointsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVpcEndpoints where
   type
@@ -254,7 +252,9 @@ instance Core.AWSRequest DescribeVpcEndpoints where
       ( \s h x ->
           DescribeVpcEndpointsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "vpcEndpointSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "vpcEndpointSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -262,7 +262,8 @@ instance Core.AWSRequest DescribeVpcEndpoints where
 
 instance Prelude.Hashable DescribeVpcEndpoints where
   hashWithSalt _salt DescribeVpcEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -300,9 +301,7 @@ instance Data.ToQuery DescribeVpcEndpoints where
           )
       ]
 
--- | Contains the output of DescribeVpcEndpoints.
---
--- /See:/ 'newDescribeVpcEndpointsResponse' smart constructor.
+-- | /See:/ 'newDescribeVpcEndpointsResponse' smart constructor.
 data DescribeVpcEndpointsResponse = DescribeVpcEndpointsResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.

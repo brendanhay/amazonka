@@ -61,7 +61,7 @@ data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+    -- | The filters.
     --
     -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
     --
@@ -100,7 +100,7 @@ data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeVpcEndpointConnections_filters' - One or more filters.
+-- 'filters', 'describeVpcEndpointConnections_filters' - The filters.
 --
 -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
@@ -140,7 +140,7 @@ newDescribeVpcEndpointConnections =
 describeVpcEndpointConnections_dryRun :: Lens.Lens' DescribeVpcEndpointConnections (Prelude.Maybe Prelude.Bool)
 describeVpcEndpointConnections_dryRun = Lens.lens (\DescribeVpcEndpointConnections' {dryRun} -> dryRun) (\s@DescribeVpcEndpointConnections' {} a -> s {dryRun = a} :: DescribeVpcEndpointConnections)
 
--- | One or more filters.
+-- | The filters.
 --
 -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
@@ -174,22 +174,22 @@ instance Core.AWSPager DescribeVpcEndpointConnections where
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointConnectionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointConnectionsResponse_vpcEndpointConnections
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpointConnections_nextToken
           Lens..~ rs
           Lens.^? describeVpcEndpointConnectionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -205,7 +205,8 @@ instance
       ( \s h x ->
           DescribeVpcEndpointConnectionsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "vpcEndpointConnectionSet"
+            Prelude.<*> ( x
+                            Data..@? "vpcEndpointConnectionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -219,7 +220,8 @@ instance
   hashWithSalt
     _salt
     DescribeVpcEndpointConnections' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -264,7 +266,7 @@ data DescribeVpcEndpointConnectionsResponse = DescribeVpcEndpointConnectionsResp
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about one or more VPC endpoint connections.
+    -- | Information about the VPC endpoint connections.
     vpcEndpointConnections :: Prelude.Maybe [VpcEndpointConnection],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -282,7 +284,7 @@ data DescribeVpcEndpointConnectionsResponse = DescribeVpcEndpointConnectionsResp
 -- 'nextToken', 'describeVpcEndpointConnectionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 --
--- 'vpcEndpointConnections', 'describeVpcEndpointConnectionsResponse_vpcEndpointConnections' - Information about one or more VPC endpoint connections.
+-- 'vpcEndpointConnections', 'describeVpcEndpointConnectionsResponse_vpcEndpointConnections' - Information about the VPC endpoint connections.
 --
 -- 'httpStatus', 'describeVpcEndpointConnectionsResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointConnectionsResponse ::
@@ -304,7 +306,7 @@ newDescribeVpcEndpointConnectionsResponse
 describeVpcEndpointConnectionsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointConnectionsResponse (Prelude.Maybe Prelude.Text)
 describeVpcEndpointConnectionsResponse_nextToken = Lens.lens (\DescribeVpcEndpointConnectionsResponse' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnectionsResponse' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnectionsResponse)
 
--- | Information about one or more VPC endpoint connections.
+-- | Information about the VPC endpoint connections.
 describeVpcEndpointConnectionsResponse_vpcEndpointConnections :: Lens.Lens' DescribeVpcEndpointConnectionsResponse (Prelude.Maybe [VpcEndpointConnection])
 describeVpcEndpointConnectionsResponse_vpcEndpointConnections = Lens.lens (\DescribeVpcEndpointConnectionsResponse' {vpcEndpointConnections} -> vpcEndpointConnections) (\s@DescribeVpcEndpointConnectionsResponse' {} a -> s {vpcEndpointConnections = a} :: DescribeVpcEndpointConnectionsResponse) Prelude.. Lens.mapping Lens.coerced
 

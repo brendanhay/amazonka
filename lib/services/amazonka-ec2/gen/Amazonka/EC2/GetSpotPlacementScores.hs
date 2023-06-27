@@ -91,12 +91,13 @@ data GetSpotPlacementScores = GetSpotPlacementScores'
     -- If you specify @InstanceTypes@, you can\'t specify
     -- @InstanceRequirementsWithMetadata@.
     instanceTypes :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and  1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with  the returned @NextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next set of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Regions used to narrow down the list of Regions to be scored. Enter
     -- the Region code, for example, @us-east-1@.
@@ -146,12 +147,13 @@ data GetSpotPlacementScores = GetSpotPlacementScores'
 -- If you specify @InstanceTypes@, you can\'t specify
 -- @InstanceRequirementsWithMetadata@.
 --
--- 'maxResults', 'getSpotPlacementScores_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and  1000. The default value is 1000. To retrieve the
--- remaining results, make another call with  the returned @NextToken@
--- value.
+-- 'maxResults', 'getSpotPlacementScores_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'getSpotPlacementScores_nextToken' - The token for the next set of results.
+-- 'nextToken', 'getSpotPlacementScores_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'regionNames', 'getSpotPlacementScores_regionNames' - The Regions used to narrow down the list of Regions to be scored. Enter
 -- the Region code, for example, @us-east-1@.
@@ -212,14 +214,15 @@ getSpotPlacementScores_instanceRequirementsWithMetadata = Lens.lens (\GetSpotPla
 getSpotPlacementScores_instanceTypes :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe [Prelude.Text])
 getSpotPlacementScores_instanceTypes = Lens.lens (\GetSpotPlacementScores' {instanceTypes} -> instanceTypes) (\s@GetSpotPlacementScores' {} a -> s {instanceTypes = a} :: GetSpotPlacementScores) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and  1000. The default value is 1000. To retrieve the
--- remaining results, make another call with  the returned @NextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 getSpotPlacementScores_maxResults :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Natural)
 getSpotPlacementScores_maxResults = Lens.lens (\GetSpotPlacementScores' {maxResults} -> maxResults) (\s@GetSpotPlacementScores' {} a -> s {maxResults = a} :: GetSpotPlacementScores)
 
--- | The token for the next set of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 getSpotPlacementScores_nextToken :: Lens.Lens' GetSpotPlacementScores (Prelude.Maybe Prelude.Text)
 getSpotPlacementScores_nextToken = Lens.lens (\GetSpotPlacementScores' {nextToken} -> nextToken) (\s@GetSpotPlacementScores' {} a -> s {nextToken = a} :: GetSpotPlacementScores)
 
@@ -252,22 +255,22 @@ instance Core.AWSPager GetSpotPlacementScores where
     | Core.stop
         ( rs
             Lens.^? getSpotPlacementScoresResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getSpotPlacementScoresResponse_spotPlacementScores
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getSpotPlacementScores_nextToken
           Lens..~ rs
           Lens.^? getSpotPlacementScoresResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSpotPlacementScores where
   type
@@ -280,7 +283,8 @@ instance Core.AWSRequest GetSpotPlacementScores where
       ( \s h x ->
           GetSpotPlacementScoresResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "spotPlacementScoreSet"
+            Prelude.<*> ( x
+                            Data..@? "spotPlacementScoreSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -289,7 +293,8 @@ instance Core.AWSRequest GetSpotPlacementScores where
 
 instance Prelude.Hashable GetSpotPlacementScores where
   hashWithSalt _salt GetSpotPlacementScores' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceRequirementsWithMetadata
       `Prelude.hashWithSalt` instanceTypes
       `Prelude.hashWithSalt` maxResults
@@ -346,7 +351,8 @@ instance Data.ToQuery GetSpotPlacementScores where
 
 -- | /See:/ 'newGetSpotPlacementScoresResponse' smart constructor.
 data GetSpotPlacementScoresResponse = GetSpotPlacementScoresResponse'
-  { -- | The token for the next set of results.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The Spot placement score for the top 10 Regions or Availability Zones,
     -- scored on a scale from 1 to 10. Each score  reflects how likely it is
@@ -380,7 +386,8 @@ data GetSpotPlacementScoresResponse = GetSpotPlacementScoresResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getSpotPlacementScoresResponse_nextToken' - The token for the next set of results.
+-- 'nextToken', 'getSpotPlacementScoresResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'spotPlacementScores', 'getSpotPlacementScoresResponse_spotPlacementScores' - The Spot placement score for the top 10 Regions or Availability Zones,
 -- scored on a scale from 1 to 10. Each score  reflects how likely it is
@@ -414,7 +421,8 @@ newGetSpotPlacementScoresResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token for the next set of results.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 getSpotPlacementScoresResponse_nextToken :: Lens.Lens' GetSpotPlacementScoresResponse (Prelude.Maybe Prelude.Text)
 getSpotPlacementScoresResponse_nextToken = Lens.lens (\GetSpotPlacementScoresResponse' {nextToken} -> nextToken) (\s@GetSpotPlacementScoresResponse' {} a -> s {nextToken = a} :: GetSpotPlacementScoresResponse)
 

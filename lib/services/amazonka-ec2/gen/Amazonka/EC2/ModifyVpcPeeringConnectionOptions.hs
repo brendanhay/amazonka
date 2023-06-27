@@ -43,15 +43,14 @@
 -- enable DNS resolution for queries from the local VPC. This ensures that
 -- queries from the local VPC resolve to private IP addresses in the peer
 -- VPC. This option is not available if the peered VPCs are in different
--- different Amazon Web Services accounts or different Regions. For peered
--- VPCs in different Amazon Web Services accounts, each Amazon Web Services
--- account owner must initiate a separate request to modify the peering
--- connection options. For inter-region peering connections, you must use
--- the Region for the requester VPC to modify the requester VPC peering
--- options and the Region for the accepter VPC to modify the accepter VPC
--- peering options. To verify which VPCs are the accepter and the requester
--- for a VPC peering connection, use the DescribeVpcPeeringConnections
--- command.
+-- Amazon Web Services accounts or different Regions. For peered VPCs in
+-- different Amazon Web Services accounts, each Amazon Web Services account
+-- owner must initiate a separate request to modify the peering connection
+-- options. For inter-region peering connections, you must use the Region
+-- for the requester VPC to modify the requester VPC peering options and
+-- the Region for the accepter VPC to modify the accepter VPC peering
+-- options. To verify which VPCs are the accepter and the requester for a
+-- VPC peering connection, use the DescribeVpcPeeringConnections command.
 module Amazonka.EC2.ModifyVpcPeeringConnectionOptions
   ( -- * Creating a Request
     ModifyVpcPeeringConnectionOptions (..),
@@ -165,8 +164,8 @@ instance
       ( \s h x ->
           ModifyVpcPeeringConnectionOptionsResponse'
             Prelude.<$> (x Data..@? "accepterPeeringConnectionOptions")
-              Prelude.<*> (x Data..@? "requesterPeeringConnectionOptions")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "requesterPeeringConnectionOptions")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

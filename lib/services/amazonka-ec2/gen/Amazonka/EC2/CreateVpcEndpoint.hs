@@ -65,9 +65,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Contains the parameters for CreateVpcEndpoint.
---
--- /See:/ 'newCreateVpcEndpoint' smart constructor.
+-- | /See:/ 'newCreateVpcEndpoint' smart constructor.
 data CreateVpcEndpoint = CreateVpcEndpoint'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
@@ -102,14 +100,15 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
     --
     -- Default: @true@
     privateDnsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | (Gateway endpoint) One or more route table IDs.
+    -- | (Gateway endpoint) The route table IDs.
     routeTableIds :: Prelude.Maybe [Prelude.Text],
-    -- | (Interface endpoint) The ID of one or more security groups to associate
-    -- with the endpoint network interface.
+    -- | (Interface endpoint) The IDs of the security groups to associate with
+    -- the endpoint network interface. If this parameter is not specified, we
+    -- use the default security group for the VPC.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
-    -- subnets in which to create an endpoint network interface. For a Gateway
-    -- Load Balancer endpoint, you can specify one subnet only.
+    -- | (Interface and Gateway Load Balancer endpoints) The IDs of the subnets
+    -- in which to create an endpoint network interface. For a Gateway Load
+    -- Balancer endpoint, you can specify only one subnet.
     subnetIds :: Prelude.Maybe [Prelude.Text],
     -- | The tags to associate with the endpoint.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
@@ -117,11 +116,9 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
     --
     -- Default: Gateway
     vpcEndpointType :: Prelude.Maybe VpcEndpointType,
-    -- | The ID of the VPC in which the endpoint will be used.
+    -- | The ID of the VPC for the endpoint.
     vpcId :: Prelude.Text,
-    -- | The service name. To get a list of available services, use the
-    -- DescribeVpcEndpointServices request, or get the name from the service
-    -- provider.
+    -- | The service name.
     serviceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -167,14 +164,15 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
 --
 -- Default: @true@
 --
--- 'routeTableIds', 'createVpcEndpoint_routeTableIds' - (Gateway endpoint) One or more route table IDs.
+-- 'routeTableIds', 'createVpcEndpoint_routeTableIds' - (Gateway endpoint) The route table IDs.
 --
--- 'securityGroupIds', 'createVpcEndpoint_securityGroupIds' - (Interface endpoint) The ID of one or more security groups to associate
--- with the endpoint network interface.
+-- 'securityGroupIds', 'createVpcEndpoint_securityGroupIds' - (Interface endpoint) The IDs of the security groups to associate with
+-- the endpoint network interface. If this parameter is not specified, we
+-- use the default security group for the VPC.
 --
--- 'subnetIds', 'createVpcEndpoint_subnetIds' - (Interface and Gateway Load Balancer endpoints) The ID of one or more
--- subnets in which to create an endpoint network interface. For a Gateway
--- Load Balancer endpoint, you can specify one subnet only.
+-- 'subnetIds', 'createVpcEndpoint_subnetIds' - (Interface and Gateway Load Balancer endpoints) The IDs of the subnets
+-- in which to create an endpoint network interface. For a Gateway Load
+-- Balancer endpoint, you can specify only one subnet.
 --
 -- 'tagSpecifications', 'createVpcEndpoint_tagSpecifications' - The tags to associate with the endpoint.
 --
@@ -182,11 +180,9 @@ data CreateVpcEndpoint = CreateVpcEndpoint'
 --
 -- Default: Gateway
 --
--- 'vpcId', 'createVpcEndpoint_vpcId' - The ID of the VPC in which the endpoint will be used.
+-- 'vpcId', 'createVpcEndpoint_vpcId' - The ID of the VPC for the endpoint.
 --
--- 'serviceName', 'createVpcEndpoint_serviceName' - The service name. To get a list of available services, use the
--- DescribeVpcEndpointServices request, or get the name from the service
--- provider.
+-- 'serviceName', 'createVpcEndpoint_serviceName' - The service name.
 newCreateVpcEndpoint ::
   -- | 'vpcId'
   Prelude.Text ->
@@ -255,18 +251,19 @@ createVpcEndpoint_policyDocument = Lens.lens (\CreateVpcEndpoint' {policyDocumen
 createVpcEndpoint_privateDnsEnabled :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe Prelude.Bool)
 createVpcEndpoint_privateDnsEnabled = Lens.lens (\CreateVpcEndpoint' {privateDnsEnabled} -> privateDnsEnabled) (\s@CreateVpcEndpoint' {} a -> s {privateDnsEnabled = a} :: CreateVpcEndpoint)
 
--- | (Gateway endpoint) One or more route table IDs.
+-- | (Gateway endpoint) The route table IDs.
 createVpcEndpoint_routeTableIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
 createVpcEndpoint_routeTableIds = Lens.lens (\CreateVpcEndpoint' {routeTableIds} -> routeTableIds) (\s@CreateVpcEndpoint' {} a -> s {routeTableIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | (Interface endpoint) The ID of one or more security groups to associate
--- with the endpoint network interface.
+-- | (Interface endpoint) The IDs of the security groups to associate with
+-- the endpoint network interface. If this parameter is not specified, we
+-- use the default security group for the VPC.
 createVpcEndpoint_securityGroupIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
 createVpcEndpoint_securityGroupIds = Lens.lens (\CreateVpcEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateVpcEndpoint' {} a -> s {securityGroupIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | (Interface and Gateway Load Balancer endpoints) The ID of one or more
--- subnets in which to create an endpoint network interface. For a Gateway
--- Load Balancer endpoint, you can specify one subnet only.
+-- | (Interface and Gateway Load Balancer endpoints) The IDs of the subnets
+-- in which to create an endpoint network interface. For a Gateway Load
+-- Balancer endpoint, you can specify only one subnet.
 createVpcEndpoint_subnetIds :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe [Prelude.Text])
 createVpcEndpoint_subnetIds = Lens.lens (\CreateVpcEndpoint' {subnetIds} -> subnetIds) (\s@CreateVpcEndpoint' {} a -> s {subnetIds = a} :: CreateVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -280,13 +277,11 @@ createVpcEndpoint_tagSpecifications = Lens.lens (\CreateVpcEndpoint' {tagSpecifi
 createVpcEndpoint_vpcEndpointType :: Lens.Lens' CreateVpcEndpoint (Prelude.Maybe VpcEndpointType)
 createVpcEndpoint_vpcEndpointType = Lens.lens (\CreateVpcEndpoint' {vpcEndpointType} -> vpcEndpointType) (\s@CreateVpcEndpoint' {} a -> s {vpcEndpointType = a} :: CreateVpcEndpoint)
 
--- | The ID of the VPC in which the endpoint will be used.
+-- | The ID of the VPC for the endpoint.
 createVpcEndpoint_vpcId :: Lens.Lens' CreateVpcEndpoint Prelude.Text
 createVpcEndpoint_vpcId = Lens.lens (\CreateVpcEndpoint' {vpcId} -> vpcId) (\s@CreateVpcEndpoint' {} a -> s {vpcId = a} :: CreateVpcEndpoint)
 
--- | The service name. To get a list of available services, use the
--- DescribeVpcEndpointServices request, or get the name from the service
--- provider.
+-- | The service name.
 createVpcEndpoint_serviceName :: Lens.Lens' CreateVpcEndpoint Prelude.Text
 createVpcEndpoint_serviceName = Lens.lens (\CreateVpcEndpoint' {serviceName} -> serviceName) (\s@CreateVpcEndpoint' {} a -> s {serviceName = a} :: CreateVpcEndpoint)
 
@@ -307,7 +302,8 @@ instance Core.AWSRequest CreateVpcEndpoint where
 
 instance Prelude.Hashable CreateVpcEndpoint where
   hashWithSalt _salt CreateVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dnsOptions
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipAddressType
@@ -375,9 +371,7 @@ instance Data.ToQuery CreateVpcEndpoint where
         "ServiceName" Data.=: serviceName
       ]
 
--- | Contains the output of CreateVpcEndpoint.
---
--- /See:/ 'newCreateVpcEndpointResponse' smart constructor.
+-- | /See:/ 'newCreateVpcEndpointResponse' smart constructor.
 data CreateVpcEndpointResponse = CreateVpcEndpointResponse'
   { -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.

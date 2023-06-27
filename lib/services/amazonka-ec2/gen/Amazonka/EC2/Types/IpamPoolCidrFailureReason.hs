@@ -72,7 +72,8 @@ instance Data.FromXML IpamPoolCidrFailureReason where
 
 instance Prelude.Hashable IpamPoolCidrFailureReason where
   hashWithSalt _salt IpamPoolCidrFailureReason' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData IpamPoolCidrFailureReason where

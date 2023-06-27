@@ -150,7 +150,8 @@ instance Data.FromXML NetworkInterfaceAttachment where
 
 instance Prelude.Hashable NetworkInterfaceAttachment where
   hashWithSalt _salt NetworkInterfaceAttachment' {..} =
-    _salt `Prelude.hashWithSalt` attachTime
+    _salt
+      `Prelude.hashWithSalt` attachTime
       `Prelude.hashWithSalt` attachmentId
       `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` deviceIndex

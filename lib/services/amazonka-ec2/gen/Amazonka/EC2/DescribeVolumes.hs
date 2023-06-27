@@ -23,12 +23,9 @@
 -- Describes the specified EBS volumes or all of your EBS volumes.
 --
 -- If you are describing a long list of volumes, we recommend that you
--- paginate the output to make the list more manageable. The @MaxResults@
--- parameter sets the maximum number of results returned in a single page.
--- If the list of results exceeds your @MaxResults@ value, then that number
--- of results is returned along with a @NextToken@ value that can be passed
--- to a subsequent @DescribeVolumes@ request to retrieve the remaining
--- results.
+-- paginate the output to make the list more manageable. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
 -- For more information about EBS volumes, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS volumes>
@@ -127,22 +124,15 @@ data DescribeVolumes = DescribeVolumes'
     -- -   @volume-type@ - The Amazon EBS volume type (@gp2@ | @gp3@ | @io1@ |
     --     @io2@ | @st1@ | @sc1@| @standard@)
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of volume results returned by @DescribeVolumes@ in
-    -- paginated output. When this parameter is used, @DescribeVolumes@ only
-    -- returns @MaxResults@ results in a single page along with a @NextToken@
-    -- response element. The remaining results of the initial request can be
-    -- seen by sending another @DescribeVolumes@ request with the returned
-    -- @NextToken@ value. This value can be between 5 and 500; if @MaxResults@
-    -- is given a value larger than 500, only 500 results are returned. If this
-    -- parameter is not used, then @DescribeVolumes@ returns all results. You
-    -- cannot specify this parameter and the volume IDs parameter in the same
-    -- request.
+    -- | The maximum number of volumes to return for this request. This value can
+    -- be between 5 and 500; if you specify a value larger than 500, only 500
+    -- items are returned. If this parameter is not used, then all items are
+    -- returned. You cannot specify this parameter and the volume IDs parameter
+    -- in the same request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The @NextToken@ value returned from a previous paginated
-    -- @DescribeVolumes@ request where @MaxResults@ was used and the results
-    -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @NextToken@ value. This value
-    -- is @null@ when there are no more results to return.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned from the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The volume IDs.
     volumeIds :: Prelude.Maybe [Prelude.Text]
@@ -216,22 +206,15 @@ data DescribeVolumes = DescribeVolumes'
 -- -   @volume-type@ - The Amazon EBS volume type (@gp2@ | @gp3@ | @io1@ |
 --     @io2@ | @st1@ | @sc1@| @standard@)
 --
--- 'maxResults', 'describeVolumes_maxResults' - The maximum number of volume results returned by @DescribeVolumes@ in
--- paginated output. When this parameter is used, @DescribeVolumes@ only
--- returns @MaxResults@ results in a single page along with a @NextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @DescribeVolumes@ request with the returned
--- @NextToken@ value. This value can be between 5 and 500; if @MaxResults@
--- is given a value larger than 500, only 500 results are returned. If this
--- parameter is not used, then @DescribeVolumes@ returns all results. You
--- cannot specify this parameter and the volume IDs parameter in the same
--- request.
+-- 'maxResults', 'describeVolumes_maxResults' - The maximum number of volumes to return for this request. This value can
+-- be between 5 and 500; if you specify a value larger than 500, only 500
+-- items are returned. If this parameter is not used, then all items are
+-- returned. You cannot specify this parameter and the volume IDs parameter
+-- in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeVolumes_nextToken' - The @NextToken@ value returned from a previous paginated
--- @DescribeVolumes@ request where @MaxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @NextToken@ value. This value
--- is @null@ when there are no more results to return.
+-- 'nextToken', 'describeVolumes_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned from the previous request.
 --
 -- 'volumeIds', 'describeVolumes_volumeIds' - The volume IDs.
 newDescribeVolumes ::
@@ -308,24 +291,17 @@ describeVolumes_dryRun = Lens.lens (\DescribeVolumes' {dryRun} -> dryRun) (\s@De
 describeVolumes_filters :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Filter])
 describeVolumes_filters = Lens.lens (\DescribeVolumes' {filters} -> filters) (\s@DescribeVolumes' {} a -> s {filters = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of volume results returned by @DescribeVolumes@ in
--- paginated output. When this parameter is used, @DescribeVolumes@ only
--- returns @MaxResults@ results in a single page along with a @NextToken@
--- response element. The remaining results of the initial request can be
--- seen by sending another @DescribeVolumes@ request with the returned
--- @NextToken@ value. This value can be between 5 and 500; if @MaxResults@
--- is given a value larger than 500, only 500 results are returned. If this
--- parameter is not used, then @DescribeVolumes@ returns all results. You
--- cannot specify this parameter and the volume IDs parameter in the same
--- request.
+-- | The maximum number of volumes to return for this request. This value can
+-- be between 5 and 500; if you specify a value larger than 500, only 500
+-- items are returned. If this parameter is not used, then all items are
+-- returned. You cannot specify this parameter and the volume IDs parameter
+-- in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeVolumes_maxResults :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Int)
 describeVolumes_maxResults = Lens.lens (\DescribeVolumes' {maxResults} -> maxResults) (\s@DescribeVolumes' {} a -> s {maxResults = a} :: DescribeVolumes)
 
--- | The @NextToken@ value returned from a previous paginated
--- @DescribeVolumes@ request where @MaxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @NextToken@ value. This value
--- is @null@ when there are no more results to return.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned from the previous request.
 describeVolumes_nextToken :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
 describeVolumes_nextToken = Lens.lens (\DescribeVolumes' {nextToken} -> nextToken) (\s@DescribeVolumes' {} a -> s {nextToken = a} :: DescribeVolumes)
 
@@ -338,21 +314,22 @@ instance Core.AWSPager DescribeVolumes where
     | Core.stop
         ( rs
             Lens.^? describeVolumesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeVolumesResponse_volumes Prelude.. Lens._Just
+            Lens.^? describeVolumesResponse_volumes
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVolumes_nextToken
           Lens..~ rs
           Lens.^? describeVolumesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVolumes where
   type
@@ -365,7 +342,9 @@ instance Core.AWSRequest DescribeVolumes where
       ( \s h x ->
           DescribeVolumesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "volumeSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "volumeSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -373,7 +352,8 @@ instance Core.AWSRequest DescribeVolumes where
 
 instance Prelude.Hashable DescribeVolumes where
   hashWithSalt _salt DescribeVolumes' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -411,10 +391,8 @@ instance Data.ToQuery DescribeVolumes where
 
 -- | /See:/ 'newDescribeVolumesResponse' smart constructor.
 data DescribeVolumesResponse = DescribeVolumesResponse'
-  { -- | The @NextToken@ value to include in a future @DescribeVolumes@ request.
-    -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
-    -- this value can be used to retrieve the next page of results. This value
-    -- is @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the volumes.
     volumes :: Prelude.Maybe [Volume],
@@ -431,10 +409,8 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeVolumesResponse_nextToken' - The @NextToken@ value to include in a future @DescribeVolumes@ request.
--- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
--- this value can be used to retrieve the next page of results. This value
--- is @null@ when there are no more results to return.
+-- 'nextToken', 'describeVolumesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'volumes', 'describeVolumesResponse_volumes' - Information about the volumes.
 --
@@ -451,10 +427,8 @@ newDescribeVolumesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The @NextToken@ value to include in a future @DescribeVolumes@ request.
--- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
--- this value can be used to retrieve the next page of results. This value
--- is @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeVolumesResponse_nextToken :: Lens.Lens' DescribeVolumesResponse (Prelude.Maybe Prelude.Text)
 describeVolumesResponse_nextToken = Lens.lens (\DescribeVolumesResponse' {nextToken} -> nextToken) (\s@DescribeVolumesResponse' {} a -> s {nextToken = a} :: DescribeVolumesResponse)
 

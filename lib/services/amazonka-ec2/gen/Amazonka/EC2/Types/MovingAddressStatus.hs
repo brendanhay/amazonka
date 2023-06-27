@@ -26,17 +26,13 @@ import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.MoveStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the status of a moving Elastic IP address.
+-- | This action is deprecated.
 --
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- Describes the status of a moving Elastic IP address.
 --
 -- /See:/ 'newMovingAddressStatus' smart constructor.
 data MovingAddressStatus = MovingAddressStatus'
-  { -- | The status of the Elastic IP address that\'s being moved to the EC2-VPC
-    -- platform, or restored to the EC2-Classic platform.
+  { -- | The status of the Elastic IP address that\'s being moved or restored.
     moveStatus :: Prelude.Maybe MoveStatus,
     -- | The Elastic IP address.
     publicIp :: Prelude.Maybe Prelude.Text
@@ -51,8 +47,7 @@ data MovingAddressStatus = MovingAddressStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'moveStatus', 'movingAddressStatus_moveStatus' - The status of the Elastic IP address that\'s being moved to the EC2-VPC
--- platform, or restored to the EC2-Classic platform.
+-- 'moveStatus', 'movingAddressStatus_moveStatus' - The status of the Elastic IP address that\'s being moved or restored.
 --
 -- 'publicIp', 'movingAddressStatus_publicIp' - The Elastic IP address.
 newMovingAddressStatus ::
@@ -63,8 +58,7 @@ newMovingAddressStatus =
       publicIp = Prelude.Nothing
     }
 
--- | The status of the Elastic IP address that\'s being moved to the EC2-VPC
--- platform, or restored to the EC2-Classic platform.
+-- | The status of the Elastic IP address that\'s being moved or restored.
 movingAddressStatus_moveStatus :: Lens.Lens' MovingAddressStatus (Prelude.Maybe MoveStatus)
 movingAddressStatus_moveStatus = Lens.lens (\MovingAddressStatus' {moveStatus} -> moveStatus) (\s@MovingAddressStatus' {} a -> s {moveStatus = a} :: MovingAddressStatus)
 
@@ -80,7 +74,8 @@ instance Data.FromXML MovingAddressStatus where
 
 instance Prelude.Hashable MovingAddressStatus where
   hashWithSalt _salt MovingAddressStatus' {..} =
-    _salt `Prelude.hashWithSalt` moveStatus
+    _salt
+      `Prelude.hashWithSalt` moveStatus
       `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData MovingAddressStatus where

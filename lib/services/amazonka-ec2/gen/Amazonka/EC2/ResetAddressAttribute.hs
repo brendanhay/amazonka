@@ -124,7 +124,8 @@ instance Core.AWSRequest ResetAddressAttribute where
 
 instance Prelude.Hashable ResetAddressAttribute where
   hashWithSalt _salt ResetAddressAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` attribute
 

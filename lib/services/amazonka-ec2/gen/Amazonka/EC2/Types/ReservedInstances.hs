@@ -238,7 +238,8 @@ instance Data.FromXML ReservedInstances where
       Prelude.<*> (x Data..@? "offeringClass")
       Prelude.<*> (x Data..@? "offeringType")
       Prelude.<*> (x Data..@? "productDescription")
-      Prelude.<*> ( x Data..@? "recurringCharges"
+      Prelude.<*> ( x
+                      Data..@? "recurringCharges"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -246,14 +247,17 @@ instance Data.FromXML ReservedInstances where
       Prelude.<*> (x Data..@? "scope")
       Prelude.<*> (x Data..@? "start")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "usagePrice")
 
 instance Prelude.Hashable ReservedInstances where
   hashWithSalt _salt ReservedInstances' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` end

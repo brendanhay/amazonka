@@ -91,7 +91,8 @@ instance Data.FromXML PeeringTgwInfo where
 
 instance Prelude.Hashable PeeringTgwInfo where
   hashWithSalt _salt PeeringTgwInfo' {..} =
-    _salt `Prelude.hashWithSalt` coreNetworkId
+    _salt
+      `Prelude.hashWithSalt` coreNetworkId
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` transitGatewayId

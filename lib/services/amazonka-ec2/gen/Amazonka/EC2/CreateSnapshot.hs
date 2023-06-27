@@ -45,8 +45,9 @@
 -- remount the volume to ensure a consistent and complete snapshot. You may
 -- remount and use your volume while the snapshot status is @pending@.
 --
--- To create a snapshot for Amazon EBS volumes that serve as root devices,
--- you should stop the instance before taking the snapshot.
+-- When you create a snapshot for an EBS volume that serves as a root
+-- device, we recommend that you stop the instance before taking the
+-- snapshot.
 --
 -- Snapshots that are taken from encrypted volumes are automatically
 -- encrypted. Volumes that are created from encrypted snapshots are also
@@ -238,7 +239,8 @@ instance Core.AWSRequest CreateSnapshot where
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` tagSpecifications

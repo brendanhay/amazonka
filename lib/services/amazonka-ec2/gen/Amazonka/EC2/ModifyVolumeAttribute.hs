@@ -123,7 +123,8 @@ instance Core.AWSRequest ModifyVolumeAttribute where
 
 instance Prelude.Hashable ModifyVolumeAttribute where
   hashWithSalt _salt ModifyVolumeAttribute' {..} =
-    _salt `Prelude.hashWithSalt` autoEnableIO
+    _salt
+      `Prelude.hashWithSalt` autoEnableIO
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` volumeId
 

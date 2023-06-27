@@ -29,6 +29,8 @@ import Amazonka.EC2.Types.AnalysisLoadBalancerListener
 import Amazonka.EC2.Types.AnalysisLoadBalancerTarget
 import Amazonka.EC2.Types.AnalysisRouteTableRoute
 import Amazonka.EC2.Types.AnalysisSecurityGroupRule
+import Amazonka.EC2.Types.FirewallStatefulRule
+import Amazonka.EC2.Types.FirewallStatelessRule
 import Amazonka.EC2.Types.PortRange
 import Amazonka.EC2.Types.TransitGatewayRouteTableRoute
 import qualified Amazonka.Prelude as Prelude
@@ -77,6 +79,10 @@ data Explanation = Explanation'
     elasticLoadBalancerListener :: Prelude.Maybe AnalysisComponent,
     -- | The explanation code.
     explanationCode :: Prelude.Maybe Prelude.Text,
+    -- | The Network Firewall stateful rule.
+    firewallStatefulRule :: Prelude.Maybe FirewallStatefulRule,
+    -- | The Network Firewall stateless rule.
+    firewallStatelessRule :: Prelude.Maybe FirewallStatelessRule,
     -- | The route table.
     ingressRouteTable :: Prelude.Maybe AnalysisComponent,
     -- | The internet gateway.
@@ -194,6 +200,10 @@ data Explanation = Explanation'
 --
 -- 'explanationCode', 'explanation_explanationCode' - The explanation code.
 --
+-- 'firewallStatefulRule', 'explanation_firewallStatefulRule' - The Network Firewall stateful rule.
+--
+-- 'firewallStatelessRule', 'explanation_firewallStatelessRule' - The Network Firewall stateless rule.
+--
 -- 'ingressRouteTable', 'explanation_ingressRouteTable' - The route table.
 --
 -- 'internetGateway', 'explanation_internetGateway' - The internet gateway.
@@ -282,6 +292,8 @@ newExplanation =
       direction = Prelude.Nothing,
       elasticLoadBalancerListener = Prelude.Nothing,
       explanationCode = Prelude.Nothing,
+      firewallStatefulRule = Prelude.Nothing,
+      firewallStatelessRule = Prelude.Nothing,
       ingressRouteTable = Prelude.Nothing,
       internetGateway = Prelude.Nothing,
       loadBalancerArn = Prelude.Nothing,
@@ -389,6 +401,14 @@ explanation_elasticLoadBalancerListener = Lens.lens (\Explanation' {elasticLoadB
 -- | The explanation code.
 explanation_explanationCode :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Text)
 explanation_explanationCode = Lens.lens (\Explanation' {explanationCode} -> explanationCode) (\s@Explanation' {} a -> s {explanationCode = a} :: Explanation)
+
+-- | The Network Firewall stateful rule.
+explanation_firewallStatefulRule :: Lens.Lens' Explanation (Prelude.Maybe FirewallStatefulRule)
+explanation_firewallStatefulRule = Lens.lens (\Explanation' {firewallStatefulRule} -> firewallStatefulRule) (\s@Explanation' {} a -> s {firewallStatefulRule = a} :: Explanation)
+
+-- | The Network Firewall stateless rule.
+explanation_firewallStatelessRule :: Lens.Lens' Explanation (Prelude.Maybe FirewallStatelessRule)
+explanation_firewallStatelessRule = Lens.lens (\Explanation' {firewallStatelessRule} -> firewallStatelessRule) (\s@Explanation' {} a -> s {firewallStatelessRule = a} :: Explanation)
 
 -- | The route table.
 explanation_ingressRouteTable :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
@@ -532,15 +552,20 @@ instance Data.FromXML Explanation where
       Prelude.<$> (x Data..@? "acl")
       Prelude.<*> (x Data..@? "aclRule")
       Prelude.<*> (x Data..@? "address")
-      Prelude.<*> ( x Data..@? "addressSet" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> (x Data..@? "attachedTo")
-      Prelude.<*> ( x Data..@? "availabilityZoneSet"
+      Prelude.<*> ( x
+                      Data..@? "addressSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "cidrSet" Core..!@ Prelude.mempty
+      Prelude.<*> (x Data..@? "attachedTo")
+      Prelude.<*> ( x
+                      Data..@? "availabilityZoneSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "cidrSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "classicLoadBalancerListener")
@@ -553,13 +578,16 @@ instance Data.FromXML Explanation where
       Prelude.<*> (x Data..@? "direction")
       Prelude.<*> (x Data..@? "elasticLoadBalancerListener")
       Prelude.<*> (x Data..@? "explanationCode")
+      Prelude.<*> (x Data..@? "firewallStatefulRule")
+      Prelude.<*> (x Data..@? "firewallStatelessRule")
       Prelude.<*> (x Data..@? "ingressRouteTable")
       Prelude.<*> (x Data..@? "internetGateway")
       Prelude.<*> (x Data..@? "loadBalancerArn")
       Prelude.<*> (x Data..@? "loadBalancerListenerPort")
       Prelude.<*> (x Data..@? "loadBalancerTarget")
       Prelude.<*> (x Data..@? "loadBalancerTargetGroup")
-      Prelude.<*> ( x Data..@? "loadBalancerTargetGroupSet"
+      Prelude.<*> ( x
+                      Data..@? "loadBalancerTargetGroupSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -569,18 +597,23 @@ instance Data.FromXML Explanation where
       Prelude.<*> (x Data..@? "networkInterface")
       Prelude.<*> (x Data..@? "packetField")
       Prelude.<*> (x Data..@? "port")
-      Prelude.<*> ( x Data..@? "portRangeSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "portRangeSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "prefixList")
-      Prelude.<*> ( x Data..@? "protocolSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "protocolSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "routeTable")
       Prelude.<*> (x Data..@? "routeTableRoute")
       Prelude.<*> (x Data..@? "securityGroup")
       Prelude.<*> (x Data..@? "securityGroupRule")
-      Prelude.<*> ( x Data..@? "securityGroupSet"
+      Prelude.<*> ( x
+                      Data..@? "securityGroupSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -600,7 +633,8 @@ instance Data.FromXML Explanation where
 
 instance Prelude.Hashable Explanation where
   hashWithSalt _salt Explanation' {..} =
-    _salt `Prelude.hashWithSalt` acl
+    _salt
+      `Prelude.hashWithSalt` acl
       `Prelude.hashWithSalt` aclRule
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` addresses
@@ -617,6 +651,8 @@ instance Prelude.Hashable Explanation where
       `Prelude.hashWithSalt` direction
       `Prelude.hashWithSalt` elasticLoadBalancerListener
       `Prelude.hashWithSalt` explanationCode
+      `Prelude.hashWithSalt` firewallStatefulRule
+      `Prelude.hashWithSalt` firewallStatelessRule
       `Prelude.hashWithSalt` ingressRouteTable
       `Prelude.hashWithSalt` internetGateway
       `Prelude.hashWithSalt` loadBalancerArn
@@ -672,9 +708,13 @@ instance Prelude.NFData Explanation where
       `Prelude.seq` Prelude.rnf
         elasticLoadBalancerListener
       `Prelude.seq` Prelude.rnf explanationCode
+      `Prelude.seq` Prelude.rnf firewallStatefulRule
+      `Prelude.seq` Prelude.rnf
+        firewallStatelessRule
       `Prelude.seq` Prelude.rnf ingressRouteTable
       `Prelude.seq` Prelude.rnf internetGateway
-      `Prelude.seq` Prelude.rnf loadBalancerArn
+      `Prelude.seq` Prelude.rnf
+        loadBalancerArn
       `Prelude.seq` Prelude.rnf
         loadBalancerListenerPort
       `Prelude.seq` Prelude.rnf

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe details of existing Verified Access trust providers.
+-- Describes the specified Amazon Web Services Verified Access trust
+-- providers.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeVerifiedAccessTrustProviders
@@ -69,7 +70,7 @@ data DescribeVerifiedAccessTrustProviders = DescribeVerifiedAccessTrustProviders
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the Amazon Web Services Verified Access trust providers.
+    -- | The IDs of the Verified Access trust providers.
     verifiedAccessTrustProviderIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,7 +96,7 @@ data DescribeVerifiedAccessTrustProviders = DescribeVerifiedAccessTrustProviders
 --
 -- 'nextToken', 'describeVerifiedAccessTrustProviders_nextToken' - The token for the next page of results.
 --
--- 'verifiedAccessTrustProviderIds', 'describeVerifiedAccessTrustProviders_verifiedAccessTrustProviderIds' - The IDs of the Amazon Web Services Verified Access trust providers.
+-- 'verifiedAccessTrustProviderIds', 'describeVerifiedAccessTrustProviders_verifiedAccessTrustProviderIds' - The IDs of the Verified Access trust providers.
 newDescribeVerifiedAccessTrustProviders ::
   DescribeVerifiedAccessTrustProviders
 newDescribeVerifiedAccessTrustProviders =
@@ -130,7 +131,7 @@ describeVerifiedAccessTrustProviders_maxResults = Lens.lens (\DescribeVerifiedAc
 describeVerifiedAccessTrustProviders_nextToken :: Lens.Lens' DescribeVerifiedAccessTrustProviders (Prelude.Maybe Prelude.Text)
 describeVerifiedAccessTrustProviders_nextToken = Lens.lens (\DescribeVerifiedAccessTrustProviders' {nextToken} -> nextToken) (\s@DescribeVerifiedAccessTrustProviders' {} a -> s {nextToken = a} :: DescribeVerifiedAccessTrustProviders)
 
--- | The IDs of the Amazon Web Services Verified Access trust providers.
+-- | The IDs of the Verified Access trust providers.
 describeVerifiedAccessTrustProviders_verifiedAccessTrustProviderIds :: Lens.Lens' DescribeVerifiedAccessTrustProviders (Prelude.Maybe [Prelude.Text])
 describeVerifiedAccessTrustProviders_verifiedAccessTrustProviderIds = Lens.lens (\DescribeVerifiedAccessTrustProviders' {verifiedAccessTrustProviderIds} -> verifiedAccessTrustProviderIds) (\s@DescribeVerifiedAccessTrustProviders' {} a -> s {verifiedAccessTrustProviderIds = a} :: DescribeVerifiedAccessTrustProviders) Prelude.. Lens.mapping Lens.coerced
 
@@ -142,22 +143,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessTrustProvidersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessTrustProvidersResponse_verifiedAccessTrustProviders
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVerifiedAccessTrustProviders_nextToken
           Lens..~ rs
-            Lens.^? describeVerifiedAccessTrustProvidersResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeVerifiedAccessTrustProvidersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -173,11 +174,12 @@ instance
       ( \s h x ->
           DescribeVerifiedAccessTrustProvidersResponse'
             Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "verifiedAccessTrustProviderSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "verifiedAccessTrustProviderSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -187,7 +189,8 @@ instance
   hashWithSalt
     _salt
     DescribeVerifiedAccessTrustProviders' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -244,12 +247,12 @@ data DescribeVerifiedAccessTrustProvidersResponse = DescribeVerifiedAccessTrustP
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the Amazon Web Services Verified Access trust providers.
+    -- | The IDs of the Verified Access trust providers.
     verifiedAccessTrustProviders :: Prelude.Maybe [VerifiedAccessTrustProvider],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVerifiedAccessTrustProvidersResponse' with all optional fields omitted.
@@ -262,7 +265,7 @@ data DescribeVerifiedAccessTrustProvidersResponse = DescribeVerifiedAccessTrustP
 -- 'nextToken', 'describeVerifiedAccessTrustProvidersResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 --
--- 'verifiedAccessTrustProviders', 'describeVerifiedAccessTrustProvidersResponse_verifiedAccessTrustProviders' - The IDs of the Amazon Web Services Verified Access trust providers.
+-- 'verifiedAccessTrustProviders', 'describeVerifiedAccessTrustProvidersResponse_verifiedAccessTrustProviders' - The IDs of the Verified Access trust providers.
 --
 -- 'httpStatus', 'describeVerifiedAccessTrustProvidersResponse_httpStatus' - The response's http status code.
 newDescribeVerifiedAccessTrustProvidersResponse ::
@@ -284,7 +287,7 @@ newDescribeVerifiedAccessTrustProvidersResponse
 describeVerifiedAccessTrustProvidersResponse_nextToken :: Lens.Lens' DescribeVerifiedAccessTrustProvidersResponse (Prelude.Maybe Prelude.Text)
 describeVerifiedAccessTrustProvidersResponse_nextToken = Lens.lens (\DescribeVerifiedAccessTrustProvidersResponse' {nextToken} -> nextToken) (\s@DescribeVerifiedAccessTrustProvidersResponse' {} a -> s {nextToken = a} :: DescribeVerifiedAccessTrustProvidersResponse)
 
--- | The IDs of the Amazon Web Services Verified Access trust providers.
+-- | The IDs of the Verified Access trust providers.
 describeVerifiedAccessTrustProvidersResponse_verifiedAccessTrustProviders :: Lens.Lens' DescribeVerifiedAccessTrustProvidersResponse (Prelude.Maybe [VerifiedAccessTrustProvider])
 describeVerifiedAccessTrustProvidersResponse_verifiedAccessTrustProviders = Lens.lens (\DescribeVerifiedAccessTrustProvidersResponse' {verifiedAccessTrustProviders} -> verifiedAccessTrustProviders) (\s@DescribeVerifiedAccessTrustProvidersResponse' {} a -> s {verifiedAccessTrustProviders = a} :: DescribeVerifiedAccessTrustProvidersResponse) Prelude.. Lens.mapping Lens.coerced
 

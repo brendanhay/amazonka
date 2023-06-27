@@ -31,11 +31,6 @@
 -- Instances, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use Which is the best Spot request method to use?>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon EC2 User Guide for Linux Instances/.
 module Amazonka.EC2.RequestSpotInstances
   ( -- * Creating a Request
     RequestSpotInstances (..),
@@ -167,7 +162,7 @@ data RequestSpotInstances = RequestSpotInstances'
     --     from the date the request was created.
     validUntil :: Prelude.Maybe Data.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestSpotInstances' with all optional fields omitted.
@@ -408,7 +403,8 @@ instance Core.AWSRequest RequestSpotInstances where
     Response.receiveXML
       ( \s h x ->
           RequestSpotInstancesResponse'
-            Prelude.<$> ( x Data..@? "spotInstanceRequestSet"
+            Prelude.<$> ( x
+                            Data..@? "spotInstanceRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -417,7 +413,8 @@ instance Core.AWSRequest RequestSpotInstances where
 
 instance Prelude.Hashable RequestSpotInstances where
   hashWithSalt _salt RequestSpotInstances' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneGroup
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneGroup
       `Prelude.hashWithSalt` blockDurationMinutes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
@@ -484,12 +481,12 @@ instance Data.ToQuery RequestSpotInstances where
 --
 -- /See:/ 'newRequestSpotInstancesResponse' smart constructor.
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
-  { -- | One or more Spot Instance requests.
+  { -- | The Spot Instance requests.
     spotInstanceRequests :: Prelude.Maybe [SpotInstanceRequest],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestSpotInstancesResponse' with all optional fields omitted.
@@ -499,7 +496,7 @@ data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spotInstanceRequests', 'requestSpotInstancesResponse_spotInstanceRequests' - One or more Spot Instance requests.
+-- 'spotInstanceRequests', 'requestSpotInstancesResponse_spotInstanceRequests' - The Spot Instance requests.
 --
 -- 'httpStatus', 'requestSpotInstancesResponse_httpStatus' - The response's http status code.
 newRequestSpotInstancesResponse ::
@@ -513,7 +510,7 @@ newRequestSpotInstancesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | One or more Spot Instance requests.
+-- | The Spot Instance requests.
 requestSpotInstancesResponse_spotInstanceRequests :: Lens.Lens' RequestSpotInstancesResponse (Prelude.Maybe [SpotInstanceRequest])
 requestSpotInstancesResponse_spotInstanceRequests = Lens.lens (\RequestSpotInstancesResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@RequestSpotInstancesResponse' {} a -> s {spotInstanceRequests = a} :: RequestSpotInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 

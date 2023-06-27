@@ -31,7 +31,13 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDnsOptionsSpecification' smart constructor.
 data DnsOptionsSpecification = DnsOptionsSpecification'
   { -- | The DNS records created for the endpoint.
-    dnsRecordIpType :: Prelude.Maybe DnsRecordIpType
+    dnsRecordIpType :: Prelude.Maybe DnsRecordIpType,
+    -- | Indicates whether to enable private DNS only for inbound endpoints. This
+    -- option is available only for services that support both gateway and
+    -- interface endpoints. It routes traffic that originates from the VPC to
+    -- the gateway endpoint and traffic that originates from on-premises to the
+    -- interface endpoint.
+    privateDnsOnlyForInboundResolverEndpoint :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,11 +50,19 @@ data DnsOptionsSpecification = DnsOptionsSpecification'
 -- for backwards compatibility:
 --
 -- 'dnsRecordIpType', 'dnsOptionsSpecification_dnsRecordIpType' - The DNS records created for the endpoint.
+--
+-- 'privateDnsOnlyForInboundResolverEndpoint', 'dnsOptionsSpecification_privateDnsOnlyForInboundResolverEndpoint' - Indicates whether to enable private DNS only for inbound endpoints. This
+-- option is available only for services that support both gateway and
+-- interface endpoints. It routes traffic that originates from the VPC to
+-- the gateway endpoint and traffic that originates from on-premises to the
+-- interface endpoint.
 newDnsOptionsSpecification ::
   DnsOptionsSpecification
 newDnsOptionsSpecification =
   DnsOptionsSpecification'
     { dnsRecordIpType =
+        Prelude.Nothing,
+      privateDnsOnlyForInboundResolverEndpoint =
         Prelude.Nothing
     }
 
@@ -56,15 +70,29 @@ newDnsOptionsSpecification =
 dnsOptionsSpecification_dnsRecordIpType :: Lens.Lens' DnsOptionsSpecification (Prelude.Maybe DnsRecordIpType)
 dnsOptionsSpecification_dnsRecordIpType = Lens.lens (\DnsOptionsSpecification' {dnsRecordIpType} -> dnsRecordIpType) (\s@DnsOptionsSpecification' {} a -> s {dnsRecordIpType = a} :: DnsOptionsSpecification)
 
+-- | Indicates whether to enable private DNS only for inbound endpoints. This
+-- option is available only for services that support both gateway and
+-- interface endpoints. It routes traffic that originates from the VPC to
+-- the gateway endpoint and traffic that originates from on-premises to the
+-- interface endpoint.
+dnsOptionsSpecification_privateDnsOnlyForInboundResolverEndpoint :: Lens.Lens' DnsOptionsSpecification (Prelude.Maybe Prelude.Bool)
+dnsOptionsSpecification_privateDnsOnlyForInboundResolverEndpoint = Lens.lens (\DnsOptionsSpecification' {privateDnsOnlyForInboundResolverEndpoint} -> privateDnsOnlyForInboundResolverEndpoint) (\s@DnsOptionsSpecification' {} a -> s {privateDnsOnlyForInboundResolverEndpoint = a} :: DnsOptionsSpecification)
+
 instance Prelude.Hashable DnsOptionsSpecification where
   hashWithSalt _salt DnsOptionsSpecification' {..} =
-    _salt `Prelude.hashWithSalt` dnsRecordIpType
+    _salt
+      `Prelude.hashWithSalt` dnsRecordIpType
+      `Prelude.hashWithSalt` privateDnsOnlyForInboundResolverEndpoint
 
 instance Prelude.NFData DnsOptionsSpecification where
   rnf DnsOptionsSpecification' {..} =
     Prelude.rnf dnsRecordIpType
+      `Prelude.seq` Prelude.rnf privateDnsOnlyForInboundResolverEndpoint
 
 instance Data.ToQuery DnsOptionsSpecification where
   toQuery DnsOptionsSpecification' {..} =
     Prelude.mconcat
-      ["DnsRecordIpType" Data.=: dnsRecordIpType]
+      [ "DnsRecordIpType" Data.=: dnsRecordIpType,
+        "PrivateDnsOnlyForInboundResolverEndpoint"
+          Data.=: privateDnsOnlyForInboundResolverEndpoint
+      ]

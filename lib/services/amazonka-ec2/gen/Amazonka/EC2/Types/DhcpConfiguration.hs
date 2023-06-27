@@ -68,13 +68,16 @@ instance Data.FromXML DhcpConfiguration where
   parseXML x =
     DhcpConfiguration'
       Prelude.<$> (x Data..@? "key")
-      Prelude.<*> ( x Data..@? "valueSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "valueSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable DhcpConfiguration where
   hashWithSalt _salt DhcpConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DhcpConfiguration where

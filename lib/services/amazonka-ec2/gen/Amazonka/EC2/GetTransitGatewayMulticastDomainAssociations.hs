@@ -83,7 +83,7 @@ data GetTransitGatewayMulticastDomainAssociations = GetTransitGatewayMulticastDo
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text
+    transitGatewayMulticastDomainId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -122,17 +122,20 @@ data GetTransitGatewayMulticastDomainAssociations = GetTransitGatewayMulticastDo
 --
 -- 'transitGatewayMulticastDomainId', 'getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
 newGetTransitGatewayMulticastDomainAssociations ::
+  -- | 'transitGatewayMulticastDomainId'
+  Prelude.Text ->
   GetTransitGatewayMulticastDomainAssociations
-newGetTransitGatewayMulticastDomainAssociations =
-  GetTransitGatewayMulticastDomainAssociations'
-    { dryRun =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      transitGatewayMulticastDomainId =
-        Prelude.Nothing
-    }
+newGetTransitGatewayMulticastDomainAssociations
+  pTransitGatewayMulticastDomainId_ =
+    GetTransitGatewayMulticastDomainAssociations'
+      { dryRun =
+          Prelude.Nothing,
+        filters = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        transitGatewayMulticastDomainId =
+          pTransitGatewayMulticastDomainId_
+      }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -168,7 +171,7 @@ getTransitGatewayMulticastDomainAssociations_nextToken :: Lens.Lens' GetTransitG
 getTransitGatewayMulticastDomainAssociations_nextToken = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {nextToken} -> nextToken) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {nextToken = a} :: GetTransitGatewayMulticastDomainAssociations)
 
 -- | The ID of the transit gateway multicast domain.
-getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations (Prelude.Maybe Prelude.Text)
+getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId :: Lens.Lens' GetTransitGatewayMulticastDomainAssociations Prelude.Text
 getTransitGatewayMulticastDomainAssociations_transitGatewayMulticastDomainId = Lens.lens (\GetTransitGatewayMulticastDomainAssociations' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@GetTransitGatewayMulticastDomainAssociations' {} a -> s {transitGatewayMulticastDomainId = a} :: GetTransitGatewayMulticastDomainAssociations)
 
 instance
@@ -179,22 +182,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayMulticastDomainAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayMulticastDomainAssociationsResponse_multicastDomainAssociations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getTransitGatewayMulticastDomainAssociations_nextToken
           Lens..~ rs
-            Lens.^? getTransitGatewayMulticastDomainAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? getTransitGatewayMulticastDomainAssociationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -210,12 +213,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayMulticastDomainAssociationsResponse'
-            Prelude.<$> ( x Data..@? "multicastDomainAssociations"
+            Prelude.<$> ( x
+                            Data..@? "multicastDomainAssociations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -225,7 +229,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayMulticastDomainAssociations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

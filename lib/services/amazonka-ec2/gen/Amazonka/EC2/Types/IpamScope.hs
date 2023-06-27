@@ -47,7 +47,7 @@ data IpamScope = IpamScope'
     ipamArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region of the IPAM scope.
     ipamRegion :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the scope.
+    -- | The Amazon Resource Name (ARN) of the scope.
     ipamScopeArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the scope.
     ipamScopeId :: Prelude.Maybe Prelude.Text,
@@ -84,7 +84,7 @@ data IpamScope = IpamScope'
 --
 -- 'ipamRegion', 'ipamScope_ipamRegion' - The Amazon Web Services Region of the IPAM scope.
 --
--- 'ipamScopeArn', 'ipamScope_ipamScopeArn' - The ARN of the scope.
+-- 'ipamScopeArn', 'ipamScope_ipamScopeArn' - The Amazon Resource Name (ARN) of the scope.
 --
 -- 'ipamScopeId', 'ipamScope_ipamScopeId' - The ID of the scope.
 --
@@ -132,7 +132,7 @@ ipamScope_ipamArn = Lens.lens (\IpamScope' {ipamArn} -> ipamArn) (\s@IpamScope' 
 ipamScope_ipamRegion :: Lens.Lens' IpamScope (Prelude.Maybe Prelude.Text)
 ipamScope_ipamRegion = Lens.lens (\IpamScope' {ipamRegion} -> ipamRegion) (\s@IpamScope' {} a -> s {ipamRegion = a} :: IpamScope)
 
--- | The ARN of the scope.
+-- | The Amazon Resource Name (ARN) of the scope.
 ipamScope_ipamScopeArn :: Lens.Lens' IpamScope (Prelude.Maybe Prelude.Text)
 ipamScope_ipamScopeArn = Lens.lens (\IpamScope' {ipamScopeArn} -> ipamScopeArn) (\s@IpamScope' {} a -> s {ipamScopeArn = a} :: IpamScope)
 
@@ -181,13 +181,16 @@ instance Data.FromXML IpamScope where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "poolCount")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable IpamScope where
   hashWithSalt _salt IpamScope' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ipamArn
       `Prelude.hashWithSalt` ipamRegion
       `Prelude.hashWithSalt` ipamScopeArn

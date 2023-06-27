@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteVpc where
 
 instance Prelude.Hashable DeleteVpc where
   hashWithSalt _salt DeleteVpc' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData DeleteVpc where

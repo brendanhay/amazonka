@@ -236,7 +236,8 @@ instance Core.AWSRequest ModifyCapacityReservation where
 
 instance Prelude.Hashable ModifyCapacityReservation where
   hashWithSalt _salt ModifyCapacityReservation' {..} =
-    _salt `Prelude.hashWithSalt` accept
+    _salt
+      `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` additionalInfo
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` endDate

@@ -60,7 +60,7 @@ data DeleteVerifiedAccessTrustProvider = DeleteVerifiedAccessTrustProvider'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access trust provider.
+    -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProviderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data DeleteVerifiedAccessTrustProvider = DeleteVerifiedAccessTrustProvider'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessTrustProviderId', 'deleteVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProviderId', 'deleteVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Verified Access trust provider.
 newDeleteVerifiedAccessTrustProvider ::
   -- | 'verifiedAccessTrustProviderId'
   Prelude.Text ->
@@ -110,7 +110,7 @@ deleteVerifiedAccessTrustProvider_clientToken = Lens.lens (\DeleteVerifiedAccess
 deleteVerifiedAccessTrustProvider_dryRun :: Lens.Lens' DeleteVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Bool)
 deleteVerifiedAccessTrustProvider_dryRun = Lens.lens (\DeleteVerifiedAccessTrustProvider' {dryRun} -> dryRun) (\s@DeleteVerifiedAccessTrustProvider' {} a -> s {dryRun = a} :: DeleteVerifiedAccessTrustProvider)
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 deleteVerifiedAccessTrustProvider_verifiedAccessTrustProviderId :: Lens.Lens' DeleteVerifiedAccessTrustProvider Prelude.Text
 deleteVerifiedAccessTrustProvider_verifiedAccessTrustProviderId = Lens.lens (\DeleteVerifiedAccessTrustProvider' {verifiedAccessTrustProviderId} -> verifiedAccessTrustProviderId) (\s@DeleteVerifiedAccessTrustProvider' {} a -> s {verifiedAccessTrustProviderId = a} :: DeleteVerifiedAccessTrustProvider)
 
@@ -128,7 +128,7 @@ instance
       ( \s h x ->
           DeleteVerifiedAccessTrustProviderResponse'
             Prelude.<$> (x Data..@? "verifiedAccessTrustProvider")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     DeleteVerifiedAccessTrustProvider' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessTrustProviderId
 
@@ -183,12 +184,12 @@ instance
 
 -- | /See:/ 'newDeleteVerifiedAccessTrustProviderResponse' smart constructor.
 data DeleteVerifiedAccessTrustProviderResponse = DeleteVerifiedAccessTrustProviderResponse'
-  { -- | The ID of the Amazon Web Services Verified Access trust provider.
+  { -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProvider :: Prelude.Maybe VerifiedAccessTrustProvider,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteVerifiedAccessTrustProviderResponse' with all optional fields omitted.
@@ -198,7 +199,7 @@ data DeleteVerifiedAccessTrustProviderResponse = DeleteVerifiedAccessTrustProvid
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessTrustProvider', 'deleteVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProvider', 'deleteVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Verified Access trust provider.
 --
 -- 'httpStatus', 'deleteVerifiedAccessTrustProviderResponse_httpStatus' - The response's http status code.
 newDeleteVerifiedAccessTrustProviderResponse ::
@@ -213,7 +214,7 @@ newDeleteVerifiedAccessTrustProviderResponse
         httpStatus = pHttpStatus_
       }
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 deleteVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider :: Lens.Lens' DeleteVerifiedAccessTrustProviderResponse (Prelude.Maybe VerifiedAccessTrustProvider)
 deleteVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider = Lens.lens (\DeleteVerifiedAccessTrustProviderResponse' {verifiedAccessTrustProvider} -> verifiedAccessTrustProvider) (\s@DeleteVerifiedAccessTrustProviderResponse' {} a -> s {verifiedAccessTrustProvider = a} :: DeleteVerifiedAccessTrustProviderResponse)
 

@@ -49,8 +49,32 @@ data EbsBlockDevice = EbsBlockDevice'
     -- EBS encryption. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
     --
-    -- This parameter is not returned by
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html DescribeImageAttribute>.
+    -- This parameter is not returned by DescribeImageAttribute.
+    --
+    -- For CreateImage and RegisterImage, whether you can include this
+    -- parameter, and the allowed values differ depending on the type of block
+    -- device mapping you are creating.
+    --
+    -- -   If you are creating a block device mapping for a __new (empty)
+    --     volume__, you can include this parameter, and specify either @true@
+    --     for an encrypted volume, or @false@ for an unencrypted volume. If
+    --     you omit this parameter, it defaults to @false@ (unencrypted).
+    --
+    -- -   If you are creating a block device mapping from an __existing
+    --     encrypted or unencrypted snapshot__, you must omit this parameter.
+    --     If you include this parameter, the request will fail, regardless of
+    --     the value that you specify.
+    --
+    -- -   If you are creating a block device mapping from an __existing
+    --     unencrypted volume__, you can include this parameter, but you must
+    --     specify @false@. If you specify @true@, the request will fail. In
+    --     this case, we recommend that you omit the parameter.
+    --
+    -- -   If you are creating a block device mapping from an __existing
+    --     encrypted volume__, you can include this parameter, and specify
+    --     either @true@ or @false@. However, if you specify @false@, the
+    --     parameter is ignored and the block device mapping is always
+    --     encrypted. In this case, we recommend that you omit the parameter.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
     -- @io2@ volumes, this represents the number of IOPS that are provisioned
@@ -148,8 +172,32 @@ data EbsBlockDevice = EbsBlockDevice'
 -- EBS encryption. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
--- This parameter is not returned by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html DescribeImageAttribute>.
+-- This parameter is not returned by DescribeImageAttribute.
+--
+-- For CreateImage and RegisterImage, whether you can include this
+-- parameter, and the allowed values differ depending on the type of block
+-- device mapping you are creating.
+--
+-- -   If you are creating a block device mapping for a __new (empty)
+--     volume__, you can include this parameter, and specify either @true@
+--     for an encrypted volume, or @false@ for an unencrypted volume. If
+--     you omit this parameter, it defaults to @false@ (unencrypted).
+--
+-- -   If you are creating a block device mapping from an __existing
+--     encrypted or unencrypted snapshot__, you must omit this parameter.
+--     If you include this parameter, the request will fail, regardless of
+--     the value that you specify.
+--
+-- -   If you are creating a block device mapping from an __existing
+--     unencrypted volume__, you can include this parameter, but you must
+--     specify @false@. If you specify @true@, the request will fail. In
+--     this case, we recommend that you omit the parameter.
+--
+-- -   If you are creating a block device mapping from an __existing
+--     encrypted volume__, you can include this parameter, and specify
+--     either @true@ or @false@. However, if you specify @false@, the
+--     parameter is ignored and the block device mapping is always
+--     encrypted. In this case, we recommend that you omit the parameter.
 --
 -- 'iops', 'ebsBlockDevice_iops' - The number of I\/O operations per second (IOPS). For @gp3@, @io1@, and
 -- @io2@ volumes, this represents the number of IOPS that are provisioned
@@ -253,8 +301,32 @@ ebsBlockDevice_deleteOnTermination = Lens.lens (\EbsBlockDevice' {deleteOnTermin
 -- EBS encryption. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
--- This parameter is not returned by
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html DescribeImageAttribute>.
+-- This parameter is not returned by DescribeImageAttribute.
+--
+-- For CreateImage and RegisterImage, whether you can include this
+-- parameter, and the allowed values differ depending on the type of block
+-- device mapping you are creating.
+--
+-- -   If you are creating a block device mapping for a __new (empty)
+--     volume__, you can include this parameter, and specify either @true@
+--     for an encrypted volume, or @false@ for an unencrypted volume. If
+--     you omit this parameter, it defaults to @false@ (unencrypted).
+--
+-- -   If you are creating a block device mapping from an __existing
+--     encrypted or unencrypted snapshot__, you must omit this parameter.
+--     If you include this parameter, the request will fail, regardless of
+--     the value that you specify.
+--
+-- -   If you are creating a block device mapping from an __existing
+--     unencrypted volume__, you can include this parameter, but you must
+--     specify @false@. If you specify @true@, the request will fail. In
+--     this case, we recommend that you omit the parameter.
+--
+-- -   If you are creating a block device mapping from an __existing
+--     encrypted volume__, you can include this parameter, and specify
+--     either @true@ or @false@. However, if you specify @false@, the
+--     parameter is ignored and the block device mapping is always
+--     encrypted. In this case, we recommend that you omit the parameter.
 ebsBlockDevice_encrypted :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
 ebsBlockDevice_encrypted = Lens.lens (\EbsBlockDevice' {encrypted} -> encrypted) (\s@EbsBlockDevice' {} a -> s {encrypted = a} :: EbsBlockDevice)
 
@@ -353,7 +425,8 @@ instance Data.FromXML EbsBlockDevice where
 
 instance Prelude.Hashable EbsBlockDevice where
   hashWithSalt _salt EbsBlockDevice' {..} =
-    _salt `Prelude.hashWithSalt` deleteOnTermination
+    _salt
+      `Prelude.hashWithSalt` deleteOnTermination
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` kmsKeyId

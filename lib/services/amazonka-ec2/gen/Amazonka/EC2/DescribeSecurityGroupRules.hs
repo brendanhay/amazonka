@@ -73,12 +73,14 @@ data DescribeSecurityGroupRules = DescribeSecurityGroupRules'
     --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
     --     the filter name and @TeamA@ for the filter value.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another request with the returned
-    -- @NextToken@ value. This value can be between 5 and 1000. If this
-    -- parameter is not specified, then all results are returned.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. This value can be between 5 and 1000. If this parameter is not
+    -- specified, then all items are returned. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the security group rules.
     securityGroupRuleIds :: Prelude.Maybe [Prelude.Text]
@@ -110,12 +112,14 @@ data DescribeSecurityGroupRules = DescribeSecurityGroupRules'
 --     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for
 --     the filter name and @TeamA@ for the filter value.
 --
--- 'maxResults', 'describeSecurityGroupRules_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned
--- @NextToken@ value. This value can be between 5 and 1000. If this
--- parameter is not specified, then all results are returned.
+-- 'maxResults', 'describeSecurityGroupRules_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. This value can be between 5 and 1000. If this parameter is not
+-- specified, then all items are returned. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeSecurityGroupRules_nextToken' - The token for the next page of results.
+-- 'nextToken', 'describeSecurityGroupRules_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'securityGroupRuleIds', 'describeSecurityGroupRules_securityGroupRuleIds' - The IDs of the security group rules.
 newDescribeSecurityGroupRules ::
@@ -151,14 +155,16 @@ describeSecurityGroupRules_dryRun = Lens.lens (\DescribeSecurityGroupRules' {dry
 describeSecurityGroupRules_filters :: Lens.Lens' DescribeSecurityGroupRules (Prelude.Maybe [Filter])
 describeSecurityGroupRules_filters = Lens.lens (\DescribeSecurityGroupRules' {filters} -> filters) (\s@DescribeSecurityGroupRules' {} a -> s {filters = a} :: DescribeSecurityGroupRules) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned
--- @NextToken@ value. This value can be between 5 and 1000. If this
--- parameter is not specified, then all results are returned.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. This value can be between 5 and 1000. If this parameter is not
+-- specified, then all items are returned. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeSecurityGroupRules_maxResults :: Lens.Lens' DescribeSecurityGroupRules (Prelude.Maybe Prelude.Natural)
 describeSecurityGroupRules_maxResults = Lens.lens (\DescribeSecurityGroupRules' {maxResults} -> maxResults) (\s@DescribeSecurityGroupRules' {} a -> s {maxResults = a} :: DescribeSecurityGroupRules)
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeSecurityGroupRules_nextToken :: Lens.Lens' DescribeSecurityGroupRules (Prelude.Maybe Prelude.Text)
 describeSecurityGroupRules_nextToken = Lens.lens (\DescribeSecurityGroupRules' {nextToken} -> nextToken) (\s@DescribeSecurityGroupRules' {} a -> s {nextToken = a} :: DescribeSecurityGroupRules)
 
@@ -171,22 +177,22 @@ instance Core.AWSPager DescribeSecurityGroupRules where
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupRulesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupRulesResponse_securityGroupRules
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSecurityGroupRules_nextToken
           Lens..~ rs
           Lens.^? describeSecurityGroupRulesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSecurityGroupRules where
   type
@@ -199,7 +205,8 @@ instance Core.AWSRequest DescribeSecurityGroupRules where
       ( \s h x ->
           DescribeSecurityGroupRulesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "securityGroupRuleSet"
+            Prelude.<*> ( x
+                            Data..@? "securityGroupRuleSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -208,7 +215,8 @@ instance Core.AWSRequest DescribeSecurityGroupRules where
 
 instance Prelude.Hashable DescribeSecurityGroupRules where
   hashWithSalt _salt DescribeSecurityGroupRules' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -248,8 +256,8 @@ instance Data.ToQuery DescribeSecurityGroupRules where
 
 -- | /See:/ 'newDescribeSecurityGroupRulesResponse' smart constructor.
 data DescribeSecurityGroupRulesResponse = DescribeSecurityGroupRulesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about security group rules.
     securityGroupRules :: Prelude.Maybe [SecurityGroupRule],
@@ -266,8 +274,8 @@ data DescribeSecurityGroupRulesResponse = DescribeSecurityGroupRulesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSecurityGroupRulesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeSecurityGroupRulesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'securityGroupRules', 'describeSecurityGroupRulesResponse_securityGroupRules' - Information about security group rules.
 --
@@ -284,8 +292,8 @@ newDescribeSecurityGroupRulesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeSecurityGroupRulesResponse_nextToken :: Lens.Lens' DescribeSecurityGroupRulesResponse (Prelude.Maybe Prelude.Text)
 describeSecurityGroupRulesResponse_nextToken = Lens.lens (\DescribeSecurityGroupRulesResponse' {nextToken} -> nextToken) (\s@DescribeSecurityGroupRulesResponse' {} a -> s {nextToken = a} :: DescribeSecurityGroupRulesResponse)
 

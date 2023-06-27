@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     SubnetIpv6CidrBlockAssociation' {..} =
-      _salt `Prelude.hashWithSalt` associationId
+      _salt
+        `Prelude.hashWithSalt` associationId
         `Prelude.hashWithSalt` ipv6CidrBlock
         `Prelude.hashWithSalt` ipv6CidrBlockState
 

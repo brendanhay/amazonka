@@ -98,13 +98,16 @@ instance Data.FromXML LocalGateway where
       Prelude.<*> (x Data..@? "outpostArn")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable LocalGateway where
   hashWithSalt _salt LocalGateway' {..} =
-    _salt `Prelude.hashWithSalt` localGatewayId
+    _salt
+      `Prelude.hashWithSalt` localGatewayId
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` state

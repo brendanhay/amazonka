@@ -923,40 +923,48 @@ instance Data.FromXML InstanceRequirements where
   parseXML x =
     InstanceRequirements'
       Prelude.<$> (x Data..@? "acceleratorCount")
-      Prelude.<*> ( x Data..@? "acceleratorManufacturerSet"
+      Prelude.<*> ( x
+                      Data..@? "acceleratorManufacturerSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "acceleratorNameSet"
+      Prelude.<*> ( x
+                      Data..@? "acceleratorNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "acceleratorTotalMemoryMiB")
-      Prelude.<*> ( x Data..@? "acceleratorTypeSet"
+      Prelude.<*> ( x
+                      Data..@? "acceleratorTypeSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "allowedInstanceTypeSet"
+      Prelude.<*> ( x
+                      Data..@? "allowedInstanceTypeSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "bareMetal")
       Prelude.<*> (x Data..@? "baselineEbsBandwidthMbps")
       Prelude.<*> (x Data..@? "burstablePerformance")
-      Prelude.<*> ( x Data..@? "cpuManufacturerSet"
+      Prelude.<*> ( x
+                      Data..@? "cpuManufacturerSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "excludedInstanceTypeSet"
+      Prelude.<*> ( x
+                      Data..@? "excludedInstanceTypeSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "instanceGenerationSet"
+      Prelude.<*> ( x
+                      Data..@? "instanceGenerationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "localStorage")
-      Prelude.<*> ( x Data..@? "localStorageTypeSet"
+      Prelude.<*> ( x
+                      Data..@? "localStorageTypeSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -974,7 +982,8 @@ instance Data.FromXML InstanceRequirements where
 
 instance Prelude.Hashable InstanceRequirements where
   hashWithSalt _salt InstanceRequirements' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorCount
+    _salt
+      `Prelude.hashWithSalt` acceleratorCount
       `Prelude.hashWithSalt` acceleratorManufacturers
       `Prelude.hashWithSalt` acceleratorNames
       `Prelude.hashWithSalt` acceleratorTotalMemoryMiB

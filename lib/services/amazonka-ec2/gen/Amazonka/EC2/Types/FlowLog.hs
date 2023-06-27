@@ -255,14 +255,17 @@ instance Data.FromXML FlowLog where
       Prelude.<*> (x Data..@? "logGroupName")
       Prelude.<*> (x Data..@? "maxAggregationInterval")
       Prelude.<*> (x Data..@? "resourceId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trafficType")
 
 instance Prelude.Hashable FlowLog where
   hashWithSalt _salt FlowLog' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` deliverCrossAccountRole
       `Prelude.hashWithSalt` deliverLogsErrorMessage
       `Prelude.hashWithSalt` deliverLogsPermissionArn

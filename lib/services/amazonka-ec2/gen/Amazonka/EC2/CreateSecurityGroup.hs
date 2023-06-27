@@ -95,7 +95,7 @@ data CreateSecurityGroup = CreateSecurityGroup'
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | A description for the security group. This is informational only.
+    -- | A description for the security group.
     --
     -- Constraints: Up to 255 characters in length
     --
@@ -133,7 +133,7 @@ data CreateSecurityGroup = CreateSecurityGroup'
 --
 -- 'vpcId', 'createSecurityGroup_vpcId' - [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 --
--- 'description', 'createSecurityGroup_description' - A description for the security group. This is informational only.
+-- 'description', 'createSecurityGroup_description' - A description for the security group.
 --
 -- Constraints: Up to 255 characters in length
 --
@@ -180,7 +180,7 @@ createSecurityGroup_tagSpecifications = Lens.lens (\CreateSecurityGroup' {tagSpe
 createSecurityGroup_vpcId :: Lens.Lens' CreateSecurityGroup (Prelude.Maybe Prelude.Text)
 createSecurityGroup_vpcId = Lens.lens (\CreateSecurityGroup' {vpcId} -> vpcId) (\s@CreateSecurityGroup' {} a -> s {vpcId = a} :: CreateSecurityGroup)
 
--- | A description for the security group. This is informational only.
+-- | A description for the security group.
 --
 -- Constraints: Up to 255 characters in length
 --
@@ -212,7 +212,9 @@ instance Core.AWSRequest CreateSecurityGroup where
     Response.receiveXML
       ( \s h x ->
           CreateSecurityGroupResponse'
-            Prelude.<$> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -221,7 +223,8 @@ instance Core.AWSRequest CreateSecurityGroup where
 
 instance Prelude.Hashable CreateSecurityGroup where
   hashWithSalt _salt CreateSecurityGroup' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` description

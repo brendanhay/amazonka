@@ -22,15 +22,10 @@
 --
 -- Releases the specified Elastic IP address.
 --
--- [EC2-Classic, default VPC] Releasing an Elastic IP address automatically
+-- [Default VPC] Releasing an Elastic IP address automatically
 -- disassociates it from any instance that it\'s associated with. To
 -- disassociate an Elastic IP address without releasing it, use
 -- DisassociateAddress.
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- [Nondefault VPC] You must use DisassociateAddress to disassociate the
 -- Elastic IP address before you can release it. Otherwise, Amazon EC2
@@ -42,12 +37,8 @@
 -- address that you already released, you\'ll get an @AuthFailure@ error if
 -- the address is already allocated to another Amazon Web Services account.
 --
--- [EC2-VPC] After you release an Elastic IP address for use in a VPC, you
--- might be able to recover it. For more information, see AllocateAddress.
---
--- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- After you release an Elastic IP address, you might be able to recover
+-- it. For more information, see AllocateAddress.
 module Amazonka.EC2.ReleaseAddress
   ( -- * Creating a Request
     ReleaseAddress (..),
@@ -75,7 +66,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newReleaseAddress' smart constructor.
 data ReleaseAddress = ReleaseAddress'
-  { -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
+  { -- | The allocation ID. This parameter is required.
     allocationId :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -92,7 +83,7 @@ data ReleaseAddress = ReleaseAddress'
     -- this operation on EC2 classic, you receive an
     -- @InvalidParameterCombination@ error.
     networkBorderGroup :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+    -- | Deprecated.
     publicIp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -105,7 +96,7 @@ data ReleaseAddress = ReleaseAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allocationId', 'releaseAddress_allocationId' - [EC2-VPC] The allocation ID. Required for EC2-VPC.
+-- 'allocationId', 'releaseAddress_allocationId' - The allocation ID. This parameter is required.
 --
 -- 'dryRun', 'releaseAddress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -122,7 +113,7 @@ data ReleaseAddress = ReleaseAddress'
 -- this operation on EC2 classic, you receive an
 -- @InvalidParameterCombination@ error.
 --
--- 'publicIp', 'releaseAddress_publicIp' - [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+-- 'publicIp', 'releaseAddress_publicIp' - Deprecated.
 newReleaseAddress ::
   ReleaseAddress
 newReleaseAddress =
@@ -133,7 +124,7 @@ newReleaseAddress =
       publicIp = Prelude.Nothing
     }
 
--- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
+-- | The allocation ID. This parameter is required.
 releaseAddress_allocationId :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
 releaseAddress_allocationId = Lens.lens (\ReleaseAddress' {allocationId} -> allocationId) (\s@ReleaseAddress' {} a -> s {allocationId = a} :: ReleaseAddress)
 
@@ -156,7 +147,7 @@ releaseAddress_dryRun = Lens.lens (\ReleaseAddress' {dryRun} -> dryRun) (\s@Rele
 releaseAddress_networkBorderGroup :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
 releaseAddress_networkBorderGroup = Lens.lens (\ReleaseAddress' {networkBorderGroup} -> networkBorderGroup) (\s@ReleaseAddress' {} a -> s {networkBorderGroup = a} :: ReleaseAddress)
 
--- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
+-- | Deprecated.
 releaseAddress_publicIp :: Lens.Lens' ReleaseAddress (Prelude.Maybe Prelude.Text)
 releaseAddress_publicIp = Lens.lens (\ReleaseAddress' {publicIp} -> publicIp) (\s@ReleaseAddress' {} a -> s {publicIp = a} :: ReleaseAddress)
 
@@ -171,7 +162,8 @@ instance Core.AWSRequest ReleaseAddress where
 
 instance Prelude.Hashable ReleaseAddress where
   hashWithSalt _salt ReleaseAddress' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkBorderGroup
       `Prelude.hashWithSalt` publicIp

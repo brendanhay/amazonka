@@ -81,11 +81,11 @@ data RunScheduledInstances = RunScheduledInstances'
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The launch specification. You must match the instance type, Availability
     -- Zone, network, and platform of the schedule that you purchased.
-    launchSpecification :: ScheduledInstancesLaunchSpecification,
+    launchSpecification :: Data.Sensitive ScheduledInstancesLaunchSpecification,
     -- | The Scheduled Instance ID.
     scheduledInstanceId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RunScheduledInstances' with all optional fields omitted.
@@ -126,7 +126,8 @@ newRunScheduledInstances
           Prelude.Nothing,
         dryRun = Prelude.Nothing,
         instanceCount = Prelude.Nothing,
-        launchSpecification = pLaunchSpecification_,
+        launchSpecification =
+          Data._Sensitive Lens.# pLaunchSpecification_,
         scheduledInstanceId = pScheduledInstanceId_
       }
 
@@ -152,7 +153,7 @@ runScheduledInstances_instanceCount = Lens.lens (\RunScheduledInstances' {instan
 -- | The launch specification. You must match the instance type, Availability
 -- Zone, network, and platform of the schedule that you purchased.
 runScheduledInstances_launchSpecification :: Lens.Lens' RunScheduledInstances ScheduledInstancesLaunchSpecification
-runScheduledInstances_launchSpecification = Lens.lens (\RunScheduledInstances' {launchSpecification} -> launchSpecification) (\s@RunScheduledInstances' {} a -> s {launchSpecification = a} :: RunScheduledInstances)
+runScheduledInstances_launchSpecification = Lens.lens (\RunScheduledInstances' {launchSpecification} -> launchSpecification) (\s@RunScheduledInstances' {} a -> s {launchSpecification = a} :: RunScheduledInstances) Prelude.. Data._Sensitive
 
 -- | The Scheduled Instance ID.
 runScheduledInstances_scheduledInstanceId :: Lens.Lens' RunScheduledInstances Prelude.Text
@@ -168,7 +169,9 @@ instance Core.AWSRequest RunScheduledInstances where
     Response.receiveXML
       ( \s h x ->
           RunScheduledInstancesResponse'
-            Prelude.<$> ( x Data..@? "instanceIdSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instanceIdSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -176,7 +179,8 @@ instance Core.AWSRequest RunScheduledInstances where
 
 instance Prelude.Hashable RunScheduledInstances where
   hashWithSalt _salt RunScheduledInstances' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` launchSpecification

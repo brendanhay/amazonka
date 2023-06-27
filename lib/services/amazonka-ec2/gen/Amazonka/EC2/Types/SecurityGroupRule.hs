@@ -37,9 +37,10 @@ data SecurityGroupRule = SecurityGroupRule'
     cidrIpv6 :: Prelude.Maybe Prelude.Text,
     -- | The security group rule description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The start of port range for the TCP and UDP protocols, or an
-    -- ICMP\/ICMPv6 type. A value of -1 indicates all ICMP\/ICMPv6 types. If
-    -- you specify all ICMP\/ICMPv6 types, you must specify all codes.
+    -- | If the protocol is TCP or UDP, this is the start of the port range. If
+    -- the protocol is ICMP or ICMPv6, this is the type number. A value of -1
+    -- indicates all ICMP\/ICMPv6 types. If you specify all ICMP\/ICMPv6 types,
+    -- you must specify all ICMP\/ICMPv6 codes.
     fromPort :: Prelude.Maybe Prelude.Int,
     -- | The ID of the security group.
     groupId :: Prelude.Maybe Prelude.Text,
@@ -60,9 +61,10 @@ data SecurityGroupRule = SecurityGroupRule'
     securityGroupRuleId :: Prelude.Maybe Prelude.Text,
     -- | The tags applied to the security group rule.
     tags :: Prelude.Maybe [Tag],
-    -- | The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
-    -- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
-    -- all ICMP\/ICMPv6 types, you must specify all codes.
+    -- | If the protocol is TCP or UDP, this is the end of the port range. If the
+    -- protocol is ICMP or ICMPv6, this is the type number. A value of -1
+    -- indicates all ICMP\/ICMPv6 codes. If you specify all ICMP\/ICMPv6 types,
+    -- you must specify all ICMP\/ICMPv6 codes.
     toPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,9 +83,10 @@ data SecurityGroupRule = SecurityGroupRule'
 --
 -- 'description', 'securityGroupRule_description' - The security group rule description.
 --
--- 'fromPort', 'securityGroupRule_fromPort' - The start of port range for the TCP and UDP protocols, or an
--- ICMP\/ICMPv6 type. A value of -1 indicates all ICMP\/ICMPv6 types. If
--- you specify all ICMP\/ICMPv6 types, you must specify all codes.
+-- 'fromPort', 'securityGroupRule_fromPort' - If the protocol is TCP or UDP, this is the start of the port range. If
+-- the protocol is ICMP or ICMPv6, this is the type number. A value of -1
+-- indicates all ICMP\/ICMPv6 types. If you specify all ICMP\/ICMPv6 types,
+-- you must specify all ICMP\/ICMPv6 codes.
 --
 -- 'groupId', 'securityGroupRule_groupId' - The ID of the security group.
 --
@@ -104,9 +107,10 @@ data SecurityGroupRule = SecurityGroupRule'
 --
 -- 'tags', 'securityGroupRule_tags' - The tags applied to the security group rule.
 --
--- 'toPort', 'securityGroupRule_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
--- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
--- all ICMP\/ICMPv6 types, you must specify all codes.
+-- 'toPort', 'securityGroupRule_toPort' - If the protocol is TCP or UDP, this is the end of the port range. If the
+-- protocol is ICMP or ICMPv6, this is the type number. A value of -1
+-- indicates all ICMP\/ICMPv6 codes. If you specify all ICMP\/ICMPv6 types,
+-- you must specify all ICMP\/ICMPv6 codes.
 newSecurityGroupRule ::
   SecurityGroupRule
 newSecurityGroupRule =
@@ -138,9 +142,10 @@ securityGroupRule_cidrIpv6 = Lens.lens (\SecurityGroupRule' {cidrIpv6} -> cidrIp
 securityGroupRule_description :: Lens.Lens' SecurityGroupRule (Prelude.Maybe Prelude.Text)
 securityGroupRule_description = Lens.lens (\SecurityGroupRule' {description} -> description) (\s@SecurityGroupRule' {} a -> s {description = a} :: SecurityGroupRule)
 
--- | The start of port range for the TCP and UDP protocols, or an
--- ICMP\/ICMPv6 type. A value of -1 indicates all ICMP\/ICMPv6 types. If
--- you specify all ICMP\/ICMPv6 types, you must specify all codes.
+-- | If the protocol is TCP or UDP, this is the start of the port range. If
+-- the protocol is ICMP or ICMPv6, this is the type number. A value of -1
+-- indicates all ICMP\/ICMPv6 types. If you specify all ICMP\/ICMPv6 types,
+-- you must specify all ICMP\/ICMPv6 codes.
 securityGroupRule_fromPort :: Lens.Lens' SecurityGroupRule (Prelude.Maybe Prelude.Int)
 securityGroupRule_fromPort = Lens.lens (\SecurityGroupRule' {fromPort} -> fromPort) (\s@SecurityGroupRule' {} a -> s {fromPort = a} :: SecurityGroupRule)
 
@@ -179,9 +184,10 @@ securityGroupRule_securityGroupRuleId = Lens.lens (\SecurityGroupRule' {security
 securityGroupRule_tags :: Lens.Lens' SecurityGroupRule (Prelude.Maybe [Tag])
 securityGroupRule_tags = Lens.lens (\SecurityGroupRule' {tags} -> tags) (\s@SecurityGroupRule' {} a -> s {tags = a} :: SecurityGroupRule) Prelude.. Lens.mapping Lens.coerced
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP\/ICMPv6
--- code. A value of @-1@ indicates all ICMP\/ICMPv6 codes. If you specify
--- all ICMP\/ICMPv6 types, you must specify all codes.
+-- | If the protocol is TCP or UDP, this is the end of the port range. If the
+-- protocol is ICMP or ICMPv6, this is the type number. A value of -1
+-- indicates all ICMP\/ICMPv6 codes. If you specify all ICMP\/ICMPv6 types,
+-- you must specify all ICMP\/ICMPv6 codes.
 securityGroupRule_toPort :: Lens.Lens' SecurityGroupRule (Prelude.Maybe Prelude.Int)
 securityGroupRule_toPort = Lens.lens (\SecurityGroupRule' {toPort} -> toPort) (\s@SecurityGroupRule' {} a -> s {toPort = a} :: SecurityGroupRule)
 
@@ -199,14 +205,17 @@ instance Data.FromXML SecurityGroupRule where
       Prelude.<*> (x Data..@? "prefixListId")
       Prelude.<*> (x Data..@? "referencedGroupInfo")
       Prelude.<*> (x Data..@? "securityGroupRuleId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
 
 instance Prelude.Hashable SecurityGroupRule where
   hashWithSalt _salt SecurityGroupRule' {..} =
-    _salt `Prelude.hashWithSalt` cidrIpv4
+    _salt
+      `Prelude.hashWithSalt` cidrIpv4
       `Prelude.hashWithSalt` cidrIpv6
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fromPort

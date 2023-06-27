@@ -97,17 +97,22 @@ instance Data.FromXML FpgaImageAttribute where
     FpgaImageAttribute'
       Prelude.<$> (x Data..@? "description")
       Prelude.<*> (x Data..@? "fpgaImageId")
-      Prelude.<*> ( x Data..@? "loadPermissions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "loadPermissions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "name")
-      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "productCodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable FpgaImageAttribute where
   hashWithSalt _salt FpgaImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fpgaImageId
       `Prelude.hashWithSalt` loadPermissions
       `Prelude.hashWithSalt` name

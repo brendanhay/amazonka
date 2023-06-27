@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     InstanceFamilyCreditSpecification' {..} =
-      _salt `Prelude.hashWithSalt` cpuCredits
+      _salt
+        `Prelude.hashWithSalt` cpuCredits
         `Prelude.hashWithSalt` instanceFamily
 
 instance

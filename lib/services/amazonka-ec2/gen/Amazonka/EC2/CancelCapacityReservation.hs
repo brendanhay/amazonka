@@ -120,7 +120,8 @@ instance Core.AWSRequest CancelCapacityReservation where
 
 instance Prelude.Hashable CancelCapacityReservation where
   hashWithSalt _salt CancelCapacityReservation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` capacityReservationId
 
 instance Prelude.NFData CancelCapacityReservation where

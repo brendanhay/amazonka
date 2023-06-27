@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the specified Verified Access group configuration.
+-- Modifies the specified Amazon Web Services Verified Access group
+-- configuration.
 module Amazonka.EC2.ModifyVerifiedAccessGroup
   ( -- * Creating a Request
     ModifyVerifiedAccessGroup (..),
@@ -57,16 +58,16 @@ data ModifyVerifiedAccessGroup = ModifyVerifiedAccessGroup'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access group.
+    -- | A description for the Verified Access group.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services Verified Access group.
+    -- | The ID of the Verified Access group.
     verifiedAccessGroupId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,16 +84,16 @@ data ModifyVerifiedAccessGroup = ModifyVerifiedAccessGroup'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'modifyVerifiedAccessGroup_description' - A description for the Amazon Web Services Verified Access group.
+-- 'description', 'modifyVerifiedAccessGroup_description' - A description for the Verified Access group.
 --
 -- 'dryRun', 'modifyVerifiedAccessGroup_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessInstanceId', 'modifyVerifiedAccessGroup_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'modifyVerifiedAccessGroup_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 --
--- 'verifiedAccessGroupId', 'modifyVerifiedAccessGroup_verifiedAccessGroupId' - The ID of the Amazon Web Services Verified Access group.
+-- 'verifiedAccessGroupId', 'modifyVerifiedAccessGroup_verifiedAccessGroupId' - The ID of the Verified Access group.
 newModifyVerifiedAccessGroup ::
   -- | 'verifiedAccessGroupId'
   Prelude.Text ->
@@ -113,7 +114,7 @@ newModifyVerifiedAccessGroup pVerifiedAccessGroupId_ =
 modifyVerifiedAccessGroup_clientToken :: Lens.Lens' ModifyVerifiedAccessGroup (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessGroup_clientToken = Lens.lens (\ModifyVerifiedAccessGroup' {clientToken} -> clientToken) (\s@ModifyVerifiedAccessGroup' {} a -> s {clientToken = a} :: ModifyVerifiedAccessGroup)
 
--- | A description for the Amazon Web Services Verified Access group.
+-- | A description for the Verified Access group.
 modifyVerifiedAccessGroup_description :: Lens.Lens' ModifyVerifiedAccessGroup (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessGroup_description = Lens.lens (\ModifyVerifiedAccessGroup' {description} -> description) (\s@ModifyVerifiedAccessGroup' {} a -> s {description = a} :: ModifyVerifiedAccessGroup)
 
@@ -124,11 +125,11 @@ modifyVerifiedAccessGroup_description = Lens.lens (\ModifyVerifiedAccessGroup' {
 modifyVerifiedAccessGroup_dryRun :: Lens.Lens' ModifyVerifiedAccessGroup (Prelude.Maybe Prelude.Bool)
 modifyVerifiedAccessGroup_dryRun = Lens.lens (\ModifyVerifiedAccessGroup' {dryRun} -> dryRun) (\s@ModifyVerifiedAccessGroup' {} a -> s {dryRun = a} :: ModifyVerifiedAccessGroup)
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 modifyVerifiedAccessGroup_verifiedAccessInstanceId :: Lens.Lens' ModifyVerifiedAccessGroup (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessGroup_verifiedAccessInstanceId = Lens.lens (\ModifyVerifiedAccessGroup' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@ModifyVerifiedAccessGroup' {} a -> s {verifiedAccessInstanceId = a} :: ModifyVerifiedAccessGroup)
 
--- | The ID of the Amazon Web Services Verified Access group.
+-- | The ID of the Verified Access group.
 modifyVerifiedAccessGroup_verifiedAccessGroupId :: Lens.Lens' ModifyVerifiedAccessGroup Prelude.Text
 modifyVerifiedAccessGroup_verifiedAccessGroupId = Lens.lens (\ModifyVerifiedAccessGroup' {verifiedAccessGroupId} -> verifiedAccessGroupId) (\s@ModifyVerifiedAccessGroup' {} a -> s {verifiedAccessGroupId = a} :: ModifyVerifiedAccessGroup)
 
@@ -148,7 +149,8 @@ instance Core.AWSRequest ModifyVerifiedAccessGroup where
 
 instance Prelude.Hashable ModifyVerifiedAccessGroup where
   hashWithSalt _salt ModifyVerifiedAccessGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessInstanceId
@@ -186,7 +188,7 @@ instance Data.ToQuery ModifyVerifiedAccessGroup where
 
 -- | /See:/ 'newModifyVerifiedAccessGroupResponse' smart constructor.
 data ModifyVerifiedAccessGroupResponse = ModifyVerifiedAccessGroupResponse'
-  { -- | Details of Amazon Web Services Verified Access group.
+  { -- | Details of Verified Access group.
     verifiedAccessGroup :: Prelude.Maybe VerifiedAccessGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -201,7 +203,7 @@ data ModifyVerifiedAccessGroupResponse = ModifyVerifiedAccessGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessGroup', 'modifyVerifiedAccessGroupResponse_verifiedAccessGroup' - Details of Amazon Web Services Verified Access group.
+-- 'verifiedAccessGroup', 'modifyVerifiedAccessGroupResponse_verifiedAccessGroup' - Details of Verified Access group.
 --
 -- 'httpStatus', 'modifyVerifiedAccessGroupResponse_httpStatus' - The response's http status code.
 newModifyVerifiedAccessGroupResponse ::
@@ -215,7 +217,7 @@ newModifyVerifiedAccessGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Details of Amazon Web Services Verified Access group.
+-- | Details of Verified Access group.
 modifyVerifiedAccessGroupResponse_verifiedAccessGroup :: Lens.Lens' ModifyVerifiedAccessGroupResponse (Prelude.Maybe VerifiedAccessGroup)
 modifyVerifiedAccessGroupResponse_verifiedAccessGroup = Lens.lens (\ModifyVerifiedAccessGroupResponse' {verifiedAccessGroup} -> verifiedAccessGroup) (\s@ModifyVerifiedAccessGroupResponse' {} a -> s {verifiedAccessGroup = a} :: ModifyVerifiedAccessGroupResponse)
 

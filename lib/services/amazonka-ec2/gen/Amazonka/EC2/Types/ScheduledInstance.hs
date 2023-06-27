@@ -40,7 +40,7 @@ data ScheduledInstance = ScheduledInstance'
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The instance type.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | The network platform (@EC2-Classic@ or @EC2-VPC@).
+    -- | The network platform.
     networkPlatform :: Prelude.Maybe Prelude.Text,
     -- | The time for the next schedule to start.
     nextSlotStartTime :: Prelude.Maybe Data.ISO8601,
@@ -81,7 +81,7 @@ data ScheduledInstance = ScheduledInstance'
 --
 -- 'instanceType', 'scheduledInstance_instanceType' - The instance type.
 --
--- 'networkPlatform', 'scheduledInstance_networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@).
+-- 'networkPlatform', 'scheduledInstance_networkPlatform' - The network platform.
 --
 -- 'nextSlotStartTime', 'scheduledInstance_nextSlotStartTime' - The time for the next schedule to start.
 --
@@ -142,7 +142,7 @@ scheduledInstance_instanceCount = Lens.lens (\ScheduledInstance' {instanceCount}
 scheduledInstance_instanceType :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
 scheduledInstance_instanceType = Lens.lens (\ScheduledInstance' {instanceType} -> instanceType) (\s@ScheduledInstance' {} a -> s {instanceType = a} :: ScheduledInstance)
 
--- | The network platform (@EC2-Classic@ or @EC2-VPC@).
+-- | The network platform.
 scheduledInstance_networkPlatform :: Lens.Lens' ScheduledInstance (Prelude.Maybe Prelude.Text)
 scheduledInstance_networkPlatform = Lens.lens (\ScheduledInstance' {networkPlatform} -> networkPlatform) (\s@ScheduledInstance' {} a -> s {networkPlatform = a} :: ScheduledInstance)
 
@@ -203,7 +203,8 @@ instance Data.FromXML ScheduledInstance where
 
 instance Prelude.Hashable ScheduledInstance where
   hashWithSalt _salt ScheduledInstance' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` createDate
       `Prelude.hashWithSalt` hourlyPrice
       `Prelude.hashWithSalt` instanceCount

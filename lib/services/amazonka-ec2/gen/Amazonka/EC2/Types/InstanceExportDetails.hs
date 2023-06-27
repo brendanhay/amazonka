@@ -73,7 +73,8 @@ instance Data.FromXML InstanceExportDetails where
 
 instance Prelude.Hashable InstanceExportDetails where
   hashWithSalt _salt InstanceExportDetails' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` targetEnvironment
 
 instance Prelude.NFData InstanceExportDetails where

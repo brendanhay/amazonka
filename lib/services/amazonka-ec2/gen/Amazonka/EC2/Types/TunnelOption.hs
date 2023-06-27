@@ -41,6 +41,8 @@ data TunnelOption = TunnelOption'
     dpdTimeoutAction :: Prelude.Maybe Prelude.Text,
     -- | The number of seconds after which a DPD timeout occurs.
     dpdTimeoutSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Status of tunnel endpoint lifecycle control feature.
+    enableTunnelLifecycleControl :: Prelude.Maybe Prelude.Bool,
     -- | The IKE versions that are permitted for the VPN tunnel.
     ikeVersions :: Prelude.Maybe [IKEVersionsListValue],
     -- | Options for logging VPN tunnel activity.
@@ -71,7 +73,7 @@ data TunnelOption = TunnelOption'
     phase2LifetimeSeconds :: Prelude.Maybe Prelude.Int,
     -- | The pre-shared key (PSK) to establish initial authentication between the
     -- virtual private gateway and the customer gateway.
-    preSharedKey :: Prelude.Maybe Prelude.Text,
+    preSharedKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The percentage of the rekey window determined by
     -- @RekeyMarginTimeSeconds@ during which the rekey time is randomly
     -- selected.
@@ -90,7 +92,7 @@ data TunnelOption = TunnelOption'
     -- | The range of inside IPv6 addresses for the tunnel.
     tunnelInsideIpv6Cidr :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'TunnelOption' with all optional fields omitted.
@@ -103,6 +105,8 @@ data TunnelOption = TunnelOption'
 -- 'dpdTimeoutAction', 'tunnelOption_dpdTimeoutAction' - The action to take after a DPD timeout occurs.
 --
 -- 'dpdTimeoutSeconds', 'tunnelOption_dpdTimeoutSeconds' - The number of seconds after which a DPD timeout occurs.
+--
+-- 'enableTunnelLifecycleControl', 'tunnelOption_enableTunnelLifecycleControl' - Status of tunnel endpoint lifecycle control feature.
 --
 -- 'ikeVersions', 'tunnelOption_ikeVersions' - The IKE versions that are permitted for the VPN tunnel.
 --
@@ -157,6 +161,7 @@ newTunnelOption =
   TunnelOption'
     { dpdTimeoutAction = Prelude.Nothing,
       dpdTimeoutSeconds = Prelude.Nothing,
+      enableTunnelLifecycleControl = Prelude.Nothing,
       ikeVersions = Prelude.Nothing,
       logOptions = Prelude.Nothing,
       outsideIpAddress = Prelude.Nothing,
@@ -184,6 +189,10 @@ tunnelOption_dpdTimeoutAction = Lens.lens (\TunnelOption' {dpdTimeoutAction} -> 
 -- | The number of seconds after which a DPD timeout occurs.
 tunnelOption_dpdTimeoutSeconds :: Lens.Lens' TunnelOption (Prelude.Maybe Prelude.Int)
 tunnelOption_dpdTimeoutSeconds = Lens.lens (\TunnelOption' {dpdTimeoutSeconds} -> dpdTimeoutSeconds) (\s@TunnelOption' {} a -> s {dpdTimeoutSeconds = a} :: TunnelOption)
+
+-- | Status of tunnel endpoint lifecycle control feature.
+tunnelOption_enableTunnelLifecycleControl :: Lens.Lens' TunnelOption (Prelude.Maybe Prelude.Bool)
+tunnelOption_enableTunnelLifecycleControl = Lens.lens (\TunnelOption' {enableTunnelLifecycleControl} -> enableTunnelLifecycleControl) (\s@TunnelOption' {} a -> s {enableTunnelLifecycleControl = a} :: TunnelOption)
 
 -- | The IKE versions that are permitted for the VPN tunnel.
 tunnelOption_ikeVersions :: Lens.Lens' TunnelOption (Prelude.Maybe [IKEVersionsListValue])
@@ -238,7 +247,7 @@ tunnelOption_phase2LifetimeSeconds = Lens.lens (\TunnelOption' {phase2LifetimeSe
 -- | The pre-shared key (PSK) to establish initial authentication between the
 -- virtual private gateway and the customer gateway.
 tunnelOption_preSharedKey :: Lens.Lens' TunnelOption (Prelude.Maybe Prelude.Text)
-tunnelOption_preSharedKey = Lens.lens (\TunnelOption' {preSharedKey} -> preSharedKey) (\s@TunnelOption' {} a -> s {preSharedKey = a} :: TunnelOption)
+tunnelOption_preSharedKey = Lens.lens (\TunnelOption' {preSharedKey} -> preSharedKey) (\s@TunnelOption' {} a -> s {preSharedKey = a} :: TunnelOption) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The percentage of the rekey window determined by
 -- @RekeyMarginTimeSeconds@ during which the rekey time is randomly
@@ -274,33 +283,42 @@ instance Data.FromXML TunnelOption where
     TunnelOption'
       Prelude.<$> (x Data..@? "dpdTimeoutAction")
       Prelude.<*> (x Data..@? "dpdTimeoutSeconds")
-      Prelude.<*> ( x Data..@? "ikeVersionSet" Core..!@ Prelude.mempty
+      Prelude.<*> (x Data..@? "enableTunnelLifecycleControl")
+      Prelude.<*> ( x
+                      Data..@? "ikeVersionSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "logOptions")
       Prelude.<*> (x Data..@? "outsideIpAddress")
-      Prelude.<*> ( x Data..@? "phase1DHGroupNumberSet"
+      Prelude.<*> ( x
+                      Data..@? "phase1DHGroupNumberSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase1EncryptionAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase1EncryptionAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase1IntegrityAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase1IntegrityAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "phase1LifetimeSeconds")
-      Prelude.<*> ( x Data..@? "phase2DHGroupNumberSet"
+      Prelude.<*> ( x
+                      Data..@? "phase2DHGroupNumberSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase2EncryptionAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase2EncryptionAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "phase2IntegrityAlgorithmSet"
+      Prelude.<*> ( x
+                      Data..@? "phase2IntegrityAlgorithmSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -315,8 +333,10 @@ instance Data.FromXML TunnelOption where
 
 instance Prelude.Hashable TunnelOption where
   hashWithSalt _salt TunnelOption' {..} =
-    _salt `Prelude.hashWithSalt` dpdTimeoutAction
+    _salt
+      `Prelude.hashWithSalt` dpdTimeoutAction
       `Prelude.hashWithSalt` dpdTimeoutSeconds
+      `Prelude.hashWithSalt` enableTunnelLifecycleControl
       `Prelude.hashWithSalt` ikeVersions
       `Prelude.hashWithSalt` logOptions
       `Prelude.hashWithSalt` outsideIpAddress
@@ -340,6 +360,7 @@ instance Prelude.NFData TunnelOption where
   rnf TunnelOption' {..} =
     Prelude.rnf dpdTimeoutAction
       `Prelude.seq` Prelude.rnf dpdTimeoutSeconds
+      `Prelude.seq` Prelude.rnf enableTunnelLifecycleControl
       `Prelude.seq` Prelude.rnf ikeVersions
       `Prelude.seq` Prelude.rnf logOptions
       `Prelude.seq` Prelude.rnf outsideIpAddress

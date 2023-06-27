@@ -94,6 +94,8 @@ data ModifyFleet = ModifyFleet'
     -- | Indicates whether running instances should be terminated if the total
     -- target capacity of the EC2 Fleet is decreased below the current size of
     -- the EC2 Fleet.
+    --
+    -- Supported only for fleets of type @maintain@.
     excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
     -- | The launch template and overrides.
     launchTemplateConfigs :: Prelude.Maybe [FleetLaunchTemplateConfigRequest],
@@ -122,6 +124,8 @@ data ModifyFleet = ModifyFleet'
 -- 'excessCapacityTerminationPolicy', 'modifyFleet_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 --
 -- 'launchTemplateConfigs', 'modifyFleet_launchTemplateConfigs' - The launch template and overrides.
 --
@@ -156,6 +160,8 @@ modifyFleet_dryRun = Lens.lens (\ModifyFleet' {dryRun} -> dryRun) (\s@ModifyFlee
 -- | Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 modifyFleet_excessCapacityTerminationPolicy :: Lens.Lens' ModifyFleet (Prelude.Maybe FleetExcessCapacityTerminationPolicy)
 modifyFleet_excessCapacityTerminationPolicy = Lens.lens (\ModifyFleet' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@ModifyFleet' {} a -> s {excessCapacityTerminationPolicy = a} :: ModifyFleet)
 
@@ -185,7 +191,8 @@ instance Core.AWSRequest ModifyFleet where
 
 instance Prelude.Hashable ModifyFleet where
   hashWithSalt _salt ModifyFleet' {..} =
-    _salt `Prelude.hashWithSalt` context
+    _salt
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy
       `Prelude.hashWithSalt` launchTemplateConfigs

@@ -176,7 +176,8 @@ instance
   hashWithSalt
     _salt
     ImportInstanceLaunchSpecification' {..} =
-      _salt `Prelude.hashWithSalt` additionalInfo
+      _salt
+        `Prelude.hashWithSalt` additionalInfo
         `Prelude.hashWithSalt` architecture
         `Prelude.hashWithSalt` groupIds
         `Prelude.hashWithSalt` groupNames

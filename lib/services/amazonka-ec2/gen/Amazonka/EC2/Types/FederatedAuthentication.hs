@@ -76,7 +76,8 @@ instance Data.FromXML FederatedAuthentication where
 
 instance Prelude.Hashable FederatedAuthentication where
   hashWithSalt _salt FederatedAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` samlProviderArn
+    _salt
+      `Prelude.hashWithSalt` samlProviderArn
       `Prelude.hashWithSalt` selfServiceSamlProviderArn
 
 instance Prelude.NFData FederatedAuthentication where

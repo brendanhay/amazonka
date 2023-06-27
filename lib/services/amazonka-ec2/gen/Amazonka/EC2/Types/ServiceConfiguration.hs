@@ -67,7 +67,7 @@ data ServiceConfiguration = ServiceConfiguration'
     serviceType :: Prelude.Maybe [ServiceTypeDetail],
     -- | The supported IP address types.
     supportedIpAddressTypes :: Prelude.Maybe [ServiceConnectivityType],
-    -- | Any tags assigned to the service.
+    -- | The tags assigned to the service.
     tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,7 +112,7 @@ data ServiceConfiguration = ServiceConfiguration'
 --
 -- 'supportedIpAddressTypes', 'serviceConfiguration_supportedIpAddressTypes' - The supported IP address types.
 --
--- 'tags', 'serviceConfiguration_tags' - Any tags assigned to the service.
+-- 'tags', 'serviceConfiguration_tags' - The tags assigned to the service.
 newServiceConfiguration ::
   ServiceConfiguration
 newServiceConfiguration =
@@ -195,7 +195,7 @@ serviceConfiguration_serviceType = Lens.lens (\ServiceConfiguration' {serviceTyp
 serviceConfiguration_supportedIpAddressTypes :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [ServiceConnectivityType])
 serviceConfiguration_supportedIpAddressTypes = Lens.lens (\ServiceConfiguration' {supportedIpAddressTypes} -> supportedIpAddressTypes) (\s@ServiceConfiguration' {} a -> s {supportedIpAddressTypes = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | Any tags assigned to the service.
+-- | The tags assigned to the service.
 serviceConfiguration_tags :: Lens.Lens' ServiceConfiguration (Prelude.Maybe [Tag])
 serviceConfiguration_tags = Lens.lens (\ServiceConfiguration' {tags} -> tags) (\s@ServiceConfiguration' {} a -> s {tags = a} :: ServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -203,20 +203,24 @@ instance Data.FromXML ServiceConfiguration where
   parseXML x =
     ServiceConfiguration'
       Prelude.<$> (x Data..@? "acceptanceRequired")
-      Prelude.<*> ( x Data..@? "availabilityZoneSet"
+      Prelude.<*> ( x
+                      Data..@? "availabilityZoneSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "baseEndpointDnsNameSet"
+      Prelude.<*> ( x
+                      Data..@? "baseEndpointDnsNameSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "gatewayLoadBalancerArnSet"
+      Prelude.<*> ( x
+                      Data..@? "gatewayLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "managesVpcEndpoints")
-      Prelude.<*> ( x Data..@? "networkLoadBalancerArnSet"
+      Prelude.<*> ( x
+                      Data..@? "networkLoadBalancerArnSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -226,20 +230,26 @@ instance Data.FromXML ServiceConfiguration where
       Prelude.<*> (x Data..@? "serviceId")
       Prelude.<*> (x Data..@? "serviceName")
       Prelude.<*> (x Data..@? "serviceState")
-      Prelude.<*> ( x Data..@? "serviceType" Core..!@ Prelude.mempty
-                      Prelude.>>= Core.may (Data.parseXMLList "item")
-                  )
-      Prelude.<*> ( x Data..@? "supportedIpAddressTypeSet"
+      Prelude.<*> ( x
+                      Data..@? "serviceType"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "supportedIpAddressTypeSet"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ServiceConfiguration where
   hashWithSalt _salt ServiceConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` acceptanceRequired
+    _salt
+      `Prelude.hashWithSalt` acceptanceRequired
       `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` baseEndpointDnsNames
       `Prelude.hashWithSalt` gatewayLoadBalancerArns

@@ -216,7 +216,8 @@ instance Core.AWSRequest CreateClientVpnRoute where
 
 instance Prelude.Hashable CreateClientVpnRoute where
   hashWithSalt _salt CreateClientVpnRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` clientVpnEndpointId

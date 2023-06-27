@@ -38,7 +38,7 @@ data InstanceCreditSpecificationRequest = InstanceCreditSpecificationRequest'
     -- credit option.
     cpuCredits :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text
+    instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,12 +59,14 @@ data InstanceCreditSpecificationRequest = InstanceCreditSpecificationRequest'
 --
 -- 'instanceId', 'instanceCreditSpecificationRequest_instanceId' - The ID of the instance.
 newInstanceCreditSpecificationRequest ::
+  -- | 'instanceId'
+  Prelude.Text ->
   InstanceCreditSpecificationRequest
-newInstanceCreditSpecificationRequest =
+newInstanceCreditSpecificationRequest pInstanceId_ =
   InstanceCreditSpecificationRequest'
     { cpuCredits =
         Prelude.Nothing,
-      instanceId = Prelude.Nothing
+      instanceId = pInstanceId_
     }
 
 -- | The credit option for CPU usage of the instance.
@@ -77,7 +79,7 @@ instanceCreditSpecificationRequest_cpuCredits :: Lens.Lens' InstanceCreditSpecif
 instanceCreditSpecificationRequest_cpuCredits = Lens.lens (\InstanceCreditSpecificationRequest' {cpuCredits} -> cpuCredits) (\s@InstanceCreditSpecificationRequest' {} a -> s {cpuCredits = a} :: InstanceCreditSpecificationRequest)
 
 -- | The ID of the instance.
-instanceCreditSpecificationRequest_instanceId :: Lens.Lens' InstanceCreditSpecificationRequest (Prelude.Maybe Prelude.Text)
+instanceCreditSpecificationRequest_instanceId :: Lens.Lens' InstanceCreditSpecificationRequest Prelude.Text
 instanceCreditSpecificationRequest_instanceId = Lens.lens (\InstanceCreditSpecificationRequest' {instanceId} -> instanceId) (\s@InstanceCreditSpecificationRequest' {} a -> s {instanceId = a} :: InstanceCreditSpecificationRequest)
 
 instance
@@ -87,7 +89,8 @@ instance
   hashWithSalt
     _salt
     InstanceCreditSpecificationRequest' {..} =
-      _salt `Prelude.hashWithSalt` cpuCredits
+      _salt
+        `Prelude.hashWithSalt` cpuCredits
         `Prelude.hashWithSalt` instanceId
 
 instance

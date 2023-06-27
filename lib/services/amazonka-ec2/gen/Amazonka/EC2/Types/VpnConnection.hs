@@ -49,7 +49,7 @@ data VpnConnection = VpnConnection'
     -- CreateVpnConnection response; however, it\'s present in the
     -- DescribeVpnConnections response only if the VPN connection is in the
     -- @pending@ or @available@ state.
-    customerGatewayConfiguration :: Prelude.Maybe Prelude.Text,
+    customerGatewayConfiguration :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The current state of the gateway association.
     gatewayAssociationState :: Prelude.Maybe GatewayAssociationState,
     -- | The VPN connection options.
@@ -74,7 +74,7 @@ data VpnConnection = VpnConnection'
     -- | The type of VPN connection.
     type' :: GatewayType
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpnConnection' with all optional fields omitted.
@@ -173,7 +173,7 @@ vpnConnection_coreNetworkAttachmentArn = Lens.lens (\VpnConnection' {coreNetwork
 -- DescribeVpnConnections response only if the VPN connection is in the
 -- @pending@ or @available@ state.
 vpnConnection_customerGatewayConfiguration :: Lens.Lens' VpnConnection (Prelude.Maybe Prelude.Text)
-vpnConnection_customerGatewayConfiguration = Lens.lens (\VpnConnection' {customerGatewayConfiguration} -> customerGatewayConfiguration) (\s@VpnConnection' {} a -> s {customerGatewayConfiguration = a} :: VpnConnection)
+vpnConnection_customerGatewayConfiguration = Lens.lens (\VpnConnection' {customerGatewayConfiguration} -> customerGatewayConfiguration) (\s@VpnConnection' {} a -> s {customerGatewayConfiguration = a} :: VpnConnection) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The current state of the gateway association.
 vpnConnection_gatewayAssociationState :: Lens.Lens' VpnConnection (Prelude.Maybe GatewayAssociationState)
@@ -229,14 +229,20 @@ instance Data.FromXML VpnConnection where
       Prelude.<*> (x Data..@? "customerGatewayConfiguration")
       Prelude.<*> (x Data..@? "gatewayAssociationState")
       Prelude.<*> (x Data..@? "options")
-      Prelude.<*> ( x Data..@? "routes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "routes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
-      Prelude.<*> ( x Data..@? "vgwTelemetry" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "vgwTelemetry"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpnGatewayId")
@@ -247,7 +253,8 @@ instance Data.FromXML VpnConnection where
 
 instance Prelude.Hashable VpnConnection where
   hashWithSalt _salt VpnConnection' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` coreNetworkAttachmentArn
       `Prelude.hashWithSalt` customerGatewayConfiguration

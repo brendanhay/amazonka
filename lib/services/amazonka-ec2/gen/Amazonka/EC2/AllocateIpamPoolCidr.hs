@@ -20,11 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Allocate a CIDR from an IPAM pool. In IPAM, an allocation is a CIDR
--- assignment from an IPAM pool to another resource or IPAM pool. For more
--- information, see
+-- Allocate a CIDR from an IPAM pool. The Region you use should be the IPAM
+-- pool locale. The locale is the Amazon Web Services Region where this
+-- IPAM pool is available for allocations.
+--
+-- In IPAM, an allocation is a CIDR assignment from an IPAM pool to another
+-- IPAM pool or to a resource. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/allocate-cidrs-ipam.html Allocate CIDRs>
 -- in the /Amazon VPC IPAM User Guide/.
+--
+-- This action creates an allocation with strong consistency. The returned
+-- CIDR will not overlap with any other allocations from the same pool.
 module Amazonka.EC2.AllocateIpamPoolCidr
   ( -- * Creating a Request
     AllocateIpamPoolCidr (..),
@@ -250,7 +256,8 @@ instance Core.AWSRequest AllocateIpamPoolCidr where
 
 instance Prelude.Hashable AllocateIpamPoolCidr where
   hashWithSalt _salt AllocateIpamPoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disallowedCidrs

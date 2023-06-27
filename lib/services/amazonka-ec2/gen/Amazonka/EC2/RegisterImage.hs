@@ -154,7 +154,13 @@ data RegisterImage = RegisterImage'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
     -- in the /Amazon EC2 User Guide/.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
-    -- | The boot mode of the AMI. For more information, see
+    -- | The boot mode of the AMI. A value of @uefi-preferred@ indicates that the
+    -- AMI supports both UEFI and Legacy BIOS.
+    --
+    -- The operating system contained in the AMI must be configured to support
+    -- the specified boot mode.
+    --
+    -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
     -- in the /Amazon EC2 User Guide/.
     bootMode :: Prelude.Maybe BootModeValues,
@@ -267,7 +273,13 @@ data RegisterImage = RegisterImage'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
 -- in the /Amazon EC2 User Guide/.
 --
--- 'bootMode', 'registerImage_bootMode' - The boot mode of the AMI. For more information, see
+-- 'bootMode', 'registerImage_bootMode' - The boot mode of the AMI. A value of @uefi-preferred@ indicates that the
+-- AMI supports both UEFI and Legacy BIOS.
+--
+-- The operating system contained in the AMI must be configured to support
+-- the specified boot mode.
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon EC2 User Guide/.
 --
@@ -399,7 +411,13 @@ registerImage_billingProducts = Lens.lens (\RegisterImage' {billingProducts} -> 
 registerImage_blockDeviceMappings :: Lens.Lens' RegisterImage (Prelude.Maybe [BlockDeviceMapping])
 registerImage_blockDeviceMappings = Lens.lens (\RegisterImage' {blockDeviceMappings} -> blockDeviceMappings) (\s@RegisterImage' {} a -> s {blockDeviceMappings = a} :: RegisterImage) Prelude.. Lens.mapping Lens.coerced
 
--- | The boot mode of the AMI. For more information, see
+-- | The boot mode of the AMI. A value of @uefi-preferred@ indicates that the
+-- AMI supports both UEFI and Legacy BIOS.
+--
+-- The operating system contained in the AMI must be configured to support
+-- the specified boot mode.
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon EC2 User Guide/.
 registerImage_bootMode :: Lens.Lens' RegisterImage (Prelude.Maybe BootModeValues)
@@ -516,7 +534,8 @@ instance Core.AWSRequest RegisterImage where
 
 instance Prelude.Hashable RegisterImage where
   hashWithSalt _salt RegisterImage' {..} =
-    _salt `Prelude.hashWithSalt` architecture
+    _salt
+      `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` billingProducts
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` bootMode

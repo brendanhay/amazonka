@@ -94,7 +94,7 @@ data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Prelude.Maybe Prelude.Text
+    transitGatewayMulticastDomainId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -144,17 +144,20 @@ data SearchTransitGatewayMulticastGroups = SearchTransitGatewayMulticastGroups'
 --
 -- 'transitGatewayMulticastDomainId', 'searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
 newSearchTransitGatewayMulticastGroups ::
+  -- | 'transitGatewayMulticastDomainId'
+  Prelude.Text ->
   SearchTransitGatewayMulticastGroups
-newSearchTransitGatewayMulticastGroups =
-  SearchTransitGatewayMulticastGroups'
-    { dryRun =
-        Prelude.Nothing,
-      filters = Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
-      transitGatewayMulticastDomainId =
-        Prelude.Nothing
-    }
+newSearchTransitGatewayMulticastGroups
+  pTransitGatewayMulticastDomainId_ =
+    SearchTransitGatewayMulticastGroups'
+      { dryRun =
+          Prelude.Nothing,
+        filters = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        transitGatewayMulticastDomainId =
+          pTransitGatewayMulticastDomainId_
+      }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -201,7 +204,7 @@ searchTransitGatewayMulticastGroups_nextToken :: Lens.Lens' SearchTransitGateway
 searchTransitGatewayMulticastGroups_nextToken = Lens.lens (\SearchTransitGatewayMulticastGroups' {nextToken} -> nextToken) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {nextToken = a} :: SearchTransitGatewayMulticastGroups)
 
 -- | The ID of the transit gateway multicast domain.
-searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId :: Lens.Lens' SearchTransitGatewayMulticastGroups (Prelude.Maybe Prelude.Text)
+searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId :: Lens.Lens' SearchTransitGatewayMulticastGroups Prelude.Text
 searchTransitGatewayMulticastGroups_transitGatewayMulticastDomainId = Lens.lens (\SearchTransitGatewayMulticastGroups' {transitGatewayMulticastDomainId} -> transitGatewayMulticastDomainId) (\s@SearchTransitGatewayMulticastGroups' {} a -> s {transitGatewayMulticastDomainId = a} :: SearchTransitGatewayMulticastGroups)
 
 instance
@@ -212,22 +215,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? searchTransitGatewayMulticastGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchTransitGatewayMulticastGroupsResponse_multicastGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchTransitGatewayMulticastGroups_nextToken
           Lens..~ rs
           Lens.^? searchTransitGatewayMulticastGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -242,11 +245,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           SearchTransitGatewayMulticastGroupsResponse'
-            Prelude.<$> ( x Data..@? "multicastGroups" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "multicastGroups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -256,7 +261,8 @@ instance
   hashWithSalt
     _salt
     SearchTransitGatewayMulticastGroups' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

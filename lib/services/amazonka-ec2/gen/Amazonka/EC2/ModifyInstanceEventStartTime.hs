@@ -142,7 +142,8 @@ instance
     ModifyInstanceEventStartTime
   where
   hashWithSalt _salt ModifyInstanceEventStartTime' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceEventId
       `Prelude.hashWithSalt` notBefore

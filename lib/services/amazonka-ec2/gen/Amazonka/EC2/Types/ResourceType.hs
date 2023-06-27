@@ -40,10 +40,13 @@ module Amazonka.EC2.Types.ResourceType
         ResourceType_Import_image_task,
         ResourceType_Import_snapshot_task,
         ResourceType_Instance,
+        ResourceType_Instance_connect_endpoint,
         ResourceType_Instance_event_window,
         ResourceType_Internet_gateway,
         ResourceType_Ipam,
         ResourceType_Ipam_pool,
+        ResourceType_Ipam_resource_discovery,
+        ResourceType_Ipam_resource_discovery_association,
         ResourceType_Ipam_scope,
         ResourceType_Ipv4pool_ec2,
         ResourceType_Ipv6pool_ec2,
@@ -200,6 +203,9 @@ pattern ResourceType_Import_snapshot_task = ResourceType' "import-snapshot-task"
 pattern ResourceType_Instance :: ResourceType
 pattern ResourceType_Instance = ResourceType' "instance"
 
+pattern ResourceType_Instance_connect_endpoint :: ResourceType
+pattern ResourceType_Instance_connect_endpoint = ResourceType' "instance-connect-endpoint"
+
 pattern ResourceType_Instance_event_window :: ResourceType
 pattern ResourceType_Instance_event_window = ResourceType' "instance-event-window"
 
@@ -211,6 +217,12 @@ pattern ResourceType_Ipam = ResourceType' "ipam"
 
 pattern ResourceType_Ipam_pool :: ResourceType
 pattern ResourceType_Ipam_pool = ResourceType' "ipam-pool"
+
+pattern ResourceType_Ipam_resource_discovery :: ResourceType
+pattern ResourceType_Ipam_resource_discovery = ResourceType' "ipam-resource-discovery"
+
+pattern ResourceType_Ipam_resource_discovery_association :: ResourceType
+pattern ResourceType_Ipam_resource_discovery_association = ResourceType' "ipam-resource-discovery-association"
 
 pattern ResourceType_Ipam_scope :: ResourceType
 pattern ResourceType_Ipam_scope = ResourceType' "ipam-scope"
@@ -410,10 +422,13 @@ pattern ResourceType_Vpn_gateway = ResourceType' "vpn-gateway"
   ResourceType_Import_image_task,
   ResourceType_Import_snapshot_task,
   ResourceType_Instance,
+  ResourceType_Instance_connect_endpoint,
   ResourceType_Instance_event_window,
   ResourceType_Internet_gateway,
   ResourceType_Ipam,
   ResourceType_Ipam_pool,
+  ResourceType_Ipam_resource_discovery,
+  ResourceType_Ipam_resource_discovery_association,
   ResourceType_Ipam_scope,
   ResourceType_Ipv4pool_ec2,
   ResourceType_Ipv6pool_ec2,

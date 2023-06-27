@@ -46,7 +46,7 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
     -- | The volume.
     volume :: Prelude.Maybe DiskImageVolumeDescription
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportInstanceVolumeDetailItem' with all optional fields omitted.
@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     ImportInstanceVolumeDetailItem' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` bytesConverted
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` image

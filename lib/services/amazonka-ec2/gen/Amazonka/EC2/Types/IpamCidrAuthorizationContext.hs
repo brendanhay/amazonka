@@ -70,7 +70,8 @@ instance
     IpamCidrAuthorizationContext
   where
   hashWithSalt _salt IpamCidrAuthorizationContext' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` signature
 
 instance Prelude.NFData IpamCidrAuthorizationContext where

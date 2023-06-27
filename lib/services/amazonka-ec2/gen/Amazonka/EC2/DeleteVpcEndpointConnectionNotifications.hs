@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes one or more VPC endpoint connection notifications.
+-- Deletes the specified VPC endpoint connection notifications.
 module Amazonka.EC2.DeleteVpcEndpointConnectionNotifications
   ( -- * Creating a Request
     DeleteVpcEndpointConnectionNotifications (..),
@@ -55,7 +55,7 @@ data DeleteVpcEndpointConnectionNotifications = DeleteVpcEndpointConnectionNotif
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more notification IDs.
+    -- | The IDs of the notifications.
     connectionNotificationIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +73,7 @@ data DeleteVpcEndpointConnectionNotifications = DeleteVpcEndpointConnectionNotif
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'connectionNotificationIds', 'deleteVpcEndpointConnectionNotifications_connectionNotificationIds' - One or more notification IDs.
+-- 'connectionNotificationIds', 'deleteVpcEndpointConnectionNotifications_connectionNotificationIds' - The IDs of the notifications.
 newDeleteVpcEndpointConnectionNotifications ::
   DeleteVpcEndpointConnectionNotifications
 newDeleteVpcEndpointConnectionNotifications =
@@ -91,7 +91,7 @@ newDeleteVpcEndpointConnectionNotifications =
 deleteVpcEndpointConnectionNotifications_dryRun :: Lens.Lens' DeleteVpcEndpointConnectionNotifications (Prelude.Maybe Prelude.Bool)
 deleteVpcEndpointConnectionNotifications_dryRun = Lens.lens (\DeleteVpcEndpointConnectionNotifications' {dryRun} -> dryRun) (\s@DeleteVpcEndpointConnectionNotifications' {} a -> s {dryRun = a} :: DeleteVpcEndpointConnectionNotifications)
 
--- | One or more notification IDs.
+-- | The IDs of the notifications.
 deleteVpcEndpointConnectionNotifications_connectionNotificationIds :: Lens.Lens' DeleteVpcEndpointConnectionNotifications [Prelude.Text]
 deleteVpcEndpointConnectionNotifications_connectionNotificationIds = Lens.lens (\DeleteVpcEndpointConnectionNotifications' {connectionNotificationIds} -> connectionNotificationIds) (\s@DeleteVpcEndpointConnectionNotifications' {} a -> s {connectionNotificationIds = a} :: DeleteVpcEndpointConnectionNotifications) Prelude.. Lens.coerced
 
@@ -109,10 +109,12 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointConnectionNotificationsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -122,7 +124,8 @@ instance
   hashWithSalt
     _salt
     DeleteVpcEndpointConnectionNotifications' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` connectionNotificationIds
 
 instance

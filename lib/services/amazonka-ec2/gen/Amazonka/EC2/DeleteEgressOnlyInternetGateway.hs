@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     DeleteEgressOnlyInternetGateway' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` egressOnlyInternetGatewayId
 
 instance

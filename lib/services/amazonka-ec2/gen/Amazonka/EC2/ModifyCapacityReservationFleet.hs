@@ -228,7 +228,8 @@ instance
   hashWithSalt
     _salt
     ModifyCapacityReservationFleet' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` endDate
         `Prelude.hashWithSalt` removeEndDate
         `Prelude.hashWithSalt` totalTargetCapacity

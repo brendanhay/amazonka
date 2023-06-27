@@ -180,22 +180,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeCapacityReservationFleetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeCapacityReservationFleetsResponse_capacityReservationFleets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeCapacityReservationFleets_nextToken
           Lens..~ rs
           Lens.^? describeCapacityReservationFleetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -210,12 +210,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeCapacityReservationFleetsResponse'
-            Prelude.<$> ( x Data..@? "capacityReservationFleetSet"
+            Prelude.<$> ( x
+                            Data..@? "capacityReservationFleetSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

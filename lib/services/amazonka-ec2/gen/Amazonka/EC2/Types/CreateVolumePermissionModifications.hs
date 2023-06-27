@@ -76,7 +76,8 @@ instance
   hashWithSalt
     _salt
     CreateVolumePermissionModifications' {..} =
-      _salt `Prelude.hashWithSalt` add
+      _salt
+        `Prelude.hashWithSalt` add
         `Prelude.hashWithSalt` remove
 
 instance

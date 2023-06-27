@@ -64,12 +64,13 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of items to return for this request. The request
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next set of items to return. (You received this token
-    -- from a prior call.)
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VPC.
     vpcId :: Prelude.Text
@@ -89,12 +90,13 @@ data DescribeStaleSecurityGroups = DescribeStaleSecurityGroups'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'maxResults', 'describeStaleSecurityGroups_maxResults' - The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- 'maxResults', 'describeStaleSecurityGroups_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeStaleSecurityGroups_nextToken' - The token for the next set of items to return. (You received this token
--- from a prior call.)
+-- 'nextToken', 'describeStaleSecurityGroups_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'vpcId', 'describeStaleSecurityGroups_vpcId' - The ID of the VPC.
 newDescribeStaleSecurityGroups ::
@@ -117,14 +119,15 @@ newDescribeStaleSecurityGroups pVpcId_ =
 describeStaleSecurityGroups_dryRun :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Bool)
 describeStaleSecurityGroups_dryRun = Lens.lens (\DescribeStaleSecurityGroups' {dryRun} -> dryRun) (\s@DescribeStaleSecurityGroups' {} a -> s {dryRun = a} :: DescribeStaleSecurityGroups)
 
--- | The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeStaleSecurityGroups_maxResults :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Natural)
 describeStaleSecurityGroups_maxResults = Lens.lens (\DescribeStaleSecurityGroups' {maxResults} -> maxResults) (\s@DescribeStaleSecurityGroups' {} a -> s {maxResults = a} :: DescribeStaleSecurityGroups)
 
--- | The token for the next set of items to return. (You received this token
--- from a prior call.)
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeStaleSecurityGroups_nextToken :: Lens.Lens' DescribeStaleSecurityGroups (Prelude.Maybe Prelude.Text)
 describeStaleSecurityGroups_nextToken = Lens.lens (\DescribeStaleSecurityGroups' {nextToken} -> nextToken) (\s@DescribeStaleSecurityGroups' {} a -> s {nextToken = a} :: DescribeStaleSecurityGroups)
 
@@ -137,22 +140,22 @@ instance Core.AWSPager DescribeStaleSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeStaleSecurityGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeStaleSecurityGroupsResponse_staleSecurityGroupSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeStaleSecurityGroups_nextToken
           Lens..~ rs
           Lens.^? describeStaleSecurityGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStaleSecurityGroups where
   type
@@ -165,7 +168,8 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
       ( \s h x ->
           DescribeStaleSecurityGroupsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "staleSecurityGroupSet"
+            Prelude.<*> ( x
+                            Data..@? "staleSecurityGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -174,7 +178,8 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
 
 instance Prelude.Hashable DescribeStaleSecurityGroups where
   hashWithSalt _salt DescribeStaleSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vpcId
@@ -209,8 +214,8 @@ instance Data.ToQuery DescribeStaleSecurityGroups where
 
 -- | /See:/ 'newDescribeStaleSecurityGroupsResponse' smart constructor.
 data DescribeStaleSecurityGroupsResponse = DescribeStaleSecurityGroupsResponse'
-  { -- | The token to use when requesting the next set of items. If there are no
-    -- additional items to return, the string is empty.
+  { -- | The token to include in another request to get the next page of items.
+    -- If there are no additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the stale security groups.
     staleSecurityGroupSet :: Prelude.Maybe [StaleSecurityGroup],
@@ -227,8 +232,8 @@ data DescribeStaleSecurityGroupsResponse = DescribeStaleSecurityGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeStaleSecurityGroupsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- 'nextToken', 'describeStaleSecurityGroupsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- If there are no additional items to return, the string is empty.
 --
 -- 'staleSecurityGroupSet', 'describeStaleSecurityGroupsResponse_staleSecurityGroupSet' - Information about the stale security groups.
 --
@@ -246,8 +251,8 @@ newDescribeStaleSecurityGroupsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to include in another request to get the next page of items.
+-- If there are no additional items to return, the string is empty.
 describeStaleSecurityGroupsResponse_nextToken :: Lens.Lens' DescribeStaleSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
 describeStaleSecurityGroupsResponse_nextToken = Lens.lens (\DescribeStaleSecurityGroupsResponse' {nextToken} -> nextToken) (\s@DescribeStaleSecurityGroupsResponse' {} a -> s {nextToken = a} :: DescribeStaleSecurityGroupsResponse)
 

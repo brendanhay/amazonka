@@ -74,7 +74,8 @@ instance Data.FromXML PathStatement where
 
 instance Prelude.Hashable PathStatement where
   hashWithSalt _salt PathStatement' {..} =
-    _salt `Prelude.hashWithSalt` packetHeaderStatement
+    _salt
+      `Prelude.hashWithSalt` packetHeaderStatement
       `Prelude.hashWithSalt` resourceStatement
 
 instance Prelude.NFData PathStatement where

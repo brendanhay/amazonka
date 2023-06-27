@@ -145,12 +145,16 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
     --
     -- Constraints: Maximum 100 explicitly specified instance IDs.
     instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 5 and 1000. You cannot specify this
-    -- parameter and the instance IDs parameter in the same call.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+    --
+    -- You cannot specify this parameter and the instance IDs parameter in the
+    -- same request.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to retrieve the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -227,12 +231,16 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
 --
 -- Constraints: Maximum 100 explicitly specified instance IDs.
 --
--- 'maxResults', 'describeInstanceStatus_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
+-- 'maxResults', 'describeInstanceStatus_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeInstanceStatus_nextToken' - The token to retrieve the next page of results.
+-- You cannot specify this parameter and the instance IDs parameter in the
+-- same request.
+--
+-- 'nextToken', 'describeInstanceStatus_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeInstanceStatus ::
   DescribeInstanceStatus
 newDescribeInstanceStatus =
@@ -317,14 +325,18 @@ describeInstanceStatus_includeAllInstances = Lens.lens (\DescribeInstanceStatus'
 describeInstanceStatus_instanceIds :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe [Prelude.Text])
 describeInstanceStatus_instanceIds = Lens.lens (\DescribeInstanceStatus' {instanceIds} -> instanceIds) (\s@DescribeInstanceStatus' {} a -> s {instanceIds = a} :: DescribeInstanceStatus) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+--
+-- You cannot specify this parameter and the instance IDs parameter in the
+-- same request.
 describeInstanceStatus_maxResults :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Int)
 describeInstanceStatus_maxResults = Lens.lens (\DescribeInstanceStatus' {maxResults} -> maxResults) (\s@DescribeInstanceStatus' {} a -> s {maxResults = a} :: DescribeInstanceStatus)
 
--- | The token to retrieve the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeInstanceStatus_nextToken :: Lens.Lens' DescribeInstanceStatus (Prelude.Maybe Prelude.Text)
 describeInstanceStatus_nextToken = Lens.lens (\DescribeInstanceStatus' {nextToken} -> nextToken) (\s@DescribeInstanceStatus' {} a -> s {nextToken = a} :: DescribeInstanceStatus)
 
@@ -333,22 +345,22 @@ instance Core.AWSPager DescribeInstanceStatus where
     | Core.stop
         ( rs
             Lens.^? describeInstanceStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceStatusResponse_instanceStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceStatus_nextToken
           Lens..~ rs
           Lens.^? describeInstanceStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceStatus where
   type
@@ -360,7 +372,8 @@ instance Core.AWSRequest DescribeInstanceStatus where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceStatusResponse'
-            Prelude.<$> ( x Data..@? "instanceStatusSet"
+            Prelude.<$> ( x
+                            Data..@? "instanceStatusSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -370,7 +383,8 @@ instance Core.AWSRequest DescribeInstanceStatus where
 
 instance Prelude.Hashable DescribeInstanceStatus where
   hashWithSalt _salt DescribeInstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includeAllInstances
       `Prelude.hashWithSalt` instanceIds
@@ -415,8 +429,8 @@ instance Data.ToQuery DescribeInstanceStatus where
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
   { -- | Information about the status of the instances.
     instanceStatuses :: Prelude.Maybe [InstanceStatus],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -433,8 +447,8 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
 --
 -- 'instanceStatuses', 'describeInstanceStatusResponse_instanceStatuses' - Information about the status of the instances.
 --
--- 'nextToken', 'describeInstanceStatusResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeInstanceStatusResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeInstanceStatusResponse_httpStatus' - The response's http status code.
 newDescribeInstanceStatusResponse ::
@@ -453,8 +467,8 @@ newDescribeInstanceStatusResponse pHttpStatus_ =
 describeInstanceStatusResponse_instanceStatuses :: Lens.Lens' DescribeInstanceStatusResponse (Prelude.Maybe [InstanceStatus])
 describeInstanceStatusResponse_instanceStatuses = Lens.lens (\DescribeInstanceStatusResponse' {instanceStatuses} -> instanceStatuses) (\s@DescribeInstanceStatusResponse' {} a -> s {instanceStatuses = a} :: DescribeInstanceStatusResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeInstanceStatusResponse_nextToken :: Lens.Lens' DescribeInstanceStatusResponse (Prelude.Maybe Prelude.Text)
 describeInstanceStatusResponse_nextToken = Lens.lens (\DescribeInstanceStatusResponse' {nextToken} -> nextToken) (\s@DescribeInstanceStatusResponse' {} a -> s {nextToken = a} :: DescribeInstanceStatusResponse)
 

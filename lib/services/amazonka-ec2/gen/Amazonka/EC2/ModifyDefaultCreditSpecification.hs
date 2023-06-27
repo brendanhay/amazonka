@@ -157,7 +157,8 @@ instance
   hashWithSalt
     _salt
     ModifyDefaultCreditSpecification' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceFamily
         `Prelude.hashWithSalt` cpuCredits
 

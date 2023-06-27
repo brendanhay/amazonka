@@ -115,12 +115,6 @@ data DescribeInstances = DescribeInstances'
     --
     -- -   @dns-name@ - The public DNS name of the instance.
     --
-    -- -   @group-id@ - The ID of the security group for the instance.
-    --     EC2-Classic only.
-    --
-    -- -   @group-name@ - The name of the security group for the instance.
-    --     EC2-Classic only.
-    --
     -- -   @hibernation-options.configured@ - A Boolean that indicates whether
     --     the instance is enabled for hibernation. A value of @true@ means
     --     that the instance is enabled for hibernation.
@@ -177,12 +171,15 @@ data DescribeInstances = DescribeInstances'
     -- -   @metadata-options.http-tokens@ - The metadata request authorization
     --     state (@optional@ | @required@)
     --
-    -- -   @metadata-options.http-put-response-hop-limit@ - The http metadata
+    -- -   @metadata-options.http-put-response-hop-limit@ - The HTTP metadata
     --     request put response hop limit (integer, possible values @1@ to
     --     @64@)
     --
-    -- -   @metadata-options.http-endpoint@ - Enable or disable metadata access
-    --     on http endpoint (@enabled@ | @disabled@)
+    -- -   @metadata-options.http-endpoint@ - The status of access to the HTTP
+    --     metadata endpoint on your instance (@enabled@ | @disabled@)
+    --
+    -- -   @metadata-options.instance-metadata-tags@ - The status of access to
+    --     instance tags from the instance metadata (@enabled@ | @disabled@)
     --
     -- -   @monitoring-state@ - Indicates whether detailed monitoring is
     --     enabled (@disabled@ | @enabled@).
@@ -369,12 +366,16 @@ data DescribeInstances = DescribeInstances'
     --
     -- Default: Describes all your instances.
     instanceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 5 and 1000. You cannot specify this
-    -- parameter and the instance IDs parameter in the same call.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+    --
+    -- You cannot specify this parameter and the instance IDs parameter in the
+    -- same request.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to request the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -424,12 +425,6 @@ data DescribeInstances = DescribeInstances'
 --     launched the instance.
 --
 -- -   @dns-name@ - The public DNS name of the instance.
---
--- -   @group-id@ - The ID of the security group for the instance.
---     EC2-Classic only.
---
--- -   @group-name@ - The name of the security group for the instance.
---     EC2-Classic only.
 --
 -- -   @hibernation-options.configured@ - A Boolean that indicates whether
 --     the instance is enabled for hibernation. A value of @true@ means
@@ -487,12 +482,15 @@ data DescribeInstances = DescribeInstances'
 -- -   @metadata-options.http-tokens@ - The metadata request authorization
 --     state (@optional@ | @required@)
 --
--- -   @metadata-options.http-put-response-hop-limit@ - The http metadata
+-- -   @metadata-options.http-put-response-hop-limit@ - The HTTP metadata
 --     request put response hop limit (integer, possible values @1@ to
 --     @64@)
 --
--- -   @metadata-options.http-endpoint@ - Enable or disable metadata access
---     on http endpoint (@enabled@ | @disabled@)
+-- -   @metadata-options.http-endpoint@ - The status of access to the HTTP
+--     metadata endpoint on your instance (@enabled@ | @disabled@)
+--
+-- -   @metadata-options.instance-metadata-tags@ - The status of access to
+--     instance tags from the instance metadata (@enabled@ | @disabled@)
 --
 -- -   @monitoring-state@ - Indicates whether detailed monitoring is
 --     enabled (@disabled@ | @enabled@).
@@ -679,12 +677,16 @@ data DescribeInstances = DescribeInstances'
 --
 -- Default: Describes all your instances.
 --
--- 'maxResults', 'describeInstances_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
+-- 'maxResults', 'describeInstances_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeInstances_nextToken' - The token to request the next page of results.
+-- You cannot specify this parameter and the instance IDs parameter in the
+-- same request.
+--
+-- 'nextToken', 'describeInstances_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeInstances ::
   DescribeInstances
 newDescribeInstances =
@@ -735,12 +737,6 @@ describeInstances_dryRun = Lens.lens (\DescribeInstances' {dryRun} -> dryRun) (\
 --     launched the instance.
 --
 -- -   @dns-name@ - The public DNS name of the instance.
---
--- -   @group-id@ - The ID of the security group for the instance.
---     EC2-Classic only.
---
--- -   @group-name@ - The name of the security group for the instance.
---     EC2-Classic only.
 --
 -- -   @hibernation-options.configured@ - A Boolean that indicates whether
 --     the instance is enabled for hibernation. A value of @true@ means
@@ -798,12 +794,15 @@ describeInstances_dryRun = Lens.lens (\DescribeInstances' {dryRun} -> dryRun) (\
 -- -   @metadata-options.http-tokens@ - The metadata request authorization
 --     state (@optional@ | @required@)
 --
--- -   @metadata-options.http-put-response-hop-limit@ - The http metadata
+-- -   @metadata-options.http-put-response-hop-limit@ - The HTTP metadata
 --     request put response hop limit (integer, possible values @1@ to
 --     @64@)
 --
--- -   @metadata-options.http-endpoint@ - Enable or disable metadata access
---     on http endpoint (@enabled@ | @disabled@)
+-- -   @metadata-options.http-endpoint@ - The status of access to the HTTP
+--     metadata endpoint on your instance (@enabled@ | @disabled@)
+--
+-- -   @metadata-options.instance-metadata-tags@ - The status of access to
+--     instance tags from the instance metadata (@enabled@ | @disabled@)
 --
 -- -   @monitoring-state@ - Indicates whether detailed monitoring is
 --     enabled (@disabled@ | @enabled@).
@@ -994,14 +993,18 @@ describeInstances_filters = Lens.lens (\DescribeInstances' {filters} -> filters)
 describeInstances_instanceIds :: Lens.Lens' DescribeInstances (Prelude.Maybe [Prelude.Text])
 describeInstances_instanceIds = Lens.lens (\DescribeInstances' {instanceIds} -> instanceIds) (\s@DescribeInstances' {} a -> s {instanceIds = a} :: DescribeInstances) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 5 and 1000. You cannot specify this
--- parameter and the instance IDs parameter in the same call.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+--
+-- You cannot specify this parameter and the instance IDs parameter in the
+-- same request.
 describeInstances_maxResults :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Int)
 describeInstances_maxResults = Lens.lens (\DescribeInstances' {maxResults} -> maxResults) (\s@DescribeInstances' {} a -> s {maxResults = a} :: DescribeInstances)
 
--- | The token to request the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
 describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
 
@@ -1010,22 +1013,22 @@ instance Core.AWSPager DescribeInstances where
     | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstancesResponse_reservations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstances_nextToken
           Lens..~ rs
           Lens.^? describeInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstances where
   type
@@ -1038,7 +1041,9 @@ instance Core.AWSRequest DescribeInstances where
       ( \s h x ->
           DescribeInstancesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "reservationSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "reservationSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -1046,7 +1051,8 @@ instance Core.AWSRequest DescribeInstances where
 
 instance Prelude.Hashable DescribeInstances where
   hashWithSalt _salt DescribeInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceIds
       `Prelude.hashWithSalt` maxResults
@@ -1086,8 +1092,8 @@ instance Data.ToQuery DescribeInstances where
 
 -- | /See:/ 'newDescribeInstancesResponse' smart constructor.
 data DescribeInstancesResponse = DescribeInstancesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the reservations.
     reservations :: Prelude.Maybe [Reservation],
@@ -1104,8 +1110,8 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeInstancesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeInstancesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'reservations', 'describeInstancesResponse_reservations' - Information about the reservations.
 --
@@ -1122,8 +1128,8 @@ newDescribeInstancesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeInstancesResponse_nextToken :: Lens.Lens' DescribeInstancesResponse (Prelude.Maybe Prelude.Text)
 describeInstancesResponse_nextToken = Lens.lens (\DescribeInstancesResponse' {nextToken} -> nextToken) (\s@DescribeInstancesResponse' {} a -> s {nextToken = a} :: DescribeInstancesResponse)
 

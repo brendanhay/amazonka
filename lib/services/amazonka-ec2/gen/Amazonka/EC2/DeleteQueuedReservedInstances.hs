@@ -112,11 +112,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeleteQueuedReservedInstancesResponse'
-            Prelude.<$> ( x Data..@? "failedQueuedPurchaseDeletionSet"
+            Prelude.<$> ( x
+                            Data..@? "failedQueuedPurchaseDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "successfulQueuedPurchaseDeletionSet"
+            Prelude.<*> ( x
+                            Data..@? "successfulQueuedPurchaseDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -128,7 +130,8 @@ instance
     DeleteQueuedReservedInstances
   where
   hashWithSalt _salt DeleteQueuedReservedInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` reservedInstancesIds
 
 instance Prelude.NFData DeleteQueuedReservedInstances where

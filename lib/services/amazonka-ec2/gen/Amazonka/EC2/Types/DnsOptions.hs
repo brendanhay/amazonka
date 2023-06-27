@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDnsOptions' smart constructor.
 data DnsOptions = DnsOptions'
   { -- | The DNS records created for the endpoint.
-    dnsRecordIpType :: Prelude.Maybe DnsRecordIpType
+    dnsRecordIpType :: Prelude.Maybe DnsRecordIpType,
+    -- | Indicates whether to enable private DNS only for inbound endpoints.
+    privateDnsOnlyForInboundResolverEndpoint :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,23 +46,40 @@ data DnsOptions = DnsOptions'
 -- for backwards compatibility:
 --
 -- 'dnsRecordIpType', 'dnsOptions_dnsRecordIpType' - The DNS records created for the endpoint.
+--
+-- 'privateDnsOnlyForInboundResolverEndpoint', 'dnsOptions_privateDnsOnlyForInboundResolverEndpoint' - Indicates whether to enable private DNS only for inbound endpoints.
 newDnsOptions ::
   DnsOptions
 newDnsOptions =
-  DnsOptions' {dnsRecordIpType = Prelude.Nothing}
+  DnsOptions'
+    { dnsRecordIpType = Prelude.Nothing,
+      privateDnsOnlyForInboundResolverEndpoint =
+        Prelude.Nothing
+    }
 
 -- | The DNS records created for the endpoint.
 dnsOptions_dnsRecordIpType :: Lens.Lens' DnsOptions (Prelude.Maybe DnsRecordIpType)
 dnsOptions_dnsRecordIpType = Lens.lens (\DnsOptions' {dnsRecordIpType} -> dnsRecordIpType) (\s@DnsOptions' {} a -> s {dnsRecordIpType = a} :: DnsOptions)
 
+-- | Indicates whether to enable private DNS only for inbound endpoints.
+dnsOptions_privateDnsOnlyForInboundResolverEndpoint :: Lens.Lens' DnsOptions (Prelude.Maybe Prelude.Bool)
+dnsOptions_privateDnsOnlyForInboundResolverEndpoint = Lens.lens (\DnsOptions' {privateDnsOnlyForInboundResolverEndpoint} -> privateDnsOnlyForInboundResolverEndpoint) (\s@DnsOptions' {} a -> s {privateDnsOnlyForInboundResolverEndpoint = a} :: DnsOptions)
+
 instance Data.FromXML DnsOptions where
   parseXML x =
     DnsOptions'
       Prelude.<$> (x Data..@? "dnsRecordIpType")
+      Prelude.<*> ( x
+                      Data..@? "privateDnsOnlyForInboundResolverEndpoint"
+                  )
 
 instance Prelude.Hashable DnsOptions where
   hashWithSalt _salt DnsOptions' {..} =
-    _salt `Prelude.hashWithSalt` dnsRecordIpType
+    _salt
+      `Prelude.hashWithSalt` dnsRecordIpType
+      `Prelude.hashWithSalt` privateDnsOnlyForInboundResolverEndpoint
 
 instance Prelude.NFData DnsOptions where
-  rnf DnsOptions' {..} = Prelude.rnf dnsRecordIpType
+  rnf DnsOptions' {..} =
+    Prelude.rnf dnsRecordIpType
+      `Prelude.seq` Prelude.rnf privateDnsOnlyForInboundResolverEndpoint

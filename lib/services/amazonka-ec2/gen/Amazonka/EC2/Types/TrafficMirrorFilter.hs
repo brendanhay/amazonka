@@ -115,26 +115,32 @@ instance Data.FromXML TrafficMirrorFilter where
   parseXML x =
     TrafficMirrorFilter'
       Prelude.<$> (x Data..@? "description")
-      Prelude.<*> ( x Data..@? "egressFilterRuleSet"
+      Prelude.<*> ( x
+                      Data..@? "egressFilterRuleSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "ingressFilterRuleSet"
+      Prelude.<*> ( x
+                      Data..@? "ingressFilterRuleSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "networkServiceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkServiceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trafficMirrorFilterId")
 
 instance Prelude.Hashable TrafficMirrorFilter where
   hashWithSalt _salt TrafficMirrorFilter' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` egressFilterRules
       `Prelude.hashWithSalt` ingressFilterRules
       `Prelude.hashWithSalt` networkServices

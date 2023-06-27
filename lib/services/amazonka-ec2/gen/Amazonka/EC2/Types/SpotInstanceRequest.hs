@@ -102,7 +102,7 @@ data SpotInstanceRequest = SpotInstanceRequest'
     --     from the date the request was created.
     validUntil :: Prelude.Maybe Data.ISO8601
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotInstanceRequest' with all optional fields omitted.
@@ -321,7 +321,9 @@ instance Data.FromXML SpotInstanceRequest where
       Prelude.<*> (x Data..@? "spotPrice")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "status")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "type")
@@ -330,7 +332,8 @@ instance Data.FromXML SpotInstanceRequest where
 
 instance Prelude.Hashable SpotInstanceRequest where
   hashWithSalt _salt SpotInstanceRequest' {..} =
-    _salt `Prelude.hashWithSalt` actualBlockHourlyPrice
+    _salt
+      `Prelude.hashWithSalt` actualBlockHourlyPrice
       `Prelude.hashWithSalt` availabilityZoneGroup
       `Prelude.hashWithSalt` blockDurationMinutes
       `Prelude.hashWithSalt` createTime

@@ -151,7 +151,8 @@ instance Core.AWSRequest DeleteTags where
 
 instance Prelude.Hashable DeleteTags where
   hashWithSalt _salt DeleteTags' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resources
 

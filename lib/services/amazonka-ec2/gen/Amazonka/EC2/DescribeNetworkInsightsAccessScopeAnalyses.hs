@@ -180,22 +180,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsAccessScopeAnalysesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsAccessScopeAnalysesResponse_networkInsightsAccessScopeAnalyses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkInsightsAccessScopeAnalyses_nextToken
           Lens..~ rs
-            Lens.^? describeNetworkInsightsAccessScopeAnalysesResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeNetworkInsightsAccessScopeAnalysesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -211,12 +211,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsAccessScopeAnalysesResponse'
-            Prelude.<$> ( x Data..@? "networkInsightsAccessScopeAnalysisSet"
+            Prelude.<$> ( x
+                            Data..@? "networkInsightsAccessScopeAnalysisSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -226,7 +227,8 @@ instance
   hashWithSalt
     _salt
     DescribeNetworkInsightsAccessScopeAnalyses' {..} =
-      _salt `Prelude.hashWithSalt` analysisStartTimeBegin
+      _salt
+        `Prelude.hashWithSalt` analysisStartTimeBegin
         `Prelude.hashWithSalt` analysisStartTimeEnd
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters

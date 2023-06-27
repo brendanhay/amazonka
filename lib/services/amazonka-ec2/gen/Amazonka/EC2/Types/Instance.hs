@@ -36,6 +36,7 @@ import Amazonka.EC2.Types.HibernationOptions
 import Amazonka.EC2.Types.HypervisorType
 import Amazonka.EC2.Types.IamInstanceProfile
 import Amazonka.EC2.Types.InstanceBlockDeviceMapping
+import Amazonka.EC2.Types.InstanceBootModeValues
 import Amazonka.EC2.Types.InstanceLifecycleType
 import Amazonka.EC2.Types.InstanceMaintenanceOptions
 import Amazonka.EC2.Types.InstanceMetadataOptionsResponse
@@ -59,7 +60,15 @@ import qualified Amazonka.Prelude as Prelude
 data Instance = Instance'
   { -- | Any block device mapping entries for the instance.
     blockDeviceMappings :: Prelude.Maybe [InstanceBlockDeviceMapping],
-    -- | The boot mode of the instance. For more information, see
+    -- | The boot mode that was specified by the AMI. If the value is
+    -- @uefi-preferred@, the AMI supports both UEFI and Legacy BIOS. The
+    -- @currentInstanceBootMode@ parameter is the boot mode that is used to
+    -- boot the instance at launch or start.
+    --
+    -- The operating system contained in the AMI must be configured to support
+    -- the specified boot mode.
+    --
+    -- For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
     -- in the /Amazon EC2 User Guide/.
     bootMode :: Prelude.Maybe BootModeValues,
@@ -72,6 +81,11 @@ data Instance = Instance'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The CPU options for the instance.
     cpuOptions :: Prelude.Maybe CpuOptions,
+    -- | The boot mode that is used to boot the instance at launch or start. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+    -- in the /Amazon EC2 User Guide/.
+    currentInstanceBootMode :: Prelude.Maybe InstanceBootModeValues,
     -- | Indicates whether the instance is optimized for Amazon EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
     -- optimized configuration stack to provide optimal I\/O performance. This
@@ -107,7 +121,7 @@ data Instance = Instance'
     maintenanceOptions :: Prelude.Maybe InstanceMaintenanceOptions,
     -- | The metadata options for the instance.
     metadataOptions :: Prelude.Maybe InstanceMetadataOptionsResponse,
-    -- | [EC2-VPC] The network interfaces for the instance.
+    -- | The network interfaces for the instance.
     networkInterfaces :: Prelude.Maybe [InstanceNetworkInterface],
     -- | The Amazon Resource Name (ARN) of the Outpost.
     outpostArn :: Prelude.Maybe Prelude.Text,
@@ -117,15 +131,15 @@ data Instance = Instance'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
     -- in the /Amazon EC2 User Guide/.
     platformDetails :: Prelude.Maybe Prelude.Text,
-    -- | (IPv4 only) The private DNS hostname name assigned to the instance. This
+    -- | [IPv4 only] The private DNS hostname name assigned to the instance. This
     -- DNS hostname can only be used inside the Amazon EC2 network. This name
     -- is not available until the instance enters the @running@ state.
     --
-    -- [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided
-    -- private DNS hostnames if you\'ve enabled DNS resolution and DNS
-    -- hostnames in your VPC. If you are not using the Amazon-provided DNS
-    -- server in your VPC, your custom domain name servers must resolve the
-    -- hostname as appropriate.
+    -- The Amazon-provided DNS server resolves Amazon-provided private DNS
+    -- hostnames if you\'ve enabled DNS resolution and DNS hostnames in your
+    -- VPC. If you are not using the Amazon-provided DNS server in your VPC,
+    -- your custom domain name servers must resolve the hostname as
+    -- appropriate.
     privateDnsName :: Prelude.Maybe Prelude.Text,
     -- | The options for the instance hostname.
     privateDnsNameOptions :: Prelude.Maybe PrivateDnsNameOptionsResponse,
@@ -133,10 +147,9 @@ data Instance = Instance'
     privateIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The product codes attached to this instance, if applicable.
     productCodes :: Prelude.Maybe [ProductCode],
-    -- | (IPv4 only) The public DNS name assigned to the instance. This name is
-    -- not available until the instance enters the @running@ state. For
-    -- EC2-VPC, this name is only available if you\'ve enabled DNS hostnames
-    -- for your VPC.
+    -- | [IPv4 only] The public DNS name assigned to the instance. This name is
+    -- not available until the instance enters the @running@ state. This name
+    -- is only available if you\'ve enabled DNS hostnames for your VPC.
     publicDnsName :: Prelude.Maybe Prelude.Text,
     -- | The public IPv4 address, or the Carrier IP address assigned to the
     -- instance, if applicable.
@@ -162,7 +175,7 @@ data Instance = Instance'
     -- | The reason for the most recent state transition. This might be an empty
     -- string.
     stateTransitionReason :: Prelude.Maybe Prelude.Text,
-    -- | [EC2-VPC] The ID of the subnet in which the instance is running.
+    -- | The ID of the subnet in which the instance is running.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | Any tags assigned to the instance.
     tags :: Prelude.Maybe [Tag],
@@ -177,7 +190,7 @@ data Instance = Instance'
     usageOperation :: Prelude.Maybe Prelude.Text,
     -- | The time that the usage operation was last updated.
     usageOperationUpdateTime :: Prelude.Maybe Data.ISO8601,
-    -- | [EC2-VPC] The ID of the VPC in which the instance is running.
+    -- | The ID of the VPC in which the instance is running.
     vpcId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance.
     instanceId :: Prelude.Text,
@@ -219,7 +232,15 @@ data Instance = Instance'
 --
 -- 'blockDeviceMappings', 'instance_blockDeviceMappings' - Any block device mapping entries for the instance.
 --
--- 'bootMode', 'instance_bootMode' - The boot mode of the instance. For more information, see
+-- 'bootMode', 'instance_bootMode' - The boot mode that was specified by the AMI. If the value is
+-- @uefi-preferred@, the AMI supports both UEFI and Legacy BIOS. The
+-- @currentInstanceBootMode@ parameter is the boot mode that is used to
+-- boot the instance at launch or start.
+--
+-- The operating system contained in the AMI must be configured to support
+-- the specified boot mode.
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon EC2 User Guide/.
 --
@@ -231,6 +252,11 @@ data Instance = Instance'
 -- applicable.
 --
 -- 'cpuOptions', 'instance_cpuOptions' - The CPU options for the instance.
+--
+-- 'currentInstanceBootMode', 'instance_currentInstanceBootMode' - The boot mode that is used to boot the instance at launch or start. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'ebsOptimized', 'instance_ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -267,7 +293,7 @@ data Instance = Instance'
 --
 -- 'metadataOptions', 'instance_metadataOptions' - The metadata options for the instance.
 --
--- 'networkInterfaces', 'instance_networkInterfaces' - [EC2-VPC] The network interfaces for the instance.
+-- 'networkInterfaces', 'instance_networkInterfaces' - The network interfaces for the instance.
 --
 -- 'outpostArn', 'instance_outpostArn' - The Amazon Resource Name (ARN) of the Outpost.
 --
@@ -277,15 +303,15 @@ data Instance = Instance'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
 -- in the /Amazon EC2 User Guide/.
 --
--- 'privateDnsName', 'instance_privateDnsName' - (IPv4 only) The private DNS hostname name assigned to the instance. This
+-- 'privateDnsName', 'instance_privateDnsName' - [IPv4 only] The private DNS hostname name assigned to the instance. This
 -- DNS hostname can only be used inside the Amazon EC2 network. This name
 -- is not available until the instance enters the @running@ state.
 --
--- [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided
--- private DNS hostnames if you\'ve enabled DNS resolution and DNS
--- hostnames in your VPC. If you are not using the Amazon-provided DNS
--- server in your VPC, your custom domain name servers must resolve the
--- hostname as appropriate.
+-- The Amazon-provided DNS server resolves Amazon-provided private DNS
+-- hostnames if you\'ve enabled DNS resolution and DNS hostnames in your
+-- VPC. If you are not using the Amazon-provided DNS server in your VPC,
+-- your custom domain name servers must resolve the hostname as
+-- appropriate.
 --
 -- 'privateDnsNameOptions', 'instance_privateDnsNameOptions' - The options for the instance hostname.
 --
@@ -293,10 +319,9 @@ data Instance = Instance'
 --
 -- 'productCodes', 'instance_productCodes' - The product codes attached to this instance, if applicable.
 --
--- 'publicDnsName', 'instance_publicDnsName' - (IPv4 only) The public DNS name assigned to the instance. This name is
--- not available until the instance enters the @running@ state. For
--- EC2-VPC, this name is only available if you\'ve enabled DNS hostnames
--- for your VPC.
+-- 'publicDnsName', 'instance_publicDnsName' - [IPv4 only] The public DNS name assigned to the instance. This name is
+-- not available until the instance enters the @running@ state. This name
+-- is only available if you\'ve enabled DNS hostnames for your VPC.
 --
 -- 'publicIpAddress', 'instance_publicIpAddress' - The public IPv4 address, or the Carrier IP address assigned to the
 -- instance, if applicable.
@@ -322,7 +347,7 @@ data Instance = Instance'
 -- 'stateTransitionReason', 'instance_stateTransitionReason' - The reason for the most recent state transition. This might be an empty
 -- string.
 --
--- 'subnetId', 'instance_subnetId' - [EC2-VPC] The ID of the subnet in which the instance is running.
+-- 'subnetId', 'instance_subnetId' - The ID of the subnet in which the instance is running.
 --
 -- 'tags', 'instance_tags' - Any tags assigned to the instance.
 --
@@ -337,7 +362,7 @@ data Instance = Instance'
 --
 -- 'usageOperationUpdateTime', 'instance_usageOperationUpdateTime' - The time that the usage operation was last updated.
 --
--- 'vpcId', 'instance_vpcId' - [EC2-VPC] The ID of the VPC in which the instance is running.
+-- 'vpcId', 'instance_vpcId' - The ID of the VPC in which the instance is running.
 --
 -- 'instanceId', 'instance_instanceId' - The ID of the instance.
 --
@@ -411,6 +436,7 @@ newInstance
         capacityReservationSpecification = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         cpuOptions = Prelude.Nothing,
+        currentInstanceBootMode = Prelude.Nothing,
         ebsOptimized = Prelude.Nothing,
         elasticGpuAssociations = Prelude.Nothing,
         elasticInferenceAcceleratorAssociations =
@@ -468,7 +494,15 @@ newInstance
 instance_blockDeviceMappings :: Lens.Lens' Instance (Prelude.Maybe [InstanceBlockDeviceMapping])
 instance_blockDeviceMappings = Lens.lens (\Instance' {blockDeviceMappings} -> blockDeviceMappings) (\s@Instance' {} a -> s {blockDeviceMappings = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
--- | The boot mode of the instance. For more information, see
+-- | The boot mode that was specified by the AMI. If the value is
+-- @uefi-preferred@, the AMI supports both UEFI and Legacy BIOS. The
+-- @currentInstanceBootMode@ parameter is the boot mode that is used to
+-- boot the instance at launch or start.
+--
+-- The operating system contained in the AMI must be configured to support
+-- the specified boot mode.
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
 -- in the /Amazon EC2 User Guide/.
 instance_bootMode :: Lens.Lens' Instance (Prelude.Maybe BootModeValues)
@@ -490,6 +524,13 @@ instance_clientToken = Lens.lens (\Instance' {clientToken} -> clientToken) (\s@I
 -- | The CPU options for the instance.
 instance_cpuOptions :: Lens.Lens' Instance (Prelude.Maybe CpuOptions)
 instance_cpuOptions = Lens.lens (\Instance' {cpuOptions} -> cpuOptions) (\s@Instance' {} a -> s {cpuOptions = a} :: Instance)
+
+-- | The boot mode that is used to boot the instance at launch or start. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html Boot modes>
+-- in the /Amazon EC2 User Guide/.
+instance_currentInstanceBootMode :: Lens.Lens' Instance (Prelude.Maybe InstanceBootModeValues)
+instance_currentInstanceBootMode = Lens.lens (\Instance' {currentInstanceBootMode} -> currentInstanceBootMode) (\s@Instance' {} a -> s {currentInstanceBootMode = a} :: Instance)
 
 -- | Indicates whether the instance is optimized for Amazon EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -554,7 +595,7 @@ instance_maintenanceOptions = Lens.lens (\Instance' {maintenanceOptions} -> main
 instance_metadataOptions :: Lens.Lens' Instance (Prelude.Maybe InstanceMetadataOptionsResponse)
 instance_metadataOptions = Lens.lens (\Instance' {metadataOptions} -> metadataOptions) (\s@Instance' {} a -> s {metadataOptions = a} :: Instance)
 
--- | [EC2-VPC] The network interfaces for the instance.
+-- | The network interfaces for the instance.
 instance_networkInterfaces :: Lens.Lens' Instance (Prelude.Maybe [InstanceNetworkInterface])
 instance_networkInterfaces = Lens.lens (\Instance' {networkInterfaces} -> networkInterfaces) (\s@Instance' {} a -> s {networkInterfaces = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
@@ -572,15 +613,15 @@ instance_platform = Lens.lens (\Instance' {platform} -> platform) (\s@Instance' 
 instance_platformDetails :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_platformDetails = Lens.lens (\Instance' {platformDetails} -> platformDetails) (\s@Instance' {} a -> s {platformDetails = a} :: Instance)
 
--- | (IPv4 only) The private DNS hostname name assigned to the instance. This
+-- | [IPv4 only] The private DNS hostname name assigned to the instance. This
 -- DNS hostname can only be used inside the Amazon EC2 network. This name
 -- is not available until the instance enters the @running@ state.
 --
--- [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided
--- private DNS hostnames if you\'ve enabled DNS resolution and DNS
--- hostnames in your VPC. If you are not using the Amazon-provided DNS
--- server in your VPC, your custom domain name servers must resolve the
--- hostname as appropriate.
+-- The Amazon-provided DNS server resolves Amazon-provided private DNS
+-- hostnames if you\'ve enabled DNS resolution and DNS hostnames in your
+-- VPC. If you are not using the Amazon-provided DNS server in your VPC,
+-- your custom domain name servers must resolve the hostname as
+-- appropriate.
 instance_privateDnsName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_privateDnsName = Lens.lens (\Instance' {privateDnsName} -> privateDnsName) (\s@Instance' {} a -> s {privateDnsName = a} :: Instance)
 
@@ -596,10 +637,9 @@ instance_privateIpAddress = Lens.lens (\Instance' {privateIpAddress} -> privateI
 instance_productCodes :: Lens.Lens' Instance (Prelude.Maybe [ProductCode])
 instance_productCodes = Lens.lens (\Instance' {productCodes} -> productCodes) (\s@Instance' {} a -> s {productCodes = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
--- | (IPv4 only) The public DNS name assigned to the instance. This name is
--- not available until the instance enters the @running@ state. For
--- EC2-VPC, this name is only available if you\'ve enabled DNS hostnames
--- for your VPC.
+-- | [IPv4 only] The public DNS name assigned to the instance. This name is
+-- not available until the instance enters the @running@ state. This name
+-- is only available if you\'ve enabled DNS hostnames for your VPC.
 instance_publicDnsName :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_publicDnsName = Lens.lens (\Instance' {publicDnsName} -> publicDnsName) (\s@Instance' {} a -> s {publicDnsName = a} :: Instance)
 
@@ -645,7 +685,7 @@ instance_stateReason = Lens.lens (\Instance' {stateReason} -> stateReason) (\s@I
 instance_stateTransitionReason :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_stateTransitionReason = Lens.lens (\Instance' {stateTransitionReason} -> stateTransitionReason) (\s@Instance' {} a -> s {stateTransitionReason = a} :: Instance)
 
--- | [EC2-VPC] The ID of the subnet in which the instance is running.
+-- | The ID of the subnet in which the instance is running.
 instance_subnetId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_subnetId = Lens.lens (\Instance' {subnetId} -> subnetId) (\s@Instance' {} a -> s {subnetId = a} :: Instance)
 
@@ -670,7 +710,7 @@ instance_usageOperation = Lens.lens (\Instance' {usageOperation} -> usageOperati
 instance_usageOperationUpdateTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
 instance_usageOperationUpdateTime = Lens.lens (\Instance' {usageOperationUpdateTime} -> usageOperationUpdateTime) (\s@Instance' {} a -> s {usageOperationUpdateTime = a} :: Instance) Prelude.. Lens.mapping Data._Time
 
--- | [EC2-VPC] The ID of the VPC in which the instance is running.
+-- | The ID of the VPC in which the instance is running.
 instance_vpcId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_vpcId = Lens.lens (\Instance' {vpcId} -> vpcId) (\s@Instance' {} a -> s {vpcId = a} :: Instance)
 
@@ -728,7 +768,8 @@ instance_state = Lens.lens (\Instance' {state} -> state) (\s@Instance' {} a -> s
 instance Data.FromXML Instance where
   parseXML x =
     Instance'
-      Prelude.<$> ( x Data..@? "blockDeviceMapping"
+      Prelude.<$> ( x
+                      Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -737,8 +778,10 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "capacityReservationSpecification")
       Prelude.<*> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "cpuOptions")
+      Prelude.<*> (x Data..@? "currentInstanceBootMode")
       Prelude.<*> (x Data..@? "ebsOptimized")
-      Prelude.<*> ( x Data..@? "elasticGpuAssociationSet"
+      Prelude.<*> ( x
+                      Data..@? "elasticGpuAssociationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -755,12 +798,15 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "ipv6Address")
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
-      Prelude.<*> ( x Data..@? "licenseSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "licenseSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "maintenanceOptions")
       Prelude.<*> (x Data..@? "metadataOptions")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -770,14 +816,18 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "privateDnsName")
       Prelude.<*> (x Data..@? "privateDnsNameOptions")
       Prelude.<*> (x Data..@? "privateIpAddress")
-      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "productCodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "dnsName")
       Prelude.<*> (x Data..@? "ipAddress")
       Prelude.<*> (x Data..@? "ramdiskId")
       Prelude.<*> (x Data..@? "rootDeviceName")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "sourceDestCheck")
@@ -786,7 +836,9 @@ instance Data.FromXML Instance where
       Prelude.<*> (x Data..@? "stateReason")
       Prelude.<*> (x Data..@? "reason")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "tpmSupport")
@@ -808,12 +860,14 @@ instance Data.FromXML Instance where
 
 instance Prelude.Hashable Instance where
   hashWithSalt _salt Instance' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` capacityReservationId
       `Prelude.hashWithSalt` capacityReservationSpecification
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` cpuOptions
+      `Prelude.hashWithSalt` currentInstanceBootMode
       `Prelude.hashWithSalt` ebsOptimized
       `Prelude.hashWithSalt` elasticGpuAssociations
       `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociations
@@ -873,9 +927,11 @@ instance Prelude.NFData Instance where
       `Prelude.seq` Prelude.rnf capacityReservationSpecification
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf cpuOptions
+      `Prelude.seq` Prelude.rnf currentInstanceBootMode
       `Prelude.seq` Prelude.rnf ebsOptimized
       `Prelude.seq` Prelude.rnf elasticGpuAssociations
-      `Prelude.seq` Prelude.rnf elasticInferenceAcceleratorAssociations
+      `Prelude.seq` Prelude.rnf
+        elasticInferenceAcceleratorAssociations
       `Prelude.seq` Prelude.rnf enaSupport
       `Prelude.seq` Prelude.rnf enclaveOptions
       `Prelude.seq` Prelude.rnf hibernationOptions

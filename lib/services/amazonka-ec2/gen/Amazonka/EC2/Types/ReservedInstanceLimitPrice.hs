@@ -73,7 +73,8 @@ reservedInstanceLimitPrice_currencyCode = Lens.lens (\ReservedInstanceLimitPrice
 
 instance Prelude.Hashable ReservedInstanceLimitPrice where
   hashWithSalt _salt ReservedInstanceLimitPrice' {..} =
-    _salt `Prelude.hashWithSalt` amount
+    _salt
+      `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` currencyCode
 
 instance Prelude.NFData ReservedInstanceLimitPrice where

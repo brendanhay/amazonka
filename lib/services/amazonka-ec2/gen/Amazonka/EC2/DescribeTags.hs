@@ -86,11 +86,13 @@ data DescribeTags = DescribeTags'
     --
     -- -   @value@ - The tag value.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of results to return in a single call. This value can
-    -- be between 5 and 1000. To retrieve the remaining results, make another
-    -- call with the returned @NextToken@ value.
+    -- | The maximum number of items to return for this request. This value can
+    -- be between 5 and 1000. To get the next page of items, make another
+    -- request with the token returned in the output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to retrieve the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -130,11 +132,13 @@ data DescribeTags = DescribeTags'
 --
 -- -   @value@ - The tag value.
 --
--- 'maxResults', 'describeTags_maxResults' - The maximum number of results to return in a single call. This value can
--- be between 5 and 1000. To retrieve the remaining results, make another
--- call with the returned @NextToken@ value.
+-- 'maxResults', 'describeTags_maxResults' - The maximum number of items to return for this request. This value can
+-- be between 5 and 1000. To get the next page of items, make another
+-- request with the token returned in the output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeTags_nextToken' - The token to retrieve the next page of results.
+-- 'nextToken', 'describeTags_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeTags ::
   DescribeTags
 newDescribeTags =
@@ -176,13 +180,15 @@ describeTags_dryRun = Lens.lens (\DescribeTags' {dryRun} -> dryRun) (\s@Describe
 describeTags_filters :: Lens.Lens' DescribeTags (Prelude.Maybe [Filter])
 describeTags_filters = Lens.lens (\DescribeTags' {filters} -> filters) (\s@DescribeTags' {} a -> s {filters = a} :: DescribeTags) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. This value can
--- be between 5 and 1000. To retrieve the remaining results, make another
--- call with the returned @NextToken@ value.
+-- | The maximum number of items to return for this request. This value can
+-- be between 5 and 1000. To get the next page of items, make another
+-- request with the token returned in the output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeTags_maxResults :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Int)
 describeTags_maxResults = Lens.lens (\DescribeTags' {maxResults} -> maxResults) (\s@DescribeTags' {} a -> s {maxResults = a} :: DescribeTags)
 
--- | The token to retrieve the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeTags_nextToken :: Lens.Lens' DescribeTags (Prelude.Maybe Prelude.Text)
 describeTags_nextToken = Lens.lens (\DescribeTags' {nextToken} -> nextToken) (\s@DescribeTags' {} a -> s {nextToken = a} :: DescribeTags)
 
@@ -190,20 +196,23 @@ instance Core.AWSPager DescribeTags where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeTagsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeTagsResponse_tags Prelude.. Lens._Just
+            Lens.^? describeTagsResponse_tags
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTags_nextToken
           Lens..~ rs
-          Lens.^? describeTagsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeTagsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
@@ -214,7 +223,9 @@ instance Core.AWSRequest DescribeTags where
       ( \s h x ->
           DescribeTagsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -222,7 +233,8 @@ instance Core.AWSRequest DescribeTags where
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -256,8 +268,8 @@ instance Data.ToQuery DescribeTags where
 
 -- | /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The tags.
     tags :: Prelude.Maybe [TagDescription],
@@ -274,8 +286,8 @@ data DescribeTagsResponse = DescribeTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeTagsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeTagsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'tags', 'describeTagsResponse_tags' - The tags.
 --
@@ -291,8 +303,8 @@ newDescribeTagsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeTagsResponse_nextToken :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe Prelude.Text)
 describeTagsResponse_nextToken = Lens.lens (\DescribeTagsResponse' {nextToken} -> nextToken) (\s@DescribeTagsResponse' {} a -> s {nextToken = a} :: DescribeTagsResponse)
 

@@ -60,7 +60,7 @@ data DeleteVerifiedAccessGroup = DeleteVerifiedAccessGroup'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access group.
+    -- | The ID of the Verified Access group.
     verifiedAccessGroupId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data DeleteVerifiedAccessGroup = DeleteVerifiedAccessGroup'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessGroupId', 'deleteVerifiedAccessGroup_verifiedAccessGroupId' - The ID of the Amazon Web Services Verified Access group.
+-- 'verifiedAccessGroupId', 'deleteVerifiedAccessGroup_verifiedAccessGroupId' - The ID of the Verified Access group.
 newDeleteVerifiedAccessGroup ::
   -- | 'verifiedAccessGroupId'
   Prelude.Text ->
@@ -108,7 +108,7 @@ deleteVerifiedAccessGroup_clientToken = Lens.lens (\DeleteVerifiedAccessGroup' {
 deleteVerifiedAccessGroup_dryRun :: Lens.Lens' DeleteVerifiedAccessGroup (Prelude.Maybe Prelude.Bool)
 deleteVerifiedAccessGroup_dryRun = Lens.lens (\DeleteVerifiedAccessGroup' {dryRun} -> dryRun) (\s@DeleteVerifiedAccessGroup' {} a -> s {dryRun = a} :: DeleteVerifiedAccessGroup)
 
--- | The ID of the Amazon Web Services Verified Access group.
+-- | The ID of the Verified Access group.
 deleteVerifiedAccessGroup_verifiedAccessGroupId :: Lens.Lens' DeleteVerifiedAccessGroup Prelude.Text
 deleteVerifiedAccessGroup_verifiedAccessGroupId = Lens.lens (\DeleteVerifiedAccessGroup' {verifiedAccessGroupId} -> verifiedAccessGroupId) (\s@DeleteVerifiedAccessGroup' {} a -> s {verifiedAccessGroupId = a} :: DeleteVerifiedAccessGroup)
 
@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteVerifiedAccessGroup where
 
 instance Prelude.Hashable DeleteVerifiedAccessGroup where
   hashWithSalt _salt DeleteVerifiedAccessGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessGroupId
 
@@ -159,7 +160,7 @@ instance Data.ToQuery DeleteVerifiedAccessGroup where
 
 -- | /See:/ 'newDeleteVerifiedAccessGroupResponse' smart constructor.
 data DeleteVerifiedAccessGroupResponse = DeleteVerifiedAccessGroupResponse'
-  { -- | The ID of the Amazon Web Services Verified Access group.
+  { -- | The ID of the Verified Access group.
     verifiedAccessGroup :: Prelude.Maybe VerifiedAccessGroup,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -174,7 +175,7 @@ data DeleteVerifiedAccessGroupResponse = DeleteVerifiedAccessGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessGroup', 'deleteVerifiedAccessGroupResponse_verifiedAccessGroup' - The ID of the Amazon Web Services Verified Access group.
+-- 'verifiedAccessGroup', 'deleteVerifiedAccessGroupResponse_verifiedAccessGroup' - The ID of the Verified Access group.
 --
 -- 'httpStatus', 'deleteVerifiedAccessGroupResponse_httpStatus' - The response's http status code.
 newDeleteVerifiedAccessGroupResponse ::
@@ -188,7 +189,7 @@ newDeleteVerifiedAccessGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the Amazon Web Services Verified Access group.
+-- | The ID of the Verified Access group.
 deleteVerifiedAccessGroupResponse_verifiedAccessGroup :: Lens.Lens' DeleteVerifiedAccessGroupResponse (Prelude.Maybe VerifiedAccessGroup)
 deleteVerifiedAccessGroupResponse_verifiedAccessGroup = Lens.lens (\DeleteVerifiedAccessGroupResponse' {verifiedAccessGroup} -> verifiedAccessGroup) (\s@DeleteVerifiedAccessGroupResponse' {} a -> s {verifiedAccessGroup = a} :: DeleteVerifiedAccessGroupResponse)
 

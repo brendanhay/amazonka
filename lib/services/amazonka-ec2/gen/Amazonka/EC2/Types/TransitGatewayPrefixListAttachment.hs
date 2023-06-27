@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPrefixListAttachment' {..} =
-      _salt `Prelude.hashWithSalt` resourceId
+      _salt
+        `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` transitGatewayAttachmentId
 

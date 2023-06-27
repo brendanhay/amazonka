@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Launches an EC2 Fleet.
+-- Creates an EC2 Fleet that contains the configuration information for
+-- On-Demand Instances and Spot Instances. Instances are launched
+-- immediately if there is available capacity.
 --
--- You can create a single EC2 Fleet that includes multiple launch
--- specifications that vary by instance type, AMI, Availability Zone, or
--- subnet.
+-- A single EC2 Fleet can include multiple launch specifications that vary
+-- by instance type, AMI, Availability Zone, or subnet.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html EC2 Fleet>
@@ -86,6 +87,8 @@ data CreateFleet = CreateFleet'
     -- | Indicates whether running instances should be terminated if the total
     -- target capacity of the EC2 Fleet is decreased below the current size of
     -- the EC2 Fleet.
+    --
+    -- Supported only for fleets of type @maintain@.
     excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
     -- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
     onDemandOptions :: Prelude.Maybe OnDemandOptionsRequest,
@@ -168,6 +171,8 @@ data CreateFleet = CreateFleet'
 -- 'excessCapacityTerminationPolicy', 'createFleet_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 --
 -- 'onDemandOptions', 'createFleet_onDemandOptions' - Describes the configuration of On-Demand Instances in an EC2 Fleet.
 --
@@ -267,6 +272,8 @@ createFleet_dryRun = Lens.lens (\CreateFleet' {dryRun} -> dryRun) (\s@CreateFlee
 -- | Indicates whether running instances should be terminated if the total
 -- target capacity of the EC2 Fleet is decreased below the current size of
 -- the EC2 Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 createFleet_excessCapacityTerminationPolicy :: Lens.Lens' CreateFleet (Prelude.Maybe FleetExcessCapacityTerminationPolicy)
 createFleet_excessCapacityTerminationPolicy = Lens.lens (\CreateFleet' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@CreateFleet' {} a -> s {excessCapacityTerminationPolicy = a} :: CreateFleet)
 
@@ -354,11 +361,14 @@ instance Core.AWSRequest CreateFleet where
     Response.receiveXML
       ( \s h x ->
           CreateFleetResponse'
-            Prelude.<$> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "errorSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "fleetId")
-            Prelude.<*> ( x Data..@? "fleetInstanceSet"
+            Prelude.<*> ( x
+                            Data..@? "fleetInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -367,7 +377,8 @@ instance Core.AWSRequest CreateFleet where
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy

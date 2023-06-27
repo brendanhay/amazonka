@@ -69,7 +69,8 @@ purchaseRequest_purchaseToken = Lens.lens (\PurchaseRequest' {purchaseToken} -> 
 
 instance Prelude.Hashable PurchaseRequest where
   hashWithSalt _salt PurchaseRequest' {..} =
-    _salt `Prelude.hashWithSalt` instanceCount
+    _salt
+      `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` purchaseToken
 
 instance Prelude.NFData PurchaseRequest where

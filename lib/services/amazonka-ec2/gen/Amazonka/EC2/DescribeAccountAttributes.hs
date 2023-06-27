@@ -23,9 +23,6 @@
 -- Describes attributes of your Amazon Web Services account. The following
 -- are the supported account attributes:
 --
--- -   @supported-platforms@: Indicates whether your account can launch
---     instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.
---
 -- -   @default-vpc@: The ID of the default VPC for your account, or
 --     @none@.
 --
@@ -35,19 +32,16 @@
 --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-on-demand-instances.html#ec2-on-demand-instances-limits On-Demand Instance Limits>
 --     in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- -   @vpc-max-security-groups-per-interface@: The maximum number of
---     security groups that you can assign to a network interface.
---
 -- -   @max-elastic-ips@: The maximum number of Elastic IP addresses that
---     you can allocate for use with EC2-Classic.
+--     you can allocate.
+--
+-- -   @supported-platforms@: This attribute is deprecated.
 --
 -- -   @vpc-max-elastic-ips@: The maximum number of Elastic IP addresses
---     that you can allocate for use with EC2-VPC.
+--     that you can allocate.
 --
--- We are retiring EC2-Classic on August 15, 2022. We recommend that you
--- migrate from EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon EC2 User Guide/.
+-- -   @vpc-max-security-groups-per-interface@: The maximum number of
+--     security groups that you can assign to a network interface.
 module Amazonka.EC2.DescribeAccountAttributes
   ( -- * Creating a Request
     DescribeAccountAttributes (..),
@@ -131,7 +125,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
     Response.receiveXML
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Prelude.<$> ( x Data..@? "accountAttributeSet"
+            Prelude.<$> ( x
+                            Data..@? "accountAttributeSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -140,7 +135,8 @@ instance Core.AWSRequest DescribeAccountAttributes where
 
 instance Prelude.Hashable DescribeAccountAttributes where
   hashWithSalt _salt DescribeAccountAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` dryRun
 
 instance Prelude.NFData DescribeAccountAttributes where

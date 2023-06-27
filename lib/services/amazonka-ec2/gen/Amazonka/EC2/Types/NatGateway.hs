@@ -301,7 +301,8 @@ instance Data.FromXML NatGateway where
       Prelude.<*> (x Data..@? "deleteTime")
       Prelude.<*> (x Data..@? "failureCode")
       Prelude.<*> (x Data..@? "failureMessage")
-      Prelude.<*> ( x Data..@? "natGatewayAddressSet"
+      Prelude.<*> ( x
+                      Data..@? "natGatewayAddressSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -309,14 +310,17 @@ instance Data.FromXML NatGateway where
       Prelude.<*> (x Data..@? "provisionedBandwidth")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
 
 instance Prelude.Hashable NatGateway where
   hashWithSalt _salt NatGateway' {..} =
-    _salt `Prelude.hashWithSalt` connectivityType
+    _salt
+      `Prelude.hashWithSalt` connectivityType
       `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` deleteTime
       `Prelude.hashWithSalt` failureCode

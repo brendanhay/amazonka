@@ -181,7 +181,8 @@ instance Core.AWSRequest CreateFpgaImage where
 
 instance Prelude.Hashable CreateFpgaImage where
   hashWithSalt _salt CreateFpgaImage' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` logsStorageLocation

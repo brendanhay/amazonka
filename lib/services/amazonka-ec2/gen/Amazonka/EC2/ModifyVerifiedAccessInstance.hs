@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the configuration of the specified Verified Access instance.
+-- Modifies the configuration of the specified Amazon Web Services Verified
+-- Access instance.
 module Amazonka.EC2.ModifyVerifiedAccessInstance
   ( -- * Creating a Request
     ModifyVerifiedAccessInstance (..),
@@ -56,14 +57,14 @@ data ModifyVerifiedAccessInstance = ModifyVerifiedAccessInstance'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access instance.
+    -- | A description for the Verified Access instance.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,14 +81,14 @@ data ModifyVerifiedAccessInstance = ModifyVerifiedAccessInstance'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'modifyVerifiedAccessInstance_description' - A description for the Amazon Web Services Verified Access instance.
+-- 'description', 'modifyVerifiedAccessInstance_description' - A description for the Verified Access instance.
 --
 -- 'dryRun', 'modifyVerifiedAccessInstance_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessInstanceId', 'modifyVerifiedAccessInstance_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'modifyVerifiedAccessInstance_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 newModifyVerifiedAccessInstance ::
   -- | 'verifiedAccessInstanceId'
   Prelude.Text ->
@@ -109,7 +110,7 @@ newModifyVerifiedAccessInstance
 modifyVerifiedAccessInstance_clientToken :: Lens.Lens' ModifyVerifiedAccessInstance (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessInstance_clientToken = Lens.lens (\ModifyVerifiedAccessInstance' {clientToken} -> clientToken) (\s@ModifyVerifiedAccessInstance' {} a -> s {clientToken = a} :: ModifyVerifiedAccessInstance)
 
--- | A description for the Amazon Web Services Verified Access instance.
+-- | A description for the Verified Access instance.
 modifyVerifiedAccessInstance_description :: Lens.Lens' ModifyVerifiedAccessInstance (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessInstance_description = Lens.lens (\ModifyVerifiedAccessInstance' {description} -> description) (\s@ModifyVerifiedAccessInstance' {} a -> s {description = a} :: ModifyVerifiedAccessInstance)
 
@@ -120,7 +121,7 @@ modifyVerifiedAccessInstance_description = Lens.lens (\ModifyVerifiedAccessInsta
 modifyVerifiedAccessInstance_dryRun :: Lens.Lens' ModifyVerifiedAccessInstance (Prelude.Maybe Prelude.Bool)
 modifyVerifiedAccessInstance_dryRun = Lens.lens (\ModifyVerifiedAccessInstance' {dryRun} -> dryRun) (\s@ModifyVerifiedAccessInstance' {} a -> s {dryRun = a} :: ModifyVerifiedAccessInstance)
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 modifyVerifiedAccessInstance_verifiedAccessInstanceId :: Lens.Lens' ModifyVerifiedAccessInstance Prelude.Text
 modifyVerifiedAccessInstance_verifiedAccessInstanceId = Lens.lens (\ModifyVerifiedAccessInstance' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@ModifyVerifiedAccessInstance' {} a -> s {verifiedAccessInstanceId = a} :: ModifyVerifiedAccessInstance)
 
@@ -143,7 +144,8 @@ instance
     ModifyVerifiedAccessInstance
   where
   hashWithSalt _salt ModifyVerifiedAccessInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessInstanceId
@@ -179,7 +181,7 @@ instance Data.ToQuery ModifyVerifiedAccessInstance where
 
 -- | /See:/ 'newModifyVerifiedAccessInstanceResponse' smart constructor.
 data ModifyVerifiedAccessInstanceResponse = ModifyVerifiedAccessInstanceResponse'
-  { -- | The ID of the Amazon Web Services Verified Access instance.
+  { -- | The ID of the Verified Access instance.
     verifiedAccessInstance :: Prelude.Maybe VerifiedAccessInstance,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -194,7 +196,7 @@ data ModifyVerifiedAccessInstanceResponse = ModifyVerifiedAccessInstanceResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessInstance', 'modifyVerifiedAccessInstanceResponse_verifiedAccessInstance' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstance', 'modifyVerifiedAccessInstanceResponse_verifiedAccessInstance' - The ID of the Verified Access instance.
 --
 -- 'httpStatus', 'modifyVerifiedAccessInstanceResponse_httpStatus' - The response's http status code.
 newModifyVerifiedAccessInstanceResponse ::
@@ -208,7 +210,7 @@ newModifyVerifiedAccessInstanceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 modifyVerifiedAccessInstanceResponse_verifiedAccessInstance :: Lens.Lens' ModifyVerifiedAccessInstanceResponse (Prelude.Maybe VerifiedAccessInstance)
 modifyVerifiedAccessInstanceResponse_verifiedAccessInstance = Lens.lens (\ModifyVerifiedAccessInstanceResponse' {verifiedAccessInstance} -> verifiedAccessInstance) (\s@ModifyVerifiedAccessInstanceResponse' {} a -> s {verifiedAccessInstance = a} :: ModifyVerifiedAccessInstanceResponse)
 

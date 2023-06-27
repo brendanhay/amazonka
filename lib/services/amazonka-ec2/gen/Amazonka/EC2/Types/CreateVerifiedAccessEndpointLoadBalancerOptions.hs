@@ -26,8 +26,8 @@ import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VerifiedAccessEndpointProtocol
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a load balancer when creating an Amazon Web Services Verified
--- Access endpoint using the @load-balancer@ type.
+-- | Describes the load balancer options when creating an Amazon Web Services
+-- Verified Access endpoint using the @load-balancer@ type.
 --
 -- /See:/ 'newCreateVerifiedAccessEndpointLoadBalancerOptions' smart constructor.
 data CreateVerifiedAccessEndpointLoadBalancerOptions = CreateVerifiedAccessEndpointLoadBalancerOptions'
@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     CreateVerifiedAccessEndpointLoadBalancerOptions' {..} =
-      _salt `Prelude.hashWithSalt` loadBalancerArn
+      _salt
+        `Prelude.hashWithSalt` loadBalancerArn
         `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` protocol
         `Prelude.hashWithSalt` subnetIds

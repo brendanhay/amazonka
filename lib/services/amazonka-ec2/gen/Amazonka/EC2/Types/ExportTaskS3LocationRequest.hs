@@ -68,7 +68,8 @@ exportTaskS3LocationRequest_s3Bucket = Lens.lens (\ExportTaskS3LocationRequest' 
 
 instance Prelude.Hashable ExportTaskS3LocationRequest where
   hashWithSalt _salt ExportTaskS3LocationRequest' {..} =
-    _salt `Prelude.hashWithSalt` s3Prefix
+    _salt
+      `Prelude.hashWithSalt` s3Prefix
       `Prelude.hashWithSalt` s3Bucket
 
 instance Prelude.NFData ExportTaskS3LocationRequest where

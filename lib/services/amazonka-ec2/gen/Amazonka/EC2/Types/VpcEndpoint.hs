@@ -50,7 +50,7 @@ data VpcEndpoint = VpcEndpoint'
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The last error that occurred for endpoint.
     lastError :: Prelude.Maybe LastError,
-    -- | (Interface endpoint) One or more network interfaces for the endpoint.
+    -- | (Interface endpoint) The network interfaces for the endpoint.
     networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the Amazon Web Services account that owns the endpoint.
     ownerId :: Prelude.Maybe Prelude.Text,
@@ -61,7 +61,7 @@ data VpcEndpoint = VpcEndpoint'
     privateDnsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the endpoint is being managed by its service.
     requesterManaged :: Prelude.Maybe Prelude.Bool,
-    -- | (Gateway endpoint) One or more route tables associated with the
+    -- | (Gateway endpoint) The IDs of the route tables associated with the
     -- endpoint.
     routeTableIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the service to which the endpoint is associated.
@@ -70,7 +70,7 @@ data VpcEndpoint = VpcEndpoint'
     state :: Prelude.Maybe State,
     -- | (Interface endpoint) The subnets for the endpoint.
     subnetIds :: Prelude.Maybe [Prelude.Text],
-    -- | Any tags assigned to the endpoint.
+    -- | The tags assigned to the endpoint.
     tags :: Prelude.Maybe [Tag],
     -- | The ID of the endpoint.
     vpcEndpointId :: Prelude.Maybe Prelude.Text,
@@ -102,7 +102,7 @@ data VpcEndpoint = VpcEndpoint'
 --
 -- 'lastError', 'vpcEndpoint_lastError' - The last error that occurred for endpoint.
 --
--- 'networkInterfaceIds', 'vpcEndpoint_networkInterfaceIds' - (Interface endpoint) One or more network interfaces for the endpoint.
+-- 'networkInterfaceIds', 'vpcEndpoint_networkInterfaceIds' - (Interface endpoint) The network interfaces for the endpoint.
 --
 -- 'ownerId', 'vpcEndpoint_ownerId' - The ID of the Amazon Web Services account that owns the endpoint.
 --
@@ -113,7 +113,7 @@ data VpcEndpoint = VpcEndpoint'
 --
 -- 'requesterManaged', 'vpcEndpoint_requesterManaged' - Indicates whether the endpoint is being managed by its service.
 --
--- 'routeTableIds', 'vpcEndpoint_routeTableIds' - (Gateway endpoint) One or more route tables associated with the
+-- 'routeTableIds', 'vpcEndpoint_routeTableIds' - (Gateway endpoint) The IDs of the route tables associated with the
 -- endpoint.
 --
 -- 'serviceName', 'vpcEndpoint_serviceName' - The name of the service to which the endpoint is associated.
@@ -122,7 +122,7 @@ data VpcEndpoint = VpcEndpoint'
 --
 -- 'subnetIds', 'vpcEndpoint_subnetIds' - (Interface endpoint) The subnets for the endpoint.
 --
--- 'tags', 'vpcEndpoint_tags' - Any tags assigned to the endpoint.
+-- 'tags', 'vpcEndpoint_tags' - The tags assigned to the endpoint.
 --
 -- 'vpcEndpointId', 'vpcEndpoint_vpcEndpointId' - The ID of the endpoint.
 --
@@ -179,7 +179,7 @@ vpcEndpoint_ipAddressType = Lens.lens (\VpcEndpoint' {ipAddressType} -> ipAddres
 vpcEndpoint_lastError :: Lens.Lens' VpcEndpoint (Prelude.Maybe LastError)
 vpcEndpoint_lastError = Lens.lens (\VpcEndpoint' {lastError} -> lastError) (\s@VpcEndpoint' {} a -> s {lastError = a} :: VpcEndpoint)
 
--- | (Interface endpoint) One or more network interfaces for the endpoint.
+-- | (Interface endpoint) The network interfaces for the endpoint.
 vpcEndpoint_networkInterfaceIds :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Prelude.Text])
 vpcEndpoint_networkInterfaceIds = Lens.lens (\VpcEndpoint' {networkInterfaceIds} -> networkInterfaceIds) (\s@VpcEndpoint' {} a -> s {networkInterfaceIds = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -200,7 +200,7 @@ vpcEndpoint_privateDnsEnabled = Lens.lens (\VpcEndpoint' {privateDnsEnabled} -> 
 vpcEndpoint_requesterManaged :: Lens.Lens' VpcEndpoint (Prelude.Maybe Prelude.Bool)
 vpcEndpoint_requesterManaged = Lens.lens (\VpcEndpoint' {requesterManaged} -> requesterManaged) (\s@VpcEndpoint' {} a -> s {requesterManaged = a} :: VpcEndpoint)
 
--- | (Gateway endpoint) One or more route tables associated with the
+-- | (Gateway endpoint) The IDs of the route tables associated with the
 -- endpoint.
 vpcEndpoint_routeTableIds :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Prelude.Text])
 vpcEndpoint_routeTableIds = Lens.lens (\VpcEndpoint' {routeTableIds} -> routeTableIds) (\s@VpcEndpoint' {} a -> s {routeTableIds = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens.coerced
@@ -217,7 +217,7 @@ vpcEndpoint_state = Lens.lens (\VpcEndpoint' {state} -> state) (\s@VpcEndpoint' 
 vpcEndpoint_subnetIds :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Prelude.Text])
 vpcEndpoint_subnetIds = Lens.lens (\VpcEndpoint' {subnetIds} -> subnetIds) (\s@VpcEndpoint' {} a -> s {subnetIds = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | Any tags assigned to the endpoint.
+-- | The tags assigned to the endpoint.
 vpcEndpoint_tags :: Lens.Lens' VpcEndpoint (Prelude.Maybe [Tag])
 vpcEndpoint_tags = Lens.lens (\VpcEndpoint' {tags} -> tags) (\s@VpcEndpoint' {} a -> s {tags = a} :: VpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
@@ -237,16 +237,21 @@ instance Data.FromXML VpcEndpoint where
   parseXML x =
     VpcEndpoint'
       Prelude.<$> (x Data..@? "creationTimestamp")
-      Prelude.<*> ( x Data..@? "dnsEntrySet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "dnsEntrySet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "dnsOptions")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "ipAddressType")
       Prelude.<*> (x Data..@? "lastError")
-      Prelude.<*> ( x Data..@? "networkInterfaceIdSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -254,15 +259,21 @@ instance Data.FromXML VpcEndpoint where
       Prelude.<*> (x Data..@? "policyDocument")
       Prelude.<*> (x Data..@? "privateDnsEnabled")
       Prelude.<*> (x Data..@? "requesterManaged")
-      Prelude.<*> ( x Data..@? "routeTableIdSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "routeTableIdSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "serviceName")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "subnetIdSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "subnetIdSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcEndpointId")
@@ -271,7 +282,8 @@ instance Data.FromXML VpcEndpoint where
 
 instance Prelude.Hashable VpcEndpoint where
   hashWithSalt _salt VpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` creationTimestamp
+    _salt
+      `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` dnsEntries
       `Prelude.hashWithSalt` dnsOptions
       `Prelude.hashWithSalt` groups

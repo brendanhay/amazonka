@@ -28,14 +28,20 @@ import Amazonka.EC2.Types.VerifiedAccessLogKinesisDataFirehoseDestinationOptions
 import Amazonka.EC2.Types.VerifiedAccessLogS3DestinationOptions
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the destinations for Verified Access logs.
+-- | Options for Verified Access logs.
 --
 -- /See:/ 'newVerifiedAccessLogOptions' smart constructor.
 data VerifiedAccessLogOptions = VerifiedAccessLogOptions'
   { -- | Sends Verified Access logs to CloudWatch Logs.
     cloudWatchLogs :: Prelude.Maybe VerifiedAccessLogCloudWatchLogsDestinationOptions,
+    -- | Include trust data sent by trust providers into the logs.
+    includeTrustContext :: Prelude.Maybe Prelude.Bool,
     -- | Sends Verified Access logs to Kinesis.
     kinesisDataFirehose :: Prelude.Maybe VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+    -- | The logging version to use.
+    --
+    -- Valid values: @ocsf-0.1@ | @ocsf-1.0.0-rc.2@
+    logVersion :: Prelude.Maybe Prelude.Text,
     -- | Sends Verified Access logs to Amazon S3.
     s3 :: Prelude.Maybe VerifiedAccessLogS3DestinationOptions
   }
@@ -51,7 +57,13 @@ data VerifiedAccessLogOptions = VerifiedAccessLogOptions'
 --
 -- 'cloudWatchLogs', 'verifiedAccessLogOptions_cloudWatchLogs' - Sends Verified Access logs to CloudWatch Logs.
 --
+-- 'includeTrustContext', 'verifiedAccessLogOptions_includeTrustContext' - Include trust data sent by trust providers into the logs.
+--
 -- 'kinesisDataFirehose', 'verifiedAccessLogOptions_kinesisDataFirehose' - Sends Verified Access logs to Kinesis.
+--
+-- 'logVersion', 'verifiedAccessLogOptions_logVersion' - The logging version to use.
+--
+-- Valid values: @ocsf-0.1@ | @ocsf-1.0.0-rc.2@
 --
 -- 's3', 'verifiedAccessLogOptions_s3' - Sends Verified Access logs to Amazon S3.
 newVerifiedAccessLogOptions ::
@@ -60,7 +72,9 @@ newVerifiedAccessLogOptions =
   VerifiedAccessLogOptions'
     { cloudWatchLogs =
         Prelude.Nothing,
+      includeTrustContext = Prelude.Nothing,
       kinesisDataFirehose = Prelude.Nothing,
+      logVersion = Prelude.Nothing,
       s3 = Prelude.Nothing
     }
 
@@ -68,9 +82,19 @@ newVerifiedAccessLogOptions =
 verifiedAccessLogOptions_cloudWatchLogs :: Lens.Lens' VerifiedAccessLogOptions (Prelude.Maybe VerifiedAccessLogCloudWatchLogsDestinationOptions)
 verifiedAccessLogOptions_cloudWatchLogs = Lens.lens (\VerifiedAccessLogOptions' {cloudWatchLogs} -> cloudWatchLogs) (\s@VerifiedAccessLogOptions' {} a -> s {cloudWatchLogs = a} :: VerifiedAccessLogOptions)
 
+-- | Include trust data sent by trust providers into the logs.
+verifiedAccessLogOptions_includeTrustContext :: Lens.Lens' VerifiedAccessLogOptions (Prelude.Maybe Prelude.Bool)
+verifiedAccessLogOptions_includeTrustContext = Lens.lens (\VerifiedAccessLogOptions' {includeTrustContext} -> includeTrustContext) (\s@VerifiedAccessLogOptions' {} a -> s {includeTrustContext = a} :: VerifiedAccessLogOptions)
+
 -- | Sends Verified Access logs to Kinesis.
 verifiedAccessLogOptions_kinesisDataFirehose :: Lens.Lens' VerifiedAccessLogOptions (Prelude.Maybe VerifiedAccessLogKinesisDataFirehoseDestinationOptions)
 verifiedAccessLogOptions_kinesisDataFirehose = Lens.lens (\VerifiedAccessLogOptions' {kinesisDataFirehose} -> kinesisDataFirehose) (\s@VerifiedAccessLogOptions' {} a -> s {kinesisDataFirehose = a} :: VerifiedAccessLogOptions)
+
+-- | The logging version to use.
+--
+-- Valid values: @ocsf-0.1@ | @ocsf-1.0.0-rc.2@
+verifiedAccessLogOptions_logVersion :: Lens.Lens' VerifiedAccessLogOptions (Prelude.Maybe Prelude.Text)
+verifiedAccessLogOptions_logVersion = Lens.lens (\VerifiedAccessLogOptions' {logVersion} -> logVersion) (\s@VerifiedAccessLogOptions' {} a -> s {logVersion = a} :: VerifiedAccessLogOptions)
 
 -- | Sends Verified Access logs to Amazon S3.
 verifiedAccessLogOptions_s3 :: Lens.Lens' VerifiedAccessLogOptions (Prelude.Maybe VerifiedAccessLogS3DestinationOptions)
@@ -78,20 +102,27 @@ verifiedAccessLogOptions_s3 = Lens.lens (\VerifiedAccessLogOptions' {s3} -> s3) 
 
 instance Prelude.Hashable VerifiedAccessLogOptions where
   hashWithSalt _salt VerifiedAccessLogOptions' {..} =
-    _salt `Prelude.hashWithSalt` cloudWatchLogs
+    _salt
+      `Prelude.hashWithSalt` cloudWatchLogs
+      `Prelude.hashWithSalt` includeTrustContext
       `Prelude.hashWithSalt` kinesisDataFirehose
+      `Prelude.hashWithSalt` logVersion
       `Prelude.hashWithSalt` s3
 
 instance Prelude.NFData VerifiedAccessLogOptions where
   rnf VerifiedAccessLogOptions' {..} =
     Prelude.rnf cloudWatchLogs
+      `Prelude.seq` Prelude.rnf includeTrustContext
       `Prelude.seq` Prelude.rnf kinesisDataFirehose
+      `Prelude.seq` Prelude.rnf logVersion
       `Prelude.seq` Prelude.rnf s3
 
 instance Data.ToQuery VerifiedAccessLogOptions where
   toQuery VerifiedAccessLogOptions' {..} =
     Prelude.mconcat
       [ "CloudWatchLogs" Data.=: cloudWatchLogs,
+        "IncludeTrustContext" Data.=: includeTrustContext,
         "KinesisDataFirehose" Data.=: kinesisDataFirehose,
+        "LogVersion" Data.=: logVersion,
         "S3" Data.=: s3
       ]

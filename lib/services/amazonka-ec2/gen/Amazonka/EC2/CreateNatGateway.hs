@@ -49,6 +49,9 @@ module Amazonka.EC2.CreateNatGateway
     createNatGateway_connectivityType,
     createNatGateway_dryRun,
     createNatGateway_privateIpAddress,
+    createNatGateway_secondaryAllocationIds,
+    createNatGateway_secondaryPrivateIpAddressCount,
+    createNatGateway_secondaryPrivateIpAddresses,
     createNatGateway_tagSpecifications,
     createNatGateway_subnetId,
 
@@ -96,9 +99,25 @@ data CreateNatGateway = CreateNatGateway'
     -- provide an address, a private IPv4 address will be automatically
     -- assigned.
     privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | Secondary EIP allocation IDs. For more information about secondary
+    -- addresses, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+    -- in the /Amazon Virtual Private Cloud User Guide/.
+    secondaryAllocationIds :: Prelude.Maybe [Prelude.Text],
+    -- | [Private NAT gateway only] The number of secondary private IPv4
+    -- addresses you want to assign to the NAT gateway. For more information
+    -- about secondary addresses, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+    -- in the /Amazon Virtual Private Cloud User Guide/.
+    secondaryPrivateIpAddressCount :: Prelude.Maybe Prelude.Natural,
+    -- | Secondary private IPv4 addresses. For more information about secondary
+    -- addresses, see
+    -- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+    -- in the /Amazon Virtual Private Cloud User Guide/.
+    secondaryPrivateIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The tags to assign to the NAT gateway.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The subnet in which to create the NAT gateway.
+    -- | The ID of the subnet in which to create the NAT gateway.
     subnetId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -134,9 +153,25 @@ data CreateNatGateway = CreateNatGateway'
 -- provide an address, a private IPv4 address will be automatically
 -- assigned.
 --
+-- 'secondaryAllocationIds', 'createNatGateway_secondaryAllocationIds' - Secondary EIP allocation IDs. For more information about secondary
+-- addresses, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- 'secondaryPrivateIpAddressCount', 'createNatGateway_secondaryPrivateIpAddressCount' - [Private NAT gateway only] The number of secondary private IPv4
+-- addresses you want to assign to the NAT gateway. For more information
+-- about secondary addresses, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- 'secondaryPrivateIpAddresses', 'createNatGateway_secondaryPrivateIpAddresses' - Secondary private IPv4 addresses. For more information about secondary
+-- addresses, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
 -- 'tagSpecifications', 'createNatGateway_tagSpecifications' - The tags to assign to the NAT gateway.
 --
--- 'subnetId', 'createNatGateway_subnetId' - The subnet in which to create the NAT gateway.
+-- 'subnetId', 'createNatGateway_subnetId' - The ID of the subnet in which to create the NAT gateway.
 newCreateNatGateway ::
   -- | 'subnetId'
   Prelude.Text ->
@@ -148,6 +183,9 @@ newCreateNatGateway pSubnetId_ =
       connectivityType = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       privateIpAddress = Prelude.Nothing,
+      secondaryAllocationIds = Prelude.Nothing,
+      secondaryPrivateIpAddressCount = Prelude.Nothing,
+      secondaryPrivateIpAddresses = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       subnetId = pSubnetId_
     }
@@ -185,11 +223,33 @@ createNatGateway_dryRun = Lens.lens (\CreateNatGateway' {dryRun} -> dryRun) (\s@
 createNatGateway_privateIpAddress :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Text)
 createNatGateway_privateIpAddress = Lens.lens (\CreateNatGateway' {privateIpAddress} -> privateIpAddress) (\s@CreateNatGateway' {} a -> s {privateIpAddress = a} :: CreateNatGateway)
 
+-- | Secondary EIP allocation IDs. For more information about secondary
+-- addresses, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+createNatGateway_secondaryAllocationIds :: Lens.Lens' CreateNatGateway (Prelude.Maybe [Prelude.Text])
+createNatGateway_secondaryAllocationIds = Lens.lens (\CreateNatGateway' {secondaryAllocationIds} -> secondaryAllocationIds) (\s@CreateNatGateway' {} a -> s {secondaryAllocationIds = a} :: CreateNatGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | [Private NAT gateway only] The number of secondary private IPv4
+-- addresses you want to assign to the NAT gateway. For more information
+-- about secondary addresses, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+createNatGateway_secondaryPrivateIpAddressCount :: Lens.Lens' CreateNatGateway (Prelude.Maybe Prelude.Natural)
+createNatGateway_secondaryPrivateIpAddressCount = Lens.lens (\CreateNatGateway' {secondaryPrivateIpAddressCount} -> secondaryPrivateIpAddressCount) (\s@CreateNatGateway' {} a -> s {secondaryPrivateIpAddressCount = a} :: CreateNatGateway)
+
+-- | Secondary private IPv4 addresses. For more information about secondary
+-- addresses, see
+-- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-creating Create a NAT gateway>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+createNatGateway_secondaryPrivateIpAddresses :: Lens.Lens' CreateNatGateway (Prelude.Maybe [Prelude.Text])
+createNatGateway_secondaryPrivateIpAddresses = Lens.lens (\CreateNatGateway' {secondaryPrivateIpAddresses} -> secondaryPrivateIpAddresses) (\s@CreateNatGateway' {} a -> s {secondaryPrivateIpAddresses = a} :: CreateNatGateway) Prelude.. Lens.mapping Lens.coerced
+
 -- | The tags to assign to the NAT gateway.
 createNatGateway_tagSpecifications :: Lens.Lens' CreateNatGateway (Prelude.Maybe [TagSpecification])
 createNatGateway_tagSpecifications = Lens.lens (\CreateNatGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateNatGateway' {} a -> s {tagSpecifications = a} :: CreateNatGateway) Prelude.. Lens.mapping Lens.coerced
 
--- | The subnet in which to create the NAT gateway.
+-- | The ID of the subnet in which to create the NAT gateway.
 createNatGateway_subnetId :: Lens.Lens' CreateNatGateway Prelude.Text
 createNatGateway_subnetId = Lens.lens (\CreateNatGateway' {subnetId} -> subnetId) (\s@CreateNatGateway' {} a -> s {subnetId = a} :: CreateNatGateway)
 
@@ -210,11 +270,15 @@ instance Core.AWSRequest CreateNatGateway where
 
 instance Prelude.Hashable CreateNatGateway where
   hashWithSalt _salt CreateNatGateway' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` connectivityType
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` secondaryAllocationIds
+      `Prelude.hashWithSalt` secondaryPrivateIpAddressCount
+      `Prelude.hashWithSalt` secondaryPrivateIpAddresses
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` subnetId
 
@@ -225,6 +289,9 @@ instance Prelude.NFData CreateNatGateway where
       `Prelude.seq` Prelude.rnf connectivityType
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf privateIpAddress
+      `Prelude.seq` Prelude.rnf secondaryAllocationIds
+      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddressCount
+      `Prelude.seq` Prelude.rnf secondaryPrivateIpAddresses
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf subnetId
 
@@ -246,6 +313,16 @@ instance Data.ToQuery CreateNatGateway where
         "ConnectivityType" Data.=: connectivityType,
         "DryRun" Data.=: dryRun,
         "PrivateIpAddress" Data.=: privateIpAddress,
+        Data.toQuery
+          ( Data.toQueryList "SecondaryAllocationId"
+              Prelude.<$> secondaryAllocationIds
+          ),
+        "SecondaryPrivateIpAddressCount"
+          Data.=: secondaryPrivateIpAddressCount,
+        Data.toQuery
+          ( Data.toQueryList "SecondaryPrivateIpAddress"
+              Prelude.<$> secondaryPrivateIpAddresses
+          ),
         Data.toQuery
           ( Data.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications

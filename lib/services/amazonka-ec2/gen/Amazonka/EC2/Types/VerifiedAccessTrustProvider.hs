@@ -40,13 +40,13 @@ data VerifiedAccessTrustProvider = VerifiedAccessTrustProvider'
     -- | A description for the Amazon Web Services Verified Access trust
     -- provider.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The options for device-identity type trust provider.
+    -- | The options for device-identity trust provider.
     deviceOptions :: Prelude.Maybe DeviceOptions,
     -- | The type of device-based trust provider.
     deviceTrustProviderType :: Prelude.Maybe DeviceTrustProviderType,
     -- | The last updated time.
     lastUpdatedTime :: Prelude.Maybe Prelude.Text,
-    -- | The OpenID Connect details for an @oidc@-type, user-identity based trust
+    -- | The options for an OpenID Connect-compatible user-identity trust
     -- provider.
     oidcOptions :: Prelude.Maybe OidcOptions,
     -- | The identifier to be used when working with policy rules.
@@ -60,7 +60,7 @@ data VerifiedAccessTrustProvider = VerifiedAccessTrustProvider'
     -- | The ID of the Amazon Web Services Verified Access trust provider.
     verifiedAccessTrustProviderId :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VerifiedAccessTrustProvider' with all optional fields omitted.
@@ -75,13 +75,13 @@ data VerifiedAccessTrustProvider = VerifiedAccessTrustProvider'
 -- 'description', 'verifiedAccessTrustProvider_description' - A description for the Amazon Web Services Verified Access trust
 -- provider.
 --
--- 'deviceOptions', 'verifiedAccessTrustProvider_deviceOptions' - The options for device-identity type trust provider.
+-- 'deviceOptions', 'verifiedAccessTrustProvider_deviceOptions' - The options for device-identity trust provider.
 --
 -- 'deviceTrustProviderType', 'verifiedAccessTrustProvider_deviceTrustProviderType' - The type of device-based trust provider.
 --
 -- 'lastUpdatedTime', 'verifiedAccessTrustProvider_lastUpdatedTime' - The last updated time.
 --
--- 'oidcOptions', 'verifiedAccessTrustProvider_oidcOptions' - The OpenID Connect details for an @oidc@-type, user-identity based trust
+-- 'oidcOptions', 'verifiedAccessTrustProvider_oidcOptions' - The options for an OpenID Connect-compatible user-identity trust
 -- provider.
 --
 -- 'policyReferenceName', 'verifiedAccessTrustProvider_policyReferenceName' - The identifier to be used when working with policy rules.
@@ -121,7 +121,7 @@ verifiedAccessTrustProvider_creationTime = Lens.lens (\VerifiedAccessTrustProvid
 verifiedAccessTrustProvider_description :: Lens.Lens' VerifiedAccessTrustProvider (Prelude.Maybe Prelude.Text)
 verifiedAccessTrustProvider_description = Lens.lens (\VerifiedAccessTrustProvider' {description} -> description) (\s@VerifiedAccessTrustProvider' {} a -> s {description = a} :: VerifiedAccessTrustProvider)
 
--- | The options for device-identity type trust provider.
+-- | The options for device-identity trust provider.
 verifiedAccessTrustProvider_deviceOptions :: Lens.Lens' VerifiedAccessTrustProvider (Prelude.Maybe DeviceOptions)
 verifiedAccessTrustProvider_deviceOptions = Lens.lens (\VerifiedAccessTrustProvider' {deviceOptions} -> deviceOptions) (\s@VerifiedAccessTrustProvider' {} a -> s {deviceOptions = a} :: VerifiedAccessTrustProvider)
 
@@ -133,7 +133,7 @@ verifiedAccessTrustProvider_deviceTrustProviderType = Lens.lens (\VerifiedAccess
 verifiedAccessTrustProvider_lastUpdatedTime :: Lens.Lens' VerifiedAccessTrustProvider (Prelude.Maybe Prelude.Text)
 verifiedAccessTrustProvider_lastUpdatedTime = Lens.lens (\VerifiedAccessTrustProvider' {lastUpdatedTime} -> lastUpdatedTime) (\s@VerifiedAccessTrustProvider' {} a -> s {lastUpdatedTime = a} :: VerifiedAccessTrustProvider)
 
--- | The OpenID Connect details for an @oidc@-type, user-identity based trust
+-- | The options for an OpenID Connect-compatible user-identity trust
 -- provider.
 verifiedAccessTrustProvider_oidcOptions :: Lens.Lens' VerifiedAccessTrustProvider (Prelude.Maybe OidcOptions)
 verifiedAccessTrustProvider_oidcOptions = Lens.lens (\VerifiedAccessTrustProvider' {oidcOptions} -> oidcOptions) (\s@VerifiedAccessTrustProvider' {} a -> s {oidcOptions = a} :: VerifiedAccessTrustProvider)
@@ -168,7 +168,9 @@ instance Data.FromXML VerifiedAccessTrustProvider where
       Prelude.<*> (x Data..@? "lastUpdatedTime")
       Prelude.<*> (x Data..@? "oidcOptions")
       Prelude.<*> (x Data..@? "policyReferenceName")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "trustProviderType")
@@ -177,7 +179,8 @@ instance Data.FromXML VerifiedAccessTrustProvider where
 
 instance Prelude.Hashable VerifiedAccessTrustProvider where
   hashWithSalt _salt VerifiedAccessTrustProvider' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` deviceOptions
       `Prelude.hashWithSalt` deviceTrustProviderType

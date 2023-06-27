@@ -106,7 +106,9 @@ instance Core.AWSRequest UnmonitorInstances where
     Response.receiveXML
       ( \s h x ->
           UnmonitorInstancesResponse'
-            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instancesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +116,8 @@ instance Core.AWSRequest UnmonitorInstances where
 
 instance Prelude.Hashable UnmonitorInstances where
   hashWithSalt _salt UnmonitorInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceIds
 
 instance Prelude.NFData UnmonitorInstances where

@@ -73,11 +73,13 @@ data DescribeSnapshotTierStatus = DescribeSnapshotTierStatus'
     --     @temporary-restore-in-progress@ | @temporary-restore-completed@ |
     --     @temporary-restore-failed@)
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,11 +110,13 @@ data DescribeSnapshotTierStatus = DescribeSnapshotTierStatus'
 --     @temporary-restore-in-progress@ | @temporary-restore-completed@ |
 --     @temporary-restore-failed@)
 --
--- 'maxResults', 'describeSnapshotTierStatus_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'describeSnapshotTierStatus_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeSnapshotTierStatus_nextToken' - The token for the next page of results.
+-- 'nextToken', 'describeSnapshotTierStatus_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeSnapshotTierStatus ::
   DescribeSnapshotTierStatus
 newDescribeSnapshotTierStatus =
@@ -146,13 +150,15 @@ describeSnapshotTierStatus_dryRun = Lens.lens (\DescribeSnapshotTierStatus' {dry
 describeSnapshotTierStatus_filters :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe [Filter])
 describeSnapshotTierStatus_filters = Lens.lens (\DescribeSnapshotTierStatus' {filters} -> filters) (\s@DescribeSnapshotTierStatus' {} a -> s {filters = a} :: DescribeSnapshotTierStatus) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeSnapshotTierStatus_maxResults :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe Prelude.Int)
 describeSnapshotTierStatus_maxResults = Lens.lens (\DescribeSnapshotTierStatus' {maxResults} -> maxResults) (\s@DescribeSnapshotTierStatus' {} a -> s {maxResults = a} :: DescribeSnapshotTierStatus)
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeSnapshotTierStatus_nextToken :: Lens.Lens' DescribeSnapshotTierStatus (Prelude.Maybe Prelude.Text)
 describeSnapshotTierStatus_nextToken = Lens.lens (\DescribeSnapshotTierStatus' {nextToken} -> nextToken) (\s@DescribeSnapshotTierStatus' {} a -> s {nextToken = a} :: DescribeSnapshotTierStatus)
 
@@ -161,22 +167,22 @@ instance Core.AWSPager DescribeSnapshotTierStatus where
     | Core.stop
         ( rs
             Lens.^? describeSnapshotTierStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSnapshotTierStatusResponse_snapshotTierStatuses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSnapshotTierStatus_nextToken
           Lens..~ rs
           Lens.^? describeSnapshotTierStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshotTierStatus where
   type
@@ -189,7 +195,8 @@ instance Core.AWSRequest DescribeSnapshotTierStatus where
       ( \s h x ->
           DescribeSnapshotTierStatusResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "snapshotTierStatusSet"
+            Prelude.<*> ( x
+                            Data..@? "snapshotTierStatusSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -198,7 +205,8 @@ instance Core.AWSRequest DescribeSnapshotTierStatus where
 
 instance Prelude.Hashable DescribeSnapshotTierStatus where
   hashWithSalt _salt DescribeSnapshotTierStatus' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -232,8 +240,8 @@ instance Data.ToQuery DescribeSnapshotTierStatus where
 
 -- | /See:/ 'newDescribeSnapshotTierStatusResponse' smart constructor.
 data DescribeSnapshotTierStatusResponse = DescribeSnapshotTierStatusResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the snapshot\'s storage tier.
     snapshotTierStatuses :: Prelude.Maybe [SnapshotTierStatus],
@@ -250,8 +258,8 @@ data DescribeSnapshotTierStatusResponse = DescribeSnapshotTierStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSnapshotTierStatusResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeSnapshotTierStatusResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'snapshotTierStatuses', 'describeSnapshotTierStatusResponse_snapshotTierStatuses' - Information about the snapshot\'s storage tier.
 --
@@ -268,8 +276,8 @@ newDescribeSnapshotTierStatusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeSnapshotTierStatusResponse_nextToken :: Lens.Lens' DescribeSnapshotTierStatusResponse (Prelude.Maybe Prelude.Text)
 describeSnapshotTierStatusResponse_nextToken = Lens.lens (\DescribeSnapshotTierStatusResponse' {nextToken} -> nextToken) (\s@DescribeSnapshotTierStatusResponse' {} a -> s {nextToken = a} :: DescribeSnapshotTierStatusResponse)
 

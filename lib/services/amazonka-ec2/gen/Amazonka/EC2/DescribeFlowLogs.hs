@@ -95,11 +95,13 @@ data DescribeFlowLogs = DescribeFlowLogs'
     --
     -- Constraint: Maximum of 1000 flow log IDs.
     flowLogIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token for the next page of results.
+    -- | The token to request the next page of items. Pagination continues from
+    -- the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -147,11 +149,13 @@ data DescribeFlowLogs = DescribeFlowLogs'
 --
 -- Constraint: Maximum of 1000 flow log IDs.
 --
--- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'describeFlowLogs_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeFlowLogs_nextToken' - The token for the next page of results.
+-- 'nextToken', 'describeFlowLogs_nextToken' - The token to request the next page of items. Pagination continues from
+-- the end of the items returned by the previous request.
 newDescribeFlowLogs ::
   DescribeFlowLogs
 newDescribeFlowLogs =
@@ -204,13 +208,15 @@ describeFlowLogs_filter = Lens.lens (\DescribeFlowLogs' {filter'} -> filter') (\
 describeFlowLogs_flowLogIds :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe [Prelude.Text])
 describeFlowLogs_flowLogIds = Lens.lens (\DescribeFlowLogs' {flowLogIds} -> flowLogIds) (\s@DescribeFlowLogs' {} a -> s {flowLogIds = a} :: DescribeFlowLogs) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeFlowLogs_maxResults :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Int)
 describeFlowLogs_maxResults = Lens.lens (\DescribeFlowLogs' {maxResults} -> maxResults) (\s@DescribeFlowLogs' {} a -> s {maxResults = a} :: DescribeFlowLogs)
 
--- | The token for the next page of results.
+-- | The token to request the next page of items. Pagination continues from
+-- the end of the items returned by the previous request.
 describeFlowLogs_nextToken :: Lens.Lens' DescribeFlowLogs (Prelude.Maybe Prelude.Text)
 describeFlowLogs_nextToken = Lens.lens (\DescribeFlowLogs' {nextToken} -> nextToken) (\s@DescribeFlowLogs' {} a -> s {nextToken = a} :: DescribeFlowLogs)
 
@@ -219,22 +225,22 @@ instance Core.AWSPager DescribeFlowLogs where
     | Core.stop
         ( rs
             Lens.^? describeFlowLogsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFlowLogsResponse_flowLogs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFlowLogs_nextToken
           Lens..~ rs
           Lens.^? describeFlowLogsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFlowLogs where
   type
@@ -246,7 +252,9 @@ instance Core.AWSRequest DescribeFlowLogs where
     Response.receiveXML
       ( \s h x ->
           DescribeFlowLogsResponse'
-            Prelude.<$> ( x Data..@? "flowLogSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "flowLogSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -255,7 +263,8 @@ instance Core.AWSRequest DescribeFlowLogs where
 
 instance Prelude.Hashable DescribeFlowLogs where
   hashWithSalt _salt DescribeFlowLogs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` flowLogIds
       `Prelude.hashWithSalt` maxResults
@@ -297,8 +306,8 @@ instance Data.ToQuery DescribeFlowLogs where
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
   { -- | Information about the flow logs.
     flowLogs :: Prelude.Maybe [FlowLog],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to request the next page of items. This value is @null@ when
+    -- there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -315,8 +324,8 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
 --
 -- 'flowLogs', 'describeFlowLogsResponse_flowLogs' - Information about the flow logs.
 --
--- 'nextToken', 'describeFlowLogsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeFlowLogsResponse_nextToken' - The token to request the next page of items. This value is @null@ when
+-- there are no more items to return.
 --
 -- 'httpStatus', 'describeFlowLogsResponse_httpStatus' - The response's http status code.
 newDescribeFlowLogsResponse ::
@@ -335,8 +344,8 @@ newDescribeFlowLogsResponse pHttpStatus_ =
 describeFlowLogsResponse_flowLogs :: Lens.Lens' DescribeFlowLogsResponse (Prelude.Maybe [FlowLog])
 describeFlowLogsResponse_flowLogs = Lens.lens (\DescribeFlowLogsResponse' {flowLogs} -> flowLogs) (\s@DescribeFlowLogsResponse' {} a -> s {flowLogs = a} :: DescribeFlowLogsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to request the next page of items. This value is @null@ when
+-- there are no more items to return.
 describeFlowLogsResponse_nextToken :: Lens.Lens' DescribeFlowLogsResponse (Prelude.Maybe Prelude.Text)
 describeFlowLogsResponse_nextToken = Lens.lens (\DescribeFlowLogsResponse' {nextToken} -> nextToken) (\s@DescribeFlowLogsResponse' {} a -> s {nextToken = a} :: DescribeFlowLogsResponse)
 

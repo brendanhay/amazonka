@@ -82,8 +82,8 @@ instance
   parseXML x =
     DeleteLaunchTemplateVersionsResponseSuccessItem'
       Prelude.<$> (x Data..@? "launchTemplateId")
-        Prelude.<*> (x Data..@? "launchTemplateName")
-        Prelude.<*> (x Data..@? "versionNumber")
+      Prelude.<*> (x Data..@? "launchTemplateName")
+      Prelude.<*> (x Data..@? "versionNumber")
 
 instance
   Prelude.Hashable
@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     DeleteLaunchTemplateVersionsResponseSuccessItem' {..} =
-      _salt `Prelude.hashWithSalt` launchTemplateId
+      _salt
+        `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName
         `Prelude.hashWithSalt` versionNumber
 

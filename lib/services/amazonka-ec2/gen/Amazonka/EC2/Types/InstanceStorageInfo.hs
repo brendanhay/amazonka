@@ -88,7 +88,9 @@ instanceStorageInfo_totalSizeInGB = Lens.lens (\InstanceStorageInfo' {totalSizeI
 instance Data.FromXML InstanceStorageInfo where
   parseXML x =
     InstanceStorageInfo'
-      Prelude.<$> ( x Data..@? "disks" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "disks"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "encryptionSupport")
@@ -97,7 +99,8 @@ instance Data.FromXML InstanceStorageInfo where
 
 instance Prelude.Hashable InstanceStorageInfo where
   hashWithSalt _salt InstanceStorageInfo' {..} =
-    _salt `Prelude.hashWithSalt` disks
+    _salt
+      `Prelude.hashWithSalt` disks
       `Prelude.hashWithSalt` encryptionSupport
       `Prelude.hashWithSalt` nvmeSupport
       `Prelude.hashWithSalt` totalSizeInGB

@@ -42,7 +42,7 @@ data IpamResourceCidr = IpamResourceCidr'
     -- | The percentage of IP address space in use. To convert the decimal to a
     -- percentage, multiply the decimal by 100. Note the following:
     --
-    -- -   For a resources that are VPCs, this is the percentage of IP address
+    -- -   For resources that are VPCs, this is the percentage of IP address
     --     space in the VPC that\'s taken up by subnet CIDRs.
     --
     -- -   For resources that are subnets, if the subnet has an IPv4 CIDR
@@ -108,7 +108,7 @@ data IpamResourceCidr = IpamResourceCidr'
 -- 'ipUsage', 'ipamResourceCidr_ipUsage' - The percentage of IP address space in use. To convert the decimal to a
 -- percentage, multiply the decimal by 100. Note the following:
 --
--- -   For a resources that are VPCs, this is the percentage of IP address
+-- -   For resources that are VPCs, this is the percentage of IP address
 --     space in the VPC that\'s taken up by subnet CIDRs.
 --
 -- -   For resources that are subnets, if the subnet has an IPv4 CIDR
@@ -186,7 +186,7 @@ ipamResourceCidr_complianceStatus = Lens.lens (\IpamResourceCidr' {complianceSta
 -- | The percentage of IP address space in use. To convert the decimal to a
 -- percentage, multiply the decimal by 100. Note the following:
 --
--- -   For a resources that are VPCs, this is the percentage of IP address
+-- -   For resources that are VPCs, this is the percentage of IP address
 --     space in the VPC that\'s taken up by subnet CIDRs.
 --
 -- -   For resources that are subnets, if the subnet has an IPv4 CIDR
@@ -276,7 +276,9 @@ instance Data.FromXML IpamResourceCidr where
       Prelude.<*> (x Data..@? "resourceName")
       Prelude.<*> (x Data..@? "resourceOwnerId")
       Prelude.<*> (x Data..@? "resourceRegion")
-      Prelude.<*> ( x Data..@? "resourceTagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "resourceTagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "resourceType")
@@ -284,7 +286,8 @@ instance Data.FromXML IpamResourceCidr where
 
 instance Prelude.Hashable IpamResourceCidr where
   hashWithSalt _salt IpamResourceCidr' {..} =
-    _salt `Prelude.hashWithSalt` complianceStatus
+    _salt
+      `Prelude.hashWithSalt` complianceStatus
       `Prelude.hashWithSalt` ipUsage
       `Prelude.hashWithSalt` ipamId
       `Prelude.hashWithSalt` ipamPoolId

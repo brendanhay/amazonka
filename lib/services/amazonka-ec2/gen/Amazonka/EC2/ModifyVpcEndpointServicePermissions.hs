@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the permissions for your VPC endpoint service. You can add or
--- remove permissions for service consumers (IAM users, IAM roles, and
--- Amazon Web Services accounts) to connect to your endpoint service.
+-- remove permissions for service consumers (Amazon Web Services accounts,
+-- users, and IAM roles) to connect to your endpoint service.
 --
 -- If you grant permissions to all principals, the service is public. Any
 -- users who know the name of a public service can send a request to attach
@@ -60,8 +60,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyVpcEndpointServicePermissions' smart constructor.
 data ModifyVpcEndpointServicePermissions = ModifyVpcEndpointServicePermissions'
-  { -- | The Amazon Resource Names (ARN) of one or more principals. Permissions
-    -- are granted to the principals in this list. To grant permissions to all
+  { -- | The Amazon Resource Names (ARN) of the principals. Permissions are
+    -- granted to the principals in this list. To grant permissions to all
     -- principals, specify an asterisk (*).
     addAllowedPrincipals :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
@@ -69,8 +69,8 @@ data ModifyVpcEndpointServicePermissions = ModifyVpcEndpointServicePermissions'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Names (ARN) of one or more principals. Permissions
-    -- are revoked for principals in this list.
+    -- | The Amazon Resource Names (ARN) of the principals. Permissions are
+    -- revoked for principals in this list.
     removeAllowedPrincipals :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the service.
     serviceId :: Prelude.Text
@@ -85,8 +85,8 @@ data ModifyVpcEndpointServicePermissions = ModifyVpcEndpointServicePermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addAllowedPrincipals', 'modifyVpcEndpointServicePermissions_addAllowedPrincipals' - The Amazon Resource Names (ARN) of one or more principals. Permissions
--- are granted to the principals in this list. To grant permissions to all
+-- 'addAllowedPrincipals', 'modifyVpcEndpointServicePermissions_addAllowedPrincipals' - The Amazon Resource Names (ARN) of the principals. Permissions are
+-- granted to the principals in this list. To grant permissions to all
 -- principals, specify an asterisk (*).
 --
 -- 'dryRun', 'modifyVpcEndpointServicePermissions_dryRun' - Checks whether you have the required permissions for the action, without
@@ -94,8 +94,8 @@ data ModifyVpcEndpointServicePermissions = ModifyVpcEndpointServicePermissions'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'removeAllowedPrincipals', 'modifyVpcEndpointServicePermissions_removeAllowedPrincipals' - The Amazon Resource Names (ARN) of one or more principals. Permissions
--- are revoked for principals in this list.
+-- 'removeAllowedPrincipals', 'modifyVpcEndpointServicePermissions_removeAllowedPrincipals' - The Amazon Resource Names (ARN) of the principals. Permissions are
+-- revoked for principals in this list.
 --
 -- 'serviceId', 'modifyVpcEndpointServicePermissions_serviceId' - The ID of the service.
 newModifyVpcEndpointServicePermissions ::
@@ -112,8 +112,8 @@ newModifyVpcEndpointServicePermissions pServiceId_ =
       serviceId = pServiceId_
     }
 
--- | The Amazon Resource Names (ARN) of one or more principals. Permissions
--- are granted to the principals in this list. To grant permissions to all
+-- | The Amazon Resource Names (ARN) of the principals. Permissions are
+-- granted to the principals in this list. To grant permissions to all
 -- principals, specify an asterisk (*).
 modifyVpcEndpointServicePermissions_addAllowedPrincipals :: Lens.Lens' ModifyVpcEndpointServicePermissions (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpointServicePermissions_addAllowedPrincipals = Lens.lens (\ModifyVpcEndpointServicePermissions' {addAllowedPrincipals} -> addAllowedPrincipals) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {addAllowedPrincipals = a} :: ModifyVpcEndpointServicePermissions) Prelude.. Lens.mapping Lens.coerced
@@ -125,8 +125,8 @@ modifyVpcEndpointServicePermissions_addAllowedPrincipals = Lens.lens (\ModifyVpc
 modifyVpcEndpointServicePermissions_dryRun :: Lens.Lens' ModifyVpcEndpointServicePermissions (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpointServicePermissions_dryRun = Lens.lens (\ModifyVpcEndpointServicePermissions' {dryRun} -> dryRun) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {dryRun = a} :: ModifyVpcEndpointServicePermissions)
 
--- | The Amazon Resource Names (ARN) of one or more principals. Permissions
--- are revoked for principals in this list.
+-- | The Amazon Resource Names (ARN) of the principals. Permissions are
+-- revoked for principals in this list.
 modifyVpcEndpointServicePermissions_removeAllowedPrincipals :: Lens.Lens' ModifyVpcEndpointServicePermissions (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpointServicePermissions_removeAllowedPrincipals = Lens.lens (\ModifyVpcEndpointServicePermissions' {removeAllowedPrincipals} -> removeAllowedPrincipals) (\s@ModifyVpcEndpointServicePermissions' {} a -> s {removeAllowedPrincipals = a} :: ModifyVpcEndpointServicePermissions) Prelude.. Lens.mapping Lens.coerced
 
@@ -147,12 +147,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           ModifyVpcEndpointServicePermissionsResponse'
-            Prelude.<$> ( x Data..@? "addedPrincipalSet"
+            Prelude.<$> ( x
+                            Data..@? "addedPrincipalSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "return")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "return")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -162,7 +163,8 @@ instance
   hashWithSalt
     _salt
     ModifyVpcEndpointServicePermissions' {..} =
-      _salt `Prelude.hashWithSalt` addAllowedPrincipals
+      _salt
+        `Prelude.hashWithSalt` addAllowedPrincipals
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` removeAllowedPrincipals
         `Prelude.hashWithSalt` serviceId

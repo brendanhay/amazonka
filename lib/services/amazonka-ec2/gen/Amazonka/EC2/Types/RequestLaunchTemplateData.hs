@@ -68,7 +68,8 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     creditSpecification :: Prelude.Maybe CreditSpecificationRequest,
     -- | Indicates whether to enable the instance for stop protection. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
     disableApiStop :: Prelude.Maybe Prelude.Bool,
     -- | If you set this parameter to @true@, you can\'t terminate the instance
     -- using the Amazon EC2 console, CLI, or API; otherwise, you can. To change
@@ -105,7 +106,28 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     hibernationOptions :: Prelude.Maybe LaunchTemplateHibernationOptionsRequest,
     -- | The name or Amazon Resource Name (ARN) of an IAM instance profile.
     iamInstanceProfile :: Prelude.Maybe LaunchTemplateIamInstanceProfileSpecificationRequest,
-    -- | The ID of the AMI.
+    -- | The ID of the AMI. Alternatively, you can specify a Systems Manager
+    -- parameter, which will resolve to an AMI ID on launch.
+    --
+    -- Valid formats:
+    --
+    -- -   @ami-17characters00000@
+    --
+    -- -   @resolve:ssm:parameter-name@
+    --
+    -- -   @resolve:ssm:parameter-name:version-number@
+    --
+    -- -   @resolve:ssm:parameter-name:label@
+    --
+    -- -   @resolve:ssm:public-parameter@
+    --
+    -- Currently, EC2 Fleet and Spot Fleet do not support specifying a Systems
+    -- Manager parameter. If the launch template will be used by an EC2 Fleet
+    -- or Spot Fleet, you must specify the AMI ID.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
@@ -216,7 +238,7 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
     -- For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Amazon EC2 user data in launch templates>
     -- in the /Batch User Guide/.
-    userData :: Prelude.Maybe Prelude.Text
+    userData :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -244,7 +266,8 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- 'disableApiStop', 'requestLaunchTemplateData_disableApiStop' - Indicates whether to enable the instance for stop protection. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'disableApiTermination', 'requestLaunchTemplateData_disableApiTermination' - If you set this parameter to @true@, you can\'t terminate the instance
 -- using the Amazon EC2 console, CLI, or API; otherwise, you can. To change
@@ -281,7 +304,28 @@ data RequestLaunchTemplateData = RequestLaunchTemplateData'
 --
 -- 'iamInstanceProfile', 'requestLaunchTemplateData_iamInstanceProfile' - The name or Amazon Resource Name (ARN) of an IAM instance profile.
 --
--- 'imageId', 'requestLaunchTemplateData_imageId' - The ID of the AMI.
+-- 'imageId', 'requestLaunchTemplateData_imageId' - The ID of the AMI. Alternatively, you can specify a Systems Manager
+-- parameter, which will resolve to an AMI ID on launch.
+--
+-- Valid formats:
+--
+-- -   @ami-17characters00000@
+--
+-- -   @resolve:ssm:parameter-name@
+--
+-- -   @resolve:ssm:parameter-name:version-number@
+--
+-- -   @resolve:ssm:parameter-name:label@
+--
+-- -   @resolve:ssm:public-parameter@
+--
+-- Currently, EC2 Fleet and Spot Fleet do not support specifying a Systems
+-- Manager parameter. If the launch template will be used by an EC2 Fleet
+-- or Spot Fleet, you must specify the AMI ID.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- 'instanceInitiatedShutdownBehavior', 'requestLaunchTemplateData_instanceInitiatedShutdownBehavior' - Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -456,7 +500,8 @@ requestLaunchTemplateData_creditSpecification = Lens.lens (\RequestLaunchTemplat
 
 -- | Indicates whether to enable the instance for stop protection. For more
 -- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop Protection>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 requestLaunchTemplateData_disableApiStop :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Bool)
 requestLaunchTemplateData_disableApiStop = Lens.lens (\RequestLaunchTemplateData' {disableApiStop} -> disableApiStop) (\s@RequestLaunchTemplateData' {} a -> s {disableApiStop = a} :: RequestLaunchTemplateData)
 
@@ -509,7 +554,28 @@ requestLaunchTemplateData_hibernationOptions = Lens.lens (\RequestLaunchTemplate
 requestLaunchTemplateData_iamInstanceProfile :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe LaunchTemplateIamInstanceProfileSpecificationRequest)
 requestLaunchTemplateData_iamInstanceProfile = Lens.lens (\RequestLaunchTemplateData' {iamInstanceProfile} -> iamInstanceProfile) (\s@RequestLaunchTemplateData' {} a -> s {iamInstanceProfile = a} :: RequestLaunchTemplateData)
 
--- | The ID of the AMI.
+-- | The ID of the AMI. Alternatively, you can specify a Systems Manager
+-- parameter, which will resolve to an AMI ID on launch.
+--
+-- Valid formats:
+--
+-- -   @ami-17characters00000@
+--
+-- -   @resolve:ssm:parameter-name@
+--
+-- -   @resolve:ssm:parameter-name:version-number@
+--
+-- -   @resolve:ssm:parameter-name:label@
+--
+-- -   @resolve:ssm:public-parameter@
+--
+-- Currently, EC2 Fleet and Spot Fleet do not support specifying a Systems
+-- Manager parameter. If the launch template will be used by an EC2 Fleet
+-- or Spot Fleet, you must specify the AMI ID.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-launch-template.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 requestLaunchTemplateData_imageId :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Text)
 requestLaunchTemplateData_imageId = Lens.lens (\RequestLaunchTemplateData' {imageId} -> imageId) (\s@RequestLaunchTemplateData' {} a -> s {imageId = a} :: RequestLaunchTemplateData)
 
@@ -657,11 +723,12 @@ requestLaunchTemplateData_tagSpecifications = Lens.lens (\RequestLaunchTemplateD
 -- <https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html Amazon EC2 user data in launch templates>
 -- in the /Batch User Guide/.
 requestLaunchTemplateData_userData :: Lens.Lens' RequestLaunchTemplateData (Prelude.Maybe Prelude.Text)
-requestLaunchTemplateData_userData = Lens.lens (\RequestLaunchTemplateData' {userData} -> userData) (\s@RequestLaunchTemplateData' {} a -> s {userData = a} :: RequestLaunchTemplateData)
+requestLaunchTemplateData_userData = Lens.lens (\RequestLaunchTemplateData' {userData} -> userData) (\s@RequestLaunchTemplateData' {} a -> s {userData = a} :: RequestLaunchTemplateData) Prelude.. Lens.mapping Data._Sensitive
 
 instance Prelude.Hashable RequestLaunchTemplateData where
   hashWithSalt _salt RequestLaunchTemplateData' {..} =
-    _salt `Prelude.hashWithSalt` blockDeviceMappings
+    _salt
+      `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` capacityReservationSpecification
       `Prelude.hashWithSalt` cpuOptions
       `Prelude.hashWithSalt` creditSpecification

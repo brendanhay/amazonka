@@ -60,7 +60,7 @@ data DeleteVerifiedAccessEndpoint = DeleteVerifiedAccessEndpoint'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access endpoint.
+    -- | The ID of the Verified Access endpoint.
     verifiedAccessEndpointId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data DeleteVerifiedAccessEndpoint = DeleteVerifiedAccessEndpoint'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessEndpointId', 'deleteVerifiedAccessEndpoint_verifiedAccessEndpointId' - The ID of the Amazon Web Services Verified Access endpoint.
+-- 'verifiedAccessEndpointId', 'deleteVerifiedAccessEndpoint_verifiedAccessEndpointId' - The ID of the Verified Access endpoint.
 newDeleteVerifiedAccessEndpoint ::
   -- | 'verifiedAccessEndpointId'
   Prelude.Text ->
@@ -110,7 +110,7 @@ deleteVerifiedAccessEndpoint_clientToken = Lens.lens (\DeleteVerifiedAccessEndpo
 deleteVerifiedAccessEndpoint_dryRun :: Lens.Lens' DeleteVerifiedAccessEndpoint (Prelude.Maybe Prelude.Bool)
 deleteVerifiedAccessEndpoint_dryRun = Lens.lens (\DeleteVerifiedAccessEndpoint' {dryRun} -> dryRun) (\s@DeleteVerifiedAccessEndpoint' {} a -> s {dryRun = a} :: DeleteVerifiedAccessEndpoint)
 
--- | The ID of the Amazon Web Services Verified Access endpoint.
+-- | The ID of the Verified Access endpoint.
 deleteVerifiedAccessEndpoint_verifiedAccessEndpointId :: Lens.Lens' DeleteVerifiedAccessEndpoint Prelude.Text
 deleteVerifiedAccessEndpoint_verifiedAccessEndpointId = Lens.lens (\DeleteVerifiedAccessEndpoint' {verifiedAccessEndpointId} -> verifiedAccessEndpointId) (\s@DeleteVerifiedAccessEndpoint' {} a -> s {verifiedAccessEndpointId = a} :: DeleteVerifiedAccessEndpoint)
 
@@ -133,7 +133,8 @@ instance
     DeleteVerifiedAccessEndpoint
   where
   hashWithSalt _salt DeleteVerifiedAccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessEndpointId
 
@@ -166,7 +167,7 @@ instance Data.ToQuery DeleteVerifiedAccessEndpoint where
 
 -- | /See:/ 'newDeleteVerifiedAccessEndpointResponse' smart constructor.
 data DeleteVerifiedAccessEndpointResponse = DeleteVerifiedAccessEndpointResponse'
-  { -- | The ID of the Amazon Web Services Verified Access endpoint.
+  { -- | The ID of the Verified Access endpoint.
     verifiedAccessEndpoint :: Prelude.Maybe VerifiedAccessEndpoint,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,7 +182,7 @@ data DeleteVerifiedAccessEndpointResponse = DeleteVerifiedAccessEndpointResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessEndpoint', 'deleteVerifiedAccessEndpointResponse_verifiedAccessEndpoint' - The ID of the Amazon Web Services Verified Access endpoint.
+-- 'verifiedAccessEndpoint', 'deleteVerifiedAccessEndpointResponse_verifiedAccessEndpoint' - The ID of the Verified Access endpoint.
 --
 -- 'httpStatus', 'deleteVerifiedAccessEndpointResponse_httpStatus' - The response's http status code.
 newDeleteVerifiedAccessEndpointResponse ::
@@ -195,7 +196,7 @@ newDeleteVerifiedAccessEndpointResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the Amazon Web Services Verified Access endpoint.
+-- | The ID of the Verified Access endpoint.
 deleteVerifiedAccessEndpointResponse_verifiedAccessEndpoint :: Lens.Lens' DeleteVerifiedAccessEndpointResponse (Prelude.Maybe VerifiedAccessEndpoint)
 deleteVerifiedAccessEndpointResponse_verifiedAccessEndpoint = Lens.lens (\DeleteVerifiedAccessEndpointResponse' {verifiedAccessEndpoint} -> verifiedAccessEndpoint) (\s@DeleteVerifiedAccessEndpointResponse' {} a -> s {verifiedAccessEndpoint = a} :: DeleteVerifiedAccessEndpointResponse)
 

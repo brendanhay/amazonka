@@ -168,12 +168,14 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     --
     -- Default: Describes all of your security groups.
     groupNames :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another request with the returned
-    -- @NextToken@ value. This value can be between 5 and 1000. If this
-    -- parameter is not specified, then all results are returned.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. This value can be between 5 and 1000. If this parameter is not
+    -- specified, then all items are returned. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to request the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -285,12 +287,14 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
 --
 -- Default: Describes all of your security groups.
 --
--- 'maxResults', 'describeSecurityGroups_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned
--- @NextToken@ value. This value can be between 5 and 1000. If this
--- parameter is not specified, then all results are returned.
+-- 'maxResults', 'describeSecurityGroups_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. This value can be between 5 and 1000. If this parameter is not
+-- specified, then all items are returned. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeSecurityGroups_nextToken' - The token to request the next page of results.
+-- 'nextToken', 'describeSecurityGroups_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeSecurityGroups ::
   DescribeSecurityGroups
 newDescribeSecurityGroups =
@@ -410,14 +414,16 @@ describeSecurityGroups_groupIds = Lens.lens (\DescribeSecurityGroups' {groupIds}
 describeSecurityGroups_groupNames :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe [Prelude.Text])
 describeSecurityGroups_groupNames = Lens.lens (\DescribeSecurityGroups' {groupNames} -> groupNames) (\s@DescribeSecurityGroups' {} a -> s {groupNames = a} :: DescribeSecurityGroups) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned
--- @NextToken@ value. This value can be between 5 and 1000. If this
--- parameter is not specified, then all results are returned.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. This value can be between 5 and 1000. If this parameter is not
+-- specified, then all items are returned. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeSecurityGroups_maxResults :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Natural)
 describeSecurityGroups_maxResults = Lens.lens (\DescribeSecurityGroups' {maxResults} -> maxResults) (\s@DescribeSecurityGroups' {} a -> s {maxResults = a} :: DescribeSecurityGroups)
 
--- | The token to request the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeSecurityGroups_nextToken :: Lens.Lens' DescribeSecurityGroups (Prelude.Maybe Prelude.Text)
 describeSecurityGroups_nextToken = Lens.lens (\DescribeSecurityGroups' {nextToken} -> nextToken) (\s@DescribeSecurityGroups' {} a -> s {nextToken = a} :: DescribeSecurityGroups)
 
@@ -426,22 +432,22 @@ instance Core.AWSPager DescribeSecurityGroups where
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSecurityGroupsResponse_securityGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSecurityGroups_nextToken
           Lens..~ rs
           Lens.^? describeSecurityGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSecurityGroups where
   type
@@ -454,7 +460,8 @@ instance Core.AWSRequest DescribeSecurityGroups where
       ( \s h x ->
           DescribeSecurityGroupsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "securityGroupInfo"
+            Prelude.<*> ( x
+                            Data..@? "securityGroupInfo"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -463,7 +470,8 @@ instance Core.AWSRequest DescribeSecurityGroups where
 
 instance Prelude.Hashable DescribeSecurityGroups where
   hashWithSalt _salt DescribeSecurityGroups' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` groupIds
       `Prelude.hashWithSalt` groupNames
@@ -507,8 +515,8 @@ instance Data.ToQuery DescribeSecurityGroups where
 
 -- | /See:/ 'newDescribeSecurityGroupsResponse' smart constructor.
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the security groups.
     securityGroups :: Prelude.Maybe [SecurityGroup],
@@ -525,8 +533,8 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSecurityGroupsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeSecurityGroupsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'securityGroups', 'describeSecurityGroupsResponse_securityGroups' - Information about the security groups.
 --
@@ -543,8 +551,8 @@ newDescribeSecurityGroupsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeSecurityGroupsResponse_nextToken :: Lens.Lens' DescribeSecurityGroupsResponse (Prelude.Maybe Prelude.Text)
 describeSecurityGroupsResponse_nextToken = Lens.lens (\DescribeSecurityGroupsResponse' {nextToken} -> nextToken) (\s@DescribeSecurityGroupsResponse' {} a -> s {nextToken = a} :: DescribeSecurityGroupsResponse)
 

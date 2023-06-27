@@ -97,7 +97,8 @@ instance Data.FromXML SpotPlacement where
 
 instance Prelude.Hashable SpotPlacement where
   hashWithSalt _salt SpotPlacement' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` tenancy
 

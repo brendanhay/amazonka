@@ -78,7 +78,7 @@ data VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification'
     -- | The tunnel options for the VPN connection.
     tunnelOptions :: Prelude.Maybe [VpnTunnelOptionsSpecification]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'VpnConnectionOptionsSpecification' with all optional fields omitted.
@@ -224,7 +224,8 @@ instance
   hashWithSalt
     _salt
     VpnConnectionOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` enableAcceleration
+      _salt
+        `Prelude.hashWithSalt` enableAcceleration
         `Prelude.hashWithSalt` localIpv4NetworkCidr
         `Prelude.hashWithSalt` localIpv6NetworkCidr
         `Prelude.hashWithSalt` outsideIpAddressType

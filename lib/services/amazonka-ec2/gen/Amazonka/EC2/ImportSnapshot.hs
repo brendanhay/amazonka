@@ -126,7 +126,7 @@ data ImportSnapshot = ImportSnapshot'
     -- | The tags to apply to the import snapshot task during creation.
     tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportSnapshot' with all optional fields omitted.
@@ -303,7 +303,9 @@ instance Core.AWSRequest ImportSnapshot where
             Prelude.<$> (x Data..@? "description")
             Prelude.<*> (x Data..@? "importTaskId")
             Prelude.<*> (x Data..@? "snapshotTaskDetail")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -311,7 +313,8 @@ instance Core.AWSRequest ImportSnapshot where
 
 instance Prelude.Hashable ImportSnapshot where
   hashWithSalt _salt ImportSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` clientData
+    _salt
+      `Prelude.hashWithSalt` clientData
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` diskContainer
@@ -373,7 +376,7 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportSnapshotResponse' with all optional fields omitted.

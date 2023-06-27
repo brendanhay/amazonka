@@ -108,7 +108,8 @@ instance Data.FromXML PrivateDnsNameConfiguration where
 
 instance Prelude.Hashable PrivateDnsNameConfiguration where
   hashWithSalt _salt PrivateDnsNameConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value

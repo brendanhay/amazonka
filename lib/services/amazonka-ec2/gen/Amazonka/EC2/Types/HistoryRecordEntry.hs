@@ -87,7 +87,8 @@ instance Data.FromXML HistoryRecordEntry where
 
 instance Prelude.Hashable HistoryRecordEntry where
   hashWithSalt _salt HistoryRecordEntry' {..} =
-    _salt `Prelude.hashWithSalt` eventInformation
+    _salt
+      `Prelude.hashWithSalt` eventInformation
       `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` timestamp
 

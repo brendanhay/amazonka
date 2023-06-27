@@ -90,12 +90,16 @@ data DescribeStoreImageTasks = DescribeStoreImageTasks'
     -- | The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
     -- in a request.
     imageIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another call with the returned @NextToken@
-    -- value. This value can be between 1 and 200. You cannot specify this
-    -- parameter and the @ImageIDs@ parameter in the same call.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+    --
+    -- You cannot specify this parameter and the @ImageIDs@ parameter in the
+    -- same call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -124,12 +128,16 @@ data DescribeStoreImageTasks = DescribeStoreImageTasks'
 -- 'imageIds', 'describeStoreImageTasks_imageIds' - The AMI IDs for which to show progress. Up to 20 AMI IDs can be included
 -- in a request.
 --
--- 'maxResults', 'describeStoreImageTasks_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 1 and 200. You cannot specify this
--- parameter and the @ImageIDs@ parameter in the same call.
+-- 'maxResults', 'describeStoreImageTasks_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeStoreImageTasks_nextToken' - The token for the next page of results.
+-- You cannot specify this parameter and the @ImageIDs@ parameter in the
+-- same call.
+--
+-- 'nextToken', 'describeStoreImageTasks_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeStoreImageTasks ::
   DescribeStoreImageTasks
 newDescribeStoreImageTasks =
@@ -163,14 +171,18 @@ describeStoreImageTasks_filters = Lens.lens (\DescribeStoreImageTasks' {filters}
 describeStoreImageTasks_imageIds :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe [Prelude.Text])
 describeStoreImageTasks_imageIds = Lens.lens (\DescribeStoreImageTasks' {imageIds} -> imageIds) (\s@DescribeStoreImageTasks' {} a -> s {imageIds = a} :: DescribeStoreImageTasks) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another call with the returned @NextToken@
--- value. This value can be between 1 and 200. You cannot specify this
--- parameter and the @ImageIDs@ parameter in the same call.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
+--
+-- You cannot specify this parameter and the @ImageIDs@ parameter in the
+-- same call.
 describeStoreImageTasks_maxResults :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe Prelude.Natural)
 describeStoreImageTasks_maxResults = Lens.lens (\DescribeStoreImageTasks' {maxResults} -> maxResults) (\s@DescribeStoreImageTasks' {} a -> s {maxResults = a} :: DescribeStoreImageTasks)
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeStoreImageTasks_nextToken :: Lens.Lens' DescribeStoreImageTasks (Prelude.Maybe Prelude.Text)
 describeStoreImageTasks_nextToken = Lens.lens (\DescribeStoreImageTasks' {nextToken} -> nextToken) (\s@DescribeStoreImageTasks' {} a -> s {nextToken = a} :: DescribeStoreImageTasks)
 
@@ -179,22 +191,22 @@ instance Core.AWSPager DescribeStoreImageTasks where
     | Core.stop
         ( rs
             Lens.^? describeStoreImageTasksResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeStoreImageTasksResponse_storeImageTaskResults
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeStoreImageTasks_nextToken
           Lens..~ rs
           Lens.^? describeStoreImageTasksResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeStoreImageTasks where
   type
@@ -207,7 +219,8 @@ instance Core.AWSRequest DescribeStoreImageTasks where
       ( \s h x ->
           DescribeStoreImageTasksResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "storeImageTaskResultSet"
+            Prelude.<*> ( x
+                            Data..@? "storeImageTaskResultSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -216,7 +229,8 @@ instance Core.AWSRequest DescribeStoreImageTasks where
 
 instance Prelude.Hashable DescribeStoreImageTasks where
   hashWithSalt _salt DescribeStoreImageTasks' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults
@@ -254,8 +268,8 @@ instance Data.ToQuery DescribeStoreImageTasks where
 
 -- | /See:/ 'newDescribeStoreImageTasksResponse' smart constructor.
 data DescribeStoreImageTasksResponse = DescribeStoreImageTasksResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The information about the AMI store tasks.
     storeImageTaskResults :: Prelude.Maybe [StoreImageTaskResult],
@@ -272,8 +286,8 @@ data DescribeStoreImageTasksResponse = DescribeStoreImageTasksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeStoreImageTasksResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeStoreImageTasksResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'storeImageTaskResults', 'describeStoreImageTasksResponse_storeImageTaskResults' - The information about the AMI store tasks.
 --
@@ -290,8 +304,8 @@ newDescribeStoreImageTasksResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeStoreImageTasksResponse_nextToken :: Lens.Lens' DescribeStoreImageTasksResponse (Prelude.Maybe Prelude.Text)
 describeStoreImageTasksResponse_nextToken = Lens.lens (\DescribeStoreImageTasksResponse' {nextToken} -> nextToken) (\s@DescribeStoreImageTasksResponse' {} a -> s {nextToken = a} :: DescribeStoreImageTasksResponse)
 

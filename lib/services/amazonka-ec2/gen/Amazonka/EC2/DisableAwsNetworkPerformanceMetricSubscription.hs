@@ -145,7 +145,7 @@ instance
       ( \s h x ->
           DisableAwsNetworkPerformanceMetricSubscriptionResponse'
             Prelude.<$> (x Data..@? "output")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -155,7 +155,8 @@ instance
   hashWithSalt
     _salt
     DisableAwsNetworkPerformanceMetricSubscription' {..} =
-      _salt `Prelude.hashWithSalt` destination
+      _salt
+        `Prelude.hashWithSalt` destination
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` metric
         `Prelude.hashWithSalt` source

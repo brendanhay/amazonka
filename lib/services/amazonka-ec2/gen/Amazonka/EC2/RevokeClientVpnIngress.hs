@@ -152,7 +152,8 @@ instance Core.AWSRequest RevokeClientVpnIngress where
 
 instance Prelude.Hashable RevokeClientVpnIngress where
   hashWithSalt _salt RevokeClientVpnIngress' {..} =
-    _salt `Prelude.hashWithSalt` accessGroupId
+    _salt
+      `Prelude.hashWithSalt` accessGroupId
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` revokeAllGroups
       `Prelude.hashWithSalt` clientVpnEndpointId

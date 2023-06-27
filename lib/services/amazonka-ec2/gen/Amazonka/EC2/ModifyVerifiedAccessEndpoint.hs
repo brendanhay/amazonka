@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the configuration of an Amazon Web Services Verified Access
--- endpoint.
+-- Modifies the configuration of the specified Amazon Web Services Verified
+-- Access endpoint.
 module Amazonka.EC2.ModifyVerifiedAccessEndpoint
   ( -- * Creating a Request
     ModifyVerifiedAccessEndpoint (..),
@@ -60,21 +60,21 @@ data ModifyVerifiedAccessEndpoint = ModifyVerifiedAccessEndpoint'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access endpoint.
+    -- | A description for the Verified Access endpoint.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The load balancer details if creating the Amazon Web Services Verified
-    -- Access endpoint as @load-balancer@type.
+    -- | The load balancer details if creating the Verified Access endpoint as
+    -- @load-balancer@type.
     loadBalancerOptions :: Prelude.Maybe ModifyVerifiedAccessEndpointLoadBalancerOptions,
     -- | The network interface options.
     networkInterfaceOptions :: Prelude.Maybe ModifyVerifiedAccessEndpointEniOptions,
-    -- | The ID of the Amazon Web Services Verified Access group.
+    -- | The ID of the Verified Access group.
     verifiedAccessGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services Verified Access endpoint.
+    -- | The ID of the Verified Access endpoint.
     verifiedAccessEndpointId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,21 +91,21 @@ data ModifyVerifiedAccessEndpoint = ModifyVerifiedAccessEndpoint'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'modifyVerifiedAccessEndpoint_description' - A description for the Amazon Web Services Verified Access endpoint.
+-- 'description', 'modifyVerifiedAccessEndpoint_description' - A description for the Verified Access endpoint.
 --
 -- 'dryRun', 'modifyVerifiedAccessEndpoint_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'loadBalancerOptions', 'modifyVerifiedAccessEndpoint_loadBalancerOptions' - The load balancer details if creating the Amazon Web Services Verified
--- Access endpoint as @load-balancer@type.
+-- 'loadBalancerOptions', 'modifyVerifiedAccessEndpoint_loadBalancerOptions' - The load balancer details if creating the Verified Access endpoint as
+-- @load-balancer@type.
 --
 -- 'networkInterfaceOptions', 'modifyVerifiedAccessEndpoint_networkInterfaceOptions' - The network interface options.
 --
--- 'verifiedAccessGroupId', 'modifyVerifiedAccessEndpoint_verifiedAccessGroupId' - The ID of the Amazon Web Services Verified Access group.
+-- 'verifiedAccessGroupId', 'modifyVerifiedAccessEndpoint_verifiedAccessGroupId' - The ID of the Verified Access group.
 --
--- 'verifiedAccessEndpointId', 'modifyVerifiedAccessEndpoint_verifiedAccessEndpointId' - The ID of the Amazon Web Services Verified Access endpoint.
+-- 'verifiedAccessEndpointId', 'modifyVerifiedAccessEndpoint_verifiedAccessEndpointId' - The ID of the Verified Access endpoint.
 newModifyVerifiedAccessEndpoint ::
   -- | 'verifiedAccessEndpointId'
   Prelude.Text ->
@@ -130,7 +130,7 @@ newModifyVerifiedAccessEndpoint
 modifyVerifiedAccessEndpoint_clientToken :: Lens.Lens' ModifyVerifiedAccessEndpoint (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessEndpoint_clientToken = Lens.lens (\ModifyVerifiedAccessEndpoint' {clientToken} -> clientToken) (\s@ModifyVerifiedAccessEndpoint' {} a -> s {clientToken = a} :: ModifyVerifiedAccessEndpoint)
 
--- | A description for the Amazon Web Services Verified Access endpoint.
+-- | A description for the Verified Access endpoint.
 modifyVerifiedAccessEndpoint_description :: Lens.Lens' ModifyVerifiedAccessEndpoint (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessEndpoint_description = Lens.lens (\ModifyVerifiedAccessEndpoint' {description} -> description) (\s@ModifyVerifiedAccessEndpoint' {} a -> s {description = a} :: ModifyVerifiedAccessEndpoint)
 
@@ -141,8 +141,8 @@ modifyVerifiedAccessEndpoint_description = Lens.lens (\ModifyVerifiedAccessEndpo
 modifyVerifiedAccessEndpoint_dryRun :: Lens.Lens' ModifyVerifiedAccessEndpoint (Prelude.Maybe Prelude.Bool)
 modifyVerifiedAccessEndpoint_dryRun = Lens.lens (\ModifyVerifiedAccessEndpoint' {dryRun} -> dryRun) (\s@ModifyVerifiedAccessEndpoint' {} a -> s {dryRun = a} :: ModifyVerifiedAccessEndpoint)
 
--- | The load balancer details if creating the Amazon Web Services Verified
--- Access endpoint as @load-balancer@type.
+-- | The load balancer details if creating the Verified Access endpoint as
+-- @load-balancer@type.
 modifyVerifiedAccessEndpoint_loadBalancerOptions :: Lens.Lens' ModifyVerifiedAccessEndpoint (Prelude.Maybe ModifyVerifiedAccessEndpointLoadBalancerOptions)
 modifyVerifiedAccessEndpoint_loadBalancerOptions = Lens.lens (\ModifyVerifiedAccessEndpoint' {loadBalancerOptions} -> loadBalancerOptions) (\s@ModifyVerifiedAccessEndpoint' {} a -> s {loadBalancerOptions = a} :: ModifyVerifiedAccessEndpoint)
 
@@ -150,11 +150,11 @@ modifyVerifiedAccessEndpoint_loadBalancerOptions = Lens.lens (\ModifyVerifiedAcc
 modifyVerifiedAccessEndpoint_networkInterfaceOptions :: Lens.Lens' ModifyVerifiedAccessEndpoint (Prelude.Maybe ModifyVerifiedAccessEndpointEniOptions)
 modifyVerifiedAccessEndpoint_networkInterfaceOptions = Lens.lens (\ModifyVerifiedAccessEndpoint' {networkInterfaceOptions} -> networkInterfaceOptions) (\s@ModifyVerifiedAccessEndpoint' {} a -> s {networkInterfaceOptions = a} :: ModifyVerifiedAccessEndpoint)
 
--- | The ID of the Amazon Web Services Verified Access group.
+-- | The ID of the Verified Access group.
 modifyVerifiedAccessEndpoint_verifiedAccessGroupId :: Lens.Lens' ModifyVerifiedAccessEndpoint (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessEndpoint_verifiedAccessGroupId = Lens.lens (\ModifyVerifiedAccessEndpoint' {verifiedAccessGroupId} -> verifiedAccessGroupId) (\s@ModifyVerifiedAccessEndpoint' {} a -> s {verifiedAccessGroupId = a} :: ModifyVerifiedAccessEndpoint)
 
--- | The ID of the Amazon Web Services Verified Access endpoint.
+-- | The ID of the Verified Access endpoint.
 modifyVerifiedAccessEndpoint_verifiedAccessEndpointId :: Lens.Lens' ModifyVerifiedAccessEndpoint Prelude.Text
 modifyVerifiedAccessEndpoint_verifiedAccessEndpointId = Lens.lens (\ModifyVerifiedAccessEndpoint' {verifiedAccessEndpointId} -> verifiedAccessEndpointId) (\s@ModifyVerifiedAccessEndpoint' {} a -> s {verifiedAccessEndpointId = a} :: ModifyVerifiedAccessEndpoint)
 
@@ -177,7 +177,8 @@ instance
     ModifyVerifiedAccessEndpoint
   where
   hashWithSalt _salt ModifyVerifiedAccessEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` loadBalancerOptions
@@ -224,7 +225,7 @@ instance Data.ToQuery ModifyVerifiedAccessEndpoint where
 
 -- | /See:/ 'newModifyVerifiedAccessEndpointResponse' smart constructor.
 data ModifyVerifiedAccessEndpointResponse = ModifyVerifiedAccessEndpointResponse'
-  { -- | The Amazon Web Services Verified Access endpoint details.
+  { -- | The Verified Access endpoint details.
     verifiedAccessEndpoint :: Prelude.Maybe VerifiedAccessEndpoint,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -239,7 +240,7 @@ data ModifyVerifiedAccessEndpointResponse = ModifyVerifiedAccessEndpointResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessEndpoint', 'modifyVerifiedAccessEndpointResponse_verifiedAccessEndpoint' - The Amazon Web Services Verified Access endpoint details.
+-- 'verifiedAccessEndpoint', 'modifyVerifiedAccessEndpointResponse_verifiedAccessEndpoint' - The Verified Access endpoint details.
 --
 -- 'httpStatus', 'modifyVerifiedAccessEndpointResponse_httpStatus' - The response's http status code.
 newModifyVerifiedAccessEndpointResponse ::
@@ -253,7 +254,7 @@ newModifyVerifiedAccessEndpointResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Web Services Verified Access endpoint details.
+-- | The Verified Access endpoint details.
 modifyVerifiedAccessEndpointResponse_verifiedAccessEndpoint :: Lens.Lens' ModifyVerifiedAccessEndpointResponse (Prelude.Maybe VerifiedAccessEndpoint)
 modifyVerifiedAccessEndpointResponse_verifiedAccessEndpoint = Lens.lens (\ModifyVerifiedAccessEndpointResponse' {verifiedAccessEndpoint} -> verifiedAccessEndpoint) (\s@ModifyVerifiedAccessEndpointResponse' {} a -> s {verifiedAccessEndpoint = a} :: ModifyVerifiedAccessEndpointResponse)
 

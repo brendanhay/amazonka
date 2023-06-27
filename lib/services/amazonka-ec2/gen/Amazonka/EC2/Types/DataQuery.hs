@@ -40,20 +40,18 @@ data DataQuery = DataQuery'
     -- @MyQuery01@in the query, the @dataResponse@ identifies the query as
     -- @MyQuery01@.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The aggregation metric used for the data query. Currently only
-    -- @aggregation-latency@ is supported, indicating network latency.
+    -- | The metric, @aggregation-latency@, indicating that network latency is
+    -- aggregated for the query. This is the only supported metric.
     metric :: Prelude.Maybe MetricType,
     -- | The aggregation period used for the data query.
     period :: Prelude.Maybe PeriodType,
     -- | The Region or Availability Zone that\'s the source for the data query.
     -- For example, @us-east-1@.
     source :: Prelude.Maybe Prelude.Text,
-    -- | Metric data aggregations over specified periods of time. The following
-    -- are the supported Infrastructure Performance statistics:
-    --
-    -- -   @p50@ - The median value of the metric aggregated over a specified
-    --     start and end time. For example, a metric of @five_minutes@ is the
-    --     median of all the data points gathered within those five minutes.
+    -- | The metric data aggregation period, @p50@, between the specified
+    -- @startDate@ and @endDate@. For example, a metric of @five_minutes@ is
+    -- the median of all the data points gathered within those five minutes.
+    -- @p50@ is the only supported metric.
     statistic :: Prelude.Maybe StatisticType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,20 +72,18 @@ data DataQuery = DataQuery'
 -- @MyQuery01@in the query, the @dataResponse@ identifies the query as
 -- @MyQuery01@.
 --
--- 'metric', 'dataQuery_metric' - The aggregation metric used for the data query. Currently only
--- @aggregation-latency@ is supported, indicating network latency.
+-- 'metric', 'dataQuery_metric' - The metric, @aggregation-latency@, indicating that network latency is
+-- aggregated for the query. This is the only supported metric.
 --
 -- 'period', 'dataQuery_period' - The aggregation period used for the data query.
 --
 -- 'source', 'dataQuery_source' - The Region or Availability Zone that\'s the source for the data query.
 -- For example, @us-east-1@.
 --
--- 'statistic', 'dataQuery_statistic' - Metric data aggregations over specified periods of time. The following
--- are the supported Infrastructure Performance statistics:
---
--- -   @p50@ - The median value of the metric aggregated over a specified
---     start and end time. For example, a metric of @five_minutes@ is the
---     median of all the data points gathered within those five minutes.
+-- 'statistic', 'dataQuery_statistic' - The metric data aggregation period, @p50@, between the specified
+-- @startDate@ and @endDate@. For example, a metric of @five_minutes@ is
+-- the median of all the data points gathered within those five minutes.
+-- @p50@ is the only supported metric.
 newDataQuery ::
   DataQuery
 newDataQuery =
@@ -112,8 +108,8 @@ dataQuery_destination = Lens.lens (\DataQuery' {destination} -> destination) (\s
 dataQuery_id :: Lens.Lens' DataQuery (Prelude.Maybe Prelude.Text)
 dataQuery_id = Lens.lens (\DataQuery' {id} -> id) (\s@DataQuery' {} a -> s {id = a} :: DataQuery)
 
--- | The aggregation metric used for the data query. Currently only
--- @aggregation-latency@ is supported, indicating network latency.
+-- | The metric, @aggregation-latency@, indicating that network latency is
+-- aggregated for the query. This is the only supported metric.
 dataQuery_metric :: Lens.Lens' DataQuery (Prelude.Maybe MetricType)
 dataQuery_metric = Lens.lens (\DataQuery' {metric} -> metric) (\s@DataQuery' {} a -> s {metric = a} :: DataQuery)
 
@@ -126,18 +122,17 @@ dataQuery_period = Lens.lens (\DataQuery' {period} -> period) (\s@DataQuery' {} 
 dataQuery_source :: Lens.Lens' DataQuery (Prelude.Maybe Prelude.Text)
 dataQuery_source = Lens.lens (\DataQuery' {source} -> source) (\s@DataQuery' {} a -> s {source = a} :: DataQuery)
 
--- | Metric data aggregations over specified periods of time. The following
--- are the supported Infrastructure Performance statistics:
---
--- -   @p50@ - The median value of the metric aggregated over a specified
---     start and end time. For example, a metric of @five_minutes@ is the
---     median of all the data points gathered within those five minutes.
+-- | The metric data aggregation period, @p50@, between the specified
+-- @startDate@ and @endDate@. For example, a metric of @five_minutes@ is
+-- the median of all the data points gathered within those five minutes.
+-- @p50@ is the only supported metric.
 dataQuery_statistic :: Lens.Lens' DataQuery (Prelude.Maybe StatisticType)
 dataQuery_statistic = Lens.lens (\DataQuery' {statistic} -> statistic) (\s@DataQuery' {} a -> s {statistic = a} :: DataQuery)
 
 instance Prelude.Hashable DataQuery where
   hashWithSalt _salt DataQuery' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` period

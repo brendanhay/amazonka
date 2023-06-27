@@ -21,7 +21,8 @@ module Amazonka.EC2.Types.BootModeValues
   ( BootModeValues
       ( ..,
         BootModeValues_Legacy_bios,
-        BootModeValues_Uefi
+        BootModeValues_Uefi,
+        BootModeValues_Uefi_preferred
       ),
   )
 where
@@ -65,8 +66,12 @@ pattern BootModeValues_Legacy_bios = BootModeValues' "legacy-bios"
 pattern BootModeValues_Uefi :: BootModeValues
 pattern BootModeValues_Uefi = BootModeValues' "uefi"
 
+pattern BootModeValues_Uefi_preferred :: BootModeValues
+pattern BootModeValues_Uefi_preferred = BootModeValues' "uefi-preferred"
+
 {-# COMPLETE
   BootModeValues_Legacy_bios,
   BootModeValues_Uefi,
+  BootModeValues_Uefi_preferred,
   BootModeValues'
   #-}

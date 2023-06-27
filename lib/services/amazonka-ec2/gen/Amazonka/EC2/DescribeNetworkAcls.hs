@@ -122,15 +122,17 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
     --
     -- -   @vpc-id@ - The ID of the VPC for the network ACL.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | One or more network ACL IDs.
     --
     -- Default: Describes all your network ACLs.
     networkAclIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -205,15 +207,17 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
 --
 -- -   @vpc-id@ - The ID of the VPC for the network ACL.
 --
--- 'maxResults', 'describeNetworkAcls_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'describeNetworkAcls_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
 -- 'networkAclIds', 'describeNetworkAcls_networkAclIds' - One or more network ACL IDs.
 --
 -- Default: Describes all your network ACLs.
 --
--- 'nextToken', 'describeNetworkAcls_nextToken' - The token for the next page of results.
+-- 'nextToken', 'describeNetworkAcls_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeNetworkAcls ::
   DescribeNetworkAcls
 newDescribeNetworkAcls =
@@ -291,9 +295,10 @@ describeNetworkAcls_dryRun = Lens.lens (\DescribeNetworkAcls' {dryRun} -> dryRun
 describeNetworkAcls_filters :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe [Filter])
 describeNetworkAcls_filters = Lens.lens (\DescribeNetworkAcls' {filters} -> filters) (\s@DescribeNetworkAcls' {} a -> s {filters = a} :: DescribeNetworkAcls) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeNetworkAcls_maxResults :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Natural)
 describeNetworkAcls_maxResults = Lens.lens (\DescribeNetworkAcls' {maxResults} -> maxResults) (\s@DescribeNetworkAcls' {} a -> s {maxResults = a} :: DescribeNetworkAcls)
 
@@ -303,7 +308,8 @@ describeNetworkAcls_maxResults = Lens.lens (\DescribeNetworkAcls' {maxResults} -
 describeNetworkAcls_networkAclIds :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe [Prelude.Text])
 describeNetworkAcls_networkAclIds = Lens.lens (\DescribeNetworkAcls' {networkAclIds} -> networkAclIds) (\s@DescribeNetworkAcls' {} a -> s {networkAclIds = a} :: DescribeNetworkAcls) Prelude.. Lens.mapping Lens.coerced
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeNetworkAcls_nextToken :: Lens.Lens' DescribeNetworkAcls (Prelude.Maybe Prelude.Text)
 describeNetworkAcls_nextToken = Lens.lens (\DescribeNetworkAcls' {nextToken} -> nextToken) (\s@DescribeNetworkAcls' {} a -> s {nextToken = a} :: DescribeNetworkAcls)
 
@@ -312,22 +318,22 @@ instance Core.AWSPager DescribeNetworkAcls where
     | Core.stop
         ( rs
             Lens.^? describeNetworkAclsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkAclsResponse_networkAcls
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkAcls_nextToken
           Lens..~ rs
           Lens.^? describeNetworkAclsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkAcls where
   type
@@ -339,7 +345,9 @@ instance Core.AWSRequest DescribeNetworkAcls where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkAclsResponse'
-            Prelude.<$> ( x Data..@? "networkAclSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "networkAclSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -348,7 +356,8 @@ instance Core.AWSRequest DescribeNetworkAcls where
 
 instance Prelude.Hashable DescribeNetworkAcls where
   hashWithSalt _salt DescribeNetworkAcls' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` networkAclIds
@@ -390,8 +399,8 @@ instance Data.ToQuery DescribeNetworkAcls where
 data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse'
   { -- | Information about one or more network ACLs.
     networkAcls :: Prelude.Maybe [NetworkAcl],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -408,8 +417,8 @@ data DescribeNetworkAclsResponse = DescribeNetworkAclsResponse'
 --
 -- 'networkAcls', 'describeNetworkAclsResponse_networkAcls' - Information about one or more network ACLs.
 --
--- 'nextToken', 'describeNetworkAclsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeNetworkAclsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeNetworkAclsResponse_httpStatus' - The response's http status code.
 newDescribeNetworkAclsResponse ::
@@ -428,8 +437,8 @@ newDescribeNetworkAclsResponse pHttpStatus_ =
 describeNetworkAclsResponse_networkAcls :: Lens.Lens' DescribeNetworkAclsResponse (Prelude.Maybe [NetworkAcl])
 describeNetworkAclsResponse_networkAcls = Lens.lens (\DescribeNetworkAclsResponse' {networkAcls} -> networkAcls) (\s@DescribeNetworkAclsResponse' {} a -> s {networkAcls = a} :: DescribeNetworkAclsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeNetworkAclsResponse_nextToken :: Lens.Lens' DescribeNetworkAclsResponse (Prelude.Maybe Prelude.Text)
 describeNetworkAclsResponse_nextToken = Lens.lens (\DescribeNetworkAclsResponse' {nextToken} -> nextToken) (\s@DescribeNetworkAclsResponse' {} a -> s {nextToken = a} :: DescribeNetworkAclsResponse)
 

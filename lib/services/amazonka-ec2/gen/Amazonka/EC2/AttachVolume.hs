@@ -162,7 +162,8 @@ instance Core.AWSRequest AttachVolume where
 
 instance Prelude.Hashable AttachVolume where
   hashWithSalt _salt AttachVolume' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` volumeId

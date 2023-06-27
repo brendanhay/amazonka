@@ -112,7 +112,8 @@ instance Data.FromXML AnalysisAclRule where
 
 instance Prelude.Hashable AnalysisAclRule where
   hashWithSalt _salt AnalysisAclRule' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` egress
       `Prelude.hashWithSalt` portRange
       `Prelude.hashWithSalt` protocol

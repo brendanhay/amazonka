@@ -28,11 +28,6 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances>
 -- in the /Amazon EC2 User Guide/.
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.ModifyReservedInstances
   ( -- * Creating a Request
     ModifyReservedInstances (..),
@@ -131,7 +126,8 @@ instance Core.AWSRequest ModifyReservedInstances where
 
 instance Prelude.Hashable ModifyReservedInstances where
   hashWithSalt _salt ModifyReservedInstances' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` reservedInstancesIds
       `Prelude.hashWithSalt` targetConfigurations
 

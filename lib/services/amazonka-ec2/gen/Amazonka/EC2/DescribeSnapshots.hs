@@ -63,12 +63,9 @@
 -- public snapshots.
 --
 -- If you are describing a long list of snapshots, we recommend that you
--- paginate the output to make the list more manageable. The @MaxResults@
--- parameter sets the maximum number of results returned in a single page.
--- If the list of results exceeds your @MaxResults@ value, then that number
--- of results is returned along with a @NextToken@ value that can be passed
--- to a subsequent @DescribeSnapshots@ request to retrieve the remaining
--- results.
+-- paginate the output to make the list more manageable. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
 -- To get the state of fast snapshot restores for a snapshot, use
 -- DescribeFastSnapshotRestores.
@@ -160,22 +157,15 @@ data DescribeSnapshots = DescribeSnapshots'
     --
     -- -   @volume-size@ - The size of the volume, in GiB.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of snapshot results returned by @DescribeSnapshots@
-    -- in paginated output. When this parameter is used, @DescribeSnapshots@
-    -- only returns @MaxResults@ results in a single page along with a
-    -- @NextToken@ response element. The remaining results of the initial
-    -- request can be seen by sending another @DescribeSnapshots@ request with
-    -- the returned @NextToken@ value. This value can be between 5 and 1,000;
-    -- if @MaxResults@ is given a value larger than 1,000, only 1,000 results
-    -- are returned. If this parameter is not used, then @DescribeSnapshots@
-    -- returns all results. You cannot specify this parameter and the snapshot
-    -- IDs parameter in the same request.
+    -- | The maximum number of snapshots to return for this request. This value
+    -- can be between 5 and 1,000; if this value is larger than 1,000, only
+    -- 1,000 results are returned. If this parameter is not used, then the
+    -- request returns all snapshots. You cannot specify this parameter and the
+    -- snapshot IDs parameter in the same request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The @NextToken@ value returned from a previous paginated
-    -- @DescribeSnapshots@ request where @MaxResults@ was used and the results
-    -- exceeded the value of that parameter. Pagination continues from the end
-    -- of the previous results that returned the @NextToken@ value. This value
-    -- is @null@ when there are no more results to return.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Scopes the results to snapshots with the specified owners. You can
     -- specify a combination of Amazon Web Services account IDs, @self@, and
@@ -247,22 +237,15 @@ data DescribeSnapshots = DescribeSnapshots'
 --
 -- -   @volume-size@ - The size of the volume, in GiB.
 --
--- 'maxResults', 'describeSnapshots_maxResults' - The maximum number of snapshot results returned by @DescribeSnapshots@
--- in paginated output. When this parameter is used, @DescribeSnapshots@
--- only returns @MaxResults@ results in a single page along with a
--- @NextToken@ response element. The remaining results of the initial
--- request can be seen by sending another @DescribeSnapshots@ request with
--- the returned @NextToken@ value. This value can be between 5 and 1,000;
--- if @MaxResults@ is given a value larger than 1,000, only 1,000 results
--- are returned. If this parameter is not used, then @DescribeSnapshots@
--- returns all results. You cannot specify this parameter and the snapshot
--- IDs parameter in the same request.
+-- 'maxResults', 'describeSnapshots_maxResults' - The maximum number of snapshots to return for this request. This value
+-- can be between 5 and 1,000; if this value is larger than 1,000, only
+-- 1,000 results are returned. If this parameter is not used, then the
+-- request returns all snapshots. You cannot specify this parameter and the
+-- snapshot IDs parameter in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeSnapshots_nextToken' - The @NextToken@ value returned from a previous paginated
--- @DescribeSnapshots@ request where @MaxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @NextToken@ value. This value
--- is @null@ when there are no more results to return.
+-- 'nextToken', 'describeSnapshots_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'ownerIds', 'describeSnapshots_ownerIds' - Scopes the results to snapshots with the specified owners. You can
 -- specify a combination of Amazon Web Services account IDs, @self@, and
@@ -339,24 +322,17 @@ describeSnapshots_dryRun = Lens.lens (\DescribeSnapshots' {dryRun} -> dryRun) (\
 describeSnapshots_filters :: Lens.Lens' DescribeSnapshots (Prelude.Maybe [Filter])
 describeSnapshots_filters = Lens.lens (\DescribeSnapshots' {filters} -> filters) (\s@DescribeSnapshots' {} a -> s {filters = a} :: DescribeSnapshots) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of snapshot results returned by @DescribeSnapshots@
--- in paginated output. When this parameter is used, @DescribeSnapshots@
--- only returns @MaxResults@ results in a single page along with a
--- @NextToken@ response element. The remaining results of the initial
--- request can be seen by sending another @DescribeSnapshots@ request with
--- the returned @NextToken@ value. This value can be between 5 and 1,000;
--- if @MaxResults@ is given a value larger than 1,000, only 1,000 results
--- are returned. If this parameter is not used, then @DescribeSnapshots@
--- returns all results. You cannot specify this parameter and the snapshot
--- IDs parameter in the same request.
+-- | The maximum number of snapshots to return for this request. This value
+-- can be between 5 and 1,000; if this value is larger than 1,000, only
+-- 1,000 results are returned. If this parameter is not used, then the
+-- request returns all snapshots. You cannot specify this parameter and the
+-- snapshot IDs parameter in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeSnapshots_maxResults :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Int)
 describeSnapshots_maxResults = Lens.lens (\DescribeSnapshots' {maxResults} -> maxResults) (\s@DescribeSnapshots' {} a -> s {maxResults = a} :: DescribeSnapshots)
 
--- | The @NextToken@ value returned from a previous paginated
--- @DescribeSnapshots@ request where @MaxResults@ was used and the results
--- exceeded the value of that parameter. Pagination continues from the end
--- of the previous results that returned the @NextToken@ value. This value
--- is @null@ when there are no more results to return.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeSnapshots_nextToken :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_nextToken = Lens.lens (\DescribeSnapshots' {nextToken} -> nextToken) (\s@DescribeSnapshots' {} a -> s {nextToken = a} :: DescribeSnapshots)
 
@@ -383,22 +359,22 @@ instance Core.AWSPager DescribeSnapshots where
     | Core.stop
         ( rs
             Lens.^? describeSnapshotsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSnapshotsResponse_snapshots
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSnapshots_nextToken
           Lens..~ rs
           Lens.^? describeSnapshotsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSnapshots where
   type
@@ -411,7 +387,9 @@ instance Core.AWSRequest DescribeSnapshots where
       ( \s h x ->
           DescribeSnapshotsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "snapshotSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -419,7 +397,8 @@ instance Core.AWSRequest DescribeSnapshots where
 
 instance Prelude.Hashable DescribeSnapshots where
   hashWithSalt _salt DescribeSnapshots' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -469,10 +448,9 @@ instance Data.ToQuery DescribeSnapshots where
 
 -- | /See:/ 'newDescribeSnapshotsResponse' smart constructor.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-  { -- | The @NextToken@ value to include in a future @DescribeSnapshots@
-    -- request. When the results of a @DescribeSnapshots@ request exceed
-    -- @MaxResults@, this value can be used to retrieve the next page of
-    -- results. This value is @null@ when there are no more results to return.
+  { -- | The token to include in another request to return the next page of
+    -- snapshots. This value is @null@ when there are no more snapshots to
+    -- return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the snapshots.
     snapshots :: Prelude.Maybe [Snapshot],
@@ -489,10 +467,9 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSnapshotsResponse_nextToken' - The @NextToken@ value to include in a future @DescribeSnapshots@
--- request. When the results of a @DescribeSnapshots@ request exceed
--- @MaxResults@, this value can be used to retrieve the next page of
--- results. This value is @null@ when there are no more results to return.
+-- 'nextToken', 'describeSnapshotsResponse_nextToken' - The token to include in another request to return the next page of
+-- snapshots. This value is @null@ when there are no more snapshots to
+-- return.
 --
 -- 'snapshots', 'describeSnapshotsResponse_snapshots' - Information about the snapshots.
 --
@@ -509,10 +486,9 @@ newDescribeSnapshotsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The @NextToken@ value to include in a future @DescribeSnapshots@
--- request. When the results of a @DescribeSnapshots@ request exceed
--- @MaxResults@, this value can be used to retrieve the next page of
--- results. This value is @null@ when there are no more results to return.
+-- | The token to include in another request to return the next page of
+-- snapshots. This value is @null@ when there are no more snapshots to
+-- return.
 describeSnapshotsResponse_nextToken :: Lens.Lens' DescribeSnapshotsResponse (Prelude.Maybe Prelude.Text)
 describeSnapshotsResponse_nextToken = Lens.lens (\DescribeSnapshotsResponse' {nextToken} -> nextToken) (\s@DescribeSnapshotsResponse' {} a -> s {nextToken = a} :: DescribeSnapshotsResponse)
 

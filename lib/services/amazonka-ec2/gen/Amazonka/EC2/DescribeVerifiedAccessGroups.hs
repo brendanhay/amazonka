@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe details of existing Verified Access groups.
+-- Describes the specified Verified Access groups.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeVerifiedAccessGroups
@@ -70,9 +70,9 @@ data DescribeVerifiedAccessGroups = DescribeVerifiedAccessGroups'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Web Services Verified Access groups.
+    -- | The ID of the Verified Access groups.
     verifiedAccessGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,9 +98,9 @@ data DescribeVerifiedAccessGroups = DescribeVerifiedAccessGroups'
 --
 -- 'nextToken', 'describeVerifiedAccessGroups_nextToken' - The token for the next page of results.
 --
--- 'verifiedAccessGroupIds', 'describeVerifiedAccessGroups_verifiedAccessGroupIds' - The ID of the Amazon Web Services Verified Access groups.
+-- 'verifiedAccessGroupIds', 'describeVerifiedAccessGroups_verifiedAccessGroupIds' - The ID of the Verified Access groups.
 --
--- 'verifiedAccessInstanceId', 'describeVerifiedAccessGroups_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'describeVerifiedAccessGroups_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 newDescribeVerifiedAccessGroups ::
   DescribeVerifiedAccessGroups
 newDescribeVerifiedAccessGroups =
@@ -135,11 +135,11 @@ describeVerifiedAccessGroups_maxResults = Lens.lens (\DescribeVerifiedAccessGrou
 describeVerifiedAccessGroups_nextToken :: Lens.Lens' DescribeVerifiedAccessGroups (Prelude.Maybe Prelude.Text)
 describeVerifiedAccessGroups_nextToken = Lens.lens (\DescribeVerifiedAccessGroups' {nextToken} -> nextToken) (\s@DescribeVerifiedAccessGroups' {} a -> s {nextToken = a} :: DescribeVerifiedAccessGroups)
 
--- | The ID of the Amazon Web Services Verified Access groups.
+-- | The ID of the Verified Access groups.
 describeVerifiedAccessGroups_verifiedAccessGroupIds :: Lens.Lens' DescribeVerifiedAccessGroups (Prelude.Maybe [Prelude.Text])
 describeVerifiedAccessGroups_verifiedAccessGroupIds = Lens.lens (\DescribeVerifiedAccessGroups' {verifiedAccessGroupIds} -> verifiedAccessGroupIds) (\s@DescribeVerifiedAccessGroups' {} a -> s {verifiedAccessGroupIds = a} :: DescribeVerifiedAccessGroups) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 describeVerifiedAccessGroups_verifiedAccessInstanceId :: Lens.Lens' DescribeVerifiedAccessGroups (Prelude.Maybe Prelude.Text)
 describeVerifiedAccessGroups_verifiedAccessInstanceId = Lens.lens (\DescribeVerifiedAccessGroups' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@DescribeVerifiedAccessGroups' {} a -> s {verifiedAccessInstanceId = a} :: DescribeVerifiedAccessGroups)
 
@@ -148,22 +148,22 @@ instance Core.AWSPager DescribeVerifiedAccessGroups where
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessGroupsResponse_verifiedAccessGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVerifiedAccessGroups_nextToken
           Lens..~ rs
           Lens.^? describeVerifiedAccessGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVerifiedAccessGroups where
   type
@@ -176,7 +176,8 @@ instance Core.AWSRequest DescribeVerifiedAccessGroups where
       ( \s h x ->
           DescribeVerifiedAccessGroupsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "verifiedAccessGroupSet"
+            Prelude.<*> ( x
+                            Data..@? "verifiedAccessGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -188,7 +189,8 @@ instance
     DescribeVerifiedAccessGroups
   where
   hashWithSalt _salt DescribeVerifiedAccessGroups' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

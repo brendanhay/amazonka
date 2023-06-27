@@ -218,7 +218,8 @@ instance Core.AWSRequest ModifyInstanceEventWindow where
 
 instance Prelude.Hashable ModifyInstanceEventWindow where
   hashWithSalt _salt ModifyInstanceEventWindow' {..} =
-    _salt `Prelude.hashWithSalt` cronExpression
+    _salt
+      `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeRanges

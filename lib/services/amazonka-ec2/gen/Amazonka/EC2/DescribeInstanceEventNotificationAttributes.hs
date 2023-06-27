@@ -100,7 +100,7 @@ instance
       ( \s h x ->
           DescribeInstanceEventNotificationAttributesResponse'
             Prelude.<$> (x Data..@? "instanceTagAttribute")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

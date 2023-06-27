@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     BaselineEbsBandwidthMbpsRequest' {..} =
-      _salt `Prelude.hashWithSalt` max
+      _salt
+        `Prelude.hashWithSalt` max
         `Prelude.hashWithSalt` min
 
 instance

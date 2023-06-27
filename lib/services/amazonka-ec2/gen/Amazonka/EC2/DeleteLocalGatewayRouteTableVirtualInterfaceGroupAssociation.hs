@@ -118,7 +118,7 @@ instance
             Prelude.<$> ( x
                             Data..@? "localGatewayRouteTableVirtualInterfaceGroupAssociation"
                         )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -128,7 +128,8 @@ instance
   hashWithSalt
     _salt
     DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` localGatewayRouteTableVirtualInterfaceGroupAssociationId
 
 instance

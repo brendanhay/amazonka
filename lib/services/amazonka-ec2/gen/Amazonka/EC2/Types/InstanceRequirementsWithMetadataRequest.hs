@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     InstanceRequirementsWithMetadataRequest' {..} =
-      _salt `Prelude.hashWithSalt` architectureTypes
+      _salt
+        `Prelude.hashWithSalt` architectureTypes
         `Prelude.hashWithSalt` instanceRequirements
         `Prelude.hashWithSalt` virtualizationTypes
 

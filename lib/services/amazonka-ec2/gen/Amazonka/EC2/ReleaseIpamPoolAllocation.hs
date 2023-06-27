@@ -20,13 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Release an allocation within an IPAM pool. You can only use this action
--- to release manual allocations. To remove an allocation for a resource
--- without deleting the resource, set its monitored state to false using
+-- Release an allocation within an IPAM pool. The Region you use should be
+-- the IPAM pool locale. The locale is the Amazon Web Services Region where
+-- this IPAM pool is available for allocations. You can only use this
+-- action to release manual allocations. To remove an allocation for a
+-- resource without deleting the resource, set its monitored state to false
+-- using
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html ModifyIpamResourceCidr>.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/release-pool-alloc-ipam.html Release an allocation>
 -- in the /Amazon VPC IPAM User Guide/.
+--
+-- All EC2 API actions follow an
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency eventual consistency>
+-- model.
 module Amazonka.EC2.ReleaseIpamPoolAllocation
   ( -- * Creating a Request
     ReleaseIpamPoolAllocation (..),
@@ -148,7 +155,8 @@ instance Core.AWSRequest ReleaseIpamPoolAllocation where
 
 instance Prelude.Hashable ReleaseIpamPoolAllocation where
   hashWithSalt _salt ReleaseIpamPoolAllocation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamPoolId
       `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` ipamPoolAllocationId

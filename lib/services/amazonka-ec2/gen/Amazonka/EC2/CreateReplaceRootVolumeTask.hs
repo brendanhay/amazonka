@@ -227,7 +227,8 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
 
 instance Prelude.Hashable CreateReplaceRootVolumeTask where
   hashWithSalt _salt CreateReplaceRootVolumeTask' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` deleteReplacedRootVolume
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` imageId

@@ -63,6 +63,8 @@ data FleetData = FleetData'
     -- | Indicates whether running instances should be terminated if the target
     -- capacity of the EC2 Fleet is decreased below the current size of the EC2
     -- Fleet.
+    --
+    -- Supported only for fleets of type @maintain@.
     excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
     -- | The ID of the EC2 Fleet.
     fleetId :: Prelude.Maybe Prelude.Text,
@@ -151,6 +153,8 @@ data FleetData = FleetData'
 -- 'excessCapacityTerminationPolicy', 'fleetData_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the target
 -- capacity of the EC2 Fleet is decreased below the current size of the EC2
 -- Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 --
 -- 'fleetId', 'fleetData_fleetId' - The ID of the EC2 Fleet.
 --
@@ -264,6 +268,8 @@ fleetData_errors = Lens.lens (\FleetData' {errors} -> errors) (\s@FleetData' {} 
 -- | Indicates whether running instances should be terminated if the target
 -- capacity of the EC2 Fleet is decreased below the current size of the EC2
 -- Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 fleetData_excessCapacityTerminationPolicy :: Lens.Lens' FleetData (Prelude.Maybe FleetExcessCapacityTerminationPolicy)
 fleetData_excessCapacityTerminationPolicy = Lens.lens (\FleetData' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@FleetData' {} a -> s {excessCapacityTerminationPolicy = a} :: FleetData)
 
@@ -357,7 +363,9 @@ instance Data.FromXML FleetData where
       Prelude.<*> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "context")
       Prelude.<*> (x Data..@? "createTime")
-      Prelude.<*> ( x Data..@? "errorSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "errorSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "excessCapacityTerminationPolicy")
@@ -365,18 +373,22 @@ instance Data.FromXML FleetData where
       Prelude.<*> (x Data..@? "fleetState")
       Prelude.<*> (x Data..@? "fulfilledCapacity")
       Prelude.<*> (x Data..@? "fulfilledOnDemandCapacity")
-      Prelude.<*> ( x Data..@? "fleetInstanceSet"
+      Prelude.<*> ( x
+                      Data..@? "fleetInstanceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "launchTemplateConfigs"
+      Prelude.<*> ( x
+                      Data..@? "launchTemplateConfigs"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "onDemandOptions")
       Prelude.<*> (x Data..@? "replaceUnhealthyInstances")
       Prelude.<*> (x Data..@? "spotOptions")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "targetCapacitySpecification")
@@ -387,7 +399,8 @@ instance Data.FromXML FleetData where
 
 instance Prelude.Hashable FleetData where
   hashWithSalt _salt FleetData' {..} =
-    _salt `Prelude.hashWithSalt` activityStatus
+    _salt
+      `Prelude.hashWithSalt` activityStatus
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` createTime

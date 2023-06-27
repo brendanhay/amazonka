@@ -80,7 +80,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
     -- the price history data, in UTC format (for example,
     -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
     endTime :: Prelude.Maybe Data.ISO8601,
-    -- | One or more filters.
+    -- | The filters.
     --
     -- -   @availability-zone@ - The Availability Zone for which prices should
     --     be returned.
@@ -103,12 +103,13 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
     filters :: Prelude.Maybe [Filter],
     -- | Filters the results by the specified instance types.
     instanceTypes :: Prelude.Maybe [InstanceType],
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 1 and 1000. The default value is 1000. To retrieve the
-    -- remaining results, make another call with the returned @NextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token for the next set of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Filters the results by the specified basic product descriptions.
     productDescriptions :: Prelude.Maybe [Prelude.Text],
@@ -138,7 +139,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 -- the price history data, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 --
--- 'filters', 'describeSpotPriceHistory_filters' - One or more filters.
+-- 'filters', 'describeSpotPriceHistory_filters' - The filters.
 --
 -- -   @availability-zone@ - The Availability Zone for which prices should
 --     be returned.
@@ -161,12 +162,13 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
 --
 -- 'instanceTypes', 'describeSpotPriceHistory_instanceTypes' - Filters the results by the specified instance types.
 --
--- 'maxResults', 'describeSpotPriceHistory_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- 'maxResults', 'describeSpotPriceHistory_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeSpotPriceHistory_nextToken' - The token for the next set of results.
+-- 'nextToken', 'describeSpotPriceHistory_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'productDescriptions', 'describeSpotPriceHistory_productDescriptions' - Filters the results by the specified basic product descriptions.
 --
@@ -206,7 +208,7 @@ describeSpotPriceHistory_dryRun = Lens.lens (\DescribeSpotPriceHistory' {dryRun}
 describeSpotPriceHistory_endTime :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.UTCTime)
 describeSpotPriceHistory_endTime = Lens.lens (\DescribeSpotPriceHistory' {endTime} -> endTime) (\s@DescribeSpotPriceHistory' {} a -> s {endTime = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Data._Time
 
--- | One or more filters.
+-- | The filters.
 --
 -- -   @availability-zone@ - The Availability Zone for which prices should
 --     be returned.
@@ -233,14 +235,15 @@ describeSpotPriceHistory_filters = Lens.lens (\DescribeSpotPriceHistory' {filter
 describeSpotPriceHistory_instanceTypes :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe [InstanceType])
 describeSpotPriceHistory_instanceTypes = Lens.lens (\DescribeSpotPriceHistory' {instanceTypes} -> instanceTypes) (\s@DescribeSpotPriceHistory' {} a -> s {instanceTypes = a} :: DescribeSpotPriceHistory) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeSpotPriceHistory_maxResults :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Int)
 describeSpotPriceHistory_maxResults = Lens.lens (\DescribeSpotPriceHistory' {maxResults} -> maxResults) (\s@DescribeSpotPriceHistory' {} a -> s {maxResults = a} :: DescribeSpotPriceHistory)
 
--- | The token for the next set of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeSpotPriceHistory_nextToken :: Lens.Lens' DescribeSpotPriceHistory (Prelude.Maybe Prelude.Text)
 describeSpotPriceHistory_nextToken = Lens.lens (\DescribeSpotPriceHistory' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistory' {} a -> s {nextToken = a} :: DescribeSpotPriceHistory)
 
@@ -259,22 +262,22 @@ instance Core.AWSPager DescribeSpotPriceHistory where
     | Core.stop
         ( rs
             Lens.^? describeSpotPriceHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSpotPriceHistoryResponse_spotPriceHistory
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSpotPriceHistory_nextToken
           Lens..~ rs
           Lens.^? describeSpotPriceHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotPriceHistory where
   type
@@ -287,7 +290,8 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
       ( \s h x ->
           DescribeSpotPriceHistoryResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "spotPriceHistorySet"
+            Prelude.<*> ( x
+                            Data..@? "spotPriceHistorySet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -296,7 +300,8 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
 
 instance Prelude.Hashable DescribeSpotPriceHistory where
   hashWithSalt _salt DescribeSpotPriceHistory' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` filters
@@ -353,8 +358,8 @@ instance Data.ToQuery DescribeSpotPriceHistory where
 --
 -- /See:/ 'newDescribeSpotPriceHistoryResponse' smart constructor.
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
-  { -- | The token required to retrieve the next set of results. This value is
-    -- null or an empty string when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The historical Spot prices.
     spotPriceHistory :: Prelude.Maybe [SpotPrice],
@@ -371,8 +376,8 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSpotPriceHistoryResponse_nextToken' - The token required to retrieve the next set of results. This value is
--- null or an empty string when there are no more results to return.
+-- 'nextToken', 'describeSpotPriceHistoryResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'spotPriceHistory', 'describeSpotPriceHistoryResponse_spotPriceHistory' - The historical Spot prices.
 --
@@ -389,8 +394,8 @@ newDescribeSpotPriceHistoryResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token required to retrieve the next set of results. This value is
--- null or an empty string when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeSpotPriceHistoryResponse_nextToken :: Lens.Lens' DescribeSpotPriceHistoryResponse (Prelude.Maybe Prelude.Text)
 describeSpotPriceHistoryResponse_nextToken = Lens.lens (\DescribeSpotPriceHistoryResponse' {nextToken} -> nextToken) (\s@DescribeSpotPriceHistoryResponse' {} a -> s {nextToken = a} :: DescribeSpotPriceHistoryResponse)
 

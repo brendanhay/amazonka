@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     ScheduledInstancesBlockDeviceMapping' {..} =
-      _salt `Prelude.hashWithSalt` deviceName
+      _salt
+        `Prelude.hashWithSalt` deviceName
         `Prelude.hashWithSalt` ebs
         `Prelude.hashWithSalt` noDevice
         `Prelude.hashWithSalt` virtualName

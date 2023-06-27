@@ -41,8 +41,8 @@ data NetworkInsightsAnalysis = NetworkInsightsAnalysis'
     -- | The explanations. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html Reachability Analyzer explanation codes>.
     explanations :: Prelude.Maybe [Explanation],
-    -- | The Amazon Resource Names (ARN) of the Amazon Web Services resources
-    -- that the path must traverse.
+    -- | The Amazon Resource Names (ARN) of the resources that the path must
+    -- traverse.
     filterInArns :: Prelude.Maybe [Prelude.Text],
     -- | The components in the path from source to destination.
     forwardPathComponents :: Prelude.Maybe [PathComponent],
@@ -86,8 +86,8 @@ data NetworkInsightsAnalysis = NetworkInsightsAnalysis'
 -- 'explanations', 'networkInsightsAnalysis_explanations' - The explanations. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html Reachability Analyzer explanation codes>.
 --
--- 'filterInArns', 'networkInsightsAnalysis_filterInArns' - The Amazon Resource Names (ARN) of the Amazon Web Services resources
--- that the path must traverse.
+-- 'filterInArns', 'networkInsightsAnalysis_filterInArns' - The Amazon Resource Names (ARN) of the resources that the path must
+-- traverse.
 --
 -- 'forwardPathComponents', 'networkInsightsAnalysis_forwardPathComponents' - The components in the path from source to destination.
 --
@@ -148,8 +148,8 @@ networkInsightsAnalysis_alternatePathHints = Lens.lens (\NetworkInsightsAnalysis
 networkInsightsAnalysis_explanations :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe [Explanation])
 networkInsightsAnalysis_explanations = Lens.lens (\NetworkInsightsAnalysis' {explanations} -> explanations) (\s@NetworkInsightsAnalysis' {} a -> s {explanations = a} :: NetworkInsightsAnalysis) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Names (ARN) of the Amazon Web Services resources
--- that the path must traverse.
+-- | The Amazon Resource Names (ARN) of the resources that the path must
+-- traverse.
 networkInsightsAnalysis_filterInArns :: Lens.Lens' NetworkInsightsAnalysis (Prelude.Maybe [Prelude.Text])
 networkInsightsAnalysis_filterInArns = Lens.lens (\NetworkInsightsAnalysis' {filterInArns} -> filterInArns) (\s@NetworkInsightsAnalysis' {} a -> s {filterInArns = a} :: NetworkInsightsAnalysis) Prelude.. Lens.mapping Lens.coerced
 
@@ -204,21 +204,28 @@ networkInsightsAnalysis_warningMessage = Lens.lens (\NetworkInsightsAnalysis' {w
 instance Data.FromXML NetworkInsightsAnalysis where
   parseXML x =
     NetworkInsightsAnalysis'
-      Prelude.<$> ( x Data..@? "additionalAccountSet"
+      Prelude.<$> ( x
+                      Data..@? "additionalAccountSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "alternatePathHintSet"
+      Prelude.<*> ( x
+                      Data..@? "alternatePathHintSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "explanationSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "filterInArnSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "filterInArnSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "forwardPathComponentSet"
+      Prelude.<*> ( x
+                      Data..@? "forwardPathComponentSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -226,25 +233,30 @@ instance Data.FromXML NetworkInsightsAnalysis where
       Prelude.<*> (x Data..@? "networkInsightsAnalysisId")
       Prelude.<*> (x Data..@? "networkInsightsPathId")
       Prelude.<*> (x Data..@? "networkPathFound")
-      Prelude.<*> ( x Data..@? "returnPathComponentSet"
+      Prelude.<*> ( x
+                      Data..@? "returnPathComponentSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "startDate")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x Data..@? "suggestedAccountSet"
+      Prelude.<*> ( x
+                      Data..@? "suggestedAccountSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "warningMessage")
 
 instance Prelude.Hashable NetworkInsightsAnalysis where
   hashWithSalt _salt NetworkInsightsAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` additionalAccounts
+    _salt
+      `Prelude.hashWithSalt` additionalAccounts
       `Prelude.hashWithSalt` alternatePathHints
       `Prelude.hashWithSalt` explanations
       `Prelude.hashWithSalt` filterInArns

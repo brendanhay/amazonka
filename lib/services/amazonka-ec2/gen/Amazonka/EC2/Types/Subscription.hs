@@ -110,7 +110,8 @@ instance Data.FromXML Subscription where
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` metric
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` source

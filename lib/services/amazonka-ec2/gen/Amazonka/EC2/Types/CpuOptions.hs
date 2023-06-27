@@ -23,13 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.AmdSevSnpSpecification
 import qualified Amazonka.Prelude as Prelude
 
 -- | The CPU options for the instance.
 --
 -- /See:/ 'newCpuOptions' smart constructor.
 data CpuOptions = CpuOptions'
-  { -- | The number of CPU cores for the instance.
+  { -- | Indicates whether the instance is enabled for AMD SEV-SNP. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html AMD SEV-SNP>.
+    amdSevSnp :: Prelude.Maybe AmdSevSnpSpecification,
+    -- | The number of CPU cores for the instance.
     coreCount :: Prelude.Maybe Prelude.Int,
     -- | The number of threads per CPU core.
     threadsPerCore :: Prelude.Maybe Prelude.Int
@@ -44,6 +49,10 @@ data CpuOptions = CpuOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amdSevSnp', 'cpuOptions_amdSevSnp' - Indicates whether the instance is enabled for AMD SEV-SNP. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html AMD SEV-SNP>.
+--
 -- 'coreCount', 'cpuOptions_coreCount' - The number of CPU cores for the instance.
 --
 -- 'threadsPerCore', 'cpuOptions_threadsPerCore' - The number of threads per CPU core.
@@ -51,9 +60,16 @@ newCpuOptions ::
   CpuOptions
 newCpuOptions =
   CpuOptions'
-    { coreCount = Prelude.Nothing,
+    { amdSevSnp = Prelude.Nothing,
+      coreCount = Prelude.Nothing,
       threadsPerCore = Prelude.Nothing
     }
+
+-- | Indicates whether the instance is enabled for AMD SEV-SNP. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html AMD SEV-SNP>.
+cpuOptions_amdSevSnp :: Lens.Lens' CpuOptions (Prelude.Maybe AmdSevSnpSpecification)
+cpuOptions_amdSevSnp = Lens.lens (\CpuOptions' {amdSevSnp} -> amdSevSnp) (\s@CpuOptions' {} a -> s {amdSevSnp = a} :: CpuOptions)
 
 -- | The number of CPU cores for the instance.
 cpuOptions_coreCount :: Lens.Lens' CpuOptions (Prelude.Maybe Prelude.Int)
@@ -66,15 +82,19 @@ cpuOptions_threadsPerCore = Lens.lens (\CpuOptions' {threadsPerCore} -> threadsP
 instance Data.FromXML CpuOptions where
   parseXML x =
     CpuOptions'
-      Prelude.<$> (x Data..@? "coreCount")
+      Prelude.<$> (x Data..@? "amdSevSnp")
+      Prelude.<*> (x Data..@? "coreCount")
       Prelude.<*> (x Data..@? "threadsPerCore")
 
 instance Prelude.Hashable CpuOptions where
   hashWithSalt _salt CpuOptions' {..} =
-    _salt `Prelude.hashWithSalt` coreCount
+    _salt
+      `Prelude.hashWithSalt` amdSevSnp
+      `Prelude.hashWithSalt` coreCount
       `Prelude.hashWithSalt` threadsPerCore
 
 instance Prelude.NFData CpuOptions where
   rnf CpuOptions' {..} =
-    Prelude.rnf coreCount
+    Prelude.rnf amdSevSnp
+      `Prelude.seq` Prelude.rnf coreCount
       `Prelude.seq` Prelude.rnf threadsPerCore

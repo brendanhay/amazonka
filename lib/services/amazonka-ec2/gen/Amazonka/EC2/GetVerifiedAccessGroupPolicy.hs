@@ -57,7 +57,7 @@ data GetVerifiedAccessGroupPolicy = GetVerifiedAccessGroupPolicy'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access group.
+    -- | The ID of the Verified Access group.
     verifiedAccessGroupId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +75,7 @@ data GetVerifiedAccessGroupPolicy = GetVerifiedAccessGroupPolicy'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessGroupId', 'getVerifiedAccessGroupPolicy_verifiedAccessGroupId' - The ID of the Amazon Web Services Verified Access group.
+-- 'verifiedAccessGroupId', 'getVerifiedAccessGroupPolicy_verifiedAccessGroupId' - The ID of the Verified Access group.
 newGetVerifiedAccessGroupPolicy ::
   -- | 'verifiedAccessGroupId'
   Prelude.Text ->
@@ -96,7 +96,7 @@ newGetVerifiedAccessGroupPolicy
 getVerifiedAccessGroupPolicy_dryRun :: Lens.Lens' GetVerifiedAccessGroupPolicy (Prelude.Maybe Prelude.Bool)
 getVerifiedAccessGroupPolicy_dryRun = Lens.lens (\GetVerifiedAccessGroupPolicy' {dryRun} -> dryRun) (\s@GetVerifiedAccessGroupPolicy' {} a -> s {dryRun = a} :: GetVerifiedAccessGroupPolicy)
 
--- | The ID of the Amazon Web Services Verified Access group.
+-- | The ID of the Verified Access group.
 getVerifiedAccessGroupPolicy_verifiedAccessGroupId :: Lens.Lens' GetVerifiedAccessGroupPolicy Prelude.Text
 getVerifiedAccessGroupPolicy_verifiedAccessGroupId = Lens.lens (\GetVerifiedAccessGroupPolicy' {verifiedAccessGroupId} -> verifiedAccessGroupId) (\s@GetVerifiedAccessGroupPolicy' {} a -> s {verifiedAccessGroupId = a} :: GetVerifiedAccessGroupPolicy)
 
@@ -120,7 +120,8 @@ instance
     GetVerifiedAccessGroupPolicy
   where
   hashWithSalt _salt GetVerifiedAccessGroupPolicy' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessGroupId
 
 instance Prelude.NFData GetVerifiedAccessGroupPolicy where
@@ -150,7 +151,7 @@ instance Data.ToQuery GetVerifiedAccessGroupPolicy where
 
 -- | /See:/ 'newGetVerifiedAccessGroupPolicyResponse' smart constructor.
 data GetVerifiedAccessGroupPolicyResponse = GetVerifiedAccessGroupPolicyResponse'
-  { -- | The Amazon Web Services Verified Access policy document.
+  { -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The status of the Verified Access policy.
     policyEnabled :: Prelude.Maybe Prelude.Bool,
@@ -167,7 +168,7 @@ data GetVerifiedAccessGroupPolicyResponse = GetVerifiedAccessGroupPolicyResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDocument', 'getVerifiedAccessGroupPolicyResponse_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'getVerifiedAccessGroupPolicyResponse_policyDocument' - The Verified Access policy document.
 --
 -- 'policyEnabled', 'getVerifiedAccessGroupPolicyResponse_policyEnabled' - The status of the Verified Access policy.
 --
@@ -184,7 +185,7 @@ newGetVerifiedAccessGroupPolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 getVerifiedAccessGroupPolicyResponse_policyDocument :: Lens.Lens' GetVerifiedAccessGroupPolicyResponse (Prelude.Maybe Prelude.Text)
 getVerifiedAccessGroupPolicyResponse_policyDocument = Lens.lens (\GetVerifiedAccessGroupPolicyResponse' {policyDocument} -> policyDocument) (\s@GetVerifiedAccessGroupPolicyResponse' {} a -> s {policyDocument = a} :: GetVerifiedAccessGroupPolicyResponse)
 

@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteCoipPool where
 
 instance Prelude.Hashable DeleteCoipPool where
   hashWithSalt _salt DeleteCoipPool' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` coipPoolId
 
 instance Prelude.NFData DeleteCoipPool where

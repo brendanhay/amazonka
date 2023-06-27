@@ -82,7 +82,8 @@ instance Data.FromXML CapacityAllocation where
 
 instance Prelude.Hashable CapacityAllocation where
   hashWithSalt _salt CapacityAllocation' {..} =
-    _salt `Prelude.hashWithSalt` allocationType
+    _salt
+      `Prelude.hashWithSalt` allocationType
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData CapacityAllocation where

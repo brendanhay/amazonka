@@ -34,8 +34,10 @@ import qualified Amazonka.Prelude as Prelude
 data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
   { -- | The Availability Zone in which to launch the instances.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
-    -- must be specified here or in the launch template.
+    -- | The ID of the AMI. An AMI is required to launch an instance. This
+    -- parameter is only available for fleets of type @instant@. For fleets of
+    -- type @maintain@ and @request@, you must specify the AMI ID in the launch
+    -- template.
     imageId :: Prelude.Maybe Prelude.Text,
     -- | The attributes for the instance types. When you specify instance
     -- attributes, Amazon EC2 will identify instance types with those
@@ -45,6 +47,8 @@ data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
     -- @InstanceType@.
     instanceRequirements :: Prelude.Maybe InstanceRequirementsRequest,
     -- | The instance type.
+    --
+    -- @mac1.metal@ is not supported as a launch template override.
     --
     -- If you specify @InstanceType@, you can\'t specify
     -- @InstanceRequirements@.
@@ -96,8 +100,10 @@ data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
 --
 -- 'availabilityZone', 'fleetLaunchTemplateOverridesRequest_availabilityZone' - The Availability Zone in which to launch the instances.
 --
--- 'imageId', 'fleetLaunchTemplateOverridesRequest_imageId' - The ID of the AMI. An AMI is required to launch an instance. The AMI ID
--- must be specified here or in the launch template.
+-- 'imageId', 'fleetLaunchTemplateOverridesRequest_imageId' - The ID of the AMI. An AMI is required to launch an instance. This
+-- parameter is only available for fleets of type @instant@. For fleets of
+-- type @maintain@ and @request@, you must specify the AMI ID in the launch
+-- template.
 --
 -- 'instanceRequirements', 'fleetLaunchTemplateOverridesRequest_instanceRequirements' - The attributes for the instance types. When you specify instance
 -- attributes, Amazon EC2 will identify instance types with those
@@ -107,6 +113,8 @@ data FleetLaunchTemplateOverridesRequest = FleetLaunchTemplateOverridesRequest'
 -- @InstanceType@.
 --
 -- 'instanceType', 'fleetLaunchTemplateOverridesRequest_instanceType' - The instance type.
+--
+-- @mac1.metal@ is not supported as a launch template override.
 --
 -- If you specify @InstanceType@, you can\'t specify
 -- @InstanceRequirements@.
@@ -164,8 +172,10 @@ newFleetLaunchTemplateOverridesRequest =
 fleetLaunchTemplateOverridesRequest_availabilityZone :: Lens.Lens' FleetLaunchTemplateOverridesRequest (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateOverridesRequest_availabilityZone = Lens.lens (\FleetLaunchTemplateOverridesRequest' {availabilityZone} -> availabilityZone) (\s@FleetLaunchTemplateOverridesRequest' {} a -> s {availabilityZone = a} :: FleetLaunchTemplateOverridesRequest)
 
--- | The ID of the AMI. An AMI is required to launch an instance. The AMI ID
--- must be specified here or in the launch template.
+-- | The ID of the AMI. An AMI is required to launch an instance. This
+-- parameter is only available for fleets of type @instant@. For fleets of
+-- type @maintain@ and @request@, you must specify the AMI ID in the launch
+-- template.
 fleetLaunchTemplateOverridesRequest_imageId :: Lens.Lens' FleetLaunchTemplateOverridesRequest (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateOverridesRequest_imageId = Lens.lens (\FleetLaunchTemplateOverridesRequest' {imageId} -> imageId) (\s@FleetLaunchTemplateOverridesRequest' {} a -> s {imageId = a} :: FleetLaunchTemplateOverridesRequest)
 
@@ -179,6 +189,8 @@ fleetLaunchTemplateOverridesRequest_instanceRequirements :: Lens.Lens' FleetLaun
 fleetLaunchTemplateOverridesRequest_instanceRequirements = Lens.lens (\FleetLaunchTemplateOverridesRequest' {instanceRequirements} -> instanceRequirements) (\s@FleetLaunchTemplateOverridesRequest' {} a -> s {instanceRequirements = a} :: FleetLaunchTemplateOverridesRequest)
 
 -- | The instance type.
+--
+-- @mac1.metal@ is not supported as a launch template override.
 --
 -- If you specify @InstanceType@, you can\'t specify
 -- @InstanceRequirements@.
@@ -236,7 +248,8 @@ instance
   hashWithSalt
     _salt
     FleetLaunchTemplateOverridesRequest' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` imageId
         `Prelude.hashWithSalt` instanceRequirements
         `Prelude.hashWithSalt` instanceType

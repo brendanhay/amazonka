@@ -28,6 +28,7 @@ import Amazonka.EC2.Types.AllowsMultipleInstanceTypes
 import Amazonka.EC2.Types.AutoPlacement
 import Amazonka.EC2.Types.AvailableCapacity
 import Amazonka.EC2.Types.HostInstance
+import Amazonka.EC2.Types.HostMaintenance
 import Amazonka.EC2.Types.HostProperties
 import Amazonka.EC2.Types.HostRecovery
 import Amazonka.EC2.Types.Tag
@@ -44,6 +45,9 @@ data Host = Host'
     -- supports multiple instance types in the instance family. If the value is
     -- @off@, the Dedicated Host supports a single instance type only.
     allowsMultipleInstanceTypes :: Prelude.Maybe AllowsMultipleInstanceTypes,
+    -- | The ID of the Outpost hardware asset on which the Dedicated Host is
+    -- allocated.
+    assetId :: Prelude.Maybe Prelude.Text,
     -- | Whether auto-placement is on or off.
     autoPlacement :: Prelude.Maybe AutoPlacement,
     -- | The Availability Zone of the Dedicated Host.
@@ -59,6 +63,9 @@ data Host = Host'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Dedicated Host.
     hostId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether host maintenance is enabled or disabled for the
+    -- Dedicated Host.
+    hostMaintenance :: Prelude.Maybe HostMaintenance,
     -- | The hardware specifications of the Dedicated Host.
     hostProperties :: Prelude.Maybe HostProperties,
     -- | Indicates whether host recovery is enabled or disabled for the Dedicated
@@ -103,6 +110,9 @@ data Host = Host'
 -- supports multiple instance types in the instance family. If the value is
 -- @off@, the Dedicated Host supports a single instance type only.
 --
+-- 'assetId', 'host_assetId' - The ID of the Outpost hardware asset on which the Dedicated Host is
+-- allocated.
+--
 -- 'autoPlacement', 'host_autoPlacement' - Whether auto-placement is on or off.
 --
 -- 'availabilityZone', 'host_availabilityZone' - The Availability Zone of the Dedicated Host.
@@ -117,6 +127,9 @@ data Host = Host'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- 'hostId', 'host_hostId' - The ID of the Dedicated Host.
+--
+-- 'hostMaintenance', 'host_hostMaintenance' - Indicates whether host maintenance is enabled or disabled for the
+-- Dedicated Host.
 --
 -- 'hostProperties', 'host_hostProperties' - The hardware specifications of the Dedicated Host.
 --
@@ -149,12 +162,14 @@ newHost =
   Host'
     { allocationTime = Prelude.Nothing,
       allowsMultipleInstanceTypes = Prelude.Nothing,
+      assetId = Prelude.Nothing,
       autoPlacement = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       availabilityZoneId = Prelude.Nothing,
       availableCapacity = Prelude.Nothing,
       clientToken = Prelude.Nothing,
       hostId = Prelude.Nothing,
+      hostMaintenance = Prelude.Nothing,
       hostProperties = Prelude.Nothing,
       hostRecovery = Prelude.Nothing,
       hostReservationId = Prelude.Nothing,
@@ -177,6 +192,11 @@ host_allocationTime = Lens.lens (\Host' {allocationTime} -> allocationTime) (\s@
 -- @off@, the Dedicated Host supports a single instance type only.
 host_allowsMultipleInstanceTypes :: Lens.Lens' Host (Prelude.Maybe AllowsMultipleInstanceTypes)
 host_allowsMultipleInstanceTypes = Lens.lens (\Host' {allowsMultipleInstanceTypes} -> allowsMultipleInstanceTypes) (\s@Host' {} a -> s {allowsMultipleInstanceTypes = a} :: Host)
+
+-- | The ID of the Outpost hardware asset on which the Dedicated Host is
+-- allocated.
+host_assetId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
+host_assetId = Lens.lens (\Host' {assetId} -> assetId) (\s@Host' {} a -> s {assetId = a} :: Host)
 
 -- | Whether auto-placement is on or off.
 host_autoPlacement :: Lens.Lens' Host (Prelude.Maybe AutoPlacement)
@@ -204,6 +224,11 @@ host_clientToken = Lens.lens (\Host' {clientToken} -> clientToken) (\s@Host' {} 
 -- | The ID of the Dedicated Host.
 host_hostId :: Lens.Lens' Host (Prelude.Maybe Prelude.Text)
 host_hostId = Lens.lens (\Host' {hostId} -> hostId) (\s@Host' {} a -> s {hostId = a} :: Host)
+
+-- | Indicates whether host maintenance is enabled or disabled for the
+-- Dedicated Host.
+host_hostMaintenance :: Lens.Lens' Host (Prelude.Maybe HostMaintenance)
+host_hostMaintenance = Lens.lens (\Host' {hostMaintenance} -> hostMaintenance) (\s@Host' {} a -> s {hostMaintenance = a} :: Host)
 
 -- | The hardware specifications of the Dedicated Host.
 host_hostProperties :: Lens.Lens' Host (Prelude.Maybe HostProperties)
@@ -256,16 +281,20 @@ instance Data.FromXML Host where
     Host'
       Prelude.<$> (x Data..@? "allocationTime")
       Prelude.<*> (x Data..@? "allowsMultipleInstanceTypes")
+      Prelude.<*> (x Data..@? "assetId")
       Prelude.<*> (x Data..@? "autoPlacement")
       Prelude.<*> (x Data..@? "availabilityZone")
       Prelude.<*> (x Data..@? "availabilityZoneId")
       Prelude.<*> (x Data..@? "availableCapacity")
       Prelude.<*> (x Data..@? "clientToken")
       Prelude.<*> (x Data..@? "hostId")
+      Prelude.<*> (x Data..@? "hostMaintenance")
       Prelude.<*> (x Data..@? "hostProperties")
       Prelude.<*> (x Data..@? "hostRecovery")
       Prelude.<*> (x Data..@? "hostReservationId")
-      Prelude.<*> ( x Data..@? "instances" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "instances"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "memberOfServiceLinkedResourceGroup")
@@ -273,20 +302,25 @@ instance Data.FromXML Host where
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "releaseTime")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable Host where
   hashWithSalt _salt Host' {..} =
-    _salt `Prelude.hashWithSalt` allocationTime
+    _salt
+      `Prelude.hashWithSalt` allocationTime
       `Prelude.hashWithSalt` allowsMultipleInstanceTypes
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` autoPlacement
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` availableCapacity
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` hostId
+      `Prelude.hashWithSalt` hostMaintenance
       `Prelude.hashWithSalt` hostProperties
       `Prelude.hashWithSalt` hostRecovery
       `Prelude.hashWithSalt` hostReservationId
@@ -302,12 +336,14 @@ instance Prelude.NFData Host where
   rnf Host' {..} =
     Prelude.rnf allocationTime
       `Prelude.seq` Prelude.rnf allowsMultipleInstanceTypes
+      `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf autoPlacement
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf availabilityZoneId
       `Prelude.seq` Prelude.rnf availableCapacity
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf hostId
+      `Prelude.seq` Prelude.rnf hostMaintenance
       `Prelude.seq` Prelude.rnf hostProperties
       `Prelude.seq` Prelude.rnf hostRecovery
       `Prelude.seq` Prelude.rnf hostReservationId

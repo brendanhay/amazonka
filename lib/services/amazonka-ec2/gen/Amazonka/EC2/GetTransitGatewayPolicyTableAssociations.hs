@@ -145,22 +145,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayPolicyTableAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getTransitGatewayPolicyTableAssociationsResponse_associations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getTransitGatewayPolicyTableAssociations_nextToken
           Lens..~ rs
-            Lens.^? getTransitGatewayPolicyTableAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? getTransitGatewayPolicyTableAssociationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -176,11 +176,13 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetTransitGatewayPolicyTableAssociationsResponse'
-            Prelude.<$> ( x Data..@? "associations" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "associations"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-              Prelude.<*> (x Data..@? "nextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -190,7 +192,8 @@ instance
   hashWithSalt
     _salt
     GetTransitGatewayPolicyTableAssociations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

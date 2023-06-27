@@ -103,7 +103,8 @@ instance Core.AWSRequest DeleteInternetGateway where
 
 instance Prelude.Hashable DeleteInternetGateway where
   hashWithSalt _salt DeleteInternetGateway' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` internetGatewayId
 
 instance Prelude.NFData DeleteInternetGateway where

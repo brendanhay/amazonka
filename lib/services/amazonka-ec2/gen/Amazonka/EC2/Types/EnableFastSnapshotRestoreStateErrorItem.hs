@@ -73,7 +73,7 @@ instance
   parseXML x =
     EnableFastSnapshotRestoreStateErrorItem'
       Prelude.<$> (x Data..@? "availabilityZone")
-        Prelude.<*> (x Data..@? "error")
+      Prelude.<*> (x Data..@? "error")
 
 instance
   Prelude.Hashable
@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     EnableFastSnapshotRestoreStateErrorItem' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` error
 
 instance

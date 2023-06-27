@@ -90,7 +90,8 @@ instance Data.FromXML IdFormat where
 
 instance Prelude.Hashable IdFormat where
   hashWithSalt _salt IdFormat' {..} =
-    _salt `Prelude.hashWithSalt` deadline
+    _salt
+      `Prelude.hashWithSalt` deadline
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` useLongIds
 

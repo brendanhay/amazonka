@@ -65,7 +65,29 @@ data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
     --
     -- -   destination - The ID of the resource.
     --
-    -- -   destination-port - The destination port.
+    -- -   filter-at-source.source-address - The source IPv4 address at the
+    --     source.
+    --
+    -- -   filter-at-source.source-port-range - The source port range at the
+    --     source.
+    --
+    -- -   filter-at-source.destination-address - The destination IPv4 address
+    --     at the source.
+    --
+    -- -   filter-at-source.destination-port-range - The destination port range
+    --     at the source.
+    --
+    -- -   filter-at-destination.source-address - The source IPv4 address at
+    --     the destination.
+    --
+    -- -   filter-at-destination.source-port-range - The source port range at
+    --     the destination.
+    --
+    -- -   filter-at-destination.destination-address - The destination IPv4
+    --     address at the destination.
+    --
+    -- -   filter-at-destination.destination-port-range - The destination port
+    --     range at the destination.
     --
     -- -   protocol - The protocol.
     --
@@ -99,7 +121,29 @@ data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
 --
 -- -   destination - The ID of the resource.
 --
--- -   destination-port - The destination port.
+-- -   filter-at-source.source-address - The source IPv4 address at the
+--     source.
+--
+-- -   filter-at-source.source-port-range - The source port range at the
+--     source.
+--
+-- -   filter-at-source.destination-address - The destination IPv4 address
+--     at the source.
+--
+-- -   filter-at-source.destination-port-range - The destination port range
+--     at the source.
+--
+-- -   filter-at-destination.source-address - The source IPv4 address at
+--     the destination.
+--
+-- -   filter-at-destination.source-port-range - The source port range at
+--     the destination.
+--
+-- -   filter-at-destination.destination-address - The destination IPv4
+--     address at the destination.
+--
+-- -   filter-at-destination.destination-port-range - The destination port
+--     range at the destination.
 --
 -- -   protocol - The protocol.
 --
@@ -135,7 +179,29 @@ describeNetworkInsightsPaths_dryRun = Lens.lens (\DescribeNetworkInsightsPaths' 
 --
 -- -   destination - The ID of the resource.
 --
--- -   destination-port - The destination port.
+-- -   filter-at-source.source-address - The source IPv4 address at the
+--     source.
+--
+-- -   filter-at-source.source-port-range - The source port range at the
+--     source.
+--
+-- -   filter-at-source.destination-address - The destination IPv4 address
+--     at the source.
+--
+-- -   filter-at-source.destination-port-range - The destination port range
+--     at the source.
+--
+-- -   filter-at-destination.source-address - The source IPv4 address at
+--     the destination.
+--
+-- -   filter-at-destination.source-port-range - The source port range at
+--     the destination.
+--
+-- -   filter-at-destination.destination-address - The destination IPv4
+--     address at the destination.
+--
+-- -   filter-at-destination.destination-port-range - The destination port
+--     range at the destination.
 --
 -- -   protocol - The protocol.
 --
@@ -162,22 +228,22 @@ instance Core.AWSPager DescribeNetworkInsightsPaths where
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsPathsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkInsightsPathsResponse_networkInsightsPaths
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkInsightsPaths_nextToken
           Lens..~ rs
           Lens.^? describeNetworkInsightsPathsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkInsightsPaths where
   type
@@ -189,7 +255,8 @@ instance Core.AWSRequest DescribeNetworkInsightsPaths where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInsightsPathsResponse'
-            Prelude.<$> ( x Data..@? "networkInsightsPathSet"
+            Prelude.<$> ( x
+                            Data..@? "networkInsightsPathSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -202,7 +269,8 @@ instance
     DescribeNetworkInsightsPaths
   where
   hashWithSalt _salt DescribeNetworkInsightsPaths' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` networkInsightsPathIds

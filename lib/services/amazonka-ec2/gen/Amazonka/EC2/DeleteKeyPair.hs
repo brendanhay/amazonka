@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteKeyPair where
 
 instance Prelude.Hashable DeleteKeyPair where
   hashWithSalt _salt DeleteKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` keyPairId
 

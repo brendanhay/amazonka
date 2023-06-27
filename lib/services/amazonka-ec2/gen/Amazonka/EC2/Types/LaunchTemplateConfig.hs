@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateConfig' smart constructor.
 data LaunchTemplateConfig = LaunchTemplateConfig'
-  { -- | The launch template.
+  { -- | The launch template to use. Make sure that the launch template does not
+    -- contain the @NetworkInterfaceId@ parameter because you can\'t specify a
+    -- network interface ID in a Spot Fleet.
     launchTemplateSpecification :: Prelude.Maybe FleetLaunchTemplateSpecification,
     -- | Any parameters that you specify override the same parameters in the
     -- launch template.
@@ -47,7 +49,9 @@ data LaunchTemplateConfig = LaunchTemplateConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplateSpecification', 'launchTemplateConfig_launchTemplateSpecification' - The launch template.
+-- 'launchTemplateSpecification', 'launchTemplateConfig_launchTemplateSpecification' - The launch template to use. Make sure that the launch template does not
+-- contain the @NetworkInterfaceId@ parameter because you can\'t specify a
+-- network interface ID in a Spot Fleet.
 --
 -- 'overrides', 'launchTemplateConfig_overrides' - Any parameters that you specify override the same parameters in the
 -- launch template.
@@ -60,7 +64,9 @@ newLaunchTemplateConfig =
       overrides = Prelude.Nothing
     }
 
--- | The launch template.
+-- | The launch template to use. Make sure that the launch template does not
+-- contain the @NetworkInterfaceId@ parameter because you can\'t specify a
+-- network interface ID in a Spot Fleet.
 launchTemplateConfig_launchTemplateSpecification :: Lens.Lens' LaunchTemplateConfig (Prelude.Maybe FleetLaunchTemplateSpecification)
 launchTemplateConfig_launchTemplateSpecification = Lens.lens (\LaunchTemplateConfig' {launchTemplateSpecification} -> launchTemplateSpecification) (\s@LaunchTemplateConfig' {} a -> s {launchTemplateSpecification = a} :: LaunchTemplateConfig)
 
@@ -73,7 +79,9 @@ instance Data.FromXML LaunchTemplateConfig where
   parseXML x =
     LaunchTemplateConfig'
       Prelude.<$> (x Data..@? "launchTemplateSpecification")
-      Prelude.<*> ( x Data..@? "overrides" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "overrides"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 

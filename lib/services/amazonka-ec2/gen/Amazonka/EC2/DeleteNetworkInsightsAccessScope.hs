@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     DeleteNetworkInsightsAccessScope' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` networkInsightsAccessScopeId
 
 instance

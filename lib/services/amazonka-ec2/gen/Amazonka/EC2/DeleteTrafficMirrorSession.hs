@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteTrafficMirrorSession where
 
 instance Prelude.Hashable DeleteTrafficMirrorSession where
   hashWithSalt _salt DeleteTrafficMirrorSession' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` trafficMirrorSessionId
 
 instance Prelude.NFData DeleteTrafficMirrorSession where

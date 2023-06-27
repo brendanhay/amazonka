@@ -58,21 +58,20 @@ data ModifyVerifiedAccessTrustProvider = ModifyVerifiedAccessTrustProvider'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access trust
-    -- provider.
+    -- | A description for the Verified Access trust provider.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The OpenID Connect details for an @oidc@-type, user-identity based trust
+    -- | The options for an OpenID Connect-compatible user-identity trust
     -- provider.
     oidcOptions :: Prelude.Maybe ModifyVerifiedAccessTrustProviderOidcOptions,
-    -- | The ID of the Amazon Web Services Verified Access trust provider.
+    -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProviderId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVerifiedAccessTrustProvider' with all optional fields omitted.
@@ -86,18 +85,17 @@ data ModifyVerifiedAccessTrustProvider = ModifyVerifiedAccessTrustProvider'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'modifyVerifiedAccessTrustProvider_description' - A description for the Amazon Web Services Verified Access trust
--- provider.
+-- 'description', 'modifyVerifiedAccessTrustProvider_description' - A description for the Verified Access trust provider.
 --
 -- 'dryRun', 'modifyVerifiedAccessTrustProvider_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'oidcOptions', 'modifyVerifiedAccessTrustProvider_oidcOptions' - The OpenID Connect details for an @oidc@-type, user-identity based trust
+-- 'oidcOptions', 'modifyVerifiedAccessTrustProvider_oidcOptions' - The options for an OpenID Connect-compatible user-identity trust
 -- provider.
 --
--- 'verifiedAccessTrustProviderId', 'modifyVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProviderId', 'modifyVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Verified Access trust provider.
 newModifyVerifiedAccessTrustProvider ::
   -- | 'verifiedAccessTrustProviderId'
   Prelude.Text ->
@@ -120,8 +118,7 @@ newModifyVerifiedAccessTrustProvider
 modifyVerifiedAccessTrustProvider_clientToken :: Lens.Lens' ModifyVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessTrustProvider_clientToken = Lens.lens (\ModifyVerifiedAccessTrustProvider' {clientToken} -> clientToken) (\s@ModifyVerifiedAccessTrustProvider' {} a -> s {clientToken = a} :: ModifyVerifiedAccessTrustProvider)
 
--- | A description for the Amazon Web Services Verified Access trust
--- provider.
+-- | A description for the Verified Access trust provider.
 modifyVerifiedAccessTrustProvider_description :: Lens.Lens' ModifyVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Text)
 modifyVerifiedAccessTrustProvider_description = Lens.lens (\ModifyVerifiedAccessTrustProvider' {description} -> description) (\s@ModifyVerifiedAccessTrustProvider' {} a -> s {description = a} :: ModifyVerifiedAccessTrustProvider)
 
@@ -132,12 +129,12 @@ modifyVerifiedAccessTrustProvider_description = Lens.lens (\ModifyVerifiedAccess
 modifyVerifiedAccessTrustProvider_dryRun :: Lens.Lens' ModifyVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Bool)
 modifyVerifiedAccessTrustProvider_dryRun = Lens.lens (\ModifyVerifiedAccessTrustProvider' {dryRun} -> dryRun) (\s@ModifyVerifiedAccessTrustProvider' {} a -> s {dryRun = a} :: ModifyVerifiedAccessTrustProvider)
 
--- | The OpenID Connect details for an @oidc@-type, user-identity based trust
+-- | The options for an OpenID Connect-compatible user-identity trust
 -- provider.
 modifyVerifiedAccessTrustProvider_oidcOptions :: Lens.Lens' ModifyVerifiedAccessTrustProvider (Prelude.Maybe ModifyVerifiedAccessTrustProviderOidcOptions)
 modifyVerifiedAccessTrustProvider_oidcOptions = Lens.lens (\ModifyVerifiedAccessTrustProvider' {oidcOptions} -> oidcOptions) (\s@ModifyVerifiedAccessTrustProvider' {} a -> s {oidcOptions = a} :: ModifyVerifiedAccessTrustProvider)
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 modifyVerifiedAccessTrustProvider_verifiedAccessTrustProviderId :: Lens.Lens' ModifyVerifiedAccessTrustProvider Prelude.Text
 modifyVerifiedAccessTrustProvider_verifiedAccessTrustProviderId = Lens.lens (\ModifyVerifiedAccessTrustProvider' {verifiedAccessTrustProviderId} -> verifiedAccessTrustProviderId) (\s@ModifyVerifiedAccessTrustProvider' {} a -> s {verifiedAccessTrustProviderId = a} :: ModifyVerifiedAccessTrustProvider)
 
@@ -155,7 +152,7 @@ instance
       ( \s h x ->
           ModifyVerifiedAccessTrustProviderResponse'
             Prelude.<$> (x Data..@? "verifiedAccessTrustProvider")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -165,7 +162,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessTrustProvider' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` oidcOptions
@@ -216,12 +214,12 @@ instance
 
 -- | /See:/ 'newModifyVerifiedAccessTrustProviderResponse' smart constructor.
 data ModifyVerifiedAccessTrustProviderResponse = ModifyVerifiedAccessTrustProviderResponse'
-  { -- | The ID of the Amazon Web Services Verified Access trust provider.
+  { -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProvider :: Prelude.Maybe VerifiedAccessTrustProvider,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVerifiedAccessTrustProviderResponse' with all optional fields omitted.
@@ -231,7 +229,7 @@ data ModifyVerifiedAccessTrustProviderResponse = ModifyVerifiedAccessTrustProvid
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessTrustProvider', 'modifyVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProvider', 'modifyVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Verified Access trust provider.
 --
 -- 'httpStatus', 'modifyVerifiedAccessTrustProviderResponse_httpStatus' - The response's http status code.
 newModifyVerifiedAccessTrustProviderResponse ::
@@ -246,7 +244,7 @@ newModifyVerifiedAccessTrustProviderResponse
         httpStatus = pHttpStatus_
       }
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 modifyVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider :: Lens.Lens' ModifyVerifiedAccessTrustProviderResponse (Prelude.Maybe VerifiedAccessTrustProvider)
 modifyVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider = Lens.lens (\ModifyVerifiedAccessTrustProviderResponse' {verifiedAccessTrustProvider} -> verifiedAccessTrustProvider) (\s@ModifyVerifiedAccessTrustProviderResponse' {} a -> s {verifiedAccessTrustProvider = a} :: ModifyVerifiedAccessTrustProviderResponse)
 

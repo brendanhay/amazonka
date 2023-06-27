@@ -126,7 +126,8 @@ instance Core.AWSRequest CreateRouteTable where
 
 instance Prelude.Hashable CreateRouteTable where
   hashWithSalt _salt CreateRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` vpcId
 

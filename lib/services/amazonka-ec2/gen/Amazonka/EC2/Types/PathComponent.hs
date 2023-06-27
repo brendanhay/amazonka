@@ -30,6 +30,8 @@ import Amazonka.EC2.Types.AnalysisPacketHeader
 import Amazonka.EC2.Types.AnalysisRouteTableRoute
 import Amazonka.EC2.Types.AnalysisSecurityGroupRule
 import Amazonka.EC2.Types.Explanation
+import Amazonka.EC2.Types.FirewallStatefulRule
+import Amazonka.EC2.Types.FirewallStatelessRule
 import Amazonka.EC2.Types.TransitGatewayRouteTableRoute
 import qualified Amazonka.Prelude as Prelude
 
@@ -51,6 +53,10 @@ data PathComponent = PathComponent'
     elasticLoadBalancerListener :: Prelude.Maybe AnalysisComponent,
     -- | The explanation codes.
     explanations :: Prelude.Maybe [Explanation],
+    -- | The Network Firewall stateful rule.
+    firewallStatefulRule :: Prelude.Maybe FirewallStatefulRule,
+    -- | The Network Firewall stateless rule.
+    firewallStatelessRule :: Prelude.Maybe FirewallStatelessRule,
     -- | The inbound header.
     inboundHeader :: Prelude.Maybe AnalysisPacketHeader,
     -- | The outbound header.
@@ -61,6 +67,8 @@ data PathComponent = PathComponent'
     securityGroupRule :: Prelude.Maybe AnalysisSecurityGroupRule,
     -- | The sequence number.
     sequenceNumber :: Prelude.Maybe Prelude.Int,
+    -- | The name of the VPC endpoint service.
+    serviceName :: Prelude.Maybe Prelude.Text,
     -- | The source VPC.
     sourceVpc :: Prelude.Maybe AnalysisComponent,
     -- | The subnet.
@@ -96,6 +104,10 @@ data PathComponent = PathComponent'
 --
 -- 'explanations', 'pathComponent_explanations' - The explanation codes.
 --
+-- 'firewallStatefulRule', 'pathComponent_firewallStatefulRule' - The Network Firewall stateful rule.
+--
+-- 'firewallStatelessRule', 'pathComponent_firewallStatelessRule' - The Network Firewall stateless rule.
+--
 -- 'inboundHeader', 'pathComponent_inboundHeader' - The inbound header.
 --
 -- 'outboundHeader', 'pathComponent_outboundHeader' - The outbound header.
@@ -105,6 +117,8 @@ data PathComponent = PathComponent'
 -- 'securityGroupRule', 'pathComponent_securityGroupRule' - The security group rule.
 --
 -- 'sequenceNumber', 'pathComponent_sequenceNumber' - The sequence number.
+--
+-- 'serviceName', 'pathComponent_serviceName' - The name of the VPC endpoint service.
 --
 -- 'sourceVpc', 'pathComponent_sourceVpc' - The source VPC.
 --
@@ -126,11 +140,14 @@ newPathComponent =
       destinationVpc = Prelude.Nothing,
       elasticLoadBalancerListener = Prelude.Nothing,
       explanations = Prelude.Nothing,
+      firewallStatefulRule = Prelude.Nothing,
+      firewallStatelessRule = Prelude.Nothing,
       inboundHeader = Prelude.Nothing,
       outboundHeader = Prelude.Nothing,
       routeTableRoute = Prelude.Nothing,
       securityGroupRule = Prelude.Nothing,
       sequenceNumber = Prelude.Nothing,
+      serviceName = Prelude.Nothing,
       sourceVpc = Prelude.Nothing,
       subnet = Prelude.Nothing,
       transitGateway = Prelude.Nothing,
@@ -166,6 +183,14 @@ pathComponent_elasticLoadBalancerListener = Lens.lens (\PathComponent' {elasticL
 pathComponent_explanations :: Lens.Lens' PathComponent (Prelude.Maybe [Explanation])
 pathComponent_explanations = Lens.lens (\PathComponent' {explanations} -> explanations) (\s@PathComponent' {} a -> s {explanations = a} :: PathComponent) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Network Firewall stateful rule.
+pathComponent_firewallStatefulRule :: Lens.Lens' PathComponent (Prelude.Maybe FirewallStatefulRule)
+pathComponent_firewallStatefulRule = Lens.lens (\PathComponent' {firewallStatefulRule} -> firewallStatefulRule) (\s@PathComponent' {} a -> s {firewallStatefulRule = a} :: PathComponent)
+
+-- | The Network Firewall stateless rule.
+pathComponent_firewallStatelessRule :: Lens.Lens' PathComponent (Prelude.Maybe FirewallStatelessRule)
+pathComponent_firewallStatelessRule = Lens.lens (\PathComponent' {firewallStatelessRule} -> firewallStatelessRule) (\s@PathComponent' {} a -> s {firewallStatelessRule = a} :: PathComponent)
+
 -- | The inbound header.
 pathComponent_inboundHeader :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisPacketHeader)
 pathComponent_inboundHeader = Lens.lens (\PathComponent' {inboundHeader} -> inboundHeader) (\s@PathComponent' {} a -> s {inboundHeader = a} :: PathComponent)
@@ -185,6 +210,10 @@ pathComponent_securityGroupRule = Lens.lens (\PathComponent' {securityGroupRule}
 -- | The sequence number.
 pathComponent_sequenceNumber :: Lens.Lens' PathComponent (Prelude.Maybe Prelude.Int)
 pathComponent_sequenceNumber = Lens.lens (\PathComponent' {sequenceNumber} -> sequenceNumber) (\s@PathComponent' {} a -> s {sequenceNumber = a} :: PathComponent)
+
+-- | The name of the VPC endpoint service.
+pathComponent_serviceName :: Lens.Lens' PathComponent (Prelude.Maybe Prelude.Text)
+pathComponent_serviceName = Lens.lens (\PathComponent' {serviceName} -> serviceName) (\s@PathComponent' {} a -> s {serviceName = a} :: PathComponent)
 
 -- | The source VPC.
 pathComponent_sourceVpc :: Lens.Lens' PathComponent (Prelude.Maybe AnalysisComponent)
@@ -210,7 +239,8 @@ instance Data.FromXML PathComponent where
   parseXML x =
     PathComponent'
       Prelude.<$> (x Data..@? "aclRule")
-      Prelude.<*> ( x Data..@? "additionalDetailSet"
+      Prelude.<*> ( x
+                      Data..@? "additionalDetailSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -218,14 +248,19 @@ instance Data.FromXML PathComponent where
       Prelude.<*> (x Data..@? "component")
       Prelude.<*> (x Data..@? "destinationVpc")
       Prelude.<*> (x Data..@? "elasticLoadBalancerListener")
-      Prelude.<*> ( x Data..@? "explanationSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "explanationSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
+      Prelude.<*> (x Data..@? "firewallStatefulRule")
+      Prelude.<*> (x Data..@? "firewallStatelessRule")
       Prelude.<*> (x Data..@? "inboundHeader")
       Prelude.<*> (x Data..@? "outboundHeader")
       Prelude.<*> (x Data..@? "routeTableRoute")
       Prelude.<*> (x Data..@? "securityGroupRule")
       Prelude.<*> (x Data..@? "sequenceNumber")
+      Prelude.<*> (x Data..@? "serviceName")
       Prelude.<*> (x Data..@? "sourceVpc")
       Prelude.<*> (x Data..@? "subnet")
       Prelude.<*> (x Data..@? "transitGateway")
@@ -234,18 +269,22 @@ instance Data.FromXML PathComponent where
 
 instance Prelude.Hashable PathComponent where
   hashWithSalt _salt PathComponent' {..} =
-    _salt `Prelude.hashWithSalt` aclRule
+    _salt
+      `Prelude.hashWithSalt` aclRule
       `Prelude.hashWithSalt` additionalDetails
       `Prelude.hashWithSalt` attachedTo
       `Prelude.hashWithSalt` component
       `Prelude.hashWithSalt` destinationVpc
       `Prelude.hashWithSalt` elasticLoadBalancerListener
       `Prelude.hashWithSalt` explanations
+      `Prelude.hashWithSalt` firewallStatefulRule
+      `Prelude.hashWithSalt` firewallStatelessRule
       `Prelude.hashWithSalt` inboundHeader
       `Prelude.hashWithSalt` outboundHeader
       `Prelude.hashWithSalt` routeTableRoute
       `Prelude.hashWithSalt` securityGroupRule
       `Prelude.hashWithSalt` sequenceNumber
+      `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` sourceVpc
       `Prelude.hashWithSalt` subnet
       `Prelude.hashWithSalt` transitGateway
@@ -261,11 +300,14 @@ instance Prelude.NFData PathComponent where
       `Prelude.seq` Prelude.rnf destinationVpc
       `Prelude.seq` Prelude.rnf elasticLoadBalancerListener
       `Prelude.seq` Prelude.rnf explanations
+      `Prelude.seq` Prelude.rnf firewallStatefulRule
+      `Prelude.seq` Prelude.rnf firewallStatelessRule
       `Prelude.seq` Prelude.rnf inboundHeader
       `Prelude.seq` Prelude.rnf outboundHeader
       `Prelude.seq` Prelude.rnf routeTableRoute
       `Prelude.seq` Prelude.rnf securityGroupRule
       `Prelude.seq` Prelude.rnf sequenceNumber
+      `Prelude.seq` Prelude.rnf serviceName
       `Prelude.seq` Prelude.rnf sourceVpc
       `Prelude.seq` Prelude.rnf subnet
       `Prelude.seq` Prelude.rnf transitGateway

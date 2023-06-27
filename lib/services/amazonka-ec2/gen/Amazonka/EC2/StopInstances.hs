@@ -204,7 +204,9 @@ instance Core.AWSRequest StopInstances where
     Response.receiveXML
       ( \s h x ->
           StopInstancesResponse'
-            Prelude.<$> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instancesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -212,7 +214,8 @@ instance Core.AWSRequest StopInstances where
 
 instance Prelude.Hashable StopInstances where
   hashWithSalt _salt StopInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` hibernate
       `Prelude.hashWithSalt` instanceIds

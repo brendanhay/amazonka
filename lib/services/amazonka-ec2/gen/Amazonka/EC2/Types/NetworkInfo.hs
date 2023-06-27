@@ -195,7 +195,9 @@ instance Data.FromXML NetworkInfo where
       Prelude.<*> (x Data..@? "ipv6Supported")
       Prelude.<*> (x Data..@? "maximumNetworkCards")
       Prelude.<*> (x Data..@? "maximumNetworkInterfaces")
-      Prelude.<*> ( x Data..@? "networkCards" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "networkCards"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "networkPerformance")

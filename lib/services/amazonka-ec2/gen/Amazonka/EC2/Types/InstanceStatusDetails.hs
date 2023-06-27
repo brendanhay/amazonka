@@ -87,7 +87,8 @@ instance Data.FromXML InstanceStatusDetails where
 
 instance Prelude.Hashable InstanceStatusDetails where
   hashWithSalt _salt InstanceStatusDetails' {..} =
-    _salt `Prelude.hashWithSalt` impairedSince
+    _salt
+      `Prelude.hashWithSalt` impairedSince
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

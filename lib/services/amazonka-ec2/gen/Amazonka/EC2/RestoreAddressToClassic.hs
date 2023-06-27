@@ -20,15 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This action is deprecated.
+--
 -- Restores an Elastic IP address that was previously moved to the EC2-VPC
 -- platform back to the EC2-Classic platform. You cannot move an Elastic IP
 -- address that was originally allocated for use in EC2-VPC. The Elastic IP
 -- address must not be associated with an instance or network interface.
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.RestoreAddressToClassic
   ( -- * Creating a Request
     RestoreAddressToClassic (..),
@@ -121,7 +118,8 @@ instance Core.AWSRequest RestoreAddressToClassic where
 
 instance Prelude.Hashable RestoreAddressToClassic where
   hashWithSalt _salt RestoreAddressToClassic' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData RestoreAddressToClassic where

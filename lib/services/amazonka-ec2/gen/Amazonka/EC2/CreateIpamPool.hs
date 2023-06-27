@@ -46,6 +46,7 @@ module Amazonka.EC2.CreateIpamPool
     createIpamPool_description,
     createIpamPool_dryRun,
     createIpamPool_locale,
+    createIpamPool_publicIpSource,
     createIpamPool_publiclyAdvertisable,
     createIpamPool_sourceIpamPoolId,
     createIpamPool_tagSpecifications,
@@ -131,6 +132,17 @@ data CreateIpamPool = CreateIpamPool'
     --
     -- Possible values: Any Amazon Web Services Region, such as us-east-1.
     locale :: Prelude.Maybe Prelude.Text,
+    -- | The IP address source for pools in the public scope. Only used for
+    -- provisioning IP address CIDRs to pools in the public scope. Default is
+    -- @byoip@. For more information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html Create IPv6 pools>
+    -- in the /Amazon VPC IPAM User Guide/. By default, you can add only one
+    -- Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if
+    -- PublicIpSource is @amazon@. For information on increasing the default
+    -- limit, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas for your IPAM>
+    -- in the /Amazon VPC IPAM User Guide/.
+    publicIpSource :: Prelude.Maybe IpamPoolPublicIpSource,
     -- | Determines if the pool is publicly advertisable. This option is not
     -- available for pools with AddressFamily set to @ipv4@.
     publiclyAdvertisable :: Prelude.Maybe Prelude.Bool,
@@ -219,6 +231,17 @@ data CreateIpamPool = CreateIpamPool'
 --
 -- Possible values: Any Amazon Web Services Region, such as us-east-1.
 --
+-- 'publicIpSource', 'createIpamPool_publicIpSource' - The IP address source for pools in the public scope. Only used for
+-- provisioning IP address CIDRs to pools in the public scope. Default is
+-- @byoip@. For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html Create IPv6 pools>
+-- in the /Amazon VPC IPAM User Guide/. By default, you can add only one
+-- Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if
+-- PublicIpSource is @amazon@. For information on increasing the default
+-- limit, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas for your IPAM>
+-- in the /Amazon VPC IPAM User Guide/.
+--
 -- 'publiclyAdvertisable', 'createIpamPool_publiclyAdvertisable' - Determines if the pool is publicly advertisable. This option is not
 -- available for pools with AddressFamily set to @ipv4@.
 --
@@ -255,6 +278,7 @@ newCreateIpamPool pIpamScopeId_ pAddressFamily_ =
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       locale = Prelude.Nothing,
+      publicIpSource = Prelude.Nothing,
       publiclyAdvertisable = Prelude.Nothing,
       sourceIpamPoolId = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
@@ -341,6 +365,19 @@ createIpamPool_dryRun = Lens.lens (\CreateIpamPool' {dryRun} -> dryRun) (\s@Crea
 createIpamPool_locale :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Text)
 createIpamPool_locale = Lens.lens (\CreateIpamPool' {locale} -> locale) (\s@CreateIpamPool' {} a -> s {locale = a} :: CreateIpamPool)
 
+-- | The IP address source for pools in the public scope. Only used for
+-- provisioning IP address CIDRs to pools in the public scope. Default is
+-- @byoip@. For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html Create IPv6 pools>
+-- in the /Amazon VPC IPAM User Guide/. By default, you can add only one
+-- Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if
+-- PublicIpSource is @amazon@. For information on increasing the default
+-- limit, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas for your IPAM>
+-- in the /Amazon VPC IPAM User Guide/.
+createIpamPool_publicIpSource :: Lens.Lens' CreateIpamPool (Prelude.Maybe IpamPoolPublicIpSource)
+createIpamPool_publicIpSource = Lens.lens (\CreateIpamPool' {publicIpSource} -> publicIpSource) (\s@CreateIpamPool' {} a -> s {publicIpSource = a} :: CreateIpamPool)
+
 -- | Determines if the pool is publicly advertisable. This option is not
 -- available for pools with AddressFamily set to @ipv4@.
 createIpamPool_publiclyAdvertisable :: Lens.Lens' CreateIpamPool (Prelude.Maybe Prelude.Bool)
@@ -396,6 +433,7 @@ instance Prelude.Hashable CreateIpamPool where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` locale
+      `Prelude.hashWithSalt` publicIpSource
       `Prelude.hashWithSalt` publiclyAdvertisable
       `Prelude.hashWithSalt` sourceIpamPoolId
       `Prelude.hashWithSalt` tagSpecifications
@@ -414,6 +452,7 @@ instance Prelude.NFData CreateIpamPool where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf locale
+      `Prelude.seq` Prelude.rnf publicIpSource
       `Prelude.seq` Prelude.rnf publiclyAdvertisable
       `Prelude.seq` Prelude.rnf sourceIpamPoolId
       `Prelude.seq` Prelude.rnf tagSpecifications
@@ -449,6 +488,7 @@ instance Data.ToQuery CreateIpamPool where
         "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
         "Locale" Data.=: locale,
+        "PublicIpSource" Data.=: publicIpSource,
         "PubliclyAdvertisable" Data.=: publiclyAdvertisable,
         "SourceIpamPoolId" Data.=: sourceIpamPoolId,
         Data.toQuery

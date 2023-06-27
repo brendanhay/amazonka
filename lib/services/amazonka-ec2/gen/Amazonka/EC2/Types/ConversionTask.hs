@@ -51,7 +51,7 @@ data ConversionTask = ConversionTask'
     -- | Any tags assigned to the task.
     tags :: Prelude.Maybe [Tag]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ConversionTask' with all optional fields omitted.
@@ -130,13 +130,16 @@ instance Data.FromXML ConversionTask where
       Prelude.<*> (x Data..@? "importVolume")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ConversionTask where
   hashWithSalt _salt ConversionTask' {..} =
-    _salt `Prelude.hashWithSalt` conversionTaskId
+    _salt
+      `Prelude.hashWithSalt` conversionTaskId
       `Prelude.hashWithSalt` expirationTime
       `Prelude.hashWithSalt` importInstance
       `Prelude.hashWithSalt` importVolume

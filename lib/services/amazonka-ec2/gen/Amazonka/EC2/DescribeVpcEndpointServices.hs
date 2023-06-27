@@ -63,16 +63,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Contains the parameters for DescribeVpcEndpointServices.
---
--- /See:/ 'newDescribeVpcEndpointServices' smart constructor.
+-- | /See:/ 'newDescribeVpcEndpointServices' smart constructor.
 data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
   { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+    -- | The filters.
     --
     -- -   @owner@ - The ID or alias of the Amazon Web Services account that
     --     owns the service.
@@ -105,7 +103,7 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
     -- | The token for the next set of items to return. (You received this token
     -- from a prior call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more service names.
+    -- | The service names.
     serviceNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -123,7 +121,7 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeVpcEndpointServices_filters' - One or more filters.
+-- 'filters', 'describeVpcEndpointServices_filters' - The filters.
 --
 -- -   @owner@ - The ID or alias of the Amazon Web Services account that
 --     owns the service.
@@ -156,7 +154,7 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
 -- 'nextToken', 'describeVpcEndpointServices_nextToken' - The token for the next set of items to return. (You received this token
 -- from a prior call.)
 --
--- 'serviceNames', 'describeVpcEndpointServices_serviceNames' - One or more service names.
+-- 'serviceNames', 'describeVpcEndpointServices_serviceNames' - The service names.
 newDescribeVpcEndpointServices ::
   DescribeVpcEndpointServices
 newDescribeVpcEndpointServices =
@@ -176,7 +174,7 @@ newDescribeVpcEndpointServices =
 describeVpcEndpointServices_dryRun :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Bool)
 describeVpcEndpointServices_dryRun = Lens.lens (\DescribeVpcEndpointServices' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServices' {} a -> s {dryRun = a} :: DescribeVpcEndpointServices)
 
--- | One or more filters.
+-- | The filters.
 --
 -- -   @owner@ - The ID or alias of the Amazon Web Services account that
 --     owns the service.
@@ -215,7 +213,7 @@ describeVpcEndpointServices_maxResults = Lens.lens (\DescribeVpcEndpointServices
 describeVpcEndpointServices_nextToken :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe Prelude.Text)
 describeVpcEndpointServices_nextToken = Lens.lens (\DescribeVpcEndpointServices' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServices' {} a -> s {nextToken = a} :: DescribeVpcEndpointServices)
 
--- | One or more service names.
+-- | The service names.
 describeVpcEndpointServices_serviceNames :: Lens.Lens' DescribeVpcEndpointServices (Prelude.Maybe [Prelude.Text])
 describeVpcEndpointServices_serviceNames = Lens.lens (\DescribeVpcEndpointServices' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServices' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServices) Prelude.. Lens.mapping Lens.coerced
 
@@ -224,28 +222,28 @@ instance Core.AWSPager DescribeVpcEndpointServices where
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicesResponse_serviceDetails
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServicesResponse_serviceNames
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpointServices_nextToken
           Lens..~ rs
           Lens.^? describeVpcEndpointServicesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeVpcEndpointServices where
   type
@@ -258,11 +256,14 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
       ( \s h x ->
           DescribeVpcEndpointServicesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "serviceDetailSet"
+            Prelude.<*> ( x
+                            Data..@? "serviceDetailSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "serviceNameSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "serviceNameSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -270,7 +271,8 @@ instance Core.AWSRequest DescribeVpcEndpointServices where
 
 instance Prelude.Hashable DescribeVpcEndpointServices where
   hashWithSalt _salt DescribeVpcEndpointServices' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -310,16 +312,14 @@ instance Data.ToQuery DescribeVpcEndpointServices where
           )
       ]
 
--- | Contains the output of DescribeVpcEndpointServices.
---
--- /See:/ 'newDescribeVpcEndpointServicesResponse' smart constructor.
+-- | /See:/ 'newDescribeVpcEndpointServicesResponse' smart constructor.
 data DescribeVpcEndpointServicesResponse = DescribeVpcEndpointServicesResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the service.
     serviceDetails :: Prelude.Maybe [ServiceDetail],
-    -- | A list of supported services.
+    -- | The supported services.
     serviceNames :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -339,7 +339,7 @@ data DescribeVpcEndpointServicesResponse = DescribeVpcEndpointServicesResponse'
 --
 -- 'serviceDetails', 'describeVpcEndpointServicesResponse_serviceDetails' - Information about the service.
 --
--- 'serviceNames', 'describeVpcEndpointServicesResponse_serviceNames' - A list of supported services.
+-- 'serviceNames', 'describeVpcEndpointServicesResponse_serviceNames' - The supported services.
 --
 -- 'httpStatus', 'describeVpcEndpointServicesResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointServicesResponse ::
@@ -364,7 +364,7 @@ describeVpcEndpointServicesResponse_nextToken = Lens.lens (\DescribeVpcEndpointS
 describeVpcEndpointServicesResponse_serviceDetails :: Lens.Lens' DescribeVpcEndpointServicesResponse (Prelude.Maybe [ServiceDetail])
 describeVpcEndpointServicesResponse_serviceDetails = Lens.lens (\DescribeVpcEndpointServicesResponse' {serviceDetails} -> serviceDetails) (\s@DescribeVpcEndpointServicesResponse' {} a -> s {serviceDetails = a} :: DescribeVpcEndpointServicesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of supported services.
+-- | The supported services.
 describeVpcEndpointServicesResponse_serviceNames :: Lens.Lens' DescribeVpcEndpointServicesResponse (Prelude.Maybe [Prelude.Text])
 describeVpcEndpointServicesResponse_serviceNames = Lens.lens (\DescribeVpcEndpointServicesResponse' {serviceNames} -> serviceNames) (\s@DescribeVpcEndpointServicesResponse' {} a -> s {serviceNames = a} :: DescribeVpcEndpointServicesResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     ResetNetworkInterfaceAttribute' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` sourceDestCheck
         `Prelude.hashWithSalt` networkInterfaceId
 

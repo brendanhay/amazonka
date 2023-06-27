@@ -63,7 +63,7 @@ data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the VPC peering connection. You must specify this parameter in
     -- the request.
-    vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text
+    vpcPeeringConnectionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -83,13 +83,17 @@ data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection'
 -- 'vpcPeeringConnectionId', 'acceptVpcPeeringConnection_vpcPeeringConnectionId' - The ID of the VPC peering connection. You must specify this parameter in
 -- the request.
 newAcceptVpcPeeringConnection ::
+  -- | 'vpcPeeringConnectionId'
+  Prelude.Text ->
   AcceptVpcPeeringConnection
-newAcceptVpcPeeringConnection =
-  AcceptVpcPeeringConnection'
-    { dryRun =
-        Prelude.Nothing,
-      vpcPeeringConnectionId = Prelude.Nothing
-    }
+newAcceptVpcPeeringConnection
+  pVpcPeeringConnectionId_ =
+    AcceptVpcPeeringConnection'
+      { dryRun =
+          Prelude.Nothing,
+        vpcPeeringConnectionId =
+          pVpcPeeringConnectionId_
+      }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,7 +104,7 @@ acceptVpcPeeringConnection_dryRun = Lens.lens (\AcceptVpcPeeringConnection' {dry
 
 -- | The ID of the VPC peering connection. You must specify this parameter in
 -- the request.
-acceptVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' AcceptVpcPeeringConnection (Prelude.Maybe Prelude.Text)
+acceptVpcPeeringConnection_vpcPeeringConnectionId :: Lens.Lens' AcceptVpcPeeringConnection Prelude.Text
 acceptVpcPeeringConnection_vpcPeeringConnectionId = Lens.lens (\AcceptVpcPeeringConnection' {vpcPeeringConnectionId} -> vpcPeeringConnectionId) (\s@AcceptVpcPeeringConnection' {} a -> s {vpcPeeringConnectionId = a} :: AcceptVpcPeeringConnection)
 
 instance Core.AWSRequest AcceptVpcPeeringConnection where
@@ -119,7 +123,8 @@ instance Core.AWSRequest AcceptVpcPeeringConnection where
 
 instance Prelude.Hashable AcceptVpcPeeringConnection where
   hashWithSalt _salt AcceptVpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcPeeringConnectionId
 
 instance Prelude.NFData AcceptVpcPeeringConnection where

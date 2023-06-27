@@ -35,6 +35,8 @@ data LocalGatewayRoute = LocalGatewayRoute'
     coipPoolId :: Prelude.Maybe Prelude.Text,
     -- | The CIDR block used for destination matches.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the prefix list.
+    destinationPrefixListId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the local gateway route table.
     localGatewayRouteTableArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the local gateway route table.
@@ -67,6 +69,8 @@ data LocalGatewayRoute = LocalGatewayRoute'
 --
 -- 'destinationCidrBlock', 'localGatewayRoute_destinationCidrBlock' - The CIDR block used for destination matches.
 --
+-- 'destinationPrefixListId', 'localGatewayRoute_destinationPrefixListId' - The ID of the prefix list.
+--
 -- 'localGatewayRouteTableArn', 'localGatewayRoute_localGatewayRouteTableArn' - The Amazon Resource Name (ARN) of the local gateway route table.
 --
 -- 'localGatewayRouteTableId', 'localGatewayRoute_localGatewayRouteTableId' - The ID of the local gateway route table.
@@ -89,6 +93,7 @@ newLocalGatewayRoute =
   LocalGatewayRoute'
     { coipPoolId = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
+      destinationPrefixListId = Prelude.Nothing,
       localGatewayRouteTableArn = Prelude.Nothing,
       localGatewayRouteTableId = Prelude.Nothing,
       localGatewayVirtualInterfaceGroupId =
@@ -107,6 +112,10 @@ localGatewayRoute_coipPoolId = Lens.lens (\LocalGatewayRoute' {coipPoolId} -> co
 -- | The CIDR block used for destination matches.
 localGatewayRoute_destinationCidrBlock :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
 localGatewayRoute_destinationCidrBlock = Lens.lens (\LocalGatewayRoute' {destinationCidrBlock} -> destinationCidrBlock) (\s@LocalGatewayRoute' {} a -> s {destinationCidrBlock = a} :: LocalGatewayRoute)
+
+-- | The ID of the prefix list.
+localGatewayRoute_destinationPrefixListId :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
+localGatewayRoute_destinationPrefixListId = Lens.lens (\LocalGatewayRoute' {destinationPrefixListId} -> destinationPrefixListId) (\s@LocalGatewayRoute' {} a -> s {destinationPrefixListId = a} :: LocalGatewayRoute)
 
 -- | The Amazon Resource Name (ARN) of the local gateway route table.
 localGatewayRoute_localGatewayRouteTableArn :: Lens.Lens' LocalGatewayRoute (Prelude.Maybe Prelude.Text)
@@ -146,6 +155,7 @@ instance Data.FromXML LocalGatewayRoute where
     LocalGatewayRoute'
       Prelude.<$> (x Data..@? "coipPoolId")
       Prelude.<*> (x Data..@? "destinationCidrBlock")
+      Prelude.<*> (x Data..@? "destinationPrefixListId")
       Prelude.<*> (x Data..@? "localGatewayRouteTableArn")
       Prelude.<*> (x Data..@? "localGatewayRouteTableId")
       Prelude.<*> (x Data..@? "localGatewayVirtualInterfaceGroupId")
@@ -157,8 +167,10 @@ instance Data.FromXML LocalGatewayRoute where
 
 instance Prelude.Hashable LocalGatewayRoute where
   hashWithSalt _salt LocalGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` coipPoolId
+    _salt
+      `Prelude.hashWithSalt` coipPoolId
       `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` destinationPrefixListId
       `Prelude.hashWithSalt` localGatewayRouteTableArn
       `Prelude.hashWithSalt` localGatewayRouteTableId
       `Prelude.hashWithSalt` localGatewayVirtualInterfaceGroupId
@@ -172,6 +184,7 @@ instance Prelude.NFData LocalGatewayRoute where
   rnf LocalGatewayRoute' {..} =
     Prelude.rnf coipPoolId
       `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf destinationPrefixListId
       `Prelude.seq` Prelude.rnf localGatewayRouteTableArn
       `Prelude.seq` Prelude.rnf localGatewayRouteTableId
       `Prelude.seq` Prelude.rnf localGatewayVirtualInterfaceGroupId

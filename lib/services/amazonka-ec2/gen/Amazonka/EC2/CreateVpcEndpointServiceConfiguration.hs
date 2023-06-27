@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a VPC endpoint service to which service consumers (Amazon Web
--- Services accounts, IAM users, and IAM roles) can connect.
+-- Services accounts, users, and IAM roles) can connect.
 --
 -- Before you create an endpoint service, you must create one of the
 -- following for your service:
@@ -89,10 +89,9 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+    -- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
     gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
-    -- for your service.
+    -- | The Amazon Resource Names (ARNs) of the Network Load Balancers.
     networkLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint configuration) The private DNS name to assign to the
     -- VPC endpoint service.
@@ -125,10 +124,9 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+-- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 --
--- 'networkLoadBalancerArns', 'createVpcEndpointServiceConfiguration_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Network Load Balancers
--- for your service.
+-- 'networkLoadBalancerArns', 'createVpcEndpointServiceConfiguration_networkLoadBalancerArns' - The Amazon Resource Names (ARNs) of the Network Load Balancers.
 --
 -- 'privateDnsName', 'createVpcEndpointServiceConfiguration_privateDnsName' - (Interface endpoint configuration) The private DNS name to assign to the
 -- VPC endpoint service.
@@ -173,12 +171,11 @@ createVpcEndpointServiceConfiguration_clientToken = Lens.lens (\CreateVpcEndpoin
 createVpcEndpointServiceConfiguration_dryRun :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 createVpcEndpointServiceConfiguration_dryRun = Lens.lens (\CreateVpcEndpointServiceConfiguration' {dryRun} -> dryRun) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {dryRun = a} :: CreateVpcEndpointServiceConfiguration)
 
--- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
+-- | The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
 createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
 createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Names (ARNs) of one or more Network Load Balancers
--- for your service.
+-- | The Amazon Resource Names (ARNs) of the Network Load Balancers.
 createVpcEndpointServiceConfiguration_networkLoadBalancerArns :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
 createVpcEndpointServiceConfiguration_networkLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {networkLoadBalancerArns} -> networkLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {networkLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
@@ -211,8 +208,8 @@ instance
       ( \s h x ->
           CreateVpcEndpointServiceConfigurationResponse'
             Prelude.<$> (x Data..@? "clientToken")
-              Prelude.<*> (x Data..@? "serviceConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "serviceConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -222,7 +219,8 @@ instance
   hashWithSalt
     _salt
     CreateVpcEndpointServiceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` acceptanceRequired
+      _salt
+        `Prelude.hashWithSalt` acceptanceRequired
         `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` gatewayLoadBalancerArns

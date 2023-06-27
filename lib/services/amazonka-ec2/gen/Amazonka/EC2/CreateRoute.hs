@@ -300,7 +300,8 @@ instance Core.AWSRequest CreateRoute where
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =
-    _salt `Prelude.hashWithSalt` carrierGatewayId
+    _salt
+      `Prelude.hashWithSalt` carrierGatewayId
       `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationIpv6CidrBlock

@@ -38,7 +38,7 @@ data InstanceSpecification = InstanceSpecification'
     -- You can specify up to 40 volume IDs per request.
     excludeDataVolumeIds :: Prelude.Maybe [Prelude.Text],
     -- | The instance to specify which volumes should be snapshotted.
-    instanceId :: Prelude.Maybe Prelude.Text
+    instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,13 +60,15 @@ data InstanceSpecification = InstanceSpecification'
 --
 -- 'instanceId', 'instanceSpecification_instanceId' - The instance to specify which volumes should be snapshotted.
 newInstanceSpecification ::
+  -- | 'instanceId'
+  Prelude.Text ->
   InstanceSpecification
-newInstanceSpecification =
+newInstanceSpecification pInstanceId_ =
   InstanceSpecification'
     { excludeBootVolume =
         Prelude.Nothing,
       excludeDataVolumeIds = Prelude.Nothing,
-      instanceId = Prelude.Nothing
+      instanceId = pInstanceId_
     }
 
 -- | Excludes the root volume from being snapshotted.
@@ -82,12 +84,13 @@ instanceSpecification_excludeDataVolumeIds :: Lens.Lens' InstanceSpecification (
 instanceSpecification_excludeDataVolumeIds = Lens.lens (\InstanceSpecification' {excludeDataVolumeIds} -> excludeDataVolumeIds) (\s@InstanceSpecification' {} a -> s {excludeDataVolumeIds = a} :: InstanceSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The instance to specify which volumes should be snapshotted.
-instanceSpecification_instanceId :: Lens.Lens' InstanceSpecification (Prelude.Maybe Prelude.Text)
+instanceSpecification_instanceId :: Lens.Lens' InstanceSpecification Prelude.Text
 instanceSpecification_instanceId = Lens.lens (\InstanceSpecification' {instanceId} -> instanceId) (\s@InstanceSpecification' {} a -> s {instanceId = a} :: InstanceSpecification)
 
 instance Prelude.Hashable InstanceSpecification where
   hashWithSalt _salt InstanceSpecification' {..} =
-    _salt `Prelude.hashWithSalt` excludeBootVolume
+    _salt
+      `Prelude.hashWithSalt` excludeBootVolume
       `Prelude.hashWithSalt` excludeDataVolumeIds
       `Prelude.hashWithSalt` instanceId
 

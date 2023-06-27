@@ -154,7 +154,8 @@ instance Core.AWSRequest ImportInstance where
 
 instance Prelude.Hashable ImportInstance where
   hashWithSalt _salt ImportInstance' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` diskImages
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchSpecification
@@ -198,7 +199,7 @@ data ImportInstanceResponse = ImportInstanceResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportInstanceResponse' with all optional fields omitted.

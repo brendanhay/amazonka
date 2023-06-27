@@ -127,7 +127,8 @@ instance Core.AWSRequest CreateNetworkAcl where
 
 instance Prelude.Hashable CreateNetworkAcl where
   hashWithSalt _salt CreateNetworkAcl' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` vpcId
 

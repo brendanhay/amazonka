@@ -151,7 +151,8 @@ instance Core.AWSRequest DisableFastLaunch where
 
 instance Prelude.Hashable DisableFastLaunch where
   hashWithSalt _salt DisableFastLaunch' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` imageId
 
@@ -186,8 +187,8 @@ data DisableFastLaunchResponse = DisableFastLaunchResponse'
     -- | The launch template that was used to launch Windows instances from
     -- pre-provisioned snapshots.
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse,
-    -- | The maximum number of parallel instances to launch for creating
-    -- resources.
+    -- | The maximum number of instances that Amazon EC2 can launch at the same
+    -- time to create pre-provisioned snapshots for Windows faster launching.
     maxParallelLaunches :: Prelude.Maybe Prelude.Int,
     -- | The owner of the Windows AMI for which faster launching was turned off.
     ownerId :: Prelude.Maybe Prelude.Text,
@@ -225,8 +226,8 @@ data DisableFastLaunchResponse = DisableFastLaunchResponse'
 -- 'launchTemplate', 'disableFastLaunchResponse_launchTemplate' - The launch template that was used to launch Windows instances from
 -- pre-provisioned snapshots.
 --
--- 'maxParallelLaunches', 'disableFastLaunchResponse_maxParallelLaunches' - The maximum number of parallel instances to launch for creating
--- resources.
+-- 'maxParallelLaunches', 'disableFastLaunchResponse_maxParallelLaunches' - The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
 --
 -- 'ownerId', 'disableFastLaunchResponse_ownerId' - The owner of the Windows AMI for which faster launching was turned off.
 --
@@ -275,8 +276,8 @@ disableFastLaunchResponse_imageId = Lens.lens (\DisableFastLaunchResponse' {imag
 disableFastLaunchResponse_launchTemplate :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse)
 disableFastLaunchResponse_launchTemplate = Lens.lens (\DisableFastLaunchResponse' {launchTemplate} -> launchTemplate) (\s@DisableFastLaunchResponse' {} a -> s {launchTemplate = a} :: DisableFastLaunchResponse)
 
--- | The maximum number of parallel instances to launch for creating
--- resources.
+-- | The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
 disableFastLaunchResponse_maxParallelLaunches :: Lens.Lens' DisableFastLaunchResponse (Prelude.Maybe Prelude.Int)
 disableFastLaunchResponse_maxParallelLaunches = Lens.lens (\DisableFastLaunchResponse' {maxParallelLaunches} -> maxParallelLaunches) (\s@DisableFastLaunchResponse' {} a -> s {maxParallelLaunches = a} :: DisableFastLaunchResponse)
 

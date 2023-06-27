@@ -81,7 +81,8 @@ instance Data.FromXML InferenceDeviceInfo where
 
 instance Prelude.Hashable InferenceDeviceInfo where
   hashWithSalt _salt InferenceDeviceInfo' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` manufacturer
       `Prelude.hashWithSalt` name
 

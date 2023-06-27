@@ -81,11 +81,13 @@ networkBandwidthGbps_min = Lens.lens (\NetworkBandwidthGbps' {min} -> min) (\s@N
 instance Data.FromXML NetworkBandwidthGbps where
   parseXML x =
     NetworkBandwidthGbps'
-      Prelude.<$> (x Data..@? "max") Prelude.<*> (x Data..@? "min")
+      Prelude.<$> (x Data..@? "max")
+      Prelude.<*> (x Data..@? "min")
 
 instance Prelude.Hashable NetworkBandwidthGbps where
   hashWithSalt _salt NetworkBandwidthGbps' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData NetworkBandwidthGbps where

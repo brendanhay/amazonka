@@ -101,7 +101,7 @@ instance
   parseXML x =
     LaunchTemplateCapacityReservationSpecificationResponse'
       Prelude.<$> (x Data..@? "capacityReservationPreference")
-        Prelude.<*> (x Data..@? "capacityReservationTarget")
+      Prelude.<*> (x Data..@? "capacityReservationTarget")
 
 instance
   Prelude.Hashable

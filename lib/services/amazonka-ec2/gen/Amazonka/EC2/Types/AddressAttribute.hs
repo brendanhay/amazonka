@@ -92,7 +92,8 @@ instance Data.FromXML AddressAttribute where
 
 instance Prelude.Hashable AddressAttribute where
   hashWithSalt _salt AddressAttribute' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` ptrRecord
       `Prelude.hashWithSalt` ptrRecordUpdate
       `Prelude.hashWithSalt` publicIp

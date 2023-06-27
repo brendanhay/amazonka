@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayVpcAttachmentOptions' {..} =
-      _salt `Prelude.hashWithSalt` applianceModeSupport
+      _salt
+        `Prelude.hashWithSalt` applianceModeSupport
         `Prelude.hashWithSalt` dnsSupport
         `Prelude.hashWithSalt` ipv6Support
 

@@ -32,7 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data S3Storage = S3Storage'
   { -- | The access key ID of the owner of the bucket. Before you specify a value
     -- for your access key ID, review and follow the guidance in
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best practices for managing Amazon Web Services access keys>.
+    -- <https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html Best Practices for Amazon Web Services accounts>
+    -- in the /Account ManagementReference Guide/.
     aWSAccessKeyId :: Prelude.Maybe Prelude.Text,
     -- | The bucket in which to store the AMI. You can specify a bucket that you
     -- already own or a new bucket that Amazon EC2 creates on your behalf. If
@@ -59,7 +60,8 @@ data S3Storage = S3Storage'
 --
 -- 'aWSAccessKeyId', 's3Storage_aWSAccessKeyId' - The access key ID of the owner of the bucket. Before you specify a value
 -- for your access key ID, review and follow the guidance in
--- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best practices for managing Amazon Web Services access keys>.
+-- <https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html Best Practices for Amazon Web Services accounts>
+-- in the /Account ManagementReference Guide/.
 --
 -- 'bucket', 's3Storage_bucket' - The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If
@@ -89,7 +91,8 @@ newS3Storage =
 
 -- | The access key ID of the owner of the bucket. Before you specify a value
 -- for your access key ID, review and follow the guidance in
--- <https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html Best practices for managing Amazon Web Services access keys>.
+-- <https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html Best Practices for Amazon Web Services accounts>
+-- in the /Account ManagementReference Guide/.
 s3Storage_aWSAccessKeyId :: Lens.Lens' S3Storage (Prelude.Maybe Prelude.Text)
 s3Storage_aWSAccessKeyId = Lens.lens (\S3Storage' {aWSAccessKeyId} -> aWSAccessKeyId) (\s@S3Storage' {} a -> s {aWSAccessKeyId = a} :: S3Storage)
 
@@ -128,7 +131,8 @@ instance Data.FromXML S3Storage where
 
 instance Prelude.Hashable S3Storage where
   hashWithSalt _salt S3Storage' {..} =
-    _salt `Prelude.hashWithSalt` aWSAccessKeyId
+    _salt
+      `Prelude.hashWithSalt` aWSAccessKeyId
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` uploadPolicy

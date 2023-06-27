@@ -25,7 +25,8 @@ import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
--- | Options for an OIDC-based, user-identity type trust provider.
+-- | Describes the options when creating an Amazon Web Services Verified
+-- Access trust provider using the @user@ type.
 --
 -- /See:/ 'newCreateVerifiedAccessTrustProviderOidcOptions' smart constructor.
 data CreateVerifiedAccessTrustProviderOidcOptions = CreateVerifiedAccessTrustProviderOidcOptions'
@@ -34,7 +35,7 @@ data CreateVerifiedAccessTrustProviderOidcOptions = CreateVerifiedAccessTrustPro
     -- | The client identifier.
     clientId :: Prelude.Maybe Prelude.Text,
     -- | The client secret.
-    clientSecret :: Prelude.Maybe Prelude.Text,
+    clientSecret :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The OIDC issuer.
     issuer :: Prelude.Maybe Prelude.Text,
     -- | OpenID Connect (OIDC) scopes are used by an application during
@@ -46,7 +47,7 @@ data CreateVerifiedAccessTrustProviderOidcOptions = CreateVerifiedAccessTrustPro
     -- | The OIDC user info endpoint.
     userInfoEndpoint :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateVerifiedAccessTrustProviderOidcOptions' with all optional fields omitted.
@@ -98,7 +99,7 @@ createVerifiedAccessTrustProviderOidcOptions_clientId = Lens.lens (\CreateVerifi
 
 -- | The client secret.
 createVerifiedAccessTrustProviderOidcOptions_clientSecret :: Lens.Lens' CreateVerifiedAccessTrustProviderOidcOptions (Prelude.Maybe Prelude.Text)
-createVerifiedAccessTrustProviderOidcOptions_clientSecret = Lens.lens (\CreateVerifiedAccessTrustProviderOidcOptions' {clientSecret} -> clientSecret) (\s@CreateVerifiedAccessTrustProviderOidcOptions' {} a -> s {clientSecret = a} :: CreateVerifiedAccessTrustProviderOidcOptions)
+createVerifiedAccessTrustProviderOidcOptions_clientSecret = Lens.lens (\CreateVerifiedAccessTrustProviderOidcOptions' {clientSecret} -> clientSecret) (\s@CreateVerifiedAccessTrustProviderOidcOptions' {} a -> s {clientSecret = a} :: CreateVerifiedAccessTrustProviderOidcOptions) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The OIDC issuer.
 createVerifiedAccessTrustProviderOidcOptions_issuer :: Lens.Lens' CreateVerifiedAccessTrustProviderOidcOptions (Prelude.Maybe Prelude.Text)
@@ -125,7 +126,8 @@ instance
   hashWithSalt
     _salt
     CreateVerifiedAccessTrustProviderOidcOptions' {..} =
-      _salt `Prelude.hashWithSalt` authorizationEndpoint
+      _salt
+        `Prelude.hashWithSalt` authorizationEndpoint
         `Prelude.hashWithSalt` clientId
         `Prelude.hashWithSalt` clientSecret
         `Prelude.hashWithSalt` issuer

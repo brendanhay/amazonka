@@ -130,7 +130,8 @@ instance Data.FromXML SpotPrice where
 
 instance Prelude.Hashable SpotPrice where
   hashWithSalt _salt SpotPrice' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` productDescription
       `Prelude.hashWithSalt` spotPrice

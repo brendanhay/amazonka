@@ -58,14 +58,14 @@ data CreateVerifiedAccessInstance = CreateVerifiedAccessInstance'
     -- your modification request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | A description for the Amazon Web Services Verified Access instance.
+    -- | A description for the Verified Access instance.
     description :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The tags to assign to the Amazon Web Services Verified Access instance.
+    -- | The tags to assign to the Verified Access instance.
     tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,14 +82,14 @@ data CreateVerifiedAccessInstance = CreateVerifiedAccessInstance'
 -- your modification request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
--- 'description', 'createVerifiedAccessInstance_description' - A description for the Amazon Web Services Verified Access instance.
+-- 'description', 'createVerifiedAccessInstance_description' - A description for the Verified Access instance.
 --
 -- 'dryRun', 'createVerifiedAccessInstance_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'tagSpecifications', 'createVerifiedAccessInstance_tagSpecifications' - The tags to assign to the Amazon Web Services Verified Access instance.
+-- 'tagSpecifications', 'createVerifiedAccessInstance_tagSpecifications' - The tags to assign to the Verified Access instance.
 newCreateVerifiedAccessInstance ::
   CreateVerifiedAccessInstance
 newCreateVerifiedAccessInstance =
@@ -107,7 +107,7 @@ newCreateVerifiedAccessInstance =
 createVerifiedAccessInstance_clientToken :: Lens.Lens' CreateVerifiedAccessInstance (Prelude.Maybe Prelude.Text)
 createVerifiedAccessInstance_clientToken = Lens.lens (\CreateVerifiedAccessInstance' {clientToken} -> clientToken) (\s@CreateVerifiedAccessInstance' {} a -> s {clientToken = a} :: CreateVerifiedAccessInstance)
 
--- | A description for the Amazon Web Services Verified Access instance.
+-- | A description for the Verified Access instance.
 createVerifiedAccessInstance_description :: Lens.Lens' CreateVerifiedAccessInstance (Prelude.Maybe Prelude.Text)
 createVerifiedAccessInstance_description = Lens.lens (\CreateVerifiedAccessInstance' {description} -> description) (\s@CreateVerifiedAccessInstance' {} a -> s {description = a} :: CreateVerifiedAccessInstance)
 
@@ -118,7 +118,7 @@ createVerifiedAccessInstance_description = Lens.lens (\CreateVerifiedAccessInsta
 createVerifiedAccessInstance_dryRun :: Lens.Lens' CreateVerifiedAccessInstance (Prelude.Maybe Prelude.Bool)
 createVerifiedAccessInstance_dryRun = Lens.lens (\CreateVerifiedAccessInstance' {dryRun} -> dryRun) (\s@CreateVerifiedAccessInstance' {} a -> s {dryRun = a} :: CreateVerifiedAccessInstance)
 
--- | The tags to assign to the Amazon Web Services Verified Access instance.
+-- | The tags to assign to the Verified Access instance.
 createVerifiedAccessInstance_tagSpecifications :: Lens.Lens' CreateVerifiedAccessInstance (Prelude.Maybe [TagSpecification])
 createVerifiedAccessInstance_tagSpecifications = Lens.lens (\CreateVerifiedAccessInstance' {tagSpecifications} -> tagSpecifications) (\s@CreateVerifiedAccessInstance' {} a -> s {tagSpecifications = a} :: CreateVerifiedAccessInstance) Prelude.. Lens.mapping Lens.coerced
 
@@ -141,7 +141,8 @@ instance
     CreateVerifiedAccessInstance
   where
   hashWithSalt _salt CreateVerifiedAccessInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
@@ -179,7 +180,7 @@ instance Data.ToQuery CreateVerifiedAccessInstance where
 
 -- | /See:/ 'newCreateVerifiedAccessInstanceResponse' smart constructor.
 data CreateVerifiedAccessInstanceResponse = CreateVerifiedAccessInstanceResponse'
-  { -- | The ID of the Amazon Web Services Verified Access instance.
+  { -- | The ID of the Verified Access instance.
     verifiedAccessInstance :: Prelude.Maybe VerifiedAccessInstance,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -194,7 +195,7 @@ data CreateVerifiedAccessInstanceResponse = CreateVerifiedAccessInstanceResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessInstance', 'createVerifiedAccessInstanceResponse_verifiedAccessInstance' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstance', 'createVerifiedAccessInstanceResponse_verifiedAccessInstance' - The ID of the Verified Access instance.
 --
 -- 'httpStatus', 'createVerifiedAccessInstanceResponse_httpStatus' - The response's http status code.
 newCreateVerifiedAccessInstanceResponse ::
@@ -208,7 +209,7 @@ newCreateVerifiedAccessInstanceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 createVerifiedAccessInstanceResponse_verifiedAccessInstance :: Lens.Lens' CreateVerifiedAccessInstanceResponse (Prelude.Maybe VerifiedAccessInstance)
 createVerifiedAccessInstanceResponse_verifiedAccessInstance = Lens.lens (\CreateVerifiedAccessInstanceResponse' {verifiedAccessInstance} -> verifiedAccessInstance) (\s@CreateVerifiedAccessInstanceResponse' {} a -> s {verifiedAccessInstance = a} :: CreateVerifiedAccessInstanceResponse)
 

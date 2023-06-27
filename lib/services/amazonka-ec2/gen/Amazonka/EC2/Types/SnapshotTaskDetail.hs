@@ -50,11 +50,11 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
     -- | A detailed status message for the import snapshot task.
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The URL of the disk image from which the snapshot is created.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The Amazon S3 bucket for the disk image.
     userBucket :: Prelude.Maybe UserBucketDetails
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SnapshotTaskDetail' with all optional fields omitted.
@@ -142,7 +142,7 @@ snapshotTaskDetail_statusMessage = Lens.lens (\SnapshotTaskDetail' {statusMessag
 
 -- | The URL of the disk image from which the snapshot is created.
 snapshotTaskDetail_url :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe Prelude.Text)
-snapshotTaskDetail_url = Lens.lens (\SnapshotTaskDetail' {url} -> url) (\s@SnapshotTaskDetail' {} a -> s {url = a} :: SnapshotTaskDetail)
+snapshotTaskDetail_url = Lens.lens (\SnapshotTaskDetail' {url} -> url) (\s@SnapshotTaskDetail' {} a -> s {url = a} :: SnapshotTaskDetail) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The Amazon S3 bucket for the disk image.
 snapshotTaskDetail_userBucket :: Lens.Lens' SnapshotTaskDetail (Prelude.Maybe UserBucketDetails)
@@ -165,7 +165,8 @@ instance Data.FromXML SnapshotTaskDetail where
 
 instance Prelude.Hashable SnapshotTaskDetail where
   hashWithSalt _salt SnapshotTaskDetail' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` diskImageSize
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` format

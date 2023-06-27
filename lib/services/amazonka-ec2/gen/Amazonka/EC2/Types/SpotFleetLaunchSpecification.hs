@@ -92,10 +92,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     -- need to specify a RAM disk. To find kernel requirements, refer to the
     -- Amazon Web Services Resource Center and search for the kernel ID.
     ramdiskId :: Prelude.Maybe Prelude.Text,
-    -- | One or more security groups. When requesting instances in a VPC, you
-    -- must specify the IDs of the security groups. When requesting instances
-    -- in EC2-Classic, you can specify the names or the IDs of the security
-    -- groups.
+    -- | The security groups.
     securityGroups :: Prelude.Maybe [GroupIdentifier],
     -- | The maximum price per unit hour that you are willing to pay for a Spot
     -- Instance. We do not recommend using this parameter because it can lead
@@ -111,8 +108,9 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply during creation.
     tagSpecifications :: Prelude.Maybe [SpotFleetTagSpecification],
-    -- | The Base64-encoded user data that instances use when starting up.
-    userData :: Prelude.Maybe Prelude.Text,
+    -- | The base64-encoded user data that instances use when starting up. User
+    -- data is limited to 16 KB.
+    userData :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The number of units provided by the specified instance type. These are
     -- the same units that you chose to set the target capacity in terms of
     -- instances, or a performance characteristic such as vCPUs, memory, or
@@ -123,7 +121,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
     -- this value is not specified, the default is 1.
     weightedCapacity :: Prelude.Maybe Prelude.Double
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotFleetLaunchSpecification' with all optional fields omitted.
@@ -183,10 +181,7 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 -- need to specify a RAM disk. To find kernel requirements, refer to the
 -- Amazon Web Services Resource Center and search for the kernel ID.
 --
--- 'securityGroups', 'spotFleetLaunchSpecification_securityGroups' - One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
+-- 'securityGroups', 'spotFleetLaunchSpecification_securityGroups' - The security groups.
 --
 -- 'spotPrice', 'spotFleetLaunchSpecification_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
 -- Instance. We do not recommend using this parameter because it can lead
@@ -202,7 +197,8 @@ data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
 --
 -- 'tagSpecifications', 'spotFleetLaunchSpecification_tagSpecifications' - The tags to apply during creation.
 --
--- 'userData', 'spotFleetLaunchSpecification_userData' - The Base64-encoded user data that instances use when starting up.
+-- 'userData', 'spotFleetLaunchSpecification_userData' - The base64-encoded user data that instances use when starting up. User
+-- data is limited to 16 KB.
 --
 -- 'weightedCapacity', 'spotFleetLaunchSpecification_weightedCapacity' - The number of units provided by the specified instance type. These are
 -- the same units that you chose to set the target capacity in terms of
@@ -314,10 +310,7 @@ spotFleetLaunchSpecification_placement = Lens.lens (\SpotFleetLaunchSpecificatio
 spotFleetLaunchSpecification_ramdiskId :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
 spotFleetLaunchSpecification_ramdiskId = Lens.lens (\SpotFleetLaunchSpecification' {ramdiskId} -> ramdiskId) (\s@SpotFleetLaunchSpecification' {} a -> s {ramdiskId = a} :: SpotFleetLaunchSpecification)
 
--- | One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
+-- | The security groups.
 spotFleetLaunchSpecification_securityGroups :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe [GroupIdentifier])
 spotFleetLaunchSpecification_securityGroups = Lens.lens (\SpotFleetLaunchSpecification' {securityGroups} -> securityGroups) (\s@SpotFleetLaunchSpecification' {} a -> s {securityGroups = a} :: SpotFleetLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
@@ -341,9 +334,10 @@ spotFleetLaunchSpecification_subnetId = Lens.lens (\SpotFleetLaunchSpecification
 spotFleetLaunchSpecification_tagSpecifications :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe [SpotFleetTagSpecification])
 spotFleetLaunchSpecification_tagSpecifications = Lens.lens (\SpotFleetLaunchSpecification' {tagSpecifications} -> tagSpecifications) (\s@SpotFleetLaunchSpecification' {} a -> s {tagSpecifications = a} :: SpotFleetLaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | The Base64-encoded user data that instances use when starting up.
+-- | The base64-encoded user data that instances use when starting up. User
+-- data is limited to 16 KB.
 spotFleetLaunchSpecification_userData :: Lens.Lens' SpotFleetLaunchSpecification (Prelude.Maybe Prelude.Text)
-spotFleetLaunchSpecification_userData = Lens.lens (\SpotFleetLaunchSpecification' {userData} -> userData) (\s@SpotFleetLaunchSpecification' {} a -> s {userData = a} :: SpotFleetLaunchSpecification)
+spotFleetLaunchSpecification_userData = Lens.lens (\SpotFleetLaunchSpecification' {userData} -> userData) (\s@SpotFleetLaunchSpecification' {} a -> s {userData = a} :: SpotFleetLaunchSpecification) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The number of units provided by the specified instance type. These are
 -- the same units that you chose to set the target capacity in terms of
@@ -360,7 +354,8 @@ instance Data.FromXML SpotFleetLaunchSpecification where
   parseXML x =
     SpotFleetLaunchSpecification'
       Prelude.<$> (x Data..@? "addressingType")
-      Prelude.<*> ( x Data..@? "blockDeviceMapping"
+      Prelude.<*> ( x
+                      Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -372,18 +367,22 @@ instance Data.FromXML SpotFleetLaunchSpecification where
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
       Prelude.<*> (x Data..@? "monitoring")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "placement")
       Prelude.<*> (x Data..@? "ramdiskId")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "spotPrice")
       Prelude.<*> (x Data..@? "subnetId")
-      Prelude.<*> ( x Data..@? "tagSpecificationSet"
+      Prelude.<*> ( x
+                      Data..@? "tagSpecificationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -395,7 +394,8 @@ instance
     SpotFleetLaunchSpecification
   where
   hashWithSalt _salt SpotFleetLaunchSpecification' {..} =
-    _salt `Prelude.hashWithSalt` addressingType
+    _salt
+      `Prelude.hashWithSalt` addressingType
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` ebsOptimized
       `Prelude.hashWithSalt` iamInstanceProfile

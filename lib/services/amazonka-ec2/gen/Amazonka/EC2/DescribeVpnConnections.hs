@@ -245,7 +245,8 @@ instance Core.AWSRequest DescribeVpnConnections where
     Response.receiveXML
       ( \s h x ->
           DescribeVpnConnectionsResponse'
-            Prelude.<$> ( x Data..@? "vpnConnectionSet"
+            Prelude.<$> ( x
+                            Data..@? "vpnConnectionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -254,7 +255,8 @@ instance Core.AWSRequest DescribeVpnConnections where
 
 instance Prelude.Hashable DescribeVpnConnections where
   hashWithSalt _salt DescribeVpnConnections' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` vpnConnectionIds
 
@@ -295,7 +297,7 @@ data DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeVpnConnectionsResponse' with all optional fields omitted.

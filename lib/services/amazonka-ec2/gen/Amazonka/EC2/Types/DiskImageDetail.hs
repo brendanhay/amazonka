@@ -44,9 +44,9 @@ data DiskImageDetail = DiskImageDetail'
     -- For information about the import manifest referenced by this API action,
     -- see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
-    importManifestUrl :: Prelude.Text
+    importManifestUrl :: Data.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DiskImageDetail' with all optional fields omitted.
@@ -85,7 +85,8 @@ newDiskImageDetail
     DiskImageDetail'
       { bytes = pBytes_,
         format = pFormat_,
-        importManifestUrl = pImportManifestUrl_
+        importManifestUrl =
+          Data._Sensitive Lens.# pImportManifestUrl_
       }
 
 -- | The size of the disk image, in GiB.
@@ -107,11 +108,12 @@ diskImageDetail_format = Lens.lens (\DiskImageDetail' {format} -> format) (\s@Di
 -- see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html VM Import Manifest>.
 diskImageDetail_importManifestUrl :: Lens.Lens' DiskImageDetail Prelude.Text
-diskImageDetail_importManifestUrl = Lens.lens (\DiskImageDetail' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDetail' {} a -> s {importManifestUrl = a} :: DiskImageDetail)
+diskImageDetail_importManifestUrl = Lens.lens (\DiskImageDetail' {importManifestUrl} -> importManifestUrl) (\s@DiskImageDetail' {} a -> s {importManifestUrl = a} :: DiskImageDetail) Prelude.. Data._Sensitive
 
 instance Prelude.Hashable DiskImageDetail where
   hashWithSalt _salt DiskImageDetail' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` importManifestUrl
 

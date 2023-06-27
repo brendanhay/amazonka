@@ -76,7 +76,8 @@ instance
     FailedQueuedPurchaseDeletion
   where
   hashWithSalt _salt FailedQueuedPurchaseDeletion' {..} =
-    _salt `Prelude.hashWithSalt` error
+    _salt
+      `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` reservedInstancesId
 
 instance Prelude.NFData FailedQueuedPurchaseDeletion where

@@ -140,20 +140,23 @@ instance Core.AWSPager DescribeIpams where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeIpamsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? describeIpamsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeIpamsResponse_ipams Prelude.. Lens._Just
+            Lens.^? describeIpamsResponse_ipams
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeIpams_nextToken
           Lens..~ rs
-          Lens.^? describeIpamsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? describeIpamsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeIpams where
   type
@@ -165,7 +168,9 @@ instance Core.AWSRequest DescribeIpams where
     Response.receiveXML
       ( \s h x ->
           DescribeIpamsResponse'
-            Prelude.<$> ( x Data..@? "ipamSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "ipamSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -174,7 +179,8 @@ instance Core.AWSRequest DescribeIpams where
 
 instance Prelude.Hashable DescribeIpams where
   hashWithSalt _salt DescribeIpams' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` ipamIds
       `Prelude.hashWithSalt` maxResults

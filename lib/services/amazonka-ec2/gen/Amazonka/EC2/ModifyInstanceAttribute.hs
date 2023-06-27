@@ -24,10 +24,10 @@
 -- specify only one attribute at a time.
 --
 -- __Note:__ Using this action to change the security groups associated
--- with an elastic network interface (ENI) attached to an instance in a VPC
--- can result in an error if the instance has more than one ENI. To change
--- the security groups associated with an ENI attached to an instance that
--- has multiple ENIs, we recommend that you use the
+-- with an elastic network interface (ENI) attached to an instance can
+-- result in an error if the instance has more than one ENI. To change the
+-- security groups associated with an ENI attached to an instance that has
+-- multiple ENIs, we recommend that you use the
 -- ModifyNetworkInterfaceAttribute action.
 --
 -- To modify some attributes, the instance must be stopped. For more
@@ -116,10 +116,9 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     -- This option is supported only for HVM instances. Specifying this option
     -- with a PV instance can make it unreachable.
     enaSupport :: Prelude.Maybe AttributeBooleanValue,
-    -- | [EC2-VPC] Replaces the security groups of the instance with the
-    -- specified security groups. You must specify at least one security group,
-    -- even if it\'s just the default security group for the VPC. You must
-    -- specify the security group ID, not the security group name.
+    -- | Replaces the security groups of the instance with the specified security
+    -- groups. You must specify the ID of at least one security group, even if
+    -- it\'s just the default security group for the VPC.
     groups :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether an instance stops or terminates when you initiate
     -- shutdown from the instance (using the operating system command for
@@ -221,10 +220,9 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 -- This option is supported only for HVM instances. Specifying this option
 -- with a PV instance can make it unreachable.
 --
--- 'groups', 'modifyInstanceAttribute_groups' - [EC2-VPC] Replaces the security groups of the instance with the
--- specified security groups. You must specify at least one security group,
--- even if it\'s just the default security group for the VPC. You must
--- specify the security group ID, not the security group name.
+-- 'groups', 'modifyInstanceAttribute_groups' - Replaces the security groups of the instance with the specified security
+-- groups. You must specify the ID of at least one security group, even if
+-- it\'s just the default security group for the VPC.
 --
 -- 'instanceInitiatedShutdownBehavior', 'modifyInstanceAttribute_instanceInitiatedShutdownBehavior' - Specifies whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
@@ -355,10 +353,9 @@ modifyInstanceAttribute_ebsOptimized = Lens.lens (\ModifyInstanceAttribute' {ebs
 modifyInstanceAttribute_enaSupport :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe AttributeBooleanValue)
 modifyInstanceAttribute_enaSupport = Lens.lens (\ModifyInstanceAttribute' {enaSupport} -> enaSupport) (\s@ModifyInstanceAttribute' {} a -> s {enaSupport = a} :: ModifyInstanceAttribute)
 
--- | [EC2-VPC] Replaces the security groups of the instance with the
--- specified security groups. You must specify at least one security group,
--- even if it\'s just the default security group for the VPC. You must
--- specify the security group ID, not the security group name.
+-- | Replaces the security groups of the instance with the specified security
+-- groups. You must specify the ID of at least one security group, even if
+-- it\'s just the default security group for the VPC.
 modifyInstanceAttribute_groups :: Lens.Lens' ModifyInstanceAttribute (Prelude.Maybe [Prelude.Text])
 modifyInstanceAttribute_groups = Lens.lens (\ModifyInstanceAttribute' {groups} -> groups) (\s@ModifyInstanceAttribute' {} a -> s {groups = a} :: ModifyInstanceAttribute) Prelude.. Lens.mapping Lens.coerced
 
@@ -439,7 +436,8 @@ instance Core.AWSRequest ModifyInstanceAttribute where
 
 instance Prelude.Hashable ModifyInstanceAttribute where
   hashWithSalt _salt ModifyInstanceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` disableApiStop
       `Prelude.hashWithSalt` disableApiTermination

@@ -70,7 +70,8 @@ vCpuCountRangeRequest_min = Lens.lens (\VCpuCountRangeRequest' {min} -> min) (\s
 
 instance Prelude.Hashable VCpuCountRangeRequest where
   hashWithSalt _salt VCpuCountRangeRequest' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData VCpuCountRangeRequest where

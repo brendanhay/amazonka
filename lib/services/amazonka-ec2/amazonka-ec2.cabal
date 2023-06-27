@@ -58,12 +58,15 @@ library
     Amazonka.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
     Amazonka.EC2.AssignIpv6Addresses
     Amazonka.EC2.AssignPrivateIpAddresses
+    Amazonka.EC2.AssignPrivateNatGatewayAddress
     Amazonka.EC2.AssociateAddress
     Amazonka.EC2.AssociateClientVpnTargetNetwork
     Amazonka.EC2.AssociateDhcpOptions
     Amazonka.EC2.AssociateEnclaveCertificateIamRole
     Amazonka.EC2.AssociateIamInstanceProfile
     Amazonka.EC2.AssociateInstanceEventWindow
+    Amazonka.EC2.AssociateIpamResourceDiscovery
+    Amazonka.EC2.AssociateNatGatewayAddress
     Amazonka.EC2.AssociateRouteTable
     Amazonka.EC2.AssociateSubnetCidrBlock
     Amazonka.EC2.AssociateTransitGatewayMulticastDomain
@@ -111,11 +114,13 @@ library
     Amazonka.EC2.CreateFlowLogs
     Amazonka.EC2.CreateFpgaImage
     Amazonka.EC2.CreateImage
+    Amazonka.EC2.CreateInstanceConnectEndpoint
     Amazonka.EC2.CreateInstanceEventWindow
     Amazonka.EC2.CreateInstanceExportTask
     Amazonka.EC2.CreateInternetGateway
     Amazonka.EC2.CreateIpam
     Amazonka.EC2.CreateIpamPool
+    Amazonka.EC2.CreateIpamResourceDiscovery
     Amazonka.EC2.CreateIpamScope
     Amazonka.EC2.CreateKeyPair
     Amazonka.EC2.CreateLaunchTemplate
@@ -186,10 +191,12 @@ library
     Amazonka.EC2.DeleteFleets
     Amazonka.EC2.DeleteFlowLogs
     Amazonka.EC2.DeleteFpgaImage
+    Amazonka.EC2.DeleteInstanceConnectEndpoint
     Amazonka.EC2.DeleteInstanceEventWindow
     Amazonka.EC2.DeleteInternetGateway
     Amazonka.EC2.DeleteIpam
     Amazonka.EC2.DeleteIpamPool
+    Amazonka.EC2.DeleteIpamResourceDiscovery
     Amazonka.EC2.DeleteIpamScope
     Amazonka.EC2.DeleteKeyPair
     Amazonka.EC2.DeleteLaunchTemplate
@@ -299,6 +306,7 @@ library
     Amazonka.EC2.DescribeImportImageTasks
     Amazonka.EC2.DescribeImportSnapshotTasks
     Amazonka.EC2.DescribeInstanceAttribute
+    Amazonka.EC2.DescribeInstanceConnectEndpoints
     Amazonka.EC2.DescribeInstanceCreditSpecifications
     Amazonka.EC2.DescribeInstanceEventNotificationAttributes
     Amazonka.EC2.DescribeInstanceEventWindows
@@ -308,6 +316,8 @@ library
     Amazonka.EC2.DescribeInstanceTypes
     Amazonka.EC2.DescribeInternetGateways
     Amazonka.EC2.DescribeIpamPools
+    Amazonka.EC2.DescribeIpamResourceDiscoveries
+    Amazonka.EC2.DescribeIpamResourceDiscoveryAssociations
     Amazonka.EC2.DescribeIpams
     Amazonka.EC2.DescribeIpamScopes
     Amazonka.EC2.DescribeIpv6Pools
@@ -419,6 +429,8 @@ library
     Amazonka.EC2.DisassociateEnclaveCertificateIamRole
     Amazonka.EC2.DisassociateIamInstanceProfile
     Amazonka.EC2.DisassociateInstanceEventWindow
+    Amazonka.EC2.DisassociateIpamResourceDiscovery
+    Amazonka.EC2.DisassociateNatGatewayAddress
     Amazonka.EC2.DisassociateRouteTable
     Amazonka.EC2.DisassociateSubnetCidrBlock
     Amazonka.EC2.DisassociateTransitGatewayMulticastDomain
@@ -460,6 +472,8 @@ library
     Amazonka.EC2.GetInstanceTypesFromInstanceRequirements
     Amazonka.EC2.GetInstanceUefiData
     Amazonka.EC2.GetIpamAddressHistory
+    Amazonka.EC2.GetIpamDiscoveredAccounts
+    Amazonka.EC2.GetIpamDiscoveredResourceCidrs
     Amazonka.EC2.GetIpamPoolAllocations
     Amazonka.EC2.GetIpamPoolCidrs
     Amazonka.EC2.GetIpamResourceCidrs
@@ -484,6 +498,7 @@ library
     Amazonka.EC2.GetVerifiedAccessGroupPolicy
     Amazonka.EC2.GetVpnConnectionDeviceSampleConfiguration
     Amazonka.EC2.GetVpnConnectionDeviceTypes
+    Amazonka.EC2.GetVpnTunnelReplacementStatus
     Amazonka.EC2.ImportClientVpnClientCertificateRevocationList
     Amazonka.EC2.ImportImage
     Amazonka.EC2.ImportInstance
@@ -518,6 +533,7 @@ library
     Amazonka.EC2.ModifyIpam
     Amazonka.EC2.ModifyIpamPool
     Amazonka.EC2.ModifyIpamResourceCidr
+    Amazonka.EC2.ModifyIpamResourceDiscovery
     Amazonka.EC2.ModifyIpamScope
     Amazonka.EC2.ModifyLaunchTemplate
     Amazonka.EC2.ModifyLocalGatewayRoute
@@ -585,6 +601,7 @@ library
     Amazonka.EC2.ReplaceRoute
     Amazonka.EC2.ReplaceRouteTableAssociation
     Amazonka.EC2.ReplaceTransitGatewayRoute
+    Amazonka.EC2.ReplaceVpnTunnel
     Amazonka.EC2.ReportInstanceStatus
     Amazonka.EC2.RequestSpotFleet
     Amazonka.EC2.RequestSpotInstances
@@ -650,6 +667,7 @@ library
     Amazonka.EC2.Types.AllowedPrincipal
     Amazonka.EC2.Types.AllowsMultipleInstanceTypes
     Amazonka.EC2.Types.AlternatePathHint
+    Amazonka.EC2.Types.AmdSevSnpSpecification
     Amazonka.EC2.Types.AnalysisAclRule
     Amazonka.EC2.Types.AnalysisComponent
     Amazonka.EC2.Types.AnalysisLoadBalancerListener
@@ -844,6 +862,8 @@ library
     Amazonka.EC2.Types.EbsNvmeSupport
     Amazonka.EC2.Types.EbsOptimizedInfo
     Amazonka.EC2.Types.EbsOptimizedSupport
+    Amazonka.EC2.Types.Ec2InstanceConnectEndpoint
+    Amazonka.EC2.Types.Ec2InstanceConnectEndpointState
     Amazonka.EC2.Types.EfaInfo
     Amazonka.EC2.Types.EgressOnlyInternetGateway
     Amazonka.EC2.Types.ElasticGpuAssociation
@@ -891,7 +911,10 @@ library
     Amazonka.EC2.Types.FederatedAuthentication
     Amazonka.EC2.Types.FederatedAuthenticationRequest
     Amazonka.EC2.Types.Filter
+    Amazonka.EC2.Types.FilterPortRange
     Amazonka.EC2.Types.FindingsFound
+    Amazonka.EC2.Types.FirewallStatefulRule
+    Amazonka.EC2.Types.FirewallStatelessRule
     Amazonka.EC2.Types.FleetActivityStatus
     Amazonka.EC2.Types.FleetCapacityReservation
     Amazonka.EC2.Types.FleetCapacityReservationTenancy
@@ -936,6 +959,7 @@ library
     Amazonka.EC2.Types.HistoryRecordEntry
     Amazonka.EC2.Types.Host
     Amazonka.EC2.Types.HostInstance
+    Amazonka.EC2.Types.HostMaintenance
     Amazonka.EC2.Types.HostnameType
     Amazonka.EC2.Types.HostOffering
     Amazonka.EC2.Types.HostProperties
@@ -975,6 +999,7 @@ library
     Amazonka.EC2.Types.InstanceAutoRecoveryState
     Amazonka.EC2.Types.InstanceBlockDeviceMapping
     Amazonka.EC2.Types.InstanceBlockDeviceMappingSpecification
+    Amazonka.EC2.Types.InstanceBootModeValues
     Amazonka.EC2.Types.InstanceCapacity
     Amazonka.EC2.Types.InstanceCount
     Amazonka.EC2.Types.InstanceCreditSpecification
@@ -1043,8 +1068,13 @@ library
     Amazonka.EC2.Types.Ipam
     Amazonka.EC2.Types.IpamAddressHistoryRecord
     Amazonka.EC2.Types.IpamAddressHistoryResourceType
+    Amazonka.EC2.Types.IpamAssociatedResourceDiscoveryStatus
     Amazonka.EC2.Types.IpamCidrAuthorizationContext
     Amazonka.EC2.Types.IpamComplianceStatus
+    Amazonka.EC2.Types.IpamDiscoveredAccount
+    Amazonka.EC2.Types.IpamDiscoveredResourceCidr
+    Amazonka.EC2.Types.IpamDiscoveryFailureCode
+    Amazonka.EC2.Types.IpamDiscoveryFailureReason
     Amazonka.EC2.Types.IpamManagementState
     Amazonka.EC2.Types.IpamOperatingRegion
     Amazonka.EC2.Types.IpamOverlapStatus
@@ -1056,8 +1086,13 @@ library
     Amazonka.EC2.Types.IpamPoolCidrFailureCode
     Amazonka.EC2.Types.IpamPoolCidrFailureReason
     Amazonka.EC2.Types.IpamPoolCidrState
+    Amazonka.EC2.Types.IpamPoolPublicIpSource
     Amazonka.EC2.Types.IpamPoolState
     Amazonka.EC2.Types.IpamResourceCidr
+    Amazonka.EC2.Types.IpamResourceDiscovery
+    Amazonka.EC2.Types.IpamResourceDiscoveryAssociation
+    Amazonka.EC2.Types.IpamResourceDiscoveryAssociationState
+    Amazonka.EC2.Types.IpamResourceDiscoveryState
     Amazonka.EC2.Types.IpamResourceTag
     Amazonka.EC2.Types.IpamResourceType
     Amazonka.EC2.Types.IpamScope
@@ -1155,6 +1190,7 @@ library
     Amazonka.EC2.Types.LocalStorageType
     Amazonka.EC2.Types.LocationType
     Amazonka.EC2.Types.LogDestinationType
+    Amazonka.EC2.Types.MaintenanceDetails
     Amazonka.EC2.Types.ManagedPrefixList
     Amazonka.EC2.Types.MarketType
     Amazonka.EC2.Types.MembershipType
@@ -1179,6 +1215,7 @@ library
     Amazonka.EC2.Types.MulticastSupportValue
     Amazonka.EC2.Types.NatGateway
     Amazonka.EC2.Types.NatGatewayAddress
+    Amazonka.EC2.Types.NatGatewayAddressStatus
     Amazonka.EC2.Types.NatGatewayState
     Amazonka.EC2.Types.NetworkAcl
     Amazonka.EC2.Types.NetworkAclAssociation
@@ -1219,6 +1256,8 @@ library
     Amazonka.EC2.Types.PacketHeaderStatementRequest
     Amazonka.EC2.Types.PartitionLoadFrequency
     Amazonka.EC2.Types.PathComponent
+    Amazonka.EC2.Types.PathFilter
+    Amazonka.EC2.Types.PathRequestFilter
     Amazonka.EC2.Types.PathStatement
     Amazonka.EC2.Types.PathStatementRequest
     Amazonka.EC2.Types.PayerResponsibility
@@ -1292,6 +1331,7 @@ library
     Amazonka.EC2.Types.ReplaceRootVolumeTaskState
     Amazonka.EC2.Types.ReportInstanceReasonCodes
     Amazonka.EC2.Types.ReportStatusType
+    Amazonka.EC2.Types.RequestFilterPortRange
     Amazonka.EC2.Types.RequestIpamResourceTag
     Amazonka.EC2.Types.RequestLaunchTemplateData
     Amazonka.EC2.Types.RequestSpotLaunchSpecification
@@ -1326,6 +1366,9 @@ library
     Amazonka.EC2.Types.RouteTableAssociationState
     Amazonka.EC2.Types.RouteTableAssociationStateCode
     Amazonka.EC2.Types.RuleAction
+    Amazonka.EC2.Types.RuleGroupRuleOptionsPair
+    Amazonka.EC2.Types.RuleGroupTypePair
+    Amazonka.EC2.Types.RuleOption
     Amazonka.EC2.Types.RunInstancesMonitoringEnabled
     Amazonka.EC2.Types.S3ObjectTag
     Amazonka.EC2.Types.S3Storage
@@ -1415,6 +1458,7 @@ library
     Amazonka.EC2.Types.SuccessfulInstanceCreditSpecificationItem
     Amazonka.EC2.Types.SuccessfulQueuedPurchaseDeletion
     Amazonka.EC2.Types.SummaryStatus
+    Amazonka.EC2.Types.SupportedAdditionalProcessorFeature
     Amazonka.EC2.Types.Tag
     Amazonka.EC2.Types.TagDescription
     Amazonka.EC2.Types.TagSpecification
@@ -1604,6 +1648,7 @@ library
     Amazonka.EC2.Types.WeekDay
     Amazonka.EC2.UnassignIpv6Addresses
     Amazonka.EC2.UnassignPrivateIpAddresses
+    Amazonka.EC2.UnassignPrivateNatGatewayAddress
     Amazonka.EC2.UnmonitorInstances
     Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsEgress
     Amazonka.EC2.UpdateSecurityGroupRuleDescriptionsIngress

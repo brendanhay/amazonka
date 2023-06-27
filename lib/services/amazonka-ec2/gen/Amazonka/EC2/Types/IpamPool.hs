@@ -25,6 +25,7 @@ import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AddressFamily
 import Amazonka.EC2.Types.IpamPoolAwsService
+import Amazonka.EC2.Types.IpamPoolPublicIpSource
 import Amazonka.EC2.Types.IpamPoolState
 import Amazonka.EC2.Types.IpamResourceTag
 import Amazonka.EC2.Types.IpamScopeType
@@ -82,7 +83,7 @@ data IpamPool = IpamPool'
     description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IPAM.
     ipamArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IPAM pool.
+    -- | The Amazon Resource Name (ARN) of the IPAM pool.
     ipamPoolArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the IPAM pool.
     ipamPoolId :: Prelude.Maybe Prelude.Text,
@@ -114,6 +115,16 @@ data IpamPool = IpamPool'
     -- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas in IPAM>
     -- in the /Amazon VPC IPAM User Guide/.
     poolDepth :: Prelude.Maybe Prelude.Int,
+    -- | The IP address source for pools in the public scope. Only used for
+    -- provisioning IP address CIDRs to pools in the public scope. Default is
+    -- @BYOIP@. For more information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html Create IPv6 pools>
+    -- in the /Amazon VPC IPAM User Guide/. By default, you can add only one
+    -- Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For
+    -- information on increasing the default limit, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas for your IPAM>
+    -- in the /Amazon VPC IPAM User Guide/.
+    publicIpSource :: Prelude.Maybe IpamPoolPublicIpSource,
     -- | Determines if a pool is publicly advertisable. This option is not
     -- available for pools with AddressFamily set to @ipv4@.
     publiclyAdvertisable :: Prelude.Maybe Prelude.Bool,
@@ -184,7 +195,7 @@ data IpamPool = IpamPool'
 --
 -- 'ipamArn', 'ipamPool_ipamArn' - The ARN of the IPAM.
 --
--- 'ipamPoolArn', 'ipamPool_ipamPoolArn' - The ARN of the IPAM pool.
+-- 'ipamPoolArn', 'ipamPool_ipamPoolArn' - The Amazon Resource Name (ARN) of the IPAM pool.
 --
 -- 'ipamPoolId', 'ipamPool_ipamPoolId' - The ID of the IPAM pool.
 --
@@ -214,6 +225,16 @@ data IpamPool = IpamPool'
 -- 'poolDepth', 'ipamPool_poolDepth' - The depth of pools in your IPAM pool. The pool depth quota is 10. For
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas in IPAM>
+-- in the /Amazon VPC IPAM User Guide/.
+--
+-- 'publicIpSource', 'ipamPool_publicIpSource' - The IP address source for pools in the public scope. Only used for
+-- provisioning IP address CIDRs to pools in the public scope. Default is
+-- @BYOIP@. For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html Create IPv6 pools>
+-- in the /Amazon VPC IPAM User Guide/. By default, you can add only one
+-- Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For
+-- information on increasing the default limit, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas for your IPAM>
 -- in the /Amazon VPC IPAM User Guide/.
 --
 -- 'publiclyAdvertisable', 'ipamPool_publiclyAdvertisable' - Determines if a pool is publicly advertisable. This option is not
@@ -252,6 +273,7 @@ newIpamPool =
       locale = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       poolDepth = Prelude.Nothing,
+      publicIpSource = Prelude.Nothing,
       publiclyAdvertisable = Prelude.Nothing,
       sourceIpamPoolId = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -320,7 +342,7 @@ ipamPool_description = Lens.lens (\IpamPool' {description} -> description) (\s@I
 ipamPool_ipamArn :: Lens.Lens' IpamPool (Prelude.Maybe Prelude.Text)
 ipamPool_ipamArn = Lens.lens (\IpamPool' {ipamArn} -> ipamArn) (\s@IpamPool' {} a -> s {ipamArn = a} :: IpamPool)
 
--- | The ARN of the IPAM pool.
+-- | The Amazon Resource Name (ARN) of the IPAM pool.
 ipamPool_ipamPoolArn :: Lens.Lens' IpamPool (Prelude.Maybe Prelude.Text)
 ipamPool_ipamPoolArn = Lens.lens (\IpamPool' {ipamPoolArn} -> ipamPoolArn) (\s@IpamPool' {} a -> s {ipamPoolArn = a} :: IpamPool)
 
@@ -368,6 +390,18 @@ ipamPool_ownerId = Lens.lens (\IpamPool' {ownerId} -> ownerId) (\s@IpamPool' {} 
 ipamPool_poolDepth :: Lens.Lens' IpamPool (Prelude.Maybe Prelude.Int)
 ipamPool_poolDepth = Lens.lens (\IpamPool' {poolDepth} -> poolDepth) (\s@IpamPool' {} a -> s {poolDepth = a} :: IpamPool)
 
+-- | The IP address source for pools in the public scope. Only used for
+-- provisioning IP address CIDRs to pools in the public scope. Default is
+-- @BYOIP@. For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html Create IPv6 pools>
+-- in the /Amazon VPC IPAM User Guide/. By default, you can add only one
+-- Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For
+-- information on increasing the default limit, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html Quotas for your IPAM>
+-- in the /Amazon VPC IPAM User Guide/.
+ipamPool_publicIpSource :: Lens.Lens' IpamPool (Prelude.Maybe IpamPoolPublicIpSource)
+ipamPool_publicIpSource = Lens.lens (\IpamPool' {publicIpSource} -> publicIpSource) (\s@IpamPool' {} a -> s {publicIpSource = a} :: IpamPool)
+
 -- | Determines if a pool is publicly advertisable. This option is not
 -- available for pools with AddressFamily set to @ipv4@.
 ipamPool_publiclyAdvertisable :: Lens.Lens' IpamPool (Prelude.Maybe Prelude.Bool)
@@ -401,7 +435,8 @@ instance Data.FromXML IpamPool where
       Prelude.<*> (x Data..@? "allocationDefaultNetmaskLength")
       Prelude.<*> (x Data..@? "allocationMaxNetmaskLength")
       Prelude.<*> (x Data..@? "allocationMinNetmaskLength")
-      Prelude.<*> ( x Data..@? "allocationResourceTagSet"
+      Prelude.<*> ( x
+                      Data..@? "allocationResourceTagSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -417,17 +452,21 @@ instance Data.FromXML IpamPool where
       Prelude.<*> (x Data..@? "locale")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "poolDepth")
+      Prelude.<*> (x Data..@? "publicIpSource")
       Prelude.<*> (x Data..@? "publiclyAdvertisable")
       Prelude.<*> (x Data..@? "sourceIpamPoolId")
       Prelude.<*> (x Data..@? "state")
       Prelude.<*> (x Data..@? "stateMessage")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable IpamPool where
   hashWithSalt _salt IpamPool' {..} =
-    _salt `Prelude.hashWithSalt` addressFamily
+    _salt
+      `Prelude.hashWithSalt` addressFamily
       `Prelude.hashWithSalt` allocationDefaultNetmaskLength
       `Prelude.hashWithSalt` allocationMaxNetmaskLength
       `Prelude.hashWithSalt` allocationMinNetmaskLength
@@ -444,6 +483,7 @@ instance Prelude.Hashable IpamPool where
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` poolDepth
+      `Prelude.hashWithSalt` publicIpSource
       `Prelude.hashWithSalt` publiclyAdvertisable
       `Prelude.hashWithSalt` sourceIpamPoolId
       `Prelude.hashWithSalt` state
@@ -469,6 +509,7 @@ instance Prelude.NFData IpamPool where
       `Prelude.seq` Prelude.rnf locale
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf poolDepth
+      `Prelude.seq` Prelude.rnf publicIpSource
       `Prelude.seq` Prelude.rnf publiclyAdvertisable
       `Prelude.seq` Prelude.rnf sourceIpamPoolId
       `Prelude.seq` Prelude.rnf state

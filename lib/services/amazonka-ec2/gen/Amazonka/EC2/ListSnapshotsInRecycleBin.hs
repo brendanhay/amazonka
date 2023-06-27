@@ -60,11 +60,13 @@ data ListSnapshotsInRecycleBin = ListSnapshotsInRecycleBin'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the snapshots to list. Omit this parameter to list all of the
     -- snapshots that are in the Recycle Bin.
@@ -85,11 +87,13 @@ data ListSnapshotsInRecycleBin = ListSnapshotsInRecycleBin'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'maxResults', 'listSnapshotsInRecycleBin_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'listSnapshotsInRecycleBin_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'listSnapshotsInRecycleBin_nextToken' - The token for the next page of results.
+-- 'nextToken', 'listSnapshotsInRecycleBin_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
 -- 'snapshotIds', 'listSnapshotsInRecycleBin_snapshotIds' - The IDs of the snapshots to list. Omit this parameter to list all of the
 -- snapshots that are in the Recycle Bin.
@@ -111,13 +115,15 @@ newListSnapshotsInRecycleBin =
 listSnapshotsInRecycleBin_dryRun :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe Prelude.Bool)
 listSnapshotsInRecycleBin_dryRun = Lens.lens (\ListSnapshotsInRecycleBin' {dryRun} -> dryRun) (\s@ListSnapshotsInRecycleBin' {} a -> s {dryRun = a} :: ListSnapshotsInRecycleBin)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 listSnapshotsInRecycleBin_maxResults :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe Prelude.Natural)
 listSnapshotsInRecycleBin_maxResults = Lens.lens (\ListSnapshotsInRecycleBin' {maxResults} -> maxResults) (\s@ListSnapshotsInRecycleBin' {} a -> s {maxResults = a} :: ListSnapshotsInRecycleBin)
 
--- | The token for the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 listSnapshotsInRecycleBin_nextToken :: Lens.Lens' ListSnapshotsInRecycleBin (Prelude.Maybe Prelude.Text)
 listSnapshotsInRecycleBin_nextToken = Lens.lens (\ListSnapshotsInRecycleBin' {nextToken} -> nextToken) (\s@ListSnapshotsInRecycleBin' {} a -> s {nextToken = a} :: ListSnapshotsInRecycleBin)
 
@@ -131,22 +137,22 @@ instance Core.AWSPager ListSnapshotsInRecycleBin where
     | Core.stop
         ( rs
             Lens.^? listSnapshotsInRecycleBinResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSnapshotsInRecycleBinResponse_snapshots
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSnapshotsInRecycleBin_nextToken
           Lens..~ rs
           Lens.^? listSnapshotsInRecycleBinResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSnapshotsInRecycleBin where
   type
@@ -159,7 +165,9 @@ instance Core.AWSRequest ListSnapshotsInRecycleBin where
       ( \s h x ->
           ListSnapshotsInRecycleBinResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "snapshotSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "snapshotSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -167,7 +175,8 @@ instance Core.AWSRequest ListSnapshotsInRecycleBin where
 
 instance Prelude.Hashable ListSnapshotsInRecycleBin where
   hashWithSalt _salt ListSnapshotsInRecycleBin' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` snapshotIds
@@ -203,8 +212,8 @@ instance Data.ToQuery ListSnapshotsInRecycleBin where
 
 -- | /See:/ 'newListSnapshotsInRecycleBinResponse' smart constructor.
 data ListSnapshotsInRecycleBinResponse = ListSnapshotsInRecycleBinResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the snapshots.
     snapshots :: Prelude.Maybe [SnapshotRecycleBinInfo],
@@ -221,8 +230,8 @@ data ListSnapshotsInRecycleBinResponse = ListSnapshotsInRecycleBinResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSnapshotsInRecycleBinResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'listSnapshotsInRecycleBinResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'snapshots', 'listSnapshotsInRecycleBinResponse_snapshots' - Information about the snapshots.
 --
@@ -239,8 +248,8 @@ newListSnapshotsInRecycleBinResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 listSnapshotsInRecycleBinResponse_nextToken :: Lens.Lens' ListSnapshotsInRecycleBinResponse (Prelude.Maybe Prelude.Text)
 listSnapshotsInRecycleBinResponse_nextToken = Lens.lens (\ListSnapshotsInRecycleBinResponse' {nextToken} -> nextToken) (\s@ListSnapshotsInRecycleBinResponse' {} a -> s {nextToken = a} :: ListSnapshotsInRecycleBinResponse)
 

@@ -65,8 +65,8 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
-    -- -   @auto-recovery-supported@ - Indicates whether auto recovery is
-    --     supported (@true@ | @false@).
+    -- -   @auto-recovery-supported@ - Indicates whether Amazon CloudWatch
+    --     action based recovery is supported (@true@ | @false@).
     --
     -- -   @bare-metal@ - Indicates whether it is a bare metal instance type
     --     (@true@ | @false@).
@@ -184,6 +184,9 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     -- -   @processor-info.sustained-clock-speed-in-ghz@ - The CPU clock speed,
     --     in GHz.
     --
+    -- -   @processor-info.supported-features@ - The supported CPU features
+    --     (@amd-sev-snp@).
+    --
     -- -   @supported-boot-mode@ - The boot mode (@legacy-bios@ | @uefi@).
     --
     -- -   @supported-root-device-type@ - The root device type (@ebs@ |
@@ -214,11 +217,13 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
     instanceTypes :: Prelude.Maybe [InstanceType],
-    -- | The maximum number of results to return for the request in a single
-    -- page. The remaining results can be seen by sending another request with
-    -- the next token value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token to retrieve the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -238,8 +243,8 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 --
 -- 'filters', 'describeInstanceTypes_filters' - One or more filters. Filter names and values are case-sensitive.
 --
--- -   @auto-recovery-supported@ - Indicates whether auto recovery is
---     supported (@true@ | @false@).
+-- -   @auto-recovery-supported@ - Indicates whether Amazon CloudWatch
+--     action based recovery is supported (@true@ | @false@).
 --
 -- -   @bare-metal@ - Indicates whether it is a bare metal instance type
 --     (@true@ | @false@).
@@ -356,6 +361,9 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 --
 -- -   @processor-info.sustained-clock-speed-in-ghz@ - The CPU clock speed,
 --     in GHz.
+--
+-- -   @processor-info.supported-features@ - The supported CPU features
+--     (@amd-sev-snp@).
 --
 -- -   @supported-boot-mode@ - The boot mode (@legacy-bios@ | @uefi@).
 --
@@ -387,11 +395,13 @@ data DescribeInstanceTypes = DescribeInstanceTypes'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 --
--- 'maxResults', 'describeInstanceTypes_maxResults' - The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
+-- 'maxResults', 'describeInstanceTypes_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeInstanceTypes_nextToken' - The token to retrieve the next page of results.
+-- 'nextToken', 'describeInstanceTypes_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeInstanceTypes ::
   DescribeInstanceTypes
 newDescribeInstanceTypes =
@@ -412,8 +422,8 @@ describeInstanceTypes_dryRun = Lens.lens (\DescribeInstanceTypes' {dryRun} -> dr
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
--- -   @auto-recovery-supported@ - Indicates whether auto recovery is
---     supported (@true@ | @false@).
+-- -   @auto-recovery-supported@ - Indicates whether Amazon CloudWatch
+--     action based recovery is supported (@true@ | @false@).
 --
 -- -   @bare-metal@ - Indicates whether it is a bare metal instance type
 --     (@true@ | @false@).
@@ -530,6 +540,9 @@ describeInstanceTypes_dryRun = Lens.lens (\DescribeInstanceTypes' {dryRun} -> dr
 --
 -- -   @processor-info.sustained-clock-speed-in-ghz@ - The CPU clock speed,
 --     in GHz.
+--
+-- -   @processor-info.supported-features@ - The supported CPU features
+--     (@amd-sev-snp@).
 --
 -- -   @supported-boot-mode@ - The boot mode (@legacy-bios@ | @uefi@).
 --
@@ -565,13 +578,15 @@ describeInstanceTypes_filters = Lens.lens (\DescribeInstanceTypes' {filters} -> 
 describeInstanceTypes_instanceTypes :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe [InstanceType])
 describeInstanceTypes_instanceTypes = Lens.lens (\DescribeInstanceTypes' {instanceTypes} -> instanceTypes) (\s@DescribeInstanceTypes' {} a -> s {instanceTypes = a} :: DescribeInstanceTypes) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return for the request in a single
--- page. The remaining results can be seen by sending another request with
--- the next token value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeInstanceTypes_maxResults :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Natural)
 describeInstanceTypes_maxResults = Lens.lens (\DescribeInstanceTypes' {maxResults} -> maxResults) (\s@DescribeInstanceTypes' {} a -> s {maxResults = a} :: DescribeInstanceTypes)
 
--- | The token to retrieve the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeInstanceTypes_nextToken :: Lens.Lens' DescribeInstanceTypes (Prelude.Maybe Prelude.Text)
 describeInstanceTypes_nextToken = Lens.lens (\DescribeInstanceTypes' {nextToken} -> nextToken) (\s@DescribeInstanceTypes' {} a -> s {nextToken = a} :: DescribeInstanceTypes)
 
@@ -580,22 +595,22 @@ instance Core.AWSPager DescribeInstanceTypes where
     | Core.stop
         ( rs
             Lens.^? describeInstanceTypesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeInstanceTypesResponse_instanceTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeInstanceTypes_nextToken
           Lens..~ rs
           Lens.^? describeInstanceTypesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeInstanceTypes where
   type
@@ -607,7 +622,9 @@ instance Core.AWSRequest DescribeInstanceTypes where
     Response.receiveXML
       ( \s h x ->
           DescribeInstanceTypesResponse'
-            Prelude.<$> ( x Data..@? "instanceTypeSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "instanceTypeSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -616,7 +633,8 @@ instance Core.AWSRequest DescribeInstanceTypes where
 
 instance Prelude.Hashable DescribeInstanceTypes where
   hashWithSalt _salt DescribeInstanceTypes' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` instanceTypes
       `Prelude.hashWithSalt` maxResults
@@ -659,9 +677,16 @@ data DescribeInstanceTypesResponse = DescribeInstanceTypesResponse'
   { -- | The instance type. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
     -- in the /Amazon EC2 User Guide/.
+    --
+    -- When you change your EBS-backed instance type, instance restart or
+    -- replacement behavior depends on the instance type compatibility between
+    -- the old and new types. An instance that\'s backed by an instance store
+    -- volume is always replaced. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type>
+    -- in the /Amazon EC2 User Guide/.
     instanceTypes :: Prelude.Maybe [InstanceTypeInfo],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -680,8 +705,15 @@ data DescribeInstanceTypesResponse = DescribeInstanceTypesResponse'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
 --
--- 'nextToken', 'describeInstanceTypesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- When you change your EBS-backed instance type, instance restart or
+-- replacement behavior depends on the instance type compatibility between
+-- the old and new types. An instance that\'s backed by an instance store
+-- volume is always replaced. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type>
+-- in the /Amazon EC2 User Guide/.
+--
+-- 'nextToken', 'describeInstanceTypesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeInstanceTypesResponse_httpStatus' - The response's http status code.
 newDescribeInstanceTypesResponse ::
@@ -699,11 +731,18 @@ newDescribeInstanceTypesResponse pHttpStatus_ =
 -- | The instance type. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance types>
 -- in the /Amazon EC2 User Guide/.
+--
+-- When you change your EBS-backed instance type, instance restart or
+-- replacement behavior depends on the instance type compatibility between
+-- the old and new types. An instance that\'s backed by an instance store
+-- volume is always replaced. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-resize.html Change the instance type>
+-- in the /Amazon EC2 User Guide/.
 describeInstanceTypesResponse_instanceTypes :: Lens.Lens' DescribeInstanceTypesResponse (Prelude.Maybe [InstanceTypeInfo])
 describeInstanceTypesResponse_instanceTypes = Lens.lens (\DescribeInstanceTypesResponse' {instanceTypes} -> instanceTypes) (\s@DescribeInstanceTypesResponse' {} a -> s {instanceTypes = a} :: DescribeInstanceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeInstanceTypesResponse_nextToken :: Lens.Lens' DescribeInstanceTypesResponse (Prelude.Maybe Prelude.Text)
 describeInstanceTypesResponse_nextToken = Lens.lens (\DescribeInstanceTypesResponse' {nextToken} -> nextToken) (\s@DescribeInstanceTypesResponse' {} a -> s {nextToken = a} :: DescribeInstanceTypesResponse)
 

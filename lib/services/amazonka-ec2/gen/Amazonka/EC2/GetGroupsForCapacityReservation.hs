@@ -68,7 +68,9 @@ data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token to use to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Capacity Reservation.
+    -- | The ID of the Capacity Reservation. If you specify a Capacity
+    -- Reservation that is shared with you, the operation returns only Capacity
+    -- Reservation groups that you own.
     capacityReservationId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,7 +95,9 @@ data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
 --
 -- 'nextToken', 'getGroupsForCapacityReservation_nextToken' - The token to use to retrieve the next page of results.
 --
--- 'capacityReservationId', 'getGroupsForCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation.
+-- 'capacityReservationId', 'getGroupsForCapacityReservation_capacityReservationId' - The ID of the Capacity Reservation. If you specify a Capacity
+-- Reservation that is shared with you, the operation returns only Capacity
+-- Reservation groups that you own.
 newGetGroupsForCapacityReservation ::
   -- | 'capacityReservationId'
   Prelude.Text ->
@@ -127,7 +131,9 @@ getGroupsForCapacityReservation_maxResults = Lens.lens (\GetGroupsForCapacityRes
 getGroupsForCapacityReservation_nextToken :: Lens.Lens' GetGroupsForCapacityReservation (Prelude.Maybe Prelude.Text)
 getGroupsForCapacityReservation_nextToken = Lens.lens (\GetGroupsForCapacityReservation' {nextToken} -> nextToken) (\s@GetGroupsForCapacityReservation' {} a -> s {nextToken = a} :: GetGroupsForCapacityReservation)
 
--- | The ID of the Capacity Reservation.
+-- | The ID of the Capacity Reservation. If you specify a Capacity
+-- Reservation that is shared with you, the operation returns only Capacity
+-- Reservation groups that you own.
 getGroupsForCapacityReservation_capacityReservationId :: Lens.Lens' GetGroupsForCapacityReservation Prelude.Text
 getGroupsForCapacityReservation_capacityReservationId = Lens.lens (\GetGroupsForCapacityReservation' {capacityReservationId} -> capacityReservationId) (\s@GetGroupsForCapacityReservation' {} a -> s {capacityReservationId = a} :: GetGroupsForCapacityReservation)
 
@@ -139,22 +145,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? getGroupsForCapacityReservationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getGroupsForCapacityReservationResponse_capacityReservationGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getGroupsForCapacityReservation_nextToken
           Lens..~ rs
           Lens.^? getGroupsForCapacityReservationResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -169,7 +175,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetGroupsForCapacityReservationResponse'
-            Prelude.<$> ( x Data..@? "capacityReservationGroupSet"
+            Prelude.<$> ( x
+                            Data..@? "capacityReservationGroupSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -184,7 +191,8 @@ instance
   hashWithSalt
     _salt
     GetGroupsForCapacityReservation' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` capacityReservationId

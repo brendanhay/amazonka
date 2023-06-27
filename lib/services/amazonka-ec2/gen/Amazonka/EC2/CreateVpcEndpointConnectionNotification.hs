@@ -77,8 +77,8 @@ data CreateVpcEndpointConnectionNotification = CreateVpcEndpointConnectionNotifi
     vpcEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the SNS topic for the notifications.
     connectionNotificationArn :: Prelude.Text,
-    -- | One or more endpoint events for which to receive notifications. Valid
-    -- values are @Accept@, @Connect@, @Delete@, and @Reject@.
+    -- | The endpoint events for which to receive notifications. Valid values are
+    -- @Accept@, @Connect@, @Delete@, and @Reject@.
     connectionEvents :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,8 +106,8 @@ data CreateVpcEndpointConnectionNotification = CreateVpcEndpointConnectionNotifi
 --
 -- 'connectionNotificationArn', 'createVpcEndpointConnectionNotification_connectionNotificationArn' - The ARN of the SNS topic for the notifications.
 --
--- 'connectionEvents', 'createVpcEndpointConnectionNotification_connectionEvents' - One or more endpoint events for which to receive notifications. Valid
--- values are @Accept@, @Connect@, @Delete@, and @Reject@.
+-- 'connectionEvents', 'createVpcEndpointConnectionNotification_connectionEvents' - The endpoint events for which to receive notifications. Valid values are
+-- @Accept@, @Connect@, @Delete@, and @Reject@.
 newCreateVpcEndpointConnectionNotification ::
   -- | 'connectionNotificationArn'
   Prelude.Text ->
@@ -150,8 +150,8 @@ createVpcEndpointConnectionNotification_vpcEndpointId = Lens.lens (\CreateVpcEnd
 createVpcEndpointConnectionNotification_connectionNotificationArn :: Lens.Lens' CreateVpcEndpointConnectionNotification Prelude.Text
 createVpcEndpointConnectionNotification_connectionNotificationArn = Lens.lens (\CreateVpcEndpointConnectionNotification' {connectionNotificationArn} -> connectionNotificationArn) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {connectionNotificationArn = a} :: CreateVpcEndpointConnectionNotification)
 
--- | One or more endpoint events for which to receive notifications. Valid
--- values are @Accept@, @Connect@, @Delete@, and @Reject@.
+-- | The endpoint events for which to receive notifications. Valid values are
+-- @Accept@, @Connect@, @Delete@, and @Reject@.
 createVpcEndpointConnectionNotification_connectionEvents :: Lens.Lens' CreateVpcEndpointConnectionNotification [Prelude.Text]
 createVpcEndpointConnectionNotification_connectionEvents = Lens.lens (\CreateVpcEndpointConnectionNotification' {connectionEvents} -> connectionEvents) (\s@CreateVpcEndpointConnectionNotification' {} a -> s {connectionEvents = a} :: CreateVpcEndpointConnectionNotification) Prelude.. Lens.coerced
 
@@ -170,8 +170,8 @@ instance
       ( \s h x ->
           CreateVpcEndpointConnectionNotificationResponse'
             Prelude.<$> (x Data..@? "clientToken")
-              Prelude.<*> (x Data..@? "connectionNotification")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "connectionNotification")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -181,7 +181,8 @@ instance
   hashWithSalt
     _salt
     CreateVpcEndpointConnectionNotification' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` serviceId
         `Prelude.hashWithSalt` vpcEndpointId

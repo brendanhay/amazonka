@@ -66,11 +66,13 @@ diskImageVolumeDescription_size = Lens.lens (\DiskImageVolumeDescription' {size}
 instance Data.FromXML DiskImageVolumeDescription where
   parseXML x =
     DiskImageVolumeDescription'
-      Prelude.<$> (x Data..@? "id") Prelude.<*> (x Data..@? "size")
+      Prelude.<$> (x Data..@? "id")
+      Prelude.<*> (x Data..@? "size")
 
 instance Prelude.Hashable DiskImageVolumeDescription where
   hashWithSalt _salt DiskImageVolumeDescription' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` size
 
 instance Prelude.NFData DiskImageVolumeDescription where

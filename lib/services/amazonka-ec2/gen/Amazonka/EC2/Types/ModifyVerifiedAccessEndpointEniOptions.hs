@@ -26,7 +26,8 @@ import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VerifiedAccessEndpointProtocol
 import qualified Amazonka.Prelude as Prelude
 
--- | Options for a network-interface type Verified Access endpoint.
+-- | Describes the options when modifying a Verified Access endpoint with the
+-- @network-interface@ type.
 --
 -- /See:/ 'newModifyVerifiedAccessEndpointEniOptions' smart constructor.
 data ModifyVerifiedAccessEndpointEniOptions = ModifyVerifiedAccessEndpointEniOptions'
@@ -72,7 +73,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessEndpointEniOptions' {..} =
-      _salt `Prelude.hashWithSalt` port
+      _salt
+        `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` protocol
 
 instance

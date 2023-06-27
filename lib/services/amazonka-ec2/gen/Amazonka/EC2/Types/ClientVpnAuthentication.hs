@@ -99,7 +99,8 @@ instance Data.FromXML ClientVpnAuthentication where
 
 instance Prelude.Hashable ClientVpnAuthentication where
   hashWithSalt _salt ClientVpnAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` activeDirectory
+    _salt
+      `Prelude.hashWithSalt` activeDirectory
       `Prelude.hashWithSalt` federatedAuthentication
       `Prelude.hashWithSalt` mutualAuthentication
       `Prelude.hashWithSalt` type'

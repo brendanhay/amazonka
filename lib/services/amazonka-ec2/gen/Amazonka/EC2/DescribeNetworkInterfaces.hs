@@ -180,16 +180,18 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     --
     -- -   @vpc-id@ - The ID of the VPC for the network interface.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of items to return for this request. The request
-    -- returns a token that you can specify in a subsequent call to get the
-    -- next set of results. You cannot specify this parameter and the network
-    -- interface IDs parameter in the same request.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. You cannot specify this parameter and the network interface IDs
+    -- parameter in the same request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The network interface IDs.
     --
     -- Default: Describes all your network interfaces.
     networkInterfaceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The token to retrieve the next page of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -324,16 +326,18 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
 --
 -- -   @vpc-id@ - The ID of the VPC for the network interface.
 --
--- 'maxResults', 'describeNetworkInterfaces_maxResults' - The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results. You cannot specify this parameter and the network
--- interface IDs parameter in the same request.
+-- 'maxResults', 'describeNetworkInterfaces_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. You cannot specify this parameter and the network interface IDs
+-- parameter in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
 -- 'networkInterfaceIds', 'describeNetworkInterfaces_networkInterfaceIds' - The network interface IDs.
 --
 -- Default: Describes all your network interfaces.
 --
--- 'nextToken', 'describeNetworkInterfaces_nextToken' - The token to retrieve the next page of results.
+-- 'nextToken', 'describeNetworkInterfaces_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeNetworkInterfaces ::
   DescribeNetworkInterfaces
 newDescribeNetworkInterfaces =
@@ -472,10 +476,11 @@ describeNetworkInterfaces_dryRun = Lens.lens (\DescribeNetworkInterfaces' {dryRu
 describeNetworkInterfaces_filters :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe [Filter])
 describeNetworkInterfaces_filters = Lens.lens (\DescribeNetworkInterfaces' {filters} -> filters) (\s@DescribeNetworkInterfaces' {} a -> s {filters = a} :: DescribeNetworkInterfaces) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of items to return for this request. The request
--- returns a token that you can specify in a subsequent call to get the
--- next set of results. You cannot specify this parameter and the network
--- interface IDs parameter in the same request.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. You cannot specify this parameter and the network interface IDs
+-- parameter in the same request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeNetworkInterfaces_maxResults :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Natural)
 describeNetworkInterfaces_maxResults = Lens.lens (\DescribeNetworkInterfaces' {maxResults} -> maxResults) (\s@DescribeNetworkInterfaces' {} a -> s {maxResults = a} :: DescribeNetworkInterfaces)
 
@@ -485,7 +490,8 @@ describeNetworkInterfaces_maxResults = Lens.lens (\DescribeNetworkInterfaces' {m
 describeNetworkInterfaces_networkInterfaceIds :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe [Prelude.Text])
 describeNetworkInterfaces_networkInterfaceIds = Lens.lens (\DescribeNetworkInterfaces' {networkInterfaceIds} -> networkInterfaceIds) (\s@DescribeNetworkInterfaces' {} a -> s {networkInterfaceIds = a} :: DescribeNetworkInterfaces) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to retrieve the next page of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeNetworkInterfaces_nextToken :: Lens.Lens' DescribeNetworkInterfaces (Prelude.Maybe Prelude.Text)
 describeNetworkInterfaces_nextToken = Lens.lens (\DescribeNetworkInterfaces' {nextToken} -> nextToken) (\s@DescribeNetworkInterfaces' {} a -> s {nextToken = a} :: DescribeNetworkInterfaces)
 
@@ -494,22 +500,22 @@ instance Core.AWSPager DescribeNetworkInterfaces where
     | Core.stop
         ( rs
             Lens.^? describeNetworkInterfacesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeNetworkInterfacesResponse_networkInterfaces
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeNetworkInterfaces_nextToken
           Lens..~ rs
           Lens.^? describeNetworkInterfacesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeNetworkInterfaces where
   type
@@ -521,7 +527,8 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
     Response.receiveXML
       ( \s h x ->
           DescribeNetworkInterfacesResponse'
-            Prelude.<$> ( x Data..@? "networkInterfaceSet"
+            Prelude.<$> ( x
+                            Data..@? "networkInterfaceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -531,7 +538,8 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
 
 instance Prelude.Hashable DescribeNetworkInterfaces where
   hashWithSalt _salt DescribeNetworkInterfaces' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` networkInterfaceIds
@@ -569,14 +577,12 @@ instance Data.ToQuery DescribeNetworkInterfaces where
         "NextToken" Data.=: nextToken
       ]
 
--- | Contains the output of DescribeNetworkInterfaces.
---
--- /See:/ 'newDescribeNetworkInterfacesResponse' smart constructor.
+-- | /See:/ 'newDescribeNetworkInterfacesResponse' smart constructor.
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
   { -- | Information about one or more network interfaces.
     networkInterfaces :: Prelude.Maybe [NetworkInterface],
-    -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -593,8 +599,8 @@ data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
 --
 -- 'networkInterfaces', 'describeNetworkInterfacesResponse_networkInterfaces' - Information about one or more network interfaces.
 --
--- 'nextToken', 'describeNetworkInterfacesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeNetworkInterfacesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeNetworkInterfacesResponse_httpStatus' - The response's http status code.
 newDescribeNetworkInterfacesResponse ::
@@ -613,8 +619,8 @@ newDescribeNetworkInterfacesResponse pHttpStatus_ =
 describeNetworkInterfacesResponse_networkInterfaces :: Lens.Lens' DescribeNetworkInterfacesResponse (Prelude.Maybe [NetworkInterface])
 describeNetworkInterfacesResponse_networkInterfaces = Lens.lens (\DescribeNetworkInterfacesResponse' {networkInterfaces} -> networkInterfaces) (\s@DescribeNetworkInterfacesResponse' {} a -> s {networkInterfaces = a} :: DescribeNetworkInterfacesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeNetworkInterfacesResponse_nextToken :: Lens.Lens' DescribeNetworkInterfacesResponse (Prelude.Maybe Prelude.Text)
 describeNetworkInterfacesResponse_nextToken = Lens.lens (\DescribeNetworkInterfacesResponse' {nextToken} -> nextToken) (\s@DescribeNetworkInterfacesResponse' {} a -> s {nextToken = a} :: DescribeNetworkInterfacesResponse)
 

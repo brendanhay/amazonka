@@ -72,9 +72,6 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
     --
     -- -   @instance-type@ - The instance type (for example, @c4.large@).
     --
-    -- -   @network-platform@ - The network platform (@EC2-Classic@ or
-    --     @EC2-VPC@).
-    --
     -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to return in a single call. This value can
@@ -110,9 +107,6 @@ data DescribeScheduledInstances = DescribeScheduledInstances'
 --     @us-west-2a@).
 --
 -- -   @instance-type@ - The instance type (for example, @c4.large@).
---
--- -   @network-platform@ - The network platform (@EC2-Classic@ or
---     @EC2-VPC@).
 --
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
 --
@@ -153,9 +147,6 @@ describeScheduledInstances_dryRun = Lens.lens (\DescribeScheduledInstances' {dry
 --
 -- -   @instance-type@ - The instance type (for example, @c4.large@).
 --
--- -   @network-platform@ - The network platform (@EC2-Classic@ or
---     @EC2-VPC@).
---
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
 describeScheduledInstances_filters :: Lens.Lens' DescribeScheduledInstances (Prelude.Maybe [Filter])
 describeScheduledInstances_filters = Lens.lens (\DescribeScheduledInstances' {filters} -> filters) (\s@DescribeScheduledInstances' {} a -> s {filters = a} :: DescribeScheduledInstances) Prelude.. Lens.mapping Lens.coerced
@@ -184,22 +175,22 @@ instance Core.AWSPager DescribeScheduledInstances where
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstancesResponse_scheduledInstanceSet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScheduledInstances_nextToken
           Lens..~ rs
           Lens.^? describeScheduledInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeScheduledInstances where
   type
@@ -212,7 +203,8 @@ instance Core.AWSRequest DescribeScheduledInstances where
       ( \s h x ->
           DescribeScheduledInstancesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "scheduledInstanceSet"
+            Prelude.<*> ( x
+                            Data..@? "scheduledInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -221,7 +213,8 @@ instance Core.AWSRequest DescribeScheduledInstances where
 
 instance Prelude.Hashable DescribeScheduledInstances where
   hashWithSalt _salt DescribeScheduledInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

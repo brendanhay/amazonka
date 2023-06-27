@@ -145,7 +145,8 @@ instance
   hashWithSalt
     _salt
     CreateSpotDatafeedSubscription' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` prefix
         `Prelude.hashWithSalt` bucket
 

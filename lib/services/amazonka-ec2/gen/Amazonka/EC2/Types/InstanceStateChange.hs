@@ -83,7 +83,8 @@ instance Data.FromXML InstanceStateChange where
 
 instance Prelude.Hashable InstanceStateChange where
   hashWithSalt _salt InstanceStateChange' {..} =
-    _salt `Prelude.hashWithSalt` currentState
+    _salt
+      `Prelude.hashWithSalt` currentState
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` previousState
 

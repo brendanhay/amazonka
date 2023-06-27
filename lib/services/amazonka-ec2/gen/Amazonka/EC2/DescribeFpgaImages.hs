@@ -239,22 +239,22 @@ instance Core.AWSPager DescribeFpgaImages where
     | Core.stop
         ( rs
             Lens.^? describeFpgaImagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFpgaImagesResponse_fpgaImages
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFpgaImages_nextToken
           Lens..~ rs
           Lens.^? describeFpgaImagesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFpgaImages where
   type
@@ -266,7 +266,9 @@ instance Core.AWSRequest DescribeFpgaImages where
     Response.receiveXML
       ( \s h x ->
           DescribeFpgaImagesResponse'
-            Prelude.<$> ( x Data..@? "fpgaImageSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "fpgaImageSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -275,7 +277,8 @@ instance Core.AWSRequest DescribeFpgaImages where
 
 instance Prelude.Hashable DescribeFpgaImages where
   hashWithSalt _salt DescribeFpgaImages' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` fpgaImageIds
       `Prelude.hashWithSalt` maxResults

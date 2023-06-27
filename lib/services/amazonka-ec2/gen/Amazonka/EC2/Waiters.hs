@@ -24,6 +24,7 @@ import Amazonka.EC2.DescribeConversionTasks
 import Amazonka.EC2.DescribeCustomerGateways
 import Amazonka.EC2.DescribeExportTasks
 import Amazonka.EC2.DescribeImages
+import Amazonka.EC2.DescribeImportSnapshotTasks
 import Amazonka.EC2.DescribeInstanceStatus
 import Amazonka.EC2.DescribeInstances
 import Amazonka.EC2.DescribeInternetGateways
@@ -816,6 +817,47 @@ newSnapshotCompleted =
                     )
                 )
                 Prelude.. snapshot_state
+                Prelude.. Lens.to Data.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.EC2.DescribeImportSnapshotTasks' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newSnapshotImported :: Core.Wait DescribeImportSnapshotTasks
+newSnapshotImported =
+  Core.Wait
+    { Core.name = "SnapshotImported",
+      Core.attempts = 40,
+      Core.delay = 15,
+      Core.acceptors =
+        [ Core.matchAll
+            "completed"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeImportSnapshotTasksResponse_importSnapshotTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. importSnapshotTask_snapshotTaskDetail
+                Prelude.. Lens._Just
+                Prelude.. snapshotTaskDetail_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Data.toTextCI
+            ),
+          Core.matchAny
+            "error"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeImportSnapshotTasksResponse_importSnapshotTasks
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. importSnapshotTask_snapshotTaskDetail
+                Prelude.. Lens._Just
+                Prelude.. snapshotTaskDetail_status
+                Prelude.. Lens._Just
                 Prelude.. Lens.to Data.toTextCI
             )
         ]

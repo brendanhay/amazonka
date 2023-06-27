@@ -119,7 +119,8 @@ instance Core.AWSRequest ResetImageAttribute where
 
 instance Prelude.Hashable ResetImageAttribute where
   hashWithSalt _salt ResetImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` imageId
 

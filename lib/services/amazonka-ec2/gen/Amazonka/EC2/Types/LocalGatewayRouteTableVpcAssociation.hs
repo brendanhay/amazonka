@@ -140,7 +140,9 @@ instance
       Prelude.<*> (x Data..@? "localGatewayRouteTableVpcAssociationId")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "vpcId")
@@ -152,7 +154,8 @@ instance
   hashWithSalt
     _salt
     LocalGatewayRouteTableVpcAssociation' {..} =
-      _salt `Prelude.hashWithSalt` localGatewayId
+      _salt
+        `Prelude.hashWithSalt` localGatewayId
         `Prelude.hashWithSalt` localGatewayRouteTableArn
         `Prelude.hashWithSalt` localGatewayRouteTableId
         `Prelude.hashWithSalt` localGatewayRouteTableVpcAssociationId

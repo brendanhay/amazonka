@@ -85,20 +85,23 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
     --
     -- Possible values: Integers from 1 to 64
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
-    -- | The state of token usage for your instance metadata requests. If the
-    -- parameter is not specified in the request, the default state is
-    -- @optional@.
+    -- | IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to
+    -- @optional@ (in other words, set the use of IMDSv2 to @optional@) or
+    -- @required@ (in other words, set the use of IMDSv2 to @required@).
     --
-    -- If the state is @optional@, you can choose to retrieve instance metadata
-    -- with or without a session token on your request. If you retrieve the IAM
-    -- role credentials without a token, the version 1.0 role credentials are
-    -- returned. If you retrieve the IAM role credentials using a valid session
-    -- token, the version 2.0 role credentials are returned.
+    -- -   @optional@ - When IMDSv2 is optional, you can choose to retrieve
+    --     instance metadata with or without a session token in your request.
+    --     If you retrieve the IAM role credentials without a token, the IMDSv1
+    --     role credentials are returned. If you retrieve the IAM role
+    --     credentials using a valid session token, the IMDSv2 role credentials
+    --     are returned.
     --
-    -- If the state is @required@, you must send a session token with any
-    -- instance metadata retrieval requests. In this state, retrieving the IAM
-    -- role credentials always returns the version 2.0 credentials; the version
-    -- 1.0 credentials are not available.
+    -- -   @required@ - When IMDSv2 is required, you must send a session token
+    --     with any instance metadata retrieval requests. In this state,
+    --     retrieving the IAM role credentials always returns IMDSv2
+    --     credentials; IMDSv1 credentials are not available.
+    --
+    -- Default: @optional@
     httpTokens :: Prelude.Maybe HttpTokensState,
     -- | Set to @enabled@ to allow access to instance tags from the instance
     -- metadata. Set to @disabled@ to turn off access to instance tags from the
@@ -141,20 +144,23 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
 --
 -- Possible values: Integers from 1 to 64
 --
--- 'httpTokens', 'modifyInstanceMetadataOptions_httpTokens' - The state of token usage for your instance metadata requests. If the
--- parameter is not specified in the request, the default state is
--- @optional@.
+-- 'httpTokens', 'modifyInstanceMetadataOptions_httpTokens' - IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to
+-- @optional@ (in other words, set the use of IMDSv2 to @optional@) or
+-- @required@ (in other words, set the use of IMDSv2 to @required@).
 --
--- If the state is @optional@, you can choose to retrieve instance metadata
--- with or without a session token on your request. If you retrieve the IAM
--- role credentials without a token, the version 1.0 role credentials are
--- returned. If you retrieve the IAM role credentials using a valid session
--- token, the version 2.0 role credentials are returned.
+-- -   @optional@ - When IMDSv2 is optional, you can choose to retrieve
+--     instance metadata with or without a session token in your request.
+--     If you retrieve the IAM role credentials without a token, the IMDSv1
+--     role credentials are returned. If you retrieve the IAM role
+--     credentials using a valid session token, the IMDSv2 role credentials
+--     are returned.
 --
--- If the state is @required@, you must send a session token with any
--- instance metadata retrieval requests. In this state, retrieving the IAM
--- role credentials always returns the version 2.0 credentials; the version
--- 1.0 credentials are not available.
+-- -   @required@ - When IMDSv2 is required, you must send a session token
+--     with any instance metadata retrieval requests. In this state,
+--     retrieving the IAM role credentials always returns IMDSv2
+--     credentials; IMDSv1 credentials are not available.
+--
+-- Default: @optional@
 --
 -- 'instanceMetadataTags', 'modifyInstanceMetadataOptions_instanceMetadataTags' - Set to @enabled@ to allow access to instance tags from the instance
 -- metadata. Set to @disabled@ to turn off access to instance tags from the
@@ -209,20 +215,23 @@ modifyInstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\ModifyInstanceMetad
 modifyInstanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe Prelude.Int)
 modifyInstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\ModifyInstanceMetadataOptions' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpPutResponseHopLimit = a} :: ModifyInstanceMetadataOptions)
 
--- | The state of token usage for your instance metadata requests. If the
--- parameter is not specified in the request, the default state is
--- @optional@.
+-- | IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to
+-- @optional@ (in other words, set the use of IMDSv2 to @optional@) or
+-- @required@ (in other words, set the use of IMDSv2 to @required@).
 --
--- If the state is @optional@, you can choose to retrieve instance metadata
--- with or without a session token on your request. If you retrieve the IAM
--- role credentials without a token, the version 1.0 role credentials are
--- returned. If you retrieve the IAM role credentials using a valid session
--- token, the version 2.0 role credentials are returned.
+-- -   @optional@ - When IMDSv2 is optional, you can choose to retrieve
+--     instance metadata with or without a session token in your request.
+--     If you retrieve the IAM role credentials without a token, the IMDSv1
+--     role credentials are returned. If you retrieve the IAM role
+--     credentials using a valid session token, the IMDSv2 role credentials
+--     are returned.
 --
--- If the state is @required@, you must send a session token with any
--- instance metadata retrieval requests. In this state, retrieving the IAM
--- role credentials always returns the version 2.0 credentials; the version
--- 1.0 credentials are not available.
+-- -   @required@ - When IMDSv2 is required, you must send a session token
+--     with any instance metadata retrieval requests. In this state,
+--     retrieving the IAM role credentials always returns IMDSv2
+--     credentials; IMDSv1 credentials are not available.
+--
+-- Default: @optional@
 modifyInstanceMetadataOptions_httpTokens :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe HttpTokensState)
 modifyInstanceMetadataOptions_httpTokens = Lens.lens (\ModifyInstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpTokens = a} :: ModifyInstanceMetadataOptions)
 
@@ -262,7 +271,8 @@ instance
     ModifyInstanceMetadataOptions
   where
   hashWithSalt _salt ModifyInstanceMetadataOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` httpProtocolIpv6
       `Prelude.hashWithSalt` httpPutResponseHopLimit

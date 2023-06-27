@@ -94,9 +94,10 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The start of port range for the TCP and UDP protocols, or an ICMP type
-    -- number. For the ICMP type number, use @-1@ to specify all types. If you
-    -- specify all ICMP types, you must specify all codes.
+    -- | If the protocol is TCP or UDP, this is the start of the port range. If
+    -- the protocol is ICMP, this is the type number. A value of -1 indicates
+    -- all ICMP types. If you specify all ICMP types, you must specify all ICMP
+    -- codes.
     --
     -- Alternatively, use a set of IP permissions to specify multiple rules and
     -- a description for the rule.
@@ -141,9 +142,9 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
     -- | [VPC Only] The tags applied to the security group rule.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The end of port range for the TCP and UDP protocols, or an ICMP code
-    -- number. For the ICMP code number, use @-1@ to specify all codes. If you
-    -- specify all ICMP types, you must specify all codes.
+    -- | If the protocol is TCP or UDP, this is the end of the port range. If the
+    -- protocol is ICMP, this is the code. A value of -1 indicates all ICMP
+    -- codes. If you specify all ICMP types, you must specify all ICMP codes.
     --
     -- Alternatively, use a set of IP permissions to specify multiple rules and
     -- a description for the rule.
@@ -171,9 +172,10 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'fromPort', 'authorizeSecurityGroupIngress_fromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use @-1@ to specify all types. If you
--- specify all ICMP types, you must specify all codes.
+-- 'fromPort', 'authorizeSecurityGroupIngress_fromPort' - If the protocol is TCP or UDP, this is the start of the port range. If
+-- the protocol is ICMP, this is the type number. A value of -1 indicates
+-- all ICMP types. If you specify all ICMP types, you must specify all ICMP
+-- codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and
 -- a description for the rule.
@@ -218,9 +220,9 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
 --
 -- 'tagSpecifications', 'authorizeSecurityGroupIngress_tagSpecifications' - [VPC Only] The tags applied to the security group rule.
 --
--- 'toPort', 'authorizeSecurityGroupIngress_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all codes. If you
--- specify all ICMP types, you must specify all codes.
+-- 'toPort', 'authorizeSecurityGroupIngress_toPort' - If the protocol is TCP or UDP, this is the end of the port range. If the
+-- protocol is ICMP, this is the code. A value of -1 indicates all ICMP
+-- codes. If you specify all ICMP types, you must specify all ICMP codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and
 -- a description for the rule.
@@ -258,9 +260,10 @@ authorizeSecurityGroupIngress_cidrIp = Lens.lens (\AuthorizeSecurityGroupIngress
 authorizeSecurityGroupIngress_dryRun :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe Prelude.Bool)
 authorizeSecurityGroupIngress_dryRun = Lens.lens (\AuthorizeSecurityGroupIngress' {dryRun} -> dryRun) (\s@AuthorizeSecurityGroupIngress' {} a -> s {dryRun = a} :: AuthorizeSecurityGroupIngress)
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use @-1@ to specify all types. If you
--- specify all ICMP types, you must specify all codes.
+-- | If the protocol is TCP or UDP, this is the start of the port range. If
+-- the protocol is ICMP, this is the type number. A value of -1 indicates
+-- all ICMP types. If you specify all ICMP types, you must specify all ICMP
+-- codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and
 -- a description for the rule.
@@ -321,9 +324,9 @@ authorizeSecurityGroupIngress_sourceSecurityGroupOwnerId = Lens.lens (\Authorize
 authorizeSecurityGroupIngress_tagSpecifications :: Lens.Lens' AuthorizeSecurityGroupIngress (Prelude.Maybe [TagSpecification])
 authorizeSecurityGroupIngress_tagSpecifications = Lens.lens (\AuthorizeSecurityGroupIngress' {tagSpecifications} -> tagSpecifications) (\s@AuthorizeSecurityGroupIngress' {} a -> s {tagSpecifications = a} :: AuthorizeSecurityGroupIngress) Prelude.. Lens.mapping Lens.coerced
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all codes. If you
--- specify all ICMP types, you must specify all codes.
+-- | If the protocol is TCP or UDP, this is the end of the port range. If the
+-- protocol is ICMP, this is the code. A value of -1 indicates all ICMP
+-- codes. If you specify all ICMP types, you must specify all ICMP codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and
 -- a description for the rule.
@@ -344,7 +347,8 @@ instance
       ( \s h x ->
           AuthorizeSecurityGroupIngressResponse'
             Prelude.<$> (x Data..@? "return")
-            Prelude.<*> ( x Data..@? "securityGroupRuleSet"
+            Prelude.<*> ( x
+                            Data..@? "securityGroupRuleSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -356,7 +360,8 @@ instance
     AuthorizeSecurityGroupIngress
   where
   hashWithSalt _salt AuthorizeSecurityGroupIngress' {..} =
-    _salt `Prelude.hashWithSalt` cidrIp
+    _salt
+      `Prelude.hashWithSalt` cidrIp
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` groupId

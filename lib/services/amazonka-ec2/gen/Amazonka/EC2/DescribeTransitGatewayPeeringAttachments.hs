@@ -217,22 +217,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeTransitGatewayPeeringAttachmentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTransitGatewayPeeringAttachmentsResponse_transitGatewayPeeringAttachments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTransitGatewayPeeringAttachments_nextToken
           Lens..~ rs
-            Lens.^? describeTransitGatewayPeeringAttachmentsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeTransitGatewayPeeringAttachmentsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -249,11 +249,12 @@ instance
       ( \s h x ->
           DescribeTransitGatewayPeeringAttachmentsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "transitGatewayPeeringAttachments"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "transitGatewayPeeringAttachments"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -263,7 +264,8 @@ instance
   hashWithSalt
     _salt
     DescribeTransitGatewayPeeringAttachments' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

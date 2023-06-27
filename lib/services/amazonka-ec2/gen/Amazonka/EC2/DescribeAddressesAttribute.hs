@@ -140,22 +140,22 @@ instance Core.AWSPager DescribeAddressesAttribute where
     | Core.stop
         ( rs
             Lens.^? describeAddressesAttributeResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeAddressesAttributeResponse_addresses
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeAddressesAttribute_nextToken
           Lens..~ rs
           Lens.^? describeAddressesAttributeResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAddressesAttribute where
   type
@@ -167,7 +167,9 @@ instance Core.AWSRequest DescribeAddressesAttribute where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesAttributeResponse'
-            Prelude.<$> ( x Data..@? "addressSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "addressSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (x Data..@? "nextToken")
@@ -176,7 +178,8 @@ instance Core.AWSRequest DescribeAddressesAttribute where
 
 instance Prelude.Hashable DescribeAddressesAttribute where
   hashWithSalt _salt DescribeAddressesAttribute' {..} =
-    _salt `Prelude.hashWithSalt` allocationIds
+    _salt
+      `Prelude.hashWithSalt` allocationIds
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults

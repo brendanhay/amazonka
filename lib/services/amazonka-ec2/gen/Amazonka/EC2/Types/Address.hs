@@ -31,10 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAddress' smart constructor.
 data Address = Address'
-  { -- | The ID representing the allocation of the address for use with EC2-VPC.
+  { -- | The ID representing the allocation of the address.
     allocationId :: Prelude.Maybe Prelude.Text,
-    -- | The ID representing the association of the address with an instance in a
-    -- VPC.
+    -- | The ID representing the association of the address with an instance.
     associationId :: Prelude.Maybe Prelude.Text,
     -- | The carrier IP address associated. This option is only available for
     -- network interfaces which reside in a subnet in a Wavelength Zone (for
@@ -44,8 +43,7 @@ data Address = Address'
     customerOwnedIp :: Prelude.Maybe Prelude.Text,
     -- | The ID of the customer-owned address pool.
     customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether this Elastic IP address is for use with instances in
-    -- EC2-Classic (@standard@) or instances in a VPC (@vpc@).
+    -- | The network (@vpc@).
     domain :: Prelude.Maybe DomainType,
     -- | The ID of the instance that the address is associated with (if any).
     instanceId :: Prelude.Maybe Prelude.Text,
@@ -76,10 +74,9 @@ data Address = Address'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allocationId', 'address_allocationId' - The ID representing the allocation of the address for use with EC2-VPC.
+-- 'allocationId', 'address_allocationId' - The ID representing the allocation of the address.
 --
--- 'associationId', 'address_associationId' - The ID representing the association of the address with an instance in a
--- VPC.
+-- 'associationId', 'address_associationId' - The ID representing the association of the address with an instance.
 --
 -- 'carrierIp', 'address_carrierIp' - The carrier IP address associated. This option is only available for
 -- network interfaces which reside in a subnet in a Wavelength Zone (for
@@ -89,8 +86,7 @@ data Address = Address'
 --
 -- 'customerOwnedIpv4Pool', 'address_customerOwnedIpv4Pool' - The ID of the customer-owned address pool.
 --
--- 'domain', 'address_domain' - Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic (@standard@) or instances in a VPC (@vpc@).
+-- 'domain', 'address_domain' - The network (@vpc@).
 --
 -- 'instanceId', 'address_instanceId' - The ID of the instance that the address is associated with (if any).
 --
@@ -129,12 +125,11 @@ newAddress =
       tags = Prelude.Nothing
     }
 
--- | The ID representing the allocation of the address for use with EC2-VPC.
+-- | The ID representing the allocation of the address.
 address_allocationId :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_allocationId = Lens.lens (\Address' {allocationId} -> allocationId) (\s@Address' {} a -> s {allocationId = a} :: Address)
 
--- | The ID representing the association of the address with an instance in a
--- VPC.
+-- | The ID representing the association of the address with an instance.
 address_associationId :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_associationId = Lens.lens (\Address' {associationId} -> associationId) (\s@Address' {} a -> s {associationId = a} :: Address)
 
@@ -152,8 +147,7 @@ address_customerOwnedIp = Lens.lens (\Address' {customerOwnedIp} -> customerOwne
 address_customerOwnedIpv4Pool :: Lens.Lens' Address (Prelude.Maybe Prelude.Text)
 address_customerOwnedIpv4Pool = Lens.lens (\Address' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@Address' {} a -> s {customerOwnedIpv4Pool = a} :: Address)
 
--- | Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic (@standard@) or instances in a VPC (@vpc@).
+-- | The network (@vpc@).
 address_domain :: Lens.Lens' Address (Prelude.Maybe DomainType)
 address_domain = Lens.lens (\Address' {domain} -> domain) (\s@Address' {} a -> s {domain = a} :: Address)
 
@@ -207,13 +201,16 @@ instance Data.FromXML Address where
       Prelude.<*> (x Data..@? "privateIpAddress")
       Prelude.<*> (x Data..@? "publicIp")
       Prelude.<*> (x Data..@? "publicIpv4Pool")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable Address where
   hashWithSalt _salt Address' {..} =
-    _salt `Prelude.hashWithSalt` allocationId
+    _salt
+      `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` carrierIp
       `Prelude.hashWithSalt` customerOwnedIp

@@ -20,28 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes one or more specified VPC endpoints. You can delete any of the
--- following types of VPC endpoints.
+-- Deletes the specified VPC endpoints.
 --
--- -   Gateway endpoint,
+-- When you delete a gateway endpoint, we delete the endpoint routes in the
+-- route tables for the endpoint.
 --
--- -   Gateway Load Balancer endpoint,
+-- When you delete a Gateway Load Balancer endpoint, we delete its endpoint
+-- network interfaces. You can only delete Gateway Load Balancer endpoints
+-- when the routes that are associated with the endpoint are deleted.
 --
--- -   Interface endpoint
---
--- The following rules apply when you delete a VPC endpoint:
---
--- -   When you delete a gateway endpoint, we delete the endpoint routes in
---     the route tables that are associated with the endpoint.
---
--- -   When you delete a Gateway Load Balancer endpoint, we delete the
---     endpoint network interfaces.
---
---     You can only delete Gateway Load Balancer endpoints when the routes
---     that are associated with the endpoint are deleted.
---
--- -   When you delete an interface endpoint, we delete the endpoint
---     network interfaces.
+-- When you delete an interface endpoint, we delete its endpoint network
+-- interfaces.
 module Amazonka.EC2.DeleteVpcEndpoints
   ( -- * Creating a Request
     DeleteVpcEndpoints (..),
@@ -69,16 +58,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Contains the parameters for DeleteVpcEndpoints.
---
--- /See:/ 'newDeleteVpcEndpoints' smart constructor.
+-- | /See:/ 'newDeleteVpcEndpoints' smart constructor.
 data DeleteVpcEndpoints = DeleteVpcEndpoints'
   { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more VPC endpoint IDs.
+    -- | The IDs of the VPC endpoints.
     vpcEndpointIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,7 +83,7 @@ data DeleteVpcEndpoints = DeleteVpcEndpoints'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'vpcEndpointIds', 'deleteVpcEndpoints_vpcEndpointIds' - One or more VPC endpoint IDs.
+-- 'vpcEndpointIds', 'deleteVpcEndpoints_vpcEndpointIds' - The IDs of the VPC endpoints.
 newDeleteVpcEndpoints ::
   DeleteVpcEndpoints
 newDeleteVpcEndpoints =
@@ -112,7 +99,7 @@ newDeleteVpcEndpoints =
 deleteVpcEndpoints_dryRun :: Lens.Lens' DeleteVpcEndpoints (Prelude.Maybe Prelude.Bool)
 deleteVpcEndpoints_dryRun = Lens.lens (\DeleteVpcEndpoints' {dryRun} -> dryRun) (\s@DeleteVpcEndpoints' {} a -> s {dryRun = a} :: DeleteVpcEndpoints)
 
--- | One or more VPC endpoint IDs.
+-- | The IDs of the VPC endpoints.
 deleteVpcEndpoints_vpcEndpointIds :: Lens.Lens' DeleteVpcEndpoints [Prelude.Text]
 deleteVpcEndpoints_vpcEndpointIds = Lens.lens (\DeleteVpcEndpoints' {vpcEndpointIds} -> vpcEndpointIds) (\s@DeleteVpcEndpoints' {} a -> s {vpcEndpointIds = a} :: DeleteVpcEndpoints) Prelude.. Lens.coerced
 
@@ -126,7 +113,9 @@ instance Core.AWSRequest DeleteVpcEndpoints where
     Response.receiveXML
       ( \s h x ->
           DeleteVpcEndpointsResponse'
-            Prelude.<$> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -134,7 +123,8 @@ instance Core.AWSRequest DeleteVpcEndpoints where
 
 instance Prelude.Hashable DeleteVpcEndpoints where
   hashWithSalt _salt DeleteVpcEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` vpcEndpointIds
 
 instance Prelude.NFData DeleteVpcEndpoints where
@@ -159,9 +149,7 @@ instance Data.ToQuery DeleteVpcEndpoints where
         Data.toQueryList "VpcEndpointId" vpcEndpointIds
       ]
 
--- | Contains the output of DeleteVpcEndpoints.
---
--- /See:/ 'newDeleteVpcEndpointsResponse' smart constructor.
+-- | /See:/ 'newDeleteVpcEndpointsResponse' smart constructor.
 data DeleteVpcEndpointsResponse = DeleteVpcEndpointsResponse'
   { -- | Information about the VPC endpoints that were not successfully deleted.
     unsuccessful :: Prelude.Maybe [UnsuccessfulItem],

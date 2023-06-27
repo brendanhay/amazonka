@@ -82,7 +82,8 @@ destinationOptionsRequest_perHourPartition = Lens.lens (\DestinationOptionsReque
 
 instance Prelude.Hashable DestinationOptionsRequest where
   hashWithSalt _salt DestinationOptionsRequest' {..} =
-    _salt `Prelude.hashWithSalt` fileFormat
+    _salt
+      `Prelude.hashWithSalt` fileFormat
       `Prelude.hashWithSalt` hiveCompatiblePartitions
       `Prelude.hashWithSalt` perHourPartition
 

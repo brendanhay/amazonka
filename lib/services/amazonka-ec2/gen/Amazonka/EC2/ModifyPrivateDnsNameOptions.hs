@@ -30,8 +30,8 @@ module Amazonka.EC2.ModifyPrivateDnsNameOptions
     modifyPrivateDnsNameOptions_dryRun,
     modifyPrivateDnsNameOptions_enableResourceNameDnsAAAARecord,
     modifyPrivateDnsNameOptions_enableResourceNameDnsARecord,
-    modifyPrivateDnsNameOptions_instanceId,
     modifyPrivateDnsNameOptions_privateDnsHostnameType,
+    modifyPrivateDnsNameOptions_instanceId,
 
     -- * Destructuring the Response
     ModifyPrivateDnsNameOptionsResponse (..),
@@ -64,14 +64,14 @@ data ModifyPrivateDnsNameOptions = ModifyPrivateDnsNameOptions'
     -- | Indicates whether to respond to DNS queries for instance hostnames with
     -- DNS A records.
     enableResourceNameDnsARecord :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the instance.
-    instanceId :: Prelude.Maybe Prelude.Text,
     -- | The type of hostname for EC2 instances. For IPv4 only subnets, an
     -- instance DNS name must be based on the instance IPv4 address. For IPv6
     -- only subnets, an instance DNS name must be based on the instance ID. For
     -- dual-stack subnets, you can specify whether DNS names use the instance
     -- IPv4 address or the instance ID.
-    privateDnsHostnameType :: Prelude.Maybe HostnameType
+    privateDnsHostnameType :: Prelude.Maybe HostnameType,
+    -- | The ID of the instance.
+    instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,24 +94,26 @@ data ModifyPrivateDnsNameOptions = ModifyPrivateDnsNameOptions'
 -- 'enableResourceNameDnsARecord', 'modifyPrivateDnsNameOptions_enableResourceNameDnsARecord' - Indicates whether to respond to DNS queries for instance hostnames with
 -- DNS A records.
 --
--- 'instanceId', 'modifyPrivateDnsNameOptions_instanceId' - The ID of the instance.
---
 -- 'privateDnsHostnameType', 'modifyPrivateDnsNameOptions_privateDnsHostnameType' - The type of hostname for EC2 instances. For IPv4 only subnets, an
 -- instance DNS name must be based on the instance IPv4 address. For IPv6
 -- only subnets, an instance DNS name must be based on the instance ID. For
 -- dual-stack subnets, you can specify whether DNS names use the instance
 -- IPv4 address or the instance ID.
+--
+-- 'instanceId', 'modifyPrivateDnsNameOptions_instanceId' - The ID of the instance.
 newModifyPrivateDnsNameOptions ::
+  -- | 'instanceId'
+  Prelude.Text ->
   ModifyPrivateDnsNameOptions
-newModifyPrivateDnsNameOptions =
+newModifyPrivateDnsNameOptions pInstanceId_ =
   ModifyPrivateDnsNameOptions'
     { dryRun =
         Prelude.Nothing,
       enableResourceNameDnsAAAARecord =
         Prelude.Nothing,
       enableResourceNameDnsARecord = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
-      privateDnsHostnameType = Prelude.Nothing
+      privateDnsHostnameType = Prelude.Nothing,
+      instanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -131,10 +133,6 @@ modifyPrivateDnsNameOptions_enableResourceNameDnsAAAARecord = Lens.lens (\Modify
 modifyPrivateDnsNameOptions_enableResourceNameDnsARecord :: Lens.Lens' ModifyPrivateDnsNameOptions (Prelude.Maybe Prelude.Bool)
 modifyPrivateDnsNameOptions_enableResourceNameDnsARecord = Lens.lens (\ModifyPrivateDnsNameOptions' {enableResourceNameDnsARecord} -> enableResourceNameDnsARecord) (\s@ModifyPrivateDnsNameOptions' {} a -> s {enableResourceNameDnsARecord = a} :: ModifyPrivateDnsNameOptions)
 
--- | The ID of the instance.
-modifyPrivateDnsNameOptions_instanceId :: Lens.Lens' ModifyPrivateDnsNameOptions (Prelude.Maybe Prelude.Text)
-modifyPrivateDnsNameOptions_instanceId = Lens.lens (\ModifyPrivateDnsNameOptions' {instanceId} -> instanceId) (\s@ModifyPrivateDnsNameOptions' {} a -> s {instanceId = a} :: ModifyPrivateDnsNameOptions)
-
 -- | The type of hostname for EC2 instances. For IPv4 only subnets, an
 -- instance DNS name must be based on the instance IPv4 address. For IPv6
 -- only subnets, an instance DNS name must be based on the instance ID. For
@@ -142,6 +140,10 @@ modifyPrivateDnsNameOptions_instanceId = Lens.lens (\ModifyPrivateDnsNameOptions
 -- IPv4 address or the instance ID.
 modifyPrivateDnsNameOptions_privateDnsHostnameType :: Lens.Lens' ModifyPrivateDnsNameOptions (Prelude.Maybe HostnameType)
 modifyPrivateDnsNameOptions_privateDnsHostnameType = Lens.lens (\ModifyPrivateDnsNameOptions' {privateDnsHostnameType} -> privateDnsHostnameType) (\s@ModifyPrivateDnsNameOptions' {} a -> s {privateDnsHostnameType = a} :: ModifyPrivateDnsNameOptions)
+
+-- | The ID of the instance.
+modifyPrivateDnsNameOptions_instanceId :: Lens.Lens' ModifyPrivateDnsNameOptions Prelude.Text
+modifyPrivateDnsNameOptions_instanceId = Lens.lens (\ModifyPrivateDnsNameOptions' {instanceId} -> instanceId) (\s@ModifyPrivateDnsNameOptions' {} a -> s {instanceId = a} :: ModifyPrivateDnsNameOptions)
 
 instance Core.AWSRequest ModifyPrivateDnsNameOptions where
   type
@@ -159,19 +161,20 @@ instance Core.AWSRequest ModifyPrivateDnsNameOptions where
 
 instance Prelude.Hashable ModifyPrivateDnsNameOptions where
   hashWithSalt _salt ModifyPrivateDnsNameOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` enableResourceNameDnsAAAARecord
       `Prelude.hashWithSalt` enableResourceNameDnsARecord
-      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` privateDnsHostnameType
+      `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData ModifyPrivateDnsNameOptions where
   rnf ModifyPrivateDnsNameOptions' {..} =
     Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf enableResourceNameDnsAAAARecord
       `Prelude.seq` Prelude.rnf enableResourceNameDnsARecord
-      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf privateDnsHostnameType
+      `Prelude.seq` Prelude.rnf instanceId
 
 instance Data.ToHeaders ModifyPrivateDnsNameOptions where
   toHeaders = Prelude.const Prelude.mempty
@@ -193,9 +196,9 @@ instance Data.ToQuery ModifyPrivateDnsNameOptions where
           Data.=: enableResourceNameDnsAAAARecord,
         "EnableResourceNameDnsARecord"
           Data.=: enableResourceNameDnsARecord,
-        "InstanceId" Data.=: instanceId,
         "PrivateDnsHostnameType"
-          Data.=: privateDnsHostnameType
+          Data.=: privateDnsHostnameType,
+        "InstanceId" Data.=: instanceId
       ]
 
 -- | /See:/ 'newModifyPrivateDnsNameOptionsResponse' smart constructor.

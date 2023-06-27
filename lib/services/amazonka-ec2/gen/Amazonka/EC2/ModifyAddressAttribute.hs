@@ -124,7 +124,8 @@ instance Core.AWSRequest ModifyAddressAttribute where
 
 instance Prelude.Hashable ModifyAddressAttribute where
   hashWithSalt _salt ModifyAddressAttribute' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` allocationId
 

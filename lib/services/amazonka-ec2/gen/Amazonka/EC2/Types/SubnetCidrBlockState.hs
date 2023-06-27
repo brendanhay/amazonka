@@ -72,7 +72,8 @@ instance Data.FromXML SubnetCidrBlockState where
 
 instance Prelude.Hashable SubnetCidrBlockState where
   hashWithSalt _salt SubnetCidrBlockState' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData SubnetCidrBlockState where

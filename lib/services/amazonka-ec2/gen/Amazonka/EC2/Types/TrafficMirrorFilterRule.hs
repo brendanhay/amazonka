@@ -165,7 +165,8 @@ instance Data.FromXML TrafficMirrorFilterRule where
 
 instance Prelude.Hashable TrafficMirrorFilterRule where
   hashWithSalt _salt TrafficMirrorFilterRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` destinationPortRange
       `Prelude.hashWithSalt` protocol

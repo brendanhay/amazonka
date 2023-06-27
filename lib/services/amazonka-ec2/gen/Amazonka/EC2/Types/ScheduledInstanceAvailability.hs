@@ -45,7 +45,7 @@ data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
     maxTermDurationInDays :: Prelude.Maybe Prelude.Int,
     -- | The minimum term. The only possible value is 365 days.
     minTermDurationInDays :: Prelude.Maybe Prelude.Int,
-    -- | The network platform (@EC2-Classic@ or @EC2-VPC@).
+    -- | The network platform.
     networkPlatform :: Prelude.Maybe Prelude.Text,
     -- | The platform (@Linux\/UNIX@ or @Windows@).
     platform :: Prelude.Maybe Prelude.Text,
@@ -83,7 +83,7 @@ data ScheduledInstanceAvailability = ScheduledInstanceAvailability'
 --
 -- 'minTermDurationInDays', 'scheduledInstanceAvailability_minTermDurationInDays' - The minimum term. The only possible value is 365 days.
 --
--- 'networkPlatform', 'scheduledInstanceAvailability_networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@).
+-- 'networkPlatform', 'scheduledInstanceAvailability_networkPlatform' - The network platform.
 --
 -- 'platform', 'scheduledInstanceAvailability_platform' - The platform (@Linux\/UNIX@ or @Windows@).
 --
@@ -144,7 +144,7 @@ scheduledInstanceAvailability_maxTermDurationInDays = Lens.lens (\ScheduledInsta
 scheduledInstanceAvailability_minTermDurationInDays :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Int)
 scheduledInstanceAvailability_minTermDurationInDays = Lens.lens (\ScheduledInstanceAvailability' {minTermDurationInDays} -> minTermDurationInDays) (\s@ScheduledInstanceAvailability' {} a -> s {minTermDurationInDays = a} :: ScheduledInstanceAvailability)
 
--- | The network platform (@EC2-Classic@ or @EC2-VPC@).
+-- | The network platform.
 scheduledInstanceAvailability_networkPlatform :: Lens.Lens' ScheduledInstanceAvailability (Prelude.Maybe Prelude.Text)
 scheduledInstanceAvailability_networkPlatform = Lens.lens (\ScheduledInstanceAvailability' {networkPlatform} -> networkPlatform) (\s@ScheduledInstanceAvailability' {} a -> s {networkPlatform = a} :: ScheduledInstanceAvailability)
 
@@ -190,7 +190,8 @@ instance
     ScheduledInstanceAvailability
   where
   hashWithSalt _salt ScheduledInstanceAvailability' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availableInstanceCount
       `Prelude.hashWithSalt` firstSlotStartTime
       `Prelude.hashWithSalt` hourlyPrice

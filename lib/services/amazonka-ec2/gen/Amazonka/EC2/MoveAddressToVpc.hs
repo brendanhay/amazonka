@@ -20,6 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
+-- This action is deprecated.
+--
 -- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC
 -- platform. The Elastic IP address must be allocated to your account for
 -- more than 24 hours, and it must not be associated with an instance.
@@ -28,11 +30,6 @@
 -- RestoreAddressToClassic request. You cannot move an Elastic IP address
 -- that was originally allocated for use in the EC2-VPC platform to the
 -- EC2-Classic platform.
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.MoveAddressToVpc
   ( -- * Creating a Request
     MoveAddressToVpc (..),
@@ -125,7 +122,8 @@ instance Core.AWSRequest MoveAddressToVpc where
 
 instance Prelude.Hashable MoveAddressToVpc where
   hashWithSalt _salt MoveAddressToVpc' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` publicIp
 
 instance Prelude.NFData MoveAddressToVpc where

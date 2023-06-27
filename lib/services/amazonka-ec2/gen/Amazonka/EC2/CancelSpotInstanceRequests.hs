@@ -60,7 +60,7 @@ data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more Spot Instance request IDs.
+    -- | The IDs of the Spot Instance requests.
     spotInstanceRequestIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'spotInstanceRequestIds', 'cancelSpotInstanceRequests_spotInstanceRequestIds' - One or more Spot Instance request IDs.
+-- 'spotInstanceRequestIds', 'cancelSpotInstanceRequests_spotInstanceRequestIds' - The IDs of the Spot Instance requests.
 newCancelSpotInstanceRequests ::
   CancelSpotInstanceRequests
 newCancelSpotInstanceRequests =
@@ -95,7 +95,7 @@ newCancelSpotInstanceRequests =
 cancelSpotInstanceRequests_dryRun :: Lens.Lens' CancelSpotInstanceRequests (Prelude.Maybe Prelude.Bool)
 cancelSpotInstanceRequests_dryRun = Lens.lens (\CancelSpotInstanceRequests' {dryRun} -> dryRun) (\s@CancelSpotInstanceRequests' {} a -> s {dryRun = a} :: CancelSpotInstanceRequests)
 
--- | One or more Spot Instance request IDs.
+-- | The IDs of the Spot Instance requests.
 cancelSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' CancelSpotInstanceRequests [Prelude.Text]
 cancelSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\CancelSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@CancelSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: CancelSpotInstanceRequests) Prelude.. Lens.coerced
 
@@ -109,7 +109,8 @@ instance Core.AWSRequest CancelSpotInstanceRequests where
     Response.receiveXML
       ( \s h x ->
           CancelSpotInstanceRequestsResponse'
-            Prelude.<$> ( x Data..@? "spotInstanceRequestSet"
+            Prelude.<$> ( x
+                            Data..@? "spotInstanceRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -118,7 +119,8 @@ instance Core.AWSRequest CancelSpotInstanceRequests where
 
 instance Prelude.Hashable CancelSpotInstanceRequests where
   hashWithSalt _salt CancelSpotInstanceRequests' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` spotInstanceRequestIds
 
 instance Prelude.NFData CancelSpotInstanceRequests where
@@ -149,7 +151,7 @@ instance Data.ToQuery CancelSpotInstanceRequests where
 --
 -- /See:/ 'newCancelSpotInstanceRequestsResponse' smart constructor.
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
-  { -- | One or more Spot Instance requests.
+  { -- | The Spot Instance requests.
     cancelledSpotInstanceRequests :: Prelude.Maybe [CancelledSpotInstanceRequest],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -164,7 +166,7 @@ data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cancelledSpotInstanceRequests', 'cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests' - One or more Spot Instance requests.
+-- 'cancelledSpotInstanceRequests', 'cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests' - The Spot Instance requests.
 --
 -- 'httpStatus', 'cancelSpotInstanceRequestsResponse_httpStatus' - The response's http status code.
 newCancelSpotInstanceRequestsResponse ::
@@ -178,7 +180,7 @@ newCancelSpotInstanceRequestsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | One or more Spot Instance requests.
+-- | The Spot Instance requests.
 cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests :: Lens.Lens' CancelSpotInstanceRequestsResponse (Prelude.Maybe [CancelledSpotInstanceRequest])
 cancelSpotInstanceRequestsResponse_cancelledSpotInstanceRequests = Lens.lens (\CancelSpotInstanceRequestsResponse' {cancelledSpotInstanceRequests} -> cancelledSpotInstanceRequests) (\s@CancelSpotInstanceRequestsResponse' {} a -> s {cancelledSpotInstanceRequests = a} :: CancelSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 

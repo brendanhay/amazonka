@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get information about the resources in a scope.
+-- Returns resource CIDRs managed by IPAM in a given scope. If an IPAM is
+-- associated with more than one resource discovery, the resource CIDRs
+-- across all of the resource discoveries is returned. A resource discovery
+-- is an IPAM component that enables IPAM to manage and monitor resources
+-- that belong to the owning account.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.GetIpamResourceCidrs
@@ -189,22 +193,22 @@ instance Core.AWSPager GetIpamResourceCidrs where
     | Core.stop
         ( rs
             Lens.^? getIpamResourceCidrsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getIpamResourceCidrsResponse_ipamResourceCidrs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getIpamResourceCidrs_nextToken
           Lens..~ rs
           Lens.^? getIpamResourceCidrsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIpamResourceCidrs where
   type
@@ -216,7 +220,8 @@ instance Core.AWSRequest GetIpamResourceCidrs where
     Response.receiveXML
       ( \s h x ->
           GetIpamResourceCidrsResponse'
-            Prelude.<$> ( x Data..@? "ipamResourceCidrSet"
+            Prelude.<$> ( x
+                            Data..@? "ipamResourceCidrSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -226,7 +231,8 @@ instance Core.AWSRequest GetIpamResourceCidrs where
 
 instance Prelude.Hashable GetIpamResourceCidrs where
   hashWithSalt _salt GetIpamResourceCidrs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` ipamPoolId
       `Prelude.hashWithSalt` maxResults

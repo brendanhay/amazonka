@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestAssignPrivateIpAddresses $
 --             newAssignPrivateIpAddresses
 --
+--         , requestAssignPrivateNatGatewayAddress $
+--             newAssignPrivateNatGatewayAddress
+--
 --         , requestAssociateAddress $
 --             newAssociateAddress
 --
@@ -86,6 +89,12 @@ import Test.Tasty
 --
 --         , requestAssociateInstanceEventWindow $
 --             newAssociateInstanceEventWindow
+--
+--         , requestAssociateIpamResourceDiscovery $
+--             newAssociateIpamResourceDiscovery
+--
+--         , requestAssociateNatGatewayAddress $
+--             newAssociateNatGatewayAddress
 --
 --         , requestAssociateRouteTable $
 --             newAssociateRouteTable
@@ -228,6 +237,9 @@ import Test.Tasty
 --         , requestCreateImage $
 --             newCreateImage
 --
+--         , requestCreateInstanceConnectEndpoint $
+--             newCreateInstanceConnectEndpoint
+--
 --         , requestCreateInstanceEventWindow $
 --             newCreateInstanceEventWindow
 --
@@ -242,6 +254,9 @@ import Test.Tasty
 --
 --         , requestCreateIpamPool $
 --             newCreateIpamPool
+--
+--         , requestCreateIpamResourceDiscovery $
+--             newCreateIpamResourceDiscovery
 --
 --         , requestCreateIpamScope $
 --             newCreateIpamScope
@@ -453,6 +468,9 @@ import Test.Tasty
 --         , requestDeleteFpgaImage $
 --             newDeleteFpgaImage
 --
+--         , requestDeleteInstanceConnectEndpoint $
+--             newDeleteInstanceConnectEndpoint
+--
 --         , requestDeleteInstanceEventWindow $
 --             newDeleteInstanceEventWindow
 --
@@ -464,6 +482,9 @@ import Test.Tasty
 --
 --         , requestDeleteIpamPool $
 --             newDeleteIpamPool
+--
+--         , requestDeleteIpamResourceDiscovery $
+--             newDeleteIpamResourceDiscovery
 --
 --         , requestDeleteIpamScope $
 --             newDeleteIpamScope
@@ -792,6 +813,9 @@ import Test.Tasty
 --         , requestDescribeInstanceAttribute $
 --             newDescribeInstanceAttribute
 --
+--         , requestDescribeInstanceConnectEndpoints $
+--             newDescribeInstanceConnectEndpoints
+--
 --         , requestDescribeInstanceCreditSpecifications $
 --             newDescribeInstanceCreditSpecifications
 --
@@ -818,6 +842,12 @@ import Test.Tasty
 --
 --         , requestDescribeIpamPools $
 --             newDescribeIpamPools
+--
+--         , requestDescribeIpamResourceDiscoveries $
+--             newDescribeIpamResourceDiscoveries
+--
+--         , requestDescribeIpamResourceDiscoveryAssociations $
+--             newDescribeIpamResourceDiscoveryAssociations
 --
 --         , requestDescribeIpamScopes $
 --             newDescribeIpamScopes
@@ -1152,6 +1182,12 @@ import Test.Tasty
 --         , requestDisassociateInstanceEventWindow $
 --             newDisassociateInstanceEventWindow
 --
+--         , requestDisassociateIpamResourceDiscovery $
+--             newDisassociateIpamResourceDiscovery
+--
+--         , requestDisassociateNatGatewayAddress $
+--             newDisassociateNatGatewayAddress
+--
 --         , requestDisassociateRouteTable $
 --             newDisassociateRouteTable
 --
@@ -1275,6 +1311,12 @@ import Test.Tasty
 --         , requestGetIpamAddressHistory $
 --             newGetIpamAddressHistory
 --
+--         , requestGetIpamDiscoveredAccounts $
+--             newGetIpamDiscoveredAccounts
+--
+--         , requestGetIpamDiscoveredResourceCidrs $
+--             newGetIpamDiscoveredResourceCidrs
+--
 --         , requestGetIpamPoolAllocations $
 --             newGetIpamPoolAllocations
 --
@@ -1346,6 +1388,9 @@ import Test.Tasty
 --
 --         , requestGetVpnConnectionDeviceTypes $
 --             newGetVpnConnectionDeviceTypes
+--
+--         , requestGetVpnTunnelReplacementStatus $
+--             newGetVpnTunnelReplacementStatus
 --
 --         , requestImportClientVpnClientCertificateRevocationList $
 --             newImportClientVpnClientCertificateRevocationList
@@ -1442,6 +1487,9 @@ import Test.Tasty
 --
 --         , requestModifyIpamResourceCidr $
 --             newModifyIpamResourceCidr
+--
+--         , requestModifyIpamResourceDiscovery $
+--             newModifyIpamResourceDiscovery
 --
 --         , requestModifyIpamScope $
 --             newModifyIpamScope
@@ -1644,6 +1692,9 @@ import Test.Tasty
 --         , requestReplaceTransitGatewayRoute $
 --             newReplaceTransitGatewayRoute
 --
+--         , requestReplaceVpnTunnel $
+--             newReplaceVpnTunnel
+--
 --         , requestReportInstanceStatus $
 --             newReportInstanceStatus
 --
@@ -1743,6 +1794,9 @@ import Test.Tasty
 --         , requestUnassignPrivateIpAddresses $
 --             newUnassignPrivateIpAddresses
 --
+--         , requestUnassignPrivateNatGatewayAddress $
+--             newUnassignPrivateNatGatewayAddress
+--
 --         , requestUnmonitorInstances $
 --             newUnmonitorInstances
 --
@@ -1800,6 +1854,9 @@ import Test.Tasty
 --         , responseAssignPrivateIpAddresses $
 --             newAssignPrivateIpAddressesResponse
 --
+--         , responseAssignPrivateNatGatewayAddress $
+--             newAssignPrivateNatGatewayAddressResponse
+--
 --         , responseAssociateAddress $
 --             newAssociateAddressResponse
 --
@@ -1817,6 +1874,12 @@ import Test.Tasty
 --
 --         , responseAssociateInstanceEventWindow $
 --             newAssociateInstanceEventWindowResponse
+--
+--         , responseAssociateIpamResourceDiscovery $
+--             newAssociateIpamResourceDiscoveryResponse
+--
+--         , responseAssociateNatGatewayAddress $
+--             newAssociateNatGatewayAddressResponse
 --
 --         , responseAssociateRouteTable $
 --             newAssociateRouteTableResponse
@@ -1959,6 +2022,9 @@ import Test.Tasty
 --         , responseCreateImage $
 --             newCreateImageResponse
 --
+--         , responseCreateInstanceConnectEndpoint $
+--             newCreateInstanceConnectEndpointResponse
+--
 --         , responseCreateInstanceEventWindow $
 --             newCreateInstanceEventWindowResponse
 --
@@ -1973,6 +2039,9 @@ import Test.Tasty
 --
 --         , responseCreateIpamPool $
 --             newCreateIpamPoolResponse
+--
+--         , responseCreateIpamResourceDiscovery $
+--             newCreateIpamResourceDiscoveryResponse
 --
 --         , responseCreateIpamScope $
 --             newCreateIpamScopeResponse
@@ -2184,6 +2253,9 @@ import Test.Tasty
 --         , responseDeleteFpgaImage $
 --             newDeleteFpgaImageResponse
 --
+--         , responseDeleteInstanceConnectEndpoint $
+--             newDeleteInstanceConnectEndpointResponse
+--
 --         , responseDeleteInstanceEventWindow $
 --             newDeleteInstanceEventWindowResponse
 --
@@ -2195,6 +2267,9 @@ import Test.Tasty
 --
 --         , responseDeleteIpamPool $
 --             newDeleteIpamPoolResponse
+--
+--         , responseDeleteIpamResourceDiscovery $
+--             newDeleteIpamResourceDiscoveryResponse
 --
 --         , responseDeleteIpamScope $
 --             newDeleteIpamScopeResponse
@@ -2523,6 +2598,9 @@ import Test.Tasty
 --         , responseDescribeInstanceAttribute $
 --             newDescribeInstanceAttributeResponse
 --
+--         , responseDescribeInstanceConnectEndpoints $
+--             newDescribeInstanceConnectEndpointsResponse
+--
 --         , responseDescribeInstanceCreditSpecifications $
 --             newDescribeInstanceCreditSpecificationsResponse
 --
@@ -2549,6 +2627,12 @@ import Test.Tasty
 --
 --         , responseDescribeIpamPools $
 --             newDescribeIpamPoolsResponse
+--
+--         , responseDescribeIpamResourceDiscoveries $
+--             newDescribeIpamResourceDiscoveriesResponse
+--
+--         , responseDescribeIpamResourceDiscoveryAssociations $
+--             newDescribeIpamResourceDiscoveryAssociationsResponse
 --
 --         , responseDescribeIpamScopes $
 --             newDescribeIpamScopesResponse
@@ -2883,6 +2967,12 @@ import Test.Tasty
 --         , responseDisassociateInstanceEventWindow $
 --             newDisassociateInstanceEventWindowResponse
 --
+--         , responseDisassociateIpamResourceDiscovery $
+--             newDisassociateIpamResourceDiscoveryResponse
+--
+--         , responseDisassociateNatGatewayAddress $
+--             newDisassociateNatGatewayAddressResponse
+--
 --         , responseDisassociateRouteTable $
 --             newDisassociateRouteTableResponse
 --
@@ -3006,6 +3096,12 @@ import Test.Tasty
 --         , responseGetIpamAddressHistory $
 --             newGetIpamAddressHistoryResponse
 --
+--         , responseGetIpamDiscoveredAccounts $
+--             newGetIpamDiscoveredAccountsResponse
+--
+--         , responseGetIpamDiscoveredResourceCidrs $
+--             newGetIpamDiscoveredResourceCidrsResponse
+--
 --         , responseGetIpamPoolAllocations $
 --             newGetIpamPoolAllocationsResponse
 --
@@ -3077,6 +3173,9 @@ import Test.Tasty
 --
 --         , responseGetVpnConnectionDeviceTypes $
 --             newGetVpnConnectionDeviceTypesResponse
+--
+--         , responseGetVpnTunnelReplacementStatus $
+--             newGetVpnTunnelReplacementStatusResponse
 --
 --         , responseImportClientVpnClientCertificateRevocationList $
 --             newImportClientVpnClientCertificateRevocationListResponse
@@ -3173,6 +3272,9 @@ import Test.Tasty
 --
 --         , responseModifyIpamResourceCidr $
 --             newModifyIpamResourceCidrResponse
+--
+--         , responseModifyIpamResourceDiscovery $
+--             newModifyIpamResourceDiscoveryResponse
 --
 --         , responseModifyIpamScope $
 --             newModifyIpamScopeResponse
@@ -3375,6 +3477,9 @@ import Test.Tasty
 --         , responseReplaceTransitGatewayRoute $
 --             newReplaceTransitGatewayRouteResponse
 --
+--         , responseReplaceVpnTunnel $
+--             newReplaceVpnTunnelResponse
+--
 --         , responseReportInstanceStatus $
 --             newReportInstanceStatusResponse
 --
@@ -3473,6 +3578,9 @@ import Test.Tasty
 --
 --         , responseUnassignPrivateIpAddresses $
 --             newUnassignPrivateIpAddressesResponse
+--
+--         , responseUnassignPrivateNatGatewayAddress $
+--             newUnassignPrivateNatGatewayAddressResponse
 --
 --         , responseUnmonitorInstances $
 --             newUnmonitorInstancesResponse
@@ -3575,6 +3683,12 @@ requestAssignPrivateIpAddresses =
     "AssignPrivateIpAddresses"
     "fixture/AssignPrivateIpAddresses.yaml"
 
+requestAssignPrivateNatGatewayAddress :: AssignPrivateNatGatewayAddress -> TestTree
+requestAssignPrivateNatGatewayAddress =
+  req
+    "AssignPrivateNatGatewayAddress"
+    "fixture/AssignPrivateNatGatewayAddress.yaml"
+
 requestAssociateAddress :: AssociateAddress -> TestTree
 requestAssociateAddress =
   req
@@ -3610,6 +3724,18 @@ requestAssociateInstanceEventWindow =
   req
     "AssociateInstanceEventWindow"
     "fixture/AssociateInstanceEventWindow.yaml"
+
+requestAssociateIpamResourceDiscovery :: AssociateIpamResourceDiscovery -> TestTree
+requestAssociateIpamResourceDiscovery =
+  req
+    "AssociateIpamResourceDiscovery"
+    "fixture/AssociateIpamResourceDiscovery.yaml"
+
+requestAssociateNatGatewayAddress :: AssociateNatGatewayAddress -> TestTree
+requestAssociateNatGatewayAddress =
+  req
+    "AssociateNatGatewayAddress"
+    "fixture/AssociateNatGatewayAddress.yaml"
 
 requestAssociateRouteTable :: AssociateRouteTable -> TestTree
 requestAssociateRouteTable =
@@ -3893,6 +4019,12 @@ requestCreateImage =
     "CreateImage"
     "fixture/CreateImage.yaml"
 
+requestCreateInstanceConnectEndpoint :: CreateInstanceConnectEndpoint -> TestTree
+requestCreateInstanceConnectEndpoint =
+  req
+    "CreateInstanceConnectEndpoint"
+    "fixture/CreateInstanceConnectEndpoint.yaml"
+
 requestCreateInstanceEventWindow :: CreateInstanceEventWindow -> TestTree
 requestCreateInstanceEventWindow =
   req
@@ -3922,6 +4054,12 @@ requestCreateIpamPool =
   req
     "CreateIpamPool"
     "fixture/CreateIpamPool.yaml"
+
+requestCreateIpamResourceDiscovery :: CreateIpamResourceDiscovery -> TestTree
+requestCreateIpamResourceDiscovery =
+  req
+    "CreateIpamResourceDiscovery"
+    "fixture/CreateIpamResourceDiscovery.yaml"
 
 requestCreateIpamScope :: CreateIpamScope -> TestTree
 requestCreateIpamScope =
@@ -4343,6 +4481,12 @@ requestDeleteFpgaImage =
     "DeleteFpgaImage"
     "fixture/DeleteFpgaImage.yaml"
 
+requestDeleteInstanceConnectEndpoint :: DeleteInstanceConnectEndpoint -> TestTree
+requestDeleteInstanceConnectEndpoint =
+  req
+    "DeleteInstanceConnectEndpoint"
+    "fixture/DeleteInstanceConnectEndpoint.yaml"
+
 requestDeleteInstanceEventWindow :: DeleteInstanceEventWindow -> TestTree
 requestDeleteInstanceEventWindow =
   req
@@ -4366,6 +4510,12 @@ requestDeleteIpamPool =
   req
     "DeleteIpamPool"
     "fixture/DeleteIpamPool.yaml"
+
+requestDeleteIpamResourceDiscovery :: DeleteIpamResourceDiscovery -> TestTree
+requestDeleteIpamResourceDiscovery =
+  req
+    "DeleteIpamResourceDiscovery"
+    "fixture/DeleteIpamResourceDiscovery.yaml"
 
 requestDeleteIpamScope :: DeleteIpamScope -> TestTree
 requestDeleteIpamScope =
@@ -5021,6 +5171,12 @@ requestDescribeInstanceAttribute =
     "DescribeInstanceAttribute"
     "fixture/DescribeInstanceAttribute.yaml"
 
+requestDescribeInstanceConnectEndpoints :: DescribeInstanceConnectEndpoints -> TestTree
+requestDescribeInstanceConnectEndpoints =
+  req
+    "DescribeInstanceConnectEndpoints"
+    "fixture/DescribeInstanceConnectEndpoints.yaml"
+
 requestDescribeInstanceCreditSpecifications :: DescribeInstanceCreditSpecifications -> TestTree
 requestDescribeInstanceCreditSpecifications =
   req
@@ -5074,6 +5230,18 @@ requestDescribeIpamPools =
   req
     "DescribeIpamPools"
     "fixture/DescribeIpamPools.yaml"
+
+requestDescribeIpamResourceDiscoveries :: DescribeIpamResourceDiscoveries -> TestTree
+requestDescribeIpamResourceDiscoveries =
+  req
+    "DescribeIpamResourceDiscoveries"
+    "fixture/DescribeIpamResourceDiscoveries.yaml"
+
+requestDescribeIpamResourceDiscoveryAssociations :: DescribeIpamResourceDiscoveryAssociations -> TestTree
+requestDescribeIpamResourceDiscoveryAssociations =
+  req
+    "DescribeIpamResourceDiscoveryAssociations"
+    "fixture/DescribeIpamResourceDiscoveryAssociations.yaml"
 
 requestDescribeIpamScopes :: DescribeIpamScopes -> TestTree
 requestDescribeIpamScopes =
@@ -5741,6 +5909,18 @@ requestDisassociateInstanceEventWindow =
     "DisassociateInstanceEventWindow"
     "fixture/DisassociateInstanceEventWindow.yaml"
 
+requestDisassociateIpamResourceDiscovery :: DisassociateIpamResourceDiscovery -> TestTree
+requestDisassociateIpamResourceDiscovery =
+  req
+    "DisassociateIpamResourceDiscovery"
+    "fixture/DisassociateIpamResourceDiscovery.yaml"
+
+requestDisassociateNatGatewayAddress :: DisassociateNatGatewayAddress -> TestTree
+requestDisassociateNatGatewayAddress =
+  req
+    "DisassociateNatGatewayAddress"
+    "fixture/DisassociateNatGatewayAddress.yaml"
+
 requestDisassociateRouteTable :: DisassociateRouteTable -> TestTree
 requestDisassociateRouteTable =
   req
@@ -5987,6 +6167,18 @@ requestGetIpamAddressHistory =
     "GetIpamAddressHistory"
     "fixture/GetIpamAddressHistory.yaml"
 
+requestGetIpamDiscoveredAccounts :: GetIpamDiscoveredAccounts -> TestTree
+requestGetIpamDiscoveredAccounts =
+  req
+    "GetIpamDiscoveredAccounts"
+    "fixture/GetIpamDiscoveredAccounts.yaml"
+
+requestGetIpamDiscoveredResourceCidrs :: GetIpamDiscoveredResourceCidrs -> TestTree
+requestGetIpamDiscoveredResourceCidrs =
+  req
+    "GetIpamDiscoveredResourceCidrs"
+    "fixture/GetIpamDiscoveredResourceCidrs.yaml"
+
 requestGetIpamPoolAllocations :: GetIpamPoolAllocations -> TestTree
 requestGetIpamPoolAllocations =
   req
@@ -6130,6 +6322,12 @@ requestGetVpnConnectionDeviceTypes =
   req
     "GetVpnConnectionDeviceTypes"
     "fixture/GetVpnConnectionDeviceTypes.yaml"
+
+requestGetVpnTunnelReplacementStatus :: GetVpnTunnelReplacementStatus -> TestTree
+requestGetVpnTunnelReplacementStatus =
+  req
+    "GetVpnTunnelReplacementStatus"
+    "fixture/GetVpnTunnelReplacementStatus.yaml"
 
 requestImportClientVpnClientCertificateRevocationList :: ImportClientVpnClientCertificateRevocationList -> TestTree
 requestImportClientVpnClientCertificateRevocationList =
@@ -6322,6 +6520,12 @@ requestModifyIpamResourceCidr =
   req
     "ModifyIpamResourceCidr"
     "fixture/ModifyIpamResourceCidr.yaml"
+
+requestModifyIpamResourceDiscovery :: ModifyIpamResourceDiscovery -> TestTree
+requestModifyIpamResourceDiscovery =
+  req
+    "ModifyIpamResourceDiscovery"
+    "fixture/ModifyIpamResourceDiscovery.yaml"
 
 requestModifyIpamScope :: ModifyIpamScope -> TestTree
 requestModifyIpamScope =
@@ -6725,6 +6929,12 @@ requestReplaceTransitGatewayRoute =
     "ReplaceTransitGatewayRoute"
     "fixture/ReplaceTransitGatewayRoute.yaml"
 
+requestReplaceVpnTunnel :: ReplaceVpnTunnel -> TestTree
+requestReplaceVpnTunnel =
+  req
+    "ReplaceVpnTunnel"
+    "fixture/ReplaceVpnTunnel.yaml"
+
 requestReportInstanceStatus :: ReportInstanceStatus -> TestTree
 requestReportInstanceStatus =
   req
@@ -6923,6 +7133,12 @@ requestUnassignPrivateIpAddresses =
     "UnassignPrivateIpAddresses"
     "fixture/UnassignPrivateIpAddresses.yaml"
 
+requestUnassignPrivateNatGatewayAddress :: UnassignPrivateNatGatewayAddress -> TestTree
+requestUnassignPrivateNatGatewayAddress =
+  req
+    "UnassignPrivateNatGatewayAddress"
+    "fixture/UnassignPrivateNatGatewayAddress.yaml"
+
 requestUnmonitorInstances :: UnmonitorInstances -> TestTree
 requestUnmonitorInstances =
   req
@@ -7061,6 +7277,14 @@ responseAssignPrivateIpAddresses =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssignPrivateIpAddresses)
 
+responseAssignPrivateNatGatewayAddress :: AssignPrivateNatGatewayAddressResponse -> TestTree
+responseAssignPrivateNatGatewayAddress =
+  res
+    "AssignPrivateNatGatewayAddressResponse"
+    "fixture/AssignPrivateNatGatewayAddressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssignPrivateNatGatewayAddress)
+
 responseAssociateAddress :: AssociateAddressResponse -> TestTree
 responseAssociateAddress =
   res
@@ -7108,6 +7332,22 @@ responseAssociateInstanceEventWindow =
     "fixture/AssociateInstanceEventWindowResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateInstanceEventWindow)
+
+responseAssociateIpamResourceDiscovery :: AssociateIpamResourceDiscoveryResponse -> TestTree
+responseAssociateIpamResourceDiscovery =
+  res
+    "AssociateIpamResourceDiscoveryResponse"
+    "fixture/AssociateIpamResourceDiscoveryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateIpamResourceDiscovery)
+
+responseAssociateNatGatewayAddress :: AssociateNatGatewayAddressResponse -> TestTree
+responseAssociateNatGatewayAddress =
+  res
+    "AssociateNatGatewayAddressResponse"
+    "fixture/AssociateNatGatewayAddressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateNatGatewayAddress)
 
 responseAssociateRouteTable :: AssociateRouteTableResponse -> TestTree
 responseAssociateRouteTable =
@@ -7485,6 +7725,14 @@ responseCreateImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateImage)
 
+responseCreateInstanceConnectEndpoint :: CreateInstanceConnectEndpointResponse -> TestTree
+responseCreateInstanceConnectEndpoint =
+  res
+    "CreateInstanceConnectEndpointResponse"
+    "fixture/CreateInstanceConnectEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateInstanceConnectEndpoint)
+
 responseCreateInstanceEventWindow :: CreateInstanceEventWindowResponse -> TestTree
 responseCreateInstanceEventWindow =
   res
@@ -7524,6 +7772,14 @@ responseCreateIpamPool =
     "fixture/CreateIpamPoolResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateIpamPool)
+
+responseCreateIpamResourceDiscovery :: CreateIpamResourceDiscoveryResponse -> TestTree
+responseCreateIpamResourceDiscovery =
+  res
+    "CreateIpamResourceDiscoveryResponse"
+    "fixture/CreateIpamResourceDiscoveryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIpamResourceDiscovery)
 
 responseCreateIpamScope :: CreateIpamScopeResponse -> TestTree
 responseCreateIpamScope =
@@ -8085,6 +8341,14 @@ responseDeleteFpgaImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFpgaImage)
 
+responseDeleteInstanceConnectEndpoint :: DeleteInstanceConnectEndpointResponse -> TestTree
+responseDeleteInstanceConnectEndpoint =
+  res
+    "DeleteInstanceConnectEndpointResponse"
+    "fixture/DeleteInstanceConnectEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInstanceConnectEndpoint)
+
 responseDeleteInstanceEventWindow :: DeleteInstanceEventWindowResponse -> TestTree
 responseDeleteInstanceEventWindow =
   res
@@ -8116,6 +8380,14 @@ responseDeleteIpamPool =
     "fixture/DeleteIpamPoolResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteIpamPool)
+
+responseDeleteIpamResourceDiscovery :: DeleteIpamResourceDiscoveryResponse -> TestTree
+responseDeleteIpamResourceDiscovery =
+  res
+    "DeleteIpamResourceDiscoveryResponse"
+    "fixture/DeleteIpamResourceDiscoveryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIpamResourceDiscovery)
 
 responseDeleteIpamScope :: DeleteIpamScopeResponse -> TestTree
 responseDeleteIpamScope =
@@ -8989,6 +9261,14 @@ responseDescribeInstanceAttribute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeInstanceAttribute)
 
+responseDescribeInstanceConnectEndpoints :: DescribeInstanceConnectEndpointsResponse -> TestTree
+responseDescribeInstanceConnectEndpoints =
+  res
+    "DescribeInstanceConnectEndpointsResponse"
+    "fixture/DescribeInstanceConnectEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeInstanceConnectEndpoints)
+
 responseDescribeInstanceCreditSpecifications :: DescribeInstanceCreditSpecificationsResponse -> TestTree
 responseDescribeInstanceCreditSpecifications =
   res
@@ -9060,6 +9340,22 @@ responseDescribeIpamPools =
     "fixture/DescribeIpamPoolsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeIpamPools)
+
+responseDescribeIpamResourceDiscoveries :: DescribeIpamResourceDiscoveriesResponse -> TestTree
+responseDescribeIpamResourceDiscoveries =
+  res
+    "DescribeIpamResourceDiscoveriesResponse"
+    "fixture/DescribeIpamResourceDiscoveriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpamResourceDiscoveries)
+
+responseDescribeIpamResourceDiscoveryAssociations :: DescribeIpamResourceDiscoveryAssociationsResponse -> TestTree
+responseDescribeIpamResourceDiscoveryAssociations =
+  res
+    "DescribeIpamResourceDiscoveryAssociationsResponse"
+    "fixture/DescribeIpamResourceDiscoveryAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpamResourceDiscoveryAssociations)
 
 responseDescribeIpamScopes :: DescribeIpamScopesResponse -> TestTree
 responseDescribeIpamScopes =
@@ -9949,6 +10245,22 @@ responseDisassociateInstanceEventWindow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateInstanceEventWindow)
 
+responseDisassociateIpamResourceDiscovery :: DisassociateIpamResourceDiscoveryResponse -> TestTree
+responseDisassociateIpamResourceDiscovery =
+  res
+    "DisassociateIpamResourceDiscoveryResponse"
+    "fixture/DisassociateIpamResourceDiscoveryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateIpamResourceDiscovery)
+
+responseDisassociateNatGatewayAddress :: DisassociateNatGatewayAddressResponse -> TestTree
+responseDisassociateNatGatewayAddress =
+  res
+    "DisassociateNatGatewayAddressResponse"
+    "fixture/DisassociateNatGatewayAddressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateNatGatewayAddress)
+
 responseDisassociateRouteTable :: DisassociateRouteTableResponse -> TestTree
 responseDisassociateRouteTable =
   res
@@ -10277,6 +10589,22 @@ responseGetIpamAddressHistory =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetIpamAddressHistory)
 
+responseGetIpamDiscoveredAccounts :: GetIpamDiscoveredAccountsResponse -> TestTree
+responseGetIpamDiscoveredAccounts =
+  res
+    "GetIpamDiscoveredAccountsResponse"
+    "fixture/GetIpamDiscoveredAccountsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIpamDiscoveredAccounts)
+
+responseGetIpamDiscoveredResourceCidrs :: GetIpamDiscoveredResourceCidrsResponse -> TestTree
+responseGetIpamDiscoveredResourceCidrs =
+  res
+    "GetIpamDiscoveredResourceCidrsResponse"
+    "fixture/GetIpamDiscoveredResourceCidrsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIpamDiscoveredResourceCidrs)
+
 responseGetIpamPoolAllocations :: GetIpamPoolAllocationsResponse -> TestTree
 responseGetIpamPoolAllocations =
   res
@@ -10468,6 +10796,14 @@ responseGetVpnConnectionDeviceTypes =
     "fixture/GetVpnConnectionDeviceTypesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetVpnConnectionDeviceTypes)
+
+responseGetVpnTunnelReplacementStatus :: GetVpnTunnelReplacementStatusResponse -> TestTree
+responseGetVpnTunnelReplacementStatus =
+  res
+    "GetVpnTunnelReplacementStatusResponse"
+    "fixture/GetVpnTunnelReplacementStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetVpnTunnelReplacementStatus)
 
 responseImportClientVpnClientCertificateRevocationList :: ImportClientVpnClientCertificateRevocationListResponse -> TestTree
 responseImportClientVpnClientCertificateRevocationList =
@@ -10724,6 +11060,14 @@ responseModifyIpamResourceCidr =
     "fixture/ModifyIpamResourceCidrResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyIpamResourceCidr)
+
+responseModifyIpamResourceDiscovery :: ModifyIpamResourceDiscoveryResponse -> TestTree
+responseModifyIpamResourceDiscovery =
+  res
+    "ModifyIpamResourceDiscoveryResponse"
+    "fixture/ModifyIpamResourceDiscoveryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyIpamResourceDiscovery)
 
 responseModifyIpamScope :: ModifyIpamScopeResponse -> TestTree
 responseModifyIpamScope =
@@ -11261,6 +11605,14 @@ responseReplaceTransitGatewayRoute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ReplaceTransitGatewayRoute)
 
+responseReplaceVpnTunnel :: ReplaceVpnTunnelResponse -> TestTree
+responseReplaceVpnTunnel =
+  res
+    "ReplaceVpnTunnelResponse"
+    "fixture/ReplaceVpnTunnelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ReplaceVpnTunnel)
+
 responseReportInstanceStatus :: ReportInstanceStatusResponse -> TestTree
 responseReportInstanceStatus =
   res
@@ -11524,6 +11876,14 @@ responseUnassignPrivateIpAddresses =
     "fixture/UnassignPrivateIpAddressesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UnassignPrivateIpAddresses)
+
+responseUnassignPrivateNatGatewayAddress :: UnassignPrivateNatGatewayAddressResponse -> TestTree
+responseUnassignPrivateNatGatewayAddress =
+  res
+    "UnassignPrivateNatGatewayAddressResponse"
+    "fixture/UnassignPrivateNatGatewayAddressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UnassignPrivateNatGatewayAddress)
 
 responseUnmonitorInstances :: UnmonitorInstancesResponse -> TestTree
 responseUnmonitorInstances =

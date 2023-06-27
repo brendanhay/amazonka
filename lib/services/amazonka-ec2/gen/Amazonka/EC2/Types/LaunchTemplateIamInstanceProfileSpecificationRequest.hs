@@ -72,7 +72,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateIamInstanceProfileSpecificationRequest' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` name
 
 instance

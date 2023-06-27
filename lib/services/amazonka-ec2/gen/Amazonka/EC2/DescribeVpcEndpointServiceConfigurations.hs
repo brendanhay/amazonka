@@ -62,7 +62,7 @@ data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfig
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+    -- | The filters.
     --
     -- -   @service-name@ - The name of the service.
     --
@@ -92,7 +92,7 @@ data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfig
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The token to retrieve the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of one or more services.
+    -- | The IDs of the endpoint services.
     serviceIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -110,7 +110,7 @@ data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfig
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeVpcEndpointServiceConfigurations_filters' - One or more filters.
+-- 'filters', 'describeVpcEndpointServiceConfigurations_filters' - The filters.
 --
 -- -   @service-name@ - The name of the service.
 --
@@ -140,7 +140,7 @@ data DescribeVpcEndpointServiceConfigurations = DescribeVpcEndpointServiceConfig
 --
 -- 'nextToken', 'describeVpcEndpointServiceConfigurations_nextToken' - The token to retrieve the next page of results.
 --
--- 'serviceIds', 'describeVpcEndpointServiceConfigurations_serviceIds' - The IDs of one or more services.
+-- 'serviceIds', 'describeVpcEndpointServiceConfigurations_serviceIds' - The IDs of the endpoint services.
 newDescribeVpcEndpointServiceConfigurations ::
   DescribeVpcEndpointServiceConfigurations
 newDescribeVpcEndpointServiceConfigurations =
@@ -160,7 +160,7 @@ newDescribeVpcEndpointServiceConfigurations =
 describeVpcEndpointServiceConfigurations_dryRun :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe Prelude.Bool)
 describeVpcEndpointServiceConfigurations_dryRun = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {dryRun} -> dryRun) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {dryRun = a} :: DescribeVpcEndpointServiceConfigurations)
 
--- | One or more filters.
+-- | The filters.
 --
 -- -   @service-name@ - The name of the service.
 --
@@ -196,7 +196,7 @@ describeVpcEndpointServiceConfigurations_maxResults = Lens.lens (\DescribeVpcEnd
 describeVpcEndpointServiceConfigurations_nextToken :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe Prelude.Text)
 describeVpcEndpointServiceConfigurations_nextToken = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {nextToken = a} :: DescribeVpcEndpointServiceConfigurations)
 
--- | The IDs of one or more services.
+-- | The IDs of the endpoint services.
 describeVpcEndpointServiceConfigurations_serviceIds :: Lens.Lens' DescribeVpcEndpointServiceConfigurations (Prelude.Maybe [Prelude.Text])
 describeVpcEndpointServiceConfigurations_serviceIds = Lens.lens (\DescribeVpcEndpointServiceConfigurations' {serviceIds} -> serviceIds) (\s@DescribeVpcEndpointServiceConfigurations' {} a -> s {serviceIds = a} :: DescribeVpcEndpointServiceConfigurations) Prelude.. Lens.mapping Lens.coerced
 
@@ -208,22 +208,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServiceConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVpcEndpointServiceConfigurations_nextToken
           Lens..~ rs
-            Lens.^? describeVpcEndpointServiceConfigurationsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeVpcEndpointServiceConfigurationsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -240,11 +240,12 @@ instance
       ( \s h x ->
           DescribeVpcEndpointServiceConfigurationsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "serviceConfigurationSet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "serviceConfigurationSet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -254,7 +255,8 @@ instance
   hashWithSalt
     _salt
     DescribeVpcEndpointServiceConfigurations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -311,7 +313,7 @@ data DescribeVpcEndpointServiceConfigurationsResponse = DescribeVpcEndpointServi
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about one or more services.
+    -- | Information about the services.
     serviceConfigurations :: Prelude.Maybe [ServiceConfiguration],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -329,7 +331,7 @@ data DescribeVpcEndpointServiceConfigurationsResponse = DescribeVpcEndpointServi
 -- 'nextToken', 'describeVpcEndpointServiceConfigurationsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 --
--- 'serviceConfigurations', 'describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations' - Information about one or more services.
+-- 'serviceConfigurations', 'describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations' - Information about the services.
 --
 -- 'httpStatus', 'describeVpcEndpointServiceConfigurationsResponse_httpStatus' - The response's http status code.
 newDescribeVpcEndpointServiceConfigurationsResponse ::
@@ -351,7 +353,7 @@ newDescribeVpcEndpointServiceConfigurationsResponse
 describeVpcEndpointServiceConfigurationsResponse_nextToken :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse (Prelude.Maybe Prelude.Text)
 describeVpcEndpointServiceConfigurationsResponse_nextToken = Lens.lens (\DescribeVpcEndpointServiceConfigurationsResponse' {nextToken} -> nextToken) (\s@DescribeVpcEndpointServiceConfigurationsResponse' {} a -> s {nextToken = a} :: DescribeVpcEndpointServiceConfigurationsResponse)
 
--- | Information about one or more services.
+-- | Information about the services.
 describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations :: Lens.Lens' DescribeVpcEndpointServiceConfigurationsResponse (Prelude.Maybe [ServiceConfiguration])
 describeVpcEndpointServiceConfigurationsResponse_serviceConfigurations = Lens.lens (\DescribeVpcEndpointServiceConfigurationsResponse' {serviceConfigurations} -> serviceConfigurations) (\s@DescribeVpcEndpointServiceConfigurationsResponse' {} a -> s {serviceConfigurations = a} :: DescribeVpcEndpointServiceConfigurationsResponse) Prelude.. Lens.mapping Lens.coerced
 

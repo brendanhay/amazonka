@@ -38,7 +38,7 @@ import qualified Amazonka.Prelude as Prelude
 data LaunchSpecification = LaunchSpecification'
   { -- | Deprecated.
     addressingType :: Prelude.Maybe Prelude.Text,
-    -- | One or more block device mapping entries.
+    -- | The block device mapping entries.
     blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
     -- | Indicates whether the instance is optimized for EBS I\/O. This
     -- optimization provides dedicated throughput to Amazon EBS and an
@@ -59,25 +59,22 @@ data LaunchSpecification = LaunchSpecification'
     -- | The name of the key pair.
     keyName :: Prelude.Maybe Prelude.Text,
     monitoring :: Prelude.Maybe RunInstancesMonitoringEnabled,
-    -- | One or more network interfaces. If you specify a network interface, you
-    -- must specify subnet IDs and security group IDs using the network
-    -- interface.
+    -- | The network interfaces. If you specify a network interface, you must
+    -- specify subnet IDs and security group IDs using the network interface.
     networkInterfaces :: Prelude.Maybe [InstanceNetworkInterfaceSpecification],
     -- | The placement information for the instance.
     placement :: Prelude.Maybe SpotPlacement,
     -- | The ID of the RAM disk.
     ramdiskId :: Prelude.Maybe Prelude.Text,
-    -- | One or more security groups. When requesting instances in a VPC, you
-    -- must specify the IDs of the security groups. When requesting instances
-    -- in EC2-Classic, you can specify the names or the IDs of the security
-    -- groups.
+    -- | The IDs of the security groups.
     securityGroups :: Prelude.Maybe [GroupIdentifier],
     -- | The ID of the subnet in which to launch the instance.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The Base64-encoded user data for the instance.
-    userData :: Prelude.Maybe Prelude.Text
+    -- | The base64-encoded user data that instances use when starting up. User
+    -- data is limited to 16 KB.
+    userData :: Prelude.Maybe (Data.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchSpecification' with all optional fields omitted.
@@ -89,7 +86,7 @@ data LaunchSpecification = LaunchSpecification'
 --
 -- 'addressingType', 'launchSpecification_addressingType' - Deprecated.
 --
--- 'blockDeviceMappings', 'launchSpecification_blockDeviceMappings' - One or more block device mapping entries.
+-- 'blockDeviceMappings', 'launchSpecification_blockDeviceMappings' - The block device mapping entries.
 --
 -- 'ebsOptimized', 'launchSpecification_ebsOptimized' - Indicates whether the instance is optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -111,22 +108,19 @@ data LaunchSpecification = LaunchSpecification'
 --
 -- 'monitoring', 'launchSpecification_monitoring' - Undocumented member.
 --
--- 'networkInterfaces', 'launchSpecification_networkInterfaces' - One or more network interfaces. If you specify a network interface, you
--- must specify subnet IDs and security group IDs using the network
--- interface.
+-- 'networkInterfaces', 'launchSpecification_networkInterfaces' - The network interfaces. If you specify a network interface, you must
+-- specify subnet IDs and security group IDs using the network interface.
 --
 -- 'placement', 'launchSpecification_placement' - The placement information for the instance.
 --
 -- 'ramdiskId', 'launchSpecification_ramdiskId' - The ID of the RAM disk.
 --
--- 'securityGroups', 'launchSpecification_securityGroups' - One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
+-- 'securityGroups', 'launchSpecification_securityGroups' - The IDs of the security groups.
 --
 -- 'subnetId', 'launchSpecification_subnetId' - The ID of the subnet in which to launch the instance.
 --
--- 'userData', 'launchSpecification_userData' - The Base64-encoded user data for the instance.
+-- 'userData', 'launchSpecification_userData' - The base64-encoded user data that instances use when starting up. User
+-- data is limited to 16 KB.
 newLaunchSpecification ::
   LaunchSpecification
 newLaunchSpecification =
@@ -153,7 +147,7 @@ newLaunchSpecification =
 launchSpecification_addressingType :: Lens.Lens' LaunchSpecification (Prelude.Maybe Prelude.Text)
 launchSpecification_addressingType = Lens.lens (\LaunchSpecification' {addressingType} -> addressingType) (\s@LaunchSpecification' {} a -> s {addressingType = a} :: LaunchSpecification)
 
--- | One or more block device mapping entries.
+-- | The block device mapping entries.
 launchSpecification_blockDeviceMappings :: Lens.Lens' LaunchSpecification (Prelude.Maybe [BlockDeviceMapping])
 launchSpecification_blockDeviceMappings = Lens.lens (\LaunchSpecification' {blockDeviceMappings} -> blockDeviceMappings) (\s@LaunchSpecification' {} a -> s {blockDeviceMappings = a} :: LaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
@@ -191,9 +185,8 @@ launchSpecification_keyName = Lens.lens (\LaunchSpecification' {keyName} -> keyN
 launchSpecification_monitoring :: Lens.Lens' LaunchSpecification (Prelude.Maybe RunInstancesMonitoringEnabled)
 launchSpecification_monitoring = Lens.lens (\LaunchSpecification' {monitoring} -> monitoring) (\s@LaunchSpecification' {} a -> s {monitoring = a} :: LaunchSpecification)
 
--- | One or more network interfaces. If you specify a network interface, you
--- must specify subnet IDs and security group IDs using the network
--- interface.
+-- | The network interfaces. If you specify a network interface, you must
+-- specify subnet IDs and security group IDs using the network interface.
 launchSpecification_networkInterfaces :: Lens.Lens' LaunchSpecification (Prelude.Maybe [InstanceNetworkInterfaceSpecification])
 launchSpecification_networkInterfaces = Lens.lens (\LaunchSpecification' {networkInterfaces} -> networkInterfaces) (\s@LaunchSpecification' {} a -> s {networkInterfaces = a} :: LaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
@@ -205,10 +198,7 @@ launchSpecification_placement = Lens.lens (\LaunchSpecification' {placement} -> 
 launchSpecification_ramdiskId :: Lens.Lens' LaunchSpecification (Prelude.Maybe Prelude.Text)
 launchSpecification_ramdiskId = Lens.lens (\LaunchSpecification' {ramdiskId} -> ramdiskId) (\s@LaunchSpecification' {} a -> s {ramdiskId = a} :: LaunchSpecification)
 
--- | One or more security groups. When requesting instances in a VPC, you
--- must specify the IDs of the security groups. When requesting instances
--- in EC2-Classic, you can specify the names or the IDs of the security
--- groups.
+-- | The IDs of the security groups.
 launchSpecification_securityGroups :: Lens.Lens' LaunchSpecification (Prelude.Maybe [GroupIdentifier])
 launchSpecification_securityGroups = Lens.lens (\LaunchSpecification' {securityGroups} -> securityGroups) (\s@LaunchSpecification' {} a -> s {securityGroups = a} :: LaunchSpecification) Prelude.. Lens.mapping Lens.coerced
 
@@ -216,15 +206,17 @@ launchSpecification_securityGroups = Lens.lens (\LaunchSpecification' {securityG
 launchSpecification_subnetId :: Lens.Lens' LaunchSpecification (Prelude.Maybe Prelude.Text)
 launchSpecification_subnetId = Lens.lens (\LaunchSpecification' {subnetId} -> subnetId) (\s@LaunchSpecification' {} a -> s {subnetId = a} :: LaunchSpecification)
 
--- | The Base64-encoded user data for the instance.
+-- | The base64-encoded user data that instances use when starting up. User
+-- data is limited to 16 KB.
 launchSpecification_userData :: Lens.Lens' LaunchSpecification (Prelude.Maybe Prelude.Text)
-launchSpecification_userData = Lens.lens (\LaunchSpecification' {userData} -> userData) (\s@LaunchSpecification' {} a -> s {userData = a} :: LaunchSpecification)
+launchSpecification_userData = Lens.lens (\LaunchSpecification' {userData} -> userData) (\s@LaunchSpecification' {} a -> s {userData = a} :: LaunchSpecification) Prelude.. Lens.mapping Data._Sensitive
 
 instance Data.FromXML LaunchSpecification where
   parseXML x =
     LaunchSpecification'
       Prelude.<$> (x Data..@? "addressingType")
-      Prelude.<*> ( x Data..@? "blockDeviceMapping"
+      Prelude.<*> ( x
+                      Data..@? "blockDeviceMapping"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -235,13 +227,16 @@ instance Data.FromXML LaunchSpecification where
       Prelude.<*> (x Data..@? "kernelId")
       Prelude.<*> (x Data..@? "keyName")
       Prelude.<*> (x Data..@? "monitoring")
-      Prelude.<*> ( x Data..@? "networkInterfaceSet"
+      Prelude.<*> ( x
+                      Data..@? "networkInterfaceSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "placement")
       Prelude.<*> (x Data..@? "ramdiskId")
-      Prelude.<*> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "subnetId")
@@ -249,7 +244,8 @@ instance Data.FromXML LaunchSpecification where
 
 instance Prelude.Hashable LaunchSpecification where
   hashWithSalt _salt LaunchSpecification' {..} =
-    _salt `Prelude.hashWithSalt` addressingType
+    _salt
+      `Prelude.hashWithSalt` addressingType
       `Prelude.hashWithSalt` blockDeviceMappings
       `Prelude.hashWithSalt` ebsOptimized
       `Prelude.hashWithSalt` iamInstanceProfile

@@ -138,7 +138,8 @@ instance Core.AWSRequest DeleteLaunchTemplate where
 
 instance Prelude.Hashable DeleteLaunchTemplate where
   hashWithSalt _salt DeleteLaunchTemplate' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplateId
       `Prelude.hashWithSalt` launchTemplateName
 

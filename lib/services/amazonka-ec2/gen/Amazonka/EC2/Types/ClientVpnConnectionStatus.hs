@@ -72,7 +72,8 @@ instance Data.FromXML ClientVpnConnectionStatus where
 
 instance Prelude.Hashable ClientVpnConnectionStatus where
   hashWithSalt _salt ClientVpnConnectionStatus' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ClientVpnConnectionStatus where

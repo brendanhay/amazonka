@@ -78,7 +78,8 @@ instance
   hashWithSalt
     _salt
     NetworkInterfacePermissionState' {..} =
-      _salt `Prelude.hashWithSalt` state
+      _salt
+        `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` statusMessage
 
 instance

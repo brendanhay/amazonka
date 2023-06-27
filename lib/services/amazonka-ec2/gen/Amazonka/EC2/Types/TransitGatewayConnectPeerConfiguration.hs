@@ -100,11 +100,13 @@ instance
   where
   parseXML x =
     TransitGatewayConnectPeerConfiguration'
-      Prelude.<$> ( x Data..@? "bgpConfigurations"
+      Prelude.<$> ( x
+                      Data..@? "bgpConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "insideCidrBlocks"
+      Prelude.<*> ( x
+                      Data..@? "insideCidrBlocks"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -119,7 +121,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayConnectPeerConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` bgpConfigurations
+      _salt
+        `Prelude.hashWithSalt` bgpConfigurations
         `Prelude.hashWithSalt` insideCidrBlocks
         `Prelude.hashWithSalt` peerAddress
         `Prelude.hashWithSalt` protocol

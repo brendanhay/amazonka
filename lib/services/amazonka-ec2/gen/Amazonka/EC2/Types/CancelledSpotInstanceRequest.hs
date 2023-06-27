@@ -76,7 +76,8 @@ instance
     CancelledSpotInstanceRequest
   where
   hashWithSalt _salt CancelledSpotInstanceRequest' {..} =
-    _salt `Prelude.hashWithSalt` spotInstanceRequestId
+    _salt
+      `Prelude.hashWithSalt` spotInstanceRequestId
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData CancelledSpotInstanceRequest where

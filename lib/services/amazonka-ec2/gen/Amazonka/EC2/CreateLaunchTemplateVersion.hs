@@ -44,6 +44,7 @@ module Amazonka.EC2.CreateLaunchTemplateVersion
     createLaunchTemplateVersion_dryRun,
     createLaunchTemplateVersion_launchTemplateId,
     createLaunchTemplateVersion_launchTemplateName,
+    createLaunchTemplateVersion_resolveAlias,
     createLaunchTemplateVersion_sourceVersion,
     createLaunchTemplateVersion_versionDescription,
     createLaunchTemplateVersion_launchTemplateData,
@@ -90,6 +91,14 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
     -- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
     -- not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text,
+    -- | If @true@, and if a Systems Manager parameter is specified for
+    -- @ImageId@, the AMI ID is displayed in the response for @imageID@. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    --
+    -- Default: @false@
+    resolveAlias :: Prelude.Maybe Prelude.Bool,
     -- | The version number of the launch template version on which to base the
     -- new version. The new version inherits the same launch parameters as the
     -- source version, except for parameters that you specify in
@@ -99,7 +108,7 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
     -- | A description for the version of the launch template.
     versionDescription :: Prelude.Maybe Prelude.Text,
     -- | The information for the launch template.
-    launchTemplateData :: Data.Sensitive RequestLaunchTemplateData
+    launchTemplateData :: RequestLaunchTemplateData
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -132,6 +141,14 @@ data CreateLaunchTemplateVersion = CreateLaunchTemplateVersion'
 -- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
 -- not both.
 --
+-- 'resolveAlias', 'createLaunchTemplateVersion_resolveAlias' - If @true@, and if a Systems Manager parameter is specified for
+-- @ImageId@, the AMI ID is displayed in the response for @imageID@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Default: @false@
+--
 -- 'sourceVersion', 'createLaunchTemplateVersion_sourceVersion' - The version number of the launch template version on which to base the
 -- new version. The new version inherits the same launch parameters as the
 -- source version, except for parameters that you specify in
@@ -152,10 +169,10 @@ newCreateLaunchTemplateVersion pLaunchTemplateData_ =
       dryRun = Prelude.Nothing,
       launchTemplateId = Prelude.Nothing,
       launchTemplateName = Prelude.Nothing,
+      resolveAlias = Prelude.Nothing,
       sourceVersion = Prelude.Nothing,
       versionDescription = Prelude.Nothing,
-      launchTemplateData =
-        Data._Sensitive Lens.# pLaunchTemplateData_
+      launchTemplateData = pLaunchTemplateData_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -187,6 +204,16 @@ createLaunchTemplateVersion_launchTemplateId = Lens.lens (\CreateLaunchTemplateV
 createLaunchTemplateVersion_launchTemplateName :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Text)
 createLaunchTemplateVersion_launchTemplateName = Lens.lens (\CreateLaunchTemplateVersion' {launchTemplateName} -> launchTemplateName) (\s@CreateLaunchTemplateVersion' {} a -> s {launchTemplateName = a} :: CreateLaunchTemplateVersion)
 
+-- | If @true@, and if a Systems Manager parameter is specified for
+-- @ImageId@, the AMI ID is displayed in the response for @imageID@. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Default: @false@
+createLaunchTemplateVersion_resolveAlias :: Lens.Lens' CreateLaunchTemplateVersion (Prelude.Maybe Prelude.Bool)
+createLaunchTemplateVersion_resolveAlias = Lens.lens (\CreateLaunchTemplateVersion' {resolveAlias} -> resolveAlias) (\s@CreateLaunchTemplateVersion' {} a -> s {resolveAlias = a} :: CreateLaunchTemplateVersion)
+
 -- | The version number of the launch template version on which to base the
 -- new version. The new version inherits the same launch parameters as the
 -- source version, except for parameters that you specify in
@@ -201,7 +228,7 @@ createLaunchTemplateVersion_versionDescription = Lens.lens (\CreateLaunchTemplat
 
 -- | The information for the launch template.
 createLaunchTemplateVersion_launchTemplateData :: Lens.Lens' CreateLaunchTemplateVersion RequestLaunchTemplateData
-createLaunchTemplateVersion_launchTemplateData = Lens.lens (\CreateLaunchTemplateVersion' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplateVersion' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplateVersion) Prelude.. Data._Sensitive
+createLaunchTemplateVersion_launchTemplateData = Lens.lens (\CreateLaunchTemplateVersion' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplateVersion' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplateVersion)
 
 instance Core.AWSRequest CreateLaunchTemplateVersion where
   type
@@ -220,10 +247,12 @@ instance Core.AWSRequest CreateLaunchTemplateVersion where
 
 instance Prelude.Hashable CreateLaunchTemplateVersion where
   hashWithSalt _salt CreateLaunchTemplateVersion' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplateId
       `Prelude.hashWithSalt` launchTemplateName
+      `Prelude.hashWithSalt` resolveAlias
       `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` launchTemplateData
@@ -234,6 +263,7 @@ instance Prelude.NFData CreateLaunchTemplateVersion where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf launchTemplateId
       `Prelude.seq` Prelude.rnf launchTemplateName
+      `Prelude.seq` Prelude.rnf resolveAlias
       `Prelude.seq` Prelude.rnf sourceVersion
       `Prelude.seq` Prelude.rnf versionDescription
       `Prelude.seq` Prelude.rnf launchTemplateData
@@ -257,6 +287,7 @@ instance Data.ToQuery CreateLaunchTemplateVersion where
         "DryRun" Data.=: dryRun,
         "LaunchTemplateId" Data.=: launchTemplateId,
         "LaunchTemplateName" Data.=: launchTemplateName,
+        "ResolveAlias" Data.=: resolveAlias,
         "SourceVersion" Data.=: sourceVersion,
         "VersionDescription" Data.=: versionDescription,
         "LaunchTemplateData" Data.=: launchTemplateData
@@ -273,7 +304,7 @@ data CreateLaunchTemplateVersionResponse = CreateLaunchTemplateVersionResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateLaunchTemplateVersionResponse' with all optional fields omitted.

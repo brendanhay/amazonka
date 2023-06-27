@@ -198,7 +198,9 @@ instance Data.FromXML HostReservation where
       Prelude.<*> (x Data..@? "currencyCode")
       Prelude.<*> (x Data..@? "duration")
       Prelude.<*> (x Data..@? "end")
-      Prelude.<*> ( x Data..@? "hostIdSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "hostIdSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "hostReservationId")
@@ -208,14 +210,17 @@ instance Data.FromXML HostReservation where
       Prelude.<*> (x Data..@? "paymentOption")
       Prelude.<*> (x Data..@? "start")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "upfrontPrice")
 
 instance Prelude.Hashable HostReservation where
   hashWithSalt _salt HostReservation' {..} =
-    _salt `Prelude.hashWithSalt` count
+    _salt
+      `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` duration
       `Prelude.hashWithSalt` end

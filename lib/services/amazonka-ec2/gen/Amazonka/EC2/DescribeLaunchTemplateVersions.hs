@@ -40,6 +40,7 @@ module Amazonka.EC2.DescribeLaunchTemplateVersions
     describeLaunchTemplateVersions_maxVersion,
     describeLaunchTemplateVersions_minVersion,
     describeLaunchTemplateVersions_nextToken,
+    describeLaunchTemplateVersions_resolveAlias,
     describeLaunchTemplateVersions_versions,
 
     -- * Destructuring the Response
@@ -132,6 +133,18 @@ data DescribeLaunchTemplateVersions = DescribeLaunchTemplateVersions'
     minVersion :: Prelude.Maybe Prelude.Text,
     -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | If @true@, and if a Systems Manager parameter is specified for
+    -- @ImageId@, the AMI ID is displayed in the response for @imageId@.
+    --
+    -- If @false@, and if a Systems Manager parameter is specified for
+    -- @ImageId@, the parameter is displayed in the response for @imageId@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    --
+    -- Default: @false@
+    resolveAlias :: Prelude.Maybe Prelude.Bool,
     -- | One or more versions of the launch template. Valid values depend on
     -- whether you are describing a specified launch template (by ID or name)
     -- or all launch templates in your account.
@@ -225,6 +238,18 @@ data DescribeLaunchTemplateVersions = DescribeLaunchTemplateVersions'
 --
 -- 'nextToken', 'describeLaunchTemplateVersions_nextToken' - The token to request the next page of results.
 --
+-- 'resolveAlias', 'describeLaunchTemplateVersions_resolveAlias' - If @true@, and if a Systems Manager parameter is specified for
+-- @ImageId@, the AMI ID is displayed in the response for @imageId@.
+--
+-- If @false@, and if a Systems Manager parameter is specified for
+-- @ImageId@, the parameter is displayed in the response for @imageId@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Default: @false@
+--
 -- 'versions', 'describeLaunchTemplateVersions_versions' - One or more versions of the launch template. Valid values depend on
 -- whether you are describing a specified launch template (by ID or name)
 -- or all launch templates in your account.
@@ -250,6 +275,7 @@ newDescribeLaunchTemplateVersions =
       maxVersion = Prelude.Nothing,
       minVersion = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      resolveAlias = Prelude.Nothing,
       versions = Prelude.Nothing
     }
 
@@ -338,6 +364,20 @@ describeLaunchTemplateVersions_minVersion = Lens.lens (\DescribeLaunchTemplateVe
 describeLaunchTemplateVersions_nextToken :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
 describeLaunchTemplateVersions_nextToken = Lens.lens (\DescribeLaunchTemplateVersions' {nextToken} -> nextToken) (\s@DescribeLaunchTemplateVersions' {} a -> s {nextToken = a} :: DescribeLaunchTemplateVersions)
 
+-- | If @true@, and if a Systems Manager parameter is specified for
+-- @ImageId@, the AMI ID is displayed in the response for @imageId@.
+--
+-- If @false@, and if a Systems Manager parameter is specified for
+-- @ImageId@, the parameter is displayed in the response for @imageId@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id Use a Systems Manager parameter instead of an AMI ID>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Default: @false@
+describeLaunchTemplateVersions_resolveAlias :: Lens.Lens' DescribeLaunchTemplateVersions (Prelude.Maybe Prelude.Bool)
+describeLaunchTemplateVersions_resolveAlias = Lens.lens (\DescribeLaunchTemplateVersions' {resolveAlias} -> resolveAlias) (\s@DescribeLaunchTemplateVersions' {} a -> s {resolveAlias = a} :: DescribeLaunchTemplateVersions)
+
 -- | One or more versions of the launch template. Valid values depend on
 -- whether you are describing a specified launch template (by ID or name)
 -- or all launch templates in your account.
@@ -358,22 +398,22 @@ instance Core.AWSPager DescribeLaunchTemplateVersions where
     | Core.stop
         ( rs
             Lens.^? describeLaunchTemplateVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeLaunchTemplateVersionsResponse_launchTemplateVersions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeLaunchTemplateVersions_nextToken
           Lens..~ rs
           Lens.^? describeLaunchTemplateVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -388,7 +428,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplateVersionsResponse'
-            Prelude.<$> ( x Data..@? "launchTemplateVersionSet"
+            Prelude.<$> ( x
+                            Data..@? "launchTemplateVersionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -403,7 +444,8 @@ instance
   hashWithSalt
     _salt
     DescribeLaunchTemplateVersions' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName
@@ -411,6 +453,7 @@ instance
         `Prelude.hashWithSalt` maxVersion
         `Prelude.hashWithSalt` minVersion
         `Prelude.hashWithSalt` nextToken
+        `Prelude.hashWithSalt` resolveAlias
         `Prelude.hashWithSalt` versions
 
 instance
@@ -426,6 +469,7 @@ instance
       `Prelude.seq` Prelude.rnf maxVersion
       `Prelude.seq` Prelude.rnf minVersion
       `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resolveAlias
       `Prelude.seq` Prelude.rnf versions
 
 instance
@@ -455,6 +499,7 @@ instance Data.ToQuery DescribeLaunchTemplateVersions where
         "MaxVersion" Data.=: maxVersion,
         "MinVersion" Data.=: minVersion,
         "NextToken" Data.=: nextToken,
+        "ResolveAlias" Data.=: resolveAlias,
         Data.toQuery
           ( Data.toQueryList "LaunchTemplateVersion"
               Prelude.<$> versions
@@ -471,7 +516,7 @@ data DescribeLaunchTemplateVersionsResponse = DescribeLaunchTemplateVersionsResp
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeLaunchTemplateVersionsResponse' with all optional fields omitted.

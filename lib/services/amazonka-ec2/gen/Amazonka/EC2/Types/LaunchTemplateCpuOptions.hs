@@ -23,13 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Core.Lens.Internal as Lens
 import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.AmdSevSnpSpecification
 import qualified Amazonka.Prelude as Prelude
 
 -- | The CPU options for the instance.
 --
 -- /See:/ 'newLaunchTemplateCpuOptions' smart constructor.
 data LaunchTemplateCpuOptions = LaunchTemplateCpuOptions'
-  { -- | The number of CPU cores for the instance.
+  { -- | Indicates whether the instance is enabled for AMD SEV-SNP.
+    amdSevSnp :: Prelude.Maybe AmdSevSnpSpecification,
+    -- | The number of CPU cores for the instance.
     coreCount :: Prelude.Maybe Prelude.Int,
     -- | The number of threads per CPU core.
     threadsPerCore :: Prelude.Maybe Prelude.Int
@@ -44,6 +47,8 @@ data LaunchTemplateCpuOptions = LaunchTemplateCpuOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'amdSevSnp', 'launchTemplateCpuOptions_amdSevSnp' - Indicates whether the instance is enabled for AMD SEV-SNP.
+--
 -- 'coreCount', 'launchTemplateCpuOptions_coreCount' - The number of CPU cores for the instance.
 --
 -- 'threadsPerCore', 'launchTemplateCpuOptions_threadsPerCore' - The number of threads per CPU core.
@@ -51,10 +56,15 @@ newLaunchTemplateCpuOptions ::
   LaunchTemplateCpuOptions
 newLaunchTemplateCpuOptions =
   LaunchTemplateCpuOptions'
-    { coreCount =
+    { amdSevSnp =
         Prelude.Nothing,
+      coreCount = Prelude.Nothing,
       threadsPerCore = Prelude.Nothing
     }
+
+-- | Indicates whether the instance is enabled for AMD SEV-SNP.
+launchTemplateCpuOptions_amdSevSnp :: Lens.Lens' LaunchTemplateCpuOptions (Prelude.Maybe AmdSevSnpSpecification)
+launchTemplateCpuOptions_amdSevSnp = Lens.lens (\LaunchTemplateCpuOptions' {amdSevSnp} -> amdSevSnp) (\s@LaunchTemplateCpuOptions' {} a -> s {amdSevSnp = a} :: LaunchTemplateCpuOptions)
 
 -- | The number of CPU cores for the instance.
 launchTemplateCpuOptions_coreCount :: Lens.Lens' LaunchTemplateCpuOptions (Prelude.Maybe Prelude.Int)
@@ -67,15 +77,19 @@ launchTemplateCpuOptions_threadsPerCore = Lens.lens (\LaunchTemplateCpuOptions' 
 instance Data.FromXML LaunchTemplateCpuOptions where
   parseXML x =
     LaunchTemplateCpuOptions'
-      Prelude.<$> (x Data..@? "coreCount")
+      Prelude.<$> (x Data..@? "amdSevSnp")
+      Prelude.<*> (x Data..@? "coreCount")
       Prelude.<*> (x Data..@? "threadsPerCore")
 
 instance Prelude.Hashable LaunchTemplateCpuOptions where
   hashWithSalt _salt LaunchTemplateCpuOptions' {..} =
-    _salt `Prelude.hashWithSalt` coreCount
+    _salt
+      `Prelude.hashWithSalt` amdSevSnp
+      `Prelude.hashWithSalt` coreCount
       `Prelude.hashWithSalt` threadsPerCore
 
 instance Prelude.NFData LaunchTemplateCpuOptions where
   rnf LaunchTemplateCpuOptions' {..} =
-    Prelude.rnf coreCount
+    Prelude.rnf amdSevSnp
+      `Prelude.seq` Prelude.rnf coreCount
       `Prelude.seq` Prelude.rnf threadsPerCore

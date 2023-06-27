@@ -20,10 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- A trust provider is a third-party entity that creates, maintains, and
--- manages identity information for users and devices. One or more trust
--- providers can be attached to an Amazon Web Services Verified Access
--- instance.
+-- Attaches the specified Amazon Web Services Verified Access trust
+-- provider to the specified Amazon Web Services Verified Access instance.
 module Amazonka.EC2.AttachVerifiedAccessTrustProvider
   ( -- * Creating a Request
     AttachVerifiedAccessTrustProvider (..),
@@ -65,9 +63,9 @@ data AttachVerifiedAccessTrustProvider = AttachVerifiedAccessTrustProvider'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Text,
-    -- | The ID of the Amazon Web Services Verified Access trust provider.
+    -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProviderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,9 +87,9 @@ data AttachVerifiedAccessTrustProvider = AttachVerifiedAccessTrustProvider'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessInstanceId', 'attachVerifiedAccessTrustProvider_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'attachVerifiedAccessTrustProvider_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 --
--- 'verifiedAccessTrustProviderId', 'attachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProviderId', 'attachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId' - The ID of the Verified Access trust provider.
 newAttachVerifiedAccessTrustProvider ::
   -- | 'verifiedAccessInstanceId'
   Prelude.Text ->
@@ -124,11 +122,11 @@ attachVerifiedAccessTrustProvider_clientToken = Lens.lens (\AttachVerifiedAccess
 attachVerifiedAccessTrustProvider_dryRun :: Lens.Lens' AttachVerifiedAccessTrustProvider (Prelude.Maybe Prelude.Bool)
 attachVerifiedAccessTrustProvider_dryRun = Lens.lens (\AttachVerifiedAccessTrustProvider' {dryRun} -> dryRun) (\s@AttachVerifiedAccessTrustProvider' {} a -> s {dryRun = a} :: AttachVerifiedAccessTrustProvider)
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 attachVerifiedAccessTrustProvider_verifiedAccessInstanceId :: Lens.Lens' AttachVerifiedAccessTrustProvider Prelude.Text
 attachVerifiedAccessTrustProvider_verifiedAccessInstanceId = Lens.lens (\AttachVerifiedAccessTrustProvider' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@AttachVerifiedAccessTrustProvider' {} a -> s {verifiedAccessInstanceId = a} :: AttachVerifiedAccessTrustProvider)
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 attachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId :: Lens.Lens' AttachVerifiedAccessTrustProvider Prelude.Text
 attachVerifiedAccessTrustProvider_verifiedAccessTrustProviderId = Lens.lens (\AttachVerifiedAccessTrustProvider' {verifiedAccessTrustProviderId} -> verifiedAccessTrustProviderId) (\s@AttachVerifiedAccessTrustProvider' {} a -> s {verifiedAccessTrustProviderId = a} :: AttachVerifiedAccessTrustProvider)
 
@@ -146,8 +144,8 @@ instance
       ( \s h x ->
           AttachVerifiedAccessTrustProviderResponse'
             Prelude.<$> (x Data..@? "verifiedAccessInstance")
-              Prelude.<*> (x Data..@? "verifiedAccessTrustProvider")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "verifiedAccessTrustProvider")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -157,7 +155,8 @@ instance
   hashWithSalt
     _salt
     AttachVerifiedAccessTrustProvider' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessInstanceId
         `Prelude.hashWithSalt` verifiedAccessTrustProviderId
@@ -206,14 +205,14 @@ instance
 
 -- | /See:/ 'newAttachVerifiedAccessTrustProviderResponse' smart constructor.
 data AttachVerifiedAccessTrustProviderResponse = AttachVerifiedAccessTrustProviderResponse'
-  { -- | The ID of the Amazon Web Services Verified Access instance.
+  { -- | The ID of the Verified Access instance.
     verifiedAccessInstance :: Prelude.Maybe VerifiedAccessInstance,
-    -- | The ID of the Amazon Web Services Verified Access trust provider.
+    -- | The ID of the Verified Access trust provider.
     verifiedAccessTrustProvider :: Prelude.Maybe VerifiedAccessTrustProvider,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'AttachVerifiedAccessTrustProviderResponse' with all optional fields omitted.
@@ -223,9 +222,9 @@ data AttachVerifiedAccessTrustProviderResponse = AttachVerifiedAccessTrustProvid
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessInstance', 'attachVerifiedAccessTrustProviderResponse_verifiedAccessInstance' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstance', 'attachVerifiedAccessTrustProviderResponse_verifiedAccessInstance' - The ID of the Verified Access instance.
 --
--- 'verifiedAccessTrustProvider', 'attachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Amazon Web Services Verified Access trust provider.
+-- 'verifiedAccessTrustProvider', 'attachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider' - The ID of the Verified Access trust provider.
 --
 -- 'httpStatus', 'attachVerifiedAccessTrustProviderResponse_httpStatus' - The response's http status code.
 newAttachVerifiedAccessTrustProviderResponse ::
@@ -242,11 +241,11 @@ newAttachVerifiedAccessTrustProviderResponse
         httpStatus = pHttpStatus_
       }
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 attachVerifiedAccessTrustProviderResponse_verifiedAccessInstance :: Lens.Lens' AttachVerifiedAccessTrustProviderResponse (Prelude.Maybe VerifiedAccessInstance)
 attachVerifiedAccessTrustProviderResponse_verifiedAccessInstance = Lens.lens (\AttachVerifiedAccessTrustProviderResponse' {verifiedAccessInstance} -> verifiedAccessInstance) (\s@AttachVerifiedAccessTrustProviderResponse' {} a -> s {verifiedAccessInstance = a} :: AttachVerifiedAccessTrustProviderResponse)
 
--- | The ID of the Amazon Web Services Verified Access trust provider.
+-- | The ID of the Verified Access trust provider.
 attachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider :: Lens.Lens' AttachVerifiedAccessTrustProviderResponse (Prelude.Maybe VerifiedAccessTrustProvider)
 attachVerifiedAccessTrustProviderResponse_verifiedAccessTrustProvider = Lens.lens (\AttachVerifiedAccessTrustProviderResponse' {verifiedAccessTrustProvider} -> verifiedAccessTrustProvider) (\s@AttachVerifiedAccessTrustProviderResponse' {} a -> s {verifiedAccessTrustProvider = a} :: AttachVerifiedAccessTrustProviderResponse)
 

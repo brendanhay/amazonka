@@ -122,7 +122,8 @@ instance Core.AWSRequest ResetSnapshotAttribute where
 
 instance Prelude.Hashable ResetSnapshotAttribute where
   hashWithSalt _salt ResetSnapshotAttribute' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` snapshotId
 

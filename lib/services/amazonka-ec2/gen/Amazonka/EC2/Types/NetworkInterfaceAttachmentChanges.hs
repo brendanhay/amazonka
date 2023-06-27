@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     NetworkInterfaceAttachmentChanges' {..} =
-      _salt `Prelude.hashWithSalt` attachmentId
+      _salt
+        `Prelude.hashWithSalt` attachmentId
         `Prelude.hashWithSalt` deleteOnTermination
 
 instance

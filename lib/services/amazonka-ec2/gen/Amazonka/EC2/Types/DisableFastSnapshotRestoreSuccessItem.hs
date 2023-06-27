@@ -196,7 +196,8 @@ instance
   hashWithSalt
     _salt
     DisableFastSnapshotRestoreSuccessItem' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` disabledTime
         `Prelude.hashWithSalt` disablingTime
         `Prelude.hashWithSalt` enabledTime

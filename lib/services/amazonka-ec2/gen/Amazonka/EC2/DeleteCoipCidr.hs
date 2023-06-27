@@ -123,7 +123,8 @@ instance Core.AWSRequest DeleteCoipCidr where
 
 instance Prelude.Hashable DeleteCoipCidr where
   hashWithSalt _salt DeleteCoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` coipPoolId
 

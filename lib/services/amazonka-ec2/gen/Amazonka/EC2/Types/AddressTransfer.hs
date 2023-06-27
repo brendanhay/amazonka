@@ -127,7 +127,8 @@ instance Data.FromXML AddressTransfer where
 
 instance Prelude.Hashable AddressTransfer where
   hashWithSalt _salt AddressTransfer' {..} =
-    _salt `Prelude.hashWithSalt` addressTransferStatus
+    _salt
+      `Prelude.hashWithSalt` addressTransferStatus
       `Prelude.hashWithSalt` allocationId
       `Prelude.hashWithSalt` publicIp
       `Prelude.hashWithSalt` transferAccountId

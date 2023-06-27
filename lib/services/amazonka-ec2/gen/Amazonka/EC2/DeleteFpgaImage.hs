@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteFpgaImage where
 
 instance Prelude.Hashable DeleteFpgaImage where
   hashWithSalt _salt DeleteFpgaImage' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fpgaImageId
 
 instance Prelude.NFData DeleteFpgaImage where

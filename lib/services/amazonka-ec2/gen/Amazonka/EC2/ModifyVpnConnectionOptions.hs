@@ -187,7 +187,8 @@ instance Core.AWSRequest ModifyVpnConnectionOptions where
 
 instance Prelude.Hashable ModifyVpnConnectionOptions where
   hashWithSalt _salt ModifyVpnConnectionOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` localIpv4NetworkCidr
       `Prelude.hashWithSalt` localIpv6NetworkCidr
       `Prelude.hashWithSalt` remoteIpv4NetworkCidr
@@ -233,7 +234,7 @@ data ModifyVpnConnectionOptionsResponse = ModifyVpnConnectionOptionsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnConnectionOptionsResponse' with all optional fields omitted.

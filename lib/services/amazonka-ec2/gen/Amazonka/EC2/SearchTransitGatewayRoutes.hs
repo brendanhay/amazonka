@@ -223,7 +223,9 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
       ( \s h x ->
           SearchTransitGatewayRoutesResponse'
             Prelude.<$> (x Data..@? "additionalRoutesAvailable")
-            Prelude.<*> ( x Data..@? "routeSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "routeSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -231,7 +233,8 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
 
 instance Prelude.Hashable SearchTransitGatewayRoutes where
   hashWithSalt _salt SearchTransitGatewayRoutes' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` transitGatewayRouteTableId
       `Prelude.hashWithSalt` filters

@@ -76,7 +76,8 @@ instance
     LaunchPermissionModifications
   where
   hashWithSalt _salt LaunchPermissionModifications' {..} =
-    _salt `Prelude.hashWithSalt` add
+    _salt
+      `Prelude.hashWithSalt` add
       `Prelude.hashWithSalt` remove
 
 instance Prelude.NFData LaunchPermissionModifications where

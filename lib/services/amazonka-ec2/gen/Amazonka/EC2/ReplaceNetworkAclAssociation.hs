@@ -138,7 +138,8 @@ instance
     ReplaceNetworkAclAssociation
   where
   hashWithSalt _salt ReplaceNetworkAclAssociation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` networkAclId
 

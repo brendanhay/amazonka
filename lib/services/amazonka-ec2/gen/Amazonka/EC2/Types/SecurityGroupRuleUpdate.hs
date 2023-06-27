@@ -33,7 +33,7 @@ data SecurityGroupRuleUpdate = SecurityGroupRuleUpdate'
   { -- | Information about the security group rule.
     securityGroupRule :: Prelude.Maybe SecurityGroupRuleRequest,
     -- | The ID of the security group rule.
-    securityGroupRuleId :: Prelude.Maybe Prelude.Text
+    securityGroupRuleId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,12 +49,14 @@ data SecurityGroupRuleUpdate = SecurityGroupRuleUpdate'
 --
 -- 'securityGroupRuleId', 'securityGroupRuleUpdate_securityGroupRuleId' - The ID of the security group rule.
 newSecurityGroupRuleUpdate ::
+  -- | 'securityGroupRuleId'
+  Prelude.Text ->
   SecurityGroupRuleUpdate
-newSecurityGroupRuleUpdate =
+newSecurityGroupRuleUpdate pSecurityGroupRuleId_ =
   SecurityGroupRuleUpdate'
     { securityGroupRule =
         Prelude.Nothing,
-      securityGroupRuleId = Prelude.Nothing
+      securityGroupRuleId = pSecurityGroupRuleId_
     }
 
 -- | Information about the security group rule.
@@ -62,12 +64,13 @@ securityGroupRuleUpdate_securityGroupRule :: Lens.Lens' SecurityGroupRuleUpdate 
 securityGroupRuleUpdate_securityGroupRule = Lens.lens (\SecurityGroupRuleUpdate' {securityGroupRule} -> securityGroupRule) (\s@SecurityGroupRuleUpdate' {} a -> s {securityGroupRule = a} :: SecurityGroupRuleUpdate)
 
 -- | The ID of the security group rule.
-securityGroupRuleUpdate_securityGroupRuleId :: Lens.Lens' SecurityGroupRuleUpdate (Prelude.Maybe Prelude.Text)
+securityGroupRuleUpdate_securityGroupRuleId :: Lens.Lens' SecurityGroupRuleUpdate Prelude.Text
 securityGroupRuleUpdate_securityGroupRuleId = Lens.lens (\SecurityGroupRuleUpdate' {securityGroupRuleId} -> securityGroupRuleId) (\s@SecurityGroupRuleUpdate' {} a -> s {securityGroupRuleId = a} :: SecurityGroupRuleUpdate)
 
 instance Prelude.Hashable SecurityGroupRuleUpdate where
   hashWithSalt _salt SecurityGroupRuleUpdate' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupRule
+    _salt
+      `Prelude.hashWithSalt` securityGroupRule
       `Prelude.hashWithSalt` securityGroupRuleId
 
 instance Prelude.NFData SecurityGroupRuleUpdate where

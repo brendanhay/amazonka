@@ -60,7 +60,7 @@ data RegisterInstanceEventNotificationAttributes = RegisterInstanceEventNotifica
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Information about the tag keys to register.
-    instanceTagAttribute :: Prelude.Maybe RegisterInstanceTagAttributeRequest
+    instanceTagAttribute :: RegisterInstanceTagAttributeRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,14 +79,17 @@ data RegisterInstanceEventNotificationAttributes = RegisterInstanceEventNotifica
 --
 -- 'instanceTagAttribute', 'registerInstanceEventNotificationAttributes_instanceTagAttribute' - Information about the tag keys to register.
 newRegisterInstanceEventNotificationAttributes ::
+  -- | 'instanceTagAttribute'
+  RegisterInstanceTagAttributeRequest ->
   RegisterInstanceEventNotificationAttributes
-newRegisterInstanceEventNotificationAttributes =
-  RegisterInstanceEventNotificationAttributes'
-    { dryRun =
-        Prelude.Nothing,
-      instanceTagAttribute =
-        Prelude.Nothing
-    }
+newRegisterInstanceEventNotificationAttributes
+  pInstanceTagAttribute_ =
+    RegisterInstanceEventNotificationAttributes'
+      { dryRun =
+          Prelude.Nothing,
+        instanceTagAttribute =
+          pInstanceTagAttribute_
+      }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -96,7 +99,7 @@ registerInstanceEventNotificationAttributes_dryRun :: Lens.Lens' RegisterInstanc
 registerInstanceEventNotificationAttributes_dryRun = Lens.lens (\RegisterInstanceEventNotificationAttributes' {dryRun} -> dryRun) (\s@RegisterInstanceEventNotificationAttributes' {} a -> s {dryRun = a} :: RegisterInstanceEventNotificationAttributes)
 
 -- | Information about the tag keys to register.
-registerInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes (Prelude.Maybe RegisterInstanceTagAttributeRequest)
+registerInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' RegisterInstanceEventNotificationAttributes RegisterInstanceTagAttributeRequest
 registerInstanceEventNotificationAttributes_instanceTagAttribute = Lens.lens (\RegisterInstanceEventNotificationAttributes' {instanceTagAttribute} -> instanceTagAttribute) (\s@RegisterInstanceEventNotificationAttributes' {} a -> s {instanceTagAttribute = a} :: RegisterInstanceEventNotificationAttributes)
 
 instance
@@ -114,7 +117,7 @@ instance
       ( \s h x ->
           RegisterInstanceEventNotificationAttributesResponse'
             Prelude.<$> (x Data..@? "instanceTagAttribute")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -124,7 +127,8 @@ instance
   hashWithSalt
     _salt
     RegisterInstanceEventNotificationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceTagAttribute
 
 instance

@@ -181,22 +181,22 @@ instance Core.AWSPager DescribeTransitGatewayConnects where
     | Core.stop
         ( rs
             Lens.^? describeTransitGatewayConnectsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeTransitGatewayConnectsResponse_transitGatewayConnects
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTransitGatewayConnects_nextToken
           Lens..~ rs
           Lens.^? describeTransitGatewayConnectsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -212,7 +212,8 @@ instance
       ( \s h x ->
           DescribeTransitGatewayConnectsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "transitGatewayConnectSet"
+            Prelude.<*> ( x
+                            Data..@? "transitGatewayConnectSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -226,7 +227,8 @@ instance
   hashWithSalt
     _salt
     DescribeTransitGatewayConnects' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken

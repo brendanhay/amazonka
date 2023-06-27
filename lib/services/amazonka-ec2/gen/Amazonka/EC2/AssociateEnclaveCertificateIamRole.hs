@@ -46,8 +46,8 @@ module Amazonka.EC2.AssociateEnclaveCertificateIamRole
     newAssociateEnclaveCertificateIamRole,
 
     -- * Request Lenses
-    associateEnclaveCertificateIamRole_certificateArn,
     associateEnclaveCertificateIamRole_dryRun,
+    associateEnclaveCertificateIamRole_certificateArn,
     associateEnclaveCertificateIamRole_roleArn,
 
     -- * Destructuring the Response
@@ -72,16 +72,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateEnclaveCertificateIamRole' smart constructor.
 data AssociateEnclaveCertificateIamRole = AssociateEnclaveCertificateIamRole'
-  { -- | The ARN of the ACM certificate with which to associate the IAM role.
-    certificateArn :: Prelude.Maybe Prelude.Text,
-    -- | Checks whether you have the required permissions for the action, without
+  { -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of the ACM certificate with which to associate the IAM role.
+    certificateArn :: Prelude.Text,
     -- | The ARN of the IAM role to associate with the ACM certificate. You can
     -- associate up to 16 IAM roles with an ACM certificate.
-    roleArn :: Prelude.Maybe Prelude.Text
+    roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -93,28 +93,30 @@ data AssociateEnclaveCertificateIamRole = AssociateEnclaveCertificateIamRole'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'associateEnclaveCertificateIamRole_certificateArn' - The ARN of the ACM certificate with which to associate the IAM role.
---
 -- 'dryRun', 'associateEnclaveCertificateIamRole_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'certificateArn', 'associateEnclaveCertificateIamRole_certificateArn' - The ARN of the ACM certificate with which to associate the IAM role.
+--
 -- 'roleArn', 'associateEnclaveCertificateIamRole_roleArn' - The ARN of the IAM role to associate with the ACM certificate. You can
 -- associate up to 16 IAM roles with an ACM certificate.
 newAssociateEnclaveCertificateIamRole ::
+  -- | 'certificateArn'
+  Prelude.Text ->
+  -- | 'roleArn'
+  Prelude.Text ->
   AssociateEnclaveCertificateIamRole
-newAssociateEnclaveCertificateIamRole =
-  AssociateEnclaveCertificateIamRole'
-    { certificateArn =
-        Prelude.Nothing,
-      dryRun = Prelude.Nothing,
-      roleArn = Prelude.Nothing
-    }
-
--- | The ARN of the ACM certificate with which to associate the IAM role.
-associateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' AssociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
-associateEnclaveCertificateIamRole_certificateArn = Lens.lens (\AssociateEnclaveCertificateIamRole' {certificateArn} -> certificateArn) (\s@AssociateEnclaveCertificateIamRole' {} a -> s {certificateArn = a} :: AssociateEnclaveCertificateIamRole)
+newAssociateEnclaveCertificateIamRole
+  pCertificateArn_
+  pRoleArn_ =
+    AssociateEnclaveCertificateIamRole'
+      { dryRun =
+          Prelude.Nothing,
+        certificateArn = pCertificateArn_,
+        roleArn = pRoleArn_
+      }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -123,9 +125,13 @@ associateEnclaveCertificateIamRole_certificateArn = Lens.lens (\AssociateEnclave
 associateEnclaveCertificateIamRole_dryRun :: Lens.Lens' AssociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Bool)
 associateEnclaveCertificateIamRole_dryRun = Lens.lens (\AssociateEnclaveCertificateIamRole' {dryRun} -> dryRun) (\s@AssociateEnclaveCertificateIamRole' {} a -> s {dryRun = a} :: AssociateEnclaveCertificateIamRole)
 
+-- | The ARN of the ACM certificate with which to associate the IAM role.
+associateEnclaveCertificateIamRole_certificateArn :: Lens.Lens' AssociateEnclaveCertificateIamRole Prelude.Text
+associateEnclaveCertificateIamRole_certificateArn = Lens.lens (\AssociateEnclaveCertificateIamRole' {certificateArn} -> certificateArn) (\s@AssociateEnclaveCertificateIamRole' {} a -> s {certificateArn = a} :: AssociateEnclaveCertificateIamRole)
+
 -- | The ARN of the IAM role to associate with the ACM certificate. You can
 -- associate up to 16 IAM roles with an ACM certificate.
-associateEnclaveCertificateIamRole_roleArn :: Lens.Lens' AssociateEnclaveCertificateIamRole (Prelude.Maybe Prelude.Text)
+associateEnclaveCertificateIamRole_roleArn :: Lens.Lens' AssociateEnclaveCertificateIamRole Prelude.Text
 associateEnclaveCertificateIamRole_roleArn = Lens.lens (\AssociateEnclaveCertificateIamRole' {roleArn} -> roleArn) (\s@AssociateEnclaveCertificateIamRole' {} a -> s {roleArn = a} :: AssociateEnclaveCertificateIamRole)
 
 instance
@@ -142,9 +148,9 @@ instance
       ( \s h x ->
           AssociateEnclaveCertificateIamRoleResponse'
             Prelude.<$> (x Data..@? "certificateS3BucketName")
-              Prelude.<*> (x Data..@? "certificateS3ObjectKey")
-              Prelude.<*> (x Data..@? "encryptionKmsKeyId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "certificateS3ObjectKey")
+            Prelude.<*> (x Data..@? "encryptionKmsKeyId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -154,8 +160,9 @@ instance
   hashWithSalt
     _salt
     AssociateEnclaveCertificateIamRole' {..} =
-      _salt `Prelude.hashWithSalt` certificateArn
+      _salt
         `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` certificateArn
         `Prelude.hashWithSalt` roleArn
 
 instance
@@ -163,8 +170,8 @@ instance
     AssociateEnclaveCertificateIamRole
   where
   rnf AssociateEnclaveCertificateIamRole' {..} =
-    Prelude.rnf certificateArn
-      `Prelude.seq` Prelude.rnf dryRun
+    Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf roleArn
 
 instance
@@ -191,8 +198,8 @@ instance
                   ),
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
-        "CertificateArn" Data.=: certificateArn,
         "DryRun" Data.=: dryRun,
+        "CertificateArn" Data.=: certificateArn,
         "RoleArn" Data.=: roleArn
       ]
 

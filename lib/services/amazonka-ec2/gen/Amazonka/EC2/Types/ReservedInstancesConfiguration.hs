@@ -40,8 +40,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | The instance type for the modified Reserved Instances.
     instanceType :: Prelude.Maybe InstanceType,
-    -- | The network platform of the modified Reserved Instances, which is either
-    -- EC2-Classic or EC2-VPC.
+    -- | The network platform of the modified Reserved Instances.
     platform :: Prelude.Maybe Prelude.Text,
     -- | Whether the Reserved Instance is applied to instances in a Region or
     -- instances in a specific Availability Zone.
@@ -65,8 +64,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
 --
 -- 'instanceType', 'reservedInstancesConfiguration_instanceType' - The instance type for the modified Reserved Instances.
 --
--- 'platform', 'reservedInstancesConfiguration_platform' - The network platform of the modified Reserved Instances, which is either
--- EC2-Classic or EC2-VPC.
+-- 'platform', 'reservedInstancesConfiguration_platform' - The network platform of the modified Reserved Instances.
 --
 -- 'scope', 'reservedInstancesConfiguration_scope' - Whether the Reserved Instance is applied to instances in a Region or
 -- instances in a specific Availability Zone.
@@ -96,8 +94,7 @@ reservedInstancesConfiguration_instanceCount = Lens.lens (\ReservedInstancesConf
 reservedInstancesConfiguration_instanceType :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe InstanceType)
 reservedInstancesConfiguration_instanceType = Lens.lens (\ReservedInstancesConfiguration' {instanceType} -> instanceType) (\s@ReservedInstancesConfiguration' {} a -> s {instanceType = a} :: ReservedInstancesConfiguration)
 
--- | The network platform of the modified Reserved Instances, which is either
--- EC2-Classic or EC2-VPC.
+-- | The network platform of the modified Reserved Instances.
 reservedInstancesConfiguration_platform :: Lens.Lens' ReservedInstancesConfiguration (Prelude.Maybe Prelude.Text)
 reservedInstancesConfiguration_platform = Lens.lens (\ReservedInstancesConfiguration' {platform} -> platform) (\s@ReservedInstancesConfiguration' {} a -> s {platform = a} :: ReservedInstancesConfiguration)
 
@@ -122,7 +119,8 @@ instance
   hashWithSalt
     _salt
     ReservedInstancesConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` availabilityZone
+      _salt
+        `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` instanceType
         `Prelude.hashWithSalt` platform

@@ -85,19 +85,12 @@ data DescribeReservedInstances = DescribeReservedInstances'
     --     @Availability Zone@).
     --
     -- -   @product-description@ - The Reserved Instance product platform
-    --     description. Instances that include @(Amazon VPC)@ in the product
-    --     platform description will only be displayed to EC2-Classic account
-    --     holders and are for use with Amazon VPC (@Linux\/UNIX@ |
-    --     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
-    --     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
-    --     @Red Hat Enterprise Linux (Amazon VPC)@ |
-    --     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
-    --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
-    --     @Windows with SQL Server Standard (Amazon VPC)@ |
-    --     @Windows with SQL Server Web@ |
-    --     @Windows with SQL Server Web (Amazon VPC)@ |
-    --     @Windows with SQL Server Enterprise@ |
-    --     @Windows with SQL Server Enterprise (Amazon VPC)@).
+    --     description (@Linux\/UNIX@ | @Linux with SQL Server Standard@ |
+    --     @Linux with SQL Server Web@ | @Linux with SQL Server Enterprise@ |
+    --     @SUSE Linux@ | @Red Hat Enterprise Linux@ |
+    --     @Red Hat Enterprise Linux with HA@ | @Windows@ |
+    --     @Windows with SQL Server Standard@ | @Windows with SQL Server Web@ |
+    --     @Windows with SQL Server Enterprise@).
     --
     -- -   @reserved-instances-id@ - The ID of the Reserved Instance.
     --
@@ -168,19 +161,12 @@ data DescribeReservedInstances = DescribeReservedInstances'
 --     @Availability Zone@).
 --
 -- -   @product-description@ - The Reserved Instance product platform
---     description. Instances that include @(Amazon VPC)@ in the product
---     platform description will only be displayed to EC2-Classic account
---     holders and are for use with Amazon VPC (@Linux\/UNIX@ |
---     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
---     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ |
---     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
---     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
---     @Windows with SQL Server Standard (Amazon VPC)@ |
---     @Windows with SQL Server Web@ |
---     @Windows with SQL Server Web (Amazon VPC)@ |
---     @Windows with SQL Server Enterprise@ |
---     @Windows with SQL Server Enterprise (Amazon VPC)@).
+--     description (@Linux\/UNIX@ | @Linux with SQL Server Standard@ |
+--     @Linux with SQL Server Web@ | @Linux with SQL Server Enterprise@ |
+--     @SUSE Linux@ | @Red Hat Enterprise Linux@ |
+--     @Red Hat Enterprise Linux with HA@ | @Windows@ |
+--     @Windows with SQL Server Standard@ | @Windows with SQL Server Web@ |
+--     @Windows with SQL Server Enterprise@).
 --
 -- -   @reserved-instances-id@ - The ID of the Reserved Instance.
 --
@@ -253,19 +239,12 @@ describeReservedInstances_dryRun = Lens.lens (\DescribeReservedInstances' {dryRu
 --     @Availability Zone@).
 --
 -- -   @product-description@ - The Reserved Instance product platform
---     description. Instances that include @(Amazon VPC)@ in the product
---     platform description will only be displayed to EC2-Classic account
---     holders and are for use with Amazon VPC (@Linux\/UNIX@ |
---     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
---     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
---     @Red Hat Enterprise Linux (Amazon VPC)@ |
---     @Red Hat Enterprise Linux with HA (Amazon VPC)@ | @Windows@ |
---     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
---     @Windows with SQL Server Standard (Amazon VPC)@ |
---     @Windows with SQL Server Web@ |
---     @Windows with SQL Server Web (Amazon VPC)@ |
---     @Windows with SQL Server Enterprise@ |
---     @Windows with SQL Server Enterprise (Amazon VPC)@).
+--     description (@Linux\/UNIX@ | @Linux with SQL Server Standard@ |
+--     @Linux with SQL Server Web@ | @Linux with SQL Server Enterprise@ |
+--     @SUSE Linux@ | @Red Hat Enterprise Linux@ |
+--     @Red Hat Enterprise Linux with HA@ | @Windows@ |
+--     @Windows with SQL Server Standard@ | @Windows with SQL Server Web@ |
+--     @Windows with SQL Server Enterprise@).
 --
 -- -   @reserved-instances-id@ - The ID of the Reserved Instance.
 --
@@ -317,7 +296,8 @@ instance Core.AWSRequest DescribeReservedInstances where
     Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesResponse'
-            Prelude.<$> ( x Data..@? "reservedInstancesSet"
+            Prelude.<$> ( x
+                            Data..@? "reservedInstancesSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -326,7 +306,8 @@ instance Core.AWSRequest DescribeReservedInstances where
 
 instance Prelude.Hashable DescribeReservedInstances where
   hashWithSalt _salt DescribeReservedInstances' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` offeringClass
       `Prelude.hashWithSalt` offeringType

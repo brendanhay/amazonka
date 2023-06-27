@@ -58,7 +58,7 @@ data DeregisterInstanceEventNotificationAttributes = DeregisterInstanceEventNoti
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Information about the tag keys to deregister.
-    instanceTagAttribute :: Prelude.Maybe DeregisterInstanceTagAttributeRequest
+    instanceTagAttribute :: DeregisterInstanceTagAttributeRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,14 +77,17 @@ data DeregisterInstanceEventNotificationAttributes = DeregisterInstanceEventNoti
 --
 -- 'instanceTagAttribute', 'deregisterInstanceEventNotificationAttributes_instanceTagAttribute' - Information about the tag keys to deregister.
 newDeregisterInstanceEventNotificationAttributes ::
+  -- | 'instanceTagAttribute'
+  DeregisterInstanceTagAttributeRequest ->
   DeregisterInstanceEventNotificationAttributes
-newDeregisterInstanceEventNotificationAttributes =
-  DeregisterInstanceEventNotificationAttributes'
-    { dryRun =
-        Prelude.Nothing,
-      instanceTagAttribute =
-        Prelude.Nothing
-    }
+newDeregisterInstanceEventNotificationAttributes
+  pInstanceTagAttribute_ =
+    DeregisterInstanceEventNotificationAttributes'
+      { dryRun =
+          Prelude.Nothing,
+        instanceTagAttribute =
+          pInstanceTagAttribute_
+      }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -94,7 +97,7 @@ deregisterInstanceEventNotificationAttributes_dryRun :: Lens.Lens' DeregisterIns
 deregisterInstanceEventNotificationAttributes_dryRun = Lens.lens (\DeregisterInstanceEventNotificationAttributes' {dryRun} -> dryRun) (\s@DeregisterInstanceEventNotificationAttributes' {} a -> s {dryRun = a} :: DeregisterInstanceEventNotificationAttributes)
 
 -- | Information about the tag keys to deregister.
-deregisterInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributes (Prelude.Maybe DeregisterInstanceTagAttributeRequest)
+deregisterInstanceEventNotificationAttributes_instanceTagAttribute :: Lens.Lens' DeregisterInstanceEventNotificationAttributes DeregisterInstanceTagAttributeRequest
 deregisterInstanceEventNotificationAttributes_instanceTagAttribute = Lens.lens (\DeregisterInstanceEventNotificationAttributes' {instanceTagAttribute} -> instanceTagAttribute) (\s@DeregisterInstanceEventNotificationAttributes' {} a -> s {instanceTagAttribute = a} :: DeregisterInstanceEventNotificationAttributes)
 
 instance
@@ -112,7 +115,7 @@ instance
       ( \s h x ->
           DeregisterInstanceEventNotificationAttributesResponse'
             Prelude.<$> (x Data..@? "instanceTagAttribute")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -122,7 +125,8 @@ instance
   hashWithSalt
     _salt
     DeregisterInstanceEventNotificationAttributes' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` instanceTagAttribute
 
 instance

@@ -186,7 +186,8 @@ instance Core.AWSRequest CreatePlacementGroup where
 
 instance Prelude.Hashable CreatePlacementGroup where
   hashWithSalt _salt CreatePlacementGroup' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` partitionCount
       `Prelude.hashWithSalt` spreadLevel

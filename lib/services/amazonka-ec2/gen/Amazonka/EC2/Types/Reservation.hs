@@ -33,7 +33,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReservation' smart constructor.
 data Reservation = Reservation'
-  { -- | [EC2-Classic only] The security groups.
+  { -- | Not supported.
     groups :: Prelude.Maybe [GroupIdentifier],
     -- | The instances.
     instances :: Prelude.Maybe [Instance],
@@ -55,7 +55,7 @@ data Reservation = Reservation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'groups', 'reservation_groups' - [EC2-Classic only] The security groups.
+-- 'groups', 'reservation_groups' - Not supported.
 --
 -- 'instances', 'reservation_instances' - The instances.
 --
@@ -80,7 +80,7 @@ newReservation pReservationId_ pOwnerId_ =
       ownerId = pOwnerId_
     }
 
--- | [EC2-Classic only] The security groups.
+-- | Not supported.
 reservation_groups :: Lens.Lens' Reservation (Prelude.Maybe [GroupIdentifier])
 reservation_groups = Lens.lens (\Reservation' {groups} -> groups) (\s@Reservation' {} a -> s {groups = a} :: Reservation) Prelude.. Lens.mapping Lens.coerced
 
@@ -104,10 +104,14 @@ reservation_ownerId = Lens.lens (\Reservation' {ownerId} -> ownerId) (\s@Reserva
 instance Data.FromXML Reservation where
   parseXML x =
     Reservation'
-      Prelude.<$> ( x Data..@? "groupSet" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "groupSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "instancesSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "instancesSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "requesterId")
@@ -116,7 +120,8 @@ instance Data.FromXML Reservation where
 
 instance Prelude.Hashable Reservation where
   hashWithSalt _salt Reservation' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` instances
       `Prelude.hashWithSalt` requesterId
       `Prelude.hashWithSalt` reservationId

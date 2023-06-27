@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     ClientLoginBannerResponseOptions' {..} =
-      _salt `Prelude.hashWithSalt` bannerText
+      _salt
+        `Prelude.hashWithSalt` bannerText
         `Prelude.hashWithSalt` enabled
 
 instance

@@ -77,7 +77,8 @@ accessScopePathRequest_throughResources = Lens.lens (\AccessScopePathRequest' {t
 
 instance Prelude.Hashable AccessScopePathRequest where
   hashWithSalt _salt AccessScopePathRequest' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` throughResources
 

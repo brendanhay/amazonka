@@ -78,11 +78,13 @@ internetGatewayAttachment_vpcId = Lens.lens (\InternetGatewayAttachment' {vpcId}
 instance Data.FromXML InternetGatewayAttachment where
   parseXML x =
     InternetGatewayAttachment'
-      Prelude.<$> (x Data..@ "state") Prelude.<*> (x Data..@ "vpcId")
+      Prelude.<$> (x Data..@ "state")
+      Prelude.<*> (x Data..@ "vpcId")
 
 instance Prelude.Hashable InternetGatewayAttachment where
   hashWithSalt _salt InternetGatewayAttachment' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` vpcId
 
 instance Prelude.NFData InternetGatewayAttachment where

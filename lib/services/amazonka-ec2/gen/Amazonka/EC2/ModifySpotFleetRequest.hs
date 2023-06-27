@@ -90,9 +90,11 @@ import qualified Amazonka.Response as Response
 data ModifySpotFleetRequest = ModifySpotFleetRequest'
   { -- | Reserved.
     context :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether running Spot Instances should be terminated if the
-    -- target capacity of the Spot Fleet request is decreased below the current
-    -- size of the Spot Fleet.
+    -- | Indicates whether running instances should be terminated if the target
+    -- capacity of the Spot Fleet request is decreased below the current size
+    -- of the Spot Fleet.
+    --
+    -- Supported only for fleets of type @maintain@.
     excessCapacityTerminationPolicy :: Prelude.Maybe ExcessCapacityTerminationPolicy,
     -- | The launch template and overrides. You can only use this parameter if
     -- you specified a launch template (@LaunchTemplateConfigs@) in your Spot
@@ -118,9 +120,11 @@ data ModifySpotFleetRequest = ModifySpotFleetRequest'
 --
 -- 'context', 'modifySpotFleetRequest_context' - Reserved.
 --
--- 'excessCapacityTerminationPolicy', 'modifySpotFleetRequest_excessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if the
--- target capacity of the Spot Fleet request is decreased below the current
--- size of the Spot Fleet.
+-- 'excessCapacityTerminationPolicy', 'modifySpotFleetRequest_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if the target
+-- capacity of the Spot Fleet request is decreased below the current size
+-- of the Spot Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 --
 -- 'launchTemplateConfigs', 'modifySpotFleetRequest_launchTemplateConfigs' - The launch template and overrides. You can only use this parameter if
 -- you specified a launch template (@LaunchTemplateConfigs@) in your Spot
@@ -150,9 +154,11 @@ newModifySpotFleetRequest pSpotFleetRequestId_ =
 modifySpotFleetRequest_context :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe Prelude.Text)
 modifySpotFleetRequest_context = Lens.lens (\ModifySpotFleetRequest' {context} -> context) (\s@ModifySpotFleetRequest' {} a -> s {context = a} :: ModifySpotFleetRequest)
 
--- | Indicates whether running Spot Instances should be terminated if the
--- target capacity of the Spot Fleet request is decreased below the current
--- size of the Spot Fleet.
+-- | Indicates whether running instances should be terminated if the target
+-- capacity of the Spot Fleet request is decreased below the current size
+-- of the Spot Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 modifySpotFleetRequest_excessCapacityTerminationPolicy :: Lens.Lens' ModifySpotFleetRequest (Prelude.Maybe ExcessCapacityTerminationPolicy)
 modifySpotFleetRequest_excessCapacityTerminationPolicy = Lens.lens (\ModifySpotFleetRequest' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@ModifySpotFleetRequest' {} a -> s {excessCapacityTerminationPolicy = a} :: ModifySpotFleetRequest)
 
@@ -191,7 +197,8 @@ instance Core.AWSRequest ModifySpotFleetRequest where
 
 instance Prelude.Hashable ModifySpotFleetRequest where
   hashWithSalt _salt ModifySpotFleetRequest' {..} =
-    _salt `Prelude.hashWithSalt` context
+    _salt
+      `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy
       `Prelude.hashWithSalt` launchTemplateConfigs
       `Prelude.hashWithSalt` onDemandTargetCapacity

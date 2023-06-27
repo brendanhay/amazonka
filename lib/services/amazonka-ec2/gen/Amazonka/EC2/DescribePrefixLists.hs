@@ -153,22 +153,22 @@ instance Core.AWSPager DescribePrefixLists where
     | Core.stop
         ( rs
             Lens.^? describePrefixListsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePrefixListsResponse_prefixLists
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describePrefixLists_nextToken
           Lens..~ rs
           Lens.^? describePrefixListsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribePrefixLists where
   type
@@ -181,7 +181,9 @@ instance Core.AWSRequest DescribePrefixLists where
       ( \s h x ->
           DescribePrefixListsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "prefixListSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "prefixListSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -189,7 +191,8 @@ instance Core.AWSRequest DescribePrefixLists where
 
 instance Prelude.Hashable DescribePrefixLists where
   hashWithSalt _salt DescribePrefixLists' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

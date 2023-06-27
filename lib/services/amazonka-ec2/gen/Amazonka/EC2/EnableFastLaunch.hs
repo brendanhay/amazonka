@@ -79,8 +79,9 @@ data EnableFastLaunch = EnableFastLaunch'
     -- pre-provisioned snapshots. Launch template parameters can include either
     -- the name or ID of the launch template, but not both.
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationRequest,
-    -- | The maximum number of parallel instances to launch for creating
-    -- resources. Value must be @6@ or greater.
+    -- | The maximum number of instances that Amazon EC2 can launch at the same
+    -- time to create pre-provisioned snapshots for Windows faster launching.
+    -- Value must be @6@ or greater.
     maxParallelLaunches :: Prelude.Maybe Prelude.Int,
     -- | The type of resource to use for pre-provisioning the Windows AMI for
     -- faster launching. Supported values include: @snapshot@, which is the
@@ -112,8 +113,9 @@ data EnableFastLaunch = EnableFastLaunch'
 -- pre-provisioned snapshots. Launch template parameters can include either
 -- the name or ID of the launch template, but not both.
 --
--- 'maxParallelLaunches', 'enableFastLaunch_maxParallelLaunches' - The maximum number of parallel instances to launch for creating
--- resources. Value must be @6@ or greater.
+-- 'maxParallelLaunches', 'enableFastLaunch_maxParallelLaunches' - The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
+-- Value must be @6@ or greater.
 --
 -- 'resourceType', 'enableFastLaunch_resourceType' - The type of resource to use for pre-provisioning the Windows AMI for
 -- faster launching. Supported values include: @snapshot@, which is the
@@ -151,8 +153,9 @@ enableFastLaunch_dryRun = Lens.lens (\EnableFastLaunch' {dryRun} -> dryRun) (\s@
 enableFastLaunch_launchTemplate :: Lens.Lens' EnableFastLaunch (Prelude.Maybe FastLaunchLaunchTemplateSpecificationRequest)
 enableFastLaunch_launchTemplate = Lens.lens (\EnableFastLaunch' {launchTemplate} -> launchTemplate) (\s@EnableFastLaunch' {} a -> s {launchTemplate = a} :: EnableFastLaunch)
 
--- | The maximum number of parallel instances to launch for creating
--- resources. Value must be @6@ or greater.
+-- | The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
+-- Value must be @6@ or greater.
 enableFastLaunch_maxParallelLaunches :: Lens.Lens' EnableFastLaunch (Prelude.Maybe Prelude.Int)
 enableFastLaunch_maxParallelLaunches = Lens.lens (\EnableFastLaunch' {maxParallelLaunches} -> maxParallelLaunches) (\s@EnableFastLaunch' {} a -> s {maxParallelLaunches = a} :: EnableFastLaunch)
 
@@ -196,7 +199,8 @@ instance Core.AWSRequest EnableFastLaunch where
 
 instance Prelude.Hashable EnableFastLaunch where
   hashWithSalt _salt EnableFastLaunch' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` launchTemplate
       `Prelude.hashWithSalt` maxParallelLaunches
       `Prelude.hashWithSalt` resourceType
@@ -242,18 +246,17 @@ data EnableFastLaunchResponse = EnableFastLaunchResponse'
     -- | The launch template that is used when launching Windows instances from
     -- pre-provisioned snapshots.
     launchTemplate :: Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse,
-    -- | The maximum number of parallel instances to launch for creating
-    -- resources.
+    -- | The maximum number of instances that Amazon EC2 can launch at the same
+    -- time to create pre-provisioned snapshots for Windows faster launching.
     maxParallelLaunches :: Prelude.Maybe Prelude.Int,
     -- | The owner ID for the Windows AMI for which faster launching was enabled.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The type of resource that was defined for pre-provisioning the Windows
     -- AMI for faster launching.
     resourceType :: Prelude.Maybe FastLaunchResourceType,
-    -- | The configuration settings that were defined for creating and managing
-    -- the pre-provisioned snapshots for faster launching of the Windows AMI.
-    -- This property is returned when the associated @resourceType@ is
-    -- @snapshot@.
+    -- | Settings to create and manage the pre-provisioned snapshots that Amazon
+    -- EC2 uses for faster launches from the Windows AMI. This property is
+    -- returned when the associated @resourceType@ is @snapshot@.
     snapshotConfiguration :: Prelude.Maybe FastLaunchSnapshotConfigurationResponse,
     -- | The current state of faster launching for the specified Windows AMI.
     state :: Prelude.Maybe FastLaunchStateCode,
@@ -282,18 +285,17 @@ data EnableFastLaunchResponse = EnableFastLaunchResponse'
 -- 'launchTemplate', 'enableFastLaunchResponse_launchTemplate' - The launch template that is used when launching Windows instances from
 -- pre-provisioned snapshots.
 --
--- 'maxParallelLaunches', 'enableFastLaunchResponse_maxParallelLaunches' - The maximum number of parallel instances to launch for creating
--- resources.
+-- 'maxParallelLaunches', 'enableFastLaunchResponse_maxParallelLaunches' - The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
 --
 -- 'ownerId', 'enableFastLaunchResponse_ownerId' - The owner ID for the Windows AMI for which faster launching was enabled.
 --
 -- 'resourceType', 'enableFastLaunchResponse_resourceType' - The type of resource that was defined for pre-provisioning the Windows
 -- AMI for faster launching.
 --
--- 'snapshotConfiguration', 'enableFastLaunchResponse_snapshotConfiguration' - The configuration settings that were defined for creating and managing
--- the pre-provisioned snapshots for faster launching of the Windows AMI.
--- This property is returned when the associated @resourceType@ is
--- @snapshot@.
+-- 'snapshotConfiguration', 'enableFastLaunchResponse_snapshotConfiguration' - Settings to create and manage the pre-provisioned snapshots that Amazon
+-- EC2 uses for faster launches from the Windows AMI. This property is
+-- returned when the associated @resourceType@ is @snapshot@.
 --
 -- 'state', 'enableFastLaunchResponse_state' - The current state of faster launching for the specified Windows AMI.
 --
@@ -333,8 +335,8 @@ enableFastLaunchResponse_imageId = Lens.lens (\EnableFastLaunchResponse' {imageI
 enableFastLaunchResponse_launchTemplate :: Lens.Lens' EnableFastLaunchResponse (Prelude.Maybe FastLaunchLaunchTemplateSpecificationResponse)
 enableFastLaunchResponse_launchTemplate = Lens.lens (\EnableFastLaunchResponse' {launchTemplate} -> launchTemplate) (\s@EnableFastLaunchResponse' {} a -> s {launchTemplate = a} :: EnableFastLaunchResponse)
 
--- | The maximum number of parallel instances to launch for creating
--- resources.
+-- | The maximum number of instances that Amazon EC2 can launch at the same
+-- time to create pre-provisioned snapshots for Windows faster launching.
 enableFastLaunchResponse_maxParallelLaunches :: Lens.Lens' EnableFastLaunchResponse (Prelude.Maybe Prelude.Int)
 enableFastLaunchResponse_maxParallelLaunches = Lens.lens (\EnableFastLaunchResponse' {maxParallelLaunches} -> maxParallelLaunches) (\s@EnableFastLaunchResponse' {} a -> s {maxParallelLaunches = a} :: EnableFastLaunchResponse)
 
@@ -347,10 +349,9 @@ enableFastLaunchResponse_ownerId = Lens.lens (\EnableFastLaunchResponse' {ownerI
 enableFastLaunchResponse_resourceType :: Lens.Lens' EnableFastLaunchResponse (Prelude.Maybe FastLaunchResourceType)
 enableFastLaunchResponse_resourceType = Lens.lens (\EnableFastLaunchResponse' {resourceType} -> resourceType) (\s@EnableFastLaunchResponse' {} a -> s {resourceType = a} :: EnableFastLaunchResponse)
 
--- | The configuration settings that were defined for creating and managing
--- the pre-provisioned snapshots for faster launching of the Windows AMI.
--- This property is returned when the associated @resourceType@ is
--- @snapshot@.
+-- | Settings to create and manage the pre-provisioned snapshots that Amazon
+-- EC2 uses for faster launches from the Windows AMI. This property is
+-- returned when the associated @resourceType@ is @snapshot@.
 enableFastLaunchResponse_snapshotConfiguration :: Lens.Lens' EnableFastLaunchResponse (Prelude.Maybe FastLaunchSnapshotConfigurationResponse)
 enableFastLaunchResponse_snapshotConfiguration = Lens.lens (\EnableFastLaunchResponse' {snapshotConfiguration} -> snapshotConfiguration) (\s@EnableFastLaunchResponse' {} a -> s {snapshotConfiguration = a} :: EnableFastLaunchResponse)
 

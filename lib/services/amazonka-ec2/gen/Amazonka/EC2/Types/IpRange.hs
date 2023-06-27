@@ -91,7 +91,8 @@ instance Data.FromXML IpRange where
 
 instance Prelude.Hashable IpRange where
   hashWithSalt _salt IpRange' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` cidrIp
 
 instance Prelude.NFData IpRange where

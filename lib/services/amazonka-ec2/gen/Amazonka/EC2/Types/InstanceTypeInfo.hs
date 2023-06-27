@@ -45,7 +45,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceTypeInfo' smart constructor.
 data InstanceTypeInfo = InstanceTypeInfo'
-  { -- | Indicates whether auto recovery is supported.
+  { -- | Indicates whether Amazon CloudWatch action based recovery is supported.
     autoRecoverySupported :: Prelude.Maybe Prelude.Bool,
     -- | Indicates whether the instance is a bare metal instance type.
     bareMetal :: Prelude.Maybe Prelude.Bool,
@@ -109,7 +109,7 @@ data InstanceTypeInfo = InstanceTypeInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoRecoverySupported', 'instanceTypeInfo_autoRecoverySupported' - Indicates whether auto recovery is supported.
+-- 'autoRecoverySupported', 'instanceTypeInfo_autoRecoverySupported' - Indicates whether Amazon CloudWatch action based recovery is supported.
 --
 -- 'bareMetal', 'instanceTypeInfo_bareMetal' - Indicates whether the instance is a bare metal instance type.
 --
@@ -192,7 +192,7 @@ newInstanceTypeInfo =
       vCpuInfo = Prelude.Nothing
     }
 
--- | Indicates whether auto recovery is supported.
+-- | Indicates whether Amazon CloudWatch action based recovery is supported.
 instanceTypeInfo_autoRecoverySupported :: Lens.Lens' InstanceTypeInfo (Prelude.Maybe Prelude.Bool)
 instanceTypeInfo_autoRecoverySupported = Lens.lens (\InstanceTypeInfo' {autoRecoverySupported} -> autoRecoverySupported) (\s@InstanceTypeInfo' {} a -> s {autoRecoverySupported = a} :: InstanceTypeInfo)
 
@@ -315,19 +315,23 @@ instance Data.FromXML InstanceTypeInfo where
       Prelude.<*> (x Data..@? "networkInfo")
       Prelude.<*> (x Data..@? "placementGroupInfo")
       Prelude.<*> (x Data..@? "processorInfo")
-      Prelude.<*> ( x Data..@? "supportedBootModes"
+      Prelude.<*> ( x
+                      Data..@? "supportedBootModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "supportedRootDeviceTypes"
+      Prelude.<*> ( x
+                      Data..@? "supportedRootDeviceTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "supportedUsageClasses"
+      Prelude.<*> ( x
+                      Data..@? "supportedUsageClasses"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "supportedVirtualizationTypes"
+      Prelude.<*> ( x
+                      Data..@? "supportedVirtualizationTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -335,7 +339,8 @@ instance Data.FromXML InstanceTypeInfo where
 
 instance Prelude.Hashable InstanceTypeInfo where
   hashWithSalt _salt InstanceTypeInfo' {..} =
-    _salt `Prelude.hashWithSalt` autoRecoverySupported
+    _salt
+      `Prelude.hashWithSalt` autoRecoverySupported
       `Prelude.hashWithSalt` bareMetal
       `Prelude.hashWithSalt` burstablePerformanceSupported
       `Prelude.hashWithSalt` currentGeneration

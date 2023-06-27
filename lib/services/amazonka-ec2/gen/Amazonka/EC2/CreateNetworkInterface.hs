@@ -89,7 +89,7 @@ data CreateNetworkInterface = CreateNetworkInterface'
     groups :: Prelude.Maybe [Prelude.Text],
     -- | The type of network interface. The default is @interface@.
     --
-    -- The only supported values are @efa@ and @trunk@.
+    -- The only supported values are @interface@, @efa@, and @trunk@.
     interfaceType :: Prelude.Maybe NetworkInterfaceCreationType,
     -- | The number of IPv4 prefixes that Amazon Web Services automatically
     -- assigns to the network interface.
@@ -185,7 +185,7 @@ data CreateNetworkInterface = CreateNetworkInterface'
 --
 -- 'interfaceType', 'createNetworkInterface_interfaceType' - The type of network interface. The default is @interface@.
 --
--- The only supported values are @efa@ and @trunk@.
+-- The only supported values are @interface@, @efa@, and @trunk@.
 --
 -- 'ipv4PrefixCount', 'createNetworkInterface_ipv4PrefixCount' - The number of IPv4 prefixes that Amazon Web Services automatically
 -- assigns to the network interface.
@@ -302,7 +302,7 @@ createNetworkInterface_groups = Lens.lens (\CreateNetworkInterface' {groups} -> 
 
 -- | The type of network interface. The default is @interface@.
 --
--- The only supported values are @efa@ and @trunk@.
+-- The only supported values are @interface@, @efa@, and @trunk@.
 createNetworkInterface_interfaceType :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe NetworkInterfaceCreationType)
 createNetworkInterface_interfaceType = Lens.lens (\CreateNetworkInterface' {interfaceType} -> interfaceType) (\s@CreateNetworkInterface' {} a -> s {interfaceType = a} :: CreateNetworkInterface)
 
@@ -413,7 +413,8 @@ instance Core.AWSRequest CreateNetworkInterface where
 
 instance Prelude.Hashable CreateNetworkInterface where
   hashWithSalt _salt CreateNetworkInterface' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` groups

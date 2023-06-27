@@ -83,9 +83,6 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
     --
     -- -   @instance-type@ - The instance type (for example, @c4.large@).
     --
-    -- -   @network-platform@ - The network platform (@EC2-Classic@ or
-    --     @EC2-VPC@).
-    --
     -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of results to return in a single call. This value can
@@ -129,9 +126,6 @@ data DescribeScheduledInstanceAvailability = DescribeScheduledInstanceAvailabili
 --     @us-west-2a@).
 --
 -- -   @instance-type@ - The instance type (for example, @c4.large@).
---
--- -   @network-platform@ - The network platform (@EC2-Classic@ or
---     @EC2-VPC@).
 --
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
 --
@@ -191,9 +185,6 @@ describeScheduledInstanceAvailability_dryRun = Lens.lens (\DescribeScheduledInst
 --
 -- -   @instance-type@ - The instance type (for example, @c4.large@).
 --
--- -   @network-platform@ - The network platform (@EC2-Classic@ or
---     @EC2-VPC@).
---
 -- -   @platform@ - The platform (@Linux\/UNIX@ or @Windows@).
 describeScheduledInstanceAvailability_filters :: Lens.Lens' DescribeScheduledInstanceAvailability (Prelude.Maybe [Filter])
 describeScheduledInstanceAvailability_filters = Lens.lens (\DescribeScheduledInstanceAvailability' {filters} -> filters) (\s@DescribeScheduledInstanceAvailability' {} a -> s {filters = a} :: DescribeScheduledInstanceAvailability) Prelude.. Lens.mapping Lens.coerced
@@ -237,22 +228,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstanceAvailabilityResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeScheduledInstanceAvailabilityResponse_scheduledInstanceAvailabilitySet
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeScheduledInstanceAvailability_nextToken
           Lens..~ rs
-            Lens.^? describeScheduledInstanceAvailabilityResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeScheduledInstanceAvailabilityResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -269,11 +260,12 @@ instance
       ( \s h x ->
           DescribeScheduledInstanceAvailabilityResponse'
             Prelude.<$> (x Data..@? "nextToken")
-              Prelude.<*> ( x Data..@? "scheduledInstanceAvailabilitySet"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may (Data.parseXMLList "item")
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "scheduledInstanceAvailabilitySet"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Data.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -283,7 +275,8 @@ instance
   hashWithSalt
     _salt
     DescribeScheduledInstanceAvailability' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` maxSlotDurationInHours

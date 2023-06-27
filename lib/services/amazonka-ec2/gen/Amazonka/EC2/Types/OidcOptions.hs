@@ -25,7 +25,8 @@ import qualified Amazonka.Data as Data
 import Amazonka.EC2.Internal
 import qualified Amazonka.Prelude as Prelude
 
--- | Options for OIDC-based, user-identity type trust provider.
+-- | Describes the options for an OpenID Connect-compatible user-identity
+-- trust provider.
 --
 -- /See:/ 'newOidcOptions' smart constructor.
 data OidcOptions = OidcOptions'
@@ -34,7 +35,7 @@ data OidcOptions = OidcOptions'
     -- | The client identifier.
     clientId :: Prelude.Maybe Prelude.Text,
     -- | The client secret.
-    clientSecret :: Prelude.Maybe Prelude.Text,
+    clientSecret :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The OIDC issuer.
     issuer :: Prelude.Maybe Prelude.Text,
     -- | The OpenID Connect (OIDC) scope specified.
@@ -44,7 +45,7 @@ data OidcOptions = OidcOptions'
     -- | The OIDC user info endpoint.
     userInfoEndpoint :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OidcOptions' with all optional fields omitted.
@@ -91,7 +92,7 @@ oidcOptions_clientId = Lens.lens (\OidcOptions' {clientId} -> clientId) (\s@Oidc
 
 -- | The client secret.
 oidcOptions_clientSecret :: Lens.Lens' OidcOptions (Prelude.Maybe Prelude.Text)
-oidcOptions_clientSecret = Lens.lens (\OidcOptions' {clientSecret} -> clientSecret) (\s@OidcOptions' {} a -> s {clientSecret = a} :: OidcOptions)
+oidcOptions_clientSecret = Lens.lens (\OidcOptions' {clientSecret} -> clientSecret) (\s@OidcOptions' {} a -> s {clientSecret = a} :: OidcOptions) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The OIDC issuer.
 oidcOptions_issuer :: Lens.Lens' OidcOptions (Prelude.Maybe Prelude.Text)
@@ -122,7 +123,8 @@ instance Data.FromXML OidcOptions where
 
 instance Prelude.Hashable OidcOptions where
   hashWithSalt _salt OidcOptions' {..} =
-    _salt `Prelude.hashWithSalt` authorizationEndpoint
+    _salt
+      `Prelude.hashWithSalt` authorizationEndpoint
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` clientSecret
       `Prelude.hashWithSalt` issuer

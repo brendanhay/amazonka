@@ -140,7 +140,8 @@ instance
     ReplaceRouteTableAssociation
   where
   hashWithSalt _salt ReplaceRouteTableAssociation' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` routeTableId
 

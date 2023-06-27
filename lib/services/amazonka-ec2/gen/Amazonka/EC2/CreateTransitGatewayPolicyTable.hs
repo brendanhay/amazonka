@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     CreateTransitGatewayPolicyTable' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` transitGatewayId
 

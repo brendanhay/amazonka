@@ -33,6 +33,7 @@ module Amazonka.EC2.ModifyVpnTunnelOptions
 
     -- * Request Lenses
     modifyVpnTunnelOptions_dryRun,
+    modifyVpnTunnelOptions_skipTunnelReplacement,
     modifyVpnTunnelOptions_vpnConnectionId,
     modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress,
     modifyVpnTunnelOptions_tunnelOptions,
@@ -62,14 +63,18 @@ data ModifyVpnTunnelOptions = ModifyVpnTunnelOptions'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Choose whether or not to trigger immediate tunnel replacement.
+    --
+    -- Valid values: @True@ | @False@
+    skipTunnelReplacement :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the Amazon Web Services Site-to-Site VPN connection.
     vpnConnectionId :: Prelude.Text,
     -- | The external IP address of the VPN tunnel.
     vpnTunnelOutsideIpAddress :: Prelude.Text,
     -- | The tunnel options to modify.
-    tunnelOptions :: ModifyVpnTunnelOptionsSpecification
+    tunnelOptions :: Data.Sensitive ModifyVpnTunnelOptionsSpecification
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelOptions' with all optional fields omitted.
@@ -83,6 +88,10 @@ data ModifyVpnTunnelOptions = ModifyVpnTunnelOptions'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'skipTunnelReplacement', 'modifyVpnTunnelOptions_skipTunnelReplacement' - Choose whether or not to trigger immediate tunnel replacement.
+--
+-- Valid values: @True@ | @False@
 --
 -- 'vpnConnectionId', 'modifyVpnTunnelOptions_vpnConnectionId' - The ID of the Amazon Web Services Site-to-Site VPN connection.
 --
@@ -103,10 +112,12 @@ newModifyVpnTunnelOptions
   pTunnelOptions_ =
     ModifyVpnTunnelOptions'
       { dryRun = Prelude.Nothing,
+        skipTunnelReplacement = Prelude.Nothing,
         vpnConnectionId = pVpnConnectionId_,
         vpnTunnelOutsideIpAddress =
           pVpnTunnelOutsideIpAddress_,
-        tunnelOptions = pTunnelOptions_
+        tunnelOptions =
+          Data._Sensitive Lens.# pTunnelOptions_
       }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -115,6 +126,12 @@ newModifyVpnTunnelOptions
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyVpnTunnelOptions_dryRun :: Lens.Lens' ModifyVpnTunnelOptions (Prelude.Maybe Prelude.Bool)
 modifyVpnTunnelOptions_dryRun = Lens.lens (\ModifyVpnTunnelOptions' {dryRun} -> dryRun) (\s@ModifyVpnTunnelOptions' {} a -> s {dryRun = a} :: ModifyVpnTunnelOptions)
+
+-- | Choose whether or not to trigger immediate tunnel replacement.
+--
+-- Valid values: @True@ | @False@
+modifyVpnTunnelOptions_skipTunnelReplacement :: Lens.Lens' ModifyVpnTunnelOptions (Prelude.Maybe Prelude.Bool)
+modifyVpnTunnelOptions_skipTunnelReplacement = Lens.lens (\ModifyVpnTunnelOptions' {skipTunnelReplacement} -> skipTunnelReplacement) (\s@ModifyVpnTunnelOptions' {} a -> s {skipTunnelReplacement = a} :: ModifyVpnTunnelOptions)
 
 -- | The ID of the Amazon Web Services Site-to-Site VPN connection.
 modifyVpnTunnelOptions_vpnConnectionId :: Lens.Lens' ModifyVpnTunnelOptions Prelude.Text
@@ -126,7 +143,7 @@ modifyVpnTunnelOptions_vpnTunnelOutsideIpAddress = Lens.lens (\ModifyVpnTunnelOp
 
 -- | The tunnel options to modify.
 modifyVpnTunnelOptions_tunnelOptions :: Lens.Lens' ModifyVpnTunnelOptions ModifyVpnTunnelOptionsSpecification
-modifyVpnTunnelOptions_tunnelOptions = Lens.lens (\ModifyVpnTunnelOptions' {tunnelOptions} -> tunnelOptions) (\s@ModifyVpnTunnelOptions' {} a -> s {tunnelOptions = a} :: ModifyVpnTunnelOptions)
+modifyVpnTunnelOptions_tunnelOptions = Lens.lens (\ModifyVpnTunnelOptions' {tunnelOptions} -> tunnelOptions) (\s@ModifyVpnTunnelOptions' {} a -> s {tunnelOptions = a} :: ModifyVpnTunnelOptions) Prelude.. Data._Sensitive
 
 instance Core.AWSRequest ModifyVpnTunnelOptions where
   type
@@ -144,7 +161,9 @@ instance Core.AWSRequest ModifyVpnTunnelOptions where
 
 instance Prelude.Hashable ModifyVpnTunnelOptions where
   hashWithSalt _salt ModifyVpnTunnelOptions' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` skipTunnelReplacement
       `Prelude.hashWithSalt` vpnConnectionId
       `Prelude.hashWithSalt` vpnTunnelOutsideIpAddress
       `Prelude.hashWithSalt` tunnelOptions
@@ -152,6 +171,7 @@ instance Prelude.Hashable ModifyVpnTunnelOptions where
 instance Prelude.NFData ModifyVpnTunnelOptions where
   rnf ModifyVpnTunnelOptions' {..} =
     Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf skipTunnelReplacement
       `Prelude.seq` Prelude.rnf vpnConnectionId
       `Prelude.seq` Prelude.rnf vpnTunnelOutsideIpAddress
       `Prelude.seq` Prelude.rnf tunnelOptions
@@ -170,6 +190,8 @@ instance Data.ToQuery ModifyVpnTunnelOptions where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Data.=: dryRun,
+        "SkipTunnelReplacement"
+          Data.=: skipTunnelReplacement,
         "VpnConnectionId" Data.=: vpnConnectionId,
         "VpnTunnelOutsideIpAddress"
           Data.=: vpnTunnelOutsideIpAddress,
@@ -183,7 +205,7 @@ data ModifyVpnTunnelOptionsResponse = ModifyVpnTunnelOptionsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelOptionsResponse' with all optional fields omitted.

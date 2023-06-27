@@ -66,7 +66,8 @@ resourceStatementRequest_resources = Lens.lens (\ResourceStatementRequest' {reso
 
 instance Prelude.Hashable ResourceStatementRequest where
   hashWithSalt _salt ResourceStatementRequest' {..} =
-    _salt `Prelude.hashWithSalt` resourceTypes
+    _salt
+      `Prelude.hashWithSalt` resourceTypes
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData ResourceStatementRequest where

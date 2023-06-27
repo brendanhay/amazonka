@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteManagedPrefixList where
 
 instance Prelude.Hashable DeleteManagedPrefixList where
   hashWithSalt _salt DeleteManagedPrefixList' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` prefixListId
 
 instance Prelude.NFData DeleteManagedPrefixList where

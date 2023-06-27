@@ -81,7 +81,8 @@ instance Data.FromXML PtrUpdateStatus where
 
 instance Prelude.Hashable PtrUpdateStatus where
   hashWithSalt _salt PtrUpdateStatus' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` value
 

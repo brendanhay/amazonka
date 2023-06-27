@@ -66,7 +66,8 @@ scheduledInstancesPlacement_groupName = Lens.lens (\ScheduledInstancesPlacement'
 
 instance Prelude.Hashable ScheduledInstancesPlacement where
   hashWithSalt _salt ScheduledInstancesPlacement' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` groupName
 
 instance Prelude.NFData ScheduledInstancesPlacement where

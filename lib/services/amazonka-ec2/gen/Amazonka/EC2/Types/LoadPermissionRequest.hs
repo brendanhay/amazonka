@@ -66,7 +66,8 @@ loadPermissionRequest_userId = Lens.lens (\LoadPermissionRequest' {userId} -> us
 
 instance Prelude.Hashable LoadPermissionRequest where
   hashWithSalt _salt LoadPermissionRequest' {..} =
-    _salt `Prelude.hashWithSalt` group'
+    _salt
+      `Prelude.hashWithSalt` group'
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData LoadPermissionRequest where

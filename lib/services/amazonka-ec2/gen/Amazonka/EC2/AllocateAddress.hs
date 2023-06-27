@@ -34,16 +34,10 @@
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html Bring Your Own IP Addresses (BYOIP)>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- [EC2-VPC] If you release an Elastic IP address, you might be able to
--- recover it. You cannot recover an Elastic IP address that you released
--- after it is allocated to another Amazon Web Services account. You cannot
--- recover an Elastic IP address for EC2-Classic. To attempt to recover an
--- Elastic IP address that you released, specify it in this operation.
---
--- An Elastic IP address is for use either in the EC2-Classic platform or
--- in a VPC. By default, you can allocate 5 Elastic IP addresses for
--- EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per
--- Region.
+-- If you release an Elastic IP address, you might be able to recover it.
+-- You cannot recover an Elastic IP address that you released after it is
+-- allocated to another Amazon Web Services account. To attempt to recover
+-- an Elastic IP address that you released, specify it in this operation.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
@@ -52,11 +46,6 @@
 -- You can allocate a carrier IP address which is a public IP address from
 -- a telecommunication carrier, to a network interface which resides in a
 -- subnet in a Wavelength Zone (for example an EC2 instance).
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.AllocateAddress
   ( -- * Creating a Request
     AllocateAddress (..),
@@ -98,18 +87,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAllocateAddress' smart constructor.
 data AllocateAddress = AllocateAddress'
-  { -- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
-    -- address pool.
+  { -- | The Elastic IP address to recover or an IPv4 address from an address
+    -- pool.
     address :: Prelude.Maybe Prelude.Text,
     -- | The ID of a customer-owned address pool. Use this parameter to let
     -- Amazon EC2 select an address from the address pool. Alternatively,
     -- specify a specific address from the address pool.
     customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the Elastic IP address is for use with instances in a
-    -- VPC or instances in EC2-Classic.
-    --
-    -- Default: If the Region supports EC2-Classic, the default is @standard@.
-    -- Otherwise, the default is @vpc@.
+    -- | The network (@vpc@).
     domain :: Prelude.Maybe DomainType,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -146,18 +131,14 @@ data AllocateAddress = AllocateAddress'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'address', 'allocateAddress_address' - [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
--- address pool.
+-- 'address', 'allocateAddress_address' - The Elastic IP address to recover or an IPv4 address from an address
+-- pool.
 --
 -- 'customerOwnedIpv4Pool', 'allocateAddress_customerOwnedIpv4Pool' - The ID of a customer-owned address pool. Use this parameter to let
 -- Amazon EC2 select an address from the address pool. Alternatively,
 -- specify a specific address from the address pool.
 --
--- 'domain', 'allocateAddress_domain' - Indicates whether the Elastic IP address is for use with instances in a
--- VPC or instances in EC2-Classic.
---
--- Default: If the Region supports EC2-Classic, the default is @standard@.
--- Otherwise, the default is @vpc@.
+-- 'domain', 'allocateAddress_domain' - The network (@vpc@).
 --
 -- 'dryRun', 'allocateAddress_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -195,8 +176,8 @@ newAllocateAddress =
       tagSpecifications = Prelude.Nothing
     }
 
--- | [EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
--- address pool.
+-- | The Elastic IP address to recover or an IPv4 address from an address
+-- pool.
 allocateAddress_address :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
 allocateAddress_address = Lens.lens (\AllocateAddress' {address} -> address) (\s@AllocateAddress' {} a -> s {address = a} :: AllocateAddress)
 
@@ -206,11 +187,7 @@ allocateAddress_address = Lens.lens (\AllocateAddress' {address} -> address) (\s
 allocateAddress_customerOwnedIpv4Pool :: Lens.Lens' AllocateAddress (Prelude.Maybe Prelude.Text)
 allocateAddress_customerOwnedIpv4Pool = Lens.lens (\AllocateAddress' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@AllocateAddress' {} a -> s {customerOwnedIpv4Pool = a} :: AllocateAddress)
 
--- | Indicates whether the Elastic IP address is for use with instances in a
--- VPC or instances in EC2-Classic.
---
--- Default: If the Region supports EC2-Classic, the default is @standard@.
--- Otherwise, the default is @vpc@.
+-- | The network (@vpc@).
 allocateAddress_domain :: Lens.Lens' AllocateAddress (Prelude.Maybe DomainType)
 allocateAddress_domain = Lens.lens (\AllocateAddress' {domain} -> domain) (\s@AllocateAddress' {} a -> s {domain = a} :: AllocateAddress)
 
@@ -269,7 +246,8 @@ instance Core.AWSRequest AllocateAddress where
 
 instance Prelude.Hashable AllocateAddress where
   hashWithSalt _salt AllocateAddress' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` dryRun
@@ -315,19 +293,16 @@ instance Data.ToQuery AllocateAddress where
 
 -- | /See:/ 'newAllocateAddressResponse' smart constructor.
 data AllocateAddressResponse = AllocateAddressResponse'
-  { -- | [EC2-VPC] The ID that Amazon Web Services assigns to represent the
-    -- allocation of the Elastic IP address for use with instances in a VPC.
+  { -- | The ID that represents the allocation of the Elastic IP address.
     allocationId :: Prelude.Maybe Prelude.Text,
     -- | The carrier IP address. This option is only available for network
-    -- interfaces which reside in a subnet in a Wavelength Zone (for example an
-    -- EC2 instance).
+    -- interfaces that reside in a subnet in a Wavelength Zone.
     carrierIp :: Prelude.Maybe Prelude.Text,
     -- | The customer-owned IP address.
     customerOwnedIp :: Prelude.Maybe Prelude.Text,
     -- | The ID of the customer-owned address pool.
     customerOwnedIpv4Pool :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the Elastic IP address is for use with instances in a
-    -- VPC (@vpc@) or instances in EC2-Classic (@standard@).
+    -- | The network (@vpc@).
     domain :: Prelude.Maybe DomainType,
     -- | The set of Availability Zones, Local Zones, or Wavelength Zones from
     -- which Amazon Web Services advertises IP addresses.
@@ -349,19 +324,16 @@ data AllocateAddressResponse = AllocateAddressResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allocationId', 'allocateAddressResponse_allocationId' - [EC2-VPC] The ID that Amazon Web Services assigns to represent the
--- allocation of the Elastic IP address for use with instances in a VPC.
+-- 'allocationId', 'allocateAddressResponse_allocationId' - The ID that represents the allocation of the Elastic IP address.
 --
 -- 'carrierIp', 'allocateAddressResponse_carrierIp' - The carrier IP address. This option is only available for network
--- interfaces which reside in a subnet in a Wavelength Zone (for example an
--- EC2 instance).
+-- interfaces that reside in a subnet in a Wavelength Zone.
 --
 -- 'customerOwnedIp', 'allocateAddressResponse_customerOwnedIp' - The customer-owned IP address.
 --
 -- 'customerOwnedIpv4Pool', 'allocateAddressResponse_customerOwnedIpv4Pool' - The ID of the customer-owned address pool.
 --
--- 'domain', 'allocateAddressResponse_domain' - Indicates whether the Elastic IP address is for use with instances in a
--- VPC (@vpc@) or instances in EC2-Classic (@standard@).
+-- 'domain', 'allocateAddressResponse_domain' - The network (@vpc@).
 --
 -- 'networkBorderGroup', 'allocateAddressResponse_networkBorderGroup' - The set of Availability Zones, Local Zones, or Wavelength Zones from
 -- which Amazon Web Services advertises IP addresses.
@@ -389,14 +361,12 @@ newAllocateAddressResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | [EC2-VPC] The ID that Amazon Web Services assigns to represent the
--- allocation of the Elastic IP address for use with instances in a VPC.
+-- | The ID that represents the allocation of the Elastic IP address.
 allocateAddressResponse_allocationId :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
 allocateAddressResponse_allocationId = Lens.lens (\AllocateAddressResponse' {allocationId} -> allocationId) (\s@AllocateAddressResponse' {} a -> s {allocationId = a} :: AllocateAddressResponse)
 
 -- | The carrier IP address. This option is only available for network
--- interfaces which reside in a subnet in a Wavelength Zone (for example an
--- EC2 instance).
+-- interfaces that reside in a subnet in a Wavelength Zone.
 allocateAddressResponse_carrierIp :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
 allocateAddressResponse_carrierIp = Lens.lens (\AllocateAddressResponse' {carrierIp} -> carrierIp) (\s@AllocateAddressResponse' {} a -> s {carrierIp = a} :: AllocateAddressResponse)
 
@@ -408,8 +378,7 @@ allocateAddressResponse_customerOwnedIp = Lens.lens (\AllocateAddressResponse' {
 allocateAddressResponse_customerOwnedIpv4Pool :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe Prelude.Text)
 allocateAddressResponse_customerOwnedIpv4Pool = Lens.lens (\AllocateAddressResponse' {customerOwnedIpv4Pool} -> customerOwnedIpv4Pool) (\s@AllocateAddressResponse' {} a -> s {customerOwnedIpv4Pool = a} :: AllocateAddressResponse)
 
--- | Indicates whether the Elastic IP address is for use with instances in a
--- VPC (@vpc@) or instances in EC2-Classic (@standard@).
+-- | The network (@vpc@).
 allocateAddressResponse_domain :: Lens.Lens' AllocateAddressResponse (Prelude.Maybe DomainType)
 allocateAddressResponse_domain = Lens.lens (\AllocateAddressResponse' {domain} -> domain) (\s@AllocateAddressResponse' {} a -> s {domain = a} :: AllocateAddressResponse)
 

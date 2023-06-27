@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStaleIpPermission' smart constructor.
 data StaleIpPermission = StaleIpPermission'
   { -- | The start of the port range for the TCP and UDP protocols, or an ICMP
-    -- type number. A value of @-1@ indicates all ICMP types.
+    -- type number. A value of -1 indicates all ICMP types.
     fromPort :: Prelude.Maybe Prelude.Int,
     -- | The IP protocol name (for @tcp@, @udp@, and @icmp@) or number (see
     -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)>.
@@ -58,7 +58,7 @@ data StaleIpPermission = StaleIpPermission'
 -- for backwards compatibility:
 --
 -- 'fromPort', 'staleIpPermission_fromPort' - The start of the port range for the TCP and UDP protocols, or an ICMP
--- type number. A value of @-1@ indicates all ICMP types.
+-- type number. A value of -1 indicates all ICMP types.
 --
 -- 'ipProtocol', 'staleIpPermission_ipProtocol' - The IP protocol name (for @tcp@, @udp@, and @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers)>.
@@ -85,7 +85,7 @@ newStaleIpPermission =
     }
 
 -- | The start of the port range for the TCP and UDP protocols, or an ICMP
--- type number. A value of @-1@ indicates all ICMP types.
+-- type number. A value of -1 indicates all ICMP types.
 staleIpPermission_fromPort :: Lens.Lens' StaleIpPermission (Prelude.Maybe Prelude.Int)
 staleIpPermission_fromPort = Lens.lens (\StaleIpPermission' {fromPort} -> fromPort) (\s@StaleIpPermission' {} a -> s {fromPort = a} :: StaleIpPermission)
 
@@ -117,20 +117,27 @@ instance Data.FromXML StaleIpPermission where
     StaleIpPermission'
       Prelude.<$> (x Data..@? "fromPort")
       Prelude.<*> (x Data..@? "ipProtocol")
-      Prelude.<*> ( x Data..@? "ipRanges" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ipRanges"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "prefixListIds" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "prefixListIds"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "toPort")
-      Prelude.<*> ( x Data..@? "groups" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "groups"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable StaleIpPermission where
   hashWithSalt _salt StaleIpPermission' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` ipProtocol
       `Prelude.hashWithSalt` ipRanges
       `Prelude.hashWithSalt` prefixListIds

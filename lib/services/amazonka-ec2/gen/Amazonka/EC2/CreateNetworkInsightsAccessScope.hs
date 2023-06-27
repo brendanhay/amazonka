@@ -164,7 +164,8 @@ instance
   hashWithSalt
     _salt
     CreateNetworkInsightsAccessScope' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` excludePaths
         `Prelude.hashWithSalt` matchPaths
         `Prelude.hashWithSalt` tagSpecifications

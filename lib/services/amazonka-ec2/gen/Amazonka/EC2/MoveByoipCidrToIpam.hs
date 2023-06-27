@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Move an BYOIP IPv4 CIDR to IPAM from a public IPv4 pool.
+-- Move a BYOIPv4 CIDR to IPAM from a public IPv4 pool.
 --
--- If you already have an IPv4 BYOIP CIDR with Amazon Web Services, you can
+-- If you already have a BYOIPv4 CIDR with Amazon Web Services, you can
 -- move the CIDR to IPAM from a public IPv4 pool. You cannot move an IPv6
 -- CIDR to IPAM. If you are bringing a new IP address to Amazon Web
 -- Services for the first time, complete the steps in
@@ -144,7 +144,8 @@ instance Core.AWSRequest MoveByoipCidrToIpam where
 
 instance Prelude.Hashable MoveByoipCidrToIpam where
   hashWithSalt _salt MoveByoipCidrToIpam' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` ipamPoolId
       `Prelude.hashWithSalt` ipamPoolOwner

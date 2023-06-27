@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     InstanceNetworkInterfaceAssociation' {..} =
-      _salt `Prelude.hashWithSalt` carrierIp
+      _salt
+        `Prelude.hashWithSalt` carrierIp
         `Prelude.hashWithSalt` customerOwnedIp
         `Prelude.hashWithSalt` ipOwnerId
         `Prelude.hashWithSalt` publicDnsName

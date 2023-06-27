@@ -114,7 +114,8 @@ instance Data.FromXML DescribeFleetError where
 
 instance Prelude.Hashable DescribeFleetError where
   hashWithSalt _salt DescribeFleetError' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` launchTemplateAndOverrides
       `Prelude.hashWithSalt` lifecycle

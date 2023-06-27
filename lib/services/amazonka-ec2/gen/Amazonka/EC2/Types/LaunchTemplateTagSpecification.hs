@@ -70,7 +70,9 @@ instance Data.FromXML LaunchTemplateTagSpecification where
   parseXML x =
     LaunchTemplateTagSpecification'
       Prelude.<$> (x Data..@? "resourceType")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
@@ -81,7 +83,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateTagSpecification' {..} =
-      _salt `Prelude.hashWithSalt` resourceType
+      _salt
+        `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` tags
 
 instance

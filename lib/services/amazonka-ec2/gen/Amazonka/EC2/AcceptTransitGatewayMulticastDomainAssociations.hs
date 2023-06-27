@@ -136,7 +136,7 @@ instance
       ( \s h x ->
           AcceptTransitGatewayMulticastDomainAssociationsResponse'
             Prelude.<$> (x Data..@? "associations")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -146,7 +146,8 @@ instance
   hashWithSalt
     _salt
     AcceptTransitGatewayMulticastDomainAssociations' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` subnetIds
         `Prelude.hashWithSalt` transitGatewayAttachmentId
         `Prelude.hashWithSalt` transitGatewayMulticastDomainId

@@ -59,7 +59,11 @@ data DeprovisionPublicIpv4PoolCidr = DeprovisionPublicIpv4PoolCidr'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the pool that you want to deprovision the CIDR from.
     poolId :: Prelude.Text,
-    -- | The CIDR you want to deprovision from the pool.
+    -- | The CIDR you want to deprovision from the pool. Enter the CIDR you want
+    -- to deprovision with a netmask of @\/32@. You must rerun this command for
+    -- each IP address in the CIDR range. If your CIDR is a @\/24@, you will
+    -- have to run this command to deprovision each of the 256 IP addresses in
+    -- the @\/24@ CIDR.
     cidr :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +83,11 @@ data DeprovisionPublicIpv4PoolCidr = DeprovisionPublicIpv4PoolCidr'
 --
 -- 'poolId', 'deprovisionPublicIpv4PoolCidr_poolId' - The ID of the pool that you want to deprovision the CIDR from.
 --
--- 'cidr', 'deprovisionPublicIpv4PoolCidr_cidr' - The CIDR you want to deprovision from the pool.
+-- 'cidr', 'deprovisionPublicIpv4PoolCidr_cidr' - The CIDR you want to deprovision from the pool. Enter the CIDR you want
+-- to deprovision with a netmask of @\/32@. You must rerun this command for
+-- each IP address in the CIDR range. If your CIDR is a @\/24@, you will
+-- have to run this command to deprovision each of the 256 IP addresses in
+-- the @\/24@ CIDR.
 newDeprovisionPublicIpv4PoolCidr ::
   -- | 'poolId'
   Prelude.Text ->
@@ -105,7 +113,11 @@ deprovisionPublicIpv4PoolCidr_dryRun = Lens.lens (\DeprovisionPublicIpv4PoolCidr
 deprovisionPublicIpv4PoolCidr_poolId :: Lens.Lens' DeprovisionPublicIpv4PoolCidr Prelude.Text
 deprovisionPublicIpv4PoolCidr_poolId = Lens.lens (\DeprovisionPublicIpv4PoolCidr' {poolId} -> poolId) (\s@DeprovisionPublicIpv4PoolCidr' {} a -> s {poolId = a} :: DeprovisionPublicIpv4PoolCidr)
 
--- | The CIDR you want to deprovision from the pool.
+-- | The CIDR you want to deprovision from the pool. Enter the CIDR you want
+-- to deprovision with a netmask of @\/32@. You must rerun this command for
+-- each IP address in the CIDR range. If your CIDR is a @\/24@, you will
+-- have to run this command to deprovision each of the 256 IP addresses in
+-- the @\/24@ CIDR.
 deprovisionPublicIpv4PoolCidr_cidr :: Lens.Lens' DeprovisionPublicIpv4PoolCidr Prelude.Text
 deprovisionPublicIpv4PoolCidr_cidr = Lens.lens (\DeprovisionPublicIpv4PoolCidr' {cidr} -> cidr) (\s@DeprovisionPublicIpv4PoolCidr' {} a -> s {cidr = a} :: DeprovisionPublicIpv4PoolCidr)
 
@@ -122,7 +134,8 @@ instance
     Response.receiveXML
       ( \s h x ->
           DeprovisionPublicIpv4PoolCidrResponse'
-            Prelude.<$> ( x Data..@? "deprovisionedAddressSet"
+            Prelude.<$> ( x
+                            Data..@? "deprovisionedAddressSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -135,7 +148,8 @@ instance
     DeprovisionPublicIpv4PoolCidr
   where
   hashWithSalt _salt DeprovisionPublicIpv4PoolCidr' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` poolId
       `Prelude.hashWithSalt` cidr
 

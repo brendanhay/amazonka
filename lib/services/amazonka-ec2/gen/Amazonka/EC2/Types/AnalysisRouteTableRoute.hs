@@ -29,7 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnalysisRouteTableRoute' smart constructor.
 data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
-  { -- | The destination IPv4 address, in CIDR notation.
+  { -- | The ID of a carrier gateway.
+    carrierGatewayId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of a core network.
+    coreNetworkArn :: Prelude.Maybe Prelude.Text,
+    -- | The destination IPv4 address, in CIDR notation.
     destinationCidr :: Prelude.Maybe Prelude.Text,
     -- | The prefix of the Amazon Web Service.
     destinationPrefixListId :: Prelude.Maybe Prelude.Text,
@@ -40,6 +44,8 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
     gatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the instance, such as a NAT instance.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of a local gateway.
+    localGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of a NAT gateway.
     natGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The ID of a network interface.
@@ -76,6 +82,10 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'carrierGatewayId', 'analysisRouteTableRoute_carrierGatewayId' - The ID of a carrier gateway.
+--
+-- 'coreNetworkArn', 'analysisRouteTableRoute_coreNetworkArn' - The Amazon Resource Name (ARN) of a core network.
+--
 -- 'destinationCidr', 'analysisRouteTableRoute_destinationCidr' - The destination IPv4 address, in CIDR notation.
 --
 -- 'destinationPrefixListId', 'analysisRouteTableRoute_destinationPrefixListId' - The prefix of the Amazon Web Service.
@@ -86,6 +96,8 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
 -- gateway.
 --
 -- 'instanceId', 'analysisRouteTableRoute_instanceId' - The ID of the instance, such as a NAT instance.
+--
+-- 'localGatewayId', 'analysisRouteTableRoute_localGatewayId' - The ID of a local gateway.
 --
 -- 'natGatewayId', 'analysisRouteTableRoute_natGatewayId' - The ID of a NAT gateway.
 --
@@ -115,12 +127,15 @@ newAnalysisRouteTableRoute ::
   AnalysisRouteTableRoute
 newAnalysisRouteTableRoute =
   AnalysisRouteTableRoute'
-    { destinationCidr =
+    { carrierGatewayId =
         Prelude.Nothing,
+      coreNetworkArn = Prelude.Nothing,
+      destinationCidr = Prelude.Nothing,
       destinationPrefixListId = Prelude.Nothing,
       egressOnlyInternetGatewayId = Prelude.Nothing,
       gatewayId = Prelude.Nothing,
       instanceId = Prelude.Nothing,
+      localGatewayId = Prelude.Nothing,
       natGatewayId = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
       origin = Prelude.Nothing,
@@ -128,6 +143,14 @@ newAnalysisRouteTableRoute =
       transitGatewayId = Prelude.Nothing,
       vpcPeeringConnectionId = Prelude.Nothing
     }
+
+-- | The ID of a carrier gateway.
+analysisRouteTableRoute_carrierGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_carrierGatewayId = Lens.lens (\AnalysisRouteTableRoute' {carrierGatewayId} -> carrierGatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {carrierGatewayId = a} :: AnalysisRouteTableRoute)
+
+-- | The Amazon Resource Name (ARN) of a core network.
+analysisRouteTableRoute_coreNetworkArn :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_coreNetworkArn = Lens.lens (\AnalysisRouteTableRoute' {coreNetworkArn} -> coreNetworkArn) (\s@AnalysisRouteTableRoute' {} a -> s {coreNetworkArn = a} :: AnalysisRouteTableRoute)
 
 -- | The destination IPv4 address, in CIDR notation.
 analysisRouteTableRoute_destinationCidr :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
@@ -149,6 +172,10 @@ analysisRouteTableRoute_gatewayId = Lens.lens (\AnalysisRouteTableRoute' {gatewa
 -- | The ID of the instance, such as a NAT instance.
 analysisRouteTableRoute_instanceId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_instanceId = Lens.lens (\AnalysisRouteTableRoute' {instanceId} -> instanceId) (\s@AnalysisRouteTableRoute' {} a -> s {instanceId = a} :: AnalysisRouteTableRoute)
+
+-- | The ID of a local gateway.
+analysisRouteTableRoute_localGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
+analysisRouteTableRoute_localGatewayId = Lens.lens (\AnalysisRouteTableRoute' {localGatewayId} -> localGatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {localGatewayId = a} :: AnalysisRouteTableRoute)
 
 -- | The ID of a NAT gateway.
 analysisRouteTableRoute_natGatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
@@ -190,11 +217,14 @@ analysisRouteTableRoute_vpcPeeringConnectionId = Lens.lens (\AnalysisRouteTableR
 instance Data.FromXML AnalysisRouteTableRoute where
   parseXML x =
     AnalysisRouteTableRoute'
-      Prelude.<$> (x Data..@? "destinationCidr")
+      Prelude.<$> (x Data..@? "carrierGatewayId")
+      Prelude.<*> (x Data..@? "coreNetworkArn")
+      Prelude.<*> (x Data..@? "destinationCidr")
       Prelude.<*> (x Data..@? "destinationPrefixListId")
       Prelude.<*> (x Data..@? "egressOnlyInternetGatewayId")
       Prelude.<*> (x Data..@? "gatewayId")
       Prelude.<*> (x Data..@? "instanceId")
+      Prelude.<*> (x Data..@? "localGatewayId")
       Prelude.<*> (x Data..@? "natGatewayId")
       Prelude.<*> (x Data..@? "networkInterfaceId")
       Prelude.<*> (x Data..@? "origin")
@@ -204,11 +234,15 @@ instance Data.FromXML AnalysisRouteTableRoute where
 
 instance Prelude.Hashable AnalysisRouteTableRoute where
   hashWithSalt _salt AnalysisRouteTableRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidr
+    _salt
+      `Prelude.hashWithSalt` carrierGatewayId
+      `Prelude.hashWithSalt` coreNetworkArn
+      `Prelude.hashWithSalt` destinationCidr
       `Prelude.hashWithSalt` destinationPrefixListId
       `Prelude.hashWithSalt` egressOnlyInternetGatewayId
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` instanceId
+      `Prelude.hashWithSalt` localGatewayId
       `Prelude.hashWithSalt` natGatewayId
       `Prelude.hashWithSalt` networkInterfaceId
       `Prelude.hashWithSalt` origin
@@ -218,11 +252,14 @@ instance Prelude.Hashable AnalysisRouteTableRoute where
 
 instance Prelude.NFData AnalysisRouteTableRoute where
   rnf AnalysisRouteTableRoute' {..} =
-    Prelude.rnf destinationCidr
+    Prelude.rnf carrierGatewayId
+      `Prelude.seq` Prelude.rnf coreNetworkArn
+      `Prelude.seq` Prelude.rnf destinationCidr
       `Prelude.seq` Prelude.rnf destinationPrefixListId
       `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
       `Prelude.seq` Prelude.rnf gatewayId
       `Prelude.seq` Prelude.rnf instanceId
+      `Prelude.seq` Prelude.rnf localGatewayId
       `Prelude.seq` Prelude.rnf natGatewayId
       `Prelude.seq` Prelude.rnf networkInterfaceId
       `Prelude.seq` Prelude.rnf origin

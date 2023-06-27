@@ -22,16 +22,6 @@
 --
 -- Describes the specified Elastic IP addresses or all of your Elastic IP
 -- addresses.
---
--- An Elastic IP address is for use in either the EC2-Classic platform or
--- in a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
--- We are retiring EC2-Classic. We recommend that you migrate from
--- EC2-Classic to a VPC. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
--- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.DescribeAddresses
   ( -- * Creating a Request
     DescribeAddresses (..),
@@ -63,7 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { -- | [EC2-VPC] Information about the allocation IDs.
+  { -- | Information about the allocation IDs.
     allocationIds :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -72,12 +62,9 @@ data DescribeAddresses = DescribeAddresses'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters. Filter names and values are case-sensitive.
     --
-    -- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
+    -- -   @allocation-id@ - The allocation ID for the address.
     --
-    -- -   @association-id@ - [EC2-VPC] The association ID for the address.
-    --
-    -- -   @domain@ - Indicates whether the address is for use in EC2-Classic
-    --     (@standard@) or in a VPC (@vpc@).
+    -- -   @association-id@ - The association ID for the address.
     --
     -- -   @instance-id@ - The ID of the instance the address is associated
     --     with, if any.
@@ -86,14 +73,14 @@ data DescribeAddresses = DescribeAddresses'
     --     Zones, or Wavelength Zones from where Amazon Web Services advertises
     --     IP addresses.
     --
-    -- -   @network-interface-id@ - [EC2-VPC] The ID of the network interface
-    --     that the address is associated with, if any.
+    -- -   @network-interface-id@ - The ID of the network interface that the
+    --     address is associated with, if any.
     --
     -- -   @network-interface-owner-id@ - The Amazon Web Services account ID of
     --     the owner.
     --
-    -- -   @private-ip-address@ - [EC2-VPC] The private IP address associated
-    --     with the Elastic IP address.
+    -- -   @private-ip-address@ - The private IP address associated with the
+    --     Elastic IP address.
     --
     -- -   @public-ip@ - The Elastic IP address, or the carrier IP address.
     --
@@ -122,7 +109,7 @@ data DescribeAddresses = DescribeAddresses'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allocationIds', 'describeAddresses_allocationIds' - [EC2-VPC] Information about the allocation IDs.
+-- 'allocationIds', 'describeAddresses_allocationIds' - Information about the allocation IDs.
 --
 -- 'dryRun', 'describeAddresses_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -131,12 +118,9 @@ data DescribeAddresses = DescribeAddresses'
 --
 -- 'filters', 'describeAddresses_filters' - One or more filters. Filter names and values are case-sensitive.
 --
--- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
+-- -   @allocation-id@ - The allocation ID for the address.
 --
--- -   @association-id@ - [EC2-VPC] The association ID for the address.
---
--- -   @domain@ - Indicates whether the address is for use in EC2-Classic
---     (@standard@) or in a VPC (@vpc@).
+-- -   @association-id@ - The association ID for the address.
 --
 -- -   @instance-id@ - The ID of the instance the address is associated
 --     with, if any.
@@ -145,14 +129,14 @@ data DescribeAddresses = DescribeAddresses'
 --     Zones, or Wavelength Zones from where Amazon Web Services advertises
 --     IP addresses.
 --
--- -   @network-interface-id@ - [EC2-VPC] The ID of the network interface
---     that the address is associated with, if any.
+-- -   @network-interface-id@ - The ID of the network interface that the
+--     address is associated with, if any.
 --
 -- -   @network-interface-owner-id@ - The Amazon Web Services account ID of
 --     the owner.
 --
--- -   @private-ip-address@ - [EC2-VPC] The private IP address associated
---     with the Elastic IP address.
+-- -   @private-ip-address@ - The private IP address associated with the
+--     Elastic IP address.
 --
 -- -   @public-ip@ - The Elastic IP address, or the carrier IP address.
 --
@@ -179,7 +163,7 @@ newDescribeAddresses =
       publicIps = Prelude.Nothing
     }
 
--- | [EC2-VPC] Information about the allocation IDs.
+-- | Information about the allocation IDs.
 describeAddresses_allocationIds :: Lens.Lens' DescribeAddresses (Prelude.Maybe [Prelude.Text])
 describeAddresses_allocationIds = Lens.lens (\DescribeAddresses' {allocationIds} -> allocationIds) (\s@DescribeAddresses' {} a -> s {allocationIds = a} :: DescribeAddresses) Prelude.. Lens.mapping Lens.coerced
 
@@ -192,12 +176,9 @@ describeAddresses_dryRun = Lens.lens (\DescribeAddresses' {dryRun} -> dryRun) (\
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
--- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
+-- -   @allocation-id@ - The allocation ID for the address.
 --
--- -   @association-id@ - [EC2-VPC] The association ID for the address.
---
--- -   @domain@ - Indicates whether the address is for use in EC2-Classic
---     (@standard@) or in a VPC (@vpc@).
+-- -   @association-id@ - The association ID for the address.
 --
 -- -   @instance-id@ - The ID of the instance the address is associated
 --     with, if any.
@@ -206,14 +187,14 @@ describeAddresses_dryRun = Lens.lens (\DescribeAddresses' {dryRun} -> dryRun) (\
 --     Zones, or Wavelength Zones from where Amazon Web Services advertises
 --     IP addresses.
 --
--- -   @network-interface-id@ - [EC2-VPC] The ID of the network interface
---     that the address is associated with, if any.
+-- -   @network-interface-id@ - The ID of the network interface that the
+--     address is associated with, if any.
 --
 -- -   @network-interface-owner-id@ - The Amazon Web Services account ID of
 --     the owner.
 --
--- -   @private-ip-address@ - [EC2-VPC] The private IP address associated
---     with the Elastic IP address.
+-- -   @private-ip-address@ - The private IP address associated with the
+--     Elastic IP address.
 --
 -- -   @public-ip@ - The Elastic IP address, or the carrier IP address.
 --
@@ -245,7 +226,9 @@ instance Core.AWSRequest DescribeAddresses where
     Response.receiveXML
       ( \s h x ->
           DescribeAddressesResponse'
-            Prelude.<$> ( x Data..@? "addressesSet" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "addressesSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -253,7 +236,8 @@ instance Core.AWSRequest DescribeAddresses where
 
 instance Prelude.Hashable DescribeAddresses where
   hashWithSalt _salt DescribeAddresses' {..} =
-    _salt `Prelude.hashWithSalt` allocationIds
+    _salt
+      `Prelude.hashWithSalt` allocationIds
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` publicIps

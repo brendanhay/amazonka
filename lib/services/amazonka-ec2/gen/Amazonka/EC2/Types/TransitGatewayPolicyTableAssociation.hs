@@ -114,7 +114,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayPolicyTableAssociation' {..} =
-      _salt `Prelude.hashWithSalt` resourceId
+      _salt
+        `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` transitGatewayAttachmentId

@@ -94,7 +94,7 @@ data RequestSpotFleet = RequestSpotFleet'
     -- | The configuration for the Spot Fleet request.
     spotFleetRequestConfig :: SpotFleetRequestConfigData
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RequestSpotFleet' with all optional fields omitted.
@@ -147,7 +147,8 @@ instance Core.AWSRequest RequestSpotFleet where
 
 instance Prelude.Hashable RequestSpotFleet where
   hashWithSalt _salt RequestSpotFleet' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` spotFleetRequestConfig
 
 instance Prelude.NFData RequestSpotFleet where

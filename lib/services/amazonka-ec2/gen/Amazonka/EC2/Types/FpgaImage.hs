@@ -43,6 +43,7 @@ data FpgaImage = FpgaImage'
     fpgaImageGlobalId :: Prelude.Maybe Prelude.Text,
     -- | The FPGA image identifier (AFI ID).
     fpgaImageId :: Prelude.Maybe Prelude.Text,
+    -- | The instance types supported by the AFI.
     instanceTypes :: Prelude.Maybe [Prelude.Text],
     -- | The name of the AFI.
     name :: Prelude.Maybe Prelude.Text,
@@ -87,7 +88,7 @@ data FpgaImage = FpgaImage'
 --
 -- 'fpgaImageId', 'fpgaImage_fpgaImageId' - The FPGA image identifier (AFI ID).
 --
--- 'instanceTypes', 'fpgaImage_instanceTypes' - Undocumented member.
+-- 'instanceTypes', 'fpgaImage_instanceTypes' - The instance types supported by the AFI.
 --
 -- 'name', 'fpgaImage_name' - The name of the AFI.
 --
@@ -152,7 +153,7 @@ fpgaImage_fpgaImageGlobalId = Lens.lens (\FpgaImage' {fpgaImageGlobalId} -> fpga
 fpgaImage_fpgaImageId :: Lens.Lens' FpgaImage (Prelude.Maybe Prelude.Text)
 fpgaImage_fpgaImageId = Lens.lens (\FpgaImage' {fpgaImageId} -> fpgaImageId) (\s@FpgaImage' {} a -> s {fpgaImageId = a} :: FpgaImage)
 
--- | Undocumented member.
+-- | The instance types supported by the AFI.
 fpgaImage_instanceTypes :: Lens.Lens' FpgaImage (Prelude.Maybe [Prelude.Text])
 fpgaImage_instanceTypes = Lens.lens (\FpgaImage' {instanceTypes} -> instanceTypes) (\s@FpgaImage' {} a -> s {instanceTypes = a} :: FpgaImage) Prelude.. Lens.mapping Lens.coerced
 
@@ -206,27 +207,34 @@ instance Data.FromXML FpgaImage where
       Prelude.<*> (x Data..@? "description")
       Prelude.<*> (x Data..@? "fpgaImageGlobalId")
       Prelude.<*> (x Data..@? "fpgaImageId")
-      Prelude.<*> ( x Data..@? "instanceTypes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "instanceTypes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "name")
       Prelude.<*> (x Data..@? "ownerAlias")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "pciId")
-      Prelude.<*> ( x Data..@? "productCodes" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "productCodes"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "public")
       Prelude.<*> (x Data..@? "shellVersion")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "updateTime")
 
 instance Prelude.Hashable FpgaImage where
   hashWithSalt _salt FpgaImage' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` dataRetentionSupport
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fpgaImageGlobalId

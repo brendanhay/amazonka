@@ -131,22 +131,22 @@ instance Core.AWSPager GetAssociatedIpv6PoolCidrs where
     | Core.stop
         ( rs
             Lens.^? getAssociatedIpv6PoolCidrsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getAssociatedIpv6PoolCidrsResponse_ipv6CidrAssociations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getAssociatedIpv6PoolCidrs_nextToken
           Lens..~ rs
           Lens.^? getAssociatedIpv6PoolCidrsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
   type
@@ -158,7 +158,8 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
     Response.receiveXML
       ( \s h x ->
           GetAssociatedIpv6PoolCidrsResponse'
-            Prelude.<$> ( x Data..@? "ipv6CidrAssociationSet"
+            Prelude.<$> ( x
+                            Data..@? "ipv6CidrAssociationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -168,7 +169,8 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
 
 instance Prelude.Hashable GetAssociatedIpv6PoolCidrs where
   hashWithSalt _salt GetAssociatedIpv6PoolCidrs' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` poolId

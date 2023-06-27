@@ -159,7 +159,7 @@ data CopySnapshot = CopySnapshot'
     -- in the /Amazon Simple Storage Service API Reference/. An invalid or
     -- improperly signed @PresignedUrl@ will cause the copy operation to fail
     -- asynchronously, and the snapshot will move to an @error@ state.
-    presignedUrl :: Prelude.Maybe Prelude.Text,
+    presignedUrl :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The tags to apply to the new snapshot.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the Region that contains the snapshot to be copied.
@@ -167,7 +167,7 @@ data CopySnapshot = CopySnapshot'
     -- | The ID of the EBS snapshot to copy.
     sourceSnapshotId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CopySnapshot' with all optional fields omitted.
@@ -358,7 +358,7 @@ copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@Co
 -- improperly signed @PresignedUrl@ will cause the copy operation to fail
 -- asynchronously, and the snapshot will move to an @error@ state.
 copySnapshot_presignedUrl :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
-copySnapshot_presignedUrl = Lens.lens (\CopySnapshot' {presignedUrl} -> presignedUrl) (\s@CopySnapshot' {} a -> s {presignedUrl = a} :: CopySnapshot)
+copySnapshot_presignedUrl = Lens.lens (\CopySnapshot' {presignedUrl} -> presignedUrl) (\s@CopySnapshot' {} a -> s {presignedUrl = a} :: CopySnapshot) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The tags to apply to the new snapshot.
 copySnapshot_tagSpecifications :: Lens.Lens' CopySnapshot (Prelude.Maybe [TagSpecification])
@@ -381,7 +381,9 @@ instance Core.AWSRequest CopySnapshot where
       ( \s h x ->
           CopySnapshotResponse'
             Prelude.<$> (x Data..@? "snapshotId")
-            Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "tagSet"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -389,7 +391,8 @@ instance Core.AWSRequest CopySnapshot where
 
 instance Prelude.Hashable CopySnapshot where
   hashWithSalt _salt CopySnapshot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationOutpostArn
       `Prelude.hashWithSalt` destinationRegion
       `Prelude.hashWithSalt` dryRun

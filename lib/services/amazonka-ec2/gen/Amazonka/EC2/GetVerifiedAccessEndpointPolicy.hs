@@ -56,7 +56,7 @@ data GetVerifiedAccessEndpointPolicy = GetVerifiedAccessEndpointPolicy'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access endpoint.
+    -- | The ID of the Verified Access endpoint.
     verifiedAccessEndpointId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data GetVerifiedAccessEndpointPolicy = GetVerifiedAccessEndpointPolicy'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessEndpointId', 'getVerifiedAccessEndpointPolicy_verifiedAccessEndpointId' - The ID of the Amazon Web Services Verified Access endpoint.
+-- 'verifiedAccessEndpointId', 'getVerifiedAccessEndpointPolicy_verifiedAccessEndpointId' - The ID of the Verified Access endpoint.
 newGetVerifiedAccessEndpointPolicy ::
   -- | 'verifiedAccessEndpointId'
   Prelude.Text ->
@@ -95,7 +95,7 @@ newGetVerifiedAccessEndpointPolicy
 getVerifiedAccessEndpointPolicy_dryRun :: Lens.Lens' GetVerifiedAccessEndpointPolicy (Prelude.Maybe Prelude.Bool)
 getVerifiedAccessEndpointPolicy_dryRun = Lens.lens (\GetVerifiedAccessEndpointPolicy' {dryRun} -> dryRun) (\s@GetVerifiedAccessEndpointPolicy' {} a -> s {dryRun = a} :: GetVerifiedAccessEndpointPolicy)
 
--- | The ID of the Amazon Web Services Verified Access endpoint.
+-- | The ID of the Verified Access endpoint.
 getVerifiedAccessEndpointPolicy_verifiedAccessEndpointId :: Lens.Lens' GetVerifiedAccessEndpointPolicy Prelude.Text
 getVerifiedAccessEndpointPolicy_verifiedAccessEndpointId = Lens.lens (\GetVerifiedAccessEndpointPolicy' {verifiedAccessEndpointId} -> verifiedAccessEndpointId) (\s@GetVerifiedAccessEndpointPolicy' {} a -> s {verifiedAccessEndpointId = a} :: GetVerifiedAccessEndpointPolicy)
 
@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     GetVerifiedAccessEndpointPolicy' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessEndpointId
 
 instance
@@ -160,7 +161,7 @@ instance Data.ToQuery GetVerifiedAccessEndpointPolicy where
 
 -- | /See:/ 'newGetVerifiedAccessEndpointPolicyResponse' smart constructor.
 data GetVerifiedAccessEndpointPolicyResponse = GetVerifiedAccessEndpointPolicyResponse'
-  { -- | The Amazon Web Services Verified Access policy document.
+  { -- | The Verified Access policy document.
     policyDocument :: Prelude.Maybe Prelude.Text,
     -- | The status of the Verified Access policy.
     policyEnabled :: Prelude.Maybe Prelude.Bool,
@@ -177,7 +178,7 @@ data GetVerifiedAccessEndpointPolicyResponse = GetVerifiedAccessEndpointPolicyRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyDocument', 'getVerifiedAccessEndpointPolicyResponse_policyDocument' - The Amazon Web Services Verified Access policy document.
+-- 'policyDocument', 'getVerifiedAccessEndpointPolicyResponse_policyDocument' - The Verified Access policy document.
 --
 -- 'policyEnabled', 'getVerifiedAccessEndpointPolicyResponse_policyEnabled' - The status of the Verified Access policy.
 --
@@ -195,7 +196,7 @@ newGetVerifiedAccessEndpointPolicyResponse
         httpStatus = pHttpStatus_
       }
 
--- | The Amazon Web Services Verified Access policy document.
+-- | The Verified Access policy document.
 getVerifiedAccessEndpointPolicyResponse_policyDocument :: Lens.Lens' GetVerifiedAccessEndpointPolicyResponse (Prelude.Maybe Prelude.Text)
 getVerifiedAccessEndpointPolicyResponse_policyDocument = Lens.lens (\GetVerifiedAccessEndpointPolicyResponse' {policyDocument} -> policyDocument) (\s@GetVerifiedAccessEndpointPolicyResponse' {} a -> s {policyDocument = a} :: GetVerifiedAccessEndpointPolicyResponse)
 

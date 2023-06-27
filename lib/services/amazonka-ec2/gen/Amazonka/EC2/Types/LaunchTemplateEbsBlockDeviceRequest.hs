@@ -243,7 +243,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateEbsBlockDeviceRequest' {..} =
-      _salt `Prelude.hashWithSalt` deleteOnTermination
+      _salt
+        `Prelude.hashWithSalt` deleteOnTermination
         `Prelude.hashWithSalt` encrypted
         `Prelude.hashWithSalt` iops
         `Prelude.hashWithSalt` kmsKeyId

@@ -81,7 +81,7 @@ data ImportVolume = ImportVolume'
     -- | The volume size.
     volume :: VolumeDetail
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportVolume' with all optional fields omitted.
@@ -157,7 +157,8 @@ instance Core.AWSRequest ImportVolume where
 
 instance Prelude.Hashable ImportVolume where
   hashWithSalt _salt ImportVolume' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` image
@@ -198,7 +199,7 @@ data ImportVolumeResponse = ImportVolumeResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportVolumeResponse' with all optional fields omitted.

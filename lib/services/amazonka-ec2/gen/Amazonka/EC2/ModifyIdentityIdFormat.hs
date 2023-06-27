@@ -177,7 +177,8 @@ instance Core.AWSRequest ModifyIdentityIdFormat where
 
 instance Prelude.Hashable ModifyIdentityIdFormat where
   hashWithSalt _salt ModifyIdentityIdFormat' {..} =
-    _salt `Prelude.hashWithSalt` principalArn
+    _salt
+      `Prelude.hashWithSalt` principalArn
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` useLongIds
 

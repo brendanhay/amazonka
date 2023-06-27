@@ -92,7 +92,8 @@ instance Data.FromXML PublicIpv4PoolRange where
 
 instance Prelude.Hashable PublicIpv4PoolRange where
   hashWithSalt _salt PublicIpv4PoolRange' {..} =
-    _salt `Prelude.hashWithSalt` addressCount
+    _salt
+      `Prelude.hashWithSalt` addressCount
       `Prelude.hashWithSalt` availableAddressCount
       `Prelude.hashWithSalt` firstAddress
       `Prelude.hashWithSalt` lastAddress

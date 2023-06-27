@@ -137,7 +137,8 @@ instance Core.AWSRequest GetPasswordData where
 
 instance Prelude.Hashable GetPasswordData where
   hashWithSalt _salt GetPasswordData' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData GetPasswordData where

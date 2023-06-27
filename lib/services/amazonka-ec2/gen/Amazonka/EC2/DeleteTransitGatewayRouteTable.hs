@@ -124,7 +124,8 @@ instance
   hashWithSalt
     _salt
     DeleteTransitGatewayRouteTable' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` transitGatewayRouteTableId
 
 instance

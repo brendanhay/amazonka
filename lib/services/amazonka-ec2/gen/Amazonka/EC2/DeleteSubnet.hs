@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteSubnet where
 
 instance Prelude.Hashable DeleteSubnet where
   hashWithSalt _salt DeleteSubnet' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData DeleteSubnet where

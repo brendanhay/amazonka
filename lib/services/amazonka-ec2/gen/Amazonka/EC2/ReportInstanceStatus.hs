@@ -235,7 +235,8 @@ instance Core.AWSRequest ReportInstanceStatus where
 
 instance Prelude.Hashable ReportInstanceStatus where
   hashWithSalt _salt ReportInstanceStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime

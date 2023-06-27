@@ -132,13 +132,16 @@ instance Data.FromXML ExportImageTask where
       Prelude.<*> (x Data..@? "s3ExportLocation")
       Prelude.<*> (x Data..@? "status")
       Prelude.<*> (x Data..@? "statusMessage")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ExportImageTask where
   hashWithSalt _salt ExportImageTask' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` exportImageTaskId
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` progress

@@ -27,7 +27,9 @@ import Amazonka.EC2.Types.ResourceType
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
--- | The tags to apply to a resource when the resource is being created.
+-- | The tags to apply to a resource when the resource is being created. When
+-- you specify a tag, you must specify the resource type to tag, otherwise
+-- the request will fail.
 --
 -- The @Valid Values@ lists all the resource types that can be tagged.
 -- However, the action you\'re using might not support tagging all of these
@@ -74,13 +76,16 @@ instance Data.FromXML TagSpecification where
   parseXML x =
     TagSpecification'
       Prelude.<$> (x Data..@? "resourceType")
-      Prelude.<*> ( x Data..@? "Tag" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tag"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable TagSpecification where
   hashWithSalt _salt TagSpecification' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagSpecification where

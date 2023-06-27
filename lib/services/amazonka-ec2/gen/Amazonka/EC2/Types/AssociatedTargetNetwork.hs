@@ -74,7 +74,8 @@ instance Data.FromXML AssociatedTargetNetwork where
 
 instance Prelude.Hashable AssociatedTargetNetwork where
   hashWithSalt _salt AssociatedTargetNetwork' {..} =
-    _salt `Prelude.hashWithSalt` networkId
+    _salt
+      `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` networkType
 
 instance Prelude.NFData AssociatedTargetNetwork where

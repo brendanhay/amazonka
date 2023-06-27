@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified EC2 Fleet.
+-- Deletes the specified EC2 Fleets.
 --
 -- After you delete an EC2 Fleet, it launches no new instances.
 --
--- You must specify whether a deleted EC2 Fleet should also terminate its
+-- You must also specify whether a deleted EC2 Fleet should terminate its
 -- instances. If you choose to terminate the instances, the EC2 Fleet
 -- enters the @deleted_terminating@ state. Otherwise, the EC2 Fleet enters
 -- the @deleted_running@ state, and the instances continue to run until
@@ -85,11 +85,11 @@ data DeleteFleets = DeleteFleets'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The IDs of the EC2 Fleets.
     fleetIds :: [Prelude.Text],
-    -- | Indicates whether to terminate the instances when the EC2 Fleet is
-    -- deleted. The default is to terminate the instances.
+    -- | Indicates whether to terminate the associated instances when the EC2
+    -- Fleet is deleted. The default is to terminate the instances.
     --
     -- To let the instances continue to run after the EC2 Fleet is deleted,
-    -- specify @NoTerminateInstances@. Supported only for fleets of type
+    -- specify @no-terminate-instances@. Supported only for fleets of type
     -- @maintain@ and @request@.
     --
     -- For @instant@ fleets, you cannot specify @NoTerminateInstances@. A
@@ -113,11 +113,11 @@ data DeleteFleets = DeleteFleets'
 --
 -- 'fleetIds', 'deleteFleets_fleetIds' - The IDs of the EC2 Fleets.
 --
--- 'terminateInstances', 'deleteFleets_terminateInstances' - Indicates whether to terminate the instances when the EC2 Fleet is
--- deleted. The default is to terminate the instances.
+-- 'terminateInstances', 'deleteFleets_terminateInstances' - Indicates whether to terminate the associated instances when the EC2
+-- Fleet is deleted. The default is to terminate the instances.
 --
 -- To let the instances continue to run after the EC2 Fleet is deleted,
--- specify @NoTerminateInstances@. Supported only for fleets of type
+-- specify @no-terminate-instances@. Supported only for fleets of type
 -- @maintain@ and @request@.
 --
 -- For @instant@ fleets, you cannot specify @NoTerminateInstances@. A
@@ -144,11 +144,11 @@ deleteFleets_dryRun = Lens.lens (\DeleteFleets' {dryRun} -> dryRun) (\s@DeleteFl
 deleteFleets_fleetIds :: Lens.Lens' DeleteFleets [Prelude.Text]
 deleteFleets_fleetIds = Lens.lens (\DeleteFleets' {fleetIds} -> fleetIds) (\s@DeleteFleets' {} a -> s {fleetIds = a} :: DeleteFleets) Prelude.. Lens.coerced
 
--- | Indicates whether to terminate the instances when the EC2 Fleet is
--- deleted. The default is to terminate the instances.
+-- | Indicates whether to terminate the associated instances when the EC2
+-- Fleet is deleted. The default is to terminate the instances.
 --
 -- To let the instances continue to run after the EC2 Fleet is deleted,
--- specify @NoTerminateInstances@. Supported only for fleets of type
+-- specify @no-terminate-instances@. Supported only for fleets of type
 -- @maintain@ and @request@.
 --
 -- For @instant@ fleets, you cannot specify @NoTerminateInstances@. A
@@ -164,11 +164,13 @@ instance Core.AWSRequest DeleteFleets where
     Response.receiveXML
       ( \s h x ->
           DeleteFleetsResponse'
-            Prelude.<$> ( x Data..@? "successfulFleetDeletionSet"
+            Prelude.<$> ( x
+                            Data..@? "successfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessfulFleetDeletionSet"
+            Prelude.<*> ( x
+                            Data..@? "unsuccessfulFleetDeletionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -177,7 +179,8 @@ instance Core.AWSRequest DeleteFleets where
 
 instance Prelude.Hashable DeleteFleets where
   hashWithSalt _salt DeleteFleets' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fleetIds
       `Prelude.hashWithSalt` terminateInstances
 

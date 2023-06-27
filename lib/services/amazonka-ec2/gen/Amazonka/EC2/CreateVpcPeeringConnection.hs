@@ -92,7 +92,7 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection'
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the requester VPC. You must specify this parameter in the
     -- request.
-    vpcId :: Prelude.Maybe Prelude.Text
+    vpcId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -126,8 +126,10 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection'
 -- 'vpcId', 'createVpcPeeringConnection_vpcId' - The ID of the requester VPC. You must specify this parameter in the
 -- request.
 newCreateVpcPeeringConnection ::
+  -- | 'vpcId'
+  Prelude.Text ->
   CreateVpcPeeringConnection
-newCreateVpcPeeringConnection =
+newCreateVpcPeeringConnection pVpcId_ =
   CreateVpcPeeringConnection'
     { dryRun =
         Prelude.Nothing,
@@ -135,7 +137,7 @@ newCreateVpcPeeringConnection =
       peerRegion = Prelude.Nothing,
       peerVpcId = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      vpcId = Prelude.Nothing
+      vpcId = pVpcId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -169,7 +171,7 @@ createVpcPeeringConnection_tagSpecifications = Lens.lens (\CreateVpcPeeringConne
 
 -- | The ID of the requester VPC. You must specify this parameter in the
 -- request.
-createVpcPeeringConnection_vpcId :: Lens.Lens' CreateVpcPeeringConnection (Prelude.Maybe Prelude.Text)
+createVpcPeeringConnection_vpcId :: Lens.Lens' CreateVpcPeeringConnection Prelude.Text
 createVpcPeeringConnection_vpcId = Lens.lens (\CreateVpcPeeringConnection' {vpcId} -> vpcId) (\s@CreateVpcPeeringConnection' {} a -> s {vpcId = a} :: CreateVpcPeeringConnection)
 
 instance Core.AWSRequest CreateVpcPeeringConnection where
@@ -188,7 +190,8 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
 
 instance Prelude.Hashable CreateVpcPeeringConnection where
   hashWithSalt _salt CreateVpcPeeringConnection' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` peerOwnerId
       `Prelude.hashWithSalt` peerRegion
       `Prelude.hashWithSalt` peerVpcId

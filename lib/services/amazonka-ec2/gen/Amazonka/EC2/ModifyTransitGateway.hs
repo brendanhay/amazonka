@@ -135,7 +135,8 @@ instance Core.AWSRequest ModifyTransitGateway where
 
 instance Prelude.Hashable ModifyTransitGateway where
   hashWithSalt _salt ModifyTransitGateway' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` transitGatewayId

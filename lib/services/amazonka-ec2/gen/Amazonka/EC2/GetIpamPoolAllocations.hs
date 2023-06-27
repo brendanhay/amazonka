@@ -20,7 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get a list of all the CIDR allocations in an IPAM pool.
+-- Get a list of all the CIDR allocations in an IPAM pool. The Region you
+-- use should be the IPAM pool locale. The locale is the Amazon Web
+-- Services Region where this IPAM pool is available for allocations.
+--
+-- If you use this action after
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html AllocateIpamPoolCidr>
+-- or
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html ReleaseIpamPoolAllocation>,
+-- note that all EC2 API actions follow an
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency eventual consistency>
+-- model.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.GetIpamPoolAllocations
@@ -149,22 +159,22 @@ instance Core.AWSPager GetIpamPoolAllocations where
     | Core.stop
         ( rs
             Lens.^? getIpamPoolAllocationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getIpamPoolAllocationsResponse_ipamPoolAllocations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getIpamPoolAllocations_nextToken
           Lens..~ rs
           Lens.^? getIpamPoolAllocationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetIpamPoolAllocations where
   type
@@ -176,7 +186,8 @@ instance Core.AWSRequest GetIpamPoolAllocations where
     Response.receiveXML
       ( \s h x ->
           GetIpamPoolAllocationsResponse'
-            Prelude.<$> ( x Data..@? "ipamPoolAllocationSet"
+            Prelude.<$> ( x
+                            Data..@? "ipamPoolAllocationSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -186,7 +197,8 @@ instance Core.AWSRequest GetIpamPoolAllocations where
 
 instance Prelude.Hashable GetIpamPoolAllocations where
   hashWithSalt _salt GetIpamPoolAllocations' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` ipamPoolAllocationId
       `Prelude.hashWithSalt` maxResults

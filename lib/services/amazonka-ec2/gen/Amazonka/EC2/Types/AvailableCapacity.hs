@@ -81,7 +81,8 @@ availableCapacity_availableVCpus = Lens.lens (\AvailableCapacity' {availableVCpu
 instance Data.FromXML AvailableCapacity where
   parseXML x =
     AvailableCapacity'
-      Prelude.<$> ( x Data..@? "availableInstanceCapacity"
+      Prelude.<$> ( x
+                      Data..@? "availableInstanceCapacity"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )

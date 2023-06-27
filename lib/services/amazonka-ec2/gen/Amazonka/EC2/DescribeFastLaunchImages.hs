@@ -75,12 +75,13 @@ data DescribeFastLaunchImages = DescribeFastLaunchImages'
     filters :: Prelude.Maybe [Filter],
     -- | Details for one or more Windows AMI image IDs.
     imageIds :: Prelude.Maybe [Prelude.Text],
-    -- | The maximum number of results to return in a single call. To retrieve
-    -- the remaining results, make another request with the returned NextToken
-    -- value. If this parameter is not specified, then all results are
-    -- returned.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The token for the next set of results.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,12 +112,13 @@ data DescribeFastLaunchImages = DescribeFastLaunchImages'
 --
 -- 'imageIds', 'describeFastLaunchImages_imageIds' - Details for one or more Windows AMI image IDs.
 --
--- 'maxResults', 'describeFastLaunchImages_maxResults' - The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned NextToken
--- value. If this parameter is not specified, then all results are
--- returned.
+-- 'maxResults', 'describeFastLaunchImages_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeFastLaunchImages_nextToken' - The token for the next set of results.
+-- 'nextToken', 'describeFastLaunchImages_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 newDescribeFastLaunchImages ::
   DescribeFastLaunchImages
 newDescribeFastLaunchImages =
@@ -152,14 +154,15 @@ describeFastLaunchImages_filters = Lens.lens (\DescribeFastLaunchImages' {filter
 describeFastLaunchImages_imageIds :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe [Prelude.Text])
 describeFastLaunchImages_imageIds = Lens.lens (\DescribeFastLaunchImages' {imageIds} -> imageIds) (\s@DescribeFastLaunchImages' {} a -> s {imageIds = a} :: DescribeFastLaunchImages) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. To retrieve
--- the remaining results, make another request with the returned NextToken
--- value. If this parameter is not specified, then all results are
--- returned.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeFastLaunchImages_maxResults :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe Prelude.Natural)
 describeFastLaunchImages_maxResults = Lens.lens (\DescribeFastLaunchImages' {maxResults} -> maxResults) (\s@DescribeFastLaunchImages' {} a -> s {maxResults = a} :: DescribeFastLaunchImages)
 
--- | The token for the next set of results.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeFastLaunchImages_nextToken :: Lens.Lens' DescribeFastLaunchImages (Prelude.Maybe Prelude.Text)
 describeFastLaunchImages_nextToken = Lens.lens (\DescribeFastLaunchImages' {nextToken} -> nextToken) (\s@DescribeFastLaunchImages' {} a -> s {nextToken = a} :: DescribeFastLaunchImages)
 
@@ -168,22 +171,22 @@ instance Core.AWSPager DescribeFastLaunchImages where
     | Core.stop
         ( rs
             Lens.^? describeFastLaunchImagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeFastLaunchImagesResponse_fastLaunchImages
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeFastLaunchImages_nextToken
           Lens..~ rs
           Lens.^? describeFastLaunchImagesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeFastLaunchImages where
   type
@@ -195,7 +198,8 @@ instance Core.AWSRequest DescribeFastLaunchImages where
     Response.receiveXML
       ( \s h x ->
           DescribeFastLaunchImagesResponse'
-            Prelude.<$> ( x Data..@? "fastLaunchImageSet"
+            Prelude.<$> ( x
+                            Data..@? "fastLaunchImageSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -205,7 +209,8 @@ instance Core.AWSRequest DescribeFastLaunchImages where
 
 instance Prelude.Hashable DescribeFastLaunchImages where
   hashWithSalt _salt DescribeFastLaunchImages' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` imageIds
       `Prelude.hashWithSalt` maxResults
@@ -246,8 +251,8 @@ data DescribeFastLaunchImagesResponse = DescribeFastLaunchImagesResponse'
   { -- | A collection of details about the fast-launch enabled Windows images
     -- that meet the requested criteria.
     fastLaunchImages :: Prelude.Maybe [DescribeFastLaunchImagesSuccessItem],
-    -- | The token to use for the next set of results. This value is null when
-    -- there are no more results to return.
+    -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -265,8 +270,8 @@ data DescribeFastLaunchImagesResponse = DescribeFastLaunchImagesResponse'
 -- 'fastLaunchImages', 'describeFastLaunchImagesResponse_fastLaunchImages' - A collection of details about the fast-launch enabled Windows images
 -- that meet the requested criteria.
 --
--- 'nextToken', 'describeFastLaunchImagesResponse_nextToken' - The token to use for the next set of results. This value is null when
--- there are no more results to return.
+-- 'nextToken', 'describeFastLaunchImagesResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
 -- 'httpStatus', 'describeFastLaunchImagesResponse_httpStatus' - The response's http status code.
 newDescribeFastLaunchImagesResponse ::
@@ -286,8 +291,8 @@ newDescribeFastLaunchImagesResponse pHttpStatus_ =
 describeFastLaunchImagesResponse_fastLaunchImages :: Lens.Lens' DescribeFastLaunchImagesResponse (Prelude.Maybe [DescribeFastLaunchImagesSuccessItem])
 describeFastLaunchImagesResponse_fastLaunchImages = Lens.lens (\DescribeFastLaunchImagesResponse' {fastLaunchImages} -> fastLaunchImages) (\s@DescribeFastLaunchImagesResponse' {} a -> s {fastLaunchImages = a} :: DescribeFastLaunchImagesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The token to use for the next set of results. This value is null when
--- there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeFastLaunchImagesResponse_nextToken :: Lens.Lens' DescribeFastLaunchImagesResponse (Prelude.Maybe Prelude.Text)
 describeFastLaunchImagesResponse_nextToken = Lens.lens (\DescribeFastLaunchImagesResponse' {nextToken} -> nextToken) (\s@DescribeFastLaunchImagesResponse' {} a -> s {nextToken = a} :: DescribeFastLaunchImagesResponse)
 

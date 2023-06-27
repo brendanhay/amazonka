@@ -77,7 +77,8 @@ instance Data.FromXML InstanceUsage where
 
 instance Prelude.Hashable InstanceUsage where
   hashWithSalt _salt InstanceUsage' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` usedInstanceCount
 
 instance Prelude.NFData InstanceUsage where

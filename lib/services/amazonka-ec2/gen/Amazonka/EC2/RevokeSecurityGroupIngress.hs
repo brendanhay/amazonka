@@ -93,8 +93,9 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The start of port range for the TCP and UDP protocols, or an ICMP type
-    -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
+    -- | If the protocol is TCP or UDP, this is the start of the port range. If
+    -- the protocol is ICMP, this is the type number. A value of -1 indicates
+    -- all ICMP types.
     fromPort :: Prelude.Maybe Prelude.Int,
     -- | The ID of the security group. You must specify either the security group
     -- ID or the security group name in the request. For security groups in a
@@ -128,9 +129,9 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
     -- port range, and the end of the port range. To revoke a specific rule for
     -- an IP protocol and port range, use a set of IP permissions instead.
     sourceSecurityGroupOwnerId :: Prelude.Maybe Prelude.Text,
-    -- | The end of port range for the TCP and UDP protocols, or an ICMP code
-    -- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
-    -- the ICMP type.
+    -- | If the protocol is TCP or UDP, this is the end of the port range. If the
+    -- protocol is ICMP, this is the code. A value of -1 indicates all ICMP
+    -- codes.
     toPort :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -151,8 +152,9 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'fromPort', 'revokeSecurityGroupIngress_fromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use @-1@ to specify all ICMP types.
+-- 'fromPort', 'revokeSecurityGroupIngress_fromPort' - If the protocol is TCP or UDP, this is the start of the port range. If
+-- the protocol is ICMP, this is the type number. A value of -1 indicates
+-- all ICMP types.
 --
 -- 'groupId', 'revokeSecurityGroupIngress_groupId' - The ID of the security group. You must specify either the security group
 -- ID or the security group name in the request. For security groups in a
@@ -186,9 +188,9 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
 -- port range, and the end of the port range. To revoke a specific rule for
 -- an IP protocol and port range, use a set of IP permissions instead.
 --
--- 'toPort', 'revokeSecurityGroupIngress_toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
--- the ICMP type.
+-- 'toPort', 'revokeSecurityGroupIngress_toPort' - If the protocol is TCP or UDP, this is the end of the port range. If the
+-- protocol is ICMP, this is the code. A value of -1 indicates all ICMP
+-- codes.
 newRevokeSecurityGroupIngress ::
   RevokeSecurityGroupIngress
 newRevokeSecurityGroupIngress =
@@ -219,8 +221,9 @@ revokeSecurityGroupIngress_cidrIp = Lens.lens (\RevokeSecurityGroupIngress' {cid
 revokeSecurityGroupIngress_dryRun :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Bool)
 revokeSecurityGroupIngress_dryRun = Lens.lens (\RevokeSecurityGroupIngress' {dryRun} -> dryRun) (\s@RevokeSecurityGroupIngress' {} a -> s {dryRun = a} :: RevokeSecurityGroupIngress)
 
--- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use @-1@ to specify all ICMP types.
+-- | If the protocol is TCP or UDP, this is the start of the port range. If
+-- the protocol is ICMP, this is the type number. A value of -1 indicates
+-- all ICMP types.
 revokeSecurityGroupIngress_fromPort :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
 revokeSecurityGroupIngress_fromPort = Lens.lens (\RevokeSecurityGroupIngress' {fromPort} -> fromPort) (\s@RevokeSecurityGroupIngress' {} a -> s {fromPort = a} :: RevokeSecurityGroupIngress)
 
@@ -270,9 +273,9 @@ revokeSecurityGroupIngress_sourceSecurityGroupName = Lens.lens (\RevokeSecurityG
 revokeSecurityGroupIngress_sourceSecurityGroupOwnerId :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Text)
 revokeSecurityGroupIngress_sourceSecurityGroupOwnerId = Lens.lens (\RevokeSecurityGroupIngress' {sourceSecurityGroupOwnerId} -> sourceSecurityGroupOwnerId) (\s@RevokeSecurityGroupIngress' {} a -> s {sourceSecurityGroupOwnerId = a} :: RevokeSecurityGroupIngress)
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
--- the ICMP type.
+-- | If the protocol is TCP or UDP, this is the end of the port range. If the
+-- protocol is ICMP, this is the code. A value of -1 indicates all ICMP
+-- codes.
 revokeSecurityGroupIngress_toPort :: Lens.Lens' RevokeSecurityGroupIngress (Prelude.Maybe Prelude.Int)
 revokeSecurityGroupIngress_toPort = Lens.lens (\RevokeSecurityGroupIngress' {toPort} -> toPort) (\s@RevokeSecurityGroupIngress' {} a -> s {toPort = a} :: RevokeSecurityGroupIngress)
 
@@ -287,7 +290,8 @@ instance Core.AWSRequest RevokeSecurityGroupIngress where
       ( \s h x ->
           RevokeSecurityGroupIngressResponse'
             Prelude.<$> (x Data..@? "return")
-            Prelude.<*> ( x Data..@? "unknownIpPermissionSet"
+            Prelude.<*> ( x
+                            Data..@? "unknownIpPermissionSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -296,7 +300,8 @@ instance Core.AWSRequest RevokeSecurityGroupIngress where
 
 instance Prelude.Hashable RevokeSecurityGroupIngress where
   hashWithSalt _salt RevokeSecurityGroupIngress' {..} =
-    _salt `Prelude.hashWithSalt` cidrIp
+    _salt
+      `Prelude.hashWithSalt` cidrIp
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` groupId

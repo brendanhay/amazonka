@@ -64,6 +64,9 @@ module Amazonka.EC2.Types
     -- * AllowsMultipleInstanceTypes
     AllowsMultipleInstanceTypes (..),
 
+    -- * AmdSevSnpSpecification
+    AmdSevSnpSpecification (..),
+
     -- * AnalysisStatus
     AnalysisStatus (..),
 
@@ -250,6 +253,9 @@ module Amazonka.EC2.Types
     -- * EbsOptimizedSupport
     EbsOptimizedSupport (..),
 
+    -- * Ec2InstanceConnectEndpointState
+    Ec2InstanceConnectEndpointState (..),
+
     -- * ElasticGpuState
     ElasticGpuState (..),
 
@@ -337,6 +343,9 @@ module Amazonka.EC2.Types
     -- * GatewayType
     GatewayType (..),
 
+    -- * HostMaintenance
+    HostMaintenance (..),
+
     -- * HostRecovery
     HostRecovery (..),
 
@@ -375,6 +384,9 @@ module Amazonka.EC2.Types
 
     -- * InstanceAutoRecoveryState
     InstanceAutoRecoveryState (..),
+
+    -- * InstanceBootModeValues
+    InstanceBootModeValues (..),
 
     -- * InstanceEventWindowState
     InstanceEventWindowState (..),
@@ -433,8 +445,14 @@ module Amazonka.EC2.Types
     -- * IpamAddressHistoryResourceType
     IpamAddressHistoryResourceType (..),
 
+    -- * IpamAssociatedResourceDiscoveryStatus
+    IpamAssociatedResourceDiscoveryStatus (..),
+
     -- * IpamComplianceStatus
     IpamComplianceStatus (..),
+
+    -- * IpamDiscoveryFailureCode
+    IpamDiscoveryFailureCode (..),
 
     -- * IpamManagementState
     IpamManagementState (..),
@@ -454,8 +472,17 @@ module Amazonka.EC2.Types
     -- * IpamPoolCidrState
     IpamPoolCidrState (..),
 
+    -- * IpamPoolPublicIpSource
+    IpamPoolPublicIpSource (..),
+
     -- * IpamPoolState
     IpamPoolState (..),
+
+    -- * IpamResourceDiscoveryAssociationState
+    IpamResourceDiscoveryAssociationState (..),
+
+    -- * IpamResourceDiscoveryState
+    IpamResourceDiscoveryState (..),
 
     -- * IpamResourceType
     IpamResourceType (..),
@@ -546,6 +573,9 @@ module Amazonka.EC2.Types
 
     -- * MulticastSupportValue
     MulticastSupportValue (..),
+
+    -- * NatGatewayAddressStatus
+    NatGatewayAddressStatus (..),
 
     -- * NatGatewayState
     NatGatewayState (..),
@@ -735,6 +765,9 @@ module Amazonka.EC2.Types
 
     -- * SummaryStatus
     SummaryStatus (..),
+
+    -- * SupportedAdditionalProcessorFeature
+    SupportedAdditionalProcessorFeature (..),
 
     -- * TargetCapacityUnitType
     TargetCapacityUnitType (..),
@@ -1002,6 +1035,12 @@ module Amazonka.EC2.Types
     newAdditionalDetail,
     additionalDetail_additionalDetailType,
     additionalDetail_component,
+    additionalDetail_loadBalancers,
+    additionalDetail_ruleGroupRuleOptionsPairs,
+    additionalDetail_ruleGroupTypePairs,
+    additionalDetail_ruleOptions,
+    additionalDetail_serviceName,
+    additionalDetail_vpcEndpointService,
 
     -- * Address
     Address (..),
@@ -1097,11 +1136,14 @@ module Amazonka.EC2.Types
     -- * AnalysisRouteTableRoute
     AnalysisRouteTableRoute (..),
     newAnalysisRouteTableRoute,
+    analysisRouteTableRoute_carrierGatewayId,
+    analysisRouteTableRoute_coreNetworkArn,
     analysisRouteTableRoute_destinationCidr,
     analysisRouteTableRoute_destinationPrefixListId,
     analysisRouteTableRoute_egressOnlyInternetGatewayId,
     analysisRouteTableRoute_gatewayId,
     analysisRouteTableRoute_instanceId,
+    analysisRouteTableRoute_localGatewayId,
     analysisRouteTableRoute_natGatewayId,
     analysisRouteTableRoute_networkInterfaceId,
     analysisRouteTableRoute_origin,
@@ -1659,12 +1701,14 @@ module Amazonka.EC2.Types
     -- * CpuOptions
     CpuOptions (..),
     newCpuOptions,
+    cpuOptions_amdSevSnp,
     cpuOptions_coreCount,
     cpuOptions_threadsPerCore,
 
     -- * CpuOptionsRequest
     CpuOptionsRequest (..),
     newCpuOptionsRequest,
+    cpuOptionsRequest_amdSevSnp,
     cpuOptionsRequest_coreCount,
     cpuOptionsRequest_threadsPerCore,
 
@@ -2007,11 +2051,13 @@ module Amazonka.EC2.Types
     DnsOptions (..),
     newDnsOptions,
     dnsOptions_dnsRecordIpType,
+    dnsOptions_privateDnsOnlyForInboundResolverEndpoint,
 
     -- * DnsOptionsSpecification
     DnsOptionsSpecification (..),
     newDnsOptionsSpecification,
     dnsOptionsSpecification_dnsRecordIpType,
+    dnsOptionsSpecification_privateDnsOnlyForInboundResolverEndpoint,
 
     -- * DnsServersOptionsModifyStructure
     DnsServersOptionsModifyStructure (..),
@@ -2063,6 +2109,25 @@ module Amazonka.EC2.Types
     ebsOptimizedInfo_maximumBandwidthInMbps,
     ebsOptimizedInfo_maximumIops,
     ebsOptimizedInfo_maximumThroughputInMBps,
+
+    -- * Ec2InstanceConnectEndpoint
+    Ec2InstanceConnectEndpoint (..),
+    newEc2InstanceConnectEndpoint,
+    ec2InstanceConnectEndpoint_availabilityZone,
+    ec2InstanceConnectEndpoint_createdAt,
+    ec2InstanceConnectEndpoint_dnsName,
+    ec2InstanceConnectEndpoint_fipsDnsName,
+    ec2InstanceConnectEndpoint_instanceConnectEndpointArn,
+    ec2InstanceConnectEndpoint_instanceConnectEndpointId,
+    ec2InstanceConnectEndpoint_networkInterfaceIds,
+    ec2InstanceConnectEndpoint_ownerId,
+    ec2InstanceConnectEndpoint_preserveClientIp,
+    ec2InstanceConnectEndpoint_securityGroupIds,
+    ec2InstanceConnectEndpoint_state,
+    ec2InstanceConnectEndpoint_stateMessage,
+    ec2InstanceConnectEndpoint_subnetId,
+    ec2InstanceConnectEndpoint_tags,
+    ec2InstanceConnectEndpoint_vpcId,
 
     -- * EfaInfo
     EfaInfo (..),
@@ -2205,6 +2270,8 @@ module Amazonka.EC2.Types
     explanation_direction,
     explanation_elasticLoadBalancerListener,
     explanation_explanationCode,
+    explanation_firewallStatefulRule,
+    explanation_firewallStatelessRule,
     explanation_ingressRouteTable,
     explanation_internetGateway,
     explanation_loadBalancerArn,
@@ -2344,6 +2411,36 @@ module Amazonka.EC2.Types
     newFilter,
     filter_values,
     filter_name,
+
+    -- * FilterPortRange
+    FilterPortRange (..),
+    newFilterPortRange,
+    filterPortRange_fromPort,
+    filterPortRange_toPort,
+
+    -- * FirewallStatefulRule
+    FirewallStatefulRule (..),
+    newFirewallStatefulRule,
+    firewallStatefulRule_destinationPorts,
+    firewallStatefulRule_destinations,
+    firewallStatefulRule_direction,
+    firewallStatefulRule_protocol,
+    firewallStatefulRule_ruleAction,
+    firewallStatefulRule_ruleGroupArn,
+    firewallStatefulRule_sourcePorts,
+    firewallStatefulRule_sources,
+
+    -- * FirewallStatelessRule
+    FirewallStatelessRule (..),
+    newFirewallStatelessRule,
+    firewallStatelessRule_destinationPorts,
+    firewallStatelessRule_destinations,
+    firewallStatelessRule_priority,
+    firewallStatelessRule_protocols,
+    firewallStatelessRule_ruleAction,
+    firewallStatelessRule_ruleGroupArn,
+    firewallStatelessRule_sourcePorts,
+    firewallStatelessRule_sources,
 
     -- * FleetCapacityReservation
     FleetCapacityReservation (..),
@@ -2587,12 +2684,14 @@ module Amazonka.EC2.Types
     newHost,
     host_allocationTime,
     host_allowsMultipleInstanceTypes,
+    host_assetId,
     host_autoPlacement,
     host_availabilityZone,
     host_availabilityZoneId,
     host_availableCapacity,
     host_clientToken,
     host_hostId,
+    host_hostMaintenance,
     host_hostProperties,
     host_hostRecovery,
     host_hostReservationId,
@@ -2849,6 +2948,7 @@ module Amazonka.EC2.Types
     instance_capacityReservationSpecification,
     instance_clientToken,
     instance_cpuOptions,
+    instance_currentInstanceBootMode,
     instance_ebsOptimized,
     instance_elasticGpuAssociations,
     instance_elasticInferenceAcceleratorAssociations,
@@ -3352,6 +3452,8 @@ module Amazonka.EC2.Types
     -- * Ipam
     Ipam (..),
     newIpam,
+    ipam_defaultResourceDiscoveryAssociationId,
+    ipam_defaultResourceDiscoveryId,
     ipam_description,
     ipam_ipamArn,
     ipam_ipamId,
@@ -3360,6 +3462,7 @@ module Amazonka.EC2.Types
     ipam_ownerId,
     ipam_privateDefaultScopeId,
     ipam_publicDefaultScopeId,
+    ipam_resourceDiscoveryAssociationCount,
     ipam_scopeCount,
     ipam_state,
     ipam_tags,
@@ -3384,6 +3487,35 @@ module Amazonka.EC2.Types
     newIpamCidrAuthorizationContext,
     ipamCidrAuthorizationContext_message,
     ipamCidrAuthorizationContext_signature,
+
+    -- * IpamDiscoveredAccount
+    IpamDiscoveredAccount (..),
+    newIpamDiscoveredAccount,
+    ipamDiscoveredAccount_accountId,
+    ipamDiscoveredAccount_discoveryRegion,
+    ipamDiscoveredAccount_failureReason,
+    ipamDiscoveredAccount_lastAttemptedDiscoveryTime,
+    ipamDiscoveredAccount_lastSuccessfulDiscoveryTime,
+
+    -- * IpamDiscoveredResourceCidr
+    IpamDiscoveredResourceCidr (..),
+    newIpamDiscoveredResourceCidr,
+    ipamDiscoveredResourceCidr_ipUsage,
+    ipamDiscoveredResourceCidr_ipamResourceDiscoveryId,
+    ipamDiscoveredResourceCidr_resourceCidr,
+    ipamDiscoveredResourceCidr_resourceId,
+    ipamDiscoveredResourceCidr_resourceOwnerId,
+    ipamDiscoveredResourceCidr_resourceRegion,
+    ipamDiscoveredResourceCidr_resourceTags,
+    ipamDiscoveredResourceCidr_resourceType,
+    ipamDiscoveredResourceCidr_sampleTime,
+    ipamDiscoveredResourceCidr_vpcId,
+
+    -- * IpamDiscoveryFailureReason
+    IpamDiscoveryFailureReason (..),
+    newIpamDiscoveryFailureReason,
+    ipamDiscoveryFailureReason_code,
+    ipamDiscoveryFailureReason_message,
 
     -- * IpamOperatingRegion
     IpamOperatingRegion (..),
@@ -3410,6 +3542,7 @@ module Amazonka.EC2.Types
     ipamPool_locale,
     ipamPool_ownerId,
     ipamPool_poolDepth,
+    ipamPool_publicIpSource,
     ipamPool_publiclyAdvertisable,
     ipamPool_sourceIpamPoolId,
     ipamPool_state,
@@ -3432,6 +3565,8 @@ module Amazonka.EC2.Types
     newIpamPoolCidr,
     ipamPoolCidr_cidr,
     ipamPoolCidr_failureReason,
+    ipamPoolCidr_ipamPoolCidrId,
+    ipamPoolCidr_netmaskLength,
     ipamPoolCidr_state,
 
     -- * IpamPoolCidrFailureReason
@@ -3458,6 +3593,34 @@ module Amazonka.EC2.Types
     ipamResourceCidr_resourceTags,
     ipamResourceCidr_resourceType,
     ipamResourceCidr_vpcId,
+
+    -- * IpamResourceDiscovery
+    IpamResourceDiscovery (..),
+    newIpamResourceDiscovery,
+    ipamResourceDiscovery_description,
+    ipamResourceDiscovery_ipamResourceDiscoveryArn,
+    ipamResourceDiscovery_ipamResourceDiscoveryId,
+    ipamResourceDiscovery_ipamResourceDiscoveryRegion,
+    ipamResourceDiscovery_isDefault,
+    ipamResourceDiscovery_operatingRegions,
+    ipamResourceDiscovery_ownerId,
+    ipamResourceDiscovery_state,
+    ipamResourceDiscovery_tags,
+
+    -- * IpamResourceDiscoveryAssociation
+    IpamResourceDiscoveryAssociation (..),
+    newIpamResourceDiscoveryAssociation,
+    ipamResourceDiscoveryAssociation_ipamArn,
+    ipamResourceDiscoveryAssociation_ipamId,
+    ipamResourceDiscoveryAssociation_ipamRegion,
+    ipamResourceDiscoveryAssociation_ipamResourceDiscoveryAssociationArn,
+    ipamResourceDiscoveryAssociation_ipamResourceDiscoveryAssociationId,
+    ipamResourceDiscoveryAssociation_ipamResourceDiscoveryId,
+    ipamResourceDiscoveryAssociation_isDefault,
+    ipamResourceDiscoveryAssociation_ownerId,
+    ipamResourceDiscoveryAssociation_resourceDiscoveryStatus,
+    ipamResourceDiscoveryAssociation_state,
+    ipamResourceDiscoveryAssociation_tags,
 
     -- * IpamResourceTag
     IpamResourceTag (..),
@@ -3639,12 +3802,14 @@ module Amazonka.EC2.Types
     -- * LaunchTemplateCpuOptions
     LaunchTemplateCpuOptions (..),
     newLaunchTemplateCpuOptions,
+    launchTemplateCpuOptions_amdSevSnp,
     launchTemplateCpuOptions_coreCount,
     launchTemplateCpuOptions_threadsPerCore,
 
     -- * LaunchTemplateCpuOptionsRequest
     LaunchTemplateCpuOptionsRequest (..),
     newLaunchTemplateCpuOptionsRequest,
+    launchTemplateCpuOptionsRequest_amdSevSnp,
     launchTemplateCpuOptionsRequest_coreCount,
     launchTemplateCpuOptionsRequest_threadsPerCore,
 
@@ -3971,6 +4136,7 @@ module Amazonka.EC2.Types
     newLocalGatewayRoute,
     localGatewayRoute_coipPoolId,
     localGatewayRoute_destinationCidrBlock,
+    localGatewayRoute_destinationPrefixListId,
     localGatewayRoute_localGatewayRouteTableArn,
     localGatewayRoute_localGatewayRouteTableId,
     localGatewayRoute_localGatewayVirtualInterfaceGroupId,
@@ -4038,6 +4204,13 @@ module Amazonka.EC2.Types
     localGatewayVirtualInterfaceGroup_localGatewayVirtualInterfaceIds,
     localGatewayVirtualInterfaceGroup_ownerId,
     localGatewayVirtualInterfaceGroup_tags,
+
+    -- * MaintenanceDetails
+    MaintenanceDetails (..),
+    newMaintenanceDetails,
+    maintenanceDetails_lastMaintenanceApplied,
+    maintenanceDetails_maintenanceAutoAppliedAfter,
+    maintenanceDetails_pendingMaintenance,
 
     -- * ManagedPrefixList
     ManagedPrefixList (..),
@@ -4127,13 +4300,20 @@ module Amazonka.EC2.Types
     -- * ModifyVerifiedAccessTrustProviderOidcOptions
     ModifyVerifiedAccessTrustProviderOidcOptions (..),
     newModifyVerifiedAccessTrustProviderOidcOptions,
+    modifyVerifiedAccessTrustProviderOidcOptions_authorizationEndpoint,
+    modifyVerifiedAccessTrustProviderOidcOptions_clientId,
+    modifyVerifiedAccessTrustProviderOidcOptions_clientSecret,
+    modifyVerifiedAccessTrustProviderOidcOptions_issuer,
     modifyVerifiedAccessTrustProviderOidcOptions_scope,
+    modifyVerifiedAccessTrustProviderOidcOptions_tokenEndpoint,
+    modifyVerifiedAccessTrustProviderOidcOptions_userInfoEndpoint,
 
     -- * ModifyVpnTunnelOptionsSpecification
     ModifyVpnTunnelOptionsSpecification (..),
     newModifyVpnTunnelOptionsSpecification,
     modifyVpnTunnelOptionsSpecification_dPDTimeoutAction,
     modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds,
+    modifyVpnTunnelOptionsSpecification_enableTunnelLifecycleControl,
     modifyVpnTunnelOptionsSpecification_iKEVersions,
     modifyVpnTunnelOptionsSpecification_logOptions,
     modifyVpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -4183,9 +4363,13 @@ module Amazonka.EC2.Types
     NatGatewayAddress (..),
     newNatGatewayAddress,
     natGatewayAddress_allocationId,
+    natGatewayAddress_associationId,
+    natGatewayAddress_failureMessage,
+    natGatewayAddress_isPrimary,
     natGatewayAddress_networkInterfaceId,
     natGatewayAddress_privateIp,
     natGatewayAddress_publicIp,
+    natGatewayAddress_status,
 
     -- * NetworkAcl
     NetworkAcl (..),
@@ -4312,6 +4496,8 @@ module Amazonka.EC2.Types
     networkInsightsPath_destinationArn,
     networkInsightsPath_destinationIp,
     networkInsightsPath_destinationPort,
+    networkInsightsPath_filterAtDestination,
+    networkInsightsPath_filterAtSource,
     networkInsightsPath_networkInsightsPathArn,
     networkInsightsPath_networkInsightsPathId,
     networkInsightsPath_protocol,
@@ -4490,16 +4676,35 @@ module Amazonka.EC2.Types
     pathComponent_destinationVpc,
     pathComponent_elasticLoadBalancerListener,
     pathComponent_explanations,
+    pathComponent_firewallStatefulRule,
+    pathComponent_firewallStatelessRule,
     pathComponent_inboundHeader,
     pathComponent_outboundHeader,
     pathComponent_routeTableRoute,
     pathComponent_securityGroupRule,
     pathComponent_sequenceNumber,
+    pathComponent_serviceName,
     pathComponent_sourceVpc,
     pathComponent_subnet,
     pathComponent_transitGateway,
     pathComponent_transitGatewayRouteTableRoute,
     pathComponent_vpc,
+
+    -- * PathFilter
+    PathFilter (..),
+    newPathFilter,
+    pathFilter_destinationAddress,
+    pathFilter_destinationPortRange,
+    pathFilter_sourceAddress,
+    pathFilter_sourcePortRange,
+
+    -- * PathRequestFilter
+    PathRequestFilter (..),
+    newPathRequestFilter,
+    pathRequestFilter_destinationAddress,
+    pathRequestFilter_destinationPortRange,
+    pathRequestFilter_sourceAddress,
+    pathRequestFilter_sourcePortRange,
 
     -- * PathStatement
     PathStatement (..),
@@ -4751,6 +4956,7 @@ module Amazonka.EC2.Types
     ProcessorInfo (..),
     newProcessorInfo,
     processorInfo_supportedArchitectures,
+    processorInfo_supportedFeatures,
     processorInfo_sustainedClockSpeedInGhz,
 
     -- * ProductCode
@@ -4867,6 +5073,12 @@ module Amazonka.EC2.Types
     replaceRootVolumeTask_startTime,
     replaceRootVolumeTask_tags,
     replaceRootVolumeTask_taskState,
+
+    -- * RequestFilterPortRange
+    RequestFilterPortRange (..),
+    newRequestFilterPortRange,
+    requestFilterPortRange_fromPort,
+    requestFilterPortRange_toPort,
 
     -- * RequestIpamResourceTag
     RequestIpamResourceTag (..),
@@ -5155,6 +5367,24 @@ module Amazonka.EC2.Types
     newRouteTableAssociationState,
     routeTableAssociationState_state,
     routeTableAssociationState_statusMessage,
+
+    -- * RuleGroupRuleOptionsPair
+    RuleGroupRuleOptionsPair (..),
+    newRuleGroupRuleOptionsPair,
+    ruleGroupRuleOptionsPair_ruleGroupArn,
+    ruleGroupRuleOptionsPair_ruleOptions,
+
+    -- * RuleGroupTypePair
+    RuleGroupTypePair (..),
+    newRuleGroupTypePair,
+    ruleGroupTypePair_ruleGroupArn,
+    ruleGroupTypePair_ruleGroupType,
+
+    -- * RuleOption
+    RuleOption (..),
+    newRuleOption,
+    ruleOption_keyword,
+    ruleOption_settings,
 
     -- * RunInstancesMonitoringEnabled
     RunInstancesMonitoringEnabled (..),
@@ -6401,6 +6631,7 @@ module Amazonka.EC2.Types
     newTunnelOption,
     tunnelOption_dpdTimeoutAction,
     tunnelOption_dpdTimeoutSeconds,
+    tunnelOption_enableTunnelLifecycleControl,
     tunnelOption_ikeVersions,
     tunnelOption_logOptions,
     tunnelOption_outsideIpAddress,
@@ -6612,7 +6843,9 @@ module Amazonka.EC2.Types
     VerifiedAccessLogOptions (..),
     newVerifiedAccessLogOptions,
     verifiedAccessLogOptions_cloudWatchLogs,
+    verifiedAccessLogOptions_includeTrustContext,
     verifiedAccessLogOptions_kinesisDataFirehose,
+    verifiedAccessLogOptions_logVersion,
     verifiedAccessLogOptions_s3,
 
     -- * VerifiedAccessLogS3Destination
@@ -6636,7 +6869,9 @@ module Amazonka.EC2.Types
     VerifiedAccessLogs (..),
     newVerifiedAccessLogs,
     verifiedAccessLogs_cloudWatchLogs,
+    verifiedAccessLogs_includeTrustContext,
     verifiedAccessLogs_kinesisDataFirehose,
+    verifiedAccessLogs_logVersion,
     verifiedAccessLogs_s3,
 
     -- * VerifiedAccessTrustProvider
@@ -6984,6 +7219,7 @@ module Amazonka.EC2.Types
     newVpnTunnelOptionsSpecification,
     vpnTunnelOptionsSpecification_dPDTimeoutAction,
     vpnTunnelOptionsSpecification_dPDTimeoutSeconds,
+    vpnTunnelOptionsSpecification_enableTunnelLifecycleControl,
     vpnTunnelOptionsSpecification_iKEVersions,
     vpnTunnelOptionsSpecification_logOptions,
     vpnTunnelOptionsSpecification_phase1DHGroupNumbers,
@@ -7040,6 +7276,7 @@ import Amazonka.EC2.Types.AllocationType
 import Amazonka.EC2.Types.AllowedPrincipal
 import Amazonka.EC2.Types.AllowsMultipleInstanceTypes
 import Amazonka.EC2.Types.AlternatePathHint
+import Amazonka.EC2.Types.AmdSevSnpSpecification
 import Amazonka.EC2.Types.AnalysisAclRule
 import Amazonka.EC2.Types.AnalysisComponent
 import Amazonka.EC2.Types.AnalysisLoadBalancerListener
@@ -7234,6 +7471,8 @@ import Amazonka.EC2.Types.EbsInstanceBlockDeviceSpecification
 import Amazonka.EC2.Types.EbsNvmeSupport
 import Amazonka.EC2.Types.EbsOptimizedInfo
 import Amazonka.EC2.Types.EbsOptimizedSupport
+import Amazonka.EC2.Types.Ec2InstanceConnectEndpoint
+import Amazonka.EC2.Types.Ec2InstanceConnectEndpointState
 import Amazonka.EC2.Types.EfaInfo
 import Amazonka.EC2.Types.EgressOnlyInternetGateway
 import Amazonka.EC2.Types.ElasticGpuAssociation
@@ -7281,7 +7520,10 @@ import Amazonka.EC2.Types.FastSnapshotRestoreStateCode
 import Amazonka.EC2.Types.FederatedAuthentication
 import Amazonka.EC2.Types.FederatedAuthenticationRequest
 import Amazonka.EC2.Types.Filter
+import Amazonka.EC2.Types.FilterPortRange
 import Amazonka.EC2.Types.FindingsFound
+import Amazonka.EC2.Types.FirewallStatefulRule
+import Amazonka.EC2.Types.FirewallStatelessRule
 import Amazonka.EC2.Types.FleetActivityStatus
 import Amazonka.EC2.Types.FleetCapacityReservation
 import Amazonka.EC2.Types.FleetCapacityReservationTenancy
@@ -7326,6 +7568,7 @@ import Amazonka.EC2.Types.HistoryRecord
 import Amazonka.EC2.Types.HistoryRecordEntry
 import Amazonka.EC2.Types.Host
 import Amazonka.EC2.Types.HostInstance
+import Amazonka.EC2.Types.HostMaintenance
 import Amazonka.EC2.Types.HostOffering
 import Amazonka.EC2.Types.HostProperties
 import Amazonka.EC2.Types.HostRecovery
@@ -7365,6 +7608,7 @@ import Amazonka.EC2.Types.InstanceAttributeName
 import Amazonka.EC2.Types.InstanceAutoRecoveryState
 import Amazonka.EC2.Types.InstanceBlockDeviceMapping
 import Amazonka.EC2.Types.InstanceBlockDeviceMappingSpecification
+import Amazonka.EC2.Types.InstanceBootModeValues
 import Amazonka.EC2.Types.InstanceCapacity
 import Amazonka.EC2.Types.InstanceCount
 import Amazonka.EC2.Types.InstanceCreditSpecification
@@ -7435,8 +7679,13 @@ import Amazonka.EC2.Types.IpRange
 import Amazonka.EC2.Types.Ipam
 import Amazonka.EC2.Types.IpamAddressHistoryRecord
 import Amazonka.EC2.Types.IpamAddressHistoryResourceType
+import Amazonka.EC2.Types.IpamAssociatedResourceDiscoveryStatus
 import Amazonka.EC2.Types.IpamCidrAuthorizationContext
 import Amazonka.EC2.Types.IpamComplianceStatus
+import Amazonka.EC2.Types.IpamDiscoveredAccount
+import Amazonka.EC2.Types.IpamDiscoveredResourceCidr
+import Amazonka.EC2.Types.IpamDiscoveryFailureCode
+import Amazonka.EC2.Types.IpamDiscoveryFailureReason
 import Amazonka.EC2.Types.IpamManagementState
 import Amazonka.EC2.Types.IpamOperatingRegion
 import Amazonka.EC2.Types.IpamOverlapStatus
@@ -7448,8 +7697,13 @@ import Amazonka.EC2.Types.IpamPoolCidr
 import Amazonka.EC2.Types.IpamPoolCidrFailureCode
 import Amazonka.EC2.Types.IpamPoolCidrFailureReason
 import Amazonka.EC2.Types.IpamPoolCidrState
+import Amazonka.EC2.Types.IpamPoolPublicIpSource
 import Amazonka.EC2.Types.IpamPoolState
 import Amazonka.EC2.Types.IpamResourceCidr
+import Amazonka.EC2.Types.IpamResourceDiscovery
+import Amazonka.EC2.Types.IpamResourceDiscoveryAssociation
+import Amazonka.EC2.Types.IpamResourceDiscoveryAssociationState
+import Amazonka.EC2.Types.IpamResourceDiscoveryState
 import Amazonka.EC2.Types.IpamResourceTag
 import Amazonka.EC2.Types.IpamResourceType
 import Amazonka.EC2.Types.IpamScope
@@ -7545,6 +7799,7 @@ import Amazonka.EC2.Types.LocalStorage
 import Amazonka.EC2.Types.LocalStorageType
 import Amazonka.EC2.Types.LocationType
 import Amazonka.EC2.Types.LogDestinationType
+import Amazonka.EC2.Types.MaintenanceDetails
 import Amazonka.EC2.Types.ManagedPrefixList
 import Amazonka.EC2.Types.MarketType
 import Amazonka.EC2.Types.MembershipType
@@ -7569,6 +7824,7 @@ import Amazonka.EC2.Types.MovingAddressStatus
 import Amazonka.EC2.Types.MulticastSupportValue
 import Amazonka.EC2.Types.NatGateway
 import Amazonka.EC2.Types.NatGatewayAddress
+import Amazonka.EC2.Types.NatGatewayAddressStatus
 import Amazonka.EC2.Types.NatGatewayState
 import Amazonka.EC2.Types.NetworkAcl
 import Amazonka.EC2.Types.NetworkAclAssociation
@@ -7609,6 +7865,8 @@ import Amazonka.EC2.Types.PacketHeaderStatement
 import Amazonka.EC2.Types.PacketHeaderStatementRequest
 import Amazonka.EC2.Types.PartitionLoadFrequency
 import Amazonka.EC2.Types.PathComponent
+import Amazonka.EC2.Types.PathFilter
+import Amazonka.EC2.Types.PathRequestFilter
 import Amazonka.EC2.Types.PathStatement
 import Amazonka.EC2.Types.PathStatementRequest
 import Amazonka.EC2.Types.PayerResponsibility
@@ -7683,6 +7941,7 @@ import Amazonka.EC2.Types.ReplaceRootVolumeTaskState
 import Amazonka.EC2.Types.ReplacementStrategy
 import Amazonka.EC2.Types.ReportInstanceReasonCodes
 import Amazonka.EC2.Types.ReportStatusType
+import Amazonka.EC2.Types.RequestFilterPortRange
 import Amazonka.EC2.Types.RequestIpamResourceTag
 import Amazonka.EC2.Types.RequestLaunchTemplateData
 import Amazonka.EC2.Types.RequestSpotLaunchSpecification
@@ -7716,6 +7975,9 @@ import Amazonka.EC2.Types.RouteTableAssociation
 import Amazonka.EC2.Types.RouteTableAssociationState
 import Amazonka.EC2.Types.RouteTableAssociationStateCode
 import Amazonka.EC2.Types.RuleAction
+import Amazonka.EC2.Types.RuleGroupRuleOptionsPair
+import Amazonka.EC2.Types.RuleGroupTypePair
+import Amazonka.EC2.Types.RuleOption
 import Amazonka.EC2.Types.RunInstancesMonitoringEnabled
 import Amazonka.EC2.Types.S3ObjectTag
 import Amazonka.EC2.Types.S3Storage
@@ -7805,6 +8067,7 @@ import Amazonka.EC2.Types.Subscription
 import Amazonka.EC2.Types.SuccessfulInstanceCreditSpecificationItem
 import Amazonka.EC2.Types.SuccessfulQueuedPurchaseDeletion
 import Amazonka.EC2.Types.SummaryStatus
+import Amazonka.EC2.Types.SupportedAdditionalProcessorFeature
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.TagDescription
 import Amazonka.EC2.Types.TagSpecification
@@ -8021,58 +8284,58 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has
           ( Core.hasCode "EC2ThrottledException"
               Prelude.. Core.hasStatus 503
           )
           e =
-        Prelude.Just "ec2_throttled_exception"
+          Prelude.Just "ec2_throttled_exception"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestLimitExceeded"
               Prelude.. Core.hasStatus 503
           )
           e =
-        Prelude.Just "request_limit_exceeded"
+          Prelude.Just "request_limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing

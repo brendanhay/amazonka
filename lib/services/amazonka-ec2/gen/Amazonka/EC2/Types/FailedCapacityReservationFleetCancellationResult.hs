@@ -73,7 +73,7 @@ instance
   parseXML x =
     FailedCapacityReservationFleetCancellationResult'
       Prelude.<$> (x Data..@? "cancelCapacityReservationFleetError")
-        Prelude.<*> (x Data..@? "capacityReservationFleetId")
+      Prelude.<*> (x Data..@? "capacityReservationFleetId")
 
 instance
   Prelude.Hashable

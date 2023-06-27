@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe Verified Access instances.
+-- Describes the specified Amazon Web Services Verified Access instances.
 --
 -- This operation returns paginated results.
 module Amazonka.EC2.DescribeVerifiedAccessInstances
@@ -69,7 +69,7 @@ data DescribeVerifiedAccessInstances = DescribeVerifiedAccessInstances'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the Amazon Web Services Verified Access instances.
+    -- | The IDs of the Verified Access instances.
     verifiedAccessInstanceIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,7 +95,7 @@ data DescribeVerifiedAccessInstances = DescribeVerifiedAccessInstances'
 --
 -- 'nextToken', 'describeVerifiedAccessInstances_nextToken' - The token for the next page of results.
 --
--- 'verifiedAccessInstanceIds', 'describeVerifiedAccessInstances_verifiedAccessInstanceIds' - The IDs of the Amazon Web Services Verified Access instances.
+-- 'verifiedAccessInstanceIds', 'describeVerifiedAccessInstances_verifiedAccessInstanceIds' - The IDs of the Verified Access instances.
 newDescribeVerifiedAccessInstances ::
   DescribeVerifiedAccessInstances
 newDescribeVerifiedAccessInstances =
@@ -130,7 +130,7 @@ describeVerifiedAccessInstances_maxResults = Lens.lens (\DescribeVerifiedAccessI
 describeVerifiedAccessInstances_nextToken :: Lens.Lens' DescribeVerifiedAccessInstances (Prelude.Maybe Prelude.Text)
 describeVerifiedAccessInstances_nextToken = Lens.lens (\DescribeVerifiedAccessInstances' {nextToken} -> nextToken) (\s@DescribeVerifiedAccessInstances' {} a -> s {nextToken = a} :: DescribeVerifiedAccessInstances)
 
--- | The IDs of the Amazon Web Services Verified Access instances.
+-- | The IDs of the Verified Access instances.
 describeVerifiedAccessInstances_verifiedAccessInstanceIds :: Lens.Lens' DescribeVerifiedAccessInstances (Prelude.Maybe [Prelude.Text])
 describeVerifiedAccessInstances_verifiedAccessInstanceIds = Lens.lens (\DescribeVerifiedAccessInstances' {verifiedAccessInstanceIds} -> verifiedAccessInstanceIds) (\s@DescribeVerifiedAccessInstances' {} a -> s {verifiedAccessInstanceIds = a} :: DescribeVerifiedAccessInstances) Prelude.. Lens.mapping Lens.coerced
 
@@ -142,22 +142,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessInstancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeVerifiedAccessInstancesResponse_verifiedAccessInstances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeVerifiedAccessInstances_nextToken
           Lens..~ rs
           Lens.^? describeVerifiedAccessInstancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -173,7 +173,8 @@ instance
       ( \s h x ->
           DescribeVerifiedAccessInstancesResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "verifiedAccessInstanceSet"
+            Prelude.<*> ( x
+                            Data..@? "verifiedAccessInstanceSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -187,7 +188,8 @@ instance
   hashWithSalt
     _salt
     DescribeVerifiedAccessInstances' {..} =
-      _salt `Prelude.hashWithSalt` dryRun
+      _salt
+        `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
@@ -238,7 +240,7 @@ data DescribeVerifiedAccessInstancesResponse = DescribeVerifiedAccessInstancesRe
   { -- | The token to use to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of the Amazon Web Services Verified Access instances.
+    -- | The IDs of the Verified Access instances.
     verifiedAccessInstances :: Prelude.Maybe [VerifiedAccessInstance],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -256,7 +258,7 @@ data DescribeVerifiedAccessInstancesResponse = DescribeVerifiedAccessInstancesRe
 -- 'nextToken', 'describeVerifiedAccessInstancesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 --
--- 'verifiedAccessInstances', 'describeVerifiedAccessInstancesResponse_verifiedAccessInstances' - The IDs of the Amazon Web Services Verified Access instances.
+-- 'verifiedAccessInstances', 'describeVerifiedAccessInstancesResponse_verifiedAccessInstances' - The IDs of the Verified Access instances.
 --
 -- 'httpStatus', 'describeVerifiedAccessInstancesResponse_httpStatus' - The response's http status code.
 newDescribeVerifiedAccessInstancesResponse ::
@@ -278,7 +280,7 @@ newDescribeVerifiedAccessInstancesResponse
 describeVerifiedAccessInstancesResponse_nextToken :: Lens.Lens' DescribeVerifiedAccessInstancesResponse (Prelude.Maybe Prelude.Text)
 describeVerifiedAccessInstancesResponse_nextToken = Lens.lens (\DescribeVerifiedAccessInstancesResponse' {nextToken} -> nextToken) (\s@DescribeVerifiedAccessInstancesResponse' {} a -> s {nextToken = a} :: DescribeVerifiedAccessInstancesResponse)
 
--- | The IDs of the Amazon Web Services Verified Access instances.
+-- | The IDs of the Verified Access instances.
 describeVerifiedAccessInstancesResponse_verifiedAccessInstances :: Lens.Lens' DescribeVerifiedAccessInstancesResponse (Prelude.Maybe [VerifiedAccessInstance])
 describeVerifiedAccessInstancesResponse_verifiedAccessInstances = Lens.lens (\DescribeVerifiedAccessInstancesResponse' {verifiedAccessInstances} -> verifiedAccessInstances) (\s@DescribeVerifiedAccessInstancesResponse' {} a -> s {verifiedAccessInstances = a} :: DescribeVerifiedAccessInstancesResponse) Prelude.. Lens.mapping Lens.coerced
 

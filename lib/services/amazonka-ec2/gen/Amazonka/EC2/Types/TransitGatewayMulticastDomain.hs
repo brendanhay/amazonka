@@ -133,7 +133,9 @@ instance Data.FromXML TransitGatewayMulticastDomain where
       Prelude.<*> (x Data..@? "options")
       Prelude.<*> (x Data..@? "ownerId")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "transitGatewayId")
@@ -145,7 +147,8 @@ instance
     TransitGatewayMulticastDomain
   where
   hashWithSalt _salt TransitGatewayMulticastDomain' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` state

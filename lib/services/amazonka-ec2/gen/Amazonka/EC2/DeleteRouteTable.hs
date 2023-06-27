@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteRouteTable where
 
 instance Prelude.Hashable DeleteRouteTable where
   hashWithSalt _salt DeleteRouteTable' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` routeTableId
 
 instance Prelude.NFData DeleteRouteTable where

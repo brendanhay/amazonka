@@ -58,7 +58,8 @@ data TargetCapacitySpecification = TargetCapacitySpecification'
     -- capacity for On-Demand units, you cannot specify a target capacity for
     -- Spot units.
     spotTargetCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The unit for the target capacity.
+    -- | The unit for the target capacity. @TargetCapacityUnitType@ can only be
+    -- specified when @InstanceRequirements@ is specified.
     --
     -- Default: @units@ (translates to number of instances)
     targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
@@ -87,7 +88,8 @@ data TargetCapacitySpecification = TargetCapacitySpecification'
 -- capacity for On-Demand units, you cannot specify a target capacity for
 -- Spot units.
 --
--- 'targetCapacityUnitType', 'targetCapacitySpecification_targetCapacityUnitType' - The unit for the target capacity.
+-- 'targetCapacityUnitType', 'targetCapacitySpecification_targetCapacityUnitType' - The unit for the target capacity. @TargetCapacityUnitType@ can only be
+-- specified when @InstanceRequirements@ is specified.
 --
 -- Default: @units@ (translates to number of instances)
 --
@@ -122,7 +124,8 @@ targetCapacitySpecification_onDemandTargetCapacity = Lens.lens (\TargetCapacityS
 targetCapacitySpecification_spotTargetCapacity :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe Prelude.Int)
 targetCapacitySpecification_spotTargetCapacity = Lens.lens (\TargetCapacitySpecification' {spotTargetCapacity} -> spotTargetCapacity) (\s@TargetCapacitySpecification' {} a -> s {spotTargetCapacity = a} :: TargetCapacitySpecification)
 
--- | The unit for the target capacity.
+-- | The unit for the target capacity. @TargetCapacityUnitType@ can only be
+-- specified when @InstanceRequirements@ is specified.
 --
 -- Default: @units@ (translates to number of instances)
 targetCapacitySpecification_targetCapacityUnitType :: Lens.Lens' TargetCapacitySpecification (Prelude.Maybe TargetCapacityUnitType)

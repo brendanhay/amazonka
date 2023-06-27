@@ -170,7 +170,8 @@ instance
     TransitGatewayMulticastGroup
   where
   hashWithSalt _salt TransitGatewayMulticastGroup' {..} =
-    _salt `Prelude.hashWithSalt` groupIpAddress
+    _salt
+      `Prelude.hashWithSalt` groupIpAddress
       `Prelude.hashWithSalt` groupMember
       `Prelude.hashWithSalt` groupSource
       `Prelude.hashWithSalt` memberType

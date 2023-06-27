@@ -124,7 +124,8 @@ instance Data.FromXML AnalysisSecurityGroupRule where
 
 instance Prelude.Hashable AnalysisSecurityGroupRule where
   hashWithSalt _salt AnalysisSecurityGroupRule' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` direction
       `Prelude.hashWithSalt` portRange
       `Prelude.hashWithSalt` prefixListId

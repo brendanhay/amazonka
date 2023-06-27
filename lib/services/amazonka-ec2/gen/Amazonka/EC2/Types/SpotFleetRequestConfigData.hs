@@ -95,9 +95,11 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Reserved.
     context :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether running Spot Instances should be terminated if you
-    -- decrease the target capacity of the Spot Fleet request below the current
-    -- size of the Spot Fleet.
+    -- | Indicates whether running instances should be terminated if you decrease
+    -- the target capacity of the Spot Fleet request below the current size of
+    -- the Spot Fleet.
+    --
+    -- Supported only for fleets of type @maintain@.
     excessCapacityTerminationPolicy :: Prelude.Maybe ExcessCapacityTerminationPolicy,
     -- | The number of units fulfilled by this request compared to the set target
     -- capacity. You cannot set this value.
@@ -194,11 +196,13 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- in the
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
     -- (valid only if you use @LaunchTemplateConfigs@) or in the
-    -- @ SpotFleetTagSpecification @ (valid only if you use
-    -- @LaunchSpecifications@). For information about tagging after launch, see
+    -- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>@ @
+    -- (valid only if you use @LaunchSpecifications@). For information about
+    -- tagging after launch, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
-    -- | The unit for the target capacity.
+    -- | The unit for the target capacity. @TargetCapacityUnitType@ can only be
+    -- specified when @InstanceRequirements@ is specified.
     --
     -- Default: @units@ (translates to number of instances)
     targetCapacityUnitType :: Prelude.Maybe TargetCapacityUnitType,
@@ -241,7 +245,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     -- specify a target capacity of 0 and add capacity later.
     targetCapacity :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SpotFleetRequestConfigData' with all optional fields omitted.
@@ -306,9 +310,11 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 --
 -- 'context', 'spotFleetRequestConfigData_context' - Reserved.
 --
--- 'excessCapacityTerminationPolicy', 'spotFleetRequestConfigData_excessCapacityTerminationPolicy' - Indicates whether running Spot Instances should be terminated if you
--- decrease the target capacity of the Spot Fleet request below the current
--- size of the Spot Fleet.
+-- 'excessCapacityTerminationPolicy', 'spotFleetRequestConfigData_excessCapacityTerminationPolicy' - Indicates whether running instances should be terminated if you decrease
+-- the target capacity of the Spot Fleet request below the current size of
+-- the Spot Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 --
 -- 'fulfilledCapacity', 'spotFleetRequestConfigData_fulfilledCapacity' - The number of units fulfilled by this request compared to the set target
 -- capacity. You cannot set this value.
@@ -405,11 +411,13 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 -- in the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
 -- (valid only if you use @LaunchTemplateConfigs@) or in the
--- @ SpotFleetTagSpecification @ (valid only if you use
--- @LaunchSpecifications@). For information about tagging after launch, see
+-- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>@ @
+-- (valid only if you use @LaunchSpecifications@). For information about
+-- tagging after launch, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
 --
--- 'targetCapacityUnitType', 'spotFleetRequestConfigData_targetCapacityUnitType' - The unit for the target capacity.
+-- 'targetCapacityUnitType', 'spotFleetRequestConfigData_targetCapacityUnitType' - The unit for the target capacity. @TargetCapacityUnitType@ can only be
+-- specified when @InstanceRequirements@ is specified.
 --
 -- Default: @units@ (translates to number of instances)
 --
@@ -552,9 +560,11 @@ spotFleetRequestConfigData_clientToken = Lens.lens (\SpotFleetRequestConfigData'
 spotFleetRequestConfigData_context :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe Prelude.Text)
 spotFleetRequestConfigData_context = Lens.lens (\SpotFleetRequestConfigData' {context} -> context) (\s@SpotFleetRequestConfigData' {} a -> s {context = a} :: SpotFleetRequestConfigData)
 
--- | Indicates whether running Spot Instances should be terminated if you
--- decrease the target capacity of the Spot Fleet request below the current
--- size of the Spot Fleet.
+-- | Indicates whether running instances should be terminated if you decrease
+-- the target capacity of the Spot Fleet request below the current size of
+-- the Spot Fleet.
+--
+-- Supported only for fleets of type @maintain@.
 spotFleetRequestConfigData_excessCapacityTerminationPolicy :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe ExcessCapacityTerminationPolicy)
 spotFleetRequestConfigData_excessCapacityTerminationPolicy = Lens.lens (\SpotFleetRequestConfigData' {excessCapacityTerminationPolicy} -> excessCapacityTerminationPolicy) (\s@SpotFleetRequestConfigData' {} a -> s {excessCapacityTerminationPolicy = a} :: SpotFleetRequestConfigData)
 
@@ -681,13 +691,15 @@ spotFleetRequestConfigData_spotPrice = Lens.lens (\SpotFleetRequestConfigData' {
 -- in the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template launch template>
 -- (valid only if you use @LaunchTemplateConfigs@) or in the
--- @ SpotFleetTagSpecification @ (valid only if you use
--- @LaunchSpecifications@). For information about tagging after launch, see
+-- @ @<https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html SpotFleetTagSpecification>@ @
+-- (valid only if you use @LaunchSpecifications@). For information about
+-- tagging after launch, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources Tagging Your Resources>.
 spotFleetRequestConfigData_tagSpecifications :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe [TagSpecification])
 spotFleetRequestConfigData_tagSpecifications = Lens.lens (\SpotFleetRequestConfigData' {tagSpecifications} -> tagSpecifications) (\s@SpotFleetRequestConfigData' {} a -> s {tagSpecifications = a} :: SpotFleetRequestConfigData) Prelude.. Lens.mapping Lens.coerced
 
--- | The unit for the target capacity.
+-- | The unit for the target capacity. @TargetCapacityUnitType@ can only be
+-- specified when @InstanceRequirements@ is specified.
 --
 -- Default: @units@ (translates to number of instances)
 spotFleetRequestConfigData_targetCapacityUnitType :: Lens.Lens' SpotFleetRequestConfigData (Prelude.Maybe TargetCapacityUnitType)
@@ -753,11 +765,13 @@ instance Data.FromXML SpotFleetRequestConfigData where
       Prelude.<*> (x Data..@? "fulfilledCapacity")
       Prelude.<*> (x Data..@? "instanceInterruptionBehavior")
       Prelude.<*> (x Data..@? "instancePoolsToUseCount")
-      Prelude.<*> ( x Data..@? "launchSpecifications"
+      Prelude.<*> ( x
+                      Data..@? "launchSpecifications"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
-      Prelude.<*> ( x Data..@? "launchTemplateConfigs"
+      Prelude.<*> ( x
+                      Data..@? "launchTemplateConfigs"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -770,7 +784,8 @@ instance Data.FromXML SpotFleetRequestConfigData where
       Prelude.<*> (x Data..@? "spotMaintenanceStrategies")
       Prelude.<*> (x Data..@? "spotMaxTotalPrice")
       Prelude.<*> (x Data..@? "spotPrice")
-      Prelude.<*> ( x Data..@? "TagSpecification"
+      Prelude.<*> ( x
+                      Data..@? "TagSpecification"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -784,7 +799,8 @@ instance Data.FromXML SpotFleetRequestConfigData where
 
 instance Prelude.Hashable SpotFleetRequestConfigData where
   hashWithSalt _salt SpotFleetRequestConfigData' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` context
       `Prelude.hashWithSalt` excessCapacityTerminationPolicy

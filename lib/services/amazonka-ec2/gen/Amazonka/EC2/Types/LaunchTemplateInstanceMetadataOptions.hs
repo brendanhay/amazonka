@@ -54,20 +54,20 @@ data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptio
     --
     -- Possible values: Integers from 1 to 64
     httpPutResponseHopLimit :: Prelude.Maybe Prelude.Int,
-    -- | The state of token usage for your instance metadata requests. If the
-    -- parameter is not specified in the request, the default state is
-    -- @optional@.
+    -- | Indicates whether IMDSv2 is @optional@ or @required@.
     --
-    -- If the state is @optional@, you can choose to retrieve instance metadata
-    -- with or without a signed token header on your request. If you retrieve
-    -- the IAM role credentials without a token, the version 1.0 role
+    -- @optional@ - When IMDSv2 is optional, you can choose to retrieve
+    -- instance metadata with or without a session token in your request. If
+    -- you retrieve the IAM role credentials without a token, the IMDSv1 role
     -- credentials are returned. If you retrieve the IAM role credentials using
-    -- a valid signed token, the version 2.0 role credentials are returned.
+    -- a valid session token, the IMDSv2 role credentials are returned.
     --
-    -- If the state is @required@, you must send a signed token header with any
-    -- instance metadata retrieval requests. In this state, retrieving the IAM
-    -- role credentials always returns the version 2.0 credentials; the version
-    -- 1.0 credentials are not available.
+    -- @required@ - When IMDSv2 is required, you must send a session token with
+    -- any instance metadata retrieval requests. In this state, retrieving the
+    -- IAM role credentials always returns IMDSv2 credentials; IMDSv1
+    -- credentials are not available.
+    --
+    -- Default: @optional@
     httpTokens :: Prelude.Maybe LaunchTemplateHttpTokensState,
     -- | Set to @enabled@ to allow access to instance tags from the instance
     -- metadata. Set to @disabled@ to turn off access to instance tags from the
@@ -113,20 +113,20 @@ data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptio
 --
 -- Possible values: Integers from 1 to 64
 --
--- 'httpTokens', 'launchTemplateInstanceMetadataOptions_httpTokens' - The state of token usage for your instance metadata requests. If the
--- parameter is not specified in the request, the default state is
--- @optional@.
+-- 'httpTokens', 'launchTemplateInstanceMetadataOptions_httpTokens' - Indicates whether IMDSv2 is @optional@ or @required@.
 --
--- If the state is @optional@, you can choose to retrieve instance metadata
--- with or without a signed token header on your request. If you retrieve
--- the IAM role credentials without a token, the version 1.0 role
+-- @optional@ - When IMDSv2 is optional, you can choose to retrieve
+-- instance metadata with or without a session token in your request. If
+-- you retrieve the IAM role credentials without a token, the IMDSv1 role
 -- credentials are returned. If you retrieve the IAM role credentials using
--- a valid signed token, the version 2.0 role credentials are returned.
+-- a valid session token, the IMDSv2 role credentials are returned.
 --
--- If the state is @required@, you must send a signed token header with any
--- instance metadata retrieval requests. In this state, retrieving the IAM
--- role credentials always returns the version 2.0 credentials; the version
--- 1.0 credentials are not available.
+-- @required@ - When IMDSv2 is required, you must send a session token with
+-- any instance metadata retrieval requests. In this state, retrieving the
+-- IAM role credentials always returns IMDSv2 credentials; IMDSv1
+-- credentials are not available.
+--
+-- Default: @optional@
 --
 -- 'instanceMetadataTags', 'launchTemplateInstanceMetadataOptions_instanceMetadataTags' - Set to @enabled@ to allow access to instance tags from the instance
 -- metadata. Set to @disabled@ to turn off access to instance tags from the
@@ -181,20 +181,20 @@ launchTemplateInstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\LaunchTempl
 launchTemplateInstanceMetadataOptions_httpPutResponseHopLimit :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe Prelude.Int)
 launchTemplateInstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {httpPutResponseHopLimit} -> httpPutResponseHopLimit) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {httpPutResponseHopLimit = a} :: LaunchTemplateInstanceMetadataOptions)
 
--- | The state of token usage for your instance metadata requests. If the
--- parameter is not specified in the request, the default state is
--- @optional@.
+-- | Indicates whether IMDSv2 is @optional@ or @required@.
 --
--- If the state is @optional@, you can choose to retrieve instance metadata
--- with or without a signed token header on your request. If you retrieve
--- the IAM role credentials without a token, the version 1.0 role
+-- @optional@ - When IMDSv2 is optional, you can choose to retrieve
+-- instance metadata with or without a session token in your request. If
+-- you retrieve the IAM role credentials without a token, the IMDSv1 role
 -- credentials are returned. If you retrieve the IAM role credentials using
--- a valid signed token, the version 2.0 role credentials are returned.
+-- a valid session token, the IMDSv2 role credentials are returned.
 --
--- If the state is @required@, you must send a signed token header with any
--- instance metadata retrieval requests. In this state, retrieving the IAM
--- role credentials always returns the version 2.0 credentials; the version
--- 1.0 credentials are not available.
+-- @required@ - When IMDSv2 is required, you must send a session token with
+-- any instance metadata retrieval requests. In this state, retrieving the
+-- IAM role credentials always returns IMDSv2 credentials; IMDSv1
+-- credentials are not available.
+--
+-- Default: @optional@
 launchTemplateInstanceMetadataOptions_httpTokens :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe LaunchTemplateHttpTokensState)
 launchTemplateInstanceMetadataOptions_httpTokens = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {httpTokens = a} :: LaunchTemplateInstanceMetadataOptions)
 
@@ -237,7 +237,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplateInstanceMetadataOptions' {..} =
-      _salt `Prelude.hashWithSalt` httpEndpoint
+      _salt
+        `Prelude.hashWithSalt` httpEndpoint
         `Prelude.hashWithSalt` httpProtocolIpv6
         `Prelude.hashWithSalt` httpPutResponseHopLimit
         `Prelude.hashWithSalt` httpTokens

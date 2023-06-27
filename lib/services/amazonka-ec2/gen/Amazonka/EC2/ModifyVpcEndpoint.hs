@@ -62,17 +62,15 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Contains the parameters for ModifyVpcEndpoint.
---
--- /See:/ 'newModifyVpcEndpoint' smart constructor.
+-- | /See:/ 'newModifyVpcEndpoint' smart constructor.
 data ModifyVpcEndpoint = ModifyVpcEndpoint'
-  { -- | (Gateway endpoint) One or more route tables IDs to associate with the
+  { -- | (Gateway endpoint) The IDs of the route tables to associate with the
     -- endpoint.
     addRouteTableIds :: Prelude.Maybe [Prelude.Text],
-    -- | (Interface endpoint) One or more security group IDs to associate with
+    -- | (Interface endpoint) The IDs of the security groups to associate with
     -- the network interface.
     addSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | (Interface and Gateway Load Balancer endpoints) One or more subnet IDs
+    -- | (Interface and Gateway Load Balancer endpoints) The IDs of the subnets
     -- in which to serve the endpoint. For a Gateway Load Balancer endpoint,
     -- you can specify only one subnet.
     addSubnetIds :: Prelude.Maybe [Prelude.Text],
@@ -92,13 +90,13 @@ data ModifyVpcEndpoint = ModifyVpcEndpoint'
     -- | (Interface endpoint) Indicates whether a private hosted zone is
     -- associated with the VPC.
     privateDnsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | (Gateway endpoint) One or more route table IDs to disassociate from the
+    -- | (Gateway endpoint) The IDs of the route tables to disassociate from the
     -- endpoint.
     removeRouteTableIds :: Prelude.Maybe [Prelude.Text],
-    -- | (Interface endpoint) One or more security group IDs to disassociate from
+    -- | (Interface endpoint) The IDs of the security groups to disassociate from
     -- the network interface.
     removeSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | (Interface endpoint) One or more subnets IDs in which to remove the
+    -- | (Interface endpoint) The IDs of the subnets from which to remove the
     -- endpoint.
     removeSubnetIds :: Prelude.Maybe [Prelude.Text],
     -- | (Gateway endpoint) Specify @true@ to reset the policy document to the
@@ -117,13 +115,13 @@ data ModifyVpcEndpoint = ModifyVpcEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'addRouteTableIds', 'modifyVpcEndpoint_addRouteTableIds' - (Gateway endpoint) One or more route tables IDs to associate with the
+-- 'addRouteTableIds', 'modifyVpcEndpoint_addRouteTableIds' - (Gateway endpoint) The IDs of the route tables to associate with the
 -- endpoint.
 --
--- 'addSecurityGroupIds', 'modifyVpcEndpoint_addSecurityGroupIds' - (Interface endpoint) One or more security group IDs to associate with
+-- 'addSecurityGroupIds', 'modifyVpcEndpoint_addSecurityGroupIds' - (Interface endpoint) The IDs of the security groups to associate with
 -- the network interface.
 --
--- 'addSubnetIds', 'modifyVpcEndpoint_addSubnetIds' - (Interface and Gateway Load Balancer endpoints) One or more subnet IDs
+-- 'addSubnetIds', 'modifyVpcEndpoint_addSubnetIds' - (Interface and Gateway Load Balancer endpoints) The IDs of the subnets
 -- in which to serve the endpoint. For a Gateway Load Balancer endpoint,
 -- you can specify only one subnet.
 --
@@ -143,13 +141,13 @@ data ModifyVpcEndpoint = ModifyVpcEndpoint'
 -- 'privateDnsEnabled', 'modifyVpcEndpoint_privateDnsEnabled' - (Interface endpoint) Indicates whether a private hosted zone is
 -- associated with the VPC.
 --
--- 'removeRouteTableIds', 'modifyVpcEndpoint_removeRouteTableIds' - (Gateway endpoint) One or more route table IDs to disassociate from the
+-- 'removeRouteTableIds', 'modifyVpcEndpoint_removeRouteTableIds' - (Gateway endpoint) The IDs of the route tables to disassociate from the
 -- endpoint.
 --
--- 'removeSecurityGroupIds', 'modifyVpcEndpoint_removeSecurityGroupIds' - (Interface endpoint) One or more security group IDs to disassociate from
+-- 'removeSecurityGroupIds', 'modifyVpcEndpoint_removeSecurityGroupIds' - (Interface endpoint) The IDs of the security groups to disassociate from
 -- the network interface.
 --
--- 'removeSubnetIds', 'modifyVpcEndpoint_removeSubnetIds' - (Interface endpoint) One or more subnets IDs in which to remove the
+-- 'removeSubnetIds', 'modifyVpcEndpoint_removeSubnetIds' - (Interface endpoint) The IDs of the subnets from which to remove the
 -- endpoint.
 --
 -- 'resetPolicy', 'modifyVpcEndpoint_resetPolicy' - (Gateway endpoint) Specify @true@ to reset the policy document to the
@@ -178,17 +176,17 @@ newModifyVpcEndpoint pVpcEndpointId_ =
       vpcEndpointId = pVpcEndpointId_
     }
 
--- | (Gateway endpoint) One or more route tables IDs to associate with the
+-- | (Gateway endpoint) The IDs of the route tables to associate with the
 -- endpoint.
 modifyVpcEndpoint_addRouteTableIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpoint_addRouteTableIds = Lens.lens (\ModifyVpcEndpoint' {addRouteTableIds} -> addRouteTableIds) (\s@ModifyVpcEndpoint' {} a -> s {addRouteTableIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | (Interface endpoint) One or more security group IDs to associate with
+-- | (Interface endpoint) The IDs of the security groups to associate with
 -- the network interface.
 modifyVpcEndpoint_addSecurityGroupIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpoint_addSecurityGroupIds = Lens.lens (\ModifyVpcEndpoint' {addSecurityGroupIds} -> addSecurityGroupIds) (\s@ModifyVpcEndpoint' {} a -> s {addSecurityGroupIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | (Interface and Gateway Load Balancer endpoints) One or more subnet IDs
+-- | (Interface and Gateway Load Balancer endpoints) The IDs of the subnets
 -- in which to serve the endpoint. For a Gateway Load Balancer endpoint,
 -- you can specify only one subnet.
 modifyVpcEndpoint_addSubnetIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
@@ -220,17 +218,17 @@ modifyVpcEndpoint_policyDocument = Lens.lens (\ModifyVpcEndpoint' {policyDocumen
 modifyVpcEndpoint_privateDnsEnabled :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe Prelude.Bool)
 modifyVpcEndpoint_privateDnsEnabled = Lens.lens (\ModifyVpcEndpoint' {privateDnsEnabled} -> privateDnsEnabled) (\s@ModifyVpcEndpoint' {} a -> s {privateDnsEnabled = a} :: ModifyVpcEndpoint)
 
--- | (Gateway endpoint) One or more route table IDs to disassociate from the
+-- | (Gateway endpoint) The IDs of the route tables to disassociate from the
 -- endpoint.
 modifyVpcEndpoint_removeRouteTableIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpoint_removeRouteTableIds = Lens.lens (\ModifyVpcEndpoint' {removeRouteTableIds} -> removeRouteTableIds) (\s@ModifyVpcEndpoint' {} a -> s {removeRouteTableIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | (Interface endpoint) One or more security group IDs to disassociate from
+-- | (Interface endpoint) The IDs of the security groups to disassociate from
 -- the network interface.
 modifyVpcEndpoint_removeSecurityGroupIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpoint_removeSecurityGroupIds = Lens.lens (\ModifyVpcEndpoint' {removeSecurityGroupIds} -> removeSecurityGroupIds) (\s@ModifyVpcEndpoint' {} a -> s {removeSecurityGroupIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
--- | (Interface endpoint) One or more subnets IDs in which to remove the
+-- | (Interface endpoint) The IDs of the subnets from which to remove the
 -- endpoint.
 modifyVpcEndpoint_removeSubnetIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpoint_removeSubnetIds = Lens.lens (\ModifyVpcEndpoint' {removeSubnetIds} -> removeSubnetIds) (\s@ModifyVpcEndpoint' {} a -> s {removeSubnetIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
@@ -260,7 +258,8 @@ instance Core.AWSRequest ModifyVpcEndpoint where
 
 instance Prelude.Hashable ModifyVpcEndpoint where
   hashWithSalt _salt ModifyVpcEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` addRouteTableIds
+    _salt
+      `Prelude.hashWithSalt` addRouteTableIds
       `Prelude.hashWithSalt` addSecurityGroupIds
       `Prelude.hashWithSalt` addSubnetIds
       `Prelude.hashWithSalt` dnsOptions

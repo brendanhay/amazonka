@@ -234,7 +234,8 @@ instance Core.AWSRequest CreateInstanceEventWindow where
 
 instance Prelude.Hashable CreateInstanceEventWindow where
   hashWithSalt _salt CreateInstanceEventWindow' {..} =
-    _salt `Prelude.hashWithSalt` cronExpression
+    _salt
+      `Prelude.hashWithSalt` cronExpression
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tagSpecifications

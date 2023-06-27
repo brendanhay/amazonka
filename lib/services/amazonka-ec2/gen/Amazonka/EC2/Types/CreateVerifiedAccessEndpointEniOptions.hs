@@ -26,7 +26,8 @@ import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.VerifiedAccessEndpointProtocol
 import qualified Amazonka.Prelude as Prelude
 
--- | Options for a network interface-type endpoint.
+-- | Describes the network interface options when creating an Amazon Web
+-- Services Verified Access endpoint using the @network-interface@ type.
 --
 -- /See:/ 'newCreateVerifiedAccessEndpointEniOptions' smart constructor.
 data CreateVerifiedAccessEndpointEniOptions = CreateVerifiedAccessEndpointEniOptions'
@@ -81,7 +82,8 @@ instance
   hashWithSalt
     _salt
     CreateVerifiedAccessEndpointEniOptions' {..} =
-      _salt `Prelude.hashWithSalt` networkInterfaceId
+      _salt
+        `Prelude.hashWithSalt` networkInterfaceId
         `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` protocol
 

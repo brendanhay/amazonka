@@ -93,7 +93,7 @@ data CreateLaunchTemplate = CreateLaunchTemplate'
     -- | A name for the launch template.
     launchTemplateName :: Prelude.Text,
     -- | The information for the launch template.
-    launchTemplateData :: Data.Sensitive RequestLaunchTemplateData
+    launchTemplateData :: RequestLaunchTemplateData
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -145,8 +145,7 @@ newCreateLaunchTemplate
         tagSpecifications = Prelude.Nothing,
         versionDescription = Prelude.Nothing,
         launchTemplateName = pLaunchTemplateName_,
-        launchTemplateData =
-          Data._Sensitive Lens.# pLaunchTemplateData_
+        launchTemplateData = pLaunchTemplateData_
       }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -184,7 +183,7 @@ createLaunchTemplate_launchTemplateName = Lens.lens (\CreateLaunchTemplate' {lau
 
 -- | The information for the launch template.
 createLaunchTemplate_launchTemplateData :: Lens.Lens' CreateLaunchTemplate RequestLaunchTemplateData
-createLaunchTemplate_launchTemplateData = Lens.lens (\CreateLaunchTemplate' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplate) Prelude.. Data._Sensitive
+createLaunchTemplate_launchTemplateData = Lens.lens (\CreateLaunchTemplate' {launchTemplateData} -> launchTemplateData) (\s@CreateLaunchTemplate' {} a -> s {launchTemplateData = a} :: CreateLaunchTemplate)
 
 instance Core.AWSRequest CreateLaunchTemplate where
   type
@@ -203,7 +202,8 @@ instance Core.AWSRequest CreateLaunchTemplate where
 
 instance Prelude.Hashable CreateLaunchTemplate where
   hashWithSalt _salt CreateLaunchTemplate' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` versionDescription

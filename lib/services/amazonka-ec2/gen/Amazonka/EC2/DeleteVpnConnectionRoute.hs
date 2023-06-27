@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteVpnConnectionRoute where
 
 instance Prelude.Hashable DeleteVpnConnectionRoute where
   hashWithSalt _salt DeleteVpnConnectionRoute' {..} =
-    _salt `Prelude.hashWithSalt` destinationCidrBlock
+    _salt
+      `Prelude.hashWithSalt` destinationCidrBlock
       `Prelude.hashWithSalt` vpnConnectionId
 
 instance Prelude.NFData DeleteVpnConnectionRoute where

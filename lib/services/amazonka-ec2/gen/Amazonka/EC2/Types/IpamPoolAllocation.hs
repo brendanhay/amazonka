@@ -27,7 +27,7 @@ import Amazonka.EC2.Types.IpamPoolAllocationResourceType
 import qualified Amazonka.Prelude as Prelude
 
 -- | In IPAM, an allocation is a CIDR assignment from an IPAM pool to another
--- resource or IPAM pool.
+-- IPAM pool or to a resource.
 --
 -- /See:/ 'newIpamPoolAllocation' smart constructor.
 data IpamPoolAllocation = IpamPoolAllocation'
@@ -132,7 +132,8 @@ instance Data.FromXML IpamPoolAllocation where
 
 instance Prelude.Hashable IpamPoolAllocation where
   hashWithSalt _salt IpamPoolAllocation' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` ipamPoolAllocationId
       `Prelude.hashWithSalt` resourceId

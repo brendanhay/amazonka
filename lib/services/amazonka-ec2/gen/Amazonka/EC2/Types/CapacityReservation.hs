@@ -455,7 +455,8 @@ instance Data.FromXML CapacityReservation where
       Prelude.<$> (x Data..@? "availabilityZone")
       Prelude.<*> (x Data..@? "availabilityZoneId")
       Prelude.<*> (x Data..@? "availableInstanceCount")
-      Prelude.<*> ( x Data..@? "capacityAllocationSet"
+      Prelude.<*> ( x
+                      Data..@? "capacityAllocationSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
@@ -475,7 +476,9 @@ instance Data.FromXML CapacityReservation where
       Prelude.<*> (x Data..@? "placementGroupArn")
       Prelude.<*> (x Data..@? "startDate")
       Prelude.<*> (x Data..@? "state")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
       Prelude.<*> (x Data..@? "tenancy")
@@ -483,7 +486,8 @@ instance Data.FromXML CapacityReservation where
 
 instance Prelude.Hashable CapacityReservation where
   hashWithSalt _salt CapacityReservation' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` availableInstanceCount
       `Prelude.hashWithSalt` capacityAllocations

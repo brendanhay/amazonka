@@ -97,7 +97,8 @@ instance Data.FromXML ByoipCidr where
 
 instance Prelude.Hashable ByoipCidr where
   hashWithSalt _salt ByoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` statusMessage

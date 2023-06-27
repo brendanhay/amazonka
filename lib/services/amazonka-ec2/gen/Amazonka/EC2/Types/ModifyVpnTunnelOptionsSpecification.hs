@@ -50,6 +50,8 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
     --
     -- Default: @30@
     dPDTimeoutSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Turn on or off tunnel endpoint lifecycle control feature.
+    enableTunnelLifecycleControl :: Prelude.Maybe Prelude.Bool,
     -- | The IKE versions that are permitted for the VPN tunnel.
     --
     -- Valid values: @ikev1@ | @ikev2@
@@ -107,7 +109,7 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
     -- Constraints: Allowed characters are alphanumeric characters, periods
     -- (.), and underscores (_). Must be between 8 and 64 characters in length
     -- and cannot start with zero (0).
-    preSharedKey :: Prelude.Maybe Prelude.Text,
+    preSharedKey :: Prelude.Maybe (Data.Sensitive Prelude.Text),
     -- | The percentage of the rekey window (determined by
     -- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
     -- selected.
@@ -168,7 +170,7 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
     -- Constraints: A size \/126 CIDR block from the local @fd00::\/8@ range.
     tunnelInsideIpv6Cidr :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ModifyVpnTunnelOptionsSpecification' with all optional fields omitted.
@@ -190,6 +192,8 @@ data ModifyVpnTunnelOptionsSpecification = ModifyVpnTunnelOptionsSpecification'
 -- Constraints: A value greater than or equal to 30.
 --
 -- Default: @30@
+--
+-- 'enableTunnelLifecycleControl', 'modifyVpnTunnelOptionsSpecification_enableTunnelLifecycleControl' - Turn on or off tunnel endpoint lifecycle control feature.
 --
 -- 'iKEVersions', 'modifyVpnTunnelOptionsSpecification_iKEVersions' - The IKE versions that are permitted for the VPN tunnel.
 --
@@ -314,6 +318,8 @@ newModifyVpnTunnelOptionsSpecification =
     { dPDTimeoutAction =
         Prelude.Nothing,
       dPDTimeoutSeconds = Prelude.Nothing,
+      enableTunnelLifecycleControl =
+        Prelude.Nothing,
       iKEVersions = Prelude.Nothing,
       logOptions = Prelude.Nothing,
       phase1DHGroupNumbers = Prelude.Nothing,
@@ -356,6 +362,10 @@ modifyVpnTunnelOptionsSpecification_dPDTimeoutAction = Lens.lens (\ModifyVpnTunn
 -- Default: @30@
 modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds :: Lens.Lens' ModifyVpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Int)
 modifyVpnTunnelOptionsSpecification_dPDTimeoutSeconds = Lens.lens (\ModifyVpnTunnelOptionsSpecification' {dPDTimeoutSeconds} -> dPDTimeoutSeconds) (\s@ModifyVpnTunnelOptionsSpecification' {} a -> s {dPDTimeoutSeconds = a} :: ModifyVpnTunnelOptionsSpecification)
+
+-- | Turn on or off tunnel endpoint lifecycle control feature.
+modifyVpnTunnelOptionsSpecification_enableTunnelLifecycleControl :: Lens.Lens' ModifyVpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Bool)
+modifyVpnTunnelOptionsSpecification_enableTunnelLifecycleControl = Lens.lens (\ModifyVpnTunnelOptionsSpecification' {enableTunnelLifecycleControl} -> enableTunnelLifecycleControl) (\s@ModifyVpnTunnelOptionsSpecification' {} a -> s {enableTunnelLifecycleControl = a} :: ModifyVpnTunnelOptionsSpecification)
 
 -- | The IKE versions that are permitted for the VPN tunnel.
 --
@@ -435,7 +445,7 @@ modifyVpnTunnelOptionsSpecification_phase2LifetimeSeconds = Lens.lens (\ModifyVp
 -- (.), and underscores (_). Must be between 8 and 64 characters in length
 -- and cannot start with zero (0).
 modifyVpnTunnelOptionsSpecification_preSharedKey :: Lens.Lens' ModifyVpnTunnelOptionsSpecification (Prelude.Maybe Prelude.Text)
-modifyVpnTunnelOptionsSpecification_preSharedKey = Lens.lens (\ModifyVpnTunnelOptionsSpecification' {preSharedKey} -> preSharedKey) (\s@ModifyVpnTunnelOptionsSpecification' {} a -> s {preSharedKey = a} :: ModifyVpnTunnelOptionsSpecification)
+modifyVpnTunnelOptionsSpecification_preSharedKey = Lens.lens (\ModifyVpnTunnelOptionsSpecification' {preSharedKey} -> preSharedKey) (\s@ModifyVpnTunnelOptionsSpecification' {} a -> s {preSharedKey = a} :: ModifyVpnTunnelOptionsSpecification) Prelude.. Lens.mapping Data._Sensitive
 
 -- | The percentage of the rekey window (determined by
 -- @RekeyMarginTimeSeconds@) during which the rekey time is randomly
@@ -515,8 +525,10 @@ instance
   hashWithSalt
     _salt
     ModifyVpnTunnelOptionsSpecification' {..} =
-      _salt `Prelude.hashWithSalt` dPDTimeoutAction
+      _salt
+        `Prelude.hashWithSalt` dPDTimeoutAction
         `Prelude.hashWithSalt` dPDTimeoutSeconds
+        `Prelude.hashWithSalt` enableTunnelLifecycleControl
         `Prelude.hashWithSalt` iKEVersions
         `Prelude.hashWithSalt` logOptions
         `Prelude.hashWithSalt` phase1DHGroupNumbers
@@ -542,6 +554,7 @@ instance
   rnf ModifyVpnTunnelOptionsSpecification' {..} =
     Prelude.rnf dPDTimeoutAction
       `Prelude.seq` Prelude.rnf dPDTimeoutSeconds
+      `Prelude.seq` Prelude.rnf enableTunnelLifecycleControl
       `Prelude.seq` Prelude.rnf iKEVersions
       `Prelude.seq` Prelude.rnf logOptions
       `Prelude.seq` Prelude.rnf phase1DHGroupNumbers
@@ -558,7 +571,8 @@ instance
       `Prelude.seq` Prelude.rnf replayWindowSize
       `Prelude.seq` Prelude.rnf startupAction
       `Prelude.seq` Prelude.rnf tunnelInsideCidr
-      `Prelude.seq` Prelude.rnf tunnelInsideIpv6Cidr
+      `Prelude.seq` Prelude.rnf
+        tunnelInsideIpv6Cidr
 
 instance
   Data.ToQuery
@@ -568,6 +582,8 @@ instance
     Prelude.mconcat
       [ "DPDTimeoutAction" Data.=: dPDTimeoutAction,
         "DPDTimeoutSeconds" Data.=: dPDTimeoutSeconds,
+        "EnableTunnelLifecycleControl"
+          Data.=: enableTunnelLifecycleControl,
         Data.toQuery
           ( Data.toQueryList "IKEVersion"
               Prelude.<$> iKEVersions

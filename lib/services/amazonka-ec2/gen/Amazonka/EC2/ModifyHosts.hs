@@ -38,6 +38,7 @@ module Amazonka.EC2.ModifyHosts
 
     -- * Request Lenses
     modifyHosts_autoPlacement,
+    modifyHosts_hostMaintenance,
     modifyHosts_hostRecovery,
     modifyHosts_instanceFamily,
     modifyHosts_instanceType,
@@ -66,6 +67,11 @@ import qualified Amazonka.Response as Response
 data ModifyHosts = ModifyHosts'
   { -- | Specify whether to enable or disable auto-placement.
     autoPlacement :: Prelude.Maybe AutoPlacement,
+    -- | Indicates whether to enable or disable host maintenance for the
+    -- Dedicated Host. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html Host maintenance>
+    -- in the /Amazon EC2 User Guide/.
+    hostMaintenance :: Prelude.Maybe HostMaintenance,
     -- | Indicates whether to enable or disable host recovery for the Dedicated
     -- Host. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
@@ -104,6 +110,11 @@ data ModifyHosts = ModifyHosts'
 --
 -- 'autoPlacement', 'modifyHosts_autoPlacement' - Specify whether to enable or disable auto-placement.
 --
+-- 'hostMaintenance', 'modifyHosts_hostMaintenance' - Indicates whether to enable or disable host maintenance for the
+-- Dedicated Host. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html Host maintenance>
+-- in the /Amazon EC2 User Guide/.
+--
 -- 'hostRecovery', 'modifyHosts_hostRecovery' - Indicates whether to enable or disable host recovery for the Dedicated
 -- Host. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html Host recovery>
@@ -133,6 +144,7 @@ newModifyHosts ::
 newModifyHosts =
   ModifyHosts'
     { autoPlacement = Prelude.Nothing,
+      hostMaintenance = Prelude.Nothing,
       hostRecovery = Prelude.Nothing,
       instanceFamily = Prelude.Nothing,
       instanceType = Prelude.Nothing,
@@ -142,6 +154,13 @@ newModifyHosts =
 -- | Specify whether to enable or disable auto-placement.
 modifyHosts_autoPlacement :: Lens.Lens' ModifyHosts (Prelude.Maybe AutoPlacement)
 modifyHosts_autoPlacement = Lens.lens (\ModifyHosts' {autoPlacement} -> autoPlacement) (\s@ModifyHosts' {} a -> s {autoPlacement = a} :: ModifyHosts)
+
+-- | Indicates whether to enable or disable host maintenance for the
+-- Dedicated Host. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html Host maintenance>
+-- in the /Amazon EC2 User Guide/.
+modifyHosts_hostMaintenance :: Lens.Lens' ModifyHosts (Prelude.Maybe HostMaintenance)
+modifyHosts_hostMaintenance = Lens.lens (\ModifyHosts' {hostMaintenance} -> hostMaintenance) (\s@ModifyHosts' {} a -> s {hostMaintenance = a} :: ModifyHosts)
 
 -- | Indicates whether to enable or disable host recovery for the Dedicated
 -- Host. For more information, see
@@ -184,10 +203,14 @@ instance Core.AWSRequest ModifyHosts where
     Response.receiveXML
       ( \s h x ->
           ModifyHostsResponse'
-            Prelude.<$> ( x Data..@? "successful" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "successful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
-            Prelude.<*> ( x Data..@? "unsuccessful" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "unsuccessful"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -195,7 +218,9 @@ instance Core.AWSRequest ModifyHosts where
 
 instance Prelude.Hashable ModifyHosts where
   hashWithSalt _salt ModifyHosts' {..} =
-    _salt `Prelude.hashWithSalt` autoPlacement
+    _salt
+      `Prelude.hashWithSalt` autoPlacement
+      `Prelude.hashWithSalt` hostMaintenance
       `Prelude.hashWithSalt` hostRecovery
       `Prelude.hashWithSalt` instanceFamily
       `Prelude.hashWithSalt` instanceType
@@ -204,6 +229,7 @@ instance Prelude.Hashable ModifyHosts where
 instance Prelude.NFData ModifyHosts where
   rnf ModifyHosts' {..} =
     Prelude.rnf autoPlacement
+      `Prelude.seq` Prelude.rnf hostMaintenance
       `Prelude.seq` Prelude.rnf hostRecovery
       `Prelude.seq` Prelude.rnf instanceFamily
       `Prelude.seq` Prelude.rnf instanceType
@@ -223,6 +249,7 @@ instance Data.ToQuery ModifyHosts where
         "Version"
           Data.=: ("2016-11-15" :: Prelude.ByteString),
         "AutoPlacement" Data.=: autoPlacement,
+        "HostMaintenance" Data.=: hostMaintenance,
         "HostRecovery" Data.=: hostRecovery,
         "InstanceFamily" Data.=: instanceFamily,
         "InstanceType" Data.=: instanceType,

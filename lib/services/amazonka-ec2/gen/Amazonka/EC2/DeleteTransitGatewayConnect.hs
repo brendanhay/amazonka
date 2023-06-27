@@ -115,7 +115,8 @@ instance Core.AWSRequest DeleteTransitGatewayConnect where
 
 instance Prelude.Hashable DeleteTransitGatewayConnect where
   hashWithSalt _salt DeleteTransitGatewayConnect' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` transitGatewayAttachmentId
 
 instance Prelude.NFData DeleteTransitGatewayConnect where

@@ -50,8 +50,8 @@ data LaunchTemplatePlacementRequest = LaunchTemplatePlacementRequest'
     partitionNumber :: Prelude.Maybe Prelude.Int,
     -- | Reserved for future use.
     spreadDomain :: Prelude.Maybe Prelude.Text,
-    -- | The tenancy of the instance (if the instance is running in a VPC). An
-    -- instance with a tenancy of dedicated runs on single-tenant hardware.
+    -- | The tenancy of the instance. An instance with a tenancy of dedicated
+    -- runs on single-tenant hardware.
     tenancy :: Prelude.Maybe Tenancy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,8 +84,8 @@ data LaunchTemplatePlacementRequest = LaunchTemplatePlacementRequest'
 --
 -- 'spreadDomain', 'launchTemplatePlacementRequest_spreadDomain' - Reserved for future use.
 --
--- 'tenancy', 'launchTemplatePlacementRequest_tenancy' - The tenancy of the instance (if the instance is running in a VPC). An
--- instance with a tenancy of dedicated runs on single-tenant hardware.
+-- 'tenancy', 'launchTemplatePlacementRequest_tenancy' - The tenancy of the instance. An instance with a tenancy of dedicated
+-- runs on single-tenant hardware.
 newLaunchTemplatePlacementRequest ::
   LaunchTemplatePlacementRequest
 newLaunchTemplatePlacementRequest =
@@ -138,8 +138,8 @@ launchTemplatePlacementRequest_partitionNumber = Lens.lens (\LaunchTemplatePlace
 launchTemplatePlacementRequest_spreadDomain :: Lens.Lens' LaunchTemplatePlacementRequest (Prelude.Maybe Prelude.Text)
 launchTemplatePlacementRequest_spreadDomain = Lens.lens (\LaunchTemplatePlacementRequest' {spreadDomain} -> spreadDomain) (\s@LaunchTemplatePlacementRequest' {} a -> s {spreadDomain = a} :: LaunchTemplatePlacementRequest)
 
--- | The tenancy of the instance (if the instance is running in a VPC). An
--- instance with a tenancy of dedicated runs on single-tenant hardware.
+-- | The tenancy of the instance. An instance with a tenancy of dedicated
+-- runs on single-tenant hardware.
 launchTemplatePlacementRequest_tenancy :: Lens.Lens' LaunchTemplatePlacementRequest (Prelude.Maybe Tenancy)
 launchTemplatePlacementRequest_tenancy = Lens.lens (\LaunchTemplatePlacementRequest' {tenancy} -> tenancy) (\s@LaunchTemplatePlacementRequest' {} a -> s {tenancy = a} :: LaunchTemplatePlacementRequest)
 
@@ -150,7 +150,8 @@ instance
   hashWithSalt
     _salt
     LaunchTemplatePlacementRequest' {..} =
-      _salt `Prelude.hashWithSalt` affinity
+      _salt
+        `Prelude.hashWithSalt` affinity
         `Prelude.hashWithSalt` availabilityZone
         `Prelude.hashWithSalt` groupId
         `Prelude.hashWithSalt` groupName

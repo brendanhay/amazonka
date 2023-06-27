@@ -112,13 +112,15 @@ instance
   parseXML x =
     TransitGatewayMulticastDomainAssociations'
       Prelude.<$> (x Data..@? "resourceId")
-        Prelude.<*> (x Data..@? "resourceOwnerId")
-        Prelude.<*> (x Data..@? "resourceType")
-        Prelude.<*> ( x Data..@? "subnets" Core..!@ Prelude.mempty
-                        Prelude.>>= Core.may (Data.parseXMLList "item")
-                    )
-        Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
-        Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
+      Prelude.<*> (x Data..@? "resourceOwnerId")
+      Prelude.<*> (x Data..@? "resourceType")
+      Prelude.<*> ( x
+                      Data..@? "subnets"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Data.parseXMLList "item")
+                  )
+      Prelude.<*> (x Data..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Data..@? "transitGatewayMulticastDomainId")
 
 instance
   Prelude.Hashable
@@ -127,7 +129,8 @@ instance
   hashWithSalt
     _salt
     TransitGatewayMulticastDomainAssociations' {..} =
-      _salt `Prelude.hashWithSalt` resourceId
+      _salt
+        `Prelude.hashWithSalt` resourceId
         `Prelude.hashWithSalt` resourceOwnerId
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` subnets

@@ -60,7 +60,7 @@ data DeleteVerifiedAccessInstance = DeleteVerifiedAccessInstance'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data DeleteVerifiedAccessInstance = DeleteVerifiedAccessInstance'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessInstanceId', 'deleteVerifiedAccessInstance_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'deleteVerifiedAccessInstance_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 newDeleteVerifiedAccessInstance ::
   -- | 'verifiedAccessInstanceId'
   Prelude.Text ->
@@ -110,7 +110,7 @@ deleteVerifiedAccessInstance_clientToken = Lens.lens (\DeleteVerifiedAccessInsta
 deleteVerifiedAccessInstance_dryRun :: Lens.Lens' DeleteVerifiedAccessInstance (Prelude.Maybe Prelude.Bool)
 deleteVerifiedAccessInstance_dryRun = Lens.lens (\DeleteVerifiedAccessInstance' {dryRun} -> dryRun) (\s@DeleteVerifiedAccessInstance' {} a -> s {dryRun = a} :: DeleteVerifiedAccessInstance)
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 deleteVerifiedAccessInstance_verifiedAccessInstanceId :: Lens.Lens' DeleteVerifiedAccessInstance Prelude.Text
 deleteVerifiedAccessInstance_verifiedAccessInstanceId = Lens.lens (\DeleteVerifiedAccessInstance' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@DeleteVerifiedAccessInstance' {} a -> s {verifiedAccessInstanceId = a} :: DeleteVerifiedAccessInstance)
 
@@ -133,7 +133,8 @@ instance
     DeleteVerifiedAccessInstance
   where
   hashWithSalt _salt DeleteVerifiedAccessInstance' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` verifiedAccessInstanceId
 
@@ -166,7 +167,7 @@ instance Data.ToQuery DeleteVerifiedAccessInstance where
 
 -- | /See:/ 'newDeleteVerifiedAccessInstanceResponse' smart constructor.
 data DeleteVerifiedAccessInstanceResponse = DeleteVerifiedAccessInstanceResponse'
-  { -- | The ID of the Amazon Web Services Verified Access instance.
+  { -- | The ID of the Verified Access instance.
     verifiedAccessInstance :: Prelude.Maybe VerifiedAccessInstance,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,7 +182,7 @@ data DeleteVerifiedAccessInstanceResponse = DeleteVerifiedAccessInstanceResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'verifiedAccessInstance', 'deleteVerifiedAccessInstanceResponse_verifiedAccessInstance' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstance', 'deleteVerifiedAccessInstanceResponse_verifiedAccessInstance' - The ID of the Verified Access instance.
 --
 -- 'httpStatus', 'deleteVerifiedAccessInstanceResponse_httpStatus' - The response's http status code.
 newDeleteVerifiedAccessInstanceResponse ::
@@ -195,7 +196,7 @@ newDeleteVerifiedAccessInstanceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 deleteVerifiedAccessInstanceResponse_verifiedAccessInstance :: Lens.Lens' DeleteVerifiedAccessInstanceResponse (Prelude.Maybe VerifiedAccessInstance)
 deleteVerifiedAccessInstanceResponse_verifiedAccessInstance = Lens.lens (\DeleteVerifiedAccessInstanceResponse' {verifiedAccessInstance} -> verifiedAccessInstance) (\s@DeleteVerifiedAccessInstanceResponse' {} a -> s {verifiedAccessInstance = a} :: DeleteVerifiedAccessInstanceResponse)
 

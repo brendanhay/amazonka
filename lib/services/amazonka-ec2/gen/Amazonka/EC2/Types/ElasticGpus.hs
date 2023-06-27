@@ -126,13 +126,16 @@ instance Data.FromXML ElasticGpus where
       Prelude.<*> (x Data..@? "elasticGpuState")
       Prelude.<*> (x Data..@? "elasticGpuType")
       Prelude.<*> (x Data..@? "instanceId")
-      Prelude.<*> ( x Data..@? "tagSet" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "tagSet"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "item")
                   )
 
 instance Prelude.Hashable ElasticGpus where
   hashWithSalt _salt ElasticGpus' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` elasticGpuHealth
       `Prelude.hashWithSalt` elasticGpuId
       `Prelude.hashWithSalt` elasticGpuState

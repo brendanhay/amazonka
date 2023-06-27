@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     AssociateClientVpnTargetNetwork' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` clientVpnEndpointId
         `Prelude.hashWithSalt` subnetId

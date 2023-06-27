@@ -123,7 +123,8 @@ instance
     GetDefaultCreditSpecification
   where
   hashWithSalt _salt GetDefaultCreditSpecification' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceFamily
 
 instance Prelude.NFData GetDefaultCreditSpecification where

@@ -31,12 +31,12 @@
 -- @spot@.
 --
 -- We recommend that you set @MaxResults@ to a value between 5 and 1000 to
--- limit the number of results returned. This paginates the output, which
--- makes the list more manageable and returns the results faster. If the
--- list of results exceeds your @MaxResults@ value, then that number of
--- results is returned along with a @NextToken@ value that can be passed to
--- a subsequent @DescribeSpotInstanceRequests@ request to retrieve the
--- remaining results.
+-- limit the number of items returned. This paginates the output, which
+-- makes the list more manageable and returns the items faster. If the list
+-- of items exceeds your @MaxResults@ value, then that number of items is
+-- returned along with a @NextToken@ value that can be passed to a
+-- subsequent @DescribeSpotInstanceRequests@ request to retrieve the
+-- remaining items.
 --
 -- Spot Instance requests are deleted four hours after they are canceled
 -- and their instances are terminated.
@@ -82,7 +82,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | One or more filters.
+    -- | The filters.
     --
     -- -   @availability-zone-group@ - The Availability Zone group.
     --
@@ -200,14 +200,15 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     --
     -- -   @valid-until@ - The end date of the request.
     filters :: Prelude.Maybe [Filter],
-    -- | The maximum number of results to return in a single call. Specify a
-    -- value between 5 and 1000. To retrieve the remaining results, make
-    -- another call with the returned @NextToken@ value.
+    -- | The maximum number of items to return for this request. To get the next
+    -- page of items, make another request with the token returned in the
+    -- output. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to request the next set of results. This value is @null@ when
-    -- there are no more results to return.
+    -- | The token returned from a previous paginated request. Pagination
+    -- continues from the end of the items returned by the previous request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more Spot Instance request IDs.
+    -- | The IDs of the Spot Instance requests.
     spotInstanceRequestIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -225,7 +226,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'filters', 'describeSpotInstanceRequests_filters' - One or more filters.
+-- 'filters', 'describeSpotInstanceRequests_filters' - The filters.
 --
 -- -   @availability-zone-group@ - The Availability Zone group.
 --
@@ -343,14 +344,15 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
 --
 -- -   @valid-until@ - The end date of the request.
 --
--- 'maxResults', 'describeSpotInstanceRequests_maxResults' - The maximum number of results to return in a single call. Specify a
--- value between 5 and 1000. To retrieve the remaining results, make
--- another call with the returned @NextToken@ value.
+-- 'maxResults', 'describeSpotInstanceRequests_maxResults' - The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 --
--- 'nextToken', 'describeSpotInstanceRequests_nextToken' - The token to request the next set of results. This value is @null@ when
--- there are no more results to return.
+-- 'nextToken', 'describeSpotInstanceRequests_nextToken' - The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 --
--- 'spotInstanceRequestIds', 'describeSpotInstanceRequests_spotInstanceRequestIds' - One or more Spot Instance request IDs.
+-- 'spotInstanceRequestIds', 'describeSpotInstanceRequests_spotInstanceRequestIds' - The IDs of the Spot Instance requests.
 newDescribeSpotInstanceRequests ::
   DescribeSpotInstanceRequests
 newDescribeSpotInstanceRequests =
@@ -370,7 +372,7 @@ newDescribeSpotInstanceRequests =
 describeSpotInstanceRequests_dryRun :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Bool)
 describeSpotInstanceRequests_dryRun = Lens.lens (\DescribeSpotInstanceRequests' {dryRun} -> dryRun) (\s@DescribeSpotInstanceRequests' {} a -> s {dryRun = a} :: DescribeSpotInstanceRequests)
 
--- | One or more filters.
+-- | The filters.
 --
 -- -   @availability-zone-group@ - The Availability Zone group.
 --
@@ -490,18 +492,19 @@ describeSpotInstanceRequests_dryRun = Lens.lens (\DescribeSpotInstanceRequests' 
 describeSpotInstanceRequests_filters :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Filter])
 describeSpotInstanceRequests_filters = Lens.lens (\DescribeSpotInstanceRequests' {filters} -> filters) (\s@DescribeSpotInstanceRequests' {} a -> s {filters = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens.coerced
 
--- | The maximum number of results to return in a single call. Specify a
--- value between 5 and 1000. To retrieve the remaining results, make
--- another call with the returned @NextToken@ value.
+-- | The maximum number of items to return for this request. To get the next
+-- page of items, make another request with the token returned in the
+-- output. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination Pagination>.
 describeSpotInstanceRequests_maxResults :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Int)
 describeSpotInstanceRequests_maxResults = Lens.lens (\DescribeSpotInstanceRequests' {maxResults} -> maxResults) (\s@DescribeSpotInstanceRequests' {} a -> s {maxResults = a} :: DescribeSpotInstanceRequests)
 
--- | The token to request the next set of results. This value is @null@ when
--- there are no more results to return.
+-- | The token returned from a previous paginated request. Pagination
+-- continues from the end of the items returned by the previous request.
 describeSpotInstanceRequests_nextToken :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe Prelude.Text)
 describeSpotInstanceRequests_nextToken = Lens.lens (\DescribeSpotInstanceRequests' {nextToken} -> nextToken) (\s@DescribeSpotInstanceRequests' {} a -> s {nextToken = a} :: DescribeSpotInstanceRequests)
 
--- | One or more Spot Instance request IDs.
+-- | The IDs of the Spot Instance requests.
 describeSpotInstanceRequests_spotInstanceRequestIds :: Lens.Lens' DescribeSpotInstanceRequests (Prelude.Maybe [Prelude.Text])
 describeSpotInstanceRequests_spotInstanceRequestIds = Lens.lens (\DescribeSpotInstanceRequests' {spotInstanceRequestIds} -> spotInstanceRequestIds) (\s@DescribeSpotInstanceRequests' {} a -> s {spotInstanceRequestIds = a} :: DescribeSpotInstanceRequests) Prelude.. Lens.mapping Lens.coerced
 
@@ -510,22 +513,22 @@ instance Core.AWSPager DescribeSpotInstanceRequests where
     | Core.stop
         ( rs
             Lens.^? describeSpotInstanceRequestsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeSpotInstanceRequestsResponse_spotInstanceRequests
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeSpotInstanceRequests_nextToken
           Lens..~ rs
           Lens.^? describeSpotInstanceRequestsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeSpotInstanceRequests where
   type
@@ -538,7 +541,8 @@ instance Core.AWSRequest DescribeSpotInstanceRequests where
       ( \s h x ->
           DescribeSpotInstanceRequestsResponse'
             Prelude.<$> (x Data..@? "nextToken")
-            Prelude.<*> ( x Data..@? "spotInstanceRequestSet"
+            Prelude.<*> ( x
+                            Data..@? "spotInstanceRequestSet"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "item")
                         )
@@ -550,7 +554,8 @@ instance
     DescribeSpotInstanceRequests
   where
   hashWithSalt _salt DescribeSpotInstanceRequests' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
@@ -594,15 +599,15 @@ instance Data.ToQuery DescribeSpotInstanceRequests where
 --
 -- /See:/ 'newDescribeSpotInstanceRequestsResponse' smart constructor.
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
-  { -- | The token to use to retrieve the next set of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | The token to include in another request to get the next page of items.
+    -- This value is @null@ when there are no more items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | One or more Spot Instance requests.
+    -- | The Spot Instance requests.
     spotInstanceRequests :: Prelude.Maybe [SpotInstanceRequest],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeSpotInstanceRequestsResponse' with all optional fields omitted.
@@ -612,10 +617,10 @@ data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeSpotInstanceRequestsResponse_nextToken' - The token to use to retrieve the next set of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'describeSpotInstanceRequestsResponse_nextToken' - The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 --
--- 'spotInstanceRequests', 'describeSpotInstanceRequestsResponse_spotInstanceRequests' - One or more Spot Instance requests.
+-- 'spotInstanceRequests', 'describeSpotInstanceRequestsResponse_spotInstanceRequests' - The Spot Instance requests.
 --
 -- 'httpStatus', 'describeSpotInstanceRequestsResponse_httpStatus' - The response's http status code.
 newDescribeSpotInstanceRequestsResponse ::
@@ -631,12 +636,12 @@ newDescribeSpotInstanceRequestsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next set of results. This value is
--- @null@ when there are no more results to return.
+-- | The token to include in another request to get the next page of items.
+-- This value is @null@ when there are no more items to return.
 describeSpotInstanceRequestsResponse_nextToken :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Prelude.Maybe Prelude.Text)
 describeSpotInstanceRequestsResponse_nextToken = Lens.lens (\DescribeSpotInstanceRequestsResponse' {nextToken} -> nextToken) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {nextToken = a} :: DescribeSpotInstanceRequestsResponse)
 
--- | One or more Spot Instance requests.
+-- | The Spot Instance requests.
 describeSpotInstanceRequestsResponse_spotInstanceRequests :: Lens.Lens' DescribeSpotInstanceRequestsResponse (Prelude.Maybe [SpotInstanceRequest])
 describeSpotInstanceRequestsResponse_spotInstanceRequests = Lens.lens (\DescribeSpotInstanceRequestsResponse' {spotInstanceRequests} -> spotInstanceRequests) (\s@DescribeSpotInstanceRequestsResponse' {} a -> s {spotInstanceRequests = a} :: DescribeSpotInstanceRequestsResponse) Prelude.. Lens.mapping Lens.coerced
 

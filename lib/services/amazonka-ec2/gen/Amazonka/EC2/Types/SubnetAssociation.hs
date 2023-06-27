@@ -73,7 +73,8 @@ instance Data.FromXML SubnetAssociation where
 
 instance Prelude.Hashable SubnetAssociation where
   hashWithSalt _salt SubnetAssociation' {..} =
-    _salt `Prelude.hashWithSalt` state
+    _salt
+      `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` subnetId
 
 instance Prelude.NFData SubnetAssociation where

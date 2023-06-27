@@ -181,7 +181,8 @@ instance Core.AWSRequest DeleteIpam where
 
 instance Prelude.Hashable DeleteIpam where
   hashWithSalt _salt DeleteIpam' {..} =
-    _salt `Prelude.hashWithSalt` cascade
+    _salt
+      `Prelude.hashWithSalt` cascade
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` ipamId
 

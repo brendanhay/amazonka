@@ -62,10 +62,9 @@ data ModifyVerifiedAccessInstanceLoggingConfiguration = ModifyVerifiedAccessInst
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the Amazon Web Services Verified Access instance.
+    -- | The ID of the Verified Access instance.
     verifiedAccessInstanceId :: Prelude.Text,
-    -- | The configuration options for Amazon Web Services Verified Access
-    -- instances.
+    -- | The configuration options for Verified Access instances.
     accessLogs :: VerifiedAccessLogOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,10 +86,9 @@ data ModifyVerifiedAccessInstanceLoggingConfiguration = ModifyVerifiedAccessInst
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'verifiedAccessInstanceId', 'modifyVerifiedAccessInstanceLoggingConfiguration_verifiedAccessInstanceId' - The ID of the Amazon Web Services Verified Access instance.
+-- 'verifiedAccessInstanceId', 'modifyVerifiedAccessInstanceLoggingConfiguration_verifiedAccessInstanceId' - The ID of the Verified Access instance.
 --
--- 'accessLogs', 'modifyVerifiedAccessInstanceLoggingConfiguration_accessLogs' - The configuration options for Amazon Web Services Verified Access
--- instances.
+-- 'accessLogs', 'modifyVerifiedAccessInstanceLoggingConfiguration_accessLogs' - The configuration options for Verified Access instances.
 newModifyVerifiedAccessInstanceLoggingConfiguration ::
   -- | 'verifiedAccessInstanceId'
   Prelude.Text ->
@@ -122,12 +120,11 @@ modifyVerifiedAccessInstanceLoggingConfiguration_clientToken = Lens.lens (\Modif
 modifyVerifiedAccessInstanceLoggingConfiguration_dryRun :: Lens.Lens' ModifyVerifiedAccessInstanceLoggingConfiguration (Prelude.Maybe Prelude.Bool)
 modifyVerifiedAccessInstanceLoggingConfiguration_dryRun = Lens.lens (\ModifyVerifiedAccessInstanceLoggingConfiguration' {dryRun} -> dryRun) (\s@ModifyVerifiedAccessInstanceLoggingConfiguration' {} a -> s {dryRun = a} :: ModifyVerifiedAccessInstanceLoggingConfiguration)
 
--- | The ID of the Amazon Web Services Verified Access instance.
+-- | The ID of the Verified Access instance.
 modifyVerifiedAccessInstanceLoggingConfiguration_verifiedAccessInstanceId :: Lens.Lens' ModifyVerifiedAccessInstanceLoggingConfiguration Prelude.Text
 modifyVerifiedAccessInstanceLoggingConfiguration_verifiedAccessInstanceId = Lens.lens (\ModifyVerifiedAccessInstanceLoggingConfiguration' {verifiedAccessInstanceId} -> verifiedAccessInstanceId) (\s@ModifyVerifiedAccessInstanceLoggingConfiguration' {} a -> s {verifiedAccessInstanceId = a} :: ModifyVerifiedAccessInstanceLoggingConfiguration)
 
--- | The configuration options for Amazon Web Services Verified Access
--- instances.
+-- | The configuration options for Verified Access instances.
 modifyVerifiedAccessInstanceLoggingConfiguration_accessLogs :: Lens.Lens' ModifyVerifiedAccessInstanceLoggingConfiguration VerifiedAccessLogOptions
 modifyVerifiedAccessInstanceLoggingConfiguration_accessLogs = Lens.lens (\ModifyVerifiedAccessInstanceLoggingConfiguration' {accessLogs} -> accessLogs) (\s@ModifyVerifiedAccessInstanceLoggingConfiguration' {} a -> s {accessLogs = a} :: ModifyVerifiedAccessInstanceLoggingConfiguration)
 
@@ -146,7 +143,7 @@ instance
       ( \s h x ->
           ModifyVerifiedAccessInstanceLoggingConfigurationResponse'
             Prelude.<$> (x Data..@? "loggingConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -156,7 +153,8 @@ instance
   hashWithSalt
     _salt
     ModifyVerifiedAccessInstanceLoggingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` verifiedAccessInstanceId
         `Prelude.hashWithSalt` accessLogs
@@ -206,8 +204,7 @@ instance
 
 -- | /See:/ 'newModifyVerifiedAccessInstanceLoggingConfigurationResponse' smart constructor.
 data ModifyVerifiedAccessInstanceLoggingConfigurationResponse = ModifyVerifiedAccessInstanceLoggingConfigurationResponse'
-  { -- | The logging configuration for Amazon Web Services Verified Access
-    -- instance.
+  { -- | The logging configuration for the Verified Access instance.
     loggingConfiguration :: Prelude.Maybe VerifiedAccessInstanceLoggingConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -222,8 +219,7 @@ data ModifyVerifiedAccessInstanceLoggingConfigurationResponse = ModifyVerifiedAc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'loggingConfiguration', 'modifyVerifiedAccessInstanceLoggingConfigurationResponse_loggingConfiguration' - The logging configuration for Amazon Web Services Verified Access
--- instance.
+-- 'loggingConfiguration', 'modifyVerifiedAccessInstanceLoggingConfigurationResponse_loggingConfiguration' - The logging configuration for the Verified Access instance.
 --
 -- 'httpStatus', 'modifyVerifiedAccessInstanceLoggingConfigurationResponse_httpStatus' - The response's http status code.
 newModifyVerifiedAccessInstanceLoggingConfigurationResponse ::
@@ -239,8 +235,7 @@ newModifyVerifiedAccessInstanceLoggingConfigurationResponse
           pHttpStatus_
       }
 
--- | The logging configuration for Amazon Web Services Verified Access
--- instance.
+-- | The logging configuration for the Verified Access instance.
 modifyVerifiedAccessInstanceLoggingConfigurationResponse_loggingConfiguration :: Lens.Lens' ModifyVerifiedAccessInstanceLoggingConfigurationResponse (Prelude.Maybe VerifiedAccessInstanceLoggingConfiguration)
 modifyVerifiedAccessInstanceLoggingConfigurationResponse_loggingConfiguration = Lens.lens (\ModifyVerifiedAccessInstanceLoggingConfigurationResponse' {loggingConfiguration} -> loggingConfiguration) (\s@ModifyVerifiedAccessInstanceLoggingConfigurationResponse' {} a -> s {loggingConfiguration = a} :: ModifyVerifiedAccessInstanceLoggingConfigurationResponse)
 

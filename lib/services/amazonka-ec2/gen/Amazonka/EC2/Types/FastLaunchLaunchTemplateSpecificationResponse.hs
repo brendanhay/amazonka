@@ -91,8 +91,8 @@ instance
   parseXML x =
     FastLaunchLaunchTemplateSpecificationResponse'
       Prelude.<$> (x Data..@? "launchTemplateId")
-        Prelude.<*> (x Data..@? "launchTemplateName")
-        Prelude.<*> (x Data..@? "version")
+      Prelude.<*> (x Data..@? "launchTemplateName")
+      Prelude.<*> (x Data..@? "version")
 
 instance
   Prelude.Hashable
@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     FastLaunchLaunchTemplateSpecificationResponse' {..} =
-      _salt `Prelude.hashWithSalt` launchTemplateId
+      _salt
+        `Prelude.hashWithSalt` launchTemplateId
         `Prelude.hashWithSalt` launchTemplateName
         `Prelude.hashWithSalt` version
 

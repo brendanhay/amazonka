@@ -21,9 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the specified attribute of the specified AMI. You can specify
--- only one attribute at a time. You can use the @Attribute@ parameter to
--- specify the attribute or one of the following parameters: @Description@
--- or @LaunchPermission@.
+-- only one attribute at a time.
+--
+-- To specify the attribute, you can use the @Attribute@ parameter, or one
+-- of the following parameters: @Description@, @ImdsSupport@, or
+-- @LaunchPermission@.
 --
 -- Images with an Amazon Web Services Marketplace product code cannot be
 -- made public.
@@ -40,6 +42,7 @@ module Amazonka.EC2.ModifyImageAttribute
     modifyImageAttribute_attribute,
     modifyImageAttribute_description,
     modifyImageAttribute_dryRun,
+    modifyImageAttribute_imdsSupport,
     modifyImageAttribute_launchPermission,
     modifyImageAttribute_operationType,
     modifyImageAttribute_organizationArns,
@@ -70,7 +73,7 @@ import qualified Amazonka.Response as Response
 data ModifyImageAttribute = ModifyImageAttribute'
   { -- | The name of the attribute to modify.
     --
-    -- Valid values: @description@ | @launchPermission@
+    -- Valid values: @description@ | @imdsSupport@ | @launchPermission@
     attribute :: Prelude.Maybe Prelude.Text,
     -- | A new description for the AMI.
     description :: Prelude.Maybe AttributeValue,
@@ -79,6 +82,18 @@ data ModifyImageAttribute = ModifyImageAttribute'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Set to @v2.0@ to indicate that IMDSv2 is specified in the AMI. Instances
+    -- launched from this AMI will have @HttpTokens@ automatically set to
+    -- @required@ so that, by default, the instance requires that IMDSv2 is
+    -- used when requesting instance metadata. In addition,
+    -- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+    -- in the /Amazon EC2 User Guide/.
+    --
+    -- Do not use this parameter unless your AMI software supports IMDSv2.
+    -- After you set the value to @v2.0@, you can\'t undo it. The only way to
+    -- “reset” your AMI is to create a new AMI from the underlying snapshot.
+    imdsSupport :: Prelude.Maybe AttributeValue,
     -- | A new launch permission for the AMI.
     launchPermission :: Prelude.Maybe LaunchPermissionModifications,
     -- | The operation type. This parameter can be used only when the @Attribute@
@@ -100,7 +115,7 @@ data ModifyImageAttribute = ModifyImageAttribute'
     -- when the @Attribute@ parameter is @launchPermission@.
     userIds :: Prelude.Maybe [Prelude.Text],
     -- | The value of the attribute being modified. This parameter can be used
-    -- only when the @Attribute@ parameter is @description@.
+    -- only when the @Attribute@ parameter is @description@ or @imdsSupport@.
     value :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AMI.
     imageId :: Prelude.Text
@@ -117,7 +132,7 @@ data ModifyImageAttribute = ModifyImageAttribute'
 --
 -- 'attribute', 'modifyImageAttribute_attribute' - The name of the attribute to modify.
 --
--- Valid values: @description@ | @launchPermission@
+-- Valid values: @description@ | @imdsSupport@ | @launchPermission@
 --
 -- 'description', 'modifyImageAttribute_description' - A new description for the AMI.
 --
@@ -125,6 +140,18 @@ data ModifyImageAttribute = ModifyImageAttribute'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'imdsSupport', 'modifyImageAttribute_imdsSupport' - Set to @v2.0@ to indicate that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon EC2 User Guide/.
+--
+-- Do not use this parameter unless your AMI software supports IMDSv2.
+-- After you set the value to @v2.0@, you can\'t undo it. The only way to
+-- “reset” your AMI is to create a new AMI from the underlying snapshot.
 --
 -- 'launchPermission', 'modifyImageAttribute_launchPermission' - A new launch permission for the AMI.
 --
@@ -147,7 +174,7 @@ data ModifyImageAttribute = ModifyImageAttribute'
 -- when the @Attribute@ parameter is @launchPermission@.
 --
 -- 'value', 'modifyImageAttribute_value' - The value of the attribute being modified. This parameter can be used
--- only when the @Attribute@ parameter is @description@.
+-- only when the @Attribute@ parameter is @description@ or @imdsSupport@.
 --
 -- 'imageId', 'modifyImageAttribute_imageId' - The ID of the AMI.
 newModifyImageAttribute ::
@@ -159,6 +186,7 @@ newModifyImageAttribute pImageId_ =
     { attribute = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      imdsSupport = Prelude.Nothing,
       launchPermission = Prelude.Nothing,
       operationType = Prelude.Nothing,
       organizationArns = Prelude.Nothing,
@@ -172,7 +200,7 @@ newModifyImageAttribute pImageId_ =
 
 -- | The name of the attribute to modify.
 --
--- Valid values: @description@ | @launchPermission@
+-- Valid values: @description@ | @imdsSupport@ | @launchPermission@
 modifyImageAttribute_attribute :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Text)
 modifyImageAttribute_attribute = Lens.lens (\ModifyImageAttribute' {attribute} -> attribute) (\s@ModifyImageAttribute' {} a -> s {attribute = a} :: ModifyImageAttribute)
 
@@ -186,6 +214,20 @@ modifyImageAttribute_description = Lens.lens (\ModifyImageAttribute' {descriptio
 -- Otherwise, it is @UnauthorizedOperation@.
 modifyImageAttribute_dryRun :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Bool)
 modifyImageAttribute_dryRun = Lens.lens (\ModifyImageAttribute' {dryRun} -> dryRun) (\s@ModifyImageAttribute' {} a -> s {dryRun = a} :: ModifyImageAttribute)
+
+-- | Set to @v2.0@ to indicate that IMDSv2 is specified in the AMI. Instances
+-- launched from this AMI will have @HttpTokens@ automatically set to
+-- @required@ so that, by default, the instance requires that IMDSv2 is
+-- used when requesting instance metadata. In addition,
+-- @HttpPutResponseHopLimit@ is set to @2@. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration Configure the AMI>
+-- in the /Amazon EC2 User Guide/.
+--
+-- Do not use this parameter unless your AMI software supports IMDSv2.
+-- After you set the value to @v2.0@, you can\'t undo it. The only way to
+-- “reset” your AMI is to create a new AMI from the underlying snapshot.
+modifyImageAttribute_imdsSupport :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe AttributeValue)
+modifyImageAttribute_imdsSupport = Lens.lens (\ModifyImageAttribute' {imdsSupport} -> imdsSupport) (\s@ModifyImageAttribute' {} a -> s {imdsSupport = a} :: ModifyImageAttribute)
 
 -- | A new launch permission for the AMI.
 modifyImageAttribute_launchPermission :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe LaunchPermissionModifications)
@@ -222,7 +264,7 @@ modifyImageAttribute_userIds :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe [
 modifyImageAttribute_userIds = Lens.lens (\ModifyImageAttribute' {userIds} -> userIds) (\s@ModifyImageAttribute' {} a -> s {userIds = a} :: ModifyImageAttribute) Prelude.. Lens.mapping Lens.coerced
 
 -- | The value of the attribute being modified. This parameter can be used
--- only when the @Attribute@ parameter is @description@.
+-- only when the @Attribute@ parameter is @description@ or @imdsSupport@.
 modifyImageAttribute_value :: Lens.Lens' ModifyImageAttribute (Prelude.Maybe Prelude.Text)
 modifyImageAttribute_value = Lens.lens (\ModifyImageAttribute' {value} -> value) (\s@ModifyImageAttribute' {} a -> s {value = a} :: ModifyImageAttribute)
 
@@ -241,9 +283,11 @@ instance Core.AWSRequest ModifyImageAttribute where
 
 instance Prelude.Hashable ModifyImageAttribute where
   hashWithSalt _salt ModifyImageAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` imdsSupport
       `Prelude.hashWithSalt` launchPermission
       `Prelude.hashWithSalt` operationType
       `Prelude.hashWithSalt` organizationArns
@@ -259,6 +303,7 @@ instance Prelude.NFData ModifyImageAttribute where
     Prelude.rnf attribute
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf imdsSupport
       `Prelude.seq` Prelude.rnf launchPermission
       `Prelude.seq` Prelude.rnf operationType
       `Prelude.seq` Prelude.rnf organizationArns
@@ -285,6 +330,7 @@ instance Data.ToQuery ModifyImageAttribute where
         "Attribute" Data.=: attribute,
         "Description" Data.=: description,
         "DryRun" Data.=: dryRun,
+        "ImdsSupport" Data.=: imdsSupport,
         "LaunchPermission" Data.=: launchPermission,
         "OperationType" Data.=: operationType,
         Data.toQuery

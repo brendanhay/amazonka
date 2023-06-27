@@ -90,10 +90,12 @@ instance Core.AWSRequest BatchGetVpcEndpoint where
     Response.receiveJSON
       ( \s h x ->
           BatchGetVpcEndpointResponse'
-            Prelude.<$> ( x Data..?> "vpcEndpointDetails"
+            Prelude.<$> ( x
+                            Data..?> "vpcEndpointDetails"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "vpcEndpointErrorDetails"
+            Prelude.<*> ( x
+                            Data..?> "vpcEndpointErrorDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

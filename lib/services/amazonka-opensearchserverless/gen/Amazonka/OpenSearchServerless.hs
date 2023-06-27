@@ -36,8 +36,14 @@ module Amazonka.OpenSearchServerless
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** OcuLimitExceededException
+    _OcuLimitExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
 
     -- ** ValidationException
     _ValidationException,

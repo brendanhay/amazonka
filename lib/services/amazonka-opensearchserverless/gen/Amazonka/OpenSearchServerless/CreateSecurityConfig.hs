@@ -59,7 +59,8 @@ data CreateSecurityConfig = CreateSecurityConfig'
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | A description of the security configuration.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Describes SAML options in in the form of a key-value map.
+    -- | Describes SAML options in in the form of a key-value map. This field is
+    -- required if you specify @saml@ for the @type@ parameter.
     samlOptions :: Prelude.Maybe SamlConfigOptions,
     -- | The name of the security configuration.
     name :: Prelude.Text,
@@ -80,7 +81,8 @@ data CreateSecurityConfig = CreateSecurityConfig'
 --
 -- 'description', 'createSecurityConfig_description' - A description of the security configuration.
 --
--- 'samlOptions', 'createSecurityConfig_samlOptions' - Describes SAML options in in the form of a key-value map.
+-- 'samlOptions', 'createSecurityConfig_samlOptions' - Describes SAML options in in the form of a key-value map. This field is
+-- required if you specify @saml@ for the @type@ parameter.
 --
 -- 'name', 'createSecurityConfig_name' - The name of the security configuration.
 --
@@ -109,7 +111,8 @@ createSecurityConfig_clientToken = Lens.lens (\CreateSecurityConfig' {clientToke
 createSecurityConfig_description :: Lens.Lens' CreateSecurityConfig (Prelude.Maybe Prelude.Text)
 createSecurityConfig_description = Lens.lens (\CreateSecurityConfig' {description} -> description) (\s@CreateSecurityConfig' {} a -> s {description = a} :: CreateSecurityConfig)
 
--- | Describes SAML options in in the form of a key-value map.
+-- | Describes SAML options in in the form of a key-value map. This field is
+-- required if you specify @saml@ for the @type@ parameter.
 createSecurityConfig_samlOptions :: Lens.Lens' CreateSecurityConfig (Prelude.Maybe SamlConfigOptions)
 createSecurityConfig_samlOptions = Lens.lens (\CreateSecurityConfig' {samlOptions} -> samlOptions) (\s@CreateSecurityConfig' {} a -> s {samlOptions = a} :: CreateSecurityConfig)
 
@@ -137,7 +140,8 @@ instance Core.AWSRequest CreateSecurityConfig where
 
 instance Prelude.Hashable CreateSecurityConfig where
   hashWithSalt _salt CreateSecurityConfig' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` samlOptions
       `Prelude.hashWithSalt` name

@@ -22,7 +22,7 @@
 --
 -- Update the OpenSearch Serverless settings for the current Amazon Web
 -- Services account. For more information, see
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling Autoscaling>.
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html Managing capacity limits for Amazon OpenSearch Serverless>.
 module Amazonka.OpenSearchServerless.UpdateAccountSettings
   ( -- * Creating a Request
     UpdateAccountSettings (..),

@@ -103,7 +103,8 @@ instance Data.FromJSON CollectionErrorDetail where
 
 instance Prelude.Hashable CollectionErrorDetail where
   hashWithSalt _salt CollectionErrorDetail' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name

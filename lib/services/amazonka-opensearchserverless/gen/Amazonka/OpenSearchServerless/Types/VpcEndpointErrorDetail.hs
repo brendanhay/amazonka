@@ -85,7 +85,8 @@ instance Data.FromJSON VpcEndpointErrorDetail where
 
 instance Prelude.Hashable VpcEndpointErrorDetail where
   hashWithSalt _salt VpcEndpointErrorDetail' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` id
 

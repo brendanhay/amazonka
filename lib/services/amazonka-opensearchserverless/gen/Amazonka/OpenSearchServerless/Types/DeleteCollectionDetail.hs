@@ -85,7 +85,8 @@ instance Data.FromJSON DeleteCollectionDetail where
 
 instance Prelude.Hashable DeleteCollectionDetail where
   hashWithSalt _salt DeleteCollectionDetail' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

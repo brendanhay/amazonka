@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | The maximum capacity limits for all OpenSearch Serverless collections,
 -- in OpenSearch Compute Units (OCUs). These limits are used to scale your
 -- collections based on the current workload. For more information, see
--- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-scaling Autoscaling>.
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html Managing capacity limits for Amazon OpenSearch Serverless>.
 --
 -- /See:/ 'newCapacityLimits' smart constructor.
 data CapacityLimits = CapacityLimits'

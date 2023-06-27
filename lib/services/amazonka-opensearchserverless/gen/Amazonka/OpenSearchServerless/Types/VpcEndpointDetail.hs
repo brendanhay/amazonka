@@ -43,7 +43,7 @@ data VpcEndpointDetail = VpcEndpointDetail'
     status :: Prelude.Maybe VpcEndpointStatus,
     -- | The ID of the subnets from which you access OpenSearch Serverless.
     subnetIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The ID of the VPC from which you access OpenSearch Serverless
+    -- | The ID of the VPC from which you access OpenSearch Serverless.
     vpcId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +70,7 @@ data VpcEndpointDetail = VpcEndpointDetail'
 --
 -- 'subnetIds', 'vpcEndpointDetail_subnetIds' - The ID of the subnets from which you access OpenSearch Serverless.
 --
--- 'vpcId', 'vpcEndpointDetail_vpcId' - The ID of the VPC from which you access OpenSearch Serverless
+-- 'vpcId', 'vpcEndpointDetail_vpcId' - The ID of the VPC from which you access OpenSearch Serverless.
 newVpcEndpointDetail ::
   VpcEndpointDetail
 newVpcEndpointDetail =
@@ -110,7 +110,7 @@ vpcEndpointDetail_status = Lens.lens (\VpcEndpointDetail' {status} -> status) (\
 vpcEndpointDetail_subnetIds :: Lens.Lens' VpcEndpointDetail (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 vpcEndpointDetail_subnetIds = Lens.lens (\VpcEndpointDetail' {subnetIds} -> subnetIds) (\s@VpcEndpointDetail' {} a -> s {subnetIds = a} :: VpcEndpointDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the VPC from which you access OpenSearch Serverless
+-- | The ID of the VPC from which you access OpenSearch Serverless.
 vpcEndpointDetail_vpcId :: Lens.Lens' VpcEndpointDetail (Prelude.Maybe Prelude.Text)
 vpcEndpointDetail_vpcId = Lens.lens (\VpcEndpointDetail' {vpcId} -> vpcId) (\s@VpcEndpointDetail' {} a -> s {vpcId = a} :: VpcEndpointDetail)
 
@@ -131,7 +131,8 @@ instance Data.FromJSON VpcEndpointDetail where
 
 instance Prelude.Hashable VpcEndpointDetail where
   hashWithSalt _salt VpcEndpointDetail' {..} =
-    _salt `Prelude.hashWithSalt` createdDate
+    _salt
+      `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` securityGroupIds

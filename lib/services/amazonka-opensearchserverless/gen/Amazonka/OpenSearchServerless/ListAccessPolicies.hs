@@ -62,7 +62,7 @@ data ListAccessPolicies = ListAccessPolicies'
     -- you can include the returned @nextToken@ in subsequent
     -- @ListAccessPolicies@ operations, which returns results in the next page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Resource filters (can be collection or indexes) that policies can apply
+    -- | Resource filters (can be collections or indexes) that policies can apply
     -- to.
     resource :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The type of access policy.
@@ -86,7 +86,7 @@ data ListAccessPolicies = ListAccessPolicies'
 -- you can include the returned @nextToken@ in subsequent
 -- @ListAccessPolicies@ operations, which returns results in the next page.
 --
--- 'resource', 'listAccessPolicies_resource' - Resource filters (can be collection or indexes) that policies can apply
+-- 'resource', 'listAccessPolicies_resource' - Resource filters (can be collections or indexes) that policies can apply
 -- to.
 --
 -- 'type'', 'listAccessPolicies_type' - The type of access policy.
@@ -114,7 +114,7 @@ listAccessPolicies_maxResults = Lens.lens (\ListAccessPolicies' {maxResults} -> 
 listAccessPolicies_nextToken :: Lens.Lens' ListAccessPolicies (Prelude.Maybe Prelude.Text)
 listAccessPolicies_nextToken = Lens.lens (\ListAccessPolicies' {nextToken} -> nextToken) (\s@ListAccessPolicies' {} a -> s {nextToken = a} :: ListAccessPolicies)
 
--- | Resource filters (can be collection or indexes) that policies can apply
+-- | Resource filters (can be collections or indexes) that policies can apply
 -- to.
 listAccessPolicies_resource :: Lens.Lens' ListAccessPolicies (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listAccessPolicies_resource = Lens.lens (\ListAccessPolicies' {resource} -> resource) (\s@ListAccessPolicies' {} a -> s {resource = a} :: ListAccessPolicies) Prelude.. Lens.mapping Lens.coerced
@@ -133,7 +133,8 @@ instance Core.AWSRequest ListAccessPolicies where
     Response.receiveJSON
       ( \s h x ->
           ListAccessPoliciesResponse'
-            Prelude.<$> ( x Data..?> "accessPolicySummaries"
+            Prelude.<$> ( x
+                            Data..?> "accessPolicySummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -142,7 +143,8 @@ instance Core.AWSRequest ListAccessPolicies where
 
 instance Prelude.Hashable ListAccessPolicies where
   hashWithSalt _salt ListAccessPolicies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resource
       `Prelude.hashWithSalt` type'

@@ -31,8 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data SamlConfigOptions = SamlConfigOptions'
   { -- | The group attribute for this SAML integration.
     groupAttribute :: Prelude.Maybe Prelude.Text,
-    -- | The session timeout, in minutes. Minimum is 15 minutes and maximum is
-    -- 1440 minutes (24 hours or 1 day). Default is 60 minutes.
+    -- | The session timeout, in minutes. Default is 60 minutes (12 hours).
     sessionTimeout :: Prelude.Maybe Prelude.Natural,
     -- | A user attribute for this SAML integration.
     userAttribute :: Prelude.Maybe Prelude.Text,
@@ -51,8 +50,7 @@ data SamlConfigOptions = SamlConfigOptions'
 --
 -- 'groupAttribute', 'samlConfigOptions_groupAttribute' - The group attribute for this SAML integration.
 --
--- 'sessionTimeout', 'samlConfigOptions_sessionTimeout' - The session timeout, in minutes. Minimum is 15 minutes and maximum is
--- 1440 minutes (24 hours or 1 day). Default is 60 minutes.
+-- 'sessionTimeout', 'samlConfigOptions_sessionTimeout' - The session timeout, in minutes. Default is 60 minutes (12 hours).
 --
 -- 'userAttribute', 'samlConfigOptions_userAttribute' - A user attribute for this SAML integration.
 --
@@ -74,8 +72,7 @@ newSamlConfigOptions pMetadata_ =
 samlConfigOptions_groupAttribute :: Lens.Lens' SamlConfigOptions (Prelude.Maybe Prelude.Text)
 samlConfigOptions_groupAttribute = Lens.lens (\SamlConfigOptions' {groupAttribute} -> groupAttribute) (\s@SamlConfigOptions' {} a -> s {groupAttribute = a} :: SamlConfigOptions)
 
--- | The session timeout, in minutes. Minimum is 15 minutes and maximum is
--- 1440 minutes (24 hours or 1 day). Default is 60 minutes.
+-- | The session timeout, in minutes. Default is 60 minutes (12 hours).
 samlConfigOptions_sessionTimeout :: Lens.Lens' SamlConfigOptions (Prelude.Maybe Prelude.Natural)
 samlConfigOptions_sessionTimeout = Lens.lens (\SamlConfigOptions' {sessionTimeout} -> sessionTimeout) (\s@SamlConfigOptions' {} a -> s {sessionTimeout = a} :: SamlConfigOptions)
 
@@ -101,7 +98,8 @@ instance Data.FromJSON SamlConfigOptions where
 
 instance Prelude.Hashable SamlConfigOptions where
   hashWithSalt _salt SamlConfigOptions' {..} =
-    _salt `Prelude.hashWithSalt` groupAttribute
+    _salt
+      `Prelude.hashWithSalt` groupAttribute
       `Prelude.hashWithSalt` sessionTimeout
       `Prelude.hashWithSalt` userAttribute
       `Prelude.hashWithSalt` metadata

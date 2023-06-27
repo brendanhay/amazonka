@@ -20,7 +20,9 @@ module Amazonka.OpenSearchServerless.Types
     -- * Errors
     _ConflictException,
     _InternalServerException,
+    _OcuLimitExceededException,
     _ResourceNotFoundException,
+    _ServiceQuotaExceededException,
     _ValidationException,
 
     -- * AccessPolicyType
@@ -340,54 +342,54 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
--- | When creating a collection, thrown when a collection with the same name
--- already exists or is being created. When deleting a collection, thrown
--- when the collection is not in the ACTIVE or FAILED state.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+-- | When creating a resource, thrown when a resource with the same name
+-- already exists or is being created. When deleting a resource, thrown
+-- when the resource is not in the ACTIVE or FAILED state.
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -395,22 +397,37 @@ _ConflictException =
 
 -- | Thrown when an error internal to the service occurs while processing a
 -- request.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
     "InternalServerException"
 
+-- | OCU Limit Exceeded for service limits
+_OcuLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_OcuLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "OcuLimitExceededException"
+
 -- | Thrown when accessing or deleting a resource that does not exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
+-- | Thrown when you attempt to create more resources than the service allows
+-- based on service quotas.
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+
 -- | Thrown when the HTTP request contains invalid input or is missing
 -- required input.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

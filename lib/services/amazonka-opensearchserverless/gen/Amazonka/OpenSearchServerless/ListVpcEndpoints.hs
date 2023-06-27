@@ -126,7 +126,8 @@ instance Core.AWSRequest ListVpcEndpoints where
       ( \s h x ->
           ListVpcEndpointsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "vpcEndpointSummaries"
+            Prelude.<*> ( x
+                            Data..?> "vpcEndpointSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -134,7 +135,8 @@ instance Core.AWSRequest ListVpcEndpoints where
 
 instance Prelude.Hashable ListVpcEndpoints where
   hashWithSalt _salt ListVpcEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vpcEndpointFilters
 

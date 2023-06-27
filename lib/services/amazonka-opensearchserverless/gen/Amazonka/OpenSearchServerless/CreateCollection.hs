@@ -137,7 +137,8 @@ instance Core.AWSRequest CreateCollection where
 
 instance Prelude.Hashable CreateCollection where
   hashWithSalt _salt CreateCollection' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` type'

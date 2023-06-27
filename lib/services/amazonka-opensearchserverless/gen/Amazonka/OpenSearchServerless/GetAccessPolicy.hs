@@ -103,7 +103,8 @@ instance Core.AWSRequest GetAccessPolicy where
 
 instance Prelude.Hashable GetAccessPolicy where
   hashWithSalt _salt GetAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData GetAccessPolicy where

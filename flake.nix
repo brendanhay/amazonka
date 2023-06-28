@@ -48,7 +48,7 @@
         ghc94 = pkgs.haskell.packages."ghc94";
         ghc96 = pkgs.haskell.packages."ghc96";
 
-        # The default ghc to use when entering `nix develop` and building amazonka-gen.
+        # The default ghc to use when entering `nix develop`.
         ghcDefault = ghc94;
 
         renameVersion = version: "ghc" + (pkgs.lib.replaceStrings [ "." ] [ "" ] version);
@@ -92,12 +92,22 @@
         };
 
         amazonka-gen =
-          ghcDefault.developPackage {
+          # Use ghc92 because we want hashable ==1.3.* for actual
+          # generation and the ghc-bignum dep is inside a conditional,
+          # so doJailbreak won't work.
+          #
+          # We need hashable-1.3 for generation because hashable >=1.4
+          # uses a different hashing algorithm which breaks things by
+          # causing the contents of `HashMap`s to be traversed in a
+          # slightly different order. This matters when `Ptr`s are
+          # used to resolve recursive shape references.
+          ghc92.developPackage {
             root = ./gen;
-            overrides = _hsFinal: hsPrev: {
-              ede = pkgs.haskell.lib.dontCheck (pkgs.haskell.lib.dontHaddock hsPrev.ede);
-              pandoc = pkgs.haskell.lib.dontHaddock hsPrev.pandoc;
-              string-qq = pkgs.haskell.lib.dontCheck hsPrev.string-qq;
+            overrides = _hsFinal: hsPrev: with pkgs.haskell.lib; {
+              ede = dontCheck (dontHaddock hsPrev.ede);
+              hashable = hsPrev.callHackage "hashable" "1.3.5.0" { };
+              pandoc = dontHaddock hsPrev.pandoc;
+              string-qq = dontCheck hsPrev.string-qq;
             };
           };
 

@@ -98,7 +98,8 @@ instance Core.AWSRequest ListProvisionedCapacity where
     Response.receiveJSON
       ( \s h x ->
           ListProvisionedCapacityResponse'
-            Prelude.<$> ( x Data..?> "ProvisionedCapacityList"
+            Prelude.<$> ( x
+                            Data..?> "ProvisionedCapacityList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

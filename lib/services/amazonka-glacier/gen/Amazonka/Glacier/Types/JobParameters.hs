@@ -220,7 +220,8 @@ jobParameters_type = Lens.lens (\JobParameters' {type'} -> type') (\s@JobParamet
 
 instance Prelude.Hashable JobParameters where
   hashWithSalt _salt JobParameters' {..} =
-    _salt `Prelude.hashWithSalt` archiveId
+    _salt
+      `Prelude.hashWithSalt` archiveId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` inventoryRetrievalParameters

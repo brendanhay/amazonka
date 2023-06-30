@@ -98,7 +98,8 @@ instance Data.FromJSON Encryption where
 
 instance Prelude.Hashable Encryption where
   hashWithSalt _salt Encryption' {..} =
-    _salt `Prelude.hashWithSalt` encryptionType
+    _salt
+      `Prelude.hashWithSalt` encryptionType
       `Prelude.hashWithSalt` kmsContext
       `Prelude.hashWithSalt` kmsKeyId
 

@@ -135,7 +135,8 @@ instance Core.AWSRequest InitiateJob where
 
 instance Prelude.Hashable InitiateJob where
   hashWithSalt _salt InitiateJob' {..} =
-    _salt `Prelude.hashWithSalt` jobParameters
+    _salt
+      `Prelude.hashWithSalt` jobParameters
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 

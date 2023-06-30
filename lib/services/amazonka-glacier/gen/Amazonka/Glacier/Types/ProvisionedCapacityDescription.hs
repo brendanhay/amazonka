@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     ProvisionedCapacityDescription' {..} =
-      _salt `Prelude.hashWithSalt` capacityId
+      _salt
+        `Prelude.hashWithSalt` capacityId
         `Prelude.hashWithSalt` expirationDate
         `Prelude.hashWithSalt` startDate
 

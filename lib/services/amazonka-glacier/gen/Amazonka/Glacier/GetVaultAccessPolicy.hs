@@ -125,7 +125,8 @@ instance Core.AWSRequest GetVaultAccessPolicy where
 
 instance Prelude.Hashable GetVaultAccessPolicy where
   hashWithSalt _salt GetVaultAccessPolicy' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData GetVaultAccessPolicy where

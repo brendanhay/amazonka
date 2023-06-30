@@ -124,7 +124,8 @@ instance Core.AWSRequest RemoveTagsFromVault where
 
 instance Prelude.Hashable RemoveTagsFromVault where
   hashWithSalt _salt RemoveTagsFromVault' {..} =
-    _salt `Prelude.hashWithSalt` tagKeys
+    _salt
+      `Prelude.hashWithSalt` tagKeys
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 

@@ -110,7 +110,8 @@ inventoryRetrievalJobInput_startDate = Lens.lens (\InventoryRetrievalJobInput' {
 
 instance Prelude.Hashable InventoryRetrievalJobInput where
   hashWithSalt _salt InventoryRetrievalJobInput' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` startDate

@@ -130,7 +130,8 @@ instance Core.AWSRequest AbortVaultLock where
 
 instance Prelude.Hashable AbortVaultLock where
   hashWithSalt _salt AbortVaultLock' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` vaultName
 
 instance Prelude.NFData AbortVaultLock where

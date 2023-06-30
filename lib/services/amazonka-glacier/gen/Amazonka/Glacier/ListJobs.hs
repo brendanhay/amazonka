@@ -207,20 +207,23 @@ instance Core.AWSPager ListJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listJobsResponse_marker Prelude.. Lens._Just
+            Lens.^? listJobsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listJobsResponse_jobList Prelude.. Lens._Just
+            Lens.^? listJobsResponse_jobList
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listJobs_marker
           Lens..~ rs
-          Lens.^? listJobsResponse_marker Prelude.. Lens._Just
+          Lens.^? listJobsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListJobs where
   type AWSResponse ListJobs = ListJobsResponse
@@ -238,7 +241,8 @@ instance Core.AWSRequest ListJobs where
 
 instance Prelude.Hashable ListJobs where
   hashWithSalt _salt ListJobs' {..} =
-    _salt `Prelude.hashWithSalt` completed
+    _salt
+      `Prelude.hashWithSalt` completed
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` statuscode

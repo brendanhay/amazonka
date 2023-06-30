@@ -80,7 +80,8 @@ instance Data.FromJSON VaultNotificationConfig where
 
 instance Prelude.Hashable VaultNotificationConfig where
   hashWithSalt _salt VaultNotificationConfig' {..} =
-    _salt `Prelude.hashWithSalt` events
+    _salt
+      `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` sNSTopic
 
 instance Prelude.NFData VaultNotificationConfig where

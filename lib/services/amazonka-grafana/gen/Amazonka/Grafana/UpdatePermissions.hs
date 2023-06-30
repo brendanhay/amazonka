@@ -104,7 +104,8 @@ instance Core.AWSRequest UpdatePermissions where
 
 instance Prelude.Hashable UpdatePermissions where
   hashWithSalt _salt UpdatePermissions' {..} =
-    _salt `Prelude.hashWithSalt` updateInstructionBatch
+    _salt
+      `Prelude.hashWithSalt` updateInstructionBatch
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData UpdatePermissions where

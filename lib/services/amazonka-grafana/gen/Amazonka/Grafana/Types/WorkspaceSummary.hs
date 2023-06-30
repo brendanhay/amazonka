@@ -185,7 +185,8 @@ instance Data.FromJSON WorkspaceSummary where
           WorkspaceSummary'
             Prelude.<$> (x Data..:? "description")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> ( x Data..:? "notificationDestinations"
+            Prelude.<*> ( x
+                            Data..:? "notificationDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "tags" Data..!= Prelude.mempty)
@@ -200,7 +201,8 @@ instance Data.FromJSON WorkspaceSummary where
 
 instance Prelude.Hashable WorkspaceSummary where
   hashWithSalt _salt WorkspaceSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` notificationDestinations
       `Prelude.hashWithSalt` tags

@@ -123,7 +123,8 @@ instance Data.FromJSON SamlConfiguration where
       "SamlConfiguration"
       ( \x ->
           SamlConfiguration'
-            Prelude.<$> ( x Data..:? "allowedOrganizations"
+            Prelude.<$> ( x
+                            Data..:? "allowedOrganizations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "assertionAttributes")
@@ -134,7 +135,8 @@ instance Data.FromJSON SamlConfiguration where
 
 instance Prelude.Hashable SamlConfiguration where
   hashWithSalt _salt SamlConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` allowedOrganizations
+    _salt
+      `Prelude.hashWithSalt` allowedOrganizations
       `Prelude.hashWithSalt` assertionAttributes
       `Prelude.hashWithSalt` loginValidityDuration
       `Prelude.hashWithSalt` roleValues

@@ -106,7 +106,8 @@ instance Core.AWSRequest AssociateLicense where
 
 instance Prelude.Hashable AssociateLicense where
   hashWithSalt _salt AssociateLicense' {..} =
-    _salt `Prelude.hashWithSalt` licenseType
+    _salt
+      `Prelude.hashWithSalt` licenseType
       `Prelude.hashWithSalt` workspaceId
 
 instance Prelude.NFData AssociateLicense where

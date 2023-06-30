@@ -141,7 +141,8 @@ instance
     UpdateWorkspaceAuthentication
   where
   hashWithSalt _salt UpdateWorkspaceAuthentication' {..} =
-    _salt `Prelude.hashWithSalt` samlConfiguration
+    _salt
+      `Prelude.hashWithSalt` samlConfiguration
       `Prelude.hashWithSalt` authenticationProviders
       `Prelude.hashWithSalt` workspaceId
 

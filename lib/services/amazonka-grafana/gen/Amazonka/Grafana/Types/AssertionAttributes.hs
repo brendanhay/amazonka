@@ -134,7 +134,8 @@ instance Data.FromJSON AssertionAttributes where
 
 instance Prelude.Hashable AssertionAttributes where
   hashWithSalt _salt AssertionAttributes' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` login
       `Prelude.hashWithSalt` name

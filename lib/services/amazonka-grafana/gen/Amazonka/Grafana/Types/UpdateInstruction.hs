@@ -99,7 +99,8 @@ instance Data.FromJSON UpdateInstruction where
 
 instance Prelude.Hashable UpdateInstruction where
   hashWithSalt _salt UpdateInstruction' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` users
 

@@ -72,12 +72,14 @@ instance Data.FromJSON IdpMetadata where
       "IdpMetadata"
       ( \x ->
           IdpMetadata'
-            Prelude.<$> (x Data..:? "url") Prelude.<*> (x Data..:? "xml")
+            Prelude.<$> (x Data..:? "url")
+            Prelude.<*> (x Data..:? "xml")
       )
 
 instance Prelude.Hashable IdpMetadata where
   hashWithSalt _salt IdpMetadata' {..} =
-    _salt `Prelude.hashWithSalt` url
+    _salt
+      `Prelude.hashWithSalt` url
       `Prelude.hashWithSalt` xml
 
 instance Prelude.NFData IdpMetadata where

@@ -397,11 +397,13 @@ instance Data.FromJSON WorkspaceDescription where
             Prelude.<*> (x Data..:? "licenseExpiration")
             Prelude.<*> (x Data..:? "licenseType")
             Prelude.<*> (x Data..:? "name")
-            Prelude.<*> ( x Data..:? "notificationDestinations"
+            Prelude.<*> ( x
+                            Data..:? "notificationDestinations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "organizationRoleName")
-            Prelude.<*> ( x Data..:? "organizationalUnits"
+            Prelude.<*> ( x
+                            Data..:? "organizationalUnits"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "permissionType")
@@ -421,7 +423,8 @@ instance Data.FromJSON WorkspaceDescription where
 
 instance Prelude.Hashable WorkspaceDescription where
   hashWithSalt _salt WorkspaceDescription' {..} =
-    _salt `Prelude.hashWithSalt` accountAccessType
+    _salt
+      `Prelude.hashWithSalt` accountAccessType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` freeTrialConsumed
       `Prelude.hashWithSalt` freeTrialExpiration

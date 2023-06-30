@@ -81,7 +81,8 @@ instance Data.FromJSON ExportTaskExecutionInfo where
 
 instance Prelude.Hashable ExportTaskExecutionInfo where
   hashWithSalt _salt ExportTaskExecutionInfo' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` creationTime
 
 instance Prelude.NFData ExportTaskExecutionInfo where

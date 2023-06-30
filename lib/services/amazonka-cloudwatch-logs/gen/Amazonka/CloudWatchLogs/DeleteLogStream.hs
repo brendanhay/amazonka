@@ -96,7 +96,8 @@ instance Core.AWSRequest DeleteLogStream where
 
 instance Prelude.Hashable DeleteLogStream where
   hashWithSalt _salt DeleteLogStream' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logStreamName
 
 instance Prelude.NFData DeleteLogStream where

@@ -245,7 +245,8 @@ instance Core.AWSRequest StartQuery where
 
 instance Prelude.Hashable StartQuery where
   hashWithSalt _salt StartQuery' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` logGroupIdentifiers
       `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logGroupNames

@@ -320,16 +320,16 @@ instance Core.AWSPager FilterLogEvents where
     | Core.stop
         ( rs
             Lens.^? filterLogEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& filterLogEvents_nextToken
           Lens..~ rs
           Lens.^? filterLogEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest FilterLogEvents where
   type
@@ -343,7 +343,8 @@ instance Core.AWSRequest FilterLogEvents where
           FilterLogEventsResponse'
             Prelude.<$> (x Data..?> "events" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "searchedLogStreams"
+            Prelude.<*> ( x
+                            Data..?> "searchedLogStreams"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -351,7 +352,8 @@ instance Core.AWSRequest FilterLogEvents where
 
 instance Prelude.Hashable FilterLogEvents where
   hashWithSalt _salt FilterLogEvents' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` filterPattern
       `Prelude.hashWithSalt` interleaved
       `Prelude.hashWithSalt` limit

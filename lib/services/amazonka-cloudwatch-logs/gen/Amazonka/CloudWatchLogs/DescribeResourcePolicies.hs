@@ -94,22 +94,22 @@ instance Core.AWSPager DescribeResourcePolicies where
     | Core.stop
         ( rs
             Lens.^? describeResourcePoliciesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeResourcePoliciesResponse_resourcePolicies
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeResourcePolicies_nextToken
           Lens..~ rs
           Lens.^? describeResourcePoliciesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeResourcePolicies where
   type
@@ -122,7 +122,8 @@ instance Core.AWSRequest DescribeResourcePolicies where
       ( \s h x ->
           DescribeResourcePoliciesResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "resourcePolicies"
+            Prelude.<*> ( x
+                            Data..?> "resourcePolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -130,7 +131,8 @@ instance Core.AWSRequest DescribeResourcePolicies where
 
 instance Prelude.Hashable DescribeResourcePolicies where
   hashWithSalt _salt DescribeResourcePolicies' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeResourcePolicies where

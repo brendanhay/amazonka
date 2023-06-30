@@ -225,7 +225,8 @@ instance Core.AWSRequest PutDataProtectionPolicy where
 
 instance Prelude.Hashable PutDataProtectionPolicy where
   hashWithSalt _salt PutDataProtectionPolicy' {..} =
-    _salt `Prelude.hashWithSalt` logGroupIdentifier
+    _salt
+      `Prelude.hashWithSalt` logGroupIdentifier
       `Prelude.hashWithSalt` policyDocument
 
 instance Prelude.NFData PutDataProtectionPolicy where

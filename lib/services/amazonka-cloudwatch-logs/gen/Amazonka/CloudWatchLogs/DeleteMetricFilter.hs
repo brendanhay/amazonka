@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteMetricFilter where
 
 instance Prelude.Hashable DeleteMetricFilter where
   hashWithSalt _salt DeleteMetricFilter' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` filterName
 
 instance Prelude.NFData DeleteMetricFilter where

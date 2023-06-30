@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateLogGroup where
 
 instance Prelude.Hashable CreateLogGroup where
   hashWithSalt _salt CreateLogGroup' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` logGroupName
 

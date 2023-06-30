@@ -109,7 +109,8 @@ instance Core.AWSRequest CreateLogStream where
 
 instance Prelude.Hashable CreateLogStream where
   hashWithSalt _salt CreateLogStream' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logStreamName
 
 instance Prelude.NFData CreateLogStream where

@@ -168,7 +168,8 @@ instance Core.AWSRequest GetLogGroupFields where
 
 instance Prelude.Hashable GetLogGroupFields where
   hashWithSalt _salt GetLogGroupFields' {..} =
-    _salt `Prelude.hashWithSalt` logGroupIdentifier
+    _salt
+      `Prelude.hashWithSalt` logGroupIdentifier
       `Prelude.hashWithSalt` time
       `Prelude.hashWithSalt` logGroupName
 

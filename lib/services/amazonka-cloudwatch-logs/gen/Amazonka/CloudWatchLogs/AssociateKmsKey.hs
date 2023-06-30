@@ -125,7 +125,8 @@ instance Core.AWSRequest AssociateKmsKey where
 
 instance Prelude.Hashable AssociateKmsKey where
   hashWithSalt _salt AssociateKmsKey' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData AssociateKmsKey where

@@ -192,7 +192,8 @@ instance Data.FromJSON LogStream where
 
 instance Prelude.Hashable LogStream where
   hashWithSalt _salt LogStream' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` firstEventTimestamp
       `Prelude.hashWithSalt` lastEventTimestamp

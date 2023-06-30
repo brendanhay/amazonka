@@ -104,7 +104,6 @@ subscriptionFilter_filterPattern = Lens.lens (\SubscriptionFilter' {filterPatter
 subscriptionFilter_logGroupName :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
 subscriptionFilter_logGroupName = Lens.lens (\SubscriptionFilter' {logGroupName} -> logGroupName) (\s@SubscriptionFilter' {} a -> s {logGroupName = a} :: SubscriptionFilter)
 
--- |
 subscriptionFilter_roleArn :: Lens.Lens' SubscriptionFilter (Prelude.Maybe Prelude.Text)
 subscriptionFilter_roleArn = Lens.lens (\SubscriptionFilter' {roleArn} -> roleArn) (\s@SubscriptionFilter' {} a -> s {roleArn = a} :: SubscriptionFilter)
 
@@ -125,7 +124,8 @@ instance Data.FromJSON SubscriptionFilter where
 
 instance Prelude.Hashable SubscriptionFilter where
   hashWithSalt _salt SubscriptionFilter' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` distribution
       `Prelude.hashWithSalt` filterName

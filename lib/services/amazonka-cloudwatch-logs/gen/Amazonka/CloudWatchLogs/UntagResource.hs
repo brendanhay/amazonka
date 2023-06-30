@@ -49,10 +49,10 @@ data UntagResource = UntagResource'
   { -- | The ARN of the CloudWatch Logs resource that you\'re removing tags from.
     --
     -- The ARN format of a log group is
-    -- @arn:aws:logs:Region:account-id:log-group:log-group-name @
+    -- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:log-group:@/@log-group-name@/@ @
     --
     -- The ARN format of a destination is
-    -- @arn:aws:logs:Region:account-id:destination:destination-name @
+    -- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:destination:@/@destination-name@/@ @
     --
     -- For more information about ARN format, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -73,10 +73,10 @@ data UntagResource = UntagResource'
 -- 'resourceArn', 'untagResource_resourceArn' - The ARN of the CloudWatch Logs resource that you\'re removing tags from.
 --
 -- The ARN format of a log group is
--- @arn:aws:logs:Region:account-id:log-group:log-group-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:log-group:@/@log-group-name@/@ @
 --
 -- The ARN format of a destination is
--- @arn:aws:logs:Region:account-id:destination:destination-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:destination:@/@destination-name@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -95,10 +95,10 @@ newUntagResource pResourceArn_ =
 -- | The ARN of the CloudWatch Logs resource that you\'re removing tags from.
 --
 -- The ARN format of a log group is
--- @arn:aws:logs:Region:account-id:log-group:log-group-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:log-group:@/@log-group-name@/@ @
 --
 -- The ARN format of a destination is
--- @arn:aws:logs:Region:account-id:destination:destination-name @
+-- @arn:aws:logs:@/@Region@/@:@/@account-id@/@:destination:@/@destination-name@/@ @
 --
 -- For more information about ARN format, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html CloudWatch Logs resources and operations>.
@@ -120,7 +120,8 @@ instance Core.AWSRequest UntagResource where
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResource where

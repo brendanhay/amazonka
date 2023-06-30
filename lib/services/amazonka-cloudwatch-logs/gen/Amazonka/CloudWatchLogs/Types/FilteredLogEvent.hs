@@ -110,7 +110,8 @@ instance Data.FromJSON FilteredLogEvent where
 
 instance Prelude.Hashable FilteredLogEvent where
   hashWithSalt _salt FilteredLogEvent' {..} =
-    _salt `Prelude.hashWithSalt` eventId
+    _salt
+      `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` ingestionTime
       `Prelude.hashWithSalt` logStreamName
       `Prelude.hashWithSalt` message

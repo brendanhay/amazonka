@@ -55,11 +55,9 @@ newOutputResolutionStackInput =
       userDefined = Prelude.Nothing
     }
 
--- |
 outputResolutionStackInput_predefined :: Lens.Lens' OutputResolutionStackInput (Prelude.Maybe PredefinedResolution)
 outputResolutionStackInput_predefined = Lens.lens (\OutputResolutionStackInput' {predefined} -> predefined) (\s@OutputResolutionStackInput' {} a -> s {predefined = a} :: OutputResolutionStackInput)
 
--- |
 outputResolutionStackInput_userDefined :: Lens.Lens' OutputResolutionStackInput (Prelude.Maybe UserDefined)
 outputResolutionStackInput_userDefined = Lens.lens (\OutputResolutionStackInput' {userDefined} -> userDefined) (\s@OutputResolutionStackInput' {} a -> s {userDefined = a} :: OutputResolutionStackInput)
 
@@ -75,7 +73,8 @@ instance Data.FromJSON OutputResolutionStackInput where
 
 instance Prelude.Hashable OutputResolutionStackInput where
   hashWithSalt _salt OutputResolutionStackInput' {..} =
-    _salt `Prelude.hashWithSalt` predefined
+    _salt
+      `Prelude.hashWithSalt` predefined
       `Prelude.hashWithSalt` userDefined
 
 instance Prelude.NFData OutputResolutionStackInput where

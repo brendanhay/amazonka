@@ -52,7 +52,6 @@ newExportVectorEnrichmentJobOutputConfig pS3Data_ =
         pS3Data_
     }
 
--- |
 exportVectorEnrichmentJobOutputConfig_s3Data :: Lens.Lens' ExportVectorEnrichmentJobOutputConfig VectorEnrichmentJobS3Data
 exportVectorEnrichmentJobOutputConfig_s3Data = Lens.lens (\ExportVectorEnrichmentJobOutputConfig' {s3Data} -> s3Data) (\s@ExportVectorEnrichmentJobOutputConfig' {} a -> s {s3Data = a} :: ExportVectorEnrichmentJobOutputConfig)
 

@@ -50,7 +50,6 @@ newVectorEnrichmentJobDataSourceConfigInput =
         Prelude.Nothing
     }
 
--- |
 vectorEnrichmentJobDataSourceConfigInput_s3Data :: Lens.Lens' VectorEnrichmentJobDataSourceConfigInput (Prelude.Maybe VectorEnrichmentJobS3Data)
 vectorEnrichmentJobDataSourceConfigInput_s3Data = Lens.lens (\VectorEnrichmentJobDataSourceConfigInput' {s3Data} -> s3Data) (\s@VectorEnrichmentJobDataSourceConfigInput' {} a -> s {s3Data = a} :: VectorEnrichmentJobDataSourceConfigInput)
 

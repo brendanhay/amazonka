@@ -55,11 +55,9 @@ newAreaOfInterestGeometry =
       polygonGeometry = Prelude.Nothing
     }
 
--- |
 areaOfInterestGeometry_multiPolygonGeometry :: Lens.Lens' AreaOfInterestGeometry (Prelude.Maybe MultiPolygonGeometryInput)
 areaOfInterestGeometry_multiPolygonGeometry = Lens.lens (\AreaOfInterestGeometry' {multiPolygonGeometry} -> multiPolygonGeometry) (\s@AreaOfInterestGeometry' {} a -> s {multiPolygonGeometry = a} :: AreaOfInterestGeometry)
 
--- |
 areaOfInterestGeometry_polygonGeometry :: Lens.Lens' AreaOfInterestGeometry (Prelude.Maybe PolygonGeometryInput)
 areaOfInterestGeometry_polygonGeometry = Lens.lens (\AreaOfInterestGeometry' {polygonGeometry} -> polygonGeometry) (\s@AreaOfInterestGeometry' {} a -> s {polygonGeometry = a} :: AreaOfInterestGeometry)
 
@@ -75,7 +73,8 @@ instance Data.FromJSON AreaOfInterestGeometry where
 
 instance Prelude.Hashable AreaOfInterestGeometry where
   hashWithSalt _salt AreaOfInterestGeometry' {..} =
-    _salt `Prelude.hashWithSalt` multiPolygonGeometry
+    _salt
+      `Prelude.hashWithSalt` multiPolygonGeometry
       `Prelude.hashWithSalt` polygonGeometry
 
 instance Prelude.NFData AreaOfInterestGeometry where

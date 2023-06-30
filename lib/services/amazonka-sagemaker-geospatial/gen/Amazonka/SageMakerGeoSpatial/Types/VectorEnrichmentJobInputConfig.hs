@@ -61,11 +61,9 @@ newVectorEnrichmentJobInputConfig
         documentType = pDocumentType_
       }
 
--- |
 vectorEnrichmentJobInputConfig_dataSourceConfig :: Lens.Lens' VectorEnrichmentJobInputConfig VectorEnrichmentJobDataSourceConfigInput
 vectorEnrichmentJobInputConfig_dataSourceConfig = Lens.lens (\VectorEnrichmentJobInputConfig' {dataSourceConfig} -> dataSourceConfig) (\s@VectorEnrichmentJobInputConfig' {} a -> s {dataSourceConfig = a} :: VectorEnrichmentJobInputConfig)
 
--- |
 vectorEnrichmentJobInputConfig_documentType :: Lens.Lens' VectorEnrichmentJobInputConfig VectorEnrichmentJobDocumentType
 vectorEnrichmentJobInputConfig_documentType = Lens.lens (\VectorEnrichmentJobInputConfig' {documentType} -> documentType) (\s@VectorEnrichmentJobInputConfig' {} a -> s {documentType = a} :: VectorEnrichmentJobInputConfig)
 
@@ -86,7 +84,8 @@ instance
   hashWithSalt
     _salt
     VectorEnrichmentJobInputConfig' {..} =
-      _salt `Prelude.hashWithSalt` dataSourceConfig
+      _salt
+        `Prelude.hashWithSalt` dataSourceConfig
         `Prelude.hashWithSalt` documentType
 
 instance

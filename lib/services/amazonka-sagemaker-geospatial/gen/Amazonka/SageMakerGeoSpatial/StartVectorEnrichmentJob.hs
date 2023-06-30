@@ -190,7 +190,8 @@ instance Core.AWSRequest StartVectorEnrichmentJob where
 
 instance Prelude.Hashable StartVectorEnrichmentJob where
   hashWithSalt _salt StartVectorEnrichmentJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` executionRoleArn

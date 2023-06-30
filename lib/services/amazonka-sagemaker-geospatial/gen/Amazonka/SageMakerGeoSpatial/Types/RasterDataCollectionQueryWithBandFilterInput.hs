@@ -71,19 +71,15 @@ newRasterDataCollectionQueryWithBandFilterInput
             Lens.# pTimeRangeFilter_
       }
 
--- |
 rasterDataCollectionQueryWithBandFilterInput_areaOfInterest :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput (Prelude.Maybe AreaOfInterest)
 rasterDataCollectionQueryWithBandFilterInput_areaOfInterest = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {areaOfInterest} -> areaOfInterest) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {areaOfInterest = a} :: RasterDataCollectionQueryWithBandFilterInput)
 
--- |
 rasterDataCollectionQueryWithBandFilterInput_bandFilter :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 rasterDataCollectionQueryWithBandFilterInput_bandFilter = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {bandFilter} -> bandFilter) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {bandFilter = a} :: RasterDataCollectionQueryWithBandFilterInput) Prelude.. Lens.mapping Lens.coerced
 
--- |
 rasterDataCollectionQueryWithBandFilterInput_propertyFilters :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput (Prelude.Maybe PropertyFilters)
 rasterDataCollectionQueryWithBandFilterInput_propertyFilters = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {propertyFilters} -> propertyFilters) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {propertyFilters = a} :: RasterDataCollectionQueryWithBandFilterInput)
 
--- |
 rasterDataCollectionQueryWithBandFilterInput_timeRangeFilter :: Lens.Lens' RasterDataCollectionQueryWithBandFilterInput TimeRangeFilterInput
 rasterDataCollectionQueryWithBandFilterInput_timeRangeFilter = Lens.lens (\RasterDataCollectionQueryWithBandFilterInput' {timeRangeFilter} -> timeRangeFilter) (\s@RasterDataCollectionQueryWithBandFilterInput' {} a -> s {timeRangeFilter = a} :: RasterDataCollectionQueryWithBandFilterInput) Prelude.. Data._Sensitive
 
@@ -94,7 +90,8 @@ instance
   hashWithSalt
     _salt
     RasterDataCollectionQueryWithBandFilterInput' {..} =
-      _salt `Prelude.hashWithSalt` areaOfInterest
+      _salt
+        `Prelude.hashWithSalt` areaOfInterest
         `Prelude.hashWithSalt` bandFilter
         `Prelude.hashWithSalt` propertyFilters
         `Prelude.hashWithSalt` timeRangeFilter

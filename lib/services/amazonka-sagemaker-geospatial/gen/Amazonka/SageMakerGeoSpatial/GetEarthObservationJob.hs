@@ -284,7 +284,6 @@ getEarthObservationJobResponse_exportStatus = Lens.lens (\GetEarthObservationJob
 getEarthObservationJobResponse_kmsKeyId :: Lens.Lens' GetEarthObservationJobResponse (Prelude.Maybe Prelude.Text)
 getEarthObservationJobResponse_kmsKeyId = Lens.lens (\GetEarthObservationJobResponse' {kmsKeyId} -> kmsKeyId) (\s@GetEarthObservationJobResponse' {} a -> s {kmsKeyId = a} :: GetEarthObservationJobResponse)
 
--- |
 getEarthObservationJobResponse_outputBands :: Lens.Lens' GetEarthObservationJobResponse (Prelude.Maybe [OutputBand])
 getEarthObservationJobResponse_outputBands = Lens.lens (\GetEarthObservationJobResponse' {outputBands} -> outputBands) (\s@GetEarthObservationJobResponse' {} a -> s {outputBands = a} :: GetEarthObservationJobResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -49,7 +49,6 @@ newPropertyFilter ::
 newPropertyFilter pProperty_ =
   PropertyFilter' {property = pProperty_}
 
--- |
 propertyFilter_property :: Lens.Lens' PropertyFilter Property
 propertyFilter_property = Lens.lens (\PropertyFilter' {property} -> property) (\s@PropertyFilter' {} a -> s {property = a} :: PropertyFilter)
 

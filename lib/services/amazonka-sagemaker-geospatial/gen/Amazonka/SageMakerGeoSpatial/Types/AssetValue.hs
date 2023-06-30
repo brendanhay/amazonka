@@ -45,7 +45,6 @@ newAssetValue ::
   AssetValue
 newAssetValue = AssetValue' {href = Prelude.Nothing}
 
--- |
 assetValue_href :: Lens.Lens' AssetValue (Prelude.Maybe Prelude.Text)
 assetValue_href = Lens.lens (\AssetValue' {href} -> href) (\s@AssetValue' {} a -> s {href = a} :: AssetValue)
 

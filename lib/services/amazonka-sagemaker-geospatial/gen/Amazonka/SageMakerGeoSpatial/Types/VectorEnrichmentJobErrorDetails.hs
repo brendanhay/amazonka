@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     VectorEnrichmentJobErrorDetails' {..} =
-      _salt `Prelude.hashWithSalt` errorMessage
+      _salt
+        `Prelude.hashWithSalt` errorMessage
         `Prelude.hashWithSalt` errorType
 
 instance

@@ -81,15 +81,12 @@ newRasterDataCollectionQueryOutput
           Data._Sensitive Lens.# pTimeRangeFilter_
       }
 
--- |
 rasterDataCollectionQueryOutput_areaOfInterest :: Lens.Lens' RasterDataCollectionQueryOutput (Prelude.Maybe AreaOfInterest)
 rasterDataCollectionQueryOutput_areaOfInterest = Lens.lens (\RasterDataCollectionQueryOutput' {areaOfInterest} -> areaOfInterest) (\s@RasterDataCollectionQueryOutput' {} a -> s {areaOfInterest = a} :: RasterDataCollectionQueryOutput)
 
--- |
 rasterDataCollectionQueryOutput_propertyFilters :: Lens.Lens' RasterDataCollectionQueryOutput (Prelude.Maybe PropertyFilters)
 rasterDataCollectionQueryOutput_propertyFilters = Lens.lens (\RasterDataCollectionQueryOutput' {propertyFilters} -> propertyFilters) (\s@RasterDataCollectionQueryOutput' {} a -> s {propertyFilters = a} :: RasterDataCollectionQueryOutput)
 
--- |
 rasterDataCollectionQueryOutput_rasterDataCollectionArn :: Lens.Lens' RasterDataCollectionQueryOutput Prelude.Text
 rasterDataCollectionQueryOutput_rasterDataCollectionArn = Lens.lens (\RasterDataCollectionQueryOutput' {rasterDataCollectionArn} -> rasterDataCollectionArn) (\s@RasterDataCollectionQueryOutput' {} a -> s {rasterDataCollectionArn = a} :: RasterDataCollectionQueryOutput)
 
@@ -97,7 +94,6 @@ rasterDataCollectionQueryOutput_rasterDataCollectionArn = Lens.lens (\RasterData
 rasterDataCollectionQueryOutput_rasterDataCollectionName :: Lens.Lens' RasterDataCollectionQueryOutput Prelude.Text
 rasterDataCollectionQueryOutput_rasterDataCollectionName = Lens.lens (\RasterDataCollectionQueryOutput' {rasterDataCollectionName} -> rasterDataCollectionName) (\s@RasterDataCollectionQueryOutput' {} a -> s {rasterDataCollectionName = a} :: RasterDataCollectionQueryOutput)
 
--- |
 rasterDataCollectionQueryOutput_timeRangeFilter :: Lens.Lens' RasterDataCollectionQueryOutput TimeRangeFilterInput
 rasterDataCollectionQueryOutput_timeRangeFilter = Lens.lens (\RasterDataCollectionQueryOutput' {timeRangeFilter} -> timeRangeFilter) (\s@RasterDataCollectionQueryOutput' {} a -> s {timeRangeFilter = a} :: RasterDataCollectionQueryOutput) Prelude.. Data._Sensitive
 
@@ -124,7 +120,8 @@ instance
   hashWithSalt
     _salt
     RasterDataCollectionQueryOutput' {..} =
-      _salt `Prelude.hashWithSalt` areaOfInterest
+      _salt
+        `Prelude.hashWithSalt` areaOfInterest
         `Prelude.hashWithSalt` propertyFilters
         `Prelude.hashWithSalt` rasterDataCollectionArn
         `Prelude.hashWithSalt` rasterDataCollectionName

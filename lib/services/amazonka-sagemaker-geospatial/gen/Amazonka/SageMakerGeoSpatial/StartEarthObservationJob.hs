@@ -184,7 +184,8 @@ instance Core.AWSRequest StartEarthObservationJob where
 
 instance Prelude.Hashable StartEarthObservationJob where
   hashWithSalt _salt StartEarthObservationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` tags

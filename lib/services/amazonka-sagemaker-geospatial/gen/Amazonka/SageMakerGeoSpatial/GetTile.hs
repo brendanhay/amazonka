@@ -206,7 +206,8 @@ instance Core.AWSRequest GetTile where
 
 instance Prelude.Hashable GetTile where
   hashWithSalt _salt GetTile' {..} =
-    _salt `Prelude.hashWithSalt` imageMask
+    _salt
+      `Prelude.hashWithSalt` imageMask
       `Prelude.hashWithSalt` outputDataType
       `Prelude.hashWithSalt` outputFormat
       `Prelude.hashWithSalt` propertyFilters

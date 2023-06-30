@@ -57,7 +57,6 @@ newPlatformInput pValue_ =
       value = pValue_
     }
 
--- |
 platformInput_comparisonOperator :: Lens.Lens' PlatformInput (Prelude.Maybe ComparisonOperator)
 platformInput_comparisonOperator = Lens.lens (\PlatformInput' {comparisonOperator} -> comparisonOperator) (\s@PlatformInput' {} a -> s {comparisonOperator = a} :: PlatformInput)
 
@@ -77,7 +76,8 @@ instance Data.FromJSON PlatformInput where
 
 instance Prelude.Hashable PlatformInput where
   hashWithSalt _salt PlatformInput' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData PlatformInput where

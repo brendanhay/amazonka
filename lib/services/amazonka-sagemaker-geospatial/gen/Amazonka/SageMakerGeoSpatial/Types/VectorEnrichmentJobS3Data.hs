@@ -80,7 +80,8 @@ instance Data.FromJSON VectorEnrichmentJobS3Data where
 
 instance Prelude.Hashable VectorEnrichmentJobS3Data where
   hashWithSalt _salt VectorEnrichmentJobS3Data' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData VectorEnrichmentJobS3Data where

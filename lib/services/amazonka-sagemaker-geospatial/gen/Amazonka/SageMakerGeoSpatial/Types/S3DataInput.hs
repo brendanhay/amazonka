@@ -70,7 +70,6 @@ newS3DataInput pMetadataProvider_ pS3Uri_ =
 s3DataInput_kmsKeyId :: Lens.Lens' S3DataInput (Prelude.Maybe Prelude.Text)
 s3DataInput_kmsKeyId = Lens.lens (\S3DataInput' {kmsKeyId} -> kmsKeyId) (\s@S3DataInput' {} a -> s {kmsKeyId = a} :: S3DataInput)
 
--- |
 s3DataInput_metadataProvider :: Lens.Lens' S3DataInput MetadataProvider
 s3DataInput_metadataProvider = Lens.lens (\S3DataInput' {metadataProvider} -> metadataProvider) (\s@S3DataInput' {} a -> s {metadataProvider = a} :: S3DataInput)
 
@@ -91,7 +90,8 @@ instance Data.FromJSON S3DataInput where
 
 instance Prelude.Hashable S3DataInput where
   hashWithSalt _salt S3DataInput' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` metadataProvider
       `Prelude.hashWithSalt` s3Uri
 

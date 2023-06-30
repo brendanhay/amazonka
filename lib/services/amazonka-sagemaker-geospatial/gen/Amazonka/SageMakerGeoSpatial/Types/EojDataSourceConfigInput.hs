@@ -47,7 +47,6 @@ newEojDataSourceConfigInput ::
 newEojDataSourceConfigInput =
   EojDataSourceConfigInput' {s3Data = Prelude.Nothing}
 
--- |
 eojDataSourceConfigInput_s3Data :: Lens.Lens' EojDataSourceConfigInput (Prelude.Maybe S3DataInput)
 eojDataSourceConfigInput_s3Data = Lens.lens (\EojDataSourceConfigInput' {s3Data} -> s3Data) (\s@EojDataSourceConfigInput' {} a -> s {s3Data = a} :: EojDataSourceConfigInput)
 

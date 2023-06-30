@@ -52,7 +52,6 @@ newOutputResolutionResamplingInput pUserDefined_ =
         pUserDefined_
     }
 
--- |
 outputResolutionResamplingInput_userDefined :: Lens.Lens' OutputResolutionResamplingInput UserDefined
 outputResolutionResamplingInput_userDefined = Lens.lens (\OutputResolutionResamplingInput' {userDefined} -> userDefined) (\s@OutputResolutionResamplingInput' {} a -> s {userDefined = a} :: OutputResolutionResamplingInput)
 

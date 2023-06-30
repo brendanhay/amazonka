@@ -66,11 +66,9 @@ newResamplingConfigInput pOutputResolution_ =
 resamplingConfigInput_algorithmName :: Lens.Lens' ResamplingConfigInput (Prelude.Maybe AlgorithmNameResampling)
 resamplingConfigInput_algorithmName = Lens.lens (\ResamplingConfigInput' {algorithmName} -> algorithmName) (\s@ResamplingConfigInput' {} a -> s {algorithmName = a} :: ResamplingConfigInput)
 
--- |
 resamplingConfigInput_targetBands :: Lens.Lens' ResamplingConfigInput (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 resamplingConfigInput_targetBands = Lens.lens (\ResamplingConfigInput' {targetBands} -> targetBands) (\s@ResamplingConfigInput' {} a -> s {targetBands = a} :: ResamplingConfigInput) Prelude.. Lens.mapping Lens.coerced
 
--- |
 resamplingConfigInput_outputResolution :: Lens.Lens' ResamplingConfigInput OutputResolutionResamplingInput
 resamplingConfigInput_outputResolution = Lens.lens (\ResamplingConfigInput' {outputResolution} -> outputResolution) (\s@ResamplingConfigInput' {} a -> s {outputResolution = a} :: ResamplingConfigInput)
 
@@ -87,7 +85,8 @@ instance Data.FromJSON ResamplingConfigInput where
 
 instance Prelude.Hashable ResamplingConfigInput where
   hashWithSalt _salt ResamplingConfigInput' {..} =
-    _salt `Prelude.hashWithSalt` algorithmName
+    _salt
+      `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` targetBands
       `Prelude.hashWithSalt` outputResolution
 

@@ -131,7 +131,8 @@ instance Core.AWSRequest ExportVectorEnrichmentJob where
 
 instance Prelude.Hashable ExportVectorEnrichmentJob where
   hashWithSalt _salt ExportVectorEnrichmentJob' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` executionRoleArn
       `Prelude.hashWithSalt` outputConfig
 

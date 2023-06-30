@@ -51,7 +51,6 @@ newPolygonGeometryInput pCoordinates_ =
         Lens.coerced Lens.# pCoordinates_
     }
 
--- |
 polygonGeometryInput_coordinates :: Lens.Lens' PolygonGeometryInput (Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double)))
 polygonGeometryInput_coordinates = Lens.lens (\PolygonGeometryInput' {coordinates} -> coordinates) (\s@PolygonGeometryInput' {} a -> s {coordinates = a} :: PolygonGeometryInput) Prelude.. Lens.coerced
 

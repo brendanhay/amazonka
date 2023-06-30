@@ -63,7 +63,6 @@ newVectorEnrichmentJobExportErrorDetails =
 vectorEnrichmentJobExportErrorDetails_message :: Lens.Lens' VectorEnrichmentJobExportErrorDetails (Prelude.Maybe Prelude.Text)
 vectorEnrichmentJobExportErrorDetails_message = Lens.lens (\VectorEnrichmentJobExportErrorDetails' {message} -> message) (\s@VectorEnrichmentJobExportErrorDetails' {} a -> s {message = a} :: VectorEnrichmentJobExportErrorDetails)
 
--- |
 vectorEnrichmentJobExportErrorDetails_type :: Lens.Lens' VectorEnrichmentJobExportErrorDetails (Prelude.Maybe VectorEnrichmentJobExportErrorType)
 vectorEnrichmentJobExportErrorDetails_type = Lens.lens (\VectorEnrichmentJobExportErrorDetails' {type'} -> type') (\s@VectorEnrichmentJobExportErrorDetails' {} a -> s {type' = a} :: VectorEnrichmentJobExportErrorDetails)
 
@@ -87,7 +86,8 @@ instance
   hashWithSalt
     _salt
     VectorEnrichmentJobExportErrorDetails' {..} =
-      _salt `Prelude.hashWithSalt` message
+      _salt
+        `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` type'
 
 instance

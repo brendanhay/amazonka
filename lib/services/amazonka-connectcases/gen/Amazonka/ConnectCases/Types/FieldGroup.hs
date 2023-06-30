@@ -75,7 +75,8 @@ instance Data.FromJSON FieldGroup where
 
 instance Prelude.Hashable FieldGroup where
   hashWithSalt _salt FieldGroup' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` fields
 
 instance Prelude.NFData FieldGroup where

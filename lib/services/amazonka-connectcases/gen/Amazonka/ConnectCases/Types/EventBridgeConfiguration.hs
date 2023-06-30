@@ -82,7 +82,8 @@ instance Data.FromJSON EventBridgeConfiguration where
 
 instance Prelude.Hashable EventBridgeConfiguration where
   hashWithSalt _salt EventBridgeConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` includedData
+    _salt
+      `Prelude.hashWithSalt` includedData
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData EventBridgeConfiguration where

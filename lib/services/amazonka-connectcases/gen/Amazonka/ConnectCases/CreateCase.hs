@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateCase where
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` templateId

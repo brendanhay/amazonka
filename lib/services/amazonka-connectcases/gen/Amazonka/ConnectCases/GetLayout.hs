@@ -110,7 +110,8 @@ instance Core.AWSRequest GetLayout where
 
 instance Prelude.Hashable GetLayout where
   hashWithSalt _salt GetLayout' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` layoutId
 
 instance Prelude.NFData GetLayout where

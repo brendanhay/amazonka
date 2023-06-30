@@ -90,7 +90,8 @@ instance Data.FromJSON FieldValueUnion where
 
 instance Prelude.Hashable FieldValueUnion where
   hashWithSalt _salt FieldValueUnion' {..} =
-    _salt `Prelude.hashWithSalt` booleanValue
+    _salt
+      `Prelude.hashWithSalt` booleanValue
       `Prelude.hashWithSalt` doubleValue
       `Prelude.hashWithSalt` stringValue
 

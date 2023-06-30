@@ -79,7 +79,8 @@ instance Data.FromJSON CommentContent where
 
 instance Prelude.Hashable CommentContent where
   hashWithSalt _salt CommentContent' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` contentType
 
 instance Prelude.NFData CommentContent where

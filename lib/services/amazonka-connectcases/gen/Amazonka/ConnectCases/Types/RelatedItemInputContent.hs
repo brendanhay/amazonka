@@ -66,7 +66,8 @@ relatedItemInputContent_contact = Lens.lens (\RelatedItemInputContent' {contact}
 
 instance Prelude.Hashable RelatedItemInputContent where
   hashWithSalt _salt RelatedItemInputContent' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` contact
 
 instance Prelude.NFData RelatedItemInputContent where

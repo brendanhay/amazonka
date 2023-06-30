@@ -121,7 +121,8 @@ instance Data.FromJSON FieldSummary where
 
 instance Prelude.Hashable FieldSummary where
   hashWithSalt _salt FieldSummary' {..} =
-    _salt `Prelude.hashWithSalt` fieldArn
+    _salt
+      `Prelude.hashWithSalt` fieldArn
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace

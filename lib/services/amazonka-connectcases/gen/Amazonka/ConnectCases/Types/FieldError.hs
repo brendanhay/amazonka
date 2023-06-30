@@ -88,7 +88,8 @@ instance Data.FromJSON FieldError where
 
 instance Prelude.Hashable FieldError where
   hashWithSalt _salt FieldError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` id
 

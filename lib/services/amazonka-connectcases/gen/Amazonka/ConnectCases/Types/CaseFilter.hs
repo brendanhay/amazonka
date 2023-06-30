@@ -73,7 +73,8 @@ caseFilter_not = Lens.lens (\CaseFilter' {not} -> not) (\s@CaseFilter' {} a -> s
 
 instance Prelude.Hashable CaseFilter where
   hashWithSalt _salt CaseFilter' {..} =
-    _salt `Prelude.hashWithSalt` andAll
+    _salt
+      `Prelude.hashWithSalt` andAll
       `Prelude.hashWithSalt` field
       `Prelude.hashWithSalt` not
 

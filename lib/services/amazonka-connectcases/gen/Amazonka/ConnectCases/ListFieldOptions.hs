@@ -142,7 +142,8 @@ instance Core.AWSRequest ListFieldOptions where
 
 instance Prelude.Hashable ListFieldOptions where
   hashWithSalt _salt ListFieldOptions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` values
       `Prelude.hashWithSalt` domainId

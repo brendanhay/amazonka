@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateCase where
 
 instance Prelude.Hashable UpdateCase where
   hashWithSalt _salt UpdateCase' {..} =
-    _salt `Prelude.hashWithSalt` caseId
+    _salt
+      `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` fields
 

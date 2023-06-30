@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateField where
 
 instance Prelude.Hashable CreateField where
   hashWithSalt _salt CreateField' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

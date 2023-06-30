@@ -81,7 +81,9 @@ data DeleteResource = DeleteResource'
     -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
-    -- defined in the @ handlers @ section of the
+    -- defined in the
+    -- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+    -- section of the
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
     --
     -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -144,7 +146,9 @@ data DeleteResource = DeleteResource'
 -- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
--- defined in the @ handlers @ section of the
+-- defined in the
+-- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+-- section of the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
 --
 -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -212,7 +216,9 @@ deleteResource_clientToken = Lens.lens (\DeleteResource' {clientToken} -> client
 -- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
--- defined in the @ handlers @ section of the
+-- defined in the
+-- @ @<https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-handlers handlers>@ @
+-- section of the
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html resource type definition schema>.
 --
 -- If you do not specify a role, Cloud Control API uses a temporary session
@@ -268,7 +274,8 @@ instance Core.AWSRequest DeleteResource where
 
 instance Prelude.Hashable DeleteResource where
   hashWithSalt _salt DeleteResource' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` typeVersionId
       `Prelude.hashWithSalt` typeName

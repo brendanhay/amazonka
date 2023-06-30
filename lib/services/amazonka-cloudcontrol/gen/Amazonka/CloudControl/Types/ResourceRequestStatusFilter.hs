@@ -106,7 +106,8 @@ resourceRequestStatusFilter_operations = Lens.lens (\ResourceRequestStatusFilter
 
 instance Prelude.Hashable ResourceRequestStatusFilter where
   hashWithSalt _salt ResourceRequestStatusFilter' {..} =
-    _salt `Prelude.hashWithSalt` operationStatuses
+    _salt
+      `Prelude.hashWithSalt` operationStatuses
       `Prelude.hashWithSalt` operations
 
 instance Prelude.NFData ResourceRequestStatusFilter where

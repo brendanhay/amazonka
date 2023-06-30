@@ -72,12 +72,14 @@ instance Data.FromJSON DatasetDetailOrgAttributes where
       "DatasetDetailOrgAttributes"
       ( \x ->
           DatasetDetailOrgAttributes'
-            Prelude.<$> (x Data..:? "gdg") Prelude.<*> (x Data..:? "vsam")
+            Prelude.<$> (x Data..:? "gdg")
+            Prelude.<*> (x Data..:? "vsam")
       )
 
 instance Prelude.Hashable DatasetDetailOrgAttributes where
   hashWithSalt _salt DatasetDetailOrgAttributes' {..} =
-    _salt `Prelude.hashWithSalt` gdg
+    _salt
+      `Prelude.hashWithSalt` gdg
       `Prelude.hashWithSalt` vsam
 
 instance Prelude.NFData DatasetDetailOrgAttributes where

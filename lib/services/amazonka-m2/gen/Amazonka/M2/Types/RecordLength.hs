@@ -68,7 +68,8 @@ recordLength_min = Lens.lens (\RecordLength' {min} -> min) (\s@RecordLength' {} 
 
 instance Prelude.Hashable RecordLength where
   hashWithSalt _salt RecordLength' {..} =
-    _salt `Prelude.hashWithSalt` max
+    _salt
+      `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min
 
 instance Prelude.NFData RecordLength where

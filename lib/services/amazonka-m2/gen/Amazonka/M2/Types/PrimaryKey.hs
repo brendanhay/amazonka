@@ -94,7 +94,8 @@ instance Data.FromJSON PrimaryKey where
 
 instance Prelude.Hashable PrimaryKey where
   hashWithSalt _salt PrimaryKey' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` length
       `Prelude.hashWithSalt` offset
 

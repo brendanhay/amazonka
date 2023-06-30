@@ -79,7 +79,8 @@ instance Data.FromJSON EngineVersionsSummary where
 
 instance Prelude.Hashable EngineVersionsSummary where
   hashWithSalt _salt EngineVersionsSummary' {..} =
-    _salt `Prelude.hashWithSalt` engineType
+    _salt
+      `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData EngineVersionsSummary where

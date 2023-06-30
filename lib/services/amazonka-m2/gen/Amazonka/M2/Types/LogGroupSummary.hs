@@ -80,7 +80,8 @@ instance Data.FromJSON LogGroupSummary where
 
 instance Prelude.Hashable LogGroupSummary where
   hashWithSalt _salt LogGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` logGroupName
+    _salt
+      `Prelude.hashWithSalt` logGroupName
       `Prelude.hashWithSalt` logType
 
 instance Prelude.NFData LogGroupSummary where

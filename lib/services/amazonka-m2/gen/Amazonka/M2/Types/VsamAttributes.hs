@@ -110,7 +110,8 @@ vsamAttributes_format = Lens.lens (\VsamAttributes' {format} -> format) (\s@Vsam
 
 instance Prelude.Hashable VsamAttributes where
   hashWithSalt _salt VsamAttributes' {..} =
-    _salt `Prelude.hashWithSalt` alternateKeys
+    _salt
+      `Prelude.hashWithSalt` alternateKeys
       `Prelude.hashWithSalt` compressed
       `Prelude.hashWithSalt` encoding
       `Prelude.hashWithSalt` primaryKey

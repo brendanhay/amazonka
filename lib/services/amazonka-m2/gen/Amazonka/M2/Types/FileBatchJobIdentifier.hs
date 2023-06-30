@@ -68,7 +68,8 @@ fileBatchJobIdentifier_fileName = Lens.lens (\FileBatchJobIdentifier' {fileName}
 
 instance Prelude.Hashable FileBatchJobIdentifier where
   hashWithSalt _salt FileBatchJobIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` folderPath
+    _salt
+      `Prelude.hashWithSalt` folderPath
       `Prelude.hashWithSalt` fileName
 
 instance Prelude.NFData FileBatchJobIdentifier where

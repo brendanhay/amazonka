@@ -135,7 +135,8 @@ instance Core.AWSRequest CreateDataSetImportTask where
 
 instance Prelude.Hashable CreateDataSetImportTask where
   hashWithSalt _salt CreateDataSetImportTask' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` importConfig
 

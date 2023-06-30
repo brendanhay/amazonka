@@ -150,7 +150,8 @@ instance Data.FromJSON BatchJobExecutionSummary where
 
 instance Prelude.Hashable BatchJobExecutionSummary where
   hashWithSalt _salt BatchJobExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobType

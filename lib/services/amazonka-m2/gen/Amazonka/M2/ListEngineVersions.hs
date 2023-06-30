@@ -108,21 +108,21 @@ instance Core.AWSPager ListEngineVersions where
     | Core.stop
         ( rs
             Lens.^? listEngineVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listEngineVersionsResponse_engineVersions
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEngineVersions_nextToken
           Lens..~ rs
           Lens.^? listEngineVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEngineVersions where
   type
@@ -136,14 +136,16 @@ instance Core.AWSRequest ListEngineVersions where
           ListEngineVersionsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "engineVersions"
+            Prelude.<*> ( x
+                            Data..?> "engineVersions"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListEngineVersions where
   hashWithSalt _salt ListEngineVersions' {..} =
-    _salt `Prelude.hashWithSalt` engineType
+    _salt
+      `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

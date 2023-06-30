@@ -118,19 +118,19 @@ instance Core.AWSPager ListEnvironments where
     | Core.stop
         ( rs
             Lens.^? listEnvironmentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listEnvironmentsResponse_environments) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEnvironments_nextToken
           Lens..~ rs
           Lens.^? listEnvironmentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEnvironments where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest ListEnvironments where
 
 instance Prelude.Hashable ListEnvironments where
   hashWithSalt _salt ListEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` engineType
+    _salt
+      `Prelude.hashWithSalt` engineType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` nextToken

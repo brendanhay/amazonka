@@ -81,7 +81,8 @@ instance Data.FromJSON FsxStorageConfiguration where
 
 instance Prelude.Hashable FsxStorageConfiguration where
   hashWithSalt _salt FsxStorageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt
+      `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` mountPoint
 
 instance Prelude.NFData FsxStorageConfiguration where

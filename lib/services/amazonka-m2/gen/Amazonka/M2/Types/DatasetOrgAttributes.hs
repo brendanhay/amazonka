@@ -68,7 +68,8 @@ datasetOrgAttributes_vsam = Lens.lens (\DatasetOrgAttributes' {vsam} -> vsam) (\
 
 instance Prelude.Hashable DatasetOrgAttributes where
   hashWithSalt _salt DatasetOrgAttributes' {..} =
-    _salt `Prelude.hashWithSalt` gdg
+    _salt
+      `Prelude.hashWithSalt` gdg
       `Prelude.hashWithSalt` vsam
 
 instance Prelude.NFData DatasetOrgAttributes where

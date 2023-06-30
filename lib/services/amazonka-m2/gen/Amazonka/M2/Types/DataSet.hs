@@ -108,7 +108,8 @@ dataSet_recordLength = Lens.lens (\DataSet' {recordLength} -> recordLength) (\s@
 
 instance Prelude.Hashable DataSet where
   hashWithSalt _salt DataSet' {..} =
-    _salt `Prelude.hashWithSalt` relativePath
+    _salt
+      `Prelude.hashWithSalt` relativePath
       `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` datasetOrg

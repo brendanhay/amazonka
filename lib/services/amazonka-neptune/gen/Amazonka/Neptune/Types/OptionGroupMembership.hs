@@ -71,7 +71,8 @@ instance Data.FromXML OptionGroupMembership where
 
 instance Prelude.Hashable OptionGroupMembership where
   hashWithSalt _salt OptionGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` optionGroupName
+    _salt
+      `Prelude.hashWithSalt` optionGroupName
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData OptionGroupMembership where

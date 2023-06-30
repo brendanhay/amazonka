@@ -122,7 +122,8 @@ instance Core.AWSRequest RemoveRoleFromDBCluster where
 
 instance Prelude.Hashable RemoveRoleFromDBCluster where
   hashWithSalt _salt RemoveRoleFromDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` featureName
+    _salt
+      `Prelude.hashWithSalt` featureName
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` roleArn
 

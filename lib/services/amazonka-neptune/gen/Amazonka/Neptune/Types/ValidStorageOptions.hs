@@ -96,21 +96,27 @@ validStorageOptions_storageType = Lens.lens (\ValidStorageOptions' {storageType}
 instance Data.FromXML ValidStorageOptions where
   parseXML x =
     ValidStorageOptions'
-      Prelude.<$> ( x Data..@? "IopsToStorageRatio"
+      Prelude.<$> ( x
+                      Data..@? "IopsToStorageRatio"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DoubleRange")
                   )
-      Prelude.<*> ( x Data..@? "ProvisionedIops" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "ProvisionedIops"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
-      Prelude.<*> ( x Data..@? "StorageSize" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "StorageSize"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Range")
                   )
       Prelude.<*> (x Data..@? "StorageType")
 
 instance Prelude.Hashable ValidStorageOptions where
   hashWithSalt _salt ValidStorageOptions' {..} =
-    _salt `Prelude.hashWithSalt` iopsToStorageRatio
+    _salt
+      `Prelude.hashWithSalt` iopsToStorageRatio
       `Prelude.hashWithSalt` provisionedIops
       `Prelude.hashWithSalt` storageSize
       `Prelude.hashWithSalt` storageType

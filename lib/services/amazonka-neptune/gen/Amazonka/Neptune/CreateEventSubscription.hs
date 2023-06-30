@@ -276,7 +276,8 @@ instance Core.AWSRequest CreateEventSubscription where
 
 instance Prelude.Hashable CreateEventSubscription where
   hashWithSalt _salt CreateEventSubscription' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` eventCategories
       `Prelude.hashWithSalt` sourceIds
       `Prelude.hashWithSalt` sourceType

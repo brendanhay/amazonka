@@ -538,11 +538,14 @@ instance Data.FromXML DBCluster where
   parseXML x =
     DBCluster'
       Prelude.<$> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x Data..@? "AssociatedRoles" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "AssociatedRoles"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterRole")
                   )
       Prelude.<*> (x Data..@? "AutomaticRestartTime")
-      Prelude.<*> ( x Data..@? "AvailabilityZones"
+      Prelude.<*> ( x
+                      Data..@? "AvailabilityZones"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AvailabilityZone")
                   )
@@ -554,11 +557,13 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "CrossAccountClone")
       Prelude.<*> (x Data..@? "DBClusterArn")
       Prelude.<*> (x Data..@? "DBClusterIdentifier")
-      Prelude.<*> ( x Data..@? "DBClusterMembers"
+      Prelude.<*> ( x
+                      Data..@? "DBClusterMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterMember")
                   )
-      Prelude.<*> ( x Data..@? "DBClusterOptionGroupMemberships"
+      Prelude.<*> ( x
+                      Data..@? "DBClusterOptionGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBClusterOptionGroup")
                   )
@@ -568,7 +573,8 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "DbClusterResourceId")
       Prelude.<*> (x Data..@? "DeletionProtection")
       Prelude.<*> (x Data..@? "EarliestRestorableTime")
-      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
+      Prelude.<*> ( x
+                      Data..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -585,7 +591,8 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "Port")
       Prelude.<*> (x Data..@? "PreferredBackupWindow")
       Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
-      Prelude.<*> ( x Data..@? "ReadReplicaIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "ReadReplicaIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ReadReplicaIdentifier")
                   )
@@ -594,7 +601,8 @@ instance Data.FromXML DBCluster where
       Prelude.<*> (x Data..@? "ServerlessV2ScalingConfiguration")
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "StorageEncrypted")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "VpcSecurityGroupMembership")
@@ -602,7 +610,8 @@ instance Data.FromXML DBCluster where
 
 instance Prelude.Hashable DBCluster where
   hashWithSalt _salt DBCluster' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` associatedRoles
       `Prelude.hashWithSalt` automaticRestartTime
       `Prelude.hashWithSalt` availabilityZones

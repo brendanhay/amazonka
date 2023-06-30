@@ -97,7 +97,8 @@ instance Data.FromXML DBParameterGroup where
 
 instance Prelude.Hashable DBParameterGroup where
   hashWithSalt _salt DBParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` dbParameterGroupArn
+    _salt
+      `Prelude.hashWithSalt` dbParameterGroupArn
       `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` description

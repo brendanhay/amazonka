@@ -92,7 +92,8 @@ instance Data.FromXML Range where
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` from
+    _salt
+      `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` step
       `Prelude.hashWithSalt` to
 

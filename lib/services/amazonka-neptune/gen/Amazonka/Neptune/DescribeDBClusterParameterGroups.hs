@@ -164,22 +164,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeDBClusterParameterGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBClusterParameterGroupsResponse_dbClusterParameterGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBClusterParameterGroups_marker
           Lens..~ rs
           Lens.^? describeDBClusterParameterGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -195,7 +195,8 @@ instance
       "DescribeDBClusterParameterGroupsResult"
       ( \s h x ->
           DescribeDBClusterParameterGroupsResponse'
-            Prelude.<$> ( x Data..@? "DBClusterParameterGroups"
+            Prelude.<$> ( x
+                            Data..@? "DBClusterParameterGroups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "DBClusterParameterGroup")

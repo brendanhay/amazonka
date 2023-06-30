@@ -74,11 +74,13 @@ pendingCloudwatchLogsExports_logTypesToEnable = Lens.lens (\PendingCloudwatchLog
 instance Data.FromXML PendingCloudwatchLogsExports where
   parseXML x =
     PendingCloudwatchLogsExports'
-      Prelude.<$> ( x Data..@? "LogTypesToDisable"
+      Prelude.<$> ( x
+                      Data..@? "LogTypesToDisable"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "LogTypesToEnable"
+      Prelude.<*> ( x
+                      Data..@? "LogTypesToEnable"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -88,7 +90,8 @@ instance
     PendingCloudwatchLogsExports
   where
   hashWithSalt _salt PendingCloudwatchLogsExports' {..} =
-    _salt `Prelude.hashWithSalt` logTypesToDisable
+    _salt
+      `Prelude.hashWithSalt` logTypesToDisable
       `Prelude.hashWithSalt` logTypesToEnable
 
 instance Prelude.NFData PendingCloudwatchLogsExports where

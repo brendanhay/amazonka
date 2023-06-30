@@ -149,7 +149,8 @@ instance Data.FromXML PendingMaintenanceAction where
 
 instance Prelude.Hashable PendingMaintenanceAction where
   hashWithSalt _salt PendingMaintenanceAction' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` autoAppliedAfterDate
       `Prelude.hashWithSalt` currentApplyDate
       `Prelude.hashWithSalt` description

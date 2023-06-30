@@ -86,7 +86,8 @@ instance
   hashWithSalt
     _salt
     ServerlessV2ScalingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` maxCapacity
+      _salt
+        `Prelude.hashWithSalt` maxCapacity
         `Prelude.hashWithSalt` minCapacity
 
 instance

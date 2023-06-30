@@ -81,7 +81,8 @@ instance Data.FromXML DBParameterGroupStatus where
 
 instance Prelude.Hashable DBParameterGroupStatus where
   hashWithSalt _salt DBParameterGroupStatus' {..} =
-    _salt `Prelude.hashWithSalt` dbParameterGroupName
+    _salt
+      `Prelude.hashWithSalt` dbParameterGroupName
       `Prelude.hashWithSalt` parameterApplyStatus
 
 instance Prelude.NFData DBParameterGroupStatus where

@@ -73,7 +73,8 @@ instance
   where
   parseXML x =
     ResourcePendingMaintenanceActions'
-      Prelude.<$> ( x Data..@? "PendingMaintenanceActionDetails"
+      Prelude.<$> ( x
+                      Data..@? "PendingMaintenanceActionDetails"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "PendingMaintenanceAction")

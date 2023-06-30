@@ -148,10 +148,14 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
             Prelude.<*> (x Data..@? "DBClusterIdentifier")
             Prelude.<*> (x Data..@? "Endpoint")
             Prelude.<*> (x Data..@? "EndpointType")
-            Prelude.<*> ( x Data..@? "ExcludedMembers" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "ExcludedMembers"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-            Prelude.<*> ( x Data..@? "StaticMembers" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "StaticMembers"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (x Data..@? "Status")
@@ -160,7 +164,8 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
 
 instance Prelude.Hashable ModifyDBClusterEndpoint where
   hashWithSalt _salt ModifyDBClusterEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` endpointType
+    _salt
+      `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` excludedMembers
       `Prelude.hashWithSalt` staticMembers
       `Prelude.hashWithSalt` dbClusterEndpointIdentifier

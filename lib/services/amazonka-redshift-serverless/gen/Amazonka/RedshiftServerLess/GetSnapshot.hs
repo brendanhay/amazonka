@@ -111,7 +111,8 @@ instance Core.AWSRequest GetSnapshot where
 
 instance Prelude.Hashable GetSnapshot where
   hashWithSalt _salt GetSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` ownerAccount
+    _salt
+      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` snapshotArn
       `Prelude.hashWithSalt` snapshotName
 

@@ -81,7 +81,8 @@ instance Data.FromJSON ConfigParameter where
 
 instance Prelude.Hashable ConfigParameter where
   hashWithSalt _salt ConfigParameter' {..} =
-    _salt `Prelude.hashWithSalt` parameterKey
+    _salt
+      `Prelude.hashWithSalt` parameterKey
       `Prelude.hashWithSalt` parameterValue
 
 instance Prelude.NFData ConfigParameter where

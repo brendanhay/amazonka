@@ -162,7 +162,8 @@ instance Core.AWSRequest CreateUsageLimit where
 
 instance Prelude.Hashable CreateUsageLimit where
   hashWithSalt _salt CreateUsageLimit' {..} =
-    _salt `Prelude.hashWithSalt` breachAction
+    _salt
+      `Prelude.hashWithSalt` breachAction
       `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` amount
       `Prelude.hashWithSalt` resourceArn

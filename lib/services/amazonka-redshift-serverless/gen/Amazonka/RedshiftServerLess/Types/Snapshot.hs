@@ -246,10 +246,12 @@ instance Data.FromJSON Snapshot where
       "Snapshot"
       ( \x ->
           Snapshot'
-            Prelude.<$> ( x Data..:? "accountsWithProvisionedRestoreAccess"
+            Prelude.<$> ( x
+                            Data..:? "accountsWithProvisionedRestoreAccess"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "accountsWithRestoreAccess"
+            Prelude.<*> ( x
+                            Data..:? "accountsWithRestoreAccess"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "actualIncrementalBackupSizeInMegaBytes")

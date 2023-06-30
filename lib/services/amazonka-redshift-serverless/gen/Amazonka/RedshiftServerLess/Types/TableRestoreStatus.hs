@@ -216,7 +216,8 @@ instance Data.FromJSON TableRestoreStatus where
 
 instance Prelude.Hashable TableRestoreStatus where
   hashWithSalt _salt TableRestoreStatus' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` namespaceName
       `Prelude.hashWithSalt` newTableName'
       `Prelude.hashWithSalt` progressInMegaBytes

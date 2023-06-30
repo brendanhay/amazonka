@@ -102,7 +102,8 @@ instance Core.AWSRequest UpdateSnapshot where
 
 instance Prelude.Hashable UpdateSnapshot where
   hashWithSalt _salt UpdateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` retentionPeriod
+    _salt
+      `Prelude.hashWithSalt` retentionPeriod
       `Prelude.hashWithSalt` snapshotName
 
 instance Prelude.NFData UpdateSnapshot where

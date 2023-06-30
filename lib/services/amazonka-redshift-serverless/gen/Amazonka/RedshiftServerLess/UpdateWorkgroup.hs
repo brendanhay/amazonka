@@ -183,7 +183,8 @@ instance Core.AWSRequest UpdateWorkgroup where
 
 instance Prelude.Hashable UpdateWorkgroup where
   hashWithSalt _salt UpdateWorkgroup' {..} =
-    _salt `Prelude.hashWithSalt` baseCapacity
+    _salt
+      `Prelude.hashWithSalt` baseCapacity
       `Prelude.hashWithSalt` configParameters
       `Prelude.hashWithSalt` enhancedVpcRouting
       `Prelude.hashWithSalt` port

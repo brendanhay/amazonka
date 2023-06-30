@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateNamespace where
 
 instance Prelude.Hashable CreateNamespace where
   hashWithSalt _salt CreateNamespace' {..} =
-    _salt `Prelude.hashWithSalt` adminUserPassword
+    _salt
+      `Prelude.hashWithSalt` adminUserPassword
       `Prelude.hashWithSalt` adminUsername
       `Prelude.hashWithSalt` dbName
       `Prelude.hashWithSalt` defaultIamRoleArn

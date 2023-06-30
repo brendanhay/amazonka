@@ -159,7 +159,8 @@ instance Core.AWSRequest RestoreFromSnapshot where
 
 instance Prelude.Hashable RestoreFromSnapshot where
   hashWithSalt _salt RestoreFromSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` ownerAccount
+    _salt
+      `Prelude.hashWithSalt` ownerAccount
       `Prelude.hashWithSalt` snapshotArn
       `Prelude.hashWithSalt` snapshotName
       `Prelude.hashWithSalt` namespaceName

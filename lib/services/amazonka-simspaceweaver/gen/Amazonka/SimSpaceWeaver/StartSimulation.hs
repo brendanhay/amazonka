@@ -214,7 +214,8 @@ instance Core.AWSRequest StartSimulation where
 
 instance Prelude.Hashable StartSimulation where
   hashWithSalt _salt StartSimulation' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maximumDuration
       `Prelude.hashWithSalt` tags

@@ -76,7 +76,8 @@ instance Data.FromJSON SimulationClock where
 
 instance Prelude.Hashable SimulationClock where
   hashWithSalt _salt SimulationClock' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` targetStatus
 
 instance Prelude.NFData SimulationClock where

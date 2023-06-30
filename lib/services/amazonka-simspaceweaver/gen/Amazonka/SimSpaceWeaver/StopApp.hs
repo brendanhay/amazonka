@@ -113,7 +113,8 @@ instance Core.AWSRequest StopApp where
 
 instance Prelude.Hashable StopApp where
   hashWithSalt _salt StopApp' {..} =
-    _salt `Prelude.hashWithSalt` app
+    _salt
+      `Prelude.hashWithSalt` app
       `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` simulation
 

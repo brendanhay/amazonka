@@ -92,7 +92,8 @@ instance Data.FromJSON LiveSimulationState where
 
 instance Prelude.Hashable LiveSimulationState where
   hashWithSalt _salt LiveSimulationState' {..} =
-    _salt `Prelude.hashWithSalt` clocks
+    _salt
+      `Prelude.hashWithSalt` clocks
       `Prelude.hashWithSalt` domains
 
 instance Prelude.NFData LiveSimulationState where

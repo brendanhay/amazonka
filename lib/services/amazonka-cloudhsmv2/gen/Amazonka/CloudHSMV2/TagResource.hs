@@ -102,7 +102,8 @@ instance Core.AWSRequest TagResource where
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =
-    _salt `Prelude.hashWithSalt` resourceId
+    _salt
+      `Prelude.hashWithSalt` resourceId
       `Prelude.hashWithSalt` tagList
 
 instance Prelude.NFData TagResource where

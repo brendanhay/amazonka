@@ -116,7 +116,8 @@ instance Core.AWSRequest ModifyBackupAttributes where
 
 instance Prelude.Hashable ModifyBackupAttributes where
   hashWithSalt _salt ModifyBackupAttributes' {..} =
-    _salt `Prelude.hashWithSalt` backupId
+    _salt
+      `Prelude.hashWithSalt` backupId
       `Prelude.hashWithSalt` neverExpires
 
 instance Prelude.NFData ModifyBackupAttributes where

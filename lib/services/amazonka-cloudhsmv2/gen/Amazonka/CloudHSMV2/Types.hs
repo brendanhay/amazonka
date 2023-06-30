@@ -160,53 +160,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The request was rejected because the requester does not have permission
 -- to perform the requested operation.
-_CloudHsmAccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CloudHsmAccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CloudHsmAccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -214,14 +214,14 @@ _CloudHsmAccessDeniedException =
 
 -- | The request was rejected because of an AWS CloudHSM internal failure.
 -- The request can be retried.
-_CloudHsmInternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CloudHsmInternalFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CloudHsmInternalFailureException =
   Core._MatchServiceError
     defaultService
     "CloudHsmInternalFailureException"
 
 -- | The request was rejected because it is not a valid request.
-_CloudHsmInvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CloudHsmInvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CloudHsmInvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -229,14 +229,14 @@ _CloudHsmInvalidRequestException =
 
 -- | The request was rejected because it refers to a resource that cannot be
 -- found.
-_CloudHsmResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CloudHsmResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CloudHsmResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "CloudHsmResourceNotFoundException"
 
 -- | The request was rejected because an error occurred.
-_CloudHsmServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CloudHsmServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CloudHsmServiceException =
   Core._MatchServiceError
     defaultService
@@ -244,7 +244,7 @@ _CloudHsmServiceException =
 
 -- | The request was rejected because of a tagging failure. Verify the tag
 -- conditions in all applicable policies, and then retry the request.
-_CloudHsmTagException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CloudHsmTagException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CloudHsmTagException =
   Core._MatchServiceError
     defaultService

@@ -146,7 +146,8 @@ instance Core.AWSRequest InitializeCluster where
 
 instance Prelude.Hashable InitializeCluster where
   hashWithSalt _salt InitializeCluster' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` signedCert
       `Prelude.hashWithSalt` trustAnchor
 

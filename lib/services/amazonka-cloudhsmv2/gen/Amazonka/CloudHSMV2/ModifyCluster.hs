@@ -108,7 +108,8 @@ instance Core.AWSRequest ModifyCluster where
 
 instance Prelude.Hashable ModifyCluster where
   hashWithSalt _salt ModifyCluster' {..} =
-    _salt `Prelude.hashWithSalt` backupRetentionPolicy
+    _salt
+      `Prelude.hashWithSalt` backupRetentionPolicy
       `Prelude.hashWithSalt` clusterId
 
 instance Prelude.NFData ModifyCluster where

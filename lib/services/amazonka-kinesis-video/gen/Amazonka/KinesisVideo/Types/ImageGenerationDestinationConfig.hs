@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     ImageGenerationDestinationConfig' {..} =
-      _salt `Prelude.hashWithSalt` uri
+      _salt
+        `Prelude.hashWithSalt` uri
         `Prelude.hashWithSalt` destinationRegion
 
 instance

@@ -292,52 +292,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have required permissions to perform this operation.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -346,7 +346,7 @@ _AccessDeniedException =
 
 -- | You have reached the maximum limit of active signaling channels for this
 -- Amazon Web Services account in this region.
-_AccountChannelLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccountChannelLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccountChannelLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -354,7 +354,7 @@ _AccountChannelLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The number of streams created for the account is too high.
-_AccountStreamLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccountStreamLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccountStreamLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -363,7 +363,7 @@ _AccountStreamLimitExceededException =
 
 -- | Kinesis Video Streams has throttled the request because you have
 -- exceeded the limit of allowed client calls. Try making the call later.
-_ClientLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClientLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClientLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -371,7 +371,7 @@ _ClientLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | Not implemented.
-_DeviceStreamLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DeviceStreamLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DeviceStreamLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -379,7 +379,7 @@ _DeviceStreamLimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The value for this input parameter is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidArgumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
@@ -387,7 +387,7 @@ _InvalidArgumentException =
     Prelude.. Core.hasStatus 400
 
 -- | Not implemented.
-_InvalidDeviceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidDeviceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidDeviceException =
   Core._MatchServiceError
     defaultService
@@ -395,7 +395,7 @@ _InvalidDeviceException =
     Prelude.. Core.hasStatus 400
 
 -- | The format of the @StreamARN@ is invalid.
-_InvalidResourceFormatException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResourceFormatException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourceFormatException =
   Core._MatchServiceError
     defaultService
@@ -403,7 +403,7 @@ _InvalidResourceFormatException =
     Prelude.. Core.hasStatus 400
 
 -- | The Stream data retention in hours is equal to zero.
-_NoDataRetentionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NoDataRetentionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NoDataRetentionException =
   Core._MatchServiceError
     defaultService
@@ -411,7 +411,7 @@ _NoDataRetentionException =
     Prelude.. Core.hasStatus 400
 
 -- | The caller is not authorized to perform this operation.
-_NotAuthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotAuthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotAuthorizedException =
   Core._MatchServiceError
     defaultService
@@ -431,7 +431,7 @@ _NotAuthorizedException =
 --
 -- 3.  The @DescribeStream@ or @DescribeSignalingChannel@ API to determine
 --     the status of the resource.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -439,7 +439,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 400
 
 -- | Amazon Kinesis Video Streams can\'t find the stream that you specified.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -448,7 +448,7 @@ _ResourceNotFoundException =
 
 -- | The Exception rendered when the Amazon Kinesis Video Stream can\'t find
 -- a stream\'s edge configuration that you specified.
-_StreamEdgeConfigurationNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StreamEdgeConfigurationNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StreamEdgeConfigurationNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -457,7 +457,7 @@ _StreamEdgeConfigurationNotFoundException =
 
 -- | You have exceeded the limit of tags that you can associate with the
 -- resource. A Kinesis video stream can support up to 50 tags.
-_TagsPerResourceExceededLimitException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TagsPerResourceExceededLimitException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TagsPerResourceExceededLimitException =
   Core._MatchServiceError
     defaultService
@@ -468,7 +468,7 @@ _TagsPerResourceExceededLimitException =
 -- the latest version, use the
 -- <https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html DescribeStream>
 -- API.
-_VersionMismatchException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_VersionMismatchException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _VersionMismatchException =
   Core._MatchServiceError
     defaultService

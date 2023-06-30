@@ -79,7 +79,8 @@ instance Data.FromJSON MediaStorageConfiguration where
 
 instance Prelude.Hashable MediaStorageConfiguration where
   hashWithSalt _salt MediaStorageConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData MediaStorageConfiguration where

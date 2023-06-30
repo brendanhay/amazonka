@@ -73,7 +73,8 @@ streamNameCondition_comparisonValue = Lens.lens (\StreamNameCondition' {comparis
 
 instance Prelude.Hashable StreamNameCondition where
   hashWithSalt _salt StreamNameCondition' {..} =
-    _salt `Prelude.hashWithSalt` comparisonOperator
+    _salt
+      `Prelude.hashWithSalt` comparisonOperator
       `Prelude.hashWithSalt` comparisonValue
 
 instance Prelude.NFData StreamNameCondition where

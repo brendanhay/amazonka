@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeStream where
 
 instance Prelude.Hashable DescribeStream where
   hashWithSalt _salt DescribeStream' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData DescribeStream where

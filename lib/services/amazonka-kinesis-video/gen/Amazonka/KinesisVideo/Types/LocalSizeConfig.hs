@@ -85,7 +85,8 @@ instance Data.FromJSON LocalSizeConfig where
 
 instance Prelude.Hashable LocalSizeConfig where
   hashWithSalt _salt LocalSizeConfig' {..} =
-    _salt `Prelude.hashWithSalt` maxLocalMediaSizeInMB
+    _salt
+      `Prelude.hashWithSalt` maxLocalMediaSizeInMB
       `Prelude.hashWithSalt` strategyOnFullSize
 
 instance Prelude.NFData LocalSizeConfig where

@@ -115,7 +115,8 @@ instance Core.AWSRequest UntagStream where
 
 instance Prelude.Hashable UntagStream where
   hashWithSalt _salt UntagStream' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` tagKeyList
 

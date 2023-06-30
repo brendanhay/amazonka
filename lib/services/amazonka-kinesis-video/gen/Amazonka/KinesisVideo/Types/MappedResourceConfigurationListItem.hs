@@ -76,7 +76,8 @@ instance
       "MappedResourceConfigurationListItem"
       ( \x ->
           MappedResourceConfigurationListItem'
-            Prelude.<$> (x Data..:? "ARN") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "ARN")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance
@@ -86,7 +87,8 @@ instance
   hashWithSalt
     _salt
     MappedResourceConfigurationListItem' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` type'
 
 instance

@@ -184,7 +184,8 @@ instance Core.AWSRequest UpdateStream where
 
 instance Prelude.Hashable UpdateStream where
   hashWithSalt _salt UpdateStream' {..} =
-    _salt `Prelude.hashWithSalt` deviceName
+    _salt
+      `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` mediaType
       `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName

@@ -112,7 +112,7 @@ instance
       ( \s h x ->
           DescribeImageGenerationConfigurationResponse'
             Prelude.<$> (x Data..?> "ImageGenerationConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     DescribeImageGenerationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` streamARN
+      _salt
+        `Prelude.hashWithSalt` streamARN
         `Prelude.hashWithSalt` streamName
 
 instance

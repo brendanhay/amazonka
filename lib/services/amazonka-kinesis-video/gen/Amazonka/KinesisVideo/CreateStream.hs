@@ -260,7 +260,8 @@ instance Core.AWSRequest CreateStream where
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =
-    _salt `Prelude.hashWithSalt` dataRetentionInHours
+    _salt
+      `Prelude.hashWithSalt` dataRetentionInHours
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` mediaType

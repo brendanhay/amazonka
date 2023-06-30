@@ -128,7 +128,8 @@ instance Core.AWSRequest DeleteStream where
 
 instance Prelude.Hashable DeleteStream where
   hashWithSalt _salt DeleteStream' {..} =
-    _salt `Prelude.hashWithSalt` currentVersion
+    _salt
+      `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` streamARN
 
 instance Prelude.NFData DeleteStream where

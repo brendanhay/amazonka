@@ -176,7 +176,8 @@ instance Core.AWSRequest UpdateDataRetention where
 
 instance Prelude.Hashable UpdateDataRetention where
   hashWithSalt _salt UpdateDataRetention' {..} =
-    _salt `Prelude.hashWithSalt` streamARN
+    _salt
+      `Prelude.hashWithSalt` streamARN
       `Prelude.hashWithSalt` streamName
       `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` operation

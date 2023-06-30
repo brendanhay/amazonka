@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteSignalingChannel where
 
 instance Prelude.Hashable DeleteSignalingChannel where
   hashWithSalt _salt DeleteSignalingChannel' {..} =
-    _salt `Prelude.hashWithSalt` currentVersion
+    _salt
+      `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` channelARN
 
 instance Prelude.NFData DeleteSignalingChannel where

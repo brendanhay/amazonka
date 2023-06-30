@@ -100,7 +100,8 @@ instance
   hashWithSalt
     _salt
     SingleMasterChannelEndpointConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` protocols
+      _salt
+        `Prelude.hashWithSalt` protocols
         `Prelude.hashWithSalt` role'
 
 instance

@@ -100,7 +100,7 @@ instance
       ( \s h x ->
           DescribeMediaStorageConfigurationResponse'
             Prelude.<$> (x Data..?> "MediaStorageConfiguration")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     DescribeMediaStorageConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` channelARN
+      _salt
+        `Prelude.hashWithSalt` channelARN
         `Prelude.hashWithSalt` channelName
 
 instance

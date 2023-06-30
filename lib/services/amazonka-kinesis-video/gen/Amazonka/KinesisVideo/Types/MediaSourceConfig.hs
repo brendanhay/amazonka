@@ -96,7 +96,8 @@ instance Data.FromJSON MediaSourceConfig where
 
 instance Prelude.Hashable MediaSourceConfig where
   hashWithSalt _salt MediaSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` mediaUriSecretArn
+    _salt
+      `Prelude.hashWithSalt` mediaUriSecretArn
       `Prelude.hashWithSalt` mediaUriType
 
 instance Prelude.NFData MediaSourceConfig where

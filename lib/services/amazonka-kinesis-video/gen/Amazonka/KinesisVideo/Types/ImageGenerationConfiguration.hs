@@ -240,7 +240,8 @@ instance
     ImageGenerationConfiguration
   where
   hashWithSalt _salt ImageGenerationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` formatConfig
+    _salt
+      `Prelude.hashWithSalt` formatConfig
       `Prelude.hashWithSalt` heightPixels
       `Prelude.hashWithSalt` widthPixels
       `Prelude.hashWithSalt` status

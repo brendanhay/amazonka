@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     ConnectionOAuthResponseParameters' {..} =
-      _salt `Prelude.hashWithSalt` authorizationEndpoint
+      _salt
+        `Prelude.hashWithSalt` authorizationEndpoint
         `Prelude.hashWithSalt` clientParameters
         `Prelude.hashWithSalt` httpMethod
         `Prelude.hashWithSalt` oAuthHttpParameters

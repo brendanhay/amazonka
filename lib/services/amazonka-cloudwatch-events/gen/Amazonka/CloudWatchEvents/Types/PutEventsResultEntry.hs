@@ -86,7 +86,8 @@ instance Data.FromJSON PutEventsResultEntry where
 
 instance Prelude.Hashable PutEventsResultEntry where
   hashWithSalt _salt PutEventsResultEntry' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` eventId
 

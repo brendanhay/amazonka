@@ -103,7 +103,8 @@ instance Core.AWSRequest DeletePartnerEventSource where
 
 instance Prelude.Hashable DeletePartnerEventSource where
   hashWithSalt _salt DeletePartnerEventSource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` account
 
 instance Prelude.NFData DeletePartnerEventSource where

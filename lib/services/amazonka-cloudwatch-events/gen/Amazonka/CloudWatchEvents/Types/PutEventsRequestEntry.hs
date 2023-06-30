@@ -169,7 +169,8 @@ putEventsRequestEntry_traceHeader = Lens.lens (\PutEventsRequestEntry' {traceHea
 
 instance Prelude.Hashable PutEventsRequestEntry where
   hashWithSalt _salt PutEventsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` detail
+    _salt
+      `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` detailType
       `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` resources

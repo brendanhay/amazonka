@@ -139,7 +139,8 @@ instance Core.AWSRequest CreateEventBus where
 
 instance Prelude.Hashable CreateEventBus where
   hashWithSalt _salt CreateEventBus' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceName
+    _salt
+      `Prelude.hashWithSalt` eventSourceName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
 

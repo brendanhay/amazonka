@@ -123,7 +123,8 @@ instance Core.AWSRequest ListApiDestinations where
     Response.receiveJSON
       ( \s h x ->
           ListApiDestinationsResponse'
-            Prelude.<$> ( x Data..?> "ApiDestinations"
+            Prelude.<$> ( x
+                            Data..?> "ApiDestinations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -132,7 +133,8 @@ instance Core.AWSRequest ListApiDestinations where
 
 instance Prelude.Hashable ListApiDestinations where
   hashWithSalt _salt ListApiDestinations' {..} =
-    _salt `Prelude.hashWithSalt` connectionArn
+    _salt
+      `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` nextToken

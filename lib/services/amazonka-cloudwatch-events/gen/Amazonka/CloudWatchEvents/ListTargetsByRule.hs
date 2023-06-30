@@ -120,23 +120,23 @@ instance Core.AWSPager ListTargetsByRule where
     | Core.stop
         ( rs
             Lens.^? listTargetsByRuleResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTargetsByRuleResponse_targets
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTargetsByRule_nextToken
           Lens..~ rs
           Lens.^? listTargetsByRuleResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTargetsByRule where
   type
@@ -155,7 +155,8 @@ instance Core.AWSRequest ListTargetsByRule where
 
 instance Prelude.Hashable ListTargetsByRule where
   hashWithSalt _salt ListTargetsByRule' {..} =
-    _salt `Prelude.hashWithSalt` eventBusName
+    _salt
+      `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` rule

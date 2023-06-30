@@ -136,7 +136,8 @@ instance Data.FromJSON Connection where
 
 instance Prelude.Hashable Connection where
   hashWithSalt _salt Connection' {..} =
-    _salt `Prelude.hashWithSalt` authorizationType
+    _salt
+      `Prelude.hashWithSalt` authorizationType
       `Prelude.hashWithSalt` connectionArn
       `Prelude.hashWithSalt` connectionState
       `Prelude.hashWithSalt` creationTime

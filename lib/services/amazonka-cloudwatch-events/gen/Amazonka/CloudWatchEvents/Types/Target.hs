@@ -371,7 +371,8 @@ instance Data.FromJSON Target where
 
 instance Prelude.Hashable Target where
   hashWithSalt _salt Target' {..} =
-    _salt `Prelude.hashWithSalt` batchParameters
+    _salt
+      `Prelude.hashWithSalt` batchParameters
       `Prelude.hashWithSalt` deadLetterConfig
       `Prelude.hashWithSalt` ecsParameters
       `Prelude.hashWithSalt` httpParameters

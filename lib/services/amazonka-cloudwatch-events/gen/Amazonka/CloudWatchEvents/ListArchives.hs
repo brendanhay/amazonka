@@ -138,7 +138,8 @@ instance Core.AWSRequest ListArchives where
 
 instance Prelude.Hashable ListArchives where
   hashWithSalt _salt ListArchives' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceArn
+    _salt
+      `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` nextToken

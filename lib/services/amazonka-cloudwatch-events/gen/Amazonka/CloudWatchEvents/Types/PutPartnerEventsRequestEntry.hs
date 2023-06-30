@@ -107,7 +107,8 @@ instance
     PutPartnerEventsRequestEntry
   where
   hashWithSalt _salt PutPartnerEventsRequestEntry' {..} =
-    _salt `Prelude.hashWithSalt` detail
+    _salt
+      `Prelude.hashWithSalt` detail
       `Prelude.hashWithSalt` detailType
       `Prelude.hashWithSalt` resources
       `Prelude.hashWithSalt` source

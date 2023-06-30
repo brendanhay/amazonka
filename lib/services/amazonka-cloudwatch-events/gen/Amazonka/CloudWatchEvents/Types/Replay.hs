@@ -154,7 +154,8 @@ instance Data.FromJSON Replay where
 
 instance Prelude.Hashable Replay where
   hashWithSalt _salt Replay' {..} =
-    _salt `Prelude.hashWithSalt` eventEndTime
+    _salt
+      `Prelude.hashWithSalt` eventEndTime
       `Prelude.hashWithSalt` eventLastReplayedTime
       `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` eventStartTime

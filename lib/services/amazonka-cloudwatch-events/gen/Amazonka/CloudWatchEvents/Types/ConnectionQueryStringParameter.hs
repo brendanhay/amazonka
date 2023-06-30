@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     ConnectionQueryStringParameter' {..} =
-      _salt `Prelude.hashWithSalt` isValueSecret
+      _salt
+        `Prelude.hashWithSalt` isValueSecret
         `Prelude.hashWithSalt` key
         `Prelude.hashWithSalt` value
 

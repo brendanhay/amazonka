@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateArchive where
 
 instance Prelude.Hashable UpdateArchive where
   hashWithSalt _salt UpdateArchive' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` retentionDays
       `Prelude.hashWithSalt` archiveName

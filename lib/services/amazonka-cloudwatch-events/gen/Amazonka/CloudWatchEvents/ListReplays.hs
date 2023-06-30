@@ -138,7 +138,8 @@ instance Core.AWSRequest ListReplays where
 
 instance Prelude.Hashable ListReplays where
   hashWithSalt _salt ListReplays' {..} =
-    _salt `Prelude.hashWithSalt` eventSourceArn
+    _salt
+      `Prelude.hashWithSalt` eventSourceArn
       `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` nextToken

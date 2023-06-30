@@ -146,7 +146,8 @@ instance Core.AWSRequest ListEndpoints where
 
 instance Prelude.Hashable ListEndpoints where
   hashWithSalt _salt ListEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` homeRegion
+    _salt
+      `Prelude.hashWithSalt` homeRegion
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` namePrefix
       `Prelude.hashWithSalt` nextToken

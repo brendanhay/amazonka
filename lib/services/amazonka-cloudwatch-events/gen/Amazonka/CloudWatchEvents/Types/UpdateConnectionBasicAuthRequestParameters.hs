@@ -73,7 +73,8 @@ instance
   hashWithSalt
     _salt
     UpdateConnectionBasicAuthRequestParameters' {..} =
-      _salt `Prelude.hashWithSalt` password
+      _salt
+        `Prelude.hashWithSalt` password
         `Prelude.hashWithSalt` username
 
 instance

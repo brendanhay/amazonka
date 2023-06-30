@@ -87,7 +87,8 @@ instance Data.FromJSON ConnectionHeaderParameter where
 
 instance Prelude.Hashable ConnectionHeaderParameter where
   hashWithSalt _salt ConnectionHeaderParameter' {..} =
-    _salt `Prelude.hashWithSalt` isValueSecret
+    _salt
+      `Prelude.hashWithSalt` isValueSecret
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 

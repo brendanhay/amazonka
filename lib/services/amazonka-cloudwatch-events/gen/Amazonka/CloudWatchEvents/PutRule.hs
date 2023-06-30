@@ -253,7 +253,8 @@ instance Core.AWSRequest PutRule where
 
 instance Prelude.Hashable PutRule where
   hashWithSalt _salt PutRule' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eventBusName
       `Prelude.hashWithSalt` eventPattern
       `Prelude.hashWithSalt` roleArn

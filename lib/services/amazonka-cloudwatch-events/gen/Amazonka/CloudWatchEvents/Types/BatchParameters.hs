@@ -124,7 +124,8 @@ instance Data.FromJSON BatchParameters where
 
 instance Prelude.Hashable BatchParameters where
   hashWithSalt _salt BatchParameters' {..} =
-    _salt `Prelude.hashWithSalt` arrayProperties
+    _salt
+      `Prelude.hashWithSalt` arrayProperties
       `Prelude.hashWithSalt` retryStrategy
       `Prelude.hashWithSalt` jobDefinition
       `Prelude.hashWithSalt` jobName

@@ -95,7 +95,8 @@ disableAlarmActionRequest_alarmModelName = Lens.lens (\DisableAlarmActionRequest
 
 instance Prelude.Hashable DisableAlarmActionRequest where
   hashWithSalt _salt DisableAlarmActionRequest' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` alarmModelName

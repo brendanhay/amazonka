@@ -65,7 +65,8 @@ variableDefinition_value = Lens.lens (\VariableDefinition' {value} -> value) (\s
 
 instance Prelude.Hashable VariableDefinition where
   hashWithSalt _salt VariableDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData VariableDefinition where

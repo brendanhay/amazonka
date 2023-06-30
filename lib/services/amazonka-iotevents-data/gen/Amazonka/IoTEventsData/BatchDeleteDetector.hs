@@ -92,7 +92,8 @@ instance Core.AWSRequest BatchDeleteDetector where
     Response.receiveJSON
       ( \s h x ->
           BatchDeleteDetectorResponse'
-            Prelude.<$> ( x Data..?> "batchDeleteDetectorErrorEntries"
+            Prelude.<$> ( x
+                            Data..?> "batchDeleteDetectorErrorEntries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

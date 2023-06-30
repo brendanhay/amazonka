@@ -88,7 +88,8 @@ instance Data.FromJSON DetectorState where
 
 instance Prelude.Hashable DetectorState where
   hashWithSalt _salt DetectorState' {..} =
-    _salt `Prelude.hashWithSalt` stateName
+    _salt
+      `Prelude.hashWithSalt` stateName
       `Prelude.hashWithSalt` variables
       `Prelude.hashWithSalt` timers
 

@@ -106,7 +106,8 @@ message_payload = Lens.lens (\Message' {payload} -> payload) (\s@Message' {} a -
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` timestamp
+    _salt
+      `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` inputName
       `Prelude.hashWithSalt` payload

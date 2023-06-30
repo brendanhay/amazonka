@@ -101,7 +101,8 @@ updateDetectorRequest_state = Lens.lens (\UpdateDetectorRequest' {state} -> stat
 
 instance Prelude.Hashable UpdateDetectorRequest where
   hashWithSalt _salt UpdateDetectorRequest' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` detectorModelName
       `Prelude.hashWithSalt` state

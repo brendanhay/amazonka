@@ -98,7 +98,8 @@ instance
     AcknowledgeAlarmActionRequest
   where
   hashWithSalt _salt AcknowledgeAlarmActionRequest' {..} =
-    _salt `Prelude.hashWithSalt` keyValue
+    _salt
+      `Prelude.hashWithSalt` keyValue
       `Prelude.hashWithSalt` note
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` alarmModelName

@@ -95,7 +95,8 @@ instance Core.AWSRequest BatchPutMessage where
     Response.receiveJSON
       ( \s h x ->
           BatchPutMessageResponse'
-            Prelude.<$> ( x Data..?> "BatchPutMessageErrorEntries"
+            Prelude.<$> ( x
+                            Data..?> "BatchPutMessageErrorEntries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

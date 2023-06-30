@@ -158,7 +158,8 @@ instance Data.FromJSON ColumnDefinition where
 
 instance Prelude.Hashable ColumnDefinition where
   hashWithSalt _salt ColumnDefinition' {..} =
-    _salt `Prelude.hashWithSalt` columnDescription
+    _salt
+      `Prelude.hashWithSalt` columnDescription
       `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` dataType
 

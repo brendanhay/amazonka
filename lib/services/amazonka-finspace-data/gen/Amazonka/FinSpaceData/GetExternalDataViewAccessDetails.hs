@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     GetExternalDataViewAccessDetails' {..} =
-      _salt `Prelude.hashWithSalt` dataViewId
+      _salt
+        `Prelude.hashWithSalt` dataViewId
         `Prelude.hashWithSalt` datasetId
 
 instance

@@ -112,7 +112,8 @@ instance Core.AWSRequest ListPermissionGroupsByUser where
       ( \s h x ->
           ListPermissionGroupsByUserResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "permissionGroups"
+            Prelude.<*> ( x
+                            Data..?> "permissionGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -120,7 +121,8 @@ instance Core.AWSRequest ListPermissionGroupsByUser where
 
 instance Prelude.Hashable ListPermissionGroupsByUser where
   hashWithSalt _salt ListPermissionGroupsByUser' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` maxResults
 

@@ -139,7 +139,8 @@ instance Data.FromJSON ChangesetErrorInfo where
 
 instance Prelude.Hashable ChangesetErrorInfo where
   hashWithSalt _salt ChangesetErrorInfo' {..} =
-    _salt `Prelude.hashWithSalt` errorCategory
+    _salt
+      `Prelude.hashWithSalt` errorCategory
       `Prelude.hashWithSalt` errorMessage
 
 instance Prelude.NFData ChangesetErrorInfo where

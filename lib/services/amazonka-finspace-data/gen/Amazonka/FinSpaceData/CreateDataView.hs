@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateDataView where
 
 instance Prelude.Hashable CreateDataView where
   hashWithSalt _salt CreateDataView' {..} =
-    _salt `Prelude.hashWithSalt` asOfTimestamp
+    _salt
+      `Prelude.hashWithSalt` asOfTimestamp
       `Prelude.hashWithSalt` autoUpdate
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` partitionColumns

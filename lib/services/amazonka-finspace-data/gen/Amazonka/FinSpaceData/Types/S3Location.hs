@@ -69,12 +69,14 @@ instance Data.FromJSON S3Location where
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Data..: "bucket") Prelude.<*> (x Data..: "key")
+            Prelude.<$> (x Data..: "bucket")
+            Prelude.<*> (x Data..: "key")
       )
 
 instance Prelude.Hashable S3Location where
   hashWithSalt _salt S3Location' {..} =
-    _salt `Prelude.hashWithSalt` bucket
+    _salt
+      `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
 
 instance Prelude.NFData S3Location where

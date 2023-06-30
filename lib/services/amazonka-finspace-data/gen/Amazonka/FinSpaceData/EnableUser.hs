@@ -101,7 +101,8 @@ instance Core.AWSRequest EnableUser where
 
 instance Prelude.Hashable EnableUser where
   hashWithSalt _salt EnableUser' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` userId
 
 instance Prelude.NFData EnableUser where

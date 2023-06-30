@@ -252,7 +252,8 @@ instance Core.AWSRequest UpdateChangeset where
 
 instance Prelude.Hashable UpdateChangeset where
   hashWithSalt _salt UpdateChangeset' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` datasetId
       `Prelude.hashWithSalt` changesetId
       `Prelude.hashWithSalt` sourceParams

@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeQuery where
 
 instance Prelude.Hashable DescribeQuery where
   hashWithSalt _salt DescribeQuery' {..} =
-    _salt `Prelude.hashWithSalt` eventDataStore
+    _salt
+      `Prelude.hashWithSalt` eventDataStore
       `Prelude.hashWithSalt` queryId
 
 instance Prelude.NFData DescribeQuery where

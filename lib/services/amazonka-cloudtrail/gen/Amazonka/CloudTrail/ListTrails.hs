@@ -91,20 +91,23 @@ instance Core.AWSPager ListTrails where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTrailsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listTrailsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTrailsResponse_trails Prelude.. Lens._Just
+            Lens.^? listTrailsResponse_trails
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTrails_nextToken
           Lens..~ rs
-          Lens.^? listTrailsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listTrailsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTrails where
   type AWSResponse ListTrails = ListTrailsResponse

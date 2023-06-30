@@ -145,7 +145,8 @@ instance Core.AWSRequest GetInsightSelectors where
     Response.receiveJSON
       ( \s h x ->
           GetInsightSelectorsResponse'
-            Prelude.<$> ( x Data..?> "InsightSelectors"
+            Prelude.<$> ( x
+                            Data..?> "InsightSelectors"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "TrailARN")

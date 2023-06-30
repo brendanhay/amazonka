@@ -155,7 +155,8 @@ instance Data.FromJSON Event where
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` accessKeyId
+    _salt
+      `Prelude.hashWithSalt` accessKeyId
       `Prelude.hashWithSalt` cloudTrailEvent
       `Prelude.hashWithSalt` eventId
       `Prelude.hashWithSalt` eventName

@@ -121,7 +121,8 @@ instance
   hashWithSalt
     _salt
     QueryStatisticsForDescribeQuery' {..} =
-      _salt `Prelude.hashWithSalt` bytesScanned
+      _salt
+        `Prelude.hashWithSalt` bytesScanned
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` eventsMatched
         `Prelude.hashWithSalt` eventsScanned

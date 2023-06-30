@@ -209,20 +209,23 @@ instance Core.AWSPager LookupEvents where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? lookupEventsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? lookupEventsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? lookupEventsResponse_events Prelude.. Lens._Just
+            Lens.^? lookupEventsResponse_events
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& lookupEvents_nextToken
           Lens..~ rs
-          Lens.^? lookupEventsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? lookupEventsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest LookupEvents where
   type AWSResponse LookupEvents = LookupEventsResponse
@@ -239,7 +242,8 @@ instance Core.AWSRequest LookupEvents where
 
 instance Prelude.Hashable LookupEvents where
   hashWithSalt _salt LookupEvents' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` eventCategory
       `Prelude.hashWithSalt` lookupAttributes
       `Prelude.hashWithSalt` maxResults

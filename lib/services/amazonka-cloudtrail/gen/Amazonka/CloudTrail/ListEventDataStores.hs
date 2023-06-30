@@ -96,7 +96,8 @@ instance Core.AWSRequest ListEventDataStores where
     Response.receiveJSON
       ( \s h x ->
           ListEventDataStoresResponse'
-            Prelude.<$> ( x Data..?> "EventDataStores"
+            Prelude.<$> ( x
+                            Data..?> "EventDataStores"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -105,7 +106,8 @@ instance Core.AWSRequest ListEventDataStores where
 
 instance Prelude.Hashable ListEventDataStores where
   hashWithSalt _salt ListEventDataStores' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListEventDataStores where

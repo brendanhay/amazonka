@@ -326,7 +326,8 @@ instance Data.FromJSON DataResource where
 
 instance Prelude.Hashable DataResource where
   hashWithSalt _salt DataResource' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData DataResource where

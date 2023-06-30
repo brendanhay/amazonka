@@ -93,7 +93,8 @@ instance Data.FromJSON AttributeGroupDetails where
 
 instance Prelude.Hashable AttributeGroupDetails where
   hashWithSalt _salt AttributeGroupDetails' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateAttributeGroup where
 
 instance Prelude.Hashable UpdateAttributeGroup where
   hashWithSalt _salt UpdateAttributeGroup' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributeGroup

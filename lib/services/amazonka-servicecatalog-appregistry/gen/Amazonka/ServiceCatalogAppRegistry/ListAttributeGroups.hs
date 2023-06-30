@@ -99,22 +99,22 @@ instance Core.AWSPager ListAttributeGroups where
     | Core.stop
         ( rs
             Lens.^? listAttributeGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAttributeGroupsResponse_attributeGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAttributeGroups_nextToken
           Lens..~ rs
           Lens.^? listAttributeGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAttributeGroups where
   type
@@ -126,7 +126,8 @@ instance Core.AWSRequest ListAttributeGroups where
     Response.receiveJSON
       ( \s h x ->
           ListAttributeGroupsResponse'
-            Prelude.<$> ( x Data..?> "attributeGroups"
+            Prelude.<$> ( x
+                            Data..?> "attributeGroups"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -135,7 +136,8 @@ instance Core.AWSRequest ListAttributeGroups where
 
 instance Prelude.Hashable ListAttributeGroups where
   hashWithSalt _salt ListAttributeGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListAttributeGroups where

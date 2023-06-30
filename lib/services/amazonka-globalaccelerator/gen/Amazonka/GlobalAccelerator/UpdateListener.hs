@@ -188,7 +188,8 @@ instance Core.AWSRequest UpdateListener where
 
 instance Prelude.Hashable UpdateListener where
   hashWithSalt _salt UpdateListener' {..} =
-    _salt `Prelude.hashWithSalt` clientAffinity
+    _salt
+      `Prelude.hashWithSalt` clientAffinity
       `Prelude.hashWithSalt` portRanges
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` listenerArn

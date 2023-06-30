@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     CustomRoutingDestinationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` fromPort
+      _salt
+        `Prelude.hashWithSalt` fromPort
         `Prelude.hashWithSalt` toPort
         `Prelude.hashWithSalt` protocols
 

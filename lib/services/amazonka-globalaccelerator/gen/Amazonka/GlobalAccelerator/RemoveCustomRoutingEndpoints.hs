@@ -104,7 +104,8 @@ instance
     RemoveCustomRoutingEndpoints
   where
   hashWithSalt _salt RemoveCustomRoutingEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` endpointIds
+    _salt
+      `Prelude.hashWithSalt` endpointIds
       `Prelude.hashWithSalt` endpointGroupArn
 
 instance Prelude.NFData RemoveCustomRoutingEndpoints where

@@ -343,66 +343,66 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The accelerator that you specified could not be disabled.
-_AcceleratorNotDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AcceleratorNotDisabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AcceleratorNotDisabledException =
   Core._MatchServiceError
     defaultService
     "AcceleratorNotDisabledException"
 
 -- | The accelerator that you specified doesn\'t exist.
-_AcceleratorNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AcceleratorNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AcceleratorNotFoundException =
   Core._MatchServiceError
     defaultService
     "AcceleratorNotFoundException"
 
 -- | You don\'t have access permission.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -411,7 +411,7 @@ _AccessDeniedException =
 -- | The listener that you specified has an endpoint group associated with
 -- it. You must remove all dependent resources from a listener before you
 -- can delete it.
-_AssociatedEndpointGroupFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AssociatedEndpointGroupFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AssociatedEndpointGroupFoundException =
   Core._MatchServiceError
     defaultService
@@ -420,49 +420,49 @@ _AssociatedEndpointGroupFoundException =
 -- | The accelerator that you specified has a listener associated with it.
 -- You must remove all dependent resources from an accelerator before you
 -- can delete it.
-_AssociatedListenerFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AssociatedListenerFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AssociatedListenerFoundException =
   Core._MatchServiceError
     defaultService
     "AssociatedListenerFoundException"
 
 -- | The CIDR that you specified was not found or is incorrect.
-_ByoipCidrNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ByoipCidrNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ByoipCidrNotFoundException =
   Core._MatchServiceError
     defaultService
     "ByoipCidrNotFoundException"
 
 -- | You can\'t use both of those options.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | The endpoint that you specified doesn\'t exist.
-_EndpointAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EndpointAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EndpointAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "EndpointAlreadyExistsException"
 
 -- | The endpoint group that you specified already exists.
-_EndpointGroupAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EndpointGroupAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EndpointGroupAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "EndpointGroupAlreadyExistsException"
 
 -- | The endpoint group that you specified doesn\'t exist.
-_EndpointGroupNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EndpointGroupNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EndpointGroupNotFoundException =
   Core._MatchServiceError
     defaultService
     "EndpointGroupNotFoundException"
 
 -- | The endpoint that you specified doesn\'t exist.
-_EndpointNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_EndpointNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _EndpointNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -470,28 +470,28 @@ _EndpointNotFoundException =
 
 -- | The CIDR that you specified is not valid for this action. For example,
 -- the state of the CIDR might be incorrect for this action.
-_IncorrectCidrStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IncorrectCidrStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IncorrectCidrStateException =
   Core._MatchServiceError
     defaultService
     "IncorrectCidrStateException"
 
 -- | There was an internal error for Global Accelerator.
-_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
     "InternalServiceErrorException"
 
 -- | An argument that you specified is invalid.
-_InvalidArgumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidArgumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidArgumentException =
   Core._MatchServiceError
     defaultService
     "InvalidArgumentException"
 
 -- | There isn\'t another item to return.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -499,7 +499,7 @@ _InvalidNextTokenException =
 
 -- | The port numbers that you specified are not valid numbers or are not
 -- unique for this accelerator.
-_InvalidPortRangeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPortRangeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPortRangeException =
   Core._MatchServiceError
     defaultService
@@ -507,14 +507,14 @@ _InvalidPortRangeException =
 
 -- | Processing your request would cause you to exceed an Global Accelerator
 -- limit.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The listener that you specified doesn\'t exist.
-_ListenerNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ListenerNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ListenerNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -522,7 +522,7 @@ _ListenerNotFoundException =
 
 -- | There\'s already a transaction in progress. Another transaction can\'t
 -- be processed.
-_TransactionInProgressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TransactionInProgressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TransactionInProgressException =
   Core._MatchServiceError
     defaultService

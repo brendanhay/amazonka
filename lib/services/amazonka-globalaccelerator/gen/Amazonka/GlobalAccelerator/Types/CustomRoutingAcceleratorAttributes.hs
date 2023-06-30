@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     CustomRoutingAcceleratorAttributes' {..} =
-      _salt `Prelude.hashWithSalt` flowLogsEnabled
+      _salt
+        `Prelude.hashWithSalt` flowLogsEnabled
         `Prelude.hashWithSalt` flowLogsS3Bucket
         `Prelude.hashWithSalt` flowLogsS3Prefix
 

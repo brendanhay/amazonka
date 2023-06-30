@@ -127,7 +127,8 @@ instance Core.AWSRequest ProvisionByoipCidr where
 
 instance Prelude.Hashable ProvisionByoipCidr where
   hashWithSalt _salt ProvisionByoipCidr' {..} =
-    _salt `Prelude.hashWithSalt` cidr
+    _salt
+      `Prelude.hashWithSalt` cidr
       `Prelude.hashWithSalt` cidrAuthorizationContext
 
 instance Prelude.NFData ProvisionByoipCidr where

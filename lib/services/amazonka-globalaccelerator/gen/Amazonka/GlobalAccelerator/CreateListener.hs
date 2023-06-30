@@ -210,7 +210,8 @@ instance Core.AWSRequest CreateListener where
 
 instance Prelude.Hashable CreateListener where
   hashWithSalt _salt CreateListener' {..} =
-    _salt `Prelude.hashWithSalt` clientAffinity
+    _salt
+      `Prelude.hashWithSalt` clientAffinity
       `Prelude.hashWithSalt` acceleratorArn
       `Prelude.hashWithSalt` portRanges
       `Prelude.hashWithSalt` protocol

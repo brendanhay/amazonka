@@ -254,7 +254,8 @@ instance Core.AWSRequest CreateAccelerator where
 
 instance Prelude.Hashable CreateAccelerator where
   hashWithSalt _salt CreateAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` ipAddresses
       `Prelude.hashWithSalt` tags

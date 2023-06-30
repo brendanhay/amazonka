@@ -145,7 +145,8 @@ instance Data.FromJSON DestinationPortMapping where
       ( \x ->
           DestinationPortMapping'
             Prelude.<$> (x Data..:? "AcceleratorArn")
-            Prelude.<*> ( x Data..:? "AcceleratorSocketAddresses"
+            Prelude.<*> ( x
+                            Data..:? "AcceleratorSocketAddresses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DestinationSocketAddress")
@@ -158,7 +159,8 @@ instance Data.FromJSON DestinationPortMapping where
 
 instance Prelude.Hashable DestinationPortMapping where
   hashWithSalt _salt DestinationPortMapping' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorArn
+    _salt
+      `Prelude.hashWithSalt` acceleratorArn
       `Prelude.hashWithSalt` acceleratorSocketAddresses
       `Prelude.hashWithSalt` destinationSocketAddress
       `Prelude.hashWithSalt` destinationTrafficState

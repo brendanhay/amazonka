@@ -88,7 +88,8 @@ instance Data.FromJSON IpSet where
 
 instance Prelude.Hashable IpSet where
   hashWithSalt _salt IpSet' {..} =
-    _salt `Prelude.hashWithSalt` ipAddressFamily
+    _salt
+      `Prelude.hashWithSalt` ipAddressFamily
       `Prelude.hashWithSalt` ipAddresses
       `Prelude.hashWithSalt` ipFamily
 

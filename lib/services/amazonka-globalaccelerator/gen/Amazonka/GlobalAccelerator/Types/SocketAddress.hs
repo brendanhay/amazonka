@@ -74,7 +74,8 @@ instance Data.FromJSON SocketAddress where
 
 instance Prelude.Hashable SocketAddress where
   hashWithSalt _salt SocketAddress' {..} =
-    _salt `Prelude.hashWithSalt` ipAddress
+    _salt
+      `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData SocketAddress where

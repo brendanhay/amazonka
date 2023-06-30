@@ -148,7 +148,8 @@ instance Core.AWSRequest UpdateAccelerator where
 
 instance Prelude.Hashable UpdateAccelerator where
   hashWithSalt _salt UpdateAccelerator' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` acceleratorArn

@@ -130,7 +130,8 @@ instance Data.FromJSON AcceleratorAttributes where
 
 instance Prelude.Hashable AcceleratorAttributes where
   hashWithSalt _salt AcceleratorAttributes' {..} =
-    _salt `Prelude.hashWithSalt` flowLogsEnabled
+    _salt
+      `Prelude.hashWithSalt` flowLogsEnabled
       `Prelude.hashWithSalt` flowLogsS3Bucket
       `Prelude.hashWithSalt` flowLogsS3Prefix
 

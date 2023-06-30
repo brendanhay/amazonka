@@ -601,7 +601,8 @@ instance Core.AWSRequest GetFederationToken where
 
 instance Prelude.Hashable GetFederationToken where
   hashWithSalt _salt GetFederationToken' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns
       `Prelude.hashWithSalt` tags

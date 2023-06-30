@@ -87,60 +87,60 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has
           ( Core.hasCode "IDPCommunicationError"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "idp_unreachable_error"
+          Prelude.Just "idp_unreachable_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The web identity token that was passed is expired or is not valid. Get a
 -- new identity token from the identity provider and then retry the
 -- request.
-_ExpiredTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ExpiredTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ExpiredTokenException =
   Core._MatchServiceError
     defaultService
@@ -153,7 +153,7 @@ _ExpiredTokenException =
 -- Retry the request a limited number of times so that you don\'t exceed
 -- the request rate. If the error persists, the identity provider might be
 -- down or not responding.
-_IDPCommunicationErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IDPCommunicationErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IDPCommunicationErrorException =
   Core._MatchServiceError
     defaultService
@@ -166,7 +166,7 @@ _IDPCommunicationErrorException =
 -- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
-_IDPRejectedClaimException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IDPRejectedClaimException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IDPRejectedClaimException =
   Core._MatchServiceError
     defaultService
@@ -176,7 +176,7 @@ _IDPRejectedClaimException =
 -- | The error returned if the message passed to @DecodeAuthorizationMessage@
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
-_InvalidAuthorizationMessageException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidAuthorizationMessageException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidAuthorizationMessageException =
   Core._MatchServiceError
     defaultService
@@ -186,7 +186,7 @@ _InvalidAuthorizationMessageException =
 -- | The web identity token that was passed could not be validated by Amazon
 -- Web Services. Get a new identity token from the identity provider and
 -- then retry the request.
-_InvalidIdentityTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidIdentityTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidIdentityTokenException =
   Core._MatchServiceError
     defaultService
@@ -195,7 +195,7 @@ _InvalidIdentityTokenException =
 
 -- | The request was rejected because the policy document was malformed. The
 -- error message describes the specific error.
-_MalformedPolicyDocumentException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MalformedPolicyDocumentException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
     defaultService
@@ -215,7 +215,7 @@ _MalformedPolicyDocumentException =
 -- policy and session tag limits. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length IAM and STS Entity Character Limits>
 -- in the /IAM User Guide/.
-_PackedPolicyTooLargeException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PackedPolicyTooLargeException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PackedPolicyTooLargeException =
   Core._MatchServiceError
     defaultService
@@ -228,7 +228,7 @@ _PackedPolicyTooLargeException =
 -- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html Activating and Deactivating Amazon Web Services STS in an Amazon Web Services Region>
 -- in the /IAM User Guide/.
-_RegionDisabledException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RegionDisabledException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RegionDisabledException =
   Core._MatchServiceError
     defaultService

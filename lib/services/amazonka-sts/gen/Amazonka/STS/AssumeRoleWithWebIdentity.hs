@@ -611,7 +611,8 @@ instance Core.AWSRequest AssumeRoleWithWebIdentity where
 
 instance Prelude.Hashable AssumeRoleWithWebIdentity where
   hashWithSalt _salt AssumeRoleWithWebIdentity' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns
       `Prelude.hashWithSalt` providerId

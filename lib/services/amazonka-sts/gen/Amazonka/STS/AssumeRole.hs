@@ -883,7 +883,8 @@ instance Core.AWSRequest AssumeRole where
 
 instance Prelude.Hashable AssumeRole where
   hashWithSalt _salt AssumeRole' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns

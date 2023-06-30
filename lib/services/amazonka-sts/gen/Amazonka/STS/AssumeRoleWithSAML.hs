@@ -544,7 +544,8 @@ instance Core.AWSRequest AssumeRoleWithSAML where
 
 instance Prelude.Hashable AssumeRoleWithSAML where
   hashWithSalt _salt AssumeRoleWithSAML' {..} =
-    _salt `Prelude.hashWithSalt` durationSeconds
+    _salt
+      `Prelude.hashWithSalt` durationSeconds
       `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` policyArns
       `Prelude.hashWithSalt` roleArn

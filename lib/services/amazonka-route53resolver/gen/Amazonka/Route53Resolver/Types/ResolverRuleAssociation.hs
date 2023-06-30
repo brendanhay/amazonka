@@ -140,7 +140,8 @@ instance Data.FromJSON ResolverRuleAssociation where
 
 instance Prelude.Hashable ResolverRuleAssociation where
   hashWithSalt _salt ResolverRuleAssociation' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resolverRuleId
       `Prelude.hashWithSalt` status

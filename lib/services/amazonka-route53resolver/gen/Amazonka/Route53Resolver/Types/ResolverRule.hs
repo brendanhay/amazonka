@@ -291,7 +291,8 @@ instance Data.FromJSON ResolverRule where
 
 instance Prelude.Hashable ResolverRule where
   hashWithSalt _salt ResolverRule' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` domainName

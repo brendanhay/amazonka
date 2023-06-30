@@ -85,7 +85,8 @@ resolverRuleConfig_targetIps = Lens.lens (\ResolverRuleConfig' {targetIps} -> ta
 
 instance Prelude.Hashable ResolverRuleConfig where
   hashWithSalt _salt ResolverRuleConfig' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resolverEndpointId
       `Prelude.hashWithSalt` targetIps
 

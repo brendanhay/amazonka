@@ -169,7 +169,8 @@ instance
   hashWithSalt
     _salt
     PutResolverQueryLogConfigPolicy' {..} =
-      _salt `Prelude.hashWithSalt` arn
+      _salt
+        `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` resolverQueryLogConfigPolicy
 
 instance

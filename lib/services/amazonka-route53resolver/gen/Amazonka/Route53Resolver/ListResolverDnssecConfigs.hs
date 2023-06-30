@@ -137,22 +137,22 @@ instance Core.AWSPager ListResolverDnssecConfigs where
     | Core.stop
         ( rs
             Lens.^? listResolverDnssecConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listResolverDnssecConfigsResponse_resolverDnssecConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listResolverDnssecConfigs_nextToken
           Lens..~ rs
           Lens.^? listResolverDnssecConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResolverDnssecConfigs where
   type
@@ -165,7 +165,8 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
       ( \s h x ->
           ListResolverDnssecConfigsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ResolverDnssecConfigs"
+            Prelude.<*> ( x
+                            Data..?> "ResolverDnssecConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -173,7 +174,8 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
 
 instance Prelude.Hashable ListResolverDnssecConfigs where
   hashWithSalt _salt ListResolverDnssecConfigs' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

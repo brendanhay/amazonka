@@ -125,7 +125,8 @@ instance Core.AWSRequest CreateFirewallRuleGroup where
 
 instance Prelude.Hashable CreateFirewallRuleGroup where
   hashWithSalt _salt CreateFirewallRuleGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` name
 

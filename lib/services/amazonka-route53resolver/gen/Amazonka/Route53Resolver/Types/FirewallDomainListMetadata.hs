@@ -123,7 +123,8 @@ instance Data.FromJSON FirewallDomainListMetadata where
 
 instance Prelude.Hashable FirewallDomainListMetadata where
   hashWithSalt _salt FirewallDomainListMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` managedOwnerName

@@ -129,7 +129,8 @@ instance Core.AWSRequest CreateFirewallDomainList where
 
 instance Prelude.Hashable CreateFirewallDomainList where
   hashWithSalt _salt CreateFirewallDomainList' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` name
 

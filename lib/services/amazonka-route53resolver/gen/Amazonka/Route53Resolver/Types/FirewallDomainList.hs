@@ -180,7 +180,8 @@ instance Data.FromJSON FirewallDomainList where
 
 instance Prelude.Hashable FirewallDomainList where
   hashWithSalt _salt FirewallDomainList' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` domainCount

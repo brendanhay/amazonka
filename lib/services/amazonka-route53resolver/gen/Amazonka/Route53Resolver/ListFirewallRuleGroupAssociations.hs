@@ -200,22 +200,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listFirewallRuleGroupAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFirewallRuleGroupAssociationsResponse_firewallRuleGroupAssociations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFirewallRuleGroupAssociations_nextToken
           Lens..~ rs
           Lens.^? listFirewallRuleGroupAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -230,11 +230,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListFirewallRuleGroupAssociationsResponse'
-            Prelude.<$> ( x Data..?> "FirewallRuleGroupAssociations"
+            Prelude.<$> ( x
+                            Data..?> "FirewallRuleGroupAssociations"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -244,7 +245,8 @@ instance
   hashWithSalt
     _salt
     ListFirewallRuleGroupAssociations' {..} =
-      _salt `Prelude.hashWithSalt` firewallRuleGroupId
+      _salt
+        `Prelude.hashWithSalt` firewallRuleGroupId
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` priority

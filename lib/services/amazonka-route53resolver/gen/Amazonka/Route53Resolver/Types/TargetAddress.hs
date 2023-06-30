@@ -72,12 +72,14 @@ instance Data.FromJSON TargetAddress where
       "TargetAddress"
       ( \x ->
           TargetAddress'
-            Prelude.<$> (x Data..:? "Port") Prelude.<*> (x Data..: "Ip")
+            Prelude.<$> (x Data..:? "Port")
+            Prelude.<*> (x Data..: "Ip")
       )
 
 instance Prelude.Hashable TargetAddress where
   hashWithSalt _salt TargetAddress' {..} =
-    _salt `Prelude.hashWithSalt` port
+    _salt
+      `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` ip
 
 instance Prelude.NFData TargetAddress where

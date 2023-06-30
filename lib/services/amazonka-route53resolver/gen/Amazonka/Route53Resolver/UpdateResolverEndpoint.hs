@@ -102,7 +102,8 @@ instance Core.AWSRequest UpdateResolverEndpoint where
 
 instance Prelude.Hashable UpdateResolverEndpoint where
   hashWithSalt _salt UpdateResolverEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resolverEndpointId
 
 instance Prelude.NFData UpdateResolverEndpoint where

@@ -332,7 +332,8 @@ instance Core.AWSRequest CreateFirewallRule where
 
 instance Prelude.Hashable CreateFirewallRule where
   hashWithSalt _salt CreateFirewallRule' {..} =
-    _salt `Prelude.hashWithSalt` blockOverrideDnsType
+    _salt
+      `Prelude.hashWithSalt` blockOverrideDnsType
       `Prelude.hashWithSalt` blockOverrideDomain
       `Prelude.hashWithSalt` blockOverrideTtl
       `Prelude.hashWithSalt` blockResponse

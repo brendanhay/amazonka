@@ -412,67 +412,66 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The current account doesn\'t have the IAM permissions required to
 -- perform the specified Resolver operation.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
--- |
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
 
 -- | We encountered an unknown error. Try again in a few minutes.
-_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -480,91 +479,90 @@ _InternalServiceErrorException =
 
 -- | The value that you specified for @NextToken@ in a @List@ request isn\'t
 -- valid.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | One or more parameters in this request are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
 -- | The specified Resolver rule policy is invalid.
-_InvalidPolicyDocument :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidPolicyDocument :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidPolicyDocument =
   Core._MatchServiceError
     defaultService
     "InvalidPolicyDocument"
 
 -- | The request is invalid.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
 -- | The specified tag is invalid.
-_InvalidTagException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTagException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTagException =
   Core._MatchServiceError
     defaultService
     "InvalidTagException"
 
 -- | The request caused one or more limits to be exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
 -- | The resource that you tried to create already exists.
-_ResourceExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceExistsException =
   Core._MatchServiceError
     defaultService
     "ResourceExistsException"
 
 -- | The resource that you tried to update or delete is currently in use.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
 -- | The specified resource doesn\'t exist.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The specified resource isn\'t available.
-_ResourceUnavailableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceUnavailableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceUnavailableException =
   Core._MatchServiceError
     defaultService
     "ResourceUnavailableException"
 
 -- | The request was throttled. Try again in a few minutes.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
     "ThrottlingException"
 
 -- | The specified resource doesn\'t exist.
-_UnknownResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnknownResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnknownResourceException =
   Core._MatchServiceError
     defaultService
     "UnknownResourceException"
 
--- |
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

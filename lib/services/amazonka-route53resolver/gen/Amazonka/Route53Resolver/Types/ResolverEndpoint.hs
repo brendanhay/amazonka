@@ -336,7 +336,8 @@ instance Data.FromJSON ResolverEndpoint where
             Prelude.<*> (x Data..:? "IpAddressCount")
             Prelude.<*> (x Data..:? "ModificationTime")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")
@@ -345,7 +346,8 @@ instance Data.FromJSON ResolverEndpoint where
 
 instance Prelude.Hashable ResolverEndpoint where
   hashWithSalt _salt ResolverEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` direction

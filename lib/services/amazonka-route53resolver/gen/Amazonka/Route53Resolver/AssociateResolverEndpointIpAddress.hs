@@ -119,7 +119,7 @@ instance
       ( \s h x ->
           AssociateResolverEndpointIpAddressResponse'
             Prelude.<$> (x Data..?> "ResolverEndpoint")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     AssociateResolverEndpointIpAddress' {..} =
-      _salt `Prelude.hashWithSalt` resolverEndpointId
+      _salt
+        `Prelude.hashWithSalt` resolverEndpointId
         `Prelude.hashWithSalt` ipAddress
 
 instance

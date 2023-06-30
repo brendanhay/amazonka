@@ -213,7 +213,8 @@ instance Core.AWSRequest CreateResolverEndpoint where
 
 instance Prelude.Hashable CreateResolverEndpoint where
   hashWithSalt _salt CreateResolverEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` securityGroupIds

@@ -86,7 +86,8 @@ instance Data.FromJSON UnmappedAttribute where
 
 instance Prelude.Hashable UnmappedAttribute where
   hashWithSalt _salt UnmappedAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attribute
+    _salt
+      `Prelude.hashWithSalt` attribute
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData UnmappedAttribute where

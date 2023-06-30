@@ -72,12 +72,14 @@ instance Data.FromJSON SNOMEDCTTrait where
       "SNOMEDCTTrait"
       ( \x ->
           SNOMEDCTTrait'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable SNOMEDCTTrait where
   hashWithSalt _salt SNOMEDCTTrait' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` score
 
 instance Prelude.NFData SNOMEDCTTrait where

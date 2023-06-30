@@ -198,7 +198,8 @@ instance Data.FromJSON SNOMEDCTAttribute where
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "RelationshipScore")
             Prelude.<*> (x Data..:? "RelationshipType")
-            Prelude.<*> ( x Data..:? "SNOMEDCTConcepts"
+            Prelude.<*> ( x
+                            Data..:? "SNOMEDCTConcepts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Score")
@@ -209,7 +210,8 @@ instance Data.FromJSON SNOMEDCTAttribute where
 
 instance Prelude.Hashable SNOMEDCTAttribute where
   hashWithSalt _salt SNOMEDCTAttribute' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` id

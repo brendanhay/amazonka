@@ -73,12 +73,14 @@ instance Data.FromJSON ICD10CMTrait where
       "ICD10CMTrait"
       ( \x ->
           ICD10CMTrait'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable ICD10CMTrait where
   hashWithSalt _salt ICD10CMTrait' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` score
 
 instance Prelude.NFData ICD10CMTrait where

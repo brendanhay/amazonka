@@ -74,12 +74,14 @@ instance Data.FromJSON RxNormTrait where
       "RxNormTrait"
       ( \x ->
           RxNormTrait'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Score")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Score")
       )
 
 instance Prelude.Hashable RxNormTrait where
   hashWithSalt _salt RxNormTrait' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` score
 
 instance Prelude.NFData RxNormTrait where

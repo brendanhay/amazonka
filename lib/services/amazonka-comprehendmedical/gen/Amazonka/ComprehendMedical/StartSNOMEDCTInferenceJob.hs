@@ -178,7 +178,8 @@ instance Core.AWSRequest StartSNOMEDCTInferenceJob where
 
 instance Prelude.Hashable StartSNOMEDCTInferenceJob where
   hashWithSalt _salt StartSNOMEDCTInferenceJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig

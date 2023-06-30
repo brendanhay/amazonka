@@ -183,7 +183,8 @@ instance Core.AWSRequest StartPHIDetectionJob where
 
 instance Prelude.Hashable StartPHIDetectionJob where
   hashWithSalt _salt StartPHIDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` inputDataConfig

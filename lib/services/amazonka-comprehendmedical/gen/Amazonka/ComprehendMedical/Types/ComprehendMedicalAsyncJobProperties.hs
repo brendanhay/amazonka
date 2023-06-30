@@ -237,7 +237,8 @@ instance
   hashWithSalt
     _salt
     ComprehendMedicalAsyncJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` expirationTime
         `Prelude.hashWithSalt` inputDataConfig

@@ -194,7 +194,8 @@ instance Data.FromJSON RxNormEntity where
 
 instance Prelude.Hashable RxNormEntity where
   hashWithSalt _salt RxNormEntity' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` endOffset

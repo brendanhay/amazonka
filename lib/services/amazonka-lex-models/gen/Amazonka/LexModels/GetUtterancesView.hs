@@ -154,7 +154,8 @@ instance Core.AWSRequest GetUtterancesView where
 
 instance Prelude.Hashable GetUtterancesView where
   hashWithSalt _salt GetUtterancesView' {..} =
-    _salt `Prelude.hashWithSalt` botName
+    _salt
+      `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botVersions
       `Prelude.hashWithSalt` statusType
 

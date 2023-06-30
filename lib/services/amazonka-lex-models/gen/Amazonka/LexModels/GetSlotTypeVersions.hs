@@ -128,22 +128,22 @@ instance Core.AWSPager GetSlotTypeVersions where
     | Core.stop
         ( rs
             Lens.^? getSlotTypeVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getSlotTypeVersionsResponse_slotTypes
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getSlotTypeVersions_nextToken
           Lens..~ rs
           Lens.^? getSlotTypeVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetSlotTypeVersions where
   type
@@ -162,7 +162,8 @@ instance Core.AWSRequest GetSlotTypeVersions where
 
 instance Prelude.Hashable GetSlotTypeVersions where
   hashWithSalt _salt GetSlotTypeVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` name
 

@@ -100,7 +100,8 @@ instance Core.AWSRequest GetBuiltinIntent where
           GetBuiltinIntentResponse'
             Prelude.<$> (x Data..?> "signature")
             Prelude.<*> (x Data..?> "slots" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "supportedLocales"
+            Prelude.<*> ( x
+                            Data..?> "supportedLocales"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

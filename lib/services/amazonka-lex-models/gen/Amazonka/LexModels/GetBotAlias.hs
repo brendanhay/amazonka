@@ -116,7 +116,8 @@ instance Core.AWSRequest GetBotAlias where
 
 instance Prelude.Hashable GetBotAlias where
   hashWithSalt _salt GetBotAlias' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` botName
 
 instance Prelude.NFData GetBotAlias where

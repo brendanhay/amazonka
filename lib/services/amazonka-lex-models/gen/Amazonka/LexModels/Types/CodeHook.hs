@@ -82,7 +82,8 @@ instance Data.FromJSON CodeHook where
 
 instance Prelude.Hashable CodeHook where
   hashWithSalt _salt CodeHook' {..} =
-    _salt `Prelude.hashWithSalt` uri
+    _salt
+      `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` messageVersion
 
 instance Prelude.NFData CodeHook where

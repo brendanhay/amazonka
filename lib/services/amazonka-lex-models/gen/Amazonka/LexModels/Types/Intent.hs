@@ -78,7 +78,8 @@ instance Data.FromJSON Intent where
 
 instance Prelude.Hashable Intent where
   hashWithSalt _salt Intent' {..} =
-    _salt `Prelude.hashWithSalt` intentName
+    _salt
+      `Prelude.hashWithSalt` intentName
       `Prelude.hashWithSalt` intentVersion
 
 instance Prelude.NFData Intent where

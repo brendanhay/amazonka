@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteIntentVersion where
 
 instance Prelude.Hashable DeleteIntentVersion where
   hashWithSalt _salt DeleteIntentVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData DeleteIntentVersion where

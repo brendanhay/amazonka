@@ -95,7 +95,8 @@ instance Data.FromJSON Message where
 
 instance Prelude.Hashable Message where
   hashWithSalt _salt Message' {..} =
-    _salt `Prelude.hashWithSalt` groupNumber
+    _salt
+      `Prelude.hashWithSalt` groupNumber
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` content
 

@@ -597,7 +597,8 @@ instance Core.AWSRequest PutIntent where
             Prelude.<*> (x Data..?> "outputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Data..?> "parentIntentSignature")
             Prelude.<*> (x Data..?> "rejectionStatement")
-            Prelude.<*> ( x Data..?> "sampleUtterances"
+            Prelude.<*> ( x
+                            Data..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "slots" Core..!@ Prelude.mempty)
@@ -607,7 +608,8 @@ instance Core.AWSRequest PutIntent where
 
 instance Prelude.Hashable PutIntent where
   hashWithSalt _salt PutIntent' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` conclusionStatement
       `Prelude.hashWithSalt` confirmationPrompt
       `Prelude.hashWithSalt` createVersion

@@ -160,7 +160,8 @@ instance Data.FromJSON MigrationSummary where
 
 instance Prelude.Hashable MigrationSummary where
   hashWithSalt _salt MigrationSummary' {..} =
-    _salt `Prelude.hashWithSalt` migrationId
+    _salt
+      `Prelude.hashWithSalt` migrationId
       `Prelude.hashWithSalt` migrationStatus
       `Prelude.hashWithSalt` migrationStrategy
       `Prelude.hashWithSalt` migrationTimestamp

@@ -109,7 +109,8 @@ logSettingsRequest_resourceArn = Lens.lens (\LogSettingsRequest' {resourceArn} -
 
 instance Prelude.Hashable LogSettingsRequest where
   hashWithSalt _salt LogSettingsRequest' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` logType
       `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` resourceArn

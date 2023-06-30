@@ -99,7 +99,8 @@ instance Data.FromJSON FulfillmentActivity where
 
 instance Prelude.Hashable FulfillmentActivity where
   hashWithSalt _salt FulfillmentActivity' {..} =
-    _salt `Prelude.hashWithSalt` codeHook
+    _salt
+      `Prelude.hashWithSalt` codeHook
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData FulfillmentActivity where

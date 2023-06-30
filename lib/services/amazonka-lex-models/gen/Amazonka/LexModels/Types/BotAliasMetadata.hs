@@ -141,7 +141,8 @@ instance Data.FromJSON BotAliasMetadata where
 
 instance Prelude.Hashable BotAliasMetadata where
   hashWithSalt _salt BotAliasMetadata' {..} =
-    _salt `Prelude.hashWithSalt` botName
+    _salt
+      `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botVersion
       `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` conversationLogs

@@ -105,7 +105,8 @@ instance Core.AWSRequest DeleteBotVersion where
 
 instance Prelude.Hashable DeleteBotVersion where
   hashWithSalt _salt DeleteBotVersion' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData DeleteBotVersion where

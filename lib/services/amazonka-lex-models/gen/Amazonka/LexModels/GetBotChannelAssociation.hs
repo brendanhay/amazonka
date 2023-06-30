@@ -132,7 +132,8 @@ instance Core.AWSRequest GetBotChannelAssociation where
       ( \s h x ->
           GetBotChannelAssociationResponse'
             Prelude.<$> (x Data..?> "botAlias")
-            Prelude.<*> ( x Data..?> "botConfiguration"
+            Prelude.<*> ( x
+                            Data..?> "botConfiguration"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "botName")
@@ -147,7 +148,8 @@ instance Core.AWSRequest GetBotChannelAssociation where
 
 instance Prelude.Hashable GetBotChannelAssociation where
   hashWithSalt _salt GetBotChannelAssociation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` botName
       `Prelude.hashWithSalt` botAlias
 

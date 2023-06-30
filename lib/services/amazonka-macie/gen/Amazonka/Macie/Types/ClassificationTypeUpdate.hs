@@ -81,7 +81,8 @@ classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTim
 
 instance Prelude.Hashable ClassificationTypeUpdate where
   hashWithSalt _salt ClassificationTypeUpdate' {..} =
-    _salt `Prelude.hashWithSalt` continuous
+    _salt
+      `Prelude.hashWithSalt` continuous
       `Prelude.hashWithSalt` oneTime
 
 instance Prelude.NFData ClassificationTypeUpdate where

@@ -106,7 +106,8 @@ instance Core.AWSRequest AssociateS3Resources where
     Response.receiveJSON
       ( \s h x ->
           AssociateS3ResourcesResponse'
-            Prelude.<$> ( x Data..?> "failedS3Resources"
+            Prelude.<$> ( x
+                            Data..?> "failedS3Resources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +115,8 @@ instance Core.AWSRequest AssociateS3Resources where
 
 instance Prelude.Hashable AssociateS3Resources where
   hashWithSalt _salt AssociateS3Resources' {..} =
-    _salt `Prelude.hashWithSalt` memberAccountId
+    _salt
+      `Prelude.hashWithSalt` memberAccountId
       `Prelude.hashWithSalt` s3Resources
 
 instance Prelude.NFData AssociateS3Resources where

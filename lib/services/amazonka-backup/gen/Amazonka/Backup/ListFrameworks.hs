@@ -112,7 +112,8 @@ instance Core.AWSRequest ListFrameworks where
 
 instance Prelude.Hashable ListFrameworks where
   hashWithSalt _salt ListFrameworks' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListFrameworks where

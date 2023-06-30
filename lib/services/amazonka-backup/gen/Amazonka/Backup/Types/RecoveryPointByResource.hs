@@ -182,7 +182,8 @@ instance Data.FromJSON RecoveryPointByResource where
 
 instance Prelude.Hashable RecoveryPointByResource where
   hashWithSalt _salt RecoveryPointByResource' {..} =
-    _salt `Prelude.hashWithSalt` backupSizeBytes
+    _salt
+      `Prelude.hashWithSalt` backupSizeBytes
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` encryptionKeyArn

@@ -93,7 +93,8 @@ instance Data.FromJSON CalculatedLifecycle where
 
 instance Prelude.Hashable CalculatedLifecycle where
   hashWithSalt _salt CalculatedLifecycle' {..} =
-    _salt `Prelude.hashWithSalt` deleteAt
+    _salt
+      `Prelude.hashWithSalt` deleteAt
       `Prelude.hashWithSalt` moveToColdStorageAt
 
 instance Prelude.NFData CalculatedLifecycle where

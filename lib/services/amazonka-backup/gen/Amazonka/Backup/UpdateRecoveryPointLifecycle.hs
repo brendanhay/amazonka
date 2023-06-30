@@ -182,7 +182,8 @@ instance
     UpdateRecoveryPointLifecycle
   where
   hashWithSalt _salt UpdateRecoveryPointLifecycle' {..} =
-    _salt `Prelude.hashWithSalt` lifecycle
+    _salt
+      `Prelude.hashWithSalt` lifecycle
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` recoveryPointArn
 

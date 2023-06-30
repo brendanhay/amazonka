@@ -95,7 +95,8 @@ instance Data.FromJSON FrameworkControl where
       "FrameworkControl"
       ( \x ->
           FrameworkControl'
-            Prelude.<$> ( x Data..:? "ControlInputParameters"
+            Prelude.<$> ( x
+                            Data..:? "ControlInputParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ControlScope")
@@ -104,7 +105,8 @@ instance Data.FromJSON FrameworkControl where
 
 instance Prelude.Hashable FrameworkControl where
   hashWithSalt _salt FrameworkControl' {..} =
-    _salt `Prelude.hashWithSalt` controlInputParameters
+    _salt
+      `Prelude.hashWithSalt` controlInputParameters
       `Prelude.hashWithSalt` controlScope
       `Prelude.hashWithSalt` controlName
 

@@ -100,7 +100,8 @@ instance Core.AWSRequest DeleteBackupSelection where
 
 instance Prelude.Hashable DeleteBackupSelection where
   hashWithSalt _salt DeleteBackupSelection' {..} =
-    _salt `Prelude.hashWithSalt` backupPlanId
+    _salt
+      `Prelude.hashWithSalt` backupPlanId
       `Prelude.hashWithSalt` selectionId
 
 instance Prelude.NFData DeleteBackupSelection where

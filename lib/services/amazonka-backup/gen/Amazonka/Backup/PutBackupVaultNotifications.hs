@@ -185,7 +185,8 @@ instance Core.AWSRequest PutBackupVaultNotifications where
 
 instance Prelude.Hashable PutBackupVaultNotifications where
   hashWithSalt _salt PutBackupVaultNotifications' {..} =
-    _salt `Prelude.hashWithSalt` backupVaultName
+    _salt
+      `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` sNSTopicArn
       `Prelude.hashWithSalt` backupVaultEvents
 

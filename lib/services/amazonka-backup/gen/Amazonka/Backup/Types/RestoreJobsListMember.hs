@@ -233,7 +233,8 @@ instance Data.FromJSON RestoreJobsListMember where
 
 instance Prelude.Hashable RestoreJobsListMember where
   hashWithSalt _salt RestoreJobsListMember' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` backupSizeInBytes
       `Prelude.hashWithSalt` completionDate
       `Prelude.hashWithSalt` createdResourceArn

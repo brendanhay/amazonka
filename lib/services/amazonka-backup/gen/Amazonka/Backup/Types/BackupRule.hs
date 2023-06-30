@@ -250,7 +250,8 @@ instance Data.FromJSON BackupRule where
             Prelude.<*> (x Data..:? "CopyActions" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EnableContinuousBackup")
             Prelude.<*> (x Data..:? "Lifecycle")
-            Prelude.<*> ( x Data..:? "RecoveryPointTags"
+            Prelude.<*> ( x
+                            Data..:? "RecoveryPointTags"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RuleId")

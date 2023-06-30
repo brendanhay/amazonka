@@ -414,7 +414,8 @@ instance Data.FromJSON RecoveryPointByBackupVault where
 
 instance Prelude.Hashable RecoveryPointByBackupVault where
   hashWithSalt _salt RecoveryPointByBackupVault' {..} =
-    _salt `Prelude.hashWithSalt` backupSizeInBytes
+    _salt
+      `Prelude.hashWithSalt` backupSizeInBytes
       `Prelude.hashWithSalt` backupVaultArn
       `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` calculatedLifecycle

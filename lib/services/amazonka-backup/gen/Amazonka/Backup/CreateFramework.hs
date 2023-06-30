@@ -163,7 +163,8 @@ instance Core.AWSRequest CreateFramework where
 
 instance Prelude.Hashable CreateFramework where
   hashWithSalt _salt CreateFramework' {..} =
-    _salt `Prelude.hashWithSalt` frameworkDescription
+    _salt
+      `Prelude.hashWithSalt` frameworkDescription
       `Prelude.hashWithSalt` frameworkTags
       `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` frameworkName

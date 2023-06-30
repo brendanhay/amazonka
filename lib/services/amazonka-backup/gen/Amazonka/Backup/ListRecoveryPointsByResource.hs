@@ -127,22 +127,22 @@ instance Core.AWSPager ListRecoveryPointsByResource where
     | Core.stop
         ( rs
             Lens.^? listRecoveryPointsByResourceResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRecoveryPointsByResourceResponse_recoveryPoints
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRecoveryPointsByResource_nextToken
           Lens..~ rs
           Lens.^? listRecoveryPointsByResourceResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecoveryPointsByResource where
   type
@@ -164,7 +164,8 @@ instance
     ListRecoveryPointsByResource
   where
   hashWithSalt _salt ListRecoveryPointsByResource' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceArn
 

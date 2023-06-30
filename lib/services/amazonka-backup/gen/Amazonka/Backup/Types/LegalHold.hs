@@ -141,7 +141,8 @@ instance Data.FromJSON LegalHold where
 
 instance Prelude.Hashable LegalHold where
   hashWithSalt _salt LegalHold' {..} =
-    _salt `Prelude.hashWithSalt` cancellationDate
+    _salt
+      `Prelude.hashWithSalt` cancellationDate
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` legalHoldArn

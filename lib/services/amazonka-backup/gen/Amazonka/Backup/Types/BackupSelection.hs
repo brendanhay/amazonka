@@ -242,7 +242,8 @@ instance Data.FromJSON BackupSelection where
 
 instance Prelude.Hashable BackupSelection where
   hashWithSalt _salt BackupSelection' {..} =
-    _salt `Prelude.hashWithSalt` conditions
+    _salt
+      `Prelude.hashWithSalt` conditions
       `Prelude.hashWithSalt` listOfTags
       `Prelude.hashWithSalt` notResources
       `Prelude.hashWithSalt` resources

@@ -86,7 +86,8 @@ instance Data.FromJSON RecoveryPointSelection where
       ( \x ->
           RecoveryPointSelection'
             Prelude.<$> (x Data..:? "DateRange")
-            Prelude.<*> ( x Data..:? "ResourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..:? "ResourceIdentifiers"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "VaultNames" Data..!= Prelude.mempty)
@@ -94,7 +95,8 @@ instance Data.FromJSON RecoveryPointSelection where
 
 instance Prelude.Hashable RecoveryPointSelection where
   hashWithSalt _salt RecoveryPointSelection' {..} =
-    _salt `Prelude.hashWithSalt` dateRange
+    _salt
+      `Prelude.hashWithSalt` dateRange
       `Prelude.hashWithSalt` resourceIdentifiers
       `Prelude.hashWithSalt` vaultNames
 

@@ -290,20 +290,23 @@ instance Core.AWSPager ListCopyJobs where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listCopyJobsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listCopyJobsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listCopyJobsResponse_copyJobs Prelude.. Lens._Just
+            Lens.^? listCopyJobsResponse_copyJobs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCopyJobs_nextToken
           Lens..~ rs
-          Lens.^? listCopyJobsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listCopyJobsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCopyJobs where
   type AWSResponse ListCopyJobs = ListCopyJobsResponse
@@ -320,7 +323,8 @@ instance Core.AWSRequest ListCopyJobs where
 
 instance Prelude.Hashable ListCopyJobs where
   hashWithSalt _salt ListCopyJobs' {..} =
-    _salt `Prelude.hashWithSalt` byAccountId
+    _salt
+      `Prelude.hashWithSalt` byAccountId
       `Prelude.hashWithSalt` byCompleteAfter
       `Prelude.hashWithSalt` byCompleteBefore
       `Prelude.hashWithSalt` byCreatedAfter

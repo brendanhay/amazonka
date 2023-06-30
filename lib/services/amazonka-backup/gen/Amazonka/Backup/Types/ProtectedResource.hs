@@ -106,7 +106,8 @@ instance Data.FromJSON ProtectedResource where
 
 instance Prelude.Hashable ProtectedResource where
   hashWithSalt _salt ProtectedResource' {..} =
-    _salt `Prelude.hashWithSalt` lastBackupTime
+    _salt
+      `Prelude.hashWithSalt` lastBackupTime
       `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` resourceType
 

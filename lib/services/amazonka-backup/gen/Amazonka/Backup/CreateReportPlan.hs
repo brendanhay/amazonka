@@ -207,7 +207,8 @@ instance Core.AWSRequest CreateReportPlan where
 
 instance Prelude.Hashable CreateReportPlan where
   hashWithSalt _salt CreateReportPlan' {..} =
-    _salt `Prelude.hashWithSalt` idempotencyToken
+    _salt
+      `Prelude.hashWithSalt` idempotencyToken
       `Prelude.hashWithSalt` reportPlanDescription
       `Prelude.hashWithSalt` reportPlanTags
       `Prelude.hashWithSalt` reportPlanName

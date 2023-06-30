@@ -100,7 +100,8 @@ instance Data.FromJSON ReportDeliveryChannel where
 
 instance Prelude.Hashable ReportDeliveryChannel where
   hashWithSalt _salt ReportDeliveryChannel' {..} =
-    _salt `Prelude.hashWithSalt` formats
+    _salt
+      `Prelude.hashWithSalt` formats
       `Prelude.hashWithSalt` s3KeyPrefix
       `Prelude.hashWithSalt` s3BucketName
 

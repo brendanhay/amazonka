@@ -104,22 +104,22 @@ instance Core.AWSPager ListProtectedResources where
     | Core.stop
         ( rs
             Lens.^? listProtectedResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listProtectedResourcesResponse_results
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listProtectedResources_nextToken
           Lens..~ rs
           Lens.^? listProtectedResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtectedResources where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ListProtectedResources where
 
 instance Prelude.Hashable ListProtectedResources where
   hashWithSalt _salt ListProtectedResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListProtectedResources where

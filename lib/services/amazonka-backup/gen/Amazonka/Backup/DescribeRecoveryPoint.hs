@@ -165,7 +165,8 @@ instance Core.AWSRequest DescribeRecoveryPoint where
 
 instance Prelude.Hashable DescribeRecoveryPoint where
   hashWithSalt _salt DescribeRecoveryPoint' {..} =
-    _salt `Prelude.hashWithSalt` backupVaultName
+    _salt
+      `Prelude.hashWithSalt` backupVaultName
       `Prelude.hashWithSalt` recoveryPointArn
 
 instance Prelude.NFData DescribeRecoveryPoint where

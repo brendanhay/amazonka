@@ -109,7 +109,8 @@ instance Data.FromJSON ControlOperation where
 
 instance Prelude.Hashable ControlOperation where
   hashWithSalt _salt ControlOperation' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` operationType
       `Prelude.hashWithSalt` startTime
       `Prelude.hashWithSalt` status

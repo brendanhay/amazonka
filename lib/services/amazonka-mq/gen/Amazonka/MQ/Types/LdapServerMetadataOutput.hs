@@ -246,7 +246,8 @@ instance Data.FromJSON LdapServerMetadataOutput where
 
 instance Prelude.Hashable LdapServerMetadataOutput where
   hashWithSalt _salt LdapServerMetadataOutput' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` roleSearchSubtree
       `Prelude.hashWithSalt` userRoleName
       `Prelude.hashWithSalt` userSearchSubtree

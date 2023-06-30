@@ -459,7 +459,8 @@ instance Core.AWSRequest CreateBroker where
 
 instance Prelude.Hashable CreateBroker where
   hashWithSalt _salt CreateBroker' {..} =
-    _salt `Prelude.hashWithSalt` authenticationStrategy
+    _salt
+      `Prelude.hashWithSalt` authenticationStrategy
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` creatorRequestId
       `Prelude.hashWithSalt` encryptionOptions

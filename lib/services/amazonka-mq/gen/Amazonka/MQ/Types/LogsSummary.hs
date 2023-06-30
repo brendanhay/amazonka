@@ -119,7 +119,8 @@ instance Data.FromJSON LogsSummary where
 
 instance Prelude.Hashable LogsSummary where
   hashWithSalt _salt LogsSummary' {..} =
-    _salt `Prelude.hashWithSalt` audit
+    _salt
+      `Prelude.hashWithSalt` audit
       `Prelude.hashWithSalt` auditLogGroup
       `Prelude.hashWithSalt` pending
       `Prelude.hashWithSalt` generalLogGroup

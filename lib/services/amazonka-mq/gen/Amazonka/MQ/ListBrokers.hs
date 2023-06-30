@@ -97,21 +97,23 @@ instance Core.AWSPager ListBrokers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listBrokersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listBrokersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listBrokersResponse_brokerSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listBrokers_nextToken
           Lens..~ rs
-          Lens.^? listBrokersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listBrokersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBrokers where
   type AWSResponse ListBrokers = ListBrokersResponse
@@ -121,7 +123,8 @@ instance Core.AWSRequest ListBrokers where
     Response.receiveJSON
       ( \s h x ->
           ListBrokersResponse'
-            Prelude.<$> ( x Data..?> "brokerSummaries"
+            Prelude.<$> ( x
+                            Data..?> "brokerSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -130,7 +133,8 @@ instance Core.AWSRequest ListBrokers where
 
 instance Prelude.Hashable ListBrokers where
   hashWithSalt _salt ListBrokers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListBrokers where

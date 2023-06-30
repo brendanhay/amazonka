@@ -248,7 +248,8 @@ ldapServerMetadataInput_serviceAccountPassword = Lens.lens (\LdapServerMetadataI
 
 instance Prelude.Hashable LdapServerMetadataInput where
   hashWithSalt _salt LdapServerMetadataInput' {..} =
-    _salt `Prelude.hashWithSalt` roleName
+    _salt
+      `Prelude.hashWithSalt` roleName
       `Prelude.hashWithSalt` roleSearchSubtree
       `Prelude.hashWithSalt` userRoleName
       `Prelude.hashWithSalt` userSearchSubtree

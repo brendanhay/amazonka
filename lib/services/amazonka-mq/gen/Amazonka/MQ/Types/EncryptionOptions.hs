@@ -90,7 +90,8 @@ instance Data.FromJSON EncryptionOptions where
 
 instance Prelude.Hashable EncryptionOptions where
   hashWithSalt _salt EncryptionOptions' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` useAwsOwnedKey
 
 instance Prelude.NFData EncryptionOptions where

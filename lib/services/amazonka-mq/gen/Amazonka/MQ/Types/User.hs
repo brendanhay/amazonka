@@ -152,7 +152,8 @@ user_password = Lens.lens (\User' {password} -> password) (\s@User' {} a -> s {p
 
 instance Prelude.Hashable User where
   hashWithSalt _salt User' {..} =
-    _salt `Prelude.hashWithSalt` consoleAccess
+    _salt
+      `Prelude.hashWithSalt` consoleAccess
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` password

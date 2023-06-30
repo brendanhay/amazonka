@@ -120,7 +120,8 @@ instance
     DescribeConfigurationRevision
   where
   hashWithSalt _salt DescribeConfigurationRevision' {..} =
-    _salt `Prelude.hashWithSalt` configurationRevision
+    _salt
+      `Prelude.hashWithSalt` configurationRevision
       `Prelude.hashWithSalt` configurationId
 
 instance Prelude.NFData DescribeConfigurationRevision where

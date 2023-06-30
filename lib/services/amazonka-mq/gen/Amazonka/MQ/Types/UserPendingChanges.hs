@@ -98,7 +98,8 @@ instance Data.FromJSON UserPendingChanges where
 
 instance Prelude.Hashable UserPendingChanges where
   hashWithSalt _salt UserPendingChanges' {..} =
-    _salt `Prelude.hashWithSalt` consoleAccess
+    _salt
+      `Prelude.hashWithSalt` consoleAccess
       `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` pendingChange
 

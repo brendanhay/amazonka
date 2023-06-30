@@ -83,7 +83,8 @@ instance Data.FromJSON UserSummary where
 
 instance Prelude.Hashable UserSummary where
   hashWithSalt _salt UserSummary' {..} =
-    _salt `Prelude.hashWithSalt` pendingChange
+    _salt
+      `Prelude.hashWithSalt` pendingChange
       `Prelude.hashWithSalt` username
 
 instance Prelude.NFData UserSummary where

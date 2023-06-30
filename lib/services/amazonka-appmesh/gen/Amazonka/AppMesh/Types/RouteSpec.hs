@@ -110,7 +110,8 @@ instance Data.FromJSON RouteSpec where
 
 instance Prelude.Hashable RouteSpec where
   hashWithSalt _salt RouteSpec' {..} =
-    _salt `Prelude.hashWithSalt` grpcRoute
+    _salt
+      `Prelude.hashWithSalt` grpcRoute
       `Prelude.hashWithSalt` http2Route
       `Prelude.hashWithSalt` httpRoute
       `Prelude.hashWithSalt` priority

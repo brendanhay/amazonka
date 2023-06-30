@@ -190,7 +190,8 @@ instance Core.AWSRequest CreateVirtualGateway where
 
 instance Prelude.Hashable CreateVirtualGateway where
   hashWithSalt _salt CreateVirtualGateway' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName

@@ -74,7 +74,8 @@ instance Data.FromJSON GatewayRouteHostnameMatch where
 
 instance Prelude.Hashable GatewayRouteHostnameMatch where
   hashWithSalt _salt GatewayRouteHostnameMatch' {..} =
-    _salt `Prelude.hashWithSalt` exact
+    _salt
+      `Prelude.hashWithSalt` exact
       `Prelude.hashWithSalt` suffix
 
 instance Prelude.NFData GatewayRouteHostnameMatch where

@@ -185,7 +185,8 @@ instance Data.FromJSON VirtualRouterRef where
 
 instance Prelude.Hashable VirtualRouterRef where
   hashWithSalt _salt VirtualRouterRef' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` meshName

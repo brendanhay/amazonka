@@ -160,7 +160,8 @@ instance Core.AWSRequest UpdateVirtualService where
 
 instance Prelude.Hashable UpdateVirtualService where
   hashWithSalt _salt UpdateVirtualService' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` spec

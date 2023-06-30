@@ -81,7 +81,8 @@ instance Data.FromJSON AwsCloudMapInstanceAttribute where
       "AwsCloudMapInstanceAttribute"
       ( \x ->
           AwsCloudMapInstanceAttribute'
-            Prelude.<$> (x Data..: "key") Prelude.<*> (x Data..: "value")
+            Prelude.<$> (x Data..: "key")
+            Prelude.<*> (x Data..: "value")
       )
 
 instance
@@ -89,7 +90,8 @@ instance
     AwsCloudMapInstanceAttribute
   where
   hashWithSalt _salt AwsCloudMapInstanceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AwsCloudMapInstanceAttribute where

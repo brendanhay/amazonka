@@ -89,7 +89,8 @@ instance Data.FromJSON TcpRoute where
 
 instance Prelude.Hashable TcpRoute where
   hashWithSalt _salt TcpRoute' {..} =
-    _salt `Prelude.hashWithSalt` match
+    _salt
+      `Prelude.hashWithSalt` match
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` action
 

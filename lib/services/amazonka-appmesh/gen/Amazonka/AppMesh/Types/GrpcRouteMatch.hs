@@ -101,7 +101,8 @@ instance Data.FromJSON GrpcRouteMatch where
 
 instance Prelude.Hashable GrpcRouteMatch where
   hashWithSalt _salt GrpcRouteMatch' {..} =
-    _salt `Prelude.hashWithSalt` metadata
+    _salt
+      `Prelude.hashWithSalt` metadata
       `Prelude.hashWithSalt` methodName
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` serviceName

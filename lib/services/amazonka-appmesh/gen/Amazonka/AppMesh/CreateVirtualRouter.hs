@@ -191,7 +191,8 @@ instance Core.AWSRequest CreateVirtualRouter where
 
 instance Prelude.Hashable CreateVirtualRouter where
   hashWithSalt _salt CreateVirtualRouter' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName

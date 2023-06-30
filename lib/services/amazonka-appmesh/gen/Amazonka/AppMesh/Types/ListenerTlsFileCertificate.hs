@@ -87,7 +87,8 @@ instance Data.FromJSON ListenerTlsFileCertificate where
 
 instance Prelude.Hashable ListenerTlsFileCertificate where
   hashWithSalt _salt ListenerTlsFileCertificate' {..} =
-    _salt `Prelude.hashWithSalt` certificateChain
+    _salt
+      `Prelude.hashWithSalt` certificateChain
       `Prelude.hashWithSalt` privateKey
 
 instance Prelude.NFData ListenerTlsFileCertificate where

@@ -77,7 +77,8 @@ instance Data.FromJSON VirtualServiceProvider where
 
 instance Prelude.Hashable VirtualServiceProvider where
   hashWithSalt _salt VirtualServiceProvider' {..} =
-    _salt `Prelude.hashWithSalt` virtualNode
+    _salt
+      `Prelude.hashWithSalt` virtualNode
       `Prelude.hashWithSalt` virtualRouter
 
 instance Prelude.NFData VirtualServiceProvider where

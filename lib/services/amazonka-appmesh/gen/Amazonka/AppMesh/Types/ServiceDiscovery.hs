@@ -77,7 +77,8 @@ instance Data.FromJSON ServiceDiscovery where
 
 instance Prelude.Hashable ServiceDiscovery where
   hashWithSalt _salt ServiceDiscovery' {..} =
-    _salt `Prelude.hashWithSalt` awsCloudMap
+    _salt
+      `Prelude.hashWithSalt` awsCloudMap
       `Prelude.hashWithSalt` dns
 
 instance Prelude.NFData ServiceDiscovery where

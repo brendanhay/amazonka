@@ -87,12 +87,14 @@ instance Data.FromJSON VirtualGatewayFileAccessLog where
       "VirtualGatewayFileAccessLog"
       ( \x ->
           VirtualGatewayFileAccessLog'
-            Prelude.<$> (x Data..:? "format") Prelude.<*> (x Data..: "path")
+            Prelude.<$> (x Data..:? "format")
+            Prelude.<*> (x Data..: "path")
       )
 
 instance Prelude.Hashable VirtualGatewayFileAccessLog where
   hashWithSalt _salt VirtualGatewayFileAccessLog' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` path
 
 instance Prelude.NFData VirtualGatewayFileAccessLog where

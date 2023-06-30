@@ -126,7 +126,8 @@ instance Core.AWSRequest DescribeVirtualGateway where
 
 instance Prelude.Hashable DescribeVirtualGateway where
   hashWithSalt _salt DescribeVirtualGateway' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualGatewayName
 

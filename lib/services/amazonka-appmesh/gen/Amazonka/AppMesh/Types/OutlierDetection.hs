@@ -115,7 +115,8 @@ instance Data.FromJSON OutlierDetection where
 
 instance Prelude.Hashable OutlierDetection where
   hashWithSalt _salt OutlierDetection' {..} =
-    _salt `Prelude.hashWithSalt` baseEjectionDuration
+    _salt
+      `Prelude.hashWithSalt` baseEjectionDuration
       `Prelude.hashWithSalt` interval
       `Prelude.hashWithSalt` maxEjectionPercent
       `Prelude.hashWithSalt` maxServerErrors

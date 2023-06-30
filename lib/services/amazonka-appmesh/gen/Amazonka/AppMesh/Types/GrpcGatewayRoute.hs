@@ -74,12 +74,14 @@ instance Data.FromJSON GrpcGatewayRoute where
       "GrpcGatewayRoute"
       ( \x ->
           GrpcGatewayRoute'
-            Prelude.<$> (x Data..: "action") Prelude.<*> (x Data..: "match")
+            Prelude.<$> (x Data..: "action")
+            Prelude.<*> (x Data..: "match")
       )
 
 instance Prelude.Hashable GrpcGatewayRoute where
   hashWithSalt _salt GrpcGatewayRoute' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` match
 
 instance Prelude.NFData GrpcGatewayRoute where

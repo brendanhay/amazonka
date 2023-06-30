@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateRoute where
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName

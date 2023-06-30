@@ -94,7 +94,8 @@ instance Data.FromJSON ListenerTlsCertificate where
 
 instance Prelude.Hashable ListenerTlsCertificate where
   hashWithSalt _salt ListenerTlsCertificate' {..} =
-    _salt `Prelude.hashWithSalt` acm
+    _salt
+      `Prelude.hashWithSalt` acm
       `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` sds
 

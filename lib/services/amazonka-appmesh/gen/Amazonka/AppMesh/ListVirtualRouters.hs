@@ -155,21 +155,21 @@ instance Core.AWSPager ListVirtualRouters where
     | Core.stop
         ( rs
             Lens.^? listVirtualRoutersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listVirtualRoutersResponse_virtualRouters
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listVirtualRouters_nextToken
           Lens..~ rs
           Lens.^? listVirtualRoutersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListVirtualRouters where
   type
@@ -183,14 +183,16 @@ instance Core.AWSRequest ListVirtualRouters where
           ListVirtualRoutersResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "virtualRouters"
+            Prelude.<*> ( x
+                            Data..?> "virtualRouters"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListVirtualRouters where
   hashWithSalt _salt ListVirtualRouters' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` meshName

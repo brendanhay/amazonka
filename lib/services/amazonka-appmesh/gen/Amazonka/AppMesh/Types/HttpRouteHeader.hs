@@ -93,7 +93,8 @@ instance Data.FromJSON HttpRouteHeader where
 
 instance Prelude.Hashable HttpRouteHeader where
   hashWithSalt _salt HttpRouteHeader' {..} =
-    _salt `Prelude.hashWithSalt` invert
+    _salt
+      `Prelude.hashWithSalt` invert
       `Prelude.hashWithSalt` match
       `Prelude.hashWithSalt` name
 

@@ -192,7 +192,8 @@ instance Core.AWSRequest CreateVirtualService where
 
 instance Prelude.Hashable CreateVirtualService where
   hashWithSalt _salt CreateVirtualService' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` meshName

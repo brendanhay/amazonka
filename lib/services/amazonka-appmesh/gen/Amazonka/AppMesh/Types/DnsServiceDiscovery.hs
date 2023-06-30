@@ -96,7 +96,8 @@ instance Data.FromJSON DnsServiceDiscovery where
 
 instance Prelude.Hashable DnsServiceDiscovery where
   hashWithSalt _salt DnsServiceDiscovery' {..} =
-    _salt `Prelude.hashWithSalt` ipPreference
+    _salt
+      `Prelude.hashWithSalt` ipPreference
       `Prelude.hashWithSalt` responseType
       `Prelude.hashWithSalt` hostname
 

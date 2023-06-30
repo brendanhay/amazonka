@@ -97,7 +97,8 @@ instance Data.FromJSON TlsValidationContextTrust where
 
 instance Prelude.Hashable TlsValidationContextTrust where
   hashWithSalt _salt TlsValidationContextTrust' {..} =
-    _salt `Prelude.hashWithSalt` acm
+    _salt
+      `Prelude.hashWithSalt` acm
       `Prelude.hashWithSalt` file
       `Prelude.hashWithSalt` sds
 

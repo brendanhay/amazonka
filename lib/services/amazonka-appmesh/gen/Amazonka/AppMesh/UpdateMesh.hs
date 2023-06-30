@@ -118,7 +118,8 @@ instance Core.AWSRequest UpdateMesh where
 
 instance Prelude.Hashable UpdateMesh where
   hashWithSalt _salt UpdateMesh' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` meshName
 

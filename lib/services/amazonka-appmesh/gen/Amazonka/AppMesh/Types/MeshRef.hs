@@ -172,7 +172,8 @@ instance Data.FromJSON MeshRef where
 
 instance Prelude.Hashable MeshRef where
   hashWithSalt _salt MeshRef' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` meshName

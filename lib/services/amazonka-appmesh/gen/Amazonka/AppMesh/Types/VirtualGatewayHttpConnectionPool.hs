@@ -91,7 +91,8 @@ instance
   hashWithSalt
     _salt
     VirtualGatewayHttpConnectionPool' {..} =
-      _salt `Prelude.hashWithSalt` maxPendingRequests
+      _salt
+        `Prelude.hashWithSalt` maxPendingRequests
         `Prelude.hashWithSalt` maxConnections
 
 instance

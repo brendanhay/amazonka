@@ -93,7 +93,8 @@ instance Data.FromJSON HttpTimeout where
 
 instance Prelude.Hashable HttpTimeout where
   hashWithSalt _salt HttpTimeout' {..} =
-    _salt `Prelude.hashWithSalt` idle
+    _salt
+      `Prelude.hashWithSalt` idle
       `Prelude.hashWithSalt` perRequest
 
 instance Prelude.NFData HttpTimeout where

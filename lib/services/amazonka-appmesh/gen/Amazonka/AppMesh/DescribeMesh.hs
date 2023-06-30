@@ -111,7 +111,8 @@ instance Core.AWSRequest DescribeMesh where
 
 instance Prelude.Hashable DescribeMesh where
   hashWithSalt _salt DescribeMesh' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
 
 instance Prelude.NFData DescribeMesh where

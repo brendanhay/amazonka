@@ -84,7 +84,8 @@ instance Data.FromJSON VirtualServiceBackend where
 
 instance Prelude.Hashable VirtualServiceBackend where
   hashWithSalt _salt VirtualServiceBackend' {..} =
-    _salt `Prelude.hashWithSalt` clientPolicy
+    _salt
+      `Prelude.hashWithSalt` clientPolicy
       `Prelude.hashWithSalt` virtualServiceName
 
 instance Prelude.NFData VirtualServiceBackend where

@@ -102,7 +102,8 @@ instance Data.FromJSON ClientPolicyTls where
 
 instance Prelude.Hashable ClientPolicyTls where
   hashWithSalt _salt ClientPolicyTls' {..} =
-    _salt `Prelude.hashWithSalt` certificate
+    _salt
+      `Prelude.hashWithSalt` certificate
       `Prelude.hashWithSalt` enforce
       `Prelude.hashWithSalt` ports
       `Prelude.hashWithSalt` validation

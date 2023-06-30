@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteVirtualService where
 
 instance Prelude.Hashable DeleteVirtualService where
   hashWithSalt _salt DeleteVirtualService' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` virtualServiceName
 

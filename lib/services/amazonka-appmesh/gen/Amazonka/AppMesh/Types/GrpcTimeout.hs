@@ -93,7 +93,8 @@ instance Data.FromJSON GrpcTimeout where
 
 instance Prelude.Hashable GrpcTimeout where
   hashWithSalt _salt GrpcTimeout' {..} =
-    _salt `Prelude.hashWithSalt` idle
+    _salt
+      `Prelude.hashWithSalt` idle
       `Prelude.hashWithSalt` perRequest
 
 instance Prelude.NFData GrpcTimeout where

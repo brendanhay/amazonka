@@ -97,7 +97,8 @@ instance
     VirtualGatewayConnectionPool
   where
   hashWithSalt _salt VirtualGatewayConnectionPool' {..} =
-    _salt `Prelude.hashWithSalt` grpc
+    _salt
+      `Prelude.hashWithSalt` grpc
       `Prelude.hashWithSalt` http
       `Prelude.hashWithSalt` http2
 

@@ -140,7 +140,8 @@ instance Core.AWSRequest DescribeRoute where
 
 instance Prelude.Hashable DescribeRoute where
   hashWithSalt _salt DescribeRoute' {..} =
-    _salt `Prelude.hashWithSalt` meshOwner
+    _salt
+      `Prelude.hashWithSalt` meshOwner
       `Prelude.hashWithSalt` meshName
       `Prelude.hashWithSalt` routeName
       `Prelude.hashWithSalt` virtualRouterName

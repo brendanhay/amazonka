@@ -72,12 +72,14 @@ instance Data.FromJSON MatchRange where
       "MatchRange"
       ( \x ->
           MatchRange'
-            Prelude.<$> (x Data..: "end") Prelude.<*> (x Data..: "start")
+            Prelude.<$> (x Data..: "end")
+            Prelude.<*> (x Data..: "start")
       )
 
 instance Prelude.Hashable MatchRange where
   hashWithSalt _salt MatchRange' {..} =
-    _salt `Prelude.hashWithSalt` end
+    _salt
+      `Prelude.hashWithSalt` end
       `Prelude.hashWithSalt` start
 
 instance Prelude.NFData MatchRange where

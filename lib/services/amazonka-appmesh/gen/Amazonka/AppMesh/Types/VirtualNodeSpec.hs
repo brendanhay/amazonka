@@ -127,7 +127,8 @@ instance Data.FromJSON VirtualNodeSpec where
 
 instance Prelude.Hashable VirtualNodeSpec where
   hashWithSalt _salt VirtualNodeSpec' {..} =
-    _salt `Prelude.hashWithSalt` backendDefaults
+    _salt
+      `Prelude.hashWithSalt` backendDefaults
       `Prelude.hashWithSalt` backends
       `Prelude.hashWithSalt` listeners
       `Prelude.hashWithSalt` logging

@@ -148,7 +148,8 @@ instance Core.AWSRequest DescribeAccessPoints where
 
 instance Prelude.Hashable DescribeAccessPoints where
   hashWithSalt _salt DescribeAccessPoints' {..} =
-    _salt `Prelude.hashWithSalt` accessPointId
+    _salt
+      `Prelude.hashWithSalt` accessPointId
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

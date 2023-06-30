@@ -173,22 +173,22 @@ instance Core.AWSPager DescribeMountTargets where
     | Core.stop
         ( rs
             Lens.^? describeMountTargetsResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeMountTargetsResponse_mountTargets
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeMountTargets_marker
           Lens..~ rs
           Lens.^? describeMountTargetsResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeMountTargets where
   type
@@ -208,7 +208,8 @@ instance Core.AWSRequest DescribeMountTargets where
 
 instance Prelude.Hashable DescribeMountTargets where
   hashWithSalt _salt DescribeMountTargets' {..} =
-    _salt `Prelude.hashWithSalt` accessPointId
+    _salt
+      `Prelude.hashWithSalt` accessPointId
       `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

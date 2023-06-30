@@ -65,7 +65,8 @@ instance
       "LifecycleConfigurationDescription"
       ( \x ->
           LifecycleConfigurationDescription'
-            Prelude.<$> ( x Data..:? "LifecyclePolicies"
+            Prelude.<$> ( x
+                            Data..:? "LifecyclePolicies"
                             Data..!= Prelude.mempty
                         )
       )

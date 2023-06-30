@@ -184,7 +184,8 @@ instance
   hashWithSalt
     _salt
     CreateReplicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` sourceFileSystemId
+      _salt
+        `Prelude.hashWithSalt` sourceFileSystemId
         `Prelude.hashWithSalt` destinations
 
 instance

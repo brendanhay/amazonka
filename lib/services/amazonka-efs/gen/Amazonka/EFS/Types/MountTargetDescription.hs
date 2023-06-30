@@ -198,7 +198,8 @@ instance Data.FromJSON MountTargetDescription where
 
 instance Prelude.Hashable MountTargetDescription where
   hashWithSalt _salt MountTargetDescription' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneId
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneId
       `Prelude.hashWithSalt` availabilityZoneName
       `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` networkInterfaceId

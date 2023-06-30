@@ -114,7 +114,8 @@ instance Data.FromJSON CreationInfo where
 
 instance Prelude.Hashable CreationInfo where
   hashWithSalt _salt CreationInfo' {..} =
-    _salt `Prelude.hashWithSalt` ownerUid
+    _salt
+      `Prelude.hashWithSalt` ownerUid
       `Prelude.hashWithSalt` ownerGid
       `Prelude.hashWithSalt` permissions
 

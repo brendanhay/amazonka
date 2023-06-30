@@ -129,7 +129,8 @@ destinationToCreate_region = Lens.lens (\DestinationToCreate' {region} -> region
 
 instance Prelude.Hashable DestinationToCreate where
   hashWithSalt _salt DestinationToCreate' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZoneName
+    _salt
+      `Prelude.hashWithSalt` availabilityZoneName
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` region
 

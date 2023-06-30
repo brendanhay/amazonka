@@ -100,7 +100,8 @@ instance Data.FromJSON LifecyclePolicy where
 
 instance Prelude.Hashable LifecyclePolicy where
   hashWithSalt _salt LifecyclePolicy' {..} =
-    _salt `Prelude.hashWithSalt` transitionToIA
+    _salt
+      `Prelude.hashWithSalt` transitionToIA
       `Prelude.hashWithSalt` transitionToPrimaryStorageClass
 
 instance Prelude.NFData LifecyclePolicy where

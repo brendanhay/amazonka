@@ -198,7 +198,8 @@ instance Core.AWSRequest PutLifecycleConfiguration where
 
 instance Prelude.Hashable PutLifecycleConfiguration where
   hashWithSalt _salt PutLifecycleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fileSystemId
+    _salt
+      `Prelude.hashWithSalt` fileSystemId
       `Prelude.hashWithSalt` lifecyclePolicies
 
 instance Prelude.NFData PutLifecycleConfiguration where

@@ -104,9 +104,10 @@ instance
       ( \s h x ->
           DescribeMountTargetSecurityGroupsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "SecurityGroups"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> ( x
+                            Data..?> "SecurityGroups"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance

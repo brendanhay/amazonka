@@ -131,7 +131,8 @@ instance Data.FromJSON ProjectDetails where
 
 instance Prelude.Hashable ProjectDetails where
   hashWithSalt _salt ProjectDetails' {..} =
-    _salt `Prelude.hashWithSalt` consoleUrl
+    _salt
+      `Prelude.hashWithSalt` consoleUrl
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` lastUpdatedDate
       `Prelude.hashWithSalt` name

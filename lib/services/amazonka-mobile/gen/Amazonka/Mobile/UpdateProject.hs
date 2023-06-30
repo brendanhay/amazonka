@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateProject where
 
 instance Prelude.Hashable UpdateProject where
   hashWithSalt _salt UpdateProject' {..} =
-    _salt `Prelude.hashWithSalt` contents
+    _salt
+      `Prelude.hashWithSalt` contents
       `Prelude.hashWithSalt` projectId
 
 instance Prelude.NFData UpdateProject where

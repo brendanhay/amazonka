@@ -134,7 +134,8 @@ instance Core.AWSRequest CreateProject where
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =
-    _salt `Prelude.hashWithSalt` contents
+    _salt
+      `Prelude.hashWithSalt` contents
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` snapshotId

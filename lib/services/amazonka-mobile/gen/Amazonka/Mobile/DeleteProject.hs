@@ -87,10 +87,12 @@ instance Core.AWSRequest DeleteProject where
     Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Prelude.<$> ( x Data..?> "deletedResources"
+            Prelude.<$> ( x
+                            Data..?> "deletedResources"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "orphanedResources"
+            Prelude.<*> ( x
+                            Data..?> "orphanedResources"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

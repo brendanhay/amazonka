@@ -87,7 +87,8 @@ instance Data.FromJSON TableMember where
 
 instance Prelude.Hashable TableMember where
   hashWithSalt _salt TableMember' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schema
       `Prelude.hashWithSalt` type'
 

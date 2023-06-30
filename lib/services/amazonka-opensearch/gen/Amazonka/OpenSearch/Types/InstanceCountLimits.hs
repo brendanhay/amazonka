@@ -76,7 +76,8 @@ instance Data.FromJSON InstanceCountLimits where
 
 instance Prelude.Hashable InstanceCountLimits where
   hashWithSalt _salt InstanceCountLimits' {..} =
-    _salt `Prelude.hashWithSalt` maximumInstanceCount
+    _salt
+      `Prelude.hashWithSalt` maximumInstanceCount
       `Prelude.hashWithSalt` minimumInstanceCount
 
 instance Prelude.NFData InstanceCountLimits where

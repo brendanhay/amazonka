@@ -94,7 +94,8 @@ instance Data.FromJSON ChangeProgressStage where
 
 instance Prelude.Hashable ChangeProgressStage where
   hashWithSalt _salt ChangeProgressStage' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status

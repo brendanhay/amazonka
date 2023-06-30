@@ -92,7 +92,8 @@ instance Core.AWSRequest GetCompatibleVersions where
     Response.receiveJSON
       ( \s h x ->
           GetCompatibleVersionsResponse'
-            Prelude.<$> ( x Data..?> "CompatibleVersions"
+            Prelude.<$> ( x
+                            Data..?> "CompatibleVersions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

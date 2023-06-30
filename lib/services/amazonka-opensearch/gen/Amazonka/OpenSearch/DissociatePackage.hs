@@ -114,7 +114,8 @@ instance Core.AWSRequest DissociatePackage where
 
 instance Prelude.Hashable DissociatePackage where
   hashWithSalt _salt DissociatePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageID
+    _salt
+      `Prelude.hashWithSalt` packageID
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DissociatePackage where

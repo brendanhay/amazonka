@@ -145,7 +145,8 @@ instance Core.AWSRequest UpgradeDomain where
     Response.receiveJSON
       ( \s h x ->
           UpgradeDomainResponse'
-            Prelude.<$> ( x Data..?> "AdvancedOptions"
+            Prelude.<$> ( x
+                            Data..?> "AdvancedOptions"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ChangeProgressDetails")
@@ -158,7 +159,8 @@ instance Core.AWSRequest UpgradeDomain where
 
 instance Prelude.Hashable UpgradeDomain where
   hashWithSalt _salt UpgradeDomain' {..} =
-    _salt `Prelude.hashWithSalt` advancedOptions
+    _salt
+      `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` performCheckOnly
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` targetVersion

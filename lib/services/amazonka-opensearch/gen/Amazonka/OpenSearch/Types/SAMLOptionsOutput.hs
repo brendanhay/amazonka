@@ -105,7 +105,8 @@ instance Data.FromJSON SAMLOptionsOutput where
 
 instance Prelude.Hashable SAMLOptionsOutput where
   hashWithSalt _salt SAMLOptionsOutput' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` idp
       `Prelude.hashWithSalt` rolesKey
       `Prelude.hashWithSalt` sessionTimeoutMinutes

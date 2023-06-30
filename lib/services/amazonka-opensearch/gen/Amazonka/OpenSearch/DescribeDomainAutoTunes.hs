@@ -131,7 +131,8 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
 
 instance Prelude.Hashable DescribeDomainAutoTunes where
   hashWithSalt _salt DescribeDomainAutoTunes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 

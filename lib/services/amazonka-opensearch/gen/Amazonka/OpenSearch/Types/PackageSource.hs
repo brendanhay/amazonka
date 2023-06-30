@@ -64,7 +64,8 @@ packageSource_s3Key = Lens.lens (\PackageSource' {s3Key} -> s3Key) (\s@PackageSo
 
 instance Prelude.Hashable PackageSource where
   hashWithSalt _salt PackageSource' {..} =
-    _salt `Prelude.hashWithSalt` s3BucketName
+    _salt
+      `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3Key
 
 instance Prelude.NFData PackageSource where

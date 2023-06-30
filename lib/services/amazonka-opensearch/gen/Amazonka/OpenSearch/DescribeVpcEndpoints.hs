@@ -88,7 +88,8 @@ instance Core.AWSRequest DescribeVpcEndpoints where
           DescribeVpcEndpointsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Data..?> "VpcEndpoints" Core..!@ Prelude.mempty)
-            Prelude.<*> ( x Data..?> "VpcEndpointErrors"
+            Prelude.<*> ( x
+                            Data..?> "VpcEndpointErrors"
                             Core..!@ Prelude.mempty
                         )
       )

@@ -98,7 +98,8 @@ instance Data.FromJSON InboundConnection where
 
 instance Prelude.Hashable InboundConnection where
   hashWithSalt _salt InboundConnection' {..} =
-    _salt `Prelude.hashWithSalt` connectionId
+    _salt
+      `Prelude.hashWithSalt` connectionId
       `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` localDomainInfo
       `Prelude.hashWithSalt` remoteDomainInfo

@@ -80,7 +80,8 @@ instance Data.FromJSON VersionStatus where
 
 instance Prelude.Hashable VersionStatus where
   hashWithSalt _salt VersionStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData VersionStatus where

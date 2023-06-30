@@ -134,7 +134,8 @@ instance Core.AWSRequest CreatePackage where
 
 instance Prelude.Hashable CreatePackage where
   hashWithSalt _salt CreatePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageDescription
+    _salt
+      `Prelude.hashWithSalt` packageDescription
       `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packageType
       `Prelude.hashWithSalt` packageSource

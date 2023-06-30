@@ -112,7 +112,8 @@ instance Core.AWSRequest ListVersions where
 
 instance Prelude.Hashable ListVersions where
   hashWithSalt _salt ListVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListVersions where

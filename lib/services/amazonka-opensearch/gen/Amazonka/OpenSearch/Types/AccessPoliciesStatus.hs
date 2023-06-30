@@ -86,7 +86,8 @@ instance Data.FromJSON AccessPoliciesStatus where
 
 instance Prelude.Hashable AccessPoliciesStatus where
   hashWithSalt _salt AccessPoliciesStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AccessPoliciesStatus where

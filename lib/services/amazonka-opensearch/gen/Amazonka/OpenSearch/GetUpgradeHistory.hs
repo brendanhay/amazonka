@@ -121,7 +121,8 @@ instance Core.AWSRequest GetUpgradeHistory where
       ( \s h x ->
           GetUpgradeHistoryResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UpgradeHistories"
+            Prelude.<*> ( x
+                            Data..?> "UpgradeHistories"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -129,7 +130,8 @@ instance Core.AWSRequest GetUpgradeHistory where
 
 instance Prelude.Hashable GetUpgradeHistory where
   hashWithSalt _salt GetUpgradeHistory' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 

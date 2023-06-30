@@ -77,7 +77,8 @@ instance Data.FromJSON AutoTuneOptionsOutput where
 
 instance Prelude.Hashable AutoTuneOptionsOutput where
   hashWithSalt _salt AutoTuneOptionsOutput' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` state
 
 instance Prelude.NFData AutoTuneOptionsOutput where

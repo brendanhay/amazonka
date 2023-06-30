@@ -78,7 +78,8 @@ vPCOptions_subnetIds = Lens.lens (\VPCOptions' {subnetIds} -> subnetIds) (\s@VPC
 
 instance Prelude.Hashable VPCOptions where
   hashWithSalt _salt VPCOptions' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData VPCOptions where

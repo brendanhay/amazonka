@@ -130,7 +130,8 @@ instance Core.AWSRequest DescribeOutboundConnections where
 
 instance Prelude.Hashable DescribeOutboundConnections where
   hashWithSalt _salt DescribeOutboundConnections' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

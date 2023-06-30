@@ -83,7 +83,8 @@ autoTuneOptionsInput_maintenanceSchedules = Lens.lens (\AutoTuneOptionsInput' {m
 
 instance Prelude.Hashable AutoTuneOptionsInput where
   hashWithSalt _salt AutoTuneOptionsInput' {..} =
-    _salt `Prelude.hashWithSalt` desiredState
+    _salt
+      `Prelude.hashWithSalt` desiredState
       `Prelude.hashWithSalt` maintenanceSchedules
 
 instance Prelude.NFData AutoTuneOptionsInput where

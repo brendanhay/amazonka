@@ -153,7 +153,8 @@ instance Data.FromJSON TestCase where
 
 instance Prelude.Hashable TestCase where
   hashWithSalt _salt TestCase' {..} =
-    _salt `Prelude.hashWithSalt` durationInNanoSeconds
+    _salt
+      `Prelude.hashWithSalt` durationInNanoSeconds
       `Prelude.hashWithSalt` expired
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` name

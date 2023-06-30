@@ -92,7 +92,8 @@ instance Data.FromJSON ReportExportConfig where
 
 instance Prelude.Hashable ReportExportConfig where
   hashWithSalt _salt ReportExportConfig' {..} =
-    _salt `Prelude.hashWithSalt` exportConfigType
+    _salt
+      `Prelude.hashWithSalt` exportConfigType
       `Prelude.hashWithSalt` s3Destination
 
 instance Prelude.NFData ReportExportConfig where

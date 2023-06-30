@@ -136,7 +136,8 @@ instance Core.AWSRequest UpdateReportGroup where
 
 instance Prelude.Hashable UpdateReportGroup where
   hashWithSalt _salt UpdateReportGroup' {..} =
-    _salt `Prelude.hashWithSalt` exportConfig
+    _salt
+      `Prelude.hashWithSalt` exportConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` arn
 

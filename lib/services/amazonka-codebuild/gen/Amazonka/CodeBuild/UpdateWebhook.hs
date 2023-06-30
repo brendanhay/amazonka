@@ -161,7 +161,8 @@ instance Core.AWSRequest UpdateWebhook where
 
 instance Prelude.Hashable UpdateWebhook where
   hashWithSalt _salt UpdateWebhook' {..} =
-    _salt `Prelude.hashWithSalt` branchFilter
+    _salt
+      `Prelude.hashWithSalt` branchFilter
       `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` filterGroups
       `Prelude.hashWithSalt` rotateSecret

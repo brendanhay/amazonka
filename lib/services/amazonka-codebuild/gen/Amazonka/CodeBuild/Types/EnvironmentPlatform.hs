@@ -80,7 +80,8 @@ instance Data.FromJSON EnvironmentPlatform where
 
 instance Prelude.Hashable EnvironmentPlatform where
   hashWithSalt _salt EnvironmentPlatform' {..} =
-    _salt `Prelude.hashWithSalt` languages
+    _salt
+      `Prelude.hashWithSalt` languages
       `Prelude.hashWithSalt` platform
 
 instance Prelude.NFData EnvironmentPlatform where

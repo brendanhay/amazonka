@@ -93,7 +93,8 @@ instance Data.FromJSON SourceCredentialsInfo where
 
 instance Prelude.Hashable SourceCredentialsInfo where
   hashWithSalt _salt SourceCredentialsInfo' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` authType
       `Prelude.hashWithSalt` serverType
 

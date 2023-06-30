@@ -111,14 +111,16 @@ instance Data.FromJSON BuildGroup where
             Prelude.<*> (x Data..:? "dependsOn" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "identifier")
             Prelude.<*> (x Data..:? "ignoreFailure")
-            Prelude.<*> ( x Data..:? "priorBuildSummaryList"
+            Prelude.<*> ( x
+                            Data..:? "priorBuildSummaryList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable BuildGroup where
   hashWithSalt _salt BuildGroup' {..} =
-    _salt `Prelude.hashWithSalt` currentBuildSummary
+    _salt
+      `Prelude.hashWithSalt` currentBuildSummary
       `Prelude.hashWithSalt` dependsOn
       `Prelude.hashWithSalt` identifier
       `Prelude.hashWithSalt` ignoreFailure

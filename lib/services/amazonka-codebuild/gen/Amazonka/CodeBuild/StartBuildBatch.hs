@@ -690,7 +690,8 @@ instance Core.AWSRequest StartBuildBatch where
 
 instance Prelude.Hashable StartBuildBatch where
   hashWithSalt _salt StartBuildBatch' {..} =
-    _salt `Prelude.hashWithSalt` artifactsOverride
+    _salt
+      `Prelude.hashWithSalt` artifactsOverride
       `Prelude.hashWithSalt` buildBatchConfigOverride
       `Prelude.hashWithSalt` buildTimeoutInMinutesOverride
       `Prelude.hashWithSalt` buildspecOverride

@@ -168,23 +168,23 @@ instance Core.AWSPager ListSharedReportGroups where
     | Core.stop
         ( rs
             Lens.^? listSharedReportGroupsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSharedReportGroupsResponse_reportGroups
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSharedReportGroups_nextToken
           Lens..~ rs
           Lens.^? listSharedReportGroupsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSharedReportGroups where
   type
@@ -203,7 +203,8 @@ instance Core.AWSRequest ListSharedReportGroups where
 
 instance Prelude.Hashable ListSharedReportGroups where
   hashWithSalt _salt ListSharedReportGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder

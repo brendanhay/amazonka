@@ -74,7 +74,8 @@ instance Data.FromJSON ReportWithRawData where
 
 instance Prelude.Hashable ReportWithRawData where
   hashWithSalt _salt ReportWithRawData' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` reportArn
 
 instance Prelude.NFData ReportWithRawData where

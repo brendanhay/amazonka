@@ -138,7 +138,8 @@ instance Data.FromJSON InputDataConfig where
 
 instance Prelude.Hashable InputDataConfig where
   hashWithSalt _salt InputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` documentReaderConfig
+    _salt
+      `Prelude.hashWithSalt` documentReaderConfig
       `Prelude.hashWithSalt` inputFormat
       `Prelude.hashWithSalt` s3Uri
 

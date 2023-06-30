@@ -95,7 +95,7 @@ instance
       ( \s h x ->
           DescribeDominantLanguageDetectionJobResponse'
             Prelude.<$> (x Data..?> "DominantLanguageDetectionJobProperties")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

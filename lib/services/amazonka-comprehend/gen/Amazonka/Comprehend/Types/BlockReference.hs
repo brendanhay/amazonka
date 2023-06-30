@@ -95,7 +95,8 @@ instance Data.FromJSON BlockReference where
 
 instance Prelude.Hashable BlockReference where
   hashWithSalt _salt BlockReference' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` blockId
       `Prelude.hashWithSalt` childBlocks
       `Prelude.hashWithSalt` endOffset

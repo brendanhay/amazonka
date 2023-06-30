@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     BatchDetectTargetedSentimentItemResult' {..} =
-      _salt `Prelude.hashWithSalt` entities
+      _salt
+        `Prelude.hashWithSalt` entities
         `Prelude.hashWithSalt` index
 
 instance

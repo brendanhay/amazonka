@@ -272,7 +272,8 @@ instance Core.AWSRequest StartEntitiesDetectionJob where
 
 instance Prelude.Hashable StartEntitiesDetectionJob where
   hashWithSalt _salt StartEntitiesDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` entityRecognizerArn
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` tags

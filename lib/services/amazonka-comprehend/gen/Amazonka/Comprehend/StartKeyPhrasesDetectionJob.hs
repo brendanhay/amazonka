@@ -248,7 +248,8 @@ instance Core.AWSRequest StartKeyPhrasesDetectionJob where
 
 instance Prelude.Hashable StartKeyPhrasesDetectionJob where
   hashWithSalt _salt StartKeyPhrasesDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeKmsKeyId

@@ -78,7 +78,8 @@ instance Data.FromJSON MentionSentiment where
 
 instance Prelude.Hashable MentionSentiment where
   hashWithSalt _salt MentionSentiment' {..} =
-    _salt `Prelude.hashWithSalt` sentiment
+    _salt
+      `Prelude.hashWithSalt` sentiment
       `Prelude.hashWithSalt` sentimentScore
 
 instance Prelude.NFData MentionSentiment where

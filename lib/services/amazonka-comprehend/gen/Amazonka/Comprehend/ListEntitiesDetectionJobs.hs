@@ -112,22 +112,22 @@ instance Core.AWSPager ListEntitiesDetectionJobs where
     | Core.stop
         ( rs
             Lens.^? listEntitiesDetectionJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEntitiesDetectionJobsResponse_entitiesDetectionJobPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEntitiesDetectionJobs_nextToken
           Lens..~ rs
           Lens.^? listEntitiesDetectionJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEntitiesDetectionJobs where
   type
@@ -139,7 +139,8 @@ instance Core.AWSRequest ListEntitiesDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListEntitiesDetectionJobsResponse'
-            Prelude.<$> ( x Data..?> "EntitiesDetectionJobPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "EntitiesDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -148,7 +149,8 @@ instance Core.AWSRequest ListEntitiesDetectionJobs where
 
 instance Prelude.Hashable ListEntitiesDetectionJobs where
   hashWithSalt _salt ListEntitiesDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

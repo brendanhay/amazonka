@@ -118,7 +118,8 @@ instance Data.FromJSON EntityRecognizerDocuments where
 
 instance Prelude.Hashable EntityRecognizerDocuments where
   hashWithSalt _salt EntityRecognizerDocuments' {..} =
-    _salt `Prelude.hashWithSalt` inputFormat
+    _salt
+      `Prelude.hashWithSalt` inputFormat
       `Prelude.hashWithSalt` testS3Uri
       `Prelude.hashWithSalt` s3Uri
 

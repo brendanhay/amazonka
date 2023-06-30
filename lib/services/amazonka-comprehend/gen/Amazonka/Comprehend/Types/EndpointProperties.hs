@@ -200,7 +200,8 @@ instance Data.FromJSON EndpointProperties where
 
 instance Prelude.Hashable EndpointProperties where
   hashWithSalt _salt EndpointProperties' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` currentInferenceUnits
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` desiredDataAccessRoleArn

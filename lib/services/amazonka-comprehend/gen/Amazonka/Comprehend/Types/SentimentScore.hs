@@ -107,7 +107,8 @@ instance Data.FromJSON SentimentScore where
 
 instance Prelude.Hashable SentimentScore where
   hashWithSalt _salt SentimentScore' {..} =
-    _salt `Prelude.hashWithSalt` mixed
+    _salt
+      `Prelude.hashWithSalt` mixed
       `Prelude.hashWithSalt` negative
       `Prelude.hashWithSalt` neutral
       `Prelude.hashWithSalt` positive

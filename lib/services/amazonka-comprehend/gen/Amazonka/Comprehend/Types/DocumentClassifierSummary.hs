@@ -109,7 +109,8 @@ instance Data.FromJSON DocumentClassifierSummary where
 
 instance Prelude.Hashable DocumentClassifierSummary where
   hashWithSalt _salt DocumentClassifierSummary' {..} =
-    _salt `Prelude.hashWithSalt` documentClassifierName
+    _salt
+      `Prelude.hashWithSalt` documentClassifierName
       `Prelude.hashWithSalt` latestVersionCreatedAt
       `Prelude.hashWithSalt` latestVersionName
       `Prelude.hashWithSalt` latestVersionStatus

@@ -102,7 +102,8 @@ instance
     PiiEntitiesDetectionJobFilter
   where
   hashWithSalt _salt PiiEntitiesDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

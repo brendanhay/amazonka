@@ -80,7 +80,8 @@ instance Data.FromJSON BatchDetectSyntaxItemResult where
 
 instance Prelude.Hashable BatchDetectSyntaxItemResult where
   hashWithSalt _salt BatchDetectSyntaxItemResult' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` syntaxTokens
 
 instance Prelude.NFData BatchDetectSyntaxItemResult where

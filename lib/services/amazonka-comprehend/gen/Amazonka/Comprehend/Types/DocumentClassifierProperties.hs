@@ -356,7 +356,8 @@ instance
     DocumentClassifierProperties
   where
   hashWithSalt _salt DocumentClassifierProperties' {..} =
-    _salt `Prelude.hashWithSalt` classifierMetadata
+    _salt
+      `Prelude.hashWithSalt` classifierMetadata
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` documentClassifierArn
       `Prelude.hashWithSalt` endTime

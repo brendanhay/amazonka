@@ -232,7 +232,8 @@ instance
       ( \x ->
           EntityRecognizerInputDataConfig'
             Prelude.<$> (x Data..:? "Annotations")
-            Prelude.<*> ( x Data..:? "AugmentedManifests"
+            Prelude.<*> ( x
+                            Data..:? "AugmentedManifests"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "DataFormat")
@@ -248,7 +249,8 @@ instance
   hashWithSalt
     _salt
     EntityRecognizerInputDataConfig' {..} =
-      _salt `Prelude.hashWithSalt` annotations
+      _salt
+        `Prelude.hashWithSalt` annotations
         `Prelude.hashWithSalt` augmentedManifests
         `Prelude.hashWithSalt` dataFormat
         `Prelude.hashWithSalt` documents

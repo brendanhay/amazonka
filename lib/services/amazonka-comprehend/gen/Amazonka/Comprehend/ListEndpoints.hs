@@ -112,21 +112,23 @@ instance Core.AWSPager ListEndpoints where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listEndpointsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listEndpointsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEndpointsResponse_endpointPropertiesList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEndpoints_nextToken
           Lens..~ rs
-          Lens.^? listEndpointsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listEndpointsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEndpoints where
   type
@@ -138,7 +140,8 @@ instance Core.AWSRequest ListEndpoints where
     Response.receiveJSON
       ( \s h x ->
           ListEndpointsResponse'
-            Prelude.<$> ( x Data..?> "EndpointPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "EndpointPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -147,7 +150,8 @@ instance Core.AWSRequest ListEndpoints where
 
 instance Prelude.Hashable ListEndpoints where
   hashWithSalt _salt ListEndpoints' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

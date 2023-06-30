@@ -211,7 +211,8 @@ instance Data.FromJSON ClassifierEvaluationMetrics where
 
 instance Prelude.Hashable ClassifierEvaluationMetrics where
   hashWithSalt _salt ClassifierEvaluationMetrics' {..} =
-    _salt `Prelude.hashWithSalt` accuracy
+    _salt
+      `Prelude.hashWithSalt` accuracy
       `Prelude.hashWithSalt` f1Score
       `Prelude.hashWithSalt` hammingLoss
       `Prelude.hashWithSalt` microF1Score

@@ -215,7 +215,8 @@ instance
     EventsDetectionJobProperties
   where
   hashWithSalt _salt EventsDetectionJobProperties' {..} =
-    _salt `Prelude.hashWithSalt` dataAccessRoleArn
+    _salt
+      `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` jobArn

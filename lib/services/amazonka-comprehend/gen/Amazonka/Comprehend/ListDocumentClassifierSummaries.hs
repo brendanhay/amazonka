@@ -103,7 +103,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListDocumentClassifierSummariesResponse'
-            Prelude.<$> ( x Data..?> "DocumentClassifierSummariesList"
+            Prelude.<$> ( x
+                            Data..?> "DocumentClassifierSummariesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -117,7 +118,8 @@ instance
   hashWithSalt
     _salt
     ListDocumentClassifierSummaries' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
 instance

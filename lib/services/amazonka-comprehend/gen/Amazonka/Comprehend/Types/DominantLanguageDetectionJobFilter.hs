@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     DominantLanguageDetectionJobFilter' {..} =
-      _salt `Prelude.hashWithSalt` jobName
+      _salt
+        `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` jobStatus
         `Prelude.hashWithSalt` submitTimeAfter
         `Prelude.hashWithSalt` submitTimeBefore

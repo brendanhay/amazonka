@@ -77,12 +77,14 @@ instance Data.FromJSON PartOfSpeechTag where
       "PartOfSpeechTag"
       ( \x ->
           PartOfSpeechTag'
-            Prelude.<$> (x Data..:? "Score") Prelude.<*> (x Data..:? "Tag")
+            Prelude.<$> (x Data..:? "Score")
+            Prelude.<*> (x Data..:? "Tag")
       )
 
 instance Prelude.Hashable PartOfSpeechTag where
   hashWithSalt _salt PartOfSpeechTag' {..} =
-    _salt `Prelude.hashWithSalt` score
+    _salt
+      `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` tag
 
 instance Prelude.NFData PartOfSpeechTag where

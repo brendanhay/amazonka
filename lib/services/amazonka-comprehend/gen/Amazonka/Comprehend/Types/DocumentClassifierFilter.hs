@@ -104,7 +104,8 @@ documentClassifierFilter_submitTimeBefore = Lens.lens (\DocumentClassifierFilter
 
 instance Prelude.Hashable DocumentClassifierFilter where
   hashWithSalt _salt DocumentClassifierFilter' {..} =
-    _salt `Prelude.hashWithSalt` documentClassifierName
+    _salt
+      `Prelude.hashWithSalt` documentClassifierName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

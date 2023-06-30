@@ -108,7 +108,8 @@ instance Data.FromJSON ClassifierMetadata where
 
 instance Prelude.Hashable ClassifierMetadata where
   hashWithSalt _salt ClassifierMetadata' {..} =
-    _salt `Prelude.hashWithSalt` evaluationMetrics
+    _salt
+      `Prelude.hashWithSalt` evaluationMetrics
       `Prelude.hashWithSalt` numberOfLabels
       `Prelude.hashWithSalt` numberOfTestDocuments
       `Prelude.hashWithSalt` numberOfTrainedDocuments

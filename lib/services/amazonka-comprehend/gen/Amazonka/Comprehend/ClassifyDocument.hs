@@ -204,7 +204,8 @@ instance Core.AWSRequest ClassifyDocument where
 
 instance Prelude.Hashable ClassifyDocument where
   hashWithSalt _salt ClassifyDocument' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` documentReaderConfig
       `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` endpointArn

@@ -98,7 +98,8 @@ entityRecognizerFilter_submitTimeBefore = Lens.lens (\EntityRecognizerFilter' {s
 
 instance Prelude.Hashable EntityRecognizerFilter where
   hashWithSalt _salt EntityRecognizerFilter' {..} =
-    _salt `Prelude.hashWithSalt` recognizerName
+    _salt
+      `Prelude.hashWithSalt` recognizerName
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

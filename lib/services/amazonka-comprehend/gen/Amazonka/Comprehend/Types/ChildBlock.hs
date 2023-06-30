@@ -84,7 +84,8 @@ instance Data.FromJSON ChildBlock where
 
 instance Prelude.Hashable ChildBlock where
   hashWithSalt _salt ChildBlock' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` childBlockId
       `Prelude.hashWithSalt` endOffset
 

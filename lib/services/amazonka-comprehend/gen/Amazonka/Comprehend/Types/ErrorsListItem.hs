@@ -105,7 +105,8 @@ instance Data.FromJSON ErrorsListItem where
 
 instance Prelude.Hashable ErrorsListItem where
   hashWithSalt _salt ErrorsListItem' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` page
 

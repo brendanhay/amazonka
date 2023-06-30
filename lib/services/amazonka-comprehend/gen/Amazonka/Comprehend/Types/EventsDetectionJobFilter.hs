@@ -99,7 +99,8 @@ eventsDetectionJobFilter_submitTimeBefore = Lens.lens (\EventsDetectionJobFilter
 
 instance Prelude.Hashable EventsDetectionJobFilter where
   hashWithSalt _salt EventsDetectionJobFilter' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` submitTimeAfter
       `Prelude.hashWithSalt` submitTimeBefore

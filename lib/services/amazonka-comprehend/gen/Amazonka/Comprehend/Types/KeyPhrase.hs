@@ -103,7 +103,8 @@ instance Data.FromJSON KeyPhrase where
 
 instance Prelude.Hashable KeyPhrase where
   hashWithSalt _salt KeyPhrase' {..} =
-    _salt `Prelude.hashWithSalt` beginOffset
+    _salt
+      `Prelude.hashWithSalt` beginOffset
       `Prelude.hashWithSalt` endOffset
       `Prelude.hashWithSalt` score
       `Prelude.hashWithSalt` text

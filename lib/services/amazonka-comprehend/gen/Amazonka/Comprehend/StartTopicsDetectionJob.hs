@@ -248,7 +248,8 @@ instance Core.AWSRequest StartTopicsDetectionJob where
 
 instance Prelude.Hashable StartTopicsDetectionJob where
   hashWithSalt _salt StartTopicsDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` numberOfTopics
       `Prelude.hashWithSalt` tags

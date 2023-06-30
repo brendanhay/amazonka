@@ -111,7 +111,8 @@ instance Core.AWSRequest ListEventsDetectionJobs where
     Response.receiveJSON
       ( \s h x ->
           ListEventsDetectionJobsResponse'
-            Prelude.<$> ( x Data..?> "EventsDetectionJobPropertiesList"
+            Prelude.<$> ( x
+                            Data..?> "EventsDetectionJobPropertiesList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -120,7 +121,8 @@ instance Core.AWSRequest ListEventsDetectionJobs where
 
 instance Prelude.Hashable ListEventsDetectionJobs where
   hashWithSalt _salt ListEventsDetectionJobs' {..} =
-    _salt `Prelude.hashWithSalt` filter'
+    _salt
+      `Prelude.hashWithSalt` filter'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

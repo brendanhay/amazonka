@@ -248,7 +248,8 @@ instance Core.AWSRequest StartSentimentDetectionJob where
 
 instance Prelude.Hashable StartSentimentDetectionJob where
   hashWithSalt _salt StartSentimentDetectionJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` volumeKmsKeyId

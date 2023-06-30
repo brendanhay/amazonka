@@ -282,7 +282,8 @@ instance Core.AWSRequest DetectEntities where
 
 instance Prelude.Hashable DetectEntities where
   hashWithSalt _salt DetectEntities' {..} =
-    _salt `Prelude.hashWithSalt` bytes
+    _salt
+      `Prelude.hashWithSalt` bytes
       `Prelude.hashWithSalt` documentReaderConfig
       `Prelude.hashWithSalt` endpointArn
       `Prelude.hashWithSalt` languageCode

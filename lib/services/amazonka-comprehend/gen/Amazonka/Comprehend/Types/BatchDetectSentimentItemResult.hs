@@ -96,7 +96,8 @@ instance
   hashWithSalt
     _salt
     BatchDetectSentimentItemResult' {..} =
-      _salt `Prelude.hashWithSalt` index
+      _salt
+        `Prelude.hashWithSalt` index
         `Prelude.hashWithSalt` sentiment
         `Prelude.hashWithSalt` sentimentScore
 

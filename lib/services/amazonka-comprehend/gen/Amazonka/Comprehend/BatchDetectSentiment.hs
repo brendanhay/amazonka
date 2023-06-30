@@ -95,7 +95,8 @@ newBatchDetectSentiment ::
 newBatchDetectSentiment pTextList_ pLanguageCode_ =
   BatchDetectSentiment'
     { textList =
-        Data._Sensitive Prelude.. Lens.coerced
+        Data._Sensitive
+          Prelude.. Lens.coerced
           Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
@@ -133,7 +134,8 @@ instance Core.AWSRequest BatchDetectSentiment where
 
 instance Prelude.Hashable BatchDetectSentiment where
   hashWithSalt _salt BatchDetectSentiment' {..} =
-    _salt `Prelude.hashWithSalt` textList
+    _salt
+      `Prelude.hashWithSalt` textList
       `Prelude.hashWithSalt` languageCode
 
 instance Prelude.NFData BatchDetectSentiment where

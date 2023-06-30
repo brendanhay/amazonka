@@ -274,7 +274,8 @@ instance
   hashWithSalt
     _salt
     EntitiesDetectionJobProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataAccessRoleArn
+      _salt
+        `Prelude.hashWithSalt` dataAccessRoleArn
         `Prelude.hashWithSalt` endTime
         `Prelude.hashWithSalt` entityRecognizerArn
         `Prelude.hashWithSalt` inputDataConfig

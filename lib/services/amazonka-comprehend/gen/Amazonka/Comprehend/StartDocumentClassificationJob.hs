@@ -248,7 +248,8 @@ instance
   hashWithSalt
     _salt
     StartDocumentClassificationJob' {..} =
-      _salt `Prelude.hashWithSalt` clientRequestToken
+      _salt
+        `Prelude.hashWithSalt` clientRequestToken
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` tags
         `Prelude.hashWithSalt` volumeKmsKeyId

@@ -88,7 +88,8 @@ instance Data.FromJSON DominantLanguage where
 
 instance Prelude.Hashable DominantLanguage where
   hashWithSalt _salt DominantLanguage' {..} =
-    _salt `Prelude.hashWithSalt` languageCode
+    _salt
+      `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` score
 
 instance Prelude.NFData DominantLanguage where

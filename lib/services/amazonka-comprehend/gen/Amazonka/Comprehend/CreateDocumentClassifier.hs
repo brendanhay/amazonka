@@ -382,7 +382,8 @@ instance Core.AWSRequest CreateDocumentClassifier where
 
 instance Prelude.Hashable CreateDocumentClassifier where
   hashWithSalt _salt CreateDocumentClassifier' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` mode
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` modelPolicy

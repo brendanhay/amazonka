@@ -133,52 +133,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The resource specified in your request already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -186,7 +186,7 @@ _AlreadyExistsException =
     Prelude.. Core.hasStatus 409
 
 -- | The input you provided is invalid.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -196,7 +196,7 @@ _BadRequestException =
 -- | The API encountered an unexpected error and couldn\'t complete the
 -- request. You might be able to successfully issue the request again in
 -- the future.
-_InternalServiceErrorException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceErrorException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceErrorException =
   Core._MatchServiceError
     defaultService
@@ -204,7 +204,7 @@ _InternalServiceErrorException =
     Prelude.. Core.hasStatus 500
 
 -- | There are too many instances of the specified resource type.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -212,7 +212,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 412
 
 -- | The resource you attempted to access doesn\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -221,7 +221,7 @@ _NotFoundException =
 
 -- | You\'ve issued too many requests to the resource. Wait a few minutes,
 -- and then try again.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

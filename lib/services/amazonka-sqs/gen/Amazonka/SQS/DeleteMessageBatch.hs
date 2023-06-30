@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes up to ten messages from the specified queue. This is a batch
--- version of @ DeleteMessage.@ The result of the action on each message is
--- reported individually in the response.
+-- version of @ @@DeleteMessage@@.@ The result of the action on each
+-- message is reported individually in the response.
 --
 -- Because the batch request can result in a combination of successful and
 -- unsuccessful actions, you should check for batch errors even when the
@@ -127,7 +127,8 @@ instance Core.AWSRequest DeleteMessageBatch where
 
 instance Prelude.Hashable DeleteMessageBatch where
   hashWithSalt _salt DeleteMessageBatch' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData DeleteMessageBatch where
@@ -155,16 +156,16 @@ instance Data.ToQuery DeleteMessageBatch where
       ]
 
 -- | For each message in the batch, the response contains a
--- @ DeleteMessageBatchResultEntry @ tag if the message is deleted or a
--- @ BatchResultErrorEntry @ tag if the message can\'t be deleted.
+-- @ @@DeleteMessageBatchResultEntry@@ @ tag if the message is deleted or a
+-- @ @@BatchResultErrorEntry@@ @ tag if the message can\'t be deleted.
 --
 -- /See:/ 'newDeleteMessageBatchResponse' smart constructor.
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of @ DeleteMessageBatchResultEntry @ items.
+    -- | A list of @ @@DeleteMessageBatchResultEntry@@ @ items.
     successful :: [DeleteMessageBatchResultEntry],
-    -- | A list of @ BatchResultErrorEntry @ items.
+    -- | A list of @ @@BatchResultErrorEntry@@ @ items.
     failed :: [BatchResultErrorEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -179,9 +180,9 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
 --
 -- 'httpStatus', 'deleteMessageBatchResponse_httpStatus' - The response's http status code.
 --
--- 'successful', 'deleteMessageBatchResponse_successful' - A list of @ DeleteMessageBatchResultEntry @ items.
+-- 'successful', 'deleteMessageBatchResponse_successful' - A list of @ @@DeleteMessageBatchResultEntry@@ @ items.
 --
--- 'failed', 'deleteMessageBatchResponse_failed' - A list of @ BatchResultErrorEntry @ items.
+-- 'failed', 'deleteMessageBatchResponse_failed' - A list of @ @@BatchResultErrorEntry@@ @ items.
 newDeleteMessageBatchResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -198,11 +199,11 @@ newDeleteMessageBatchResponse pHttpStatus_ =
 deleteMessageBatchResponse_httpStatus :: Lens.Lens' DeleteMessageBatchResponse Prelude.Int
 deleteMessageBatchResponse_httpStatus = Lens.lens (\DeleteMessageBatchResponse' {httpStatus} -> httpStatus) (\s@DeleteMessageBatchResponse' {} a -> s {httpStatus = a} :: DeleteMessageBatchResponse)
 
--- | A list of @ DeleteMessageBatchResultEntry @ items.
+-- | A list of @ @@DeleteMessageBatchResultEntry@@ @ items.
 deleteMessageBatchResponse_successful :: Lens.Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 deleteMessageBatchResponse_successful = Lens.lens (\DeleteMessageBatchResponse' {successful} -> successful) (\s@DeleteMessageBatchResponse' {} a -> s {successful = a} :: DeleteMessageBatchResponse) Prelude.. Lens.coerced
 
--- | A list of @ BatchResultErrorEntry @ items.
+-- | A list of @ @@BatchResultErrorEntry@@ @ items.
 deleteMessageBatchResponse_failed :: Lens.Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 deleteMessageBatchResponse_failed = Lens.lens (\DeleteMessageBatchResponse' {failed} -> failed) (\s@DeleteMessageBatchResponse' {} a -> s {failed = a} :: DeleteMessageBatchResponse) Prelude.. Lens.coerced
 

@@ -25,7 +25,7 @@ import qualified Amazonka.Data as Data
 import qualified Amazonka.Prelude as Prelude
 
 -- | Encloses a receipt handle and an entry id for each message in
--- @ ChangeMessageVisibilityBatch.@
+-- @ @@ChangeMessageVisibilityBatch@@.@
 --
 -- All of the following list parameters must be prefixed with
 -- @ChangeMessageVisibilityBatchRequestEntry.n@, where @n@ is an integer
@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     ChangeMessageVisibilityBatchRequestEntry' {..} =
-      _salt `Prelude.hashWithSalt` visibilityTimeout
+      _salt
+        `Prelude.hashWithSalt` visibilityTimeout
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` receiptHandle
 

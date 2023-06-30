@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Delivers up to ten messages to the specified queue. This is a batch
--- version of @ SendMessage.@ For a FIFO queue, multiple messages within a
--- single batch are enqueued in the order they are sent.
+-- version of @ @@SendMessage@@.@ For a FIFO queue, multiple messages
+-- within a single batch are enqueued in the order they are sent.
 --
 -- The result of sending each message is reported individually in the
 -- response. Because the batch request can result in a combination of
@@ -89,7 +89,7 @@ data SendMessageBatch = SendMessageBatch'
     --
     -- Queue URLs and names are case-sensitive.
     queueUrl :: Prelude.Text,
-    -- | A list of @ SendMessageBatchRequestEntry @ items.
+    -- | A list of @ @@SendMessageBatchRequestEntry@@ @ items.
     entries :: [SendMessageBatchRequestEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,7 +106,7 @@ data SendMessageBatch = SendMessageBatch'
 --
 -- Queue URLs and names are case-sensitive.
 --
--- 'entries', 'sendMessageBatch_entries' - A list of @ SendMessageBatchRequestEntry @ items.
+-- 'entries', 'sendMessageBatch_entries' - A list of @ @@SendMessageBatchRequestEntry@@ @ items.
 newSendMessageBatch ::
   -- | 'queueUrl'
   Prelude.Text ->
@@ -123,7 +123,7 @@ newSendMessageBatch pQueueUrl_ =
 sendMessageBatch_queueUrl :: Lens.Lens' SendMessageBatch Prelude.Text
 sendMessageBatch_queueUrl = Lens.lens (\SendMessageBatch' {queueUrl} -> queueUrl) (\s@SendMessageBatch' {} a -> s {queueUrl = a} :: SendMessageBatch)
 
--- | A list of @ SendMessageBatchRequestEntry @ items.
+-- | A list of @ @@SendMessageBatchRequestEntry@@ @ items.
 sendMessageBatch_entries :: Lens.Lens' SendMessageBatch [SendMessageBatchRequestEntry]
 sendMessageBatch_entries = Lens.lens (\SendMessageBatch' {entries} -> entries) (\s@SendMessageBatch' {} a -> s {entries = a} :: SendMessageBatch) Prelude.. Lens.coerced
 
@@ -145,7 +145,8 @@ instance Core.AWSRequest SendMessageBatch where
 
 instance Prelude.Hashable SendMessageBatch where
   hashWithSalt _salt SendMessageBatch' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData SendMessageBatch where
@@ -173,17 +174,17 @@ instance Data.ToQuery SendMessageBatch where
       ]
 
 -- | For each message in the batch, the response contains a
--- @ SendMessageBatchResultEntry @ tag if the message succeeds or a
--- @ BatchResultErrorEntry @ tag if the message fails.
+-- @ @@SendMessageBatchResultEntry@@ @ tag if the message succeeds or a
+-- @ @@BatchResultErrorEntry@@ @ tag if the message fails.
 --
 -- /See:/ 'newSendMessageBatchResponse' smart constructor.
 data SendMessageBatchResponse = SendMessageBatchResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of @ SendMessageBatchResultEntry @ items.
+    -- | A list of @ @@SendMessageBatchResultEntry@@ @ items.
     successful :: [SendMessageBatchResultEntry],
-    -- | A list of @ BatchResultErrorEntry @ items with error details about each
-    -- message that can\'t be enqueued.
+    -- | A list of @ @@BatchResultErrorEntry@@ @ items with error details about
+    -- each message that can\'t be enqueued.
     failed :: [BatchResultErrorEntry]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -198,10 +199,10 @@ data SendMessageBatchResponse = SendMessageBatchResponse'
 --
 -- 'httpStatus', 'sendMessageBatchResponse_httpStatus' - The response's http status code.
 --
--- 'successful', 'sendMessageBatchResponse_successful' - A list of @ SendMessageBatchResultEntry @ items.
+-- 'successful', 'sendMessageBatchResponse_successful' - A list of @ @@SendMessageBatchResultEntry@@ @ items.
 --
--- 'failed', 'sendMessageBatchResponse_failed' - A list of @ BatchResultErrorEntry @ items with error details about each
--- message that can\'t be enqueued.
+-- 'failed', 'sendMessageBatchResponse_failed' - A list of @ @@BatchResultErrorEntry@@ @ items with error details about
+-- each message that can\'t be enqueued.
 newSendMessageBatchResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -218,12 +219,12 @@ newSendMessageBatchResponse pHttpStatus_ =
 sendMessageBatchResponse_httpStatus :: Lens.Lens' SendMessageBatchResponse Prelude.Int
 sendMessageBatchResponse_httpStatus = Lens.lens (\SendMessageBatchResponse' {httpStatus} -> httpStatus) (\s@SendMessageBatchResponse' {} a -> s {httpStatus = a} :: SendMessageBatchResponse)
 
--- | A list of @ SendMessageBatchResultEntry @ items.
+-- | A list of @ @@SendMessageBatchResultEntry@@ @ items.
 sendMessageBatchResponse_successful :: Lens.Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 sendMessageBatchResponse_successful = Lens.lens (\SendMessageBatchResponse' {successful} -> successful) (\s@SendMessageBatchResponse' {} a -> s {successful = a} :: SendMessageBatchResponse) Prelude.. Lens.coerced
 
--- | A list of @ BatchResultErrorEntry @ items with error details about each
--- message that can\'t be enqueued.
+-- | A list of @ @@BatchResultErrorEntry@@ @ items with error details about
+-- each message that can\'t be enqueued.
 sendMessageBatchResponse_failed :: Lens.Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 sendMessageBatchResponse_failed = Lens.lens (\SendMessageBatchResponse' {failed} -> failed) (\s@SendMessageBatchResponse' {} a -> s {failed = a} :: SendMessageBatchResponse) Prelude.. Lens.coerced
 

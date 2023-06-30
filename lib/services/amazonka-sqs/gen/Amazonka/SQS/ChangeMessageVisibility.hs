@@ -108,7 +108,8 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
     -- Queue URLs and names are case-sensitive.
     queueUrl :: Prelude.Text,
     -- | The receipt handle associated with the message whose visibility timeout
-    -- is changed. This parameter is returned by the @ ReceiveMessage @ action.
+    -- is changed. This parameter is returned by the @ @@ReceiveMessage@@ @
+    -- action.
     receiptHandle :: Prelude.Text,
     -- | The new value for the message\'s visibility timeout (in seconds). Values
     -- range: @0@ to @43200@. Maximum: 12 hours.
@@ -129,7 +130,8 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
 -- Queue URLs and names are case-sensitive.
 --
 -- 'receiptHandle', 'changeMessageVisibility_receiptHandle' - The receipt handle associated with the message whose visibility timeout
--- is changed. This parameter is returned by the @ ReceiveMessage @ action.
+-- is changed. This parameter is returned by the @ @@ReceiveMessage@@ @
+-- action.
 --
 -- 'visibilityTimeout', 'changeMessageVisibility_visibilityTimeout' - The new value for the message\'s visibility timeout (in seconds). Values
 -- range: @0@ to @43200@. Maximum: 12 hours.
@@ -158,7 +160,8 @@ changeMessageVisibility_queueUrl :: Lens.Lens' ChangeMessageVisibility Prelude.T
 changeMessageVisibility_queueUrl = Lens.lens (\ChangeMessageVisibility' {queueUrl} -> queueUrl) (\s@ChangeMessageVisibility' {} a -> s {queueUrl = a} :: ChangeMessageVisibility)
 
 -- | The receipt handle associated with the message whose visibility timeout
--- is changed. This parameter is returned by the @ ReceiveMessage @ action.
+-- is changed. This parameter is returned by the @ @@ReceiveMessage@@ @
+-- action.
 changeMessageVisibility_receiptHandle :: Lens.Lens' ChangeMessageVisibility Prelude.Text
 changeMessageVisibility_receiptHandle = Lens.lens (\ChangeMessageVisibility' {receiptHandle} -> receiptHandle) (\s@ChangeMessageVisibility' {} a -> s {receiptHandle = a} :: ChangeMessageVisibility)
 
@@ -179,7 +182,8 @@ instance Core.AWSRequest ChangeMessageVisibility where
 
 instance Prelude.Hashable ChangeMessageVisibility where
   hashWithSalt _salt ChangeMessageVisibility' {..} =
-    _salt `Prelude.hashWithSalt` queueUrl
+    _salt
+      `Prelude.hashWithSalt` queueUrl
       `Prelude.hashWithSalt` receiptHandle
       `Prelude.hashWithSalt` visibilityTimeout
 

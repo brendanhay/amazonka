@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     DeleteMessageBatchRequestEntry' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` receiptHandle
 
 instance

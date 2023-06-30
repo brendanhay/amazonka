@@ -48,9 +48,9 @@
 -- After you create a queue, you must wait at least one second after the
 -- queue is created to be able to use the queue.
 --
--- To get the queue URL, use the @ GetQueueUrl @ action. @ GetQueueUrl @
--- requires only the @QueueName@ parameter. be aware of existing queue
--- names:
+-- To get the queue URL, use the @ @@GetQueueUrl@@ @ action.
+-- @ @@GetQueueUrl@@ @ requires only the @QueueName@ parameter. be aware of
+-- existing queue names:
 --
 -- -   If you provide the name of an existing queue along with the exact
 --     names and values of all the queue\'s attributes, @CreateQueue@
@@ -128,8 +128,8 @@ data CreateQueue = CreateQueue'
     --     in the /Amazon IAM User Guide/.
     --
     -- -   @ReceiveMessageWaitTimeSeconds@ – The length of time, in seconds,
-    --     for which a @ ReceiveMessage @ action waits for a message to arrive.
-    --     Valid values: An integer from 0 to 20 (seconds). Default: 0.
+    --     for which a @ @@ReceiveMessage@@ @ action waits for a message to
+    --     arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.
     --
     -- -   @RedrivePolicy@ – The string that includes the parameters for the
     --     dead-letter queue functionality of the source queue as a JSON
@@ -167,7 +167,7 @@ data CreateQueue = CreateQueue'
     --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
     --     While the alias of the Amazon Web Services managed CMK for Amazon
     --     SQS is always @alias\/aws\/sqs@, the alias of a custom CMK can, for
-    --     example, be @alias\/MyAlias @. For more examples, see
+    --     example, be @alias\/@/@MyAlias@/@ @. For more examples, see
     --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
     --     in the /Key Management Service API Reference/.
     --
@@ -338,8 +338,8 @@ data CreateQueue = CreateQueue'
 --     in the /Amazon IAM User Guide/.
 --
 -- -   @ReceiveMessageWaitTimeSeconds@ – The length of time, in seconds,
---     for which a @ ReceiveMessage @ action waits for a message to arrive.
---     Valid values: An integer from 0 to 20 (seconds). Default: 0.
+--     for which a @ @@ReceiveMessage@@ @ action waits for a message to
+--     arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.
 --
 -- -   @RedrivePolicy@ – The string that includes the parameters for the
 --     dead-letter queue functionality of the source queue as a JSON
@@ -377,7 +377,7 @@ data CreateQueue = CreateQueue'
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
 --     While the alias of the Amazon Web Services managed CMK for Amazon
 --     SQS is always @alias\/aws\/sqs@, the alias of a custom CMK can, for
---     example, be @alias\/MyAlias @. For more examples, see
+--     example, be @alias\/@/@MyAlias@/@ @. For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
 --     in the /Key Management Service API Reference/.
 --
@@ -547,8 +547,8 @@ newCreateQueue pQueueName_ =
 --     in the /Amazon IAM User Guide/.
 --
 -- -   @ReceiveMessageWaitTimeSeconds@ – The length of time, in seconds,
---     for which a @ ReceiveMessage @ action waits for a message to arrive.
---     Valid values: An integer from 0 to 20 (seconds). Default: 0.
+--     for which a @ @@ReceiveMessage@@ @ action waits for a message to
+--     arrive. Valid values: An integer from 0 to 20 (seconds). Default: 0.
 --
 -- -   @RedrivePolicy@ – The string that includes the parameters for the
 --     dead-letter queue functionality of the source queue as a JSON
@@ -586,7 +586,7 @@ newCreateQueue pQueueName_ =
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms Key Terms>.
 --     While the alias of the Amazon Web Services managed CMK for Amazon
 --     SQS is always @alias\/aws\/sqs@, the alias of a custom CMK can, for
---     example, be @alias\/MyAlias @. For more examples, see
+--     example, be @alias\/@/@MyAlias@/@ @. For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
 --     in the /Key Management Service API Reference/.
 --
@@ -742,7 +742,8 @@ instance Core.AWSRequest CreateQueue where
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` queueName
 

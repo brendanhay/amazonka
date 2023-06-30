@@ -142,10 +142,10 @@ data ReceiveMessage = ReceiveMessage'
     --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html SSE-SQS>).
     --
     -- -   @MessageDeduplicationId@ – Returns the value provided by the
-    --     producer that calls the @ SendMessage @ action.
+    --     producer that calls the @ @@SendMessage@@ @ action.
     --
     -- -   @MessageGroupId@ – Returns the value provided by the producer that
-    --     calls the @ SendMessage @ action. Messages with the same
+    --     calls the @ @@SendMessage@@ @ action. Messages with the same
     --     @MessageGroupId@ are returned in sequence.
     --
     -- -   @SequenceNumber@ – Returns the value provided by Amazon SQS.
@@ -303,10 +303,10 @@ data ReceiveMessage = ReceiveMessage'
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html SSE-SQS>).
 --
 -- -   @MessageDeduplicationId@ – Returns the value provided by the
---     producer that calls the @ SendMessage @ action.
+--     producer that calls the @ @@SendMessage@@ @ action.
 --
 -- -   @MessageGroupId@ – Returns the value provided by the producer that
---     calls the @ SendMessage @ action. Messages with the same
+--     calls the @ @@SendMessage@@ @ action. Messages with the same
 --     @MessageGroupId@ are returned in sequence.
 --
 -- -   @SequenceNumber@ – Returns the value provided by Amazon SQS.
@@ -467,10 +467,10 @@ newReceiveMessage pQueueUrl_ =
 --     <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html SSE-SQS>).
 --
 -- -   @MessageDeduplicationId@ – Returns the value provided by the
---     producer that calls the @ SendMessage @ action.
+--     producer that calls the @ @@SendMessage@@ @ action.
 --
 -- -   @MessageGroupId@ – Returns the value provided by the producer that
---     calls the @ SendMessage @ action. Messages with the same
+--     calls the @ @@SendMessage@@ @ action. Messages with the same
 --     @MessageGroupId@ are returned in sequence.
 --
 -- -   @SequenceNumber@ – Returns the value provided by Amazon SQS.
@@ -613,7 +613,8 @@ instance Core.AWSRequest ReceiveMessage where
 
 instance Prelude.Hashable ReceiveMessage where
   hashWithSalt _salt ReceiveMessage' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` maxNumberOfMessages
       `Prelude.hashWithSalt` messageAttributeNames
       `Prelude.hashWithSalt` receiveRequestAttemptId

@@ -148,7 +148,8 @@ instance Data.FromJSON InputDataConfig where
 
 instance Prelude.Hashable InputDataConfig where
   hashWithSalt _salt InputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` tuningDataS3Uri
+    _salt
+      `Prelude.hashWithSalt` tuningDataS3Uri
       `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` dataAccessRoleArn
 

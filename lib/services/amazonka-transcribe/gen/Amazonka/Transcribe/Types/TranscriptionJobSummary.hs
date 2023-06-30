@@ -323,7 +323,8 @@ instance Data.FromJSON TranscriptionJobSummary where
 
 instance Prelude.Hashable TranscriptionJobSummary where
   hashWithSalt _salt TranscriptionJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` contentRedaction
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` failureReason

@@ -128,7 +128,8 @@ instance Core.AWSRequest ListCallAnalyticsCategories where
 
 instance Prelude.Hashable ListCallAnalyticsCategories where
   hashWithSalt _salt ListCallAnalyticsCategories' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListCallAnalyticsCategories where

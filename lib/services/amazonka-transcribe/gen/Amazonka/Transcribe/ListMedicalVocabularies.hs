@@ -163,7 +163,8 @@ instance Core.AWSRequest ListMedicalVocabularies where
 
 instance Prelude.Hashable ListMedicalVocabularies where
   hashWithSalt _salt ListMedicalVocabularies' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nameContains
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stateEquals

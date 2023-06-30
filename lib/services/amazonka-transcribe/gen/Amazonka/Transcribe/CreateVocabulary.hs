@@ -285,7 +285,8 @@ instance Core.AWSRequest CreateVocabulary where
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` phrases
+    _salt
+      `Prelude.hashWithSalt` phrases
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vocabularyFileUri
       `Prelude.hashWithSalt` vocabularyName

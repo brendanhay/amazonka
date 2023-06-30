@@ -204,7 +204,8 @@ instance Core.AWSRequest CreateCallAnalyticsCategory where
 
 instance Prelude.Hashable CreateCallAnalyticsCategory where
   hashWithSalt _salt CreateCallAnalyticsCategory' {..} =
-    _salt `Prelude.hashWithSalt` inputType
+    _salt
+      `Prelude.hashWithSalt` inputType
       `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` rules
 

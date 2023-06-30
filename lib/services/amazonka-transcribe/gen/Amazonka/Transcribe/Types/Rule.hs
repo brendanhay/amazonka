@@ -121,7 +121,8 @@ instance Data.FromJSON Rule where
 
 instance Prelude.Hashable Rule where
   hashWithSalt _salt Rule' {..} =
-    _salt `Prelude.hashWithSalt` interruptionFilter
+    _salt
+      `Prelude.hashWithSalt` interruptionFilter
       `Prelude.hashWithSalt` nonTalkTimeFilter
       `Prelude.hashWithSalt` sentimentFilter
       `Prelude.hashWithSalt` transcriptFilter

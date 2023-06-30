@@ -431,7 +431,8 @@ instance Data.FromJSON MedicalTranscriptionJob where
 
 instance Prelude.Hashable MedicalTranscriptionJob where
   hashWithSalt _salt MedicalTranscriptionJob' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` contentIdentificationType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` failureReason

@@ -203,7 +203,8 @@ instance Core.AWSRequest CreateMedicalVocabulary where
 
 instance Prelude.Hashable CreateMedicalVocabulary where
   hashWithSalt _salt CreateMedicalVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` vocabularyFileUri

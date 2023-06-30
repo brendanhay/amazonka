@@ -427,7 +427,8 @@ instance Core.AWSRequest StartCallAnalyticsJob where
 
 instance Prelude.Hashable StartCallAnalyticsJob where
   hashWithSalt _salt StartCallAnalyticsJob' {..} =
-    _salt `Prelude.hashWithSalt` channelDefinitions
+    _salt
+      `Prelude.hashWithSalt` channelDefinitions
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` outputEncryptionKMSKeyId
       `Prelude.hashWithSalt` outputLocation

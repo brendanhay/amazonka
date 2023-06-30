@@ -201,11 +201,11 @@ data StartTranscriptionJob = StartTranscriptionJob'
     --
     -- If you want to include a custom language model with your request but
     -- __do not__ want to use automatic language identification, use instead
-    -- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
-    -- to include a custom vocabulary or a custom vocabulary filter (or both)
-    -- with your request but __do not__ want to use automatic language
-    -- identification, use instead the @@ parameter with the @VocabularyName@
-    -- or @VocabularyFilterName@ (or both) sub-parameter.
+    -- the parameter with the @LanguageModelName@ sub-parameter. If you want to
+    -- include a custom vocabulary or a custom vocabulary filter (or both) with
+    -- your request but __do not__ want to use automatic language
+    -- identification, use instead the parameter with the @VocabularyName@ or
+    -- @VocabularyFilterName@ (or both) sub-parameter.
     languageIdSettings :: Prelude.Maybe (Prelude.HashMap LanguageCode LanguageIdSettings),
     -- | You can specify two or more language codes that represent the languages
     -- you think may be present in your media. Including more than five is not
@@ -341,7 +341,7 @@ data StartTranscriptionJob = StartTranscriptionJob'
     --
     -- If you\'re using automatic language identification with your request and
     -- want to include a custom language model, a custom vocabulary, or a
-    -- custom vocabulary filter, use instead the @@ parameter with the
+    -- custom vocabulary filter, use instead the parameter with the
     -- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
     -- sub-parameters.
     settings :: Prelude.Maybe Settings,
@@ -484,11 +484,11 @@ data StartTranscriptionJob = StartTranscriptionJob'
 --
 -- If you want to include a custom language model with your request but
 -- __do not__ want to use automatic language identification, use instead
--- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
--- to include a custom vocabulary or a custom vocabulary filter (or both)
--- with your request but __do not__ want to use automatic language
--- identification, use instead the @@ parameter with the @VocabularyName@
--- or @VocabularyFilterName@ (or both) sub-parameter.
+-- the parameter with the @LanguageModelName@ sub-parameter. If you want to
+-- include a custom vocabulary or a custom vocabulary filter (or both) with
+-- your request but __do not__ want to use automatic language
+-- identification, use instead the parameter with the @VocabularyName@ or
+-- @VocabularyFilterName@ (or both) sub-parameter.
 --
 -- 'languageOptions', 'startTranscriptionJob_languageOptions' - You can specify two or more language codes that represent the languages
 -- you think may be present in your media. Including more than five is not
@@ -624,7 +624,7 @@ data StartTranscriptionJob = StartTranscriptionJob'
 --
 -- If you\'re using automatic language identification with your request and
 -- want to include a custom language model, a custom vocabulary, or a
--- custom vocabulary filter, use instead the @@ parameter with the
+-- custom vocabulary filter, use instead the parameter with the
 -- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
 -- sub-parameters.
 --
@@ -799,11 +799,11 @@ startTranscriptionJob_languageCode = Lens.lens (\StartTranscriptionJob' {languag
 --
 -- If you want to include a custom language model with your request but
 -- __do not__ want to use automatic language identification, use instead
--- the @@ parameter with the @LanguageModelName@ sub-parameter. If you want
--- to include a custom vocabulary or a custom vocabulary filter (or both)
--- with your request but __do not__ want to use automatic language
--- identification, use instead the @@ parameter with the @VocabularyName@
--- or @VocabularyFilterName@ (or both) sub-parameter.
+-- the parameter with the @LanguageModelName@ sub-parameter. If you want to
+-- include a custom vocabulary or a custom vocabulary filter (or both) with
+-- your request but __do not__ want to use automatic language
+-- identification, use instead the parameter with the @VocabularyName@ or
+-- @VocabularyFilterName@ (or both) sub-parameter.
 startTranscriptionJob_languageIdSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.HashMap LanguageCode LanguageIdSettings))
 startTranscriptionJob_languageIdSettings = Lens.lens (\StartTranscriptionJob' {languageIdSettings} -> languageIdSettings) (\s@StartTranscriptionJob' {} a -> s {languageIdSettings = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens.coerced
 
@@ -955,7 +955,7 @@ startTranscriptionJob_outputKey = Lens.lens (\StartTranscriptionJob' {outputKey}
 --
 -- If you\'re using automatic language identification with your request and
 -- want to include a custom language model, a custom vocabulary, or a
--- custom vocabulary filter, use instead the @@ parameter with the
+-- custom vocabulary filter, use instead the parameter with the
 -- @LanguageModelName@, @VocabularyName@ or @VocabularyFilterName@
 -- sub-parameters.
 startTranscriptionJob_settings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Settings)
@@ -1007,7 +1007,8 @@ instance Core.AWSRequest StartTranscriptionJob where
 
 instance Prelude.Hashable StartTranscriptionJob where
   hashWithSalt _salt StartTranscriptionJob' {..} =
-    _salt `Prelude.hashWithSalt` contentRedaction
+    _salt
+      `Prelude.hashWithSalt` contentRedaction
       `Prelude.hashWithSalt` identifyLanguage
       `Prelude.hashWithSalt` identifyMultipleLanguages
       `Prelude.hashWithSalt` jobExecutionSettings

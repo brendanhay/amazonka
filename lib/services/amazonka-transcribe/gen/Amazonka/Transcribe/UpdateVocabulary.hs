@@ -237,7 +237,8 @@ instance Core.AWSRequest UpdateVocabulary where
 
 instance Prelude.Hashable UpdateVocabulary where
   hashWithSalt _salt UpdateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` phrases
+    _salt
+      `Prelude.hashWithSalt` phrases
       `Prelude.hashWithSalt` vocabularyFileUri
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageCode

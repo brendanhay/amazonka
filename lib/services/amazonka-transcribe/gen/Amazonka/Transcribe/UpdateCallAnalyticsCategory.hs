@@ -141,7 +141,8 @@ instance Core.AWSRequest UpdateCallAnalyticsCategory where
 
 instance Prelude.Hashable UpdateCallAnalyticsCategory where
   hashWithSalt _salt UpdateCallAnalyticsCategory' {..} =
-    _salt `Prelude.hashWithSalt` inputType
+    _salt
+      `Prelude.hashWithSalt` inputType
       `Prelude.hashWithSalt` categoryName
       `Prelude.hashWithSalt` rules
 

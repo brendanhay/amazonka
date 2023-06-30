@@ -338,7 +338,8 @@ instance Data.FromJSON Settings where
 
 instance Prelude.Hashable Settings where
   hashWithSalt _salt Settings' {..} =
-    _salt `Prelude.hashWithSalt` channelIdentification
+    _salt
+      `Prelude.hashWithSalt` channelIdentification
       `Prelude.hashWithSalt` maxAlternatives
       `Prelude.hashWithSalt` maxSpeakerLabels
       `Prelude.hashWithSalt` showAlternatives

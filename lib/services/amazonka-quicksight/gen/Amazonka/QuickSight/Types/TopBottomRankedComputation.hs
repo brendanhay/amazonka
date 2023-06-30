@@ -138,7 +138,8 @@ instance Data.FromJSON TopBottomRankedComputation where
 
 instance Prelude.Hashable TopBottomRankedComputation where
   hashWithSalt _salt TopBottomRankedComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resultSize
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` computationId

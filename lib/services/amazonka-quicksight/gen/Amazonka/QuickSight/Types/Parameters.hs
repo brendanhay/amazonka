@@ -86,7 +86,8 @@ parameters_stringParameters = Lens.lens (\Parameters' {stringParameters} -> stri
 
 instance Prelude.Hashable Parameters where
   hashWithSalt _salt Parameters' {..} =
-    _salt `Prelude.hashWithSalt` dateTimeParameters
+    _salt
+      `Prelude.hashWithSalt` dateTimeParameters
       `Prelude.hashWithSalt` decimalParameters
       `Prelude.hashWithSalt` integerParameters
       `Prelude.hashWithSalt` stringParameters

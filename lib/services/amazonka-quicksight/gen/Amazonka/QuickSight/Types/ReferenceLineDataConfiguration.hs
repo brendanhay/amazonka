@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     ReferenceLineDataConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` axisBinding
+      _salt
+        `Prelude.hashWithSalt` axisBinding
         `Prelude.hashWithSalt` dynamicConfiguration
         `Prelude.hashWithSalt` staticConfiguration
 

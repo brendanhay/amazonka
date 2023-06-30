@@ -80,7 +80,8 @@ instance
     FunnelChartSortConfiguration
   where
   hashWithSalt _salt FunnelChartSortConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categoryItemsLimit
+    _salt
+      `Prelude.hashWithSalt` categoryItemsLimit
       `Prelude.hashWithSalt` categorySort
 
 instance Prelude.NFData FunnelChartSortConfiguration where

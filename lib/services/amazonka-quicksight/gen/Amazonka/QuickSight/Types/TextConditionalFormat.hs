@@ -87,7 +87,8 @@ instance Data.FromJSON TextConditionalFormat where
 
 instance Prelude.Hashable TextConditionalFormat where
   hashWithSalt _salt TextConditionalFormat' {..} =
-    _salt `Prelude.hashWithSalt` backgroundColor
+    _salt
+      `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` icon
       `Prelude.hashWithSalt` textColor
 

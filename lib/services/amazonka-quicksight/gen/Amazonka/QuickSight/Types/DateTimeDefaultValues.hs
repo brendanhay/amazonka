@@ -93,7 +93,8 @@ instance Data.FromJSON DateTimeDefaultValues where
 
 instance Prelude.Hashable DateTimeDefaultValues where
   hashWithSalt _salt DateTimeDefaultValues' {..} =
-    _salt `Prelude.hashWithSalt` dynamicValue
+    _salt
+      `Prelude.hashWithSalt` dynamicValue
       `Prelude.hashWithSalt` rollingDate
       `Prelude.hashWithSalt` staticValues
 

@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     TextFieldControlDisplayOptions' {..} =
-      _salt `Prelude.hashWithSalt` placeholderOptions
+      _salt
+        `Prelude.hashWithSalt` placeholderOptions
         `Prelude.hashWithSalt` titleOptions
 
 instance

@@ -78,7 +78,8 @@ instance Data.FromJSON DataPathSort where
 
 instance Prelude.Hashable DataPathSort where
   hashWithSalt _salt DataPathSort' {..} =
-    _salt `Prelude.hashWithSalt` direction
+    _salt
+      `Prelude.hashWithSalt` direction
       `Prelude.hashWithSalt` sortPaths
 
 instance Prelude.NFData DataPathSort where

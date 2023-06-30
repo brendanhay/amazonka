@@ -206,7 +206,8 @@ instance Core.AWSRequest CreateIAMPolicyAssignment where
 
 instance Prelude.Hashable CreateIAMPolicyAssignment where
   hashWithSalt _salt CreateIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` identities
+    _salt
+      `Prelude.hashWithSalt` identities
       `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` assignmentName

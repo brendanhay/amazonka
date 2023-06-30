@@ -201,7 +201,8 @@ instance Core.AWSRequest UpdateIAMPolicyAssignment where
 
 instance Prelude.Hashable UpdateIAMPolicyAssignment where
   hashWithSalt _salt UpdateIAMPolicyAssignment' {..} =
-    _salt `Prelude.hashWithSalt` assignmentStatus
+    _salt
+      `Prelude.hashWithSalt` assignmentStatus
       `Prelude.hashWithSalt` identities
       `Prelude.hashWithSalt` policyArn
       `Prelude.hashWithSalt` awsAccountId

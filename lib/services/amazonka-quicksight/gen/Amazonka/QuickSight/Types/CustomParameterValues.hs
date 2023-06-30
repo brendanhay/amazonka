@@ -98,7 +98,8 @@ instance Data.FromJSON CustomParameterValues where
 
 instance Prelude.Hashable CustomParameterValues where
   hashWithSalt _salt CustomParameterValues' {..} =
-    _salt `Prelude.hashWithSalt` dateTimeValues
+    _salt
+      `Prelude.hashWithSalt` dateTimeValues
       `Prelude.hashWithSalt` decimalValues
       `Prelude.hashWithSalt` integerValues
       `Prelude.hashWithSalt` stringValues

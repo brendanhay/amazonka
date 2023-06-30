@@ -107,8 +107,9 @@ data UpdateUser = UpdateUser'
     --     to provide the custom OIDC provider URL.
     --
     -- -   @NONE@: This clears all the previously saved external login
-    --     information for a user. Use the @ DescribeUser @ API operation to
-    --     check the external login information.
+    --     information for a user. Use the
+    --     @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html DescribeUser>@ @
+    --     API operation to check the external login information.
     externalLoginFederationProviderType :: Prelude.Maybe Prelude.Text,
     -- | The identity ID for a user in the external login provider.
     externalLoginId :: Prelude.Maybe Prelude.Text,
@@ -200,8 +201,9 @@ data UpdateUser = UpdateUser'
 --     to provide the custom OIDC provider URL.
 --
 -- -   @NONE@: This clears all the previously saved external login
---     information for a user. Use the @ DescribeUser @ API operation to
---     check the external login information.
+--     information for a user. Use the
+--     @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html DescribeUser>@ @
+--     API operation to check the external login information.
 --
 -- 'externalLoginId', 'updateUser_externalLoginId' - The identity ID for a user in the external login provider.
 --
@@ -318,8 +320,9 @@ updateUser_customPermissionsName = Lens.lens (\UpdateUser' {customPermissionsNam
 --     to provide the custom OIDC provider URL.
 --
 -- -   @NONE@: This clears all the previously saved external login
---     information for a user. Use the @ DescribeUser @ API operation to
---     check the external login information.
+--     information for a user. Use the
+--     @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html DescribeUser>@ @
+--     API operation to check the external login information.
 updateUser_externalLoginFederationProviderType :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_externalLoginFederationProviderType = Lens.lens (\UpdateUser' {externalLoginFederationProviderType} -> externalLoginFederationProviderType) (\s@UpdateUser' {} a -> s {externalLoginFederationProviderType = a} :: UpdateUser)
 

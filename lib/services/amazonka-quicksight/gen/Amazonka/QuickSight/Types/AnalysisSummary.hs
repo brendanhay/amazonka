@@ -118,7 +118,8 @@ instance Data.FromJSON AnalysisSummary where
 
 instance Prelude.Hashable AnalysisSummary where
   hashWithSalt _salt AnalysisSummary' {..} =
-    _salt `Prelude.hashWithSalt` analysisId
+    _salt
+      `Prelude.hashWithSalt` analysisId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` lastUpdatedTime

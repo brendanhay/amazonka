@@ -200,7 +200,8 @@ instance
     DescribeAccountCustomization
   where
   hashWithSalt _salt DescribeAccountCustomization' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` resolved
       `Prelude.hashWithSalt` awsAccountId
 

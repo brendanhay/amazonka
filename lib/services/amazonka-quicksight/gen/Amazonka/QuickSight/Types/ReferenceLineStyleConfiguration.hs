@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     ReferenceLineStyleConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` color
+      _salt
+        `Prelude.hashWithSalt` color
         `Prelude.hashWithSalt` pattern'
 
 instance

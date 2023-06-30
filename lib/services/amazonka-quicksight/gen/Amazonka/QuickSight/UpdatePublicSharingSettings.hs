@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdatePublicSharingSettings where
 
 instance Prelude.Hashable UpdatePublicSharingSettings where
   hashWithSalt _salt UpdatePublicSharingSettings' {..} =
-    _salt `Prelude.hashWithSalt` publicSharingEnabled
+    _salt
+      `Prelude.hashWithSalt` publicSharingEnabled
       `Prelude.hashWithSalt` awsAccountId
 
 instance Prelude.NFData UpdatePublicSharingSettings where

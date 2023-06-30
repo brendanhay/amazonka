@@ -79,7 +79,8 @@ instance Data.FromJSON AxisDataOptions where
 
 instance Prelude.Hashable AxisDataOptions where
   hashWithSalt _salt AxisDataOptions' {..} =
-    _salt `Prelude.hashWithSalt` dateAxisOptions
+    _salt
+      `Prelude.hashWithSalt` dateAxisOptions
       `Prelude.hashWithSalt` numericAxisOptions
 
 instance Prelude.NFData AxisDataOptions where

@@ -70,7 +70,8 @@ dashboardSourceTemplate_arn = Lens.lens (\DashboardSourceTemplate' {arn} -> arn)
 
 instance Prelude.Hashable DashboardSourceTemplate where
   hashWithSalt _salt DashboardSourceTemplate' {..} =
-    _salt `Prelude.hashWithSalt` dataSetReferences
+    _salt
+      `Prelude.hashWithSalt` dataSetReferences
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData DashboardSourceTemplate where

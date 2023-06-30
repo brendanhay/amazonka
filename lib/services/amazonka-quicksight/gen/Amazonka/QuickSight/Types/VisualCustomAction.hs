@@ -153,7 +153,8 @@ instance Data.FromJSON VisualCustomAction where
 
 instance Prelude.Hashable VisualCustomAction where
   hashWithSalt _salt VisualCustomAction' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` customActionId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` trigger

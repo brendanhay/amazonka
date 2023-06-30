@@ -94,7 +94,7 @@ instance
       ( \x ->
           FilterOperationSelectedFieldsConfiguration'
             Prelude.<$> (x Data..:? "SelectedFieldOptions")
-              Prelude.<*> (x Data..:? "SelectedFields")
+            Prelude.<*> (x Data..:? "SelectedFields")
       )
 
 instance
@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     FilterOperationSelectedFieldsConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` selectedFieldOptions
+      _salt
+        `Prelude.hashWithSalt` selectedFieldOptions
         `Prelude.hashWithSalt` selectedFields
 
 instance

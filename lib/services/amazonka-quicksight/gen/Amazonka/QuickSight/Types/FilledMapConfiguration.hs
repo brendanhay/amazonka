@@ -121,7 +121,8 @@ instance Data.FromJSON FilledMapConfiguration where
 
 instance Prelude.Hashable FilledMapConfiguration where
   hashWithSalt _salt FilledMapConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fieldWells
+    _salt
+      `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` legend
       `Prelude.hashWithSalt` mapStyleOptions
       `Prelude.hashWithSalt` sortConfiguration

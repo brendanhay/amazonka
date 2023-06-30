@@ -105,21 +105,23 @@ instance Core.AWSPager ListAnalyses where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAnalysesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAnalysesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAnalysesResponse_analysisSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAnalyses_nextToken
           Lens..~ rs
-          Lens.^? listAnalysesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAnalysesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnalyses where
   type AWSResponse ListAnalyses = ListAnalysesResponse
@@ -129,7 +131,8 @@ instance Core.AWSRequest ListAnalyses where
     Response.receiveJSON
       ( \s h x ->
           ListAnalysesResponse'
-            Prelude.<$> ( x Data..?> "AnalysisSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "AnalysisSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -139,7 +142,8 @@ instance Core.AWSRequest ListAnalyses where
 
 instance Prelude.Hashable ListAnalyses where
   hashWithSalt _salt ListAnalyses' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
 

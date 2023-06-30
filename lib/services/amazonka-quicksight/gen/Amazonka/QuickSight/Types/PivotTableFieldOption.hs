@@ -88,7 +88,8 @@ instance Data.FromJSON PivotTableFieldOption where
 
 instance Prelude.Hashable PivotTableFieldOption where
   hashWithSalt _salt PivotTableFieldOption' {..} =
-    _salt `Prelude.hashWithSalt` customLabel
+    _salt
+      `Prelude.hashWithSalt` customLabel
       `Prelude.hashWithSalt` visibility
       `Prelude.hashWithSalt` fieldId
 

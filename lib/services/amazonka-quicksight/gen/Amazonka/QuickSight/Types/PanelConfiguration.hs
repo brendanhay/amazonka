@@ -158,7 +158,8 @@ instance Data.FromJSON PanelConfiguration where
 
 instance Prelude.Hashable PanelConfiguration where
   hashWithSalt _salt PanelConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` backgroundColor
+    _salt
+      `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` backgroundVisibility
       `Prelude.hashWithSalt` borderColor
       `Prelude.hashWithSalt` borderStyle

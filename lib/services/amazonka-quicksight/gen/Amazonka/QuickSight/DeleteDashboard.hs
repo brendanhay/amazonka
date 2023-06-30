@@ -124,7 +124,8 @@ instance Core.AWSRequest DeleteDashboard where
 
 instance Prelude.Hashable DeleteDashboard where
   hashWithSalt _salt DeleteDashboard' {..} =
-    _salt `Prelude.hashWithSalt` versionNumber
+    _salt
+      `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
 

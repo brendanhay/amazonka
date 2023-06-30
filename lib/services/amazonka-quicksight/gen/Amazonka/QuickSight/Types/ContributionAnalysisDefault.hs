@@ -86,7 +86,8 @@ instance Data.FromJSON ContributionAnalysisDefault where
 
 instance Prelude.Hashable ContributionAnalysisDefault where
   hashWithSalt _salt ContributionAnalysisDefault' {..} =
-    _salt `Prelude.hashWithSalt` measureFieldId
+    _salt
+      `Prelude.hashWithSalt` measureFieldId
       `Prelude.hashWithSalt` contributorDimensions
 
 instance Prelude.NFData ContributionAnalysisDefault where

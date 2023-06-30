@@ -77,7 +77,8 @@ instance Data.FromJSON LongFormatText where
 
 instance Prelude.Hashable LongFormatText where
   hashWithSalt _salt LongFormatText' {..} =
-    _salt `Prelude.hashWithSalt` plainText
+    _salt
+      `Prelude.hashWithSalt` plainText
       `Prelude.hashWithSalt` richText
 
 instance Prelude.NFData LongFormatText where

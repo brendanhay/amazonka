@@ -77,7 +77,8 @@ instance Data.FromJSON RollingDateConfiguration where
 
 instance Prelude.Hashable RollingDateConfiguration where
   hashWithSalt _salt RollingDateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dataSetIdentifier
+    _salt
+      `Prelude.hashWithSalt` dataSetIdentifier
       `Prelude.hashWithSalt` expression
 
 instance Prelude.NFData RollingDateConfiguration where

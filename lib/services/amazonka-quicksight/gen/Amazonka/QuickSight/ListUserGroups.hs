@@ -153,7 +153,8 @@ instance Core.AWSRequest ListUserGroups where
 
 instance Prelude.Hashable ListUserGroups where
   hashWithSalt _salt ListUserGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` awsAccountId

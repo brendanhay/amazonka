@@ -76,7 +76,8 @@ instance Data.FromJSON ParameterSelectableValues where
 
 instance Prelude.Hashable ParameterSelectableValues where
   hashWithSalt _salt ParameterSelectableValues' {..} =
-    _salt `Prelude.hashWithSalt` linkToDataSetColumn
+    _salt
+      `Prelude.hashWithSalt` linkToDataSetColumn
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData ParameterSelectableValues where

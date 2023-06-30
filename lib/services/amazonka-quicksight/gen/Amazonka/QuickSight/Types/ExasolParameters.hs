@@ -69,12 +69,14 @@ instance Data.FromJSON ExasolParameters where
       "ExasolParameters"
       ( \x ->
           ExasolParameters'
-            Prelude.<$> (x Data..: "Host") Prelude.<*> (x Data..: "Port")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
       )
 
 instance Prelude.Hashable ExasolParameters where
   hashWithSalt _salt ExasolParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData ExasolParameters where

@@ -58,7 +58,8 @@ instance Data.FromJSON DataSetSchema where
       "DataSetSchema"
       ( \x ->
           DataSetSchema'
-            Prelude.<$> ( x Data..:? "ColumnSchemaList"
+            Prelude.<$> ( x
+                            Data..:? "ColumnSchemaList"
                             Data..!= Prelude.mempty
                         )
       )

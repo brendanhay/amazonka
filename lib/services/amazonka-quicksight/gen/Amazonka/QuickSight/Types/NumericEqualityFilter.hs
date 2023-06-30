@@ -186,7 +186,8 @@ instance Data.FromJSON NumericEqualityFilter where
 
 instance Prelude.Hashable NumericEqualityFilter where
   hashWithSalt _salt NumericEqualityFilter' {..} =
-    _salt `Prelude.hashWithSalt` aggregationFunction
+    _salt
+      `Prelude.hashWithSalt` aggregationFunction
       `Prelude.hashWithSalt` parameterName
       `Prelude.hashWithSalt` selectAllOptions
       `Prelude.hashWithSalt` value

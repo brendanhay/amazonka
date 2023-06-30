@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeNamespace where
 
 instance Prelude.Hashable DescribeNamespace where
   hashWithSalt _salt DescribeNamespace' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData DescribeNamespace where

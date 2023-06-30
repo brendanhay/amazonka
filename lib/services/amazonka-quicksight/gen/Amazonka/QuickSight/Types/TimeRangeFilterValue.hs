@@ -88,7 +88,8 @@ instance Data.FromJSON TimeRangeFilterValue where
 
 instance Prelude.Hashable TimeRangeFilterValue where
   hashWithSalt _salt TimeRangeFilterValue' {..} =
-    _salt `Prelude.hashWithSalt` parameter
+    _salt
+      `Prelude.hashWithSalt` parameter
       `Prelude.hashWithSalt` rollingDate
       `Prelude.hashWithSalt` staticValue
 

@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     KPIConditionalFormattingOption' {..} =
-      _salt `Prelude.hashWithSalt` primaryValue
+      _salt
+        `Prelude.hashWithSalt` primaryValue
         `Prelude.hashWithSalt` progressBar
 
 instance

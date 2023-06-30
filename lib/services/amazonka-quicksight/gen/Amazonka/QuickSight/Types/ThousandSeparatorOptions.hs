@@ -76,7 +76,8 @@ instance Data.FromJSON ThousandSeparatorOptions where
 
 instance Prelude.Hashable ThousandSeparatorOptions where
   hashWithSalt _salt ThousandSeparatorOptions' {..} =
-    _salt `Prelude.hashWithSalt` symbol
+    _salt
+      `Prelude.hashWithSalt` symbol
       `Prelude.hashWithSalt` visibility
 
 instance Prelude.NFData ThousandSeparatorOptions where

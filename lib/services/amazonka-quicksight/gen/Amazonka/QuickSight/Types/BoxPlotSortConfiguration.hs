@@ -77,7 +77,8 @@ instance Data.FromJSON BoxPlotSortConfiguration where
 
 instance Prelude.Hashable BoxPlotSortConfiguration where
   hashWithSalt _salt BoxPlotSortConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categorySort
+    _salt
+      `Prelude.hashWithSalt` categorySort
       `Prelude.hashWithSalt` paginationConfiguration
 
 instance Prelude.NFData BoxPlotSortConfiguration where

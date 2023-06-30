@@ -109,7 +109,8 @@ instance Core.AWSRequest DescribeDataSource where
 
 instance Prelude.Hashable DescribeDataSource where
   hashWithSalt _salt DescribeDataSource' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSourceId
 
 instance Prelude.NFData DescribeDataSource where

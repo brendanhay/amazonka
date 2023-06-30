@@ -40,8 +40,10 @@
 -- with the namespace. If you don\'t share it with the namespace, the theme
 -- isn\'t visible to your users even if you make it the default theme. To
 -- check if the theme is shared, view the current permissions by using the
--- @ DescribeThemePermissions @ API operation. To share the theme, grant
--- permissions by using the @ UpdateThemePermissions @ API operation.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeThemePermissions.html DescribeThemePermissions>@ @
+-- API operation. To share the theme, grant permissions by using the
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateThemePermissions.html UpdateThemePermissions>@ @
+-- API operation.
 module Amazonka.QuickSight.CreateAccountCustomization
   ( -- * Creating a Request
     CreateAccountCustomization (..),
@@ -183,7 +185,8 @@ instance Core.AWSRequest CreateAccountCustomization where
 
 instance Prelude.Hashable CreateAccountCustomization where
   hashWithSalt _salt CreateAccountCustomization' {..} =
-    _salt `Prelude.hashWithSalt` namespace
+    _salt
+      `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` accountCustomization

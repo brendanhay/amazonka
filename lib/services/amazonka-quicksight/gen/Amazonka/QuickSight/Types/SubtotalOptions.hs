@@ -119,7 +119,8 @@ instance Data.FromJSON SubtotalOptions where
           SubtotalOptions'
             Prelude.<$> (x Data..:? "CustomLabel")
             Prelude.<*> (x Data..:? "FieldLevel")
-            Prelude.<*> ( x Data..:? "FieldLevelOptions"
+            Prelude.<*> ( x
+                            Data..:? "FieldLevelOptions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "MetricHeaderCellStyle")
@@ -130,7 +131,8 @@ instance Data.FromJSON SubtotalOptions where
 
 instance Prelude.Hashable SubtotalOptions where
   hashWithSalt _salt SubtotalOptions' {..} =
-    _salt `Prelude.hashWithSalt` customLabel
+    _salt
+      `Prelude.hashWithSalt` customLabel
       `Prelude.hashWithSalt` fieldLevel
       `Prelude.hashWithSalt` fieldLevelOptions
       `Prelude.hashWithSalt` metricHeaderCellStyle

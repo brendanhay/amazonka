@@ -110,7 +110,8 @@ instance Data.FromJSON IntegerParameterDeclaration where
 
 instance Prelude.Hashable IntegerParameterDeclaration where
   hashWithSalt _salt IntegerParameterDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` defaultValues
+    _salt
+      `Prelude.hashWithSalt` defaultValues
       `Prelude.hashWithSalt` valueWhenUnset
       `Prelude.hashWithSalt` parameterValueType
       `Prelude.hashWithSalt` name

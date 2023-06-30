@@ -85,7 +85,8 @@ instance Data.FromJSON TableFieldCustomTextContent where
 
 instance Prelude.Hashable TableFieldCustomTextContent where
   hashWithSalt _salt TableFieldCustomTextContent' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` fontConfiguration
 
 instance Prelude.NFData TableFieldCustomTextContent where

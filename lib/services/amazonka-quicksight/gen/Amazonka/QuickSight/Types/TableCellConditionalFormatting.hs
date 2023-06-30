@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     TableCellConditionalFormatting' {..} =
-      _salt `Prelude.hashWithSalt` textFormat
+      _salt
+        `Prelude.hashWithSalt` textFormat
         `Prelude.hashWithSalt` fieldId
 
 instance

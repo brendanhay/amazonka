@@ -26,9 +26,10 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.ColumnDescription
 import Amazonka.QuickSight.Types.GeoSpatialDataRole
 
--- | A tag for a column in a @ TagColumnOperation @ structure. This is a
--- variant type structure. For this structure to be valid, only one of the
--- attributes can be non-null.
+-- | A tag for a column in a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_TagColumnOperation.html TagColumnOperation>@ @
+-- structure. This is a variant type structure. For this structure to be
+-- valid, only one of the attributes can be non-null.
 --
 -- /See:/ 'newColumnTag' smart constructor.
 data ColumnTag = ColumnTag'
@@ -78,7 +79,8 @@ instance Data.FromJSON ColumnTag where
 
 instance Prelude.Hashable ColumnTag where
   hashWithSalt _salt ColumnTag' {..} =
-    _salt `Prelude.hashWithSalt` columnDescription
+    _salt
+      `Prelude.hashWithSalt` columnDescription
       `Prelude.hashWithSalt` columnGeographicRole
 
 instance Prelude.NFData ColumnTag where

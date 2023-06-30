@@ -145,7 +145,8 @@ instance Data.FromJSON ParameterSliderControl where
 
 instance Prelude.Hashable ParameterSliderControl where
   hashWithSalt _salt ParameterSliderControl' {..} =
-    _salt `Prelude.hashWithSalt` displayOptions
+    _salt
+      `Prelude.hashWithSalt` displayOptions
       `Prelude.hashWithSalt` parameterControlId
       `Prelude.hashWithSalt` title
       `Prelude.hashWithSalt` sourceParameterName

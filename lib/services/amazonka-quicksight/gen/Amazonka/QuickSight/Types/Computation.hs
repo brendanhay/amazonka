@@ -167,7 +167,8 @@ instance Data.FromJSON Computation where
 
 instance Prelude.Hashable Computation where
   hashWithSalt _salt Computation' {..} =
-    _salt `Prelude.hashWithSalt` forecast
+    _salt
+      `Prelude.hashWithSalt` forecast
       `Prelude.hashWithSalt` growthRate
       `Prelude.hashWithSalt` maximumMinimum
       `Prelude.hashWithSalt` metricComparison

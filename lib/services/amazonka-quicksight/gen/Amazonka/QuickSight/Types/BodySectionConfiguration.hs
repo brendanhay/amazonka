@@ -102,7 +102,8 @@ instance Data.FromJSON BodySectionConfiguration where
 
 instance Prelude.Hashable BodySectionConfiguration where
   hashWithSalt _salt BodySectionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` pageBreakConfiguration
+    _salt
+      `Prelude.hashWithSalt` pageBreakConfiguration
       `Prelude.hashWithSalt` style
       `Prelude.hashWithSalt` sectionId
       `Prelude.hashWithSalt` content

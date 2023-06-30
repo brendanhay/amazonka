@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeIngestion where
 
 instance Prelude.Hashable DescribeIngestion where
   hashWithSalt _salt DescribeIngestion' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` ingestionId
 

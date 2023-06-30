@@ -101,7 +101,8 @@ instance Data.FromJSON NumericalDimensionField where
 
 instance Prelude.Hashable NumericalDimensionField where
   hashWithSalt _salt NumericalDimensionField' {..} =
-    _salt `Prelude.hashWithSalt` formatConfiguration
+    _salt
+      `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` column

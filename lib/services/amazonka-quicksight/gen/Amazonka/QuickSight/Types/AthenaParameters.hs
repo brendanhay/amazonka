@@ -92,7 +92,8 @@ instance Data.FromJSON AthenaParameters where
 
 instance Prelude.Hashable AthenaParameters where
   hashWithSalt _salt AthenaParameters' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` workGroup
 
 instance Prelude.NFData AthenaParameters where

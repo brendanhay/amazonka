@@ -213,7 +213,8 @@ instance Core.AWSRequest CreateTheme where
 
 instance Prelude.Hashable CreateTheme where
   hashWithSalt _salt CreateTheme' {..} =
-    _salt `Prelude.hashWithSalt` permissions
+    _salt
+      `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` versionDescription
       `Prelude.hashWithSalt` awsAccountId

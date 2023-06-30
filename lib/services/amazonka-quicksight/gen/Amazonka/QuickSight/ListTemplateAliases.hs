@@ -123,22 +123,22 @@ instance Core.AWSPager ListTemplateAliases where
     | Core.stop
         ( rs
             Lens.^? listTemplateAliasesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listTemplateAliasesResponse_templateAliasList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTemplateAliases_nextToken
           Lens..~ rs
           Lens.^? listTemplateAliasesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTemplateAliases where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListTemplateAliases where
           ListTemplateAliasesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> ( x Data..?> "TemplateAliasList"
+            Prelude.<*> ( x
+                            Data..?> "TemplateAliasList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -160,7 +161,8 @@ instance Core.AWSRequest ListTemplateAliases where
 
 instance Prelude.Hashable ListTemplateAliases where
   hashWithSalt _salt ListTemplateAliases' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId

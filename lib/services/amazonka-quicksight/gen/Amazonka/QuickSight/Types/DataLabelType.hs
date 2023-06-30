@@ -112,7 +112,8 @@ instance Data.FromJSON DataLabelType where
 
 instance Prelude.Hashable DataLabelType where
   hashWithSalt _salt DataLabelType' {..} =
-    _salt `Prelude.hashWithSalt` dataPathLabelType
+    _salt
+      `Prelude.hashWithSalt` dataPathLabelType
       `Prelude.hashWithSalt` fieldLabelType
       `Prelude.hashWithSalt` maximumLabelType
       `Prelude.hashWithSalt` minimumLabelType

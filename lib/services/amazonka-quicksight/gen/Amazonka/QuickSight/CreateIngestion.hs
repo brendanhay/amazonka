@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateIngestion where
 
 instance Prelude.Hashable CreateIngestion where
   hashWithSalt _salt CreateIngestion' {..} =
-    _salt `Prelude.hashWithSalt` ingestionType
+    _salt
+      `Prelude.hashWithSalt` ingestionType
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` ingestionId
       `Prelude.hashWithSalt` awsAccountId

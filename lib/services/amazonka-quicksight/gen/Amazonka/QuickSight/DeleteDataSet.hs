@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteDataSet where
 
 instance Prelude.Hashable DeleteDataSet where
   hashWithSalt _salt DeleteDataSet' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dataSetId
 
 instance Prelude.NFData DeleteDataSet where

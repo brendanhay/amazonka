@@ -239,7 +239,8 @@ instance Core.AWSRequest CreateAnalysis where
 
 instance Prelude.Hashable CreateAnalysis where
   hashWithSalt _salt CreateAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` permissions
       `Prelude.hashWithSalt` sourceEntity

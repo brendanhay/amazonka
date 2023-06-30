@@ -146,7 +146,8 @@ instance Data.FromJSON ThemeVersion where
 
 instance Prelude.Hashable ThemeVersion where
   hashWithSalt _salt ThemeVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` baseThemeId
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` createdTime

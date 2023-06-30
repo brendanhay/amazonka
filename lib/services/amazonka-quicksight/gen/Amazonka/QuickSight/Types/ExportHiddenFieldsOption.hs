@@ -50,7 +50,6 @@ newExportHiddenFieldsOption =
         Prelude.Nothing
     }
 
--- |
 exportHiddenFieldsOption_availabilityStatus :: Lens.Lens' ExportHiddenFieldsOption (Prelude.Maybe DashboardBehavior)
 exportHiddenFieldsOption_availabilityStatus = Lens.lens (\ExportHiddenFieldsOption' {availabilityStatus} -> availabilityStatus) (\s@ExportHiddenFieldsOption' {} a -> s {availabilityStatus = a} :: ExportHiddenFieldsOption)
 

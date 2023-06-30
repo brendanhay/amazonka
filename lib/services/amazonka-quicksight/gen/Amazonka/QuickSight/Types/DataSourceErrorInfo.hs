@@ -75,7 +75,8 @@ instance Data.FromJSON DataSourceErrorInfo where
 
 instance Prelude.Hashable DataSourceErrorInfo where
   hashWithSalt _salt DataSourceErrorInfo' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DataSourceErrorInfo where

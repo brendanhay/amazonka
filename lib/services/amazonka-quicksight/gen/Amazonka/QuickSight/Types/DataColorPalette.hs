@@ -87,14 +87,16 @@ instance Data.FromJSON DataColorPalette where
           DataColorPalette'
             Prelude.<$> (x Data..:? "Colors" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "EmptyFillColor")
-            Prelude.<*> ( x Data..:? "MinMaxGradient"
+            Prelude.<*> ( x
+                            Data..:? "MinMaxGradient"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DataColorPalette where
   hashWithSalt _salt DataColorPalette' {..} =
-    _salt `Prelude.hashWithSalt` colors
+    _salt
+      `Prelude.hashWithSalt` colors
       `Prelude.hashWithSalt` emptyFillColor
       `Prelude.hashWithSalt` minMaxGradient
 

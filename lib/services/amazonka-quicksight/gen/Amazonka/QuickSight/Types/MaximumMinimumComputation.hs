@@ -128,7 +128,8 @@ instance Data.FromJSON MaximumMinimumComputation where
 
 instance Prelude.Hashable MaximumMinimumComputation where
   hashWithSalt _salt MaximumMinimumComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` computationId
       `Prelude.hashWithSalt` time

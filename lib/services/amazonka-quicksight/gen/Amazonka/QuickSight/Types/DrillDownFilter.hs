@@ -99,7 +99,8 @@ instance Data.FromJSON DrillDownFilter where
 
 instance Prelude.Hashable DrillDownFilter where
   hashWithSalt _salt DrillDownFilter' {..} =
-    _salt `Prelude.hashWithSalt` categoryFilter
+    _salt
+      `Prelude.hashWithSalt` categoryFilter
       `Prelude.hashWithSalt` numericEqualityFilter
       `Prelude.hashWithSalt` timeRangeFilter
 

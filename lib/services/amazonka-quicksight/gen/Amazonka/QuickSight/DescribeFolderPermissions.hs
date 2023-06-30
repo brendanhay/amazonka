@@ -113,7 +113,8 @@ instance Core.AWSRequest DescribeFolderPermissions where
 
 instance Prelude.Hashable DescribeFolderPermissions where
   hashWithSalt _salt DescribeFolderPermissions' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData DescribeFolderPermissions where

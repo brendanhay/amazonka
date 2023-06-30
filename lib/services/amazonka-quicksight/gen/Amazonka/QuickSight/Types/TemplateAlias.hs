@@ -84,7 +84,8 @@ instance Data.FromJSON TemplateAlias where
 
 instance Prelude.Hashable TemplateAlias where
   hashWithSalt _salt TemplateAlias' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` templateVersionNumber
 

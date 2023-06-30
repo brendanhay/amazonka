@@ -100,7 +100,8 @@ instance Data.FromJSON FieldBasedTooltip where
 
 instance Prelude.Hashable FieldBasedTooltip where
   hashWithSalt _salt FieldBasedTooltip' {..} =
-    _salt `Prelude.hashWithSalt` aggregationVisibility
+    _salt
+      `Prelude.hashWithSalt` aggregationVisibility
       `Prelude.hashWithSalt` tooltipFields
       `Prelude.hashWithSalt` tooltipTitleType
 

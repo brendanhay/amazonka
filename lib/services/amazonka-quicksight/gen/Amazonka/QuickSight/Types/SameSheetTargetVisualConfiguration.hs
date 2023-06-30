@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     SameSheetTargetVisualConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` targetVisualOptions
+      _salt
+        `Prelude.hashWithSalt` targetVisualOptions
         `Prelude.hashWithSalt` targetVisuals
 
 instance

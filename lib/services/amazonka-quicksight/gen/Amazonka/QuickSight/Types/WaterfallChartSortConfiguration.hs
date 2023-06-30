@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     WaterfallChartSortConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` breakdownItemsLimit
+      _salt
+        `Prelude.hashWithSalt` breakdownItemsLimit
         `Prelude.hashWithSalt` categorySort
 
 instance

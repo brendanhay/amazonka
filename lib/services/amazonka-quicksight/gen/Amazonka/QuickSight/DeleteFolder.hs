@@ -106,7 +106,8 @@ instance Core.AWSRequest DeleteFolder where
 
 instance Prelude.Hashable DeleteFolder where
   hashWithSalt _salt DeleteFolder' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` folderId
 
 instance Prelude.NFData DeleteFolder where

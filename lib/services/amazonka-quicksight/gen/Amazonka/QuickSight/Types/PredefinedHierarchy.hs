@@ -89,7 +89,8 @@ instance Data.FromJSON PredefinedHierarchy where
       "PredefinedHierarchy"
       ( \x ->
           PredefinedHierarchy'
-            Prelude.<$> ( x Data..:? "DrillDownFilters"
+            Prelude.<$> ( x
+                            Data..:? "DrillDownFilters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "HierarchyId")
@@ -98,7 +99,8 @@ instance Data.FromJSON PredefinedHierarchy where
 
 instance Prelude.Hashable PredefinedHierarchy where
   hashWithSalt _salt PredefinedHierarchy' {..} =
-    _salt `Prelude.hashWithSalt` drillDownFilters
+    _salt
+      `Prelude.hashWithSalt` drillDownFilters
       `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` columns
 

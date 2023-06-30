@@ -71,12 +71,14 @@ instance Data.FromJSON InputColumn where
       "InputColumn"
       ( \x ->
           InputColumn'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable InputColumn where
   hashWithSalt _salt InputColumn' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData InputColumn where

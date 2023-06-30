@@ -91,7 +91,8 @@ instance Data.FromJSON WhatIfRangeScenario where
 
 instance Prelude.Hashable WhatIfRangeScenario where
   hashWithSalt _salt WhatIfRangeScenario' {..} =
-    _salt `Prelude.hashWithSalt` startDate
+    _salt
+      `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` value
 

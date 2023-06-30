@@ -61,7 +61,8 @@ instance Data.FromJSON TableConditionalFormatting where
       "TableConditionalFormatting"
       ( \x ->
           TableConditionalFormatting'
-            Prelude.<$> ( x Data..:? "ConditionalFormattingOptions"
+            Prelude.<$> ( x
+                            Data..:? "ConditionalFormattingOptions"
                             Data..!= Prelude.mempty
                         )
       )

@@ -163,7 +163,8 @@ instance Data.FromJSON DashboardVersion where
 
 instance Prelude.Hashable DashboardVersion where
   hashWithSalt _salt DashboardVersion' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSetArns
       `Prelude.hashWithSalt` description

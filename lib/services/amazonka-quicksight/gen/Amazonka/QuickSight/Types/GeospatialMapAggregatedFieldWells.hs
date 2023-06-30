@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     GeospatialMapAggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` colors
+      _salt
+        `Prelude.hashWithSalt` colors
         `Prelude.hashWithSalt` geospatial
         `Prelude.hashWithSalt` values
 

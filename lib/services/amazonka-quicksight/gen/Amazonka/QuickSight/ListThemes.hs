@@ -147,21 +147,23 @@ instance Core.AWSPager ListThemes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listThemesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listThemesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listThemesResponse_themeSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listThemes_nextToken
           Lens..~ rs
-          Lens.^? listThemesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listThemesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListThemes where
   type AWSResponse ListThemes = ListThemesResponse
@@ -173,7 +175,8 @@ instance Core.AWSRequest ListThemes where
           ListThemesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (x Data..?> "RequestId")
-            Prelude.<*> ( x Data..?> "ThemeSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "ThemeSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -181,7 +184,8 @@ instance Core.AWSRequest ListThemes where
 
 instance Prelude.Hashable ListThemes where
   hashWithSalt _salt ListThemes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` awsAccountId

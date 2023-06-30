@@ -135,7 +135,8 @@ instance
   hashWithSalt
     _salt
     UpdateDashboardPublishedVersion' {..} =
-      _salt `Prelude.hashWithSalt` awsAccountId
+      _salt
+        `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` dashboardId
         `Prelude.hashWithSalt` versionNumber
 

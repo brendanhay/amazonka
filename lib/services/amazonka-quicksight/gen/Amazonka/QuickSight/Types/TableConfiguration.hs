@@ -120,7 +120,8 @@ instance Data.FromJSON TableConfiguration where
 
 instance Prelude.Hashable TableConfiguration where
   hashWithSalt _salt TableConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fieldOptions
+    _salt
+      `Prelude.hashWithSalt` fieldOptions
       `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` paginatedReportOptions
       `Prelude.hashWithSalt` sortConfiguration

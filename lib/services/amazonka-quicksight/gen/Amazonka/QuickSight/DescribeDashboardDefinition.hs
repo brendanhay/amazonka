@@ -151,7 +151,8 @@ instance Core.AWSRequest DescribeDashboardDefinition where
 
 instance Prelude.Hashable DescribeDashboardDefinition where
   hashWithSalt _salt DescribeDashboardDefinition' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId

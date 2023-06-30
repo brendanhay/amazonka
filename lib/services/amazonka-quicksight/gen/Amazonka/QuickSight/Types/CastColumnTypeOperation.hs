@@ -97,7 +97,8 @@ instance Data.FromJSON CastColumnTypeOperation where
 
 instance Prelude.Hashable CastColumnTypeOperation where
   hashWithSalt _salt CastColumnTypeOperation' {..} =
-    _salt `Prelude.hashWithSalt` format
+    _salt
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` newColumnType'
 

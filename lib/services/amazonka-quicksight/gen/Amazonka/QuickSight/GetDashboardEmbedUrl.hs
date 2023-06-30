@@ -319,7 +319,8 @@ instance Core.AWSRequest GetDashboardEmbedUrl where
 
 instance Prelude.Hashable GetDashboardEmbedUrl where
   hashWithSalt _salt GetDashboardEmbedUrl' {..} =
-    _salt `Prelude.hashWithSalt` additionalDashboardIds
+    _salt
+      `Prelude.hashWithSalt` additionalDashboardIds
       `Prelude.hashWithSalt` namespace
       `Prelude.hashWithSalt` resetDisabled
       `Prelude.hashWithSalt` sessionLifetimeInMinutes

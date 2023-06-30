@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     PivotTableAggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` columns
+      _salt
+        `Prelude.hashWithSalt` columns
         `Prelude.hashWithSalt` rows
         `Prelude.hashWithSalt` values
 

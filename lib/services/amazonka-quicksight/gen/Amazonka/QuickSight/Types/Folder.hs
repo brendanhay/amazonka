@@ -125,7 +125,8 @@ instance Data.FromJSON Folder where
 
 instance Prelude.Hashable Folder where
   hashWithSalt _salt Folder' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` folderId
       `Prelude.hashWithSalt` folderPath

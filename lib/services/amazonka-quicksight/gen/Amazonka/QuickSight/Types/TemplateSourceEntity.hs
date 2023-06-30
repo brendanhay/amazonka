@@ -67,7 +67,8 @@ templateSourceEntity_sourceTemplate = Lens.lens (\TemplateSourceEntity' {sourceT
 
 instance Prelude.Hashable TemplateSourceEntity where
   hashWithSalt _salt TemplateSourceEntity' {..} =
-    _salt `Prelude.hashWithSalt` sourceAnalysis
+    _salt
+      `Prelude.hashWithSalt` sourceAnalysis
       `Prelude.hashWithSalt` sourceTemplate
 
 instance Prelude.NFData TemplateSourceEntity where

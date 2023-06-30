@@ -139,7 +139,8 @@ instance Core.AWSRequest DeleteGroupMembership where
 
 instance Prelude.Hashable DeleteGroupMembership where
   hashWithSalt _salt DeleteGroupMembership' {..} =
-    _salt `Prelude.hashWithSalt` memberName
+    _salt
+      `Prelude.hashWithSalt` memberName
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace

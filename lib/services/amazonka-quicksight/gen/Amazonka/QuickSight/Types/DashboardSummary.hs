@@ -124,7 +124,8 @@ instance Data.FromJSON DashboardSummary where
 
 instance Prelude.Hashable DashboardSummary where
   hashWithSalt _salt DashboardSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dashboardId
       `Prelude.hashWithSalt` lastPublishedTime

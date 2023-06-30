@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateTemplatePermissions where
 
 instance Prelude.Hashable UpdateTemplatePermissions where
   hashWithSalt _salt UpdateTemplatePermissions' {..} =
-    _salt `Prelude.hashWithSalt` grantPermissions
+    _salt
+      `Prelude.hashWithSalt` grantPermissions
       `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` templateId

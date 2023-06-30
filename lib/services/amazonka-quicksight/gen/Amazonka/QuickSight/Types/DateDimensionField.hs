@@ -169,7 +169,8 @@ instance Data.FromJSON DateDimensionField where
 
 instance Prelude.Hashable DateDimensionField where
   hashWithSalt _salt DateDimensionField' {..} =
-    _salt `Prelude.hashWithSalt` dateGranularity
+    _salt
+      `Prelude.hashWithSalt` dateGranularity
       `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` hierarchyId
       `Prelude.hashWithSalt` fieldId

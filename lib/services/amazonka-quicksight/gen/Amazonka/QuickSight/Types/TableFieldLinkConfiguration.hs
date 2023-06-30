@@ -83,7 +83,8 @@ instance Data.FromJSON TableFieldLinkConfiguration where
 
 instance Prelude.Hashable TableFieldLinkConfiguration where
   hashWithSalt _salt TableFieldLinkConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` target
+    _salt
+      `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData TableFieldLinkConfiguration where

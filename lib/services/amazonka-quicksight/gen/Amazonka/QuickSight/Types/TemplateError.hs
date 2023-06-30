@@ -68,7 +68,6 @@ templateError_message = Lens.lens (\TemplateError' {message} -> message) (\s@Tem
 templateError_type :: Lens.Lens' TemplateError (Prelude.Maybe TemplateErrorType)
 templateError_type = Lens.lens (\TemplateError' {type'} -> type') (\s@TemplateError' {} a -> s {type' = a} :: TemplateError)
 
--- |
 templateError_violatedEntities :: Lens.Lens' TemplateError (Prelude.Maybe [Entity])
 templateError_violatedEntities = Lens.lens (\TemplateError' {violatedEntities} -> violatedEntities) (\s@TemplateError' {} a -> s {violatedEntities = a} :: TemplateError) Prelude.. Lens.mapping Lens.coerced
 
@@ -80,14 +79,16 @@ instance Data.FromJSON TemplateError where
           TemplateError'
             Prelude.<$> (x Data..:? "Message")
             Prelude.<*> (x Data..:? "Type")
-            Prelude.<*> ( x Data..:? "ViolatedEntities"
+            Prelude.<*> ( x
+                            Data..:? "ViolatedEntities"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TemplateError where
   hashWithSalt _salt TemplateError' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` violatedEntities
 

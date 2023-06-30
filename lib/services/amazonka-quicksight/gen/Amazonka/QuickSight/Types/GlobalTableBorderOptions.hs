@@ -77,7 +77,8 @@ instance Data.FromJSON GlobalTableBorderOptions where
 
 instance Prelude.Hashable GlobalTableBorderOptions where
   hashWithSalt _salt GlobalTableBorderOptions' {..} =
-    _salt `Prelude.hashWithSalt` sideSpecificBorder
+    _salt
+      `Prelude.hashWithSalt` sideSpecificBorder
       `Prelude.hashWithSalt` uniformBorder
 
 instance Prelude.NFData GlobalTableBorderOptions where

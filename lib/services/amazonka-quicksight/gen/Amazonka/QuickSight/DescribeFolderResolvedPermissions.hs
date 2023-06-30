@@ -110,10 +110,10 @@ instance
       ( \s h x ->
           DescribeFolderResolvedPermissionsResponse'
             Prelude.<$> (x Data..?> "Arn")
-              Prelude.<*> (x Data..?> "FolderId")
-              Prelude.<*> (x Data..?> "Permissions")
-              Prelude.<*> (x Data..?> "RequestId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "FolderId")
+            Prelude.<*> (x Data..?> "Permissions")
+            Prelude.<*> (x Data..?> "RequestId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     DescribeFolderResolvedPermissions' {..} =
-      _salt `Prelude.hashWithSalt` awsAccountId
+      _salt
+        `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` folderId
 
 instance

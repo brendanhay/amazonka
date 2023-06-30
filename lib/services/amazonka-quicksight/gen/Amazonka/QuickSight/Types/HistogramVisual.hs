@@ -120,7 +120,8 @@ instance Data.FromJSON HistogramVisual where
 
 instance Prelude.Hashable HistogramVisual where
   hashWithSalt _salt HistogramVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` subtitle
       `Prelude.hashWithSalt` title

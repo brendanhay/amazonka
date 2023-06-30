@@ -128,7 +128,8 @@ instance Data.FromJSON Template where
 
 instance Prelude.Hashable Template where
   hashWithSalt _salt Template' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` lastUpdatedTime
       `Prelude.hashWithSalt` name

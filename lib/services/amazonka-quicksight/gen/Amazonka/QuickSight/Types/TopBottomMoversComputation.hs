@@ -163,7 +163,8 @@ instance Data.FromJSON TopBottomMoversComputation where
 
 instance Prelude.Hashable TopBottomMoversComputation where
   hashWithSalt _salt TopBottomMoversComputation' {..} =
-    _salt `Prelude.hashWithSalt` moverSize
+    _salt
+      `Prelude.hashWithSalt` moverSize
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` value

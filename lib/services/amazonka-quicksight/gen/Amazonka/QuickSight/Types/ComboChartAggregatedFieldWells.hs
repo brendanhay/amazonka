@@ -102,7 +102,8 @@ instance
   hashWithSalt
     _salt
     ComboChartAggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` barValues
+      _salt
+        `Prelude.hashWithSalt` barValues
         `Prelude.hashWithSalt` category
         `Prelude.hashWithSalt` colors
         `Prelude.hashWithSalt` lineValues

@@ -131,7 +131,8 @@ instance Data.FromJSON GaugeChartVisual where
 
 instance Prelude.Hashable GaugeChartVisual where
   hashWithSalt _salt GaugeChartVisual' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` chartConfiguration
       `Prelude.hashWithSalt` conditionalFormatting
       `Prelude.hashWithSalt` subtitle

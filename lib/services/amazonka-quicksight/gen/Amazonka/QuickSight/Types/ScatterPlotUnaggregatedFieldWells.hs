@@ -107,7 +107,8 @@ instance
   hashWithSalt
     _salt
     ScatterPlotUnaggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` size
+      _salt
+        `Prelude.hashWithSalt` size
         `Prelude.hashWithSalt` xAxis
         `Prelude.hashWithSalt` yAxis
 

@@ -76,7 +76,8 @@ instance Data.FromJSON FolderMember where
 
 instance Prelude.Hashable FolderMember where
   hashWithSalt _salt FolderMember' {..} =
-    _salt `Prelude.hashWithSalt` memberId
+    _salt
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` memberType
 
 instance Prelude.NFData FolderMember where

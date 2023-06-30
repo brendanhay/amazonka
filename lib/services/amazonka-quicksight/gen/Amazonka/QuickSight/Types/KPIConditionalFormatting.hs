@@ -61,7 +61,8 @@ instance Data.FromJSON KPIConditionalFormatting where
       "KPIConditionalFormatting"
       ( \x ->
           KPIConditionalFormatting'
-            Prelude.<$> ( x Data..:? "ConditionalFormattingOptions"
+            Prelude.<$> ( x
+                            Data..:? "ConditionalFormattingOptions"
                             Data..!= Prelude.mempty
                         )
       )

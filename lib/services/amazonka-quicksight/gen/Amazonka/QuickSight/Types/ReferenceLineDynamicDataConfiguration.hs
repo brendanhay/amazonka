@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     ReferenceLineDynamicDataConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` column
+      _salt
+        `Prelude.hashWithSalt` column
         `Prelude.hashWithSalt` measureAggregationFunction
         `Prelude.hashWithSalt` calculation
 

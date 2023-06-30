@@ -187,7 +187,8 @@ instance Data.FromJSON ForecastComputation where
 
 instance Prelude.Hashable ForecastComputation where
   hashWithSalt _salt ForecastComputation' {..} =
-    _salt `Prelude.hashWithSalt` customSeasonalityValue
+    _salt
+      `Prelude.hashWithSalt` customSeasonalityValue
       `Prelude.hashWithSalt` lowerBoundary
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` periodsBackward

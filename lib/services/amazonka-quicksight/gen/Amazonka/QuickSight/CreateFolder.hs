@@ -177,7 +177,8 @@ instance Core.AWSRequest CreateFolder where
 
 instance Prelude.Hashable CreateFolder where
   hashWithSalt _salt CreateFolder' {..} =
-    _salt `Prelude.hashWithSalt` folderType
+    _salt
+      `Prelude.hashWithSalt` folderType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` parentFolderArn
       `Prelude.hashWithSalt` permissions

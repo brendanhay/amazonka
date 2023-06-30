@@ -90,7 +90,8 @@ instance Data.FromJSON ColorScale where
 
 instance Prelude.Hashable ColorScale where
   hashWithSalt _salt ColorScale' {..} =
-    _salt `Prelude.hashWithSalt` nullValueColor
+    _salt
+      `Prelude.hashWithSalt` nullValueColor
       `Prelude.hashWithSalt` colors
       `Prelude.hashWithSalt` colorFillType
 

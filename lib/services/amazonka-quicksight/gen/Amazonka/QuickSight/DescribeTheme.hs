@@ -147,7 +147,8 @@ instance Core.AWSRequest DescribeTheme where
 
 instance Prelude.Hashable DescribeTheme where
   hashWithSalt _salt DescribeTheme' {..} =
-    _salt `Prelude.hashWithSalt` aliasName
+    _salt
+      `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` versionNumber
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId

@@ -75,7 +75,8 @@ instance Data.FromJSON LineSeriesAxisDisplayOptions where
       ( \x ->
           LineSeriesAxisDisplayOptions'
             Prelude.<$> (x Data..:? "AxisOptions")
-            Prelude.<*> ( x Data..:? "MissingDataConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "MissingDataConfigurations"
                             Data..!= Prelude.mempty
                         )
       )
@@ -85,7 +86,8 @@ instance
     LineSeriesAxisDisplayOptions
   where
   hashWithSalt _salt LineSeriesAxisDisplayOptions' {..} =
-    _salt `Prelude.hashWithSalt` axisOptions
+    _salt
+      `Prelude.hashWithSalt` axisOptions
       `Prelude.hashWithSalt` missingDataConfigurations
 
 instance Prelude.NFData LineSeriesAxisDisplayOptions where

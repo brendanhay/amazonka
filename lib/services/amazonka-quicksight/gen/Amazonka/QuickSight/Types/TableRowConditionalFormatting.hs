@@ -85,7 +85,8 @@ instance
     TableRowConditionalFormatting
   where
   hashWithSalt _salt TableRowConditionalFormatting' {..} =
-    _salt `Prelude.hashWithSalt` backgroundColor
+    _salt
+      `Prelude.hashWithSalt` backgroundColor
       `Prelude.hashWithSalt` textColor
 
 instance Prelude.NFData TableRowConditionalFormatting where

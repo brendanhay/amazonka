@@ -74,7 +74,8 @@ instance Data.FromJSON DataColor where
 
 instance Prelude.Hashable DataColor where
   hashWithSalt _salt DataColor' {..} =
-    _salt `Prelude.hashWithSalt` color
+    _salt
+      `Prelude.hashWithSalt` color
       `Prelude.hashWithSalt` dataValue
 
 instance Prelude.NFData DataColor where

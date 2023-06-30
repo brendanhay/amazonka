@@ -121,7 +121,8 @@ instance Data.FromJSON DataSourceSummary where
 
 instance Prelude.Hashable DataSourceSummary where
   hashWithSalt _salt DataSourceSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` dataSourceId
       `Prelude.hashWithSalt` lastUpdatedTime

@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     ConditionalFormattingCustomIconOptions' {..} =
-      _salt `Prelude.hashWithSalt` icon
+      _salt
+        `Prelude.hashWithSalt` icon
         `Prelude.hashWithSalt` unicodeIcon
 
 instance

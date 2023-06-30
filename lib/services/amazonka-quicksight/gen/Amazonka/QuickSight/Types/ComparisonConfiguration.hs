@@ -95,7 +95,8 @@ instance Data.FromJSON ComparisonConfiguration where
 
 instance Prelude.Hashable ComparisonConfiguration where
   hashWithSalt _salt ComparisonConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` comparisonFormat
+    _salt
+      `Prelude.hashWithSalt` comparisonFormat
       `Prelude.hashWithSalt` comparisonMethod
 
 instance Prelude.NFData ComparisonConfiguration where

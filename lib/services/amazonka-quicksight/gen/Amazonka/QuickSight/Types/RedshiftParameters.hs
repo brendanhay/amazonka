@@ -101,7 +101,8 @@ instance Data.FromJSON RedshiftParameters where
 
 instance Prelude.Hashable RedshiftParameters where
   hashWithSalt _salt RedshiftParameters' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` database

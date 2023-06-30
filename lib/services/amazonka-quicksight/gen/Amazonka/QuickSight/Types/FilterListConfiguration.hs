@@ -98,7 +98,8 @@ instance Data.FromJSON FilterListConfiguration where
 
 instance Prelude.Hashable FilterListConfiguration where
   hashWithSalt _salt FilterListConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` categoryValues
+    _salt
+      `Prelude.hashWithSalt` categoryValues
       `Prelude.hashWithSalt` selectAllOptions
       `Prelude.hashWithSalt` matchOperator
 

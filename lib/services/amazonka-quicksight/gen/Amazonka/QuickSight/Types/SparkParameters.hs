@@ -69,12 +69,14 @@ instance Data.FromJSON SparkParameters where
       "SparkParameters"
       ( \x ->
           SparkParameters'
-            Prelude.<$> (x Data..: "Host") Prelude.<*> (x Data..: "Port")
+            Prelude.<$> (x Data..: "Host")
+            Prelude.<*> (x Data..: "Port")
       )
 
 instance Prelude.Hashable SparkParameters where
   hashWithSalt _salt SparkParameters' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` port
 
 instance Prelude.NFData SparkParameters where

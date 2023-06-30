@@ -97,7 +97,8 @@ instance
   hashWithSalt
     _salt
     PivotTableCellConditionalFormatting' {..} =
-      _salt `Prelude.hashWithSalt` scope
+      _salt
+        `Prelude.hashWithSalt` scope
         `Prelude.hashWithSalt` textFormat
         `Prelude.hashWithSalt` fieldId
 

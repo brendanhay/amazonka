@@ -79,7 +79,8 @@ instance Data.FromJSON PivotFieldSortOptions where
 
 instance Prelude.Hashable PivotFieldSortOptions where
   hashWithSalt _salt PivotFieldSortOptions' {..} =
-    _salt `Prelude.hashWithSalt` fieldId
+    _salt
+      `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` sortBy
 
 instance Prelude.NFData PivotFieldSortOptions where

@@ -198,7 +198,8 @@ instance Core.AWSRequest UpdateAnalysis where
 
 instance Prelude.Hashable UpdateAnalysis where
   hashWithSalt _salt UpdateAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` definition
+    _salt
+      `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` sourceEntity
       `Prelude.hashWithSalt` themeArn

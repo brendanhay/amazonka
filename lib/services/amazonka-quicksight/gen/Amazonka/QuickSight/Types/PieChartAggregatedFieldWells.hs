@@ -93,7 +93,8 @@ instance
     PieChartAggregatedFieldWells
   where
   hashWithSalt _salt PieChartAggregatedFieldWells' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` smallMultiples
       `Prelude.hashWithSalt` values
 

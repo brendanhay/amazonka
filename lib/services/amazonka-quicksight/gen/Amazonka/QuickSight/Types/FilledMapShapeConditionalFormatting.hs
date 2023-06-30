@@ -89,7 +89,8 @@ instance
   hashWithSalt
     _salt
     FilledMapShapeConditionalFormatting' {..} =
-      _salt `Prelude.hashWithSalt` format
+      _salt
+        `Prelude.hashWithSalt` format
         `Prelude.hashWithSalt` fieldId
 
 instance

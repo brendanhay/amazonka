@@ -137,7 +137,8 @@ instance Data.FromJSON LineChartLineStyleSettings where
 
 instance Prelude.Hashable LineChartLineStyleSettings where
   hashWithSalt _salt LineChartLineStyleSettings' {..} =
-    _salt `Prelude.hashWithSalt` lineInterpolation
+    _salt
+      `Prelude.hashWithSalt` lineInterpolation
       `Prelude.hashWithSalt` lineStyle
       `Prelude.hashWithSalt` lineVisibility
       `Prelude.hashWithSalt` lineWidth

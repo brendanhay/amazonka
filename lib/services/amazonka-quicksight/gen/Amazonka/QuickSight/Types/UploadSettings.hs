@@ -106,7 +106,8 @@ instance Data.FromJSON UploadSettings where
 
 instance Prelude.Hashable UploadSettings where
   hashWithSalt _salt UploadSettings' {..} =
-    _salt `Prelude.hashWithSalt` containsHeader
+    _salt
+      `Prelude.hashWithSalt` containsHeader
       `Prelude.hashWithSalt` delimiter
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` startFromRow

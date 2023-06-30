@@ -75,7 +75,8 @@ instance Data.FromJSON FieldLabelType where
 
 instance Prelude.Hashable FieldLabelType where
   hashWithSalt _salt FieldLabelType' {..} =
-    _salt `Prelude.hashWithSalt` fieldId
+    _salt
+      `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` visibility
 
 instance Prelude.NFData FieldLabelType where

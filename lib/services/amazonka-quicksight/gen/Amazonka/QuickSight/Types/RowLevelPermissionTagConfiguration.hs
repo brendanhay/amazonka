@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     RowLevelPermissionTagConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` status
+      _salt
+        `Prelude.hashWithSalt` status
         `Prelude.hashWithSalt` tagRules
 
 instance

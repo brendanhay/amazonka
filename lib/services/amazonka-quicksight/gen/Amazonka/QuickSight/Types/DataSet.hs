@@ -43,7 +43,8 @@ data DataSet = DataSet'
     -- | Groupings of columns that work together in certain Amazon QuickSight
     -- features. Currently, only geospatial hierarchy is supported.
     columnGroups :: Prelude.Maybe (Prelude.NonEmpty ColumnGroup),
-    -- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+    -- | A set of one or more definitions of a
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
     columnLevelPermissionRules :: Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule),
     -- | The amount of SPICE capacity used by this dataset. This is 0 if the
     -- dataset isn\'t imported into SPICE.
@@ -92,7 +93,8 @@ data DataSet = DataSet'
 -- 'columnGroups', 'dataSet_columnGroups' - Groupings of columns that work together in certain Amazon QuickSight
 -- features. Currently, only geospatial hierarchy is supported.
 --
--- 'columnLevelPermissionRules', 'dataSet_columnLevelPermissionRules' - A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- 'columnLevelPermissionRules', 'dataSet_columnLevelPermissionRules' - A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 --
 -- 'consumedSpiceCapacityInBytes', 'dataSet_consumedSpiceCapacityInBytes' - The amount of SPICE capacity used by this dataset. This is 0 if the
 -- dataset isn\'t imported into SPICE.
@@ -155,7 +157,8 @@ dataSet_arn = Lens.lens (\DataSet' {arn} -> arn) (\s@DataSet' {} a -> s {arn = a
 dataSet_columnGroups :: Lens.Lens' DataSet (Prelude.Maybe (Prelude.NonEmpty ColumnGroup))
 dataSet_columnGroups = Lens.lens (\DataSet' {columnGroups} -> columnGroups) (\s@DataSet' {} a -> s {columnGroups = a} :: DataSet) Prelude.. Lens.mapping Lens.coerced
 
--- | A set of one or more definitions of a @ ColumnLevelPermissionRule @.
+-- | A set of one or more definitions of a
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html ColumnLevelPermissionRule>@ @.
 dataSet_columnLevelPermissionRules :: Lens.Lens' DataSet (Prelude.Maybe (Prelude.NonEmpty ColumnLevelPermissionRule))
 dataSet_columnLevelPermissionRules = Lens.lens (\DataSet' {columnLevelPermissionRules} -> columnLevelPermissionRules) (\s@DataSet' {} a -> s {columnLevelPermissionRules = a} :: DataSet) Prelude.. Lens.mapping Lens.coerced
 
@@ -232,12 +235,14 @@ instance Data.FromJSON DataSet where
             Prelude.<*> (x Data..:? "FieldFolders" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ImportMode")
             Prelude.<*> (x Data..:? "LastUpdatedTime")
-            Prelude.<*> ( x Data..:? "LogicalTableMap"
+            Prelude.<*> ( x
+                            Data..:? "LogicalTableMap"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "OutputColumns" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "PhysicalTableMap"
+            Prelude.<*> ( x
+                            Data..:? "PhysicalTableMap"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RowLevelPermissionDataSet")
@@ -246,7 +251,8 @@ instance Data.FromJSON DataSet where
 
 instance Prelude.Hashable DataSet where
   hashWithSalt _salt DataSet' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` columnGroups
       `Prelude.hashWithSalt` columnLevelPermissionRules
       `Prelude.hashWithSalt` consumedSpiceCapacityInBytes

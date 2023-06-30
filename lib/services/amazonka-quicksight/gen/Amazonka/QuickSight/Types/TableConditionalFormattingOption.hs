@@ -74,7 +74,8 @@ instance
       "TableConditionalFormattingOption"
       ( \x ->
           TableConditionalFormattingOption'
-            Prelude.<$> (x Data..:? "Cell") Prelude.<*> (x Data..:? "Row")
+            Prelude.<$> (x Data..:? "Cell")
+            Prelude.<*> (x Data..:? "Row")
       )
 
 instance
@@ -84,7 +85,8 @@ instance
   hashWithSalt
     _salt
     TableConditionalFormattingOption' {..} =
-      _salt `Prelude.hashWithSalt` cell
+      _salt
+        `Prelude.hashWithSalt` cell
         `Prelude.hashWithSalt` row
 
 instance

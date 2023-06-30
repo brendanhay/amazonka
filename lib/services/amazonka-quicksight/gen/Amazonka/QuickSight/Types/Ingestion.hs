@@ -174,7 +174,8 @@ instance Data.FromJSON Ingestion where
 
 instance Prelude.Hashable Ingestion where
   hashWithSalt _salt Ingestion' {..} =
-    _salt `Prelude.hashWithSalt` errorInfo
+    _salt
+      `Prelude.hashWithSalt` errorInfo
       `Prelude.hashWithSalt` ingestionId
       `Prelude.hashWithSalt` ingestionSizeInBytes
       `Prelude.hashWithSalt` ingestionTimeInSeconds

@@ -158,7 +158,8 @@ instance Core.AWSRequest UpdateAccountSettings where
 
 instance Prelude.Hashable UpdateAccountSettings where
   hashWithSalt _salt UpdateAccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` notificationEmail
+    _salt
+      `Prelude.hashWithSalt` notificationEmail
       `Prelude.hashWithSalt` terminationProtectionEnabled
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` defaultNamespace

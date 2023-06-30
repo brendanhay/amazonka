@@ -222,10 +222,12 @@ instance Data.FromJSON SheetDefinition where
             Prelude.<*> (x Data..:? "FilterControls" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "Layouts")
             Prelude.<*> (x Data..:? "Name")
-            Prelude.<*> ( x Data..:? "ParameterControls"
+            Prelude.<*> ( x
+                            Data..:? "ParameterControls"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SheetControlLayouts"
+            Prelude.<*> ( x
+                            Data..:? "SheetControlLayouts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TextBoxes" Data..!= Prelude.mempty)
@@ -236,7 +238,8 @@ instance Data.FromJSON SheetDefinition where
 
 instance Prelude.Hashable SheetDefinition where
   hashWithSalt _salt SheetDefinition' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` filterControls
       `Prelude.hashWithSalt` layouts

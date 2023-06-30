@@ -131,7 +131,8 @@ instance Data.FromJSON GeospatialMapConfiguration where
 
 instance Prelude.Hashable GeospatialMapConfiguration where
   hashWithSalt _salt GeospatialMapConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fieldWells
+    _salt
+      `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` legend
       `Prelude.hashWithSalt` mapStyleOptions
       `Prelude.hashWithSalt` pointStyleOptions

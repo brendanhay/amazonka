@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     AnonymousUserEmbeddingExperienceConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` dashboard
+      _salt
+        `Prelude.hashWithSalt` dashboard
         `Prelude.hashWithSalt` dashboardVisual
         `Prelude.hashWithSalt` qSearchBar
 

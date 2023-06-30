@@ -108,7 +108,8 @@ instance Core.AWSRequest RestoreAnalysis where
 
 instance Prelude.Hashable RestoreAnalysis where
   hashWithSalt _salt RestoreAnalysis' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` analysisId
 
 instance Prelude.NFData RestoreAnalysis where

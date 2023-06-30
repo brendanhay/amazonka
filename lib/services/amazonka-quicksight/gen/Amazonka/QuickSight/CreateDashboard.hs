@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a dashboard from a template. To first create a template, see the
--- @ CreateTemplate @ API operation.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation.
 --
 -- A dashboard is an entity in Amazon QuickSight that identifies Amazon
 -- QuickSight reports, created from analyses. You can share Amazon
@@ -108,10 +109,11 @@ data CreateDashboard = CreateDashboard'
     -- source. You can only create a dashboard from a template, so you use a
     -- @SourceTemplate@ entity. If you need to create a dashboard from an
     -- analysis, first convert the analysis to a template by using the
-    -- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
-    -- Amazon Resource Name (ARN) of the source template. The
-    -- @SourceTemplate@ARN can contain any Amazon Web Services account and any
-    -- Amazon QuickSight-supported Amazon Web Services Region.
+    -- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+    -- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+    -- (ARN) of the source template. The @SourceTemplate@ARN can contain any
+    -- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+    -- Web Services Region.
     --
     -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
     -- replacement datasets for the placeholders listed in the original. The
@@ -182,10 +184,11 @@ data CreateDashboard = CreateDashboard'
 -- source. You can only create a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to create a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
--- Amazon Resource Name (ARN) of the source template. The
--- @SourceTemplate@ARN can contain any Amazon Web Services account and any
--- Amazon QuickSight-supported Amazon Web Services Region.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+-- (ARN) of the source template. The @SourceTemplate@ARN can contain any
+-- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+-- Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The
@@ -279,10 +282,11 @@ createDashboard_permissions = Lens.lens (\CreateDashboard' {permissions} -> perm
 -- source. You can only create a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to create a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
--- Amazon Resource Name (ARN) of the source template. The
--- @SourceTemplate@ARN can contain any Amazon Web Services account and any
--- Amazon QuickSight-supported Amazon Web Services Region.
+-- @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html CreateTemplate>@ @
+-- API operation. For @SourceTemplate@, specify the Amazon Resource Name
+-- (ARN) of the source template. The @SourceTemplate@ARN can contain any
+-- Amazon Web Services account and any Amazon QuickSight-supported Amazon
+-- Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The

@@ -110,7 +110,8 @@ instance Data.FromJSON GrowthRateComputation where
 
 instance Prelude.Hashable GrowthRateComputation where
   hashWithSalt _salt GrowthRateComputation' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` periodSize
       `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` computationId

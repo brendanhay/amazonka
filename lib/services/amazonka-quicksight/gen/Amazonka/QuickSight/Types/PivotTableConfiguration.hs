@@ -121,7 +121,8 @@ instance Data.FromJSON PivotTableConfiguration where
 
 instance Prelude.Hashable PivotTableConfiguration where
   hashWithSalt _salt PivotTableConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` fieldOptions
+    _salt
+      `Prelude.hashWithSalt` fieldOptions
       `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` paginatedReportOptions
       `Prelude.hashWithSalt` sortConfiguration

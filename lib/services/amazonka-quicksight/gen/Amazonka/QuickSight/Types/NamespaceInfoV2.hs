@@ -117,7 +117,8 @@ instance Data.FromJSON NamespaceInfoV2 where
 
 instance Prelude.Hashable NamespaceInfoV2 where
   hashWithSalt _salt NamespaceInfoV2' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` capacityRegion
       `Prelude.hashWithSalt` creationStatus
       `Prelude.hashWithSalt` identityStore

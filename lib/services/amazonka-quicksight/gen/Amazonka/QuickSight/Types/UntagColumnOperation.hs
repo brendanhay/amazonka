@@ -77,7 +77,8 @@ instance Data.FromJSON UntagColumnOperation where
 
 instance Prelude.Hashable UntagColumnOperation where
   hashWithSalt _salt UntagColumnOperation' {..} =
-    _salt `Prelude.hashWithSalt` columnName
+    _salt
+      `Prelude.hashWithSalt` columnName
       `Prelude.hashWithSalt` tagNames
 
 instance Prelude.NFData UntagColumnOperation where

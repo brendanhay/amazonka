@@ -61,7 +61,8 @@ instance Data.FromJSON FilledMapConditionalFormatting where
       "FilledMapConditionalFormatting"
       ( \x ->
           FilledMapConditionalFormatting'
-            Prelude.<$> ( x Data..:? "ConditionalFormattingOptions"
+            Prelude.<$> ( x
+                            Data..:? "ConditionalFormattingOptions"
                             Data..!= Prelude.mempty
                         )
       )

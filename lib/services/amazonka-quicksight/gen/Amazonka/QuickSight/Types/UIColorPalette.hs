@@ -258,7 +258,8 @@ instance Data.FromJSON UIColorPalette where
 
 instance Prelude.Hashable UIColorPalette where
   hashWithSalt _salt UIColorPalette' {..} =
-    _salt `Prelude.hashWithSalt` accent
+    _salt
+      `Prelude.hashWithSalt` accent
       `Prelude.hashWithSalt` accentForeground
       `Prelude.hashWithSalt` danger
       `Prelude.hashWithSalt` dangerForeground

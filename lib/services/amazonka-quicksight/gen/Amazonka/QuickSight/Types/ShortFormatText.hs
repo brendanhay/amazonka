@@ -77,7 +77,8 @@ instance Data.FromJSON ShortFormatText where
 
 instance Prelude.Hashable ShortFormatText where
   hashWithSalt _salt ShortFormatText' {..} =
-    _salt `Prelude.hashWithSalt` plainText
+    _salt
+      `Prelude.hashWithSalt` plainText
       `Prelude.hashWithSalt` richText
 
 instance Prelude.NFData ShortFormatText where

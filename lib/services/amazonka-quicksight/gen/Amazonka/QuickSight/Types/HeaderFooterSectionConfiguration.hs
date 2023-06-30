@@ -101,7 +101,8 @@ instance
   hashWithSalt
     _salt
     HeaderFooterSectionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` style
+      _salt
+        `Prelude.hashWithSalt` style
         `Prelude.hashWithSalt` sectionId
         `Prelude.hashWithSalt` layout
 

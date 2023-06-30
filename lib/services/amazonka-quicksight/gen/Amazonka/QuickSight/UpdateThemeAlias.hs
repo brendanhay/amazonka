@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateThemeAlias where
 
 instance Prelude.Hashable UpdateThemeAlias where
   hashWithSalt _salt UpdateThemeAlias' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` themeId
       `Prelude.hashWithSalt` aliasName
       `Prelude.hashWithSalt` themeVersionNumber

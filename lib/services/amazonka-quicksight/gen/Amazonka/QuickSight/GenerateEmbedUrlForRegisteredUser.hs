@@ -34,7 +34,8 @@
 --
 -- -   The URL validity period should not be confused with the actual
 --     session lifetime that can be customized using the
---     @ SessionLifetimeInMinutes @ parameter.
+--     @ @<https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html#QS-GenerateEmbedUrlForRegisteredUser-request-SessionLifetimeInMinutes SessionLifetimeInMinutes>@ @
+--     parameter.
 --
 --     The resulting user session is valid for 15 minutes (minimum) to 10
 --     hours (maximum). The default session duration is 10 hours.
@@ -208,8 +209,8 @@ instance
       ( \s h x ->
           GenerateEmbedUrlForRegisteredUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "EmbedUrl")
-              Prelude.<*> (x Data..:> "RequestId")
+            Prelude.<*> (x Data..:> "EmbedUrl")
+            Prelude.<*> (x Data..:> "RequestId")
       )
 
 instance
@@ -219,7 +220,8 @@ instance
   hashWithSalt
     _salt
     GenerateEmbedUrlForRegisteredUser' {..} =
-      _salt `Prelude.hashWithSalt` allowedDomains
+      _salt
+        `Prelude.hashWithSalt` allowedDomains
         `Prelude.hashWithSalt` sessionLifetimeInMinutes
         `Prelude.hashWithSalt` awsAccountId
         `Prelude.hashWithSalt` userArn

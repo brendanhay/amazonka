@@ -77,7 +77,8 @@ instance Data.FromJSON ConditionalFormattingIcon where
 
 instance Prelude.Hashable ConditionalFormattingIcon where
   hashWithSalt _salt ConditionalFormattingIcon' {..} =
-    _salt `Prelude.hashWithSalt` customCondition
+    _salt
+      `Prelude.hashWithSalt` customCondition
       `Prelude.hashWithSalt` iconSet
 
 instance Prelude.NFData ConditionalFormattingIcon where

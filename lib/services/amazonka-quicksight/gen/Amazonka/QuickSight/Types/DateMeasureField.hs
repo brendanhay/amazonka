@@ -102,7 +102,8 @@ instance Data.FromJSON DateMeasureField where
 
 instance Prelude.Hashable DateMeasureField where
   hashWithSalt _salt DateMeasureField' {..} =
-    _salt `Prelude.hashWithSalt` aggregationFunction
+    _salt
+      `Prelude.hashWithSalt` aggregationFunction
       `Prelude.hashWithSalt` formatConfiguration
       `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` column

@@ -133,7 +133,8 @@ instance
     LineChartMarkerStyleSettings
   where
   hashWithSalt _salt LineChartMarkerStyleSettings' {..} =
-    _salt `Prelude.hashWithSalt` markerColor
+    _salt
+      `Prelude.hashWithSalt` markerColor
       `Prelude.hashWithSalt` markerShape
       `Prelude.hashWithSalt` markerSize
       `Prelude.hashWithSalt` markerVisibility

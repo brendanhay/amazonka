@@ -108,7 +108,8 @@ instance Data.FromJSON TableFieldOption where
 
 instance Prelude.Hashable TableFieldOption where
   hashWithSalt _salt TableFieldOption' {..} =
-    _salt `Prelude.hashWithSalt` customLabel
+    _salt
+      `Prelude.hashWithSalt` customLabel
       `Prelude.hashWithSalt` uRLStyling
       `Prelude.hashWithSalt` visibility
       `Prelude.hashWithSalt` width

@@ -94,7 +94,8 @@ instance Data.FromJSON CalculatedField where
 
 instance Prelude.Hashable CalculatedField where
   hashWithSalt _salt CalculatedField' {..} =
-    _salt `Prelude.hashWithSalt` dataSetIdentifier
+    _salt
+      `Prelude.hashWithSalt` dataSetIdentifier
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` expression
 

@@ -88,7 +88,8 @@ instance Data.FromJSON ListControlDisplayOptions where
 
 instance Prelude.Hashable ListControlDisplayOptions where
   hashWithSalt _salt ListControlDisplayOptions' {..} =
-    _salt `Prelude.hashWithSalt` searchOptions
+    _salt
+      `Prelude.hashWithSalt` searchOptions
       `Prelude.hashWithSalt` selectAllOptions
       `Prelude.hashWithSalt` titleOptions
 

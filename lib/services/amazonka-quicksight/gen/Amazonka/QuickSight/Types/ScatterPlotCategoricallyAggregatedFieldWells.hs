@@ -105,9 +105,9 @@ instance
       ( \x ->
           ScatterPlotCategoricallyAggregatedFieldWells'
             Prelude.<$> (x Data..:? "Category" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "Size" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "XAxis" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "YAxis" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "Size" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "XAxis" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "YAxis" Data..!= Prelude.mempty)
       )
 
 instance
@@ -117,7 +117,8 @@ instance
   hashWithSalt
     _salt
     ScatterPlotCategoricallyAggregatedFieldWells' {..} =
-      _salt `Prelude.hashWithSalt` category
+      _salt
+        `Prelude.hashWithSalt` category
         `Prelude.hashWithSalt` size
         `Prelude.hashWithSalt` xAxis
         `Prelude.hashWithSalt` yAxis

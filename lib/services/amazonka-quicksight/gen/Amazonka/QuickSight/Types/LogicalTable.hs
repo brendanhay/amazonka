@@ -94,7 +94,8 @@ instance Data.FromJSON LogicalTable where
 
 instance Prelude.Hashable LogicalTable where
   hashWithSalt _salt LogicalTable' {..} =
-    _salt `Prelude.hashWithSalt` dataTransforms
+    _salt
+      `Prelude.hashWithSalt` dataTransforms
       `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` source
 

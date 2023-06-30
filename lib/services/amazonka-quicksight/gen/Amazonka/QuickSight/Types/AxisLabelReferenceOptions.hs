@@ -79,7 +79,8 @@ instance Data.FromJSON AxisLabelReferenceOptions where
 
 instance Prelude.Hashable AxisLabelReferenceOptions where
   hashWithSalt _salt AxisLabelReferenceOptions' {..} =
-    _salt `Prelude.hashWithSalt` fieldId
+    _salt
+      `Prelude.hashWithSalt` fieldId
       `Prelude.hashWithSalt` column
 
 instance Prelude.NFData AxisLabelReferenceOptions where

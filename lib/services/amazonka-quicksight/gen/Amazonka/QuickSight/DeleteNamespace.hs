@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteNamespace where
 
 instance Prelude.Hashable DeleteNamespace where
   hashWithSalt _salt DeleteNamespace' {..} =
-    _salt `Prelude.hashWithSalt` awsAccountId
+    _salt
+      `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData DeleteNamespace where

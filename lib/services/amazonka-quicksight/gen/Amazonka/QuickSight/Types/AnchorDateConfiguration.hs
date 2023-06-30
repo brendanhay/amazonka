@@ -85,7 +85,8 @@ instance Data.FromJSON AnchorDateConfiguration where
 
 instance Prelude.Hashable AnchorDateConfiguration where
   hashWithSalt _salt AnchorDateConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` anchorOption
+    _salt
+      `Prelude.hashWithSalt` anchorOption
       `Prelude.hashWithSalt` parameterName
 
 instance Prelude.NFData AnchorDateConfiguration where

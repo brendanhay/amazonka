@@ -164,7 +164,8 @@ instance Data.FromJSON ScatterPlotConfiguration where
 
 instance Prelude.Hashable ScatterPlotConfiguration where
   hashWithSalt _salt ScatterPlotConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` dataLabels
+    _salt
+      `Prelude.hashWithSalt` dataLabels
       `Prelude.hashWithSalt` fieldWells
       `Prelude.hashWithSalt` legend
       `Prelude.hashWithSalt` tooltip

@@ -79,7 +79,8 @@ instance Data.FromJSON CascadingControlSource where
 
 instance Prelude.Hashable CascadingControlSource where
   hashWithSalt _salt CascadingControlSource' {..} =
-    _salt `Prelude.hashWithSalt` columnToMatch
+    _salt
+      `Prelude.hashWithSalt` columnToMatch
       `Prelude.hashWithSalt` sourceSheetControlId
 
 instance Prelude.NFData CascadingControlSource where

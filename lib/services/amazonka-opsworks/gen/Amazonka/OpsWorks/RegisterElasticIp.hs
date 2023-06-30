@@ -114,7 +114,8 @@ instance Core.AWSRequest RegisterElasticIp where
 
 instance Prelude.Hashable RegisterElasticIp where
   hashWithSalt _salt RegisterElasticIp' {..} =
-    _salt `Prelude.hashWithSalt` elasticIp
+    _salt
+      `Prelude.hashWithSalt` elasticIp
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData RegisterElasticIp where

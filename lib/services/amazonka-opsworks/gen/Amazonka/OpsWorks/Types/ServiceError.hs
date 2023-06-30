@@ -114,7 +114,8 @@ instance Data.FromJSON ServiceError where
 
 instance Prelude.Hashable ServiceError where
   hashWithSalt _salt ServiceError' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` serviceErrorId

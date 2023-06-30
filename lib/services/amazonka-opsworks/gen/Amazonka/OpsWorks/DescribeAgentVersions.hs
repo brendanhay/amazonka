@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeAgentVersions where
 
 instance Prelude.Hashable DescribeAgentVersions where
   hashWithSalt _salt DescribeAgentVersions' {..} =
-    _salt `Prelude.hashWithSalt` configurationManager
+    _salt
+      `Prelude.hashWithSalt` configurationManager
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData DescribeAgentVersions where

@@ -80,7 +80,8 @@ instance Data.FromJSON StackConfigurationManager where
 
 instance Prelude.Hashable StackConfigurationManager where
   hashWithSalt _salt StackConfigurationManager' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData StackConfigurationManager where

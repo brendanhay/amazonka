@@ -113,7 +113,8 @@ instance Core.AWSRequest DeleteInstance where
 
 instance Prelude.Hashable DeleteInstance where
   hashWithSalt _salt DeleteInstance' {..} =
-    _salt `Prelude.hashWithSalt` deleteElasticIp
+    _salt
+      `Prelude.hashWithSalt` deleteElasticIp
       `Prelude.hashWithSalt` deleteVolumes
       `Prelude.hashWithSalt` instanceId
 

@@ -101,7 +101,8 @@ instance Core.AWSRequest AssignVolume where
 
 instance Prelude.Hashable AssignVolume where
   hashWithSalt _salt AssignVolume' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` volumeId
 
 instance Prelude.NFData AssignVolume where

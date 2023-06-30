@@ -143,7 +143,8 @@ instance Data.FromJSON WeeklyAutoScalingSchedule where
 
 instance Prelude.Hashable WeeklyAutoScalingSchedule where
   hashWithSalt _salt WeeklyAutoScalingSchedule' {..} =
-    _salt `Prelude.hashWithSalt` friday
+    _salt
+      `Prelude.hashWithSalt` friday
       `Prelude.hashWithSalt` monday
       `Prelude.hashWithSalt` saturday
       `Prelude.hashWithSalt` sunday

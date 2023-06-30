@@ -197,7 +197,8 @@ instance Data.FromJSON Source where
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` password
+    _salt
+      `Prelude.hashWithSalt` password
       `Prelude.hashWithSalt` revision
       `Prelude.hashWithSalt` sshKey
       `Prelude.hashWithSalt` type'

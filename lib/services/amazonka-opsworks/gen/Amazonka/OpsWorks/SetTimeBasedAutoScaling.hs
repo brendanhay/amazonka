@@ -103,7 +103,8 @@ instance Core.AWSRequest SetTimeBasedAutoScaling where
 
 instance Prelude.Hashable SetTimeBasedAutoScaling where
   hashWithSalt _salt SetTimeBasedAutoScaling' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingSchedule
+    _salt
+      `Prelude.hashWithSalt` autoScalingSchedule
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData SetTimeBasedAutoScaling where

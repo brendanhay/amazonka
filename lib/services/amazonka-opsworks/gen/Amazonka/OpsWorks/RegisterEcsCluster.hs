@@ -114,7 +114,8 @@ instance Core.AWSRequest RegisterEcsCluster where
 
 instance Prelude.Hashable RegisterEcsCluster where
   hashWithSalt _salt RegisterEcsCluster' {..} =
-    _salt `Prelude.hashWithSalt` ecsClusterArn
+    _salt
+      `Prelude.hashWithSalt` ecsClusterArn
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData RegisterEcsCluster where

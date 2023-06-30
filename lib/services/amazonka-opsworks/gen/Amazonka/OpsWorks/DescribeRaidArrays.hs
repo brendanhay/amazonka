@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeRaidArrays where
 
 instance Prelude.Hashable DescribeRaidArrays where
   hashWithSalt _salt DescribeRaidArrays' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` raidArrayIds
       `Prelude.hashWithSalt` stackId
 

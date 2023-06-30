@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateRdsDbInstance where
 
 instance Prelude.Hashable UpdateRdsDbInstance where
   hashWithSalt _salt UpdateRdsDbInstance' {..} =
-    _salt `Prelude.hashWithSalt` dbPassword
+    _salt
+      `Prelude.hashWithSalt` dbPassword
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` rdsDbInstanceArn
 

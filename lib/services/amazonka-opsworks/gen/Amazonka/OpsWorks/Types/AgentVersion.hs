@@ -76,7 +76,8 @@ instance Data.FromJSON AgentVersion where
 
 instance Prelude.Hashable AgentVersion where
   hashWithSalt _salt AgentVersion' {..} =
-    _salt `Prelude.hashWithSalt` configurationManager
+    _salt
+      `Prelude.hashWithSalt` configurationManager
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData AgentVersion where

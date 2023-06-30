@@ -177,7 +177,8 @@ instance Core.AWSRequest SetPermission where
 
 instance Prelude.Hashable SetPermission where
   hashWithSalt _salt SetPermission' {..} =
-    _salt `Prelude.hashWithSalt` allowSsh
+    _salt
+      `Prelude.hashWithSalt` allowSsh
       `Prelude.hashWithSalt` allowSudo
       `Prelude.hashWithSalt` level
       `Prelude.hashWithSalt` stackId

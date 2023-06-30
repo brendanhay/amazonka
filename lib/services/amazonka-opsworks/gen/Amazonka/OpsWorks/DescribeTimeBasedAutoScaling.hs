@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeTimeBasedAutoScaling where
     Response.receiveJSON
       ( \s h x ->
           DescribeTimeBasedAutoScalingResponse'
-            Prelude.<$> ( x Data..?> "TimeBasedAutoScalingConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "TimeBasedAutoScalingConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

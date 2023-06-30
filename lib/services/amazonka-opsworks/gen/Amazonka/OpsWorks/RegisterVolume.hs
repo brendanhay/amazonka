@@ -112,7 +112,8 @@ instance Core.AWSRequest RegisterVolume where
 
 instance Prelude.Hashable RegisterVolume where
   hashWithSalt _salt RegisterVolume' {..} =
-    _salt `Prelude.hashWithSalt` ec2VolumeId
+    _salt
+      `Prelude.hashWithSalt` ec2VolumeId
       `Prelude.hashWithSalt` stackId
 
 instance Prelude.NFData RegisterVolume where

@@ -116,7 +116,8 @@ instance
   hashWithSalt
     _salt
     LoadBasedAutoScalingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` downScaling
+      _salt
+        `Prelude.hashWithSalt` downScaling
         `Prelude.hashWithSalt` enable
         `Prelude.hashWithSalt` layerId
         `Prelude.hashWithSalt` upScaling

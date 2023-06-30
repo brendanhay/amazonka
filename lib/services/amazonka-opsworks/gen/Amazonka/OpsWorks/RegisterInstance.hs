@@ -177,7 +177,8 @@ instance Core.AWSRequest RegisterInstance where
 
 instance Prelude.Hashable RegisterInstance where
   hashWithSalt _salt RegisterInstance' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` instanceIdentity
       `Prelude.hashWithSalt` privateIp
       `Prelude.hashWithSalt` publicIp

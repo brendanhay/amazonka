@@ -155,22 +155,22 @@ instance Core.AWSPager DescribeEcsClusters where
     | Core.stop
         ( rs
             Lens.^? describeEcsClustersResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeEcsClustersResponse_ecsClusters
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeEcsClusters_nextToken
           Lens..~ rs
           Lens.^? describeEcsClustersResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeEcsClusters where
   type
@@ -189,7 +189,8 @@ instance Core.AWSRequest DescribeEcsClusters where
 
 instance Prelude.Hashable DescribeEcsClusters where
   hashWithSalt _salt DescribeEcsClusters' {..} =
-    _salt `Prelude.hashWithSalt` ecsClusterArns
+    _salt
+      `Prelude.hashWithSalt` ecsClusterArns
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` stackId

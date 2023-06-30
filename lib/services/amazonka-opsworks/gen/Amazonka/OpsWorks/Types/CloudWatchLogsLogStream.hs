@@ -266,7 +266,8 @@ instance Data.FromJSON CloudWatchLogsLogStream where
 
 instance Prelude.Hashable CloudWatchLogsLogStream where
   hashWithSalt _salt CloudWatchLogsLogStream' {..} =
-    _salt `Prelude.hashWithSalt` batchCount
+    _salt
+      `Prelude.hashWithSalt` batchCount
       `Prelude.hashWithSalt` batchSize
       `Prelude.hashWithSalt` bufferDuration
       `Prelude.hashWithSalt` datetimeFormat

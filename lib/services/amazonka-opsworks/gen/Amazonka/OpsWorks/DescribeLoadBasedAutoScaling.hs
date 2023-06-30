@@ -93,7 +93,8 @@ instance Core.AWSRequest DescribeLoadBasedAutoScaling where
     Response.receiveJSON
       ( \s h x ->
           DescribeLoadBasedAutoScalingResponse'
-            Prelude.<$> ( x Data..?> "LoadBasedAutoScalingConfigurations"
+            Prelude.<$> ( x
+                            Data..?> "LoadBasedAutoScalingConfigurations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

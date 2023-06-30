@@ -187,7 +187,8 @@ instance Data.FromJSON RaidArray where
 
 instance Prelude.Hashable RaidArray where
   hashWithSalt _salt RaidArray' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` instanceId

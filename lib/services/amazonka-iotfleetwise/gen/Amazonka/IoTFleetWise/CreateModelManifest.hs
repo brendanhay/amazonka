@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateModelManifest where
 
 instance Prelude.Hashable CreateModelManifest where
   hashWithSalt _salt CreateModelManifest' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` nodes

@@ -153,7 +153,8 @@ instance Core.AWSRequest UpdateVehicle where
 
 instance Prelude.Hashable UpdateVehicle where
   hashWithSalt _salt UpdateVehicle' {..} =
-    _salt `Prelude.hashWithSalt` attributeUpdateMode
+    _salt
+      `Prelude.hashWithSalt` attributeUpdateMode
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` decoderManifestArn
       `Prelude.hashWithSalt` modelManifestArn

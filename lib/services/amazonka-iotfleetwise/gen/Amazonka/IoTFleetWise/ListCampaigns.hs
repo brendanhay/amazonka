@@ -128,21 +128,23 @@ instance Core.AWSPager ListCampaigns where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listCampaignsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listCampaignsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCampaignsResponse_campaignSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCampaigns_nextToken
           Lens..~ rs
-          Lens.^? listCampaignsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listCampaignsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCampaigns where
   type
@@ -154,7 +156,8 @@ instance Core.AWSRequest ListCampaigns where
     Response.receiveJSON
       ( \s h x ->
           ListCampaignsResponse'
-            Prelude.<$> ( x Data..?> "campaignSummaries"
+            Prelude.<$> ( x
+                            Data..?> "campaignSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -163,7 +166,8 @@ instance Core.AWSRequest ListCampaigns where
 
 instance Prelude.Hashable ListCampaigns where
   hashWithSalt _salt ListCampaigns' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` status
 

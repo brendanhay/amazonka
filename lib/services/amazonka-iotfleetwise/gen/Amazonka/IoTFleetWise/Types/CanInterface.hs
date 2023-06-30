@@ -86,7 +86,8 @@ instance Data.FromJSON CanInterface where
 
 instance Prelude.Hashable CanInterface where
   hashWithSalt _salt CanInterface' {..} =
-    _salt `Prelude.hashWithSalt` protocolName
+    _salt
+      `Prelude.hashWithSalt` protocolName
       `Prelude.hashWithSalt` protocolVersion
       `Prelude.hashWithSalt` name
 

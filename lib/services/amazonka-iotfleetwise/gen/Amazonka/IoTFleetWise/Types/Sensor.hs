@@ -136,7 +136,8 @@ instance Data.FromJSON Sensor where
 
 instance Prelude.Hashable Sensor where
   hashWithSalt _salt Sensor' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` max
       `Prelude.hashWithSalt` min

@@ -79,7 +79,8 @@ instance Data.FromJSON Branch where
 
 instance Prelude.Hashable Branch where
   hashWithSalt _salt Branch' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` fullyQualifiedName
 
 instance Prelude.NFData Branch where

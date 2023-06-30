@@ -99,7 +99,8 @@ instance Data.FromJSON SignalInformation where
 
 instance Prelude.Hashable SignalInformation where
   hashWithSalt _salt SignalInformation' {..} =
-    _salt `Prelude.hashWithSalt` maxSampleCount
+    _salt
+      `Prelude.hashWithSalt` maxSampleCount
       `Prelude.hashWithSalt` minimumSamplingIntervalMs
       `Prelude.hashWithSalt` name
 

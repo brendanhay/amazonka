@@ -97,7 +97,8 @@ instance Data.FromJSON IamRegistrationResponse where
 
 instance Prelude.Hashable IamRegistrationResponse where
   hashWithSalt _salt IamRegistrationResponse' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` registrationStatus
 

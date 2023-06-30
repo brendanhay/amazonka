@@ -108,7 +108,8 @@ instance Data.FromJSON NodeCounts where
 
 instance Prelude.Hashable NodeCounts where
   hashWithSalt _salt NodeCounts' {..} =
-    _salt `Prelude.hashWithSalt` totalActuators
+    _salt
+      `Prelude.hashWithSalt` totalActuators
       `Prelude.hashWithSalt` totalAttributes
       `Prelude.hashWithSalt` totalBranches
       `Prelude.hashWithSalt` totalNodes

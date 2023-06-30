@@ -147,7 +147,8 @@ instance Data.FromJSON Actuator where
 
 instance Prelude.Hashable Actuator where
   hashWithSalt _salt Actuator' {..} =
-    _salt `Prelude.hashWithSalt` allowedValues
+    _salt
+      `Prelude.hashWithSalt` allowedValues
       `Prelude.hashWithSalt` assignedValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` max

@@ -84,7 +84,8 @@ instance Data.FromJSON CreateVehicleError where
 
 instance Prelude.Hashable CreateVehicleError where
   hashWithSalt _salt CreateVehicleError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` vehicleName
 

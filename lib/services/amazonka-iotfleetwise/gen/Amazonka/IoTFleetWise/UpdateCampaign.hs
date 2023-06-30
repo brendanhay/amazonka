@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdateCampaign where
 
 instance Prelude.Hashable UpdateCampaign where
   hashWithSalt _salt UpdateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` dataExtraDimensions
+    _salt
+      `Prelude.hashWithSalt` dataExtraDimensions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` action

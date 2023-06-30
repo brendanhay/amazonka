@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateModelManifest where
 
 instance Prelude.Hashable UpdateModelManifest where
   hashWithSalt _salt UpdateModelManifest' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` nodesToAdd
       `Prelude.hashWithSalt` nodesToRemove
       `Prelude.hashWithSalt` status

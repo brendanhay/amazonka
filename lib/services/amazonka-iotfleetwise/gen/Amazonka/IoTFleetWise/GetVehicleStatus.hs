@@ -123,22 +123,22 @@ instance Core.AWSPager GetVehicleStatus where
     | Core.stop
         ( rs
             Lens.^? getVehicleStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getVehicleStatusResponse_campaigns
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getVehicleStatus_nextToken
           Lens..~ rs
           Lens.^? getVehicleStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetVehicleStatus where
   type
@@ -157,7 +157,8 @@ instance Core.AWSRequest GetVehicleStatus where
 
 instance Prelude.Hashable GetVehicleStatus where
   hashWithSalt _salt GetVehicleStatus' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` vehicleName
 

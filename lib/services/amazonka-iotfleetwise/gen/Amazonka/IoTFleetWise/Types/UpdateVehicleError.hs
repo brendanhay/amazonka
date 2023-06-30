@@ -84,7 +84,8 @@ instance Data.FromJSON UpdateVehicleError where
 
 instance Prelude.Hashable UpdateVehicleError where
   hashWithSalt _salt UpdateVehicleError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` vehicleName
 

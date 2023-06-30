@@ -82,7 +82,8 @@ instance Data.FromJSON TimestreamResources where
 
 instance Prelude.Hashable TimestreamResources where
   hashWithSalt _salt TimestreamResources' {..} =
-    _salt `Prelude.hashWithSalt` timestreamDatabaseName
+    _salt
+      `Prelude.hashWithSalt` timestreamDatabaseName
       `Prelude.hashWithSalt` timestreamTableName
 
 instance Prelude.NFData TimestreamResources where

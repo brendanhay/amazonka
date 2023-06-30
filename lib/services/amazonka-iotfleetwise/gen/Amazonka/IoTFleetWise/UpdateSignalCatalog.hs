@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateSignalCatalog where
 
 instance Prelude.Hashable UpdateSignalCatalog where
   hashWithSalt _salt UpdateSignalCatalog' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` nodesToAdd
       `Prelude.hashWithSalt` nodesToRemove
       `Prelude.hashWithSalt` nodesToUpdate

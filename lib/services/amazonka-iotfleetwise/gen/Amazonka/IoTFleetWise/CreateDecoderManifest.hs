@@ -156,7 +156,8 @@ instance Core.AWSRequest CreateDecoderManifest where
 
 instance Prelude.Hashable CreateDecoderManifest where
   hashWithSalt _salt CreateDecoderManifest' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkInterfaces
       `Prelude.hashWithSalt` signalDecoders
       `Prelude.hashWithSalt` tags

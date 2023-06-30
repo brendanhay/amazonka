@@ -376,7 +376,8 @@ instance Core.AWSRequest CreateCampaign where
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` compression
+    _salt
+      `Prelude.hashWithSalt` compression
       `Prelude.hashWithSalt` dataExtraDimensions
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` diagnosticsMode

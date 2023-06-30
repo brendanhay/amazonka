@@ -166,7 +166,8 @@ instance Data.FromJSON ObdSignal where
 
 instance Prelude.Hashable ObdSignal where
   hashWithSalt _salt ObdSignal' {..} =
-    _salt `Prelude.hashWithSalt` bitMaskLength
+    _salt
+      `Prelude.hashWithSalt` bitMaskLength
       `Prelude.hashWithSalt` bitRightShift
       `Prelude.hashWithSalt` pidResponseLength
       `Prelude.hashWithSalt` serviceMode

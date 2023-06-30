@@ -73,7 +73,8 @@ instance Data.FromJSON DeviceEvent where
 
 instance Prelude.Hashable DeviceEvent where
   hashWithSalt _salt DeviceEvent' {..} =
-    _salt `Prelude.hashWithSalt` device
+    _salt
+      `Prelude.hashWithSalt` device
       `Prelude.hashWithSalt` stdEvent
 
 instance Prelude.NFData DeviceEvent where

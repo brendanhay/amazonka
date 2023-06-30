@@ -72,7 +72,8 @@ instance Data.FromJSON DeviceMethod where
 
 instance Prelude.Hashable DeviceMethod where
   hashWithSalt _salt DeviceMethod' {..} =
-    _salt `Prelude.hashWithSalt` deviceType
+    _salt
+      `Prelude.hashWithSalt` deviceType
       `Prelude.hashWithSalt` methodName
 
 instance Prelude.NFData DeviceMethod where

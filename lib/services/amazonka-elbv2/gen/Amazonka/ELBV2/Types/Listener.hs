@@ -128,13 +128,19 @@ listener_sslPolicy = Lens.lens (\Listener' {sslPolicy} -> sslPolicy) (\s@Listene
 instance Data.FromXML Listener where
   parseXML x =
     Listener'
-      Prelude.<$> ( x Data..@? "AlpnPolicy" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "AlpnPolicy"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Certificates"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "DefaultActions" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "DefaultActions"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "ListenerArn")
@@ -145,7 +151,8 @@ instance Data.FromXML Listener where
 
 instance Prelude.Hashable Listener where
   hashWithSalt _salt Listener' {..} =
-    _salt `Prelude.hashWithSalt` alpnPolicy
+    _salt
+      `Prelude.hashWithSalt` alpnPolicy
       `Prelude.hashWithSalt` certificates
       `Prelude.hashWithSalt` defaultActions
       `Prelude.hashWithSalt` listenerArn

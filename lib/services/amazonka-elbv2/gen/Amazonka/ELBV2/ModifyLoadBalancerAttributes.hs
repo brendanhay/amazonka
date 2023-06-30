@@ -103,7 +103,9 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
       "ModifyLoadBalancerAttributesResult"
       ( \s h x ->
           ModifyLoadBalancerAttributesResponse'
-            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Attributes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +116,8 @@ instance
     ModifyLoadBalancerAttributes
   where
   hashWithSalt _salt ModifyLoadBalancerAttributes' {..} =
-    _salt `Prelude.hashWithSalt` loadBalancerArn
+    _salt
+      `Prelude.hashWithSalt` loadBalancerArn
       `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData ModifyLoadBalancerAttributes where

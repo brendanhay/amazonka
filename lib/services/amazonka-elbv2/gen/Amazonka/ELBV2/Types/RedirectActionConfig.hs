@@ -155,7 +155,8 @@ instance Data.FromXML RedirectActionConfig where
 
 instance Prelude.Hashable RedirectActionConfig where
   hashWithSalt _salt RedirectActionConfig' {..} =
-    _salt `Prelude.hashWithSalt` host
+    _salt
+      `Prelude.hashWithSalt` host
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` protocol

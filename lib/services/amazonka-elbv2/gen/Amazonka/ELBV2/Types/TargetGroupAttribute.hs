@@ -470,11 +470,13 @@ targetGroupAttribute_value = Lens.lens (\TargetGroupAttribute' {value} -> value)
 instance Data.FromXML TargetGroupAttribute where
   parseXML x =
     TargetGroupAttribute'
-      Prelude.<$> (x Data..@? "Key") Prelude.<*> (x Data..@? "Value")
+      Prelude.<$> (x Data..@? "Key")
+      Prelude.<*> (x Data..@? "Value")
 
 instance Prelude.Hashable TargetGroupAttribute where
   hashWithSalt _salt TargetGroupAttribute' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TargetGroupAttribute where

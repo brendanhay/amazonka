@@ -110,7 +110,8 @@ instance Core.AWSRequest DeregisterTargets where
 
 instance Prelude.Hashable DeregisterTargets where
   hashWithSalt _salt DeregisterTargets' {..} =
-    _salt `Prelude.hashWithSalt` targetGroupArn
+    _salt
+      `Prelude.hashWithSalt` targetGroupArn
       `Prelude.hashWithSalt` targets
 
 instance Prelude.NFData DeregisterTargets where

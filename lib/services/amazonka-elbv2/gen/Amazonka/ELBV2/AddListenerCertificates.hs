@@ -111,7 +111,9 @@ instance Core.AWSRequest AddListenerCertificates where
       "AddListenerCertificatesResult"
       ( \s h x ->
           AddListenerCertificatesResponse'
-            Prelude.<$> ( x Data..@? "Certificates" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Certificates"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -119,7 +121,8 @@ instance Core.AWSRequest AddListenerCertificates where
 
 instance Prelude.Hashable AddListenerCertificates where
   hashWithSalt _salt AddListenerCertificates' {..} =
-    _salt `Prelude.hashWithSalt` listenerArn
+    _salt
+      `Prelude.hashWithSalt` listenerArn
       `Prelude.hashWithSalt` certificates
 
 instance Prelude.NFData AddListenerCertificates where

@@ -227,7 +227,8 @@ instance Core.AWSRequest SetSubnets where
       "SetSubnetsResult"
       ( \s h x ->
           SetSubnetsResponse'
-            Prelude.<$> ( x Data..@? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..@? "AvailabilityZones"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
@@ -237,7 +238,8 @@ instance Core.AWSRequest SetSubnets where
 
 instance Prelude.Hashable SetSubnets where
   hashWithSalt _salt SetSubnets' {..} =
-    _salt `Prelude.hashWithSalt` ipAddressType
+    _salt
+      `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` subnetMappings
       `Prelude.hashWithSalt` subnets
       `Prelude.hashWithSalt` loadBalancerArn

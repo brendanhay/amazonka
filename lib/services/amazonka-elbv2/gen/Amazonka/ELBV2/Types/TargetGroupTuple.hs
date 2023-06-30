@@ -71,7 +71,8 @@ instance Data.FromXML TargetGroupTuple where
 
 instance Prelude.Hashable TargetGroupTuple where
   hashWithSalt _salt TargetGroupTuple' {..} =
-    _salt `Prelude.hashWithSalt` targetGroupArn
+    _salt
+      `Prelude.hashWithSalt` targetGroupArn
       `Prelude.hashWithSalt` weight
 
 instance Prelude.NFData TargetGroupTuple where

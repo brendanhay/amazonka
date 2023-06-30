@@ -83,7 +83,8 @@ instance Data.FromXML TargetHealthDescription where
 
 instance Prelude.Hashable TargetHealthDescription where
   hashWithSalt _salt TargetHealthDescription' {..} =
-    _salt `Prelude.hashWithSalt` healthCheckPort
+    _salt
+      `Prelude.hashWithSalt` healthCheckPort
       `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` targetHealth
 

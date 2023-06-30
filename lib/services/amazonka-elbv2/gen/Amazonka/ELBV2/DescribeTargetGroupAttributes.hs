@@ -102,7 +102,9 @@ instance
       "DescribeTargetGroupAttributesResult"
       ( \s h x ->
           DescribeTargetGroupAttributesResponse'
-            Prelude.<$> ( x Data..@? "Attributes" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "Attributes"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

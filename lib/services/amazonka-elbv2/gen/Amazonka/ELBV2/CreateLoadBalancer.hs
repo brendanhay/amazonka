@@ -370,7 +370,9 @@ instance Core.AWSRequest CreateLoadBalancer where
       "CreateLoadBalancerResult"
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Prelude.<$> ( x Data..@? "LoadBalancers" Core..!@ Prelude.mempty
+            Prelude.<$> ( x
+                            Data..@? "LoadBalancers"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -378,7 +380,8 @@ instance Core.AWSRequest CreateLoadBalancer where
 
 instance Prelude.Hashable CreateLoadBalancer where
   hashWithSalt _salt CreateLoadBalancer' {..} =
-    _salt `Prelude.hashWithSalt` customerOwnedIpv4Pool
+    _salt
+      `Prelude.hashWithSalt` customerOwnedIpv4Pool
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` scheme
       `Prelude.hashWithSalt` securityGroups

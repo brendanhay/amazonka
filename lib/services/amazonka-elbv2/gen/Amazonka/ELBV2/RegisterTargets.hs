@@ -115,7 +115,8 @@ instance Core.AWSRequest RegisterTargets where
 
 instance Prelude.Hashable RegisterTargets where
   hashWithSalt _salt RegisterTargets' {..} =
-    _salt `Prelude.hashWithSalt` targetGroupArn
+    _salt
+      `Prelude.hashWithSalt` targetGroupArn
       `Prelude.hashWithSalt` targets
 
 instance Prelude.NFData RegisterTargets where

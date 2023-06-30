@@ -67,13 +67,16 @@ instance Data.FromXML TagDescription where
   parseXML x =
     TagDescription'
       Prelude.<$> (x Data..@? "ResourceArn")
-      Prelude.<*> ( x Data..@? "Tags" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tags"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList1 "member")
                   )
 
 instance Prelude.Hashable TagDescription where
   hashWithSalt _salt TagDescription' {..} =
-    _salt `Prelude.hashWithSalt` resourceArn
+    _salt
+      `Prelude.hashWithSalt` resourceArn
       `Prelude.hashWithSalt` tags
 
 instance Prelude.NFData TagDescription where

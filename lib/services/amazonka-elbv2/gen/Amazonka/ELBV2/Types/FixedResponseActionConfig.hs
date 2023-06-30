@@ -92,7 +92,8 @@ instance Data.FromXML FixedResponseActionConfig where
 
 instance Prelude.Hashable FixedResponseActionConfig where
   hashWithSalt _salt FixedResponseActionConfig' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` messageBody
       `Prelude.hashWithSalt` statusCode
 

@@ -124,7 +124,8 @@ instance
     DescribeDomainEndpointOptions
   where
   hashWithSalt _salt DescribeDomainEndpointOptions' {..} =
-    _salt `Prelude.hashWithSalt` deployed
+    _salt
+      `Prelude.hashWithSalt` deployed
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DescribeDomainEndpointOptions where

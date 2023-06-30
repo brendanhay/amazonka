@@ -117,7 +117,8 @@ instance Core.AWSRequest UpdateScalingParameters where
 
 instance Prelude.Hashable UpdateScalingParameters where
   hashWithSalt _salt UpdateScalingParameters' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` scalingParameters
 
 instance Prelude.NFData UpdateScalingParameters where

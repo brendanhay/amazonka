@@ -117,7 +117,8 @@ instance Data.FromXML DocumentSuggesterOptions where
 
 instance Prelude.Hashable DocumentSuggesterOptions where
   hashWithSalt _salt DocumentSuggesterOptions' {..} =
-    _salt `Prelude.hashWithSalt` fuzzyMatching
+    _salt
+      `Prelude.hashWithSalt` fuzzyMatching
       `Prelude.hashWithSalt` sortExpression
       `Prelude.hashWithSalt` sourceField
 

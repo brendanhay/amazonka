@@ -124,7 +124,8 @@ instance
     DescribeServiceAccessPolicies
   where
   hashWithSalt _salt DescribeServiceAccessPolicies' {..} =
-    _salt `Prelude.hashWithSalt` deployed
+    _salt
+      `Prelude.hashWithSalt` deployed
       `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData DescribeServiceAccessPolicies where

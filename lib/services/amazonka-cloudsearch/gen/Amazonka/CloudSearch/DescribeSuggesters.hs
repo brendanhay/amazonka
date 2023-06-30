@@ -124,14 +124,17 @@ instance Core.AWSRequest DescribeSuggesters where
       ( \s h x ->
           DescribeSuggestersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Suggesters" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Suggesters"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "member"
                         )
       )
 
 instance Prelude.Hashable DescribeSuggesters where
   hashWithSalt _salt DescribeSuggesters' {..} =
-    _salt `Prelude.hashWithSalt` deployed
+    _salt
+      `Prelude.hashWithSalt` deployed
       `Prelude.hashWithSalt` suggesterNames
       `Prelude.hashWithSalt` domainName
 

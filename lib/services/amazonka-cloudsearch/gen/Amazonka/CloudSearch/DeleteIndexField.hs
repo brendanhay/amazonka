@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteIndexField where
 
 instance Prelude.Hashable DeleteIndexField where
   hashWithSalt _salt DeleteIndexField' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` indexFieldName
 
 instance Prelude.NFData DeleteIndexField where

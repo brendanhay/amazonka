@@ -116,7 +116,8 @@ instance Core.AWSRequest UpdateServiceAccessPolicies where
 
 instance Prelude.Hashable UpdateServiceAccessPolicies where
   hashWithSalt _salt UpdateServiceAccessPolicies' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` accessPolicies
 
 instance Prelude.NFData UpdateServiceAccessPolicies where

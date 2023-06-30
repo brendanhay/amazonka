@@ -74,7 +74,8 @@ instance Data.FromXML AvailabilityOptionsStatus where
 
 instance Prelude.Hashable AvailabilityOptionsStatus where
   hashWithSalt _salt AvailabilityOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData AvailabilityOptionsStatus where

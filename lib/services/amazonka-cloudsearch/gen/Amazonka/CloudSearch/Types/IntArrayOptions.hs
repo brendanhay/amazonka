@@ -105,7 +105,8 @@ instance Data.FromXML IntArrayOptions where
 
 instance Prelude.Hashable IntArrayOptions where
   hashWithSalt _salt IntArrayOptions' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` facetEnabled
       `Prelude.hashWithSalt` returnEnabled
       `Prelude.hashWithSalt` searchEnabled

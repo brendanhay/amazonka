@@ -106,7 +106,8 @@ instance Data.FromXML TextArrayOptions where
 
 instance Prelude.Hashable TextArrayOptions where
   hashWithSalt _salt TextArrayOptions' {..} =
-    _salt `Prelude.hashWithSalt` analysisScheme
+    _salt
+      `Prelude.hashWithSalt` analysisScheme
       `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` highlightEnabled
       `Prelude.hashWithSalt` returnEnabled

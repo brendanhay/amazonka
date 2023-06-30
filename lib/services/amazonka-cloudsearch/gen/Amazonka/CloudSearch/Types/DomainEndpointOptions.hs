@@ -72,7 +72,8 @@ instance Data.FromXML DomainEndpointOptions where
 
 instance Prelude.Hashable DomainEndpointOptions where
   hashWithSalt _salt DomainEndpointOptions' {..} =
-    _salt `Prelude.hashWithSalt` enforceHTTPS
+    _salt
+      `Prelude.hashWithSalt` enforceHTTPS
       `Prelude.hashWithSalt` tLSSecurityPolicy
 
 instance Prelude.NFData DomainEndpointOptions where

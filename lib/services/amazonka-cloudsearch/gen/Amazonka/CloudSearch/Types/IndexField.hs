@@ -227,7 +227,8 @@ instance Data.FromXML IndexField where
 
 instance Prelude.Hashable IndexField where
   hashWithSalt _salt IndexField' {..} =
-    _salt `Prelude.hashWithSalt` dateArrayOptions
+    _salt
+      `Prelude.hashWithSalt` dateArrayOptions
       `Prelude.hashWithSalt` dateOptions
       `Prelude.hashWithSalt` doubleArrayOptions
       `Prelude.hashWithSalt` doubleOptions

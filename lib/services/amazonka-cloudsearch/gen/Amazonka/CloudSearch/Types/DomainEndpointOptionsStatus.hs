@@ -76,7 +76,8 @@ instance Data.FromXML DomainEndpointOptionsStatus where
 
 instance Prelude.Hashable DomainEndpointOptionsStatus where
   hashWithSalt _salt DomainEndpointOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DomainEndpointOptionsStatus where

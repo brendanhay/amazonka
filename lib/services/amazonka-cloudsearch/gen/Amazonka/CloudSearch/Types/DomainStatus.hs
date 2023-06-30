@@ -217,7 +217,8 @@ instance Data.FromXML DomainStatus where
 
 instance Prelude.Hashable DomainStatus where
   hashWithSalt _salt DomainStatus' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` deleted
       `Prelude.hashWithSalt` docService

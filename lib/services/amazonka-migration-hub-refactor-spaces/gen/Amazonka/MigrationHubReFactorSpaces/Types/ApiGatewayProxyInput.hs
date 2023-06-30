@@ -97,7 +97,8 @@ instance Data.FromJSON ApiGatewayProxyInput where
 
 instance Prelude.Hashable ApiGatewayProxyInput where
   hashWithSalt _salt ApiGatewayProxyInput' {..} =
-    _salt `Prelude.hashWithSalt` endpointType
+    _salt
+      `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` stageName
 
 instance Prelude.NFData ApiGatewayProxyInput where

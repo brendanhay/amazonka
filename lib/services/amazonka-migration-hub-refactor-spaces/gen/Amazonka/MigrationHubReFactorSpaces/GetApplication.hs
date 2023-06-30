@@ -133,7 +133,8 @@ instance Core.AWSRequest GetApplication where
 
 instance Prelude.Hashable GetApplication where
   hashWithSalt _salt GetApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationIdentifier
+    _salt
+      `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
 
 instance Prelude.NFData GetApplication where

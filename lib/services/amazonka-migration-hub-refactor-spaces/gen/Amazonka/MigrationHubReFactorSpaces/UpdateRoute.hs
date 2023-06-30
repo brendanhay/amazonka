@@ -143,7 +143,8 @@ instance Core.AWSRequest UpdateRoute where
 
 instance Prelude.Hashable UpdateRoute where
   hashWithSalt _salt UpdateRoute' {..} =
-    _salt `Prelude.hashWithSalt` activationState
+    _salt
+      `Prelude.hashWithSalt` activationState
       `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier
       `Prelude.hashWithSalt` routeIdentifier
@@ -194,7 +195,7 @@ data UpdateRouteResponse = UpdateRouteResponse'
   { -- | The ID of the application in which the route is being updated.
     applicationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
-    -- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+    -- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
     -- in the /Amazon Web Services General Reference/.
@@ -224,7 +225,7 @@ data UpdateRouteResponse = UpdateRouteResponse'
 -- 'applicationId', 'updateRouteResponse_applicationId' - The ID of the application in which the route is being updated.
 --
 -- 'arn', 'updateRouteResponse_arn' - The Amazon Resource Name (ARN) of the route. The format for this ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.
@@ -260,7 +261,7 @@ updateRouteResponse_applicationId :: Lens.Lens' UpdateRouteResponse (Prelude.May
 updateRouteResponse_applicationId = Lens.lens (\UpdateRouteResponse' {applicationId} -> applicationId) (\s@UpdateRouteResponse' {} a -> s {applicationId = a} :: UpdateRouteResponse)
 
 -- | The Amazon Resource Name (ARN) of the route. The format for this ARN is
--- @arn:aws:refactor-spaces:region:account-id:resource-type\/resource-id @.
+-- @arn:aws:refactor-spaces:@/@region@/@:@/@account-id@/@:@/@resource-type\/resource-id@/@ @.
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
 -- in the /Amazon Web Services General Reference/.

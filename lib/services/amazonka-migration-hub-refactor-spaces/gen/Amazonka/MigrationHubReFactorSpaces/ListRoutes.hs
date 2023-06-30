@@ -124,21 +124,23 @@ instance Core.AWSPager ListRoutes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listRoutesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listRoutesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRoutesResponse_routeSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRoutes_nextToken
           Lens..~ rs
-          Lens.^? listRoutesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listRoutesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRoutes where
   type AWSResponse ListRoutes = ListRoutesResponse
@@ -149,7 +151,8 @@ instance Core.AWSRequest ListRoutes where
       ( \s h x ->
           ListRoutesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "RouteSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "RouteSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -157,7 +160,8 @@ instance Core.AWSRequest ListRoutes where
 
 instance Prelude.Hashable ListRoutes where
   hashWithSalt _salt ListRoutes' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` applicationIdentifier
       `Prelude.hashWithSalt` environmentIdentifier

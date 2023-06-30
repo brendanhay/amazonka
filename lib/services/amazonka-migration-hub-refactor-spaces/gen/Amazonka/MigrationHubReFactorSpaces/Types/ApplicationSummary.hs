@@ -202,7 +202,8 @@ instance Data.FromJSON ApplicationSummary where
 
 instance Prelude.Hashable ApplicationSummary where
   hashWithSalt _salt ApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` apiGatewayProxy
+    _salt
+      `Prelude.hashWithSalt` apiGatewayProxy
       `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdByAccountId

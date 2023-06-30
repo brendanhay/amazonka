@@ -232,7 +232,8 @@ instance Data.FromJSON RouteSummary where
             Prelude.<*> (x Data..:? "LastUpdatedTime")
             Prelude.<*> (x Data..:? "Methods" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "OwnerAccountId")
-            Prelude.<*> ( x Data..:? "PathResourceToId"
+            Prelude.<*> ( x
+                            Data..:? "PathResourceToId"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "RouteId")
@@ -245,7 +246,8 @@ instance Data.FromJSON RouteSummary where
 
 instance Prelude.Hashable RouteSummary where
   hashWithSalt _salt RouteSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationId
+    _salt
+      `Prelude.hashWithSalt` applicationId
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdByAccountId
       `Prelude.hashWithSalt` createdTime

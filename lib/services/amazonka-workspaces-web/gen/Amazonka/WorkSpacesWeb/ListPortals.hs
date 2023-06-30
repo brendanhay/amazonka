@@ -103,7 +103,8 @@ instance Core.AWSRequest ListPortals where
 
 instance Prelude.Hashable ListPortals where
   hashWithSalt _salt ListPortals' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListPortals where

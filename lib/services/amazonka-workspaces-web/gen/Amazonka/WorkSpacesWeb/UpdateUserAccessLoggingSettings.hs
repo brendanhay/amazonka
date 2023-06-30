@@ -144,7 +144,8 @@ instance
   hashWithSalt
     _salt
     UpdateUserAccessLoggingSettings' {..} =
-      _salt `Prelude.hashWithSalt` clientToken
+      _salt
+        `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` kinesisStreamArn
         `Prelude.hashWithSalt` userAccessLoggingSettingsArn
 

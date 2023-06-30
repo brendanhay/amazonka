@@ -74,7 +74,8 @@ instance Data.FromJSON TrustStore where
       "TrustStore"
       ( \x ->
           TrustStore'
-            Prelude.<$> ( x Data..:? "associatedPortalArns"
+            Prelude.<$> ( x
+                            Data..:? "associatedPortalArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "trustStoreArn")
@@ -82,7 +83,8 @@ instance Data.FromJSON TrustStore where
 
 instance Prelude.Hashable TrustStore where
   hashWithSalt _salt TrustStore' {..} =
-    _salt `Prelude.hashWithSalt` associatedPortalArns
+    _salt
+      `Prelude.hashWithSalt` associatedPortalArns
       `Prelude.hashWithSalt` trustStoreArn
 
 instance Prelude.NFData TrustStore where

@@ -106,7 +106,8 @@ instance Core.AWSRequest AssociateTrustStore where
 
 instance Prelude.Hashable AssociateTrustStore where
   hashWithSalt _salt AssociateTrustStore' {..} =
-    _salt `Prelude.hashWithSalt` portalArn
+    _salt
+      `Prelude.hashWithSalt` portalArn
       `Prelude.hashWithSalt` trustStoreArn
 
 instance Prelude.NFData AssociateTrustStore where

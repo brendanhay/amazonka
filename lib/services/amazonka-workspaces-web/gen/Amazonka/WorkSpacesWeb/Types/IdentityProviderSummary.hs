@@ -86,7 +86,8 @@ instance Data.FromJSON IdentityProviderSummary where
 
 instance Prelude.Hashable IdentityProviderSummary where
   hashWithSalt _salt IdentityProviderSummary' {..} =
-    _salt `Prelude.hashWithSalt` identityProviderArn
+    _salt
+      `Prelude.hashWithSalt` identityProviderArn
       `Prelude.hashWithSalt` identityProviderName
       `Prelude.hashWithSalt` identityProviderType
 

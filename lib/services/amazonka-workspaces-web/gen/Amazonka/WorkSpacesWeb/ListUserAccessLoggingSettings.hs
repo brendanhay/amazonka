@@ -103,7 +103,8 @@ instance
       ( \s h x ->
           ListUserAccessLoggingSettingsResponse'
             Prelude.<$> (x Data..?> "nextToken")
-            Prelude.<*> ( x Data..?> "userAccessLoggingSettings"
+            Prelude.<*> ( x
+                            Data..?> "userAccessLoggingSettings"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -114,7 +115,8 @@ instance
     ListUserAccessLoggingSettings
   where
   hashWithSalt _salt ListUserAccessLoggingSettings' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListUserAccessLoggingSettings where

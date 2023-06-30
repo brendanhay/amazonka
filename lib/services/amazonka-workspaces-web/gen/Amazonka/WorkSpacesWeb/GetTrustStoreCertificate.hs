@@ -109,7 +109,8 @@ instance Core.AWSRequest GetTrustStoreCertificate where
 
 instance Prelude.Hashable GetTrustStoreCertificate where
   hashWithSalt _salt GetTrustStoreCertificate' {..} =
-    _salt `Prelude.hashWithSalt` thumbprint
+    _salt
+      `Prelude.hashWithSalt` thumbprint
       `Prelude.hashWithSalt` trustStoreArn
 
 instance Prelude.NFData GetTrustStoreCertificate where

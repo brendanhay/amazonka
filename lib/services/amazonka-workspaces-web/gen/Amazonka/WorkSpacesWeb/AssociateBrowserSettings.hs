@@ -109,7 +109,8 @@ instance Core.AWSRequest AssociateBrowserSettings where
 
 instance Prelude.Hashable AssociateBrowserSettings where
   hashWithSalt _salt AssociateBrowserSettings' {..} =
-    _salt `Prelude.hashWithSalt` browserSettingsArn
+    _salt
+      `Prelude.hashWithSalt` browserSettingsArn
       `Prelude.hashWithSalt` portalArn
 
 instance Prelude.NFData AssociateBrowserSettings where

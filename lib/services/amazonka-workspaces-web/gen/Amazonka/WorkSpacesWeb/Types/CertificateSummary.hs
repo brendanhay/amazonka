@@ -104,7 +104,8 @@ instance Data.FromJSON CertificateSummary where
 
 instance Prelude.Hashable CertificateSummary where
   hashWithSalt _salt CertificateSummary' {..} =
-    _salt `Prelude.hashWithSalt` issuer
+    _salt
+      `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` notValidAfter
       `Prelude.hashWithSalt` notValidBefore
       `Prelude.hashWithSalt` subject

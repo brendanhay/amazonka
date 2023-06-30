@@ -122,7 +122,8 @@ instance Data.FromJSON Certificate where
 
 instance Prelude.Hashable Certificate where
   hashWithSalt _salt Certificate' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` issuer
       `Prelude.hashWithSalt` notValidAfter
       `Prelude.hashWithSalt` notValidBefore

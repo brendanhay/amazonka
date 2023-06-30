@@ -86,7 +86,8 @@ instance Data.FromJSON UserAccessLoggingSettings where
       "UserAccessLoggingSettings"
       ( \x ->
           UserAccessLoggingSettings'
-            Prelude.<$> ( x Data..:? "associatedPortalArns"
+            Prelude.<$> ( x
+                            Data..:? "associatedPortalArns"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "kinesisStreamArn")
@@ -95,7 +96,8 @@ instance Data.FromJSON UserAccessLoggingSettings where
 
 instance Prelude.Hashable UserAccessLoggingSettings where
   hashWithSalt _salt UserAccessLoggingSettings' {..} =
-    _salt `Prelude.hashWithSalt` associatedPortalArns
+    _salt
+      `Prelude.hashWithSalt` associatedPortalArns
       `Prelude.hashWithSalt` kinesisStreamArn
       `Prelude.hashWithSalt` userAccessLoggingSettingsArn
 

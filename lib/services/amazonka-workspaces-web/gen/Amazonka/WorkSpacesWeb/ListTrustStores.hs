@@ -105,7 +105,8 @@ instance Core.AWSRequest ListTrustStores where
 
 instance Prelude.Hashable ListTrustStores where
   hashWithSalt _salt ListTrustStores' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListTrustStores where

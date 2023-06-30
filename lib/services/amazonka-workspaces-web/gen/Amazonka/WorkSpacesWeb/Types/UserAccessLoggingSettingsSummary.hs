@@ -84,7 +84,8 @@ instance
   hashWithSalt
     _salt
     UserAccessLoggingSettingsSummary' {..} =
-      _salt `Prelude.hashWithSalt` kinesisStreamArn
+      _salt
+        `Prelude.hashWithSalt` kinesisStreamArn
         `Prelude.hashWithSalt` userAccessLoggingSettingsArn
 
 instance

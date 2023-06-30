@@ -143,7 +143,8 @@ instance Core.AWSRequest GetAttributes where
 
 instance Prelude.Hashable GetAttributes where
   hashWithSalt _salt GetAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributeNames
+    _salt
+      `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` consistentRead
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` itemName

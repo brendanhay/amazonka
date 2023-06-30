@@ -67,7 +67,8 @@ replaceableItem_attributes = Lens.lens (\ReplaceableItem' {attributes} -> attrib
 
 instance Prelude.Hashable ReplaceableItem where
   hashWithSalt _salt ReplaceableItem' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` attributes
 
 instance Prelude.NFData ReplaceableItem where

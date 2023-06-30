@@ -159,7 +159,8 @@ instance Core.AWSRequest PutAttributes where
 
 instance Prelude.Hashable PutAttributes where
   hashWithSalt _salt PutAttributes' {..} =
-    _salt `Prelude.hashWithSalt` expected
+    _salt
+      `Prelude.hashWithSalt` expected
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` itemName
       `Prelude.hashWithSalt` attributes

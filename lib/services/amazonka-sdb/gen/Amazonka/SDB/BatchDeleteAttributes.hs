@@ -100,7 +100,8 @@ instance Core.AWSRequest BatchDeleteAttributes where
 
 instance Prelude.Hashable BatchDeleteAttributes where
   hashWithSalt _salt BatchDeleteAttributes' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` items
 
 instance Prelude.NFData BatchDeleteAttributes where

@@ -63,7 +63,8 @@ deletableItem_name = Lens.lens (\DeletableItem' {name} -> name) (\s@DeletableIte
 
 instance Prelude.Hashable DeletableItem where
   hashWithSalt _salt DeletableItem' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeletableItem where

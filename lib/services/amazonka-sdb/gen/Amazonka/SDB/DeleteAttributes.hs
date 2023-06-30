@@ -139,7 +139,8 @@ instance Core.AWSRequest DeleteAttributes where
 
 instance Prelude.Hashable DeleteAttributes where
   hashWithSalt _salt DeleteAttributes' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` expected
       `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` itemName

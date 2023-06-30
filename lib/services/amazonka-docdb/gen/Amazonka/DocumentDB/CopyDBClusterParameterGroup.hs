@@ -217,7 +217,8 @@ instance Core.AWSRequest CopyDBClusterParameterGroup where
 
 instance Prelude.Hashable CopyDBClusterParameterGroup where
   hashWithSalt _salt CopyDBClusterParameterGroup' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` sourceDBClusterParameterGroupIdentifier
       `Prelude.hashWithSalt` targetDBClusterParameterGroupIdentifier
       `Prelude.hashWithSalt` targetDBClusterParameterGroupDescription

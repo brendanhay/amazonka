@@ -135,19 +135,22 @@ instance Data.FromXML DBEngineVersion where
       Prelude.<*> (x Data..@? "DBParameterGroupFamily")
       Prelude.<*> (x Data..@? "Engine")
       Prelude.<*> (x Data..@? "EngineVersion")
-      Prelude.<*> ( x Data..@? "ExportableLogTypes"
+      Prelude.<*> ( x
+                      Data..@? "ExportableLogTypes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
       Prelude.<*> (x Data..@? "SupportsLogExportsToCloudwatchLogs")
-      Prelude.<*> ( x Data..@? "ValidUpgradeTarget"
+      Prelude.<*> ( x
+                      Data..@? "ValidUpgradeTarget"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "UpgradeTarget")
                   )
 
 instance Prelude.Hashable DBEngineVersion where
   hashWithSalt _salt DBEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` dbEngineDescription
+    _salt
+      `Prelude.hashWithSalt` dbEngineDescription
       `Prelude.hashWithSalt` dbEngineVersionDescription
       `Prelude.hashWithSalt` dbParameterGroupFamily
       `Prelude.hashWithSalt` engine

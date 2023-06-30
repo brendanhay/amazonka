@@ -380,7 +380,8 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "DBInstanceStatus")
       Prelude.<*> (x Data..@? "DBSubnetGroup")
       Prelude.<*> (x Data..@? "DbiResourceId")
-      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
+      Prelude.<*> ( x
+                      Data..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -395,11 +396,14 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
       Prelude.<*> (x Data..@? "PromotionTier")
       Prelude.<*> (x Data..@? "PubliclyAccessible")
-      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "StatusInfos"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
                   )
       Prelude.<*> (x Data..@? "StorageEncrypted")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "VpcSecurityGroupMembership")

@@ -104,7 +104,8 @@ instance Data.FromXML DBClusterRole where
 
 instance Prelude.Hashable DBClusterRole where
   hashWithSalt _salt DBClusterRole' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData DBClusterRole where

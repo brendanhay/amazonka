@@ -85,7 +85,8 @@ instance Data.FromXML Endpoint where
 
 instance Prelude.Hashable Endpoint where
   hashWithSalt _salt Endpoint' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` port
 

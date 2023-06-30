@@ -218,7 +218,8 @@ repositoryCatalogDataInput_usageText = Lens.lens (\RepositoryCatalogDataInput' {
 
 instance Prelude.Hashable RepositoryCatalogDataInput where
   hashWithSalt _salt RepositoryCatalogDataInput' {..} =
-    _salt `Prelude.hashWithSalt` aboutText
+    _salt
+      `Prelude.hashWithSalt` aboutText
       `Prelude.hashWithSalt` architectures
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` logoImageBlob

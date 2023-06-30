@@ -137,19 +137,19 @@ instance Core.AWSPager DescribeRegistries where
     | Core.stop
         ( rs
             Lens.^? describeRegistriesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. describeRegistriesResponse_registries) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeRegistries_nextToken
           Lens..~ rs
           Lens.^? describeRegistriesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeRegistries where
   type
@@ -168,7 +168,8 @@ instance Core.AWSRequest DescribeRegistries where
 
 instance Prelude.Hashable DescribeRegistries where
   hashWithSalt _salt DescribeRegistries' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData DescribeRegistries where

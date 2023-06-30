@@ -135,7 +135,8 @@ instance Data.FromJSON RegistryAlias where
 
 instance Prelude.Hashable RegistryAlias where
   hashWithSalt _salt RegistryAlias' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` primaryRegistryAlias
       `Prelude.hashWithSalt` defaultRegistryAlias

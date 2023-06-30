@@ -193,7 +193,8 @@ instance Core.AWSRequest UploadLayerPart where
 
 instance Prelude.Hashable UploadLayerPart where
   hashWithSalt _salt UploadLayerPart' {..} =
-    _salt `Prelude.hashWithSalt` registryId
+    _salt
+      `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` uploadId
       `Prelude.hashWithSalt` partFirstByte

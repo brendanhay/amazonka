@@ -85,7 +85,8 @@ instance Data.FromJSON LayerFailure where
 
 instance Prelude.Hashable LayerFailure where
   hashWithSalt _salt LayerFailure' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
+    _salt
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` layerDigest
 

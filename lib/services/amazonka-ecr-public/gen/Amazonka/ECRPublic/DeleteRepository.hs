@@ -121,7 +121,8 @@ instance Core.AWSRequest DeleteRepository where
 
 instance Prelude.Hashable DeleteRepository where
   hashWithSalt _salt DeleteRepository' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
 

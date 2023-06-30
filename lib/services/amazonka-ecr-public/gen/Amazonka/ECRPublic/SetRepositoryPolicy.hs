@@ -155,7 +155,8 @@ instance Core.AWSRequest SetRepositoryPolicy where
 
 instance Prelude.Hashable SetRepositoryPolicy where
   hashWithSalt _salt SetRepositoryPolicy' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` registryId
       `Prelude.hashWithSalt` repositoryName
       `Prelude.hashWithSalt` policyText

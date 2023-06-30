@@ -67,14 +67,17 @@ headers_quantity = Lens.lens (\Headers' {quantity} -> quantity) (\s@Headers' {} 
 instance Data.FromXML Headers where
   parseXML x =
     Headers'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Name")
                   )
       Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable Headers where
   hashWithSalt _salt Headers' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData Headers where

@@ -80,7 +80,8 @@ instance Data.FromXML QueryArgProfile where
 
 instance Prelude.Hashable QueryArgProfile where
   hashWithSalt _salt QueryArgProfile' {..} =
-    _salt `Prelude.hashWithSalt` queryArg
+    _salt
+      `Prelude.hashWithSalt` queryArg
       `Prelude.hashWithSalt` profileId
 
 instance Prelude.NFData QueryArgProfile where

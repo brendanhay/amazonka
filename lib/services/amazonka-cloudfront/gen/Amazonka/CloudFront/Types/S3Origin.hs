@@ -129,7 +129,8 @@ instance Data.FromXML S3Origin where
 
 instance Prelude.Hashable S3Origin where
   hashWithSalt _salt S3Origin' {..} =
-    _salt `Prelude.hashWithSalt` domainName
+    _salt
+      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` originAccessIdentity
 
 instance Prelude.NFData S3Origin where

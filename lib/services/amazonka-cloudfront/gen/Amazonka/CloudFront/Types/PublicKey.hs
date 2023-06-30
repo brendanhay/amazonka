@@ -99,7 +99,8 @@ instance Data.FromXML PublicKey where
 
 instance Prelude.Hashable PublicKey where
   hashWithSalt _salt PublicKey' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` publicKeyConfig
 

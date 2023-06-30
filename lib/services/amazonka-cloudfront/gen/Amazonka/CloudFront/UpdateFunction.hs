@@ -117,7 +117,8 @@ newUpdateFunction
       { ifMatch = pIfMatch_,
         functionConfig = pFunctionConfig_,
         functionCode =
-          Data._Sensitive Prelude.. Data._Base64
+          Data._Sensitive
+            Prelude.. Data._Base64
             Lens.# pFunctionCode_,
         name = pName_
       }
@@ -163,7 +164,8 @@ instance Core.AWSRequest UpdateFunction where
 
 instance Prelude.Hashable UpdateFunction where
   hashWithSalt _salt UpdateFunction' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` functionConfig
       `Prelude.hashWithSalt` functionCode
       `Prelude.hashWithSalt` name

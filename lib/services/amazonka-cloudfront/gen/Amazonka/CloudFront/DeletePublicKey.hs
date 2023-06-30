@@ -96,7 +96,8 @@ instance Core.AWSRequest DeletePublicKey where
 
 instance Prelude.Hashable DeletePublicKey where
   hashWithSalt _salt DeletePublicKey' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeletePublicKey where

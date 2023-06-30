@@ -86,7 +86,8 @@ instance Data.FromXML TrafficConfig where
 
 instance Prelude.Hashable TrafficConfig where
   hashWithSalt _salt TrafficConfig' {..} =
-    _salt `Prelude.hashWithSalt` singleHeaderConfig
+    _salt
+      `Prelude.hashWithSalt` singleHeaderConfig
       `Prelude.hashWithSalt` singleWeightConfig
       `Prelude.hashWithSalt` type'
 

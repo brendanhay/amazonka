@@ -166,7 +166,8 @@ instance
     CachePolicyQueryStringsConfig
   where
   hashWithSalt _salt CachePolicyQueryStringsConfig' {..} =
-    _salt `Prelude.hashWithSalt` queryStrings
+    _salt
+      `Prelude.hashWithSalt` queryStrings
       `Prelude.hashWithSalt` queryStringBehavior
 
 instance Prelude.NFData CachePolicyQueryStringsConfig where

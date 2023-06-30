@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     OriginRequestPolicyQueryStringsConfig' {..} =
-      _salt `Prelude.hashWithSalt` queryStrings
+      _salt
+        `Prelude.hashWithSalt` queryStrings
         `Prelude.hashWithSalt` queryStringBehavior
 
 instance

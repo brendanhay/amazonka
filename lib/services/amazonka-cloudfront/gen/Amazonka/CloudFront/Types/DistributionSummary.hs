@@ -387,7 +387,8 @@ distributionSummary_staging = Lens.lens (\DistributionSummary' {staging} -> stag
 instance Data.FromXML DistributionSummary where
   parseXML x =
     DistributionSummary'
-      Prelude.<$> ( x Data..@? "AliasICPRecordals"
+      Prelude.<$> ( x
+                      Data..@? "AliasICPRecordals"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AliasICPRecordal")
                   )
@@ -414,7 +415,8 @@ instance Data.FromXML DistributionSummary where
 
 instance Prelude.Hashable DistributionSummary where
   hashWithSalt _salt DistributionSummary' {..} =
-    _salt `Prelude.hashWithSalt` aliasICPRecordals
+    _salt
+      `Prelude.hashWithSalt` aliasICPRecordals
       `Prelude.hashWithSalt` originGroups
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn

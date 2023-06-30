@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     OriginRequestPolicyHeadersConfig' {..} =
-      _salt `Prelude.hashWithSalt` headers
+      _salt
+        `Prelude.hashWithSalt` headers
         `Prelude.hashWithSalt` headerBehavior
 
 instance

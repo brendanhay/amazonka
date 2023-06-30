@@ -117,7 +117,8 @@ instance Data.FromXML FunctionMetadata where
 
 instance Prelude.Hashable FunctionMetadata where
   hashWithSalt _salt FunctionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdTime
+    _salt
+      `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` functionARN
       `Prelude.hashWithSalt` lastModifiedTime

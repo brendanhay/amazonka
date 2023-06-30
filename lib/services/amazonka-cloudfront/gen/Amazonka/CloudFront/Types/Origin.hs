@@ -341,7 +341,8 @@ instance Data.FromXML Origin where
 
 instance Prelude.Hashable Origin where
   hashWithSalt _salt Origin' {..} =
-    _salt `Prelude.hashWithSalt` connectionAttempts
+    _salt
+      `Prelude.hashWithSalt` connectionAttempts
       `Prelude.hashWithSalt` connectionTimeout
       `Prelude.hashWithSalt` customHeaders
       `Prelude.hashWithSalt` customOriginConfig

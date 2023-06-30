@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateOriginAccessControl where
 
 instance Prelude.Hashable UpdateOriginAccessControl where
   hashWithSalt _salt UpdateOriginAccessControl' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` originAccessControlConfig
       `Prelude.hashWithSalt` id
 

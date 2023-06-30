@@ -96,7 +96,8 @@ instance Data.FromXML KinesisStreamConfig where
 
 instance Prelude.Hashable KinesisStreamConfig where
   hashWithSalt _salt KinesisStreamConfig' {..} =
-    _salt `Prelude.hashWithSalt` roleARN
+    _salt
+      `Prelude.hashWithSalt` roleARN
       `Prelude.hashWithSalt` streamARN
 
 instance Prelude.NFData KinesisStreamConfig where

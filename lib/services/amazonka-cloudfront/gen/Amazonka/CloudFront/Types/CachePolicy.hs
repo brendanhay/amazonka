@@ -109,7 +109,8 @@ instance Data.FromXML CachePolicy where
 
 instance Prelude.Hashable CachePolicy where
   hashWithSalt _salt CachePolicy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` cachePolicyConfig
 

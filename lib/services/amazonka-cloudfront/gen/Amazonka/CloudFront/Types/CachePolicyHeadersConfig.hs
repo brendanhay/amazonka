@@ -112,7 +112,8 @@ instance Data.FromXML CachePolicyHeadersConfig where
 
 instance Prelude.Hashable CachePolicyHeadersConfig where
   hashWithSalt _salt CachePolicyHeadersConfig' {..} =
-    _salt `Prelude.hashWithSalt` headers
+    _salt
+      `Prelude.hashWithSalt` headers
       `Prelude.hashWithSalt` headerBehavior
 
 instance Prelude.NFData CachePolicyHeadersConfig where

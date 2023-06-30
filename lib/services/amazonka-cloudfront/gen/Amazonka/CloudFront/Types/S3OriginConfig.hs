@@ -37,9 +37,9 @@ data S3OriginConfig = S3OriginConfig'
     --
     -- origin-access-identity\/cloudfront\//ID-of-origin-access-identity/
     --
-    -- where @ ID-of-origin-access-identity @ is the value that CloudFront
-    -- returned in the @ID@ element when you created the origin access
-    -- identity.
+    -- where @ @/@ID-of-origin-access-identity@/@ @ is the value that
+    -- CloudFront returned in the @ID@ element when you created the origin
+    -- access identity.
     --
     -- If you want viewers to be able to access objects using either the
     -- CloudFront URL or the Amazon S3 URL, specify an empty
@@ -74,9 +74,9 @@ data S3OriginConfig = S3OriginConfig'
 --
 -- origin-access-identity\/cloudfront\//ID-of-origin-access-identity/
 --
--- where @ ID-of-origin-access-identity @ is the value that CloudFront
--- returned in the @ID@ element when you created the origin access
--- identity.
+-- where @ @/@ID-of-origin-access-identity@/@ @ is the value that
+-- CloudFront returned in the @ID@ element when you created the origin
+-- access identity.
 --
 -- If you want viewers to be able to access objects using either the
 -- CloudFront URL or the Amazon S3 URL, specify an empty
@@ -109,9 +109,9 @@ newS3OriginConfig pOriginAccessIdentity_ =
 --
 -- origin-access-identity\/cloudfront\//ID-of-origin-access-identity/
 --
--- where @ ID-of-origin-access-identity @ is the value that CloudFront
--- returned in the @ID@ element when you created the origin access
--- identity.
+-- where @ @/@ID-of-origin-access-identity@/@ @ is the value that
+-- CloudFront returned in the @ID@ element when you created the origin
+-- access identity.
 --
 -- If you want viewers to be able to access objects using either the
 -- CloudFront URL or the Amazon S3 URL, specify an empty

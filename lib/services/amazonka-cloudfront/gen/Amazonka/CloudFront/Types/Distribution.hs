@@ -219,7 +219,8 @@ instance Data.FromXML Distribution where
     Distribution'
       Prelude.<$> (x Data..@? "ActiveTrustedKeyGroups")
       Prelude.<*> (x Data..@? "ActiveTrustedSigners")
-      Prelude.<*> ( x Data..@? "AliasICPRecordals"
+      Prelude.<*> ( x
+                      Data..@? "AliasICPRecordals"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "AliasICPRecordal")
                   )
@@ -233,7 +234,8 @@ instance Data.FromXML Distribution where
 
 instance Prelude.Hashable Distribution where
   hashWithSalt _salt Distribution' {..} =
-    _salt `Prelude.hashWithSalt` activeTrustedKeyGroups
+    _salt
+      `Prelude.hashWithSalt` activeTrustedKeyGroups
       `Prelude.hashWithSalt` activeTrustedSigners
       `Prelude.hashWithSalt` aliasICPRecordals
       `Prelude.hashWithSalt` id

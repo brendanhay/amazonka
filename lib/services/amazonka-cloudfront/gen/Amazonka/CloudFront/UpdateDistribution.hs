@@ -147,7 +147,8 @@ instance Core.AWSRequest UpdateDistribution where
 
 instance Prelude.Hashable UpdateDistribution where
   hashWithSalt _salt UpdateDistribution' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` distributionConfig
       `Prelude.hashWithSalt` id
 

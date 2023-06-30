@@ -91,7 +91,8 @@ instance Data.FromXML ContinuousDeploymentPolicy where
 
 instance Prelude.Hashable ContinuousDeploymentPolicy where
   hashWithSalt _salt ContinuousDeploymentPolicy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` continuousDeploymentPolicyConfig
 

@@ -770,7 +770,8 @@ instance Data.FromXML CacheBehavior where
 
 instance Prelude.Hashable CacheBehavior where
   hashWithSalt _salt CacheBehavior' {..} =
-    _salt `Prelude.hashWithSalt` allowedMethods
+    _salt
+      `Prelude.hashWithSalt` allowedMethods
       `Prelude.hashWithSalt` cachePolicyId
       `Prelude.hashWithSalt` compress
       `Prelude.hashWithSalt` defaultTTL

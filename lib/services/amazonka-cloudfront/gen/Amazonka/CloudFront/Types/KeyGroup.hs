@@ -91,7 +91,8 @@ instance Data.FromXML KeyGroup where
 
 instance Prelude.Hashable KeyGroup where
   hashWithSalt _salt KeyGroup' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` keyGroupConfig
 

@@ -120,7 +120,8 @@ newTestFunction pName_ pIfMatch_ pEventObject_ =
       name = pName_,
       ifMatch = pIfMatch_,
       eventObject =
-        Data._Sensitive Prelude.. Data._Base64
+        Data._Sensitive
+          Prelude.. Data._Base64
           Lens.# pEventObject_
     }
 
@@ -163,7 +164,8 @@ instance Core.AWSRequest TestFunction where
 
 instance Prelude.Hashable TestFunction where
   hashWithSalt _salt TestFunction' {..} =
-    _salt `Prelude.hashWithSalt` stage
+    _salt
+      `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` eventObject

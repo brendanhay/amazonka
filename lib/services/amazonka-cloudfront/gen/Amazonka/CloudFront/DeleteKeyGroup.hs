@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteKeyGroup where
 
 instance Prelude.Hashable DeleteKeyGroup where
   hashWithSalt _salt DeleteKeyGroup' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteKeyGroup where

@@ -154,7 +154,8 @@ instance Core.AWSRequest ListCachePolicies where
 
 instance Prelude.Hashable ListCachePolicies where
   hashWithSalt _salt ListCachePolicies' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` type'
 

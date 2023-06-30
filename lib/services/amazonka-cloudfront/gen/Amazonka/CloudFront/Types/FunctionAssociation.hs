@@ -82,7 +82,8 @@ instance Data.FromXML FunctionAssociation where
 
 instance Prelude.Hashable FunctionAssociation where
   hashWithSalt _salt FunctionAssociation' {..} =
-    _salt `Prelude.hashWithSalt` functionARN
+    _salt
+      `Prelude.hashWithSalt` functionARN
       `Prelude.hashWithSalt` eventType
 
 instance Prelude.NFData FunctionAssociation where

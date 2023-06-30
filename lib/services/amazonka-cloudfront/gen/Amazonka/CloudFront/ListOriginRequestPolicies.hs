@@ -158,7 +158,8 @@ instance Core.AWSRequest ListOriginRequestPolicies where
 
 instance Prelude.Hashable ListOriginRequestPolicies where
   hashWithSalt _salt ListOriginRequestPolicies' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` type'
 

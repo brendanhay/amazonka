@@ -106,7 +106,8 @@ instance Data.FromXML ResponseHeadersPolicy where
 
 instance Prelude.Hashable ResponseHeadersPolicy where
   hashWithSalt _salt ResponseHeadersPolicy' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` responseHeadersPolicyConfig
 

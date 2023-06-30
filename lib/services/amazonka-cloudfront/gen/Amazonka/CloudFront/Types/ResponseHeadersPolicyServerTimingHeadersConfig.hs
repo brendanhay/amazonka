@@ -116,7 +116,7 @@ instance
   parseXML x =
     ResponseHeadersPolicyServerTimingHeadersConfig'
       Prelude.<$> (x Data..@? "SamplingRate")
-        Prelude.<*> (x Data..@ "Enabled")
+      Prelude.<*> (x Data..@ "Enabled")
 
 instance
   Prelude.Hashable
@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyServerTimingHeadersConfig' {..} =
-      _salt `Prelude.hashWithSalt` samplingRate
+      _salt
+        `Prelude.hashWithSalt` samplingRate
         `Prelude.hashWithSalt` enabled
 
 instance

@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     ContinuousDeploymentPolicyConfig' {..} =
-      _salt `Prelude.hashWithSalt` trafficConfig
+      _salt
+        `Prelude.hashWithSalt` trafficConfig
         `Prelude.hashWithSalt` stagingDistributionDnsNames
         `Prelude.hashWithSalt` enabled
 

@@ -76,14 +76,17 @@ paths_quantity = Lens.lens (\Paths' {quantity} -> quantity) (\s@Paths' {} a -> s
 instance Data.FromXML Paths where
   parseXML x =
     Paths'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Path")
                   )
       Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable Paths where
   hashWithSalt _salt Paths' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData Paths where

@@ -121,7 +121,8 @@ instance
     CreateMonitoringSubscription
   where
   hashWithSalt _salt CreateMonitoringSubscription' {..} =
-    _salt `Prelude.hashWithSalt` monitoringSubscription
+    _salt
+      `Prelude.hashWithSalt` monitoringSubscription
       `Prelude.hashWithSalt` distributionId
 
 instance Prelude.NFData CreateMonitoringSubscription where

@@ -116,7 +116,8 @@ instance Data.FromXML FieldLevelEncryptionSummary where
 
 instance Prelude.Hashable FieldLevelEncryptionSummary where
   hashWithSalt _salt FieldLevelEncryptionSummary' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` contentTypeProfileConfig
       `Prelude.hashWithSalt` queryArgProfileConfig
       `Prelude.hashWithSalt` id

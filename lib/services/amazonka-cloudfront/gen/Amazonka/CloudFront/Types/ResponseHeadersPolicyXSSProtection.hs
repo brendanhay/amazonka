@@ -174,7 +174,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyXSSProtection' {..} =
-      _salt `Prelude.hashWithSalt` modeBlock
+      _salt
+        `Prelude.hashWithSalt` modeBlock
         `Prelude.hashWithSalt` reportUri
         `Prelude.hashWithSalt` override
         `Prelude.hashWithSalt` protection

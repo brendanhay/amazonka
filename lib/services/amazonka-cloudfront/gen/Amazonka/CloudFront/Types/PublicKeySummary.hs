@@ -115,7 +115,8 @@ instance Data.FromXML PublicKeySummary where
 
 instance Prelude.Hashable PublicKeySummary where
   hashWithSalt _salt PublicKeySummary' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` createdTime

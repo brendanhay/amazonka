@@ -119,9 +119,9 @@ instance
   parseXML x =
     ResponseHeadersPolicyStrictTransportSecurity'
       Prelude.<$> (x Data..@? "IncludeSubdomains")
-        Prelude.<*> (x Data..@? "Preload")
-        Prelude.<*> (x Data..@ "Override")
-        Prelude.<*> (x Data..@ "AccessControlMaxAgeSec")
+      Prelude.<*> (x Data..@? "Preload")
+      Prelude.<*> (x Data..@ "Override")
+      Prelude.<*> (x Data..@ "AccessControlMaxAgeSec")
 
 instance
   Prelude.Hashable
@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyStrictTransportSecurity' {..} =
-      _salt `Prelude.hashWithSalt` includeSubdomains
+      _salt
+        `Prelude.hashWithSalt` includeSubdomains
         `Prelude.hashWithSalt` preload
         `Prelude.hashWithSalt` override
         `Prelude.hashWithSalt` accessControlMaxAgeSec

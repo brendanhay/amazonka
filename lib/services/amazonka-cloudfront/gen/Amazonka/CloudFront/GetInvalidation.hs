@@ -109,7 +109,8 @@ instance Core.AWSRequest GetInvalidation where
 
 instance Prelude.Hashable GetInvalidation where
   hashWithSalt _salt GetInvalidation' {..} =
-    _salt `Prelude.hashWithSalt` distributionId
+    _salt
+      `Prelude.hashWithSalt` distributionId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData GetInvalidation where

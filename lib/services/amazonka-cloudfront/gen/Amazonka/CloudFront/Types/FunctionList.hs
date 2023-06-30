@@ -97,7 +97,9 @@ functionList_quantity = Lens.lens (\FunctionList' {quantity} -> quantity) (\s@Fu
 instance Data.FromXML FunctionList where
   parseXML x =
     FunctionList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "FunctionSummary")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -106,7 +108,8 @@ instance Data.FromXML FunctionList where
 
 instance Prelude.Hashable FunctionList where
   hashWithSalt _salt FunctionList' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` quantity

@@ -68,14 +68,17 @@ stagingDistributionDnsNames_quantity = Lens.lens (\StagingDistributionDnsNames' 
 instance Data.FromXML StagingDistributionDnsNames where
   parseXML x =
     StagingDistributionDnsNames'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DnsName")
                   )
       Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable StagingDistributionDnsNames where
   hashWithSalt _salt StagingDistributionDnsNames' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData StagingDistributionDnsNames where

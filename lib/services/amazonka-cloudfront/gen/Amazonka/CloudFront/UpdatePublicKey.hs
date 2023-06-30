@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdatePublicKey where
 
 instance Prelude.Hashable UpdatePublicKey where
   hashWithSalt _salt UpdatePublicKey' {..} =
-    _salt `Prelude.hashWithSalt` ifMatch
+    _salt
+      `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` publicKeyConfig
       `Prelude.hashWithSalt` id
 

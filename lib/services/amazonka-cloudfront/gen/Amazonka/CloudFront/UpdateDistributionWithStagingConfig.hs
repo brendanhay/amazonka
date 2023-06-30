@@ -140,8 +140,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           UpdateDistributionWithStagingConfigResponse'
-            Prelude.<$> (Data.parseXML x) Prelude.<*> (h Data..#? "ETag")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Data.parseXML x)
+            Prelude.<*> (h Data..#? "ETag")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -151,7 +152,8 @@ instance
   hashWithSalt
     _salt
     UpdateDistributionWithStagingConfig' {..} =
-      _salt `Prelude.hashWithSalt` ifMatch
+      _salt
+        `Prelude.hashWithSalt` ifMatch
         `Prelude.hashWithSalt` stagingDistributionId
         `Prelude.hashWithSalt` id
 

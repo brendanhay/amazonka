@@ -215,7 +215,8 @@ instance Data.FromXML CustomOriginConfig where
 
 instance Prelude.Hashable CustomOriginConfig where
   hashWithSalt _salt CustomOriginConfig' {..} =
-    _salt `Prelude.hashWithSalt` originKeepaliveTimeout
+    _salt
+      `Prelude.hashWithSalt` originKeepaliveTimeout
       `Prelude.hashWithSalt` originReadTimeout
       `Prelude.hashWithSalt` originSslProtocols
       `Prelude.hashWithSalt` hTTPPort

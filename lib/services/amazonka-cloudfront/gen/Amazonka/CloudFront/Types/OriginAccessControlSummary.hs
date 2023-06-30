@@ -180,7 +180,8 @@ instance Data.FromXML OriginAccessControlSummary where
 
 instance Prelude.Hashable OriginAccessControlSummary where
   hashWithSalt _salt OriginAccessControlSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signingProtocol

@@ -138,7 +138,9 @@ invalidationList_quantity = Lens.lens (\InvalidationList' {quantity} -> quantity
 instance Data.FromXML InvalidationList where
   parseXML x =
     InvalidationList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "InvalidationSummary")
                   )
       Prelude.<*> (x Data..@? "NextMarker")
@@ -149,7 +151,8 @@ instance Data.FromXML InvalidationList where
 
 instance Prelude.Hashable InvalidationList where
   hashWithSalt _salt InvalidationList' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems

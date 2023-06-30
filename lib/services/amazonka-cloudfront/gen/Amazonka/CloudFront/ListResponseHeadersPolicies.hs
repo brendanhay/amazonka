@@ -158,7 +158,8 @@ instance Core.AWSRequest ListResponseHeadersPolicies where
 
 instance Prelude.Hashable ListResponseHeadersPolicies where
   hashWithSalt _salt ListResponseHeadersPolicies' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` type'
 

@@ -91,14 +91,17 @@ customErrorResponses_quantity = Lens.lens (\CustomErrorResponses' {quantity} -> 
 instance Data.FromXML CustomErrorResponses where
   parseXML x =
     CustomErrorResponses'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "CustomErrorResponse")
                   )
       Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable CustomErrorResponses where
   hashWithSalt _salt CustomErrorResponses' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData CustomErrorResponses where

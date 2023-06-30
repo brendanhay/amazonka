@@ -108,7 +108,8 @@ instance Core.AWSRequest GetFunction where
 
 instance Prelude.Hashable GetFunction where
   hashWithSalt _salt GetFunction' {..} =
-    _salt `Prelude.hashWithSalt` stage
+    _salt
+      `Prelude.hashWithSalt` stage
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetFunction where

@@ -54,7 +54,9 @@ tags_items = Lens.lens (\Tags' {items} -> items) (\s@Tags' {} a -> s {items = a}
 instance Data.FromXML Tags where
   parseXML x =
     Tags'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
 

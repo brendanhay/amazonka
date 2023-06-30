@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     ResponseHeadersPolicyCustomHeader' {..} =
-      _salt `Prelude.hashWithSalt` header
+      _salt
+        `Prelude.hashWithSalt` header
         `Prelude.hashWithSalt` value
         `Prelude.hashWithSalt` override
 

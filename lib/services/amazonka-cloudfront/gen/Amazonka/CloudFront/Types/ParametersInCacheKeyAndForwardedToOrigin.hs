@@ -325,10 +325,10 @@ instance
   parseXML x =
     ParametersInCacheKeyAndForwardedToOrigin'
       Prelude.<$> (x Data..@? "EnableAcceptEncodingBrotli")
-        Prelude.<*> (x Data..@ "EnableAcceptEncodingGzip")
-        Prelude.<*> (x Data..@ "HeadersConfig")
-        Prelude.<*> (x Data..@ "CookiesConfig")
-        Prelude.<*> (x Data..@ "QueryStringsConfig")
+      Prelude.<*> (x Data..@ "EnableAcceptEncodingGzip")
+      Prelude.<*> (x Data..@ "HeadersConfig")
+      Prelude.<*> (x Data..@ "CookiesConfig")
+      Prelude.<*> (x Data..@ "QueryStringsConfig")
 
 instance
   Prelude.Hashable

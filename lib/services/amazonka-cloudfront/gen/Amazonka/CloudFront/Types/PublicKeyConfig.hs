@@ -117,7 +117,8 @@ instance Data.FromXML PublicKeyConfig where
 
 instance Prelude.Hashable PublicKeyConfig where
   hashWithSalt _salt PublicKeyConfig' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` callerReference
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` encodedKey

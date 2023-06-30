@@ -91,8 +91,9 @@ instance
     Response.receiveXML
       ( \s h x ->
           GetFieldLevelEncryptionProfileConfigResponse'
-            Prelude.<$> (h Data..#? "ETag") Prelude.<*> (Data.parseXML x)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (h Data..#? "ETag")
+            Prelude.<*> (Data.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -72,13 +72,16 @@ instance Data.FromXML StatusCodes where
   parseXML x =
     StatusCodes'
       Prelude.<$> (x Data..@ "Quantity")
-      Prelude.<*> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList1 "StatusCode"
                   )
 
 instance Prelude.Hashable StatusCodes where
   hashWithSalt _salt StatusCodes' {..} =
-    _salt `Prelude.hashWithSalt` quantity
+    _salt
+      `Prelude.hashWithSalt` quantity
       `Prelude.hashWithSalt` items
 
 instance Prelude.NFData StatusCodes where

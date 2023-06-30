@@ -119,7 +119,8 @@ instance
   hashWithSalt
     _salt
     FieldLevelEncryptionProfileConfig' {..} =
-      _salt `Prelude.hashWithSalt` comment
+      _salt
+        `Prelude.hashWithSalt` comment
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` callerReference
         `Prelude.hashWithSalt` encryptionEntities

@@ -97,7 +97,9 @@ conflictingAliasesList_quantity = Lens.lens (\ConflictingAliasesList' {quantity}
 instance Data.FromXML ConflictingAliasesList where
   parseXML x =
     ConflictingAliasesList'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ConflictingAlias")
                   )
       Prelude.<*> (x Data..@? "MaxItems")
@@ -106,7 +108,8 @@ instance Data.FromXML ConflictingAliasesList where
 
 instance Prelude.Hashable ConflictingAliasesList where
   hashWithSalt _salt ConflictingAliasesList' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` maxItems
       `Prelude.hashWithSalt` nextMarker
       `Prelude.hashWithSalt` quantity

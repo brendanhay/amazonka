@@ -67,14 +67,17 @@ keyPairIds_quantity = Lens.lens (\KeyPairIds' {quantity} -> quantity) (\s@KeyPai
 instance Data.FromXML KeyPairIds where
   parseXML x =
     KeyPairIds'
-      Prelude.<$> ( x Data..@? "Items" Core..!@ Prelude.mempty
+      Prelude.<$> ( x
+                      Data..@? "Items"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "KeyPairId")
                   )
       Prelude.<*> (x Data..@ "Quantity")
 
 instance Prelude.Hashable KeyPairIds where
   hashWithSalt _salt KeyPairIds' {..} =
-    _salt `Prelude.hashWithSalt` items
+    _salt
+      `Prelude.hashWithSalt` items
       `Prelude.hashWithSalt` quantity
 
 instance Prelude.NFData KeyPairIds where

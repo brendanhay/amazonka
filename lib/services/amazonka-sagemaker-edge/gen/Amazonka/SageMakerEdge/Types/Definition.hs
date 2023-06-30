@@ -96,7 +96,8 @@ instance Data.FromJSON Definition where
 
 instance Prelude.Hashable Definition where
   hashWithSalt _salt Definition' {..} =
-    _salt `Prelude.hashWithSalt` checksum
+    _salt
+      `Prelude.hashWithSalt` checksum
       `Prelude.hashWithSalt` modelHandle
       `Prelude.hashWithSalt` s3Url
       `Prelude.hashWithSalt` state

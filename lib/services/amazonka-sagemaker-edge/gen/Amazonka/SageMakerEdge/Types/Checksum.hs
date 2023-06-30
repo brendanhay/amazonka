@@ -69,12 +69,14 @@ instance Data.FromJSON Checksum where
       "Checksum"
       ( \x ->
           Checksum'
-            Prelude.<$> (x Data..:? "Sum") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Sum")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable Checksum where
   hashWithSalt _salt Checksum' {..} =
-    _salt `Prelude.hashWithSalt` sum
+    _salt
+      `Prelude.hashWithSalt` sum
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData Checksum where

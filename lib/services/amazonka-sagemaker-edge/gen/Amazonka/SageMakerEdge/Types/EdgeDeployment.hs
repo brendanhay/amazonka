@@ -101,7 +101,8 @@ instance Data.FromJSON EdgeDeployment where
 
 instance Prelude.Hashable EdgeDeployment where
   hashWithSalt _salt EdgeDeployment' {..} =
-    _salt `Prelude.hashWithSalt` definitions
+    _salt
+      `Prelude.hashWithSalt` definitions
       `Prelude.hashWithSalt` deploymentName
       `Prelude.hashWithSalt` failureHandlingPolicy
       `Prelude.hashWithSalt` type'

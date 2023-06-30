@@ -144,7 +144,8 @@ instance Core.AWSRequest SendHeartbeat where
 
 instance Prelude.Hashable SendHeartbeat where
   hashWithSalt _salt SendHeartbeat' {..} =
-    _salt `Prelude.hashWithSalt` agentMetrics
+    _salt
+      `Prelude.hashWithSalt` agentMetrics
       `Prelude.hashWithSalt` deploymentResult
       `Prelude.hashWithSalt` models
       `Prelude.hashWithSalt` agentVersion

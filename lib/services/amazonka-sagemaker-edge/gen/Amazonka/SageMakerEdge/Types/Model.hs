@@ -93,7 +93,8 @@ model_modelVersion = Lens.lens (\Model' {modelVersion} -> modelVersion) (\s@Mode
 
 instance Prelude.Hashable Model where
   hashWithSalt _salt Model' {..} =
-    _salt `Prelude.hashWithSalt` latestInference
+    _salt
+      `Prelude.hashWithSalt` latestInference
       `Prelude.hashWithSalt` latestSampleTime
       `Prelude.hashWithSalt` modelMetrics
       `Prelude.hashWithSalt` modelName

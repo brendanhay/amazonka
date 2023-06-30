@@ -284,15 +284,16 @@ instance
       ( \s h x ->
           ListTrafficPolicyInstancesByPolicyResponse'
             Prelude.<$> (x Data..@? "HostedZoneIdMarker")
-              Prelude.<*> (x Data..@? "TrafficPolicyInstanceNameMarker")
-              Prelude.<*> (x Data..@? "TrafficPolicyInstanceTypeMarker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..@? "TrafficPolicyInstances"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Data.parseXMLList "TrafficPolicyInstance"
-                          )
-              Prelude.<*> (x Data..@ "IsTruncated")
-              Prelude.<*> (x Data..@ "MaxItems")
+            Prelude.<*> (x Data..@? "TrafficPolicyInstanceNameMarker")
+            Prelude.<*> (x Data..@? "TrafficPolicyInstanceTypeMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "TrafficPolicyInstances"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLList "TrafficPolicyInstance"
+                        )
+            Prelude.<*> (x Data..@ "IsTruncated")
+            Prelude.<*> (x Data..@ "MaxItems")
       )
 
 instance
@@ -302,7 +303,8 @@ instance
   hashWithSalt
     _salt
     ListTrafficPolicyInstancesByPolicy' {..} =
-      _salt `Prelude.hashWithSalt` hostedZoneIdMarker
+      _salt
+        `Prelude.hashWithSalt` hostedZoneIdMarker
         `Prelude.hashWithSalt` maxItems
         `Prelude.hashWithSalt` trafficPolicyInstanceNameMarker
         `Prelude.hashWithSalt` trafficPolicyInstanceTypeMarker

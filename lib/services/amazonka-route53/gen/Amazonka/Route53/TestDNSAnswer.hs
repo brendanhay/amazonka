@@ -223,7 +223,9 @@ instance Core.AWSRequest TestDNSAnswer where
             Prelude.<*> (x Data..@ "Nameserver")
             Prelude.<*> (x Data..@ "RecordName")
             Prelude.<*> (x Data..@ "RecordType")
-            Prelude.<*> ( x Data..@? "RecordData" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "RecordData"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "RecordDataEntry"
                         )
             Prelude.<*> (x Data..@ "ResponseCode")
@@ -232,7 +234,8 @@ instance Core.AWSRequest TestDNSAnswer where
 
 instance Prelude.Hashable TestDNSAnswer where
   hashWithSalt _salt TestDNSAnswer' {..} =
-    _salt `Prelude.hashWithSalt` eDNS0ClientSubnetIP
+    _salt
+      `Prelude.hashWithSalt` eDNS0ClientSubnetIP
       `Prelude.hashWithSalt` eDNS0ClientSubnetMask
       `Prelude.hashWithSalt` resolverIP
       `Prelude.hashWithSalt` hostedZoneId

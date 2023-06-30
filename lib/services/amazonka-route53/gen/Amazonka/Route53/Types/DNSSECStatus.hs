@@ -149,7 +149,8 @@ instance Data.FromXML DNSSECStatus where
 
 instance Prelude.Hashable DNSSECStatus where
   hashWithSalt _salt DNSSECStatus' {..} =
-    _salt `Prelude.hashWithSalt` serveSignature
+    _salt
+      `Prelude.hashWithSalt` serveSignature
       `Prelude.hashWithSalt` statusMessage
 
 instance Prelude.NFData DNSSECStatus where

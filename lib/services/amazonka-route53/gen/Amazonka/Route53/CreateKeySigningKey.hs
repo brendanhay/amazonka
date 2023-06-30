@@ -259,7 +259,8 @@ instance Core.AWSRequest CreateKeySigningKey where
 
 instance Prelude.Hashable CreateKeySigningKey where
   hashWithSalt _salt CreateKeySigningKey' {..} =
-    _salt `Prelude.hashWithSalt` callerReference
+    _salt
+      `Prelude.hashWithSalt` callerReference
       `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` keyManagementServiceArn
       `Prelude.hashWithSalt` name

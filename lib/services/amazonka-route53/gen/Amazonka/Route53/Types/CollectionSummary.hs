@@ -102,7 +102,8 @@ instance Data.FromXML CollectionSummary where
 
 instance Prelude.Hashable CollectionSummary where
   hashWithSalt _salt CollectionSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version

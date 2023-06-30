@@ -110,7 +110,8 @@ instance Core.AWSRequest UpdateHostedZoneComment where
 
 instance Prelude.Hashable UpdateHostedZoneComment where
   hashWithSalt _salt UpdateHostedZoneComment' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateHostedZoneComment where

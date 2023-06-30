@@ -117,7 +117,8 @@ instance Data.FromXML ChangeInfo where
 
 instance Prelude.Hashable ChangeInfo where
   hashWithSalt _salt ChangeInfo' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` submittedAt

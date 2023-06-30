@@ -89,7 +89,9 @@ instance Core.AWSRequest GetHostedZone where
       ( \s h x ->
           GetHostedZoneResponse'
             Prelude.<$> (x Data..@? "DelegationSet")
-            Prelude.<*> ( x Data..@? "VPCs" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "VPCs"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList1 "VPC")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

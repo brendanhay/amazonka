@@ -175,21 +175,21 @@ instance Core.AWSPager ListQueryLoggingConfigs where
     | Core.stop
         ( rs
             Lens.^? listQueryLoggingConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listQueryLoggingConfigsResponse_queryLoggingConfigs
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listQueryLoggingConfigs_nextToken
           Lens..~ rs
           Lens.^? listQueryLoggingConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListQueryLoggingConfigs where
   type
@@ -203,7 +203,8 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
           ListQueryLoggingConfigsResponse'
             Prelude.<$> (x Data..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "QueryLoggingConfigs"
+            Prelude.<*> ( x
+                            Data..@? "QueryLoggingConfigs"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "QueryLoggingConfig"
                         )
@@ -211,7 +212,8 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
 
 instance Prelude.Hashable ListQueryLoggingConfigs where
   hashWithSalt _salt ListQueryLoggingConfigs' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

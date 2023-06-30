@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteKeySigningKey where
 
 instance Prelude.Hashable DeleteKeySigningKey where
   hashWithSalt _salt DeleteKeySigningKey' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteKeySigningKey where

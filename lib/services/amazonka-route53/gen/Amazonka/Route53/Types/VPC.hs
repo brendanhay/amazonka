@@ -80,7 +80,8 @@ instance Data.FromXML VPC where
 
 instance Prelude.Hashable VPC where
   hashWithSalt _salt VPC' {..} =
-    _salt `Prelude.hashWithSalt` vPCId
+    _salt
+      `Prelude.hashWithSalt` vPCId
       `Prelude.hashWithSalt` vPCRegion
 
 instance Prelude.NFData VPC where

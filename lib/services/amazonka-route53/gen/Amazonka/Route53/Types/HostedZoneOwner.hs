@@ -104,7 +104,8 @@ instance Data.FromXML HostedZoneOwner where
 
 instance Prelude.Hashable HostedZoneOwner where
   hashWithSalt _salt HostedZoneOwner' {..} =
-    _salt `Prelude.hashWithSalt` owningAccount
+    _salt
+      `Prelude.hashWithSalt` owningAccount
       `Prelude.hashWithSalt` owningService
 
 instance Prelude.NFData HostedZoneOwner where

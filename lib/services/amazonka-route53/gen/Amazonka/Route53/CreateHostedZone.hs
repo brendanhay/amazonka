@@ -308,7 +308,8 @@ instance Core.AWSRequest CreateHostedZone where
 
 instance Prelude.Hashable CreateHostedZone where
   hashWithSalt _salt CreateHostedZone' {..} =
-    _salt `Prelude.hashWithSalt` delegationSetId
+    _salt
+      `Prelude.hashWithSalt` delegationSetId
       `Prelude.hashWithSalt` hostedZoneConfig
       `Prelude.hashWithSalt` vpc
       `Prelude.hashWithSalt` name

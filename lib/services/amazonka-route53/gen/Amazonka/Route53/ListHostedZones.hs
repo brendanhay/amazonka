@@ -158,20 +158,20 @@ instance Core.AWSPager ListHostedZones where
   page rq rs
     | Core.stop
         (rs Lens.^. listHostedZonesResponse_isTruncated) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? listHostedZonesResponse_nextMarker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHostedZones_marker
           Lens..~ rs
           Lens.^? listHostedZonesResponse_nextMarker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHostedZones where
   type
@@ -186,7 +186,9 @@ instance Core.AWSRequest ListHostedZones where
             Prelude.<$> (x Data..@? "Marker")
             Prelude.<*> (x Data..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "HostedZones" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "HostedZones"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "HostedZone"
                         )
             Prelude.<*> (x Data..@ "IsTruncated")
@@ -195,7 +197,8 @@ instance Core.AWSRequest ListHostedZones where
 
 instance Prelude.Hashable ListHostedZones where
   hashWithSalt _salt ListHostedZones' {..} =
-    _salt `Prelude.hashWithSalt` delegationSetId
+    _salt
+      `Prelude.hashWithSalt` delegationSetId
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxItems
 

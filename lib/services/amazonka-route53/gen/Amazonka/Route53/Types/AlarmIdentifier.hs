@@ -121,11 +121,13 @@ alarmIdentifier_name = Lens.lens (\AlarmIdentifier' {name} -> name) (\s@AlarmIde
 instance Data.FromXML AlarmIdentifier where
   parseXML x =
     AlarmIdentifier'
-      Prelude.<$> (x Data..@ "Region") Prelude.<*> (x Data..@ "Name")
+      Prelude.<$> (x Data..@ "Region")
+      Prelude.<*> (x Data..@ "Name")
 
 instance Prelude.Hashable AlarmIdentifier where
   hashWithSalt _salt AlarmIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` region
+    _salt
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData AlarmIdentifier where

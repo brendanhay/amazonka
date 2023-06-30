@@ -172,7 +172,8 @@ instance Core.AWSRequest CreateReusableDelegationSet where
 
 instance Prelude.Hashable CreateReusableDelegationSet where
   hashWithSalt _salt CreateReusableDelegationSet' {..} =
-    _salt `Prelude.hashWithSalt` hostedZoneId
+    _salt
+      `Prelude.hashWithSalt` hostedZoneId
       `Prelude.hashWithSalt` callerReference
 
 instance Prelude.NFData CreateReusableDelegationSet where

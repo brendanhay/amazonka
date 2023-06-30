@@ -127,8 +127,8 @@ instance
       ( \s h x ->
           CreateVPCAssociationAuthorizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..@ "HostedZoneId")
-              Prelude.<*> (x Data..@ "VPC")
+            Prelude.<*> (x Data..@ "HostedZoneId")
+            Prelude.<*> (x Data..@ "VPC")
       )
 
 instance
@@ -138,7 +138,8 @@ instance
   hashWithSalt
     _salt
     CreateVPCAssociationAuthorization' {..} =
-      _salt `Prelude.hashWithSalt` hostedZoneId
+      _salt
+        `Prelude.hashWithSalt` hostedZoneId
         `Prelude.hashWithSalt` vpc
 
 instance

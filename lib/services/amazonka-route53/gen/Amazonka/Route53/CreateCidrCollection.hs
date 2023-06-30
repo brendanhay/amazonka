@@ -115,7 +115,8 @@ instance Core.AWSRequest CreateCidrCollection where
 
 instance Prelude.Hashable CreateCidrCollection where
   hashWithSalt _salt CreateCidrCollection' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` callerReference
 
 instance Prelude.NFData CreateCidrCollection where

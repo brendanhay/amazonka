@@ -115,7 +115,8 @@ instance Core.AWSRequest GetHealthCheckStatus where
       ( \s h x ->
           GetHealthCheckStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "HealthCheckObservations"
+            Prelude.<*> ( x
+                            Data..@? "HealthCheckObservations"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "HealthCheckObservation"
                         )

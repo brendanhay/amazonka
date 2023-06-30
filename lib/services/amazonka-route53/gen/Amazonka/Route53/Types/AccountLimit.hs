@@ -126,11 +126,13 @@ accountLimit_value = Lens.lens (\AccountLimit' {value} -> value) (\s@AccountLimi
 instance Data.FromXML AccountLimit where
   parseXML x =
     AccountLimit'
-      Prelude.<$> (x Data..@ "Type") Prelude.<*> (x Data..@ "Value")
+      Prelude.<$> (x Data..@ "Type")
+      Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable AccountLimit where
   hashWithSalt _salt AccountLimit' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData AccountLimit where

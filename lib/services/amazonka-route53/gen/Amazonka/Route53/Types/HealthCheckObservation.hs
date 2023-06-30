@@ -94,7 +94,8 @@ instance Data.FromXML HealthCheckObservation where
 
 instance Prelude.Hashable HealthCheckObservation where
   hashWithSalt _salt HealthCheckObservation' {..} =
-    _salt `Prelude.hashWithSalt` iPAddress
+    _salt
+      `Prelude.hashWithSalt` iPAddress
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` statusReport
 

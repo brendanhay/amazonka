@@ -87,11 +87,13 @@ hostedZoneLimit_value = Lens.lens (\HostedZoneLimit' {value} -> value) (\s@Hoste
 instance Data.FromXML HostedZoneLimit where
   parseXML x =
     HostedZoneLimit'
-      Prelude.<$> (x Data..@ "Type") Prelude.<*> (x Data..@ "Value")
+      Prelude.<$> (x Data..@ "Type")
+      Prelude.<*> (x Data..@ "Value")
 
 instance Prelude.Hashable HostedZoneLimit where
   hashWithSalt _salt HostedZoneLimit' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData HostedZoneLimit where

@@ -122,14 +122,17 @@ instance Core.AWSRequest ListTagsForResources where
       ( \s h x ->
           ListTagsForResourcesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "ResourceTagSets" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "ResourceTagSets"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLList "ResourceTagSet"
                         )
       )
 
 instance Prelude.Hashable ListTagsForResources where
   hashWithSalt _salt ListTagsForResources' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` resourceIds
 
 instance Prelude.NFData ListTagsForResources where

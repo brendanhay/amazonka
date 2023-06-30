@@ -165,7 +165,8 @@ instance Core.AWSRequest UpdateTrafficPolicyInstance where
 
 instance Prelude.Hashable UpdateTrafficPolicyInstance where
   hashWithSalt _salt UpdateTrafficPolicyInstance' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` ttl
       `Prelude.hashWithSalt` trafficPolicyId
       `Prelude.hashWithSalt` trafficPolicyVersion

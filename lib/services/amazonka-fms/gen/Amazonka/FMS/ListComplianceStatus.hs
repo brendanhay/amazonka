@@ -139,22 +139,22 @@ instance Core.AWSPager ListComplianceStatus where
     | Core.stop
         ( rs
             Lens.^? listComplianceStatusResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listComplianceStatusResponse_policyComplianceStatusList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listComplianceStatus_nextToken
           Lens..~ rs
           Lens.^? listComplianceStatusResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListComplianceStatus where
   type
@@ -167,7 +167,8 @@ instance Core.AWSRequest ListComplianceStatus where
       ( \s h x ->
           ListComplianceStatusResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "PolicyComplianceStatusList"
+            Prelude.<*> ( x
+                            Data..?> "PolicyComplianceStatusList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -175,7 +176,8 @@ instance Core.AWSRequest ListComplianceStatus where
 
 instance Prelude.Hashable ListComplianceStatus where
   hashWithSalt _salt ListComplianceStatus' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` policyId
 

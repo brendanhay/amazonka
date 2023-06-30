@@ -73,14 +73,16 @@ instance Data.FromJSON PartialMatch where
       ( \x ->
           PartialMatch'
             Prelude.<$> (x Data..:? "Reference")
-            Prelude.<*> ( x Data..:? "TargetViolationReasons"
+            Prelude.<*> ( x
+                            Data..:? "TargetViolationReasons"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PartialMatch where
   hashWithSalt _salt PartialMatch' {..} =
-    _salt `Prelude.hashWithSalt` reference
+    _salt
+      `Prelude.hashWithSalt` reference
       `Prelude.hashWithSalt` targetViolationReasons
 
 instance Prelude.NFData PartialMatch where

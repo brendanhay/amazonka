@@ -209,31 +209,36 @@ instance
       "NetworkFirewallInternetTrafficNotInspectedViolation"
       ( \x ->
           NetworkFirewallInternetTrafficNotInspectedViolation'
-            Prelude.<$> ( x Data..:? "ActualFirewallSubnetRoutes"
+            Prelude.<$> ( x
+                            Data..:? "ActualFirewallSubnetRoutes"
                             Data..!= Prelude.mempty
                         )
-              Prelude.<*> ( x Data..:? "ActualInternetGatewayRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "CurrentFirewallSubnetRouteTable")
-              Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
-              Prelude.<*> (x Data..:? "ExpectedFirewallEndpoint")
-              Prelude.<*> ( x Data..:? "ExpectedFirewallSubnetRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> ( x Data..:? "ExpectedInternetGatewayRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "FirewallSubnetId")
-              Prelude.<*> (x Data..:? "InternetGatewayId")
-              Prelude.<*> (x Data..:? "IsRouteTableUsedInDifferentAZ")
-              Prelude.<*> (x Data..:? "RouteTableId")
-              Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
-              Prelude.<*> (x Data..:? "SubnetId")
-              Prelude.<*> ( x Data..:? "ViolatingRoutes"
-                              Data..!= Prelude.mempty
-                          )
-              Prelude.<*> (x Data..:? "VpcId")
+            Prelude.<*> ( x
+                            Data..:? "ActualInternetGatewayRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "CurrentFirewallSubnetRouteTable")
+            Prelude.<*> (x Data..:? "CurrentInternetGatewayRouteTable")
+            Prelude.<*> (x Data..:? "ExpectedFirewallEndpoint")
+            Prelude.<*> ( x
+                            Data..:? "ExpectedFirewallSubnetRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x
+                            Data..:? "ExpectedInternetGatewayRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "FirewallSubnetId")
+            Prelude.<*> (x Data..:? "InternetGatewayId")
+            Prelude.<*> (x Data..:? "IsRouteTableUsedInDifferentAZ")
+            Prelude.<*> (x Data..:? "RouteTableId")
+            Prelude.<*> (x Data..:? "SubnetAvailabilityZone")
+            Prelude.<*> (x Data..:? "SubnetId")
+            Prelude.<*> ( x
+                            Data..:? "ViolatingRoutes"
+                            Data..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Data..:? "VpcId")
       )
 
 instance

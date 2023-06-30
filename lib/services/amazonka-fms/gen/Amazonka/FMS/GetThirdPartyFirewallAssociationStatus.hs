@@ -95,8 +95,8 @@ instance
       ( \s h x ->
           GetThirdPartyFirewallAssociationStatusResponse'
             Prelude.<$> (x Data..?> "MarketplaceOnboardingStatus")
-              Prelude.<*> (x Data..?> "ThirdPartyFirewallStatus")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ThirdPartyFirewallStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

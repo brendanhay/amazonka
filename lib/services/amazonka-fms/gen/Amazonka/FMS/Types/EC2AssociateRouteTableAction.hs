@@ -114,7 +114,8 @@ instance
     EC2AssociateRouteTableAction
   where
   hashWithSalt _salt EC2AssociateRouteTableAction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` routeTableId

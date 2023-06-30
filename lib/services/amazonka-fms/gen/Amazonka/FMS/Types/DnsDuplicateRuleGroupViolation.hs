@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     DnsDuplicateRuleGroupViolation' {..} =
-      _salt `Prelude.hashWithSalt` violationTarget
+      _salt
+        `Prelude.hashWithSalt` violationTarget
         `Prelude.hashWithSalt` violationTargetDescription
 
 instance

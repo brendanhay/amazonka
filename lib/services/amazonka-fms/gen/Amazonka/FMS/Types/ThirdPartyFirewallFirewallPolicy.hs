@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     ThirdPartyFirewallFirewallPolicy' {..} =
-      _salt `Prelude.hashWithSalt` firewallPolicyId
+      _salt
+        `Prelude.hashWithSalt` firewallPolicyId
         `Prelude.hashWithSalt` firewallPolicyName
 
 instance

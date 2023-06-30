@@ -546,7 +546,8 @@ instance Data.FromJSON SecurityServicePolicyData where
 
 instance Prelude.Hashable SecurityServicePolicyData where
   hashWithSalt _salt SecurityServicePolicyData' {..} =
-    _salt `Prelude.hashWithSalt` managedServiceData
+    _salt
+      `Prelude.hashWithSalt` managedServiceData
       `Prelude.hashWithSalt` policyOption
       `Prelude.hashWithSalt` type'
 

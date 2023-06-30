@@ -130,7 +130,8 @@ instance Core.AWSRequest GetComplianceDetail where
 
 instance Prelude.Hashable GetComplianceDetail where
   hashWithSalt _salt GetComplianceDetail' {..} =
-    _salt `Prelude.hashWithSalt` policyId
+    _salt
+      `Prelude.hashWithSalt` policyId
       `Prelude.hashWithSalt` memberAccount
 
 instance Prelude.NFData GetComplianceDetail where

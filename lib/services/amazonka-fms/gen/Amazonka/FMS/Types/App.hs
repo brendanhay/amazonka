@@ -96,7 +96,8 @@ instance Data.FromJSON App where
 
 instance Prelude.Hashable App where
   hashWithSalt _salt App' {..} =
-    _salt `Prelude.hashWithSalt` appName
+    _salt
+      `Prelude.hashWithSalt` appName
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` port
 

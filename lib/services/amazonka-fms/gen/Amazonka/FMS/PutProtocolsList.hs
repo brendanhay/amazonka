@@ -104,7 +104,8 @@ instance Core.AWSRequest PutProtocolsList where
 
 instance Prelude.Hashable PutProtocolsList where
   hashWithSalt _salt PutProtocolsList' {..} =
-    _salt `Prelude.hashWithSalt` tagList
+    _salt
+      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` protocolsList
 
 instance Prelude.NFData PutProtocolsList where

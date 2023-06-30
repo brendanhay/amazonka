@@ -102,7 +102,8 @@ instance Core.AWSRequest PutAppsList where
 
 instance Prelude.Hashable PutAppsList where
   hashWithSalt _salt PutAppsList' {..} =
-    _salt `Prelude.hashWithSalt` tagList
+    _salt
+      `Prelude.hashWithSalt` tagList
       `Prelude.hashWithSalt` appsList
 
 instance Prelude.NFData PutAppsList where

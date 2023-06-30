@@ -98,7 +98,8 @@ instance Data.FromJSON DiscoveredResource where
 
 instance Prelude.Hashable DiscoveredResource where
   hashWithSalt _salt DiscoveredResource' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` uri

@@ -77,7 +77,8 @@ instance Data.FromJSON PossibleRemediationActions where
 
 instance Prelude.Hashable PossibleRemediationActions where
   hashWithSalt _salt PossibleRemediationActions' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` description
 
 instance Prelude.NFData PossibleRemediationActions where

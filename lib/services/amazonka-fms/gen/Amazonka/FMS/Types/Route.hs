@@ -96,7 +96,8 @@ instance Data.FromJSON Route where
 
 instance Prelude.Hashable Route where
   hashWithSalt _salt Route' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` destinationType
       `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` targetType

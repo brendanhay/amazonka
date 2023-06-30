@@ -127,7 +127,8 @@ instance
     SecurityGroupRuleDescription
   where
   hashWithSalt _salt SecurityGroupRuleDescription' {..} =
-    _salt `Prelude.hashWithSalt` fromPort
+    _salt
+      `Prelude.hashWithSalt` fromPort
       `Prelude.hashWithSalt` iPV4Range
       `Prelude.hashWithSalt` iPV6Range
       `Prelude.hashWithSalt` prefixListId

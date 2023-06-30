@@ -105,7 +105,8 @@ instance
   hashWithSalt
     _salt
     SecurityGroupRemediationAction' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` isDefaultAction
         `Prelude.hashWithSalt` remediationActionType
         `Prelude.hashWithSalt` remediationResult

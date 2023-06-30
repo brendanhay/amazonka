@@ -84,7 +84,7 @@ instance
       ( \x ->
           FMSPolicyUpdateFirewallCreationConfigAction'
             Prelude.<$> (x Data..:? "Description")
-              Prelude.<*> (x Data..:? "FirewallCreationConfig")
+            Prelude.<*> (x Data..:? "FirewallCreationConfig")
       )
 
 instance
@@ -94,7 +94,8 @@ instance
   hashWithSalt
     _salt
     FMSPolicyUpdateFirewallCreationConfigAction' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` firewallCreationConfig
 
 instance

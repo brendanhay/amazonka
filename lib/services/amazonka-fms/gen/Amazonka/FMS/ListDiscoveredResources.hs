@@ -153,7 +153,8 @@ instance Core.AWSRequest ListDiscoveredResources where
 
 instance Prelude.Hashable ListDiscoveredResources where
   hashWithSalt _salt ListDiscoveredResources' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` memberAccountIds
       `Prelude.hashWithSalt` resourceType

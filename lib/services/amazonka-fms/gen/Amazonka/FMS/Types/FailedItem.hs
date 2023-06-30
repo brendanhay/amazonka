@@ -70,12 +70,14 @@ instance Data.FromJSON FailedItem where
       "FailedItem"
       ( \x ->
           FailedItem'
-            Prelude.<$> (x Data..:? "Reason") Prelude.<*> (x Data..:? "URI")
+            Prelude.<$> (x Data..:? "Reason")
+            Prelude.<*> (x Data..:? "URI")
       )
 
 instance Prelude.Hashable FailedItem where
   hashWithSalt _salt FailedItem' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData FailedItem where

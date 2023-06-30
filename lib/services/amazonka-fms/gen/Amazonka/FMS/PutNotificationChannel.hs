@@ -110,7 +110,8 @@ instance Core.AWSRequest PutNotificationChannel where
 
 instance Prelude.Hashable PutNotificationChannel where
   hashWithSalt _salt PutNotificationChannel' {..} =
-    _salt `Prelude.hashWithSalt` snsTopicArn
+    _salt
+      `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` snsRoleName
 
 instance Prelude.NFData PutNotificationChannel where

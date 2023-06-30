@@ -110,7 +110,8 @@ instance Core.AWSRequest GetProtocolsList where
 
 instance Prelude.Hashable GetProtocolsList where
   hashWithSalt _salt GetProtocolsList' {..} =
-    _salt `Prelude.hashWithSalt` defaultList
+    _salt
+      `Prelude.hashWithSalt` defaultList
       `Prelude.hashWithSalt` listId
 
 instance Prelude.NFData GetProtocolsList where

@@ -213,7 +213,8 @@ instance Data.FromJSON SpeakerEnrollmentJob where
 
 instance Prelude.Hashable SpeakerEnrollmentJob where
   hashWithSalt _salt SpeakerEnrollmentJob' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` endedAt

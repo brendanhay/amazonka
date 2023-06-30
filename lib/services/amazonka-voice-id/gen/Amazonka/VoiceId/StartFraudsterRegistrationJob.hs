@@ -202,7 +202,8 @@ instance
     StartFraudsterRegistrationJob
   where
   hashWithSalt _salt StartFraudsterRegistrationJob' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` registrationConfig
       `Prelude.hashWithSalt` dataAccessRoleArn

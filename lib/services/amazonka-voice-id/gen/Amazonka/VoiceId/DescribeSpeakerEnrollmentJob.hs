@@ -108,7 +108,8 @@ instance
     DescribeSpeakerEnrollmentJob
   where
   hashWithSalt _salt DescribeSpeakerEnrollmentJob' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData DescribeSpeakerEnrollmentJob where

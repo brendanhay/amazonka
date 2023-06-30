@@ -110,7 +110,8 @@ instance Core.AWSRequest OptOutSpeaker where
 
 instance Prelude.Hashable OptOutSpeaker where
   hashWithSalt _salt OptOutSpeaker' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` speakerId
 
 instance Prelude.NFData OptOutSpeaker where

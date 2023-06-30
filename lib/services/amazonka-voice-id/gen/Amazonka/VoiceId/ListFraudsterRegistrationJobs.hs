@@ -132,22 +132,22 @@ instance Core.AWSPager ListFraudsterRegistrationJobs where
     | Core.stop
         ( rs
             Lens.^? listFraudsterRegistrationJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listFraudsterRegistrationJobsResponse_jobSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFraudsterRegistrationJobs_nextToken
           Lens..~ rs
           Lens.^? listFraudsterRegistrationJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -172,7 +172,8 @@ instance
     ListFraudsterRegistrationJobs
   where
   hashWithSalt _salt ListFraudsterRegistrationJobs' {..} =
-    _salt `Prelude.hashWithSalt` jobStatus
+    _salt
+      `Prelude.hashWithSalt` jobStatus
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainId

@@ -90,7 +90,8 @@ instance Data.FromJSON FraudRiskDetails where
 
 instance Prelude.Hashable FraudRiskDetails where
   hashWithSalt _salt FraudRiskDetails' {..} =
-    _salt `Prelude.hashWithSalt` knownFraudsterRisk
+    _salt
+      `Prelude.hashWithSalt` knownFraudsterRisk
       `Prelude.hashWithSalt` voiceSpoofingRisk
 
 instance Prelude.NFData FraudRiskDetails where

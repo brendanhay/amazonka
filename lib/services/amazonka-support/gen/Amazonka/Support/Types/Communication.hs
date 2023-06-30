@@ -129,7 +129,8 @@ instance Data.FromJSON Communication where
 
 instance Prelude.Hashable Communication where
   hashWithSalt _salt Communication' {..} =
-    _salt `Prelude.hashWithSalt` attachmentSet
+    _salt
+      `Prelude.hashWithSalt` attachmentSet
       `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` submittedBy

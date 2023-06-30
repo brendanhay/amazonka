@@ -203,52 +203,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An attachment with the specified ID could not be found.
-_AttachmentIdNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AttachmentIdNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AttachmentIdNotFound =
   Core._MatchServiceError
     defaultService
@@ -256,7 +256,7 @@ _AttachmentIdNotFound =
 
 -- | The limit for the number of attachment sets created in a short period of
 -- time has been exceeded.
-_AttachmentLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AttachmentLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AttachmentLimitExceeded =
   Core._MatchServiceError
     defaultService
@@ -264,14 +264,14 @@ _AttachmentLimitExceeded =
 
 -- | The expiration time of the attachment set has passed. The set expires 1
 -- hour after it is created.
-_AttachmentSetExpired :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AttachmentSetExpired :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AttachmentSetExpired =
   Core._MatchServiceError
     defaultService
     "AttachmentSetExpired"
 
 -- | An attachment set with the specified ID could not be found.
-_AttachmentSetIdNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AttachmentSetIdNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AttachmentSetIdNotFound =
   Core._MatchServiceError
     defaultService
@@ -279,21 +279,21 @@ _AttachmentSetIdNotFound =
 
 -- | A limit for the size of an attachment set has been exceeded. The limits
 -- are three attachments and 5 MB per attachment.
-_AttachmentSetSizeLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AttachmentSetSizeLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AttachmentSetSizeLimitExceeded =
   Core._MatchServiceError
     defaultService
     "AttachmentSetSizeLimitExceeded"
 
 -- | The case creation limit for the account has been exceeded.
-_CaseCreationLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CaseCreationLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CaseCreationLimitExceeded =
   Core._MatchServiceError
     defaultService
     "CaseCreationLimitExceeded"
 
 -- | The requested @caseId@ couldn\'t be located.
-_CaseIdNotFound :: Core.AsError a => Lens.Fold a Core.ServiceError
+_CaseIdNotFound :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _CaseIdNotFound =
   Core._MatchServiceError
     defaultService
@@ -301,14 +301,14 @@ _CaseIdNotFound =
 
 -- | The limit for the number of DescribeAttachment requests in a short
 -- period of time has been exceeded.
-_DescribeAttachmentLimitExceeded :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DescribeAttachmentLimitExceeded :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DescribeAttachmentLimitExceeded =
   Core._MatchServiceError
     defaultService
     "DescribeAttachmentLimitExceeded"
 
 -- | An internal server error occurred.
-_InternalServerError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService

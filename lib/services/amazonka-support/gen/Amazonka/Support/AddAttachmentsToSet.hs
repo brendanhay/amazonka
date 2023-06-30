@@ -147,7 +147,8 @@ instance Core.AWSRequest AddAttachmentsToSet where
 
 instance Prelude.Hashable AddAttachmentsToSet where
   hashWithSalt _salt AddAttachmentsToSet' {..} =
-    _salt `Prelude.hashWithSalt` attachmentSetId
+    _salt
+      `Prelude.hashWithSalt` attachmentSetId
       `Prelude.hashWithSalt` attachments
 
 instance Prelude.NFData AddAttachmentsToSet where

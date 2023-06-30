@@ -148,7 +148,8 @@ instance Core.AWSRequest AddCommunicationToCase where
 
 instance Prelude.Hashable AddCommunicationToCase where
   hashWithSalt _salt AddCommunicationToCase' {..} =
-    _salt `Prelude.hashWithSalt` attachmentSetId
+    _salt
+      `Prelude.hashWithSalt` attachmentSetId
       `Prelude.hashWithSalt` caseId
       `Prelude.hashWithSalt` ccEmailAddresses
       `Prelude.hashWithSalt` communicationBody

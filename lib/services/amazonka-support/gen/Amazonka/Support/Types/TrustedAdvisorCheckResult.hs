@@ -134,14 +134,16 @@ instance Data.FromJSON TrustedAdvisorCheckResult where
             Prelude.<*> (x Data..: "status")
             Prelude.<*> (x Data..: "resourcesSummary")
             Prelude.<*> (x Data..: "categorySpecificSummary")
-            Prelude.<*> ( x Data..:? "flaggedResources"
+            Prelude.<*> ( x
+                            Data..:? "flaggedResources"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TrustedAdvisorCheckResult where
   hashWithSalt _salt TrustedAdvisorCheckResult' {..} =
-    _salt `Prelude.hashWithSalt` checkId
+    _salt
+      `Prelude.hashWithSalt` checkId
       `Prelude.hashWithSalt` timestamp
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` resourcesSummary

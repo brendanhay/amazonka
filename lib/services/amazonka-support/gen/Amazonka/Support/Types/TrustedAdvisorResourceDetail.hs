@@ -137,7 +137,8 @@ instance
     TrustedAdvisorResourceDetail
   where
   hashWithSalt _salt TrustedAdvisorResourceDetail' {..} =
-    _salt `Prelude.hashWithSalt` isSuppressed
+    _salt
+      `Prelude.hashWithSalt` isSuppressed
       `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` resourceId

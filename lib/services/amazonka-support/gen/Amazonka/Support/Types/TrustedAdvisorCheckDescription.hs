@@ -136,7 +136,8 @@ instance
   hashWithSalt
     _salt
     TrustedAdvisorCheckDescription' {..} =
-      _salt `Prelude.hashWithSalt` id
+      _salt
+        `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` category

@@ -104,7 +104,8 @@ instance Data.FromJSON SupportService where
 
 instance Prelude.Hashable SupportService where
   hashWithSalt _salt SupportService' {..} =
-    _salt `Prelude.hashWithSalt` categories
+    _salt
+      `Prelude.hashWithSalt` categories
       `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` name
 

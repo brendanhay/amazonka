@@ -94,7 +94,8 @@ instance Data.FromJSON SeverityCounts where
 
 instance Prelude.Hashable SeverityCounts where
   hashWithSalt _salt SeverityCounts' {..} =
-    _salt `Prelude.hashWithSalt` all
+    _salt
+      `Prelude.hashWithSalt` all
       `Prelude.hashWithSalt` critical
       `Prelude.hashWithSalt` high
       `Prelude.hashWithSalt` medium

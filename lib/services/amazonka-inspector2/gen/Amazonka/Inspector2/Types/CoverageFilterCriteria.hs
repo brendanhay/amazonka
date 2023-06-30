@@ -178,7 +178,8 @@ coverageFilterCriteria_scanType = Lens.lens (\CoverageFilterCriteria' {scanType}
 
 instance Prelude.Hashable CoverageFilterCriteria where
   hashWithSalt _salt CoverageFilterCriteria' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` ec2InstanceTags
       `Prelude.hashWithSalt` ecrImageTags
       `Prelude.hashWithSalt` ecrRepositoryName

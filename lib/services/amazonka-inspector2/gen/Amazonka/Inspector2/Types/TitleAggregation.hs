@@ -95,7 +95,8 @@ titleAggregation_vulnerabilityIds = Lens.lens (\TitleAggregation' {vulnerability
 
 instance Prelude.Hashable TitleAggregation where
   hashWithSalt _salt TitleAggregation' {..} =
-    _salt `Prelude.hashWithSalt` resourceType
+    _salt
+      `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder
       `Prelude.hashWithSalt` titles

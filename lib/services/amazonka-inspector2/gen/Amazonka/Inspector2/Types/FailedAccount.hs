@@ -126,7 +126,8 @@ instance Data.FromJSON FailedAccount where
 
 instance Prelude.Hashable FailedAccount where
   hashWithSalt _salt FailedAccount' {..} =
-    _salt `Prelude.hashWithSalt` resourceStatus
+    _salt
+      `Prelude.hashWithSalt` resourceStatus
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` errorCode

@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     LambdaLayerAggregationResponse' {..} =
-      _salt `Prelude.hashWithSalt` severityCounts
+      _salt
+        `Prelude.hashWithSalt` severityCounts
         `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` functionName
         `Prelude.hashWithSalt` layerArn

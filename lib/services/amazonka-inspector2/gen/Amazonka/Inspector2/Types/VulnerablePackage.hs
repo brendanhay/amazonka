@@ -175,7 +175,8 @@ instance Data.FromJSON VulnerablePackage where
 
 instance Prelude.Hashable VulnerablePackage where
   hashWithSalt _salt VulnerablePackage' {..} =
-    _salt `Prelude.hashWithSalt` arch
+    _salt
+      `Prelude.hashWithSalt` arch
       `Prelude.hashWithSalt` epoch
       `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` fixedInVersion

@@ -116,23 +116,23 @@ instance Core.AWSPager ListCoverageStatistics where
     | Core.stop
         ( rs
             Lens.^? listCoverageStatisticsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCoverageStatisticsResponse_countsByGroup
-              Prelude.. Lens._Just
-              Prelude.. Lens.to Prelude.toList
+            Prelude.. Lens._Just
+            Prelude.. Lens.to Prelude.toList
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCoverageStatistics_nextToken
           Lens..~ rs
           Lens.^? listCoverageStatisticsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoverageStatistics where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListCoverageStatistics where
 
 instance Prelude.Hashable ListCoverageStatistics where
   hashWithSalt _salt ListCoverageStatistics' {..} =
-    _salt `Prelude.hashWithSalt` filterCriteria
+    _salt
+      `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` nextToken
 

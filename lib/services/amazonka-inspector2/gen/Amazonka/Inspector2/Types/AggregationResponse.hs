@@ -204,7 +204,8 @@ instance Data.FromJSON AggregationResponse where
 
 instance Prelude.Hashable AggregationResponse where
   hashWithSalt _salt AggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` accountAggregation
+    _salt
+      `Prelude.hashWithSalt` accountAggregation
       `Prelude.hashWithSalt` amiAggregation
       `Prelude.hashWithSalt` awsEcrContainerAggregation
       `Prelude.hashWithSalt` ec2InstanceAggregation

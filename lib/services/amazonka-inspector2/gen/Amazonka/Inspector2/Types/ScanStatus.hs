@@ -80,7 +80,8 @@ instance Data.FromJSON ScanStatus where
 
 instance Prelude.Hashable ScanStatus where
   hashWithSalt _salt ScanStatus' {..} =
-    _salt `Prelude.hashWithSalt` reason
+    _salt
+      `Prelude.hashWithSalt` reason
       `Prelude.hashWithSalt` statusCode
 
 instance Prelude.NFData ScanStatus where

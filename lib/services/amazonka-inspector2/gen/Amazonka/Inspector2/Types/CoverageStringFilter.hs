@@ -69,7 +69,8 @@ coverageStringFilter_value = Lens.lens (\CoverageStringFilter' {value} -> value)
 
 instance Prelude.Hashable CoverageStringFilter where
   hashWithSalt _salt CoverageStringFilter' {..} =
-    _salt `Prelude.hashWithSalt` comparison
+    _salt
+      `Prelude.hashWithSalt` comparison
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData CoverageStringFilter where

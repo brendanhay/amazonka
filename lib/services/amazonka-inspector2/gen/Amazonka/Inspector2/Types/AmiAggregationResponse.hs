@@ -98,7 +98,8 @@ instance Data.FromJSON AmiAggregationResponse where
 
 instance Prelude.Hashable AmiAggregationResponse where
   hashWithSalt _salt AmiAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` affectedInstances
       `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` ami

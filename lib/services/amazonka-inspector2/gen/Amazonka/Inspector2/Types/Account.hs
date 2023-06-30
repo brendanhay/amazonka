@@ -93,7 +93,8 @@ instance Data.FromJSON Account where
 
 instance Prelude.Hashable Account where
   hashWithSalt _salt Account' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` resourceStatus
       `Prelude.hashWithSalt` status
 

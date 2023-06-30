@@ -79,7 +79,8 @@ instance Data.FromJSON DelegatedAdmin where
 
 instance Prelude.Hashable DelegatedAdmin where
   hashWithSalt _salt DelegatedAdmin' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` relationshipStatus
 
 instance Prelude.NFData DelegatedAdmin where

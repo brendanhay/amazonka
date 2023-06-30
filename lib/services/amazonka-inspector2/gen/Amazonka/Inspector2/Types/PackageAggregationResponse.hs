@@ -89,7 +89,8 @@ instance Data.FromJSON PackageAggregationResponse where
 
 instance Prelude.Hashable PackageAggregationResponse where
   hashWithSalt _salt PackageAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` severityCounts
       `Prelude.hashWithSalt` packageName
 

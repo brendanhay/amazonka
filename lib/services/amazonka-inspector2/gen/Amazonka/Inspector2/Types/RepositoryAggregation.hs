@@ -77,7 +77,8 @@ repositoryAggregation_sortOrder = Lens.lens (\RepositoryAggregation' {sortOrder}
 
 instance Prelude.Hashable RepositoryAggregation where
   hashWithSalt _salt RepositoryAggregation' {..} =
-    _salt `Prelude.hashWithSalt` repositories
+    _salt
+      `Prelude.hashWithSalt` repositories
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder
 

@@ -76,7 +76,8 @@ instance Data.FromJSON AccountAggregationResponse where
 
 instance Prelude.Hashable AccountAggregationResponse where
   hashWithSalt _salt AccountAggregationResponse' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` severityCounts
 
 instance Prelude.NFData AccountAggregationResponse where

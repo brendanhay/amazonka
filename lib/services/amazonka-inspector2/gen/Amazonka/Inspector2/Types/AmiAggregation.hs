@@ -77,7 +77,8 @@ amiAggregation_sortOrder = Lens.lens (\AmiAggregation' {sortOrder} -> sortOrder)
 
 instance Prelude.Hashable AmiAggregation where
   hashWithSalt _salt AmiAggregation' {..} =
-    _salt `Prelude.hashWithSalt` amis
+    _salt
+      `Prelude.hashWithSalt` amis
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder
 

@@ -109,7 +109,8 @@ instance Core.AWSRequest EnableDelegatedAdminAccount where
 
 instance Prelude.Hashable EnableDelegatedAdminAccount where
   hashWithSalt _salt EnableDelegatedAdminAccount' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` delegatedAdminAccountId
 
 instance Prelude.NFData EnableDelegatedAdminAccount where

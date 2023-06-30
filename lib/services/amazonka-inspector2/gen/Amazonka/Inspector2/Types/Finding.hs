@@ -298,7 +298,8 @@ instance Data.FromJSON Finding where
 
 instance Prelude.Hashable Finding where
   hashWithSalt _salt Finding' {..} =
-    _salt `Prelude.hashWithSalt` exploitAvailable
+    _salt
+      `Prelude.hashWithSalt` exploitAvailable
       `Prelude.hashWithSalt` exploitabilityDetails
       `Prelude.hashWithSalt` fixAvailable
       `Prelude.hashWithSalt` inspectorScore

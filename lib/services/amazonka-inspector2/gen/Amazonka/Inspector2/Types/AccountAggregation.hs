@@ -87,7 +87,8 @@ accountAggregation_sortOrder = Lens.lens (\AccountAggregation' {sortOrder} -> so
 
 instance Prelude.Hashable AccountAggregation where
   hashWithSalt _salt AccountAggregation' {..} =
-    _salt `Prelude.hashWithSalt` findingType
+    _salt
+      `Prelude.hashWithSalt` findingType
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder

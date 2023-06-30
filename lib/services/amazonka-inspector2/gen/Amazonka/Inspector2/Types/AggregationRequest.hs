@@ -184,7 +184,8 @@ aggregationRequest_titleAggregation = Lens.lens (\AggregationRequest' {titleAggr
 
 instance Prelude.Hashable AggregationRequest where
   hashWithSalt _salt AggregationRequest' {..} =
-    _salt `Prelude.hashWithSalt` accountAggregation
+    _salt
+      `Prelude.hashWithSalt` accountAggregation
       `Prelude.hashWithSalt` amiAggregation
       `Prelude.hashWithSalt` awsEcrContainerAggregation
       `Prelude.hashWithSalt` ec2InstanceAggregation

@@ -103,22 +103,22 @@ instance Core.AWSPager ListDelegatedAdminAccounts where
     | Core.stop
         ( rs
             Lens.^? listDelegatedAdminAccountsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDelegatedAdminAccountsResponse_delegatedAdminAccounts
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDelegatedAdminAccounts_nextToken
           Lens..~ rs
           Lens.^? listDelegatedAdminAccountsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDelegatedAdminAccounts where
   type
@@ -130,7 +130,8 @@ instance Core.AWSRequest ListDelegatedAdminAccounts where
     Response.receiveJSON
       ( \s h x ->
           ListDelegatedAdminAccountsResponse'
-            Prelude.<$> ( x Data..?> "delegatedAdminAccounts"
+            Prelude.<$> ( x
+                            Data..?> "delegatedAdminAccounts"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -139,7 +140,8 @@ instance Core.AWSRequest ListDelegatedAdminAccounts where
 
 instance Prelude.Hashable ListDelegatedAdminAccounts where
   hashWithSalt _salt ListDelegatedAdminAccounts' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListDelegatedAdminAccounts where

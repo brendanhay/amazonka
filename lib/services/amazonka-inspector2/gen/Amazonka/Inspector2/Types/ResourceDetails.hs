@@ -96,7 +96,8 @@ instance Data.FromJSON ResourceDetails where
 
 instance Prelude.Hashable ResourceDetails where
   hashWithSalt _salt ResourceDetails' {..} =
-    _salt `Prelude.hashWithSalt` awsEc2Instance
+    _salt
+      `Prelude.hashWithSalt` awsEc2Instance
       `Prelude.hashWithSalt` awsEcrContainerImage
       `Prelude.hashWithSalt` awsLambdaFunction
 

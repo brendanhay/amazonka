@@ -99,7 +99,8 @@ instance Data.FromJSON LambdaFunctionMetadata where
 
 instance Prelude.Hashable LambdaFunctionMetadata where
   hashWithSalt _salt LambdaFunctionMetadata' {..} =
-    _salt `Prelude.hashWithSalt` functionName
+    _salt
+      `Prelude.hashWithSalt` functionName
       `Prelude.hashWithSalt` functionTags
       `Prelude.hashWithSalt` layers
       `Prelude.hashWithSalt` runtime

@@ -77,7 +77,8 @@ packageAggregation_sortOrder = Lens.lens (\PackageAggregation' {sortOrder} -> so
 
 instance Prelude.Hashable PackageAggregation where
   hashWithSalt _salt PackageAggregation' {..} =
-    _salt `Prelude.hashWithSalt` packageNames
+    _salt
+      `Prelude.hashWithSalt` packageNames
       `Prelude.hashWithSalt` sortBy
       `Prelude.hashWithSalt` sortOrder
 

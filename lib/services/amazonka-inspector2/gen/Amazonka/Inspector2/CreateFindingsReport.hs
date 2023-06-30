@@ -117,7 +117,8 @@ instance Core.AWSRequest CreateFindingsReport where
 
 instance Prelude.Hashable CreateFindingsReport where
   hashWithSalt _salt CreateFindingsReport' {..} =
-    _salt `Prelude.hashWithSalt` filterCriteria
+    _salt
+      `Prelude.hashWithSalt` filterCriteria
       `Prelude.hashWithSalt` reportFormat
       `Prelude.hashWithSalt` s3Destination
 

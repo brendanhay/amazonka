@@ -134,7 +134,8 @@ instance
   hashWithSalt
     _salt
     Ec2InstanceAggregationResponse' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` ami
         `Prelude.hashWithSalt` instanceTags
         `Prelude.hashWithSalt` networkFindings

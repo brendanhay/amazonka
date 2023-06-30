@@ -80,7 +80,8 @@ instance Data.FromJSON ChangeProgressDetails where
 
 instance Prelude.Hashable ChangeProgressDetails where
   hashWithSalt _salt ChangeProgressDetails' {..} =
-    _salt `Prelude.hashWithSalt` changeId
+    _salt
+      `Prelude.hashWithSalt` changeId
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData ChangeProgressDetails where

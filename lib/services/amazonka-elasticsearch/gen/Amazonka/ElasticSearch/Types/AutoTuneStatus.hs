@@ -124,7 +124,8 @@ instance Data.FromJSON AutoTuneStatus where
 
 instance Prelude.Hashable AutoTuneStatus where
   hashWithSalt _salt AutoTuneStatus' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` pendingDeletion
       `Prelude.hashWithSalt` updateVersion
       `Prelude.hashWithSalt` creationDate

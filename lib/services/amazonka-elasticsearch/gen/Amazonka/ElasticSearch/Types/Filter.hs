@@ -67,7 +67,8 @@ filter_values = Lens.lens (\Filter' {values} -> values) (\s@Filter' {} a -> s {v
 
 instance Prelude.Hashable Filter where
   hashWithSalt _salt Filter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData Filter where

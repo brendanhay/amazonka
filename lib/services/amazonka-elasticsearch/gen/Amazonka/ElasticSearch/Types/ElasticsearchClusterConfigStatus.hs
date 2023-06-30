@@ -98,7 +98,8 @@ instance
   hashWithSalt
     _salt
     ElasticsearchClusterConfigStatus' {..} =
-      _salt `Prelude.hashWithSalt` options
+      _salt
+        `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` status
 
 instance

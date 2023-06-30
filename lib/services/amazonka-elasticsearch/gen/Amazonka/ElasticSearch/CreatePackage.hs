@@ -50,7 +50,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for request parameters to @ CreatePackage @ operation.
+-- | Container for request parameters to @ @@CreatePackage@@ @ operation.
 --
 -- /See:/ 'newCreatePackage' smart constructor.
 data CreatePackage = CreatePackage'
@@ -132,7 +132,8 @@ instance Core.AWSRequest CreatePackage where
 
 instance Prelude.Hashable CreatePackage where
   hashWithSalt _salt CreatePackage' {..} =
-    _salt `Prelude.hashWithSalt` packageDescription
+    _salt
+      `Prelude.hashWithSalt` packageDescription
       `Prelude.hashWithSalt` packageName
       `Prelude.hashWithSalt` packageType
       `Prelude.hashWithSalt` packageSource
@@ -166,7 +167,7 @@ instance Data.ToPath CreatePackage where
 instance Data.ToQuery CreatePackage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for response returned by @ CreatePackage @ operation.
+-- | Container for response returned by @ @@CreatePackage@@ @ operation.
 --
 -- /See:/ 'newCreatePackageResponse' smart constructor.
 data CreatePackageResponse = CreatePackageResponse'

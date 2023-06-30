@@ -74,7 +74,8 @@ instance Data.FromJSON EncryptionAtRestOptions where
 
 instance Prelude.Hashable EncryptionAtRestOptions where
   hashWithSalt _salt EncryptionAtRestOptions' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData EncryptionAtRestOptions where

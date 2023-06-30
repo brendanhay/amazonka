@@ -157,7 +157,8 @@ instance Data.FromJSON ServiceSoftwareOptions where
 
 instance Prelude.Hashable ServiceSoftwareOptions where
   hashWithSalt _salt ServiceSoftwareOptions' {..} =
-    _salt `Prelude.hashWithSalt` automatedUpdateDate
+    _salt
+      `Prelude.hashWithSalt` automatedUpdateDate
       `Prelude.hashWithSalt` cancellable
       `Prelude.hashWithSalt` currentVersion
       `Prelude.hashWithSalt` description

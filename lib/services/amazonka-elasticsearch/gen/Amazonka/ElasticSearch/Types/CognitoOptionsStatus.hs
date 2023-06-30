@@ -83,7 +83,8 @@ instance Data.FromJSON CognitoOptionsStatus where
 
 instance Prelude.Hashable CognitoOptionsStatus where
   hashWithSalt _salt CognitoOptionsStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData CognitoOptionsStatus where

@@ -50,7 +50,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for request parameters to @ UpdatePackage @ operation.
+-- | Container for request parameters to @ @@UpdatePackage@@ @ operation.
 --
 -- /See:/ 'newUpdatePackage' smart constructor.
 data UpdatePackage = UpdatePackage'
@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdatePackage where
 
 instance Prelude.Hashable UpdatePackage where
   hashWithSalt _salt UpdatePackage' {..} =
-    _salt `Prelude.hashWithSalt` commitMessage
+    _salt
+      `Prelude.hashWithSalt` commitMessage
       `Prelude.hashWithSalt` packageDescription
       `Prelude.hashWithSalt` packageID
       `Prelude.hashWithSalt` packageSource
@@ -162,7 +163,7 @@ instance Data.ToPath UpdatePackage where
 instance Data.ToQuery UpdatePackage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Container for response returned by @ UpdatePackage @ operation.
+-- | Container for response returned by @ @@UpdatePackage@@ @ operation.
 --
 -- /See:/ 'newUpdatePackageResponse' smart constructor.
 data UpdatePackageResponse = UpdatePackageResponse'

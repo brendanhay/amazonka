@@ -33,8 +33,9 @@ data UpgradeHistory = UpgradeHistory'
   { -- | UTC Timestamp at which the Upgrade API call was made in
     -- \"yyyy-MM-ddTHH:mm:ssZ\" format.
     startTimestamp :: Prelude.Maybe Data.POSIX,
-    -- | A list of @ UpgradeStepItem @ s representing information about each step
-    -- performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+    -- | A list of @ @@UpgradeStepItem@@ @ s representing information about each
+    -- step performed as pard of a specific Upgrade or Upgrade Eligibility
+    -- Check.
     stepsList :: Prelude.Maybe [UpgradeStepItem],
     -- | A string that describes the update briefly
     upgradeName :: Prelude.Maybe Prelude.Text,
@@ -60,8 +61,9 @@ data UpgradeHistory = UpgradeHistory'
 -- 'startTimestamp', 'upgradeHistory_startTimestamp' - UTC Timestamp at which the Upgrade API call was made in
 -- \"yyyy-MM-ddTHH:mm:ssZ\" format.
 --
--- 'stepsList', 'upgradeHistory_stepsList' - A list of @ UpgradeStepItem @ s representing information about each step
--- performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+-- 'stepsList', 'upgradeHistory_stepsList' - A list of @ @@UpgradeStepItem@@ @ s representing information about each
+-- step performed as pard of a specific Upgrade or Upgrade Eligibility
+-- Check.
 --
 -- 'upgradeName', 'upgradeHistory_upgradeName' - A string that describes the update briefly
 --
@@ -87,8 +89,9 @@ newUpgradeHistory =
 upgradeHistory_startTimestamp :: Lens.Lens' UpgradeHistory (Prelude.Maybe Prelude.UTCTime)
 upgradeHistory_startTimestamp = Lens.lens (\UpgradeHistory' {startTimestamp} -> startTimestamp) (\s@UpgradeHistory' {} a -> s {startTimestamp = a} :: UpgradeHistory) Prelude.. Lens.mapping Data._Time
 
--- | A list of @ UpgradeStepItem @ s representing information about each step
--- performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+-- | A list of @ @@UpgradeStepItem@@ @ s representing information about each
+-- step performed as pard of a specific Upgrade or Upgrade Eligibility
+-- Check.
 upgradeHistory_stepsList :: Lens.Lens' UpgradeHistory (Prelude.Maybe [UpgradeStepItem])
 upgradeHistory_stepsList = Lens.lens (\UpgradeHistory' {stepsList} -> stepsList) (\s@UpgradeHistory' {} a -> s {stepsList = a} :: UpgradeHistory) Prelude.. Lens.mapping Lens.coerced
 
@@ -120,7 +123,8 @@ instance Data.FromJSON UpgradeHistory where
 
 instance Prelude.Hashable UpgradeHistory where
   hashWithSalt _salt UpgradeHistory' {..} =
-    _salt `Prelude.hashWithSalt` startTimestamp
+    _salt
+      `Prelude.hashWithSalt` startTimestamp
       `Prelude.hashWithSalt` stepsList
       `Prelude.hashWithSalt` upgradeName
       `Prelude.hashWithSalt` upgradeStatus

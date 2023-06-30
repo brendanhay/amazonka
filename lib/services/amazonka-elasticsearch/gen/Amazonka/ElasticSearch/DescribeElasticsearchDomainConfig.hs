@@ -97,7 +97,7 @@ instance
       ( \s h x ->
           DescribeElasticsearchDomainConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "DomainConfig")
+            Prelude.<*> (x Data..:> "DomainConfig")
       )
 
 instance

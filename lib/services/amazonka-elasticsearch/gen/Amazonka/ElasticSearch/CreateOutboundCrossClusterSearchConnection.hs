@@ -135,11 +135,11 @@ instance
       ( \s h x ->
           CreateOutboundCrossClusterSearchConnectionResponse'
             Prelude.<$> (x Data..?> "ConnectionAlias")
-              Prelude.<*> (x Data..?> "ConnectionStatus")
-              Prelude.<*> (x Data..?> "CrossClusterSearchConnectionId")
-              Prelude.<*> (x Data..?> "DestinationDomainInfo")
-              Prelude.<*> (x Data..?> "SourceDomainInfo")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "ConnectionStatus")
+            Prelude.<*> (x Data..?> "CrossClusterSearchConnectionId")
+            Prelude.<*> (x Data..?> "DestinationDomainInfo")
+            Prelude.<*> (x Data..?> "SourceDomainInfo")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     CreateOutboundCrossClusterSearchConnection' {..} =
-      _salt `Prelude.hashWithSalt` sourceDomainInfo
+      _salt
+        `Prelude.hashWithSalt` sourceDomainInfo
         `Prelude.hashWithSalt` destinationDomainInfo
         `Prelude.hashWithSalt` connectionAlias
 

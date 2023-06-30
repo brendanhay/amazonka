@@ -65,7 +65,8 @@ describePackagesFilter_value = Lens.lens (\DescribePackagesFilter' {value} -> va
 
 instance Prelude.Hashable DescribePackagesFilter where
   hashWithSalt _salt DescribePackagesFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DescribePackagesFilter where

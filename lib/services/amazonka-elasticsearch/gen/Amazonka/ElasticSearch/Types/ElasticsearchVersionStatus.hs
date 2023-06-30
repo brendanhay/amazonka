@@ -86,7 +86,8 @@ instance Data.FromJSON ElasticsearchVersionStatus where
 
 instance Prelude.Hashable ElasticsearchVersionStatus where
   hashWithSalt _salt ElasticsearchVersionStatus' {..} =
-    _salt `Prelude.hashWithSalt` options
+    _salt
+      `Prelude.hashWithSalt` options
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ElasticsearchVersionStatus where

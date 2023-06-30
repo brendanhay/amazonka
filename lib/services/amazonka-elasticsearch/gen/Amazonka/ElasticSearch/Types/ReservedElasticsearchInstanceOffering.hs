@@ -151,7 +151,8 @@ instance
             Prelude.<*> (x Data..:? "ElasticsearchInstanceType")
             Prelude.<*> (x Data..:? "FixedPrice")
             Prelude.<*> (x Data..:? "PaymentOption")
-            Prelude.<*> ( x Data..:? "RecurringCharges"
+            Prelude.<*> ( x
+                            Data..:? "RecurringCharges"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> ( x
@@ -167,7 +168,8 @@ instance
   hashWithSalt
     _salt
     ReservedElasticsearchInstanceOffering' {..} =
-      _salt `Prelude.hashWithSalt` currencyCode
+      _salt
+        `Prelude.hashWithSalt` currencyCode
         `Prelude.hashWithSalt` duration
         `Prelude.hashWithSalt` elasticsearchInstanceType
         `Prelude.hashWithSalt` fixedPrice

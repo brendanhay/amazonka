@@ -95,10 +95,12 @@ instance Data.FromJSON VPCDerivedInfo where
       "VPCDerivedInfo"
       ( \x ->
           VPCDerivedInfo'
-            Prelude.<$> ( x Data..:? "AvailabilityZones"
+            Prelude.<$> ( x
+                            Data..:? "AvailabilityZones"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SecurityGroupIds"
+            Prelude.<*> ( x
+                            Data..:? "SecurityGroupIds"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SubnetIds" Data..!= Prelude.mempty)
@@ -107,7 +109,8 @@ instance Data.FromJSON VPCDerivedInfo where
 
 instance Prelude.Hashable VPCDerivedInfo where
   hashWithSalt _salt VPCDerivedInfo' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnetIds
       `Prelude.hashWithSalt` vPCId

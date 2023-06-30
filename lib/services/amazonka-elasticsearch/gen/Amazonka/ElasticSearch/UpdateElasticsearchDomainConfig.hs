@@ -302,7 +302,8 @@ instance
   hashWithSalt
     _salt
     UpdateElasticsearchDomainConfig' {..} =
-      _salt `Prelude.hashWithSalt` accessPolicies
+      _salt
+        `Prelude.hashWithSalt` accessPolicies
         `Prelude.hashWithSalt` advancedOptions
         `Prelude.hashWithSalt` advancedSecurityOptions
         `Prelude.hashWithSalt` autoTuneOptions

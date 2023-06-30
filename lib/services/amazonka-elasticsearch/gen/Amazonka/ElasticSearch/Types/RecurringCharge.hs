@@ -77,7 +77,8 @@ instance Data.FromJSON RecurringCharge where
 
 instance Prelude.Hashable RecurringCharge where
   hashWithSalt _salt RecurringCharge' {..} =
-    _salt `Prelude.hashWithSalt` recurringChargeAmount
+    _salt
+      `Prelude.hashWithSalt` recurringChargeAmount
       `Prelude.hashWithSalt` recurringChargeFrequency
 
 instance Prelude.NFData RecurringCharge where

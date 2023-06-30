@@ -28,13 +28,13 @@ import Amazonka.ElasticSearch.Types.StorageType
 import qualified Amazonka.Prelude as Prelude
 
 -- | Limits for given InstanceType and for each of it\'s role.
--- Limits contains following @ StorageTypes, @ @ InstanceLimits @ and
--- @ AdditionalLimits @
+-- Limits contains following @ @@StorageTypes,@@ @ @ @@InstanceLimits@@ @
+-- and @ @@AdditionalLimits@@ @
 --
 -- /See:/ 'newLimits' smart constructor.
 data Limits = Limits'
   { -- | List of additional limits that are specific to a given InstanceType and
-    -- for each of it\'s @ InstanceRole @ .
+    -- for each of it\'s @ @@InstanceRole@@ @ .
     additionalLimits :: Prelude.Maybe [AdditionalLimit],
     instanceLimits :: Prelude.Maybe InstanceLimits,
     -- | StorageType represents the list of storage related types and attributes
@@ -52,7 +52,7 @@ data Limits = Limits'
 -- for backwards compatibility:
 --
 -- 'additionalLimits', 'limits_additionalLimits' - List of additional limits that are specific to a given InstanceType and
--- for each of it\'s @ InstanceRole @ .
+-- for each of it\'s @ @@InstanceRole@@ @ .
 --
 -- 'instanceLimits', 'limits_instanceLimits' - Undocumented member.
 --
@@ -68,7 +68,7 @@ newLimits =
     }
 
 -- | List of additional limits that are specific to a given InstanceType and
--- for each of it\'s @ InstanceRole @ .
+-- for each of it\'s @ @@InstanceRole@@ @ .
 limits_additionalLimits :: Lens.Lens' Limits (Prelude.Maybe [AdditionalLimit])
 limits_additionalLimits = Lens.lens (\Limits' {additionalLimits} -> additionalLimits) (\s@Limits' {} a -> s {additionalLimits = a} :: Limits) Prelude.. Lens.mapping Lens.coerced
 
@@ -87,7 +87,8 @@ instance Data.FromJSON Limits where
       "Limits"
       ( \x ->
           Limits'
-            Prelude.<$> ( x Data..:? "AdditionalLimits"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalLimits"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InstanceLimits")
@@ -96,7 +97,8 @@ instance Data.FromJSON Limits where
 
 instance Prelude.Hashable Limits where
   hashWithSalt _salt Limits' {..} =
-    _salt `Prelude.hashWithSalt` additionalLimits
+    _salt
+      `Prelude.hashWithSalt` additionalLimits
       `Prelude.hashWithSalt` instanceLimits
       `Prelude.hashWithSalt` storageTypes
 

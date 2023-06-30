@@ -50,7 +50,8 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Container for request parameters to @ ListPackagesForDomain @ operation.
+-- | Container for request parameters to @ @@ListPackagesForDomain@@ @
+-- operation.
 --
 -- /See:/ 'newListPackagesForDomain' smart constructor.
 data ListPackagesForDomain = ListPackagesForDomain'
@@ -116,7 +117,8 @@ instance Core.AWSRequest ListPackagesForDomain where
     Response.receiveJSON
       ( \s h x ->
           ListPackagesForDomainResponse'
-            Prelude.<$> ( x Data..?> "DomainPackageDetailsList"
+            Prelude.<$> ( x
+                            Data..?> "DomainPackageDetailsList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -125,7 +127,8 @@ instance Core.AWSRequest ListPackagesForDomain where
 
 instance Prelude.Hashable ListPackagesForDomain where
   hashWithSalt _salt ListPackagesForDomain' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` domainName
 
@@ -153,7 +156,7 @@ instance Data.ToQuery ListPackagesForDomain where
         "nextToken" Data.=: nextToken
       ]
 
--- | Container for response parameters to @ ListPackagesForDomain @
+-- | Container for response parameters to @ @@ListPackagesForDomain@@ @
 -- operation.
 --
 -- /See:/ 'newListPackagesForDomainResponse' smart constructor.

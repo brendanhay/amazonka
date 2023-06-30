@@ -122,22 +122,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeReservedElasticsearchInstanceOfferingsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeReservedElasticsearchInstanceOfferingsResponse_reservedElasticsearchInstanceOfferings
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeReservedElasticsearchInstanceOfferings_nextToken
           Lens..~ rs
-            Lens.^? describeReservedElasticsearchInstanceOfferingsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeReservedElasticsearchInstanceOfferingsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -154,10 +154,11 @@ instance
       ( \s h x ->
           DescribeReservedElasticsearchInstanceOfferingsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> ( x Data..?> "ReservedElasticsearchInstanceOfferings"
-                              Core..!@ Prelude.mempty
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "ReservedElasticsearchInstanceOfferings"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -167,7 +168,8 @@ instance
   hashWithSalt
     _salt
     DescribeReservedElasticsearchInstanceOfferings' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` reservedElasticsearchInstanceOfferingId
 

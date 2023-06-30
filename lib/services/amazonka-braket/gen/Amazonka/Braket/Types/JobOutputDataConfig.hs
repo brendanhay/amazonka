@@ -86,7 +86,8 @@ instance Data.FromJSON JobOutputDataConfig where
 
 instance Prelude.Hashable JobOutputDataConfig where
   hashWithSalt _salt JobOutputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3Path
 
 instance Prelude.NFData JobOutputDataConfig where

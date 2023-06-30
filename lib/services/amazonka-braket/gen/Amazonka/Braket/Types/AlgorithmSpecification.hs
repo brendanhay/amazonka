@@ -79,7 +79,8 @@ instance Data.FromJSON AlgorithmSpecification where
 
 instance Prelude.Hashable AlgorithmSpecification where
   hashWithSalt _salt AlgorithmSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerImage
+    _salt
+      `Prelude.hashWithSalt` containerImage
       `Prelude.hashWithSalt` scriptModeConfig
 
 instance Prelude.NFData AlgorithmSpecification where

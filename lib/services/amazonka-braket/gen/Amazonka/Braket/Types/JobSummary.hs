@@ -156,7 +156,8 @@ instance Data.FromJSON JobSummary where
 
 instance Prelude.Hashable JobSummary where
   hashWithSalt _salt JobSummary' {..} =
-    _salt `Prelude.hashWithSalt` endedAt
+    _salt
+      `Prelude.hashWithSalt` endedAt
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` createdAt

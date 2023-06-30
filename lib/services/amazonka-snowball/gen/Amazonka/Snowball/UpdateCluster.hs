@@ -203,7 +203,8 @@ instance Core.AWSRequest UpdateCluster where
 
 instance Prelude.Hashable UpdateCluster where
   hashWithSalt _salt UpdateCluster' {..} =
-    _salt `Prelude.hashWithSalt` addressId
+    _salt
+      `Prelude.hashWithSalt` addressId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` forwardingAddressId
       `Prelude.hashWithSalt` notification

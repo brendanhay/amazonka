@@ -84,7 +84,8 @@ instance Data.FromJSON LambdaResource where
 
 instance Prelude.Hashable LambdaResource where
   hashWithSalt _salt LambdaResource' {..} =
-    _salt `Prelude.hashWithSalt` eventTriggers
+    _salt
+      `Prelude.hashWithSalt` eventTriggers
       `Prelude.hashWithSalt` lambdaArn
 
 instance Prelude.NFData LambdaResource where

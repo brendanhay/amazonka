@@ -116,7 +116,8 @@ instance Core.AWSRequest CreateReturnShippingLabel where
 
 instance Prelude.Hashable CreateReturnShippingLabel where
   hashWithSalt _salt CreateReturnShippingLabel' {..} =
-    _salt `Prelude.hashWithSalt` shippingOption
+    _salt
+      `Prelude.hashWithSalt` shippingOption
       `Prelude.hashWithSalt` jobId
 
 instance Prelude.NFData CreateReturnShippingLabel where

@@ -71,12 +71,14 @@ instance Data.FromJSON CompatibleImage where
       "CompatibleImage"
       ( \x ->
           CompatibleImage'
-            Prelude.<$> (x Data..:? "AmiId") Prelude.<*> (x Data..:? "Name")
+            Prelude.<$> (x Data..:? "AmiId")
+            Prelude.<*> (x Data..:? "Name")
       )
 
 instance Prelude.Hashable CompatibleImage where
   hashWithSalt _salt CompatibleImage' {..} =
-    _salt `Prelude.hashWithSalt` amiId
+    _salt
+      `Prelude.hashWithSalt` amiId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData CompatibleImage where

@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateJobShipmentState where
 
 instance Prelude.Hashable UpdateJobShipmentState where
   hashWithSalt _salt UpdateJobShipmentState' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` shipmentState
 
 instance Prelude.NFData UpdateJobShipmentState where

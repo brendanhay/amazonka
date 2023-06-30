@@ -365,55 +365,55 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Job creation failed. Currently, clusters support five nodes. If you have
 -- fewer than five nodes for your cluster and you have more nodes to create
 -- for this cluster, try again and create jobs until your cluster has
 -- exactly five nodes.
-_ClusterLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ClusterLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ClusterLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -421,7 +421,7 @@ _ClusterLimitExceededException =
 
 -- | You get this exception when you call @CreateReturnShippingLabel@ more
 -- than once when other requests are not completed.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -429,7 +429,7 @@ _ConflictException =
 
 -- | Your IAM user lacks the necessary Amazon EC2 permissions to perform the
 -- attempted action.
-_Ec2RequestFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_Ec2RequestFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _Ec2RequestFailedException =
   Core._MatchServiceError
     defaultService
@@ -437,7 +437,7 @@ _Ec2RequestFailedException =
 
 -- | The address provided was invalid. Check the address with your region\'s
 -- carrier, and try again.
-_InvalidAddressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidAddressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidAddressException =
   Core._MatchServiceError
     defaultService
@@ -446,7 +446,7 @@ _InvalidAddressException =
 -- | Job or cluster creation failed. One or more inputs were invalid. Confirm
 -- that the CreateClusterRequest$SnowballType value supports your
 -- CreateJobRequest$JobType, and try again.
-_InvalidInputCombinationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidInputCombinationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidInputCombinationException =
   Core._MatchServiceError
     defaultService
@@ -454,7 +454,7 @@ _InvalidInputCombinationException =
 
 -- | The action can\'t be performed because the job\'s current state doesn\'t
 -- allow that action to be performed.
-_InvalidJobStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidJobStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidJobStateException =
   Core._MatchServiceError
     defaultService
@@ -463,7 +463,7 @@ _InvalidJobStateException =
 -- | The @NextToken@ string was altered unexpectedly, and the operation has
 -- stopped. Run the operation without changing the @NextToken@ string, and
 -- try again.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
@@ -471,7 +471,7 @@ _InvalidNextTokenException =
 
 -- | The specified resource can\'t be found. Check the information you
 -- provided in your last request, and try again.
-_InvalidResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidResourceException =
   Core._MatchServiceError
     defaultService
@@ -479,7 +479,7 @@ _InvalidResourceException =
 
 -- | The provided Key Management Service key lacks the permissions to perform
 -- the specified CreateJob or UpdateJob action.
-_KMSRequestFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_KMSRequestFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _KMSRequestFailedException =
   Core._MatchServiceError
     defaultService
@@ -488,7 +488,7 @@ _KMSRequestFailedException =
 -- | You get this exception if you call @CreateReturnShippingLabel@ and a
 -- valid return shipping label already exists. In this case, use
 -- @DescribeReturnShippingLabel@ to get the URL.
-_ReturnShippingLabelAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ReturnShippingLabelAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ReturnShippingLabelAlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -497,7 +497,7 @@ _ReturnShippingLabelAlreadyExistsException =
 -- | The address is either outside the serviceable area for your region, or
 -- an error occurred. Check the address with your region\'s carrier and try
 -- again. If the issue persists, contact Amazon Web Services Support.
-_UnsupportedAddressException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnsupportedAddressException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnsupportedAddressException =
   Core._MatchServiceError
     defaultService

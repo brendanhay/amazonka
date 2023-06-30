@@ -302,7 +302,8 @@ instance Data.FromJSON ClusterMetadata where
 
 instance Prelude.Hashable ClusterMetadata where
   hashWithSalt _salt ClusterMetadata' {..} =
-    _salt `Prelude.hashWithSalt` addressId
+    _salt
+      `Prelude.hashWithSalt` addressId
       `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` clusterState
       `Prelude.hashWithSalt` creationDate

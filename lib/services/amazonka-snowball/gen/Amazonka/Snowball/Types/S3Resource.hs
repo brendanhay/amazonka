@@ -101,14 +101,16 @@ instance Data.FromJSON S3Resource where
           S3Resource'
             Prelude.<$> (x Data..:? "BucketArn")
             Prelude.<*> (x Data..:? "KeyRange")
-            Prelude.<*> ( x Data..:? "TargetOnDeviceServices"
+            Prelude.<*> ( x
+                            Data..:? "TargetOnDeviceServices"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable S3Resource where
   hashWithSalt _salt S3Resource' {..} =
-    _salt `Prelude.hashWithSalt` bucketArn
+    _salt
+      `Prelude.hashWithSalt` bucketArn
       `Prelude.hashWithSalt` keyRange
       `Prelude.hashWithSalt` targetOnDeviceServices
 

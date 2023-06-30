@@ -86,7 +86,8 @@ instance Data.FromJSON TargetOnDeviceService where
 
 instance Prelude.Hashable TargetOnDeviceService where
   hashWithSalt _salt TargetOnDeviceService' {..} =
-    _salt `Prelude.hashWithSalt` serviceName
+    _salt
+      `Prelude.hashWithSalt` serviceName
       `Prelude.hashWithSalt` transferOption
 
 instance Prelude.NFData TargetOnDeviceService where

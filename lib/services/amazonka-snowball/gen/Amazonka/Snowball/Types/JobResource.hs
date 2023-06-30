@@ -83,10 +83,12 @@ instance Data.FromJSON JobResource where
       "JobResource"
       ( \x ->
           JobResource'
-            Prelude.<$> ( x Data..:? "Ec2AmiResources"
+            Prelude.<$> ( x
+                            Data..:? "Ec2AmiResources"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "LambdaResources"
+            Prelude.<*> ( x
+                            Data..:? "LambdaResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "S3Resources" Data..!= Prelude.mempty)
@@ -94,7 +96,8 @@ instance Data.FromJSON JobResource where
 
 instance Prelude.Hashable JobResource where
   hashWithSalt _salt JobResource' {..} =
-    _salt `Prelude.hashWithSalt` ec2AmiResources
+    _salt
+      `Prelude.hashWithSalt` ec2AmiResources
       `Prelude.hashWithSalt` lambdaResources
       `Prelude.hashWithSalt` s3Resources
 

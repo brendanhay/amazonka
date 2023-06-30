@@ -115,22 +115,22 @@ instance Core.AWSPager ListClusterJobs where
     | Core.stop
         ( rs
             Lens.^? listClusterJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listClusterJobsResponse_jobListEntries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listClusterJobs_nextToken
           Lens..~ rs
           Lens.^? listClusterJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListClusterJobs where
   type
@@ -149,7 +149,8 @@ instance Core.AWSRequest ListClusterJobs where
 
 instance Prelude.Hashable ListClusterJobs where
   hashWithSalt _salt ListClusterJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` clusterId
 

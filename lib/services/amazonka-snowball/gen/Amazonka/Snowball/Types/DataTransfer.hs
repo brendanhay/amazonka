@@ -109,7 +109,8 @@ instance Data.FromJSON DataTransfer where
 
 instance Prelude.Hashable DataTransfer where
   hashWithSalt _salt DataTransfer' {..} =
-    _salt `Prelude.hashWithSalt` bytesTransferred
+    _salt
+      `Prelude.hashWithSalt` bytesTransferred
       `Prelude.hashWithSalt` objectsTransferred
       `Prelude.hashWithSalt` totalBytes
       `Prelude.hashWithSalt` totalObjects

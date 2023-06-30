@@ -105,7 +105,8 @@ instance Data.FromJSON ClusterListEntry where
 
 instance Prelude.Hashable ClusterListEntry where
   hashWithSalt _salt ClusterListEntry' {..} =
-    _salt `Prelude.hashWithSalt` clusterId
+    _salt
+      `Prelude.hashWithSalt` clusterId
       `Prelude.hashWithSalt` clusterState
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description

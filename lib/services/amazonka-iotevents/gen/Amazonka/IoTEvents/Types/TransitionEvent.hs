@@ -108,7 +108,8 @@ instance Data.FromJSON TransitionEvent where
 
 instance Prelude.Hashable TransitionEvent where
   hashWithSalt _salt TransitionEvent' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` eventName
       `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` nextState

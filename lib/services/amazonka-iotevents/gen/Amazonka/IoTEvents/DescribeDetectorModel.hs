@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeDetectorModel where
 
 instance Prelude.Hashable DescribeDetectorModel where
   hashWithSalt _salt DescribeDetectorModel' {..} =
-    _salt `Prelude.hashWithSalt` detectorModelVersion
+    _salt
+      `Prelude.hashWithSalt` detectorModelVersion
       `Prelude.hashWithSalt` detectorModelName
 
 instance Prelude.NFData DescribeDetectorModel where

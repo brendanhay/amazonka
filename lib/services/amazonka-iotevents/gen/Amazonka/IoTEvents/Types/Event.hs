@@ -97,7 +97,8 @@ instance Data.FromJSON Event where
 
 instance Prelude.Hashable Event where
   hashWithSalt _salt Event' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` eventName
 

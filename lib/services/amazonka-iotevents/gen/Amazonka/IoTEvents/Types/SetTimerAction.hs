@@ -105,7 +105,8 @@ instance Data.FromJSON SetTimerAction where
 
 instance Prelude.Hashable SetTimerAction where
   hashWithSalt _salt SetTimerAction' {..} =
-    _salt `Prelude.hashWithSalt` durationExpression
+    _salt
+      `Prelude.hashWithSalt` durationExpression
       `Prelude.hashWithSalt` seconds
       `Prelude.hashWithSalt` timerName
 

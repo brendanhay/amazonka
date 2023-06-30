@@ -225,7 +225,8 @@ instance Data.FromJSON AnalysisResult where
 
 instance Prelude.Hashable AnalysisResult where
   hashWithSalt _salt AnalysisResult' {..} =
-    _salt `Prelude.hashWithSalt` level
+    _salt
+      `Prelude.hashWithSalt` level
       `Prelude.hashWithSalt` locations
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` type'

@@ -81,7 +81,8 @@ instance Data.FromJSON IotEventsAction where
 
 instance Prelude.Hashable IotEventsAction where
   hashWithSalt _salt IotEventsAction' {..} =
-    _salt `Prelude.hashWithSalt` payload
+    _salt
+      `Prelude.hashWithSalt` payload
       `Prelude.hashWithSalt` inputName
 
 instance Prelude.NFData IotEventsAction where

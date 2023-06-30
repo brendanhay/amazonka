@@ -76,7 +76,8 @@ instance Data.FromJSON Input where
 
 instance Prelude.Hashable Input where
   hashWithSalt _salt Input' {..} =
-    _salt `Prelude.hashWithSalt` inputConfiguration
+    _salt
+      `Prelude.hashWithSalt` inputConfiguration
       `Prelude.hashWithSalt` inputDefinition
 
 instance Prelude.NFData Input where

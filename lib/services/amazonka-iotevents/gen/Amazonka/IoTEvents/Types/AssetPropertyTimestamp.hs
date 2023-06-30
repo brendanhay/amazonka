@@ -114,7 +114,8 @@ instance Data.FromJSON AssetPropertyTimestamp where
 
 instance Prelude.Hashable AssetPropertyTimestamp where
   hashWithSalt _salt AssetPropertyTimestamp' {..} =
-    _salt `Prelude.hashWithSalt` offsetInNanos
+    _salt
+      `Prelude.hashWithSalt` offsetInNanos
       `Prelude.hashWithSalt` timeInSeconds
 
 instance Prelude.NFData AssetPropertyTimestamp where

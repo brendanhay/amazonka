@@ -122,7 +122,8 @@ instance Core.AWSRequest CreateInput where
 
 instance Prelude.Hashable CreateInput where
   hashWithSalt _salt CreateInput' {..} =
-    _salt `Prelude.hashWithSalt` inputDescription
+    _salt
+      `Prelude.hashWithSalt` inputDescription
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` inputName
       `Prelude.hashWithSalt` inputDefinition

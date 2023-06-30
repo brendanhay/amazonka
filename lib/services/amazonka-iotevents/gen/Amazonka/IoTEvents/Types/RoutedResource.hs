@@ -74,12 +74,14 @@ instance Data.FromJSON RoutedResource where
       "RoutedResource"
       ( \x ->
           RoutedResource'
-            Prelude.<$> (x Data..:? "arn") Prelude.<*> (x Data..:? "name")
+            Prelude.<$> (x Data..:? "arn")
+            Prelude.<*> (x Data..:? "name")
       )
 
 instance Prelude.Hashable RoutedResource where
   hashWithSalt _salt RoutedResource' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RoutedResource where

@@ -114,7 +114,8 @@ instance Data.FromJSON EmailConfiguration where
 
 instance Prelude.Hashable EmailConfiguration where
   hashWithSalt _salt EmailConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` from
       `Prelude.hashWithSalt` recipients
 

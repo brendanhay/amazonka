@@ -131,7 +131,8 @@ instance Data.FromJSON InputConfiguration where
 
 instance Prelude.Hashable InputConfiguration where
   hashWithSalt _salt InputConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inputDescription
+    _salt
+      `Prelude.hashWithSalt` inputDescription
       `Prelude.hashWithSalt` inputName
       `Prelude.hashWithSalt` inputArn
       `Prelude.hashWithSalt` creationTime

@@ -187,7 +187,8 @@ instance Data.FromJSON DetectorModelConfiguration where
 
 instance Prelude.Hashable DetectorModelConfiguration where
   hashWithSalt _salt DetectorModelConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` detectorModelArn
       `Prelude.hashWithSalt` detectorModelDescription
       `Prelude.hashWithSalt` detectorModelName

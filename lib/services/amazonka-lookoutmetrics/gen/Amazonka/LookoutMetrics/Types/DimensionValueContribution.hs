@@ -75,7 +75,8 @@ instance Data.FromJSON DimensionValueContribution where
 
 instance Prelude.Hashable DimensionValueContribution where
   hashWithSalt _salt DimensionValueContribution' {..} =
-    _salt `Prelude.hashWithSalt` contributionScore
+    _salt
+      `Prelude.hashWithSalt` contributionScore
       `Prelude.hashWithSalt` dimensionValue
 
 instance Prelude.NFData DimensionValueContribution where

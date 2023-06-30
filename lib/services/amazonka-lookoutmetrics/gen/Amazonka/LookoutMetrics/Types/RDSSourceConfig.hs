@@ -140,7 +140,8 @@ instance Data.FromJSON RDSSourceConfig where
 
 instance Prelude.Hashable RDSSourceConfig where
   hashWithSalt _salt RDSSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` databaseHost
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` databasePort

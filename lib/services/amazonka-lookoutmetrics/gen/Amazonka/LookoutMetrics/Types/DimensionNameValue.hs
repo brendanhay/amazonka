@@ -81,7 +81,8 @@ instance Data.FromJSON DimensionNameValue where
 
 instance Prelude.Hashable DimensionNameValue where
   hashWithSalt _salt DimensionNameValue' {..} =
-    _salt `Prelude.hashWithSalt` dimensionName
+    _salt
+      `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` dimensionValue
 
 instance Prelude.NFData DimensionNameValue where

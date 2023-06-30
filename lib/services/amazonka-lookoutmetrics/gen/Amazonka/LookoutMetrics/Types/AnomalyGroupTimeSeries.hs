@@ -67,7 +67,8 @@ anomalyGroupTimeSeries_anomalyGroupId = Lens.lens (\AnomalyGroupTimeSeries' {ano
 
 instance Prelude.Hashable AnomalyGroupTimeSeries where
   hashWithSalt _salt AnomalyGroupTimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` timeSeriesId
+    _salt
+      `Prelude.hashWithSalt` timeSeriesId
       `Prelude.hashWithSalt` anomalyGroupId
 
 instance Prelude.NFData AnomalyGroupTimeSeries where

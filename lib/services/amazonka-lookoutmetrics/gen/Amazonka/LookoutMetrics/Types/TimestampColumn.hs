@@ -75,7 +75,8 @@ instance Data.FromJSON TimestampColumn where
 
 instance Prelude.Hashable TimestampColumn where
   hashWithSalt _salt TimestampColumn' {..} =
-    _salt `Prelude.hashWithSalt` columnFormat
+    _salt
+      `Prelude.hashWithSalt` columnFormat
       `Prelude.hashWithSalt` columnName
 
 instance Prelude.NFData TimestampColumn where

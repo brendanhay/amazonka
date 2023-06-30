@@ -142,7 +142,8 @@ instance Data.FromJSON RedshiftSourceConfig where
 
 instance Prelude.Hashable RedshiftSourceConfig where
   hashWithSalt _salt RedshiftSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` databaseHost
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` databasePort

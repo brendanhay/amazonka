@@ -127,7 +127,8 @@ instance Core.AWSRequest UpdateAnomalyDetector where
 
 instance Prelude.Hashable UpdateAnomalyDetector where
   hashWithSalt _salt UpdateAnomalyDetector' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorConfig
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorConfig
       `Prelude.hashWithSalt` anomalyDetectorDescription
       `Prelude.hashWithSalt` kmsKeyArn
       `Prelude.hashWithSalt` anomalyDetectorArn

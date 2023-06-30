@@ -65,7 +65,8 @@ autoDetectionS3SourceConfig_templatedPathList = Lens.lens (\AutoDetectionS3Sourc
 
 instance Prelude.Hashable AutoDetectionS3SourceConfig where
   hashWithSalt _salt AutoDetectionS3SourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` historicalDataPathList
+    _salt
+      `Prelude.hashWithSalt` historicalDataPathList
       `Prelude.hashWithSalt` templatedPathList
 
 instance Prelude.NFData AutoDetectionS3SourceConfig where

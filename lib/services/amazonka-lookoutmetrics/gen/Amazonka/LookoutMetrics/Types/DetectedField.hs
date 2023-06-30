@@ -86,7 +86,8 @@ instance Data.FromJSON DetectedField where
 
 instance Prelude.Hashable DetectedField where
   hashWithSalt _salt DetectedField' {..} =
-    _salt `Prelude.hashWithSalt` confidence
+    _salt
+      `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` value
 

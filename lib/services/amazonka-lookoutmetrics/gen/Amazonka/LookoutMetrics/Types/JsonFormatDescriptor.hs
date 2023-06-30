@@ -76,7 +76,8 @@ instance Data.FromJSON JsonFormatDescriptor where
 
 instance Prelude.Hashable JsonFormatDescriptor where
   hashWithSalt _salt JsonFormatDescriptor' {..} =
-    _salt `Prelude.hashWithSalt` charset
+    _salt
+      `Prelude.hashWithSalt` charset
       `Prelude.hashWithSalt` fileCompression
 
 instance Prelude.NFData JsonFormatDescriptor where

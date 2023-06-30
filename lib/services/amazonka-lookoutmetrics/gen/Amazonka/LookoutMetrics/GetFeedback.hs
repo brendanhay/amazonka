@@ -123,7 +123,8 @@ instance Core.AWSRequest GetFeedback where
     Response.receiveJSON
       ( \s h x ->
           GetFeedbackResponse'
-            Prelude.<$> ( x Data..?> "AnomalyGroupTimeSeriesFeedback"
+            Prelude.<$> ( x
+                            Data..?> "AnomalyGroupTimeSeriesFeedback"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -132,7 +133,8 @@ instance Core.AWSRequest GetFeedback where
 
 instance Prelude.Hashable GetFeedback where
   hashWithSalt _salt GetFeedback' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` anomalyGroupTimeSeriesFeedback

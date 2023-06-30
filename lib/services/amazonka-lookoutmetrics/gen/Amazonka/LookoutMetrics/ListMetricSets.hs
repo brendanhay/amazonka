@@ -117,7 +117,8 @@ instance Core.AWSRequest ListMetricSets where
     Response.receiveJSON
       ( \s h x ->
           ListMetricSetsResponse'
-            Prelude.<$> ( x Data..?> "MetricSetSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "MetricSetSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -126,7 +127,8 @@ instance Core.AWSRequest ListMetricSets where
 
 instance Prelude.Hashable ListMetricSets where
   hashWithSalt _salt ListMetricSets' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

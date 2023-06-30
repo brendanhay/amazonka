@@ -108,7 +108,8 @@ instance Core.AWSRequest DetectMetricSetConfig where
 
 instance Prelude.Hashable DetectMetricSetConfig where
   hashWithSalt _salt DetectMetricSetConfig' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` autoDetectionMetricSource
 
 instance Prelude.NFData DetectMetricSetConfig where

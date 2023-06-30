@@ -98,7 +98,8 @@ instance Data.FromJSON DataQualityMetric where
 
 instance Prelude.Hashable DataQualityMetric where
   hashWithSalt _salt DataQualityMetric' {..} =
-    _salt `Prelude.hashWithSalt` metricDescription
+    _salt
+      `Prelude.hashWithSalt` metricDescription
       `Prelude.hashWithSalt` metricType
       `Prelude.hashWithSalt` metricValue
       `Prelude.hashWithSalt` relatedColumnName

@@ -84,14 +84,16 @@ instance Data.FromJSON TimeSeries where
           TimeSeries'
             Prelude.<$> (x Data..: "TimeSeriesId")
             Prelude.<*> (x Data..:? "DimensionList" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "MetricValueList"
+            Prelude.<*> ( x
+                            Data..:? "MetricValueList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable TimeSeries where
   hashWithSalt _salt TimeSeries' {..} =
-    _salt `Prelude.hashWithSalt` timeSeriesId
+    _salt
+      `Prelude.hashWithSalt` timeSeriesId
       `Prelude.hashWithSalt` dimensionList
       `Prelude.hashWithSalt` metricValueList
 

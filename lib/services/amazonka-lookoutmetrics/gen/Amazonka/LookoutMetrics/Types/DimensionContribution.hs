@@ -71,14 +71,16 @@ instance Data.FromJSON DimensionContribution where
       ( \x ->
           DimensionContribution'
             Prelude.<$> (x Data..:? "DimensionName")
-            Prelude.<*> ( x Data..:? "DimensionValueContributionList"
+            Prelude.<*> ( x
+                            Data..:? "DimensionValueContributionList"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DimensionContribution where
   hashWithSalt _salt DimensionContribution' {..} =
-    _salt `Prelude.hashWithSalt` dimensionName
+    _salt
+      `Prelude.hashWithSalt` dimensionName
       `Prelude.hashWithSalt` dimensionValueContributionList
 
 instance Prelude.NFData DimensionContribution where

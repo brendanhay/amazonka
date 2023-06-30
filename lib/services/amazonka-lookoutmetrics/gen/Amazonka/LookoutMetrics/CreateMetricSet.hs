@@ -228,7 +228,8 @@ instance Core.AWSRequest CreateMetricSet where
 
 instance Prelude.Hashable CreateMetricSet where
   hashWithSalt _salt CreateMetricSet' {..} =
-    _salt `Prelude.hashWithSalt` dimensionFilterList
+    _salt
+      `Prelude.hashWithSalt` dimensionFilterList
       `Prelude.hashWithSalt` dimensionList
       `Prelude.hashWithSalt` metricSetDescription
       `Prelude.hashWithSalt` metricSetFrequency

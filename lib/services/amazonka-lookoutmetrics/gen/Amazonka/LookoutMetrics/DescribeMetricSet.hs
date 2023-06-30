@@ -104,7 +104,8 @@ instance Core.AWSRequest DescribeMetricSet where
           DescribeMetricSetResponse'
             Prelude.<$> (x Data..?> "AnomalyDetectorArn")
             Prelude.<*> (x Data..?> "CreationTime")
-            Prelude.<*> ( x Data..?> "DimensionFilterList"
+            Prelude.<*> ( x
+                            Data..?> "DimensionFilterList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "DimensionList")

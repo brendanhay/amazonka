@@ -129,7 +129,8 @@ instance Data.FromJSON AnomalyDetectorSummary where
 
 instance Prelude.Hashable AnomalyDetectorSummary where
   hashWithSalt _salt AnomalyDetectorSummary' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` anomalyDetectorDescription
       `Prelude.hashWithSalt` anomalyDetectorName
       `Prelude.hashWithSalt` creationTime

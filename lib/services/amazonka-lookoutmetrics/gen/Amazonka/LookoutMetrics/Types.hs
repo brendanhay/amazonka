@@ -583,52 +583,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -636,7 +636,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | There was a conflict processing the request. Try your request again.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -645,7 +645,7 @@ _ConflictException =
 
 -- | The request processing has failed because of an unknown error,
 -- exception, or failure.
-_InternalServerException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServerException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
     defaultService
@@ -654,7 +654,7 @@ _InternalServerException =
 
 -- | The specified resource cannot be found. Check the ARN of the resource
 -- and try again.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -663,7 +663,7 @@ _ResourceNotFoundException =
 
 -- | The request exceeded the service\'s quotas. Check the service quotas and
 -- try again.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -672,7 +672,7 @@ _ServiceQuotaExceededException =
 
 -- | The request was denied due to too many requests being submitted at the
 -- same time.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService
@@ -681,7 +681,7 @@ _TooManyRequestsException =
 
 -- | The input fails to satisfy the constraints specified by the AWS service.
 -- Check your input values and try again.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService

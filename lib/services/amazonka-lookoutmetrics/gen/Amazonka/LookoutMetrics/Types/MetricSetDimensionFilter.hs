@@ -80,7 +80,8 @@ instance Data.FromJSON MetricSetDimensionFilter where
 
 instance Prelude.Hashable MetricSetDimensionFilter where
   hashWithSalt _salt MetricSetDimensionFilter' {..} =
-    _salt `Prelude.hashWithSalt` filterList
+    _salt
+      `Prelude.hashWithSalt` filterList
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData MetricSetDimensionFilter where

@@ -133,7 +133,8 @@ instance Core.AWSRequest UpdateAlert where
 
 instance Prelude.Hashable UpdateAlert where
   hashWithSalt _salt UpdateAlert' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` alertDescription
       `Prelude.hashWithSalt` alertFilters
       `Prelude.hashWithSalt` alertSensitivityThreshold

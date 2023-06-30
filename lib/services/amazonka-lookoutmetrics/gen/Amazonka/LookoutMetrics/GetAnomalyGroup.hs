@@ -106,7 +106,8 @@ instance Core.AWSRequest GetAnomalyGroup where
 
 instance Prelude.Hashable GetAnomalyGroup where
   hashWithSalt _salt GetAnomalyGroup' {..} =
-    _salt `Prelude.hashWithSalt` anomalyGroupId
+    _salt
+      `Prelude.hashWithSalt` anomalyGroupId
       `Prelude.hashWithSalt` anomalyDetectorArn
 
 instance Prelude.NFData GetAnomalyGroup where

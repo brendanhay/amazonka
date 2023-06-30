@@ -85,7 +85,8 @@ instance Data.FromJSON ExecutionStatus where
 
 instance Prelude.Hashable ExecutionStatus where
   hashWithSalt _salt ExecutionStatus' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` timestamp
 

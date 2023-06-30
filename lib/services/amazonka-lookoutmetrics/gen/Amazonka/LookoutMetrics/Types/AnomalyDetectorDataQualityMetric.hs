@@ -77,7 +77,8 @@ instance
       "AnomalyDetectorDataQualityMetric"
       ( \x ->
           AnomalyDetectorDataQualityMetric'
-            Prelude.<$> ( x Data..:? "MetricSetDataQualityMetricList"
+            Prelude.<$> ( x
+                            Data..:? "MetricSetDataQualityMetricList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StartTimestamp")

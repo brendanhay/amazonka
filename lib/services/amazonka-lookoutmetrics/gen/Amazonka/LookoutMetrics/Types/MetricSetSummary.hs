@@ -128,7 +128,8 @@ instance Data.FromJSON MetricSetSummary where
 
 instance Prelude.Hashable MetricSetSummary where
   hashWithSalt _salt MetricSetSummary' {..} =
-    _salt `Prelude.hashWithSalt` anomalyDetectorArn
+    _salt
+      `Prelude.hashWithSalt` anomalyDetectorArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModificationTime
       `Prelude.hashWithSalt` metricSetArn

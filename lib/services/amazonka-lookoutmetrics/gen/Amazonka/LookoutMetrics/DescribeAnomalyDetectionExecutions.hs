@@ -128,8 +128,8 @@ instance
       ( \s h x ->
           DescribeAnomalyDetectionExecutionsResponse'
             Prelude.<$> (x Data..?> "ExecutionList" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -139,7 +139,8 @@ instance
   hashWithSalt
     _salt
     DescribeAnomalyDetectionExecutions' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` timestamp
         `Prelude.hashWithSalt` anomalyDetectorArn

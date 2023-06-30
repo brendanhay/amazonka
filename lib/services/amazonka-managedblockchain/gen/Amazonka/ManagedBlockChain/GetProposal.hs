@@ -104,7 +104,8 @@ instance Core.AWSRequest GetProposal where
 
 instance Prelude.Hashable GetProposal where
   hashWithSalt _salt GetProposal' {..} =
-    _salt `Prelude.hashWithSalt` networkId
+    _salt
+      `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` proposalId
 
 instance Prelude.NFData GetProposal where

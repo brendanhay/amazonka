@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     NodeFabricLogPublishingConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` chaincodeLogs
+      _salt
+        `Prelude.hashWithSalt` chaincodeLogs
         `Prelude.hashWithSalt` peerLogs
 
 instance

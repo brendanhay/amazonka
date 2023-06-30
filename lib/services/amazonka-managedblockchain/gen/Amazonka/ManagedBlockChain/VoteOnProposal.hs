@@ -134,7 +134,8 @@ instance Core.AWSRequest VoteOnProposal where
 
 instance Prelude.Hashable VoteOnProposal where
   hashWithSalt _salt VoteOnProposal' {..} =
-    _salt `Prelude.hashWithSalt` networkId
+    _salt
+      `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` proposalId
       `Prelude.hashWithSalt` voterMemberId
       `Prelude.hashWithSalt` vote

@@ -214,7 +214,8 @@ instance Data.FromJSON Network where
 
 instance Prelude.Hashable Network where
   hashWithSalt _salt Network' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` framework

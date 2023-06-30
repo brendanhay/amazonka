@@ -84,7 +84,8 @@ instance Data.FromJSON NetworkFrameworkAttributes where
 
 instance Prelude.Hashable NetworkFrameworkAttributes where
   hashWithSalt _salt NetworkFrameworkAttributes' {..} =
-    _salt `Prelude.hashWithSalt` ethereum
+    _salt
+      `Prelude.hashWithSalt` ethereum
       `Prelude.hashWithSalt` fabric
 
 instance Prelude.NFData NetworkFrameworkAttributes where

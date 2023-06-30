@@ -152,7 +152,8 @@ instance Core.AWSRequest DeleteNode where
 
 instance Prelude.Hashable DeleteNode where
   hashWithSalt _salt DeleteNode' {..} =
-    _salt `Prelude.hashWithSalt` memberId
+    _salt
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` networkId
       `Prelude.hashWithSalt` nodeId
 

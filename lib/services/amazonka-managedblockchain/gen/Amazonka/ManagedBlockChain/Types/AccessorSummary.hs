@@ -126,7 +126,8 @@ instance Data.FromJSON AccessorSummary where
 
 instance Prelude.Hashable AccessorSummary where
   hashWithSalt _salt AccessorSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status

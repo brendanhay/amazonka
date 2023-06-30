@@ -181,7 +181,8 @@ instance Data.FromJSON Invitation where
 
 instance Prelude.Hashable Invitation where
   hashWithSalt _salt Invitation' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` expirationDate
       `Prelude.hashWithSalt` invitationId

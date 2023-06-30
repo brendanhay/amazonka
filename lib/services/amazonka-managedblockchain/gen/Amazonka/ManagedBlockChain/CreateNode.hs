@@ -220,7 +220,8 @@ instance Core.AWSRequest CreateNode where
 
 instance Prelude.Hashable CreateNode where
   hashWithSalt _salt CreateNode' {..} =
-    _salt `Prelude.hashWithSalt` memberId
+    _salt
+      `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` networkId

@@ -238,7 +238,8 @@ instance Data.FromJSON MemberSummary where
 
 instance Prelude.Hashable MemberSummary where
   hashWithSalt _salt MemberSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

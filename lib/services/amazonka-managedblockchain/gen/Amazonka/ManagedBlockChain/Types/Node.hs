@@ -368,7 +368,8 @@ instance Data.FromJSON Node where
 
 instance Prelude.Hashable Node where
   hashWithSalt _salt Node' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` frameworkAttributes

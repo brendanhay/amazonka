@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     PutConfigurationSetDeliveryOptions' {..} =
-      _salt `Prelude.hashWithSalt` deliveryOptions
+      _salt
+        `Prelude.hashWithSalt` deliveryOptions
         `Prelude.hashWithSalt` configurationSetName
 
 instance

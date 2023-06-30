@@ -140,7 +140,8 @@ instance
   hashWithSalt
     _salt
     UpdateConfigurationSetEventDestination' {..} =
-      _salt `Prelude.hashWithSalt` configurationSetName
+      _salt
+        `Prelude.hashWithSalt` configurationSetName
         `Prelude.hashWithSalt` eventDestination
 
 instance

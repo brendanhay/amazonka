@@ -71,7 +71,8 @@ instance Data.FromXML TemplateMetadata where
 
 instance Prelude.Hashable TemplateMetadata where
   hashWithSalt _salt TemplateMetadata' {..} =
-    _salt `Prelude.hashWithSalt` createdTimestamp
+    _salt
+      `Prelude.hashWithSalt` createdTimestamp
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData TemplateMetadata where

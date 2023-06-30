@@ -114,7 +114,8 @@ instance Data.FromXML SNSAction where
 
 instance Prelude.Hashable SNSAction where
   hashWithSalt _salt SNSAction' {..} =
-    _salt `Prelude.hashWithSalt` encoding
+    _salt
+      `Prelude.hashWithSalt` encoding
       `Prelude.hashWithSalt` topicArn
 
 instance Prelude.NFData SNSAction where

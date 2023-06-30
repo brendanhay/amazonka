@@ -122,22 +122,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? listCustomVerificationEmailTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCustomVerificationEmailTemplatesResponse_customVerificationEmailTemplates
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCustomVerificationEmailTemplates_nextToken
           Lens..~ rs
-            Lens.^? listCustomVerificationEmailTemplatesResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listCustomVerificationEmailTemplatesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -153,12 +153,13 @@ instance
       "ListCustomVerificationEmailTemplatesResult"
       ( \s h x ->
           ListCustomVerificationEmailTemplatesResponse'
-            Prelude.<$> ( x Data..@? "CustomVerificationEmailTemplates"
+            Prelude.<$> ( x
+                            Data..@? "CustomVerificationEmailTemplates"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
-              Prelude.<*> (x Data..@? "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -168,7 +169,8 @@ instance
   hashWithSalt
     _salt
     ListCustomVerificationEmailTemplates' {..} =
-      _salt `Prelude.hashWithSalt` maxResults
+      _salt
+        `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 
 instance

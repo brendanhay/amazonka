@@ -99,10 +99,11 @@ instance
       ( \s h x ->
           GetIdentityMailFromDomainAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..@? "MailFromDomainAttributes"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Data.parseXMLMap "entry" "key" "value"
-                          )
+            Prelude.<*> ( x
+                            Data..@? "MailFromDomainAttributes"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLMap "entry" "key" "value"
+                        )
       )
 
 instance

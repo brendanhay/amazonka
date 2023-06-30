@@ -112,7 +112,8 @@ bouncedRecipientInfo_recipient = Lens.lens (\BouncedRecipientInfo' {recipient} -
 
 instance Prelude.Hashable BouncedRecipientInfo where
   hashWithSalt _salt BouncedRecipientInfo' {..} =
-    _salt `Prelude.hashWithSalt` bounceType
+    _salt
+      `Prelude.hashWithSalt` bounceType
       `Prelude.hashWithSalt` recipientArn
       `Prelude.hashWithSalt` recipientDsnFields
       `Prelude.hashWithSalt` recipient

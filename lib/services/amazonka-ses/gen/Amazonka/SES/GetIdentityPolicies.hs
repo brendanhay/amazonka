@@ -141,14 +141,17 @@ instance Core.AWSRequest GetIdentityPolicies where
       ( \s h x ->
           GetIdentityPoliciesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..@? "Policies" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "Policies"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Data.parseXMLMap "entry" "key" "value"
                         )
       )
 
 instance Prelude.Hashable GetIdentityPolicies where
   hashWithSalt _salt GetIdentityPolicies' {..} =
-    _salt `Prelude.hashWithSalt` identity
+    _salt
+      `Prelude.hashWithSalt` identity
       `Prelude.hashWithSalt` policyNames
 
 instance Prelude.NFData GetIdentityPolicies where

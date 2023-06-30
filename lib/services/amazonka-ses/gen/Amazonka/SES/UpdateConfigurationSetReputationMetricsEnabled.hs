@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     UpdateConfigurationSetReputationMetricsEnabled' {..} =
-      _salt `Prelude.hashWithSalt` configurationSetName
+      _salt
+        `Prelude.hashWithSalt` configurationSetName
         `Prelude.hashWithSalt` enabled
 
 instance

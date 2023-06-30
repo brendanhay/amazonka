@@ -98,11 +98,13 @@ receiptFilter_ipFilter = Lens.lens (\ReceiptFilter' {ipFilter} -> ipFilter) (\s@
 instance Data.FromXML ReceiptFilter where
   parseXML x =
     ReceiptFilter'
-      Prelude.<$> (x Data..@ "Name") Prelude.<*> (x Data..@ "IpFilter")
+      Prelude.<$> (x Data..@ "Name")
+      Prelude.<*> (x Data..@ "IpFilter")
 
 instance Prelude.Hashable ReceiptFilter where
   hashWithSalt _salt ReceiptFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ipFilter
 
 instance Prelude.NFData ReceiptFilter where

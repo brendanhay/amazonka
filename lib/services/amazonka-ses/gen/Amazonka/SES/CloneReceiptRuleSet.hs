@@ -138,7 +138,8 @@ instance Core.AWSRequest CloneReceiptRuleSet where
 
 instance Prelude.Hashable CloneReceiptRuleSet where
   hashWithSalt _salt CloneReceiptRuleSet' {..} =
-    _salt `Prelude.hashWithSalt` ruleSetName
+    _salt
+      `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` originalRuleSetName
 
 instance Prelude.NFData CloneReceiptRuleSet where

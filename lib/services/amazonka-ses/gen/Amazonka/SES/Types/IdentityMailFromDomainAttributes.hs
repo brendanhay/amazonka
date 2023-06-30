@@ -142,7 +142,8 @@ instance
   hashWithSalt
     _salt
     IdentityMailFromDomainAttributes' {..} =
-      _salt `Prelude.hashWithSalt` mailFromDomain
+      _salt
+        `Prelude.hashWithSalt` mailFromDomain
         `Prelude.hashWithSalt` mailFromDomainStatus
         `Prelude.hashWithSalt` behaviorOnMXFailure
 

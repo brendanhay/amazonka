@@ -111,10 +111,11 @@ instance
       ( \s h x ->
           GetIdentityNotificationAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..@? "NotificationAttributes"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Data.parseXMLMap "entry" "key" "value"
-                          )
+            Prelude.<*> ( x
+                            Data..@? "NotificationAttributes"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Data.parseXMLMap "entry" "key" "value"
+                        )
       )
 
 instance

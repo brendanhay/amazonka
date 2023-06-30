@@ -168,7 +168,8 @@ instance
   hashWithSalt
     _salt
     SetIdentityHeadersInNotificationsEnabled' {..} =
-      _salt `Prelude.hashWithSalt` identity
+      _salt
+        `Prelude.hashWithSalt` identity
         `Prelude.hashWithSalt` notificationType
         `Prelude.hashWithSalt` enabled
 

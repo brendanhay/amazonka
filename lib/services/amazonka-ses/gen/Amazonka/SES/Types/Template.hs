@@ -102,7 +102,8 @@ instance Data.FromXML Template where
 
 instance Prelude.Hashable Template where
   hashWithSalt _salt Template' {..} =
-    _salt `Prelude.hashWithSalt` htmlPart
+    _salt
+      `Prelude.hashWithSalt` htmlPart
       `Prelude.hashWithSalt` subjectPart
       `Prelude.hashWithSalt` textPart
       `Prelude.hashWithSalt` templateName

@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateReceiptRule where
 
 instance Prelude.Hashable UpdateReceiptRule where
   hashWithSalt _salt UpdateReceiptRule' {..} =
-    _salt `Prelude.hashWithSalt` ruleSetName
+    _salt
+      `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` rule
 
 instance Prelude.NFData UpdateReceiptRule where

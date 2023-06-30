@@ -129,7 +129,8 @@ instance Core.AWSRequest SetReceiptRulePosition where
 
 instance Prelude.Hashable SetReceiptRulePosition where
   hashWithSalt _salt SetReceiptRulePosition' {..} =
-    _salt `Prelude.hashWithSalt` after
+    _salt
+      `Prelude.hashWithSalt` after
       `Prelude.hashWithSalt` ruleSetName
       `Prelude.hashWithSalt` ruleName
 

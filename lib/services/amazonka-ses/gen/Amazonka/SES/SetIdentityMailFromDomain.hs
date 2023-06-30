@@ -171,7 +171,8 @@ instance Core.AWSRequest SetIdentityMailFromDomain where
 
 instance Prelude.Hashable SetIdentityMailFromDomain where
   hashWithSalt _salt SetIdentityMailFromDomain' {..} =
-    _salt `Prelude.hashWithSalt` behaviorOnMXFailure
+    _salt
+      `Prelude.hashWithSalt` behaviorOnMXFailure
       `Prelude.hashWithSalt` mailFromDomain
       `Prelude.hashWithSalt` identity
 

@@ -86,11 +86,13 @@ receiptIpFilter_cidr = Lens.lens (\ReceiptIpFilter' {cidr} -> cidr) (\s@ReceiptI
 instance Data.FromXML ReceiptIpFilter where
   parseXML x =
     ReceiptIpFilter'
-      Prelude.<$> (x Data..@ "Policy") Prelude.<*> (x Data..@ "Cidr")
+      Prelude.<$> (x Data..@ "Policy")
+      Prelude.<*> (x Data..@ "Cidr")
 
 instance Prelude.Hashable ReceiptIpFilter where
   hashWithSalt _salt ReceiptIpFilter' {..} =
-    _salt `Prelude.hashWithSalt` policy
+    _salt
+      `Prelude.hashWithSalt` policy
       `Prelude.hashWithSalt` cidr
 
 instance Prelude.NFData ReceiptIpFilter where

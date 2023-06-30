@@ -67,7 +67,8 @@ cloudWatchDestination_dimensionConfigurations = Lens.lens (\CloudWatchDestinatio
 instance Data.FromXML CloudWatchDestination where
   parseXML x =
     CloudWatchDestination'
-      Prelude.<$> ( x Data..@? "DimensionConfigurations"
+      Prelude.<$> ( x
+                      Data..@? "DimensionConfigurations"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Data.parseXMLList "member"
                   )

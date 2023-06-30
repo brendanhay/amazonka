@@ -58,53 +58,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | Your request caused an exception with an internal dependency. Contact
 -- customer support.
-_InternalDependencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalDependencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalDependencyException =
   Core._MatchServiceError
     defaultService
@@ -112,7 +112,7 @@ _InternalDependencyException =
     Prelude.. Core.hasStatus 530
 
 -- | An internal failure occurred.
-_InternalFailure :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalFailure :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalFailure =
   Core._MatchServiceError
     defaultService
@@ -121,7 +121,7 @@ _InternalFailure =
 
 -- | Model (owned by the customer in the container) returned 4xx or 5xx error
 -- code.
-_ModelError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ModelError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ModelError =
   Core._MatchServiceError defaultService "ModelError"
     Prelude.. Core.hasStatus 424
@@ -129,7 +129,7 @@ _ModelError =
 -- | Either a serverless endpoint variant\'s resources are still being
 -- provisioned, or a multi-model endpoint is still downloading or loading
 -- the target model. Wait and try your request again.
-_ModelNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ModelNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ModelNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -137,7 +137,7 @@ _ModelNotReadyException =
     Prelude.. Core.hasStatus 429
 
 -- | The service is unavailable. Try your call again.
-_ServiceUnavailable :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceUnavailable :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceUnavailable =
   Core._MatchServiceError
     defaultService
@@ -145,7 +145,7 @@ _ServiceUnavailable =
     Prelude.. Core.hasStatus 503
 
 -- | Inspect your request and try again.
-_ValidationError :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationError :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationError =
   Core._MatchServiceError
     defaultService

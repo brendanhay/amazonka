@@ -78,7 +78,8 @@ instance Data.FromJSON Distribution where
 
 instance Prelude.Hashable Distribution where
   hashWithSalt _salt Distribution' {..} =
-    _salt `Prelude.hashWithSalt` region
+    _salt
+      `Prelude.hashWithSalt` region
       `Prelude.hashWithSalt` percentage
 
 instance Prelude.NFData Distribution where

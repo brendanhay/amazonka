@@ -61,7 +61,8 @@ instance Data.FromJSON TaskTemplateDefaults where
       "TaskTemplateDefaults"
       ( \x ->
           TaskTemplateDefaults'
-            Prelude.<$> ( x Data..:? "DefaultFieldValues"
+            Prelude.<$> ( x
+                            Data..:? "DefaultFieldValues"
                             Data..!= Prelude.mempty
                         )
       )

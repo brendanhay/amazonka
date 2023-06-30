@@ -109,7 +109,8 @@ instance Data.FromJSON KinesisVideoStreamConfig where
 
 instance Prelude.Hashable KinesisVideoStreamConfig where
   hashWithSalt _salt KinesisVideoStreamConfig' {..} =
-    _salt `Prelude.hashWithSalt` prefix
+    _salt
+      `Prelude.hashWithSalt` prefix
       `Prelude.hashWithSalt` retentionPeriodHours
       `Prelude.hashWithSalt` encryptionConfig
 

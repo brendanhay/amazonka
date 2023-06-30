@@ -126,7 +126,8 @@ instance Core.AWSRequest StopContactStreaming where
 
 instance Prelude.Hashable StopContactStreaming where
   hashWithSalt _salt StopContactStreaming' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` streamingId
 

@@ -205,7 +205,8 @@ instance Core.AWSRequest CreateVocabulary where
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vocabularyName

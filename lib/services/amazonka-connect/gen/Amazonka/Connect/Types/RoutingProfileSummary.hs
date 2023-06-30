@@ -84,7 +84,8 @@ instance Data.FromJSON RoutingProfileSummary where
 
 instance Prelude.Hashable RoutingProfileSummary where
   hashWithSalt _salt RoutingProfileSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

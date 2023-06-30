@@ -166,7 +166,8 @@ instance Core.AWSRequest CreateContactFlow where
 
 instance Prelude.Hashable CreateContactFlow where
   hashWithSalt _salt CreateContactFlow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name

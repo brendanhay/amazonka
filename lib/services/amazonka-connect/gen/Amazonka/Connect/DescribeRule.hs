@@ -105,7 +105,8 @@ instance Core.AWSRequest DescribeRule where
 
 instance Prelude.Hashable DescribeRule where
   hashWithSalt _salt DescribeRule' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` ruleId
 
 instance Prelude.NFData DescribeRule where

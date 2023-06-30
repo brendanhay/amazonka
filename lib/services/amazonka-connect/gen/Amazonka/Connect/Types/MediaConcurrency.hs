@@ -98,7 +98,8 @@ instance Data.FromJSON MediaConcurrency where
 
 instance Prelude.Hashable MediaConcurrency where
   hashWithSalt _salt MediaConcurrency' {..} =
-    _salt `Prelude.hashWithSalt` channel
+    _salt
+      `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` concurrency
 
 instance Prelude.NFData MediaConcurrency where

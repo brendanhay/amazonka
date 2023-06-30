@@ -87,7 +87,8 @@ instance Data.FromJSON SecurityKey where
 
 instance Prelude.Hashable SecurityKey where
   hashWithSalt _salt SecurityKey' {..} =
-    _salt `Prelude.hashWithSalt` associationId
+    _salt
+      `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` key
 

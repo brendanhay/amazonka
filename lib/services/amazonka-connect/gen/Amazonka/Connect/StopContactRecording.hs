@@ -131,7 +131,8 @@ instance Core.AWSRequest StopContactRecording where
 
 instance Prelude.Hashable StopContactRecording where
   hashWithSalt _salt StopContactRecording' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initialContactId
 

@@ -87,7 +87,8 @@ instance
     RoutingProfileSearchCriteria
   where
   hashWithSalt _salt RoutingProfileSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` stringCondition
 

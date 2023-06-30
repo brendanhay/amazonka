@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateParticipantRoleConfig where
 
 instance Prelude.Hashable UpdateParticipantRoleConfig where
   hashWithSalt _salt UpdateParticipantRoleConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` channelConfiguration
 

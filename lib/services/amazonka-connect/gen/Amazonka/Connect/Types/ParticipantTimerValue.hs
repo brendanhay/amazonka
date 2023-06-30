@@ -74,7 +74,8 @@ participantTimerValue_participantTimerDurationInMinutes = Lens.lens (\Participan
 
 instance Prelude.Hashable ParticipantTimerValue where
   hashWithSalt _salt ParticipantTimerValue' {..} =
-    _salt `Prelude.hashWithSalt` participantTimerAction
+    _salt
+      `Prelude.hashWithSalt` participantTimerAction
       `Prelude.hashWithSalt` participantTimerDurationInMinutes
 
 instance Prelude.NFData ParticipantTimerValue where

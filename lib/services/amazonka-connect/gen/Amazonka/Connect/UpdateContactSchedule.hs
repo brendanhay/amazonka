@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateContactSchedule where
 
 instance Prelude.Hashable UpdateContactSchedule where
   hashWithSalt _salt UpdateContactSchedule' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` scheduledTime
 

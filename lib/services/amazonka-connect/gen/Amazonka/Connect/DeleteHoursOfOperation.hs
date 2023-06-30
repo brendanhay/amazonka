@@ -104,7 +104,8 @@ instance Core.AWSRequest DeleteHoursOfOperation where
 
 instance Prelude.Hashable DeleteHoursOfOperation where
   hashWithSalt _salt DeleteHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` hoursOfOperationId
 
 instance Prelude.NFData DeleteHoursOfOperation where

@@ -142,7 +142,8 @@ instance
   hashWithSalt
     _salt
     AssociateInstanceStorageConfig' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` resourceType
         `Prelude.hashWithSalt` storageConfig
 

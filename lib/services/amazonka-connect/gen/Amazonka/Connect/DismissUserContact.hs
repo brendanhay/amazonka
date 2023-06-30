@@ -124,7 +124,8 @@ instance Core.AWSRequest DismissUserContact where
 
 instance Prelude.Hashable DismissUserContact where
   hashWithSalt _salt DismissUserContact' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
 

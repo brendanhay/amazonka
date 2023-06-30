@@ -129,7 +129,8 @@ instance Core.AWSRequest AssociateDefaultVocabulary where
 
 instance Prelude.Hashable AssociateDefaultVocabulary where
   hashWithSalt _salt AssociateDefaultVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` vocabularyId
+    _salt
+      `Prelude.hashWithSalt` vocabularyId
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` languageCode
 

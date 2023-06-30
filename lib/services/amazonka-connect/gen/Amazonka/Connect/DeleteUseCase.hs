@@ -114,7 +114,8 @@ instance Core.AWSRequest DeleteUseCase where
 
 instance Prelude.Hashable DeleteUseCase where
   hashWithSalt _salt DeleteUseCase' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId
       `Prelude.hashWithSalt` useCaseId
 

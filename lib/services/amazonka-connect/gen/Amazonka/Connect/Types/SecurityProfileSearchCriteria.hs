@@ -87,7 +87,8 @@ instance
     SecurityProfileSearchCriteria
   where
   hashWithSalt _salt SecurityProfileSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` stringCondition
 

@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteContactFlow where
 
 instance Prelude.Hashable DeleteContactFlow where
   hashWithSalt _salt DeleteContactFlow' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
 
 instance Prelude.NFData DeleteContactFlow where

@@ -119,7 +119,8 @@ instance Core.AWSRequest AssociateQueueQuickConnects where
 
 instance Prelude.Hashable AssociateQueueQuickConnects where
   hashWithSalt _salt AssociateQueueQuickConnects' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` quickConnectIds
 

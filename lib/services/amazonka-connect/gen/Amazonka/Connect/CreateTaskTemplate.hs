@@ -203,7 +203,8 @@ instance Core.AWSRequest CreateTaskTemplate where
 
 instance Prelude.Hashable CreateTaskTemplate where
   hashWithSalt _salt CreateTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` contactFlowId
       `Prelude.hashWithSalt` defaults

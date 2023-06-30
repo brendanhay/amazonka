@@ -100,7 +100,8 @@ instance Data.FromJSON Credentials where
 
 instance Prelude.Hashable Credentials where
   hashWithSalt _salt Credentials' {..} =
-    _salt `Prelude.hashWithSalt` accessToken
+    _salt
+      `Prelude.hashWithSalt` accessToken
       `Prelude.hashWithSalt` accessTokenExpiration
       `Prelude.hashWithSalt` refreshToken
       `Prelude.hashWithSalt` refreshTokenExpiration

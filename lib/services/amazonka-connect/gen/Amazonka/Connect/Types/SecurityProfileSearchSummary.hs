@@ -121,7 +121,8 @@ instance
     SecurityProfileSearchSummary
   where
   hashWithSalt _salt SecurityProfileSearchSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` organizationResourceId

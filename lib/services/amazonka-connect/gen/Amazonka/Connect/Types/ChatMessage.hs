@@ -89,7 +89,8 @@ chatMessage_content = Lens.lens (\ChatMessage' {content} -> content) (\s@ChatMes
 
 instance Prelude.Hashable ChatMessage where
   hashWithSalt _salt ChatMessage' {..} =
-    _salt `Prelude.hashWithSalt` contentType
+    _salt
+      `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` content
 
 instance Prelude.NFData ChatMessage where

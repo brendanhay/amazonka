@@ -130,21 +130,23 @@ instance Core.AWSPager ListUseCases where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listUseCasesResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listUseCasesResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listUseCasesResponse_useCaseSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUseCases_nextToken
           Lens..~ rs
-          Lens.^? listUseCasesResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listUseCasesResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUseCases where
   type AWSResponse ListUseCases = ListUseCasesResponse
@@ -155,7 +157,8 @@ instance Core.AWSRequest ListUseCases where
       ( \s h x ->
           ListUseCasesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UseCaseSummaryList"
+            Prelude.<*> ( x
+                            Data..?> "UseCaseSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -163,7 +166,8 @@ instance Core.AWSRequest ListUseCases where
 
 instance Prelude.Hashable ListUseCases where
   hashWithSalt _salt ListUseCases' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId

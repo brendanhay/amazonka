@@ -74,7 +74,8 @@ instance Data.FromJSON UserIdentityInfoLite where
 
 instance Prelude.Hashable UserIdentityInfoLite where
   hashWithSalt _salt UserIdentityInfoLite' {..} =
-    _salt `Prelude.hashWithSalt` firstName
+    _salt
+      `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
 
 instance Prelude.NFData UserIdentityInfoLite where

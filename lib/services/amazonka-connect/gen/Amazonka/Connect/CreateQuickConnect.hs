@@ -147,7 +147,8 @@ instance Core.AWSRequest CreateQuickConnect where
 
 instance Prelude.Hashable CreateQuickConnect where
   hashWithSalt _salt CreateQuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name

@@ -260,7 +260,8 @@ instance Core.AWSRequest StartTaskContact where
 
 instance Prelude.Hashable StartTaskContact where
   hashWithSalt _salt StartTaskContact' {..} =
-    _salt `Prelude.hashWithSalt` attributes
+    _salt
+      `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` contactFlowId
       `Prelude.hashWithSalt` description

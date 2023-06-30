@@ -107,7 +107,8 @@ instance Core.AWSRequest DisassociateSecurityKey where
 
 instance Prelude.Hashable DisassociateSecurityKey where
   hashWithSalt _salt DisassociateSecurityKey' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` associationId
 
 instance Prelude.NFData DisassociateSecurityKey where

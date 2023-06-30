@@ -222,7 +222,8 @@ instance Data.FromJSON Contact where
 
 instance Prelude.Hashable Contact where
   hashWithSalt _salt Contact' {..} =
-    _salt `Prelude.hashWithSalt` agentInfo
+    _salt
+      `Prelude.hashWithSalt` agentInfo
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` channel
       `Prelude.hashWithSalt` description

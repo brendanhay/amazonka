@@ -114,7 +114,8 @@ instance Core.AWSRequest UpdateTrafficDistribution where
 
 instance Prelude.Hashable UpdateTrafficDistribution where
   hashWithSalt _salt UpdateTrafficDistribution' {..} =
-    _salt `Prelude.hashWithSalt` telephonyConfig
+    _salt
+      `Prelude.hashWithSalt` telephonyConfig
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData UpdateTrafficDistribution where

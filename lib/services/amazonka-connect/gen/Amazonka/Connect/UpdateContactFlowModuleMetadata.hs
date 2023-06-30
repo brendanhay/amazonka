@@ -147,7 +147,8 @@ instance
   hashWithSalt
     _salt
     UpdateContactFlowModuleMetadata' {..} =
-      _salt `Prelude.hashWithSalt` description
+      _salt
+        `Prelude.hashWithSalt` description
         `Prelude.hashWithSalt` name
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` instanceId

@@ -95,7 +95,8 @@ instance Data.FromJSON AgentStatusSummary where
 
 instance Prelude.Hashable AgentStatusSummary where
   hashWithSalt _salt AgentStatusSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'

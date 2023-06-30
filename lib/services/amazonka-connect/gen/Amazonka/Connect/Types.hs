@@ -1522,52 +1522,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You do not have sufficient permissions to perform this action.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -1575,7 +1575,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The flow has not been published.
-_ContactFlowNotPublishedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ContactFlowNotPublishedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ContactFlowNotPublishedException =
   Core._MatchServiceError
     defaultService
@@ -1584,7 +1584,7 @@ _ContactFlowNotPublishedException =
 
 -- | The contact with the specified ID is not active or does not exist.
 -- Applies to Voice calls only, not to Chat, Task, or Voice Callback.
-_ContactNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ContactNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ContactNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1592,7 +1592,7 @@ _ContactNotFoundException =
     Prelude.. Core.hasStatus 410
 
 -- | Outbound calls to the destination number are not allowed.
-_DestinationNotAllowedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DestinationNotAllowedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DestinationNotAllowedException =
   Core._MatchServiceError
     defaultService
@@ -1600,7 +1600,7 @@ _DestinationNotAllowedException =
     Prelude.. Core.hasStatus 403
 
 -- | A resource with the specified name already exists.
-_DuplicateResourceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicateResourceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicateResourceException =
   Core._MatchServiceError
     defaultService
@@ -1608,7 +1608,7 @@ _DuplicateResourceException =
     Prelude.. Core.hasStatus 409
 
 -- | An entity with the same name already exists.
-_IdempotencyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_IdempotencyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _IdempotencyException =
   Core._MatchServiceError
     defaultService
@@ -1617,7 +1617,7 @@ _IdempotencyException =
 
 -- | Request processing failed because of an error or failure with the
 -- service.
-_InternalServiceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalServiceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError
     defaultService
@@ -1625,7 +1625,7 @@ _InternalServiceException =
     Prelude.. Core.hasStatus 500
 
 -- | The flow is not valid.
-_InvalidContactFlowException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidContactFlowException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidContactFlowException =
   Core._MatchServiceError
     defaultService
@@ -1633,7 +1633,7 @@ _InvalidContactFlowException =
     Prelude.. Core.hasStatus 400
 
 -- | The problems with the module. Please fix before trying again.
-_InvalidContactFlowModuleException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidContactFlowModuleException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidContactFlowModuleException =
   Core._MatchServiceError
     defaultService
@@ -1641,7 +1641,7 @@ _InvalidContactFlowModuleException =
     Prelude.. Core.hasStatus 400
 
 -- | One or more of the specified parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidParameterException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
@@ -1649,7 +1649,7 @@ _InvalidParameterException =
     Prelude.. Core.hasStatus 400
 
 -- | The request is not valid.
-_InvalidRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
@@ -1657,7 +1657,7 @@ _InvalidRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The allowed limit for the resource has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -1665,7 +1665,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 429
 
 -- | The contact is not permitted.
-_OutboundContactNotPermittedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OutboundContactNotPermittedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OutboundContactNotPermittedException =
   Core._MatchServiceError
     defaultService
@@ -1673,7 +1673,7 @@ _OutboundContactNotPermittedException =
     Prelude.. Core.hasStatus 403
 
 -- | The property is not valid.
-_PropertyValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PropertyValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PropertyValidationException =
   Core._MatchServiceError
     defaultService
@@ -1681,7 +1681,7 @@ _PropertyValidationException =
     Prelude.. Core.hasStatus 400
 
 -- | A resource already has that name.
-_ResourceConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceConflictException =
   Core._MatchServiceError
     defaultService
@@ -1689,7 +1689,7 @@ _ResourceConflictException =
     Prelude.. Core.hasStatus 409
 
 -- | That resource is already in use. Please try another.
-_ResourceInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
@@ -1697,7 +1697,7 @@ _ResourceInUseException =
     Prelude.. Core.hasStatus 409
 
 -- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1705,7 +1705,7 @@ _ResourceNotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | The resource is not ready.
-_ResourceNotReadyException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotReadyException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotReadyException =
   Core._MatchServiceError
     defaultService
@@ -1713,7 +1713,7 @@ _ResourceNotReadyException =
     Prelude.. Core.hasStatus 409
 
 -- | The service quota has been exceeded.
-_ServiceQuotaExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ServiceQuotaExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
     defaultService
@@ -1721,7 +1721,7 @@ _ServiceQuotaExceededException =
     Prelude.. Core.hasStatus 402
 
 -- | The throttling limit has been exceeded.
-_ThrottlingException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ThrottlingException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
     defaultService
@@ -1730,7 +1730,7 @@ _ThrottlingException =
 
 -- | No user with the specified credentials was found in the Amazon Connect
 -- instance.
-_UserNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UserNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UserNotFoundException =
   Core._MatchServiceError
     defaultService

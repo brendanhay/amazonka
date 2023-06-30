@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     UpdateContactFlowModuleContent' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` contactFlowModuleId
         `Prelude.hashWithSalt` content
 

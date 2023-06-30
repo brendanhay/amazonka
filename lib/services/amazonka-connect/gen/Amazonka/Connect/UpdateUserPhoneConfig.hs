@@ -113,7 +113,8 @@ instance Core.AWSRequest UpdateUserPhoneConfig where
 
 instance Prelude.Hashable UpdateUserPhoneConfig where
   hashWithSalt _salt UpdateUserPhoneConfig' {..} =
-    _salt `Prelude.hashWithSalt` phoneConfig
+    _salt
+      `Prelude.hashWithSalt` phoneConfig
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 

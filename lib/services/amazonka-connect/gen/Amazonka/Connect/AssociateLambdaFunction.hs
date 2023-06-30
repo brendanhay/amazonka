@@ -106,7 +106,8 @@ instance Core.AWSRequest AssociateLambdaFunction where
 
 instance Prelude.Hashable AssociateLambdaFunction where
   hashWithSalt _salt AssociateLambdaFunction' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` functionArn
 
 instance Prelude.NFData AssociateLambdaFunction where

@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateUserSecurityProfiles where
 
 instance Prelude.Hashable UpdateUserSecurityProfiles where
   hashWithSalt _salt UpdateUserSecurityProfiles' {..} =
-    _salt `Prelude.hashWithSalt` securityProfileIds
+    _salt
+      `Prelude.hashWithSalt` securityProfileIds
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 

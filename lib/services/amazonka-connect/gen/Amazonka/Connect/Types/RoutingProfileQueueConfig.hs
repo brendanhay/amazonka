@@ -100,7 +100,8 @@ routingProfileQueueConfig_delay = Lens.lens (\RoutingProfileQueueConfig' {delay}
 
 instance Prelude.Hashable RoutingProfileQueueConfig where
   hashWithSalt _salt RoutingProfileQueueConfig' {..} =
-    _salt `Prelude.hashWithSalt` queueReference
+    _salt
+      `Prelude.hashWithSalt` queueReference
       `Prelude.hashWithSalt` priority
       `Prelude.hashWithSalt` delay
 

@@ -127,7 +127,8 @@ instance
   hashWithSalt
     _salt
     DisassociateQueueQuickConnects' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` queueId
         `Prelude.hashWithSalt` quickConnectIds
 

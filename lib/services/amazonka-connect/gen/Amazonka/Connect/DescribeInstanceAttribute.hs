@@ -113,7 +113,8 @@ instance Core.AWSRequest DescribeInstanceAttribute where
 
 instance Prelude.Hashable DescribeInstanceAttribute where
   hashWithSalt _salt DescribeInstanceAttribute' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` attributeType
 
 instance Prelude.NFData DescribeInstanceAttribute where

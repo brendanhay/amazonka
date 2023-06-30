@@ -122,7 +122,8 @@ instance
     AssociateRoutingProfileQueues
   where
   hashWithSalt _salt AssociateRoutingProfileQueues' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` routingProfileId
       `Prelude.hashWithSalt` queueConfigs
 

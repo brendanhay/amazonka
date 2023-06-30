@@ -113,7 +113,8 @@ instance Core.AWSRequest DescribeHoursOfOperation where
 
 instance Prelude.Hashable DescribeHoursOfOperation where
   hashWithSalt _salt DescribeHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` hoursOfOperationId
 
 instance Prelude.NFData DescribeHoursOfOperation where

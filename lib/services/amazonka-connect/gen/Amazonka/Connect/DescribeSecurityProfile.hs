@@ -113,7 +113,8 @@ instance Core.AWSRequest DescribeSecurityProfile where
 
 instance Prelude.Hashable DescribeSecurityProfile where
   hashWithSalt _salt DescribeSecurityProfile' {..} =
-    _salt `Prelude.hashWithSalt` securityProfileId
+    _salt
+      `Prelude.hashWithSalt` securityProfileId
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData DescribeSecurityProfile where

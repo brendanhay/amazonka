@@ -152,7 +152,8 @@ instance Data.FromJSON RuleSummary where
             Prelude.<*> (x Data..: "RuleArn")
             Prelude.<*> (x Data..: "EventSourceName")
             Prelude.<*> (x Data..: "PublishStatus")
-            Prelude.<*> ( x Data..:? "ActionSummaries"
+            Prelude.<*> ( x
+                            Data..:? "ActionSummaries"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "CreatedTime")
@@ -161,7 +162,8 @@ instance Data.FromJSON RuleSummary where
 
 instance Prelude.Hashable RuleSummary where
   hashWithSalt _salt RuleSummary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` ruleId
       `Prelude.hashWithSalt` ruleArn
       `Prelude.hashWithSalt` eventSourceName

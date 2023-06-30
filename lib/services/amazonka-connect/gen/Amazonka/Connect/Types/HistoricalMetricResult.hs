@@ -77,7 +77,8 @@ instance Data.FromJSON HistoricalMetricResult where
 
 instance Prelude.Hashable HistoricalMetricResult where
   hashWithSalt _salt HistoricalMetricResult' {..} =
-    _salt `Prelude.hashWithSalt` collections
+    _salt
+      `Prelude.hashWithSalt` collections
       `Prelude.hashWithSalt` dimensions
 
 instance Prelude.NFData HistoricalMetricResult where

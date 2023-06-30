@@ -94,7 +94,8 @@ queueSearchCriteria_stringCondition = Lens.lens (\QueueSearchCriteria' {stringCo
 
 instance Prelude.Hashable QueueSearchCriteria where
   hashWithSalt _salt QueueSearchCriteria' {..} =
-    _salt `Prelude.hashWithSalt` andConditions
+    _salt
+      `Prelude.hashWithSalt` andConditions
       `Prelude.hashWithSalt` orConditions
       `Prelude.hashWithSalt` queueTypeCondition
       `Prelude.hashWithSalt` stringCondition

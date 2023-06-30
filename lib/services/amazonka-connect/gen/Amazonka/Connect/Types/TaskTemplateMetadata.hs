@@ -134,7 +134,8 @@ instance Data.FromJSON TaskTemplateMetadata where
 
 instance Prelude.Hashable TaskTemplateMetadata where
   hashWithSalt _salt TaskTemplateMetadata' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id

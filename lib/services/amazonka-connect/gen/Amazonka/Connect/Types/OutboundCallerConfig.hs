@@ -85,7 +85,8 @@ instance Data.FromJSON OutboundCallerConfig where
 
 instance Prelude.Hashable OutboundCallerConfig where
   hashWithSalt _salt OutboundCallerConfig' {..} =
-    _salt `Prelude.hashWithSalt` outboundCallerIdName
+    _salt
+      `Prelude.hashWithSalt` outboundCallerIdName
       `Prelude.hashWithSalt` outboundCallerIdNumberId
       `Prelude.hashWithSalt` outboundFlowId
 

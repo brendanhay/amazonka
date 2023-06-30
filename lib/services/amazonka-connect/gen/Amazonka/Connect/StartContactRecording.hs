@@ -157,7 +157,8 @@ instance Core.AWSRequest StartContactRecording where
 
 instance Prelude.Hashable StartContactRecording where
   hashWithSalt _salt StartContactRecording' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
       `Prelude.hashWithSalt` initialContactId
       `Prelude.hashWithSalt` voiceRecordingConfiguration

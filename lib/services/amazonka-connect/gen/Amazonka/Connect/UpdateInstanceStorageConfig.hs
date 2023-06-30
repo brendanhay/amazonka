@@ -134,7 +134,8 @@ instance Core.AWSRequest UpdateInstanceStorageConfig where
 
 instance Prelude.Hashable UpdateInstanceStorageConfig where
   hashWithSalt _salt UpdateInstanceStorageConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` associationId
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` storageConfig

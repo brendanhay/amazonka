@@ -164,7 +164,8 @@ instance Core.AWSRequest CreateHoursOfOperation where
 
 instance Prelude.Hashable CreateHoursOfOperation where
   hashWithSalt _salt CreateHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name

@@ -248,7 +248,8 @@ instance Data.FromJSON ClaimedPhoneNumberSummary where
 
 instance Prelude.Hashable ClaimedPhoneNumberSummary where
   hashWithSalt _salt ClaimedPhoneNumberSummary' {..} =
-    _salt `Prelude.hashWithSalt` phoneNumber
+    _salt
+      `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` phoneNumberArn
       `Prelude.hashWithSalt` phoneNumberCountryCode
       `Prelude.hashWithSalt` phoneNumberDescription

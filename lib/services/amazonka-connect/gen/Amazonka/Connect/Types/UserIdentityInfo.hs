@@ -131,7 +131,8 @@ instance Data.FromJSON UserIdentityInfo where
 
 instance Prelude.Hashable UserIdentityInfo where
   hashWithSalt _salt UserIdentityInfo' {..} =
-    _salt `Prelude.hashWithSalt` email
+    _salt
+      `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` firstName
       `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` mobile

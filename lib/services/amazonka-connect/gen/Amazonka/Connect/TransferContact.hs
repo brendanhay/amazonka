@@ -181,7 +181,8 @@ instance Core.AWSRequest TransferContact where
 
 instance Prelude.Hashable TransferContact where
   hashWithSalt _salt TransferContact' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` queueId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId

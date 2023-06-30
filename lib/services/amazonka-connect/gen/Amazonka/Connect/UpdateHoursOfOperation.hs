@@ -144,7 +144,8 @@ instance Core.AWSRequest UpdateHoursOfOperation where
 
 instance Prelude.Hashable UpdateHoursOfOperation where
   hashWithSalt _salt UpdateHoursOfOperation' {..} =
-    _salt `Prelude.hashWithSalt` config
+    _salt
+      `Prelude.hashWithSalt` config
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` timeZone

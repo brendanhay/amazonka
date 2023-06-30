@@ -98,7 +98,8 @@ instance Core.AWSRequest DeleteQuickConnect where
 
 instance Prelude.Hashable DeleteQuickConnect where
   hashWithSalt _salt DeleteQuickConnect' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` quickConnectId
 
 instance Prelude.NFData DeleteQuickConnect where

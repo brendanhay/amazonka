@@ -115,7 +115,8 @@ instance Core.AWSRequest UpdateUserRoutingProfile where
 
 instance Prelude.Hashable UpdateUserRoutingProfile where
   hashWithSalt _salt UpdateUserRoutingProfile' {..} =
-    _salt `Prelude.hashWithSalt` routingProfileId
+    _salt
+      `Prelude.hashWithSalt` routingProfileId
       `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` instanceId
 

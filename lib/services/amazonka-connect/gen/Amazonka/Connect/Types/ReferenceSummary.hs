@@ -140,7 +140,8 @@ instance Data.FromJSON ReferenceSummary where
 
 instance Prelude.Hashable ReferenceSummary where
   hashWithSalt _salt ReferenceSummary' {..} =
-    _salt `Prelude.hashWithSalt` attachment
+    _salt
+      `Prelude.hashWithSalt` attachment
       `Prelude.hashWithSalt` date
       `Prelude.hashWithSalt` email
       `Prelude.hashWithSalt` number

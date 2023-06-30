@@ -109,7 +109,8 @@ instance Core.AWSRequest DisassociateBot where
 
 instance Prelude.Hashable DisassociateBot where
   hashWithSalt _salt DisassociateBot' {..} =
-    _salt `Prelude.hashWithSalt` lexBot
+    _salt
+      `Prelude.hashWithSalt` lexBot
       `Prelude.hashWithSalt` lexV2Bot
       `Prelude.hashWithSalt` instanceId
 

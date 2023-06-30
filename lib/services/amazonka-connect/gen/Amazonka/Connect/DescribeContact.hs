@@ -115,7 +115,8 @@ instance Core.AWSRequest DescribeContact where
 
 instance Prelude.Hashable DescribeContact where
   hashWithSalt _salt DescribeContact' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactId
 
 instance Prelude.NFData DescribeContact where

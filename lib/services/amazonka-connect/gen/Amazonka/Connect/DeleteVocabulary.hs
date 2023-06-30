@@ -111,7 +111,8 @@ instance Core.AWSRequest DeleteVocabulary where
 
 instance Prelude.Hashable DeleteVocabulary where
   hashWithSalt _salt DeleteVocabulary' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` vocabularyId
 
 instance Prelude.NFData DeleteVocabulary where

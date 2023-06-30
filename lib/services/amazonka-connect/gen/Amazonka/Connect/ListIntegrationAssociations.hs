@@ -125,22 +125,22 @@ instance Core.AWSPager ListIntegrationAssociations where
     | Core.stop
         ( rs
             Lens.^? listIntegrationAssociationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listIntegrationAssociationsResponse_integrationAssociationSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listIntegrationAssociations_nextToken
           Lens..~ rs
           Lens.^? listIntegrationAssociationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListIntegrationAssociations where
   type
@@ -152,7 +152,8 @@ instance Core.AWSRequest ListIntegrationAssociations where
     Response.receiveJSON
       ( \s h x ->
           ListIntegrationAssociationsResponse'
-            Prelude.<$> ( x Data..?> "IntegrationAssociationSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "IntegrationAssociationSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -161,7 +162,8 @@ instance Core.AWSRequest ListIntegrationAssociations where
 
 instance Prelude.Hashable ListIntegrationAssociations where
   hashWithSalt _salt ListIntegrationAssociations' {..} =
-    _salt `Prelude.hashWithSalt` integrationType
+    _salt
+      `Prelude.hashWithSalt` integrationType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

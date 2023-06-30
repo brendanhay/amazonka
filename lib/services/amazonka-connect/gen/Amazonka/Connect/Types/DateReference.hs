@@ -69,12 +69,14 @@ instance Data.FromJSON DateReference where
       "DateReference"
       ( \x ->
           DateReference'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable DateReference where
   hashWithSalt _salt DateReference' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData DateReference where

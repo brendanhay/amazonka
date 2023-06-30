@@ -216,7 +216,8 @@ instance Core.AWSRequest UpdateTaskTemplate where
 
 instance Prelude.Hashable UpdateTaskTemplate where
   hashWithSalt _salt UpdateTaskTemplate' {..} =
-    _salt `Prelude.hashWithSalt` constraints
+    _salt
+      `Prelude.hashWithSalt` constraints
       `Prelude.hashWithSalt` contactFlowId
       `Prelude.hashWithSalt` defaults
       `Prelude.hashWithSalt` description

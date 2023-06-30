@@ -186,7 +186,8 @@ instance Data.FromJSON Vocabulary where
 
 instance Prelude.Hashable Vocabulary where
   hashWithSalt _salt Vocabulary' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

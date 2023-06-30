@@ -252,7 +252,8 @@ instance Core.AWSRequest CreateUser where
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =
-    _salt `Prelude.hashWithSalt` directoryUserId
+    _salt
+      `Prelude.hashWithSalt` directoryUserId
       `Prelude.hashWithSalt` hierarchyGroupId
       `Prelude.hashWithSalt` identityInfo
       `Prelude.hashWithSalt` password

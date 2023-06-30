@@ -132,7 +132,8 @@ instance Data.FromJSON SecurityProfile where
       "SecurityProfile"
       ( \x ->
           SecurityProfile'
-            Prelude.<$> ( x Data..:? "AllowedAccessControlTags"
+            Prelude.<$> ( x
+                            Data..:? "AllowedAccessControlTags"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Arn")
@@ -140,7 +141,8 @@ instance Data.FromJSON SecurityProfile where
             Prelude.<*> (x Data..:? "Id")
             Prelude.<*> (x Data..:? "OrganizationResourceId")
             Prelude.<*> (x Data..:? "SecurityProfileName")
-            Prelude.<*> ( x Data..:? "TagRestrictedResources"
+            Prelude.<*> ( x
+                            Data..:? "TagRestrictedResources"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Tags" Data..!= Prelude.mempty)

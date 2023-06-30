@@ -151,7 +151,8 @@ instance Data.FromJSON VocabularySummary where
 
 instance Prelude.Hashable VocabularySummary where
   hashWithSalt _salt VocabularySummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn

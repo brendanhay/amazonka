@@ -68,7 +68,8 @@ currentMetricSortCriteria_sortOrder = Lens.lens (\CurrentMetricSortCriteria' {so
 
 instance Prelude.Hashable CurrentMetricSortCriteria where
   hashWithSalt _salt CurrentMetricSortCriteria' {..} =
-    _salt `Prelude.hashWithSalt` sortByMetric
+    _salt
+      `Prelude.hashWithSalt` sortByMetric
       `Prelude.hashWithSalt` sortOrder
 
 instance Prelude.NFData CurrentMetricSortCriteria where

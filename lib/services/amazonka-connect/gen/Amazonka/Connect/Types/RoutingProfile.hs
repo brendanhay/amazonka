@@ -154,7 +154,8 @@ instance Data.FromJSON RoutingProfile where
             Prelude.<$> (x Data..:? "DefaultOutboundQueueId")
             Prelude.<*> (x Data..:? "Description")
             Prelude.<*> (x Data..:? "InstanceId")
-            Prelude.<*> ( x Data..:? "MediaConcurrencies"
+            Prelude.<*> ( x
+                            Data..:? "MediaConcurrencies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
@@ -167,7 +168,8 @@ instance Data.FromJSON RoutingProfile where
 
 instance Prelude.Hashable RoutingProfile where
   hashWithSalt _salt RoutingProfile' {..} =
-    _salt `Prelude.hashWithSalt` defaultOutboundQueueId
+    _salt
+      `Prelude.hashWithSalt` defaultOutboundQueueId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` mediaConcurrencies

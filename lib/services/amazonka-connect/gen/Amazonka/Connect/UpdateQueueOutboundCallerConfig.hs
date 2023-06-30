@@ -141,7 +141,8 @@ instance
   hashWithSalt
     _salt
     UpdateQueueOutboundCallerConfig' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` queueId
         `Prelude.hashWithSalt` outboundCallerConfig
 

@@ -157,7 +157,8 @@ instance Core.AWSRequest CreateAgentStatus where
 
 instance Prelude.Hashable CreateAgentStatus where
   hashWithSalt _salt CreateAgentStatus' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayOrder
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` instanceId

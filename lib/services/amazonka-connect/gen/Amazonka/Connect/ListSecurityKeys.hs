@@ -117,22 +117,22 @@ instance Core.AWSPager ListSecurityKeys where
     | Core.stop
         ( rs
             Lens.^? listSecurityKeysResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSecurityKeysResponse_securityKeys
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSecurityKeys_nextToken
           Lens..~ rs
           Lens.^? listSecurityKeysResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityKeys where
   type
@@ -151,7 +151,8 @@ instance Core.AWSRequest ListSecurityKeys where
 
 instance Prelude.Hashable ListSecurityKeys where
   hashWithSalt _salt ListSecurityKeys' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId
 

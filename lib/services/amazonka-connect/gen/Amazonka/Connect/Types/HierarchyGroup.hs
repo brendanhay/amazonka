@@ -118,7 +118,8 @@ instance Data.FromJSON HierarchyGroup where
 
 instance Prelude.Hashable HierarchyGroup where
   hashWithSalt _salt HierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` hierarchyPath
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` levelId

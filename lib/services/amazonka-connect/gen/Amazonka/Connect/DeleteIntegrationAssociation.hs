@@ -108,7 +108,8 @@ instance
     DeleteIntegrationAssociation
   where
   hashWithSalt _salt DeleteIntegrationAssociation' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` integrationAssociationId
 
 instance Prelude.NFData DeleteIntegrationAssociation where

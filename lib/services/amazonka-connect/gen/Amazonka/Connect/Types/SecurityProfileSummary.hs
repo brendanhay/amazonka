@@ -84,7 +84,8 @@ instance Data.FromJSON SecurityProfileSummary where
 
 instance Prelude.Hashable SecurityProfileSummary where
   hashWithSalt _salt SecurityProfileSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` name
 

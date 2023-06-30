@@ -109,7 +109,8 @@ instance Core.AWSRequest DisassociateLambdaFunction where
 
 instance Prelude.Hashable DisassociateLambdaFunction where
   hashWithSalt _salt DisassociateLambdaFunction' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` functionArn
 
 instance Prelude.NFData DisassociateLambdaFunction where

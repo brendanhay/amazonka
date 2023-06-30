@@ -194,7 +194,8 @@ instance Core.AWSRequest CreateQueue where
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` maxContacts
       `Prelude.hashWithSalt` outboundCallerConfig
       `Prelude.hashWithSalt` quickConnectIds

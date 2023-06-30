@@ -135,22 +135,22 @@ instance Core.AWSPager ListContactFlows where
     | Core.stop
         ( rs
             Lens.^? listContactFlowsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContactFlowsResponse_contactFlowSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContactFlows_nextToken
           Lens..~ rs
           Lens.^? listContactFlowsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContactFlows where
   type
@@ -162,7 +162,8 @@ instance Core.AWSRequest ListContactFlows where
     Response.receiveJSON
       ( \s h x ->
           ListContactFlowsResponse'
-            Prelude.<$> ( x Data..?> "ContactFlowSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "ContactFlowSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -171,7 +172,8 @@ instance Core.AWSRequest ListContactFlows where
 
 instance Prelude.Hashable ListContactFlows where
   hashWithSalt _salt ListContactFlows' {..} =
-    _salt `Prelude.hashWithSalt` contactFlowTypes
+    _salt
+      `Prelude.hashWithSalt` contactFlowTypes
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` instanceId

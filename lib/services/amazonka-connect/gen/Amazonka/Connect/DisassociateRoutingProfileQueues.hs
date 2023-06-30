@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     DisassociateRoutingProfileQueues' {..} =
-      _salt `Prelude.hashWithSalt` instanceId
+      _salt
+        `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` routingProfileId
         `Prelude.hashWithSalt` queueReferences
 

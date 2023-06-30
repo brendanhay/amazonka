@@ -76,7 +76,8 @@ instance Data.FromJSON FrameMetricDatum where
 
 instance Prelude.Hashable FrameMetricDatum where
   hashWithSalt _salt FrameMetricDatum' {..} =
-    _salt `Prelude.hashWithSalt` frameMetric
+    _salt
+      `Prelude.hashWithSalt` frameMetric
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData FrameMetricDatum where

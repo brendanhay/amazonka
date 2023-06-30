@@ -112,7 +112,8 @@ instance Core.AWSRequest AddNotificationChannels where
 
 instance Prelude.Hashable AddNotificationChannels where
   hashWithSalt _salt AddNotificationChannels' {..} =
-    _salt `Prelude.hashWithSalt` channels
+    _salt
+      `Prelude.hashWithSalt` channels
       `Prelude.hashWithSalt` profilingGroupName
 
 instance Prelude.NFData AddNotificationChannels where

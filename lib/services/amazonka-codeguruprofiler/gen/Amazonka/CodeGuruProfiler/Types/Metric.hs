@@ -107,7 +107,8 @@ instance Data.FromJSON Metric where
 
 instance Prelude.Hashable Metric where
   hashWithSalt _salt Metric' {..} =
-    _salt `Prelude.hashWithSalt` frameName
+    _salt
+      `Prelude.hashWithSalt` frameName
       `Prelude.hashWithSalt` threadStates
       `Prelude.hashWithSalt` type'
 

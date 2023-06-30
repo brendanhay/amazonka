@@ -91,7 +91,8 @@ instance Data.FromJSON Match where
 
 instance Prelude.Hashable Match where
   hashWithSalt _salt Match' {..} =
-    _salt `Prelude.hashWithSalt` frameAddress
+    _salt
+      `Prelude.hashWithSalt` frameAddress
       `Prelude.hashWithSalt` targetFramesIndex
       `Prelude.hashWithSalt` thresholdBreachValue
 

@@ -152,7 +152,8 @@ instance
     RespondActivityTaskCompleted
   where
   hashWithSalt _salt RespondActivityTaskCompleted' {..} =
-    _salt `Prelude.hashWithSalt` result
+    _salt
+      `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` taskToken
 
 instance Prelude.NFData RespondActivityTaskCompleted where

@@ -131,7 +131,8 @@ instance
   hashWithSalt
     _salt
     ActivityTaskTimedOutEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` details
+      _salt
+        `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` timeoutType
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId

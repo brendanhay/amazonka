@@ -149,7 +149,8 @@ instance
   hashWithSalt
     _salt
     RequestCancelWorkflowExecution' {..} =
-      _salt `Prelude.hashWithSalt` runId
+      _salt
+        `Prelude.hashWithSalt` runId
         `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` workflowId
 

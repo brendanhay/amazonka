@@ -90,7 +90,8 @@ instance
   hashWithSalt
     _salt
     FailWorkflowExecutionDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` details
+      _salt
+        `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` reason
 
 instance

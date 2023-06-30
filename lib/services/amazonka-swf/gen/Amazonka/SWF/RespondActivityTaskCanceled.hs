@@ -146,7 +146,8 @@ instance Core.AWSRequest RespondActivityTaskCanceled where
 
 instance Prelude.Hashable RespondActivityTaskCanceled where
   hashWithSalt _salt RespondActivityTaskCanceled' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` taskToken
 
 instance Prelude.NFData RespondActivityTaskCanceled where

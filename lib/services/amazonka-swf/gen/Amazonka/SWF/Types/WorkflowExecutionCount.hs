@@ -84,7 +84,8 @@ instance Data.FromJSON WorkflowExecutionCount where
 
 instance Prelude.Hashable WorkflowExecutionCount where
   hashWithSalt _salt WorkflowExecutionCount' {..} =
-    _salt `Prelude.hashWithSalt` truncated
+    _salt
+      `Prelude.hashWithSalt` truncated
       `Prelude.hashWithSalt` count
 
 instance Prelude.NFData WorkflowExecutionCount where

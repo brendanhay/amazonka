@@ -123,7 +123,8 @@ instance
   hashWithSalt
     _salt
     StartLambdaFunctionFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` cause
+      _salt
+        `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` message
         `Prelude.hashWithSalt` scheduledEventId
 

@@ -104,7 +104,8 @@ instance
     MarkerRecordedEventAttributes
   where
   hashWithSalt _salt MarkerRecordedEventAttributes' {..} =
-    _salt `Prelude.hashWithSalt` details
+    _salt
+      `Prelude.hashWithSalt` details
       `Prelude.hashWithSalt` markerName
       `Prelude.hashWithSalt` decisionTaskCompletedEventId
 

@@ -130,7 +130,8 @@ instance
   hashWithSalt
     _salt
     WorkflowExecutionTimedOutEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` timeoutType
+      _salt
+        `Prelude.hashWithSalt` timeoutType
         `Prelude.hashWithSalt` childPolicy
 
 instance

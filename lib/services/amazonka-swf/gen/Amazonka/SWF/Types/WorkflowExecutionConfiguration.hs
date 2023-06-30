@@ -226,7 +226,8 @@ instance
   hashWithSalt
     _salt
     WorkflowExecutionConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` lambdaRole
+      _salt
+        `Prelude.hashWithSalt` lambdaRole
         `Prelude.hashWithSalt` taskPriority
         `Prelude.hashWithSalt` taskStartToCloseTimeout
         `Prelude.hashWithSalt` executionStartToCloseTimeout

@@ -509,7 +509,8 @@ instance Core.AWSRequest StartWorkflowExecution where
 
 instance Prelude.Hashable StartWorkflowExecution where
   hashWithSalt _salt StartWorkflowExecution' {..} =
-    _salt `Prelude.hashWithSalt` childPolicy
+    _salt
+      `Prelude.hashWithSalt` childPolicy
       `Prelude.hashWithSalt` executionStartToCloseTimeout
       `Prelude.hashWithSalt` input
       `Prelude.hashWithSalt` lambdaRole

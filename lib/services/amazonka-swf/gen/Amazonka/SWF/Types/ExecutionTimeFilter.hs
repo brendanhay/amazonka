@@ -70,7 +70,8 @@ executionTimeFilter_oldestDate = Lens.lens (\ExecutionTimeFilter' {oldestDate} -
 
 instance Prelude.Hashable ExecutionTimeFilter where
   hashWithSalt _salt ExecutionTimeFilter' {..} =
-    _salt `Prelude.hashWithSalt` latestDate
+    _salt
+      `Prelude.hashWithSalt` latestDate
       `Prelude.hashWithSalt` oldestDate
 
 instance Prelude.NFData ExecutionTimeFilter where

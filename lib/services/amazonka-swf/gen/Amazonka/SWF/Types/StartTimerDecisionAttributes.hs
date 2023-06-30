@@ -130,7 +130,8 @@ instance
     StartTimerDecisionAttributes
   where
   hashWithSalt _salt StartTimerDecisionAttributes' {..} =
-    _salt `Prelude.hashWithSalt` control
+    _salt
+      `Prelude.hashWithSalt` control
       `Prelude.hashWithSalt` timerId
       `Prelude.hashWithSalt` startToFireTimeout
 

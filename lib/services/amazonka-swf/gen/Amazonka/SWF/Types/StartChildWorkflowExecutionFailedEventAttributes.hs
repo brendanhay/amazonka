@@ -189,11 +189,11 @@ instance
       ( \x ->
           StartChildWorkflowExecutionFailedEventAttributes'
             Prelude.<$> (x Data..:? "control")
-              Prelude.<*> (x Data..: "workflowType")
-              Prelude.<*> (x Data..: "cause")
-              Prelude.<*> (x Data..: "workflowId")
-              Prelude.<*> (x Data..: "initiatedEventId")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..: "workflowType")
+            Prelude.<*> (x Data..: "cause")
+            Prelude.<*> (x Data..: "workflowId")
+            Prelude.<*> (x Data..: "initiatedEventId")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance
@@ -203,7 +203,8 @@ instance
   hashWithSalt
     _salt
     StartChildWorkflowExecutionFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` workflowType
         `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` workflowId

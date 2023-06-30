@@ -407,7 +407,8 @@ instance Core.AWSRequest RegisterWorkflowType where
 
 instance Prelude.Hashable RegisterWorkflowType where
   hashWithSalt _salt RegisterWorkflowType' {..} =
-    _salt `Prelude.hashWithSalt` defaultChildPolicy
+    _salt
+      `Prelude.hashWithSalt` defaultChildPolicy
       `Prelude.hashWithSalt` defaultExecutionStartToCloseTimeout
       `Prelude.hashWithSalt` defaultLambdaRole
       `Prelude.hashWithSalt` defaultTaskList

@@ -125,7 +125,8 @@ instance Core.AWSRequest CountPendingDecisionTasks where
 
 instance Prelude.Hashable CountPendingDecisionTasks where
   hashWithSalt _salt CountPendingDecisionTasks' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` taskList
 
 instance Prelude.NFData CountPendingDecisionTasks where

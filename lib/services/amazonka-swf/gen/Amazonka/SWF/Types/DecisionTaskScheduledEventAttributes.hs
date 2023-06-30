@@ -129,7 +129,8 @@ instance
   hashWithSalt
     _salt
     DecisionTaskScheduledEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` startToCloseTimeout
+      _salt
+        `Prelude.hashWithSalt` startToCloseTimeout
         `Prelude.hashWithSalt` taskPriority
         `Prelude.hashWithSalt` taskList
 

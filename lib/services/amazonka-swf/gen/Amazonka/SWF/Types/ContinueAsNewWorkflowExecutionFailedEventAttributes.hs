@@ -115,7 +115,7 @@ instance
       ( \x ->
           ContinueAsNewWorkflowExecutionFailedEventAttributes'
             Prelude.<$> (x Data..: "cause")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
       )
 
 instance
@@ -125,7 +125,8 @@ instance
   hashWithSalt
     _salt
     ContinueAsNewWorkflowExecutionFailedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` cause
+      _salt
+        `Prelude.hashWithSalt` cause
         `Prelude.hashWithSalt` decisionTaskCompletedEventId
 
 instance

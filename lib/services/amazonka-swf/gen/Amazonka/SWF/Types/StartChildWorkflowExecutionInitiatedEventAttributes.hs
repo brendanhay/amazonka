@@ -297,17 +297,17 @@ instance
       ( \x ->
           StartChildWorkflowExecutionInitiatedEventAttributes'
             Prelude.<$> (x Data..:? "control")
-              Prelude.<*> (x Data..:? "executionStartToCloseTimeout")
-              Prelude.<*> (x Data..:? "input")
-              Prelude.<*> (x Data..:? "lambdaRole")
-              Prelude.<*> (x Data..:? "tagList" Data..!= Prelude.mempty)
-              Prelude.<*> (x Data..:? "taskPriority")
-              Prelude.<*> (x Data..:? "taskStartToCloseTimeout")
-              Prelude.<*> (x Data..: "workflowId")
-              Prelude.<*> (x Data..: "workflowType")
-              Prelude.<*> (x Data..: "taskList")
-              Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
-              Prelude.<*> (x Data..: "childPolicy")
+            Prelude.<*> (x Data..:? "executionStartToCloseTimeout")
+            Prelude.<*> (x Data..:? "input")
+            Prelude.<*> (x Data..:? "lambdaRole")
+            Prelude.<*> (x Data..:? "tagList" Data..!= Prelude.mempty)
+            Prelude.<*> (x Data..:? "taskPriority")
+            Prelude.<*> (x Data..:? "taskStartToCloseTimeout")
+            Prelude.<*> (x Data..: "workflowId")
+            Prelude.<*> (x Data..: "workflowType")
+            Prelude.<*> (x Data..: "taskList")
+            Prelude.<*> (x Data..: "decisionTaskCompletedEventId")
+            Prelude.<*> (x Data..: "childPolicy")
       )
 
 instance
@@ -317,7 +317,8 @@ instance
   hashWithSalt
     _salt
     StartChildWorkflowExecutionInitiatedEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` control
+      _salt
+        `Prelude.hashWithSalt` control
         `Prelude.hashWithSalt` executionStartToCloseTimeout
         `Prelude.hashWithSalt` input
         `Prelude.hashWithSalt` lambdaRole

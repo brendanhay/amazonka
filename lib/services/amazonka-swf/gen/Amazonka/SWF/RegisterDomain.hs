@@ -202,7 +202,8 @@ instance Core.AWSRequest RegisterDomain where
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` workflowExecutionRetentionPeriodInDays

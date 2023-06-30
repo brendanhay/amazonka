@@ -149,7 +149,8 @@ instance
     RespondDecisionTaskCompleted
   where
   hashWithSalt _salt RespondDecisionTaskCompleted' {..} =
-    _salt `Prelude.hashWithSalt` decisions
+    _salt
+      `Prelude.hashWithSalt` decisions
       `Prelude.hashWithSalt` executionContext
       `Prelude.hashWithSalt` taskToken
 

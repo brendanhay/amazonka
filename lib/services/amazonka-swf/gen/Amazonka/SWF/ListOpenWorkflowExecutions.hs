@@ -263,19 +263,19 @@ instance Core.AWSPager ListOpenWorkflowExecutions where
     | Core.stop
         ( rs
             Lens.^? workflowExecutionInfos_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. workflowExecutionInfos_executionInfos) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listOpenWorkflowExecutions_nextPageToken
           Lens..~ rs
           Lens.^? workflowExecutionInfos_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListOpenWorkflowExecutions where
   type
@@ -289,7 +289,8 @@ instance Core.AWSRequest ListOpenWorkflowExecutions where
 
 instance Prelude.Hashable ListOpenWorkflowExecutions where
   hashWithSalt _salt ListOpenWorkflowExecutions' {..} =
-    _salt `Prelude.hashWithSalt` executionFilter
+    _salt
+      `Prelude.hashWithSalt` executionFilter
       `Prelude.hashWithSalt` maximumPageSize
       `Prelude.hashWithSalt` nextPageToken
       `Prelude.hashWithSalt` reverseOrder

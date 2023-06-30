@@ -135,7 +135,8 @@ instance Core.AWSRequest DescribeWorkflowType where
 
 instance Prelude.Hashable DescribeWorkflowType where
   hashWithSalt _salt DescribeWorkflowType' {..} =
-    _salt `Prelude.hashWithSalt` domain
+    _salt
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` workflowType
 
 instance Prelude.NFData DescribeWorkflowType where

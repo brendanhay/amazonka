@@ -264,7 +264,8 @@ instance
     CountClosedWorkflowExecutions
   where
   hashWithSalt _salt CountClosedWorkflowExecutions' {..} =
-    _salt `Prelude.hashWithSalt` closeStatusFilter
+    _salt
+      `Prelude.hashWithSalt` closeStatusFilter
       `Prelude.hashWithSalt` closeTimeFilter
       `Prelude.hashWithSalt` executionFilter
       `Prelude.hashWithSalt` startTimeFilter

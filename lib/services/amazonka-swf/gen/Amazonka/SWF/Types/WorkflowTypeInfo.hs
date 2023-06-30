@@ -119,7 +119,8 @@ instance Data.FromJSON WorkflowTypeInfo where
 
 instance Prelude.Hashable WorkflowTypeInfo where
   hashWithSalt _salt WorkflowTypeInfo' {..} =
-    _salt `Prelude.hashWithSalt` deprecationDate
+    _salt
+      `Prelude.hashWithSalt` deprecationDate
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` workflowType
       `Prelude.hashWithSalt` status

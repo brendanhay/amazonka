@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     RecordMarkerDecisionAttributes' {..} =
-      _salt `Prelude.hashWithSalt` details
+      _salt
+        `Prelude.hashWithSalt` details
         `Prelude.hashWithSalt` markerName
 
 instance

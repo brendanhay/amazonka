@@ -113,7 +113,8 @@ instance
   hashWithSalt
     _salt
     LambdaFunctionTimedOutEventAttributes' {..} =
-      _salt `Prelude.hashWithSalt` timeoutType
+      _salt
+        `Prelude.hashWithSalt` timeoutType
         `Prelude.hashWithSalt` scheduledEventId
         `Prelude.hashWithSalt` startedEventId
 

@@ -68,7 +68,8 @@ workflowTypeFilter_name = Lens.lens (\WorkflowTypeFilter' {name} -> name) (\s@Wo
 
 instance Prelude.Hashable WorkflowTypeFilter where
   hashWithSalt _salt WorkflowTypeFilter' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData WorkflowTypeFilter where

@@ -157,22 +157,22 @@ instance Core.AWSPager DescribeComputeEnvironments where
     | Core.stop
         ( rs
             Lens.^? describeComputeEnvironmentsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeComputeEnvironmentsResponse_computeEnvironments
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeComputeEnvironments_nextToken
           Lens..~ rs
           Lens.^? describeComputeEnvironmentsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeComputeEnvironments where
   type
@@ -184,7 +184,8 @@ instance Core.AWSRequest DescribeComputeEnvironments where
     Response.receiveJSON
       ( \s h x ->
           DescribeComputeEnvironmentsResponse'
-            Prelude.<$> ( x Data..?> "computeEnvironments"
+            Prelude.<$> ( x
+                            Data..?> "computeEnvironments"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -193,7 +194,8 @@ instance Core.AWSRequest DescribeComputeEnvironments where
 
 instance Prelude.Hashable DescribeComputeEnvironments where
   hashWithSalt _salt DescribeComputeEnvironments' {..} =
-    _salt `Prelude.hashWithSalt` computeEnvironments
+    _salt
+      `Prelude.hashWithSalt` computeEnvironments
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

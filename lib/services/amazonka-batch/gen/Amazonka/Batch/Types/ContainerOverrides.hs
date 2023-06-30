@@ -207,7 +207,8 @@ containerOverrides_vcpus = Lens.lens (\ContainerOverrides' {vcpus} -> vcpus) (\s
 
 instance Prelude.Hashable ContainerOverrides where
   hashWithSalt _salt ContainerOverrides' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` memory

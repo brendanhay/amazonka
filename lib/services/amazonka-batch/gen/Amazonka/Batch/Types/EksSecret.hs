@@ -88,7 +88,8 @@ instance Data.FromJSON EksSecret where
 
 instance Prelude.Hashable EksSecret where
   hashWithSalt _salt EksSecret' {..} =
-    _salt `Prelude.hashWithSalt` optional
+    _salt
+      `Prelude.hashWithSalt` optional
       `Prelude.hashWithSalt` secretName
 
 instance Prelude.NFData EksSecret where

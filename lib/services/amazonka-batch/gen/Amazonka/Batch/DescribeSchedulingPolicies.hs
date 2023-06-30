@@ -87,7 +87,8 @@ instance Core.AWSRequest DescribeSchedulingPolicies where
     Response.receiveJSON
       ( \s h x ->
           DescribeSchedulingPoliciesResponse'
-            Prelude.<$> ( x Data..?> "schedulingPolicies"
+            Prelude.<$> ( x
+                            Data..?> "schedulingPolicies"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

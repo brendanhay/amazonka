@@ -110,7 +110,8 @@ instance Data.FromJSON AttemptDetail where
 
 instance Prelude.Hashable AttemptDetail where
   hashWithSalt _salt AttemptDetail' {..} =
-    _salt `Prelude.hashWithSalt` container
+    _salt
+      `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` stoppedAt

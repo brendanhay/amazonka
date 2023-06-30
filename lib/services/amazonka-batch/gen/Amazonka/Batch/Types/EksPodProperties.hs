@@ -181,7 +181,8 @@ instance Data.FromJSON EksPodProperties where
 
 instance Prelude.Hashable EksPodProperties where
   hashWithSalt _salt EksPodProperties' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` dnsPolicy
       `Prelude.hashWithSalt` hostNetwork
       `Prelude.hashWithSalt` serviceAccountName

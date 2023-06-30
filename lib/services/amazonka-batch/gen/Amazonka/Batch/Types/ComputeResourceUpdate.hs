@@ -160,9 +160,9 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
     -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
     -- compute environment. You can specify the short name or full Amazon
     -- Resource Name (ARN) of an instance profile. For example,
-    -- @ ecsInstanceRole @ or
-    -- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
-    -- more information, see
+    -- @ @/@ecsInstanceRole@/@ @ or
+    -- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+    -- For more information, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
     -- in the /Batch User Guide/.
     --
@@ -484,9 +484,9 @@ data ComputeResourceUpdate = ComputeResourceUpdate'
 -- 'instanceRole', 'computeResourceUpdate_instanceRole' - The Amazon ECS instance profile applied to Amazon EC2 instances in a
 -- compute environment. You can specify the short name or full Amazon
 -- Resource Name (ARN) of an instance profile. For example,
--- @ ecsInstanceRole @ or
--- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
--- more information, see
+-- @ @/@ecsInstanceRole@/@ @ or
+-- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+-- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
@@ -832,9 +832,9 @@ computeResourceUpdate_imageId = Lens.lens (\ComputeResourceUpdate' {imageId} -> 
 -- | The Amazon ECS instance profile applied to Amazon EC2 instances in a
 -- compute environment. You can specify the short name or full Amazon
 -- Resource Name (ARN) of an instance profile. For example,
--- @ ecsInstanceRole @ or
--- @arn:aws:iam::\<aws_account_id>:instance-profile\/ecsInstanceRole @. For
--- more information, see
+-- @ @/@ecsInstanceRole@/@ @ or
+-- @arn:aws:iam::@/@\<aws_account_id>@/@:instance-profile\/@/@ecsInstanceRole@/@ @.
+-- For more information, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html Amazon ECS instance role>
 -- in the /Batch User Guide/.
 --
@@ -1044,7 +1044,8 @@ computeResourceUpdate_updateToLatestImageVersion = Lens.lens (\ComputeResourceUp
 
 instance Prelude.Hashable ComputeResourceUpdate where
   hashWithSalt _salt ComputeResourceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` allocationStrategy
+    _salt
+      `Prelude.hashWithSalt` allocationStrategy
       `Prelude.hashWithSalt` bidPercentage
       `Prelude.hashWithSalt` desiredvCpus
       `Prelude.hashWithSalt` ec2Configuration

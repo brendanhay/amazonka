@@ -99,7 +99,8 @@ instance Data.FromJSON NodeRangeProperty where
 
 instance Prelude.Hashable NodeRangeProperty where
   hashWithSalt _salt NodeRangeProperty' {..} =
-    _salt `Prelude.hashWithSalt` container
+    _salt
+      `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` targetNodes
 
 instance Prelude.NFData NodeRangeProperty where

@@ -93,7 +93,8 @@ instance Data.FromJSON ArrayPropertiesDetail where
 
 instance Prelude.Hashable ArrayPropertiesDetail where
   hashWithSalt _salt ArrayPropertiesDetail' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` size
       `Prelude.hashWithSalt` statusSummary
 

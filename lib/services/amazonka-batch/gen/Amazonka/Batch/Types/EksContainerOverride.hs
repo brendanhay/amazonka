@@ -148,7 +148,8 @@ eksContainerOverride_resources = Lens.lens (\EksContainerOverride' {resources} -
 
 instance Prelude.Hashable EksContainerOverride where
   hashWithSalt _salt EksContainerOverride' {..} =
-    _salt `Prelude.hashWithSalt` args
+    _salt
+      `Prelude.hashWithSalt` args
       `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` env
       `Prelude.hashWithSalt` image

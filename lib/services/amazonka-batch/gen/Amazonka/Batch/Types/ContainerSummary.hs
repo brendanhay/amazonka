@@ -77,7 +77,8 @@ instance Data.FromJSON ContainerSummary where
 
 instance Prelude.Hashable ContainerSummary where
   hashWithSalt _salt ContainerSummary' {..} =
-    _salt `Prelude.hashWithSalt` exitCode
+    _salt
+      `Prelude.hashWithSalt` exitCode
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData ContainerSummary where

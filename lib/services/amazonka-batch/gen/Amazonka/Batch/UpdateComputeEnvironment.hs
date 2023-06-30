@@ -294,7 +294,8 @@ instance Core.AWSRequest UpdateComputeEnvironment where
 
 instance Prelude.Hashable UpdateComputeEnvironment where
   hashWithSalt _salt UpdateComputeEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` computeResources
+    _salt
+      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` serviceRole
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` unmanagedvCpus

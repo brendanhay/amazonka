@@ -149,22 +149,22 @@ instance Core.AWSPager DescribeJobQueues where
     | Core.stop
         ( rs
             Lens.^? describeJobQueuesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeJobQueuesResponse_jobQueues
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeJobQueues_nextToken
           Lens..~ rs
           Lens.^? describeJobQueuesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeJobQueues where
   type
@@ -183,7 +183,8 @@ instance Core.AWSRequest DescribeJobQueues where
 
 instance Prelude.Hashable DescribeJobQueues where
   hashWithSalt _salt DescribeJobQueues' {..} =
-    _salt `Prelude.hashWithSalt` jobQueues
+    _salt
+      `Prelude.hashWithSalt` jobQueues
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

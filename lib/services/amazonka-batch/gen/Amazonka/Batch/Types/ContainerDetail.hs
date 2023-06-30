@@ -626,13 +626,15 @@ instance Data.FromJSON ContainerDetail where
             Prelude.<*> (x Data..:? "memory")
             Prelude.<*> (x Data..:? "mountPoints" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "networkConfiguration")
-            Prelude.<*> ( x Data..:? "networkInterfaces"
+            Prelude.<*> ( x
+                            Data..:? "networkInterfaces"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "privileged")
             Prelude.<*> (x Data..:? "readonlyRootFilesystem")
             Prelude.<*> (x Data..:? "reason")
-            Prelude.<*> ( x Data..:? "resourceRequirements"
+            Prelude.<*> ( x
+                            Data..:? "resourceRequirements"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "secrets" Data..!= Prelude.mempty)
@@ -645,7 +647,8 @@ instance Data.FromJSON ContainerDetail where
 
 instance Prelude.Hashable ContainerDetail where
   hashWithSalt _salt ContainerDetail' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` containerInstanceArn
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` executionRoleArn

@@ -65,7 +65,8 @@ keyValuesPair_values = Lens.lens (\KeyValuesPair' {values} -> values) (\s@KeyVal
 
 instance Prelude.Hashable KeyValuesPair where
   hashWithSalt _salt KeyValuesPair' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` values
 
 instance Prelude.NFData KeyValuesPair where

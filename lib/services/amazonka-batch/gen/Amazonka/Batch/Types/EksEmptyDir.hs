@@ -113,7 +113,8 @@ instance Data.FromJSON EksEmptyDir where
 
 instance Prelude.Hashable EksEmptyDir where
   hashWithSalt _salt EksEmptyDir' {..} =
-    _salt `Prelude.hashWithSalt` medium
+    _salt
+      `Prelude.hashWithSalt` medium
       `Prelude.hashWithSalt` sizeLimit
 
 instance Prelude.NFData EksEmptyDir where

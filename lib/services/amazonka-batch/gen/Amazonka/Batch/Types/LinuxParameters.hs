@@ -330,7 +330,8 @@ instance Data.FromJSON LinuxParameters where
 
 instance Prelude.Hashable LinuxParameters where
   hashWithSalt _salt LinuxParameters' {..} =
-    _salt `Prelude.hashWithSalt` devices
+    _salt
+      `Prelude.hashWithSalt` devices
       `Prelude.hashWithSalt` initProcessEnabled
       `Prelude.hashWithSalt` maxSwap
       `Prelude.hashWithSalt` sharedMemorySize

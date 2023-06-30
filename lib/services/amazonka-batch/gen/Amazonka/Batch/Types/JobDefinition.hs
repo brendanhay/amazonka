@@ -318,7 +318,8 @@ instance Data.FromJSON JobDefinition where
             Prelude.<*> (x Data..:? "eksProperties")
             Prelude.<*> (x Data..:? "nodeProperties")
             Prelude.<*> (x Data..:? "parameters" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "platformCapabilities"
+            Prelude.<*> ( x
+                            Data..:? "platformCapabilities"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "propagateTags")

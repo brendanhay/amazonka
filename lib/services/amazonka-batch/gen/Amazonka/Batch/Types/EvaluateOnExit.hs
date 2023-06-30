@@ -148,7 +148,8 @@ instance Data.FromJSON EvaluateOnExit where
 
 instance Prelude.Hashable EvaluateOnExit where
   hashWithSalt _salt EvaluateOnExit' {..} =
-    _salt `Prelude.hashWithSalt` onExitCode
+    _salt
+      `Prelude.hashWithSalt` onExitCode
       `Prelude.hashWithSalt` onReason
       `Prelude.hashWithSalt` onStatusReason
       `Prelude.hashWithSalt` action

@@ -273,7 +273,8 @@ instance
   hashWithSalt
     _salt
     EksContainerResourceRequirements' {..} =
-      _salt `Prelude.hashWithSalt` limits
+      _salt
+        `Prelude.hashWithSalt` limits
         `Prelude.hashWithSalt` requests
 
 instance

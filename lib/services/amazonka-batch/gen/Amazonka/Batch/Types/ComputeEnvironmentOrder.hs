@@ -101,7 +101,8 @@ instance Data.FromJSON ComputeEnvironmentOrder where
 
 instance Prelude.Hashable ComputeEnvironmentOrder where
   hashWithSalt _salt ComputeEnvironmentOrder' {..} =
-    _salt `Prelude.hashWithSalt` order
+    _salt
+      `Prelude.hashWithSalt` order
       `Prelude.hashWithSalt` computeEnvironment
 
 instance Prelude.NFData ComputeEnvironmentOrder where

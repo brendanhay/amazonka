@@ -403,7 +403,8 @@ instance Core.AWSRequest RegisterJobDefinition where
 
 instance Prelude.Hashable RegisterJobDefinition where
   hashWithSalt _salt RegisterJobDefinition' {..} =
-    _salt `Prelude.hashWithSalt` containerProperties
+    _salt
+      `Prelude.hashWithSalt` containerProperties
       `Prelude.hashWithSalt` eksProperties
       `Prelude.hashWithSalt` nodeProperties
       `Prelude.hashWithSalt` parameters

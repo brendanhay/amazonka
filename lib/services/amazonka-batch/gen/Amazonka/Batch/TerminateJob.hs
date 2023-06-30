@@ -108,7 +108,8 @@ instance Core.AWSRequest TerminateJob where
 
 instance Prelude.Hashable TerminateJob where
   hashWithSalt _salt TerminateJob' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` reason
 
 instance Prelude.NFData TerminateJob where

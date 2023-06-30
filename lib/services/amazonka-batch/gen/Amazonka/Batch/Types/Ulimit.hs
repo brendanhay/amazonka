@@ -93,7 +93,8 @@ instance Data.FromJSON Ulimit where
 
 instance Prelude.Hashable Ulimit where
   hashWithSalt _salt Ulimit' {..} =
-    _salt `Prelude.hashWithSalt` hardLimit
+    _salt
+      `Prelude.hashWithSalt` hardLimit
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` softLimit
 

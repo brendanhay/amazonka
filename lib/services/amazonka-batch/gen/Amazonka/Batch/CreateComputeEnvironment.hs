@@ -455,7 +455,8 @@ instance Core.AWSRequest CreateComputeEnvironment where
 
 instance Prelude.Hashable CreateComputeEnvironment where
   hashWithSalt _salt CreateComputeEnvironment' {..} =
-    _salt `Prelude.hashWithSalt` computeResources
+    _salt
+      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` eksConfiguration
       `Prelude.hashWithSalt` serviceRole
       `Prelude.hashWithSalt` state

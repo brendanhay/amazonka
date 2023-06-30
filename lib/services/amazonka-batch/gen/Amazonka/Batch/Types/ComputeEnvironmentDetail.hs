@@ -320,7 +320,8 @@ instance Data.FromJSON ComputeEnvironmentDetail where
 
 instance Prelude.Hashable ComputeEnvironmentDetail where
   hashWithSalt _salt ComputeEnvironmentDetail' {..} =
-    _salt `Prelude.hashWithSalt` computeResources
+    _salt
+      `Prelude.hashWithSalt` computeResources
       `Prelude.hashWithSalt` containerOrchestrationType
       `Prelude.hashWithSalt` ecsClusterArn
       `Prelude.hashWithSalt` eksConfiguration

@@ -266,7 +266,8 @@ instance Core.AWSRequest UpdateApiCache where
 
 instance Prelude.Hashable UpdateApiCache where
   hashWithSalt _salt UpdateApiCache' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` ttl
       `Prelude.hashWithSalt` apiCachingBehavior
       `Prelude.hashWithSalt` type'

@@ -145,7 +145,8 @@ instance Data.FromJSON ApiKey where
 
 instance Prelude.Hashable ApiKey where
   hashWithSalt _salt ApiKey' {..} =
-    _salt `Prelude.hashWithSalt` deletes
+    _salt
+      `Prelude.hashWithSalt` deletes
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expires
       `Prelude.hashWithSalt` id

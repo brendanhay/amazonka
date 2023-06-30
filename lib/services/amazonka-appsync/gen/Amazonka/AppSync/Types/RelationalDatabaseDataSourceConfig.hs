@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     RelationalDatabaseDataSourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` rdsHttpEndpointConfig
+      _salt
+        `Prelude.hashWithSalt` rdsHttpEndpointConfig
         `Prelude.hashWithSalt` relationalDatabaseSourceType
 
 instance

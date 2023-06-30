@@ -97,7 +97,8 @@ instance Core.AWSRequest DeleteApiKey where
 
 instance Prelude.Hashable DeleteApiKey where
   hashWithSalt _salt DeleteApiKey' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DeleteApiKey where

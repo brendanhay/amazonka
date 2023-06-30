@@ -439,52 +439,52 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | You don\'t have access to perform this operation on this resource.
-_AccessDeniedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccessDeniedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
@@ -492,7 +492,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The API key exceeded a limit. Try your request again.
-_ApiKeyLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ApiKeyLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ApiKeyLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -501,7 +501,7 @@ _ApiKeyLimitExceededException =
 
 -- | The API key expiration must be set to a value between 1 and 365 days
 -- from creation (for @CreateApiKey@) or from update (for @UpdateApiKey@).
-_ApiKeyValidityOutOfBoundsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ApiKeyValidityOutOfBoundsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ApiKeyValidityOutOfBoundsException =
   Core._MatchServiceError
     defaultService
@@ -509,7 +509,7 @@ _ApiKeyValidityOutOfBoundsException =
     Prelude.. Core.hasStatus 400
 
 -- | The GraphQL API exceeded a limit. Try your request again.
-_ApiLimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ApiLimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ApiLimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -518,7 +518,7 @@ _ApiLimitExceededException =
 
 -- | The request is not well formed. For example, a value is invalid or a
 -- required field is missing. Check the field values, and then try again.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -527,7 +527,7 @@ _BadRequestException =
 
 -- | Another modification is in progress at this time and it must complete
 -- before you can make your change.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -535,7 +535,7 @@ _ConcurrentModificationException =
     Prelude.. Core.hasStatus 409
 
 -- | The GraphQL schema is not valid.
-_GraphQLSchemaException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_GraphQLSchemaException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _GraphQLSchemaException =
   Core._MatchServiceError
     defaultService
@@ -543,7 +543,7 @@ _GraphQLSchemaException =
     Prelude.. Core.hasStatus 400
 
 -- | An internal AppSync error occurred. Try your request again.
-_InternalFailureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InternalFailureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InternalFailureException =
   Core._MatchServiceError
     defaultService
@@ -551,7 +551,7 @@ _InternalFailureException =
     Prelude.. Core.hasStatus 500
 
 -- | The request exceeded a limit. Try your request again.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -560,7 +560,7 @@ _LimitExceededException =
 
 -- | The resource specified in the request was not found. Check the resource,
 -- and then try again.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -568,7 +568,7 @@ _NotFoundException =
     Prelude.. Core.hasStatus 404
 
 -- | You aren\'t authorized to perform this operation.
-_UnauthorizedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_UnauthorizedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError
     defaultService

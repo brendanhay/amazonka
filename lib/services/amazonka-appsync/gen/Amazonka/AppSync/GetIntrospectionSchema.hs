@@ -118,7 +118,8 @@ instance Core.AWSRequest GetIntrospectionSchema where
 
 instance Prelude.Hashable GetIntrospectionSchema where
   hashWithSalt _salt GetIntrospectionSchema' {..} =
-    _salt `Prelude.hashWithSalt` includeDirectives
+    _salt
+      `Prelude.hashWithSalt` includeDirectives
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` format
 

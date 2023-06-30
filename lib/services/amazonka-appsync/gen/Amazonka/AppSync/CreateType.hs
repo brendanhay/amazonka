@@ -123,7 +123,8 @@ instance Core.AWSRequest CreateType where
 
 instance Prelude.Hashable CreateType where
   hashWithSalt _salt CreateType' {..} =
-    _salt `Prelude.hashWithSalt` apiId
+    _salt
+      `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` definition
       `Prelude.hashWithSalt` format
 

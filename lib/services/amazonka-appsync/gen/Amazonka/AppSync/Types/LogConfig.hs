@@ -158,7 +158,8 @@ instance Data.FromJSON LogConfig where
 
 instance Prelude.Hashable LogConfig where
   hashWithSalt _salt LogConfig' {..} =
-    _salt `Prelude.hashWithSalt` excludeVerboseContent
+    _salt
+      `Prelude.hashWithSalt` excludeVerboseContent
       `Prelude.hashWithSalt` fieldLogLevel
       `Prelude.hashWithSalt` cloudWatchLogsRoleArn
 

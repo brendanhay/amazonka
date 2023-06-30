@@ -123,7 +123,8 @@ instance Core.AWSRequest EvaluateMappingTemplate where
 
 instance Prelude.Hashable EvaluateMappingTemplate where
   hashWithSalt _salt EvaluateMappingTemplate' {..} =
-    _salt `Prelude.hashWithSalt` template
+    _salt
+      `Prelude.hashWithSalt` template
       `Prelude.hashWithSalt` context
 
 instance Prelude.NFData EvaluateMappingTemplate where

@@ -98,22 +98,22 @@ instance Core.AWSPager ListGraphqlApis where
     | Core.stop
         ( rs
             Lens.^? listGraphqlApisResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listGraphqlApisResponse_graphqlApis
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listGraphqlApis_nextToken
           Lens..~ rs
           Lens.^? listGraphqlApisResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListGraphqlApis where
   type
@@ -132,7 +132,8 @@ instance Core.AWSRequest ListGraphqlApis where
 
 instance Prelude.Hashable ListGraphqlApis where
   hashWithSalt _salt ListGraphqlApis' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGraphqlApis where

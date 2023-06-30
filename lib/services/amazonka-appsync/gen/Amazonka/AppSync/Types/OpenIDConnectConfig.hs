@@ -117,7 +117,8 @@ instance Data.FromJSON OpenIDConnectConfig where
 
 instance Prelude.Hashable OpenIDConnectConfig where
   hashWithSalt _salt OpenIDConnectConfig' {..} =
-    _salt `Prelude.hashWithSalt` authTTL
+    _salt
+      `Prelude.hashWithSalt` authTTL
       `Prelude.hashWithSalt` clientId
       `Prelude.hashWithSalt` iatTTL
       `Prelude.hashWithSalt` issuer

@@ -88,7 +88,8 @@ instance Data.FromJSON HttpDataSourceConfig where
 
 instance Prelude.Hashable HttpDataSourceConfig where
   hashWithSalt _salt HttpDataSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` authorizationConfig
+    _salt
+      `Prelude.hashWithSalt` authorizationConfig
       `Prelude.hashWithSalt` endpoint
 
 instance Prelude.NFData HttpDataSourceConfig where

@@ -88,7 +88,8 @@ instance
     ElasticsearchDataSourceConfig
   where
   hashWithSalt _salt ElasticsearchDataSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` awsRegion
 
 instance Prelude.NFData ElasticsearchDataSourceConfig where

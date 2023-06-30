@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateApiKey where
 
 instance Prelude.Hashable UpdateApiKey where
   hashWithSalt _salt UpdateApiKey' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` expires
       `Prelude.hashWithSalt` apiId
       `Prelude.hashWithSalt` id

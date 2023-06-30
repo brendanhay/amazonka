@@ -118,7 +118,8 @@ instance Core.AWSRequest PutInvitationConfiguration where
 
 instance Prelude.Hashable PutInvitationConfiguration where
   hashWithSalt _salt PutInvitationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` contactEmail
+    _salt
+      `Prelude.hashWithSalt` contactEmail
       `Prelude.hashWithSalt` privateSkillIds
       `Prelude.hashWithSalt` organizationName
 

@@ -85,7 +85,8 @@ instance Data.FromJSON DeviceNetworkProfileInfo where
 
 instance Prelude.Hashable DeviceNetworkProfileInfo where
   hashWithSalt _salt DeviceNetworkProfileInfo' {..} =
-    _salt `Prelude.hashWithSalt` certificateArn
+    _salt
+      `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` certificateExpirationTime
       `Prelude.hashWithSalt` networkProfileArn
 

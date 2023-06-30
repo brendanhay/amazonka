@@ -76,7 +76,8 @@ instance Data.FromJSON DeviceStatusDetail where
 
 instance Prelude.Hashable DeviceStatusDetail where
   hashWithSalt _salt DeviceStatusDetail' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` feature
 
 instance Prelude.NFData DeviceStatusDetail where

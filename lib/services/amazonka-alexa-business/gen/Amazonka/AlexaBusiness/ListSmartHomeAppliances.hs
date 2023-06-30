@@ -105,22 +105,22 @@ instance Core.AWSPager ListSmartHomeAppliances where
     | Core.stop
         ( rs
             Lens.^? listSmartHomeAppliancesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSmartHomeAppliancesResponse_smartHomeAppliances
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSmartHomeAppliances_nextToken
           Lens..~ rs
           Lens.^? listSmartHomeAppliancesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSmartHomeAppliances where
   type
@@ -133,7 +133,8 @@ instance Core.AWSRequest ListSmartHomeAppliances where
       ( \s h x ->
           ListSmartHomeAppliancesResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SmartHomeAppliances"
+            Prelude.<*> ( x
+                            Data..?> "SmartHomeAppliances"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -141,7 +142,8 @@ instance Core.AWSRequest ListSmartHomeAppliances where
 
 instance Prelude.Hashable ListSmartHomeAppliances where
   hashWithSalt _salt ListSmartHomeAppliances' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` roomArn
 

@@ -85,14 +85,16 @@ instance Data.FromJSON DeviceStatusInfo where
           DeviceStatusInfo'
             Prelude.<$> (x Data..:? "ConnectionStatus")
             Prelude.<*> (x Data..:? "ConnectionStatusUpdatedTime")
-            Prelude.<*> ( x Data..:? "DeviceStatusDetails"
+            Prelude.<*> ( x
+                            Data..:? "DeviceStatusDetails"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable DeviceStatusInfo where
   hashWithSalt _salt DeviceStatusInfo' {..} =
-    _salt `Prelude.hashWithSalt` connectionStatus
+    _salt
+      `Prelude.hashWithSalt` connectionStatus
       `Prelude.hashWithSalt` connectionStatusUpdatedTime
       `Prelude.hashWithSalt` deviceStatusDetails
 

@@ -145,7 +145,8 @@ instance Data.FromJSON BusinessReportSchedule where
 
 instance Prelude.Hashable BusinessReportSchedule where
   hashWithSalt _salt BusinessReportSchedule' {..} =
-    _salt `Prelude.hashWithSalt` contentRange
+    _salt
+      `Prelude.hashWithSalt` contentRange
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` lastBusinessReport
       `Prelude.hashWithSalt` recurrence

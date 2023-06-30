@@ -108,7 +108,8 @@ instance Core.AWSRequest UpdateSkillGroup where
 
 instance Prelude.Hashable UpdateSkillGroup where
   hashWithSalt _salt UpdateSkillGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` skillGroupArn
       `Prelude.hashWithSalt` skillGroupName
 

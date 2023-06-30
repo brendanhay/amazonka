@@ -101,7 +101,8 @@ instance Core.AWSRequest RevokeInvitation where
 
 instance Prelude.Hashable RevokeInvitation where
   hashWithSalt _salt RevokeInvitation' {..} =
-    _salt `Prelude.hashWithSalt` enrollmentId
+    _salt
+      `Prelude.hashWithSalt` enrollmentId
       `Prelude.hashWithSalt` userArn
 
 instance Prelude.NFData RevokeInvitation where

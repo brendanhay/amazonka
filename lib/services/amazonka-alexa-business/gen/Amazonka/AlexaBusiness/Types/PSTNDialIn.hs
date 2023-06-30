@@ -119,7 +119,8 @@ instance Data.FromJSON PSTNDialIn where
 
 instance Prelude.Hashable PSTNDialIn where
   hashWithSalt _salt PSTNDialIn' {..} =
-    _salt `Prelude.hashWithSalt` countryCode
+    _salt
+      `Prelude.hashWithSalt` countryCode
       `Prelude.hashWithSalt` phoneNumber
       `Prelude.hashWithSalt` oneClickIdDelay
       `Prelude.hashWithSalt` oneClickPinDelay

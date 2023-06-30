@@ -111,7 +111,8 @@ instance
   hashWithSalt
     _salt
     DisassociateSkillGroupFromRoom' {..} =
-      _salt `Prelude.hashWithSalt` roomArn
+      _salt
+        `Prelude.hashWithSalt` roomArn
         `Prelude.hashWithSalt` skillGroupArn
 
 instance

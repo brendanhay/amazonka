@@ -138,7 +138,8 @@ instance Core.AWSRequest SearchNetworkProfiles where
     Response.receiveJSON
       ( \s h x ->
           SearchNetworkProfilesResponse'
-            Prelude.<$> ( x Data..?> "NetworkProfiles"
+            Prelude.<$> ( x
+                            Data..?> "NetworkProfiles"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -148,7 +149,8 @@ instance Core.AWSRequest SearchNetworkProfiles where
 
 instance Prelude.Hashable SearchNetworkProfiles where
   hashWithSalt _salt SearchNetworkProfiles' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

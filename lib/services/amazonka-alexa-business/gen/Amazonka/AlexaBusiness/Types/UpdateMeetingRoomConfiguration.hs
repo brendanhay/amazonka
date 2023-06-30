@@ -110,7 +110,8 @@ instance
   hashWithSalt
     _salt
     UpdateMeetingRoomConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` endOfMeetingReminder
+      _salt
+        `Prelude.hashWithSalt` endOfMeetingReminder
         `Prelude.hashWithSalt` instantBooking
         `Prelude.hashWithSalt` requireCheckIn
         `Prelude.hashWithSalt` roomUtilizationMetricsEnabled

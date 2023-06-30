@@ -74,7 +74,8 @@ instance Core.AWSRequest GetInvitationConfiguration where
           GetInvitationConfigurationResponse'
             Prelude.<$> (x Data..?> "ContactEmail")
             Prelude.<*> (x Data..?> "OrganizationName")
-            Prelude.<*> ( x Data..?> "PrivateSkillIds"
+            Prelude.<*> ( x
+                            Data..?> "PrivateSkillIds"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

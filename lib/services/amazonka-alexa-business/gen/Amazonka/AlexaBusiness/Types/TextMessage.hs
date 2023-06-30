@@ -66,7 +66,8 @@ textMessage_value = Lens.lens (\TextMessage' {value} -> value) (\s@TextMessage' 
 
 instance Prelude.Hashable TextMessage where
   hashWithSalt _salt TextMessage' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TextMessage where

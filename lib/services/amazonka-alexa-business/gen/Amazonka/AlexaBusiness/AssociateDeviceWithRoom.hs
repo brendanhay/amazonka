@@ -102,7 +102,8 @@ instance Core.AWSRequest AssociateDeviceWithRoom where
 
 instance Prelude.Hashable AssociateDeviceWithRoom where
   hashWithSalt _salt AssociateDeviceWithRoom' {..} =
-    _salt `Prelude.hashWithSalt` deviceArn
+    _salt
+      `Prelude.hashWithSalt` deviceArn
       `Prelude.hashWithSalt` roomArn
 
 instance Prelude.NFData AssociateDeviceWithRoom where

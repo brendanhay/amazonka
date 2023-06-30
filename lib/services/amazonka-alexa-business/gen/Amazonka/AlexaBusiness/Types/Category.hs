@@ -76,7 +76,8 @@ instance Data.FromJSON Category where
 
 instance Prelude.Hashable Category where
   hashWithSalt _salt Category' {..} =
-    _salt `Prelude.hashWithSalt` categoryId
+    _salt
+      `Prelude.hashWithSalt` categoryId
       `Prelude.hashWithSalt` categoryName
 
 instance Prelude.NFData Category where

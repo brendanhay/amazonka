@@ -138,7 +138,8 @@ instance Core.AWSRequest UpdateConferenceProvider where
 
 instance Prelude.Hashable UpdateConferenceProvider where
   hashWithSalt _salt UpdateConferenceProvider' {..} =
-    _salt `Prelude.hashWithSalt` iPDialIn
+    _salt
+      `Prelude.hashWithSalt` iPDialIn
       `Prelude.hashWithSalt` pSTNDialIn
       `Prelude.hashWithSalt` conferenceProviderArn
       `Prelude.hashWithSalt` conferenceProviderType

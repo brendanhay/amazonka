@@ -126,7 +126,8 @@ instance Core.AWSRequest UpdateRoom where
 
 instance Prelude.Hashable UpdateRoom where
   hashWithSalt _salt UpdateRoom' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` profileArn
       `Prelude.hashWithSalt` providerCalendarId
       `Prelude.hashWithSalt` roomArn

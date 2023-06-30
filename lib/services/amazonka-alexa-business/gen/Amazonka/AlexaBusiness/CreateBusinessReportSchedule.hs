@@ -183,7 +183,8 @@ instance
     CreateBusinessReportSchedule
   where
   hashWithSalt _salt CreateBusinessReportSchedule' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` recurrence
       `Prelude.hashWithSalt` s3BucketName
       `Prelude.hashWithSalt` s3KeyPrefix

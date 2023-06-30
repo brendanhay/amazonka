@@ -145,22 +145,22 @@ instance Core.AWSPager ListDeviceEvents where
     | Core.stop
         ( rs
             Lens.^? listDeviceEventsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listDeviceEventsResponse_deviceEvents
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDeviceEvents_nextToken
           Lens..~ rs
           Lens.^? listDeviceEventsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceEvents where
   type
@@ -179,7 +179,8 @@ instance Core.AWSRequest ListDeviceEvents where
 
 instance Prelude.Hashable ListDeviceEvents where
   hashWithSalt _salt ListDeviceEvents' {..} =
-    _salt `Prelude.hashWithSalt` eventType
+    _salt
+      `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceArn

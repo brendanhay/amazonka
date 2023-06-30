@@ -150,7 +150,8 @@ instance Data.FromJSON ProfileData where
 
 instance Prelude.Hashable ProfileData where
   hashWithSalt _salt ProfileData' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` distanceUnit
       `Prelude.hashWithSalt` isDefault
       `Prelude.hashWithSalt` locale

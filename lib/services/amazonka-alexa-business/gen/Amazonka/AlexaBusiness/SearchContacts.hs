@@ -149,7 +149,8 @@ instance Core.AWSRequest SearchContacts where
 
 instance Prelude.Hashable SearchContacts where
   hashWithSalt _salt SearchContacts' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortCriteria

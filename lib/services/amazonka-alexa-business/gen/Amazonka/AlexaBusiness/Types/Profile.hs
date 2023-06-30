@@ -211,7 +211,8 @@ instance Data.FromJSON Profile where
 
 instance Prelude.Hashable Profile where
   hashWithSalt _salt Profile' {..} =
-    _salt `Prelude.hashWithSalt` address
+    _salt
+      `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` addressBookArn
       `Prelude.hashWithSalt` dataRetentionOptIn
       `Prelude.hashWithSalt` distanceUnit

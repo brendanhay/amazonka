@@ -79,7 +79,8 @@ instance Data.FromJSON RequireCheckIn where
 
 instance Prelude.Hashable RequireCheckIn where
   hashWithSalt _salt RequireCheckIn' {..} =
-    _salt `Prelude.hashWithSalt` enabled
+    _salt
+      `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` releaseAfterMinutes
 
 instance Prelude.NFData RequireCheckIn where

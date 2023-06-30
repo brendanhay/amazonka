@@ -120,7 +120,8 @@ instance Core.AWSRequest DeleteRoomSkillParameter where
 
 instance Prelude.Hashable DeleteRoomSkillParameter where
   hashWithSalt _salt DeleteRoomSkillParameter' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
+    _salt
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` skillId
       `Prelude.hashWithSalt` parameterKey
 

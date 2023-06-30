@@ -117,7 +117,8 @@ instance Core.AWSRequest GetRoomSkillParameter where
 
 instance Prelude.Hashable GetRoomSkillParameter where
   hashWithSalt _salt GetRoomSkillParameter' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
+    _salt
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` skillId
       `Prelude.hashWithSalt` parameterKey
 

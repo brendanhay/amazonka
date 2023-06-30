@@ -80,7 +80,8 @@ instance Data.FromJSON InstantBooking where
 
 instance Prelude.Hashable InstantBooking where
   hashWithSalt _salt InstantBooking' {..} =
-    _salt `Prelude.hashWithSalt` durationInMinutes
+    _salt
+      `Prelude.hashWithSalt` durationInMinutes
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData InstantBooking where

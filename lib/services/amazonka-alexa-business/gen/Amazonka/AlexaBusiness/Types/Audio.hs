@@ -86,7 +86,8 @@ audio_location = Lens.lens (\Audio' {location} -> location) (\s@Audio' {} a -> s
 
 instance Prelude.Hashable Audio where
   hashWithSalt _salt Audio' {..} =
-    _salt `Prelude.hashWithSalt` locale
+    _salt
+      `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` location
 
 instance Prelude.NFData Audio where

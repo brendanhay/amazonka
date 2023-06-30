@@ -184,7 +184,8 @@ instance Core.AWSRequest CreateContact where
 
 instance Prelude.Hashable CreateContact where
   hashWithSalt _salt CreateContact' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` lastName
       `Prelude.hashWithSalt` phoneNumber

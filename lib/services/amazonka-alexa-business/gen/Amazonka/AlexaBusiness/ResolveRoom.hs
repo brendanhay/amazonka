@@ -109,7 +109,8 @@ instance Core.AWSRequest ResolveRoom where
           ResolveRoomResponse'
             Prelude.<$> (x Data..?> "RoomArn")
             Prelude.<*> (x Data..?> "RoomName")
-            Prelude.<*> ( x Data..?> "RoomSkillParameters"
+            Prelude.<*> ( x
+                            Data..?> "RoomSkillParameters"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -117,7 +118,8 @@ instance Core.AWSRequest ResolveRoom where
 
 instance Prelude.Hashable ResolveRoom where
   hashWithSalt _salt ResolveRoom' {..} =
-    _salt `Prelude.hashWithSalt` userId
+    _salt
+      `Prelude.hashWithSalt` userId
       `Prelude.hashWithSalt` skillId
 
 instance Prelude.NFData ResolveRoom where

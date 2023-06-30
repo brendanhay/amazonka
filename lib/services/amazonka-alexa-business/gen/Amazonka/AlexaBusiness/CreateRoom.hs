@@ -143,7 +143,8 @@ instance Core.AWSRequest CreateRoom where
 
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` profileArn
       `Prelude.hashWithSalt` providerCalendarId

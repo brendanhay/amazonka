@@ -126,7 +126,8 @@ instance Core.AWSRequest CreateSkillGroup where
 
 instance Prelude.Hashable CreateSkillGroup where
   hashWithSalt _salt CreateSkillGroup' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` skillGroupName

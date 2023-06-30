@@ -110,7 +110,8 @@ instance Data.FromJSON BusinessReport where
 
 instance Prelude.Hashable BusinessReport where
   hashWithSalt _salt BusinessReport' {..} =
-    _salt `Prelude.hashWithSalt` deliveryTime
+    _salt
+      `Prelude.hashWithSalt` deliveryTime
       `Prelude.hashWithSalt` downloadUrl
       `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` s3Location

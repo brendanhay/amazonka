@@ -109,7 +109,8 @@ instance Core.AWSRequest ListGatewayGroups where
 
 instance Prelude.Hashable ListGatewayGroups where
   hashWithSalt _salt ListGatewayGroups' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListGatewayGroups where

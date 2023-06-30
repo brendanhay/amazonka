@@ -77,7 +77,8 @@ createRequireCheckIn_enabled = Lens.lens (\CreateRequireCheckIn' {enabled} -> en
 
 instance Prelude.Hashable CreateRequireCheckIn where
   hashWithSalt _salt CreateRequireCheckIn' {..} =
-    _salt `Prelude.hashWithSalt` releaseAfterMinutes
+    _salt
+      `Prelude.hashWithSalt` releaseAfterMinutes
       `Prelude.hashWithSalt` enabled
 
 instance Prelude.NFData CreateRequireCheckIn where

@@ -109,7 +109,8 @@ instance
   hashWithSalt
     _salt
     DisassociateSkillFromSkillGroup' {..} =
-      _salt `Prelude.hashWithSalt` skillGroupArn
+      _salt
+        `Prelude.hashWithSalt` skillGroupArn
         `Prelude.hashWithSalt` skillId
 
 instance

@@ -113,7 +113,8 @@ instance Core.AWSRequest ListGateways where
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =
-    _salt `Prelude.hashWithSalt` gatewayGroupArn
+    _salt
+      `Prelude.hashWithSalt` gatewayGroupArn
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

@@ -73,12 +73,14 @@ instance Data.FromJSON SipAddress where
       "SipAddress"
       ( \x ->
           SipAddress'
-            Prelude.<$> (x Data..: "Uri") Prelude.<*> (x Data..: "Type")
+            Prelude.<$> (x Data..: "Uri")
+            Prelude.<*> (x Data..: "Type")
       )
 
 instance Prelude.Hashable SipAddress where
   hashWithSalt _salt SipAddress' {..} =
-    _salt `Prelude.hashWithSalt` uri
+    _salt
+      `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData SipAddress where

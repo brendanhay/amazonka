@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteSkillAuthorization where
 
 instance Prelude.Hashable DeleteSkillAuthorization where
   hashWithSalt _salt DeleteSkillAuthorization' {..} =
-    _salt `Prelude.hashWithSalt` roomArn
+    _salt
+      `Prelude.hashWithSalt` roomArn
       `Prelude.hashWithSalt` skillId
 
 instance Prelude.NFData DeleteSkillAuthorization where

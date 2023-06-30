@@ -79,7 +79,8 @@ instance Data.FromJSON IPDialIn where
 
 instance Prelude.Hashable IPDialIn where
   hashWithSalt _salt IPDialIn' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` commsProtocol
 
 instance Prelude.NFData IPDialIn where

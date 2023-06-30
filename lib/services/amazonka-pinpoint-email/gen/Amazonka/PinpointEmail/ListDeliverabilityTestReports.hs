@@ -123,21 +123,21 @@ instance Core.AWSPager ListDeliverabilityTestReports where
     | Core.stop
         ( rs
             Lens.^? listDeliverabilityTestReportsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listDeliverabilityTestReportsResponse_deliverabilityTestReports
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDeliverabilityTestReports_nextToken
           Lens..~ rs
           Lens.^? listDeliverabilityTestReportsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -154,7 +154,8 @@ instance
           ListDeliverabilityTestReportsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DeliverabilityTestReports"
+            Prelude.<*> ( x
+                            Data..?> "DeliverabilityTestReports"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -164,7 +165,8 @@ instance
     ListDeliverabilityTestReports
   where
   hashWithSalt _salt ListDeliverabilityTestReports' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListDeliverabilityTestReports where

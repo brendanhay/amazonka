@@ -132,7 +132,8 @@ instance Data.FromJSON DedicatedIp where
 
 instance Prelude.Hashable DedicatedIp where
   hashWithSalt _salt DedicatedIp' {..} =
-    _salt `Prelude.hashWithSalt` poolName
+    _salt
+      `Prelude.hashWithSalt` poolName
       `Prelude.hashWithSalt` ip
       `Prelude.hashWithSalt` warmupStatus
       `Prelude.hashWithSalt` warmupPercentage

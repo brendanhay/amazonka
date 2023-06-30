@@ -128,7 +128,8 @@ instance Core.AWSRequest CreateEmailIdentity where
 
 instance Prelude.Hashable CreateEmailIdentity where
   hashWithSalt _salt CreateEmailIdentity' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` emailIdentity
 
 instance Prelude.NFData CreateEmailIdentity where

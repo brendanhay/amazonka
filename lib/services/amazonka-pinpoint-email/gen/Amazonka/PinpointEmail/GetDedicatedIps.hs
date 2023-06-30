@@ -120,22 +120,22 @@ instance Core.AWSPager GetDedicatedIps where
     | Core.stop
         ( rs
             Lens.^? getDedicatedIpsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getDedicatedIpsResponse_dedicatedIps
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getDedicatedIps_nextToken
           Lens..~ rs
           Lens.^? getDedicatedIpsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetDedicatedIps where
   type
@@ -154,7 +154,8 @@ instance Core.AWSRequest GetDedicatedIps where
 
 instance Prelude.Hashable GetDedicatedIps where
   hashWithSalt _salt GetDedicatedIps' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
       `Prelude.hashWithSalt` poolName
 

@@ -394,53 +394,53 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The message can\'t be sent because the account\'s ability to send email
 -- has been permanently restricted.
-_AccountSuspendedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AccountSuspendedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AccountSuspendedException =
   Core._MatchServiceError
     defaultService
@@ -448,7 +448,7 @@ _AccountSuspendedException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource specified in your request already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_AlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _AlreadyExistsException =
   Core._MatchServiceError
     defaultService
@@ -456,7 +456,7 @@ _AlreadyExistsException =
     Prelude.. Core.hasStatus 400
 
 -- | The input you provided is invalid.
-_BadRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_BadRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _BadRequestException =
   Core._MatchServiceError
     defaultService
@@ -464,7 +464,7 @@ _BadRequestException =
     Prelude.. Core.hasStatus 400
 
 -- | The resource is being modified by another operation or thread.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -472,7 +472,7 @@ _ConcurrentModificationException =
     Prelude.. Core.hasStatus 500
 
 -- | There are too many instances of the specified resource type.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -480,7 +480,7 @@ _LimitExceededException =
     Prelude.. Core.hasStatus 400
 
 -- | The message can\'t be sent because the sending domain isn\'t verified.
-_MailFromDomainNotVerifiedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MailFromDomainNotVerifiedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MailFromDomainNotVerifiedException =
   Core._MatchServiceError
     defaultService
@@ -488,7 +488,7 @@ _MailFromDomainNotVerifiedException =
     Prelude.. Core.hasStatus 400
 
 -- | The message can\'t be sent because it contains invalid content.
-_MessageRejected :: Core.AsError a => Lens.Fold a Core.ServiceError
+_MessageRejected :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _MessageRejected =
   Core._MatchServiceError
     defaultService
@@ -496,7 +496,7 @@ _MessageRejected =
     Prelude.. Core.hasStatus 400
 
 -- | The resource you attempted to access doesn\'t exist.
-_NotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotFoundException =
   Core._MatchServiceError
     defaultService
@@ -505,7 +505,7 @@ _NotFoundException =
 
 -- | The message can\'t be sent because the account\'s ability to send email
 -- is currently paused.
-_SendingPausedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_SendingPausedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _SendingPausedException =
   Core._MatchServiceError
     defaultService
@@ -513,7 +513,7 @@ _SendingPausedException =
     Prelude.. Core.hasStatus 400
 
 -- | Too many requests have been made to the operation.
-_TooManyRequestsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyRequestsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
     defaultService

@@ -255,7 +255,8 @@ instance
     DomainDeliverabilityCampaign
   where
   hashWithSalt _salt DomainDeliverabilityCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignId
+    _salt
+      `Prelude.hashWithSalt` campaignId
       `Prelude.hashWithSalt` deleteRate
       `Prelude.hashWithSalt` esps
       `Prelude.hashWithSalt` firstSeenDateTime

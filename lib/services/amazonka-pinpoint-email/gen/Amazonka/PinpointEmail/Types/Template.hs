@@ -71,7 +71,8 @@ template_templateData = Lens.lens (\Template' {templateData} -> templateData) (\
 
 instance Prelude.Hashable Template where
   hashWithSalt _salt Template' {..} =
-    _salt `Prelude.hashWithSalt` templateArn
+    _salt
+      `Prelude.hashWithSalt` templateArn
       `Prelude.hashWithSalt` templateData
 
 instance Prelude.NFData Template where

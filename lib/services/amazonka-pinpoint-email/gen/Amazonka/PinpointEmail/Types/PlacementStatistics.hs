@@ -120,7 +120,8 @@ instance Data.FromJSON PlacementStatistics where
 
 instance Prelude.Hashable PlacementStatistics where
   hashWithSalt _salt PlacementStatistics' {..} =
-    _salt `Prelude.hashWithSalt` dkimPercentage
+    _salt
+      `Prelude.hashWithSalt` dkimPercentage
       `Prelude.hashWithSalt` inboxPercentage
       `Prelude.hashWithSalt` missingPercentage
       `Prelude.hashWithSalt` spamPercentage

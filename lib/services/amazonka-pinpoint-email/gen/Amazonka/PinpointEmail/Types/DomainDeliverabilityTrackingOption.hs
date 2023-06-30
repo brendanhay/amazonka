@@ -108,7 +108,8 @@ instance
   hashWithSalt
     _salt
     DomainDeliverabilityTrackingOption' {..} =
-      _salt `Prelude.hashWithSalt` domain
+      _salt
+        `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` inboxPlacementTrackingOption
         `Prelude.hashWithSalt` subscriptionStartDate
 

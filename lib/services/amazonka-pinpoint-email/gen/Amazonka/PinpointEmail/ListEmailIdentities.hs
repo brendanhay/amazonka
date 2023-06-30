@@ -121,22 +121,22 @@ instance Core.AWSPager ListEmailIdentities where
     | Core.stop
         ( rs
             Lens.^? listEmailIdentitiesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listEmailIdentitiesResponse_emailIdentities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listEmailIdentities_nextToken
           Lens..~ rs
           Lens.^? listEmailIdentitiesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListEmailIdentities where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest ListEmailIdentities where
     Response.receiveJSON
       ( \s h x ->
           ListEmailIdentitiesResponse'
-            Prelude.<$> ( x Data..?> "EmailIdentities"
+            Prelude.<$> ( x
+                            Data..?> "EmailIdentities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -157,7 +158,8 @@ instance Core.AWSRequest ListEmailIdentities where
 
 instance Prelude.Hashable ListEmailIdentities where
   hashWithSalt _salt ListEmailIdentities' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` pageSize
 
 instance Prelude.NFData ListEmailIdentities where

@@ -67,7 +67,8 @@ s3ReferenceDataSourceUpdate_fileKeyUpdate = Lens.lens (\S3ReferenceDataSourceUpd
 
 instance Prelude.Hashable S3ReferenceDataSourceUpdate where
   hashWithSalt _salt S3ReferenceDataSourceUpdate' {..} =
-    _salt `Prelude.hashWithSalt` bucketARNUpdate
+    _salt
+      `Prelude.hashWithSalt` bucketARNUpdate
       `Prelude.hashWithSalt` fileKeyUpdate
 
 instance Prelude.NFData S3ReferenceDataSourceUpdate where

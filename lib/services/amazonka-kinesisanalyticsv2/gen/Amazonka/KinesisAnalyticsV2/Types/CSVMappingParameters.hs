@@ -95,7 +95,8 @@ instance Data.FromJSON CSVMappingParameters where
 
 instance Prelude.Hashable CSVMappingParameters where
   hashWithSalt _salt CSVMappingParameters' {..} =
-    _salt `Prelude.hashWithSalt` recordRowDelimiter
+    _salt
+      `Prelude.hashWithSalt` recordRowDelimiter
       `Prelude.hashWithSalt` recordColumnDelimiter
 
 instance Prelude.NFData CSVMappingParameters where

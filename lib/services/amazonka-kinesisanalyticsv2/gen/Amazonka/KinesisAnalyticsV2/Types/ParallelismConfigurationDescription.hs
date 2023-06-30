@@ -178,7 +178,8 @@ instance
   hashWithSalt
     _salt
     ParallelismConfigurationDescription' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingEnabled
+      _salt
+        `Prelude.hashWithSalt` autoScalingEnabled
         `Prelude.hashWithSalt` configurationType
         `Prelude.hashWithSalt` currentParallelism
         `Prelude.hashWithSalt` parallelism

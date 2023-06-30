@@ -103,7 +103,8 @@ instance
   hashWithSalt
     _salt
     ZeppelinApplicationConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` catalogConfiguration
+      _salt
+        `Prelude.hashWithSalt` catalogConfiguration
         `Prelude.hashWithSalt` customArtifactsConfiguration
         `Prelude.hashWithSalt` deployAsApplicationConfiguration
         `Prelude.hashWithSalt` monitoringConfiguration

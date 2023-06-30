@@ -139,7 +139,8 @@ parallelismConfiguration_configurationType = Lens.lens (\ParallelismConfiguratio
 
 instance Prelude.Hashable ParallelismConfiguration where
   hashWithSalt _salt ParallelismConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoScalingEnabled
+    _salt
+      `Prelude.hashWithSalt` autoScalingEnabled
       `Prelude.hashWithSalt` parallelism
       `Prelude.hashWithSalt` parallelismPerKPU
       `Prelude.hashWithSalt` configurationType

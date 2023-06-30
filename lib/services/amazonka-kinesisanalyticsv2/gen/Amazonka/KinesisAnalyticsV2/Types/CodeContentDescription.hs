@@ -103,7 +103,8 @@ instance Data.FromJSON CodeContentDescription where
 
 instance Prelude.Hashable CodeContentDescription where
   hashWithSalt _salt CodeContentDescription' {..} =
-    _salt `Prelude.hashWithSalt` codeMD5
+    _salt
+      `Prelude.hashWithSalt` codeMD5
       `Prelude.hashWithSalt` codeSize
       `Prelude.hashWithSalt` s3ApplicationCodeLocationDescription
       `Prelude.hashWithSalt` textContent

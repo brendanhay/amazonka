@@ -193,7 +193,8 @@ checkpointConfiguration_configurationType = Lens.lens (\CheckpointConfiguration'
 
 instance Prelude.Hashable CheckpointConfiguration where
   hashWithSalt _salt CheckpointConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` checkpointInterval
+    _salt
+      `Prelude.hashWithSalt` checkpointInterval
       `Prelude.hashWithSalt` checkpointingEnabled
       `Prelude.hashWithSalt` minPauseBetweenCheckpoints
       `Prelude.hashWithSalt` configurationType

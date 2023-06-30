@@ -85,7 +85,8 @@ instance Data.FromJSON ApplicationVersionSummary where
 
 instance Prelude.Hashable ApplicationVersionSummary where
   hashWithSalt _salt ApplicationVersionSummary' {..} =
-    _salt `Prelude.hashWithSalt` applicationVersionId
+    _salt
+      `Prelude.hashWithSalt` applicationVersionId
       `Prelude.hashWithSalt` applicationStatus
 
 instance Prelude.NFData ApplicationVersionSummary where

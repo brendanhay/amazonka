@@ -118,7 +118,8 @@ instance Core.AWSRequest DescribeApplicationVersion where
 
 instance Prelude.Hashable DescribeApplicationVersion where
   hashWithSalt _salt DescribeApplicationVersion' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` applicationVersionId
 
 instance Prelude.NFData DescribeApplicationVersion where

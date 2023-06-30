@@ -85,7 +85,8 @@ customArtifactConfiguration_artifactType = Lens.lens (\CustomArtifactConfigurati
 
 instance Prelude.Hashable CustomArtifactConfiguration where
   hashWithSalt _salt CustomArtifactConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` mavenReference
+    _salt
+      `Prelude.hashWithSalt` mavenReference
       `Prelude.hashWithSalt` s3ContentLocation
       `Prelude.hashWithSalt` artifactType
 

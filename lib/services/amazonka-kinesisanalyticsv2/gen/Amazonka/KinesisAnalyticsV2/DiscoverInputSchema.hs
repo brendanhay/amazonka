@@ -149,13 +149,16 @@ instance Core.AWSRequest DiscoverInputSchema where
       ( \s h x ->
           DiscoverInputSchemaResponse'
             Prelude.<$> (x Data..?> "InputSchema")
-            Prelude.<*> ( x Data..?> "ParsedInputRecords"
+            Prelude.<*> ( x
+                            Data..?> "ParsedInputRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ProcessedInputRecords"
+            Prelude.<*> ( x
+                            Data..?> "ProcessedInputRecords"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "RawInputRecords"
+            Prelude.<*> ( x
+                            Data..?> "RawInputRecords"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

@@ -122,7 +122,8 @@ instance Core.AWSRequest RollbackApplication where
 
 instance Prelude.Hashable RollbackApplication where
   hashWithSalt _salt RollbackApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationName
+    _salt
+      `Prelude.hashWithSalt` applicationName
       `Prelude.hashWithSalt` currentApplicationVersionId
 
 instance Prelude.NFData RollbackApplication where

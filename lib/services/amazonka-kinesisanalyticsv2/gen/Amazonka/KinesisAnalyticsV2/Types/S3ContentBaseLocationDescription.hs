@@ -85,7 +85,8 @@ instance
   hashWithSalt
     _salt
     S3ContentBaseLocationDescription' {..} =
-      _salt `Prelude.hashWithSalt` basePath
+      _salt
+        `Prelude.hashWithSalt` basePath
         `Prelude.hashWithSalt` bucketARN
 
 instance

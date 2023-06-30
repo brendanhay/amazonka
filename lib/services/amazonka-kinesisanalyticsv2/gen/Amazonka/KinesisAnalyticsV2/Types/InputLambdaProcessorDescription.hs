@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     InputLambdaProcessorDescription' {..} =
-      _salt `Prelude.hashWithSalt` roleARN
+      _salt
+        `Prelude.hashWithSalt` roleARN
         `Prelude.hashWithSalt` resourceARN
 
 instance

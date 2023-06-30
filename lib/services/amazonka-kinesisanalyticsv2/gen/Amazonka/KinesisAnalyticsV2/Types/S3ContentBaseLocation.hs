@@ -66,7 +66,8 @@ s3ContentBaseLocation_bucketARN = Lens.lens (\S3ContentBaseLocation' {bucketARN}
 
 instance Prelude.Hashable S3ContentBaseLocation where
   hashWithSalt _salt S3ContentBaseLocation' {..} =
-    _salt `Prelude.hashWithSalt` basePath
+    _salt
+      `Prelude.hashWithSalt` basePath
       `Prelude.hashWithSalt` bucketARN
 
 instance Prelude.NFData S3ContentBaseLocation where

@@ -95,7 +95,8 @@ instance Data.FromJSON SourceSchema where
 
 instance Prelude.Hashable SourceSchema where
   hashWithSalt _salt SourceSchema' {..} =
-    _salt `Prelude.hashWithSalt` recordEncoding
+    _salt
+      `Prelude.hashWithSalt` recordEncoding
       `Prelude.hashWithSalt` recordFormat
       `Prelude.hashWithSalt` recordColumns
 

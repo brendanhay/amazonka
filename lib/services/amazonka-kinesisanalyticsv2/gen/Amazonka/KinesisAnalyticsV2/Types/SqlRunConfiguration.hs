@@ -79,7 +79,8 @@ sqlRunConfiguration_inputStartingPositionConfiguration = Lens.lens (\SqlRunConfi
 
 instance Prelude.Hashable SqlRunConfiguration where
   hashWithSalt _salt SqlRunConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` inputId
+    _salt
+      `Prelude.hashWithSalt` inputId
       `Prelude.hashWithSalt` inputStartingPositionConfiguration
 
 instance Prelude.NFData SqlRunConfiguration where

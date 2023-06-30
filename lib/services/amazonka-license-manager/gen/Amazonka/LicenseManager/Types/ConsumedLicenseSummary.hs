@@ -76,7 +76,8 @@ instance Data.FromJSON ConsumedLicenseSummary where
 
 instance Prelude.Hashable ConsumedLicenseSummary where
   hashWithSalt _salt ConsumedLicenseSummary' {..} =
-    _salt `Prelude.hashWithSalt` consumedLicenses
+    _salt
+      `Prelude.hashWithSalt` consumedLicenses
       `Prelude.hashWithSalt` resourceType
 
 instance Prelude.NFData ConsumedLicenseSummary where

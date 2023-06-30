@@ -100,7 +100,8 @@ instance Core.AWSRequest GetGrant where
 
 instance Prelude.Hashable GetGrant where
   hashWithSalt _salt GetGrant' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` grantArn
 
 instance Prelude.NFData GetGrant where

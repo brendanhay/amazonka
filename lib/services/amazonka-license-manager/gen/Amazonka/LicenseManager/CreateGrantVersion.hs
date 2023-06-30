@@ -162,7 +162,8 @@ instance Core.AWSRequest CreateGrantVersion where
 
 instance Prelude.Hashable CreateGrantVersion where
   hashWithSalt _salt CreateGrantVersion' {..} =
-    _salt `Prelude.hashWithSalt` allowedOperations
+    _salt
+      `Prelude.hashWithSalt` allowedOperations
       `Prelude.hashWithSalt` grantName
       `Prelude.hashWithSalt` sourceVersion
       `Prelude.hashWithSalt` status

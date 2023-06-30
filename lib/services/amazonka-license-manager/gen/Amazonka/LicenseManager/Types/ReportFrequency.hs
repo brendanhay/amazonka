@@ -81,7 +81,8 @@ instance Data.FromJSON ReportFrequency where
 
 instance Prelude.Hashable ReportFrequency where
   hashWithSalt _salt ReportFrequency' {..} =
-    _salt `Prelude.hashWithSalt` period
+    _salt
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ReportFrequency where

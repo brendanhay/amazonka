@@ -69,7 +69,8 @@ issuer_name = Lens.lens (\Issuer' {name} -> name) (\s@Issuer' {} a -> s {name = 
 
 instance Prelude.Hashable Issuer where
   hashWithSalt _salt Issuer' {..} =
-    _salt `Prelude.hashWithSalt` signKey
+    _salt
+      `Prelude.hashWithSalt` signKey
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData Issuer where

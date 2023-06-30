@@ -101,7 +101,8 @@ instance Data.FromJSON EntitlementUsage where
 
 instance Prelude.Hashable EntitlementUsage where
   hashWithSalt _salt EntitlementUsage' {..} =
-    _salt `Prelude.hashWithSalt` maxCount
+    _salt
+      `Prelude.hashWithSalt` maxCount
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` consumedValue
       `Prelude.hashWithSalt` unit

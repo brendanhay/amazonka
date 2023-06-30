@@ -137,7 +137,8 @@ instance Data.FromJSON LicenseOperationFailure where
 
 instance Prelude.Hashable LicenseOperationFailure where
   hashWithSalt _salt LicenseOperationFailure' {..} =
-    _salt `Prelude.hashWithSalt` errorMessage
+    _salt
+      `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` failureTime
       `Prelude.hashWithSalt` metadataList
       `Prelude.hashWithSalt` operationName

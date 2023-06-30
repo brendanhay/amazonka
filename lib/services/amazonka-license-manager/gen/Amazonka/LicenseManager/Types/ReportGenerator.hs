@@ -189,7 +189,8 @@ instance Data.FromJSON ReportGenerator where
 
 instance Prelude.Hashable ReportGenerator where
   hashWithSalt _salt ReportGenerator' {..} =
-    _salt `Prelude.hashWithSalt` createTime
+    _salt
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` lastReportGenerationTime
       `Prelude.hashWithSalt` lastRunFailureReason

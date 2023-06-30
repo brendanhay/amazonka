@@ -163,10 +163,12 @@ instance Core.AWSRequest CheckoutBorrowLicense where
     Response.receiveJSON
       ( \s h x ->
           CheckoutBorrowLicenseResponse'
-            Prelude.<$> ( x Data..?> "CheckoutMetadata"
+            Prelude.<$> ( x
+                            Data..?> "CheckoutMetadata"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "EntitlementsAllowed"
+            Prelude.<*> ( x
+                            Data..?> "EntitlementsAllowed"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "Expiration")
@@ -180,7 +182,8 @@ instance Core.AWSRequest CheckoutBorrowLicense where
 
 instance Prelude.Hashable CheckoutBorrowLicense where
   hashWithSalt _salt CheckoutBorrowLicense' {..} =
-    _salt `Prelude.hashWithSalt` checkoutMetadata
+    _salt
+      `Prelude.hashWithSalt` checkoutMetadata
       `Prelude.hashWithSalt` nodeId
       `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` entitlements

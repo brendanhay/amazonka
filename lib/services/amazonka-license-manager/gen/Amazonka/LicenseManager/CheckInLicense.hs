@@ -101,7 +101,8 @@ instance Core.AWSRequest CheckInLicense where
 
 instance Prelude.Hashable CheckInLicense where
   hashWithSalt _salt CheckInLicense' {..} =
-    _salt `Prelude.hashWithSalt` beneficiary
+    _salt
+      `Prelude.hashWithSalt` beneficiary
       `Prelude.hashWithSalt` licenseConsumptionToken
 
 instance Prelude.NFData CheckInLicense where

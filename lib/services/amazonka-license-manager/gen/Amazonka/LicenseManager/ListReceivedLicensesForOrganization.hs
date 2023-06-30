@@ -122,8 +122,8 @@ instance
       ( \s h x ->
           ListReceivedLicensesForOrganizationResponse'
             Prelude.<$> (x Data..?> "Licenses" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     ListReceivedLicensesForOrganization' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
 

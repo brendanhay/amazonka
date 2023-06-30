@@ -90,7 +90,8 @@ instance Data.FromJSON IssuerDetails where
 
 instance Prelude.Hashable IssuerDetails where
   hashWithSalt _salt IssuerDetails' {..} =
-    _salt `Prelude.hashWithSalt` keyFingerprint
+    _salt
+      `Prelude.hashWithSalt` keyFingerprint
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` signKey
 

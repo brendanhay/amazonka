@@ -109,7 +109,8 @@ instance Core.AWSRequest ListLicenseConversionTasks where
     Response.receiveJSON
       ( \s h x ->
           ListLicenseConversionTasksResponse'
-            Prelude.<$> ( x Data..?> "LicenseConversionTasks"
+            Prelude.<$> ( x
+                            Data..?> "LicenseConversionTasks"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -118,7 +119,8 @@ instance Core.AWSRequest ListLicenseConversionTasks where
 
 instance Prelude.Hashable ListLicenseConversionTasks where
   hashWithSalt _salt ListLicenseConversionTasks' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

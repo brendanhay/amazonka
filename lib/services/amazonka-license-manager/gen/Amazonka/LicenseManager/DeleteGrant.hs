@@ -116,7 +116,8 @@ instance Core.AWSRequest DeleteGrant where
 
 instance Prelude.Hashable DeleteGrant where
   hashWithSalt _salt DeleteGrant' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` grantArn
       `Prelude.hashWithSalt` version
 

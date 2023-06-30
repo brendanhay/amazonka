@@ -168,7 +168,8 @@ instance Core.AWSRequest CreateGrant where
 
 instance Prelude.Hashable CreateGrant where
   hashWithSalt _salt CreateGrant' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` grantName
       `Prelude.hashWithSalt` licenseArn
       `Prelude.hashWithSalt` principals

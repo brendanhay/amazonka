@@ -89,7 +89,8 @@ instance Data.FromJSON EntitlementData where
 
 instance Prelude.Hashable EntitlementData where
   hashWithSalt _salt EntitlementData' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` unit
 

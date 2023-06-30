@@ -142,7 +142,7 @@ instance
       ( \s h x ->
           CreateLicenseConversionTaskForResourceResponse'
             Prelude.<$> (x Data..?> "LicenseConversionTaskId")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -152,7 +152,8 @@ instance
   hashWithSalt
     _salt
     CreateLicenseConversionTaskForResource' {..} =
-      _salt `Prelude.hashWithSalt` resourceArn
+      _salt
+        `Prelude.hashWithSalt` resourceArn
         `Prelude.hashWithSalt` sourceLicenseContext
         `Prelude.hashWithSalt` destinationLicenseContext
 

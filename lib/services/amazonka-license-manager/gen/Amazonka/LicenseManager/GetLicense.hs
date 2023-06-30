@@ -100,7 +100,8 @@ instance Core.AWSRequest GetLicense where
 
 instance Prelude.Hashable GetLicense where
   hashWithSalt _salt GetLicense' {..} =
-    _salt `Prelude.hashWithSalt` version
+    _salt
+      `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` licenseArn
 
 instance Prelude.NFData GetLicense where

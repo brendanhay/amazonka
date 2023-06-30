@@ -184,7 +184,8 @@ instance Data.FromJSON Grant where
 
 instance Prelude.Hashable Grant where
   hashWithSalt _salt Grant' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` grantArn
       `Prelude.hashWithSalt` grantName
       `Prelude.hashWithSalt` parentArn

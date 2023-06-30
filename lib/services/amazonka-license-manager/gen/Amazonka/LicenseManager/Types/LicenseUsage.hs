@@ -58,7 +58,8 @@ instance Data.FromJSON LicenseUsage where
       "LicenseUsage"
       ( \x ->
           LicenseUsage'
-            Prelude.<$> ( x Data..:? "EntitlementUsages"
+            Prelude.<$> ( x
+                            Data..:? "EntitlementUsages"
                             Data..!= Prelude.mempty
                         )
       )

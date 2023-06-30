@@ -86,7 +86,8 @@ instance Data.FromJSON ProductInformationFilter where
       "ProductInformationFilter"
       ( \x ->
           ProductInformationFilter'
-            Prelude.<$> ( x Data..:? "ProductInformationFilterValue"
+            Prelude.<$> ( x
+                            Data..:? "ProductInformationFilterValue"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "ProductInformationFilterName")

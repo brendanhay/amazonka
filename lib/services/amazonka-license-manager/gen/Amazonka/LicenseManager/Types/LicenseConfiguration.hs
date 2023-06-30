@@ -207,7 +207,8 @@ instance Data.FromJSON LicenseConfiguration where
       ( \x ->
           LicenseConfiguration'
             Prelude.<$> (x Data..:? "AutomatedDiscoveryInformation")
-            Prelude.<*> ( x Data..:? "ConsumedLicenseSummaryList"
+            Prelude.<*> ( x
+                            Data..:? "ConsumedLicenseSummaryList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ConsumedLicenses")
@@ -219,12 +220,14 @@ instance Data.FromJSON LicenseConfiguration where
             Prelude.<*> (x Data..:? "LicenseCountHardLimit")
             Prelude.<*> (x Data..:? "LicenseCountingType")
             Prelude.<*> (x Data..:? "LicenseRules" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "ManagedResourceSummaryList"
+            Prelude.<*> ( x
+                            Data..:? "ManagedResourceSummaryList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Name")
             Prelude.<*> (x Data..:? "OwnerAccountId")
-            Prelude.<*> ( x Data..:? "ProductInformationList"
+            Prelude.<*> ( x
+                            Data..:? "ProductInformationList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Status")

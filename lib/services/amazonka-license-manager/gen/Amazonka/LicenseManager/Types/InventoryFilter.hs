@@ -78,7 +78,8 @@ inventoryFilter_condition = Lens.lens (\InventoryFilter' {condition} -> conditio
 
 instance Prelude.Hashable InventoryFilter where
   hashWithSalt _salt InventoryFilter' {..} =
-    _salt `Prelude.hashWithSalt` value
+    _salt
+      `Prelude.hashWithSalt` value
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` condition
 

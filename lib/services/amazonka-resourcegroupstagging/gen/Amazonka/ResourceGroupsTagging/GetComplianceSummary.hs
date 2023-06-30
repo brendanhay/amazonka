@@ -269,22 +269,22 @@ instance Core.AWSPager GetComplianceSummary where
     | Core.stop
         ( rs
             Lens.^? getComplianceSummaryResponse_paginationToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getComplianceSummaryResponse_summaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getComplianceSummary_paginationToken
           Lens..~ rs
           Lens.^? getComplianceSummaryResponse_paginationToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetComplianceSummary where
   type
@@ -303,7 +303,8 @@ instance Core.AWSRequest GetComplianceSummary where
 
 instance Prelude.Hashable GetComplianceSummary where
   hashWithSalt _salt GetComplianceSummary' {..} =
-    _salt `Prelude.hashWithSalt` groupBy
+    _salt
+      `Prelude.hashWithSalt` groupBy
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` paginationToken
       `Prelude.hashWithSalt` regionFilters

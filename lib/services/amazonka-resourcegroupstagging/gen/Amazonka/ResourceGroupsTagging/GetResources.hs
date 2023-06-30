@@ -468,22 +468,22 @@ instance Core.AWSPager GetResources where
     | Core.stop
         ( rs
             Lens.^? getResourcesResponse_paginationToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getResourcesResponse_resourceTagMappingList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getResources_paginationToken
           Lens..~ rs
           Lens.^? getResourcesResponse_paginationToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResources where
   type AWSResponse GetResources = GetResourcesResponse
@@ -494,7 +494,8 @@ instance Core.AWSRequest GetResources where
       ( \s h x ->
           GetResourcesResponse'
             Prelude.<$> (x Data..?> "PaginationToken")
-            Prelude.<*> ( x Data..?> "ResourceTagMappingList"
+            Prelude.<*> ( x
+                            Data..?> "ResourceTagMappingList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

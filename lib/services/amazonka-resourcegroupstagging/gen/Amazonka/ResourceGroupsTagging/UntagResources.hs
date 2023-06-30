@@ -143,7 +143,8 @@ instance Core.AWSRequest UntagResources where
     Response.receiveJSON
       ( \s h x ->
           UntagResourcesResponse'
-            Prelude.<$> ( x Data..?> "FailedResourcesMap"
+            Prelude.<$> ( x
+                            Data..?> "FailedResourcesMap"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -151,7 +152,8 @@ instance Core.AWSRequest UntagResources where
 
 instance Prelude.Hashable UntagResources where
   hashWithSalt _salt UntagResources' {..} =
-    _salt `Prelude.hashWithSalt` resourceARNList
+    _salt
+      `Prelude.hashWithSalt` resourceARNList
       `Prelude.hashWithSalt` tagKeys
 
 instance Prelude.NFData UntagResources where

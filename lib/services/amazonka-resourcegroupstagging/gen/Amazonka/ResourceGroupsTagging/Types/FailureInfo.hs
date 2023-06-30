@@ -122,7 +122,8 @@ instance Data.FromJSON FailureInfo where
 
 instance Prelude.Hashable FailureInfo where
   hashWithSalt _salt FailureInfo' {..} =
-    _salt `Prelude.hashWithSalt` errorCode
+    _salt
+      `Prelude.hashWithSalt` errorCode
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` statusCode
 

@@ -98,7 +98,8 @@ instance Data.FromJSON RegistrationOutput where
 
 instance Prelude.Hashable RegistrationOutput where
   hashWithSalt _salt RegistrationOutput' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` status
 

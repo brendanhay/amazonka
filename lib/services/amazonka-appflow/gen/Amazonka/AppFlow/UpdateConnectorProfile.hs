@@ -123,7 +123,8 @@ instance Core.AWSRequest UpdateConnectorProfile where
 
 instance Prelude.Hashable UpdateConnectorProfile where
   hashWithSalt _salt UpdateConnectorProfile' {..} =
-    _salt `Prelude.hashWithSalt` connectorProfileName
+    _salt
+      `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectionMode
       `Prelude.hashWithSalt` connectorProfileConfig
 

@@ -147,7 +147,8 @@ instance Core.AWSRequest DescribeConnectorProfiles where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorProfilesResponse'
-            Prelude.<$> ( x Data..?> "connectorProfileDetails"
+            Prelude.<$> ( x
+                            Data..?> "connectorProfileDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "nextToken")
@@ -156,7 +157,8 @@ instance Core.AWSRequest DescribeConnectorProfiles where
 
 instance Prelude.Hashable DescribeConnectorProfiles where
   hashWithSalt _salt DescribeConnectorProfiles' {..} =
-    _salt `Prelude.hashWithSalt` connectorLabel
+    _salt
+      `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` connectorProfileNames
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` maxResults

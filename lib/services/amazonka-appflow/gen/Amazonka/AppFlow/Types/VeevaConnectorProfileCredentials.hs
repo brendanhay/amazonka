@@ -77,7 +77,8 @@ instance
   hashWithSalt
     _salt
     VeevaConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` username
+      _salt
+        `Prelude.hashWithSalt` username
         `Prelude.hashWithSalt` password
 
 instance

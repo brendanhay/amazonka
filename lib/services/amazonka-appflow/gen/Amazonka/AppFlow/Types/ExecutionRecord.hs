@@ -144,7 +144,8 @@ instance Data.FromJSON ExecutionRecord where
             Prelude.<*> (x Data..:? "executionResult")
             Prelude.<*> (x Data..:? "executionStatus")
             Prelude.<*> (x Data..:? "lastUpdatedAt")
-            Prelude.<*> ( x Data..:? "metadataCatalogDetails"
+            Prelude.<*> ( x
+                            Data..:? "metadataCatalogDetails"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "startedAt")
@@ -152,7 +153,8 @@ instance Data.FromJSON ExecutionRecord where
 
 instance Prelude.Hashable ExecutionRecord where
   hashWithSalt _salt ExecutionRecord' {..} =
-    _salt `Prelude.hashWithSalt` dataPullEndTime
+    _salt
+      `Prelude.hashWithSalt` dataPullEndTime
       `Prelude.hashWithSalt` dataPullStartTime
       `Prelude.hashWithSalt` executionId
       `Prelude.hashWithSalt` executionResult

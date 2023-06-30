@@ -257,7 +257,8 @@ instance
   hashWithSalt
     _salt
     SalesforceDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` dataTransferApi
+      _salt
+        `Prelude.hashWithSalt` dataTransferApi
         `Prelude.hashWithSalt` errorHandlingConfig
         `Prelude.hashWithSalt` idFieldNames
         `Prelude.hashWithSalt` writeOperationType

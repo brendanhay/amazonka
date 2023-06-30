@@ -71,7 +71,8 @@ connectorOAuthRequest_redirectUri = Lens.lens (\ConnectorOAuthRequest' {redirect
 
 instance Prelude.Hashable ConnectorOAuthRequest where
   hashWithSalt _salt ConnectorOAuthRequest' {..} =
-    _salt `Prelude.hashWithSalt` authCode
+    _salt
+      `Prelude.hashWithSalt` authCode
       `Prelude.hashWithSalt` redirectUri
 
 instance Prelude.NFData ConnectorOAuthRequest where

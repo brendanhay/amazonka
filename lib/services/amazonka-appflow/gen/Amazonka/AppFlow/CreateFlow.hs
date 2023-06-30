@@ -211,7 +211,8 @@ instance Core.AWSRequest CreateFlow where
 
 instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` kmsArn
       `Prelude.hashWithSalt` metadataCatalogConfig
       `Prelude.hashWithSalt` tags

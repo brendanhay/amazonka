@@ -79,7 +79,8 @@ instance
   hashWithSalt
     _salt
     HoneycodeConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` accessToken
+      _salt
+        `Prelude.hashWithSalt` accessToken
         `Prelude.hashWithSalt` oAuthRequest
         `Prelude.hashWithSalt` refreshToken
 

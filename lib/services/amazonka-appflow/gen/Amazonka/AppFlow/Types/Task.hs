@@ -119,7 +119,8 @@ instance Data.FromJSON Task where
 
 instance Prelude.Hashable Task where
   hashWithSalt _salt Task' {..} =
-    _salt `Prelude.hashWithSalt` connectorOperator
+    _salt
+      `Prelude.hashWithSalt` connectorOperator
       `Prelude.hashWithSalt` destinationField
       `Prelude.hashWithSalt` taskProperties
       `Prelude.hashWithSalt` sourceFields

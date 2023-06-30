@@ -139,7 +139,8 @@ instance Data.FromJSON GlueDataCatalogConfig where
 
 instance Prelude.Hashable GlueDataCatalogConfig where
   hashWithSalt _salt GlueDataCatalogConfig' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tablePrefix
 

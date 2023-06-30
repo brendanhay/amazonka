@@ -87,7 +87,8 @@ instance Data.FromJSON SourceFieldProperties where
 
 instance Prelude.Hashable SourceFieldProperties where
   hashWithSalt _salt SourceFieldProperties' {..} =
-    _salt `Prelude.hashWithSalt` isQueryable
+    _salt
+      `Prelude.hashWithSalt` isQueryable
       `Prelude.hashWithSalt` isRetrievable
       `Prelude.hashWithSalt` isTimestampFieldForIncrementalQueries
 

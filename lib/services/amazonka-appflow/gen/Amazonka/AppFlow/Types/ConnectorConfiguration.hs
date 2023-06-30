@@ -310,7 +310,8 @@ instance Data.FromJSON ConnectorConfiguration where
             Prelude.<*> (x Data..:? "connectorOwner")
             Prelude.<*> (x Data..:? "connectorProvisioningConfig")
             Prelude.<*> (x Data..:? "connectorProvisioningType")
-            Prelude.<*> ( x Data..:? "connectorRuntimeSettings"
+            Prelude.<*> ( x
+                            Data..:? "connectorRuntimeSettings"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "connectorType")
@@ -320,29 +321,36 @@ instance Data.FromJSON ConnectorConfiguration where
             Prelude.<*> (x Data..:? "logoURL")
             Prelude.<*> (x Data..:? "registeredAt")
             Prelude.<*> (x Data..:? "registeredBy")
-            Prelude.<*> ( x Data..:? "supportedApiVersions"
+            Prelude.<*> ( x
+                            Data..:? "supportedApiVersions"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedDestinationConnectors"
+            Prelude.<*> ( x
+                            Data..:? "supportedDestinationConnectors"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedOperators"
+            Prelude.<*> ( x
+                            Data..:? "supportedOperators"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedSchedulingFrequencies"
+            Prelude.<*> ( x
+                            Data..:? "supportedSchedulingFrequencies"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedTriggerTypes"
+            Prelude.<*> ( x
+                            Data..:? "supportedTriggerTypes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "supportedWriteOperations"
+            Prelude.<*> ( x
+                            Data..:? "supportedWriteOperations"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ConnectorConfiguration where
   hashWithSalt _salt ConnectorConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` authenticationConfig
+    _salt
+      `Prelude.hashWithSalt` authenticationConfig
       `Prelude.hashWithSalt` canUseAsDestination
       `Prelude.hashWithSalt` canUseAsSource
       `Prelude.hashWithSalt` connectorArn

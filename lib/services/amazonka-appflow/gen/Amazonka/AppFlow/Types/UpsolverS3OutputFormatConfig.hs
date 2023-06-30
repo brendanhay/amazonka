@@ -95,7 +95,8 @@ instance
     UpsolverS3OutputFormatConfig
   where
   hashWithSalt _salt UpsolverS3OutputFormatConfig' {..} =
-    _salt `Prelude.hashWithSalt` aggregationConfig
+    _salt
+      `Prelude.hashWithSalt` aggregationConfig
       `Prelude.hashWithSalt` fileType
       `Prelude.hashWithSalt` prefixConfig
 

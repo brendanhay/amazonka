@@ -93,7 +93,8 @@ instance Data.FromJSON S3DestinationProperties where
 
 instance Prelude.Hashable S3DestinationProperties where
   hashWithSalt _salt S3DestinationProperties' {..} =
-    _salt `Prelude.hashWithSalt` bucketPrefix
+    _salt
+      `Prelude.hashWithSalt` bucketPrefix
       `Prelude.hashWithSalt` s3OutputFormatConfig
       `Prelude.hashWithSalt` bucketName
 

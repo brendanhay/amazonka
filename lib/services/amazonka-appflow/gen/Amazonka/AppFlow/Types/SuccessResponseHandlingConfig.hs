@@ -82,7 +82,8 @@ instance
     SuccessResponseHandlingConfig
   where
   hashWithSalt _salt SuccessResponseHandlingConfig' {..} =
-    _salt `Prelude.hashWithSalt` bucketName
+    _salt
+      `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` bucketPrefix
 
 instance Prelude.NFData SuccessResponseHandlingConfig where

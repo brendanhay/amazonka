@@ -89,7 +89,8 @@ instance Data.FromJSON OAuth2Properties where
       "OAuth2Properties"
       ( \x ->
           OAuth2Properties'
-            Prelude.<$> ( x Data..:? "tokenUrlCustomProperties"
+            Prelude.<$> ( x
+                            Data..:? "tokenUrlCustomProperties"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "tokenUrl")

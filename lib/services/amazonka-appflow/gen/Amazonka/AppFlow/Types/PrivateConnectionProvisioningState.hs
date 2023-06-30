@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     PrivateConnectionProvisioningState' {..} =
-      _salt `Prelude.hashWithSalt` failureCause
+      _salt
+        `Prelude.hashWithSalt` failureCause
         `Prelude.hashWithSalt` failureMessage
         `Prelude.hashWithSalt` status
 

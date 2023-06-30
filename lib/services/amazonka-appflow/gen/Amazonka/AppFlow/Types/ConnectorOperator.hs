@@ -233,7 +233,8 @@ instance Data.FromJSON ConnectorOperator where
 
 instance Prelude.Hashable ConnectorOperator where
   hashWithSalt _salt ConnectorOperator' {..} =
-    _salt `Prelude.hashWithSalt` amplitude
+    _salt
+      `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` datadog
       `Prelude.hashWithSalt` dynatrace

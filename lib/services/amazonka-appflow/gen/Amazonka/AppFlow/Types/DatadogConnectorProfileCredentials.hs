@@ -88,7 +88,8 @@ instance
   hashWithSalt
     _salt
     DatadogConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` apiKey
+      _salt
+        `Prelude.hashWithSalt` apiKey
         `Prelude.hashWithSalt` applicationKey
 
 instance

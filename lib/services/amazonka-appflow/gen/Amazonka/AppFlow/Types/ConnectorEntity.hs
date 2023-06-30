@@ -101,7 +101,8 @@ instance Data.FromJSON ConnectorEntity where
 
 instance Prelude.Hashable ConnectorEntity where
   hashWithSalt _salt ConnectorEntity' {..} =
-    _salt `Prelude.hashWithSalt` hasNestedEntities
+    _salt
+      `Prelude.hashWithSalt` hasNestedEntities
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` name
 

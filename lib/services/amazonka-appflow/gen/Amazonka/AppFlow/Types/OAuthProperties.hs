@@ -97,7 +97,8 @@ instance Data.FromJSON OAuthProperties where
 
 instance Prelude.Hashable OAuthProperties where
   hashWithSalt _salt OAuthProperties' {..} =
-    _salt `Prelude.hashWithSalt` tokenUrl
+    _salt
+      `Prelude.hashWithSalt` tokenUrl
       `Prelude.hashWithSalt` authCodeUrl
       `Prelude.hashWithSalt` oAuthScopes
 

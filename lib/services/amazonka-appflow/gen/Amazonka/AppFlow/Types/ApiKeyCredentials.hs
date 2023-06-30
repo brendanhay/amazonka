@@ -66,7 +66,8 @@ apiKeyCredentials_apiKey = Lens.lens (\ApiKeyCredentials' {apiKey} -> apiKey) (\
 
 instance Prelude.Hashable ApiKeyCredentials where
   hashWithSalt _salt ApiKeyCredentials' {..} =
-    _salt `Prelude.hashWithSalt` apiSecretKey
+    _salt
+      `Prelude.hashWithSalt` apiSecretKey
       `Prelude.hashWithSalt` apiKey
 
 instance Prelude.NFData ApiKeyCredentials where

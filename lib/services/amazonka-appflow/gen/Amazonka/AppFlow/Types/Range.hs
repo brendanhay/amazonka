@@ -74,7 +74,8 @@ instance Data.FromJSON Range where
 
 instance Prelude.Hashable Range where
   hashWithSalt _salt Range' {..} =
-    _salt `Prelude.hashWithSalt` maximum
+    _salt
+      `Prelude.hashWithSalt` maximum
       `Prelude.hashWithSalt` minimum
 
 instance Prelude.NFData Range where

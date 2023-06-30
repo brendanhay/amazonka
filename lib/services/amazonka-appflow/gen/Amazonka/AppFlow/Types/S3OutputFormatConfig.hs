@@ -137,7 +137,8 @@ instance Data.FromJSON S3OutputFormatConfig where
 
 instance Prelude.Hashable S3OutputFormatConfig where
   hashWithSalt _salt S3OutputFormatConfig' {..} =
-    _salt `Prelude.hashWithSalt` aggregationConfig
+    _salt
+      `Prelude.hashWithSalt` aggregationConfig
       `Prelude.hashWithSalt` fileType
       `Prelude.hashWithSalt` prefixConfig
       `Prelude.hashWithSalt` preserveSourceDataTyping

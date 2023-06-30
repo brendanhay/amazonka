@@ -83,7 +83,8 @@ instance
   hashWithSalt
     _salt
     HoneycodeDestinationProperties' {..} =
-      _salt `Prelude.hashWithSalt` errorHandlingConfig
+      _salt
+        `Prelude.hashWithSalt` errorHandlingConfig
         `Prelude.hashWithSalt` object'
 
 instance

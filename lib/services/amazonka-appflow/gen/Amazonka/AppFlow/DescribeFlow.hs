@@ -106,7 +106,8 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<$> (x Data..?> "createdAt")
             Prelude.<*> (x Data..?> "createdBy")
             Prelude.<*> (x Data..?> "description")
-            Prelude.<*> ( x Data..?> "destinationFlowConfigList"
+            Prelude.<*> ( x
+                            Data..?> "destinationFlowConfigList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "flowArn")
@@ -115,7 +116,8 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<*> (x Data..?> "flowStatusMessage")
             Prelude.<*> (x Data..?> "kmsArn")
             Prelude.<*> (x Data..?> "lastRunExecutionDetails")
-            Prelude.<*> ( x Data..?> "lastRunMetadataCatalogDetails"
+            Prelude.<*> ( x
+                            Data..?> "lastRunMetadataCatalogDetails"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "lastUpdatedAt")

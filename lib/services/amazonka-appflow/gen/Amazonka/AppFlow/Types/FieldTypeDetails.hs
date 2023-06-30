@@ -125,19 +125,22 @@ instance Data.FromJSON FieldTypeDetails where
             Prelude.<$> (x Data..:? "fieldLengthRange")
             Prelude.<*> (x Data..:? "fieldValueRange")
             Prelude.<*> (x Data..:? "supportedDateFormat")
-            Prelude.<*> ( x Data..:? "supportedValues"
+            Prelude.<*> ( x
+                            Data..:? "supportedValues"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "valueRegexPattern")
             Prelude.<*> (x Data..: "fieldType")
-            Prelude.<*> ( x Data..:? "filterOperators"
+            Prelude.<*> ( x
+                            Data..:? "filterOperators"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable FieldTypeDetails where
   hashWithSalt _salt FieldTypeDetails' {..} =
-    _salt `Prelude.hashWithSalt` fieldLengthRange
+    _salt
+      `Prelude.hashWithSalt` fieldLengthRange
       `Prelude.hashWithSalt` fieldValueRange
       `Prelude.hashWithSalt` supportedDateFormat
       `Prelude.hashWithSalt` supportedValues

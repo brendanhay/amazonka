@@ -63,7 +63,8 @@ instance Data.FromJSON SnowflakeMetadata where
       "SnowflakeMetadata"
       ( \x ->
           SnowflakeMetadata'
-            Prelude.<$> ( x Data..:? "supportedRegions"
+            Prelude.<$> ( x
+                            Data..:? "supportedRegions"
                             Data..!= Prelude.mempty
                         )
       )

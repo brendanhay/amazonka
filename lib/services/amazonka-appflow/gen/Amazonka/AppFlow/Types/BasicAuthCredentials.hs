@@ -68,7 +68,8 @@ basicAuthCredentials_password = Lens.lens (\BasicAuthCredentials' {password} -> 
 
 instance Prelude.Hashable BasicAuthCredentials where
   hashWithSalt _salt BasicAuthCredentials' {..} =
-    _salt `Prelude.hashWithSalt` username
+    _salt
+      `Prelude.hashWithSalt` username
       `Prelude.hashWithSalt` password
 
 instance Prelude.NFData BasicAuthCredentials where

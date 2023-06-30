@@ -186,7 +186,8 @@ instance Core.AWSRequest CreateConnectorProfile where
 
 instance Prelude.Hashable CreateConnectorProfile where
   hashWithSalt _salt CreateConnectorProfile' {..} =
-    _salt `Prelude.hashWithSalt` connectorLabel
+    _salt
+      `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` kmsArn
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectorType

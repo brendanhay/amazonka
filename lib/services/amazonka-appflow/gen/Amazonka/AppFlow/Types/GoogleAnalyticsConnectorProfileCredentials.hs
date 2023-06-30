@@ -115,7 +115,8 @@ instance
   hashWithSalt
     _salt
     GoogleAnalyticsConnectorProfileCredentials' {..} =
-      _salt `Prelude.hashWithSalt` accessToken
+      _salt
+        `Prelude.hashWithSalt` accessToken
         `Prelude.hashWithSalt` oAuthRequest
         `Prelude.hashWithSalt` refreshToken
         `Prelude.hashWithSalt` clientId

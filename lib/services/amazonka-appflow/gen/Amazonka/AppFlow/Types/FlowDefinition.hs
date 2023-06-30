@@ -221,7 +221,8 @@ instance Data.FromJSON FlowDefinition where
 
 instance Prelude.Hashable FlowDefinition where
   hashWithSalt _salt FlowDefinition' {..} =
-    _salt `Prelude.hashWithSalt` createdAt
+    _salt
+      `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` destinationConnectorLabel

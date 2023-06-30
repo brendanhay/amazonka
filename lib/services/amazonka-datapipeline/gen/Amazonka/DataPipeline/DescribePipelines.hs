@@ -100,7 +100,8 @@ instance Core.AWSRequest DescribePipelines where
       ( \s h x ->
           DescribePipelinesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "pipelineDescriptionList"
+            Prelude.<*> ( x
+                            Data..?> "pipelineDescriptionList"
                             Core..!@ Prelude.mempty
                         )
       )

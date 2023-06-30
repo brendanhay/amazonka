@@ -146,7 +146,8 @@ instance Core.AWSRequest ReportTaskRunnerHeartbeat where
 
 instance Prelude.Hashable ReportTaskRunnerHeartbeat where
   hashWithSalt _salt ReportTaskRunnerHeartbeat' {..} =
-    _salt `Prelude.hashWithSalt` hostname
+    _salt
+      `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` workerGroup
       `Prelude.hashWithSalt` taskrunnerId
 

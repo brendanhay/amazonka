@@ -105,7 +105,8 @@ instance Data.FromJSON TaskObject where
 
 instance Prelude.Hashable TaskObject where
   hashWithSalt _salt TaskObject' {..} =
-    _salt `Prelude.hashWithSalt` attemptId
+    _salt
+      `Prelude.hashWithSalt` attemptId
       `Prelude.hashWithSalt` objects
       `Prelude.hashWithSalt` pipelineId
       `Prelude.hashWithSalt` taskId

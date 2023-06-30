@@ -171,7 +171,8 @@ instance Core.AWSRequest SetTaskStatus where
 
 instance Prelude.Hashable SetTaskStatus where
   hashWithSalt _salt SetTaskStatus' {..} =
-    _salt `Prelude.hashWithSalt` errorId
+    _salt
+      `Prelude.hashWithSalt` errorId
       `Prelude.hashWithSalt` errorMessage
       `Prelude.hashWithSalt` errorStackTrace
       `Prelude.hashWithSalt` taskId

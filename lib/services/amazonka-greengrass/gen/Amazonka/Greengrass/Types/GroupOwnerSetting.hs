@@ -87,7 +87,8 @@ instance Data.FromJSON GroupOwnerSetting where
 
 instance Prelude.Hashable GroupOwnerSetting where
   hashWithSalt _salt GroupOwnerSetting' {..} =
-    _salt `Prelude.hashWithSalt` autoAddGroupOwner
+    _salt
+      `Prelude.hashWithSalt` autoAddGroupOwner
       `Prelude.hashWithSalt` groupOwner
 
 instance Prelude.NFData GroupOwnerSetting where

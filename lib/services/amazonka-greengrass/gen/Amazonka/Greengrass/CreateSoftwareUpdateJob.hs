@@ -167,7 +167,8 @@ instance Core.AWSRequest CreateSoftwareUpdateJob where
 
 instance Prelude.Hashable CreateSoftwareUpdateJob where
   hashWithSalt _salt CreateSoftwareUpdateJob' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` updateAgentLogLevel
       `Prelude.hashWithSalt` s3UrlSignerRole
       `Prelude.hashWithSalt` updateTargetsArchitecture

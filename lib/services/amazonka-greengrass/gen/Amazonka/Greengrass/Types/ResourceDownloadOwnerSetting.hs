@@ -94,7 +94,8 @@ instance
     ResourceDownloadOwnerSetting
   where
   hashWithSalt _salt ResourceDownloadOwnerSetting' {..} =
-    _salt `Prelude.hashWithSalt` groupOwner
+    _salt
+      `Prelude.hashWithSalt` groupOwner
       `Prelude.hashWithSalt` groupPermission
 
 instance Prelude.NFData ResourceDownloadOwnerSetting where

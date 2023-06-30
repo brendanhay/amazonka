@@ -133,7 +133,8 @@ instance
   hashWithSalt
     _salt
     CreateConnectorDefinitionVersion' {..} =
-      _salt `Prelude.hashWithSalt` amznClientToken
+      _salt
+        `Prelude.hashWithSalt` amznClientToken
         `Prelude.hashWithSalt` connectors
         `Prelude.hashWithSalt` connectorDefinitionId
 

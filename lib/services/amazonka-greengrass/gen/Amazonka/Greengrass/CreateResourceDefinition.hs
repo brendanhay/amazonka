@@ -136,7 +136,8 @@ instance Core.AWSRequest CreateResourceDefinition where
 
 instance Prelude.Hashable CreateResourceDefinition where
   hashWithSalt _salt CreateResourceDefinition' {..} =
-    _salt `Prelude.hashWithSalt` amznClientToken
+    _salt
+      `Prelude.hashWithSalt` amznClientToken
       `Prelude.hashWithSalt` initialVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags

@@ -156,7 +156,8 @@ instance
     GetConnectorDefinitionVersion
   where
   hashWithSalt _salt GetConnectorDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` connectorDefinitionId
       `Prelude.hashWithSalt` connectorDefinitionVersionId
 

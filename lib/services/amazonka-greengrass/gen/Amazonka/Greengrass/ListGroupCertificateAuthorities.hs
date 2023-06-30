@@ -90,7 +90,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListGroupCertificateAuthoritiesResponse'
-            Prelude.<$> ( x Data..?> "GroupCertificateAuthorities"
+            Prelude.<$> ( x
+                            Data..?> "GroupCertificateAuthorities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

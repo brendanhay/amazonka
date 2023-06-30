@@ -146,7 +146,8 @@ instance Core.AWSRequest GetDeviceDefinitionVersion where
 
 instance Prelude.Hashable GetDeviceDefinitionVersion where
   hashWithSalt _salt GetDeviceDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` deviceDefinitionVersionId
       `Prelude.hashWithSalt` deviceDefinitionId
 

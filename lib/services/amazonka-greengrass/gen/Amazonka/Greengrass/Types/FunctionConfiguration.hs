@@ -158,7 +158,8 @@ instance Data.FromJSON FunctionConfiguration where
 
 instance Prelude.Hashable FunctionConfiguration where
   hashWithSalt _salt FunctionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` encodingType
+    _salt
+      `Prelude.hashWithSalt` encodingType
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` execArgs
       `Prelude.hashWithSalt` executable

@@ -96,7 +96,8 @@ instance Data.FromJSON Connector where
 
 instance Prelude.Hashable Connector where
   hashWithSalt _salt Connector' {..} =
-    _salt `Prelude.hashWithSalt` parameters
+    _salt
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` connectorArn
       `Prelude.hashWithSalt` id
 

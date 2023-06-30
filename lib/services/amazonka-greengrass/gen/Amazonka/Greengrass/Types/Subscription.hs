@@ -120,7 +120,8 @@ instance Data.FromJSON Subscription where
 
 instance Prelude.Hashable Subscription where
   hashWithSalt _salt Subscription' {..} =
-    _salt `Prelude.hashWithSalt` target
+    _salt
+      `Prelude.hashWithSalt` target
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` subject
       `Prelude.hashWithSalt` source

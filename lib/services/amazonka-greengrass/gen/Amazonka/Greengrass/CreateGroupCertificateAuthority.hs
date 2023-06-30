@@ -112,7 +112,8 @@ instance
   hashWithSalt
     _salt
     CreateGroupCertificateAuthority' {..} =
-      _salt `Prelude.hashWithSalt` amznClientToken
+      _salt
+        `Prelude.hashWithSalt` amznClientToken
         `Prelude.hashWithSalt` groupId
 
 instance

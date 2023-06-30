@@ -108,22 +108,22 @@ instance Core.AWSPager ListCoreDefinitionVersions where
     | Core.stop
         ( rs
             Lens.^? listCoreDefinitionVersionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listCoreDefinitionVersionsResponse_versions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listCoreDefinitionVersions_nextToken
           Lens..~ rs
           Lens.^? listCoreDefinitionVersionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListCoreDefinitionVersions where
   type
@@ -142,7 +142,8 @@ instance Core.AWSRequest ListCoreDefinitionVersions where
 
 instance Prelude.Hashable ListCoreDefinitionVersions where
   hashWithSalt _salt ListCoreDefinitionVersions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` coreDefinitionId
 

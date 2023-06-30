@@ -94,7 +94,8 @@ instance Data.FromJSON VersionInformation where
 
 instance Prelude.Hashable VersionInformation where
   hashWithSalt _salt VersionInformation' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` creationTimestamp
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` version

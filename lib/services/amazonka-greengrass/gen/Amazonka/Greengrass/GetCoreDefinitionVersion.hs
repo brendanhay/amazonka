@@ -133,7 +133,8 @@ instance Core.AWSRequest GetCoreDefinitionVersion where
 
 instance Prelude.Hashable GetCoreDefinitionVersion where
   hashWithSalt _salt GetCoreDefinitionVersion' {..} =
-    _salt `Prelude.hashWithSalt` coreDefinitionId
+    _salt
+      `Prelude.hashWithSalt` coreDefinitionId
       `Prelude.hashWithSalt` coreDefinitionVersionId
 
 instance Prelude.NFData GetCoreDefinitionVersion where

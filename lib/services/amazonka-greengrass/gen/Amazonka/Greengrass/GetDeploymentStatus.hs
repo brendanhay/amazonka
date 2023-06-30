@@ -112,7 +112,8 @@ instance Core.AWSRequest GetDeploymentStatus where
 
 instance Prelude.Hashable GetDeploymentStatus where
   hashWithSalt _salt GetDeploymentStatus' {..} =
-    _salt `Prelude.hashWithSalt` groupId
+    _salt
+      `Prelude.hashWithSalt` groupId
       `Prelude.hashWithSalt` deploymentId
 
 instance Prelude.NFData GetDeploymentStatus where

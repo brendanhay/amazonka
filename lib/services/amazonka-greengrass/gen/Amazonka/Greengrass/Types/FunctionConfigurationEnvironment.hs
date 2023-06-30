@@ -112,7 +112,8 @@ instance
           FunctionConfigurationEnvironment'
             Prelude.<$> (x Data..:? "AccessSysfs")
             Prelude.<*> (x Data..:? "Execution")
-            Prelude.<*> ( x Data..:? "ResourceAccessPolicies"
+            Prelude.<*> ( x
+                            Data..:? "ResourceAccessPolicies"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Variables" Data..!= Prelude.mempty)
@@ -125,7 +126,8 @@ instance
   hashWithSalt
     _salt
     FunctionConfigurationEnvironment' {..} =
-      _salt `Prelude.hashWithSalt` accessSysfs
+      _salt
+        `Prelude.hashWithSalt` accessSysfs
         `Prelude.hashWithSalt` execution
         `Prelude.hashWithSalt` resourceAccessPolicies
         `Prelude.hashWithSalt` variables

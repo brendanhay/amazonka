@@ -251,7 +251,8 @@ instance Data.FromJSON Encryption where
 
 instance Prelude.Hashable Encryption where
   hashWithSalt _salt Encryption' {..} =
-    _salt `Prelude.hashWithSalt` initializationVector
+    _salt
+      `Prelude.hashWithSalt` initializationVector
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` keyMd5
       `Prelude.hashWithSalt` mode

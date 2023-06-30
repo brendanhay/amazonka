@@ -160,7 +160,8 @@ instance Data.FromJSON CaptionSource where
 
 instance Prelude.Hashable CaptionSource where
   hashWithSalt _salt CaptionSource' {..} =
-    _salt `Prelude.hashWithSalt` encryption
+    _salt
+      `Prelude.hashWithSalt` encryption
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` label
       `Prelude.hashWithSalt` language

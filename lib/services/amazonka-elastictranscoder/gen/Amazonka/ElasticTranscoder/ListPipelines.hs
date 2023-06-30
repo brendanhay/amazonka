@@ -107,21 +107,22 @@ instance Core.AWSPager ListPipelines where
     | Core.stop
         ( rs
             Lens.^? listPipelinesResponse_nextPageToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listPipelinesResponse_pipelines Prelude.. Lens._Just
+            Lens.^? listPipelinesResponse_pipelines
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listPipelines_pageToken
           Lens..~ rs
           Lens.^? listPipelinesResponse_nextPageToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListPipelines where
   type
@@ -140,7 +141,8 @@ instance Core.AWSRequest ListPipelines where
 
 instance Prelude.Hashable ListPipelines where
   hashWithSalt _salt ListPipelines' {..} =
-    _salt `Prelude.hashWithSalt` ascending
+    _salt
+      `Prelude.hashWithSalt` ascending
       `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData ListPipelines where

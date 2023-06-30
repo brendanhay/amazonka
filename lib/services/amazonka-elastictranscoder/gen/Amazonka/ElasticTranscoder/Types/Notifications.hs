@@ -110,7 +110,8 @@ instance Data.FromJSON Notifications where
 
 instance Prelude.Hashable Notifications where
   hashWithSalt _salt Notifications' {..} =
-    _salt `Prelude.hashWithSalt` completed
+    _salt
+      `Prelude.hashWithSalt` completed
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` progressing
       `Prelude.hashWithSalt` warning

@@ -122,7 +122,8 @@ instance Core.AWSRequest UpdatePipelineStatus where
 
 instance Prelude.Hashable UpdatePipelineStatus where
   hashWithSalt _salt UpdatePipelineStatus' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData UpdatePipelineStatus where

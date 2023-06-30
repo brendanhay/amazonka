@@ -552,7 +552,8 @@ instance Data.FromJSON PresetWatermark where
 
 instance Prelude.Hashable PresetWatermark where
   hashWithSalt _salt PresetWatermark' {..} =
-    _salt `Prelude.hashWithSalt` horizontalAlign
+    _salt
+      `Prelude.hashWithSalt` horizontalAlign
       `Prelude.hashWithSalt` horizontalOffset
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` maxHeight

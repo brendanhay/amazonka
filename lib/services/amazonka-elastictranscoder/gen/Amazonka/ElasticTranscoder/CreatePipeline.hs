@@ -762,7 +762,8 @@ instance Core.AWSRequest CreatePipeline where
 
 instance Prelude.Hashable CreatePipeline where
   hashWithSalt _salt CreatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` awsKmsKeyArn
+    _salt
+      `Prelude.hashWithSalt` awsKmsKeyArn
       `Prelude.hashWithSalt` contentConfig
       `Prelude.hashWithSalt` notifications
       `Prelude.hashWithSalt` outputBucket

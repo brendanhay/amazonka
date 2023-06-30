@@ -355,8 +355,8 @@ data VideoParameters = VideoParameters'
     -- -   @auto@: Elastic Transcoder attempts to preserve the width and height
     --     of the input file, subject to the following rules.
     --
-    -- -   @ width x height @: The width and height of the output video in
-    --     pixels.
+    -- -   @ @/@width@/@ x @/@height@/@ @: The width and height of the output
+    --     video in pixels.
     --
     -- Note the following about specifying the width and height:
     --
@@ -790,8 +790,8 @@ data VideoParameters = VideoParameters'
 -- -   @auto@: Elastic Transcoder attempts to preserve the width and height
 --     of the input file, subject to the following rules.
 --
--- -   @ width x height @: The width and height of the output video in
---     pixels.
+-- -   @ @/@width@/@ x @/@height@/@ @: The width and height of the output
+--     video in pixels.
 --
 -- Note the following about specifying the width and height:
 --
@@ -1258,8 +1258,8 @@ videoParameters_paddingPolicy = Lens.lens (\VideoParameters' {paddingPolicy} -> 
 -- -   @auto@: Elastic Transcoder attempts to preserve the width and height
 --     of the input file, subject to the following rules.
 --
--- -   @ width x height @: The width and height of the output video in
---     pixels.
+-- -   @ @/@width@/@ x @/@height@/@ @: The width and height of the output
+--     video in pixels.
 --
 -- Note the following about specifying the width and height:
 --
@@ -1387,7 +1387,8 @@ instance Data.FromJSON VideoParameters where
 
 instance Prelude.Hashable VideoParameters where
   hashWithSalt _salt VideoParameters' {..} =
-    _salt `Prelude.hashWithSalt` aspectRatio
+    _salt
+      `Prelude.hashWithSalt` aspectRatio
       `Prelude.hashWithSalt` bitRate
       `Prelude.hashWithSalt` codec
       `Prelude.hashWithSalt` codecOptions

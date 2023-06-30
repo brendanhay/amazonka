@@ -206,7 +206,8 @@ instance Data.FromJSON HlsContentProtection where
 
 instance Prelude.Hashable HlsContentProtection where
   hashWithSalt _salt HlsContentProtection' {..} =
-    _salt `Prelude.hashWithSalt` initializationVector
+    _salt
+      `Prelude.hashWithSalt` initializationVector
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` keyMd5
       `Prelude.hashWithSalt` keyStoragePolicy

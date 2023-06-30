@@ -122,20 +122,23 @@ instance Core.AWSPager ListTapePools where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listTapePoolsResponse_marker Prelude.. Lens._Just
+            Lens.^? listTapePoolsResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? listTapePoolsResponse_poolInfos Prelude.. Lens._Just
+            Lens.^? listTapePoolsResponse_poolInfos
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listTapePools_marker
           Lens..~ rs
-          Lens.^? listTapePoolsResponse_marker Prelude.. Lens._Just
+          Lens.^? listTapePoolsResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTapePools where
   type
@@ -154,7 +157,8 @@ instance Core.AWSRequest ListTapePools where
 
 instance Prelude.Hashable ListTapePools where
   hashWithSalt _salt ListTapePools' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` poolARNs
 

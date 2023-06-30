@@ -315,7 +315,8 @@ instance Core.AWSRequest CreateStorediSCSIVolume where
 
 instance Prelude.Hashable CreateStorediSCSIVolume where
   hashWithSalt _salt CreateStorediSCSIVolume' {..} =
-    _salt `Prelude.hashWithSalt` kmsEncrypted
+    _salt
+      `Prelude.hashWithSalt` kmsEncrypted
       `Prelude.hashWithSalt` kmsKey
       `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` tags

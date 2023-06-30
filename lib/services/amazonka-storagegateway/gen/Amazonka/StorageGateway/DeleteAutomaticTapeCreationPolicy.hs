@@ -92,7 +92,7 @@ instance
       ( \s h x ->
           DeleteAutomaticTapeCreationPolicyResponse'
             Prelude.<$> (x Data..?> "GatewayARN")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeNFSFileShares where
     Response.receiveJSON
       ( \s h x ->
           DescribeNFSFileSharesResponse'
-            Prelude.<$> ( x Data..?> "NFSFileShareInfoList"
+            Prelude.<$> ( x
+                            Data..?> "NFSFileShareInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

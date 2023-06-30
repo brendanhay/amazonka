@@ -144,20 +144,23 @@ instance Core.AWSPager DescribeTapes where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? describeTapesResponse_marker Prelude.. Lens._Just
+            Lens.^? describeTapesResponse_marker
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? describeTapesResponse_tapes Prelude.. Lens._Just
+            Lens.^? describeTapesResponse_tapes
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeTapes_marker
           Lens..~ rs
-          Lens.^? describeTapesResponse_marker Prelude.. Lens._Just
+          Lens.^? describeTapesResponse_marker
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeTapes where
   type
@@ -176,7 +179,8 @@ instance Core.AWSRequest DescribeTapes where
 
 instance Prelude.Hashable DescribeTapes where
   hashWithSalt _salt DescribeTapes' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` tapeARNs
       `Prelude.hashWithSalt` gatewayARN

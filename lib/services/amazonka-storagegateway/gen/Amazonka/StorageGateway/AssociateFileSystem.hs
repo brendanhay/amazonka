@@ -214,7 +214,8 @@ instance Core.AWSRequest AssociateFileSystem where
 
 instance Prelude.Hashable AssociateFileSystem where
   hashWithSalt _salt AssociateFileSystem' {..} =
-    _salt `Prelude.hashWithSalt` auditDestinationARN
+    _salt
+      `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` cacheAttributes
       `Prelude.hashWithSalt` endpointNetworkConfiguration
       `Prelude.hashWithSalt` tags

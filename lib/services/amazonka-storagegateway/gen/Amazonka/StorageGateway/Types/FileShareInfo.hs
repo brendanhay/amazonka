@@ -100,7 +100,8 @@ instance Data.FromJSON FileShareInfo where
 
 instance Prelude.Hashable FileShareInfo where
   hashWithSalt _salt FileShareInfo' {..} =
-    _salt `Prelude.hashWithSalt` fileShareARN
+    _salt
+      `Prelude.hashWithSalt` fileShareARN
       `Prelude.hashWithSalt` fileShareId
       `Prelude.hashWithSalt` fileShareStatus
       `Prelude.hashWithSalt` fileShareType

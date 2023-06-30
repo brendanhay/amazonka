@@ -110,7 +110,8 @@ instance Data.FromJSON ChapInfo where
 
 instance Prelude.Hashable ChapInfo where
   hashWithSalt _salt ChapInfo' {..} =
-    _salt `Prelude.hashWithSalt` initiatorName
+    _salt
+      `Prelude.hashWithSalt` initiatorName
       `Prelude.hashWithSalt` secretToAuthenticateInitiator
       `Prelude.hashWithSalt` secretToAuthenticateTarget
       `Prelude.hashWithSalt` targetARN

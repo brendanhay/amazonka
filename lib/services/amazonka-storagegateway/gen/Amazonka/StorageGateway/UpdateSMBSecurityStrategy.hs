@@ -159,7 +159,8 @@ instance Core.AWSRequest UpdateSMBSecurityStrategy where
 
 instance Prelude.Hashable UpdateSMBSecurityStrategy where
   hashWithSalt _salt UpdateSMBSecurityStrategy' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` sMBSecurityStrategy
 
 instance Prelude.NFData UpdateSMBSecurityStrategy where

@@ -190,7 +190,8 @@ instance Core.AWSRequest AttachVolume where
 
 instance Prelude.Hashable AttachVolume where
   hashWithSalt _salt AttachVolume' {..} =
-    _salt `Prelude.hashWithSalt` diskId
+    _salt
+      `Prelude.hashWithSalt` diskId
       `Prelude.hashWithSalt` targetName
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` volumeARN

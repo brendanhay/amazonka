@@ -101,7 +101,8 @@ instance Core.AWSRequest DescribeStorediSCSIVolumes where
     Response.receiveJSON
       ( \s h x ->
           DescribeStorediSCSIVolumesResponse'
-            Prelude.<$> ( x Data..?> "StorediSCSIVolumes"
+            Prelude.<$> ( x
+                            Data..?> "StorediSCSIVolumes"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

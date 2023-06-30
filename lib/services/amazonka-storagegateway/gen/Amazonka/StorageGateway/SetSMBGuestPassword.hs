@@ -111,7 +111,8 @@ instance Core.AWSRequest SetSMBGuestPassword where
 
 instance Prelude.Hashable SetSMBGuestPassword where
   hashWithSalt _salt SetSMBGuestPassword' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` password
 
 instance Prelude.NFData SetSMBGuestPassword where

@@ -172,7 +172,8 @@ instance Data.FromJSON GatewayInfo where
 
 instance Prelude.Hashable GatewayInfo where
   hashWithSalt _salt GatewayInfo' {..} =
-    _salt `Prelude.hashWithSalt` ec2InstanceId
+    _salt
+      `Prelude.hashWithSalt` ec2InstanceId
       `Prelude.hashWithSalt` ec2InstanceRegion
       `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` gatewayId

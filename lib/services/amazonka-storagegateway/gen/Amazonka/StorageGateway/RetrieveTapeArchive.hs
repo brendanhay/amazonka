@@ -133,7 +133,8 @@ instance Core.AWSRequest RetrieveTapeArchive where
 
 instance Prelude.Hashable RetrieveTapeArchive where
   hashWithSalt _salt RetrieveTapeArchive' {..} =
-    _salt `Prelude.hashWithSalt` tapeARN
+    _salt
+      `Prelude.hashWithSalt` tapeARN
       `Prelude.hashWithSalt` gatewayARN
 
 instance Prelude.NFData RetrieveTapeArchive where

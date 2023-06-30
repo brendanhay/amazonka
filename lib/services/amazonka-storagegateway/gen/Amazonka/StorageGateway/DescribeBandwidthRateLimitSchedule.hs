@@ -109,11 +109,12 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitScheduleResponse'
-            Prelude.<$> ( x Data..?> "BandwidthRateLimitIntervals"
+            Prelude.<$> ( x
+                            Data..?> "BandwidthRateLimitIntervals"
                             Core..!@ Prelude.mempty
                         )
-              Prelude.<*> (x Data..?> "GatewayARN")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

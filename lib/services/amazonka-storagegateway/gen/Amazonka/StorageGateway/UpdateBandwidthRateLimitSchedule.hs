@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     UpdateBandwidthRateLimitSchedule' {..} =
-      _salt `Prelude.hashWithSalt` gatewayARN
+      _salt
+        `Prelude.hashWithSalt` gatewayARN
         `Prelude.hashWithSalt` bandwidthRateLimitIntervals
 
 instance

@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeSMBFileShares where
     Response.receiveJSON
       ( \s h x ->
           DescribeSMBFileSharesResponse'
-            Prelude.<$> ( x Data..?> "SMBFileShareInfoList"
+            Prelude.<$> ( x
+                            Data..?> "SMBFileShareInfoList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

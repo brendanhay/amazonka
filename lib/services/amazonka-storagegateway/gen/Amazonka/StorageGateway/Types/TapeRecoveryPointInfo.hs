@@ -106,7 +106,8 @@ instance Data.FromJSON TapeRecoveryPointInfo where
 
 instance Prelude.Hashable TapeRecoveryPointInfo where
   hashWithSalt _salt TapeRecoveryPointInfo' {..} =
-    _salt `Prelude.hashWithSalt` tapeARN
+    _salt
+      `Prelude.hashWithSalt` tapeARN
       `Prelude.hashWithSalt` tapeRecoveryPointTime
       `Prelude.hashWithSalt` tapeSizeInBytes
       `Prelude.hashWithSalt` tapeStatus

@@ -531,7 +531,8 @@ instance Core.AWSRequest UpdateSMBFileShare where
 
 instance Prelude.Hashable UpdateSMBFileShare where
   hashWithSalt _salt UpdateSMBFileShare' {..} =
-    _salt `Prelude.hashWithSalt` accessBasedEnumeration
+    _salt
+      `Prelude.hashWithSalt` accessBasedEnumeration
       `Prelude.hashWithSalt` adminUserList
       `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` cacheAttributes

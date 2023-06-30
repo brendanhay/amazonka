@@ -578,7 +578,8 @@ instance Data.FromJSON SMBFileShareInfo where
             Prelude.<*> (x Data..:? "FileShareStatus")
             Prelude.<*> (x Data..:? "GatewayARN")
             Prelude.<*> (x Data..:? "GuessMIMETypeEnabled")
-            Prelude.<*> ( x Data..:? "InvalidUserList"
+            Prelude.<*> ( x
+                            Data..:? "InvalidUserList"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "KMSEncrypted")
@@ -599,7 +600,8 @@ instance Data.FromJSON SMBFileShareInfo where
 
 instance Prelude.Hashable SMBFileShareInfo where
   hashWithSalt _salt SMBFileShareInfo' {..} =
-    _salt `Prelude.hashWithSalt` accessBasedEnumeration
+    _salt
+      `Prelude.hashWithSalt` accessBasedEnumeration
       `Prelude.hashWithSalt` adminUserList
       `Prelude.hashWithSalt` auditDestinationARN
       `Prelude.hashWithSalt` authentication

@@ -111,7 +111,8 @@ instance
     UpdateSMBFileShareVisibility
   where
   hashWithSalt _salt UpdateSMBFileShareVisibility' {..} =
-    _salt `Prelude.hashWithSalt` gatewayARN
+    _salt
+      `Prelude.hashWithSalt` gatewayARN
       `Prelude.hashWithSalt` fileSharesVisible
 
 instance Prelude.NFData UpdateSMBFileShareVisibility where

@@ -122,7 +122,8 @@ instance Core.AWSRequest DetachVolume where
 
 instance Prelude.Hashable DetachVolume where
   hashWithSalt _salt DetachVolume' {..} =
-    _salt `Prelude.hashWithSalt` forceDetach
+    _salt
+      `Prelude.hashWithSalt` forceDetach
       `Prelude.hashWithSalt` volumeARN
 
 instance Prelude.NFData DetachVolume where

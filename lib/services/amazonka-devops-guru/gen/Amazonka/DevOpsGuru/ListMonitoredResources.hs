@@ -115,21 +115,21 @@ instance Core.AWSPager ListMonitoredResources where
     | Core.stop
         ( rs
             Lens.^? listMonitoredResourcesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listMonitoredResourcesResponse_monitoredResourceIdentifiers
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMonitoredResources_nextToken
           Lens..~ rs
           Lens.^? listMonitoredResourcesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitoredResources where
   type
@@ -143,14 +143,16 @@ instance Core.AWSRequest ListMonitoredResources where
           ListMonitoredResourcesResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "MonitoredResourceIdentifiers"
+            Prelude.<*> ( x
+                            Data..?> "MonitoredResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListMonitoredResources where
   hashWithSalt _salt ListMonitoredResources' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

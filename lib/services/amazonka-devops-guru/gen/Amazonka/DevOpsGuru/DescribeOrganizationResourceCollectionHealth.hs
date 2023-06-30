@@ -166,40 +166,40 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeOrganizationResourceCollectionHealthResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrganizationResourceCollectionHealthResponse_cloudFormation
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrganizationResourceCollectionHealthResponse_account
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrganizationResourceCollectionHealthResponse_service
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeOrganizationResourceCollectionHealthResponse_tags
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeOrganizationResourceCollectionHealth_nextToken
           Lens..~ rs
-            Lens.^? describeOrganizationResourceCollectionHealthResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? describeOrganizationResourceCollectionHealthResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -216,11 +216,11 @@ instance
       ( \s h x ->
           DescribeOrganizationResourceCollectionHealthResponse'
             Prelude.<$> (x Data..?> "Account" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "CloudFormation" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "NextToken")
-              Prelude.<*> (x Data..?> "Service" Core..!@ Prelude.mempty)
-              Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "CloudFormation" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "NextToken")
+            Prelude.<*> (x Data..?> "Service" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Data..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -230,7 +230,8 @@ instance
   hashWithSalt
     _salt
     DescribeOrganizationResourceCollectionHealth' {..} =
-      _salt `Prelude.hashWithSalt` accountIds
+      _salt
+        `Prelude.hashWithSalt` accountIds
         `Prelude.hashWithSalt` maxResults
         `Prelude.hashWithSalt` nextToken
         `Prelude.hashWithSalt` organizationalUnitIds

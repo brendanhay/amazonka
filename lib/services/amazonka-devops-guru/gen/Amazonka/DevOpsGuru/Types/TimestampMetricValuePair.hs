@@ -75,7 +75,8 @@ instance Data.FromJSON TimestampMetricValuePair where
 
 instance Prelude.Hashable TimestampMetricValuePair where
   hashWithSalt _salt TimestampMetricValuePair' {..} =
-    _salt `Prelude.hashWithSalt` metricValue
+    _salt
+      `Prelude.hashWithSalt` metricValue
       `Prelude.hashWithSalt` timestamp
 
 instance Prelude.NFData TimestampMetricValuePair where

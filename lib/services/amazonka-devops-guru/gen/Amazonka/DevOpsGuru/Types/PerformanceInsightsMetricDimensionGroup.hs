@@ -345,7 +345,8 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsMetricDimensionGroup' {..} =
-      _salt `Prelude.hashWithSalt` dimensions
+      _salt
+        `Prelude.hashWithSalt` dimensions
         `Prelude.hashWithSalt` group'
         `Prelude.hashWithSalt` limit
 

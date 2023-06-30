@@ -161,28 +161,28 @@ instance Core.AWSPager SearchOrganizationInsights where
     | Core.stop
         ( rs
             Lens.^? searchOrganizationInsightsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchOrganizationInsightsResponse_proactiveInsights
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchOrganizationInsightsResponse_reactiveInsights
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchOrganizationInsights_nextToken
           Lens..~ rs
           Lens.^? searchOrganizationInsightsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchOrganizationInsights where
   type
@@ -195,10 +195,12 @@ instance Core.AWSRequest SearchOrganizationInsights where
       ( \s h x ->
           SearchOrganizationInsightsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProactiveInsights"
+            Prelude.<*> ( x
+                            Data..?> "ProactiveInsights"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ReactiveInsights"
+            Prelude.<*> ( x
+                            Data..?> "ReactiveInsights"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -206,7 +208,8 @@ instance Core.AWSRequest SearchOrganizationInsights where
 
 instance Prelude.Hashable SearchOrganizationInsights where
   hashWithSalt _salt SearchOrganizationInsights' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` accountIds

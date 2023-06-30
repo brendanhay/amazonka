@@ -149,7 +149,8 @@ instance Data.FromJSON ReactiveInsight where
 
 instance Prelude.Hashable ReactiveInsight where
   hashWithSalt _salt ReactiveInsight' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` insightTimeRange
       `Prelude.hashWithSalt` name

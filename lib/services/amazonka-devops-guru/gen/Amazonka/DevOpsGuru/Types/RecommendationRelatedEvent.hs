@@ -84,7 +84,8 @@ instance Data.FromJSON RecommendationRelatedEvent where
 
 instance Prelude.Hashable RecommendationRelatedEvent where
   hashWithSalt _salt RecommendationRelatedEvent' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData RecommendationRelatedEvent where

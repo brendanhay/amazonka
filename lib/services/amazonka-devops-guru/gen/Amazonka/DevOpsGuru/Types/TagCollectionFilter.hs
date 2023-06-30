@@ -142,7 +142,8 @@ instance Data.FromJSON TagCollectionFilter where
 
 instance Prelude.Hashable TagCollectionFilter where
   hashWithSalt _salt TagCollectionFilter' {..} =
-    _salt `Prelude.hashWithSalt` appBoundaryKey
+    _salt
+      `Prelude.hashWithSalt` appBoundaryKey
       `Prelude.hashWithSalt` tagValues
 
 instance Prelude.NFData TagCollectionFilter where

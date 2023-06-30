@@ -149,27 +149,28 @@ instance Core.AWSPager SearchInsights where
     | Core.stop
         ( rs
             Lens.^? searchInsightsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchInsightsResponse_proactiveInsights
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? searchInsightsResponse_reactiveInsights
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& searchInsights_nextToken
           Lens..~ rs
-          Lens.^? searchInsightsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? searchInsightsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest SearchInsights where
   type
@@ -182,10 +183,12 @@ instance Core.AWSRequest SearchInsights where
       ( \s h x ->
           SearchInsightsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "ProactiveInsights"
+            Prelude.<*> ( x
+                            Data..?> "ProactiveInsights"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ReactiveInsights"
+            Prelude.<*> ( x
+                            Data..?> "ReactiveInsights"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -193,7 +196,8 @@ instance Core.AWSRequest SearchInsights where
 
 instance Prelude.Hashable SearchInsights where
   hashWithSalt _salt SearchInsights' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` startTimeRange

@@ -65,7 +65,8 @@ startTimeRange_toTime = Lens.lens (\StartTimeRange' {toTime} -> toTime) (\s@Star
 
 instance Prelude.Hashable StartTimeRange where
   hashWithSalt _salt StartTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` fromTime
+    _salt
+      `Prelude.hashWithSalt` fromTime
       `Prelude.hashWithSalt` toTime
 
 instance Prelude.NFData StartTimeRange where

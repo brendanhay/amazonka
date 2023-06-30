@@ -75,7 +75,8 @@ instance Data.FromJSON InsightFeedback where
 
 instance Prelude.Hashable InsightFeedback where
   hashWithSalt _salt InsightFeedback' {..} =
-    _salt `Prelude.hashWithSalt` feedback
+    _salt
+      `Prelude.hashWithSalt` feedback
       `Prelude.hashWithSalt` id
 
 instance Prelude.NFData InsightFeedback where

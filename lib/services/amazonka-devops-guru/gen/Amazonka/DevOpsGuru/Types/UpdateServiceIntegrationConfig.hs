@@ -76,7 +76,8 @@ instance
   hashWithSalt
     _salt
     UpdateServiceIntegrationConfig' {..} =
-      _salt `Prelude.hashWithSalt` logsAnomalyDetection
+      _salt
+        `Prelude.hashWithSalt` logsAnomalyDetection
         `Prelude.hashWithSalt` opsCenter
 
 instance

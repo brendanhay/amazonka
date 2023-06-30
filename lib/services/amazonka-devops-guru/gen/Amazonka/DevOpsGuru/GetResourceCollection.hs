@@ -110,34 +110,34 @@ instance Core.AWSPager GetResourceCollection where
     | Core.stop
         ( rs
             Lens.^? getResourceCollectionResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getResourceCollectionResponse_resourceCollection
-              Prelude.. Lens._Just
-              Prelude.. resourceCollectionFilter_cloudFormation
-              Prelude.. Lens._Just
-              Prelude.. cloudFormationCollectionFilter_stackNames
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
+            Prelude.. resourceCollectionFilter_cloudFormation
+            Prelude.. Lens._Just
+            Prelude.. cloudFormationCollectionFilter_stackNames
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? getResourceCollectionResponse_resourceCollection
-              Prelude.. Lens._Just
-              Prelude.. resourceCollectionFilter_tags
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
+            Prelude.. resourceCollectionFilter_tags
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getResourceCollection_nextToken
           Lens..~ rs
           Lens.^? getResourceCollectionResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetResourceCollection where
   type
@@ -156,7 +156,8 @@ instance Core.AWSRequest GetResourceCollection where
 
 instance Prelude.Hashable GetResourceCollection where
   hashWithSalt _salt GetResourceCollection' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` resourceCollectionType
 
 instance Prelude.NFData GetResourceCollection where

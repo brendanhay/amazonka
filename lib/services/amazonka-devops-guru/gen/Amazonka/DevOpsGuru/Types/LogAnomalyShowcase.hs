@@ -61,7 +61,8 @@ instance Data.FromJSON LogAnomalyShowcase where
       "LogAnomalyShowcase"
       ( \x ->
           LogAnomalyShowcase'
-            Prelude.<$> ( x Data..:? "LogAnomalyClasses"
+            Prelude.<$> ( x
+                            Data..:? "LogAnomalyClasses"
                             Data..!= Prelude.mempty
                         )
       )

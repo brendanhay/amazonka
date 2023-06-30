@@ -136,7 +136,8 @@ instance Data.FromJSON ServiceResourceCost where
 
 instance Prelude.Hashable ServiceResourceCost where
   hashWithSalt _salt ServiceResourceCost' {..} =
-    _salt `Prelude.hashWithSalt` cost
+    _salt
+      `Prelude.hashWithSalt` cost
       `Prelude.hashWithSalt` count
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` type'

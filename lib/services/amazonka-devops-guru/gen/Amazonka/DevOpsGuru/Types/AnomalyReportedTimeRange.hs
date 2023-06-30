@@ -79,7 +79,8 @@ instance Data.FromJSON AnomalyReportedTimeRange where
 
 instance Prelude.Hashable AnomalyReportedTimeRange where
   hashWithSalt _salt AnomalyReportedTimeRange' {..} =
-    _salt `Prelude.hashWithSalt` closeTime
+    _salt
+      `Prelude.hashWithSalt` closeTime
       `Prelude.hashWithSalt` openTime
 
 instance Prelude.NFData AnomalyReportedTimeRange where

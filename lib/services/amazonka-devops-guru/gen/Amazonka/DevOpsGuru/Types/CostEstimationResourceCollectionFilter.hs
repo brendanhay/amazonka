@@ -195,7 +195,8 @@ instance
   hashWithSalt
     _salt
     CostEstimationResourceCollectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` cloudFormation
+      _salt
+        `Prelude.hashWithSalt` cloudFormation
         `Prelude.hashWithSalt` tags
 
 instance

@@ -96,7 +96,8 @@ instance Data.FromJSON ServiceHealth where
 
 instance Prelude.Hashable ServiceHealth where
   hashWithSalt _salt ServiceHealth' {..} =
-    _salt `Prelude.hashWithSalt` analyzedResourceCount
+    _salt
+      `Prelude.hashWithSalt` analyzedResourceCount
       `Prelude.hashWithSalt` insight
       `Prelude.hashWithSalt` serviceName
 

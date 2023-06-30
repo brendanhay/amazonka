@@ -52,9 +52,10 @@ data PerformanceInsightsMetricsDetail = PerformanceInsightsMetricsDetail'
   { -- | The name used for a specific Performance Insights metric.
     metricDisplayName :: Prelude.Maybe Prelude.Text,
     -- | A single query to be processed for the metric. For more information, see
-    -- @ PerformanceInsightsMetricQuery @.
+    -- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html PerformanceInsightsMetricQuery>@ @.
     metricQuery :: Prelude.Maybe PerformanceInsightsMetricQuery,
-    -- | For more information, see @ PerformanceInsightsReferenceData @.
+    -- | For more information, see
+    -- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html PerformanceInsightsReferenceData>@ @.
     referenceData :: Prelude.Maybe [PerformanceInsightsReferenceData],
     -- | The metric statistics during the anomalous period detected by DevOps
     -- Guru;
@@ -79,9 +80,10 @@ data PerformanceInsightsMetricsDetail = PerformanceInsightsMetricsDetail'
 -- 'metricDisplayName', 'performanceInsightsMetricsDetail_metricDisplayName' - The name used for a specific Performance Insights metric.
 --
 -- 'metricQuery', 'performanceInsightsMetricsDetail_metricQuery' - A single query to be processed for the metric. For more information, see
--- @ PerformanceInsightsMetricQuery @.
+-- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html PerformanceInsightsMetricQuery>@ @.
 --
--- 'referenceData', 'performanceInsightsMetricsDetail_referenceData' - For more information, see @ PerformanceInsightsReferenceData @.
+-- 'referenceData', 'performanceInsightsMetricsDetail_referenceData' - For more information, see
+-- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html PerformanceInsightsReferenceData>@ @.
 --
 -- 'statsAtAnomaly', 'performanceInsightsMetricsDetail_statsAtAnomaly' - The metric statistics during the anomalous period detected by DevOps
 -- Guru;
@@ -109,11 +111,12 @@ performanceInsightsMetricsDetail_metricDisplayName :: Lens.Lens' PerformanceInsi
 performanceInsightsMetricsDetail_metricDisplayName = Lens.lens (\PerformanceInsightsMetricsDetail' {metricDisplayName} -> metricDisplayName) (\s@PerformanceInsightsMetricsDetail' {} a -> s {metricDisplayName = a} :: PerformanceInsightsMetricsDetail)
 
 -- | A single query to be processed for the metric. For more information, see
--- @ PerformanceInsightsMetricQuery @.
+-- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsMetricQuery.html PerformanceInsightsMetricQuery>@ @.
 performanceInsightsMetricsDetail_metricQuery :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe PerformanceInsightsMetricQuery)
 performanceInsightsMetricsDetail_metricQuery = Lens.lens (\PerformanceInsightsMetricsDetail' {metricQuery} -> metricQuery) (\s@PerformanceInsightsMetricsDetail' {} a -> s {metricQuery = a} :: PerformanceInsightsMetricsDetail)
 
--- | For more information, see @ PerformanceInsightsReferenceData @.
+-- | For more information, see
+-- @ @<https://docs.aws.amazon.com/devops-guru/latest/APIReference/API_PerformanceInsightsReferenceData.html PerformanceInsightsReferenceData>@ @.
 performanceInsightsMetricsDetail_referenceData :: Lens.Lens' PerformanceInsightsMetricsDetail (Prelude.Maybe [PerformanceInsightsReferenceData])
 performanceInsightsMetricsDetail_referenceData = Lens.lens (\PerformanceInsightsMetricsDetail' {referenceData} -> referenceData) (\s@PerformanceInsightsMetricsDetail' {} a -> s {referenceData = a} :: PerformanceInsightsMetricsDetail) Prelude.. Lens.mapping Lens.coerced
 
@@ -145,7 +148,8 @@ instance
             Prelude.<*> (x Data..:? "MetricQuery")
             Prelude.<*> (x Data..:? "ReferenceData" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "StatsAtAnomaly" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "StatsAtBaseline"
+            Prelude.<*> ( x
+                            Data..:? "StatsAtBaseline"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Unit")
@@ -158,7 +162,8 @@ instance
   hashWithSalt
     _salt
     PerformanceInsightsMetricsDetail' {..} =
-      _salt `Prelude.hashWithSalt` metricDisplayName
+      _salt
+        `Prelude.hashWithSalt` metricDisplayName
         `Prelude.hashWithSalt` metricQuery
         `Prelude.hashWithSalt` referenceData
         `Prelude.hashWithSalt` statsAtAnomaly

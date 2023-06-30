@@ -165,7 +165,8 @@ instance
   hashWithSalt
     _salt
     ReactiveOrganizationInsightSummary' {..} =
-      _salt `Prelude.hashWithSalt` accountId
+      _salt
+        `Prelude.hashWithSalt` accountId
         `Prelude.hashWithSalt` id
         `Prelude.hashWithSalt` insightTimeRange
         `Prelude.hashWithSalt` name

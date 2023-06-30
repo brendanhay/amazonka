@@ -72,12 +72,14 @@ instance Data.FromJSON AnomalyResource where
       "AnomalyResource"
       ( \x ->
           AnomalyResource'
-            Prelude.<$> (x Data..:? "Name") Prelude.<*> (x Data..:? "Type")
+            Prelude.<$> (x Data..:? "Name")
+            Prelude.<*> (x Data..:? "Type")
       )
 
 instance Prelude.Hashable AnomalyResource where
   hashWithSalt _salt AnomalyResource' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData AnomalyResource where

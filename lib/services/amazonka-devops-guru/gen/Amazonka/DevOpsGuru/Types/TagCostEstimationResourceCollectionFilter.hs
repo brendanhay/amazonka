@@ -152,7 +152,7 @@ instance
       ( \x ->
           TagCostEstimationResourceCollectionFilter'
             Prelude.<$> (x Data..: "AppBoundaryKey")
-              Prelude.<*> (x Data..: "TagValues")
+            Prelude.<*> (x Data..: "TagValues")
       )
 
 instance
@@ -162,7 +162,8 @@ instance
   hashWithSalt
     _salt
     TagCostEstimationResourceCollectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` appBoundaryKey
+      _salt
+        `Prelude.hashWithSalt` appBoundaryKey
         `Prelude.hashWithSalt` tagValues
 
 instance

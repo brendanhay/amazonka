@@ -124,7 +124,8 @@ instance Core.AWSRequest DescribeAccountOverview where
 
 instance Prelude.Hashable DescribeAccountOverview where
   hashWithSalt _salt DescribeAccountOverview' {..} =
-    _salt `Prelude.hashWithSalt` toTime
+    _salt
+      `Prelude.hashWithSalt` toTime
       `Prelude.hashWithSalt` fromTime
 
 instance Prelude.NFData DescribeAccountOverview where

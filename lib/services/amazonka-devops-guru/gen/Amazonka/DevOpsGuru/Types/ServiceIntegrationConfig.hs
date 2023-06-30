@@ -87,7 +87,8 @@ instance Data.FromJSON ServiceIntegrationConfig where
 
 instance Prelude.Hashable ServiceIntegrationConfig where
   hashWithSalt _salt ServiceIntegrationConfig' {..} =
-    _salt `Prelude.hashWithSalt` logsAnomalyDetection
+    _salt
+      `Prelude.hashWithSalt` logsAnomalyDetection
       `Prelude.hashWithSalt` opsCenter
 
 instance Prelude.NFData ServiceIntegrationConfig where

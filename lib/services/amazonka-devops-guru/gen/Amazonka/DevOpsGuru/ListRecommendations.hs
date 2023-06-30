@@ -119,22 +119,22 @@ instance Core.AWSPager ListRecommendations where
     | Core.stop
         ( rs
             Lens.^? listRecommendationsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRecommendationsResponse_recommendations
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRecommendations_nextToken
           Lens..~ rs
           Lens.^? listRecommendationsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRecommendations where
   type
@@ -147,7 +147,8 @@ instance Core.AWSRequest ListRecommendations where
       ( \s h x ->
           ListRecommendationsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "Recommendations"
+            Prelude.<*> ( x
+                            Data..?> "Recommendations"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -155,7 +156,8 @@ instance Core.AWSRequest ListRecommendations where
 
 instance Prelude.Hashable ListRecommendations where
   hashWithSalt _salt ListRecommendations' {..} =
-    _salt `Prelude.hashWithSalt` accountId
+    _salt
+      `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` locale
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` insightId

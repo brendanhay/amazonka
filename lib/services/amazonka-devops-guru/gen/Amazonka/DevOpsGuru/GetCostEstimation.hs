@@ -91,21 +91,22 @@ instance Core.AWSPager GetCostEstimation where
     | Core.stop
         ( rs
             Lens.^? getCostEstimationResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^? getCostEstimationResponse_costs Prelude.. Lens._Just
+            Lens.^? getCostEstimationResponse_costs
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& getCostEstimation_nextToken
           Lens..~ rs
           Lens.^? getCostEstimationResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest GetCostEstimation where
   type

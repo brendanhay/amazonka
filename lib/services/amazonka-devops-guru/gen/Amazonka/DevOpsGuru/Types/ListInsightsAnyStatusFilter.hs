@@ -75,7 +75,8 @@ listInsightsAnyStatusFilter_startTimeRange = Lens.lens (\ListInsightsAnyStatusFi
 
 instance Prelude.Hashable ListInsightsAnyStatusFilter where
   hashWithSalt _salt ListInsightsAnyStatusFilter' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` startTimeRange
 
 instance Prelude.NFData ListInsightsAnyStatusFilter where

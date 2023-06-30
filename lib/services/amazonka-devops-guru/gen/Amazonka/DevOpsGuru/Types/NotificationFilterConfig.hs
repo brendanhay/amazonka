@@ -95,7 +95,8 @@ instance Data.FromJSON NotificationFilterConfig where
 
 instance Prelude.Hashable NotificationFilterConfig where
   hashWithSalt _salt NotificationFilterConfig' {..} =
-    _salt `Prelude.hashWithSalt` messageTypes
+    _salt
+      `Prelude.hashWithSalt` messageTypes
       `Prelude.hashWithSalt` severities
 
 instance Prelude.NFData NotificationFilterConfig where

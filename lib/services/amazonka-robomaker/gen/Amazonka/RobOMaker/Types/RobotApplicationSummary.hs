@@ -108,7 +108,8 @@ instance Data.FromJSON RobotApplicationSummary where
 
 instance Prelude.Hashable RobotApplicationSummary where
   hashWithSalt _salt RobotApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` robotSoftwareSuite

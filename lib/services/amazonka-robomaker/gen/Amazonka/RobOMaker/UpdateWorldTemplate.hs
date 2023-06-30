@@ -128,7 +128,8 @@ instance Core.AWSRequest UpdateWorldTemplate where
 
 instance Prelude.Hashable UpdateWorldTemplate where
   hashWithSalt _salt UpdateWorldTemplate' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` templateBody
       `Prelude.hashWithSalt` templateLocation
       `Prelude.hashWithSalt` template

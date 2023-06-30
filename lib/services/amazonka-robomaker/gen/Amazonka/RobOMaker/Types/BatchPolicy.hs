@@ -107,7 +107,8 @@ instance Data.FromJSON BatchPolicy where
 
 instance Prelude.Hashable BatchPolicy where
   hashWithSalt _salt BatchPolicy' {..} =
-    _salt `Prelude.hashWithSalt` maxConcurrency
+    _salt
+      `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` timeoutInSeconds
 
 instance Prelude.NFData BatchPolicy where

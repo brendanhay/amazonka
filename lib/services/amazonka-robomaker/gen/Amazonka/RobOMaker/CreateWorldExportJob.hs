@@ -165,7 +165,8 @@ instance Core.AWSRequest CreateWorldExportJob where
 
 instance Prelude.Hashable CreateWorldExportJob where
   hashWithSalt _salt CreateWorldExportJob' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` worlds
       `Prelude.hashWithSalt` outputLocation

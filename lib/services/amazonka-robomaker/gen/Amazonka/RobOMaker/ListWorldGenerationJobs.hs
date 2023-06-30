@@ -141,21 +141,21 @@ instance Core.AWSPager ListWorldGenerationJobs where
     | Core.stop
         ( rs
             Lens.^? listWorldGenerationJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listWorldGenerationJobsResponse_worldGenerationJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listWorldGenerationJobs_nextToken
           Lens..~ rs
           Lens.^? listWorldGenerationJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorldGenerationJobs where
   type
@@ -169,14 +169,16 @@ instance Core.AWSRequest ListWorldGenerationJobs where
           ListWorldGenerationJobsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "worldGenerationJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "worldGenerationJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListWorldGenerationJobs where
   hashWithSalt _salt ListWorldGenerationJobs' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 

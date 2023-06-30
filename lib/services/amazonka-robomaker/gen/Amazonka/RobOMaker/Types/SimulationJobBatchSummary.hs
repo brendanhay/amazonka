@@ -248,7 +248,8 @@ instance Data.FromJSON SimulationJobBatchSummary where
 
 instance Prelude.Hashable SimulationJobBatchSummary where
   hashWithSalt _salt SimulationJobBatchSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` createdRequestCount
       `Prelude.hashWithSalt` failedRequestCount

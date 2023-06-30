@@ -131,7 +131,8 @@ instance
     DescribeSimulationApplication
   where
   hashWithSalt _salt DescribeSimulationApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationVersion
+    _salt
+      `Prelude.hashWithSalt` applicationVersion
       `Prelude.hashWithSalt` application
 
 instance Prelude.NFData DescribeSimulationApplication where

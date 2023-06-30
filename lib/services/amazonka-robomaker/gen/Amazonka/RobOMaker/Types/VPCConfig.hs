@@ -89,7 +89,8 @@ instance Data.FromJSON VPCConfig where
 
 instance Prelude.Hashable VPCConfig where
   hashWithSalt _salt VPCConfig' {..} =
-    _salt `Prelude.hashWithSalt` assignPublicIp
+    _salt
+      `Prelude.hashWithSalt` assignPublicIp
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` subnets
 

@@ -139,7 +139,8 @@ instance Data.FromJSON WorldFailure where
 
 instance Prelude.Hashable WorldFailure where
   hashWithSalt _salt WorldFailure' {..} =
-    _salt `Prelude.hashWithSalt` failureCode
+    _salt
+      `Prelude.hashWithSalt` failureCode
       `Prelude.hashWithSalt` failureCount
       `Prelude.hashWithSalt` sampleFailureReason
 

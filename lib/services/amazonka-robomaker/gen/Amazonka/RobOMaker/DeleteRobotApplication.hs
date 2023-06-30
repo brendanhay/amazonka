@@ -101,7 +101,8 @@ instance Core.AWSRequest DeleteRobotApplication where
 
 instance Prelude.Hashable DeleteRobotApplication where
   hashWithSalt _salt DeleteRobotApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationVersion
+    _salt
+      `Prelude.hashWithSalt` applicationVersion
       `Prelude.hashWithSalt` application
 
 instance Prelude.NFData DeleteRobotApplication where

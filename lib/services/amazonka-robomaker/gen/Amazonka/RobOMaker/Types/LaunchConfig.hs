@@ -136,7 +136,8 @@ instance Data.FromJSON LaunchConfig where
       ( \x ->
           LaunchConfig'
             Prelude.<$> (x Data..:? "command" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "environmentVariables"
+            Prelude.<*> ( x
+                            Data..:? "environmentVariables"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "launchFile")
@@ -147,7 +148,8 @@ instance Data.FromJSON LaunchConfig where
 
 instance Prelude.Hashable LaunchConfig where
   hashWithSalt _salt LaunchConfig' {..} =
-    _salt `Prelude.hashWithSalt` command
+    _salt
+      `Prelude.hashWithSalt` command
       `Prelude.hashWithSalt` environmentVariables
       `Prelude.hashWithSalt` launchFile
       `Prelude.hashWithSalt` packageName

@@ -75,7 +75,8 @@ instance Data.FromJSON SimulationSoftwareSuite where
 
 instance Prelude.Hashable SimulationSoftwareSuite where
   hashWithSalt _salt SimulationSoftwareSuite' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData SimulationSoftwareSuite where

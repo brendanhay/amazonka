@@ -145,7 +145,8 @@ instance Core.AWSRequest CreateWorldTemplate where
 
 instance Prelude.Hashable CreateWorldTemplate where
   hashWithSalt _salt CreateWorldTemplate' {..} =
-    _salt `Prelude.hashWithSalt` clientRequestToken
+    _salt
+      `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` templateBody

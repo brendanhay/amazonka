@@ -86,7 +86,8 @@ instance Data.FromJSON FinishedWorldsSummary where
 
 instance Prelude.Hashable FinishedWorldsSummary where
   hashWithSalt _salt FinishedWorldsSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureSummary
+    _salt
+      `Prelude.hashWithSalt` failureSummary
       `Prelude.hashWithSalt` finishedCount
       `Prelude.hashWithSalt` succeededWorlds
 

@@ -159,7 +159,8 @@ instance Data.FromJSON DataSourceConfig where
 
 instance Prelude.Hashable DataSourceConfig where
   hashWithSalt _salt DataSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` destination
+    _salt
+      `Prelude.hashWithSalt` destination
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` s3Bucket

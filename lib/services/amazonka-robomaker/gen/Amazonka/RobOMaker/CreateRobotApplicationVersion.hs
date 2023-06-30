@@ -155,7 +155,8 @@ instance
     CreateRobotApplicationVersion
   where
   hashWithSalt _salt CreateRobotApplicationVersion' {..} =
-    _salt `Prelude.hashWithSalt` currentRevisionId
+    _salt
+      `Prelude.hashWithSalt` currentRevisionId
       `Prelude.hashWithSalt` imageDigest
       `Prelude.hashWithSalt` s3Etags
       `Prelude.hashWithSalt` application

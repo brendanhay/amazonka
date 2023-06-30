@@ -75,7 +75,8 @@ instance Data.FromJSON RenderingEngine where
 
 instance Prelude.Hashable RenderingEngine where
   hashWithSalt _salt RenderingEngine' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData RenderingEngine where

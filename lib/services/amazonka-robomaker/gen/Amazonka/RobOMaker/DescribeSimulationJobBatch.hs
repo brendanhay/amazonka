@@ -99,7 +99,8 @@ instance Core.AWSRequest DescribeSimulationJobBatch where
             Prelude.<*> (x Data..?> "batchPolicy")
             Prelude.<*> (x Data..?> "clientRequestToken")
             Prelude.<*> (x Data..?> "createdAt")
-            Prelude.<*> ( x Data..?> "createdRequests"
+            Prelude.<*> ( x
+                            Data..?> "createdRequests"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "failedRequests" Core..!@ Prelude.mempty)

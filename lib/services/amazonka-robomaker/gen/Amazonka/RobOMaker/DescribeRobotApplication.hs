@@ -121,7 +121,8 @@ instance Core.AWSRequest DescribeRobotApplication where
 
 instance Prelude.Hashable DescribeRobotApplication where
   hashWithSalt _salt DescribeRobotApplication' {..} =
-    _salt `Prelude.hashWithSalt` applicationVersion
+    _salt
+      `Prelude.hashWithSalt` applicationVersion
       `Prelude.hashWithSalt` application
 
 instance Prelude.NFData DescribeRobotApplication where

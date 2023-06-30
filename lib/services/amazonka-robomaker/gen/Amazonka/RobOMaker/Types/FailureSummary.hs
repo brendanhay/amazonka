@@ -75,7 +75,8 @@ instance Data.FromJSON FailureSummary where
 
 instance Prelude.Hashable FailureSummary where
   hashWithSalt _salt FailureSummary' {..} =
-    _salt `Prelude.hashWithSalt` failures
+    _salt
+      `Prelude.hashWithSalt` failures
       `Prelude.hashWithSalt` totalFailureCount
 
 instance Prelude.NFData FailureSummary where

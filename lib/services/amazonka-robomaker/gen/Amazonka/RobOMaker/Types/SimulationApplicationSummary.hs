@@ -123,7 +123,8 @@ instance
     SimulationApplicationSummary
   where
   hashWithSalt _salt SimulationApplicationSummary' {..} =
-    _salt `Prelude.hashWithSalt` arn
+    _salt
+      `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` robotSoftwareSuite

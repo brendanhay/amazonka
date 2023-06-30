@@ -116,7 +116,8 @@ instance Data.FromJSON OfflineStoreConfig where
 
 instance Prelude.Hashable OfflineStoreConfig where
   hashWithSalt _salt OfflineStoreConfig' {..} =
-    _salt `Prelude.hashWithSalt` dataCatalogConfig
+    _salt
+      `Prelude.hashWithSalt` dataCatalogConfig
       `Prelude.hashWithSalt` disableGlueTableCreation
       `Prelude.hashWithSalt` tableFormat
       `Prelude.hashWithSalt` s3StorageConfig

@@ -119,7 +119,8 @@ instance Core.AWSRequest DescribeProcessingJob where
             Prelude.<*> (x Data..?> "MonitoringScheduleArn")
             Prelude.<*> (x Data..?> "NetworkConfig")
             Prelude.<*> (x Data..?> "ProcessingEndTime")
-            Prelude.<*> ( x Data..?> "ProcessingInputs"
+            Prelude.<*> ( x
+                            Data..?> "ProcessingInputs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "ProcessingOutputConfig")

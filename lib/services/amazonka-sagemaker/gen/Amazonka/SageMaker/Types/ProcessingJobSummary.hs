@@ -157,7 +157,8 @@ instance Data.FromJSON ProcessingJobSummary where
 
 instance Prelude.Hashable ProcessingJobSummary where
   hashWithSalt _salt ProcessingJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` exitMessage
+    _salt
+      `Prelude.hashWithSalt` exitMessage
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` processingEndTime

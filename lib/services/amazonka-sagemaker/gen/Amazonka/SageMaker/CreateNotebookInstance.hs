@@ -452,7 +452,8 @@ instance Core.AWSRequest CreateNotebookInstance where
 
 instance Prelude.Hashable CreateNotebookInstance where
   hashWithSalt _salt CreateNotebookInstance' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorTypes
+    _salt
+      `Prelude.hashWithSalt` acceleratorTypes
       `Prelude.hashWithSalt` additionalCodeRepositories
       `Prelude.hashWithSalt` defaultCodeRepository
       `Prelude.hashWithSalt` directInternetAccess

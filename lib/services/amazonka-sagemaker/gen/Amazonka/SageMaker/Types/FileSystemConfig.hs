@@ -91,7 +91,8 @@ instance Data.FromJSON FileSystemConfig where
 
 instance Prelude.Hashable FileSystemConfig where
   hashWithSalt _salt FileSystemConfig' {..} =
-    _salt `Prelude.hashWithSalt` defaultGid
+    _salt
+      `Prelude.hashWithSalt` defaultGid
       `Prelude.hashWithSalt` defaultUid
       `Prelude.hashWithSalt` mountPath
 

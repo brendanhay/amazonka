@@ -91,7 +91,8 @@ instance Data.FromJSON NeoVpcConfig where
 
 instance Prelude.Hashable NeoVpcConfig where
   hashWithSalt _salt NeoVpcConfig' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets
 
 instance Prelude.NFData NeoVpcConfig where

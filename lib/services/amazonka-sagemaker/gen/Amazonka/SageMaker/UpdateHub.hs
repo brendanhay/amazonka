@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateHub where
 
 instance Prelude.Hashable UpdateHub where
   hashWithSalt _salt UpdateHub' {..} =
-    _salt `Prelude.hashWithSalt` hubDescription
+    _salt
+      `Prelude.hashWithSalt` hubDescription
       `Prelude.hashWithSalt` hubDisplayName
       `Prelude.hashWithSalt` hubSearchKeywords
       `Prelude.hashWithSalt` hubName

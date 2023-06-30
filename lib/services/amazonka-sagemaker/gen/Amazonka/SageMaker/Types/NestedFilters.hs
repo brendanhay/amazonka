@@ -95,7 +95,8 @@ nestedFilters_filters = Lens.lens (\NestedFilters' {filters} -> filters) (\s@Nes
 
 instance Prelude.Hashable NestedFilters where
   hashWithSalt _salt NestedFilters' {..} =
-    _salt `Prelude.hashWithSalt` nestedPropertyName
+    _salt
+      `Prelude.hashWithSalt` nestedPropertyName
       `Prelude.hashWithSalt` filters
 
 instance Prelude.NFData NestedFilters where

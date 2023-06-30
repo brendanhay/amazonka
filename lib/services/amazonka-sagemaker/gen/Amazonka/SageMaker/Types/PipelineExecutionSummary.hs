@@ -119,7 +119,8 @@ instance Data.FromJSON PipelineExecutionSummary where
 
 instance Prelude.Hashable PipelineExecutionSummary where
   hashWithSalt _salt PipelineExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` pipelineExecutionArn
+    _salt
+      `Prelude.hashWithSalt` pipelineExecutionArn
       `Prelude.hashWithSalt` pipelineExecutionDescription
       `Prelude.hashWithSalt` pipelineExecutionDisplayName
       `Prelude.hashWithSalt` pipelineExecutionFailureReason

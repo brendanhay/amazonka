@@ -127,7 +127,8 @@ instance
       ( \x ->
           HyperParameterAlgorithmSpecification'
             Prelude.<$> (x Data..:? "AlgorithmName")
-            Prelude.<*> ( x Data..:? "MetricDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "MetricDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TrainingImage")
@@ -141,7 +142,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterAlgorithmSpecification' {..} =
-      _salt `Prelude.hashWithSalt` algorithmName
+      _salt
+        `Prelude.hashWithSalt` algorithmName
         `Prelude.hashWithSalt` metricDefinitions
         `Prelude.hashWithSalt` trainingImage
         `Prelude.hashWithSalt` trainingInputMode

@@ -169,21 +169,21 @@ instance Core.AWSPager ListDeviceFleets where
     | Core.stop
         ( rs
             Lens.^? listDeviceFleetsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listDeviceFleetsResponse_deviceFleetSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listDeviceFleets_nextToken
           Lens..~ rs
           Lens.^? listDeviceFleetsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListDeviceFleets where
   type
@@ -197,14 +197,16 @@ instance Core.AWSRequest ListDeviceFleets where
           ListDeviceFleetsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "DeviceFleetSummaries"
+            Prelude.<*> ( x
+                            Data..?> "DeviceFleetSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListDeviceFleets where
   hashWithSalt _salt ListDeviceFleets' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

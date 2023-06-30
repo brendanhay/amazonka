@@ -87,7 +87,8 @@ instance Data.FromJSON MonitoringOutputConfig where
 
 instance Prelude.Hashable MonitoringOutputConfig where
   hashWithSalt _salt MonitoringOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` monitoringOutputs
 
 instance Prelude.NFData MonitoringOutputConfig where

@@ -178,22 +178,22 @@ instance Core.AWSPager ListMonitoringAlertHistory where
     | Core.stop
         ( rs
             Lens.^? listMonitoringAlertHistoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listMonitoringAlertHistoryResponse_monitoringAlertHistory
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listMonitoringAlertHistory_nextToken
           Lens..~ rs
           Lens.^? listMonitoringAlertHistoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListMonitoringAlertHistory where
   type
@@ -205,7 +205,8 @@ instance Core.AWSRequest ListMonitoringAlertHistory where
     Response.receiveJSON
       ( \s h x ->
           ListMonitoringAlertHistoryResponse'
-            Prelude.<$> ( x Data..?> "MonitoringAlertHistory"
+            Prelude.<$> ( x
+                            Data..?> "MonitoringAlertHistory"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -214,7 +215,8 @@ instance Core.AWSRequest ListMonitoringAlertHistory where
 
 instance Prelude.Hashable ListMonitoringAlertHistory where
   hashWithSalt _salt ListMonitoringAlertHistory' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` monitoringAlertName

@@ -128,15 +128,18 @@ instance Data.FromJSON InferenceSpecification where
       "InferenceSpecification"
       ( \x ->
           InferenceSpecification'
-            Prelude.<$> ( x Data..:? "SupportedRealtimeInferenceInstanceTypes"
+            Prelude.<$> ( x
+                            Data..:? "SupportedRealtimeInferenceInstanceTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "SupportedTransformInstanceTypes")
             Prelude.<*> (x Data..: "Containers")
-            Prelude.<*> ( x Data..:? "SupportedContentTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedContentTypes"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "SupportedResponseMIMETypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedResponseMIMETypes"
                             Data..!= Prelude.mempty
                         )
       )

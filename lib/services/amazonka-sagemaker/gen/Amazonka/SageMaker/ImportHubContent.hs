@@ -211,7 +211,8 @@ instance Core.AWSRequest ImportHubContent where
 
 instance Prelude.Hashable ImportHubContent where
   hashWithSalt _salt ImportHubContent' {..} =
-    _salt `Prelude.hashWithSalt` hubContentDescription
+    _salt
+      `Prelude.hashWithSalt` hubContentDescription
       `Prelude.hashWithSalt` hubContentDisplayName
       `Prelude.hashWithSalt` hubContentMarkdown
       `Prelude.hashWithSalt` hubContentSearchKeywords

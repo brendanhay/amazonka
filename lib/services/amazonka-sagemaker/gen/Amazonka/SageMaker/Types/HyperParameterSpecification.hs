@@ -140,7 +140,8 @@ instance Data.FromJSON HyperParameterSpecification where
 
 instance Prelude.Hashable HyperParameterSpecification where
   hashWithSalt _salt HyperParameterSpecification' {..} =
-    _salt `Prelude.hashWithSalt` defaultValue
+    _salt
+      `Prelude.hashWithSalt` defaultValue
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` isRequired
       `Prelude.hashWithSalt` isTunable

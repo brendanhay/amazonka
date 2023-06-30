@@ -93,7 +93,8 @@ instance Data.FromJSON AlgorithmStatusItem where
 
 instance Prelude.Hashable AlgorithmStatusItem where
   hashWithSalt _salt AlgorithmStatusItem' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 

@@ -646,7 +646,8 @@ instance Data.FromJSON InputConfig where
 
 instance Prelude.Hashable InputConfig where
   hashWithSalt _salt InputConfig' {..} =
-    _salt `Prelude.hashWithSalt` frameworkVersion
+    _salt
+      `Prelude.hashWithSalt` frameworkVersion
       `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` dataInputConfig
       `Prelude.hashWithSalt` framework

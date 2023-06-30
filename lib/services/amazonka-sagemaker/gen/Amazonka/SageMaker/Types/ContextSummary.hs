@@ -116,7 +116,8 @@ instance Data.FromJSON ContextSummary where
 
 instance Prelude.Hashable ContextSummary where
   hashWithSalt _salt ContextSummary' {..} =
-    _salt `Prelude.hashWithSalt` contextArn
+    _salt
+      `Prelude.hashWithSalt` contextArn
       `Prelude.hashWithSalt` contextName
       `Prelude.hashWithSalt` contextType
       `Prelude.hashWithSalt` creationTime

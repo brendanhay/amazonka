@@ -112,7 +112,8 @@ instance Core.AWSRequest UpdateSpace where
 
 instance Prelude.Hashable UpdateSpace where
   hashWithSalt _salt UpdateSpace' {..} =
-    _salt `Prelude.hashWithSalt` spaceSettings
+    _salt
+      `Prelude.hashWithSalt` spaceSettings
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` spaceName
 

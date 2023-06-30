@@ -119,7 +119,8 @@ instance Core.AWSRequest UpdateExperiment where
 
 instance Prelude.Hashable UpdateExperiment where
   hashWithSalt _salt UpdateExperiment' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` experimentName
 

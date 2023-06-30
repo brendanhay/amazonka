@@ -81,7 +81,8 @@ instance Data.FromJSON DeviceStats where
 
 instance Prelude.Hashable DeviceStats where
   hashWithSalt _salt DeviceStats' {..} =
-    _salt `Prelude.hashWithSalt` connectedDeviceCount
+    _salt
+      `Prelude.hashWithSalt` connectedDeviceCount
       `Prelude.hashWithSalt` registeredDeviceCount
 
 instance Prelude.NFData DeviceStats where

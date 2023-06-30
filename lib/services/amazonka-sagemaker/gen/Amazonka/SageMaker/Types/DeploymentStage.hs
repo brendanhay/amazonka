@@ -82,7 +82,8 @@ deploymentStage_deviceSelectionConfig = Lens.lens (\DeploymentStage' {deviceSele
 
 instance Prelude.Hashable DeploymentStage where
   hashWithSalt _salt DeploymentStage' {..} =
-    _salt `Prelude.hashWithSalt` deploymentConfig
+    _salt
+      `Prelude.hashWithSalt` deploymentConfig
       `Prelude.hashWithSalt` stageName
       `Prelude.hashWithSalt` deviceSelectionConfig
 

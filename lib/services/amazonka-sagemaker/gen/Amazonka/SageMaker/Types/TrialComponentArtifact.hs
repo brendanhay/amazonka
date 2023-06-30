@@ -95,7 +95,8 @@ instance Data.FromJSON TrialComponentArtifact where
 
 instance Prelude.Hashable TrialComponentArtifact where
   hashWithSalt _salt TrialComponentArtifact' {..} =
-    _salt `Prelude.hashWithSalt` mediaType
+    _salt
+      `Prelude.hashWithSalt` mediaType
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData TrialComponentArtifact where

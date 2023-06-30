@@ -91,7 +91,8 @@ instance Data.FromJSON DataCatalogConfig where
 
 instance Prelude.Hashable DataCatalogConfig where
   hashWithSalt _salt DataCatalogConfig' {..} =
-    _salt `Prelude.hashWithSalt` tableName
+    _salt
+      `Prelude.hashWithSalt` tableName
       `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` database
 

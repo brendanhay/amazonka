@@ -174,7 +174,8 @@ instance Data.FromJSON HyperbandStrategyConfig where
 
 instance Prelude.Hashable HyperbandStrategyConfig where
   hashWithSalt _salt HyperbandStrategyConfig' {..} =
-    _salt `Prelude.hashWithSalt` maxResource
+    _salt
+      `Prelude.hashWithSalt` maxResource
       `Prelude.hashWithSalt` minResource
 
 instance Prelude.NFData HyperbandStrategyConfig where

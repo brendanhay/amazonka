@@ -136,7 +136,8 @@ instance Core.AWSRequest CreateModelCardExportJob where
 
 instance Prelude.Hashable CreateModelCardExportJob where
   hashWithSalt _salt CreateModelCardExportJob' {..} =
-    _salt `Prelude.hashWithSalt` modelCardVersion
+    _salt
+      `Prelude.hashWithSalt` modelCardVersion
       `Prelude.hashWithSalt` modelCardName
       `Prelude.hashWithSalt` modelCardExportJobName
       `Prelude.hashWithSalt` outputConfig

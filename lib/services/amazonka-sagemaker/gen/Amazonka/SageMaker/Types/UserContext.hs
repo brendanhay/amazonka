@@ -85,7 +85,8 @@ instance Data.FromJSON UserContext where
 
 instance Prelude.Hashable UserContext where
   hashWithSalt _salt UserContext' {..} =
-    _salt `Prelude.hashWithSalt` domainId
+    _salt
+      `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` userProfileArn
       `Prelude.hashWithSalt` userProfileName
 

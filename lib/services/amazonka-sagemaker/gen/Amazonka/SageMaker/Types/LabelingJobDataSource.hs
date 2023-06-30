@@ -94,7 +94,8 @@ instance Data.FromJSON LabelingJobDataSource where
 
 instance Prelude.Hashable LabelingJobDataSource where
   hashWithSalt _salt LabelingJobDataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3DataSource
+    _salt
+      `Prelude.hashWithSalt` s3DataSource
       `Prelude.hashWithSalt` snsDataSource
 
 instance Prelude.NFData LabelingJobDataSource where

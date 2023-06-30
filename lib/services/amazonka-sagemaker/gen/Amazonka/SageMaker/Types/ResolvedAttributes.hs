@@ -86,7 +86,8 @@ instance Data.FromJSON ResolvedAttributes where
 
 instance Prelude.Hashable ResolvedAttributes where
   hashWithSalt _salt ResolvedAttributes' {..} =
-    _salt `Prelude.hashWithSalt` autoMLJobObjective
+    _salt
+      `Prelude.hashWithSalt` autoMLJobObjective
       `Prelude.hashWithSalt` completionCriteria
       `Prelude.hashWithSalt` problemType
 

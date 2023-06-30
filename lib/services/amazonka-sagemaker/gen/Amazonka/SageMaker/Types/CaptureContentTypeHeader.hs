@@ -83,7 +83,8 @@ instance Data.FromJSON CaptureContentTypeHeader where
 
 instance Prelude.Hashable CaptureContentTypeHeader where
   hashWithSalt _salt CaptureContentTypeHeader' {..} =
-    _salt `Prelude.hashWithSalt` csvContentTypes
+    _salt
+      `Prelude.hashWithSalt` csvContentTypes
       `Prelude.hashWithSalt` jsonContentTypes
 
 instance Prelude.NFData CaptureContentTypeHeader where

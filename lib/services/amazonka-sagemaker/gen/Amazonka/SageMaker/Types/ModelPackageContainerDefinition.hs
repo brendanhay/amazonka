@@ -220,7 +220,8 @@ instance
   hashWithSalt
     _salt
     ModelPackageContainerDefinition' {..} =
-      _salt `Prelude.hashWithSalt` containerHostname
+      _salt
+        `Prelude.hashWithSalt` containerHostname
         `Prelude.hashWithSalt` environment
         `Prelude.hashWithSalt` framework
         `Prelude.hashWithSalt` frameworkVersion

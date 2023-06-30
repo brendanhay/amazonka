@@ -70,12 +70,14 @@ instance Data.FromJSON ProvisioningParameter where
       "ProvisioningParameter"
       ( \x ->
           ProvisioningParameter'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable ProvisioningParameter where
   hashWithSalt _salt ProvisioningParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ProvisioningParameter where

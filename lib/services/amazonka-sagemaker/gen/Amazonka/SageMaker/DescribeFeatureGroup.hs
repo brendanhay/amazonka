@@ -139,7 +139,8 @@ instance Core.AWSRequest DescribeFeatureGroup where
 
 instance Prelude.Hashable DescribeFeatureGroup where
   hashWithSalt _salt DescribeFeatureGroup' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` featureGroupName
 
 instance Prelude.NFData DescribeFeatureGroup where

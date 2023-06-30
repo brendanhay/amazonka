@@ -233,7 +233,8 @@ instance Data.FromJSON ProductionVariant where
 
 instance Prelude.Hashable ProductionVariant where
   hashWithSalt _salt ProductionVariant' {..} =
-    _salt `Prelude.hashWithSalt` acceleratorType
+    _salt
+      `Prelude.hashWithSalt` acceleratorType
       `Prelude.hashWithSalt` containerStartupHealthCheckTimeoutInSeconds
       `Prelude.hashWithSalt` coreDumpConfig
       `Prelude.hashWithSalt` initialInstanceCount

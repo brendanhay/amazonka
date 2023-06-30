@@ -88,10 +88,12 @@ instance Core.AWSRequest BatchDescribeModelPackage where
     Response.receiveJSON
       ( \s h x ->
           BatchDescribeModelPackageResponse'
-            Prelude.<$> ( x Data..?> "BatchDescribeModelPackageErrorMap"
+            Prelude.<$> ( x
+                            Data..?> "BatchDescribeModelPackageErrorMap"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> ( x Data..?> "ModelPackageSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ModelPackageSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))

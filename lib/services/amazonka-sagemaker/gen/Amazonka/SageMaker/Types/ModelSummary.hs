@@ -90,7 +90,8 @@ instance Data.FromJSON ModelSummary where
 
 instance Prelude.Hashable ModelSummary where
   hashWithSalt _salt ModelSummary' {..} =
-    _salt `Prelude.hashWithSalt` modelName
+    _salt
+      `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` modelArn
       `Prelude.hashWithSalt` creationTime
 

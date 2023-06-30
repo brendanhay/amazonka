@@ -141,7 +141,8 @@ instance Core.AWSRequest CreateImage where
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` imageName

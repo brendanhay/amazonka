@@ -195,21 +195,21 @@ instance Core.AWSPager ListHyperParameterTuningJobs where
     | Core.stop
         ( rs
             Lens.^? listHyperParameterTuningJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listHyperParameterTuningJobs_nextToken
           Lens..~ rs
           Lens.^? listHyperParameterTuningJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListHyperParameterTuningJobs where
   type
@@ -223,7 +223,8 @@ instance Core.AWSRequest ListHyperParameterTuningJobs where
           ListHyperParameterTuningJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "HyperParameterTuningJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "HyperParameterTuningJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
@@ -233,7 +234,8 @@ instance
     ListHyperParameterTuningJobs
   where
   hashWithSalt _salt ListHyperParameterTuningJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

@@ -116,7 +116,8 @@ instance Data.FromJSON ProfilerConfig where
           ProfilerConfig'
             Prelude.<$> (x Data..:? "DisableProfiler")
             Prelude.<*> (x Data..:? "ProfilingIntervalInMilliseconds")
-            Prelude.<*> ( x Data..:? "ProfilingParameters"
+            Prelude.<*> ( x
+                            Data..:? "ProfilingParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "S3OutputPath")
@@ -124,7 +125,8 @@ instance Data.FromJSON ProfilerConfig where
 
 instance Prelude.Hashable ProfilerConfig where
   hashWithSalt _salt ProfilerConfig' {..} =
-    _salt `Prelude.hashWithSalt` disableProfiler
+    _salt
+      `Prelude.hashWithSalt` disableProfiler
       `Prelude.hashWithSalt` profilingIntervalInMilliseconds
       `Prelude.hashWithSalt` profilingParameters
       `Prelude.hashWithSalt` s3OutputPath

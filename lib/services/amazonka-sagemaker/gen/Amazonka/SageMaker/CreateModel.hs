@@ -249,7 +249,8 @@ instance Core.AWSRequest CreateModel where
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =
-    _salt `Prelude.hashWithSalt` containers
+    _salt
+      `Prelude.hashWithSalt` containers
       `Prelude.hashWithSalt` enableNetworkIsolation
       `Prelude.hashWithSalt` inferenceExecutionConfig
       `Prelude.hashWithSalt` primaryContainer

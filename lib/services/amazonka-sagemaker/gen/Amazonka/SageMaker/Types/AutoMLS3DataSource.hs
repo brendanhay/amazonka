@@ -121,7 +121,8 @@ instance Data.FromJSON AutoMLS3DataSource where
 
 instance Prelude.Hashable AutoMLS3DataSource where
   hashWithSalt _salt AutoMLS3DataSource' {..} =
-    _salt `Prelude.hashWithSalt` s3DataType
+    _salt
+      `Prelude.hashWithSalt` s3DataType
       `Prelude.hashWithSalt` s3Uri
 
 instance Prelude.NFData AutoMLS3DataSource where

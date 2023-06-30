@@ -98,7 +98,8 @@ instance Data.FromJSON ModelMetrics where
 
 instance Prelude.Hashable ModelMetrics where
   hashWithSalt _salt ModelMetrics' {..} =
-    _salt `Prelude.hashWithSalt` bias
+    _salt
+      `Prelude.hashWithSalt` bias
       `Prelude.hashWithSalt` explainability
       `Prelude.hashWithSalt` modelDataQuality
       `Prelude.hashWithSalt` modelQuality

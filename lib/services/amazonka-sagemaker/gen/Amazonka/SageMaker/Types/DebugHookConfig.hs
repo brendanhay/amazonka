@@ -108,7 +108,8 @@ instance Data.FromJSON DebugHookConfig where
       "DebugHookConfig"
       ( \x ->
           DebugHookConfig'
-            Prelude.<$> ( x Data..:? "CollectionConfigurations"
+            Prelude.<$> ( x
+                            Data..:? "CollectionConfigurations"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "HookParameters" Data..!= Prelude.mempty)

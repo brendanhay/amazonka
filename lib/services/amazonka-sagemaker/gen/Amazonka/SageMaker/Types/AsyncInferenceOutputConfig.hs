@@ -98,7 +98,8 @@ instance Data.FromJSON AsyncInferenceOutputConfig where
 
 instance Prelude.Hashable AsyncInferenceOutputConfig where
   hashWithSalt _salt AsyncInferenceOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` notificationConfig
       `Prelude.hashWithSalt` s3OutputPath
 

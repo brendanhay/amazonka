@@ -173,7 +173,8 @@ instance Core.AWSRequest UpdateWorkforce where
 
 instance Prelude.Hashable UpdateWorkforce where
   hashWithSalt _salt UpdateWorkforce' {..} =
-    _salt `Prelude.hashWithSalt` oidcConfig
+    _salt
+      `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` sourceIpConfig
       `Prelude.hashWithSalt` workforceVpcConfig
       `Prelude.hashWithSalt` workforceName

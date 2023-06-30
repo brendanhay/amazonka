@@ -157,7 +157,8 @@ instance Data.FromJSON IntegerParameterRange where
 
 instance Prelude.Hashable IntegerParameterRange where
   hashWithSalt _salt IntegerParameterRange' {..} =
-    _salt `Prelude.hashWithSalt` scalingType
+    _salt
+      `Prelude.hashWithSalt` scalingType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` minValue
       `Prelude.hashWithSalt` maxValue

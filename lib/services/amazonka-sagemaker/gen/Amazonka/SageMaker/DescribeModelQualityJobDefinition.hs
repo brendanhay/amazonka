@@ -105,17 +105,17 @@ instance
       ( \s h x ->
           DescribeModelQualityJobDefinitionResponse'
             Prelude.<$> (x Data..?> "ModelQualityBaselineConfig")
-              Prelude.<*> (x Data..?> "NetworkConfig")
-              Prelude.<*> (x Data..?> "StoppingCondition")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "JobDefinitionArn")
-              Prelude.<*> (x Data..:> "JobDefinitionName")
-              Prelude.<*> (x Data..:> "CreationTime")
-              Prelude.<*> (x Data..:> "ModelQualityAppSpecification")
-              Prelude.<*> (x Data..:> "ModelQualityJobInput")
-              Prelude.<*> (x Data..:> "ModelQualityJobOutputConfig")
-              Prelude.<*> (x Data..:> "JobResources")
-              Prelude.<*> (x Data..:> "RoleArn")
+            Prelude.<*> (x Data..?> "NetworkConfig")
+            Prelude.<*> (x Data..?> "StoppingCondition")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "JobDefinitionArn")
+            Prelude.<*> (x Data..:> "JobDefinitionName")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "ModelQualityAppSpecification")
+            Prelude.<*> (x Data..:> "ModelQualityJobInput")
+            Prelude.<*> (x Data..:> "ModelQualityJobOutputConfig")
+            Prelude.<*> (x Data..:> "JobResources")
+            Prelude.<*> (x Data..:> "RoleArn")
       )
 
 instance

@@ -187,7 +187,8 @@ instance Core.AWSRequest CreateModelCard where
 
 instance Prelude.Hashable CreateModelCard where
   hashWithSalt _salt CreateModelCard' {..} =
-    _salt `Prelude.hashWithSalt` securityConfig
+    _salt
+      `Prelude.hashWithSalt` securityConfig
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` modelCardName
       `Prelude.hashWithSalt` content

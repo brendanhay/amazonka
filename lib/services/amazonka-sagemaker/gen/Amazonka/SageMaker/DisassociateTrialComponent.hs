@@ -118,7 +118,8 @@ instance Core.AWSRequest DisassociateTrialComponent where
 
 instance Prelude.Hashable DisassociateTrialComponent where
   hashWithSalt _salt DisassociateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` trialComponentName
+    _salt
+      `Prelude.hashWithSalt` trialComponentName
       `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData DisassociateTrialComponent where

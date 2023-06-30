@@ -147,7 +147,8 @@ instance Data.FromJSON DebugRuleConfiguration where
 
 instance Prelude.Hashable DebugRuleConfiguration where
   hashWithSalt _salt DebugRuleConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` ruleParameters
       `Prelude.hashWithSalt` s3OutputPath

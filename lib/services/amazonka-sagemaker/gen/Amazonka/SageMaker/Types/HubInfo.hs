@@ -141,7 +141,8 @@ instance Data.FromJSON HubInfo where
           HubInfo'
             Prelude.<$> (x Data..:? "HubDescription")
             Prelude.<*> (x Data..:? "HubDisplayName")
-            Prelude.<*> ( x Data..:? "HubSearchKeywords"
+            Prelude.<*> ( x
+                            Data..:? "HubSearchKeywords"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..: "HubName")
@@ -153,7 +154,8 @@ instance Data.FromJSON HubInfo where
 
 instance Prelude.Hashable HubInfo where
   hashWithSalt _salt HubInfo' {..} =
-    _salt `Prelude.hashWithSalt` hubDescription
+    _salt
+      `Prelude.hashWithSalt` hubDescription
       `Prelude.hashWithSalt` hubDisplayName
       `Prelude.hashWithSalt` hubSearchKeywords
       `Prelude.hashWithSalt` hubName

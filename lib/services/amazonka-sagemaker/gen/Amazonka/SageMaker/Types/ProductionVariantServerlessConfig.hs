@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     ProductionVariantServerlessConfig' {..} =
-      _salt `Prelude.hashWithSalt` memorySizeInMB
+      _salt
+        `Prelude.hashWithSalt` memorySizeInMB
         `Prelude.hashWithSalt` maxConcurrency
 
 instance

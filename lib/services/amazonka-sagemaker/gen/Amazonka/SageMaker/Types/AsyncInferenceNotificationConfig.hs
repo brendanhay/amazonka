@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     AsyncInferenceNotificationConfig' {..} =
-      _salt `Prelude.hashWithSalt` errorTopic
+      _salt
+        `Prelude.hashWithSalt` errorTopic
         `Prelude.hashWithSalt` successTopic
 
 instance

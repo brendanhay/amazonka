@@ -81,7 +81,8 @@ instance Data.FromJSON EdgeDeploymentModelConfig where
 
 instance Prelude.Hashable EdgeDeploymentModelConfig where
   hashWithSalt _salt EdgeDeploymentModelConfig' {..} =
-    _salt `Prelude.hashWithSalt` modelHandle
+    _salt
+      `Prelude.hashWithSalt` modelHandle
       `Prelude.hashWithSalt` edgePackagingJobName
 
 instance Prelude.NFData EdgeDeploymentModelConfig where

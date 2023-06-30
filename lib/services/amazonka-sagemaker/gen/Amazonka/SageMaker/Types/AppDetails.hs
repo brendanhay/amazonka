@@ -126,7 +126,8 @@ instance Data.FromJSON AppDetails where
 
 instance Prelude.Hashable AppDetails where
   hashWithSalt _salt AppDetails' {..} =
-    _salt `Prelude.hashWithSalt` appName
+    _salt
+      `Prelude.hashWithSalt` appName
       `Prelude.hashWithSalt` appType
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` domainId

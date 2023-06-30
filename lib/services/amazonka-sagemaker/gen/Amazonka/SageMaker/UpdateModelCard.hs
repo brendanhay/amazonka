@@ -163,7 +163,8 @@ instance Core.AWSRequest UpdateModelCard where
 
 instance Prelude.Hashable UpdateModelCard where
   hashWithSalt _salt UpdateModelCard' {..} =
-    _salt `Prelude.hashWithSalt` content
+    _salt
+      `Prelude.hashWithSalt` content
       `Prelude.hashWithSalt` modelCardStatus
       `Prelude.hashWithSalt` modelCardName
 

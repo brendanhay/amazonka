@@ -145,7 +145,8 @@ instance Data.FromJSON ImageVersion where
 
 instance Prelude.Hashable ImageVersion where
   hashWithSalt _salt ImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` imageArn
       `Prelude.hashWithSalt` imageVersionArn

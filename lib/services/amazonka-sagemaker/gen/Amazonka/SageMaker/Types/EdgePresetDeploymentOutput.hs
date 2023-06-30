@@ -102,7 +102,8 @@ instance Data.FromJSON EdgePresetDeploymentOutput where
 
 instance Prelude.Hashable EdgePresetDeploymentOutput where
   hashWithSalt _salt EdgePresetDeploymentOutput' {..} =
-    _salt `Prelude.hashWithSalt` artifact
+    _salt
+      `Prelude.hashWithSalt` artifact
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` type'

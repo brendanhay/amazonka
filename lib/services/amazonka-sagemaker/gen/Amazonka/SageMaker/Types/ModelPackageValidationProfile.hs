@@ -93,7 +93,8 @@ instance
     ModelPackageValidationProfile
   where
   hashWithSalt _salt ModelPackageValidationProfile' {..} =
-    _salt `Prelude.hashWithSalt` profileName
+    _salt
+      `Prelude.hashWithSalt` profileName
       `Prelude.hashWithSalt` transformJobDefinition
 
 instance Prelude.NFData ModelPackageValidationProfile where

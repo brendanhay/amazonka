@@ -231,7 +231,8 @@ instance Core.AWSRequest CreateTrialComponent where
 
 instance Prelude.Hashable CreateTrialComponent where
   hashWithSalt _salt CreateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` metadataProperties

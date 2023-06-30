@@ -651,7 +651,8 @@ instance Core.AWSRequest CreateTrainingJob where
 
 instance Prelude.Hashable CreateTrainingJob where
   hashWithSalt _salt CreateTrainingJob' {..} =
-    _salt `Prelude.hashWithSalt` checkpointConfig
+    _salt
+      `Prelude.hashWithSalt` checkpointConfig
       `Prelude.hashWithSalt` debugHookConfig
       `Prelude.hashWithSalt` debugRuleConfigurations
       `Prelude.hashWithSalt` enableInterContainerTrafficEncryption

@@ -78,7 +78,8 @@ instance Data.FromJSON InferenceExperimentSchedule where
 
 instance Prelude.Hashable InferenceExperimentSchedule where
   hashWithSalt _salt InferenceExperimentSchedule' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` startTime
 
 instance Prelude.NFData InferenceExperimentSchedule where

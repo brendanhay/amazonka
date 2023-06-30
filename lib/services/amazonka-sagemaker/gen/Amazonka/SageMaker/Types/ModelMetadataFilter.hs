@@ -70,7 +70,8 @@ modelMetadataFilter_value = Lens.lens (\ModelMetadataFilter' {value} -> value) (
 
 instance Prelude.Hashable ModelMetadataFilter where
   hashWithSalt _salt ModelMetadataFilter' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData ModelMetadataFilter where

@@ -162,7 +162,8 @@ instance Data.FromJSON ModelVariantConfigSummary where
 
 instance Prelude.Hashable ModelVariantConfigSummary where
   hashWithSalt _salt ModelVariantConfigSummary' {..} =
-    _salt `Prelude.hashWithSalt` modelName
+    _salt
+      `Prelude.hashWithSalt` modelName
       `Prelude.hashWithSalt` variantName
       `Prelude.hashWithSalt` infrastructureConfig
       `Prelude.hashWithSalt` status

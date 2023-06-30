@@ -126,7 +126,8 @@ instance
   hashWithSalt
     _salt
     InferenceRecommendationsJobStep' {..} =
-      _salt `Prelude.hashWithSalt` inferenceBenchmark
+      _salt
+        `Prelude.hashWithSalt` inferenceBenchmark
         `Prelude.hashWithSalt` stepType
         `Prelude.hashWithSalt` jobName
         `Prelude.hashWithSalt` status

@@ -86,7 +86,8 @@ instance Data.FromJSON ContextSource where
 
 instance Prelude.Hashable ContextSource where
   hashWithSalt _salt ContextSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceId
+    _salt
+      `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceUri
 

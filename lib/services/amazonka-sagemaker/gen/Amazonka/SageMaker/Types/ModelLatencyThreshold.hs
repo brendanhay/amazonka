@@ -75,7 +75,8 @@ instance Data.FromJSON ModelLatencyThreshold where
 
 instance Prelude.Hashable ModelLatencyThreshold where
   hashWithSalt _salt ModelLatencyThreshold' {..} =
-    _salt `Prelude.hashWithSalt` percentile
+    _salt
+      `Prelude.hashWithSalt` percentile
       `Prelude.hashWithSalt` valueInMilliseconds
 
 instance Prelude.NFData ModelLatencyThreshold where

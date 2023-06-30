@@ -164,7 +164,8 @@ instance Data.FromJSON PipelineExecutionStep where
 
 instance Prelude.Hashable PipelineExecutionStep where
   hashWithSalt _salt PipelineExecutionStep' {..} =
-    _salt `Prelude.hashWithSalt` attemptCount
+    _salt
+      `Prelude.hashWithSalt` attemptCount
       `Prelude.hashWithSalt` cacheHitResult
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` failureReason

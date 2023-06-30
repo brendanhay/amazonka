@@ -151,7 +151,8 @@ instance
     RecommendationJobOutputConfig
   where
   hashWithSalt _salt RecommendationJobOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` compiledOutputConfig
+    _salt
+      `Prelude.hashWithSalt` compiledOutputConfig
       `Prelude.hashWithSalt` kmsKeyId
 
 instance Prelude.NFData RecommendationJobOutputConfig where

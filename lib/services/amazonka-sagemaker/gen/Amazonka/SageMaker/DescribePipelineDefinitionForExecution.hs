@@ -94,8 +94,8 @@ instance
       ( \s h x ->
           DescribePipelineDefinitionForExecutionResponse'
             Prelude.<$> (x Data..?> "CreationTime")
-              Prelude.<*> (x Data..?> "PipelineDefinition")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..?> "PipelineDefinition")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

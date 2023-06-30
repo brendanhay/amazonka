@@ -76,7 +76,8 @@ instance Data.FromJSON AutoMLOutputDataConfig where
 
 instance Prelude.Hashable AutoMLOutputDataConfig where
   hashWithSalt _salt AutoMLOutputDataConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3OutputPath
 
 instance Prelude.NFData AutoMLOutputDataConfig where

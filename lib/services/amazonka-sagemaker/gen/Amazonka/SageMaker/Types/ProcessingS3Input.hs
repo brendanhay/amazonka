@@ -186,7 +186,8 @@ instance Data.FromJSON ProcessingS3Input where
 
 instance Prelude.Hashable ProcessingS3Input where
   hashWithSalt _salt ProcessingS3Input' {..} =
-    _salt `Prelude.hashWithSalt` localPath
+    _salt
+      `Prelude.hashWithSalt` localPath
       `Prelude.hashWithSalt` s3CompressionType
       `Prelude.hashWithSalt` s3DataDistributionType
       `Prelude.hashWithSalt` s3InputMode

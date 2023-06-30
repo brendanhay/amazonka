@@ -107,7 +107,8 @@ instance Data.FromJSON ClarifyTextConfig where
 
 instance Prelude.Hashable ClarifyTextConfig where
   hashWithSalt _salt ClarifyTextConfig' {..} =
-    _salt `Prelude.hashWithSalt` language
+    _salt
+      `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` granularity
 
 instance Prelude.NFData ClarifyTextConfig where

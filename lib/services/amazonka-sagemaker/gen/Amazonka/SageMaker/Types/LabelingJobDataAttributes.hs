@@ -71,7 +71,8 @@ instance Data.FromJSON LabelingJobDataAttributes where
       "LabelingJobDataAttributes"
       ( \x ->
           LabelingJobDataAttributes'
-            Prelude.<$> ( x Data..:? "ContentClassifiers"
+            Prelude.<$> ( x
+                            Data..:? "ContentClassifiers"
                             Data..!= Prelude.mempty
                         )
       )

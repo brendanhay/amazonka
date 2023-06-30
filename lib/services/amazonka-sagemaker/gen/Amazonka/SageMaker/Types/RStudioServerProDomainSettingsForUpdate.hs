@@ -95,7 +95,8 @@ instance
   hashWithSalt
     _salt
     RStudioServerProDomainSettingsForUpdate' {..} =
-      _salt `Prelude.hashWithSalt` defaultResourceSpec
+      _salt
+        `Prelude.hashWithSalt` defaultResourceSpec
         `Prelude.hashWithSalt` rStudioConnectUrl
         `Prelude.hashWithSalt` rStudioPackageManagerUrl
         `Prelude.hashWithSalt` domainExecutionRoleArn

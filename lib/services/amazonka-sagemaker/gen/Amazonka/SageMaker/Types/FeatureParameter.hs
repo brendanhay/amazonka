@@ -68,12 +68,14 @@ instance Data.FromJSON FeatureParameter where
       "FeatureParameter"
       ( \x ->
           FeatureParameter'
-            Prelude.<$> (x Data..:? "Key") Prelude.<*> (x Data..:? "Value")
+            Prelude.<$> (x Data..:? "Key")
+            Prelude.<*> (x Data..:? "Value")
       )
 
 instance Prelude.Hashable FeatureParameter where
   hashWithSalt _salt FeatureParameter' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` value
 
 instance Prelude.NFData FeatureParameter where

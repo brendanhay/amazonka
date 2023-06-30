@@ -141,21 +141,21 @@ instance Core.AWSPager ListFlowDefinitions where
     | Core.stop
         ( rs
             Lens.^? listFlowDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listFlowDefinitionsResponse_flowDefinitionSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listFlowDefinitions_nextToken
           Lens..~ rs
           Lens.^? listFlowDefinitionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListFlowDefinitions where
   type
@@ -169,14 +169,16 @@ instance Core.AWSRequest ListFlowDefinitions where
           ListFlowDefinitionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "FlowDefinitionSummaries"
+            Prelude.<*> ( x
+                            Data..?> "FlowDefinitionSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListFlowDefinitions where
   hashWithSalt _salt ListFlowDefinitions' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken

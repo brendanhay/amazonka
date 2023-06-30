@@ -183,7 +183,8 @@ instance Data.FromJSON ProcessingClusterConfig where
 
 instance Prelude.Hashable ProcessingClusterConfig where
   hashWithSalt _salt ProcessingClusterConfig' {..} =
-    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` volumeSizeInGB

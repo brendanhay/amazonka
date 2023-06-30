@@ -106,7 +106,8 @@ instance
   hashWithSalt
     _salt
     ModelExplainabilityAppSpecification' {..} =
-      _salt `Prelude.hashWithSalt` environment
+      _salt
+        `Prelude.hashWithSalt` environment
         `Prelude.hashWithSalt` imageUri
         `Prelude.hashWithSalt` configUri
 

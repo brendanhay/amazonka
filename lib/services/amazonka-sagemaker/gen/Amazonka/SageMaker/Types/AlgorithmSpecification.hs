@@ -288,7 +288,8 @@ instance Data.FromJSON AlgorithmSpecification where
             Prelude.<*> (x Data..:? "ContainerArguments")
             Prelude.<*> (x Data..:? "ContainerEntrypoint")
             Prelude.<*> (x Data..:? "EnableSageMakerMetricsTimeSeries")
-            Prelude.<*> ( x Data..:? "MetricDefinitions"
+            Prelude.<*> ( x
+                            Data..:? "MetricDefinitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "TrainingImage")
@@ -297,7 +298,8 @@ instance Data.FromJSON AlgorithmSpecification where
 
 instance Prelude.Hashable AlgorithmSpecification where
   hashWithSalt _salt AlgorithmSpecification' {..} =
-    _salt `Prelude.hashWithSalt` algorithmName
+    _salt
+      `Prelude.hashWithSalt` algorithmName
       `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` enableSageMakerMetricsTimeSeries

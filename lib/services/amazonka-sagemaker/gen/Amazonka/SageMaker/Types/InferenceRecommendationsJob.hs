@@ -186,7 +186,8 @@ instance Data.FromJSON InferenceRecommendationsJob where
 
 instance Prelude.Hashable InferenceRecommendationsJob where
   hashWithSalt _salt InferenceRecommendationsJob' {..} =
-    _salt `Prelude.hashWithSalt` completionTime
+    _salt
+      `Prelude.hashWithSalt` completionTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` jobDescription

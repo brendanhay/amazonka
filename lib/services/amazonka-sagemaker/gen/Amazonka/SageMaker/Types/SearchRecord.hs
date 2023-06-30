@@ -215,7 +215,8 @@ instance Data.FromJSON SearchRecord where
 
 instance Prelude.Hashable SearchRecord where
   hashWithSalt _salt SearchRecord' {..} =
-    _salt `Prelude.hashWithSalt` endpoint
+    _salt
+      `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` featureGroup
       `Prelude.hashWithSalt` featureMetadata

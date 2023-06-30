@@ -127,7 +127,8 @@ instance Core.AWSRequest DescribeModelCard where
 
 instance Prelude.Hashable DescribeModelCard where
   hashWithSalt _salt DescribeModelCard' {..} =
-    _salt `Prelude.hashWithSalt` modelCardVersion
+    _salt
+      `Prelude.hashWithSalt` modelCardVersion
       `Prelude.hashWithSalt` modelCardName
 
 instance Prelude.NFData DescribeModelCard where

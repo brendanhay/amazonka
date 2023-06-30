@@ -181,7 +181,8 @@ instance Data.FromJSON TransformResources where
 
 instance Prelude.Hashable TransformResources where
   hashWithSalt _salt TransformResources' {..} =
-    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+    _salt
+      `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instanceCount
 

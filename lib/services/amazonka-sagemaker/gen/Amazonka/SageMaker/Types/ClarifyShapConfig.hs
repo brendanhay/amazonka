@@ -145,7 +145,8 @@ instance Data.FromJSON ClarifyShapConfig where
 
 instance Prelude.Hashable ClarifyShapConfig where
   hashWithSalt _salt ClarifyShapConfig' {..} =
-    _salt `Prelude.hashWithSalt` numberOfSamples
+    _salt
+      `Prelude.hashWithSalt` numberOfSamples
       `Prelude.hashWithSalt` seed
       `Prelude.hashWithSalt` textConfig
       `Prelude.hashWithSalt` useLogit

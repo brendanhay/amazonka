@@ -77,7 +77,8 @@ workforceVpcConfigRequest_vpcId = Lens.lens (\WorkforceVpcConfigRequest' {vpcId}
 
 instance Prelude.Hashable WorkforceVpcConfigRequest where
   hashWithSalt _salt WorkforceVpcConfigRequest' {..} =
-    _salt `Prelude.hashWithSalt` securityGroupIds
+    _salt
+      `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` subnets
       `Prelude.hashWithSalt` vpcId
 

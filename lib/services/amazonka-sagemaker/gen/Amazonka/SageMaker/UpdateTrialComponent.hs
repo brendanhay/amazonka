@@ -208,7 +208,8 @@ instance Core.AWSRequest UpdateTrialComponent where
 
 instance Prelude.Hashable UpdateTrialComponent where
   hashWithSalt _salt UpdateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` displayName
+    _salt
+      `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` inputArtifactsToRemove

@@ -69,12 +69,14 @@ instance Data.FromJSON RenderingError where
       "RenderingError"
       ( \x ->
           RenderingError'
-            Prelude.<$> (x Data..: "Code") Prelude.<*> (x Data..: "Message")
+            Prelude.<$> (x Data..: "Code")
+            Prelude.<*> (x Data..: "Message")
       )
 
 instance Prelude.Hashable RenderingError where
   hashWithSalt _salt RenderingError' {..} =
-    _salt `Prelude.hashWithSalt` code
+    _salt
+      `Prelude.hashWithSalt` code
       `Prelude.hashWithSalt` message
 
 instance Prelude.NFData RenderingError where

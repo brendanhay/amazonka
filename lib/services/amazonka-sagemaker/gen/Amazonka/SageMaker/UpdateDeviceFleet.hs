@@ -140,7 +140,8 @@ instance Core.AWSRequest UpdateDeviceFleet where
 
 instance Prelude.Hashable UpdateDeviceFleet where
   hashWithSalt _salt UpdateDeviceFleet' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` enableIotRoleAlias
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` deviceFleetName

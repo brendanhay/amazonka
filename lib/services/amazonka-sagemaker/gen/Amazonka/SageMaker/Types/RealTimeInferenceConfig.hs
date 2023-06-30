@@ -83,7 +83,8 @@ instance Data.FromJSON RealTimeInferenceConfig where
 
 instance Prelude.Hashable RealTimeInferenceConfig where
   hashWithSalt _salt RealTimeInferenceConfig' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instanceCount
 
 instance Prelude.NFData RealTimeInferenceConfig where

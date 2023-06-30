@@ -109,17 +109,17 @@ instance
       ( \s h x ->
           DescribeModelExplainabilityJobDefinitionResponse'
             Prelude.<$> (x Data..?> "ModelExplainabilityBaselineConfig")
-              Prelude.<*> (x Data..?> "NetworkConfig")
-              Prelude.<*> (x Data..?> "StoppingCondition")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "JobDefinitionArn")
-              Prelude.<*> (x Data..:> "JobDefinitionName")
-              Prelude.<*> (x Data..:> "CreationTime")
-              Prelude.<*> (x Data..:> "ModelExplainabilityAppSpecification")
-              Prelude.<*> (x Data..:> "ModelExplainabilityJobInput")
-              Prelude.<*> (x Data..:> "ModelExplainabilityJobOutputConfig")
-              Prelude.<*> (x Data..:> "JobResources")
-              Prelude.<*> (x Data..:> "RoleArn")
+            Prelude.<*> (x Data..?> "NetworkConfig")
+            Prelude.<*> (x Data..?> "StoppingCondition")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..:> "JobDefinitionArn")
+            Prelude.<*> (x Data..:> "JobDefinitionName")
+            Prelude.<*> (x Data..:> "CreationTime")
+            Prelude.<*> (x Data..:> "ModelExplainabilityAppSpecification")
+            Prelude.<*> (x Data..:> "ModelExplainabilityJobInput")
+            Prelude.<*> (x Data..:> "ModelExplainabilityJobOutputConfig")
+            Prelude.<*> (x Data..:> "JobResources")
+            Prelude.<*> (x Data..:> "RoleArn")
       )
 
 instance

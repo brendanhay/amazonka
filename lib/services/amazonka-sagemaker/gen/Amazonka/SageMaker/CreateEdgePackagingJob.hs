@@ -186,7 +186,8 @@ instance Core.AWSRequest CreateEdgePackagingJob where
 
 instance Prelude.Hashable CreateEdgePackagingJob where
   hashWithSalt _salt CreateEdgePackagingJob' {..} =
-    _salt `Prelude.hashWithSalt` resourceKey
+    _salt
+      `Prelude.hashWithSalt` resourceKey
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` edgePackagingJobName
       `Prelude.hashWithSalt` compilationJobName

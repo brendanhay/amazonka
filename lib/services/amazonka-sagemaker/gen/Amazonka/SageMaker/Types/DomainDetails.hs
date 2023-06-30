@@ -125,7 +125,8 @@ instance Data.FromJSON DomainDetails where
 
 instance Prelude.Hashable DomainDetails where
   hashWithSalt _salt DomainDetails' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` domainArn
       `Prelude.hashWithSalt` domainId
       `Prelude.hashWithSalt` domainName

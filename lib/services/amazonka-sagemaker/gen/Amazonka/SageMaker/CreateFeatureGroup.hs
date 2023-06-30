@@ -411,7 +411,8 @@ instance Core.AWSRequest CreateFeatureGroup where
 
 instance Prelude.Hashable CreateFeatureGroup where
   hashWithSalt _salt CreateFeatureGroup' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` offlineStoreConfig
       `Prelude.hashWithSalt` onlineStoreConfig
       `Prelude.hashWithSalt` roleArn

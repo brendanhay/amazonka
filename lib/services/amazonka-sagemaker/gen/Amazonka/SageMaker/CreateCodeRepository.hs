@@ -143,7 +143,8 @@ instance Core.AWSRequest CreateCodeRepository where
 
 instance Prelude.Hashable CreateCodeRepository where
   hashWithSalt _salt CreateCodeRepository' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` codeRepositoryName
       `Prelude.hashWithSalt` gitConfig
 

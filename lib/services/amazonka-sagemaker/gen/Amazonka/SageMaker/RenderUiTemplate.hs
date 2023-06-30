@@ -142,7 +142,8 @@ instance Core.AWSRequest RenderUiTemplate where
 
 instance Prelude.Hashable RenderUiTemplate where
   hashWithSalt _salt RenderUiTemplate' {..} =
-    _salt `Prelude.hashWithSalt` humanTaskUiArn
+    _salt
+      `Prelude.hashWithSalt` humanTaskUiArn
       `Prelude.hashWithSalt` uiTemplate
       `Prelude.hashWithSalt` task
       `Prelude.hashWithSalt` roleArn

@@ -247,7 +247,8 @@ instance
             Prelude.<*> (x Data..: "TrainingJobArn")
             Prelude.<*> (x Data..: "CreationTime")
             Prelude.<*> (x Data..: "TrainingJobStatus")
-            Prelude.<*> ( x Data..:? "TunedHyperParameters"
+            Prelude.<*> ( x
+                            Data..:? "TunedHyperParameters"
                             Data..!= Prelude.mempty
                         )
       )
@@ -259,7 +260,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTrainingJobSummary' {..} =
-      _salt `Prelude.hashWithSalt` failureReason
+      _salt
+        `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` finalHyperParameterTuningJobObjectiveMetric
         `Prelude.hashWithSalt` objectiveStatus
         `Prelude.hashWithSalt` trainingEndTime

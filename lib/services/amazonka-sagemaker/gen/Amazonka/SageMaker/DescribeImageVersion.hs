@@ -145,7 +145,8 @@ instance Core.AWSRequest DescribeImageVersion where
 
 instance Prelude.Hashable DescribeImageVersion where
   hashWithSalt _salt DescribeImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` alias
+    _salt
+      `Prelude.hashWithSalt` alias
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` imageName
 

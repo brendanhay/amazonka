@@ -112,7 +112,7 @@ instance
       ( \s h x ->
           UpdateEndpointWeightsAndCapacitiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> (x Data..:> "EndpointArn")
+            Prelude.<*> (x Data..:> "EndpointArn")
       )
 
 instance
@@ -122,7 +122,8 @@ instance
   hashWithSalt
     _salt
     UpdateEndpointWeightsAndCapacities' {..} =
-      _salt `Prelude.hashWithSalt` endpointName
+      _salt
+        `Prelude.hashWithSalt` endpointName
         `Prelude.hashWithSalt` desiredWeightsAndCapacities
 
 instance

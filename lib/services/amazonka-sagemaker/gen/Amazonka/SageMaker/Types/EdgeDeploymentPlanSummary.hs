@@ -157,7 +157,8 @@ instance Data.FromJSON EdgeDeploymentPlanSummary where
 
 instance Prelude.Hashable EdgeDeploymentPlanSummary where
   hashWithSalt _salt EdgeDeploymentPlanSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` edgeDeploymentPlanArn
       `Prelude.hashWithSalt` edgeDeploymentPlanName

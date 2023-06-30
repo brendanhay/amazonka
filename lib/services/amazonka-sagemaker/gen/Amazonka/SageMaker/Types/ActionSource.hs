@@ -86,7 +86,8 @@ instance Data.FromJSON ActionSource where
 
 instance Prelude.Hashable ActionSource where
   hashWithSalt _salt ActionSource' {..} =
-    _salt `Prelude.hashWithSalt` sourceId
+    _salt
+      `Prelude.hashWithSalt` sourceId
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` sourceUri
 

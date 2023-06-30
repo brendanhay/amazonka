@@ -292,7 +292,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningResourceConfig' {..} =
-      _salt `Prelude.hashWithSalt` allocationStrategy
+      _salt
+        `Prelude.hashWithSalt` allocationStrategy
         `Prelude.hashWithSalt` instanceConfigs
         `Prelude.hashWithSalt` instanceCount
         `Prelude.hashWithSalt` instanceType

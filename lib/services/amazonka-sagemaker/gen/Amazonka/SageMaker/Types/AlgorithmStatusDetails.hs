@@ -70,17 +70,20 @@ instance Data.FromJSON AlgorithmStatusDetails where
       "AlgorithmStatusDetails"
       ( \x ->
           AlgorithmStatusDetails'
-            Prelude.<$> ( x Data..:? "ImageScanStatuses"
+            Prelude.<$> ( x
+                            Data..:? "ImageScanStatuses"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "ValidationStatuses"
+            Prelude.<*> ( x
+                            Data..:? "ValidationStatuses"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable AlgorithmStatusDetails where
   hashWithSalt _salt AlgorithmStatusDetails' {..} =
-    _salt `Prelude.hashWithSalt` imageScanStatuses
+    _salt
+      `Prelude.hashWithSalt` imageScanStatuses
       `Prelude.hashWithSalt` validationStatuses
 
 instance Prelude.NFData AlgorithmStatusDetails where

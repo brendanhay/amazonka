@@ -201,7 +201,8 @@ instance Core.AWSRequest UpdateEndpoint where
 
 instance Prelude.Hashable UpdateEndpoint where
   hashWithSalt _salt UpdateEndpoint' {..} =
-    _salt `Prelude.hashWithSalt` deploymentConfig
+    _salt
+      `Prelude.hashWithSalt` deploymentConfig
       `Prelude.hashWithSalt` excludeRetainedVariantProperties
       `Prelude.hashWithSalt` retainAllVariantProperties
       `Prelude.hashWithSalt` retainDeploymentConfig

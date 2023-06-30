@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateFeatureMetadata where
 
 instance Prelude.Hashable UpdateFeatureMetadata where
   hashWithSalt _salt UpdateFeatureMetadata' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` parameterAdditions
       `Prelude.hashWithSalt` parameterRemovals
       `Prelude.hashWithSalt` featureGroupName

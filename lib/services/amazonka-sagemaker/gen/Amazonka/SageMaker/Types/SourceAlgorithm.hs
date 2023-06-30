@@ -103,7 +103,8 @@ instance Data.FromJSON SourceAlgorithm where
 
 instance Prelude.Hashable SourceAlgorithm where
   hashWithSalt _salt SourceAlgorithm' {..} =
-    _salt `Prelude.hashWithSalt` modelDataUrl
+    _salt
+      `Prelude.hashWithSalt` modelDataUrl
       `Prelude.hashWithSalt` algorithmName
 
 instance Prelude.NFData SourceAlgorithm where

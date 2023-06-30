@@ -137,7 +137,8 @@ instance Core.AWSRequest UpdateImage where
 
 instance Prelude.Hashable UpdateImage where
   hashWithSalt _salt UpdateImage' {..} =
-    _salt `Prelude.hashWithSalt` deleteProperties
+    _salt
+      `Prelude.hashWithSalt` deleteProperties
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` roleArn

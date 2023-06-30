@@ -203,7 +203,8 @@ instance Data.FromJSON DataProcessing where
 
 instance Prelude.Hashable DataProcessing where
   hashWithSalt _salt DataProcessing' {..} =
-    _salt `Prelude.hashWithSalt` inputFilter
+    _salt
+      `Prelude.hashWithSalt` inputFilter
       `Prelude.hashWithSalt` joinSource
       `Prelude.hashWithSalt` outputFilter
 

@@ -171,7 +171,8 @@ instance
             Prelude.<*> (x Data..:? "FrameworkVersion")
             Prelude.<*> (x Data..:? "NearestModelName")
             Prelude.<*> (x Data..:? "PayloadConfig")
-            Prelude.<*> ( x Data..:? "SupportedInstanceTypes"
+            Prelude.<*> ( x
+                            Data..:? "SupportedInstanceTypes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "Task")
@@ -184,7 +185,8 @@ instance
   hashWithSalt
     _salt
     RecommendationJobContainerConfig' {..} =
-      _salt `Prelude.hashWithSalt` domain
+      _salt
+        `Prelude.hashWithSalt` domain
         `Prelude.hashWithSalt` framework
         `Prelude.hashWithSalt` frameworkVersion
         `Prelude.hashWithSalt` nearestModelName

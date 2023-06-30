@@ -134,7 +134,8 @@ instance Data.FromJSON PipelineSummary where
 
 instance Prelude.Hashable PipelineSummary where
   hashWithSalt _salt PipelineSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastExecutionTime
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` pipelineArn

@@ -197,22 +197,22 @@ instance Core.AWSPager ListLabelingJobs where
     | Core.stop
         ( rs
             Lens.^? listLabelingJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listLabelingJobsResponse_labelingJobSummaryList
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listLabelingJobs_nextToken
           Lens..~ rs
           Lens.^? listLabelingJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListLabelingJobs where
   type
@@ -224,7 +224,8 @@ instance Core.AWSRequest ListLabelingJobs where
     Response.receiveJSON
       ( \s h x ->
           ListLabelingJobsResponse'
-            Prelude.<$> ( x Data..?> "LabelingJobSummaryList"
+            Prelude.<$> ( x
+                            Data..?> "LabelingJobSummaryList"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -233,7 +234,8 @@ instance Core.AWSRequest ListLabelingJobs where
 
 instance Prelude.Hashable ListLabelingJobs where
   hashWithSalt _salt ListLabelingJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

@@ -195,7 +195,8 @@ instance Core.AWSRequest UpdateWorkteam where
 
 instance Prelude.Hashable UpdateWorkteam where
   hashWithSalt _salt UpdateWorkteam' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` memberDefinitions
       `Prelude.hashWithSalt` notificationConfiguration
       `Prelude.hashWithSalt` workteamName

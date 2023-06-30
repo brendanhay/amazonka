@@ -102,7 +102,8 @@ instance Data.FromJSON SharingSettings where
 
 instance Prelude.Hashable SharingSettings where
   hashWithSalt _salt SharingSettings' {..} =
-    _salt `Prelude.hashWithSalt` notebookOutputOption
+    _salt
+      `Prelude.hashWithSalt` notebookOutputOption
       `Prelude.hashWithSalt` s3KmsKeyId
       `Prelude.hashWithSalt` s3OutputPath
 

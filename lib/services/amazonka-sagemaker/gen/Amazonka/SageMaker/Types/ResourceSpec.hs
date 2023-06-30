@@ -117,7 +117,8 @@ instance Data.FromJSON ResourceSpec where
 
 instance Prelude.Hashable ResourceSpec where
   hashWithSalt _salt ResourceSpec' {..} =
-    _salt `Prelude.hashWithSalt` instanceType
+    _salt
+      `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` lifecycleConfigArn
       `Prelude.hashWithSalt` sageMakerImageArn
       `Prelude.hashWithSalt` sageMakerImageVersionArn

@@ -127,7 +127,8 @@ instance Data.FromJSON TrainingJobStatusCounters where
 
 instance Prelude.Hashable TrainingJobStatusCounters where
   hashWithSalt _salt TrainingJobStatusCounters' {..} =
-    _salt `Prelude.hashWithSalt` completed
+    _salt
+      `Prelude.hashWithSalt` completed
       `Prelude.hashWithSalt` inProgress
       `Prelude.hashWithSalt` nonRetryableError
       `Prelude.hashWithSalt` retryableError

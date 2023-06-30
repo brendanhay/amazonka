@@ -168,7 +168,8 @@ instance Data.FromJSON ProductionVariantSummary where
 
 instance Prelude.Hashable ProductionVariantSummary where
   hashWithSalt _salt ProductionVariantSummary' {..} =
-    _salt `Prelude.hashWithSalt` currentInstanceCount
+    _salt
+      `Prelude.hashWithSalt` currentInstanceCount
       `Prelude.hashWithSalt` currentServerlessConfig
       `Prelude.hashWithSalt` currentWeight
       `Prelude.hashWithSalt` deployedImages

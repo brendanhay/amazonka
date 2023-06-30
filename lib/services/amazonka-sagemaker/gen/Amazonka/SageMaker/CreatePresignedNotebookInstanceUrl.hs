@@ -125,7 +125,7 @@ instance
       ( \s h x ->
           CreatePresignedNotebookInstanceUrlResponse'
             Prelude.<$> (x Data..?> "AuthorizedUrl")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

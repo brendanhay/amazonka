@@ -103,7 +103,8 @@ instance Data.FromJSON ObjectiveStatusCounters where
 
 instance Prelude.Hashable ObjectiveStatusCounters where
   hashWithSalt _salt ObjectiveStatusCounters' {..} =
-    _salt `Prelude.hashWithSalt` failed
+    _salt
+      `Prelude.hashWithSalt` failed
       `Prelude.hashWithSalt` pending
       `Prelude.hashWithSalt` succeeded
 

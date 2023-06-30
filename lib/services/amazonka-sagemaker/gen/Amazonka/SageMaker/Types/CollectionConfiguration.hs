@@ -80,14 +80,16 @@ instance Data.FromJSON CollectionConfiguration where
       ( \x ->
           CollectionConfiguration'
             Prelude.<$> (x Data..:? "CollectionName")
-            Prelude.<*> ( x Data..:? "CollectionParameters"
+            Prelude.<*> ( x
+                            Data..:? "CollectionParameters"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable CollectionConfiguration where
   hashWithSalt _salt CollectionConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` collectionName
+    _salt
+      `Prelude.hashWithSalt` collectionName
       `Prelude.hashWithSalt` collectionParameters
 
 instance Prelude.NFData CollectionConfiguration where

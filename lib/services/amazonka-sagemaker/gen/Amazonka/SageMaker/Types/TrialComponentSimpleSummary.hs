@@ -105,7 +105,8 @@ instance Data.FromJSON TrialComponentSimpleSummary where
 
 instance Prelude.Hashable TrialComponentSimpleSummary where
   hashWithSalt _salt TrialComponentSimpleSummary' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` trialComponentArn
       `Prelude.hashWithSalt` trialComponentName

@@ -211,7 +211,8 @@ instance Data.FromJSON TransformInput where
 
 instance Prelude.Hashable TransformInput where
   hashWithSalt _salt TransformInput' {..} =
-    _salt `Prelude.hashWithSalt` compressionType
+    _salt
+      `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` splitType
       `Prelude.hashWithSalt` dataSource

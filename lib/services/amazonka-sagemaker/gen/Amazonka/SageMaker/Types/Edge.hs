@@ -94,7 +94,8 @@ instance Data.FromJSON Edge where
 
 instance Prelude.Hashable Edge where
   hashWithSalt _salt Edge' {..} =
-    _salt `Prelude.hashWithSalt` associationType
+    _salt
+      `Prelude.hashWithSalt` associationType
       `Prelude.hashWithSalt` destinationArn
       `Prelude.hashWithSalt` sourceArn
 

@@ -121,7 +121,8 @@ instance Core.AWSRequest CreateHumanTaskUi where
 
 instance Prelude.Hashable CreateHumanTaskUi where
   hashWithSalt _salt CreateHumanTaskUi' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` humanTaskUiName
       `Prelude.hashWithSalt` uiTemplate
 

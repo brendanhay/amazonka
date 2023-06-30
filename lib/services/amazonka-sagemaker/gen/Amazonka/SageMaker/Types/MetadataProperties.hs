@@ -94,7 +94,8 @@ instance Data.FromJSON MetadataProperties where
 
 instance Prelude.Hashable MetadataProperties where
   hashWithSalt _salt MetadataProperties' {..} =
-    _salt `Prelude.hashWithSalt` commitId
+    _salt
+      `Prelude.hashWithSalt` commitId
       `Prelude.hashWithSalt` generatedBy
       `Prelude.hashWithSalt` projectId
       `Prelude.hashWithSalt` repository

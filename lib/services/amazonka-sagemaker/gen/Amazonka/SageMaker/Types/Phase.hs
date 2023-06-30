@@ -84,7 +84,8 @@ instance Data.FromJSON Phase where
 
 instance Prelude.Hashable Phase where
   hashWithSalt _salt Phase' {..} =
-    _salt `Prelude.hashWithSalt` durationInSeconds
+    _salt
+      `Prelude.hashWithSalt` durationInSeconds
       `Prelude.hashWithSalt` initialNumberOfUsers
       `Prelude.hashWithSalt` spawnRate
 

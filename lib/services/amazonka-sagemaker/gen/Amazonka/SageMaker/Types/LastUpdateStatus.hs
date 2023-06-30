@@ -77,7 +77,8 @@ instance Data.FromJSON LastUpdateStatus where
 
 instance Prelude.Hashable LastUpdateStatus where
   hashWithSalt _salt LastUpdateStatus' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData LastUpdateStatus where

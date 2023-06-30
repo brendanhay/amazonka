@@ -76,7 +76,8 @@ desiredWeightAndCapacity_variantName = Lens.lens (\DesiredWeightAndCapacity' {va
 
 instance Prelude.Hashable DesiredWeightAndCapacity where
   hashWithSalt _salt DesiredWeightAndCapacity' {..} =
-    _salt `Prelude.hashWithSalt` desiredInstanceCount
+    _salt
+      `Prelude.hashWithSalt` desiredInstanceCount
       `Prelude.hashWithSalt` desiredWeight
       `Prelude.hashWithSalt` variantName
 

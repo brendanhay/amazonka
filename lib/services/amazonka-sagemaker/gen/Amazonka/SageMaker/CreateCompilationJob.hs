@@ -294,7 +294,8 @@ instance Core.AWSRequest CreateCompilationJob where
 
 instance Prelude.Hashable CreateCompilationJob where
   hashWithSalt _salt CreateCompilationJob' {..} =
-    _salt `Prelude.hashWithSalt` inputConfig
+    _salt
+      `Prelude.hashWithSalt` inputConfig
       `Prelude.hashWithSalt` modelPackageVersionArn
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcConfig

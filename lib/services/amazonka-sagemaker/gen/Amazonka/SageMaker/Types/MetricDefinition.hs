@@ -81,12 +81,14 @@ instance Data.FromJSON MetricDefinition where
       "MetricDefinition"
       ( \x ->
           MetricDefinition'
-            Prelude.<$> (x Data..: "Name") Prelude.<*> (x Data..: "Regex")
+            Prelude.<$> (x Data..: "Name")
+            Prelude.<*> (x Data..: "Regex")
       )
 
 instance Prelude.Hashable MetricDefinition where
   hashWithSalt _salt MetricDefinition' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` regex
 
 instance Prelude.NFData MetricDefinition where

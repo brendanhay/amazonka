@@ -132,7 +132,8 @@ instance
   hashWithSalt
     _salt
     UpdateNotebookInstanceLifecycleConfig' {..} =
-      _salt `Prelude.hashWithSalt` onCreate
+      _salt
+        `Prelude.hashWithSalt` onCreate
         `Prelude.hashWithSalt` onStart
         `Prelude.hashWithSalt` notebookInstanceLifecycleConfigName
 

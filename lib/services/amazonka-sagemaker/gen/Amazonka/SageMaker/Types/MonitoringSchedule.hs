@@ -205,7 +205,8 @@ instance Data.FromJSON MonitoringSchedule where
 
 instance Prelude.Hashable MonitoringSchedule where
   hashWithSalt _salt MonitoringSchedule' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` endpointName
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastModifiedTime

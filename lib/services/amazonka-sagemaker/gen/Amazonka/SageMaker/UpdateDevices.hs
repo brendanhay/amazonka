@@ -93,7 +93,8 @@ instance Core.AWSRequest UpdateDevices where
 
 instance Prelude.Hashable UpdateDevices where
   hashWithSalt _salt UpdateDevices' {..} =
-    _salt `Prelude.hashWithSalt` deviceFleetName
+    _salt
+      `Prelude.hashWithSalt` deviceFleetName
       `Prelude.hashWithSalt` devices
 
 instance Prelude.NFData UpdateDevices where

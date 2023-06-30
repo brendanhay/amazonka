@@ -176,7 +176,8 @@ instance Core.AWSRequest ListHubs where
 
 instance Prelude.Hashable ListHubs where
   hashWithSalt _salt ListHubs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` lastModifiedTimeAfter
       `Prelude.hashWithSalt` lastModifiedTimeBefore

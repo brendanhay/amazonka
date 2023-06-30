@@ -113,7 +113,8 @@ instance Core.AWSRequest DeletePipeline where
 
 instance Prelude.Hashable DeletePipeline where
   hashWithSalt _salt DeletePipeline' {..} =
-    _salt `Prelude.hashWithSalt` pipelineName
+    _salt
+      `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` clientRequestToken
 
 instance Prelude.NFData DeletePipeline where

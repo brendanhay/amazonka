@@ -110,7 +110,8 @@ instance Data.FromJSON ExperimentConfig where
 
 instance Prelude.Hashable ExperimentConfig where
   hashWithSalt _salt ExperimentConfig' {..} =
-    _salt `Prelude.hashWithSalt` experimentName
+    _salt
+      `Prelude.hashWithSalt` experimentName
       `Prelude.hashWithSalt` runName
       `Prelude.hashWithSalt` trialComponentDisplayName
       `Prelude.hashWithSalt` trialName

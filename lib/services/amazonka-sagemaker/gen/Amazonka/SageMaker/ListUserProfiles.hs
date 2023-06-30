@@ -135,22 +135,22 @@ instance Core.AWSPager ListUserProfiles where
     | Core.stop
         ( rs
             Lens.^? listUserProfilesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listUserProfilesResponse_userProfiles
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listUserProfiles_nextToken
           Lens..~ rs
           Lens.^? listUserProfilesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListUserProfiles where
   type
@@ -169,7 +169,8 @@ instance Core.AWSRequest ListUserProfiles where
 
 instance Prelude.Hashable ListUserProfiles where
   hashWithSalt _salt ListUserProfiles' {..} =
-    _salt `Prelude.hashWithSalt` domainIdEquals
+    _salt
+      `Prelude.hashWithSalt` domainIdEquals
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sortBy

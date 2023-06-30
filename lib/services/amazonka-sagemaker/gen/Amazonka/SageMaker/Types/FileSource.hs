@@ -86,7 +86,8 @@ instance Data.FromJSON FileSource where
 
 instance Prelude.Hashable FileSource where
   hashWithSalt _salt FileSource' {..} =
-    _salt `Prelude.hashWithSalt` contentDigest
+    _salt
+      `Prelude.hashWithSalt` contentDigest
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` s3Uri
 

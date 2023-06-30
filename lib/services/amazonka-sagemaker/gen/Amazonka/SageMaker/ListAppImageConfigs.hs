@@ -189,22 +189,22 @@ instance Core.AWSPager ListAppImageConfigs where
     | Core.stop
         ( rs
             Lens.^? listAppImageConfigsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listAppImageConfigsResponse_appImageConfigs
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAppImageConfigs_nextToken
           Lens..~ rs
           Lens.^? listAppImageConfigsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppImageConfigs where
   type
@@ -216,7 +216,8 @@ instance Core.AWSRequest ListAppImageConfigs where
     Response.receiveJSON
       ( \s h x ->
           ListAppImageConfigsResponse'
-            Prelude.<$> ( x Data..?> "AppImageConfigs"
+            Prelude.<$> ( x
+                            Data..?> "AppImageConfigs"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -225,7 +226,8 @@ instance Core.AWSRequest ListAppImageConfigs where
 
 instance Prelude.Hashable ListAppImageConfigs where
   hashWithSalt _salt ListAppImageConfigs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modifiedTimeAfter

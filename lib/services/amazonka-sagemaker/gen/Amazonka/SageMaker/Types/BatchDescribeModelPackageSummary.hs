@@ -163,7 +163,8 @@ instance
   hashWithSalt
     _salt
     BatchDescribeModelPackageSummary' {..} =
-      _salt `Prelude.hashWithSalt` modelApprovalStatus
+      _salt
+        `Prelude.hashWithSalt` modelApprovalStatus
         `Prelude.hashWithSalt` modelPackageDescription
         `Prelude.hashWithSalt` modelPackageVersion
         `Prelude.hashWithSalt` modelPackageGroupName

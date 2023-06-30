@@ -712,10 +712,12 @@ instance Data.FromJSON TrainingJob where
             Prelude.<*> (x Data..:? "CheckpointConfig")
             Prelude.<*> (x Data..:? "CreationTime")
             Prelude.<*> (x Data..:? "DebugHookConfig")
-            Prelude.<*> ( x Data..:? "DebugRuleConfigurations"
+            Prelude.<*> ( x
+                            Data..:? "DebugRuleConfigurations"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "DebugRuleEvaluationStatuses"
+            Prelude.<*> ( x
+                            Data..:? "DebugRuleEvaluationStatuses"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "EnableInterContainerTrafficEncryption")
@@ -724,10 +726,12 @@ instance Data.FromJSON TrainingJob where
             Prelude.<*> (x Data..:? "Environment" Data..!= Prelude.mempty)
             Prelude.<*> (x Data..:? "ExperimentConfig")
             Prelude.<*> (x Data..:? "FailureReason")
-            Prelude.<*> ( x Data..:? "FinalMetricDataList"
+            Prelude.<*> ( x
+                            Data..:? "FinalMetricDataList"
                             Data..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Data..:? "HyperParameters"
+            Prelude.<*> ( x
+                            Data..:? "HyperParameters"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "InputDataConfig")
@@ -739,7 +743,8 @@ instance Data.FromJSON TrainingJob where
             Prelude.<*> (x Data..:? "RetryStrategy")
             Prelude.<*> (x Data..:? "RoleArn")
             Prelude.<*> (x Data..:? "SecondaryStatus")
-            Prelude.<*> ( x Data..:? "SecondaryStatusTransitions"
+            Prelude.<*> ( x
+                            Data..:? "SecondaryStatusTransitions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "StoppingCondition")
@@ -757,7 +762,8 @@ instance Data.FromJSON TrainingJob where
 
 instance Prelude.Hashable TrainingJob where
   hashWithSalt _salt TrainingJob' {..} =
-    _salt `Prelude.hashWithSalt` algorithmSpecification
+    _salt
+      `Prelude.hashWithSalt` algorithmSpecification
       `Prelude.hashWithSalt` autoMLJobArn
       `Prelude.hashWithSalt` billableTimeInSeconds
       `Prelude.hashWithSalt` checkpointConfig

@@ -181,14 +181,16 @@ instance Data.FromJSON PipelineExecution where
             Prelude.<*> (x Data..:? "PipelineExecutionDisplayName")
             Prelude.<*> (x Data..:? "PipelineExecutionStatus")
             Prelude.<*> (x Data..:? "PipelineExperimentConfig")
-            Prelude.<*> ( x Data..:? "PipelineParameters"
+            Prelude.<*> ( x
+                            Data..:? "PipelineParameters"
                             Data..!= Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable PipelineExecution where
   hashWithSalt _salt PipelineExecution' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastModifiedBy

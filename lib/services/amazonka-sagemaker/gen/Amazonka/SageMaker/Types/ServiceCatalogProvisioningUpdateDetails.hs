@@ -74,7 +74,8 @@ instance
   hashWithSalt
     _salt
     ServiceCatalogProvisioningUpdateDetails' {..} =
-      _salt `Prelude.hashWithSalt` provisioningArtifactId
+      _salt
+        `Prelude.hashWithSalt` provisioningArtifactId
         `Prelude.hashWithSalt` provisioningParameters
 
 instance

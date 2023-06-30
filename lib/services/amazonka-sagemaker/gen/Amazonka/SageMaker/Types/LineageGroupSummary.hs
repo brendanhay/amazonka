@@ -106,7 +106,8 @@ instance Data.FromJSON LineageGroupSummary where
 
 instance Prelude.Hashable LineageGroupSummary where
   hashWithSalt _salt LineageGroupSummary' {..} =
-    _salt `Prelude.hashWithSalt` creationTime
+    _salt
+      `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` lineageGroupArn

@@ -103,7 +103,8 @@ instance Core.AWSRequest RegisterDevices where
 
 instance Prelude.Hashable RegisterDevices where
   hashWithSalt _salt RegisterDevices' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` deviceFleetName
       `Prelude.hashWithSalt` devices
 

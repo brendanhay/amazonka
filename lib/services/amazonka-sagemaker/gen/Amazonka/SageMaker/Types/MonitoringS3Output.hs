@@ -102,7 +102,8 @@ instance Data.FromJSON MonitoringS3Output where
 
 instance Prelude.Hashable MonitoringS3Output where
   hashWithSalt _salt MonitoringS3Output' {..} =
-    _salt `Prelude.hashWithSalt` s3UploadMode
+    _salt
+      `Prelude.hashWithSalt` s3UploadMode
       `Prelude.hashWithSalt` s3Uri
       `Prelude.hashWithSalt` localPath
 

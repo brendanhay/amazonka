@@ -294,7 +294,8 @@ instance Core.AWSRequest CreateImageVersion where
 
 instance Prelude.Hashable CreateImageVersion where
   hashWithSalt _salt CreateImageVersion' {..} =
-    _salt `Prelude.hashWithSalt` aliases
+    _salt
+      `Prelude.hashWithSalt` aliases
       `Prelude.hashWithSalt` horovod
       `Prelude.hashWithSalt` jobType
       `Prelude.hashWithSalt` mLFramework

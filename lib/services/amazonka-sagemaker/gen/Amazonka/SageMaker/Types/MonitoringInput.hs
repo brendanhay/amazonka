@@ -77,7 +77,8 @@ instance Data.FromJSON MonitoringInput where
 
 instance Prelude.Hashable MonitoringInput where
   hashWithSalt _salt MonitoringInput' {..} =
-    _salt `Prelude.hashWithSalt` batchTransformInput
+    _salt
+      `Prelude.hashWithSalt` batchTransformInput
       `Prelude.hashWithSalt` endpointInput
 
 instance Prelude.NFData MonitoringInput where

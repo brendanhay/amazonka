@@ -133,7 +133,8 @@ instance Data.FromJSON DataQualityAppSpecification where
 
 instance Prelude.Hashable DataQualityAppSpecification where
   hashWithSalt _salt DataQualityAppSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerArguments
+    _salt
+      `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` environment
       `Prelude.hashWithSalt` postAnalyticsProcessorSourceUri

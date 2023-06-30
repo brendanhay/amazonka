@@ -163,21 +163,23 @@ instance Core.AWSPager ListContexts where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listContextsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listContextsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listContextsResponse_contextSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listContexts_nextToken
           Lens..~ rs
-          Lens.^? listContextsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listContextsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListContexts where
   type AWSResponse ListContexts = ListContextsResponse
@@ -187,7 +189,8 @@ instance Core.AWSRequest ListContexts where
     Response.receiveJSON
       ( \s h x ->
           ListContextsResponse'
-            Prelude.<$> ( x Data..?> "ContextSummaries"
+            Prelude.<$> ( x
+                            Data..?> "ContextSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -196,7 +199,8 @@ instance Core.AWSRequest ListContexts where
 
 instance Prelude.Hashable ListContexts where
   hashWithSalt _salt ListContexts' {..} =
-    _salt `Prelude.hashWithSalt` contextType
+    _salt
+      `Prelude.hashWithSalt` contextType
       `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults

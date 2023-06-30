@@ -193,21 +193,21 @@ instance Core.AWSPager ListModelCardExportJobs where
     | Core.stop
         ( rs
             Lens.^? listModelCardExportJobsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelCardExportJobsResponse_modelCardExportJobSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelCardExportJobs_nextToken
           Lens..~ rs
           Lens.^? listModelCardExportJobsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelCardExportJobs where
   type
@@ -221,14 +221,16 @@ instance Core.AWSRequest ListModelCardExportJobs where
           ListModelCardExportJobsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ModelCardExportJobSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ModelCardExportJobSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListModelCardExportJobs where
   hashWithSalt _salt ListModelCardExportJobs' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelCardExportJobNameContains

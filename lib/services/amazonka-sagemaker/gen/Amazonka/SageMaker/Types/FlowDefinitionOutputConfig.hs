@@ -92,7 +92,8 @@ instance Data.FromJSON FlowDefinitionOutputConfig where
 
 instance Prelude.Hashable FlowDefinitionOutputConfig where
   hashWithSalt _salt FlowDefinitionOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` s3OutputPath
 
 instance Prelude.NFData FlowDefinitionOutputConfig where

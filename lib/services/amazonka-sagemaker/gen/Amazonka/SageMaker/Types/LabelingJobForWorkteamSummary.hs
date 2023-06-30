@@ -137,7 +137,8 @@ instance
     LabelingJobForWorkteamSummary
   where
   hashWithSalt _salt LabelingJobForWorkteamSummary' {..} =
-    _salt `Prelude.hashWithSalt` labelCounters
+    _salt
+      `Prelude.hashWithSalt` labelCounters
       `Prelude.hashWithSalt` labelingJobName
       `Prelude.hashWithSalt` numberOfHumanWorkersPerDataObject
       `Prelude.hashWithSalt` jobReferenceCode

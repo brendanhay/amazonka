@@ -149,7 +149,8 @@ instance Data.FromJSON TransformJobSummary where
 
 instance Prelude.Hashable TransformJobSummary where
   hashWithSalt _salt TransformJobSummary' {..} =
-    _salt `Prelude.hashWithSalt` failureReason
+    _salt
+      `Prelude.hashWithSalt` failureReason
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` transformEndTime
       `Prelude.hashWithSalt` transformJobName

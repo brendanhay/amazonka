@@ -165,7 +165,8 @@ instance Data.FromJSON LabelingJobOutputConfig where
 
 instance Prelude.Hashable LabelingJobOutputConfig where
   hashWithSalt _salt LabelingJobOutputConfig' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` snsTopicArn
       `Prelude.hashWithSalt` s3OutputPath
 

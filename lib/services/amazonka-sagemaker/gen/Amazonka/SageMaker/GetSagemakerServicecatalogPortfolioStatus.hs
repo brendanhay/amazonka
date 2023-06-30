@@ -75,7 +75,7 @@ instance
       ( \s h x ->
           GetSagemakerServicecatalogPortfolioStatusResponse'
             Prelude.<$> (x Data..?> "Status")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

@@ -242,7 +242,8 @@ instance
   hashWithSalt
     _salt
     HyperParameterTuningJobSearchEntity' {..} =
-      _salt `Prelude.hashWithSalt` bestTrainingJob
+      _salt
+        `Prelude.hashWithSalt` bestTrainingJob
         `Prelude.hashWithSalt` creationTime
         `Prelude.hashWithSalt` failureReason
         `Prelude.hashWithSalt` hyperParameterTuningEndTime

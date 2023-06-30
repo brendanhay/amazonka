@@ -111,7 +111,8 @@ instance Core.AWSRequest AssociateTrialComponent where
 
 instance Prelude.Hashable AssociateTrialComponent where
   hashWithSalt _salt AssociateTrialComponent' {..} =
-    _salt `Prelude.hashWithSalt` trialComponentName
+    _salt
+      `Prelude.hashWithSalt` trialComponentName
       `Prelude.hashWithSalt` trialName
 
 instance Prelude.NFData AssociateTrialComponent where

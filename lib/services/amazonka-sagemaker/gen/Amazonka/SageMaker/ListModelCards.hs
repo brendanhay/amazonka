@@ -162,20 +162,21 @@ instance Core.AWSPager ListModelCards where
     | Core.stop
         ( rs
             Lens.^? listModelCardsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelCardsResponse_modelCardSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelCards_nextToken
           Lens..~ rs
-          Lens.^? listModelCardsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listModelCardsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListModelCards where
   type
@@ -189,14 +190,16 @@ instance Core.AWSRequest ListModelCards where
           ListModelCardsResponse'
             Prelude.<$> (x Data..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "ModelCardSummaries"
+            Prelude.<*> ( x
+                            Data..?> "ModelCardSummaries"
                             Core..!@ Prelude.mempty
                         )
       )
 
 instance Prelude.Hashable ListModelCards where
   hashWithSalt _salt ListModelCards' {..} =
-    _salt `Prelude.hashWithSalt` creationTimeAfter
+    _salt
+      `Prelude.hashWithSalt` creationTimeAfter
       `Prelude.hashWithSalt` creationTimeBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` modelCardStatus

@@ -177,21 +177,21 @@ instance
     | Core.stop
         ( rs
             Lens.^? listModelExplainabilityJobDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^. listModelExplainabilityJobDefinitionsResponse_jobDefinitionSummaries
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listModelExplainabilityJobDefinitions_nextToken
           Lens..~ rs
-            Lens.^? listModelExplainabilityJobDefinitionsResponse_nextToken
-              Prelude.. Lens._Just
+          Lens.^? listModelExplainabilityJobDefinitionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -208,10 +208,11 @@ instance
       ( \s h x ->
           ListModelExplainabilityJobDefinitionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-              Prelude.<*> ( x Data..?> "JobDefinitionSummaries"
-                              Core..!@ Prelude.mempty
-                          )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..?> "JobDefinitionSummaries"
+                            Core..!@ Prelude.mempty
+                        )
       )
 
 instance
@@ -221,7 +222,8 @@ instance
   hashWithSalt
     _salt
     ListModelExplainabilityJobDefinitions' {..} =
-      _salt `Prelude.hashWithSalt` creationTimeAfter
+      _salt
+        `Prelude.hashWithSalt` creationTimeAfter
         `Prelude.hashWithSalt` creationTimeBefore
         `Prelude.hashWithSalt` endpointName
         `Prelude.hashWithSalt` maxResults

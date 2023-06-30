@@ -187,13 +187,13 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
     --
     -- @ {@
     --
-    -- @ \"label\": \"label 1\"@
+    -- @ \"label\": \"@/@label 1@/@\"@
     --
     -- @ },@
     --
     -- @ {@
     --
-    -- @ \"label\": \"label 2\"@
+    -- @ \"label\": \"@/@label 2@/@\"@
     --
     -- @ },@
     --
@@ -201,7 +201,7 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
     --
     -- @ {@
     --
-    -- @ \"label\": \"label n\"@
+    -- @ \"label\": \"@/@label n@/@\"@
     --
     -- @ }@
     --
@@ -286,13 +286,13 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
 --
 -- @ {@
 --
--- @ \"label\": \"label 1\"@
+-- @ \"label\": \"@/@label 1@/@\"@
 --
 -- @ },@
 --
 -- @ {@
 --
--- @ \"label\": \"label 2\"@
+-- @ \"label\": \"@/@label 2@/@\"@
 --
 -- @ },@
 --
@@ -300,7 +300,7 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
 --
 -- @ {@
 --
--- @ \"label\": \"label n\"@
+-- @ \"label\": \"@/@label n@/@\"@
 --
 -- @ }@
 --
@@ -441,13 +441,13 @@ describeLabelingJobResponse_labelAttributeName = Lens.lens (\DescribeLabelingJob
 --
 -- @ {@
 --
--- @ \"label\": \"label 1\"@
+-- @ \"label\": \"@/@label 1@/@\"@
 --
 -- @ },@
 --
 -- @ {@
 --
--- @ \"label\": \"label 2\"@
+-- @ \"label\": \"@/@label 2@/@\"@
 --
 -- @ },@
 --
@@ -455,7 +455,7 @@ describeLabelingJobResponse_labelAttributeName = Lens.lens (\DescribeLabelingJob
 --
 -- @ {@
 --
--- @ \"label\": \"label n\"@
+-- @ \"label\": \"@/@label n@/@\"@
 --
 -- @ }@
 --

@@ -94,7 +94,8 @@ instance Data.FromJSON HumanTaskUiSummary where
 
 instance Prelude.Hashable HumanTaskUiSummary where
   hashWithSalt _salt HumanTaskUiSummary' {..} =
-    _salt `Prelude.hashWithSalt` humanTaskUiName
+    _salt
+      `Prelude.hashWithSalt` humanTaskUiName
       `Prelude.hashWithSalt` humanTaskUiArn
       `Prelude.hashWithSalt` creationTime
 

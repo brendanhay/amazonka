@@ -224,7 +224,8 @@ instance Core.AWSRequest QueryLineage where
 
 instance Prelude.Hashable QueryLineage where
   hashWithSalt _salt QueryLineage' {..} =
-    _salt `Prelude.hashWithSalt` direction
+    _salt
+      `Prelude.hashWithSalt` direction
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` includeEdges
       `Prelude.hashWithSalt` maxDepth

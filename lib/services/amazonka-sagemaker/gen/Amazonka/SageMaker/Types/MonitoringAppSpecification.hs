@@ -120,7 +120,8 @@ instance Data.FromJSON MonitoringAppSpecification where
 
 instance Prelude.Hashable MonitoringAppSpecification where
   hashWithSalt _salt MonitoringAppSpecification' {..} =
-    _salt `Prelude.hashWithSalt` containerArguments
+    _salt
+      `Prelude.hashWithSalt` containerArguments
       `Prelude.hashWithSalt` containerEntrypoint
       `Prelude.hashWithSalt` postAnalyticsProcessorSourceUri
       `Prelude.hashWithSalt` recordPreprocessorSourceUri

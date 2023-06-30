@@ -94,7 +94,8 @@ instance Core.AWSRequest DescribeHub where
             Prelude.<$> (x Data..?> "FailureReason")
             Prelude.<*> (x Data..?> "HubDescription")
             Prelude.<*> (x Data..?> "HubDisplayName")
-            Prelude.<*> ( x Data..?> "HubSearchKeywords"
+            Prelude.<*> ( x
+                            Data..?> "HubSearchKeywords"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "S3StorageConfig")

@@ -94,7 +94,8 @@ instance Data.FromJSON EndpointConfigSummary where
 
 instance Prelude.Hashable EndpointConfigSummary where
   hashWithSalt _salt EndpointConfigSummary' {..} =
-    _salt `Prelude.hashWithSalt` endpointConfigName
+    _salt
+      `Prelude.hashWithSalt` endpointConfigName
       `Prelude.hashWithSalt` endpointConfigArn
       `Prelude.hashWithSalt` creationTime
 

@@ -269,7 +269,8 @@ instance
     RecommendationJobInputConfig
   where
   hashWithSalt _salt RecommendationJobInputConfig' {..} =
-    _salt `Prelude.hashWithSalt` containerConfig
+    _salt
+      `Prelude.hashWithSalt` containerConfig
       `Prelude.hashWithSalt` endpointConfigurations
       `Prelude.hashWithSalt` endpoints
       `Prelude.hashWithSalt` jobDurationInSeconds

@@ -117,7 +117,8 @@ searchExpression_subExpressions = Lens.lens (\SearchExpression' {subExpressions}
 
 instance Prelude.Hashable SearchExpression where
   hashWithSalt _salt SearchExpression' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` nestedFilters
       `Prelude.hashWithSalt` operator
       `Prelude.hashWithSalt` subExpressions

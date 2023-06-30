@@ -90,7 +90,8 @@ instance Data.FromJSON DataQualityBaselineConfig where
 
 instance Prelude.Hashable DataQualityBaselineConfig where
   hashWithSalt _salt DataQualityBaselineConfig' {..} =
-    _salt `Prelude.hashWithSalt` baseliningJobName
+    _salt
+      `Prelude.hashWithSalt` baseliningJobName
       `Prelude.hashWithSalt` constraintsResource
       `Prelude.hashWithSalt` statisticsResource
 

@@ -163,21 +163,23 @@ instance Core.AWSPager ListActions where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listActionsResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listActionsResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listActionsResponse_actionSummaries
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listActions_nextToken
           Lens..~ rs
-          Lens.^? listActionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listActionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListActions where
   type AWSResponse ListActions = ListActionsResponse
@@ -187,7 +189,8 @@ instance Core.AWSRequest ListActions where
     Response.receiveJSON
       ( \s h x ->
           ListActionsResponse'
-            Prelude.<$> ( x Data..?> "ActionSummaries"
+            Prelude.<$> ( x
+                            Data..?> "ActionSummaries"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Data..?> "NextToken")
@@ -196,7 +199,8 @@ instance Core.AWSRequest ListActions where
 
 instance Prelude.Hashable ListActions where
   hashWithSalt _salt ListActions' {..} =
-    _salt `Prelude.hashWithSalt` actionType
+    _salt
+      `Prelude.hashWithSalt` actionType
       `Prelude.hashWithSalt` createdAfter
       `Prelude.hashWithSalt` createdBefore
       `Prelude.hashWithSalt` maxResults

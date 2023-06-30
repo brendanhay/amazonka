@@ -188,7 +188,8 @@ instance Core.AWSRequest CreateWorkforce where
 
 instance Prelude.Hashable CreateWorkforce where
   hashWithSalt _salt CreateWorkforce' {..} =
-    _salt `Prelude.hashWithSalt` cognitoConfig
+    _salt
+      `Prelude.hashWithSalt` cognitoConfig
       `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` sourceIpConfig
       `Prelude.hashWithSalt` tags

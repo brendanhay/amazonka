@@ -232,7 +232,8 @@ instance Data.FromJSON Channel where
 
 instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
-    _salt `Prelude.hashWithSalt` compressionType
+    _salt
+      `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` contentType
       `Prelude.hashWithSalt` inputMode
       `Prelude.hashWithSalt` recordWrapperType

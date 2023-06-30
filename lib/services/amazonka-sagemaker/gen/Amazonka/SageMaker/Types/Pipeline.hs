@@ -186,7 +186,8 @@ instance Data.FromJSON Pipeline where
 
 instance Prelude.Hashable Pipeline where
   hashWithSalt _salt Pipeline' {..} =
-    _salt `Prelude.hashWithSalt` createdBy
+    _salt
+      `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` lastModifiedBy
       `Prelude.hashWithSalt` lastModifiedTime

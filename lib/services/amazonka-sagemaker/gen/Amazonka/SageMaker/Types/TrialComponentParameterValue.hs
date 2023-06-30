@@ -87,7 +87,8 @@ instance
     TrialComponentParameterValue
   where
   hashWithSalt _salt TrialComponentParameterValue' {..} =
-    _salt `Prelude.hashWithSalt` numberValue
+    _salt
+      `Prelude.hashWithSalt` numberValue
       `Prelude.hashWithSalt` stringValue
 
 instance Prelude.NFData TrialComponentParameterValue where

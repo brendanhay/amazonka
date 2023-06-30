@@ -120,7 +120,8 @@ instance Data.FromJSON ActionTypeUrls where
 
 instance Prelude.Hashable ActionTypeUrls where
   hashWithSalt _salt ActionTypeUrls' {..} =
-    _salt `Prelude.hashWithSalt` configurationUrl
+    _salt
+      `Prelude.hashWithSalt` configurationUrl
       `Prelude.hashWithSalt` entityUrlTemplate
       `Prelude.hashWithSalt` executionUrlTemplate
       `Prelude.hashWithSalt` revisionUrlTemplate

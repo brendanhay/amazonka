@@ -187,7 +187,8 @@ instance Data.FromJSON ActionExecution where
 
 instance Prelude.Hashable ActionExecution where
   hashWithSalt _salt ActionExecution' {..} =
-    _salt `Prelude.hashWithSalt` actionExecutionId
+    _salt
+      `Prelude.hashWithSalt` actionExecutionId
       `Prelude.hashWithSalt` errorDetails
       `Prelude.hashWithSalt` externalExecutionId
       `Prelude.hashWithSalt` externalExecutionUrl

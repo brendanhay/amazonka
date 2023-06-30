@@ -87,7 +87,8 @@ instance
   hashWithSalt
     _salt
     JobWorkerExecutorConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` pollingAccounts
+      _salt
+        `Prelude.hashWithSalt` pollingAccounts
         `Prelude.hashWithSalt` pollingServicePrincipals
 
 instance

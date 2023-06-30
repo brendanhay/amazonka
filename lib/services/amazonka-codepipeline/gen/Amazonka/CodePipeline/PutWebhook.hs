@@ -120,7 +120,8 @@ instance Core.AWSRequest PutWebhook where
 
 instance Prelude.Hashable PutWebhook where
   hashWithSalt _salt PutWebhook' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` webhook
 
 instance Prelude.NFData PutWebhook where

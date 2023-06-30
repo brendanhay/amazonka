@@ -101,7 +101,8 @@ instance Core.AWSRequest PutJobFailureResult where
 
 instance Prelude.Hashable PutJobFailureResult where
   hashWithSalt _salt PutJobFailureResult' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` failureDetails
 
 instance Prelude.NFData PutJobFailureResult where

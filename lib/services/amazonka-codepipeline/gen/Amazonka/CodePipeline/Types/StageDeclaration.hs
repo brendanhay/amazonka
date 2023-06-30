@@ -88,7 +88,8 @@ instance Data.FromJSON StageDeclaration where
 
 instance Prelude.Hashable StageDeclaration where
   hashWithSalt _salt StageDeclaration' {..} =
-    _salt `Prelude.hashWithSalt` blockers
+    _salt
+      `Prelude.hashWithSalt` blockers
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` actions
 

@@ -195,7 +195,8 @@ instance Data.FromJSON PipelineExecutionSummary where
           PipelineExecutionSummary'
             Prelude.<$> (x Data..:? "lastUpdateTime")
             Prelude.<*> (x Data..:? "pipelineExecutionId")
-            Prelude.<*> ( x Data..:? "sourceRevisions"
+            Prelude.<*> ( x
+                            Data..:? "sourceRevisions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "startTime")
@@ -206,7 +207,8 @@ instance Data.FromJSON PipelineExecutionSummary where
 
 instance Prelude.Hashable PipelineExecutionSummary where
   hashWithSalt _salt PipelineExecutionSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastUpdateTime
+    _salt
+      `Prelude.hashWithSalt` lastUpdateTime
       `Prelude.hashWithSalt` pipelineExecutionId
       `Prelude.hashWithSalt` sourceRevisions
       `Prelude.hashWithSalt` startTime

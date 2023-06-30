@@ -92,7 +92,8 @@ instance Data.FromJSON ThirdPartyJobDetails where
 
 instance Prelude.Hashable ThirdPartyJobDetails where
   hashWithSalt _salt ThirdPartyJobDetails' {..} =
-    _salt `Prelude.hashWithSalt` data'
+    _salt
+      `Prelude.hashWithSalt` data'
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` nonce
 

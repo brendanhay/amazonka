@@ -110,7 +110,8 @@ instance Core.AWSRequest PollForThirdPartyJobs where
 
 instance Prelude.Hashable PollForThirdPartyJobs where
   hashWithSalt _salt PollForThirdPartyJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxBatchSize
+    _salt
+      `Prelude.hashWithSalt` maxBatchSize
       `Prelude.hashWithSalt` actionTypeId
 
 instance Prelude.NFData PollForThirdPartyJobs where

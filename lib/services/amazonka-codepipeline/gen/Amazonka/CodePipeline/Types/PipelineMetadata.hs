@@ -84,7 +84,8 @@ instance Data.FromJSON PipelineMetadata where
 
 instance Prelude.Hashable PipelineMetadata where
   hashWithSalt _salt PipelineMetadata' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` pipelineArn
       `Prelude.hashWithSalt` updated
 

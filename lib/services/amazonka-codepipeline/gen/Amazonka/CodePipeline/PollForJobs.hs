@@ -132,7 +132,8 @@ instance Core.AWSRequest PollForJobs where
 
 instance Prelude.Hashable PollForJobs where
   hashWithSalt _salt PollForJobs' {..} =
-    _salt `Prelude.hashWithSalt` maxBatchSize
+    _salt
+      `Prelude.hashWithSalt` maxBatchSize
       `Prelude.hashWithSalt` queryParam
       `Prelude.hashWithSalt` actionTypeId
 

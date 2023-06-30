@@ -754,80 +754,80 @@ defaultService =
         }
     check e
       | Lens.has (Core.hasStatus 502) e =
-        Prelude.Just "bad_gateway"
+          Prelude.Just "bad_gateway"
       | Lens.has (Core.hasStatus 504) e =
-        Prelude.Just "gateway_timeout"
+          Prelude.Just "gateway_timeout"
       | Lens.has (Core.hasStatus 500) e =
-        Prelude.Just "general_server_error"
+          Prelude.Just "general_server_error"
       | Lens.has (Core.hasStatus 509) e =
-        Prelude.Just "limit_exceeded"
+          Prelude.Just "limit_exceeded"
       | Lens.has
           ( Core.hasCode "RequestThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "request_throttled_exception"
+          Prelude.Just "request_throttled_exception"
       | Lens.has (Core.hasStatus 503) e =
-        Prelude.Just "service_unavailable"
+          Prelude.Just "service_unavailable"
       | Lens.has
           ( Core.hasCode "ThrottledException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttled_exception"
+          Prelude.Just "throttled_exception"
       | Lens.has
           ( Core.hasCode "Throttling"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling"
+          Prelude.Just "throttling"
       | Lens.has
           ( Core.hasCode "ThrottlingException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throttling_exception"
+          Prelude.Just "throttling_exception"
       | Lens.has
           ( Core.hasCode
               "ProvisionedThroughputExceededException"
               Prelude.. Core.hasStatus 400
           )
           e =
-        Prelude.Just "throughput_exceeded"
+          Prelude.Just "throughput_exceeded"
       | Lens.has (Core.hasStatus 429) e =
-        Prelude.Just "too_many_requests"
+          Prelude.Just "too_many_requests"
       | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified action cannot be found.
-_ActionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ActionNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ActionNotFoundException =
   Core._MatchServiceError
     defaultService
     "ActionNotFoundException"
 
 -- | The specified action type already exists with a different definition.
-_ActionTypeAlreadyExistsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ActionTypeAlreadyExistsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ActionTypeAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ActionTypeAlreadyExistsException"
 
 -- | The specified action type cannot be found.
-_ActionTypeNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ActionTypeNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ActionTypeNotFoundException =
   Core._MatchServiceError
     defaultService
     "ActionTypeNotFoundException"
 
 -- | The approval action has already been approved or rejected.
-_ApprovalAlreadyCompletedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ApprovalAlreadyCompletedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ApprovalAlreadyCompletedException =
   Core._MatchServiceError
     defaultService
     "ApprovalAlreadyCompletedException"
 
 -- | Unable to modify the tag due to a simultaneous update request.
-_ConcurrentModificationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConcurrentModificationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
@@ -835,7 +835,7 @@ _ConcurrentModificationException =
 
 -- | Your request cannot be handled because the pipeline is busy handling
 -- ongoing activities. Try again later.
-_ConflictException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ConflictException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
@@ -846,56 +846,56 @@ _ConflictException =
 -- choose to stop and abandon now, but be aware that this option can lead
 -- to failed tasks or out of sequence tasks. If you already chose to stop
 -- and abandon, you cannot make that request again.
-_DuplicatedStopRequestException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_DuplicatedStopRequestException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _DuplicatedStopRequestException =
   Core._MatchServiceError
     defaultService
     "DuplicatedStopRequestException"
 
 -- | The action declaration was specified in an invalid format.
-_InvalidActionDeclarationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidActionDeclarationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidActionDeclarationException =
   Core._MatchServiceError
     defaultService
     "InvalidActionDeclarationException"
 
 -- | The approval request already received a response or has expired.
-_InvalidApprovalTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidApprovalTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidApprovalTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidApprovalTokenException"
 
 -- | The specified resource ARN is invalid.
-_InvalidArnException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidArnException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidArnException =
   Core._MatchServiceError
     defaultService
     "InvalidArnException"
 
 -- | Reserved for future use.
-_InvalidBlockerDeclarationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidBlockerDeclarationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidBlockerDeclarationException =
   Core._MatchServiceError
     defaultService
     "InvalidBlockerDeclarationException"
 
 -- | The client token was specified in an invalid format
-_InvalidClientTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidClientTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidClientTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidClientTokenException"
 
 -- | The job was specified in an invalid format or cannot be found.
-_InvalidJobException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidJobException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidJobException =
   Core._MatchServiceError
     defaultService
     "InvalidJobException"
 
 -- | The job state was specified in an invalid format.
-_InvalidJobStateException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidJobStateException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidJobStateException =
   Core._MatchServiceError
     defaultService
@@ -903,56 +903,56 @@ _InvalidJobStateException =
 
 -- | The next token was specified in an invalid format. Make sure that the
 -- next token you provide is the token returned by a previous call.
-_InvalidNextTokenException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNextTokenException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
 
 -- | The nonce was specified in an invalid format.
-_InvalidNonceException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidNonceException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidNonceException =
   Core._MatchServiceError
     defaultService
     "InvalidNonceException"
 
 -- | The stage declaration was specified in an invalid format.
-_InvalidStageDeclarationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStageDeclarationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStageDeclarationException =
   Core._MatchServiceError
     defaultService
     "InvalidStageDeclarationException"
 
 -- | The structure was specified in an invalid format.
-_InvalidStructureException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidStructureException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidStructureException =
   Core._MatchServiceError
     defaultService
     "InvalidStructureException"
 
 -- | The specified resource tags are invalid.
-_InvalidTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidTagsException =
   Core._MatchServiceError
     defaultService
     "InvalidTagsException"
 
 -- | The specified authentication type is in an invalid format.
-_InvalidWebhookAuthenticationParametersException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidWebhookAuthenticationParametersException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidWebhookAuthenticationParametersException =
   Core._MatchServiceError
     defaultService
     "InvalidWebhookAuthenticationParametersException"
 
 -- | The specified event filter rule is in an invalid format.
-_InvalidWebhookFilterPatternException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_InvalidWebhookFilterPatternException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _InvalidWebhookFilterPatternException =
   Core._MatchServiceError
     defaultService
     "InvalidWebhookFilterPatternException"
 
 -- | The job was specified in an invalid format or cannot be found.
-_JobNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_JobNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _JobNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -960,7 +960,7 @@ _JobNotFoundException =
 
 -- | The number of pipelines associated with the AWS account has exceeded the
 -- limit allowed for the account.
-_LimitExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_LimitExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
@@ -968,14 +968,14 @@ _LimitExceededException =
 
 -- | The stage has failed in a later run of the pipeline and the
 -- pipelineExecutionId associated with the request is out of date.
-_NotLatestPipelineExecutionException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_NotLatestPipelineExecutionException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _NotLatestPipelineExecutionException =
   Core._MatchServiceError
     defaultService
     "NotLatestPipelineExecutionException"
 
 -- | Exceeded the total size limit for all variables in the pipeline.
-_OutputVariablesSizeExceededException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_OutputVariablesSizeExceededException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _OutputVariablesSizeExceededException =
   Core._MatchServiceError
     defaultService
@@ -983,7 +983,7 @@ _OutputVariablesSizeExceededException =
 
 -- | The pipeline execution was specified in an invalid format or cannot be
 -- found, or an execution ID does not belong to the specified pipeline.
-_PipelineExecutionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PipelineExecutionNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PipelineExecutionNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -991,21 +991,21 @@ _PipelineExecutionNotFoundException =
 
 -- | Unable to stop the pipeline execution. The execution might already be in
 -- a @Stopped@ state, or it might no longer be in progress.
-_PipelineExecutionNotStoppableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PipelineExecutionNotStoppableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PipelineExecutionNotStoppableException =
   Core._MatchServiceError
     defaultService
     "PipelineExecutionNotStoppableException"
 
 -- | The specified pipeline name is already in use.
-_PipelineNameInUseException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PipelineNameInUseException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PipelineNameInUseException =
   Core._MatchServiceError
     defaultService
     "PipelineNameInUseException"
 
 -- | The pipeline was specified in an invalid format or cannot be found.
-_PipelineNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PipelineNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PipelineNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1013,28 +1013,28 @@ _PipelineNotFoundException =
 
 -- | The pipeline version was specified in an invalid format or cannot be
 -- found.
-_PipelineVersionNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_PipelineVersionNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _PipelineVersionNotFoundException =
   Core._MatchServiceError
     defaultService
     "PipelineVersionNotFoundException"
 
 -- | The request failed because of an unknown error, exception, or failure.
-_RequestFailedException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_RequestFailedException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _RequestFailedException =
   Core._MatchServiceError
     defaultService
     "RequestFailedException"
 
 -- | The resource was specified in an invalid format.
-_ResourceNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ResourceNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
 -- | The stage was specified in an invalid format or cannot be found.
-_StageNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StageNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StageNotFoundException =
   Core._MatchServiceError
     defaultService
@@ -1043,21 +1043,21 @@ _StageNotFoundException =
 -- | Unable to retry. The pipeline structure or stage state might have
 -- changed while actions awaited retry, or the stage contains no failed
 -- actions.
-_StageNotRetryableException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_StageNotRetryableException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _StageNotRetryableException =
   Core._MatchServiceError
     defaultService
     "StageNotRetryableException"
 
 -- | The tags limit for a resource has been exceeded.
-_TooManyTagsException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_TooManyTagsException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _TooManyTagsException =
   Core._MatchServiceError
     defaultService
     "TooManyTagsException"
 
 -- | The validation was specified in an invalid format.
-_ValidationException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_ValidationException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
     defaultService
@@ -1065,7 +1065,7 @@ _ValidationException =
 
 -- | The specified webhook was entered in an invalid format or cannot be
 -- found.
-_WebhookNotFoundException :: Core.AsError a => Lens.Fold a Core.ServiceError
+_WebhookNotFoundException :: (Core.AsError a) => Lens.Fold a Core.ServiceError
 _WebhookNotFoundException =
   Core._MatchServiceError
     defaultService

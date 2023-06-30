@@ -156,7 +156,8 @@ instance Data.FromJSON JobData where
             Prelude.<*> (x Data..:? "continuationToken")
             Prelude.<*> (x Data..:? "encryptionKey")
             Prelude.<*> (x Data..:? "inputArtifacts" Data..!= Prelude.mempty)
-            Prelude.<*> ( x Data..:? "outputArtifacts"
+            Prelude.<*> ( x
+                            Data..:? "outputArtifacts"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "pipelineContext")
@@ -164,7 +165,8 @@ instance Data.FromJSON JobData where
 
 instance Prelude.Hashable JobData where
   hashWithSalt _salt JobData' {..} =
-    _salt `Prelude.hashWithSalt` actionConfiguration
+    _salt
+      `Prelude.hashWithSalt` actionConfiguration
       `Prelude.hashWithSalt` actionTypeId
       `Prelude.hashWithSalt` artifactCredentials
       `Prelude.hashWithSalt` continuationToken

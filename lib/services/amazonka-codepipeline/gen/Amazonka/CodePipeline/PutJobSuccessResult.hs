@@ -157,7 +157,8 @@ instance Core.AWSRequest PutJobSuccessResult where
 
 instance Prelude.Hashable PutJobSuccessResult where
   hashWithSalt _salt PutJobSuccessResult' {..} =
-    _salt `Prelude.hashWithSalt` continuationToken
+    _salt
+      `Prelude.hashWithSalt` continuationToken
       `Prelude.hashWithSalt` currentRevision
       `Prelude.hashWithSalt` executionDetails
       `Prelude.hashWithSalt` outputVariables

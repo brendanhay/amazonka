@@ -141,7 +141,8 @@ instance Data.FromJSON ArtifactRevision where
 
 instance Prelude.Hashable ArtifactRevision where
   hashWithSalt _salt ArtifactRevision' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` revisionChangeIdentifier
       `Prelude.hashWithSalt` revisionId

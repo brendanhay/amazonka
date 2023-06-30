@@ -116,7 +116,8 @@ instance Data.FromJSON PipelineContext where
 
 instance Prelude.Hashable PipelineContext where
   hashWithSalt _salt PipelineContext' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` pipelineArn
       `Prelude.hashWithSalt` pipelineExecutionId
       `Prelude.hashWithSalt` pipelineName

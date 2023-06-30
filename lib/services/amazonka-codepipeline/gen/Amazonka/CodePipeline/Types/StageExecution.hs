@@ -92,7 +92,8 @@ instance Data.FromJSON StageExecution where
 
 instance Prelude.Hashable StageExecution where
   hashWithSalt _salt StageExecution' {..} =
-    _salt `Prelude.hashWithSalt` pipelineExecutionId
+    _salt
+      `Prelude.hashWithSalt` pipelineExecutionId
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData StageExecution where

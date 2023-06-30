@@ -149,7 +149,8 @@ instance Data.FromJSON ActionTypeIdentifier where
 
 instance Prelude.Hashable ActionTypeIdentifier where
   hashWithSalt _salt ActionTypeIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` category
+    _salt
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` provider
       `Prelude.hashWithSalt` version

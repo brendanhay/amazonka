@@ -72,7 +72,8 @@ approvalResult_status = Lens.lens (\ApprovalResult' {status} -> status) (\s@Appr
 
 instance Prelude.Hashable ApprovalResult where
   hashWithSalt _salt ApprovalResult' {..} =
-    _salt `Prelude.hashWithSalt` summary
+    _salt
+      `Prelude.hashWithSalt` summary
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData ApprovalResult where

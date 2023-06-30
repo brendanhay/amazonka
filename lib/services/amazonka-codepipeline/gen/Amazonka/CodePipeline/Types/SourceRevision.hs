@@ -121,7 +121,8 @@ instance Data.FromJSON SourceRevision where
 
 instance Prelude.Hashable SourceRevision where
   hashWithSalt _salt SourceRevision' {..} =
-    _salt `Prelude.hashWithSalt` revisionId
+    _salt
+      `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` revisionSummary
       `Prelude.hashWithSalt` revisionUrl
       `Prelude.hashWithSalt` actionName

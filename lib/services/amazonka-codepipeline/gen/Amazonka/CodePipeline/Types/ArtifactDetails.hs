@@ -78,7 +78,8 @@ instance Data.FromJSON ArtifactDetails where
 
 instance Prelude.Hashable ArtifactDetails where
   hashWithSalt _salt ArtifactDetails' {..} =
-    _salt `Prelude.hashWithSalt` minimumCount
+    _salt
+      `Prelude.hashWithSalt` minimumCount
       `Prelude.hashWithSalt` maximumCount
 
 instance Prelude.NFData ArtifactDetails where

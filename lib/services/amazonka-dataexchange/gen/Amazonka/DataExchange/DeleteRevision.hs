@@ -95,7 +95,8 @@ instance Core.AWSRequest DeleteRevision where
 
 instance Prelude.Hashable DeleteRevision where
   hashWithSalt _salt DeleteRevision' {..} =
-    _salt `Prelude.hashWithSalt` dataSetId
+    _salt
+      `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` revisionId
 
 instance Prelude.NFData DeleteRevision where

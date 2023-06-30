@@ -82,7 +82,8 @@ instance
   hashWithSalt
     _salt
     TableLFTagPolicyAndPermissions' {..} =
-      _salt `Prelude.hashWithSalt` expression
+      _salt
+        `Prelude.hashWithSalt` expression
         `Prelude.hashWithSalt` permissions
 
 instance

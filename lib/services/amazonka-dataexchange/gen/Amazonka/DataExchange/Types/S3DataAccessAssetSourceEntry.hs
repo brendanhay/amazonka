@@ -93,7 +93,8 @@ instance
     S3DataAccessAssetSourceEntry
   where
   hashWithSalt _salt S3DataAccessAssetSourceEntry' {..} =
-    _salt `Prelude.hashWithSalt` keyPrefixes
+    _salt
+      `Prelude.hashWithSalt` keyPrefixes
       `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` bucket
 

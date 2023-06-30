@@ -185,7 +185,8 @@ instance Core.AWSRequest SendApiAsset where
 
 instance Prelude.Hashable SendApiAsset where
   hashWithSalt _salt SendApiAsset' {..} =
-    _salt `Prelude.hashWithSalt` body
+    _salt
+      `Prelude.hashWithSalt` body
       `Prelude.hashWithSalt` method
       `Prelude.hashWithSalt` path
       `Prelude.hashWithSalt` queryStringParameters

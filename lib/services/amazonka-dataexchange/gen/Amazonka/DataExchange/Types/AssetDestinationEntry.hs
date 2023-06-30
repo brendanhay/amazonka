@@ -88,7 +88,8 @@ instance Data.FromJSON AssetDestinationEntry where
 
 instance Prelude.Hashable AssetDestinationEntry where
   hashWithSalt _salt AssetDestinationEntry' {..} =
-    _salt `Prelude.hashWithSalt` key
+    _salt
+      `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` bucket
 

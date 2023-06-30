@@ -92,7 +92,8 @@ instance
   hashWithSalt
     _salt
     AutoExportRevisionToS3RequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` encryption
+      _salt
+        `Prelude.hashWithSalt` encryption
         `Prelude.hashWithSalt` revisionDestination
 
 instance

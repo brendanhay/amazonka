@@ -159,7 +159,8 @@ instance
   hashWithSalt
     _salt
     ImportAssetFromApiGatewayApiRequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` apiDescription
+      _salt
+        `Prelude.hashWithSalt` apiDescription
         `Prelude.hashWithSalt` apiKey
         `Prelude.hashWithSalt` apiId
         `Prelude.hashWithSalt` apiName

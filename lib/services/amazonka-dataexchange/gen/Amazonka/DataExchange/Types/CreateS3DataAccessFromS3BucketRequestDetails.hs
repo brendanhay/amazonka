@@ -93,7 +93,8 @@ instance
   hashWithSalt
     _salt
     CreateS3DataAccessFromS3BucketRequestDetails' {..} =
-      _salt `Prelude.hashWithSalt` assetSource
+      _salt
+        `Prelude.hashWithSalt` assetSource
         `Prelude.hashWithSalt` dataSetId
         `Prelude.hashWithSalt` revisionId
 

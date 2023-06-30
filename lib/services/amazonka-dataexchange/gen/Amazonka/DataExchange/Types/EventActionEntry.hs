@@ -139,7 +139,8 @@ instance Data.FromJSON EventActionEntry where
 
 instance Prelude.Hashable EventActionEntry where
   hashWithSalt _salt EventActionEntry' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` event

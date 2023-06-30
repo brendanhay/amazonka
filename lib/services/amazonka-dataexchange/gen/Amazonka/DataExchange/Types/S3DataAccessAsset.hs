@@ -118,7 +118,8 @@ instance Data.FromJSON S3DataAccessAsset where
 
 instance Prelude.Hashable S3DataAccessAsset where
   hashWithSalt _salt S3DataAccessAsset' {..} =
-    _salt `Prelude.hashWithSalt` keyPrefixes
+    _salt
+      `Prelude.hashWithSalt` keyPrefixes
       `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` s3AccessPointAlias
       `Prelude.hashWithSalt` s3AccessPointArn

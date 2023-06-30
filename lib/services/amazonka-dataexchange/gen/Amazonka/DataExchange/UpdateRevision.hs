@@ -150,7 +150,8 @@ instance Core.AWSRequest UpdateRevision where
 
 instance Prelude.Hashable UpdateRevision where
   hashWithSalt _salt UpdateRevision' {..} =
-    _salt `Prelude.hashWithSalt` comment
+    _salt
+      `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` finalized
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` revisionId

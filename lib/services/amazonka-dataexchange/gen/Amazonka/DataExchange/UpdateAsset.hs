@@ -169,7 +169,8 @@ instance Core.AWSRequest UpdateAsset where
 
 instance Prelude.Hashable UpdateAsset where
   hashWithSalt _salt UpdateAsset' {..} =
-    _salt `Prelude.hashWithSalt` assetId
+    _salt
+      `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` revisionId

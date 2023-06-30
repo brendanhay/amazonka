@@ -109,7 +109,8 @@ instance Data.FromJSON AssetDetails where
 
 instance Prelude.Hashable AssetDetails where
   hashWithSalt _salt AssetDetails' {..} =
-    _salt `Prelude.hashWithSalt` apiGatewayApiAsset
+    _salt
+      `Prelude.hashWithSalt` apiGatewayApiAsset
       `Prelude.hashWithSalt` lakeFormationDataPermissionAsset
       `Prelude.hashWithSalt` redshiftDataShareAsset
       `Prelude.hashWithSalt` s3DataAccessAsset

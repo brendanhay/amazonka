@@ -287,7 +287,8 @@ instance
   hashWithSalt
     _salt
     CreateSlackChannelConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` channelName
+      _salt
+        `Prelude.hashWithSalt` channelName
         `Prelude.hashWithSalt` notifyOnAddCorrespondenceToCase
         `Prelude.hashWithSalt` notifyOnCreateOrReopenCase
         `Prelude.hashWithSalt` notifyOnResolveCase

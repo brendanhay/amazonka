@@ -104,7 +104,8 @@ instance
           ListSlackChannelConfigurationsResponse'
             Prelude.<$> (x Data..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Data..?> "slackChannelConfigurations"
+            Prelude.<*> ( x
+                            Data..?> "slackChannelConfigurations"
                             Core..!@ Prelude.mempty
                         )
       )

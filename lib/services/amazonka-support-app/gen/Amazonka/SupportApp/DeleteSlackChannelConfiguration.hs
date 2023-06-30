@@ -120,7 +120,8 @@ instance
   hashWithSalt
     _salt
     DeleteSlackChannelConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` channelId
+      _salt
+        `Prelude.hashWithSalt` channelId
         `Prelude.hashWithSalt` teamId
 
 instance

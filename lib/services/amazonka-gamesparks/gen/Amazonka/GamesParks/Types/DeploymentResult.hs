@@ -75,7 +75,8 @@ instance Data.FromJSON DeploymentResult where
 
 instance Prelude.Hashable DeploymentResult where
   hashWithSalt _salt DeploymentResult' {..} =
-    _salt `Prelude.hashWithSalt` message
+    _salt
+      `Prelude.hashWithSalt` message
       `Prelude.hashWithSalt` resultCode
 
 instance Prelude.NFData DeploymentResult where

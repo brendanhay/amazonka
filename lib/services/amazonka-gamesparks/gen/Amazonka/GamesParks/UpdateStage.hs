@@ -125,7 +125,8 @@ instance Core.AWSRequest UpdateStage where
 
 instance Prelude.Hashable UpdateStage where
   hashWithSalt _salt UpdateStage' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` stageName

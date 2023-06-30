@@ -117,7 +117,8 @@ instance Core.AWSRequest GetStageDeployment where
 
 instance Prelude.Hashable GetStageDeployment where
   hashWithSalt _salt GetStageDeployment' {..} =
-    _salt `Prelude.hashWithSalt` deploymentId
+    _salt
+      `Prelude.hashWithSalt` deploymentId
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` stageName
 

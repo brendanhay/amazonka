@@ -95,7 +95,8 @@ instance Data.FromJSON GameSummary where
 
 instance Prelude.Hashable GameSummary where
   hashWithSalt _salt GameSummary' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` tags

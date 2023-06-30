@@ -112,7 +112,8 @@ instance Core.AWSRequest GetSnapshot where
 
 instance Prelude.Hashable GetSnapshot where
   hashWithSalt _salt GetSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` sections
+    _salt
+      `Prelude.hashWithSalt` sections
       `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` snapshotId
 

@@ -120,7 +120,8 @@ instance Core.AWSRequest GetExtensionVersion where
 
 instance Prelude.Hashable GetExtensionVersion where
   hashWithSalt _salt GetExtensionVersion' {..} =
-    _salt `Prelude.hashWithSalt` extensionVersion
+    _salt
+      `Prelude.hashWithSalt` extensionVersion
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` namespace
 

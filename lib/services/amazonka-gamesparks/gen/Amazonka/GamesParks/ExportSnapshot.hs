@@ -104,7 +104,8 @@ instance Core.AWSRequest ExportSnapshot where
 
 instance Prelude.Hashable ExportSnapshot where
   hashWithSalt _salt ExportSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` gameName
+    _salt
+      `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` snapshotId
 
 instance Prelude.NFData ExportSnapshot where

@@ -102,7 +102,8 @@ instance Core.AWSRequest CreateSnapshot where
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` gameName
 
 instance Prelude.NFData CreateSnapshot where

@@ -88,7 +88,8 @@ generator_targetPlatform = Lens.lens (\Generator' {targetPlatform} -> targetPlat
 
 instance Prelude.Hashable Generator where
   hashWithSalt _salt Generator' {..} =
-    _salt `Prelude.hashWithSalt` gameSdkVersion
+    _salt
+      `Prelude.hashWithSalt` gameSdkVersion
       `Prelude.hashWithSalt` language
       `Prelude.hashWithSalt` targetPlatform
 

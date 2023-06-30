@@ -109,7 +109,8 @@ instance Core.AWSRequest ImportGameConfiguration where
 
 instance Prelude.Hashable ImportGameConfiguration where
   hashWithSalt _salt ImportGameConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` gameName
+    _salt
+      `Prelude.hashWithSalt` gameName
       `Prelude.hashWithSalt` importSource
 
 instance Prelude.NFData ImportGameConfiguration where

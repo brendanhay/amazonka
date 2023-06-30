@@ -90,7 +90,8 @@ instance Data.FromJSON GameConfigurationDetails where
 
 instance Prelude.Hashable GameConfigurationDetails where
   hashWithSalt _salt GameConfigurationDetails' {..} =
-    _salt `Prelude.hashWithSalt` created
+    _salt
+      `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` lastUpdated
       `Prelude.hashWithSalt` sections
 

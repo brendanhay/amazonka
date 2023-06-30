@@ -115,21 +115,22 @@ instance Core.AWSPager ListExtensions where
     | Core.stop
         ( rs
             Lens.^? listExtensionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listExtensionsResponse_extensions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listExtensions_nextToken
           Lens..~ rs
-          Lens.^? listExtensionsResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listExtensionsResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExtensions where
   type
@@ -148,7 +149,8 @@ instance Core.AWSRequest ListExtensions where
 
 instance Prelude.Hashable ListExtensions where
   hashWithSalt _salt ListExtensions' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListExtensions where

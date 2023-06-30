@@ -110,7 +110,8 @@ instance Core.AWSRequest DeleteArchiveRule where
 
 instance Prelude.Hashable DeleteArchiveRule where
   hashWithSalt _salt DeleteArchiveRule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` analyzerName
       `Prelude.hashWithSalt` ruleName
 

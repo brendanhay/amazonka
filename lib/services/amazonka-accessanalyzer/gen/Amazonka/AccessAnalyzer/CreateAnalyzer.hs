@@ -148,7 +148,8 @@ instance Core.AWSRequest CreateAnalyzer where
 
 instance Prelude.Hashable CreateAnalyzer where
   hashWithSalt _salt CreateAnalyzer' {..} =
-    _salt `Prelude.hashWithSalt` archiveRules
+    _salt
+      `Prelude.hashWithSalt` archiveRules
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` analyzerName

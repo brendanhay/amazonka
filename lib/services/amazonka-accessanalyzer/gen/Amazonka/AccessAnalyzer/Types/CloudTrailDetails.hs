@@ -105,7 +105,8 @@ cloudTrailDetails_startTime = Lens.lens (\CloudTrailDetails' {startTime} -> star
 
 instance Prelude.Hashable CloudTrailDetails where
   hashWithSalt _salt CloudTrailDetails' {..} =
-    _salt `Prelude.hashWithSalt` endTime
+    _salt
+      `Prelude.hashWithSalt` endTime
       `Prelude.hashWithSalt` trails
       `Prelude.hashWithSalt` accessRole
       `Prelude.hashWithSalt` startTime

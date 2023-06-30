@@ -162,7 +162,8 @@ instance Data.FromJSON AccessPreview where
 
 instance Prelude.Hashable AccessPreview where
   hashWithSalt _salt AccessPreview' {..} =
-    _salt `Prelude.hashWithSalt` statusReason
+    _salt
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` analyzerArn
       `Prelude.hashWithSalt` configurations

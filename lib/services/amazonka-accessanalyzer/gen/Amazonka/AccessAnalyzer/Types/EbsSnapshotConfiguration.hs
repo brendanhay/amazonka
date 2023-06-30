@@ -194,7 +194,8 @@ instance Data.FromJSON EbsSnapshotConfiguration where
 
 instance Prelude.Hashable EbsSnapshotConfiguration where
   hashWithSalt _salt EbsSnapshotConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` groups
+    _salt
+      `Prelude.hashWithSalt` groups
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` userIds
 

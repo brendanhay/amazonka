@@ -86,7 +86,8 @@ instance Data.FromJSON NetworkOriginConfiguration where
 
 instance Prelude.Hashable NetworkOriginConfiguration where
   hashWithSalt _salt NetworkOriginConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` internetConfiguration
+    _salt
+      `Prelude.hashWithSalt` internetConfiguration
       `Prelude.hashWithSalt` vpcConfiguration
 
 instance Prelude.NFData NetworkOriginConfiguration where

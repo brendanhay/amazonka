@@ -124,7 +124,8 @@ instance Core.AWSRequest CreateArchiveRule where
 
 instance Prelude.Hashable CreateArchiveRule where
   hashWithSalt _salt CreateArchiveRule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` analyzerName
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` filter'

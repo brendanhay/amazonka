@@ -310,7 +310,8 @@ instance Data.FromJSON AccessPreviewFinding where
 
 instance Prelude.Hashable AccessPreviewFinding where
   hashWithSalt _salt AccessPreviewFinding' {..} =
-    _salt `Prelude.hashWithSalt` action
+    _salt
+      `Prelude.hashWithSalt` action
       `Prelude.hashWithSalt` condition
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` existingFindingId

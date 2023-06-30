@@ -120,7 +120,8 @@ instance Core.AWSRequest UpdateArchiveRule where
 
 instance Prelude.Hashable UpdateArchiveRule where
   hashWithSalt _salt UpdateArchiveRule' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` analyzerName
       `Prelude.hashWithSalt` ruleName
       `Prelude.hashWithSalt` filter'

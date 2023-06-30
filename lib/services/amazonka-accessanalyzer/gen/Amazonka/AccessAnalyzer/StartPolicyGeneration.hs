@@ -143,7 +143,8 @@ instance Core.AWSRequest StartPolicyGeneration where
 
 instance Prelude.Hashable StartPolicyGeneration where
   hashWithSalt _salt StartPolicyGeneration' {..} =
-    _salt `Prelude.hashWithSalt` clientToken
+    _salt
+      `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` cloudTrailDetails
       `Prelude.hashWithSalt` policyGenerationDetails
 

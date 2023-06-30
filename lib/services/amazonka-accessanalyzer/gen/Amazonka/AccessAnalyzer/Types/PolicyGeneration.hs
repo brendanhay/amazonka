@@ -129,7 +129,8 @@ instance Data.FromJSON PolicyGeneration where
 
 instance Prelude.Hashable PolicyGeneration where
   hashWithSalt _salt PolicyGeneration' {..} =
-    _salt `Prelude.hashWithSalt` completedOn
+    _salt
+      `Prelude.hashWithSalt` completedOn
       `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` principalArn
       `Prelude.hashWithSalt` status

@@ -103,18 +103,20 @@ instance Core.AWSPager ListAnalyzers where
   page rq rs
     | Core.stop
         ( rs
-            Lens.^? listAnalyzersResponse_nextToken Prelude.. Lens._Just
+            Lens.^? listAnalyzersResponse_nextToken
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         (rs Lens.^. listAnalyzersResponse_analyzers) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listAnalyzers_nextToken
           Lens..~ rs
-          Lens.^? listAnalyzersResponse_nextToken Prelude.. Lens._Just
+          Lens.^? listAnalyzersResponse_nextToken
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAnalyzers where
   type
@@ -133,7 +135,8 @@ instance Core.AWSRequest ListAnalyzers where
 
 instance Prelude.Hashable ListAnalyzers where
   hashWithSalt _salt ListAnalyzers' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
 

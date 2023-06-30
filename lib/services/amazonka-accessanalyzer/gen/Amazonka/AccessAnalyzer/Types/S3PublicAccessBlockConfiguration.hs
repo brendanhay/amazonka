@@ -104,7 +104,8 @@ instance
   hashWithSalt
     _salt
     S3PublicAccessBlockConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` ignorePublicAcls
+      _salt
+        `Prelude.hashWithSalt` ignorePublicAcls
         `Prelude.hashWithSalt` restrictPublicBuckets
 
 instance

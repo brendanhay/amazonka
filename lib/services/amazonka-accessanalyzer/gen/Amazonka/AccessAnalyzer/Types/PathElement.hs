@@ -95,7 +95,8 @@ instance Data.FromJSON PathElement where
 
 instance Prelude.Hashable PathElement where
   hashWithSalt _salt PathElement' {..} =
-    _salt `Prelude.hashWithSalt` index
+    _salt
+      `Prelude.hashWithSalt` index
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` substring
       `Prelude.hashWithSalt` value

@@ -196,7 +196,8 @@ instance Data.FromJSON AnalyzedResource where
 
 instance Prelude.Hashable AnalyzedResource where
   hashWithSalt _salt AnalyzedResource' {..} =
-    _salt `Prelude.hashWithSalt` actions
+    _salt
+      `Prelude.hashWithSalt` actions
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` sharedVia
       `Prelude.hashWithSalt` status

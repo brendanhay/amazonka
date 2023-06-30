@@ -172,7 +172,8 @@ instance Core.AWSRequest ShareDirectory where
 
 instance Prelude.Hashable ShareDirectory where
   hashWithSalt _salt ShareDirectory' {..} =
-    _salt `Prelude.hashWithSalt` shareNotes
+    _salt
+      `Prelude.hashWithSalt` shareNotes
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` shareTarget
       `Prelude.hashWithSalt` shareMethod

@@ -120,22 +120,22 @@ instance Core.AWSPager DescribeUpdateDirectory where
     | Core.stop
         ( rs
             Lens.^? describeUpdateDirectoryResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeUpdateDirectoryResponse_updateActivities
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeUpdateDirectory_nextToken
           Lens..~ rs
           Lens.^? describeUpdateDirectoryResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeUpdateDirectory where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest DescribeUpdateDirectory where
       ( \s h x ->
           DescribeUpdateDirectoryResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "UpdateActivities"
+            Prelude.<*> ( x
+                            Data..?> "UpdateActivities"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -156,7 +157,8 @@ instance Core.AWSRequest DescribeUpdateDirectory where
 
 instance Prelude.Hashable DescribeUpdateDirectory where
   hashWithSalt _salt DescribeUpdateDirectory' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt
+      `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` regionName
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` updateType

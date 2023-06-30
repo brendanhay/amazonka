@@ -102,7 +102,8 @@ instance Data.FromJSON ConditionalForwarder where
 
 instance Prelude.Hashable ConditionalForwarder where
   hashWithSalt _salt ConditionalForwarder' {..} =
-    _salt `Prelude.hashWithSalt` dnsIpAddrs
+    _salt
+      `Prelude.hashWithSalt` dnsIpAddrs
       `Prelude.hashWithSalt` remoteDomainName
       `Prelude.hashWithSalt` replicationScope
 

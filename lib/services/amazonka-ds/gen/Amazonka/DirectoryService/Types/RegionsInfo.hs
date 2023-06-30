@@ -75,7 +75,8 @@ instance Data.FromJSON RegionsInfo where
       "RegionsInfo"
       ( \x ->
           RegionsInfo'
-            Prelude.<$> ( x Data..:? "AdditionalRegions"
+            Prelude.<$> ( x
+                            Data..:? "AdditionalRegions"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "PrimaryRegion")
@@ -83,7 +84,8 @@ instance Data.FromJSON RegionsInfo where
 
 instance Prelude.Hashable RegionsInfo where
   hashWithSalt _salt RegionsInfo' {..} =
-    _salt `Prelude.hashWithSalt` additionalRegions
+    _salt
+      `Prelude.hashWithSalt` additionalRegions
       `Prelude.hashWithSalt` primaryRegion
 
 instance Prelude.NFData RegionsInfo where

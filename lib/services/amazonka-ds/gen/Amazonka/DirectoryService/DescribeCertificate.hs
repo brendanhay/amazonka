@@ -105,7 +105,8 @@ instance Core.AWSRequest DescribeCertificate where
 
 instance Prelude.Hashable DescribeCertificate where
   hashWithSalt _salt DescribeCertificate' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` certificateId
 
 instance Prelude.NFData DescribeCertificate where

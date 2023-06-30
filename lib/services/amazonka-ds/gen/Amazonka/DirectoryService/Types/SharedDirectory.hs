@@ -175,7 +175,8 @@ instance Data.FromJSON SharedDirectory where
 
 instance Prelude.Hashable SharedDirectory where
   hashWithSalt _salt SharedDirectory' {..} =
-    _salt `Prelude.hashWithSalt` createdDateTime
+    _salt
+      `Prelude.hashWithSalt` createdDateTime
       `Prelude.hashWithSalt` lastUpdatedDateTime
       `Prelude.hashWithSalt` ownerAccountId
       `Prelude.hashWithSalt` ownerDirectoryId

@@ -157,7 +157,8 @@ instance Data.FromJSON DomainController where
 
 instance Prelude.Hashable DomainController where
   hashWithSalt _salt DomainController' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZone
+    _salt
+      `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` dnsIpAddr
       `Prelude.hashWithSalt` domainControllerId

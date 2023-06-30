@@ -137,7 +137,8 @@ instance Core.AWSRequest ResetUserPassword where
 
 instance Prelude.Hashable ResetUserPassword where
   hashWithSalt _salt ResetUserPassword' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` userName
       `Prelude.hashWithSalt` newPassword'
 

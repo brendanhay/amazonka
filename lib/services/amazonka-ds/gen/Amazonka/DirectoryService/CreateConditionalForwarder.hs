@@ -131,7 +131,8 @@ instance Core.AWSRequest CreateConditionalForwarder where
 
 instance Prelude.Hashable CreateConditionalForwarder where
   hashWithSalt _salt CreateConditionalForwarder' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` remoteDomainName
       `Prelude.hashWithSalt` dnsIpAddrs
 

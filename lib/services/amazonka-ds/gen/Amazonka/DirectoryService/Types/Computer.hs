@@ -81,7 +81,8 @@ instance Data.FromJSON Computer where
       "Computer"
       ( \x ->
           Computer'
-            Prelude.<$> ( x Data..:? "ComputerAttributes"
+            Prelude.<$> ( x
+                            Data..:? "ComputerAttributes"
                             Data..!= Prelude.mempty
                         )
             Prelude.<*> (x Data..:? "ComputerId")
@@ -90,7 +91,8 @@ instance Data.FromJSON Computer where
 
 instance Prelude.Hashable Computer where
   hashWithSalt _salt Computer' {..} =
-    _salt `Prelude.hashWithSalt` computerAttributes
+    _salt
+      `Prelude.hashWithSalt` computerAttributes
       `Prelude.hashWithSalt` computerId
       `Prelude.hashWithSalt` computerName
 

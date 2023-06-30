@@ -176,7 +176,8 @@ instance Core.AWSRequest ConnectDirectory where
 
 instance Prelude.Hashable ConnectDirectory where
   hashWithSalt _salt ConnectDirectory' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` shortName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name

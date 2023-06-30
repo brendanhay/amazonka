@@ -110,22 +110,22 @@ instance Core.AWSPager ListSchemaExtensions where
     | Core.stop
         ( rs
             Lens.^? listSchemaExtensionsResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listSchemaExtensionsResponse_schemaExtensionsInfo
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listSchemaExtensions_nextToken
           Lens..~ rs
           Lens.^? listSchemaExtensionsResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSchemaExtensions where
   type
@@ -138,7 +138,8 @@ instance Core.AWSRequest ListSchemaExtensions where
       ( \s h x ->
           ListSchemaExtensionsResponse'
             Prelude.<$> (x Data..?> "NextToken")
-            Prelude.<*> ( x Data..?> "SchemaExtensionsInfo"
+            Prelude.<*> ( x
+                            Data..?> "SchemaExtensionsInfo"
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -146,7 +147,8 @@ instance Core.AWSRequest ListSchemaExtensions where
 
 instance Prelude.Hashable ListSchemaExtensions where
   hashWithSalt _salt ListSchemaExtensions' {..} =
-    _salt `Prelude.hashWithSalt` limit
+    _salt
+      `Prelude.hashWithSalt` limit
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` directoryId
 

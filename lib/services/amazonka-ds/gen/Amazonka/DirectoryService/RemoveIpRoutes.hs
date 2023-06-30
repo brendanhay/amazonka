@@ -103,7 +103,8 @@ instance Core.AWSRequest RemoveIpRoutes where
 
 instance Prelude.Hashable RemoveIpRoutes where
   hashWithSalt _salt RemoveIpRoutes' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` cidrIps
 
 instance Prelude.NFData RemoveIpRoutes where

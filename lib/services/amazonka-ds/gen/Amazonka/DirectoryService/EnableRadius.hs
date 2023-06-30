@@ -107,7 +107,8 @@ instance Core.AWSRequest EnableRadius where
 
 instance Prelude.Hashable EnableRadius where
   hashWithSalt _salt EnableRadius' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` radiusSettings
 
 instance Prelude.NFData EnableRadius where

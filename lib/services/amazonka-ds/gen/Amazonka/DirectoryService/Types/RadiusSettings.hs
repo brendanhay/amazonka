@@ -155,7 +155,8 @@ instance Data.FromJSON RadiusSettings where
 
 instance Prelude.Hashable RadiusSettings where
   hashWithSalt _salt RadiusSettings' {..} =
-    _salt `Prelude.hashWithSalt` authenticationProtocol
+    _salt
+      `Prelude.hashWithSalt` authenticationProtocol
       `Prelude.hashWithSalt` displayLabel
       `Prelude.hashWithSalt` radiusPort
       `Prelude.hashWithSalt` radiusRetries

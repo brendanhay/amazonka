@@ -109,7 +109,8 @@ instance Core.AWSRequest UpdateRadius where
 
 instance Prelude.Hashable UpdateRadius where
   hashWithSalt _salt UpdateRadius' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` radiusSettings
 
 instance Prelude.NFData UpdateRadius where

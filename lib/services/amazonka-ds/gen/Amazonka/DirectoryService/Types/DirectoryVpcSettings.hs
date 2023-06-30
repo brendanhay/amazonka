@@ -83,7 +83,8 @@ instance Data.FromJSON DirectoryVpcSettings where
 
 instance Prelude.Hashable DirectoryVpcSettings where
   hashWithSalt _salt DirectoryVpcSettings' {..} =
-    _salt `Prelude.hashWithSalt` vpcId
+    _salt
+      `Prelude.hashWithSalt` vpcId
       `Prelude.hashWithSalt` subnetIds
 
 instance Prelude.NFData DirectoryVpcSettings where

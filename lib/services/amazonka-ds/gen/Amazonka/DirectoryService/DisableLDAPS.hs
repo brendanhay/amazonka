@@ -103,7 +103,8 @@ instance Core.AWSRequest DisableLDAPS where
 
 instance Prelude.Hashable DisableLDAPS where
   hashWithSalt _salt DisableLDAPS' {..} =
-    _salt `Prelude.hashWithSalt` directoryId
+    _salt
+      `Prelude.hashWithSalt` directoryId
       `Prelude.hashWithSalt` type'
 
 instance Prelude.NFData DisableLDAPS where

@@ -256,7 +256,8 @@ instance Core.AWSRequest CreateDirectory where
 
 instance Prelude.Hashable CreateDirectory where
   hashWithSalt _salt CreateDirectory' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` shortName
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` vpcSettings

@@ -153,22 +153,22 @@ instance Core.AWSPager DescribeDBProxyTargetGroups where
     | Core.stop
         ( rs
             Lens.^? describeDBProxyTargetGroupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBProxyTargetGroupsResponse_targetGroups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBProxyTargetGroups_marker
           Lens..~ rs
           Lens.^? describeDBProxyTargetGroupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeDBProxyTargetGroups where
   type
@@ -182,7 +182,9 @@ instance Core.AWSRequest DescribeDBProxyTargetGroups where
       ( \s h x ->
           DescribeDBProxyTargetGroupsResponse'
             Prelude.<$> (x Data..@? "Marker")
-            Prelude.<*> ( x Data..@? "TargetGroups" Core..!@ Prelude.mempty
+            Prelude.<*> ( x
+                            Data..@? "TargetGroups"
+                            Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Data.parseXMLList "member")
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -190,7 +192,8 @@ instance Core.AWSRequest DescribeDBProxyTargetGroups where
 
 instance Prelude.Hashable DescribeDBProxyTargetGroups where
   hashWithSalt _salt DescribeDBProxyTargetGroups' {..} =
-    _salt `Prelude.hashWithSalt` filters
+    _salt
+      `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` maxRecords
       `Prelude.hashWithSalt` targetGroupName

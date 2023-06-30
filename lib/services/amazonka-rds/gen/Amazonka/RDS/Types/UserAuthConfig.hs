@@ -125,7 +125,8 @@ userAuthConfig_userName = Lens.lens (\UserAuthConfig' {userName} -> userName) (\
 
 instance Prelude.Hashable UserAuthConfig where
   hashWithSalt _salt UserAuthConfig' {..} =
-    _salt `Prelude.hashWithSalt` authScheme
+    _salt
+      `Prelude.hashWithSalt` authScheme
       `Prelude.hashWithSalt` clientPasswordAuthType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iAMAuth

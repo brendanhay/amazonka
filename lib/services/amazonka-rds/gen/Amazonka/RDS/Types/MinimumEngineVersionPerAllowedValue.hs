@@ -80,7 +80,8 @@ instance
   hashWithSalt
     _salt
     MinimumEngineVersionPerAllowedValue' {..} =
-      _salt `Prelude.hashWithSalt` allowedValue
+      _salt
+        `Prelude.hashWithSalt` allowedValue
         `Prelude.hashWithSalt` minimumEngineVersion
 
 instance

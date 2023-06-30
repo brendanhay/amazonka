@@ -130,7 +130,8 @@ instance Core.AWSRequest DeleteBlueGreenDeployment where
 
 instance Prelude.Hashable DeleteBlueGreenDeployment where
   hashWithSalt _salt DeleteBlueGreenDeployment' {..} =
-    _salt `Prelude.hashWithSalt` deleteTarget
+    _salt
+      `Prelude.hashWithSalt` deleteTarget
       `Prelude.hashWithSalt` blueGreenDeploymentIdentifier
 
 instance Prelude.NFData DeleteBlueGreenDeployment where

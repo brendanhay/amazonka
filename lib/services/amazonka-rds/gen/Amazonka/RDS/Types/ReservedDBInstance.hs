@@ -215,7 +215,8 @@ instance Data.FromXML ReservedDBInstance where
       Prelude.<*> (x Data..@? "MultiAZ")
       Prelude.<*> (x Data..@? "OfferingType")
       Prelude.<*> (x Data..@? "ProductDescription")
-      Prelude.<*> ( x Data..@? "RecurringCharges"
+      Prelude.<*> ( x
+                      Data..@? "RecurringCharges"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "RecurringCharge")
                   )
@@ -228,7 +229,8 @@ instance Data.FromXML ReservedDBInstance where
 
 instance Prelude.Hashable ReservedDBInstance where
   hashWithSalt _salt ReservedDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` currencyCode
+    _salt
+      `Prelude.hashWithSalt` currencyCode
       `Prelude.hashWithSalt` dbInstanceClass
       `Prelude.hashWithSalt` dbInstanceCount
       `Prelude.hashWithSalt` duration

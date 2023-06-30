@@ -1202,7 +1202,8 @@ instance
     RestoreDBClusterToPointInTime
   where
   hashWithSalt _salt RestoreDBClusterToPointInTime' {..} =
-    _salt `Prelude.hashWithSalt` backtrackWindow
+    _salt
+      `Prelude.hashWithSalt` backtrackWindow
       `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` dbClusterInstanceClass
       `Prelude.hashWithSalt` dbClusterParameterGroupName

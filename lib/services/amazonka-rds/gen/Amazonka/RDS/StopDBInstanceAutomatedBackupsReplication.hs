@@ -107,7 +107,7 @@ instance
       ( \s h x ->
           StopDBInstanceAutomatedBackupsReplicationResponse'
             Prelude.<$> (x Data..@? "DBInstanceAutomatedBackup")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

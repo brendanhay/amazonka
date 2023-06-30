@@ -1459,7 +1459,9 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "ActivityStreamPolicyStatus")
       Prelude.<*> (x Data..@? "ActivityStreamStatus")
       Prelude.<*> (x Data..@? "AllocatedStorage")
-      Prelude.<*> ( x Data..@? "AssociatedRoles" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "AssociatedRoles"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceRole")
                   )
       Prelude.<*> (x Data..@? "AutoMinorVersionUpgrade")
@@ -1477,7 +1479,8 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "CustomerOwnedIpEnabled")
       Prelude.<*> (x Data..@? "DBClusterIdentifier")
       Prelude.<*> (x Data..@? "DBInstanceArn")
-      Prelude.<*> ( x Data..@? "DBInstanceAutomatedBackupsReplications"
+      Prelude.<*> ( x
+                      Data..@? "DBInstanceAutomatedBackupsReplications"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
@@ -1488,11 +1491,13 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "DBInstanceIdentifier")
       Prelude.<*> (x Data..@? "DBInstanceStatus")
       Prelude.<*> (x Data..@? "DBName")
-      Prelude.<*> ( x Data..@? "DBParameterGroups"
+      Prelude.<*> ( x
+                      Data..@? "DBParameterGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBParameterGroup")
                   )
-      Prelude.<*> ( x Data..@? "DBSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "DBSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBSecurityGroup")
                   )
@@ -1501,11 +1506,13 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "DbInstancePort")
       Prelude.<*> (x Data..@? "DbiResourceId")
       Prelude.<*> (x Data..@? "DeletionProtection")
-      Prelude.<*> ( x Data..@? "DomainMemberships"
+      Prelude.<*> ( x
+                      Data..@? "DomainMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DomainMembership")
                   )
-      Prelude.<*> ( x Data..@? "EnabledCloudwatchLogsExports"
+      Prelude.<*> ( x
+                      Data..@? "EnabledCloudwatchLogsExports"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
@@ -1528,7 +1535,8 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "MultiAZ")
       Prelude.<*> (x Data..@? "NcharCharacterSetName")
       Prelude.<*> (x Data..@? "NetworkType")
-      Prelude.<*> ( x Data..@? "OptionGroupMemberships"
+      Prelude.<*> ( x
+                      Data..@? "OptionGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OptionGroupMembership")
                   )
@@ -1538,18 +1546,21 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "PerformanceInsightsRetentionPeriod")
       Prelude.<*> (x Data..@? "PreferredBackupWindow")
       Prelude.<*> (x Data..@? "PreferredMaintenanceWindow")
-      Prelude.<*> ( x Data..@? "ProcessorFeatures"
+      Prelude.<*> ( x
+                      Data..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ProcessorFeature")
                   )
       Prelude.<*> (x Data..@? "PromotionTier")
       Prelude.<*> (x Data..@? "PubliclyAccessible")
-      Prelude.<*> ( x Data..@? "ReadReplicaDBClusterIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "ReadReplicaDBClusterIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "ReadReplicaDBClusterIdentifier")
                   )
-      Prelude.<*> ( x Data..@? "ReadReplicaDBInstanceIdentifiers"
+      Prelude.<*> ( x
+                      Data..@? "ReadReplicaDBInstanceIdentifiers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         ( Data.parseXMLList
@@ -1560,18 +1571,23 @@ instance Data.FromXML DBInstance where
       Prelude.<*> (x Data..@? "ReplicaMode")
       Prelude.<*> (x Data..@? "ResumeFullAutomationModeTime")
       Prelude.<*> (x Data..@? "SecondaryAvailabilityZone")
-      Prelude.<*> ( x Data..@? "StatusInfos" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "StatusInfos"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBInstanceStatusInfo")
                   )
       Prelude.<*> (x Data..@? "StorageEncrypted")
       Prelude.<*> (x Data..@? "StorageThroughput")
       Prelude.<*> (x Data..@? "StorageType")
-      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "TagList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "TdeCredentialArn")
       Prelude.<*> (x Data..@? "Timezone")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroups"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "VpcSecurityGroupMembership")

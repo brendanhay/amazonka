@@ -70,7 +70,8 @@ instance Data.FromXML RestoreWindow where
 
 instance Prelude.Hashable RestoreWindow where
   hashWithSalt _salt RestoreWindow' {..} =
-    _salt `Prelude.hashWithSalt` earliestTime
+    _salt
+      `Prelude.hashWithSalt` earliestTime
       `Prelude.hashWithSalt` latestTime
 
 instance Prelude.NFData RestoreWindow where

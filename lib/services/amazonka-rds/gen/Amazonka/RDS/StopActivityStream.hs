@@ -123,7 +123,8 @@ instance Core.AWSRequest StopActivityStream where
 
 instance Prelude.Hashable StopActivityStream where
   hashWithSalt _salt StopActivityStream' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` resourceArn
 
 instance Prelude.NFData StopActivityStream where

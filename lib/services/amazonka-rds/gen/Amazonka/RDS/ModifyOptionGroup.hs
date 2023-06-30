@@ -153,7 +153,8 @@ instance Core.AWSRequest ModifyOptionGroup where
 
 instance Prelude.Hashable ModifyOptionGroup where
   hashWithSalt _salt ModifyOptionGroup' {..} =
-    _salt `Prelude.hashWithSalt` applyImmediately
+    _salt
+      `Prelude.hashWithSalt` applyImmediately
       `Prelude.hashWithSalt` optionsToInclude
       `Prelude.hashWithSalt` optionsToRemove
       `Prelude.hashWithSalt` optionGroupName

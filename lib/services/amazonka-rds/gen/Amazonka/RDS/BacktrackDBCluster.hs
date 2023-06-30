@@ -230,7 +230,8 @@ instance Core.AWSRequest BacktrackDBCluster where
 
 instance Prelude.Hashable BacktrackDBCluster where
   hashWithSalt _salt BacktrackDBCluster' {..} =
-    _salt `Prelude.hashWithSalt` force
+    _salt
+      `Prelude.hashWithSalt` force
       `Prelude.hashWithSalt` useEarliestTimeOnPointInTimeUnavailable
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` backtrackTo

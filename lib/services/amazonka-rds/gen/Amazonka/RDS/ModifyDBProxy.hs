@@ -205,7 +205,8 @@ instance Core.AWSRequest ModifyDBProxy where
 
 instance Prelude.Hashable ModifyDBProxy where
   hashWithSalt _salt ModifyDBProxy' {..} =
-    _salt `Prelude.hashWithSalt` auth
+    _salt
+      `Prelude.hashWithSalt` auth
       `Prelude.hashWithSalt` debugLogging
       `Prelude.hashWithSalt` idleClientTimeout
       `Prelude.hashWithSalt` newDBProxyName'

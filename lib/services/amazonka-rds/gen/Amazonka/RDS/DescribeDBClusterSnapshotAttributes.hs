@@ -112,7 +112,7 @@ instance
       ( \s h x ->
           DescribeDBClusterSnapshotAttributesResponse'
             Prelude.<$> (x Data..@? "DBClusterSnapshotAttributesResult")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

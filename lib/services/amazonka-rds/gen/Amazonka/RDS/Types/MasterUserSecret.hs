@@ -147,7 +147,8 @@ instance Data.FromXML MasterUserSecret where
 
 instance Prelude.Hashable MasterUserSecret where
   hashWithSalt _salt MasterUserSecret' {..} =
-    _salt `Prelude.hashWithSalt` kmsKeyId
+    _salt
+      `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` secretStatus
 

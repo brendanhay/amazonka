@@ -243,7 +243,8 @@ scalingConfiguration_timeoutAction = Lens.lens (\ScalingConfiguration' {timeoutA
 
 instance Prelude.Hashable ScalingConfiguration where
   hashWithSalt _salt ScalingConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` autoPause
+    _salt
+      `Prelude.hashWithSalt` autoPause
       `Prelude.hashWithSalt` maxCapacity
       `Prelude.hashWithSalt` minCapacity
       `Prelude.hashWithSalt` secondsBeforeTimeout

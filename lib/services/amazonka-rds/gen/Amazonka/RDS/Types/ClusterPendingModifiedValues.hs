@@ -153,7 +153,8 @@ instance
     ClusterPendingModifiedValues
   where
   hashWithSalt _salt ClusterPendingModifiedValues' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` engineVersion

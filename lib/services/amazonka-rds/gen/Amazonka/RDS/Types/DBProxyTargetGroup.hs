@@ -161,7 +161,8 @@ instance Data.FromXML DBProxyTargetGroup where
 
 instance Prelude.Hashable DBProxyTargetGroup where
   hashWithSalt _salt DBProxyTargetGroup' {..} =
-    _salt `Prelude.hashWithSalt` connectionPoolConfig
+    _salt
+      `Prelude.hashWithSalt` connectionPoolConfig
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` dbProxyName
       `Prelude.hashWithSalt` isDefault

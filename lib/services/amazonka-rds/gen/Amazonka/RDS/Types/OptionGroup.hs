@@ -185,7 +185,9 @@ instance Data.FromXML OptionGroup where
       Prelude.<*> (x Data..@? "OptionGroupArn")
       Prelude.<*> (x Data..@? "OptionGroupDescription")
       Prelude.<*> (x Data..@? "OptionGroupName")
-      Prelude.<*> ( x Data..@? "Options" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Options"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Option")
                   )
       Prelude.<*> (x Data..@? "SourceAccountId")

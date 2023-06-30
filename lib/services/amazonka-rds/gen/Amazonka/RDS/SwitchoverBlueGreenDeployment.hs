@@ -146,7 +146,8 @@ instance
     SwitchoverBlueGreenDeployment
   where
   hashWithSalt _salt SwitchoverBlueGreenDeployment' {..} =
-    _salt `Prelude.hashWithSalt` switchoverTimeout
+    _salt
+      `Prelude.hashWithSalt` switchoverTimeout
       `Prelude.hashWithSalt` blueGreenDeploymentIdentifier
 
 instance Prelude.NFData SwitchoverBlueGreenDeployment where

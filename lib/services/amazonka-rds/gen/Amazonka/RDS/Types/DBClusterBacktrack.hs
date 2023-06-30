@@ -154,7 +154,8 @@ instance Data.FromXML DBClusterBacktrack where
 
 instance Prelude.Hashable DBClusterBacktrack where
   hashWithSalt _salt DBClusterBacktrack' {..} =
-    _salt `Prelude.hashWithSalt` backtrackIdentifier
+    _salt
+      `Prelude.hashWithSalt` backtrackIdentifier
       `Prelude.hashWithSalt` backtrackRequestCreationTime
       `Prelude.hashWithSalt` backtrackTo
       `Prelude.hashWithSalt` backtrackedFrom

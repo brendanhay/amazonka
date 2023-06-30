@@ -250,20 +250,24 @@ instance Data.FromXML OptionGroupOption where
       Prelude.<*> (x Data..@? "MajorEngineVersion")
       Prelude.<*> (x Data..@? "MinimumRequiredMinorEngineVersion")
       Prelude.<*> (x Data..@? "Name")
-      Prelude.<*> ( x Data..@? "OptionGroupOptionSettings"
+      Prelude.<*> ( x
+                      Data..@? "OptionGroupOptionSettings"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "OptionGroupOptionSetting")
                   )
-      Prelude.<*> ( x Data..@? "OptionGroupOptionVersions"
+      Prelude.<*> ( x
+                      Data..@? "OptionGroupOptionVersions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OptionVersion")
                   )
-      Prelude.<*> ( x Data..@? "OptionsConflictsWith"
+      Prelude.<*> ( x
+                      Data..@? "OptionsConflictsWith"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OptionConflictName")
                   )
-      Prelude.<*> ( x Data..@? "OptionsDependedOn"
+      Prelude.<*> ( x
+                      Data..@? "OptionsDependedOn"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OptionName")
                   )
@@ -276,7 +280,8 @@ instance Data.FromXML OptionGroupOption where
 
 instance Prelude.Hashable OptionGroupOption where
   hashWithSalt _salt OptionGroupOption' {..} =
-    _salt `Prelude.hashWithSalt` copyableCrossAccount
+    _salt
+      `Prelude.hashWithSalt` copyableCrossAccount
       `Prelude.hashWithSalt` defaultPort
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` engineName

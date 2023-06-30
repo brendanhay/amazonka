@@ -138,20 +138,24 @@ option_vpcSecurityGroupMemberships = Lens.lens (\Option' {vpcSecurityGroupMember
 instance Data.FromXML Option where
   parseXML x =
     Option'
-      Prelude.<$> ( x Data..@? "DBSecurityGroupMemberships"
+      Prelude.<$> ( x
+                      Data..@? "DBSecurityGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "DBSecurityGroup")
                   )
       Prelude.<*> (x Data..@? "OptionDescription")
       Prelude.<*> (x Data..@? "OptionName")
-      Prelude.<*> ( x Data..@? "OptionSettings" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "OptionSettings"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "OptionSetting")
                   )
       Prelude.<*> (x Data..@? "OptionVersion")
       Prelude.<*> (x Data..@? "Permanent")
       Prelude.<*> (x Data..@? "Persistent")
       Prelude.<*> (x Data..@? "Port")
-      Prelude.<*> ( x Data..@? "VpcSecurityGroupMemberships"
+      Prelude.<*> ( x
+                      Data..@? "VpcSecurityGroupMemberships"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may
                         (Data.parseXMLList "VpcSecurityGroupMembership")

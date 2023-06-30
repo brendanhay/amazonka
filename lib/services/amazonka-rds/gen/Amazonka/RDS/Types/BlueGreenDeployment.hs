@@ -252,15 +252,20 @@ instance Data.FromXML BlueGreenDeployment where
       Prelude.<*> (x Data..@? "Source")
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "StatusDetails")
-      Prelude.<*> ( x Data..@? "SwitchoverDetails"
+      Prelude.<*> ( x
+                      Data..@? "SwitchoverDetails"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
-      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "TagList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "Target")
-      Prelude.<*> ( x Data..@? "Tasks" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "Tasks"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )
 

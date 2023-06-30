@@ -148,7 +148,8 @@ instance Core.AWSRequest ModifyCertificates where
 
 instance Prelude.Hashable ModifyCertificates where
   hashWithSalt _salt ModifyCertificates' {..} =
-    _salt `Prelude.hashWithSalt` certificateIdentifier
+    _salt
+      `Prelude.hashWithSalt` certificateIdentifier
       `Prelude.hashWithSalt` removeCustomerOverride
 
 instance Prelude.NFData ModifyCertificates where

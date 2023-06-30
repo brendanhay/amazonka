@@ -460,7 +460,8 @@ instance Data.FromXML DBSnapshot where
       Prelude.<*> (x Data..@? "OriginalSnapshotCreateTime")
       Prelude.<*> (x Data..@? "PercentProgress")
       Prelude.<*> (x Data..@? "Port")
-      Prelude.<*> ( x Data..@? "ProcessorFeatures"
+      Prelude.<*> ( x
+                      Data..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "ProcessorFeature")
                   )
@@ -473,7 +474,9 @@ instance Data.FromXML DBSnapshot where
       Prelude.<*> (x Data..@? "Status")
       Prelude.<*> (x Data..@? "StorageThroughput")
       Prelude.<*> (x Data..@? "StorageType")
-      Prelude.<*> ( x Data..@? "TagList" Core..!@ Prelude.mempty
+      Prelude.<*> ( x
+                      Data..@? "TagList"
+                      Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "Tag")
                   )
       Prelude.<*> (x Data..@? "TdeCredentialArn")
@@ -482,7 +485,8 @@ instance Data.FromXML DBSnapshot where
 
 instance Prelude.Hashable DBSnapshot where
   hashWithSalt _salt DBSnapshot' {..} =
-    _salt `Prelude.hashWithSalt` allocatedStorage
+    _salt
+      `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbSnapshotArn

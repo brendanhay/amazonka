@@ -253,22 +253,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describeDBInstanceAutomatedBackupsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeDBInstanceAutomatedBackupsResponse_dbInstanceAutomatedBackups
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describeDBInstanceAutomatedBackups_marker
           Lens..~ rs
           Lens.^? describeDBInstanceAutomatedBackupsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -284,13 +284,14 @@ instance
       "DescribeDBInstanceAutomatedBackupsResult"
       ( \s h x ->
           DescribeDBInstanceAutomatedBackupsResponse'
-            Prelude.<$> ( x Data..@? "DBInstanceAutomatedBackups"
+            Prelude.<$> ( x
+                            Data..@? "DBInstanceAutomatedBackups"
                             Core..!@ Prelude.mempty
                             Prelude.>>= Core.may
                               (Data.parseXMLList "DBInstanceAutomatedBackup")
                         )
-              Prelude.<*> (x Data..@? "Marker")
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Data..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance

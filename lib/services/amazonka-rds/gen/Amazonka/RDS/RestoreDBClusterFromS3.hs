@@ -1121,7 +1121,8 @@ instance Core.AWSRequest RestoreDBClusterFromS3 where
 
 instance Prelude.Hashable RestoreDBClusterFromS3 where
   hashWithSalt _salt RestoreDBClusterFromS3' {..} =
-    _salt `Prelude.hashWithSalt` availabilityZones
+    _salt
+      `Prelude.hashWithSalt` availabilityZones
       `Prelude.hashWithSalt` backtrackWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` characterSetName

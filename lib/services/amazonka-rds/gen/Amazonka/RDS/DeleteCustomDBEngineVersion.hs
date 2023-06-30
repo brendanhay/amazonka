@@ -163,7 +163,8 @@ instance Core.AWSRequest DeleteCustomDBEngineVersion where
 
 instance Prelude.Hashable DeleteCustomDBEngineVersion where
   hashWithSalt _salt DeleteCustomDBEngineVersion' {..} =
-    _salt `Prelude.hashWithSalt` engine
+    _salt
+      `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData DeleteCustomDBEngineVersion where

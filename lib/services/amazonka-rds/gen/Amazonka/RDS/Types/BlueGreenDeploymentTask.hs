@@ -101,11 +101,13 @@ blueGreenDeploymentTask_status = Lens.lens (\BlueGreenDeploymentTask' {status} -
 instance Data.FromXML BlueGreenDeploymentTask where
   parseXML x =
     BlueGreenDeploymentTask'
-      Prelude.<$> (x Data..@? "Name") Prelude.<*> (x Data..@? "Status")
+      Prelude.<$> (x Data..@? "Name")
+      Prelude.<*> (x Data..@? "Status")
 
 instance Prelude.Hashable BlueGreenDeploymentTask where
   hashWithSalt _salt BlueGreenDeploymentTask' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` status
 
 instance Prelude.NFData BlueGreenDeploymentTask where

@@ -122,7 +122,8 @@ instance Core.AWSRequest RemoveRoleFromDBInstance where
 
 instance Prelude.Hashable RemoveRoleFromDBInstance where
   hashWithSalt _salt RemoveRoleFromDBInstance' {..} =
-    _salt `Prelude.hashWithSalt` dbInstanceIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` featureName
 

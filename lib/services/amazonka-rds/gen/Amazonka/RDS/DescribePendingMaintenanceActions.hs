@@ -182,22 +182,22 @@ instance
     | Core.stop
         ( rs
             Lens.^? describePendingMaintenanceActionsResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describePendingMaintenanceActionsResponse_pendingMaintenanceActions
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& describePendingMaintenanceActions_marker
           Lens..~ rs
           Lens.^? describePendingMaintenanceActionsResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance
   Core.AWSRequest
@@ -214,14 +214,15 @@ instance
       ( \s h x ->
           DescribePendingMaintenanceActionsResponse'
             Prelude.<$> (x Data..@? "Marker")
-              Prelude.<*> ( x Data..@? "PendingMaintenanceActions"
-                              Core..!@ Prelude.mempty
-                              Prelude.>>= Core.may
-                                ( Data.parseXMLList
-                                    "ResourcePendingMaintenanceActions"
-                                )
-                          )
-              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x
+                            Data..@? "PendingMaintenanceActions"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may
+                              ( Data.parseXMLList
+                                  "ResourcePendingMaintenanceActions"
+                              )
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance
@@ -231,7 +232,8 @@ instance
   hashWithSalt
     _salt
     DescribePendingMaintenanceActions' {..} =
-      _salt `Prelude.hashWithSalt` filters
+      _salt
+        `Prelude.hashWithSalt` filters
         `Prelude.hashWithSalt` marker
         `Prelude.hashWithSalt` maxRecords
         `Prelude.hashWithSalt` resourceIdentifier

@@ -162,7 +162,8 @@ instance Data.FromXML ConnectionPoolConfigurationInfo where
       Prelude.<*> (x Data..@? "InitQuery")
       Prelude.<*> (x Data..@? "MaxConnectionsPercent")
       Prelude.<*> (x Data..@? "MaxIdleConnectionsPercent")
-      Prelude.<*> ( x Data..@? "SessionPinningFilters"
+      Prelude.<*> ( x
+                      Data..@? "SessionPinningFilters"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Data.parseXMLList "member")
                   )

@@ -214,22 +214,22 @@ instance Core.AWSPager DownloadDBLogFilePortion where
     | Core.stop
         ( rs
             Lens.^? downloadDBLogFilePortionResponse_additionalDataPending
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.isNothing
         ( rs
             Lens.^? downloadDBLogFilePortionResponse_marker
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& downloadDBLogFilePortion_marker
           Lens..~ rs
           Lens.^? downloadDBLogFilePortionResponse_marker
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest DownloadDBLogFilePortion where
   type
@@ -250,7 +250,8 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
 
 instance Prelude.Hashable DownloadDBLogFilePortion where
   hashWithSalt _salt DownloadDBLogFilePortion' {..} =
-    _salt `Prelude.hashWithSalt` marker
+    _salt
+      `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` numberOfLines
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` logFileName

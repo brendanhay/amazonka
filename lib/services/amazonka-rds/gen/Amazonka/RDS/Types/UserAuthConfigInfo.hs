@@ -135,7 +135,8 @@ instance Data.FromXML UserAuthConfigInfo where
 
 instance Prelude.Hashable UserAuthConfigInfo where
   hashWithSalt _salt UserAuthConfigInfo' {..} =
-    _salt `Prelude.hashWithSalt` authScheme
+    _salt
+      `Prelude.hashWithSalt` authScheme
       `Prelude.hashWithSalt` clientPasswordAuthType
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` iAMAuth

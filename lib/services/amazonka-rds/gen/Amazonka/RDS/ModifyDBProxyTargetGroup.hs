@@ -137,7 +137,8 @@ instance Core.AWSRequest ModifyDBProxyTargetGroup where
 
 instance Prelude.Hashable ModifyDBProxyTargetGroup where
   hashWithSalt _salt ModifyDBProxyTargetGroup' {..} =
-    _salt `Prelude.hashWithSalt` connectionPoolConfig
+    _salt
+      `Prelude.hashWithSalt` connectionPoolConfig
       `Prelude.hashWithSalt` newName'
       `Prelude.hashWithSalt` targetGroupName
       `Prelude.hashWithSalt` dbProxyName

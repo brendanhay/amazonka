@@ -113,7 +113,8 @@ instance Core.AWSRequest RemoveFromGlobalCluster where
 
 instance Prelude.Hashable RemoveFromGlobalCluster where
   hashWithSalt _salt RemoveFromGlobalCluster' {..} =
-    _salt `Prelude.hashWithSalt` dbClusterIdentifier
+    _salt
+      `Prelude.hashWithSalt` dbClusterIdentifier
       `Prelude.hashWithSalt` globalClusterIdentifier
 
 instance Prelude.NFData RemoveFromGlobalCluster where

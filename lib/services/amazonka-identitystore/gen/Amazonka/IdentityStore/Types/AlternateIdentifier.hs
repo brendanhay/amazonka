@@ -69,7 +69,8 @@ alternateIdentifier_uniqueAttribute = Lens.lens (\AlternateIdentifier' {uniqueAt
 
 instance Prelude.Hashable AlternateIdentifier where
   hashWithSalt _salt AlternateIdentifier' {..} =
-    _salt `Prelude.hashWithSalt` externalId
+    _salt
+      `Prelude.hashWithSalt` externalId
       `Prelude.hashWithSalt` uniqueAttribute
 
 instance Prelude.NFData AlternateIdentifier where

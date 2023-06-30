@@ -121,7 +121,8 @@ instance Core.AWSRequest IsMemberInGroups where
 
 instance Prelude.Hashable IsMemberInGroups where
   hashWithSalt _salt IsMemberInGroups' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` memberId
       `Prelude.hashWithSalt` groupIds
 

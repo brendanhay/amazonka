@@ -125,7 +125,8 @@ instance Core.AWSRequest DescribeGroup where
 
 instance Prelude.Hashable DescribeGroup where
   hashWithSalt _salt DescribeGroup' {..} =
-    _salt `Prelude.hashWithSalt` identityStoreId
+    _salt
+      `Prelude.hashWithSalt` identityStoreId
       `Prelude.hashWithSalt` groupId
 
 instance Prelude.NFData DescribeGroup where

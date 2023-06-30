@@ -75,7 +75,8 @@ uniqueAttribute_attributeValue = Lens.lens (\UniqueAttribute' {attributeValue} -
 
 instance Prelude.Hashable UniqueAttribute where
   hashWithSalt _salt UniqueAttribute' {..} =
-    _salt `Prelude.hashWithSalt` attributePath
+    _salt
+      `Prelude.hashWithSalt` attributePath
       `Prelude.hashWithSalt` attributeValue
 
 instance Prelude.NFData UniqueAttribute where

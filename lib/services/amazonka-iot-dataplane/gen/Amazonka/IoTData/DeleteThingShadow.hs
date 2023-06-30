@@ -112,7 +112,8 @@ instance Core.AWSRequest DeleteThingShadow where
 
 instance Prelude.Hashable DeleteThingShadow where
   hashWithSalt _salt DeleteThingShadow' {..} =
-    _salt `Prelude.hashWithSalt` shadowName
+    _salt
+      `Prelude.hashWithSalt` shadowName
       `Prelude.hashWithSalt` thingName
 
 instance Prelude.NFData DeleteThingShadow where

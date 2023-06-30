@@ -98,7 +98,8 @@ instance Data.FromJSON RetainedMessageSummary where
 
 instance Prelude.Hashable RetainedMessageSummary where
   hashWithSalt _salt RetainedMessageSummary' {..} =
-    _salt `Prelude.hashWithSalt` lastModifiedTime
+    _salt
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` payloadSize
       `Prelude.hashWithSalt` qos
       `Prelude.hashWithSalt` topic

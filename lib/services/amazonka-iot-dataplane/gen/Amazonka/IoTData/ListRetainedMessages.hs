@@ -114,22 +114,22 @@ instance Core.AWSPager ListRetainedMessages where
     | Core.stop
         ( rs
             Lens.^? listRetainedMessagesResponse_nextToken
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? listRetainedMessagesResponse_retainedTopics
-              Prelude.. Lens._Just
+            Prelude.. Lens._Just
         ) =
-      Prelude.Nothing
+        Prelude.Nothing
     | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
+        Prelude.Just
+          Prelude.$ rq
           Prelude.& listRetainedMessages_nextToken
           Lens..~ rs
           Lens.^? listRetainedMessagesResponse_nextToken
-            Prelude.. Lens._Just
+          Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRetainedMessages where
   type
@@ -148,7 +148,8 @@ instance Core.AWSRequest ListRetainedMessages where
 
 instance Prelude.Hashable ListRetainedMessages where
   hashWithSalt _salt ListRetainedMessages' {..} =
-    _salt `Prelude.hashWithSalt` maxResults
+    _salt
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` nextToken
 
 instance Prelude.NFData ListRetainedMessages where

@@ -124,7 +124,8 @@ instance Core.AWSRequest UpdateThingShadow where
 
 instance Prelude.Hashable UpdateThingShadow where
   hashWithSalt _salt UpdateThingShadow' {..} =
-    _salt `Prelude.hashWithSalt` shadowName
+    _salt
+      `Prelude.hashWithSalt` shadowName
       `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` payload
 
